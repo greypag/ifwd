@@ -1,6 +1,7 @@
 var items = [[],[],[],[]];
 var guaranteed3Years;
 var contextPath = window.location.pathname.split("/")[1];
+var jsonTableData;
 $(function () {
 	var wh_nowTemp = new Date();
 	var wh_now = new Date(wh_nowTemp.getFullYear(), wh_nowTemp.getMonth(), wh_nowTemp.getDate(), 0, 0, 0, 0);
@@ -35,7 +36,6 @@ $(function () {
 	});
 	getSaviePlanDetails();
 });
-
 
 function getSaviePlanDetails() {
 	$('#rate-0').removeClass('active');
@@ -78,7 +78,7 @@ function getSaviePlanDetails() {
 		},
 		function(data) {
 			var json = $.parseJSON(JSON.stringify(data));
-			
+			jsonTableData = $.parseJSON(JSON.stringify(data));
 			$total_years = json.salesIllustration.yearPlans.length;
 			if ($total_years > 45) { // get only up to 45 years of data
 				//$total_years = 45;
@@ -96,7 +96,7 @@ function getSaviePlanDetails() {
 							var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
 							items[3][i] = rateIsZero;
 							
-							if (i == 0 || i == 1 || i == 2) {
+							/*if (i == 0 || i == 1 || i == 2) {
 								var rowCtr = i+1;
 								$('#premium-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
 								$('#account-value-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
@@ -104,7 +104,8 @@ function getSaviePlanDetails() {
 									$("#3rd_policy_year").html(Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'))
 								}
 								$('#surrender-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
-							}
+							}*/
+							
 						}
 						
 						//rate 0
@@ -191,14 +192,42 @@ function getSaviePlanDetails() {
 						if(json.salesIllustration.yearPlans[i].plans[j].rate == "two"){						
 							var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
 							items[2][i] = rateIsZero;
+							
 						}
 						if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
 							var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
 							items[1][i] = rateIsZero;
+							
+							if (i == 0 || i == 1 || i == 2) {
+								var rowCtr = i+1;
+								$('#credit-rate-change-'+rowCtr).html(Number(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
+								$('#premium-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
+								$('#account-value-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
+								$('#surrender-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+								
+								console.log('Credit Rate:'+textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate));
+								$('#credit-rate-'+rowCtr).html(Number(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
+								$('#premium-change-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
+								$('#account-value-change-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
+								$('#surrender-change-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+							}
+							
+							
+							
 						}
 						if(json.salesIllustration.yearPlans[i].plans[j].rate == "four"){
 							var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
 							items[0][i] = rateIsZero;
+							if(i==2){
+								var rowCtr = 3;
+								$('#credit-rate-change-'+rowCtr).html(Number(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
+								$('#premium-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
+								$('#account-value-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
+								$('#surrender-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+							}
+							
+							
+
 						}
 					}
 				}
@@ -342,4 +371,24 @@ function getOccupation(value,language) {
 	})
 	.fail(function(data) {
 	});
+}
+
+
+function textToNumber(numbertxt){
+	var num = 0;
+	switch(numbertxt){
+		case 'zero':
+			num = 0;
+			break;
+		case 'two':
+			num = 2;
+			break;
+		case 'three':
+			num = 3;
+			break;
+		case 'four':
+			num = 4;
+			break;
+	}
+	return num;
 }

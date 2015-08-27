@@ -1,33 +1,174 @@
-//Plan Details Calendar
-//by: RMN
-function fnSetStyle(){
-	if($('.datepicker.datepicker-dropdown').length){
-		//datepicker exist
-		
-		var isVisible = $('.datepicker .datepicker-years table thead tr th:last-child').css("visibility");
-		
-		if(isVisible == "hidden"){
-			console.log('hidden');
-			$('.datepicker .datepicker-years table thead tr th:last-child').removeAttr('style');
-			$('.datepicker .datepicker-years table thead tr th:last-child').css(
-			{"visibility":'visible !important',
-			"cursor":"not-allowed"});
-		}else{
-			console.log('vivible');
-			$('.datepicker .datepicker-years table thead tr th:last-child').css(
-			{"visibility":'visible !important',
-			"cursor":"pointer"});
-		}
-		
-	
-	}else{
-		//console.log('doesnot exist');
-		//date picker does not exist
-	}
-}
 
 $(function() {
 	
+	$('#eServices-mobile-notications').click(function(){
+		$('#notifications-mobile').removeClass('hidden');
+		
+		$('#headerNavmenu').offcanvas('hide');
+		
+		//Landing Page
+		if(($('#eServices-landing-page').length) > 0){
+			$('#eServices-landing-page').addClass('hidden');
+		}
+		
+		//Personal Info
+		if(($('#eServices-personal-info').length) > 0){
+			$('#eServices-personal-info').addClass('hidden');
+		}
+		
+		//Purchase History
+		if(($('#eServices-purchase-history').length) > 0){
+			$('#eServices-purchase-history').addClass('hidden');
+		}
+		
+		//Referrals and Promo
+		if(($('#eServices-referral').length) > 0){
+			$('#eServices-referral').addClass('hidden');
+		}
+		
+		//Document Upload
+		if(($('#eServices-document-upload').length) > 0){
+			$('#eServices-document-upload').addClass('hidden');
+		}
+		
+		//Signature
+		if(($('#eServices-signature').length) > 0){
+			$('#eServices-signature').addClass('hidden');
+		}
+	});
+	
+	$('#notifications-mobile-back').click(function(){
+		$('#notifications-mobile').addClass('hidden');
+		
+		//Landing Page
+		if(($('#eServices-landing-page').length) > 0){
+			$('#eServices-landing-page').removeClass('hidden');
+		}
+		
+		//Personal Info
+		if(($('#eServices-personal-info').length) > 0){
+			$('#eServices-personal-info').removeClass('hidden');
+		}
+		
+		//Purchase History
+		if(($('#eServices-purchase-history').length) > 0){
+			$('#eServices-purchase-history').removeClass('hidden');
+		}
+		
+		//Referrals and Promo
+		if(($('#eServices-referral').length) > 0){
+			$('#eServices-referral').removeClass('hidden');
+		}
+		
+		//Document Upload
+		if(($('#eServices-document-upload').length) > 0){
+			$('#eServices-document-upload').removeClass('hidden');
+		}
+		
+		//Signature
+		if(($('#eServices-signature').length) > 0){
+			$('#eServices-signature').removeClass('hidden');
+		}
+		
+	});
+
+	
+	//E SERVICES REFERRAL CODES!
+	if($('.referral').length > 0) {
+		$(document).on('click','.referral .view-all',function(){
+	            $('.referral-item.display.hidden-xs').removeClass('hidden-xs hidden-sm');
+
+	            if($(this).html()=='Hide') {
+	              $('.referral-item.display').addClass('hidden-xs hidden-sm');
+	              $(this).html('View all');
+	            }
+	            else {
+	              $(this).html('Hide');
+	            }
+	        });
+	        
+
+	        var client = new ZeroClipboard($('.referral-item'));
+	        client.on( 'ready', function(event) {
+				
+	            client.on( 'copy', function(event) {
+	              //var promocode = $(event.target).closest('.referral-item').find('p.discount-code').html();
+	              var promocode = $(event.target).find('p.discount-code').html();
+	              event.clipboardData.setData('text/plain', promocode);
+	            });
+	            client.on( 'aftercopy', function(event) {
+	                $(event.target).find('button.copy-code').html('Copied to clipboard');
+	                setTimeout(function(){
+	                    $(event.target).find('button.copy-code').html('Copy code');
+	                }, 3000);
+	            });
+	        });
+
+	       var clientCopy = new ZeroClipboard($('.referral .copy-link'));
+	        clientCopy.on( 'ready', function(event) {
+	            clientCopy.on( 'copy', function(event) {
+	              var link = $(event.target).parent().find('div.link').html();
+	              event.clipboardData.setData('text/plain', link);
+	            });
+	            clientCopy.on( 'aftercopy', function(event) {
+	              console.log('Copied text to clipboard: ' + event.data['text/plain']);
+	            } );
+	        });
+	}
+	//END
+
+
+	//Notification Dropdown
+	//by: RMN
+	$('.dropdown-notification')
+		.on('show.bs.dropdown', function(e){
+			if($('#arrow-notification').hasClass('hidden')){
+				$('#arrow-notification').removeClass('hidden');
+			}
+		})
+		.on('hide.bs.dropdown', function(e){
+			$('#arrow-notification').addClass('hidden');
+		})
+	//Plan Details Validation
+	//by: RMN
+	$('#sales-illu-apply-now').click(function(){
+		var promoCode = $('#promocode').val();
+		var planDetailsDob = new Date($('#sales-illu-dob').val());
+		var planDetailsAge = calculateAge(planDetailsDob.format('Y-m-d'));
+	
+		//check if date of Birth is Empty
+		if($('#sales-illu-dob').val() != ""){
+			$('#promo-code-dateOfBirthEmpty').addClass('hideSpan');
+		
+			
+			if((!invalidPromoCode()) && (planDetailsAge>18)){
+				$('#promo-code-errmsg').addClass('hideSpan');
+				$('#promo-code-dateOfBirth').addClass('hideSpan');
+			}else{
+			
+				if(invalidPromoCode()){
+					if($('#promo-code-errmsg').hasClass('hideSpan')){
+						$('#promo-code-errmsg').removeClass('hideSpan');
+					}
+				}else{
+					$('#promo-code-errmsg').addClass('hideSpan');
+				}
+				
+				if(planDetailsAge<19){
+					if($('#promo-code-dateOfBirth').hasClass('hideSpan')){
+						$('#promo-code-dateOfBirth').removeClass('hideSpan');
+					}
+				}else{
+					$('#promo-code-dateOfBirth').addClass('hideSpan');
+				}
+			}
+			
+		}else{
+			if($('#promo-code-dateOfBirthEmpty').hasClass('hideSpan')){
+				$('#promo-code-dateOfBirthEmpty').removeClass('hideSpan');				
+			}
+		}		
+	});
 	
 
 	//Thank You Page
@@ -114,18 +255,21 @@ $(function() {
 	});
 	
 	
-	$("#file-upload-addr").change( function() {
-		$('#select-file-section-address').addClass('hidden');
-		
-		if($('#finish-upload-addr').hasClass('hidden')){
-			$('#finish-upload-addr').removeClass('hidden');
+	$("#fileToUpload").change( function() {
+		//$('#select-file-section-address').addClass('hidden');
+		//
+		//if($('#finish-upload-addr').hasClass('hidden')){
+		//	$('#finish-upload-addr').removeClass('hidden');
+		//}
+		if($('#proof-of-address-progress').hasClass('hidden')){
+			$('#proof-of-address-progress').removeClass('hidden');
 		}
 	});
 	
 	//Tooltip
 	//by: RMN
 	 $('[data-toggle="tooltip"]').tooltip();  
-	 //$('[data-toggle=tooltip]').tooltip({trigger: 'manual'}).tooltip('show'); 
+	// $('[data-toggle=tooltip]').tooltip({trigger: 'manual'}).tooltip('show'); 
 	
 	
 	//Upload Document Radio Buttons
@@ -162,76 +306,95 @@ $(function() {
 	});
 	
 	// Sales Illustration Page to FNA Page
-
+	$("#made-decision-next-btn").on('click', function(){
+		$('#planDetailsLoginModal').modal('show');
+		//$('#thankYouModal').modal('show');
+      //  window.location = "fna";    
+    });	
+	
+	// Plan Details Login Button
+	$("#planDetailsLogin").on('click', function(){
+        //window.location = "application-registration";    
+		$('#thankYouModal').modal('show');
+    });	
+	
+	// Plan Details - Thank You Continue Button
+	$('#thank-you-continue').on('click', function() {
+		window.location = "customer-service-centre";
+	});
+	
+	// Application Registration
+	$("#application-registration button.btn").on('click', function(){
+        window.location = "financial-needs-analysis";    
+    });
+	
 	// FNA Page to Application Page
 	$("#fna-next-btn").on('click', function(){
-        window.location = "application";    
+        window.location = "financial-needs-analysis-review";    
+    });
+	
+	// FNA Review Page to PDF
+	$("#proceed-to-sales-btn").on('click', function(){
+        window.location = "web-pdf/savie-proposal";    
     });
 
-	// FNA Page to Sales Illustration Page
-	$("#fna-return-btn").on('click', function(){
-        window.location = "plan-details";    
-    });    
-    
-	// Application Page to Order Page
-	//$("#application-proceed-btn").on('click', function(){
-    //    window.location = "order-summary";    
-    //});
-
-	// Application Page to Fna Page
-	$("#application-return-btn").on('click', function(){
-        window.location = "fna";    
-    });    
+	// Application Page to Application Summary
+	$("#application-proceed-btn").on('click', function(){
+		var paymentMethod = document.getElementById("pay-online-radio").checked;
+		if (paymentMethod) {
+			setCookie("paymentMethod", "online", 30);
+			window.location = "application-summary";    
+		} else {
+			setCookie("paymentMethod", "offline", 30);
+			window.location = "customer-service-centre";    
+		}
+    });
+	
+	// Update back button link of application summary
+	if ($("#order-summary-return-btn").length > 0) {
+		var paymentMethod = getCookie("paymentMethod");
+		if (paymentMethod == "online") {
+			$("#order-summary-return-btn").attr('href', 'application');
+		} else {
+			$("#order-summary-return-btn").attr('href', 'customer-service-centre');
+		}
+	}
 
 	// Order Page to Declaration Page
 	$("#order-summary-proceed-btn").on('click', function(){
         window.location = "declarations";    
-    });    
-
-	// Order Page to Application Page
-	$("#order-summary-return-btn").on('click', function(){
-        window.location = "application";    
-    });    
+    }); 
 
 	// Declaration Page to Signature Page
 	$("#declaration-proceed-btn").on('click', function(){
-        window.location = "signature";    
-    });   
-
-	// Declaration Page to Order Page
-	$("#declaration-return-btn").on('click', function(){
-        window.location = "order-summary";    
-    });    
+		var paymentMethod = getCookie("paymentMethod");
+		if (paymentMethod == "online") {
+			window.location = "signature";
+		} else {
+			window.location = "confirmation-offline"
+		}
+    });  
 
 	// Signature Page to Set Appointment Page
 	$("#signature-proceed-btn").on('click', function(){
-        window.location = "set-appointment";    
-    });         
-
-	// Signature Page to Declaration Page
-	$("#signature-return-btn").on('click', function(){
-        window.location = "declaration-authorization";    
-    });    
+        window.location = "document-upload";    
+    });  
     
 	// Set Appointment Page to Upload Document Page
 	$("#set-application-confirm-btn").on('click', function(){
-		window.location = "upload-document";    
+		window.location = "application-summary";    
 	});     
-
-	// Set Appointment Page to Signature Page
-	$("#set-appointment-return-btn").on('click', function(){
-         window.location = "signature";    
-    });       
 
 	// Upload Document Page to Thank You Page
 	$("#upload-doc-submit-btn").on('click', function(){
-		window.location = "overall";    
- 	});    
+		window.location = "confirmation-online";    
+ 	});
 
-	// Upload Document Page to Set Appointment Page
-	$("#upload-doc-return-btn").on('click', function(){
-        window.location = "set-appointment";    
-    });    
+	// Thank you to Overall
+	$("#back-home-btn").on('click', function(){
+		//window.location = "overall";    
+		window.location = "/saving-insurance";    
+ 	});
 
 	// Overall Page Links
 	// Sales Illustration Page
@@ -241,7 +404,7 @@ $(function() {
 
 	// FNA Page
 	$("#fna-edit-btn").on('click', function(){
-        window.location = "fna";    
+        window.location = "financial-needs-analysis";    
     });
 
 	// Application Page
@@ -251,13 +414,13 @@ $(function() {
 
 	// Order Summary Page
 	$("#application-view-btn").on('click', function(){
-        window.location = "order-summary";    
+        window.location = "application-summary";    
     });    
 
 	// Set Appointment Page
 	$("#appointment-change-btn").on('click', function(){
-        window.location = "set-appointment";    
-    });    	
+        window.location = "customer-service-centre";    
+    });	
 	
 	//Signature Radio Buttons
 	//by: RMN
@@ -422,13 +585,46 @@ $(function() {
 	if($("#add-beneficiary-1").length > 0) { 
 		$("#add-beneficiary-button-2").click(function(){
 			$("#add-beneficiary-1 .add-beneficiary" ).addClass("hidden");
-			//add form
-			addFormBeneficiary ($("#add-beneficiary-button-2").attr("value"));
+			
+			if($('#beneficiaryInfoForm\\[1\\]').length == 0){
+				addFormBeneficiary ($("#add-beneficiary-button-2").attr("value"));
+			}else{
+				if($('#beneficiaryInfoForm\\[1\\]').hasClass('hidden')){
+					$('#beneficiaryInfoForm\\[1\\]').removeClass('hidden');
+				}else{
+					$('#beneficiary1').addClass('hidden');
+				}	
+			}
+			
+			$('#remove-beneficiary\\[1\\]').click(function(){
+				$('#beneficiaryInfoForm\\[1\\]').addClass('hidden');
+				if($('#beneficiary1').hasClass('hidden')){
+					$('#beneficiary1').removeClass('hidden');
+				}
+			
+			});
 		});
 		$("#add-beneficiary-button-3").click(function(){
 			$("#add-beneficiary-2 .add-beneficiary" ).addClass("hidden");
-			//add form
-			addFormBeneficiary ($("#add-beneficiary-button-3").attr("value"));
+
+			if($('#beneficiaryInfoForm\\[2\\]').length == 0){
+				addFormBeneficiary ($("#add-beneficiary-button-3").attr("value"));
+			}else{
+				if($('#beneficiaryInfoForm\\[2\\]').hasClass('hidden')){
+					$('#beneficiaryInfoForm\\[2\\]').removeClass('hidden');
+				}else{
+					$('#beneficiary2').addClass('hidden');
+				}	
+			}
+			
+			$('#remove-beneficiary\\[2\\]').click(function(){
+				$('#beneficiaryInfoForm\\[2\\]').addClass('hidden');
+				
+				if($('#beneficiary2').hasClass('hidden')){
+					$('#beneficiary2').removeClass('hidden');
+				}
+			
+			});
 		});
 	}
 
@@ -506,7 +702,7 @@ $(function() {
 	});
 	
 	//DATE PICKER
-	if($("#datePicker").length > 0 && getWidth() >= 0) {
+	if($("#datePicker").length > 0 && getWidth() >= 992) {
 		var datePlaceholder = (getWidth() >= 992) ? "28th May 1996" : "1996-05-28";
 		var $datePicker = $("#datePicker");
 		$('#dates').attr('placeholder', datePlaceholder);
@@ -568,7 +764,63 @@ $(function() {
 		size: 3
 	});
 	
-	window.onresize = function() {		
+	window.onresize = function() {	
+		//For Confirmation Offline Page
+		//by: Richie
+		
+		if(getWidth()<992){
+			var $bar = $('.application-page-header');
+			$bar.removeClass('sticky-bar');
+			$bar.removeAttr('style');
+		}else{
+			//do nothing
+		}
+		//Eservices Page
+		//by: RMN
+		
+		if(getWidth()>=992){
+			$('#eServices-sidebar').removeClass('hidden');
+			$('#notifications-mobile').addClass('hidden');
+			if(($('#eServices-landing-page').length) > 0){
+				$('#eServices-landing-page').removeClass('hidden');
+			}
+			
+			//Personal Info
+			if(($('#eServices-personal-info').length) > 0){
+				$('#eServices-personal-info').removeClass('hidden');
+			}
+			
+			//Purchase History
+			if(($('#eServices-purchase-history').length) > 0){
+				$('#eServices-purchase-history').removeClass('hidden');
+			}
+			
+			//Referrals and Promo
+			if(($('#eServices-referral').length) > 0){
+				$('#eServices-referral').removeClass('hidden');
+			}
+			
+			//Document Upload
+			if(($('#eServices-document-upload').length) > 0){
+				$('#eServices-document-upload').removeClass('hidden');
+			}
+			
+			//Signature
+			if(($('#eServices-signature').length) > 0){
+				$('#eServices-signature').removeClass('hidden');
+			}
+			
+		}else{
+			//$('#notifications-mobile').addClass('hidden');
+			
+			//do nothing
+			if($('#eServices-body').hasClass('hidden-sm')){
+				//do nothing
+			}else{
+				$('#eServices-sidebar').addClass('hidden');
+			}
+		}
+		
 		if(parseInt($(document).width() )>= 992) {
 			//description: add the modal attr for login button
 			$('#login-button').attr("data-toggle","modal");
@@ -661,6 +913,14 @@ $(function() {
 		// modals
 		var top = $('header .navbar-fixed-top').height();
 		$('.modal.in').css('margin-top', top + 'px');
+		
+		// orange bar
+		if ($('.application-page-header').length > 0 ) { // check if flux div exists
+			var $application = $('.application-page-header');			
+			if ($application.hasClass('sticky-bar')) {
+				$application.css('top', $('.navbar-fixed-top').height() + 'px');
+			}
+		}
 	};	
 	$(window).resize();
 
@@ -679,7 +939,20 @@ $(function() {
 	 		}
 	 	}
 		
+		//check if usps div exists
+		if($('#usps').length > 0){
+			if ($(window).scrollTop() >= $('#usps').offset().top - window.innerHeight){
+				$('#sign-me-up-btn').removeClass('hidden');
+			}else{
+				$('#sign-me-up-btn').addClass('hidden');
+			}
+		}
+		
+		
+		console.log('scroll');
 		madeDecisionSticky();
+		stickApplicationOrangeBar();
+		stickeServicesOrangeBar();
 	});
 
 
@@ -749,11 +1022,11 @@ $(function() {
 		});
 	
 	// Login Modal
-	$('#loginModal, #american-citizen, #fna-no, #illustration-result').on('show.bs.modal', function() {
+	$('#loginModal, #american-citizen, #fna-no, #fna-yes, #illustration-result,#teaserSurvery, #planDetailsLoginModal, #accessCode').on('show.bs.modal', function() {
 		var top = $('header .navbar-fixed-top').height();
 		$(this).css('margin-top', top + 'px');	
 	});
-	$('#loginModal, #american-citizen, #fna-no, #illustration-result').on('hide.bs.modal', function() {
+	$('#loginModal, #american-citizen, #fna-no, #fna-yes, #illustration-result,#teaserSurvery, #planDetailsLoginModal, #accessCode').on('hide.bs.modal', function() {
 		//$('header .navbar-menu').removeClass('modal-display');
 		//$('.fwd-savie-wrapper').removeAttr('style');
 	});
@@ -852,11 +1125,68 @@ function madeDecisionSticky() {
 	}
 }
 
+function stickApplicationOrangeBar() {
+	if ($('.application-flux').length > 0 ) { // check if flux div exists
+		
+		var $application = $('.application-flux');
+		var $bar = $('.application-page-header');
+		
+		if ($(window).scrollTop() >= $('.navbar-menu').height()) {
+			$bar.addClass('sticky-bar');
+			$bar.css('top', $('.navbar-fixed-top').height() + 'px');
+		} else {
+			$bar.removeClass('sticky-bar');
+			$bar.removeAttr('style');
+		}
+		
+		
+		//by: Richie
+		//for confirmation-offline page Integration
+		
+		if(getWidth()>=992){
+			if ($(window).scrollTop() >= $('#header').height()) {
+				$bar.addClass('sticky-bar');
+				$bar.css('top', $('.top-bar').height() + 'px');
+			} else {
+				$bar.removeClass('sticky-bar');
+				$bar.removeAttr('style');
+			}
+			
+		}else{
+			$bar.removeClass('sticky-bar');
+			$bar.removeAttr('style');
+			//do nothing
+			//if ($(window).scrollTop() >= $('.mob-header').height()) {
+			//	$bar.addClass('sticky-bar');
+			//	$bar.css('top', $('.mob-topbar').height() + 'px');
+			//} else {
+			//	$bar.removeClass('sticky-bar');
+			//	$bar.removeAttr('style');
+			//}
+		}
+	}
+}
+
+function stickeServicesOrangeBar() {
+	if ($('.notification-header').length > 0 ) { // check if orange bar exists exists
+		console.log('orange-bar exists');
+		var $bar = $('.notification-header');
+		
+		if ($(window).scrollTop() >= $('.navbar-menu').height()) {
+			$bar.addClass('sticky-bar');
+			$bar.css('top', $('.navbar-fixed-top').height() + 'px');
+		} else {
+			$bar.removeClass('sticky-bar');
+			$bar.removeAttr('style');
+		}
+	}
+}
+
 // 18 year ago date
 var dob_end_date = new Date();
 dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
 
-//70 year ago date
+// 70 year ago date
 var dob_start_date = new Date();
 dob_start_date.setFullYear(dob_start_date.getFullYear()-70);
 dob_start_date.setDate(dob_start_date.getDate()+1);
@@ -867,10 +1197,13 @@ function changeDatePickerValue($datePicker) {
 		startView: "decade",
 		startDate: dob_start_date,
 		endDate: dob_end_date,
+		formatDate: 'mm-dd-yyyy'
     }).on("changeDate", function(e) {
         $datePicker.datepicker('hide');
 		
 		var dateVal = new Date($datePicker.datepicker('getFormattedDate'));
+
+		//console.log('Next Button'+$('.next').css("visibility"));
 		if (getWidth() >= 992) {
 			//$('#dates').val(dateVal.format('jS M Y'));
 			$('#dates').val(dateVal.format('d-m-Y'));
@@ -938,12 +1271,15 @@ function ifSelected(id,idRemove) {
 
 function addFormBeneficiary (counter) {
 	
-	$('<div class="page-divider page-divider-margin hidden-md hidden-lg"></div>').appendTo("#add-beneficiary-"+counter);
+	//$('<div class="page-divider page-divider-margin hidden-md hidden-lg"></div>').appendTo("#add-beneficiary-"+counter);
 	
+	var counterPlus = parseInt(counter)+1;
 	
 	$('<form class="content tabs-margin" id="beneficiaryInfoForm['+counter+']" method="post" action="application-richie.php" onsubmit="return false"></form>').appendTo("#add-beneficiary-"+counter).hide().fadeIn(500); //create form
 
 	$('<div class="form-group beneficiary-info-row" >'
+		+'<h3 class="mobile-desc hidden-md hidden-lg">Beneficiary <span>(Person '+ counterPlus +')</span></h3>'
+		+ '<div class="clearfix hidden-xs hidden-sm"><div class="pull-right"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>Remove Beneficiary</button></div></div>'
 		+ '<label for="savieBeneficiaryBean['+counter+'].firstName">Name in English</label>'
 		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].fullName" hidden>'
 		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].firstName" name="savieBeneficiaryBean['+counter+'].firstName" onchange="getBeneficiaryFullName'+counter+'()" class="form-control gray-textbox form-textbox" placeholder="Given name" maxlength="25">'
@@ -960,13 +1296,29 @@ function addFormBeneficiary (counter) {
 		+ '<span class="dup-error-msg hidden" id="duplicate-chinese-name['+counter+']">Duplicate Chinese Name</span>'
 		+ '</div>'
 
-		+ '<div class="form-group beneficiary-info-row">'
-		+ '<label for="savieBeneficiaryBean['+counter+'].hkId">HKID / Passport No</label>'
-		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].hkId" name="savieBeneficiaryBean['+counter+'].hkId" class="form-control gray-textbox form-textbox" placeholder="HKID/Passport No">'
-		+ '<span class="error-msg" id="hkidOrPassportMessage['+counter+']"></span>'
-		+ '<span class="dup-error-msg hidden" id="duplicate-beneficiaries['+counter+']">Duplicate Beneficiaries</span>'
-		+ '</div>'
-
+		+'<div class="form-group beneficiary-info-row">'
+		+'<label for="savieBeneficiaryBean['+counter+'].hkId">HKID / Passport No</label>'
+		+'<div class="clearfix">'
+		+'<div class="pull-left select">'
+		+'<div class="selectDiv">'
+		+'<span class="icon-chevron-thin-down orange-caret"></span>'
+		+'<select class="form-control gray-dropdown" id="beneficiaryHkidPassport['+counter+']">'
+		+'<option selected value="HKID">HKID</option>'
+		+'<option value="Passport">Passport No</option>'	
+		+'</select>'
+		+'</div>'
+		+'</div>'
+		+'<div class="pull-left input">'
+		+'<input class="form-control gray-textbox" type="text" placeholder="HKID/Passport No" id="savieBeneficiaryBean['+counter+'].hkId" name="savieBeneficiaryBean['+counter+'].hkId" value="">'
+		+'<input class="form-control gray-textbox hidden" type="text" placeholder="HKID/Passport No" id="savieBeneficiaryBean['+counter+'].passportNo" name="savieBeneficiaryBean['+counter+'].passportNo" value="">'
+		+'</div>'
+		+'</div>'
+		+'<span class="error-msg" id="bnfPassportMessage['+counter+']"></span>'
+		+'<span class="error-msg" id="hkidOrPassportMessage['+counter+']"></span>'
+		+'<span class="dup-error-msg hidden" id="duplicate-beneficiaries['+counter+']">Duplicate Beneficiaries HKID</span>'
+		+'<span class="dup-error-msg hidden" id="duplicate-beneficiariesPAssport['+counter+']">Duplicate Beneficiaries Passport</span>'
+		+'</div>'
+		
 		+ '<div class="beneficiary-info-row">'
 		+ '<label for="savieBeneficiaryBean['+counter+'].gender">Gender</label>'
 		+ '<div id="gender-'+counter+'" class="clearfix radio-buttons">'
@@ -1002,6 +1354,7 @@ function addFormBeneficiary (counter) {
 		+ '<label for="savieBeneficiaryBean['+counter+'].entitlement">Entitlement (%)</label>'
 		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].entitlement" name="savieBeneficiaryBean['+counter+'].entitlement" class="form-control gray-textbox percentage" placeholder="100%" value="">'
 		+ '<span class="error-msg" id="entitlementMessage['+counter+']"></span>'
+		+ '<div class="clearfix hidden-md hidden-lg"><div class="pull-left"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>Remove Beneficiary</button></div></div>'
 		+ '</div>'
 		).appendTo("#add-beneficiary-"+counter+" .content");
 	changeColorRadioButtonLabel (counter);
@@ -1036,3 +1389,45 @@ function getMobileFinalValue() {
 	var tMobileValue = document.getElementById("mobile-third").value;
 	document.getElementById("savieApplicantBean.mobileNo").value = fMobileValue + sMobileValue + tMobileValue;
 }
+
+//Check for invalid Promo Code
+function invalidPromoCode(){
+	var promocode = $('#promocode').val();
+
+	if(promocode == "1234"){
+		return true;
+	}else{
+		return false;
+	}
+	return false;
+	
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+//get the applicants age
+var calculateAge = function(birthday) {
+    var now = new Date();
+    var past = new Date(birthday);
+    var nowYear = now.getFullYear();
+    var pastYear = past.getFullYear();
+    var age = nowYear - pastYear;
+
+    return age;
+};

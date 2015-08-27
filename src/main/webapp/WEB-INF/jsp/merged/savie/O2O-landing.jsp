@@ -81,64 +81,96 @@ var home_url = "<%=request.getContextPath()%>";
 			
 			<div class="sign-up-teaser">
 				<p class="sign-up-header"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>
-				<button id="hunger-selling-buy-now-O2O" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
-				<p class="sign-up-header hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.Haven't.applied" bundle="${msg}" /><a href="#"><fmt:message key="savie.o2o.landing.here" bundle="${msg}" /></a>.</p>
+				<div class="get-started-holder text-center">
+					<button id="hunger-selling-buy-now-O2O" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
+				</div>
+				<p class="sign-up-header below"><fmt:message key="savie.o2o.landing.Haven't.applied" bundle="${msg}" />
+					<button id="signup"><fmt:message key="savie.o2o.landing.here" bundle="${msg}" /></button>
+				.</p>
 			</div>
-
-	        <div id="flux" class="o2o-landing">
-	            <div id="landing-three-column" class="fwd-container container-fluid three-column-widget">
-	                <div class="row row-top text-center">
-	                    <div class="col-xs-12 col-md-4 fwd-col">
-	                        <div class="col-content">
-	                            <h2><fmt:message key="savie.o2o.landing.Simple.yet" bundle="${msg}" /></h2>
-	                            <h3><fmt:message key="savie.o2o.landing.big.on.savings" bundle="${msg}" /></h3>
-	                            <img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/big-on-savings.png">
-	                            <p><fmt:message key="savie.o2o.landing.SAVIE.guarantees" bundle="${msg}" /></p>
-	                        </div>
-	                    </div>
-	                    <div class="col-xs-12 col-md-4 fwd-col">
-	                        <div class="col-content">
-	                            <h2><fmt:message key="savie.o2o.landing.No.charges" bundle="${msg}" /></h2>
-	                            <h3><fmt:message key="savie.o2o.landing.no.commitment" bundle="${msg}" /></h3>
-	                            <img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/no-commitment.png">
-	                            <p><fmt:message key="savie.o2o.landing.Enjoy.flexibility" bundle="${msg}" /></p>
-	                        </div>
-	                    </div>
-	                    <div class="col-xs-12 col-md-4 fwd-col">
-	                        <div class="col-content">
-	                            <h2><fmt:message key="savie.o2o.landing.Free" bundle="${msg}" /></h2>
-	                            <h3><fmt:message key="savie.o2o.landing.additional.protection" bundle="${msg}" /></h3>
-	                            <img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/free-additional-2.png">
-	                            <p><fmt:message key="savie.o2o.landing.Receive.Accidental" bundle="${msg}" /></p>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	            
-	            <div class="fwd-container container-fluid">     
-	                <div id="other-benefits" class="row">
-	                	<div class="col-xs-12 col-md-8 pull-right">
-	                    	<h2 class="text-center"><fmt:message key="savie.o2o.landing.Other.benefits" bundle="${msg}" /></h2>
-	                    </div>	                    
-	                    <div class="col-xs-12 col-md-4 fwd-col text-center left-clear">
-	                        <img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/other-benefits-2-img.png">
-	                    </div>
-	                    <div class="col-xs-12 col-md-8 fwd-col">
-							<ul>
-	                            <li><p><fmt:message key="savie.o2o.landing.Unlimited.number" bundle="${msg}" /></p></li>
-	                            <li><p><fmt:message key="savie.o2o.landing.No.withdrawal" bundle="${msg}" /></p></li>
-	                            <li><p><fmt:message key="savie.o2o.landing.Premium.cover" bundle="${msg}" /></p></li>
-	                            <li><p><fmt:message key="savie.o2o.landing.Death.Benefit" bundle="${msg}" /></p></li>
-	                            <li><p><fmt:message key="savie.o2o.landing.Accidental.Death" bundle="${msg}" /></p></li>
-	                        </ul>
-	                    </div>
-	                </div>
-	                <!-- Disclaimer and Policy Provisions -->
-	                <div class="disclaimer-policy">
-	                    <p class="policy-provisions"><fmt:message key="savie.o2o.landing.The.features" bundle="${msg}" /><a href="#"><fmt:message key="savie.o2o.landing.Policy.Provisions" bundle="${msg}" /></a><fmt:message key="savie.o2o.landing.for.details" bundle="${msg}" /></p>
-	                    <p><fmt:message key="savie.o2o.landing.For.a.complete" bundle="${msg}" /></p>
-	                </div>
-	            </div>
+			
+	        <div class="teaser-three-column O2O-landing">
+					<div id="landing-three-column" class="fwd-container container-fluid three-column-widget O2O-landing">
+						<div class="row row-top text-center">
+							<div class="col-xs-12 col-md-4 fwd-col">
+								<div class="col-content col-content-teaser">
+									<div class="clearfix">
+										<div class="pull-left mobile-image hidden-md hidden-lg">
+											<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings-mobile" bundle="${msg}" />" class="img-responsive">
+										</div>
+										<div class="right">
+											<h2><fmt:message key="savie.interestGather.feature1.header.part1" bundle="${msg}" /></h2>
+											<h3><fmt:message key="savie.interestGather.feature1.header.part2" bundle="${msg}" /></h3>
+											<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings" bundle="${msg}" />" class="hidden-xs hidden-sm">
+											<p><fmt:message key="savie.interestGather.feature1.paragraph1" bundle="${msg}" /></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-4 fwd-col">
+								<div class="col-content col-content-teaser">
+									<div class="clearfix">
+										<div class="pull-left mobile-image hidden-md hidden-lg">
+											<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment-mobile" bundle="${msg}" />" class="img-responsive">
+										</div>
+										<div class="right">
+											<h2><fmt:message key="savie.interestGather.feature2.header.part1" bundle="${msg}" /></h2>
+											<h3><fmt:message key="savie.interestGather.feature2.header.part2" bundle="${msg}" /></h3>
+											<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment" bundle="${msg}" />" class="hidden-xs hidden-sm">
+											<p><fmt:message key="savie.interestGather.feature2.paragraph1" bundle="${msg}" /></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-12 col-md-4 fwd-col">
+								<div class="col-content col-content-teaser">
+									<div class="clearfix">
+										<div class="pull-left mobile-image hidden-md hidden-lg">
+											<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional-mobile" bundle="${msg}" />" class="img-responsive">
+										</div>
+										<div class="right">
+											<h2><fmt:message key="savie.interestGather.feature3.header.part1" bundle="${msg}" /></h2>
+											<h3><fmt:message key="savie.interestGather.feature3.header.part2" bundle="${msg}" /></h3>
+											<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional" bundle="${msg}" />" class="hidden-xs hidden-sm">
+											<p><fmt:message key="savie.interestGather.feature3.paragraph1" bundle="${msg}" /></p>
+											<p class="info-asterisk"><fmt:message key="savie.interestGather.feature3.footnote" bundle="${msg}" /><p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	          
+					<div class="fwd-container container-fluid other-benefits-teaser O2O-landing">
+						<div id="other-benefits" class="row">
+							<div class="clearfix">
+								<div class="pull-left mobile-image hidden-md hidden-lg">
+									<img src="<%=request.getContextPath()%><fmt:message key="img.other.benefits-mobile" bundle="${msg}" />">
+								</div>
+								<div class="right">
+									<div class="col-xs-12 col-md-8 pull-right">
+										<h2 class="text-center"><fmt:message key="savie.interestGather.otherfeatures.header" bundle="${msg}" /></h2>
+									</div>
+									<div class="col-xs-12 col-md-4 fwd-col text-center left-clear">
+										<img src="<%=request.getContextPath()%><fmt:message key="img.other.benefits" bundle="${msg}" />" class="hidden-xs hidden-sm">
+									</div>
+									<div class="col-xs-12 col-md-8 fwd-col">
+										<ul>
+											<li><p><fmt:message key="savie.interestGather.otherfeatures.context1" bundle="${msg}" /></p></li>
+											<a class="read-more hidden-md hidden-lg" id="read-more-other-benefits">Read more</a>
+											<li class="hidden-xs hidden-sm" id="other-benefits-list-0"><p><fmt:message key="savie.interestGather.otherfeatures.context5" bundle="${msg}" /></p></li>
+											<li class="hidden-xs hidden-sm" id="other-benefits-list-1"><p><fmt:message key="savie.interestGather.otherfeatures.context2" bundle="${msg}" /></p></li>
+											<li class="hidden-xs hidden-sm" id="other-benefits-list-2"><p><fmt:message key="savie.interestGather.otherfeatures.context3" bundle="${msg}" /></p></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Disclaimer and Policy Provisions -->
+						<div class="disclaimer-policy-teaser teaser-policy">
+							<p class="h4-6"><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.provisions.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part4" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part5" bundle="${msg}" /></p>
+						</div>
+					</div>
 	            
 	            <div class="fwd-full-container container-fluid o2o-landing saving-plans">
 					<div id="savings-carousel" class="carousel slide" data-ride="carousel">
@@ -236,7 +268,7 @@ var home_url = "<%=request.getContextPath()%>";
 			
 			<!-- OUR BLOG -->
 			<div id="landing-page-blog" class="fwd-container blog-widget container-fluid text-center">
-				<div class="read-blog-desktop three-column-widget">
+				<div class="read-blog-desktop three-column-widget O2O-landing">
 					<h2 class="hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.Read.more" bundle="${msg}" /></h2>
 					<h2 class="hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.Our.blog" bundle="${msg}" /></h2>
 					<div class="row text-left">
@@ -296,6 +328,42 @@ var home_url = "<%=request.getContextPath()%>";
 								<input placeholder="Access code" type="text" name="accessCodeConfirm" id="accessCodeConfirm" />
 								<span class="validation-msg hidden-error-msg"><fmt:message key="savie.o2o.landing.The.code" bundle="${msg}" /></span>							
 								<button type="submit" id="hunger-btn" class="btn hunger-btn"><fmt:message key="savie.o2o.landing.Submit" bundle="${msg}" /></button>
+							</form>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->	
+			</div><!-- /.modal -->
+			
+			<!--Signup Now Modal-->
+			<div class="modal fade" role="dialog" aria-labelledby="signupnow" id="signup-now-modal">
+				<div class=" hunger-selling-container container-fluid" role="document">
+					<div class="modal-content hunger-selling-content">
+						<div class="hunger-selling-header text-center">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="hunger-selling-title">Sign up now and await for our notification!</h4>
+						</div>
+						<div class="modal-body hunger-selling-body">
+							<form action="O2O-confirmation">
+								<div class="input-holder">
+									<input placeholder="Email address [compulsory]" type="email" name="signupEmail" id="signupEmail" required/>
+									<!-- <span class="validation-msg hidden-error-msg error-email">This field is required.</span> -->
+									<span class="error-email">Please enter your email address.</span>
+									<input placeholder="Mobile no." type="text" name="signupMobileNo" id="signupMobileNo"/>
+								</div>
+
+								<div class="fwd-checkbox">
+									<input type="checkbox" id="personal-information-statement-signup">
+									<label for="personal-information-statement-signup"></label>
+									<p class="notice">I have read, understood and accept this <a href="#">Personal Information Collection Statement.</a></p>
+								</div>
+
+								<div class="fwd-checkbox">
+									<input type="checkbox" id="terms-condition-statement-signup">
+									<label for="terms-condition-statement-signup"></label>
+									<p class="notice">I have read, understood and accept these <a href="#">Terms and Conditions.</a></p>
+								</div>
+													
+								<button type="submit" id="signup-btn" class="btn hunger-btn">Sign up now</button>
 							</form>
 						</div>
 					</div><!-- /.modal-content -->
@@ -376,6 +444,10 @@ var home_url = "<%=request.getContextPath()%>";
 				}	
 			});
 			
+			// Sign up Now Button
+			$('#signup').click(function(e){
+				$('#signup-now-modal').modal('show');
+			});
 		//	$('#customerCenter').modal('show');
 		//	$('#accessCodeO2O').modal('show');
 			

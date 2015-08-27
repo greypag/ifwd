@@ -1,41 +1,49 @@
 @font-face {
-  font-family: 'foco_regular';
-  src: url("../fonts/Foco-Regular_gdi.eot");
-  /* IE9 Compat Modes */
-  src: url("../fonts/Foco-Regular_gdi.eot?#iefix") format("embedded-opentype"), url("../fonts/Foco-Regular_gdi.woff") format("woff"), url("../fonts/Foco-Regular_gdi.ttf") format("truetype"), url("../fonts/Foco-Regular_gdi.svg#svgFontName") format("svg");
-  /* Legacy iOS */
+	font-family: 'foco_regular';
+	src: url("../../fonts/Foco-Regular_gdi.eot");
+	src: url("../../fonts/Foco-Regular_gdi.eot?#iefix")
+		format("embedded-opentype"), url("../../fonts/Foco-Regular_gdi.woff")
+		format("woff"), url("../../fonts/Foco-Regular_gdi.ttf")
+		format("truetype"), url("../../fonts/Foco-Regular_gdi.svg#svgFontName")
+		format("svg")
 }
 
 @font-face {
-  font-family: 'foco_bold';
-  src: url("../fonts/Foco-Bold_gdi.eot");
-  /* IE9 Compat Modes */
-  src: url("../fonts/Foco-Bold_gdi.eot?#iefix") format("embedded-opentype"), url("../fonts/Foco-Bold_gdi.woff") format("woff"), url("../fonts/Foco-Bold_gdi.ttf") format("truetype"), url("../fonts/Foco-Bold_gdi.svg#svgFontName") format("svg");
-  /* Legacy iOS */
+	font-family: 'foco_bold';
+	src: url("../../fonts/Foco-Bold_gdi.eot");
+	src: url("../../fonts/Foco-Bold_gdi.eot?#iefix")
+		format("embedded-opentype"), url("../../fonts/Foco-Bold_gdi.woff")
+		format("woff"), url("../../fonts/Foco-Bold_gdi.ttf") format("truetype"),
+		url("../../fonts/Foco-Bold_gdi.svg#svgFontName") format("svg")
 }
 
 @font-face {
-  font-family: 'Calibri';
-  src: url("../fonts/Calibri_gdi.eot");
-  /* IE9 Compat Modes */
-  src: url("../fonts/Calibri_gdi.eot?#iefix") format("embedded-opentype"), url("../fonts/Calibri_gdi.woff") format("woff"), url("../fonts/Calibri_gdi.ttf") format("truetype"), url("../fonts/Calibri_gdi.svg#svgFontName") format("svg");
-  /* Legacy iOS */
+	font-family: 'Calibri';
+	src: url("../../fonts/Calibri_gdi.eot");
+	src: url("../../fonts/Calibri_gdi.eot?#iefix") format("embedded-opentype"),
+		url("../../fonts/Calibri_gdi.woff") format("woff"),
+		url("../../fonts/Calibri_gdi.ttf") format("truetype"),
+		url("../../fonts/Calibri_gdi.svg#svgFontName") format("svg")
 }
 
 @font-face {
-  font-family: 'Calibri-Bold';
-  src: url("../fonts/Calibri-Bold_gdi.eot");
-  /* IE9 Compat Modes */
-  src: url("../fonts/Calibri-Bold_gdi.eot?#iefix") format("embedded-opentype"), url("../fonts/Calibri-Bold_gdi.woff") format("woff"), url("../fonts/Calibri-Bold_gdi.ttf") format("truetype"), url("../fonts/Calibri-Bold_gdi.svg#svgFontName") format("svg");
-  /* Legacy iOS */
+	font-family: 'Calibri-Bold';
+	src: url("../../fonts/Calibri-Bold_gdi.eot");
+	src: url("../../fonts/Calibri-Bold_gdi.eot?#iefix")
+		format("embedded-opentype"), url("../../fonts/Calibri-Bold_gdi.woff")
+		format("woff"), url("../../fonts/Calibri-Bold_gdi.ttf")
+		format("truetype"), url("../../fonts/Calibri-Bold_gdi.svg#svgFontName")
+		format("svg")
 }
 
 @font-face {
-  font-family: 'Calibri-Light';
-  src: url("../fonts/Calibri-Light_gdi.eot");
-  /* IE9 Compat Modes */
-  src: url("../fonts/Calibri-Light_gdi.eot?#iefix") format("embedded-opentype"), url("../fonts/Calibri-Light_gdi.woff") format("woff"), url("../fonts/Calibri-Light_gdi.ttf") format("truetype"), url("../fonts/Calibri-Light_gdi.svg#svgFontName") format("svg");
-  /* Legacy iOS */
+	font-family: 'Calibri-Light';
+	src: url("../../fonts/Calibri-Light_gdi.eot");
+	src: url("../../fonts/Calibri-Light_gdi.eot?#iefix")
+		format("embedded-opentype"), url("../../fonts/Calibri-Light_gdi.woff")
+		format("woff"), url("../../fonts/Calibri-Light_gdi.ttf")
+		format("truetype"), url("../../fonts/Calibri-Light_gdi.svg#svgFontName")
+		format("svg")
 }
 
 body {
@@ -273,7 +281,7 @@ body {
   color: #9ba5a7;
 }
 .fwd-savie-wrapper header .navbar-fixed-top .notification-menu span.notification {
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -438px -15px;
   width: 27px;
   height: 20px;
@@ -743,7 +751,7 @@ body {
   height: 590px;
 }
 .fwd-savie-wrapper .navmenu, .fwd-savie-wrapper .navbar-offcanvas {
-  width: 320px !important;
+  width: 300px !important;
 }
 .fwd-savie-wrapper .header-nav-mobile {
   font-size: 24px;
@@ -871,13 +879,13 @@ body {
   margin-top: 5px;
 }
 .fwd-savie-wrapper .header-nav-mobile .header-nav-menu-mobile .mobile-accrdn-list .mobile-top-menu i.arrow-right {
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -16px -9px;
   width: 31px;
   height: 31px;
 }
 .fwd-savie-wrapper .header-nav-mobile .header-nav-menu-mobile .mobile-accrdn-list .mobile-top-menu i.arrow-down {
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -57px -9px;
   width: 31px;
   height: 31px;
@@ -1262,8 +1270,8 @@ body {
 }
 
 .fwd-savie-wrapper #other-benefits {
-  margin-left: 15px;
-  margin-right: 15px;
+  /*max-width: 354px;*/
+  margin: auto;
   background-color: #fff;
   padding: 34px 32px 0 32px;
 }
@@ -1275,7 +1283,6 @@ body {
     padding-top: 0px;
     /* height: 277px; */
     height: 380px;
-    margin-left: 0;
   }
 }
 @media (min-width: 1200px) {
@@ -1315,7 +1322,7 @@ body {
 .fwd-savie-wrapper #other-benefits ul {
   padding: 0 0 14px 4px;
   margin: 0px;
-  list-style-image: url(../images/bullet.png);
+  list-style-image: url(../../images/savie/bullet.png);
   font-size: 18px;
   /* margin-left: 21px; */
   /* @media (min-width: $screen-md-min) { */
@@ -1349,23 +1356,23 @@ body {
   opacity: 1;
 }
 .fwd-savie-wrapper #other-benefits .carousel-control.right {
-  background-image: url(../images/carousel/right-nav.png);
+  background-image: url(../../images/savie/carousel/right-nav.png);
   background-position: right;
   margin-right: 15px;
 }
 .fwd-savie-wrapper #other-benefits .carousel-control.right:active,
 .fwd-savie-wrapper #other-benefits .carousel-control.right:hover,
 .fwd-savie-wrapper #other-benefits .carousel-control.right:focus {
-  background-image: url(../images/carousel/right-nav-hover.png);
+  background-image: url(../../images/savie/carousel/right-nav-hover.png);
 }
 .fwd-savie-wrapper #other-benefits .carousel-control.left {
-  background-image: url(../images/carousel/left-nav.png);
+  background-image: url(../../images/savie/carousel/left-nav.png);
   margin-left: 15px;
 }
 .fwd-savie-wrapper #other-benefits .carousel-control.left:active,
 .fwd-savie-wrapper #other-benefits .carousel-control.left:focus,
 .fwd-savie-wrapper #other-benefits .carousel-control.left:hover {
-  background-image: url(../images/carousel/left-nav-hover.png);
+  background-image: url(../../images/savie/carousel/left-nav-hover.png);
 }
 .fwd-savie-wrapper #other-benefits .carousel-control {
   height: 50px;
@@ -1377,17 +1384,16 @@ body {
   }
 }
 .disclaimer-policy {
-  padding-top: 17px;
-  padding-bottom: 5px;
-  margin-left: 15px;
-  margin-right: 15px;
+	padding-top: 17px;
+	padding-bottom: 20px;
+	max-width: 355px;
+	margin: auto
 }
 @media (min-width: 992px) {
   .disclaimer-policy {
     padding: 35px 0;
     width: 100%;
     max-width: none;
-    margin-left: 0;
   }
 }
 .disclaimer-policy p {
@@ -1574,12 +1580,12 @@ body {
   margin-top: 260px;
 }
 .fwd-savie-wrapper #features .carousel-control.right {
-  background-image: url(../images/carousel/right-nav.png);
+  background-image: url(../../images/savie/carousel/right-nav.png);
   background-position: right;
   margin-right: 30px;
 }
 .fwd-savie-wrapper #features .carousel-control.left {
-  background-image: url(../images/carousel/left-nav.png);
+  background-image: url(../../images/savie/carousel/left-nav.png);
   margin-left: 30px;
 }
 .fwd-savie-wrapper #features h2 {
@@ -1655,14 +1661,14 @@ body {
   padding-right: 0;
 }
 .fwd-savie-wrapper .banner-widget {
-  background: url("../../assets/images/strawberry-mobile.jpg") center center no-repeat;
+  background: url("../../images/savie/strawberry-mobile.jpg") center center no-repeat;
   background-size: cover;
   height: 490px;
   position: relative;
 }
 @media (min-width: 768px) {
   .fwd-savie-wrapper .banner-widget {
-    background: url("../../assets/images/strawberry.jpg") center center no-repeat;
+    background: url("../../images/savie/strawberry.jpg") center center no-repeat;
     background-size: cover;
   }
 }
@@ -1763,7 +1769,7 @@ body {
 }
 
 .fwd-savie-wrapper .video-banner {
-  background: url("../../assets/images/productDetails/video-banner.png") center center no-repeat;
+  background: url("../../images/savie/productDetails/video-banner.png") center center no-repeat;
   background-size: cover;
   height: 300px;
   position: relative;
@@ -1835,7 +1841,7 @@ body {
 }
 
 .fwd-savie-wrapper .mini-calcu {
-  background: url("../../assets/images/bg-mini-calcu-desk.png") 0 center;
+  background: url("../../images/savie/bg-mini-calcu-desk.png") 0 center;
   background-size: cover;
   height: 291px;
 }
@@ -2009,6 +2015,7 @@ body {
 }
 
 .fwd-savie-wrapper .three-column-widget {
+  background-color: #f1f3f5;
   padding-left: 30px;
   padding-right: 30px;
   color: #061d2a;
@@ -2046,7 +2053,7 @@ body {
   background-color: #fff;
   height: 438px;
   margin: 0 auto 10px auto;
-  padding: 0 29px;
+  padding: 0 10px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .three-column-widget .fwd-col .col-content {
@@ -2057,12 +2064,22 @@ body {
   }
 }
 .fwd-savie-wrapper .three-column-widget .fwd-col .col-content h2 {
-  font-size: 36px;
+  font-family: 'Calibri-Bold';
+  font-size: 24px;
   margin-bottom: 0;
   margin-top: 0;
   color: #373a36;
   line-height: 31px;
-  padding-top: 36px;
+  padding-top: 15px;
+  text-align: left;
+  padding-left: 0;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .three-column-widget .fwd-col .col-content h2 {
+    text-align: center;
+    font-size: 36px;
+    padding-top: 36px;
+  }
 }
 .fwd-savie-wrapper .three-column-widget .fwd-col .col-content h2.out-life {
   padding-top: 0;
@@ -2070,15 +2087,18 @@ body {
 .fwd-savie-wrapper .three-column-widget .fwd-col .col-content h3 {
   margin-top: 0px;
   color: #ff8200;
-  font-size: 30px;
+  font-size: 18px;
+  text-align: left;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .three-column-widget .fwd-col .col-content h3 {
     margin-bottom: 15px;
+    font-size: 30px;
+    text-align: center;
   }
 }
 .fwd-savie-wrapper .three-column-widget .fwd-col .col-content img {
-  padding-top: 12px;
+  padding-top: 36px;
   padding-bottom: 26px;
 }
 @media (min-width: 992px) {
@@ -2093,6 +2113,14 @@ body {
   padding-right: 0;
   margin: 0;
   padding-bottom: 10px;
+  font-size: 14px;
+  text-align: left;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .three-column-widget .fwd-col .col-content p {
+    font-size: 18px;
+    text-align: center;
+  }
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .three-column-widget .fwd-col .col-content p span {
@@ -2100,70 +2128,6 @@ body {
   }
 }
 .fwd-savie-wrapper .three-column-widget .fwd-col .col-content p.info-asterisk {
-  font-size: 14px;
-  line-height: 14px;
-  padding-bottom: 15px;
-  margin: 0;
-  color: #ff8200;
-}
-.fwd-savie-wrapper .three-column-widget .fwd-col .col-content-teaser {
-  background-color: #fff;
-  height: 438px;
-  margin: 0 auto 10px auto;
-  padding: 0 29px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .three-column-widget .fwd-col .col-content-teaser {
-    height: 452px;
-    max-width: 379px;
-    /* padding: 0 39px; */
-    padding: 0 16px;
-  }
-}
-.fwd-savie-wrapper .three-column-widget .fwd-col .col-content-teaser h2 {
-  font-size: 36px;
-  margin-bottom: 0;
-  margin-top: 0;
-  color: #373a36;
-  line-height: 31px;
-  padding-top: 36px;
-}
-.fwd-savie-wrapper .three-column-widget .fwd-col .col-content-teaser h2.out-life {
-  padding-top: 0;
-}
-.fwd-savie-wrapper .three-column-widget .fwd-col .col-content-teaser h3 {
-  margin-top: 0px;
-  color: #ff8200;
-  font-size: 30px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .three-column-widget .fwd-col .col-content-teaser h3 {
-    margin-bottom: 15px;
-  }
-}
-.fwd-savie-wrapper .three-column-widget .fwd-col .col-content-teaser img {
-  padding-top: 12px;
-  padding-bottom: 26px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .three-column-widget .fwd-col .col-content-teaser img {
-    padding-top: 0;
-    /* padding-bottom: 23px; */
-    padding-bottom: 20px;
-  }
-}
-.fwd-savie-wrapper .three-column-widget .fwd-col .col-content-teaser p {
-  line-height: 23px;
-  padding-right: 0;
-  margin: 0;
-  padding-bottom: 10px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .three-column-widget .fwd-col .col-content-teaser p span {
-    font-weight: bold;
-  }
-}
-.fwd-savie-wrapper .three-column-widget .fwd-col .col-content-teaser p.info-asterisk {
   font-size: 14px;
   line-height: 14px;
   padding-bottom: 15px;
@@ -2281,12 +2245,11 @@ body {
   }
 }
 .fwd-savie-wrapper #landing-three-column .fwd-col .col-content {
-  min-height: 438px;
   height: auto;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper #landing-three-column .fwd-col .col-content {
-    height: 550px;
+    height: 610px;
   }
 }
 @media (min-width: 992px) {
@@ -2509,6 +2472,10 @@ body {
   opacity: 1;
 }
 
+/*
+* Login 
+* by: RM Nepomocino	
+*/
 /*
 * Login 
 * by: RM Nepomocino	
@@ -3057,7 +3024,7 @@ body {
 }
 .fwd-savie-wrapper #fwd-carousel .carousel-inner .item,
 .fwd-savie-wrapper #fwd-carousel .carousel-inner .item.next {
-  background: url(../images/power-save-sample.png) no-repeat center center;
+  background: url(../../images/savie/power-save-sample.png) no-repeat center center;
   height: 298px;
   width: 100%;
   background-size: cover;
@@ -3117,6 +3084,10 @@ body {
 * Calendar Date Picker
 * by: RMN
 */
+.datepicker.dropdown-menu {
+  margin-top: 30px;
+}
+
 .datepicker.datepicker-dropdown .datepicker-days table thead tr:first-child,
 .datepicker.datepicker-dropdown .datepicker-months table thead tr:first-child,
 .datepicker.datepicker-dropdown .datepicker-years table thead tr:first-child {
@@ -3161,7 +3132,6 @@ body {
 .fwd-savie-wrapper .tooltip .tooltip-inner {
   background-color: #ff8200;
   padding: 8px 15px;
-  text-align: left;
 }
 .fwd-savie-wrapper .tooltip.right .tooltip-arrow {
   border-right-color: #ff8200;
@@ -3190,7 +3160,7 @@ body {
   width: 100%;
 }
 .fwd-savie-wrapper #landing-calculator .mini-mobile {
-  background: url("../../assets/images/mini-mobile.png") 0 center;
+  background: url("../../images/savie/mini-mobile.png") 0 center;
   background-size: cover;
   height: 250px;
 }
@@ -3219,607 +3189,6 @@ body {
   transition: opacity 0.25s ease-in;
 }
 
-.fwd-savie-wrapper .o2o-landing.banner-widget.hunger-selling {
-  background: transparent;
-  height: auto;
-  position: relative;
-}
-.fwd-savie-wrapper .o2o-landing.banner-widget.hunger-selling .breadcrumbs-product-details a:hover,
-.fwd-savie-wrapper .o2o-landing.banner-widget.hunger-selling .breadcrumbs-product-details .fa-play {
-  color: #fff;
-}
-.fwd-savie-wrapper .o2o-landing.banner-widget .mobile-banner {
-  display: block;
-  width: 100%;
-}
-@media (min-width: 768px) {
-  .fwd-savie-wrapper .o2o-landing.banner-widget .mobile-banner {
-    display: none;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.banner-widget .desktop-banner {
-  display: none;
-  width: 100%;
-}
-@media (min-width: 768px) {
-  .fwd-savie-wrapper .o2o-landing.banner-widget .desktop-banner {
-    display: block;
-  }
-}
-@media (min-width: 768px) {
-  .fwd-savie-wrapper .o2o-landing.banner-widget .buy-now.hunger-buy-now {
-    float: right;
-    border: 0;
-    margin-right: 30px;
-    max-width: 200px;
-  }
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.banner-widget .buy-now.hunger-buy-now {
-    max-width: 300px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.banner-widget .breadcrumbs {
-  display: none;
-}
-.fwd-savie-wrapper .o2o-landing.banner-widget .breadcrumbs .breadcrumbs-landing {
-  top: 0;
-}
-@media (min-width: 768px) {
-  .fwd-savie-wrapper .o2o-landing.banner-widget .breadcrumbs {
-    display: block;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.banner-widget .text-content {
-  display: none;
-}
-@media (min-width: 768px) {
-  .fwd-savie-wrapper .o2o-landing.banner-widget .text-content {
-    display: block;
-    position: absolute;
-    top: 50px;
-    margin: 0;
-    padding: 0;
-  }
-  .fwd-savie-wrapper .o2o-landing.banner-widget .text-content.hunger-img img {
-    margin: 0;
-    padding: 0;
-    width: 340px;
-  }
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.banner-widget .text-content {
-    top: 28%;
-  }
-  .fwd-savie-wrapper .o2o-landing.banner-widget .text-content.hunger-img img {
-    width: 50%;
-    max-width: 550px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section {
-  position: absolute;
-  bottom: 29px;
-  width: 100%;
-}
-.fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .hunger-selling-text {
-  margin: 0 auto;
-}
-.fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
-  max-width: 290px;
-  padding: 0;
-}
-@media (min-width: 768px) {
-  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
-    max-width: 100%;
-    font-size: 20px;
-    text-align: right;
-    padding-right: 30px;
-  }
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
-    font-size: 24px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-2 {
-  max-width: 325px;
-  padding: 0;
-}
-@media (min-width: 768px) {
-  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-2 {
-    max-width: 100%;
-    font-size: 20px;
-    text-align: right;
-    padding-right: 30px;
-    margin-bottom: 5px;
-  }
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-2 {
-    font-size: 24px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section #hunger-selling-buy-now {
-  margin-top: 5px;
-}
-.fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section #hunger-selling-buy-now:hover {
-  color: #ff8000;
-  background-color: #fff;
-}
-@media (min-width: 768px) {
-  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section {
-    bottom: 20px;
-  }
-}
-@media (min-width: 768px) {
-  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section {
-    bottom: 8%;
-  }
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing p.additional.top {
-    width: 100%;
-    text-align: center;
-  }
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing p.bottom-text.upper {
-    text-align: center;
-    width: 100%;
-    margin: 20px 0;
-  }
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing p.bottom-text {
-    width: 100%;
-    text-align: center;
-  }
-}
-.fwd-savie-wrapper .o2o-landing#flux .disclaimer-policy .policy-provisions {
-  margin-bottom: 10px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing#flux .disclaimer-policy .policy-provisions {
-    margin-bottom: 0;
-  }
-}
-@media (min-width: 1200px) {
-  .fwd-savie-wrapper .o2o-landing#flux #other-benefits {
-    height: 278px;
-  }
-  .fwd-savie-wrapper .o2o-landing#flux #other-benefits img {
-    margin-top: -65px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing#flux #landing-three-column .row-top {
-  margin-top: 40px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing#flux #landing-three-column .row-top {
-    margin-top: 19px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing#flux #landing-three-column .fwd-col .col-content h2 {
-  padding-top: 38px;
-}
-.fwd-savie-wrapper .o2o-landing#flux #landing-three-column .fwd-col .col-content img {
-  padding-top: 13px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing#flux #landing-three-column .fwd-col .col-content {
-    height: 452px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.teaser {
-  padding-top: 55px;
-  padding-bottom: 8px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.teaser ul.crediting-rate-list {
-    width: 100%;
-    max-width: 605px;
-    margin: 0 auto;
-    padding-right: 40px;
-  }
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.teaser .teaser-banner-text {
-    width: 65%;
-    padding-left: 0;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.teaser .money-div {
-  top: -20px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.teaser .money-div {
-    top: -50px;
-    left: 0;
-  }
-  .fwd-savie-wrapper .o2o-landing.teaser .money-div .money {
-    width: 102px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.teaser .additional.top {
-  max-width: 280px;
-  margin: 0 auto;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.teaser .additional.top {
-    max-width: 525px;
-    padding-top: 50px;
-    padding-bottom: 10px;
-    text-align: left;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.teaser .crediting-rate-list {
-  padding: 25px 0;
-}
-.fwd-savie-wrapper .o2o-landing.teaser .crediting-rate-list li .percent {
-  font-size: 50px;
-  line-height: 50px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.teaser .crediting-rate-list li .percent {
-    font-size: 75px;
-    line-height: 75px;
-  }
-  .fwd-savie-wrapper .o2o-landing.teaser .crediting-rate-list li .year {
-    font-size: 22px;
-    line-height: 22px;
-  }
-  .fwd-savie-wrapper .o2o-landing.teaser .crediting-rate-list li .white {
-    height: 75%;
-  }
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.teaser {
-    padding-top: 0;
-    padding-bottom: 32px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans {
-  position: relative;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner-text {
-  padding: 42px 30px 25px;
-  text-align: center;
-  background-color: #e9edf0;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner-text p {
-  padding: 8px 48px 5px;
-  background-color: #ff8200;
-  max-width: 355px;
-  margin: 0 auto;
-  color: #fff;
-  font-size: 24px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner-text {
-    background-color: #e1e4e4;
-    padding-bottom: 0;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner {
-  background-color: #e9edf0;
-  padding-top: 6px;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner p {
-  font-size: 24px;
-  font-family: 'Calibri';
-  color: #fff;
-  background-color: #fdb714;
-  padding: 15px 10%;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner p .bold {
-  font-family: 'Calibri-bold';
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner p {
-    padding: 30px 10%;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img {
-  width: 100%;
-  max-width: 100%;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.mobile {
-  display: block;
-  max-width: 400px;
-  margin: 0 auto;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.desktop {
-  display: none;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.desktop {
-    display: block;
-    max-width: 1114px;
-    margin: 0 auto;
-  }
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.mobile {
-    display: none;
-  }
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner {
-    margin-top: 0;
-    background-color: #e1e4e4;
-    padding-bottom: 20px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav {
-  background-color: #e9edf0;
-  overflow: hidden;
-  padding-top: 26px;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .prev,
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .next {
-  width: 50%;
-  float: left;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .prev a,
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .next a {
-  height: 50px;
-  width: 50px;
-  display: block;
-  color: #fff;
-  position: relative;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .prev a .icon,
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .next a .icon {
-  display: table-cell;
-  vertical-align: middle;
-  height: 50px;
-  width: 50px;
-  font-size: 29px;
-  text-align: center;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .prev a {
-  background-color: #909393;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .next a {
-  background-color: #484c48;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav {
-    padding: 0;
-    position: absolute;
-    bottom: 148px;
-    right: 0;
-  }
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .prev a, .fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .next a {
-    width: 60px;
-    height: 60px;
-  }
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .prev a .icon, .fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .next a .icon {
-    width: 60px;
-    height: 60px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu {
-  margin: 0;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download,
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up {
-  padding: 0;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a,
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a {
-  width: 100%;
-  border: 0;
-  outline: none;
-  height: 265px;
-  display: block;
-  text-align: center;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a img,
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a img {
-  max-width: 80px;
-  margin: 15px 0;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text,
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text {
-  color: #fff;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text h2,
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text h2 {
-  font-size: 26px;
-  font-family: 'Calibri-bold';
-  padding: 0 15px;
-  margin: 0 0 15px;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text p,
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text p {
-  font-size: 16px;
-  padding: 0 10px 10px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text p,
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text p {
-    font-size: 18px;
-  }
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a,
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a {
-    height: 120px;
-  }
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a img,
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a img {
-    margin: 10px 0;
-    max-width: 100%;
-    float: left;
-  }
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text,
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text {
-    float: left;
-    text-align: left;
-    margin: 20px 15px 0;
-    padding: 0 10px;
-  }
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text h2, .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text p,
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text h2,
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text p {
-    padding: 0;
-  }
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text h2,
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text h2 {
-    font-size: 30px;
-    margin-bottom: 5px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download {
-  background-color: #505759;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a {
-  background-color: #505759;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a {
-    max-width: 500px;
-    float: right;
-    padding-left: 20px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up {
-  background-color: #ff8200;
-}
-.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a {
-  background-color: #ff8200;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a {
-    max-width: 500px;
-    float: left;
-    padding-left: 60px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing.fwd-action {
-  padding-bottom: 0;
-}
-.fwd-savie-wrapper .o2o-landing.fwd-action .action-one {
-  background-color: #505759;
-}
-.fwd-savie-wrapper .o2o-landing.fwd-action .action-two {
-  background-color: #ff8200;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .o2o-landing.fwd-action {
-    width: 100%;
-    overflow: hidden;
-  }
-  .fwd-savie-wrapper .o2o-landing.fwd-action .fwd-action-two {
-    width: 100%;
-  }
-  .fwd-savie-wrapper .o2o-landing.fwd-action .fwd-action-two button {
-    width: 50%;
-    float: left;
-    padding-top: 0;
-  }
-  .fwd-savie-wrapper .o2o-landing.fwd-action .fwd-action-two .action-two img {
-    margin-top: -15px;
-  }
-}
-.fwd-savie-wrapper .o2o-landing #savings-carousel {
-  background-color: #e9edf0;
-}
-
-/* Customer Center Modal Styles */
-#customerCenter {
-  padding: 5px !important;
-}
-#customerCenter .modal-dialog {
-  width: 100%;
-  max-width: 645px;
-  margin: 0 auto;
-  margin-top: 30px !important;
-}
-#customerCenter .modal-dialog .modal-content {
-  padding: 0;
-}
-#customerCenter .modal-dialog .modal-content .modal-header {
-  background-color: #ff8201;
-  text-align: center;
-  padding: 20px 10px;
-}
-#customerCenter .modal-dialog .modal-content .modal-header h2 {
-  margin: 0;
-  font-family: 'foco_bold';
-  color: #fff;
-  font-size: 18px;
-}
-@media (min-width: 992px) {
-  #customerCenter .modal-dialog .modal-content .modal-header {
-    padding: 37px 20px 30px;
-  }
-  #customerCenter .modal-dialog .modal-content .modal-header h2 {
-    font-size: 30px;
-    line-height: 35px;
-  }
-}
-#customerCenter .modal-dialog .modal-content .modal-body {
-  background-color: #e7ebec;
-  margin: 0;
-  padding: 0;
-}
-#customerCenter .modal-dialog .modal-content .modal-body img {
-  width: 100%;
-  max-width: 100%;
-}
-#customerCenter .modal-dialog .modal-content .modal-footer {
-  padding: 0;
-}
-#customerCenter .modal-dialog .modal-content .modal-footer .top-section {
-  background-color: #383a37;
-  color: #fff;
-  text-align: center;
-  padding: 15px;
-}
-#customerCenter .modal-dialog .modal-content .modal-footer .top-section h2 {
-  font-family: 'foco_bold';
-  font-size: 30px;
-  margin: 5px;
-}
-#customerCenter .modal-dialog .modal-content .modal-footer .top-section h4 {
-  margin-top: 0;
-  margin-bottom: 5px;
-  font-family: 'foco_regular';
-  font-size: 14px;
-}
-#customerCenter .modal-dialog .modal-content .modal-footer .top-section p {
-  font-family: 'foco_regular';
-  font-size: 10px;
-}
-@media (min-width: 992px) {
-  #customerCenter .modal-dialog .modal-content .modal-footer .top-section {
-    padding: 30px 15px 26px;
-  }
-  #customerCenter .modal-dialog .modal-content .modal-footer .top-section h2 {
-    font-size: 50px;
-  }
-  #customerCenter .modal-dialog .modal-content .modal-footer .top-section h4 {
-    font-size: 20px;
-  }
-  #customerCenter .modal-dialog .modal-content .modal-footer .top-section p {
-    font-size: 14px;
-  }
-}
-#customerCenter .modal-dialog .modal-content .modal-footer .bottom-section {
-  text-align: center;
-  padding: 20px;
-}
-#customerCenter .modal-dialog .modal-content .modal-footer .bottom-section button {
-  background: #fff;
-  color: #ff8200;
-  border: 1px solid #ff8200;
-  font-size: 24px;
-  font-family: 'Calibri-Bold';
-  padding: 7px 40px;
-  width: 100%;
-  max-width: 338px;
-}
-
 /*
 * Product Details Page
 */
@@ -3833,7 +3202,7 @@ body {
 }
 
 .fwd-savie-wrapper .product-details .carousel .carousel-control.right {
-  background-image: url(../images/carousel/right-nav.png);
+  background-image: url(../../images/savie/carousel/right-nav.png);
   background-repeat: no-repeat;
   background-position: right;
   margin-right: 30px;
@@ -3841,10 +3210,10 @@ body {
 .fwd-savie-wrapper .product-details .carousel .carousel-control.right:hover,
 .fwd-savie-wrapper .product-details .carousel .carousel-control.right:focus,
 .fwd-savie-wrapper .product-details .carousel .carousel-control.right:active {
-  background-image: url(../images/carousel/right-nav-productDetails.png);
+  background-image: url(../../images/savie/carousel/right-nav-productDetails.png);
 }
 .fwd-savie-wrapper .product-details .carousel .carousel-control.left {
-  background-image: url(../images/carousel/left-nav.png);
+  background-image: url(../../images/savie/carousel/left-nav.png);
   background-repeat: no-repeat;
   background-position: left;
   margin-left: 30px;
@@ -3852,15 +3221,15 @@ body {
 .fwd-savie-wrapper .product-details .carousel .carousel-control.left:hover,
 .fwd-savie-wrapper .product-details .carousel .carousel-control.left:focus,
 .fwd-savie-wrapper .product-details .carousel .carousel-control.left:active {
-  background-image: url(../images/carousel/left-nav-productDetails.png);
+  background-image: url(../../images/savie/carousel/left-nav-productDetails.png);
 }
 .fwd-savie-wrapper .product-details .carousel .carousel-inner .product-details-images {
-  background: url(../images/productDetails/power-of-savings-mobile.png) no-repeat center center;
+  background: url(../../images/savie/productDetails/power-of-savings-mobile.png) no-repeat center center;
   background-size: cover;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .product-details .carousel .carousel-inner .product-details-images {
-    background: url(../images/productDetails/power-of-savings.png) no-repeat center center;
+    background: url(../../images/savie/productDetails/power-of-savings.png) no-repeat center center;
     background-size: cover;
   }
 }
@@ -4069,7 +3438,7 @@ body {
   color: black;
 }
 .fwd-savie-wrapper #product-highlights ul li {
-  background-image: url(../images/bullet.png);
+  background-image: url(../../images/savie/bullet.png);
   background-repeat: no-repeat;
   background-position: 0 7px;
   padding-left: 18px;
@@ -4169,7 +3538,7 @@ body {
     padding-top: 45px;
   }
   .fwd-savie-wrapper #product-highlights-desktop.desktop-info .right .col-1 ul li {
-    background-image: url(../images/bullet.png);
+    background-image: url(../../images/savie/bullet.png);
     background-repeat: no-repeat;
     background-position: 0 10px;
     padding-left: 22px;
@@ -4231,7 +3600,7 @@ body {
     margin-top: 90px;
   }
   .fwd-savie-wrapper #product-highlights-desktop.desktop-info .right .col-2 #right-text ul li {
-    background-image: url(../images/bullet.png);
+    background-image: url(../../images/savie/bullet.png);
     background-repeat: no-repeat;
     background-position: 0 10px;
     padding-left: 22px;
@@ -4275,8 +3644,12 @@ body {
 }
 #illustration-filters .btn-tooltip-clear {
   border: none;
-  background-color: transparent;
 }
+
+#illustration-filters .tooltip {
+  width: 200px;
+}
+
 #illustration-filters .tooltip-inner {
   background-color: #ff8200;
 }
@@ -4284,7 +3657,7 @@ body {
   border-right-color: #ff8200;
 }
 #illustration-filters .info-tip {
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -570px -19px;
   width: 13px;
   height: 13px;
@@ -4391,7 +3764,7 @@ body {
   color: white;
   font-family: 'foco_regular';
   font-size: 24px;
-  margin: 3px 5px 0;
+  margin: 9px 5px 0;
 }
 #illustration-filters #investment-amount #hkd span {
   font-family: 'Calibri';
@@ -4559,7 +3932,7 @@ body {
 }
 #illustration-filters #birthday > div .date {
   height: 40px;
-  background-image: url(../images/calendar.png);
+  background-image: url(../../images/savie/calendar.png);
   background-repeat: no-repeat;
   border: none;
   padding: 0;
@@ -4593,6 +3966,13 @@ body {
     width: 20%;
     float: left;
     padding: 0 0 0 3.5%;
+    padding-top: 93px;
+  }
+  #illustration-filters .apply .btn.btn-orange.calculate {
+    padding: 0 10px 0 40px;
+  }
+  #illustration-filters .apply .btn.btn-orange.calculate .icon.icon-chevron-thin-right {
+    padding-left: 30px;
   }
   #illustration-filters .apply .next {
     width: 100%;
@@ -4605,9 +3985,6 @@ body {
 }
 #illustration-filters .apply .next {
   max-width: none;
-}
-#illustration-filters .tooltip {
-  width: 200px;
 }
 
 /*
@@ -4839,11 +4216,14 @@ span.explanation {
   margin-right: auto;
   margin-top: 30px;
 }
-@media (min-width: 992px) {
-  .fwd-savie-wrapper #thankYouModal .modal-dialog {
-    margin-top: 105px;
-  }
+
+@media (min-width: 992px){
+	.fwd-savie-wrapper #thankYouModal .modal-dialog {
+	    margin-top: 105px;
+	}
 }
+
+
 .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content {
   padding: 0;
 }
@@ -5092,7 +4472,7 @@ span.explanation {
   border-radius: 0;
 }
 .fwd-savie-wrapper #RC .slider-handle, .fwd-savie-wrapper #RC2 .slider-handle {
-  background-image: url(../images/handle.png);
+  background-image: url(../../images/savie/handle.png);
   height: 20px;
   width: 11px;
   background-repeat: no-repeat;
@@ -5139,36 +4519,6 @@ span.explanation {
   ** Chart
   **/
 }
-.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
-  max-height: 800px;
-  overflow: scroll;
-}
-@media (min-width: 768px) {
-  .fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
-    overflow: hidden;
-  }
-}
-.fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn {
-  height: 50px;
-  width: 60%;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn {
-    height: 80px;
-    font-size: 36px;
-    font-family: 'Calibri-Bold';
-    width: 220px;
-  }
-}
-.fwd-savie-wrapper .container-fluid.proceed-block.text-center h2 {
-  font-size: 24px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .container-fluid.proceed-block.text-center h2 {
-    font-size: 36px;
-    margin-bottom: 21px;
-  }
-}
 .fwd-savie-wrapper .investment {
   padding: 0;
   margin-top: 15px;
@@ -5185,7 +4535,6 @@ span.explanation {
 }
 .fwd-savie-wrapper .investment .btn-tooltip-clear {
   border: none;
-  background-color: transparent;
 }
 .fwd-savie-wrapper .investment .tooltip-inner {
   background-color: #ff8200;
@@ -5194,35 +4543,12 @@ span.explanation {
   border-right-color: #ff8200;
 }
 .fwd-savie-wrapper .investment .info-table-tip {
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -513px -19px;
   width: 13px;
   height: 13px;
   border: 0;
   margin-left: 12px;
-}
-.fwd-savie-wrapper .investment .after-3-years-btn {
-  text-align: center;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .investment .after-3-years-btn {
-    padding-bottom: 58px;
-  }
-}
-.fwd-savie-wrapper .investment .after-3-years-btn .btn.btn-white.see-more {
-  height: 50px;
-  width: 60%;
-  text-align: center;
-  padding: 0;
-  margin-top: 10px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .investment .after-3-years-btn .btn.btn-white.see-more {
-    height: 80px;
-    width: 535px;
-    font-size: 36px;
-    font-family: 'Calibri-Bold';
-  }
 }
 .fwd-savie-wrapper .investment .tab-pane.summary-tab {
   background-color: #f2f5f8;
@@ -5282,7 +4608,7 @@ span.explanation {
   border-right-color: #ff8200;
 }
 .fwd-savie-wrapper .investment .investment-table-desktop .info-tip {
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -129px -15px;
   width: 20px;
   height: 20px;
@@ -5343,7 +4669,7 @@ span.explanation {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url("../images/salesIllustration/dropdown-image.png") no-repeat;
+  background: url("../../images/savie/salesIllustration/dropdown-image.png") no-repeat;
   background-position: 80px;
   height: 40px;
 }
@@ -5746,6 +5072,9 @@ span.explanation {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .investment .tab-content.credits .percent-buttons button {
     float: right;
+    /*background-color: #b0bdbd;
+    border: none;
+    color: #fff;*/
     background-color: transparent;
     border: solid 1px #ff8200;
     color: #ff8200;
@@ -5975,7 +5304,7 @@ span.explanation {
   bottom: -8px;
   width: 18px;
   height: 8px;
-  background: url("../images/tooltip-tip.png");
+  background: url("../../images/savie/tooltip-tip.png");
 }
 .fwd-savie-wrapper .investment-summary .fwd-chart .x-axis-label {
   position: absolute;
@@ -6298,7 +5627,7 @@ span.dup-error-msg {
   text-align: center;
 }
 .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
-  background-color: transparent;
+  background-color: #f1f3f5;
   border-radius: 0;
   height: 40px;
   border: 0;
@@ -6317,8 +5646,6 @@ span.dup-error-msg {
   -webkit-appearance: none;
   /* Chrome and its variants  */
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
-  position: relative;
-  z-index: 2;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
@@ -6329,7 +5656,6 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .page-application .selectDiv {
   position: relative;
-  background-color: #f1f3f5;
 }
 .fwd-savie-wrapper .page-application .selectDiv .icon-chevron-thin-down.orange-caret {
   height: 40px;
@@ -6343,18 +5669,10 @@ span.dup-error-msg {
   cursor: pointer;
   bottom: 10px;
   top: 0;
-  z-index: 1;
-}
-.fwd-savie-wrapper .page-application .selectDiv input[type="text"] {
-  position: relative;
-  background-color: transparent;
-  z-index: 2;
 }
 .fwd-savie-wrapper .page-application .selectEmployment {
   width: 100%;
   position: relative;
-  background-color: #f1f3f5;
-  height: 40px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .page-application .selectEmployment {
@@ -6374,12 +5692,10 @@ span.dup-error-msg {
   padding-right: 17px;
   background-color: #f1f3f5;
   cursor: pointer;
-  z-index: 1;
 }
 .fwd-savie-wrapper .page-application .selectBeneficiary {
   width: 100%;
   position: relative;
-  background-color: #f1f3f5;
 }
 .fwd-savie-wrapper .page-application .selectBeneficiary .icon-chevron-thin-down.orange-caret {
   height: 40px;
@@ -6481,7 +5797,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .page-divider {
   height: 1px;
-  background: url(../../assets/images/page-divider.png);
+  background: url(../../images/savie/page-divider.png);
   width: 100%;
 }
 .fwd-savie-wrapper .page-divider-margin {
@@ -6566,7 +5882,7 @@ span.dup-error-msg {
   margin-bottom: 10px;
 }
 .fwd-savie-wrapper .personal-info-widget .form-control.date-textbox {
-  background-image: url(../images/calendar.png);
+  background-image: url(../../images/savie/calendar.png);
   background-repeat: no-repeat;
   padding-left: 50px;
   border-radius: 0;
@@ -6627,7 +5943,7 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper .personal-info-widget h2 span.info-tooltip {
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -344px -13px;
   width: 27px;
   height: 24px;
@@ -6661,7 +5977,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .personal-info-widget h2 .tooltip.right .tooltip-arrow {
   top: 38% !important;
   border: 0;
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   width: 11px;
   height: 20px;
   display: inline-block;
@@ -7228,7 +6544,7 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper #beneficiary-info .beneficiary-info-header h2 span.info-tooltip {
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -344px -13px;
   width: 27px;
   height: 24px;
@@ -7262,7 +6578,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper #beneficiary-info .beneficiary-info-header h2 .tooltip.right .tooltip-arrow {
   top: 38% !important;
   border: 0;
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   width: 11px;
   height: 20px;
   display: inline-block;
@@ -8941,7 +8257,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .signature .tooltip.right .tooltip-arrow {
   top: 38% !important;
   border: 0;
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   width: 11px;
   height: 20px;
   display: inline-block;
@@ -8970,7 +8286,7 @@ span.dup-error-msg {
   border-right-color: #ff8200;
 }
 .fwd-savie-wrapper .signature span.check-correct-signature {
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -94px -13px;
   width: 26px;
   height: 26px;
@@ -8995,7 +8311,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .signature .info {
   display: none;
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -129px -15px;
   width: 20px;
   height: 20px;
@@ -9199,7 +8515,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .document-upload .info {
   display: none;
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -129px -15px;
   width: 20px;
   height: 20px;
@@ -9266,7 +8582,7 @@ span.dup-error-msg {
   padding-top: 32px;
 }
 .fwd-savie-wrapper .document-upload .upload-now-section .eservices-passport-md h4 span.eserv-icon {
-  background: url("../images/eserv-icon.png") no-repeat center center;
+  background: url("../../images/savie/eserv-icon.png") no-repeat center center;
   position: absolute;
   height: 22px;
   width: 37px;
@@ -9303,7 +8619,7 @@ span.dup-error-msg {
   outline: 0;
 }
 .fwd-savie-wrapper .document-upload .upload-now-section .document-upload-progress span.upload-cancel {
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -379px -18px;
   width: 16px;
   height: 16px;
@@ -9345,7 +8661,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .document-upload .upload-now-section .dropzone .dz-preview .dz-success-mark,
 .fwd-savie-wrapper .document-upload .upload-now-section .dropzone .dz-preview.dz-error .dz-error-mark {
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -232px 0;
   width: 50px;
   height: 50px;
@@ -9367,7 +8683,7 @@ span.dup-error-msg {
   margin-right: auto;
 }
 .fwd-savie-wrapper .document-upload .upload-now-section .finish-upload span.finish-upload-check {
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -232px 0;
   width: 50px;
   height: 50px;
@@ -9418,7 +8734,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .document-upload .upload-now-section .select-file span.mobile-camera,
 .fwd-savie-wrapper .document-upload .upload-now-section .select-file-passport span.mobile-camera,
 .fwd-savie-wrapper .document-upload .upload-now-section .select-file-hkid span.mobile-camera {
-  background: url("../images/sprite-icons.png") no-repeat center center;
+  background: url("../../images/savie/sprite-icons.png") no-repeat center center;
   background-position: -193px -13px;
   width: 30px;
   height: 25px;
@@ -10102,69 +9418,6 @@ span.dup-error-msg {
   left: -33px;
   top: -3px;
 }
-.fwd-savie-wrapper .thank-you-container .details-full h2 {
-  border-top: 1px dotted #d6dde3;
-  padding-bottom: 14px;
-  padding-top: 16px;
-  margin-top: 10px;
-}
-.fwd-savie-wrapper .thank-you-container .details-full h2.bring-things {
-  border: 0;
-  margin-top: -5px;
-  padding-top: 0;
-  padding-bottom: 20px;
-}
-.fwd-savie-wrapper .thank-you-container .details-full .appointment-detail label {
-  max-width: 180px;
-}
-.fwd-savie-wrapper .thank-you-container .offline-procedure {
-  background-color: #f1f3f5;
-  font-size: 18px;
-  color: #636466;
-  position: relative;
-  border-radius: 15px;
-  margin: 30px auto 20px auto;
-  max-width: 263px;
-  height: 277px;
-  padding: 60px 5px 0 5px;
-}
-.fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3 {
-  padding-top: 43px;
-}
-.fwd-savie-wrapper .thank-you-container .offline-procedure p {
-  margin: 0;
-}
-.fwd-savie-wrapper .thank-you-container .offline-procedure p span {
-  display: block;
-  font-family: 'Calibri', Arial;
-  font-size: 15px;
-  line-height: 15px;
-  padding: 4px 30px;
-}
-.fwd-savie-wrapper .thank-you-container .offline-procedure .step {
-  color: #ffffff;
-  font-family: 'foco_bold';
-  font-size: 26px;
-  background: #ff8200;
-  border: 3px solid #ffffff;
-  border-radius: 50%;
-  width: 56px;
-  height: 56px;
-  display: block;
-  position: absolute;
-  top: -25px;
-  left: 41%;
-  line-height: 54px;
-}
-.fwd-savie-wrapper .thank-you-container .offline-procedure .icon {
-  position: absolute;
-  bottom: 43px;
-  left: 0;
-  width: 100%;
-}
-.fwd-savie-wrapper .thank-you-container .offline-procedure .icon img {
-  margin: 0 auto;
-}
 .fwd-savie-wrapper .thank-you-container .agent-container {
   padding-top: 30px;
 }
@@ -10299,35 +9552,6 @@ span.dup-error-msg {
   background-color: #dd4b39;
   font-size: 26px;
   padding: 11px;
-}
-
-.fwd-savie-wrapper .application-page-header.thank-you .orange-section .description-desktop {
-  display: table;
-  width: 100%;
-  font-size: 18px;
-  height: 80px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .application-page-header.thank-you .orange-section .description-desktop {
-    font-size: 30px;
-    height: 100px;
-  }
-}
-
-.fwd-savie-wrapper .application-flux.thank-you {
-  margin-top: 80px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .application-flux.thank-you {
-    margin-top: 100px;
-  }
-}
-
-button#thank-you-continue {
-  background: #ff8200;
-  color: white;
-  height: 50px;
-  font-family: "Calibri";
 }
 
 .fwd-savie-wrapper .table-review {
@@ -11071,7 +10295,7 @@ button#thank-you-continue {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .fna-row.inner-fna-row .inner-fna-col .inner-col form#input-for-sales.invert input.date-icon {
-    background-image: url(../images/1fna-cal.png);
+    background-image: url(../../images/savie/1fna-cal.png);
     background-repeat: no-repeat;
     padding-left: 45px;
   }
@@ -11409,8 +10633,8 @@ button#thank-you-continue {
   }
 }
 .fwd-savie-wrapper #set-appointment #set-appointment-next {
-  max-width: 560px;
-  width: 100%;
+  max-width: none;
+  width: 50%;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -11540,7 +10764,7 @@ button#thank-you-continue {
   }
 }
 .fwd-savie-wrapper #set-appointment #view-selected-appointment .scheduler div.date {
-  background-image: url(../images/calendar.png);
+  background-image: url(../../images/savie/calendar.png);
   background-repeat: no-repeat;
   padding-left: 60px;
   border-radius: 0;
@@ -11616,106 +10840,11 @@ button#thank-you-continue {
     margin-bottom: 13px;
   }
 }
-.fwd-savie-wrapper #set-appointment .application-page-header .orange-section .description-desktop {
-  display: table;
-  width: 100%;
-  font-size: 18px;
-  height: 80px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper #set-appointment .application-page-header .orange-section .description-desktop {
-    font-size: 30px;
-    height: 100px;
-  }
-}
-.fwd-savie-wrapper #set-appointment .selectDiv {
-  margin-bottom: 10px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper #set-appointment label {
-    padding-top: 7px;
-  }
-}
-.fwd-savie-wrapper #set-appointment input[type="text"] {
-  width: 100%;
-  border: 0;
-  background: transparent;
-  padding: 6px 12px 6px 18px;
-  height: 40px;
-}
-.fwd-savie-wrapper #set-appointment p.confirm-call {
-  color: #ff8200;
-}
-.fwd-savie-wrapper #set-appointment .preferred-date {
-  background: #f1f3f5 url("../images/1fna-cal.png") no-repeat 7px 0px;
-}
-.fwd-savie-wrapper #set-appointment .preferred-date input[type="text"] {
-  padding-left: 50px;
-}
-.fwd-savie-wrapper #set-appointment .timeslot .ui-timepicker-wrapper {
-  width: 100%;
-}
-.fwd-savie-wrapper #set-appointment .centre-info {
-  font-size: 14px;
-  padding-left: 10px;
-}
-.fwd-savie-wrapper #set-appointment .centre-info h4 {
-  font-size: 14px;
-  padding-top: 5px;
-}
-.fwd-savie-wrapper #set-appointment .confirm-appointment {
-  margin-top: 40px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper #set-appointment .confirm-appointment {
-    margin-top: 100px;
-  }
-}
 .fwd-savie-wrapper .broken-line {
   height: 1px;
-  background: url(../../assets/images/broken-line.png);
+  background: url(../../images/savie/broken-line.png);
   width: 100%;
   margin-top: 12px;
-}
-.fwd-savie-wrapper .application-flux.customer-service {
-  margin-top: 80px;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .application-flux.customer-service {
-    margin-top: 100px;
-  }
-}
-.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content,
-.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content {
-  padding: 35px 30px;
-}
-.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content h2,
-.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .registered,
-.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content h2,
-.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .registered {
-  padding-top: 0;
-  text-align: left;
-}
-.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .registered,
-.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .registered {
-  margin-bottom: 35px;
-}
-.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .modal-header,
-.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .modal-header {
-  margin-bottom: 30px;
-}
-.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .modal-body,
-.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .modal-body {
-  text-align: center;
-  margin-bottom: 10px;
-}
-.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .modal-body button,
-.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .modal-body button {
-  width: 70%;
-  min-width: 200px;
-  font-size: 30px;
-  padding: 15px;
-  font-family: 'Calibri';
 }
 
 .fwd-savie-wrapper .fwd-hr {
@@ -11848,52 +10977,6 @@ button#thank-you-continue {
   opacity: 0;
 }
 
-.fwd-savie-wrapper .teaser-banner.container-fluid {
-  padding: 0;
-  position: relative;
-}
-.fwd-savie-wrapper .teaser-banner.container-fluid img.max {
-  width: 100%;
-  height: auto;
-  position: relative;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  top: 0;
-  z-index: -1;
-}
-.fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.desktop.teaser-banner-desktop {
-  display: none;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.desktop.teaser-banner-desktop {
-    display: block;
-    position: absolute;
-    z-index: 2;
-    bottom: 25%;
-  }
-}
-.fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.mobile.teaser-banner-mobile {
-  z-index: 2;
-  display: block;
-  position: absolute;
-  bottom: 20%;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-}
-@media (min-width: 768px) {
-  .fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.mobile.teaser-banner-mobile {
-    bottom: 25%;
-    margin: 0;
-  }
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.mobile.teaser-banner-mobile {
-    display: none;
-  }
-}
 .fwd-savie-wrapper .img-responsive.hidden-xs.hidden-sm.teaser-banner-desktop {
   margin-left: 47px;
   padding-top: 120px;
@@ -11978,39 +11061,60 @@ button#thank-you-continue {
   }
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey .form-control.saveDropdown {
-  color: #9fb1b2;
-  font-size: 24px;
-  background-color: transparent;
-  width: 400px;
-  border-radius: 0;
-  height: 40px;
-  border: 0;
-  font-family: 'Calibri';
-  padding-left: 18px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
-  font-size: 18px;
-  cursor: pointer;
-  border: 0;
-  /* Good browsers universal rule */
-  outline: none;
-  /* safari and its variants  */
-  outline-offset: 0;
-  /* IE and its variants  */
-  -webkit-appearance: none;
-  /* Chrome and its variants  */
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
+	color: #9fb1b2;
+	background-color: transparent;
+    width: 105%;
+	border-radius: 0;
+	height: 40px;
+	border: 0;
+	font-family: 'Calibri';
+	padding-left: 18px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0);
+	font-size: 18px;
+	cursor: pointer;
+	border: 0;      /* Good browsers universal rule */
+	outline: none;     /* safari and its variants  */
+	outline-offset: 0; /* IE and its variants  */
+	-webkit-appearance:none; /* Chrome and its variants  */
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
 }
-.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey .form-control.saveDropdown .options {
-  color: #000;
+
+@media (min-width: 992px) {
+	.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey .form-control.saveDropdown {
+	color: #9fb1b2;
+	background-color: transparent;
+    width: 400px;
+	border-radius: 0;
+	height: 40px;
+	border: 0;
+	font-family: 'Calibri';
+	padding-left: 18px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0);
+	font-size: 18px;
+	cursor: pointer;
+	border: 0;      /* Good browsers universal rule */
+	outline: none;     /* safari and its variants  */
+	outline-offset: 0; /* IE and its variants  */
+	-webkit-appearance:none; /* Chrome and its variants  */
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
 }
-.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey .form-control.saveDropdown::-ms-expand {
-  display: none;
+	
 }
+
+.form-control.saveDropdown::-ms-expand {
+	display: none;
+}
+ 
 .fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey .amount-to-save {
   text-align: center;
   margin: 0 auto;
@@ -12029,7 +11133,7 @@ button#thank-you-continue {
   position: relative;
   margin-top: 15px;
   overflow: hidden;
-  background: url("../images/orange-caret.png") no-repeat 94% 50%;
+  background: url('../../images/savie/orange-caret.png') no-repeat 94% 50%;
   background-color: #f1f3f5;
 }
 @media (min-width: 992px) {
@@ -12115,63 +11219,27 @@ button#thank-you-continue {
   width: 315px;
 }
 .fwd-savie-wrapper .sign-up-teaser {
-  position: absolute;
-  margin-top: -505px;
-  background-color: transparent;
-  text-align: center;
+  background-color: #fff;
+  //top: 0;
   width: 100%;
+  position: relative;
   z-index: 10;
   right: 0;
   padding: 40px 20px 40px 20px;
 }
-.fwd-savie-wrapper .sign-up-teaser button.get-started {
-  background-color: white;
-  color: #ff8200;
-  font-family: 'calibri-bold';
-  height: 48px;
-  width: 65%;
-  max-width: 245px;
-  font-size: 28px;
-  border: 1px solid #ff8000;
-}
 @media (min-width: 992px) {
   .fwd-savie-wrapper .sign-up-teaser {
-    margin-top: 0;
-    position: relative;
     background: rgba(0, 0, 0, 0.5);
     /* Here some time problem for Hover than you can use background color/image */
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000)";
     /* Below IE7 supported */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000);
     right: 4%;
-    max-width: 450px;
-    width: 35%;
-    top: 425px;
+    width: 500px;
+    top: 352px;
     position: absolute;
     padding-left: 65px;
     padding-right: 65px;
-    padding-top: 35px;
-  }
-  .fwd-savie-wrapper .sign-up-teaser button.get-started {
-    background-color: #ff8200;
-    color: white;
-    font-family: 'calibri-bold';
-    font-size: 32px;
-    display: block;
-    width: 94%;
-    height: 80px;
-    text-align: center;
-    padding-top: 5px;
-    margin-top: 27px;
-    margin-bottom: 20px;
-    border: none;
-    max-width: none;
-  }
-}
-@media (min-width: 1200px) {
-  .fwd-savie-wrapper .sign-up-teaser button.get-started {
-    font-size: 48px;
-    padding-top: 5px;
   }
 }
 .fwd-savie-wrapper .sign-up-teaser .sign-up-teaser-form {
@@ -12224,29 +11292,11 @@ button#thank-you-continue {
 .fwd-savie-wrapper .sign-up-teaser p {
   margin: 0;
 }
-.fwd-savie-wrapper .sign-up-teaser p.sign-up-header {
-  color: white;
-  text-shadow: 0.1em 0.1em 0.2em black;
-  text-align: center;
-  max-width: 300px;
-  margin: 0 auto;
-  font-size: 24px;
-  font-family: 'Calibri-Bold';
-  line-height: 28px;
-  padding-bottom: 2px;
-}
+
 @media (min-width: 992px) {
   .fwd-savie-wrapper .sign-up-teaser p.sign-up-header {
-    text-shadow: none;
     text-align: left;
     color: #fff;
-    line-height: 29px;
-    padding-right: 20px;
-    padding-bottom: 13px;
-  }
-  .fwd-savie-wrapper .sign-up-teaser p.sign-up-header a {
-    color: white;
-    text-decoration: underline;
   }
 }
 .fwd-savie-wrapper .sign-up-teaser p.email-notification {
@@ -12270,29 +11320,6 @@ button#thank-you-continue {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .sign-up-teaser .btn.btn-white.btn-sign-up {
     margin-top: 10px;
-  }
-}
-.fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser {
-  margin-top: 10px;
-  width: 100%;
-  height: 60px;
-  border: solid 1px #ff8200;
-  color: #ff8200;
-  background-color: #fff;
-  font-size: 24px;
-  font-family: 'Calibri-Bold';
-  padding: 7px 40px;
-}
-.fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:hover, .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:focus, .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:active {
-  background-color: #ff8200;
-  color: #fff;
-  outline: 0;
-}
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser {
-    background-color: #ff8200;
-    color: #fff;
-    border: 0;
   }
 }
 .fwd-savie-wrapper .sign-up-teaser .pull-left.checkbox {
@@ -12332,11 +11359,7 @@ button#thank-you-continue {
   -o-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
 }
-@media (min-width: 992px) {
-  .fwd-savie-wrapper .sign-up-teaser .pull-left.checkbox label:hover::after {
-    opacity: 0.5;
-  }
-}
+
 .fwd-savie-wrapper .sign-up-teaser .pull-left.checkbox input[type=checkbox] {
   visibility: hidden;
 }
@@ -12360,20 +11383,6 @@ button#thank-you-continue {
   color: #ff8200;
   border-bottom: solid 1px #ff8200;
 }
-.fwd-savie-wrapper .sign-up-teaser ::-webkit-input-placeholder {
-  color: #9fb1b2;
-}
-.fwd-savie-wrapper .sign-up-teaser :-moz-placeholder {
-  /* Firefox 18- */
-  color: #9fb1b2;
-}
-.fwd-savie-wrapper .sign-up-teaser ::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #9fb1b2;
-}
-.fwd-savie-wrapper .sign-up-teaser :-ms-input-placeholder {
-  color: #9fb1b2;
-}
 .fwd-savie-wrapper .sign-up-teaser .form-control.email {
   font-size: 24px;
   color: #000;
@@ -12389,11 +11398,26 @@ button#thank-you-continue {
     margin-bottom: 4px;
   }
 }
+
+.fwd-savie-wrapper .sign-up-teaser .form-control.email-ch {
+	font-size: 22px;
+	color: #000;
+	background-color: #eaeced;
+	border: 0;
+	height: 50px;
+	width: 100%;
+	margin-bottom: 4px;
+}
+
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .sign-up-teaser .form-control.email-ch {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+}
+
 .fwd-savie-wrapper .sign-up-teaser .form-control.email:focus, .fwd-savie-wrapper .sign-up-teaser .form-control.email:hover {
   box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0), 0 0 0px rgba(0, 0, 0, 0);
-}
-.fwd-savie-wrapper .sign-up-teaser .form-control.email-ch {
-  font-size: 22px;
 }
 .fwd-savie-wrapper .teaser {
   position: relative;
@@ -12418,13 +11442,14 @@ button#thank-you-continue {
   width: 100%;
   margin-left: -15px;
   position: absolute;
-  top: -55px;
+  top: -28px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .teaser .money-div {
     width: 0;
     left: -50px;
     margin-left: 0;
+    top: -36px;
   }
 }
 .fwd-savie-wrapper .teaser img.money {
@@ -12452,14 +11477,14 @@ button#thank-you-continue {
   width: 33.33%;
 }
 .fwd-savie-wrapper .teaser ul.crediting-rate-list li .percent {
-  font-size: 40px;
+  font-size: 50px;
   line-height: 45px;
   display: block;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .teaser ul.crediting-rate-list li .percent {
     line-height: 55px;
-    font-size: 54px;
+    font-size: 66px;
   }
 }
 .fwd-savie-wrapper .teaser ul.crediting-rate-list li .gold {
@@ -12562,18 +11587,26 @@ button#thank-you-continue {
   }
 }
 .fwd-savie-wrapper p.additional.top {
-  padding: 8px 0 0 0;
-  font-size: 24px;
-  font-weight: bold;
+  padding: 32px 0 0 0;
+  font-size: 30px;
+  font-family: 'Calibri-Bold';
   color: #ff8200;
   line-height: 28px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper p.additional.top {
-    padding: 30px 0 0 0;
+    padding: 42px 0 0 0;
     width: 46%;
-    font-size: 35px;
+    font-size: 38px;
     line-height: 40px;
+  }
+}
+.fwd-savie-wrapper p.additional.top.lower {
+  padding: 7px 0 17px 0;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper p.additional.top.lower {
+    padding: 7px 0 11px 0;
   }
 }
 .fwd-savie-wrapper p.sign-up {
@@ -12604,13 +11637,26 @@ button#thank-you-continue {
   }
 }
 .fwd-savie-wrapper p.bottom-text.upper {
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 10px;
+  font-family: 'Calibri-Bold';
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper p.bottom-text.upper {
-    margin: 30px 0 20px;
+    margin: 10px 0 13px 0;
   }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper p.bottom-text.upper {
+    margin: 10px 0 13px 0;
+  }
+}
+.fwd-savie-wrapper p.bottom-text.lower {
+  font-size: 14px;
+  line-height: 16px;
+}
+.fwd-savie-wrapper p.bottom-text.lower span.asterisk {
+  color: #ff8200;
 }
 .fwd-savie-wrapper span.add {
   color: #ff8200;
@@ -12766,11 +11812,12 @@ button#thank-you-continue {
 .fwd-savie-wrapper .teaser-confirmation .wa_btn .whatsapp-icon {
   font-size: 24px;
   position: absolute;
-  left: 16px;
+  left: 33px;
   top: 6px;
 }
 .fwd-savie-wrapper .teaser-confirmation .fa.fa-facebook.fwd-fb {
-  padding-right: 10px;
+  padding-right: 18px;
+  margin-left: -10px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .teaser-confirmation .fwd-div-btn {
@@ -12948,7 +11995,7 @@ button#thank-you-continue {
 }
 #application-registration form .page-divider {
   height: 1px;
-  background: url(../../assets/images/registration-divider.png);
+  background: url(../../images/savie/registration-divider.png);
   width: 100%;
 }
 #application-registration form .statement {
@@ -13079,25 +12126,28 @@ button#thank-you-continue {
 }
 
 .fwd-savie-wrapper .banner-widget.hunger-selling {
-  background: url("../../assets/images/hunger-selling-banner-mobile.png") center center no-repeat;
+  background: url("../../images/savie/hunger-selling-banner-mobile.jpg") center center no-repeat;
   background-size: cover;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .banner-widget.hunger-selling {
-    background: url("../../assets/images/hunger-selling-banner-dsktop.png") center center no-repeat;
+    background: url("../../images/savie/hunger-selling-banner-dsktop.jpg") center center no-repeat;
     background-size: cover;
   }
 }
+
 .fwd-savie-wrapper .banner-widget.hunger-selling-ch {
-  background: url("../../assets/images/hunger-selling-banner-mobile.png") center center no-repeat;
+  background: url("../../images/savie/ifwd_savie-hero-banner_mobile_cn_background.jpg") center center no-repeat;
   background-size: cover;
 }
+
 @media (min-width: 992px) {
   .fwd-savie-wrapper .banner-widget.hunger-selling-ch {
-    background: url("../../assets/images/ifwd_savie-hero-banner-background_cn.jpg") center center no-repeat;
-    background-size: cover;
+    background: url("../../images/savie/ifwd_savie-hero-banner-background_cn.jpg") center center no-repeat;
+	background-size: cover;
   }
 }
+
 .fwd-savie-wrapper .banner-widget .hunger-selling-text {
   font-size: 24px;
   font-family: 'Calibri-bold';
@@ -13951,7 +13001,7 @@ button#thank-you-continue {
   }
 }
 .fwd-savie-wrapper .pull-left.eServices-sidebar .menu a.link-menu span.eServices-icons {
-  background: url("../images/eServices-icons.png") no-repeat center center;
+  background: url("../../images/savie/eServices-icons.png") no-repeat center center;
   width: 32px;
   height: 32px;
   display: block;
@@ -14123,7 +13173,7 @@ button#thank-you-continue {
   vertical-align: middle;
 }
 .fwd-savie-wrapper .notifications-mobile .notification-body ul li.notifications-list .table .table-cell.icons span.eServices-notification-icon {
-  background: url("../images/eServices-icons.png") no-repeat center center;
+  background: url("../../images/savie/eServices-icons.png") no-repeat center center;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -14477,4 +13527,1832 @@ body.chin .fwd-savie-wrapper .sign-up-teaser p.sign-up-header {
 body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn,
 body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   width: 230px;
+}
+
+.fwd-savie-wrapper .teaser-confirmation a.back-at-home:hover, 
+.fwd-savie-wrapper .teaser-confirmation a.back-at-home:focus, 
+.fwd-savie-wrapper .teaser-confirmation a.back-at-home:active {
+	color: #fff;
+    background-color: #ff8200;
+}
+
+.color1 {
+ 	color: #000 !important;
+ }
+ 
+.fwd-savie-wrapper .sign-up-teaser ::-webkit-input-placeholder {
+  color: #9fb1b2;
+}
+.fwd-savie-wrapper .sign-up-teaser :-moz-placeholder {
+  /* Firefox 18- */
+  color: #9fb1b2;
+}
+.fwd-savie-wrapper .sign-up-teaser ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #9fb1b2;
+}
+.fwd-savie-wrapper .sign-up-teaser :-ms-input-placeholder {
+  color: #9fb1b2;
+}
+
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .sign-up-teaser .pull-left.checkbox label:hover::after {
+    opacity: 0.5;
+  }
+}
+
+.fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey .form-control.saveDropdown .options {
+    color: #000;
+}
+
+.fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser {
+  margin-top: 10px;
+  width: 100%;
+  height: 60px;
+  border: solid 1px #ff8200;
+  color: #ff8200;
+  background-color: #fff;
+  font-size: 24px;
+  font-family: 'Calibri-Bold';
+  padding: 7px 40px;
+}
+.fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:hover, .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:focus, .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:active {
+  background-color: #ff8200;
+  color: #fff;
+  outline: 0;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser {
+    background-color: #ff8200;
+    color: #fff;
+    border: 0;
+  }
+}
+
+.fwd-savie-wrapper .teaser-container{
+  padding: 0;
+  position: relative;
+}
+
+.fwd-savie-wrapper .teaser-banner.container-fluid {
+  padding: 0;
+  position: relative;
+}
+.fwd-savie-wrapper .teaser-banner.container-fluid img.max {
+  width: 100%;
+  height: auto;
+  position: relative;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  z-index: -1;
+}
+.fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.desktop.teaser-banner-desktop {
+  display: none;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.desktop.teaser-banner-desktop {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    bottom: 25%;
+    width: 500px;
+  }
+}
+.fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.mobile.teaser-banner-mobile {
+  z-index: 2;
+  display: block;
+  position: absolute;
+  bottom: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 500px;
+}
+@media (min-width: 768px) {
+  .fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.mobile.teaser-banner-mobile {
+    bottom: 25%;
+    margin: 0;
+    max-width: 327px;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .teaser-banner.container-fluid .img-responsive.mobile.teaser-banner-mobile {
+    display: none;
+  }
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.fwd-savie-wrapper #other-benefits-teaser{
+    margin: auto;
+    background-color: #fff;
+    padding: 34px 32px 0 32px;
+	margin-left: 15px;
+    margin-right: 15px;
+}
+@media (min-width: 992px){
+	.fwd-savie-wrapper #other-benefits-teaser{
+		margin-left: 0;
+		margin-right: 0;
+		width: 100%;
+		max-width: none;
+		margin-top: 5px;
+		padding-top: 0px;
+	}
+}
+
+@media (min-width: 1200px){
+	.fwd-savie-wrapper #other-benefits-teaser{
+		  height: 340px;
+	}
+	  
+}
+
+
+.fwd-savie-wrapper #other-benefits-teaser img{
+	padding-top: 18px;
+    padding-bottom: 26px;
+}
+
+@media (min-width: 992px){
+	.fwd-savie-wrapper #other-benefits-teaser img {
+		padding-right: 40px;
+		/* margin-top: -67px; */
+		margin-top: -33px;
+	}
+}
+
+.disclaimer-policy-teaser{
+    padding-top: 17px;
+    padding-bottom: 20px;
+    margin: auto;
+	margin-left: 15px;
+    margin-right: 15px;
+}
+
+.fwd-savie-wrapper .disclaimer-policy-teaser.teaser-policy{
+	padding-bottom: 17px;
+}
+
+@media (min-width: 992px){
+	.disclaimer-policy-teaser {
+		padding: 35px 0;
+		width: 100%;
+		max-width: none;
+	}
+}
+
+.disclaimer-policy-teaser p {
+    font-size: 12px;
+    margin-bottom: 11px;
+    line-height: 14px;
+}
+
+@media (min-width: 992px){
+	.disclaimer-policy-teaser p {
+		font-size: 14px;
+		margin-bottom: 0;
+		line-height: 19px;
+	}
+}
+
+
+
+
+.fwd-savie-wrapper #other-benefits-teaser .left-clear {
+    clear: both;
+}
+
+.fwd-savie-wrapper #other-benefits-teaser h2 {
+    color: #373a36;
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 12px;
+}
+
+@media (min-width: 992px){
+	.fwd-savie-wrapper #other-benefits-teaser h2 {
+		padding-top: 33px;
+		margin-bottom: 26px;
+		text-align: left;
+		margin-left: -15px;
+	}
+}
+
+.fwd-savie-wrapper #other-benefits-teaser ul {
+    padding: 0 0 14px 4px;
+    margin: 0px;
+    list-style-image: url(../../images/savie/bullet.png);
+    font-size: 18px;
+    /* margin-left: 21px; */
+    /* margin-left: 380px; */
+}
+
+.fwd-savie-wrapper #other-benefits-teaser ul li {
+    color: #373a36;
+    padding-bottom: 13px;
+}
+
+@media (min-width: 992px){
+	.fwd-savie-wrapper #other-benefits-teaser ul li {
+		padding-bottom: 7px;
+	}
+}
+
+.fwd-savie-wrapper #other-benefits-teaser ul li p {
+    margin: 0px 0px -2px;
+    line-height: 24px;
+}
+
+
+@media (min-width: 992px){
+	.fwd-savie-wrapper .disclaimer-policy-teaser.teaser-policy {
+		padding-bottom: 35px;
+		margin-left: 0;
+	}
+}
+
+
+
+.fwd-savie-wrapper .investment .after-3-years-btn {
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .investment .after-3-years-btn {
+    padding-bottom: 58px;
+  }
+}
+.fwd-savie-wrapper .investment .after-3-years-btn .btn.btn-white.see-more {
+  height: 50px;
+  width: 80%;
+  text-align: center;
+  padding: 0;
+  margin-top: 10px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .investment .after-3-years-btn .btn.btn-white.see-more {
+    height: 80px;
+    width: 535px;
+    font-size: 36px;
+    font-family: 'Calibri-Bold';
+  }
+}
+
+.fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn {
+  height: 50px;
+  width: 60%;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn {
+    height: 80px;
+    font-size: 36px;
+    font-family: 'Calibri-Bold';
+    width: 220px;
+  }
+}
+.fwd-savie-wrapper .container-fluid.proceed-block.text-center h2 {
+  font-size: 24px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .container-fluid.proceed-block.text-center h2 {
+    font-size: 36px;
+    margin-bottom: 21px;
+  }
+}
+
+@media (min-width: 768px) {
+  button#thank-you-continue {
+    background: #ff8200;
+    color: white;
+    height: 50px;
+    font-family: "Calibri";
+  }
+}
+
+
+.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
+    max-height: 800px;
+    overflow: scroll;
+}
+
+@media (min-width: 768px){
+.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
+    overflow: hidden;
+}
+}
+
+.fwd-savie-wrapper .yellow-stick-btn {
+  color: #fffffe;
+  font-size: 24px;
+  font-family: 'Calibri-Bold';
+  background-color: #fdb714;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 20;
+  right: 0;
+  top: 50%;
+}
+.fwd-savie-wrapper .yellow-stick-btn .yellow-btn {
+  width: 80px;
+  height: 80px;
+  border: 0;
+  background-color: transparent;
+}
+.fwd-savie-wrapper .yellow-stick-btn .yellow-btn:hover, .fwd-savie-wrapper .yellow-stick-btn .yellow-btn:focus, .fwd-savie-wrapper .yellow-stick-btn .yellow-btn:active {
+  outline: 0;
+}
+.fwd-savie-wrapper .yellow-stick-btn h3 {
+  margin: 0;
+  text-align: center;
+}
+.fwd-savie-wrapper .yellow-stick-btn h4 {
+  margin: 0;
+  text-align: center;
+}
+.fwd-savie-wrapper .yellow-stick-btn img.caret-triangle {
+  position: fixed;
+  bottom: 40.5%;
+  right: 32px;
+}
+
+.fwd-savie-wrapper .teaser .teaser-banner-text .product-downloads {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .teaser .teaser-banner-text .product-downloads {
+    padding-top: 23px;
+    padding-bottom: 0;
+  }
+}
+.fwd-savie-wrapper .teaser .teaser-banner-text a.product {
+  font-size: 18px;
+  color: #ff8200;
+  font-family: 'Calibri-Bold';
+  display: block;
+  text-align: center;
+}
+.fwd-savie-wrapper .teaser .teaser-banner-text a.product.lower {
+  padding-left: 8px;
+  padding-top: 10px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .teaser .teaser-banner-text a.product.lower {
+    padding-left: 20px;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .teaser .teaser-banner-text a.product {
+    display: inline-block;
+  }
+}
+.fwd-savie-wrapper .teaser .teaser-banner-text img.dl-img {
+  padding-right: 12px;
+  position: relative;
+  top: -3px;
+}
+.fwd-savie-wrapper .teaser .teaser-banner-text img.dl-img.lower {
+  padding-right: 11px;
+}
+.fwd-savie-wrapper p.top {
+  text-align: center;
+  line-height: 24px;
+  padding-bottom: 5px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper p.top {
+    text-align: left;
+    padding-bottom: 0;
+  }
+}
+
+.fwd-savie-wrapper .three-column-widget .fwd-col .col-content .pull-left.mobile-image {
+  width: 30%;
+}
+  
+.fwd-savie-wrapper .three-column-widget .fwd-col .col-content .right {
+  float: left;
+  width: 70%;
+  padding-left: 20px;
+}
+@media (min-width: 768px) {
+  .fwd-savie-wrapper .three-column-widget .fwd-col .col-content .right {
+    width: 70%;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .three-column-widget .fwd-col .col-content .right {
+    float: none;
+    width: 100%;
+  }
+}
+
+.fwd-savie-wrapper .teaser-three-column {
+  background-color: #f1f3f5;
+}
+.fwd-savie-wrapper .other-benefits-teaser {
+  background-color: #f1f3f5;
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits {
+  margin-left: 15px;
+  margin-right: 15px;
+  background-color: #fff;
+  padding: 34px 32px 0 32px;
+  padding: 0 10px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .other-benefits-teaser #other-benefits {
+    width: 100%;
+    max-width: none;
+    margin-top: 5px;
+    padding-top: 0px;
+    /* height: 277px; */
+    height: 380px;
+    margin-left: 0;
+    padding: 0 32px 0 32px;
+  }
+}
+@media (min-width: 1200px) {
+  .fwd-savie-wrapper .other-benefits-teaser #other-benefits {
+    height: 340px;
+  }
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .left-clear {
+  clear: both;
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .pull-left.mobile-image {
+  width: 30%;
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .right {
+  float: left;
+  width: 70%;
+  padding-left: 20px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .other-benefits-teaser #other-benefits .right {
+    float: none;
+    width: 100%;
+    padding-left: 0;
+  }
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits img {
+  padding-top: 38px;
+  padding-bottom: 26px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .other-benefits-teaser #other-benefits img {
+    padding-right: 40px;
+    /* margin-top: -67px; */
+    margin-top: -33px;
+	padding-top: 0;
+  }
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits h2 {
+  color: #373a36;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 12px;
+  padding-top: 20px;
+  text-align: left;
+  margin-left: -10px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .other-benefits-teaser #other-benefits h2 {
+    padding-top: 33px;
+    margin-bottom: 26px;
+    text-align: left;
+    margin-left: -15px;
+    font-size: 36px;
+  }
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits ul {
+  padding: 0 0 14px 4px;
+  margin: 0px;
+  list-style-image: url(../../images/savie/bullet.png);
+  font-size: 18px;
+  /* margin-left: 21px; */
+  /* @media (min-width: $screen-md-min) { */
+  /*	margin-left: 380px; */
+  /* } */
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits ul a.read-more {
+  cursor: pointer;
+  font-size: 14px;
+  color: #ff8200;
+  border-bottom: solid 1px #ff8200;
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits ul li {
+  color: #373a36;
+  padding-bottom: 13px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .other-benefits-teaser #other-benefits ul li {
+    padding-bottom: 7px;
+  }
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits ul li p {
+  margin: 0px 0px -2px;
+  line-height: 18px;
+  font-size: 14px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .other-benefits-teaser #other-benefits ul li p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .item {
+  background: white;
+  text-align: center;
+  /*height: 55px;*/
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .carousel {
+  margin-top: 30px;
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .carousel-control.left, .fwd-savie-wrapper .other-benefits-teaser #other-benefits .carousel-control.right {
+  background-repeat: no-repeat;
+  background-position: 0px center;
+  opacity: 1;
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .carousel-control.right {
+  background-image: url(../images/carousel/right-nav.png);
+  background-position: right;
+  margin-right: 15px;
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .carousel-control.right:active,
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .carousel-control.right:hover,
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .carousel-control.right:focus {
+  background-image: url(../images/carousel/right-nav-hover.png);
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .carousel-control.left {
+  background-image: url(../images/carousel/left-nav.png);
+  margin-left: 15px;
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .carousel-control.left:active,
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .carousel-control.left:focus,
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .carousel-control.left:hover {
+  background-image: url(../images/carousel/left-nav-hover.png);
+}
+.fwd-savie-wrapper .other-benefits-teaser #other-benefits .carousel-control {
+  height: 50px;
+}
+.fwd-savie-wrapper .o2o-landing.banner-widget.hunger-selling {
+  background: transparent;
+  height: auto;
+  position: relative;
+}
+.fwd-savie-wrapper .o2o-landing.banner-widget.hunger-selling .breadcrumbs-product-details a:hover,
+.fwd-savie-wrapper .o2o-landing.banner-widget.hunger-selling .breadcrumbs-product-details .fa-play {
+  color: #fff;
+}
+.fwd-savie-wrapper .o2o-landing.banner-widget .mobile-banner {
+  display: block;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .mobile-banner {
+    display: none;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.banner-widget .desktop-banner {
+  display: none;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .desktop-banner {
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .buy-now.hunger-buy-now {
+    float: right;
+    border: 0;
+    margin-right: 30px;
+    max-width: 200px;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .buy-now.hunger-buy-now {
+    max-width: 300px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.banner-widget .breadcrumbs {
+  display: none;
+}
+.fwd-savie-wrapper .o2o-landing.banner-widget .breadcrumbs .breadcrumbs-landing {
+  top: 0;
+}
+@media (min-width: 768px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .breadcrumbs {
+    display: block;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.banner-widget .text-content {
+  display: none;
+}
+@media (min-width: 768px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .text-content {
+    display: block;
+    position: absolute;
+    top: 50px;
+    margin: 0;
+    padding: 0;
+  }
+  .fwd-savie-wrapper .o2o-landing.banner-widget .text-content.hunger-img img {
+    margin: 0;
+    padding: 0;
+    width: 340px;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .text-content {
+    top: 28%;
+  }
+  .fwd-savie-wrapper .o2o-landing.banner-widget .text-content.hunger-img img {
+    width: 50%;
+    max-width: 550px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section {
+  position: absolute;
+  bottom: 29px;
+  width: 100%;
+}
+.fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .hunger-selling-text {
+  margin: 0 auto;
+}
+.fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
+  max-width: 290px;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
+    max-width: 100%;
+    font-size: 20px;
+    text-align: right;
+    padding-right: 30px;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
+    font-size: 24px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-2 {
+  max-width: 325px;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-2 {
+    max-width: 100%;
+    font-size: 20px;
+    text-align: right;
+    padding-right: 30px;
+    margin-bottom: 5px;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-2 {
+    font-size: 24px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section #hunger-selling-buy-now {
+  margin-top: 5px;
+}
+.fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section #hunger-selling-buy-now:hover {
+  color: #ff8000;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section {
+    bottom: 20px;
+  }
+}
+@media (min-width: 768px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section {
+    bottom: 8%;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing p.additional.top {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing p.bottom-text.upper {
+    text-align: center;
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing p.bottom-text {
+    width: 100%;
+    text-align: center;
+  }
+}
+.fwd-savie-wrapper .o2o-landing#flux .disclaimer-policy .policy-provisions {
+  margin-bottom: 10px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing#flux .disclaimer-policy .policy-provisions {
+    margin-bottom: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .fwd-savie-wrapper .o2o-landing#flux #other-benefits {
+    height: 278px;
+  }
+  .fwd-savie-wrapper .o2o-landing#flux #other-benefits img {
+    margin-top: -65px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing#flux #landing-three-column .row-top {
+  margin-top: 40px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing#flux #landing-three-column .row-top {
+    margin-top: 19px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing#flux #landing-three-column .fwd-col .col-content h2 {
+  padding-top: 38px;
+}
+.fwd-savie-wrapper .o2o-landing#flux #landing-three-column .fwd-col .col-content img {
+  padding-top: 13px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing#flux #landing-three-column .fwd-col .col-content {
+    height: 452px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.teaser {
+  padding-top: 55px;
+  padding-bottom: 8px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.teaser ul.crediting-rate-list {
+    width: 100%;
+    max-width: 605px;
+    margin: 0 auto;
+    padding-right: 40px;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.teaser .teaser-banner-text {
+    width: 65%;
+    padding-left: 0;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.teaser .money-div {
+  top: -20px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.teaser .money-div {
+    top: -50px;
+    left: 0;
+  }
+  .fwd-savie-wrapper .o2o-landing.teaser .money-div .money {
+    width: 102px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.teaser .additional.top {
+  max-width: 280px;
+  margin: 0 auto;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.teaser .additional.top {
+    max-width: 525px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    text-align: left;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.teaser .crediting-rate-list {
+  padding: 25px 0;
+}
+.fwd-savie-wrapper .o2o-landing.teaser .crediting-rate-list li .percent {
+  font-size: 50px;
+  line-height: 50px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.teaser .crediting-rate-list li .percent {
+    font-size: 75px;
+    line-height: 75px;
+  }
+  .fwd-savie-wrapper .o2o-landing.teaser .crediting-rate-list li .year {
+    font-size: 22px;
+    line-height: 22px;
+  }
+  .fwd-savie-wrapper .o2o-landing.teaser .crediting-rate-list li .white {
+    height: 75%;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.teaser {
+    padding-top: 0;
+    padding-bottom: 32px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans {
+  position: relative;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner-text {
+  padding: 42px 30px 25px;
+  text-align: center;
+  background-color: #e9edf0;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner-text p {
+  padding: 8px 48px 5px;
+  background-color: #ff8200;
+  max-width: 355px;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 24px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner-text {
+    background-color: #e1e4e4;
+    padding-bottom: 0;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner {
+  background-color: #e9edf0;
+  padding-top: 6px;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner p {
+  font-size: 24px;
+  font-family: 'Calibri';
+  color: #fff;
+  background-color: #fdb714;
+  padding: 15px 10%;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner p .bold {
+  font-family: 'Calibri-bold';
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner p {
+    padding: 30px 10%;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img {
+  width: 100%;
+  max-width: 100%;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.mobile {
+  display: block;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.desktop {
+  display: none;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.desktop {
+    display: block;
+    max-width: 1114px;
+    margin: 0 auto;
+  }
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.mobile {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner {
+    margin-top: 0;
+    background-color: #e1e4e4;
+    padding-bottom: 20px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav {
+  background-color: #e9edf0;
+  overflow: hidden;
+  padding-top: 26px;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .prev,
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .next {
+  width: 50%;
+  float: left;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .prev a,
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .next a {
+  height: 50px;
+  width: 50px;
+  display: block;
+  color: #fff;
+  position: relative;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .prev a .icon,
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .next a .icon {
+  display: table-cell;
+  vertical-align: middle;
+  height: 50px;
+  width: 50px;
+  font-size: 29px;
+  text-align: center;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .prev a {
+  background-color: #909393;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .next a {
+  background-color: #484c48;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav {
+    padding: 0;
+    position: absolute;
+    bottom: 148px;
+    right: 0;
+  }
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .prev a, .fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .next a {
+    width: 60px;
+    height: 60px;
+  }
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .prev a .icon, .fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav .next a .icon {
+    width: 60px;
+    height: 60px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu {
+  margin: 0;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download,
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up {
+  padding: 0;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a,
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a {
+  width: 100%;
+  border: 0;
+  outline: none;
+  height: 265px;
+  display: block;
+  text-align: center;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a img,
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a img {
+  max-width: 80px;
+  margin: 15px 0;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text,
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text {
+  color: #fff;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text h2,
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text h2 {
+  font-size: 26px;
+  font-family: 'Calibri-bold';
+  padding: 0 15px;
+  margin: 0 0 15px;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text p,
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text p {
+  font-size: 16px;
+  padding: 0 10px 10px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text p,
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text p {
+    font-size: 18px;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a,
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a {
+    height: 120px;
+  }
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a img,
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a img {
+    margin: 10px 0;
+    max-width: 100%;
+    float: left;
+  }
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text,
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text {
+    float: left;
+    text-align: left;
+    margin: 20px 15px 0;
+    padding: 0 10px;
+  }
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text h2, .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text p,
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text h2,
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text p {
+    padding: 0;
+  }
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text h2,
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text h2 {
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download {
+  background-color: #505759;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a {
+  background-color: #505759;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a {
+    max-width: 500px;
+    float: right;
+    padding-left: 20px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up {
+  background-color: #ff8200;
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a {
+  background-color: #ff8200;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a {
+    max-width: 500px;
+    float: left;
+    padding-left: 60px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing.fwd-action {
+  padding-bottom: 0;
+}
+.fwd-savie-wrapper .o2o-landing.fwd-action .action-one {
+  background-color: #505759;
+}
+.fwd-savie-wrapper .o2o-landing.fwd-action .action-two {
+  background-color: #ff8200;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .o2o-landing.fwd-action {
+    width: 100%;
+    overflow: hidden;
+  }
+  .fwd-savie-wrapper .o2o-landing.fwd-action .fwd-action-two {
+    width: 100%;
+  }
+  .fwd-savie-wrapper .o2o-landing.fwd-action .fwd-action-two button {
+    width: 50%;
+    float: left;
+    padding-top: 0;
+  }
+  .fwd-savie-wrapper .o2o-landing.fwd-action .fwd-action-two .action-two img {
+    margin-top: -15px;
+  }
+}
+.fwd-savie-wrapper .o2o-landing #savings-carousel {
+  background-color: #e9edf0;
+}
+.fwd-savie-wrapper .sign-up-teaser button.get-started {
+  background-color: white;
+  color: #ff8200;
+  font-family: 'calibri-bold';
+  height: 48px;
+  width: 65%;
+  max-width: 245px;
+  font-size: 28px;
+  border: 1px solid #ff8000;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .sign-up-teaser {
+    margin-top: 0;
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    /* Here some time problem for Hover than you can use background color/image */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000)";
+    /* Below IE7 supported */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000);
+    right: 4%;
+    max-width: 450px;
+    width: 35%;
+    top: 425px;
+    position: absolute;
+    padding-left: 65px;
+    padding-right: 65px;
+    padding-top: 35px;
+  }
+  .fwd-savie-wrapper .sign-up-teaser button.get-started {
+    background-color: #ff8200;
+    color: white;
+    font-family: 'calibri-bold';
+    font-size: 32px;
+    display: block;
+    width: 94%;
+    height: 80px;
+    text-align: center;
+    padding-top: 5px;
+    margin-top: 27px;
+    margin-bottom: 20px;
+    border: none;
+    max-width: none;
+  }
+}
+@media (min-width: 1200px) {
+  .fwd-savie-wrapper .sign-up-teaser button.get-started {
+    font-size: 48px;
+    padding-top: 5px;
+  }
+}
+
+
+/**click here button in O2O-landing*/
+.fwd-savie-wrapper .sign-up-teaser p.sign-up-header #signup {
+  text-decoration: underline;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  outline: none;
+}
+@media (min-width: 992px) {
+  /* line 497, ../sass/partials/_teaser.scss */
+  .fwd-savie-wrapper .sign-up-teaser p.sign-up-header #signup {
+    color: white;
+  }
+}
+
+/**Sign up Header in O2O-landing*/
+.fwd-savie-wrapper .sign-up-teaser p.sign-up-header {
+  color: #ff8200;
+  font-size: 24px;
+  font-family: 'Calibri-Bold';
+  text-align: center;
+  max-width: 300px;
+  margin: 0 auto;
+  line-height: 28px;
+  padding-bottom: 2px;
+}
+
+@media (min-width: 992px) {
+  /* line 487, ../sass/partials/_teaser.scss */
+  .fwd-savie-wrapper .sign-up-teaser p.sign-up-header {
+    text-shadow: none;
+    text-align: left;
+    color: #fff;
+    line-height: 29px;
+    padding-right: 20px;
+    padding-bottom: 13px;
+  }
+}
+
+/**Modal in O2O-landing page**/
+ /* line 697, ../sass/partials/_o2o-landing.scss */
+#signup-now-modal .modal-content {
+  max-width: 655px;
+  padding: 23px 10px 3px;
+}
+@media (min-width: 992px) {
+  /* line 697, ../sass/partials/_o2o-landing.scss */
+  #signup-now-modal .modal-content {
+    padding: 23px 20px 3px;
+  }
+}
+/* line 705, ../sass/partials/_o2o-landing.scss */
+#signup-now-modal form input {
+  padding: 13px 10px;
+}
+/* line 709, ../sass/partials/_o2o-landing.scss */
+#signup-now-modal .error-email, #signup-now-modal .error-mobile-no {
+  visibility: hidden;
+  color: #e4002b;
+  font-size: 14px;
+  display: block;
+  padding: 8px 0;
+}
+/* line 717, ../sass/partials/_o2o-landing.scss */
+#signup-now-modal .modal-body {
+  padding: 0;
+}
+@media (min-width: 992px) {
+  /* line 717, ../sass/partials/_o2o-landing.scss */
+  #signup-now-modal .modal-body {
+    padding: 0px 70px;
+  }
+}
+/* line 724, ../sass/partials/_o2o-landing.scss */
+#signup-now-modal #signup-btn {
+  margin-top: 25px;
+}
+@media (min-width: 992px) {
+  /* line 724, ../sass/partials/_o2o-landing.scss */
+  #signup-now-modal #signup-btn {
+    background-color: #ff8200;
+    color: white;
+  }
+}
+/* line 732, ../sass/partials/_o2o-landing.scss */
+#signup-now-modal .fwd-checkbox {
+  margin-right: 0;
+}
+@media (min-width: 992px) {
+  /* line 732, ../sass/partials/_o2o-landing.scss */
+  #signup-now-modal .fwd-checkbox {
+    margin-right: -40px;
+  }
+}
+/* line 737, ../sass/partials/_o2o-landing.scss */
+#signup-now-modal .fwd-checkbox p {
+  padding-left: 25px;
+  padding-top: 2px;
+  color: #333;
+  font-size: 13px;
+  font-family: "Calibri";
+  margin-bottom: 3px;
+  margin-top: 5px;
+}
+/* line 746, ../sass/partials/_o2o-landing.scss */
+#signup-now-modal .fwd-checkbox p a {
+  color: #ff8200;
+  text-decoration: underline;
+}
+/* line 752, ../sass/partials/_o2o-landing.scss */
+#signup-now-modal .fwd-checkbox label {
+  border: solid 1px black;
+}
+
+.fwd-savie-wrapper .three-column-widget.O2O-landing {
+    background-color: #fff;
+}
+
+.fwd-savie-wrapper .teaser-three-column.O2O-landing {
+    background-color: #fff;
+}
+
+.fwd-savie-wrapper .other-benefits-teaser.O2O-landing {
+    background-color: #fff;
+}
+
+
+/**Confirmation-Offline Page**/
+/* line 163, ../sass/partials/_thank-you-update.scss */
+.fwd-savie-wrapper .thank-you-container .offline-procedure {
+  background-color: #f1f3f5;
+  font-size: 18px;
+  color: #636466;
+  position: relative;
+  border-radius: 15px;
+  margin: 30px auto 20px auto;
+  max-width: 263px;
+  height: 277px;
+  padding: 60px 5px 0 5px;
+}
+/* line 174, ../sass/partials/_thank-you-update.scss */
+.fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3 {
+  padding-top: 43px;
+}
+/* line 178, ../sass/partials/_thank-you-update.scss */
+.fwd-savie-wrapper .thank-you-container .offline-procedure p {
+  margin: 0;
+}
+/* line 181, ../sass/partials/_thank-you-update.scss */
+.fwd-savie-wrapper .thank-you-container .offline-procedure p span {
+  display: block;
+  font-family: 'Calibri', Arial;
+  font-size: 15px;
+  line-height: 15px;
+  padding: 4px 30px;
+}
+/* line 190, ../sass/partials/_thank-you-update.scss */
+.fwd-savie-wrapper .thank-you-container .offline-procedure .step {
+  color: #ffffff;
+  font-family: 'foco_bold';
+  font-size: 26px;
+  background: #ff8200;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: block;
+  position: absolute;
+  top: -25px;
+  left: 41%;
+  line-height: 54px;
+}
+/* line 206, ../sass/partials/_thank-you-update.scss */
+.fwd-savie-wrapper .thank-you-container .offline-procedure .icon {
+  position: absolute;
+  bottom: 43px;
+  left: 0;
+  width: 100%;
+}
+/* line 212, ../sass/partials/_thank-you-update.scss */
+.fwd-savie-wrapper .thank-you-container .offline-procedure .icon img {
+  margin: 0 auto;
+}
+
+/**Confirmation Offline Page**/
+/* line 354, ../sass/partials/_thank-you-update.scss */
+.fwd-savie-wrapper .application-page-header.thank-you .orange-section .description-desktop {
+  display: table;
+  width: 100%;
+  font-size: 18px;
+  height: 80px;
+}
+@media (min-width: 992px) {
+  /* line 354, ../sass/partials/_thank-you-update.scss */
+  .fwd-savie-wrapper .application-page-header.thank-you .orange-section .description-desktop {
+    font-size: 30px;
+    height: 100px;
+  }
+}
+
+/* line 365, ../sass/partials/_thank-you-update.scss */
+.fwd-savie-wrapper .application-flux.thank-you {
+  margin-top: 80px;
+}
+@media (min-width: 992px) {
+  /* line 365, ../sass/partials/_thank-you-update.scss */
+  .fwd-savie-wrapper .application-flux.thank-you {
+    margin-top: 100px;
+  }
+}
+
+
+/**Customer Service Centre **/
+/* line 348, ../sass/partials/_page-set-appointment.scss */
+
+/* line 4, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment h2 {
+  font-family: 'Calibri-bold';
+  font-size: 30px;
+  color: #ff8200;
+  text-align: center;
+  margin: 35px 20%;
+  line-height: 30px;
+}
+@media (min-width: 992px) {
+  /* line 4, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment h2 {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+/* line 17, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment h5 {
+  font-size: 14px;
+  font-family: 'Calibri-bold';
+  margin: 0;
+}
+/* line 22, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment h4 {
+  color: #061d2a;
+  font-family: 'Calibri-bold';
+  font-size: 18px;
+  margin: 0;
+}
+/* line 29, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .title-margin {
+  margin-bottom: 15px;
+}
+/* line 32, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .select {
+  width: 100%;
+  height: 50px;
+  font-size: 24px;
+  font-family: 'Calibri-bold';
+  color: #ff8200;
+  border: 1px solid #ff8200;
+  background: white;
+  margin-top: 8px;
+}
+@media (min-width: 992px) {
+  /* line 32, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment .select {
+    max-width: 120px;
+    margin-top: 20%;
+  }
+}
+/* line 48, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .radio-label {
+  color: #ff8000;
+  border: 1px solid #ff8000;
+  width: 100%;
+  text-align: center;
+  padding: 7px 0;
+  font-size: 24px;
+  font-family: 'Calibri-bold';
+}
+@media (min-width: 992px) {
+  /* line 48, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment .radio-label {
+    max-width: 120px;
+    margin-top: 20%;
+  }
+}
+/* line 63, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .radio-label:hover {
+  background: #ff8200;
+  color: #fff;
+  cursor: pointer;
+}
+/* line 69, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment input[type="radio"] {
+  display: none;
+}
+/* line 73, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment input[type="radio"]:checked + label {
+  background: #ff8200;
+  color: #fff;
+}
+/* line 79, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .select:hover,
+.fwd-savie-wrapper #set-appointment .select:active {
+  color: white;
+  background: #ff8200;
+  outline: 0;
+}
+/* line 85, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .select:focus {
+  outline: 0;
+}
+/* line 89, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .confirm {
+  margin-top: 25px;
+  height: 60px;
+}
+@media (min-width: 992px) {
+  /* line 94, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment .left {
+    padding-right: 0;
+  }
+}
+@media (min-width: 992px) {
+  /* line 99, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment .right {
+    padding-left: 15px;
+  }
+}
+/* line 105, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment #set-appointment-next {
+  max-width: 560px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/* line 112, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment #set-application-confirm-btn {
+  max-width: none;
+  width: 50%;
+  margin-top: 20px;
+}
+/* line 118, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .service-centre-cells {
+  padding: 17px 20px 19px;
+  margin-bottom: 19px;
+  border: 1px solid #b7c3cd;
+}
+@media (min-width: 992px) {
+  /* line 118, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment .service-centre-cells {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+  }
+}
+/* line 127, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .service-centre-cells .content {
+  margin-top: 16px;
+}
+/* line 129, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .service-centre-cells .content p {
+  font-family: 'Calibri';
+  font-size: 14px;
+  line-height: 15px;
+  margin-top: 2px;
+}
+/* line 136, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .service-centre-cells .content .operation-hours {
+  margin-bottom: 0;
+}
+/* line 140, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .service-centre-cells .content .inside-divs {
+  margin-top: 17px;
+}
+/* line 144, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .service-centre-cells .content .two-lines {
+  padding-right: 0;
+}
+/* line 148, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .service-centre-cells .content div {
+  margin-top: 15px;
+}
+@media (min-width: 992px) {
+  /* line 148, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment .service-centre-cells .content div {
+    margin-top: 0;
+  }
+}
+/* line 155, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .service-centre-cells .content .col-md-9 {
+  padding-right: 7%;
+}
+@media (min-width: 992px) {
+  /* line 159, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment .service-centre-cells .content .col-md-3 {
+    padding-left: 0;
+  }
+}
+@media (min-width: 992px) {
+  /* line 165, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment .service-centre-cells .content .row {
+    min-height: 170px;
+  }
+}
+/* line 174, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment #service-centre {
+  padding-bottom: 40px;
+}
+/* line 178, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .next {
+  width: 100%;
+}
+/* line 181, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .next button {
+  width: 50%;
+}
+/* line 185, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment #view-selected-appointment {
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+@media (min-width: 992px) {
+  /* line 185, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment #view-selected-appointment {
+    padding-top: 63px;
+  }
+}
+/* line 191, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment #view-selected-appointment h2 {
+  margin: 0;
+}
+@media (min-width: 992px) {
+  /* line 191, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment #view-selected-appointment h2 {
+    font-size: 24px;
+    text-align: left;
+  }
+}
+/* line 199, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment #view-selected-appointment .selected {
+  color: #ff8200;
+  margin-top: 32px;
+  margin-bottom: 2px;
+}
+@media (min-width: 992px) {
+  /* line 199, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment #view-selected-appointment .selected {
+    margin-top: 17px;
+  }
+}
+/* line 208, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment #view-selected-appointment .service-centre-cells {
+  border: none;
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 0;
+}
+@media (min-width: 992px) {
+  /* line 215, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment #view-selected-appointment .view-selected-box {
+    border: 1px solid #b7c3cd;
+    clear: both;
+    padding: 30px 85px;
+  }
+  /* line 221, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment #view-selected-appointment .view-selected-box .right-info {
+    width: 49%;
+    float: right;
+    margin-left: 1%;
+  }
+}
+/* line 229, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment #view-selected-appointment .confirm-div {
+  width: 100%;
+}
+@media (min-width: 992px) {
+  /* line 229, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment #view-selected-appointment .confirm-div {
+    margin-top: 20px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 236, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment #view-selected-appointment .scheduler {
+    width: 49%;
+    margin-top: 13px;
+  }
+}
+/* line 242, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment #view-selected-appointment .scheduler div.date {
+  background-image: url(../images/calendar.png);
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  border-radius: 0;
+  border: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+  background-color: #f1f3f5;
+  margin-bottom: 5px;
+  background-position-y: -2px;
+  font-family: 'Calibri';
+  font-size: 18px;
+  background-position-x: 3px;
+}
+/* line 255, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment #view-selected-appointment .scheduler div.date .add-on {
+  border: none;
+  background: transparent;
+}
+/* line 260, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment #view-selected-appointment .scheduler input.date {
+  border: none;
+  background: transparent;
+  padding-top: 8px;
+  width: 100%;
+  padding-bottom: 6px;
+  color: #061d2a;
+}
+/* line 268, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment #view-selected-appointment .scheduler .gray-textbox {
+  background-color: #f1f3f5;
+  border-radius: 0;
+  height: 40px;
+  border: 0;
+  margin-bottom: 9px;
+  font-family: 'Calibri';
+  padding-left: 25px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
+  font-size: 18px;
+}
+/* line 280, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment #view-selected-appointment .scheduler #scheduler-comments {
+  resize: none;
+  padding: 20px;
+  height: 130px;
+  margin-top: 2px;
+  width: 100%;
+}
+@media (min-width: 992px) {
+  /* line 280, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment #view-selected-appointment .scheduler #scheduler-comments {
+    margin-top: 10px;
+  }
+}
+/* line 294, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .scheduler-row {
+  margin-bottom: 16px;
+}
+/* line 296, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .scheduler-row label {
+  margin: 0;
+  margin-bottom: 3px;
+  color: #061d2a;
+}
+@media (min-width: 992px) {
+  /* line 303, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment .scheduler-row .selected-label {
+    float: left;
+    width: 20%;
+    padding-top: 7px;
+  }
+  /* line 309, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment .scheduler-row .form-control {
+    width: 80%;
+  }
+}
+/* line 314, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .scheduler-row .two-line-label {
+  line-height: 21px;
+  padding-right: 10%;
+}
+@media (min-width: 992px) {
+  /* line 319, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment .comment-label {
+    margin-top: 35px;
+    margin-bottom: 13px;
+  }
+}
+/* line 327, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .application-page-header .orange-section .description-desktop {
+  display: table;
+  width: 100%;
+  font-size: 18px;
+  height: 80px;
+}
+@media (min-width: 992px) {
+  /* line 327, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment .application-page-header .orange-section .description-desktop {
+    font-size: 30px;
+    height: 100px;
+  }
+}
+/* line 338, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .selectDiv {
+  margin-bottom: 10px;
+}
+@media (min-width: 992px) {
+  /* line 342, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment label {
+    padding-top: 7px;
+  }
+}
+/* line 348, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment input[type="text"] {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 6px 12px 6px 18px;
+  height: 40px;
+}
+/* line 356, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment p.confirm-call {
+  color: #ff8200;
+}
+/* line 360, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .preferred-date {
+  background: #f1f3f5 url("../../images/savie/1fna-cal.png") no-repeat 7px 0px;
+}
+/* line 363, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .preferred-date input[type="text"] {
+  padding-left: 50px;
+}
+/* line 369, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .timeslot .ui-timepicker-wrapper {
+  width: 100%;
+}
+/* line 374, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .centre-info {
+  font-size: 14px;
+  padding-left: 10px;
+}
+/* line 378, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .centre-info h4 {
+  font-size: 14px;
+  padding-top: 5px;
+}
+/* line 384, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #set-appointment .confirm-appointment {
+  margin-top: 40px;
+}
+@media (min-width: 992px) {
+  /* line 384, ../sass/partials/_page-set-appointment.scss */
+  .fwd-savie-wrapper #set-appointment .confirm-appointment {
+    margin-top: 100px;
+  }
+}
+
+/**Pick Another Centre Modal --- Customer Service Centre Page**/
+/* line 410, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content,
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content {
+  padding: 35px 30px;
+}
+/* line 414, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content h2,
+.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .registered,
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content h2,
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .registered {
+  padding-top: 0;
+  text-align: left;
+}
+/* line 419, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .registered,
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .registered {
+  margin-bottom: 35px;
+}
+/* line 423, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .modal-header,
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .modal-header {
+  margin-bottom: 30px;
+}
+/* line 427, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .modal-body,
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .modal-body {
+  text-align: center;
+  margin-bottom: 10px;
+}
+/* line 431, ../sass/partials/_page-set-appointment.scss */
+.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .modal-body button,
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .modal-body button {
+  width: 70%;
+  min-width: 200px;
+  font-size: 30px;
+  padding: 15px;
+  font-family: 'Calibri';
+}
+.fwd-savie-wrapper .page-application .selectDiv {
+  position: relative;
+  background-color: #f1f3f5;
 }

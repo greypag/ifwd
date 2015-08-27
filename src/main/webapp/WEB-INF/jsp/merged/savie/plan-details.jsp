@@ -20,7 +20,7 @@
 						<li class="active-bc"><fmt:message key="savie.planDetails.plan.details" bundle="${msg}" /></li>
 					</ol>
 				</div>
-				<div id="questions" class="text-center pull-right">
+				<!--  <div id="questions" class="text-center pull-right">
 					<img src="<%=request.getContextPath()%>/resources/images/savie/question.png">              
 					<a href="${nextPageFlow}">
 						<div class="right">                 
@@ -28,6 +28,7 @@
 						</div>
 					</a>
 				</div>
+				-->
 			</div>
 
 			<div class="fwd-full-container container-fluid text-center sales-head">
@@ -95,7 +96,7 @@
 						<span class="error-msg-promo hideSpan" id="promo-code-errmsg">Invalid promo code. Try again?</span>
 					</div>
 					<div class="apply">
-						<button onclick='getSaviePlanDetails()' class="next" type="button" id="sales-illu-apply-now">Calculate<span class="icon icon-chevron-thin-right"></span></button>
+						<button onclick='getSaviePlanDetails()' class="btn btn-orange calculate" type="button" id="sales-illu-apply-now">Calculate<span class="icon icon-chevron-thin-right"></span></button>
 					</div>
 				</form>
 			</div>
@@ -107,7 +108,11 @@
 	                    <div>
 	                        <div class="container-fluid summary-tab-max-width">
 	                            <div class="investment-table-desktop">
-	                                <h2><fmt:message key="savie.planDetails.Summary" bundle="${msg}" /><button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Investment summary"></button></h2>
+	                                <h2><fmt:message key="savie.planDetails.Summary" bundle="${msg}" />
+	                                	<button type="button" class="btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Investment summary">
+	                                		<img src="<fmt:message key="savie.planDetails.info-image" bundle="${msg}" />">
+	                                	</button>
+	                                </h2>
 	                                <h3><fmt:message key="savie.planDetails.year.guaranteed" bundle="${msg}" /></h3>
 	                                <h3 class="desktop-right hidden-xs hidden-sm">You will now have $ <span id="3rd_policy_year">0</span> in the 3rd policy year</h3>
 	                            </div>
@@ -116,6 +121,7 @@
 	                                    <thead>
 	                                    <tr>
 	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
+	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Annual.Crediting.Rate" bundle="${msg}" /></th>
 	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
 	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
 	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
@@ -331,8 +337,8 @@
 			
 			<!-- Login, create account, Proceed buttons -->
 			<div class="fwd-container container-fluid proceed-block text-center">
-				<h3>Login or create an account to</h3>
-				<button id="made-decision-next-btn" type="button" class="btn next">Proceed</button>
+				<h2>Login or create an account to</h2>
+				<button id="made-decision-next-btn" type="button" class="btn btn-orange proceed-btn">Proceed</button>
 			</div>
 			
 			<!--Explanation Block-->
@@ -388,19 +394,71 @@
 					<div class="modal-content thank-you-content">
 						<img src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_o2o_V2.jpg" class="img-responsive hidden-xs">
 						<img src="<%=request.getContextPath()%>/resources/images/savie/FWD_savie_o2o_offline-procedure_mobile.jpg" class="img-responsive hidden-md hidden-lg hidden-sm">
-						<button id="thank-you-continue" class="btn next" onclick="goServiceCenter();">Continue</button>
+						<button id="thank-you-continue" class="btn next" onclick="gotoFna();">Continue</button>
 					</div>
 				</div>
 			</div>
 	</div>
+	
+		
+		
+		<!--Login Modal-->
+		<div class="modal fade login-modal" id="planDetailsLoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+			<div class="modal-dialog plan-details">
+				<div class="modal-content plan-details">
+					<div class="modal-header">
+						<button type="button" class="close plan-details" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="h4-plan-details" id="myModalLabel">Log in to FWD</h4>
+					</div>
+					<div class="modal-body plan-details">
+						<form>
+							<div class="form-group">
+								<div class="clearfix">
+									<div class="pull-left txt">Username</div>
+									<div class="pull-right border-bottom ">
+										<a title="Forgot Username | FWD Hong Kong" href="https://i.fwd.com.hk/en/forgotUserName" class="link-plan-details">Forgot username?</a>
+									</div>
+								</div>
+								<input class="form-control input-gray" id="planDetailsUsername" type="text" placeholder="Username">
+							</div>
+							<div class="form-group">
+								<div class="clearfix">
+									<div class="pull-left txt">Password</div>
+									<div class="pull-right"><a title="Forgot Password | FWD Hong Kong" href="https://i.fwd.com.hk/en/forgotPassword" class="border-bottom link-plan-details">Forgot password?</a></div>
+								</div>
+								<input class="form-control input-gray" id="planDetailsPassword" type="password" placeholder="Password">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footers">
+						<p class="hidden-md hidden-lg plan-details mobile-txt">For the purpose of purchasing a specified insurance plan through this website (“the Plan”), I hereby consent the transfer of my personal data from FWD eServices to the issuer of the Plan.</p>
+						<div class="row">
+							<div class="col-md-6 col-sm-12">
+								<button type="submit" class="btn btn-white btn-login-plan-details" data-dismiss="modal" id="planDetailsLogin">Log In</button>
+							</div>
+							<div class="col-md-5 col-sm-12 mobile-register">
+								<h6 class="new-member">New Member?</h6>
+								<a href="#" data-dismiss="modal" class="register">Register here</a>
+							</div>					
+						</div>
+						<p class="hidden-xs hidden-sm plan-details txt">For the purpose of purchasing a specified insurance plan through this website (“the Plan”), I hereby consent the transfer of my personal data from FWD eServices to the issuer of the Plan.</p>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		<!--For Sales Illustration page js-->
+		<!--  <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>-->
 		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-slider.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/highcharts.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-chart.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
 		<script type="text/javascript">		
 			$(function () {	
+				$('#made-decision-next-btn').click(function(){
+					$('#planDetailsLoginModal').modal('show');
+				});
+				
 				$('#see-more-3-years').click(function(){
 					$('#after-3-years-div').addClass('hidden');
 					$('#after-3-years').removeClass('hidden');
