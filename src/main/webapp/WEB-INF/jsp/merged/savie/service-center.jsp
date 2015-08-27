@@ -4,8 +4,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+var language = "${language}";
+var affiliate = "${affiliate}";
+</script>
 <%!
 	boolean isSaleActiveClass = true;
 %>
@@ -58,7 +65,7 @@
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<!-- <input type="text" name="preferred-time" id="preferred-time" value=""> -->
 												<select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
-											        <option value="">请选择</option>
+											        <option value=""></option>
 												</select>
 											</div>
 										</div>
@@ -211,7 +218,7 @@
 		   		},     
 			    error:function(){       
 			    },     
-			    success:function(data){  
+			    success:function(data){
 			    	if(data.errMsgs == null){
 				    	$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation");
 				    	$("#serviceCenterForm").submit();
@@ -223,15 +230,3 @@
 		});
 	});
 </script>
-
-<!-- <script type="text/javascript">
-var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
-var endDate= new Date((new Date()).getTime() + 22*24*60*60*1000);
-$('#datepicker').datepicker({
-	startDate: startDate,
-	endDate: endDate,
-	autoclose: true,
-	format: "mm-dd-yyyy",
-	daysOfWeekDisabled: [0],
-});
-</script> -->

@@ -18,13 +18,13 @@ var affiliate = "${affiliate}";
 %>
 <div align="left" style="margin-left: 300px">
 	    <div>
-			CS center : ${csCenter}
+			CS center : ${centre}
 		</div>
 		<div>
-			Perferred date : ${perferredDate}
+			Perferred date : ${preferred_date}
 		</div>
 		<div>
-			Perferred time : ${perferredTime}
+			Perferred time : ${preferred_time}
 		</div>
 </div>
 <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>

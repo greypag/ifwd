@@ -1,181 +1,6 @@
 var zoomCtr = 4;
 var currentRate = 3;
 var isCurrentDefault = true;
-var currentCreditRate = 'three';
-
-
-function changeCreditTable(currentRate){
-	console.log('Change Credit Table:'+currentRate);
-	console.log(jsonTableData);
-	$total_years = jsonTableData.salesIllustration.yearPlans.length;
-			for(var i = 0; i < $total_years; i++) {
-				//if (jsonTableData.salesIllustration.yearPlans[i].year < 101) { // do not include year 100 data from their response
-					for(var j = 0; j < 4; j++){
-						if(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate == "zero"){
-							if(currentRate == 0){
-								//Year 5 - first row
-								if(jsonTableData.salesIllustration.yearPlans[i].year == 5){
-									console.log('Year 5:	'+jsonTableData.salesIllustration.yearPlans[i].year);
-									var rowCtr = 1;
-									$('#policy-year-'+rowCtr).html(Number(jsonTableData.salesIllustration.yearPlans[i].year).toLocaleString('en'));
-									$('#credit-rate-'+rowCtr).html(Number(textToNumber(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
-								}
-								
-								
-								//Year 10 - second row 
-								if(jsonTableData.salesIllustration.yearPlans[i].year == 10){
-									console.log('Year 10:	'+jsonTableData.salesIllustration.yearPlans[i].year);
-									var rowCtr = 2;
-									$('#policy-year-'+rowCtr).html(Number(jsonTableData.salesIllustration.yearPlans[i].year).toLocaleString('en'));
-									$('#credit-rate-'+rowCtr).html(Number(textToNumber(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
-								}
-								
-								
-								//Year 100- third row
-								if(jsonTableData.salesIllustration.yearPlans[i].year == 100){
-									console.log('Year 100:	'+jsonTableData.salesIllustration.yearPlans[i].year);
-									var rowCtr = 3;
-									$('#policy-year-'+rowCtr).html('Age '+Number(jsonTableData.salesIllustration.yearPlans[i].year).toLocaleString('en'));
-									$('#credit-rate-'+rowCtr).html(Number(textToNumber(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
-								}
-								
-								
-							}
-							
-						}
-						if(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate == "two"){						
-							if(currentRate == 2){
-								//Year 5 - first row
-								if(jsonTableData.salesIllustration.yearPlans[i].year == 5){
-									console.log('Year 5:	'+jsonTableData.salesIllustration.yearPlans[i].year);
-									var rowCtr = 1;
-									$('#policy-year-'+rowCtr).html(Number(jsonTableData.salesIllustration.yearPlans[i].year).toLocaleString('en'));
-									$('#credit-rate-'+rowCtr).html(Number(textToNumber(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
-								}
-								
-								
-								//Year 10 - second row 
-								if(jsonTableData.salesIllustration.yearPlans[i].year == 10){
-									console.log('Year 10:	'+jsonTableData.salesIllustration.yearPlans[i].year);
-									var rowCtr = 2;
-									$('#policy-year-'+rowCtr).html(Number(jsonTableData.salesIllustration.yearPlans[i].year).toLocaleString('en'));
-									$('#credit-rate-'+rowCtr).html(Number(textToNumber(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
-								}
-								
-								
-								//Year 100- third row
-								if(jsonTableData.salesIllustration.yearPlans[i].year == 100){
-									console.log('Year 100:	'+jsonTableData.salesIllustration.yearPlans[i].year);
-									var rowCtr = 3;
-									$('#policy-year-'+rowCtr).html('Age '+Number(jsonTableData.salesIllustration.yearPlans[i].year).toLocaleString('en'));
-									$('#credit-rate-'+rowCtr).html(Number(textToNumber(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
-								}
-							}
-							
-						}
-						if(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate == "three"){
-							if(currentRate == 3){
-								//Year 5 - first row
-								if(jsonTableData.salesIllustration.yearPlans[i].year == 5){
-									console.log('Year 5:	'+jsonTableData.salesIllustration.yearPlans[i].year);
-									var rowCtr = 1;
-									$('#policy-year-'+rowCtr).html(Number(jsonTableData.salesIllustration.yearPlans[i].year).toLocaleString('en'));
-									$('#credit-rate-'+rowCtr).html(Number(textToNumber(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
-								}
-								
-								
-								//Year 10 - second row 
-								if(jsonTableData.salesIllustration.yearPlans[i].year == 10){
-									console.log('Year 10:	'+jsonTableData.salesIllustration.yearPlans[i].year);
-									var rowCtr = 2;
-									$('#policy-year-'+rowCtr).html(Number(jsonTableData.salesIllustration.yearPlans[i].year).toLocaleString('en'));
-									$('#credit-rate-'+rowCtr).html(Number(textToNumber(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
-								}
-								
-								
-								//Year 100- third row
-								if(jsonTableData.salesIllustration.yearPlans[i].year == 100){
-									console.log('Year 100:	'+jsonTableData.salesIllustration.yearPlans[i].year);
-									var rowCtr = 3;
-									$('#policy-year-'+rowCtr).html('Age '+Number(jsonTableData.salesIllustration.yearPlans[i].year).toLocaleString('en'));
-									$('#credit-rate-'+rowCtr).html(Number(textToNumber(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
-								}
-							}
-							
-							
-						}
-						if(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate == "four"){
-							if(currentRate == 4){
-								//Year 5 - first row
-								if(jsonTableData.salesIllustration.yearPlans[i].year == 5){
-									console.log('Year 5:	'+jsonTableData.salesIllustration.yearPlans[i].year);
-									var rowCtr = 1;
-									$('#policy-year-'+rowCtr).html(Number(jsonTableData.salesIllustration.yearPlans[i].year).toLocaleString('en'));
-									$('#credit-rate-'+rowCtr).html(Number(textToNumber(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
-								}
-								
-								
-								//Year 10 - second row 
-								if(jsonTableData.salesIllustration.yearPlans[i].year == 10){
-									console.log('Year 10:	'+jsonTableData.salesIllustration.yearPlans[i].year);
-									var rowCtr = 2;
-									$('#policy-year-'+rowCtr).html(Number(jsonTableData.salesIllustration.yearPlans[i].year).toLocaleString('en'));
-									$('#credit-rate-'+rowCtr).html(Number(textToNumber(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
-								}
-								
-								
-								//Year 100- third row
-								if(jsonTableData.salesIllustration.yearPlans[i].year == 100){
-									console.log('Year 100:	'+jsonTableData.salesIllustration.yearPlans[i].year);
-									var rowCtr = 3;
-									$('#policy-year-'+rowCtr).html('Age '+Number(jsonTableData.salesIllustration.yearPlans[i].year).toLocaleString('en'));
-									$('#credit-rate-'+rowCtr).html(Number(textToNumber(jsonTableData.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-'+rowCtr).html('<span>$</span> '+Number(jsonTableData.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
-								}
-							}
-							
-
-						}
-					}
-				//}
-			}
-}
-
 $(function () {	
 	showFWDChart(currentRate, zoomCtr, isCurrentDefault);
 	
@@ -183,32 +8,28 @@ $(function () {
 		$('.percent-buttons button').removeClass('active');
 		$(this).addClass('active');
 		currentRate = 0;
-		//changeCreditRate(currentRate, zoomCtr, isCurrentDefault);
-		changeCreditTable(currentRate);
+		changeCreditRate(currentRate, zoomCtr, isCurrentDefault);
 	});
 	
 	$('#two-rate').on('click', function() {
 		$('.percent-buttons button').removeClass('active');
 		$(this).addClass('active');
 		currentRate = 2;
-		//changeCreditRate(currentRate, zoomCtr, isCurrentDefault);
-		changeCreditTable(currentRate);
+		changeCreditRate(currentRate, zoomCtr, isCurrentDefault);
 	});
 	
 	$('#three-rate').on('click', function() {
 		$('.percent-buttons button').removeClass('active');
 		$(this).addClass('active');
 		currentRate = 3;
-		//changeCreditRate(currentRate, zoomCtr, isCurrentDefault);
-		changeCreditTable(currentRate);
+		changeCreditRate(currentRate, zoomCtr, isCurrentDefault);
 	});
 	
 	$('#four-rate').on('click', function() {
 		$('.percent-buttons button').removeClass('active');
 		$(this).addClass('active');
 		currentRate = 4;
-		//changeCreditRate(currentRate, zoomCtr, isCurrentDefault);
-		changeCreditTable(currentRate);
+		changeCreditRate(currentRate, zoomCtr, isCurrentDefault);
 	});
 
 	$(".investment-summary").swipe( {
