@@ -689,6 +689,11 @@ function whDetailsValid(){
     		wh_click = true;
     	return flag;
     }	*/
+	
+	if(!flag){
+		$('#loading-overlay').modal('hide');
+	}
+	
 	return flag;
 }
 
