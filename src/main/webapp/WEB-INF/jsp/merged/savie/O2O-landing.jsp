@@ -349,7 +349,17 @@ var home_url = "<%=request.getContextPath()%>";
 					    '${pageContext.request.contextPath}/ajax/savie/savings-insurance/verifyAccessCode',
 						{ accessCode : accessCodeVal },
 						function(data) {
-							if(data.errMsgs){
+							if(data.errMsgs == "empty access code"){
+								$('.validation-msg').removeClass('hidden-error-msg');
+								$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.empty.access.code.validation.msg"));
+								errorMsg = true;
+							}
+							else if(data.errMsgs == "used access code"){
+								$('.validation-msg').removeClass('hidden-error-msg');
+								$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.used.access.code.validation.msg"));
+								errorMsg = true;
+							}
+							else if(data.errMsgs){
 								$('.validation-msg').removeClass('hidden-error-msg');
 								$('.validation-msg').html(data.errMsgs);
 								errorMsg = true;
