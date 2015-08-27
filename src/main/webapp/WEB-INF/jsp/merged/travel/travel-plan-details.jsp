@@ -435,8 +435,15 @@ function activateUserAccountJoinUs() {
                                         onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
                                         onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> />-->
                                    <input type="text" name="fullName"
-                                        class="form-control full-control textUpper bmg_custom_placeholder" id="inputFullName"
-                                        value="<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />"
+                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" id="inputFullName"
+                                        <c:choose>
+										    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+										    value="${userDetails.userName }"
+										    </c:when>
+										    <c:otherwise>
+                                            value="<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />"
+                                            </c:otherwise>
+										</c:choose>
 	                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />');" 
 	                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />'); validateName('inputFullName','fullnameinvalid',true,'applicant');"
                                         onkeypress="return alphaOnly(event);" maxlength="50" />
@@ -740,8 +747,16 @@ function activateUserAccountJoinUs() {
                                                         onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly"/> -->
                                                   <input type="text"
                                                         id="txtInsuFullName${inx}" name="personalName"
-                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
-                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" 
+                                                        <c:choose>
+														    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+														    value="${userDetails.userName }"
+														    </c:when>
+														    <c:otherwise>
+	                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+				                                            </c:otherwise>
+														</c:choose>
+                                                        
 		                                                onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
 		                                                onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
                                                         onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly"/>
@@ -1143,8 +1158,15 @@ function activateUserAccountJoinUs() {
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/> -->
                                                     <input type="text"
                                                         id="txtInsuFullName${inx}" name="adultName"
-                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
-                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" 
+                                                        <c:choose>
+														    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+														    value="${userDetails.userName }"
+														    </c:when>
+														    <c:otherwise>
+	                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+				                                            </c:otherwise>
+														</c:choose>
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
                                                         onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>

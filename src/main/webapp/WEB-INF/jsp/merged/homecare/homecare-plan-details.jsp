@@ -704,8 +704,15 @@ function activateUserAccountJoinUs() {
                                             onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'appfullname');"
                                             onkeypress=" return alphaOnly(event);" maxlength="50" /> -->
                                        <input type="text"
-                                            class="form-control full-control textUpper bmg_custom_placeholder" id="inputFullName" name="applicantName"
-                                            value="<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />"
+                                            class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" id="inputFullName" name="applicantName"
+                                            <c:choose>
+											    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+											    value="${userDetails.userName }"
+											    </c:when>
+											    <c:otherwise>
+	                                            value="<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />"
+	                                            </c:otherwise>
+										    </c:choose>
 	                                        onfocus="placeholderOnFocus(this,'<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />');" 
 	                                        onblur="placeholderOnBlur(this,'<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />'); chkNotNullApplicantName(this, 'appfullname', namePlaceholder);"
                                             onkeypress=" return alphaOnly(event);" maxlength="50" />
