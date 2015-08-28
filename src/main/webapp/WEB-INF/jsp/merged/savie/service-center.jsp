@@ -188,6 +188,7 @@ var affiliate = "${affiliate}";
 			startDate: startDate,
 			endDate: endDate,
 			autoclose: true,
+			daysOfWeekDisabled: [0]
 		}).on('changeDate', function (ev) {
 			if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
 				getTimeSlot();
