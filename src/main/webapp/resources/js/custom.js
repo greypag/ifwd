@@ -319,9 +319,6 @@ $(function() {
     });	
 	
 	// Plan Details - Thank You Continue Button
-	$('#thank-you-continue').on('click', function() {
-		window.location = "customer-service-centre";
-	});
 	
 	// Application Registration
 	$("#application-registration button.btn").on('click', function(){
