@@ -402,50 +402,6 @@
 	
 		
 		
-		<!--Login Modal-->
-		<div class="modal fade login-modal" id="planDetailsLoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false" data-keyboard="false">
-			<div class="modal-dialog plan-details">
-				<div class="modal-content plan-details">
-					<div class="modal-header">
-						<button type="button" class="close plan-details" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="h4-plan-details" id="myModalLabel">Log in to FWD</h4>
-					</div>
-					<div class="modal-body plan-details">
-						<form>
-							<div class="form-group">
-								<div class="clearfix">
-									<div class="pull-left txt">Username</div>
-									<div class="pull-right border-bottom ">
-										<a title="Forgot Username | FWD Hong Kong" href="https://i.fwd.com.hk/en/forgotUserName" class="link-plan-details">Forgot username?</a>
-									</div>
-								</div>
-								<input class="form-control input-gray" id="planDetailsUsername" type="text" placeholder="Username">
-							</div>
-							<div class="form-group">
-								<div class="clearfix">
-									<div class="pull-left txt">Password</div>
-									<div class="pull-right"><a title="Forgot Password | FWD Hong Kong" href="https://i.fwd.com.hk/en/forgotPassword" class="border-bottom link-plan-details">Forgot password?</a></div>
-								</div>
-								<input class="form-control input-gray" id="planDetailsPassword" type="password" placeholder="Password">
-							</div>
-						</form>
-					</div>
-					<div class="modal-footers">
-						<p class="hidden-md hidden-lg plan-details mobile-txt">For the purpose of purchasing a specified insurance plan through this website (“the Plan”), I hereby consent the transfer of my personal data from FWD eServices to the issuer of the Plan.</p>
-						<div class="row">
-							<div class="col-md-6 col-sm-12">
-								<button type="submit" class="btn btn-white btn-login-plan-details" data-dismiss="modal" id="planDetailsLogin">Log In</button>
-							</div>
-							<div class="col-md-5 col-sm-12 mobile-register">
-								<h6 class="new-member">New Member?</h6>
-								<a href="#" data-dismiss="modal" class="register">Register here</a>
-							</div>					
-						</div>
-						<p class="hidden-xs hidden-sm plan-details txt">For the purpose of purchasing a specified insurance plan through this website (“the Plan”), I hereby consent the transfer of my personal data from FWD eServices to the issuer of the Plan.</p>
-					</div>
-				</div>
-			</div>
-		</div>
 		
 		<!--For Sales Illustration page js-->
 		<!--  <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>-->
@@ -455,10 +411,6 @@
 		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
 		<script type="text/javascript">		
 			$(function () {	
-				$('#made-decision-next-btn').click(function(){
-					$('#planDetailsLoginModal').modal('show');
-				});
-				
 				$('#see-more-3-years').click(function(){
 					$('#after-3-years-div').addClass('hidden');
 					$('#after-3-years').removeClass('hidden');
