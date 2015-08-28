@@ -293,7 +293,6 @@ public class SavieServiceImpl implements SavieService {
 			else{
 				resultJsonObject.accumulate("result", "fail");
 				resultJsonObject.accumulate("errMsgs", apiResponse.getErrMsgs());
-				throw new ECOMMAPIException("API savie/planDetails occurs an exception!");
 			}
 			
 			response.setContentType("text/json;charset=utf-8");
