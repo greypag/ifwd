@@ -334,9 +334,9 @@
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                         <fmt:message key="faq.savie.group1.a15" bundle="${msg}" />
                                         <table class="table table-bordred">
-                                            <tr><td style="color: #fff;background-color: #f68a1d;"></td><td style="color: #fff;background-color: #f68a1d;"><fmt:message key="faq.savie.group1.a15.tr1.td2" bundle="${msg}" /></td><td style="color: #fff;background-color: #f68a1d;"><fmt:message key="faq.savie.group1.a15.tr1.td3" bundle="${msg}" /></td></tr>
-                                            <tr><td style="color: #fff;background-color: #f68a1d;"><fmt:message key="faq.savie.group1.a15.tr2.td1" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group1.a15.tr2.td2" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group1.a15.tr2.td3" bundle="${msg}" /></td></tr>
-                                            <tr><td style="color: #fff;background-color: #f68a1d;"><fmt:message key="faq.savie.group1.a15.tr3.td1" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group1.a15.tr3.td2" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group1.a15.tr3.td3" bundle="${msg}" /></td></tr>
+                                            <tr><td style="color: #fff;background-color: #f68a1d;"></td><td style="color: #fff;background-color: #f68a1d;"><fmt:message key="faq.savie.group1.a15.tr1.td2" bundle="${msg}" /></td></tr>
+                                            <tr><td style="color: #fff;background-color: #f68a1d;"><fmt:message key="faq.savie.group1.a15.tr2.td1" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group1.a15.tr2.td2" bundle="${msg}" /></td></tr>
+                                            <tr><td style="color: #fff;background-color: #f68a1d;"><fmt:message key="faq.savie.group1.a15.tr3.td1" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group1.a15.tr3.td2" bundle="${msg}" /></td></tr>
                                         </table>
                                     </div>
                                     <div class="clearfix"></div>
@@ -363,27 +363,6 @@
                                 
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group1.q17" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group1.a17" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            
-
                             <div class="clearfix"></div>
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
@@ -400,25 +379,6 @@
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group2.q18" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group2.a18" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
                                         <fmt:message key="faq.savie.group2.q19" bundle="${msg}" />
                                     </div>
                                     <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
@@ -429,33 +389,6 @@
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                         <fmt:message key="faq.savie.group2.a19" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group2.q20" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group2.a20" bundle="${msg}" />
-                                        <table class="table table-bordred">
-                                            <tr><td style="color: #fff;background-color: #f68a1d;"><fmt:message key="faq.savie.group2.a20.tr1.td1" bundle="${msg}" /></td><td style="color: #fff;background-color: #f68a1d;"><fmt:message key="faq.savie.group2.a20.tr1.td2" bundle="${msg}" /></td><td style="color: #fff;background-color: #f68a1d;"><fmt:message key="faq.savie.group2.a20.tr1.td3" bundle="${msg}" /></td></tr>
-                                            <tr><td><fmt:message key="faq.savie.group2.a20.tr2.td1" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group2.a20.tr2.td2" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group2.a20.tr2.td3" bundle="${msg}" /></td></tr>
-                                            <tr><td><fmt:message key="faq.savie.group2.a20.tr3.td1" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group2.a20.tr3.td2" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group2.a20.tr3.td3" bundle="${msg}" /></td></tr>
-                                            <tr><td><fmt:message key="faq.savie.group2.a20.tr4.td1" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group2.a20.tr4.td2" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group2.a20.tr4.td3" bundle="${msg}" /></td></tr>
-                                            <tr><td><fmt:message key="faq.savie.group2.a20.tr5.td1" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group2.a20.tr5.td2" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group2.a20.tr5.td3" bundle="${msg}" /></td></tr>
-                                            <tr><td><fmt:message key="faq.savie.group2.a20.tr6.td1" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group2.a20.tr6.td2" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group2.a20.tr6.td3" bundle="${msg}" /></td></tr>
-                                        </table>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -631,6 +564,25 @@
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.savie.group3.q28_1" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.savie.group3.a28_1" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
                                         <fmt:message key="faq.savie.group3.q29" bundle="${msg}" />
                                     </div>
                                     <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
@@ -641,8 +593,7 @@
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                         <fmt:message key="faq.savie.group3.a29.part1" bundle="${msg}" /><br/>
-                                        <a href="<fmt:message key="faq.savie.group3.a29.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.savie.group3.a29.link" bundle="${msg}" /></u></a><br/>
-                                        <fmt:message key="faq.savie.group3.a29.part2" bundle="${msg}" />
+                                        <a href="<fmt:message key="faq.savie.group3.a29.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.savie.group3.a29.link" bundle="${msg}" /></u></a>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -668,166 +619,249 @@
                                 
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group3.q31" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group3.a31" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 pad-none faq_content">
+                            <div class="col-md-11 col-lg-11 pad-none faq_cat">
+                                <fmt:message key="faq.savie.group4" bundle="${msg}" />
                             </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group3.q32" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group3.a32" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group3.q33" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group3.a33" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group3.q34" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group3.a34" bundle="${msg}" /><br/>
-                                        <a href="<fmt:message key="faq.savie.group3.a34.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.savie.group3.a34.link" bundle="${msg}" /></u></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group3.q35" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group3.a35" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group3.q36" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group3.a36" bundle="${msg}" /><br/>
-                                        <a href="<fmt:message key="faq.savie.group3.a36.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.savie.group3.a36.link" bundle="${msg}" /></u></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group3.q37" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group3.a37.part1" bundle="${msg}" /><br/>
-                                        <a href="<fmt:message key="faq.savie.group3.a37.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.savie.group3.a37.link" bundle="${msg}" /></u></a><br/>
-                                        <fmt:message key="faq.savie.group3.a37.part2" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
-                                <div class="col-md-12 col-lg-12 pad-none">
-                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group3.q38" bundle="${msg}" />
-                                    </div>
-                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
-                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
-                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group3.a38" bundle="${msg}" />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                
-                                <div class="clearfix"></div>
+                            <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
+                                <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
                             </div>
                             
                             <div class="clearfix"></div>
                         </div>
-                        
+                        <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.savie.group4.q31" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.savie.group4.a31" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.savie.group4.q32" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.savie.group4.a32" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.savie.group4.q33" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.savie.group4.a33" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.savie.group4.q34" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.savie.group4.a34" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.savie.group4.q35" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.savie.group4.a35" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.savie.group4.q36" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.savie.group4.a36" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.savie.group4.q37" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.savie.group4.a37" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.savie.group4.q38" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.savie.group4.a38" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.savie.group4.q39" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.savie.group4.a39" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.savie.group4.q40" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.savie.group4.a40" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.savie.group4.q41" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.savie.group4.a41" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.savie.group4.q42" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.savie.group4.a42" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>                        
                         <div class="clearfix"></div>
                     </div>
                     <!-- Savie end -->
