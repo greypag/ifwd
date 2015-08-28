@@ -59,11 +59,10 @@ function getSaviePlanDetails() {
 	var referralCode = promocode;
 	
 	if(issueAge == null || issueAge < 18 || issueAge > 100){
-		//alert("Invalid date of birth!");
 		$('#promo-code-dateOfBirth').removeClass('hidden');
 	}
 	else if(premium ==null || premium <30000 || premium > 400000){
-		alert("Invalid Savings amount!");
+		console.log("Invalid Savings amount!");
 	}
 	else{
 		$('#promo-code-dateOfBirth').addClass('hidden');
@@ -339,7 +338,6 @@ function createPdf() {
 			window.open('/'+contextPath+'/tc/savings-insurance/pdf-show?pdfName='+data.pdfName+'&requestNo='+data.Msgs.requestNo);
 		}
 		else{
-			alert("data error");
 		}
 	})
 	.fail(function(data) {
@@ -361,7 +359,7 @@ function acceptPdf(pdfName,requestNo) {
 			}  
 		}
 		else{
-			alert(data.Msgs);
+			console.log(data.Msgs);
 		}
 	})
 	.fail(function(data) {

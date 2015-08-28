@@ -24,7 +24,7 @@ function sendMessagesEmail(email,message,attachment) {
 	    },     
 	    success:function(data){  
 	    	if(data.errMsgs != null){
-		    	alert(data.errMsgs); 
+		    	console.log(data.errMsgs); 
 	    	}      
 	    }  
 	});
@@ -50,7 +50,7 @@ function sendlead(email,mobileNo,answer1,step) {
 	    			sendMessagesEmail(email,message,attachment);
 	    		}
 	    	}else{
-		    	alert(data.errMsgs);  
+		    	console.log(data.errMsgs);  
 	    	}     
 	    }  
 	});

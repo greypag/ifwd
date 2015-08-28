@@ -100,7 +100,6 @@ var flag = true;
     		if(flag){
         		return done();
     		}else{
-    			//alert("上传图片长度过长或宽度过宽");
             	console.log("上传图片长度过长或宽度过宽");
             	flag = true;
     			$("#dropzone").html("<div class=\"dz-default dz-message\"><span>" + dictDefaultMessage + "</span></div>");

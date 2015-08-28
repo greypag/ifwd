@@ -221,7 +221,7 @@ function sendMessagesEmail(email,attachment) {
 	    },     
 	    success:function(data){  
 	    	if(data.errMsgs != null){
-		    	alert(data.errMsgs); 
+		    	console.log(data.errMsgs); 
 	    	}      
 	    }  
 	});

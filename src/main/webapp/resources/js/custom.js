@@ -690,7 +690,7 @@ $(function() {
 		
 	//Sample only
 	$('#previous').click(function(){
-		alert('Previous');
+
 	});
 	
 	//next button onclick

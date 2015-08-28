@@ -224,7 +224,7 @@ var affiliate = "${affiliate}";
 				    	$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation");
 				    	$("#serviceCenterForm").submit();
 			    	}else{
-			    		alert(data.errMsgs);
+			    		console.log(data.errMsgs);
 			    	}
 			    }  
 			});
