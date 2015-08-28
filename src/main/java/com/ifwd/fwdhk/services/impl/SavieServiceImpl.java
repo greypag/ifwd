@@ -1308,7 +1308,7 @@ public class SavieServiceImpl implements SavieService {
 		String csCenter = request.getParameter("csCenter");
 		String perferredDate = request.getParameter("perferredDate");
 		String perferredTime = request.getParameter("perferredTime");
-		String planCode = "Savie";
+		String planCode = "savie";
 		String policyNumber = "";
 		String applicationNumber = "";
 		String userName = (String)session.getAttribute("username");
