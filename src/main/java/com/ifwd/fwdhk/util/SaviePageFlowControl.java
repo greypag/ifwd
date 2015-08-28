@@ -56,7 +56,7 @@ public class SaviePageFlowControl {
 		if (current != null) {
 			//current = current.substring(current.lastIndexOf("/") + 1);
 			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("savings-insurance")){
-				current = UserRestURIConstants.PAGE_SAVIE_INTEREST_GATHERING;
+				current = UserRestURIConstants.PAGE_SAVIE_O2O_LANDING;
 			} else {
 				current = getSaviePage(current);
 			}

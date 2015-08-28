@@ -97,6 +97,7 @@ function getSaviePlanDetails() {
 								var rateIsZero =  json.salesIllustration.yearPlans[i].plans[j].accountBalance;
 								items[3][i] = rateIsZero;
 								
+																
 								/*if (i == 0 || i == 1 || i == 2) {
 									var rowCtr = i+1;
 									$('#premium-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
@@ -201,6 +202,10 @@ function getSaviePlanDetails() {
 								
 								if (i == 0 || i == 1 || i == 2) {
 									var rowCtr = i+1;
+									if(i == 2) {
+										$("#3rd_policy_year").html(Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'))
+									}
+									
 									$('#credit-rate-change-'+rowCtr).html(Number(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
 									$('#premium-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
 									$('#account-value-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
