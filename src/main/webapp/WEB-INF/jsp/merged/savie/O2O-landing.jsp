@@ -47,8 +47,6 @@ var home_url = "<%=request.getContextPath()%>";
 						<li><a href="#"><fmt:message key="savie.o2o.landing.Home" bundle="${msg}" /></a></li>
 						<li class="divider"><i class="fa fa-play"></i></li>
 						<li><a href="#"><fmt:message key="savie.o2o.landing.Save" bundle="${msg}" /></a></li>
-						<li class="divider"><i class="fa fa-play"></i></li>
-						<li><a><fmt:message key="savie.o2o.landing.Savie" bundle="${msg}" /></a></li>
 					</ol>
 				</div>
 
