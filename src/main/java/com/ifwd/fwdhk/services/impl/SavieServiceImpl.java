@@ -1433,4 +1433,78 @@ public class SavieServiceImpl implements SavieService {
 		session.removeAttribute("savingAmount");*/
 	}
 	
+	@Override
+	public BaseResponse sendAppointmentAcknowledgeMail(HttpServletRequest request)throws ECOMMAPIException{
+		BaseResponse br = null;
+		try {
+			String applicationNumber = (String) request.getSession().getAttribute("applicationNumber");
+			String perferredDate = (String) request.getParameter("perferredDate");
+			String perferredTime = (String) request.getParameter("perferredTime");
+			String csCenter = (String) request.getParameter("csCenter");
+			ServiceCentreResult scr = new ServiceCentreResult();
+			if(null != csCenter){
+				String lang = UserRestURIConstants.getLanaguage(request);
+				ServiceCentreResponse serviceCentreResponse;
+				if (lang.equals("tc")) {
+					serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
+				}else {
+					serviceCentreResponse = InitApplicationMessage.serviceCentreEN;
+				}
+				for(ServiceCentreResult entity : serviceCentreResponse.getServiceCentres()) {
+					if(entity.getServiceCentreCode().equals(csCenter)) {
+						scr = entity;
+						break;
+					}
+				}
+			}
+			
+			final Map<String,String> header = headerUtil.getHeader(request);
+			header.put("language", "ZH");
+			String to = (String) request.getSession().getAttribute("emailAddress");
+			logger.info("To Email:"+to);
+			String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
+			if (request.getServerPort() != 80 && request.getServerPort() != 443)
+			{
+				serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+			}
+			String message = "<h2 style=\"font-family:'Microsoft JhengHei', Calibri, sans-serif;color:#FF8200;font-size:24px;background-color:#FFFFFF;\"></h2>"+
+                             "<h2 style=\"font-family:'Microsoft JhengHei', Calibri, sans-serif;color:#FF8200;font-size:24px;background-color:#FFFFFF;\">預約詳情</h2>"+
+                             "<div class=\"appointment-detail clearfix\" style=\"color:#333333;font-family:'Microsoft JhengHei', Calibri, sans-serif;font-size:16px;background-color:#FFFFFF;\">"+
+                             "日期 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class=\"pull-left\">"+perferredDate+"</span></div>"+
+                             "<div class=\"appointment-detail clearfix\" style=\"color:#333333;font-family:'Microsoft JhengHei', Calibri, sans-serif;font-size:16px;background-color:#FFFFFF;\">"+
+	                         "時間 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span class=\"pull-left\">"+perferredTime+"</span></div>"+
+                             "<div class=\"appointment-detail clearfix\" style=\"color:#333333;font-family:'Microsoft JhengHei', Calibri, sans-serif;font-size:16px;background-color:#FFFFFF;\">"+
+	                         "客戶服務中心 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class=\"pull-left\">"+scr.getServiceCentreName()+"</span></div>"+
+                             "<div class=\"appointment-detail clearfix\" style=\"color:#333333;font-family:'Microsoft JhengHei', Calibri, sans-serif;font-size:16px;background-color:#FFFFFF;\">"+
+	                         "地址 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span class=\"pull-left\">"+scr.getAddress()+"</span></div>"+
+                             "<div class=\"appointment-detail clearfix\" style=\"color:#333333;font-family:'Microsoft JhengHei', Calibri, sans-serif;font-size:16px;background-color:#FFFFFF;\">"+
+	                         "參考編號 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class=\"pull-left\">"+applicationNumber+"</span></div>"+
+                             "<div class=\"appointment-detail clearfix\" style=\"color:#333333;font-family:'Microsoft JhengHei', Calibri, sans-serif;font-size:16px;background-color:#FFFFFF;\">"+
+	                         "電話號碼 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class=\"pull-left\">"+scr.getPhone()+"</span></div>"+
+                             "<div class=\"appointment-detail clearfix\" style=\"color:#333333;font-family:'Microsoft JhengHei', Calibri, sans-serif;font-size:16px;background-color:#FFFFFF;\">"+
+	                         "辦公時間 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class=\"pull-left\">"+scr.getOperationHours()+"</span></div>"+
+                             "<div class=\"appointment-detail clearfix\" style=\"color:#333333;font-family:'Microsoft JhengHei', Calibri, sans-serif;font-size:16px;background-color:#FFFFFF;\"><span class=\"pull-left\"></span></div>";
+
+			
+			String subject = "Savie Appointment Acknowledgement email from FWD";
+			String attachment = "";
+			String from = "Fanny Wing <i-info.hk@fwd.com>";
+			boolean isHTML = true;
+			
+			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+			parameters.put("to", to);
+			parameters.put("message", message);
+			parameters.put("subject", subject);
+			parameters.put("attachment", attachment);
+			parameters.put("from", from);
+			parameters.put("isHtml", isHTML);
+			
+			br = connector.sendEmail(parameters,header);
+		}catch(Exception e){
+			logger.info("SavieServiceImpl sendAppointmentAcknowledgeMail occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		return br;
+	}
 }

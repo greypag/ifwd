@@ -81,7 +81,7 @@ public interface SavieService {
 	public void saveAmount(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
 	public void confirmationOffline(Model model, HttpServletRequest request);
-	
+	public BaseResponse sendAppointmentAcknowledgeMail(HttpServletRequest request)throws ECOMMAPIException;
 	//fileUpload?
 	//signature?	
 	//1/check session, and redirect to savie landing page if session expired
