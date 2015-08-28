@@ -55,7 +55,7 @@
 							<div class="row">
 								<div class="col-xs-12 col-md-6">
 									<div class="row">
-										<div class="col-xs-12 col-md-4"><label for="centre">CS center</label></div>
+										<div class="col-xs-12 col-md-4"><label for="centre"><fmt:message key="savie.customerServiceCentre.center" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
