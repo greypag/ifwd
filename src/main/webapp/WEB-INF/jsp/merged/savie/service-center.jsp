@@ -183,7 +183,7 @@ var affiliate = "${affiliate}";
 		}); */
 		
 		$('#preferred-date').datepicker({
-			format: "mm-dd-yyyy",
+			format: "dd-mm-yyyy",
 			container: "#date",
 			startDate: startDate,
 			endDate: endDate,

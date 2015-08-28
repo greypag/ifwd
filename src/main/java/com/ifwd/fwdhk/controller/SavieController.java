@@ -5,7 +5,9 @@ import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.servlet.ServletOutputStream;
@@ -76,6 +78,14 @@ public class SavieController extends BaseController{
 			if("thankyou".equals(request.getParameter("thankyou"))){
 				model.addAttribute("thankyou", request.getParameter("thankyou"));
 			}
+			Date date = new Date();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(date); 
+			calendar.add(calendar.YEAR, -18);
+			date = calendar.getTime();
+			SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+			String dd =format.format(date);
+			model.addAttribute("defaultBOD", dd);
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
 		}else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
