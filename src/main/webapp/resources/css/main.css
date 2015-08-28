@@ -7666,6 +7666,27 @@ tr.product-landing-error-wrap {
     margin-top: 20px;
 }
 
+.annualTravel_policy_item{
+    height:180px;
+}
+
+.annualTravel_policy_item img{
+    width:80px;
+}
+
+.annualTravel_policy_item h5{
+    color: #f68a1d;
+    margin-top:20px;
+}
+
+.product_header_path_container{
+	background-color: #f68a1d;
+}
+
+.product_header_path_item{
+	color:#fff;
+}
+
 @media (min-width: 992px) {
     .product_landing_download_button{
         margin-right: 20px;
@@ -7673,22 +7694,9 @@ tr.product-landing-error-wrap {
 }
 
 @media (max-width: 991px) {
-	.product_landing_download_button{
-	    width: 100%;
-	    text-align: center;
-	}
-}
-
-.annualTrave_policy_item{
-    height:180px;
-}
-
-.annualTrave_policy_item img{
-    width:80px;
-}
-
-.annualTrave_policy_item h5{
-    color: #f68a1d;
-    margin-top:20px;
+    .product_landing_download_button{
+        width: 100%;
+        text-align: center;
+    }
 }
 /** annual travel **/

@@ -182,7 +182,7 @@ $(document).ready(function() {
 	                </tr>
 	                  <tr>
 	                  <td class="col-md-2 pad-none">
-                        <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropdown">
+                        <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup">
                           <a class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
                              <label id="travel_type" class="select-label" style="cursor: pointer;white-space: nowrap;">Please select</label>
                              <span class="product_landing_custom_fa-caret-down">
@@ -613,29 +613,29 @@ $(document).ready(function() {
         <h2 style="color:#fff;">Policy coverage</h2>
         <h4 style="color:#fff;"><span style="color: #f68a1d;">TravelCare</span> provides you with comprehensive travel protection for leisure and business trips, coverage including:</h4>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:40px;">
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTrave_policy_item">
-                <img src="http://localhost:8080/fwdhk/resources/images/iFWD_travel_icon3.png">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/medical-icon.png">
                 <h5>Medical Expenses</h5>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTrave_policy_item">
-                <img src="http://localhost:8080/fwdhk/resources/images/iFWD_travel_icon3.png">
-                <h5>Medical Expenses</h5>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/baggage.png">
+                <h5>Baggage Loss / Damage</h5>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTrave_policy_item">
-                <img src="http://localhost:8080/fwdhk/resources/images/iFWD_travel_icon3.png">
-                <h5>Medical Expenses<br/>Medical Expenses</h5>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/money.png">
+                <h5>Lost of Personal Money<br/>& Travel Document</h5>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTrave_policy_item">
-                <img src="http://localhost:8080/fwdhk/resources/images/iFWD_travel_icon3.png">
-                <h5>Medical Expenses</h5>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/personal.png">
+                <h5>Personal Liability</h5>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTrave_policy_item">
-                <img src="http://localhost:8080/fwdhk/resources/images/iFWD_travel_icon3.png">
-                <h5>Medical Expenses</h5>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/car.png">
+                <h5>Rental Vehicle Excess</h5>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTrave_policy_item">
-                <img src="http://localhost:8080/fwdhk/resources/images/iFWD_travel_icon3.png">
-                <h5>Medical Expenses</h5>
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/excess.png">
+                <h5>No Excess</h5>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -1000,7 +1000,7 @@ $(document).ready(function() {
           </tr>
             <tr>
                 <td class="col-md-2 pad-none">
-                   <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropdown">
+                   <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup">
                      <a class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
                         <label id="travel_type" class="select-label" style="cursor: pointer;white-space: nowrap;">Please select</label>
                         <span class="product_landing_custom_fa-caret-down">
