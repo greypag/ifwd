@@ -63,7 +63,7 @@
 						<div id="desktop-right">
 							<img class="promo-code hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie/bday-icon.png">
 							<h2 id="promo"><fmt:message key="savie.planDetails.Date.Birth" bundle="${msg}" />
-								<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Your date of birth as per your HKID. You must be 19 and above to apply."></button>
+								<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.birth.above" bundle="${msg}" />"></button>
 							</h2>
 							<div id="birthday">
 							<!-- 
@@ -89,14 +89,14 @@
 							<img id="birthday" src="<%=request.getContextPath()%>/resources/images/savie/promo-img.png">
 						</div>
 
-						<h2>Promo code
+						<h2><fmt:message key="savie.planDetails.promo.code" bundle="${msg}" />
 							<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="If you have received a promo code, enter below for special rates."></button>
 						</h2>
 						<input value="${savingPromocode }" name="promocode" type="text" placeholder="e.g. SAVIE50" class="promocode" id="promocode">
 						<span class="error-msg-promo hideSpan" id="promo-code-errmsg">Invalid promo code. Try again?</span>
 					</div>
 					<div class="apply">
-						<button onclick='getSaviePlanDetails()' class="btn btn-orange calculate" type="button" id="sales-illu-apply-now">Calculate<span class="icon icon-chevron-thin-right"></span></button>
+						<button onclick='getSaviePlanDetails()' class="btn btn-orange calculate" type="button" id="sales-illu-apply-now"><fmt:message key="savie.planDetails.promo.calculate" bundle="${msg}" /><span class="icon icon-chevron-thin-right"></span></button>
 					</div>
 				</form>
 			</div>
@@ -185,7 +185,7 @@
 	                                    <thead>
 	                                    <tr>
 	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
-											<th class="credit-rate desktop-only">Annual crediting rate %</th>
+											<th class="credit-rate desktop-only"><fmt:message key="savie.planDetails.annual.rate" bundle="${msg}" /></th>
 	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
 	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
 	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
@@ -222,7 +222,7 @@
 	                                    <thead>
 	                                    <tr>
 	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
-											<th class="credit-rate desktop-only">Annual crediting rate %</th>
+											<th class="credit-rate desktop-only"><fmt:message key="savie.planDetails.annual.rate" bundle="${msg}" /></th>
 	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
 	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
 	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
@@ -259,7 +259,7 @@
 	                                    <thead>
 	                                    <tr>
 	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
-											<th class="credit-rate desktop-only">Annual crediting rate %</th>
+											<th class="credit-rate desktop-only"><fmt:message key="savie.planDetails.annual.rate" bundle="${msg}" /></th>
 	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
 	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
 	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
@@ -296,7 +296,7 @@
 	                                    <thead>
 	                                    <tr>
 	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
-											<th class="credit-rate desktop-only">Annual crediting rate %</th>
+											<th class="credit-rate desktop-only"><fmt:message key="savie.planDetails.annual.rate" bundle="${msg}" /></th>
 	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
 	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
 	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
@@ -337,8 +337,8 @@
 			
 			<!-- Login, create account, Proceed buttons -->
 			<div class="fwd-container container-fluid proceed-block text-center">
-				<h2>Login or create an account to</h2>
-				<button id="made-decision-next-btn" type="button" class="btn btn-orange proceed-btn">Proceed</button>
+				<h2><fmt:message key="savie.planDetails.login.create" bundle="${msg}" /></h2>
+				<button id="made-decision-next-btn" type="button" class="btn btn-orange proceed-btn"><fmt:message key="savie.planDetails.proceed" bundle="${msg}" /></button>
 			</div>
 			
 			<!--Explanation Block-->
@@ -350,13 +350,13 @@
 				<div class="collapse" id="collapseExplanation">
 					<ul class="explanation-list">
 						<li class="explanation-li">
-							<p class="expl-txt">The above is only a summary illustration of the major benefits of your Policy. You should refer to the Company for more information or, if appropriate, a more detailed proposal.</p>
+							<p class="expl-txt"><fmt:message key="savie.planDetails.context1" bundle="${msg}" /></p>
 						</li>
 						<li class="explanation-li">
-							<p class="expl-txt">The Basic Plan Illustration in Section 1 and 2 relates only to your Basic Plan and assumes that all premiums are paid in full when due without exercising skip premium option (premium holiday) and the current scale of charges remain unchanged.</p>
+							<p class="expl-txt"><fmt:message key="savie.planDetails.context2" bundle="${msg}" /></p>
 						</li>
 						<li class="explanation-li">
-							<p class="expl-txt">Death Benefit is equal to the sum of initial sum insured and account value throughout the policy term. Besides Death Benefit, an additional accidental death benefit equivalent to 100% of the Account Value or HK$400,000, whichever is lower, will be offered.</p>
+							<p class="expl-txt"><fmt:message key="savie.planDetails.context3" bundle="${msg}" /></p>
 						</li>
 						<!-- <li class="explanation-li">
 							<p class="expl-txt"><fmt:message key="savie.planDetails.context1" bundle="${msg}" /></p>
