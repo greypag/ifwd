@@ -82,10 +82,11 @@ public class SavieController extends BaseController{
 			Calendar calendar = new GregorianCalendar();
 			calendar.setTime(date); 
 			calendar.add(calendar.YEAR, -18);
+			calendar.add(calendar.DATE, -1);
 			date = calendar.getTime();
 			SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 			String dd =format.format(date);
-			model.addAttribute("defaultBOD", dd);
+			model.addAttribute("defaultDOB", dd);
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
 		}else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)

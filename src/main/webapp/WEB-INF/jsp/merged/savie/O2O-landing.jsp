@@ -323,7 +323,7 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 						<div class="modal-body hunger-selling-body">
 							<form id="o2o-landing-form" method="post">
-								<input placeholder="Access code" type="text" name="accessCodeConfirm" id="accessCodeConfirm" />
+								<input placeholder="<fmt:message key="savie.o2o.landing.Access.code" bundle="${msg}" />" type="text" name="accessCodeConfirm" id="accessCodeConfirm" />
 								<span class="validation-msg hidden-error-msg"><fmt:message key="savie.o2o.landing.The.code" bundle="${msg}" /></span>							
 								<button type="submit" id="hunger-btn" class="btn hunger-btn"><fmt:message key="savie.o2o.landing.Submit" bundle="${msg}" /></button>
 							</form>
@@ -420,7 +420,7 @@ var home_url = "<%=request.getContextPath()%>";
 								$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.empty.access.code.validation.msg"));
 								errorMsg = true;
 							}
-							else if(data.errMsgs == "used access code"){
+							else if(data.errMsgs == "Access has been used"){
 								$('.validation-msg').removeClass('hidden-error-msg');
 								$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.used.access.code.validation.msg"));
 								errorMsg = true;

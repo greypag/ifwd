@@ -73,7 +73,7 @@
 								hidden-xs hidden-sm
 								 -->
 								<div class="input-group input-append date" id="datePicker">
-									<input type="text" class="date" value="${savingDob!=null ? savingDob:defaultBOD }" name="dob" id="sales-illu-dob" placeholder="mm/dd/year" onfocusin="fnSetStyle()" readonly />
+									<input type="text" class="date" value="${savingDob!=null ? savingDob:defaultDOB }" name="dob" id="sales-illu-dob" placeholder="mm/dd/year" onfocusin="fnSetStyle()" readonly />
 									<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 								</div>
 								<span class="error-msg-dob hideSpan" id="promo-code-dateOfBirth">Invalid date of birth. You must be 19 and above to apply.</span>
