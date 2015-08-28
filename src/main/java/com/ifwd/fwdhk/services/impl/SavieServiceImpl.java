@@ -1383,35 +1383,53 @@ public class SavieServiceImpl implements SavieService {
 	}
 	
 	public void confirmationOffline(Model model, HttpServletRequest request) {
-		
-		String centre = (String) request.getParameter("centre");
+		HttpSession session = request.getSession();
 		String preferred_date = (String) request.getParameter("preferred-date");
 		String preferred_time = (String) request.getParameter("preferred-time");
-		String applicationNumber = (String)request.getSession().getAttribute("applicationNumber");
-		
-		model.addAttribute("centre", centre);
-		model.addAttribute("preferred_date", preferred_date);
-		model.addAttribute("preferred_time", preferred_time);
-		model.addAttribute("applicationNumber", applicationNumber);
-		
-		
-		String lang = UserRestURIConstants.getLanaguage(request);
-		ServiceCentreResponse serviceCentreResponse;
-		if (lang.equals("tc")) {
-			serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
-		}else {
-			serviceCentreResponse = InitApplicationMessage.serviceCentreEN;
+		String centre = (String) request.getParameter("centre");
+		if(null != preferred_date){
+			session.setAttribute("preferred_date", preferred_date);
+		}
+		if(null != preferred_time){
+			session.setAttribute("preferred_time", preferred_time);
+		}
+		if(null != centre){
+			session.setAttribute("centre", centre);
 		}
 		
-		for(ServiceCentreResult entity : serviceCentreResponse.getServiceCentres()) {
-			if(entity.getServiceCentreCode().equals(centre)) {
-				model.addAttribute("centreDetails", entity);
-				break;
+		if(null != centre){
+			String lang = UserRestURIConstants.getLanaguage(request);
+			ServiceCentreResponse serviceCentreResponse;
+			if (lang.equals("tc")) {
+				serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
+			}else {
+				serviceCentreResponse = InitApplicationMessage.serviceCentreEN;
+			}
+			for(ServiceCentreResult entity : serviceCentreResponse.getServiceCentres()) {
+				if(entity.getServiceCentreCode().equals(centre)) {
+					session.setAttribute("centreDetails", entity);
+					break;
+				}
 			}
 		}
-		
+		else{
+			centre = (String) session.getAttribute("centre");
+			String lang = UserRestURIConstants.getLanaguage(request);
+			ServiceCentreResponse serviceCentreResponse;
+			if (lang.equals("tc")) {
+				serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
+			}else {
+				serviceCentreResponse = InitApplicationMessage.serviceCentreEN;
+			}
+			for(ServiceCentreResult entity : serviceCentreResponse.getServiceCentres()) {
+				if(entity.getServiceCentreCode().equals(centre)) {
+					session.setAttribute("centreDetails", entity);
+					break;
+				}
+			}
+		}
 		//清空储蓄金额
-		/*HttpSession session = request.getSession();
+		/*HttpSession session = session;
 		session.removeAttribute("savingAmount");*/
 	}
 	
