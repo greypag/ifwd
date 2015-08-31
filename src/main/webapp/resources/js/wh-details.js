@@ -682,13 +682,19 @@ function whDetailsValid(){
 		scrollToElement(firstErrorElementId);
 	}
 	
-    if(wh_click)
+    /*if(wh_click)
     	return false
     else{
     	if(flag)
     		wh_click = true;
     	return flag;
-    }	
+    }	*/
+	
+	if(!flag){
+		$('#loading-overlay').modal('hide');
+	}
+	
+	return flag;
 }
 
 function whPayValid()
@@ -792,7 +798,7 @@ function whPayValid()
 var details_clicked = false;
 function confirmDetails(form){
 	var result =false;
-	if (whDetailsValid() && details_clicked === false) {
+	if (details_clicked === false) {
 	//if (details_clicked === false) {
 		
 		
@@ -878,13 +884,11 @@ function confirmDetails(form){
 			async : false,
 			success : function(data) {
 				if (data == 'success') {
-					//form.action=rePage;
 					result=true;
 				} else {
 					$("#errorMsg").html(data);
 					details_clicked = false;
 					wh_click = false;
-					//console.log("fail to process payment " + data);
 					result=false;
 				}
 			}

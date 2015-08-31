@@ -934,6 +934,16 @@ $(function() {
 	 			$('#sticky-buy-now').removeClass('sticky-button');			
 	 		}
 	 	}
+	 	
+	 	//check if usps div exists
+	 	//by: RMN
+		if($('#usps').length > 0){
+			if ($(window).scrollTop() >= $('#usps').offset().top - window.innerHeight){
+				$('#sign-me-up-btn').removeClass('hidden');
+			}else{
+				$('#sign-me-up-btn').addClass('hidden');
+			}
+		}
 		
 		//check if usps div exists
 		if($('#usps').length > 0){

@@ -19,6 +19,7 @@ var affiliate = "${affiliate}";
 <div align="left" style="margin-left: 300px">
 	    <div>
 			CS center : ${centre}
+			
 		</div>
 		<div>
 			Perferred date : ${preferred_date}

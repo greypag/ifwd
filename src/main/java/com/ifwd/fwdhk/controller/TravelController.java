@@ -105,9 +105,9 @@ public class TravelController {
 		/**
 		 * 判断URL是否带数据跟数据验证
 		 */
-		if("".equals(departureDate) || (departureDate != null && !DateApi.isValidDate(departureDate))) {
+		if("".equals(departureDate) || departureDate == null || (departureDate != null && !DateApi.isValidDate(departureDate))) {
 			result = false;
-		}else if("".equals(returnDate) || (returnDate != null && !DateApi.isValidDate(returnDate))) {
+		}else if("".equals(returnDate) || returnDate == null || (returnDate != null && !DateApi.isValidDate(returnDate))) {
 			result = false;
 		}else if(plan != null) {
 			if("personal".equals(plan)) {

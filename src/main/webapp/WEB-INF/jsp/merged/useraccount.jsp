@@ -607,17 +607,6 @@
                                               <div class="clearfix"></div>
                                           </div>
                                           <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
-
-                                          <div class="confirmation-table-margin">
-			                                  <div class="col-sm-12 col-xs-12">
-			                                      <strong><fmt:message key="member.account.referral.benefits.table.header2" bundle="${msg}" /></strong>
-			                                  </div>
-			                                  <div class="col-sm-12 col-xs-12">
-			                                      <fmt:message key="member.account.referral.benefits.table.row6.col2" bundle="${msg}" />
-			                                  </div>
-			                                  <div class="clearfix"></div>
-			                              </div>
-                                          
                                           <div class="confirmation-table-margin">
                                               <div class="col-sm-12 col-xs-12">
                                                   <strong><fmt:message key="member.account.referral.benefits.table.header4" bundle="${msg}" /></strong>

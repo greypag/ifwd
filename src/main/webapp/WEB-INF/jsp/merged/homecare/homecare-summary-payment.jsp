@@ -149,7 +149,7 @@ perventRedirect=true;
 	                                            </c:if>
 	                                            
 	                                            <c:if test="${homeCareDetails.applicantStreetNo != ''}">
-	                                                ${homeCareDetails.applicantStreetNo},
+	                                                ${homeCareDetails.applicantStreetNo} 
 	                                            </c:if>
 	                                             <c:if test="${homeCareDetails.applicantStreetName != ''}">
 	                                                ${homeCareDetails.applicantStreetName},
@@ -185,7 +185,7 @@ perventRedirect=true;
 	                                            </c:if>
 	                                            
 	                                            <c:if test="${homeCareDetails.aStreetNo != ''}">
-	                                                ${homeCareDetails.aStreetNo},
+	                                                ${homeCareDetails.aStreetNo} 
 	                                            </c:if>
 	                                            <c:if test="${homeCareDetails.aStreetName != ''}">
 	                                                ${homeCareDetails.aStreetName},

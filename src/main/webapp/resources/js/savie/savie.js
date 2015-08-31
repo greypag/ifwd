@@ -4,6 +4,7 @@ var guaranteed3Years;
 var contextPath = '<%=request.getContextPath()%>';
 var contextPath = context;
 var jsonTableData;
+var jsonTableData;
 $(function () {
 	var wh_nowTemp = new Date();
 	var wh_now = new Date(wh_nowTemp.getFullYear(), wh_nowTemp.getMonth(), wh_nowTemp.getDate(), 0, 0, 0, 0);
@@ -118,7 +119,8 @@ function getSaviePlanDetails() {
 									$('#account-value-change-0-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
 									$('#surrender-change-0-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
 								}
-							}
+							}*/
+							
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero"){
 								if (i == 9) {
 									$('#premium-change-0-2').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
@@ -383,6 +385,7 @@ function getOccupation(value,language) {
 		}
 	})
 	.fail(function(data) {
+		alert(data.length);
 	});
 }
 

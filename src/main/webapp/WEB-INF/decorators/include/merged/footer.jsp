@@ -143,8 +143,6 @@ $(function() {
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
 <script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>  
-<script type="text/javascript"
-  src="<%=request.getContextPath()%>/resources/js/main.js"></script>
+  src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
