@@ -221,10 +221,29 @@ var affiliate = "${affiliate}";
 			    },     
 			    success:function(data){
 			    	if(data.errMsgs == null){
-				    	$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation");
-				    	$("#serviceCenterForm").submit();
+			    		//send email
+			    		$.ajax({     
+						    url:context+'/ajax/savie/service-center-confirm/email',     
+						    type:'post',
+						    data:{    
+						    	"csCenter": csCenter,
+						        "perferredDate":perferredDate,
+						        "perferredTime":perferredTime
+					   		}, 
+						    success:function(data){
+						    	if(data.errMsgs == null){
+						    		console.log("send email success");
+						    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation");
+							    	$("#serviceCenterForm").submit();
+						    	}else{
+						    		console.log(data.errMsgs);
+						    	}
+						    },
+						    error:function(){       
+						    }
+						});
 			    	}else{
-			    		alert(data.errMsgs);
+			    		console.log(data.errMsgs);
 			    	}
 			    }  
 			});

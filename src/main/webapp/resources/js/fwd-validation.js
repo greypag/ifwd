@@ -859,9 +859,8 @@ $(function() {
 		
 		
 		if($('#employmentInfoForm div').hasClass('has-error')){
-			//alert('has error');
+		
 		}else{
-			//alert('No error');
 			$('html, body').animate({
 				scrollTop: $('#beneficiary-info').offset().top - $('.navbar-fixed-top').height()
 			}, 1000);
@@ -1065,9 +1064,8 @@ $(function() {
 		});
 		
 		if($("#insuredInfoForm div").hasClass('has-error')){
-			//alert('Has error');
+		
 		}else{
-			//alert('No error');
 			$('html, body').animate({
 				scrollTop: $('#employment-info').offset().top - $('.navbar-fixed-top').height()
 			}, 1000);

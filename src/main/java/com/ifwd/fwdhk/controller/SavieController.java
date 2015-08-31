@@ -278,23 +278,6 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF);
  	}
 	
-	/**
-	 * test save image
-	 * @param model
-	 * @param request
-	 * @param response
-	 * @param file
-	 * @throws Exception
-	 */
-	
-	@RequestMapping(value = {"/{lang}/sendEmail"})
-	public String getsendEmailInfo(Model model, HttpServletRequest request) {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc"))
-			lang = "CN";
-		return UserRestURIConstants.getSitePath(request)+ "savie/savie-sendEmail";
-	}
-	
 	
 	
 	/**

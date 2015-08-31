@@ -215,7 +215,6 @@ var fwd;
         			'../resources/images/mini-calculator/img_map_high.png',
         			'../resources/images/mini-calculator/sliced_FWD_interface_v03_out_cs5_slider_bar_base.png'
         		], function(){
-//         			alert('');
         		});
         	},
         	winkMax: 5000,
