@@ -93,7 +93,7 @@ body {
   font-family: 'Calibri-Bold';
   padding: 7px 40px;
 }
-.fwd-savie-wrapper .btn-orange:hover, .fwd-savie-wrapper .btn-orange:focus {
+.fwd-savie-wrapper .btn-orange:hover {
   background: #fff;
   color: #ff8200;
   border: 1px solid #ff8200;
