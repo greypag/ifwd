@@ -73,7 +73,7 @@ var context = "${pageContext.request.contextPath}";
 							</h2>
 							<div id="birthday">
 								<div class="hidden-md hidden-lg">
-									<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date"/> 
+									<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date" value="${savingDob!=null ? savingDob:defaultDOB }"/> 
 								</div>
 								<div class="input-group input-append date hidden-xs hidden-sm" id="datePicker">
 									<input type="text" class="date" value="${savingDob!=null ? savingDob:defaultDOB }" name="dob" id="sales-illu-dob" placeholder="mm/dd/year" onfocusin="fnSetStyle()" readonly />
