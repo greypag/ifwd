@@ -119,7 +119,7 @@ function getSaviePlanDetails() {
 									$('#account-value-change-0-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
 									$('#surrender-change-0-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
 								}
-							}*/
+							}
 							
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero"){
 								if (i == 9) {
