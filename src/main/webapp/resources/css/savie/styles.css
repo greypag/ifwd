@@ -52,6 +52,10 @@ body {
   position: relative;
 }
 
+.small-text {
+  font-size: 14px;
+}
+
 .fwd-savie-wrapper h1,
 .fwd-savie-wrapper h2,
 .fwd-savie-wrapper h3,
@@ -3640,6 +3644,11 @@ body {
     padding: 2px 0 55px;
     display: block;
   }
+}
+
+.fwd-savie-wrapper .page-sales-illustration .check-rate-box {
+  margin-bottom: 10px;
+  overflow: hidden;
 }
 
 #illustration-filters {
@@ -14343,6 +14352,13 @@ input[type=number] {
 .fwd-savie-wrapper .o2o-landing.teaser .additional.top {
   max-width: 280px;
   margin: 0 auto;
+}
+.fwd-savie-wrapper .o2o-landing.teaser .additional.footnote {
+  margin: 0 auto;
+  max-width: 525px;
+  padding-top: 50px;
+  padding-bottom: 10px;
+  text-align: left;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.teaser .additional.top {

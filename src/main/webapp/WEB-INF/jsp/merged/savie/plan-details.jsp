@@ -150,25 +150,28 @@ var context = "${pageContext.request.contextPath}";
 	                                <div class="row percent-buttons" >
 										<div class="col-md-6 col-xs-12 after-year-three">
 	                                        <h3><fmt:message key="savie.planDetails.After.year" bundle="${msg}" /></h3>
+											<p class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Choose.to.stay" bundle="${msg}" /></p>
 											<p class="hidden-md hidden-lg text-center"><fmt:message key="savie.planDetails.Check.rate" bundle="${msg}" /></p>
 	                                    </div>  
 	                                    <div class="col-md-6 col-xs-12 fwd-chart-col">
 	                                        <div class="clearfix right-side">
-	                                            <div class="left-side hidden-xs hidden-sm">
-	                                                <p class="rate-text"><fmt:message key="savie.planDetails.Crediting.rate" bundle="${msg}" /></p>
-	                                            </div>
-	                                            <div class="left-side chart-button-left">
-	                                                <button id="rate-0" type="button">0%</button>
-	                                            </div>
-	                                            <div class="left-side chart-button-left">
-	                                                <button id="rate-2" type="button" >2%</button>
-	                                            </div>
-	                                            <div class="left-side chart-button-right">
-	                                                <button id="rate-3" class="active" type="button">3%</button>
-	                                            </div>
-	                                            <div class="left-side chart-button-right">
-	                                                <button id="rate-4" type="button">4%</button>
-	                                            </div>
+	                                        	<div class="check-rate-box text-right hidden-xs hidden-sm">
+		                                            <fmt:message key="savie.planDetails.Check.rate" bundle="${msg}" />
+		                                        </div>
+		                                        <div>
+		                                            <div class="left-side chart-button-left">
+		                                                <button id="rate-0" type="button">0%</button>
+		                                            </div>
+		                                            <div class="left-side chart-button-left">
+		                                                <button id="rate-2" type="button" >2%</button>
+		                                            </div>
+		                                            <div class="left-side chart-button-right">
+		                                                <button id="rate-3" class="active" type="button">3%</button>
+		                                            </div>
+		                                            <div class="left-side chart-button-right">
+		                                                <button id="rate-4" type="button">4%</button>
+		                                            </div>
+		                                        </div>
 	                                        </div>
 	                                    </div>
 	                                </div>                                
@@ -210,7 +213,7 @@ var context = "${pageContext.request.contextPath}";
 												<td class="black-text right-border" id="surrender-change-0-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
-												<td class="left-border" id='policy-year-0-3'>Age 100</td>  
+												<td class="left-border" id='policy-year-0-3'><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>  
 												<td class="black-text desktop-only" id="credit-rate-0-3">0</td> 
 												<td class="black-text" id="premium-change-0-3"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-0-3"><span>$</span> 0</td>    

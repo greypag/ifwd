@@ -73,6 +73,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Second.year" bundle="${msg}" /></span><div class="white right"></div></li>
 							<li><span class="percent gold">4% </span><span class="year gold"><fmt:message key="savie.o2o.landing.Third.year" bundle="${msg}" /></span></li>
 						</ul>
+						<p class="additional footnote hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.Lump.sum.info" bundle="${msg}" /></p>
 					</div>
 				</div>
 			</div>
@@ -82,6 +83,7 @@ var home_url = "<%=request.getContextPath()%>";
 				<div class="get-started-holder text-center">
 					<button id="hunger-selling-buy-now-O2O" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
 				</div>
+				<p class="sign-up-header below"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p>
 				<p class="sign-up-header below"><fmt:message key="savie.o2o.landing.Haven't.applied" bundle="${msg}" />
 					<button id="signup"><fmt:message key="savie.o2o.landing.here" bundle="${msg}" /></button>
 				.</p>

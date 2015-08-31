@@ -40,7 +40,7 @@ var affiliate = "${affiliate}";
 			
 			<div class="application-flux thank-you">
 				<div class="container-fluid fwd-container thank-you-container">
-					<h1><fmt:message key="savie.confirmation.offline.Thank.you" bundle="${msg}" /><br class="visible-xs" /><fmt:message key="savie.confirmation.offline.signing.up" bundle="${msg}" /></h1>				
+					<h1><fmt:message key="savie.confirmation.offline.Thank.you" bundle="${msg}" /><!--<br class="visible-xs" /><fmt:message key="savie.confirmation.offline.signing.up" bundle="${msg}" />--></h1>				
 					<div class="details-container details-full" id="printable-area">
 						<div class="row">
 							<div class="col-xs-12">
@@ -49,7 +49,8 @@ var affiliate = "${affiliate}";
 									<div class="col-xs-12 col-md-4">
 										<div class="offline-procedure text-center">
 											<span class="step">1</span>
-											<p><fmt:message key="savie.confirmation.offline.A.passport" bundle="${msg}" /></p>
+											<p><fmt:message key="savie.confirmation.offline.A.hkid" bundle="${msg}" /></p>
+											<p class="small-text"><fmt:message key="savie.confirmation.offline.A.passport" bundle="${msg}" /></p>
 											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-1.png" class="img-responsive" /></div>
 										</div>
 									</div>
@@ -105,10 +106,10 @@ var affiliate = "${affiliate}";
 										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Phone.no" bundle="${msg}" /></label>
 										<span class="pull-left">${centreDetails.phone }</span>
 									</div>
-									<div class="appointment-detail clearfix">
+									<!--<div class="appointment-detail clearfix">
 										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Operating.hours" bundle="${msg}" /></label>
 										<span class="pull-left">${centreDetails.operationHours }</span>
-									</div>
+									</div>-->
 								</div>
 							</div>
 							<div class="col-xs-12 print-document">
