@@ -272,15 +272,15 @@ var home_url = "<%=request.getContextPath()%>";
 					<h2 class="hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.Our.blog" bundle="${msg}" /></h2>
 					<div class="row text-left">
 						<div class="col-xs-12 col-md-4 fwd-col">
-							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/stay-connect.png"/>
+							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/power-1-percent-savings-interest.jpg"/>
 							<h3><a href="#"><fmt:message key="savie.o2o.landing.Staying.connected" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
 						</div>
 						<div class="col-md-4 fwd-col hidden-xs hidden-sm">
-							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/7-musts.png"/>
+							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/saving-is-easier-than-you-think.jpg"/>
 							<h3><a href="#"><fmt:message key="savie.o2o.landing.7.musts" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
 						</div>
 						<div class="col-md-4 fwd-col hidden-xs hidden-sm">
-							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/top-tips.png"/>
+							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/3-saving-tips-smart-parents.jpg"/>
 							<h3><a href="#"><fmt:message key="savie.o2o.landing.Top.tips" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
 						</div>
 					</div>
