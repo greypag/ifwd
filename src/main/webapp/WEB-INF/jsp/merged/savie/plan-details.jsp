@@ -8,6 +8,12 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+</script>
+
+
+
 	<div class="page-sales-illustration">
 			<!--Sales Illustration Block-->
 			<div class="fwd-container container-fluid hidden-xs hidden-sm clearfix">

@@ -1,6 +1,8 @@
 var items = [[],[],[],[]];
 var guaranteed3Years;
-var contextPath = window.location.pathname.split("/")[1];
+//var contextPath = window.location.pathname.split("/")[1];
+var contextPath = '<%=request.getContextPath()%>';
+var contextPath = context;
 var jsonTableData;
 $(function () {
 	var wh_nowTemp = new Date();
@@ -67,7 +69,7 @@ function getSaviePlanDetails() {
 	}
 	else{
 		$('#promo-code-dateOfBirth').addClass('hidden');
-		$.get('/'+contextPath+'/ajax/savie/planDetails/get',
+		$.get(contextPath+'/ajax/savie/planDetails/get',
 		{ 
 			planCode : planCode,
 			issueAge: issueAge,
@@ -323,7 +325,7 @@ function createPdf() {
 	var Premium = "1,000";
 	var paymentType = " - "
 	
-	$.get('/'+contextPath+'/ajax/savie/sales-illustration/createPdf',
+	$.get(contextPath+'/ajax/savie/sales-illustration/createPdf',
 	{ 
 		chineseName : chineseName,
 		gender : gender,
@@ -336,7 +338,7 @@ function createPdf() {
 	},
 	function(data) {
 		if(data.pdfName){
-			window.open('/'+contextPath+'/tc/savings-insurance/pdf-show?pdfName='+data.pdfName+'&requestNo='+data.Msgs.requestNo);
+			window.open(contextPath+'/tc/savings-insurance/pdf-show?pdfName='+data.pdfName+'&requestNo='+data.Msgs.requestNo);
 		}
 		else{
 			alert("data error");
@@ -347,7 +349,7 @@ function createPdf() {
 }
 
 function acceptPdf(pdfName,requestNo) {
-	$.get('/'+contextPath+'/ajax/savie/sales-illustration/uploadPdf',
+	$.get(contextPath+'/ajax/savie/sales-illustration/uploadPdf',
 	{ 
 		pdfName : pdfName,
 		requestNo : requestNo
@@ -369,7 +371,7 @@ function acceptPdf(pdfName,requestNo) {
 }
 
 function getOccupation(value,language) {
-	$.get('/'+contextPath+'/ajax/savie/application/getOccupation',
+	$.get(contextPath+'/ajax/savie/application/getOccupation',
 	{ 
 		value : value,
 		language : language
