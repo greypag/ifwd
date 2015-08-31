@@ -82,7 +82,7 @@ public class SaviePageFlowControl {
 
 		case UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS: 
 			// Plan Details
-			to = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;
+			to = UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER;
 			/*to = UserRestURIConstants.PAGE_SAVIE_FNA;
 			to2 = UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION;*/
 			to2 = UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER;
@@ -96,7 +96,7 @@ public class SaviePageFlowControl {
 		case UserRestURIConstants.PAGE_SAVIE_FNA: 
 			// FNA
 			to = UserRestURIConstants.PAGE_SAVIE_SALES_ILLUSTRATION;
-			to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE; // FNA=yes
+			to2 = UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER; // FNA=yes
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_SALES_ILLUSTRATION: 
@@ -113,7 +113,7 @@ public class SaviePageFlowControl {
 		case UserRestURIConstants.PAGE_SAVIE_APPLICATION: 
 			// Application Form
 			to = UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY;//payment offline=No
-			to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;//payment offline=Yes
+			to2 = UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER;//payment offline=Yes
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_DECLARATIONS: 
@@ -125,13 +125,13 @@ public class SaviePageFlowControl {
 		case UserRestURIConstants.PAGE_SAVIE_SIGNATURE: 
 			// Signature
 			to = UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD;//sign offline=No
-			to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;//sign offline=Yes
+			to2 = UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER;//sign offline=Yes
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_DOCUMENT_UPLOAD: 
 			// Document Upload
 			to = UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;//submit offline=No
-			to2 = UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;//submit offline=Yes
+			to2 = UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER;//submit offline=Yes
 			break;		
 
 		case UserRestURIConstants.PAGE_SAVIE_CONFIRMATION: 
@@ -141,7 +141,7 @@ public class SaviePageFlowControl {
 			}
 			break;
 
-		case UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE: 
+		case UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER: 
 			// Appointment
 			to = UserRestURIConstants.PAGE_SAVIE_CONFIRMATION;//payment offline=No
 			to2 = UserRestURIConstants.PAGE_SAVIE_APPLICATION_SUMMARY;//payment offline=Yes
@@ -230,9 +230,6 @@ public class SaviePageFlowControl {
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_CONFIRMATION)) {
 			return UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE;
-		}
-		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE)) {
-			return UserRestURIConstants.PAGE_SAVIE_CUSTOMER_SERVICE_CENTRE;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF)) {
 			return UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF;
