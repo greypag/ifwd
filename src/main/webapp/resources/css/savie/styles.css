@@ -163,9 +163,9 @@ body {
   font-size: 36px;
   height: 50px;
 }
-.fwd-savie-wrapper .modal {
+/*.fwd-savie-wrapper .modal {
   background: rgba(6, 29, 42, 0.8);
-}
+}*/
 .fwd-savie-wrapper .modal button.close:hover,
 .fwd-savie-wrapper .modal button.close:focus,
 .fwd-savie-wrapper .modal button.close:active {
@@ -2485,11 +2485,11 @@ body {
   background-color: #061d2a;
   opacity: 0.8 !important;
 }
-.fwd-savie-wrapper .modal.fade {
+/*.fwd-savie-wrapper .modal.fade {
   font-family: Calibri;
   font-size: 24px;
   color: #061d2a;
-}
+}*/
 .fwd-savie-wrapper .modal.fade .modal-dialog.plan-details {
   width: 100%;
   max-width: 460px;
@@ -2503,11 +2503,15 @@ body {
   }
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog {
-  width: 480px;
+  /*width: 480px;*/
+  /* width: 377px; */
+  width: auto;
+  margin: 230px auto 0;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .modal.fade .modal-dialog {
-    margin-top: 150px;
+    /* width: 475px; */
+    /* margin-top: 150px; */
   }
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content.plan-details {
@@ -2520,7 +2524,7 @@ body {
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content {
   border-radius: 0;
-  padding: 25px 45px 35px 45px;
+  /* padding: 25px 45px 35px 45px; */
   position: relative;
   background-clip: padding-box;
   outline: 0;
@@ -2569,7 +2573,7 @@ body {
   padding-top: 10px;
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a {
-  font-size: 18px;
+  /* font-size: 18px; */
   color: #f68a1d;
   border-bottom: 1px solid  #f68a1d;
 }
@@ -10974,7 +10978,12 @@ span.dup-error-msg {
 * by: RMN
 */
 .modal-backdrop.in {
-  opacity: 0;
+  font-family: Calibri;
+  font-size: 24px;
+  color: #061d2a;
+  background: rgb(6, 29, 42);
+  opacity: 0.8;
+  filter: alpha(opacity=80);
 }
 
 .fwd-savie-wrapper .img-responsive.hidden-xs.hidden-sm.teaser-banner-desktop {
@@ -12207,7 +12216,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content {
   border-radius: 0;
   max-width: 377px;
-  margin: 230px auto;
+  margin: 0 auto;
   padding: 23px 20px 3px;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.5);
@@ -12215,7 +12224,6 @@ span.dup-error-msg {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content {
     max-width: 475px;
-    margin: 230px auto;
     padding: 25px 20px 3px;
   }
 }
