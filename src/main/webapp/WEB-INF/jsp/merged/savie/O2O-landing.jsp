@@ -316,7 +316,7 @@ var home_url = "<%=request.getContextPath()%>";
 			
 			<!--Access Code Modal-->
 			<div class="modal fade" role="dialog" aria-labelledby="accessCode" id="accessCodeO2O">
-				<div class=" hunger-selling-container container-fluid" role="document">
+				<div class=" hunger-selling-container container-fluid modal-dialog" role="document">
 					<div class="modal-content hunger-selling-content">
 						<div class="hunger-selling-header text-center">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -335,7 +335,7 @@ var home_url = "<%=request.getContextPath()%>";
 			
 			<!--Signup Now Modal-->
 			<div class="modal fade" role="dialog" aria-labelledby="signupnow" id="signup-now-modal">
-				<div class=" hunger-selling-container container-fluid" role="document">
+				<div class=" hunger-selling-container container-fluid modal-dialog" role="document">
 					<div class="modal-content hunger-selling-content">
 						<div class="hunger-selling-header text-center">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -490,8 +490,6 @@ var home_url = "<%=request.getContextPath()%>";
 			$('#signup').click(function(e){
 				$('#signup-now-modal').modal('show');
 			});
-		//	$('#customerCenter').modal('show');
-		//	$('#accessCodeO2O').modal('show');
 			
 		</script>
 		
