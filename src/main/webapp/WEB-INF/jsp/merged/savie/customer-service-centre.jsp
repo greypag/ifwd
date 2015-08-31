@@ -58,8 +58,8 @@
 										<div class="col-xs-12 col-md-4"><label for="centre"><fmt:message key="savie.customerServiceCentre.center" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div class="selectDiv">
-												<span class="icon-chevron-thin-down orange-caret"></span>
-												<select name="centre" id="centre" class="form-control gray-dropdown">
+												<!-- <span class="icon-chevron-thin-down orange-caret" id="centre-orange-caret"></span> -->
+												<select name="centre" id="centre" class="selectpicker">
 													<option value="1">Tsim Sha Tsui</option>
 													<option value="2">Quarry Bay</option>
 													<option value="3">Sheung Wan</option>
@@ -81,7 +81,7 @@
 										<div class="col-xs-12 col-md-4"><label for="preferred-time"><fmt:message key="savie.customerServiceCentre.time" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div class="selectDiv timeslot">
-												<span class="icon-chevron-thin-down orange-caret"></span>
+												<span class="icon-chevron-thin-down orange-caret" id="time-orange-caret"></span>
 												<input type="text" name="preferred-time" id="preferred-time" value="10:30">
 											</div>
 										</div>
@@ -195,10 +195,23 @@
 					appendTo: '.timeslot',
 					timeFormat: 'H:i',
 				});
+				
+				// temp fixes
+				$('#time-orange-caret').click(function(){
+					$('#preferred-time').click();
+				});
+
 				$('#preferred-date').datepicker({
 					format: "mm-dd-yyyy",
 					container: "#date",
 					startDate: new Date(),
+				});
+				// fix by tommy
+				$('#centre').selectpicker();
+				$('button[data-id="centre"]').on('click', function() {
+               var $self = $(this);
+               var $warp = $self.parent('.bootstrap-select');
+					$warp.toggleClass('open');
 				});
 				$('#centre').on('change', function() {
 					var centre = $('#centre option:selected').val();

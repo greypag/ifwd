@@ -10710,6 +10710,30 @@ span.dup-error-msg {
 .fwd-savie-wrapper #set-appointment #service-centre {
   padding-bottom: 40px;
 }
+.fwd-savie-wrapper #set-appointment #service-centre .open>.dropdown-menu {
+   display: block;
+}
+.fwd-savie-wrapper #set-appointment #service-centre .btn-group.bootstrap-select {
+   width: 100% !important;
+}
+.fwd-savie-wrapper #set-appointment #service-centre button[data-id=centre] {
+   font-size: 16px;
+   background: none;
+   border: 0 none;
+   line-height: 28px;
+   width: 100%;
+   outline: 0 none !important;
+   padding-right: 35px;
+   padding-left: 18px;
+}
+.fwd-savie-wrapper #set-appointment #service-centre button[data-id=centre] .icon-chevron-thin-down {
+   position: absolute;
+   font-size: 18px;
+   color: #ff8200;
+   right: 17px;
+   cursor: pointer;
+   top: 11px;
+}
 .fwd-savie-wrapper #set-appointment .next {
   width: 100%;
 }
