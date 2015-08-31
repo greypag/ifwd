@@ -166,10 +166,89 @@ $(function() {
 		}
 	});
 
-	/*$("#teaserPhoneNo").keypress(function(event) {
-        return /\d/.test(String.fromCharCode(event.keyCode));
-    });*/
+	$('#signup-btn').click(function(e){
+		e.preventDefault();
+		var checkPics = $("#personal-information-statement-signup").is(":checked");
+		var checkTc = $("#terms-condition-statement-signup").is(":checked");		
+		var email = $.trim($('#teaserEmail').val());
+		var phone = $('#teaserPhoneNo').val().length;
+		var isErrorFlag = false;
+		var isPlaceholder = true;
+		var emailIe = ($.trim($('#teaserEmail').val())) =="Please enter your email address"? "":$.trim($('#teaserEmail').val());
+		// Email is required
+		if ((email == "") || (emailIe == "")) {
+			$('#emailErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.email.notNull.message"));
+			document.getElementById("emailErrMsg").style.visibility="visible";
+			isErrorFlag = true;
+		} else {
+			document.getElementById("emailErrMsg").style.visibility="hidden";
+			
+			// Email is not valid
+			if (email != "" && !checkEmail(email)) {
+				$('#emailErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.email.invalid.message"));
+				document.getElementById("emailErrMsg").style.visibility="visible";
+				isErrorFlag = true;
+			} else {
+				document.getElementById("emailErrMsg").style.visibility="hidden";
+				
+				// Email is duplicate
+				if (email != "" && duplicateEmail(email)) {
+					$('#emailErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.email.used.message"));
+					document.getElementById("emailErrMsg").style.visibility="visible";
+					isErrorFlag = true;
+				} else {
+					document.getElementById("emailErrMsg").style.visibility="hidden";
+				}
+			}
+		}
+		
+		// Phone is not empty and has 8 characters
+		if ($('#teaserPhoneNo').val() == $('#teaserPhoneNo').attr('placeholder')) {
+			isPlaceholder=false;
+			
+		} else if (phone > 0 && phone < 8) {
+			$('#phoneErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.invalid.message"));
+			document.getElementById("phoneErrMsg").style.visibility="visible";
+			isErrorFlag = true;
+		} else {
+			document.getElementById("phoneErrMsg").style.visibility="hidden";
 
+			var firstNum = $('#teaserPhoneNo').val().substr(0, 1);
+			switch(firstNum) {
+				case "1": case "2": case "3": case "4": case "7": case "0":
+					$('#phoneErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.invalid.message"));
+					document.getElementById("phoneErrMsg").style.visibility="visible";
+					isErrorFlag = true;
+			}
+		}
+		
+		// Agreed terms and condition
+		if (!checkPics && !checkTc){
+			$('#checkboxErrorMessage').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.PICSnTnC.message"));
+			document.getElementById("checkboxErrorMessage").style.visibility="visible";
+			isErrorFlag = true;
+		} else if (!checkPics) {
+			$('#checkboxErrorMessage').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.personal.collection.message"));
+			document.getElementById("checkboxErrorMessage").style.visibility="visible";
+			isErrorFlag = true;
+		} else if (!checkTc) {
+			$('#checkboxErrorMessage').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.term.conditions.message"));
+			document.getElementById("checkboxErrorMessage").style.visibility="visible";
+			isErrorFlag = true;
+		} else {
+			document.getElementById("checkboxErrorMessage").style.visibility="hidden";
+		}
+
+		if (!isErrorFlag) {
+			document.getElementById("emailErrMsg").style.visibility="hidden";
+			document.getElementById("phoneErrMsg").style.visibility="hidden";
+			document.getElementById("checkboxErrorMessage").style.visibility="hidden";
+			if(!isPlaceholder){
+				$('#teaserPhoneNo').val('')
+			}
+			sendStep1Emailbyo2o();
+		}
+	});
 
 });
 
@@ -199,6 +278,12 @@ function sendStep1Email() {
 	var teaserEmail = $("#teaserEmail").val();
 	var teaserPhoneNo = $("#teaserPhoneNo").val();
 	sendlead(teaserEmail,teaserPhoneNo,"","1",'ADUOIHWNJSKLNC');
+}
+
+function sendStep1Emailbyo2o() {
+	var teaserEmail = $("#teaserEmail").val();
+	var teaserPhoneNo = $("#teaserPhoneNo").val();
+	sendleadbyo2o(teaserEmail,teaserPhoneNo,"","1",'ADUOIHWNJSKLNC');
 }
 
 function sendStep2Email() {
@@ -267,6 +352,55 @@ function sendlead(email,mobileNo,answer1,step,captcha) {
 		    	}
 	    	}
 			$('#teaser-sign-up-btn').prop('disabled', false);
+	    }  
+	});
+}
+
+function sendleadbyo2o(email,mobileNo,answer1,step,captcha) {
+	if( affiliate == null){
+		affiliate = "";
+	}
+	$('#signup-btn').prop('disabled', true);
+	$.ajax({     
+	    url: context+'/ajax/savie/interestGather/post',     
+	    type:'post',     
+	    data:{    
+	    	"email": email,
+	    	"mobileNo":mobileNo,
+	        "answer1": answer1,
+	        "affiliate":affiliate,
+	        "step": step,
+	        "captcha": captcha
+   		},        
+	    error:function(){
+	    },     
+	    success:function(data){
+	    	if(data.errMsgs == null){
+	    		if(step == '1'){
+	    			var attachment = "";
+	    			sendMessagesEmail(email,attachment);
+	    			$('#signup-now-modal').modal('hide');
+	    			$('#teaserSurvery').modal('show');
+	    		}
+	    	}else{
+		    	if(data.errMsgs == 'Email already registered'){
+		    		$('#emailErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.email.used.message"));
+		    		document.getElementById("emailErrMsg").style.visibility="visible";
+		    	}else if(data.errMsgs == getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.non8digit.message")){
+		    		$('#phoneErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.non8digit.message"));
+		    		document.getElementById("phoneErrMsg").style.visibility="visible";hidden
+		    	}else if(data.errMsgs == "captcha error"){
+		    		$('#checkboxErrorMessage').html(getBundle(getBundleLanguage, "form.captcha.empty.message"));
+		    		document.getElementById("checkboxErrorMessage").style.visibility="visible";
+		    	}else{
+		    		$('#checkboxErrorMessage').html(data.errMsgs);
+		    		document.getElementById("checkboxErrorMessage").style.visibility="visible";
+		    	}
+		    	if(!('placeholder' in document.createElement('input')) && $('#teaserPhoneNo').val() == '') {
+		    		$('#teaserPhoneNo').val($('#teaserPhoneNo').attr('placeholder'))
+		    	}
+	    	}
+			$('#signup-btn').prop('disabled', false);
 	    }  
 	});
 }

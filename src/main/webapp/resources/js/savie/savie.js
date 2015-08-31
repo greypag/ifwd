@@ -115,83 +115,83 @@ function getSaviePlanDetails() {
 							//rate 0
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero"){
 								if (i == 4) {
-									$('#premium-change-0-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-0-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-0-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#premium-change-0-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-change-0-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-change-0-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 								}
 							}
 							
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero"){
 								if (i == 9) {
-									$('#premium-change-0-2').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-0-2').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-0-2').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#premium-change-0-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-change-0-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-change-0-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 								}
 							}
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero" && json.salesIllustration.yearPlans[i].year == 100){
-									$('#premium-change-0-3').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-0-3').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-0-3').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#premium-change-0-3').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-change-0-3').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-change-0-3').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 							}
 							//rate 2
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "two"){
 								if (i == 4) {
-									$('#premium-change-2-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-2-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-2-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#premium-change-2-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-change-2-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-change-2-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 								}
 							}
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "two"){
 								if (i == 9) {
-									$('#premium-change-2-2').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-2-2').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-2-2').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#premium-change-2-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-change-2-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-change-2-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 								}
 							}
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "two" && json.salesIllustration.yearPlans[i].year == 100){
-									$('#premium-change-2-3').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-2-3').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-2-3').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#premium-change-2-3').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-change-2-3').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-change-2-3').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 							}
 							//rate 3
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
 								if (i == 4) {
-									$('#premium-change-3-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-3-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-3-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#premium-change-3-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-change-3-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-change-3-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 								}
 							}
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
 								if (i == 9) {
-									$('#premium-change-3-2').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-3-2').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-3-2').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#premium-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 								}
 							}
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "three" && json.salesIllustration.yearPlans[i].year == 100){
-									$('#premium-change-3-3').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-3-3').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-3-3').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#premium-change-3-3').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-change-3-3').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-change-3-3').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 							}
 							//rate 4
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "four"){
 								if (i == 4) {
-									$('#premium-change-4-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-4-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-4-1').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#premium-change-4-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-change-4-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-change-4-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 								}
 							}
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "four"){
 								if (i == 9) {
-									$('#premium-change-4-2').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-4-2').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-4-2').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#premium-change-4-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-change-4-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-change-4-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 								}
 							}
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "four" && json.salesIllustration.yearPlans[i].year == 100){
-									$('#premium-change-4-3').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-4-3').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-4-3').html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#premium-change-4-3').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-change-4-3').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-change-4-3').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 							}
 							
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "two"){						
@@ -206,19 +206,19 @@ function getSaviePlanDetails() {
 								if (i == 0 || i == 1 || i == 2) {
 									var rowCtr = i+1;
 									if(i == 2) {
-										$("#3rd_policy_year").html(Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'))
+										$("#3rd_policy_year").html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance))
 									}
 									
-									$('#credit-rate-change-'+rowCtr).html(Number(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#credit-rate-change-'+rowCtr).html(fmoney(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate)));
+									$('#premium-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 									
 									console.log('Credit Rate:'+textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate));
-									$('#credit-rate-'+rowCtr).html(Number(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-change-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-change-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-change-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#credit-rate-'+rowCtr).html(fmoney(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate)));
+									$('#premium-change-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-change-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-change-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 								}
 								
 								
@@ -229,10 +229,10 @@ function getSaviePlanDetails() {
 								items[0][i] = rateIsZero;
 								if(i==2){
 									var rowCtr = 3;
-									$('#credit-rate-change-'+rowCtr).html(Number(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate)).toLocaleString('en'));
-									$('#premium-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].totalPremium).toLocaleString('en'));
-									$('#account-value-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].accountBalance).toLocaleString('en'));
-									$('#surrender-'+rowCtr).html('<span>$</span> '+Number(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit).toLocaleString('en'));
+									$('#credit-rate-change-'+rowCtr).html(fmoney(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate)));
+									$('#premium-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 								}
 								
 								
@@ -408,3 +408,16 @@ function textToNumber(numbertxt){
 	}
 	return num;
 }
+
+function fmoney(s)   
+{   
+   s = parseFloat((s + "").replace(/[^\d\.-]/g, "")).toFixed(0) + "";   
+   var l = s.split(".")[0].split("").reverse(),   
+   t = "";   
+   for(i = 0; i < l.length; i ++ )   
+   {   
+      t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");   
+   }   
+   return t.split("").reverse().join("");   
+} 
+

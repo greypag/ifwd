@@ -157,7 +157,12 @@
 		    		date = (date < 10) ? '0' + date : date;
 		    		$("#centre").val(serviceCentreCode);
 		    		$("#preferred-date").datepicker("setDate", month +'-'+ date + '-' + year);
-		    		getTimeSlot();
+		    		
+		    		$('.centre-info').addClass('hidden');
+					$('#centre-' + serviceCentreCode).removeClass('hidden');
+					if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
+						getTimeSlot();
+					}
 		    	}else {
 					$('#fullyBooked').modal('show');
 		    	}

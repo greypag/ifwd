@@ -72,6 +72,10 @@ public class SavieController extends BaseController{
 	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request,HttpSession httpSession) {	
 		HttpSession session = request.getSession();
 		String accessCode = (String)request.getParameter("accessCodeConfirm");
+		if(org.apache.commons.lang.StringUtils.isBlank(accessCode)){
+			accessCode = (String) httpSession.getAttribute("accessCode");
+			logger.info(accessCode);
+		}
 		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))
 				|| org.apache.commons.lang.StringUtils.isNotBlank(accessCode)) {
 			httpSession.setAttribute("accessCode", accessCode);
@@ -257,18 +261,15 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/email-submitted","/{lang}/savings-insurance/o2o-landing/email-submitted"})
 	public ModelAndView getSavieEmailSubmitted(Model model, HttpServletRequest request) {
-		/**
-		 * 通过savings-insurance才可以进入email-submitted页面
-		 */
 		String referer = request.getHeader("referer");
-		if(referer != null && (referer.endsWith("/savings-insurance/email-submitted") || referer.endsWith("/savings-insurance/o2o-landing/email-submitted")
+		/*if(referer != null && (referer.endsWith("/savings-insurance/email-submitted") || referer.endsWith("/savings-insurance/o2o-landing/email-submitted")
 				|| referer.endsWith("/savings-insurance/o2o-landing") || referer.endsWith("/savings-insurance/")
 				|| referer.endsWith("/savings-insurance") || referer.indexOf("savings-insurance?affiliate") > 1
 				|| referer.indexOf("/savings-insurance/o2o-landing?affiliate") > 1)) {
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED);
-		}else {
+		}else {*/
 			return getSavieEmailConfirmed(model, request);
-		}
+		//}
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/pdf-show"})
@@ -390,6 +391,21 @@ public class SavieController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/O2O-landing","/{lang}/savings-insurance","/{lang}/savings-insurance/"})
 	public ModelAndView o2OLanding(Model model, HttpServletRequest request) {
+		String affiliate = (String) request.getParameter("affiliate");
+		if(affiliate == null){
+			affiliate = "";
+		}
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
+		List<OptionItemDesc> savieAns;
+		if(lang.equals("tc")){
+			lang = "CN";
+			savieAns=InitApplicationMessage.savieAnsCN;
+		}else{
+			savieAns=InitApplicationMessage.savieAnsEN;
+		}
+		model.addAttribute("savieAns", savieAns);
+		model.addAttribute("affiliate", affiliate);
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
 	}
 }
