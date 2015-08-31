@@ -72,13 +72,10 @@ var context = "${pageContext.request.contextPath}";
 								<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.birth.above" bundle="${msg}" />"></button>
 							</h2>
 							<div id="birthday">
-							<!-- 
 								<div class="hidden-md hidden-lg">
 									<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date"/> 
 								</div>
-								hidden-xs hidden-sm
-								 -->
-								<div class="input-group input-append date" id="datePicker">
+								<div class="input-group input-append date hidden-xs hidden-sm" id="datePicker">
 									<input type="text" class="date" value="${savingDob!=null ? savingDob:defaultDOB }" name="dob" id="sales-illu-dob" placeholder="mm/dd/year" onfocusin="fnSetStyle()" readonly />
 									<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 								</div>
