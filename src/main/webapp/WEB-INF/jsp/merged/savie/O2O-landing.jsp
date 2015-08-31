@@ -487,6 +487,21 @@ var home_url = "<%=request.getContextPath()%>";
 						});
 				}	
 			});
+
+			// Sign up now validation
+			$('#teaserSignUpForm').submit(function(e){
+				e.preventDefault();				
+				
+				var errorMsg = false;
+				var signupEmail = $('#signupEmail').val();
+				var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+				var validEmail = re.test(signupEmail);
+				if (signupEmail == "" || !validEmail) {
+					// $('#emailErrMsg').addClass('visible');
+					$('#emailErrMsg').css('visibility', 'visible');
+					errorMsg = true;
+				}
+			});
 			
 			// Sign up Now Button
 			$('#signup').click(function(e){
