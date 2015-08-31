@@ -341,26 +341,27 @@ var home_url = "<%=request.getContextPath()%>";
 							<h4 class="hunger-selling-title">Sign up now and await for our notification!</h4>
 						</div>
 						<div class="modal-body hunger-selling-body">
-							<form action="O2O-confirmation">
+							<form method="post" id="teaserSignUpForm" action="">
 								<div class="input-holder">
-									<input placeholder="Email address [compulsory]" type="email" name="signupEmail" id="signupEmail" required/>
-									<!-- <span class="validation-msg hidden-error-msg error-email">This field is required.</span> -->
-									<span class="error-email">Please enter your email address.</span>
-									<input placeholder="Mobile no." type="text" name="signupMobileNo" id="signupMobileNo"/>
+									<input placeholder="Email address [compulsory]" type="text" name="signupEmail" id="teaserEmail"/>
+									<span id="emailErrMsg" class="error-email">Please enter your email address.</span>
+									<input placeholder="Mobile no." type="text" name="signupMobileNo" id="teaserPhoneNo"/>
+									<span id="phoneErrMsg" class="error-email hideSpan">&nbsp;</span>
+									<input type="hidden" name="affiliate" value="${affiliate}">
 								</div>
 
 								<div class="fwd-checkbox">
-									<input type="checkbox" id="personal-information-statement-signup">
+									<input type="checkbox" id="personal-information-statement-signup" name="isPics" value="pics">
 									<label for="personal-information-statement-signup"></label>
 									<p class="notice">I have read, understood and accept this <a href="#">Personal Information Collection Statement.</a></p>
 								</div>
 
 								<div class="fwd-checkbox">
-									<input type="checkbox" id="terms-condition-statement-signup">
+									<input type="checkbox" id="terms-condition-statement-signup" name="isTc" value="tc">
 									<label for="terms-condition-statement-signup"></label>
 									<p class="notice">I have read, understood and accept these <a href="#">Terms and Conditions.</a></p>
 								</div>
-													
+								<span class="error-email chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>					
 								<button type="submit" id="signup-btn" class="btn hunger-btn">Sign up now</button>
 							</form>
 						</div>
@@ -369,6 +370,47 @@ var home_url = "<%=request.getContextPath()%>";
 			</div><!-- /.modal -->
 			<!-- FOOTER -->
 		</div>
+		
+		
+		<div class="modal fade" role="dialog" aria-labelledby="teaserSurvery"
+			id="teaserSurvery">
+			<div class="modal-dialog teaserSurvey" role="document">
+				<div class="modal-content teaserSurvey">
+					<div class="modal-header teaserSurvey">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h2><fmt:message key="savie.interestGather.survey.thank.you" bundle="${msg}" /></h2>
+					</div>
+					<div class="modal-body teaserSurvey">
+						<p class="registered"><fmt:message key="savie.interestGather.survey.successfully.registered" bundle="${msg}" /></p>
+						<p class="registered"><fmt:message key="savie.interestGather.survey.tell.more" bundle="${msg}" /></p>
+		
+						<div class="modal-divider"></div>
+		
+						<p class="question"><fmt:message key="savie.interestGather.survey.plan.save" bundle="${msg}" /></p>
+		
+						<form class="amount-to-save">
+							<div class="teaser-select">
+									<select class="form-control saveDropdown" name="amountToSave"
+									id="amountToSave">
+									<option selected disabled value=""><fmt:message key="savie.interestGather.survey.please.select" bundle="${msg}" /></option>
+									<c:forEach var="savieAns" items="${savieAns}" varStatus="theCount">
+										<option value="${savieAns.itemCode }" class="options">${savieAns.itemDesc }</option>
+									</c:forEach>
+								</select>
+							</div>
+							<button type="submit" class="btn btn-white btn-thank-you"
+								id="teaser-mmodal-submit" onclick="sendStep2Email()"><fmt:message key="savie.interestGather.survey.submit" bundle="${msg}" /></button>
+						</form>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
 		
 		<!-- JS INCLUDES -->
 		
@@ -384,6 +426,7 @@ var home_url = "<%=request.getContextPath()%>";
 		<script src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/date.format.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
 		
 		<script type="text/javascript">
 			var language = "en";
