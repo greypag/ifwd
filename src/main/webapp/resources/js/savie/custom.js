@@ -343,7 +343,7 @@ $(function() {
 			window.location = "application-summary";    
 		} else {
 			setCookie("paymentMethod", "offline", 30);
-			window.location = "customer-service-centre";    
+			window.location = "service-center";    
 		}
     });
 	
@@ -353,7 +353,7 @@ $(function() {
 		if (paymentMethod == "online") {
 			$("#order-summary-return-btn").attr('href', 'application');
 		} else {
-			$("#order-summary-return-btn").attr('href', 'customer-service-centre');
+			$("#order-summary-return-btn").attr('href', 'service-center');
 		}
 	}
 
@@ -416,7 +416,7 @@ $(function() {
 
 	// Set Appointment Page
 	$("#appointment-change-btn").on('click', function(){
-        window.location = "customer-service-centre";    
+        window.location = "service-center";    
     });	
 	
 	//Signature Radio Buttons

@@ -191,12 +191,6 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_SUMMARY);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/customer-service-centre"})
-	public ModelAndView getSavieAppointment(Model model, HttpServletRequest request,@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail) {
-		request.getSession().setAttribute("savieDetail", savieDetail);
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CS);
-	}
-	
 	@RequestMapping(value = {"/{lang}/savings-insurance/document-upload"})
 	public ModelAndView getSavieDocumentUpload(Model model, HttpServletRequest request) {
 		model.addAttribute("signatureWidth", InitApplicationMessage.signatureWidth);
