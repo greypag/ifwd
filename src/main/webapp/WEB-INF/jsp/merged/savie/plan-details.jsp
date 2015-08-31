@@ -98,7 +98,7 @@ var context = "${pageContext.request.contextPath}";
 						<h2><fmt:message key="savie.planDetails.promo.code" bundle="${msg}" />
 							<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="If you have received a promo code, enter below for special rates."></button>
 						</h2>
-						<input value="${savingPromocode }" name="promocode" type="text" placeholder="e.g. SAVIE50" class="promocode" id="promocode">
+						<input value="${savingPromocode }" name="promocode" type="text" placeholder="savie.planDetails.promo.code.placeholder" class="promocode" id="promocode">
 						<span class="error-msg-promo hideSpan" id="promo-code-errmsg">Invalid promo code. Try again?</span>
 					</div>
 					<div class="apply">
@@ -120,7 +120,7 @@ var context = "${pageContext.request.contextPath}";
 	                                	</button>
 	                                </h2>
 	                                <h3><fmt:message key="savie.planDetails.year.guaranteed" bundle="${msg}" /></h3>
-	                                <h3 class="desktop-right hidden-xs hidden-sm">You will now have $ <span id="3rd_policy_year">0</span> in the 3rd policy year</h3>
+	                                <h3 class="desktop-right hidden-xs hidden-sm">savie.planDetails.End.of.3rd.years.part1<span id="3rd_policy_year">0</span>savie.planDetails.End.of.3rd.years.part2</h3>
 	                            </div>
 	                            <div class="rate-table">
 	                                <table class="table table-hover">
@@ -361,33 +361,6 @@ var context = "${pageContext.request.contextPath}";
 						<li class="explanation-li">
 							<p class="expl-txt"><fmt:message key="savie.planDetails.context2" bundle="${msg}" /></p>
 						</li>
-						<li class="explanation-li">
-							<p class="expl-txt"><fmt:message key="savie.planDetails.context3" bundle="${msg}" /></p>
-						</li>
-						<!-- <li class="explanation-li">
-							<p class="expl-txt"><fmt:message key="savie.planDetails.context1" bundle="${msg}" /></p>
-						</li>
-						<li class="explanation-li">
-							<p class="expl-txt"><fmt:message key="savie.planDetails.context2" bundle="${msg}" /></p>
-						</li>
-						<li class="explanation-li">
-							<p class="expl-txt"><fmt:message key="savie.planDetails.context3" bundle="${msg}" /></p>
-						</li>
-						<li class="explanation-li">
-							<p class="expl-txt"><fmt:message key="savie.planDetails.context4" bundle="${msg}" /></p>
-						</li>
-						<li class="explanation-li">
-							<p class="expl-txt"><fmt:message key="savie.planDetails.context5" bundle="${msg}" /></p>
-						</li>
-						<li class="explanation-li">
-							<p class="expl-txt"><fmt:message key="savie.planDetails.context6" bundle="${msg}" /></p>
-						</li>
-						<li class="explanation-li">
-							<p class="expl-txt"><fmt:message key="savie.planDetails.context7" bundle="${msg}" /></p>
-						</li>
-						<li class="explanation-li">
-							<p class="expl-txt"><fmt:message key="savie.planDetails.CurrentRate.declared.by.the.Company.shall.in.no.way.be" bundle="${msg}" /></p>
-						</li> -->
 					</ul>
 				</div>
 			</div>			

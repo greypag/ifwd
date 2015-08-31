@@ -158,7 +158,8 @@ var home_url = "<%=request.getContextPath()%>";
 											<a class="read-more hidden-md hidden-lg" id="read-more-other-benefits">Read more</a>
 											<li class="hidden-xs hidden-sm" id="other-benefits-list-0"><p><fmt:message key="savie.interestGather.otherfeatures.context5" bundle="${msg}" /></p></li>
 											<li class="hidden-xs hidden-sm" id="other-benefits-list-1"><p><fmt:message key="savie.interestGather.otherfeatures.context2" bundle="${msg}" /></p></li>
-											<li class="hidden-xs hidden-sm" id="other-benefits-list-2"><p><fmt:message key="savie.interestGather.otherfeatures.context3" bundle="${msg}" /></p></li>
+											<li class="hidden-xs hidden-sm" id="other-benefits-list-2"><p><fmt:message key="savie.interestGather.otherfeatures.context6" bundle="${msg}" /></p></li>
+											<li class="hidden-xs hidden-sm" id="other-benefits-list-3"><p><fmt:message key="savie.interestGather.otherfeatures.context3" bundle="${msg}" /></p></li>
 										</ul>
 									</div>
 								</div>
