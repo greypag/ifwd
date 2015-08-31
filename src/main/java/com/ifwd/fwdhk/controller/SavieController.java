@@ -72,6 +72,10 @@ public class SavieController extends BaseController{
 	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request,HttpSession httpSession) {	
 		HttpSession session = request.getSession();
 		String accessCode = (String)request.getParameter("accessCodeConfirm");
+		if(org.apache.commons.lang.StringUtils.isBlank(accessCode)){
+			accessCode = (String) httpSession.getAttribute("accessCode");
+			logger.info(accessCode);
+		}
 		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))
 				|| org.apache.commons.lang.StringUtils.isNotBlank(accessCode)) {
 			httpSession.setAttribute("accessCode", accessCode);
