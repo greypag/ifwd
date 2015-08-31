@@ -2510,12 +2510,13 @@ body {
   /*width: 480px;*/
   /* width: 377px; */
   width: auto;
-  margin: 230px auto 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .modal.fade .modal-dialog {
     /* width: 475px; */
-    /* margin-top: 150px; */
+    margin-top: 150px;
   }
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content.plan-details {
