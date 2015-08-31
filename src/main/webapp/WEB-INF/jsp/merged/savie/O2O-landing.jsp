@@ -353,13 +353,13 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="fwd-checkbox">
 									<input type="checkbox" id="personal-information-statement-signup" name="isPics" value="pics">
 									<label for="personal-information-statement-signup"></label>
-									<p class="notice">I have read, understood and accept this <a href="#">Personal Information Collection Statement.</a></p>
+									<p class="notice">I have read, understood and accept this <a href="<fmt:message key="savie.interestGather.personal.collection.link" bundle="${msg}" />" target="_blank">Personal Information Collection Statement.</a></p>
 								</div>
 
 								<div class="fwd-checkbox">
 									<input type="checkbox" id="terms-condition-statement-signup" name="isTc" value="tc">
 									<label for="terms-condition-statement-signup"></label>
-									<p class="notice">I have read, understood and accept these <a href="#">Terms and Conditions.</a></p>
+									<p class="notice">I have read, understood and accept these <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.terms.conditions.link" bundle="${msg}" />" target="_blank">Terms and Conditions.</a></p>
 								</div>
 								<span class="error-email chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>					
 								<button type="submit" id="signup-btn" class="btn hunger-btn">Sign up now</button>
