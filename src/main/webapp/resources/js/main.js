@@ -101,6 +101,60 @@ var chk = 0;
     //chk = 0;
     }
  });
+  
+  
+$('.product_plan_panel').click(function(e){
+	$panel=$(this);
+	if($panel.next('.product_plan_panel_content:visible').length>0){
+		$('.product_plan_panel').find('.fa-chevron-up').removeClass('fa-chevron-up');
+		$('.product_plan_panel_content:visible').slideUp("slow",function(){
+			$(".product_plan_panel_content").mCustomScrollbar("destroy");
+		});
+	}else if($('.product_plan_panel_content:visible').length>0){
+		$('.product_plan_panel').find('.fa-chevron-up').removeClass('fa-chevron-up');
+		$('.product_plan_panel_content:visible').slideUp("fast",function(){
+			$(".product_plan_panel_content").mCustomScrollbar("destroy");
+			
+			var $target = $panel.next('.fwdpanel-body');
+			scrollDownProductPanel($target);
+		});
+	}else{
+		var $target = $panel.next('.fwdpanel-body');		
+		scrollDownProductPanel($target);
+	}
+});
+
+$('.product_plan_inner_panel').click(function(e){
+	$panel=$(this);
+	if($panel.next('.product_plan_inner_panel_content:visible').length>0){
+		$('.product_plan_panel').find('.fa-chevron-up').removeClass('fa-minus');
+		$('.product_plan_inner_panel_content:visible').slideUp("slow");
+	}else if($('.product_plan_inner_panel_content:visible').length>0){
+		$('.product_plan_panel').find('.fa-chevron-up').removeClass('fa-minus');
+		$('.product_plan_inner_panel_content:visible').slideUp("fast",function(){
+			var $target = $panel.next('.fwdpanel-body');
+			$target.slideDown("slow", function(){
+				$panel.find('i').addClass('fa-minus');
+			});
+		});
+	}else{
+		var $target = $panel.next('.fwdpanel-body');
+		$target.slideDown("slow", function(){
+			$panel.find('i').addClass('fa-minus');
+		});
+	}
+});
+
+function scrollDownProductPanel($element){
+	$element.slideDown("slow", function(){
+		$panel.find('i').addClass('fa-chevron-up');
+		$.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+		$.mCustomScrollbar.defaults.axis="y";
+		$(".product_plan_panel_content").mCustomScrollbar({
+			theme:"light-2"
+		});
+	});
+}
 
 
 
@@ -291,3 +345,4 @@ function faqMainMenuMob(care){
 	$("#faq_"+care+"_mob").hide();
 	$("#faq_main_menu_mob").show();
 }
+
