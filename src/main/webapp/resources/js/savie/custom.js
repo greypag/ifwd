@@ -390,7 +390,7 @@ $(function() {
 	// Thank you to Overall
 	$("#back-home-btn").on('click', function(){
 		//window.location = "overall";    
-		window.location = "/saving-insurance";    
+		window.location = context + "/" + language + "/home";    
  	});
 
 	// Overall Page Links
