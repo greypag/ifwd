@@ -53,7 +53,7 @@ body {
 }
 
 .small-text {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .fwd-savie-wrapper h1,
@@ -2253,7 +2253,7 @@ body {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper #landing-three-column .fwd-col .col-content {
-    height: 610px;
+    height: 525px;
   }
 }
 @media (min-width: 992px) {
@@ -3788,7 +3788,7 @@ body {
   color: white;
   text-align: center;
   font-family: 'foco_regular';
-  font-size: 12px;
+  font-size: 15px;
 }
 #illustration-filters #investment-amount #left p, #illustration-filters #investment-amount #right p {
   margin: 0;
@@ -3980,10 +3980,11 @@ body {
     width: 20%;
     float: left;
     padding: 0 0 0 3.5%;
-    padding-top: 93px;
+    padding-top: 91px;
   }
   #illustration-filters .apply .btn.btn-orange.calculate {
     padding: 0 10px 0 40px;
+    height: 40px;
   }
   #illustration-filters .apply .btn.btn-orange.calculate .icon.icon-chevron-thin-right {
     padding-left: 30px;
@@ -5018,7 +5019,7 @@ span.explanation {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .investment .tab-content.credits .percent-buttons {
-    padding: 20px 0 3px 0;
+    padding: 20px 0 20px 0;
   }
   .fwd-savie-wrapper .investment .tab-content.credits .percent-buttons .after-year-three {
     padding-left: 0;
@@ -5779,8 +5780,8 @@ span.dup-error-msg {
   max-width: 520px;
   height: 60px;
   border: solid 1px #ff8200;
-  background: white;
-  color: #ff8200;
+  color: white;
+  background: #ff8200;
   font-size: 24px;
   font-family: 'Calibri-bold';
 }
@@ -5796,12 +5797,13 @@ span.dup-error-msg {
   color: #ff8200;
   outline: 0;
 }
+.fwd-savie-wrapper button#thank-you-continue:hover,
 .fwd-savie-wrapper button.next:hover,
 .fwd-savie-wrapper a.next:hover,
 .fwd-savie-wrapper button.next:hover:focus,
 .fwd-savie-wrapper a.next:hover:focus {
-  background: #ff8200;
-  color: white;
+  color: #ff8200;
+  background: white;
   outline: 0;
   -webkit-transition: background 0.1s ease-in;
   -moz-transition: background 0.1s ease-in;
@@ -9356,9 +9358,12 @@ span.dup-error-msg {
     padding-bottom: 14px;
   }
 }
+.fwd-savie-wrapper .thank-you-container .details-container whats-next {
+  margin-bottom: 12px;
+}
 .fwd-savie-wrapper .thank-you-container .details-container p {
   line-height: 23px;
-  margin-bottom: 13px;
+  margin-bottom: 4px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .thank-you-container .details-container p {
@@ -9520,11 +9525,11 @@ span.dup-error-msg {
   margin-top: -5px;
 }
 .fwd-savie-wrapper .thank-you-container .share-container {
-  padding: 30px 0 20px 0;
+  padding: 0 0 20px 0;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .thank-you-container .share-container {
-    padding: 43px 0 40px 0;
+    padding: 0 0 40px 0;
   }
 }
 .fwd-savie-wrapper .thank-you-container .share-container p {
@@ -12315,16 +12320,16 @@ span.dup-error-msg {
 .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body form .hunger-btn {
   font-size: 27px;
   font-family: "Calibri-Bold";
-  color: #ff8200;
+  background-color: #ff8200;
   border: solid 1px #ff8200;
-  background-color: #fff;
+  color: #fff;
   padding: 6px 0;
   width: 100%;
   margin-top: 6px;
 }
 .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body form .hunger-btn:active, .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body form .hunger-btn:hover, .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body form .hunger-btn:focus {
-  color: #fff;
-  background-color: #ff8200;
+  background-color: #fff;
+  color: #ff8200;
   outline: 0;
   -webkit-transition: background 0.1s ease-in;
   -moz-transition: background 0.1s ease-in;
@@ -14306,7 +14311,9 @@ input[type=number] {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing p.bottom-text {
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
+    max-width: 525px;
+    margin: 0 auto;
   }
 }
 .fwd-savie-wrapper .o2o-landing#flux .disclaimer-policy .policy-provisions {
@@ -14351,7 +14358,7 @@ input[type=number] {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.teaser ul.crediting-rate-list {
     width: 100%;
-    max-width: 605px;
+    max-width: 576px;
     margin: 0 auto;
     padding-right: 40px;
   }
@@ -14666,14 +14673,15 @@ input[type=number] {
   background-color: #e9edf0;
 }
 .fwd-savie-wrapper .sign-up-teaser button.get-started {
-  background-color: white;
-  color: #ff8200;
+  background-color: #ff8200;
+  color: white;
   font-family: 'calibri-bold';
   height: 48px;
   width: 65%;
   max-width: 245px;
   font-size: 28px;
   border: 1px solid #ff8000;
+  margin: 20px 0;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .sign-up-teaser {
@@ -14694,8 +14702,6 @@ input[type=number] {
     padding-top: 35px;
   }
   .fwd-savie-wrapper .sign-up-teaser button.get-started {
-    background-color: #ff8200;
-    color: white;
     font-family: 'calibri-bold';
     font-size: 32px;
     display: block;
@@ -14725,10 +14731,23 @@ input[type=number] {
   padding: 0;
   outline: none;
 }
+
+.fwd-savie-wrapper .sign-up-teaser p.footnote {
+  color: #000;
+  margin-top: 20px !important;
+}
+
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .sign-up-teaser p.footnote {
+    color: white;
+    margin-top: 0 !important;
+  }
+}
+
 @media (min-width: 992px) {
   /* line 497, ../sass/partials/_teaser.scss */
   .fwd-savie-wrapper .sign-up-teaser p.sign-up-header #signup {
-    color: white;
+    color: #f6b209;
   }
 }
 
@@ -14831,17 +14850,17 @@ input[type=number] {
   border: solid 1px black;
 }
 
-.fwd-savie-wrapper .three-column-widget.O2O-landing {
+.fwd-savie-wrapper #landing-page-blog .three-column-widget.O2O-landing {
     background-color: #fff;
 }
 
-.fwd-savie-wrapper .teaser-three-column.O2O-landing {
+/*.fwd-savie-wrapper .teaser-three-column.O2O-landing {
     background-color: #fff;
 }
 
 .fwd-savie-wrapper .other-benefits-teaser.O2O-landing {
     background-color: #fff;
-}
+}*/
 
 
 /**Confirmation-Offline Page**/
@@ -14855,7 +14874,7 @@ input[type=number] {
   margin: 30px auto 20px auto;
   max-width: 263px;
   height: 277px;
-  padding: 60px 5px 0 5px;
+  padding: 60px 15px 0 15px;
 }
 /* line 174, ../sass/partials/_thank-you-update.scss */
 .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3 {
@@ -14892,7 +14911,7 @@ input[type=number] {
 /* line 206, ../sass/partials/_thank-you-update.scss */
 .fwd-savie-wrapper .thank-you-container .offline-procedure .icon {
   position: absolute;
-  bottom: 43px;
+  bottom: 28px;
   left: 0;
   width: 100%;
 }
@@ -15343,12 +15362,12 @@ input[type=number] {
 }
 /* line 374, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #set-appointment .centre-info {
-  font-size: 14px;
+  font-size: 18px;
   padding-left: 10px;
 }
 /* line 378, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #set-appointment .centre-info h4 {
-  font-size: 14px;
+  font-size: 18px;
   padding-top: 5px;
 }
 /* line 384, ../sass/partials/_page-set-appointment.scss */

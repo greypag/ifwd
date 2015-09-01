@@ -253,7 +253,7 @@ var context = "${pageContext.request.contextPath}";
 												<td class="black-text right-border" id="surrender-change-2-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
-												<td class="left-border" id='policy-year-2-3'>Age 100</td>  
+												<td class="left-border" id='policy-year-2-3'><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>  
 												<td class="black-text desktop-only" id="credit-rate-2-3">2</td> 
 												<td class="black-text" id="premium-change-2-3"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-2-3"><span>$</span> 0</td>    
@@ -290,7 +290,7 @@ var context = "${pageContext.request.contextPath}";
 												<td class="black-text right-border" id="surrender-change-3-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
-												<td class="left-border" id='policy-year-3-3'>Age 100</td>  
+												<td class="left-border" id='policy-year-3-3'><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>  
 												<td class="black-text desktop-only" id="credit-rate-3-3">3</td> 
 												<td class="black-text" id="premium-change-3-3"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-3-3"><span>$</span> 0</td>    
@@ -327,7 +327,7 @@ var context = "${pageContext.request.contextPath}";
 												<td class="black-text right-border" id="surrender-change-4-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
-												<td class="left-border" id='policy-year-4-3'>Age 100</td>  
+												<td class="left-border" id='policy-year-4-3'><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>  
 												<td class="black-text desktop-only" id="credit-rate-4-3">4</td> 
 												<td class="black-text" id="premium-change-4-3"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-4-3"><span>$</span> 0</td>    

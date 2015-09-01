@@ -118,14 +118,14 @@ var affiliate = "${affiliate}";
 						</div>
 					</div>
 					
-					<!--<div class="share-container text-center">
-						<p><fmt:message key="savie.confirmation.offline.Follow.us" bundle="${msg}" /></p>
+					<div class="share-container text-center">
+						<!--<p><fmt:message key="savie.confirmation.offline.Follow.us" bundle="${msg}" /></p>
 						<div class="clearfix">
 							<a href="#"><i class="fa fa-facebook"></i></a>
 							<a href="#"><i class="fa fa-twitter"></i></a>
 							<a href="#"><i class="fa fa-google-plus"></i></a>
-						</div>
-					</div>-->
+						</div>-->
+					</div>
 					
 					<button id="back-home-btn" type="button" class="btn next"><fmt:message key="savie.confirmation.offline.Back" bundle="${msg}" /></button>
 				</div>
