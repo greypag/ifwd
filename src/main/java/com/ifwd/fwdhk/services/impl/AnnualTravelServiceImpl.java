@@ -236,15 +236,11 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 					return responseJsonObj.toString();
 				} else {
 					model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
-					//return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					//		+ "travel/travel");
 					return "exception error";
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 				model.addAttribute("errMsgs", "System Error");
-				//return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				//		+ "travel/travel");
 				return "System Error";
 			}
 	}
@@ -643,13 +639,13 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			}else {
 				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
 				return new ModelAndView(UserRestURIConstants.getSitePath(request)
-						+ "travel/travel");
+						+ "annualtravel/annual-travel");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("errMsgs", "System Error");
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					+ "travel/travel");
+					+ "annualtravel/annual-travel");
 		}
 		String pageTitle = WebServiceUtils.getPageTitle("page.travelQuote", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelQuote", UserRestURIConstants.getLanaguage(request));
@@ -657,7 +653,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "travel/travel-plan");
+				+ "annualtravel/annual-travel-plan");
 	}
 	
 	public ModelAndView getTravelHomePage(final String promo, HttpServletRequest request, Model model, 
@@ -759,7 +755,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				session.setAttribute("corrTravelQuote", travelQuote);
 				model.addAttribute("travelQuote", travelQuote);
 				ModelAndView date = getTravelPlan(travelQuote, model, request);
-				if(!date.getViewName().endsWith("travel-insurance") && !date.getViewName().endsWith("travel/travel")) {
+				if(!date.getViewName().endsWith("annual-travel-insurance") && !date.getViewName().endsWith("annual-travel")) {
 					model.addAttribute("promo", promo);
 					model.addAttribute("departureDate", departureDate);
 					model.addAttribute("returnDate", returnDate);
@@ -873,7 +869,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			model.addAttribute("googleRickSnippetAvailabilityText", googleRickSnippetAvailabilityText);
 			model.addAttribute("googleRickSnippetDescription1", googleRickSnippetDescription1);
 			model.addAttribute("googleRickSnippetDescription2", googleRickSnippetDescription2);
-			return new ModelAndView(UserRestURIConstants.getSitePath(request) + "travel/travel");
+			return new ModelAndView(UserRestURIConstants.getSitePath(request) + "annualtravel/annual-travel");
 	}
 	
 	public ModelAndView prepareTravelInsuranceUserDetails(TravelQuoteBean travelQuote,
@@ -1045,7 +1041,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			} else {
 				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
 				return new ModelAndView(UserRestURIConstants.getSitePath(request)
-						+ "travel/travel-plan");		
+						+ "annualtravel/annual-travel-plan");		
 			}
 
 			model.addAttribute("planName", planName);
@@ -1058,7 +1054,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			e.printStackTrace();
 			model.addAttribute("errMsgs", "System Error");
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					+ "travel/travel-plan");		
+					+ "annualtravel/annual-travel-plan");		
 		}
 		Map<String,String> mapHkId = new TreeMap<>();
 
@@ -1082,7 +1078,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		session.removeAttribute("travelCreatePolicy");
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "travel/travel-plan-details");	
+				+ "annualtravel/annual-travel-plan-details");	
 	}
 	
 	public ModelAndView prepareTravelInsuranceTravelSummary(PlanDetailsForm planDetailsForm,
@@ -1910,7 +1906,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "/travel/travel-summary-payment");				
+				+ "/annualtravel/annual-travel-summary-payment");				
 	}
 	
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {
