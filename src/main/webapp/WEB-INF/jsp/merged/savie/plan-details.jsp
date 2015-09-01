@@ -120,7 +120,7 @@ var context = "${pageContext.request.contextPath}";
 	                                	</button>
 	                                </h2>
 	                                <h3><fmt:message key="savie.planDetails.year.guaranteed" bundle="${msg}" /></h3>
-	                                <h3 class="desktop-right hidden-xs hidden-sm">savie.planDetails.End.of.3rd.years.part1<span id="3rd_policy_year">0</span>savie.planDetails.End.of.3rd.years.part2</h3>
+	                                <h3 class="desktop-right hidden-xs hidden-sm"><fmt:message key="savie.planDetails.End.of.3rd.years.part1" bundle="${msg}" /><span id="3rd_policy_year">0</span><fmt:message key="savie.planDetails.End.of.3rd.years.part2" bundle="${msg}" /></h3>
 	                            </div>
 	                            <div class="rate-table">
 	                                <table class="table table-hover">
