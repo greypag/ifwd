@@ -418,7 +418,6 @@ var home_url = "<%=request.getContextPath()%>";
 		<!-- JS INCLUDES -->
 		
 		<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-select.min.js"></script>
