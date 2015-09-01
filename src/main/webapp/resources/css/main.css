@@ -7909,6 +7909,11 @@ tr.product-landing-error-wrap {
     padding:20px;
 }
 
+.product_plan_details_member_title .login-btn{
+	width: 150px;
+    margin-left: 20px;
+}
+
 @media (min-width: 992px) {
     .product_landing_download_button{
         margin-right: 20px;
@@ -7958,5 +7963,18 @@ tr.product-landing-error-wrap {
     .mCSB_inside>.mCSB_container{
         margin-right:0px !important;
     }
+    
+    .product_plan_details_member_title{
+        margin-left:10%;
+        width:80%;
+    }
+    
+    .product_plan_details_member_title .h2-3-existing-fwd-head{
+        width:100%;
+    }
+    
+    .product_plan_details_member_title .login-btn{
+	    margin-left: 0px;
+	}
 }
 /** annual travel **/
