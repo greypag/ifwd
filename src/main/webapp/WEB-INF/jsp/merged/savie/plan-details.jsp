@@ -463,7 +463,7 @@ var context = "${pageContext.request.contextPath}";
 			$(document).ready(function(){
 				var thankyou = "${thankyou }";
 				if(thankyou == "thankyou" && "${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-					$("#thankYouModal").modal({backdrop:false});
+					$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
 					$('#thankYouModal').modal('show');
 				}
 			});
