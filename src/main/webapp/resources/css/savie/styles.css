@@ -15405,3 +15405,7 @@ input[type=number] {
   position: relative;
   background-color: #f1f3f5;
 }
+
+.text-red {
+    color: red;
+}
