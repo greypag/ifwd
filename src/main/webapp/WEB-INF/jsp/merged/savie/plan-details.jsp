@@ -452,7 +452,7 @@ var context = "${pageContext.request.contextPath}";
 				});
 				
 				if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-					$("#thankYouModal").modal({backdrop:false});
+					$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
 					$('#thankYouModal').modal('show');
 				}
 				else{
