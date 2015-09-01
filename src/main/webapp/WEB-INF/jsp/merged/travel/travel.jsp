@@ -101,6 +101,27 @@
   
   var frm = document.getElementById("frmTravelGetQuote");
  }
+ 
+ function selectTravelCareType(type, type_string){
+	 $(".travel_type_label").html(type_string);
+	 
+	 if(type=='single'){
+		 $('.family_plan_selectArea').show();
+		 
+		 $('#dp2').show();
+		 $('#dp4').parent().show();
+         $('#dp4').parent().prev().show();
+         $('#dp6').show();
+	 }else{
+		 $('.personal_plan_selectArea').trigger('click');
+		 $('.family_plan_selectArea').hide();
+		 
+		 $('#dp2').hide();
+		 $('#dp4').parent().hide();
+         $('#dp4').parent().prev().hide();
+		 $('#dp6').hide();
+	 }
+ }
 </script>
 <!-- Start fixed header -->
 <script type='text/javascript'>
@@ -184,27 +205,29 @@ $(document).ready(function() {
 	                  <td class="col-md-2 pad-none">
                         <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup">
                           <a class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
-                             <label id="travel_type" class="select-label" style="cursor: pointer;white-space: nowrap;">Please select</label>
+                             <label class="select-label travel_type_label" style="cursor: pointer;white-space: nowrap;">Please select</label>
                              <span class="product_landing_custom_fa-caret-down">
                                 <i class="fa fa-caret-down"></i>
                              </span>
                           </a>
                           <div class="dropdown-menu bdr1 pad-none" style="width: 190px;">
                             <div class="drop-content pad-none">
-                                <div class="product_landing_custom_selectbox">Single Trip Travel</div>
-                                <div class="product_landing_custom_selectbox">Annual Travel</div>
+                                <div class="product_landing_custom_selectbox" onclick="selectTravelCareType('single',$(this).html());">Single Trip Travel</div>
+                                <div class="product_landing_custom_selectbox" onclick="selectTravelCareType('annual',$(this).html());">Annual Travel</div>
                              </div>
                            </div>
                            <div class="clearfix"></div>
+                           
+                           <input type="hidden" name="travel_type" />
                         </div>
                      </td>
 	                  
-	                  <td class="col-md-3 pad-none">
+	                  <td class="pad-none">
 	                    <div class="input-group date" id="dp1" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
 	                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateDesk" value="${departureDate != '' ? departureDate : corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
-	                  <td class="col-md-3 pad-none">
+	                  <td class="pad-none">
 	                    <div class="input-group date" id="dp2" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
 	                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateDesk" value="${returnDate != '' ? returnDate : corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
 	                    </div>
@@ -217,13 +240,13 @@ $(document).ready(function() {
 	                      <div class="dropdown-menu bdr1" style="width: 355px;">
 	                        <div class="drop-content">
 	                          <div class="col-lg-6 col-md-6">
-	                            <label class="radio radio-warning radio-inline">
+	                            <label class="radio radio-warning radio-inline personal_plan_selectArea">
 	                              <input type="radio" name="planSelected" id="personal_plan_desk" data-id="desk" class="plan" value="personal" <%=PersonalPlanChecked%> >
 	                              <label for="personal_plan_desk"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label>
 	                            </label>
 	                          </div>
 	                          <div class="col-lg-6 col-md-6" style="margin-top: -5px;">
-	                            <label class="radio radio-warning radio-inline">
+	                            <label class="radio radio-warning radio-inline family_plan_selectArea">
 	                              <input type="radio" name="planSelected" id="family_plan_desk" data-id="desk" class="plan" value="family" <%=FamilyPlanChecked %>>
 	                              <label for="family_plan_desk"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label>
 	                                <a class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
@@ -352,15 +375,16 @@ $(document).ready(function() {
     <h4 style="color: #fff;"><fmt:message key="travel.main.quote.q1" bundle="${msg}" /></h4>
     <div class="dropdown  form-group drop-down" style="background-color: #fff;">
       
-      <a class="dropdown-toggle col-xs-12 col-sm-12" data-toggle="dropdown"> <label class="select-label" style="cursor: pointer;font-size: 23px !important;">Please select</label>&nbsp; <i class="fa fa-caret-down pull-right"></i></a>
+      <a class="dropdown-toggle col-xs-12 col-sm-12" data-toggle="dropdown"> <label class="select-label travel_type_label" style="cursor: pointer;font-size: 23px !important;">Please select</label>&nbsp; <i class="fa fa-caret-down pull-right"></i></a>
     <div class="dropdown-menu bdr1 pad-none" style="width: 100%;">
       <div class="drop-content pad-none">
-          <div class="product_landing_custom_selectbox">Single Trip Travel</div>
-          <div class="product_landing_custom_selectbox">Annual Travel</div>
+          <div class="product_landing_custom_selectbox" onclick="selectTravelCareType('single',$(this).html());">Single Trip Travel</div>
+          <div class="product_landing_custom_selectbox" onclick="selectTravelCareType('annual',$(this).html());">Annual Travel</div>
        </div>
      </div>
      <div class="clearfix"></div>
-      
+     
+      <input type="hidden" name="travel_type" />
       </div>
     <h4 style="color: #fff;"><fmt:message key="travel.main.quote.q1" bundle="${msg}" /></h4>
     <div class="form-group">
@@ -383,12 +407,12 @@ $(document).ready(function() {
       <div class="dropdown-menu bdr1">
         <div class="drop-content">
           <div class="col-xs-6 col-sm-6">
-            <label class="radio radio-warning radio-inline">
+            <label class="radio radio-warning radio-inline personal_plan_selectArea">
              <input type="radio" name="planSelected" id="personal_plan_mob"  data-id="mob" class="plan" value="personal" <%=PersonalPlanChecked%>>
           <label for="personal_plan_mob"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label></label>
           </div>
           <div class="col-xs-6 col-sm-6" style="margin-top: -3px;">
-            <label class="radio radio-warning radio-inline">
+            <label class="radio radio-warning radio-inline family_plan_selectArea">
               <input type="radio"  name="planSelected" id="family_plan_mob"  data-id="mob" class="plan" value="family" <%=FamilyPlanChecked %>>
              <label for="family_plan_mob"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label>
                 <a class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title="<fmt:message key="travel.main.quote.family.help" bundle="${msg}" />">
@@ -1002,27 +1026,29 @@ $(document).ready(function() {
                 <td class="col-md-2 pad-none">
                    <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup">
                      <a class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
-                        <label id="travel_type" class="select-label" style="cursor: pointer;white-space: nowrap;">Please select</label>
+                        <label class="select-label travel_type_label" style="cursor: pointer;white-space: nowrap;">Please select</label>
                         <span class="product_landing_custom_fa-caret-down">
                            <i class="fa fa-caret-down"></i>
                         </span>
                      </a>
                      <div class="dropdown-menu bdr1 pad-none" style="width: 190px;">
                        <div class="drop-content pad-none">
-                           <div class="product_landing_custom_selectbox">Single Trip Travel</div>
-                           <div class="product_landing_custom_selectbox">Annual Travel</div>
+                           <div class="product_landing_custom_selectbox" onclick="selectTravelCareType('single',$(this).html());">Single Trip Travel</div>
+                           <div class="product_landing_custom_selectbox" onclick="selectTravelCareType('annual',$(this).html());">Annual Travel</div>
                         </div>
                       </div>
                       <div class="clearfix"></div>
+                      
+                      <input type="hidden" name="travel_type" />
                    </div>
                 </td>
             
-              <td class="col-md-3 pad-none">
+              <td class="pad-none">
                 <div class="input-group date" id="dp5" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateBtm" value="${corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
                 </td>
-              <td class="col-md-3 pad-none">
+              <td class="pad-none">
                 <div class="input-group date" id="dp6" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trBackDate" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateBtm" value="${corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
@@ -1034,13 +1060,13 @@ $(document).ready(function() {
                   <div class="dropdown-menu bdr1" style="width:355px;">
                     <div class="drop-content">
                       <div class="col-lg-6 col-md-6">
-                         <label class="radio radio-warning radio-inline">
+                         <label class="radio radio-warning radio-inline personal_plan_selectArea">
                           <input type="radio" name="planSelected" id="personal_plan_btm" data-id="btm" class="plan" value="personal"  <%=PersonalPlanChecked%> > <label for="personal_plan_btm"><fmt:message key="travel.main.quote.plan1" bundle="${msg}" /></label></label>
 
 
                       </div>
                       <div class="col-lg-6 col-md-6" style="margin-top: -5px;">
-                          <label class="radio radio-warning radio-inline">
+                          <label class="radio radio-warning radio-inline family_plan_selectArea">
                           <input type="radio" name="planSelected" id="family_plan_btm" data-id="btm" class="plan" value="family" <%=FamilyPlanChecked %>> <label for="family_plan_btm"><fmt:message key="travel.main.quote.plan2" bundle="${msg}" /></label><a
                         class="tool-tip show-inline-md"
                         data-toggle="tooltip" data-placement="bottom"
