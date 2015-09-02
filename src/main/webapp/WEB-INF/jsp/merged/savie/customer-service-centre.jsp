@@ -4,37 +4,18 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-<!--<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />-->
-<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
-<fmt:setBundle basename="messages" var="msg" />-->
-
-
-<c:set var="context" value="<%=request.getContextPath()%>"/>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
-<c:set var="langLink" value="${language == 'tc' ? 'zh-HK' : 'en-US'}" />
-<c:set var="captchaLang" value="${language == 'tc' ? 'zh-TW' : 'en'}" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-
 <script type="text/javascript">
-	var context = "${pageContext.request.contextPath}";
-	var language = "${language}";
-	var affiliate = "${affiliate}";
-	var home_url = "<%=request.getContextPath()%>";
-	function gotoCenter(){
-		window.location.href = "<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}";
-	}
-	
-	function gotoAppForm(){
-		window.location.href = "<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}";
-	}
+var context = "${pageContext.request.contextPath}";
+var language = "${language}";
 </script>
-	<%!
-		boolean isSaleActiveClass = false;
-		boolean isEservicesActiveClass = false;
-	%>
-	<div class="fwd-savie-wrapper">			
+<%!
+	boolean isSaleActiveClass = true;
+%>
+<div class="fwd-savie-wrapper">		
+     <form method="post" id="serviceCenterForm">	
 			<div id="set-appointment" class="container-fluid fwd-full-container">
 				<div class="application-page-header">
 					<div class="row">
@@ -58,13 +39,11 @@
 										<div class="col-xs-12 col-md-4"><label for="centre"><fmt:message key="savie.customerServiceCentre.center" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div class="selectDiv">
-												<!-- <span class="icon-chevron-thin-down orange-caret" id="centre-orange-caret"></span> -->
-												<select name="centre" id="centre" class="selectpicker">
-													<option value="1">Tsim Sha Tsui</option>
-													<option value="2">Quarry Bay</option>
-													<option value="3">Sheung Wan</option>
-													<option value="4">Kwun Tong</option>
-													<option value="5">Shatin</option>
+												<span class="icon-chevron-thin-down orange-caret"></span>
+												<select name="centre" id="centre" class="form-control gray-dropdown">
+													<c:forEach var="list" items="${serviceCentre.serviceCentres}">
+											            <option value="${list.serviceCentreCode }">${list.serviceCentreName }</option>
+											        </c:forEach>
 												</select>
 											</div>
 										</div>
@@ -73,7 +52,7 @@
 										<div class="col-xs-12 col-md-4"><label for="preferred-date"><fmt:message key="savie.customerServiceCentre.date" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div id="date" class="selectDiv preferred-date">
-												<input type="text" class="date" name="preferred-date" id="preferred-date" value="09-09-2015" readonly="">
+												<input type="text" class="date" name="preferred-date" id="preferred-date" value="" readonly="">
 											</div>
 										</div>
 									</div>
@@ -82,7 +61,10 @@
 										<div class="col-xs-12 col-md-8">
 											<div class="selectDiv timeslot">
 												<span class="icon-chevron-thin-down orange-caret" id="time-orange-caret"></span>
-												<input type="text" name="preferred-time" id="preferred-time" value="10:30">
+												<!-- <input type="text" name="preferred-time" id="preferred-time" value=""> -->
+												<select name="preferred-time" id="preferred-time" onclick="putTimeSession();" class="form-control gray-dropdown">
+											        <option value=""></option>
+												</select>
 											</div>
 										</div>
 									</div>
@@ -90,31 +72,21 @@
 								</div>
 								
 								<div class="col-md-6 hidden-xs hidden-sm">
-									<div id="centre-1" class="centre-info">
-										<img src="<%=request.getContextPath()%>/resources/images/savie/tsimshatsui.jpg" class="img-responsive" />
-										<h4><fmt:message key="savie.customerServiceCentre.address" bundle="${msg}" /></h4>
-										<p><fmt:message key="savie.customerServiceCentre.fontaine" bundle="${msg}" /></p>
-									</div>
-									<div id="centre-2" class="centre-info hidden">
-										<img src="<%=request.getContextPath()%>/resources/images/savie/quarry_bay.jpg" class="img-responsive" />
-										<h4><fmt:message key="savie.customerServiceCentre.address" bundle="${msg}" /></h4>
-										<p><fmt:message key="savie.customerServiceCentre.devon" bundle="${msg}" /></p>
-									</div>
-									<div id="centre-3" class="centre-info hidden">
-										<img src="<%=request.getContextPath()%>/resources/images/savie/sheung_wan.jpg" class="img-responsive" />
-										<h4><fmt:message key="savie.customerServiceCentre.address" bundle="${msg}" /></h4>
-										<p><fmt:message key="savie.customerServiceCentre.fwdfinancialCentre" bundle="${msg}" /></p>
-									</div>
-									<div id="centre-4" class="centre-info hidden">
-										<img src="<%=request.getContextPath()%>/resources/images/savie/kwuntong.jpg" class="img-responsive" />
-										<h4><fmt:message key="savie.customerServiceCentre.address" bundle="${msg}" /></h4>
-										<p><fmt:message key="savie.customerServiceCentre.legendTower" bundle="${msg}" /></p>
-									</div>
-									<div id="centre-5" class="centre-info hidden">
-										<img src="<%=request.getContextPath()%>/resources/images/savie/shatin.jpg" class="img-responsive" />
-										<h4><fmt:message key="savie.customerServiceCentre.address" bundle="${msg}" /></h4>
-										<p><fmt:message key="savie.customerServiceCentre.shatin" bundle="${msg}" /></p>
-									</div>
+									<c:forEach varStatus="l" var="list" items="${serviceCentre.serviceCentres}">
+							            <div id="centre-${list.serviceCentreCode }" class="centre-info ${l.first?'':'hidden' }">
+										    <c:choose>
+										        <c:when test="${list.photo != null && list.photo.toLowerCase().startsWith('http')}">
+										            <img src="${list.photo}" class="img-responsive" />
+										        </c:when>
+										        <c:otherwise>
+												    <img src="<%=request.getContextPath()%>/resources/images/savie/${list.photo}" class="img-responsive" />
+												</c:otherwise>
+										    </c:choose>
+										    
+										    <h4><fmt:message key="savie.servicecenter.address" bundle="${msg}" /></h4>
+										    <p>${list.address }</p>
+									    </div>
+							        </c:forEach>
 								</div>
 							</div>
 							
@@ -125,7 +97,6 @@
 					</div>
 				</div>
 			</div>
-	</div>
 	
 			<!--Modal in Customer Service Centre-->
 			<div class="modal fade" role="dialog" aria-labelledby="pickAnotherCentre" id="pickAnotherCentre">
@@ -162,23 +133,15 @@
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->	
 			</div><!-- /.modal -->
+	</form>
+</div>
+<%-- <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script> --%>
+<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
 
-	
-	<!-- JS INCLUDES -->
-		
-		<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/jasny-bootstrap.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-select.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/fwd-validation.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/date.format.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
-		<script>
+<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
+
+		<!-- <script>
 			$(function() {
 				//$('#fullyBooked').modal('show');
 				//console.log($('#fullyBooked').length);
@@ -223,4 +186,147 @@
 					$('#pickAnotherCentre').modal('show');
 				});
 			});
-		</script>
+		</script> -->
+		
+<script>
+	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
+	var endDate= new Date((new Date()).getTime() + 22*24*60*60*1000);
+	$(function() {
+		$.ajax({     
+		    url:context+'/ajax/savie/savings-insurance/getAllAvailableTimeSlot',     
+		    type:'post',  
+		    error:function(){       
+		    },     
+		    success:function(data){
+		    	if(data != null && data.serviceCentres != null && data.serviceCentres != ''){
+		    		var serviceCentreCode = data.serviceCentres[0].serviceCentreCode;
+		    		var date = data.serviceCentres[0].dates[0].date;
+		    		var timeSlot = data.serviceCentres[0].dates[0].timeSlots[0].timeSlot;
+		    		var preferred_date = new Date()
+		    		
+		    		preferred_date.setTime(date)
+		    		var year = preferred_date.getFullYear();
+		    		var month = preferred_date.getMonth() + 1;
+		    		var date = preferred_date.getDate();
+		    		month = (month < 10) ? '0' + month : month;
+		    		date = (date < 10) ? '0' + date : date;
+		    		if('${csCenter }' !=null && '${csCenter }' !=''){
+		    			$("#centre").val('${csCenter }');
+		    		}
+		    		else{
+		    			$("#centre").val(serviceCentreCode);
+		    		}
+		    		if('${perferredDate }' !=null && '${perferredDate }' !=''){
+		    			var perDate = '${perferredDate }';
+		    			$("#preferred-date").datepicker("setDate", perDate.split('-')[0] +'-'+ perDate.split('-')[1] + '-' + perDate.split('-')[2]);
+		    		}
+		    		else{
+		    			$("#preferred-date").datepicker("setDate", month +'-'+ date + '-' + year);
+		    		}
+		    		
+		    		$('.centre-info').addClass('hidden');
+					$('#centre-' + serviceCentreCode).removeClass('hidden');
+					if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
+						getTimeSlot('${perferredTime }');
+					}
+		    	}else {
+					$('#fullyBooked').modal('show');
+		    	}
+		    	
+		    }  
+		});
+		
+		$('#pick-another-centre-btn').click(function(){
+			$('#pickAnotherCentre').modal('hide');
+		});
+		
+		/* $('#preferred-time').timepicker({
+			appendTo: '.timeslot',
+			disableTimeRanges: [['0:00', '24:00']],
+			timeFormat: 'H:i',
+		}); */
+		
+		$('#preferred-date').datepicker({
+			format: "dd-mm-yyyy",
+			container: "#date",
+			startDate: startDate,
+			endDate: endDate,
+			autoclose: true,
+			daysOfWeekDisabled: [0]
+		}).on('changeDate', function (ev) {
+			if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
+				getTimeSlot('${perferredTime }');
+			}
+		});
+		$('#centre').on('change', function() {
+			var centre = $('#centre option:selected').val();
+			// display corresponding info
+			$('.centre-info').addClass('hidden');
+			$('#centre-' + centre).removeClass('hidden');
+			if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
+				getTimeSlot('${perferredTime }');
+			}
+		});
+		
+		$('#btn-cstmr-srvc-cnter').click(function(){
+			var csCenter = $("#centre").val();
+			var perferredDate = $("#preferred-date").val();
+			var perferredTime = $("#preferred-time").val();
+			
+			$.ajax({     
+			    url:context+'/ajax/savie/savings-insurance/upsertAppointment',     
+			    type:'post',     
+			    data:{    
+			    	"csCenter": csCenter,
+			        "perferredDate":perferredDate,
+			        "perferredTime":perferredTime
+		   		},     
+			    error:function(){       
+			    },     
+			    success:function(data){
+			    	if(data.errMsgs == null){
+			    		//send email
+			    		$.ajax({     
+						    url:context+'/ajax/savie/service-center-confirm/email',     
+						    type:'post',
+						    data:{    
+						    	"csCenter": csCenter,
+						        "perferredDate":perferredDate,
+						        "perferredTime":perferredTime
+					   		}, 
+						    success:function(data){
+						    	if(data.errMsgs == null){
+						    		console.log("send email success");
+						    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation");
+							    	$("#serviceCenterForm").submit();
+						    	}else{
+						    		console.log(data.errMsgs);
+						    	}
+						    },
+						    error:function(){       
+						    }
+						});
+			    	}else{
+			    		console.log(data.errMsgs);
+			    	}
+			    }  
+			});
+		});
+	});
+	
+	function putTimeSession(){
+		var perTime = $("#preferred-time").val();
+		$.ajax({     
+		    url:context+'/ajax/savie/savings-insurance/putTimeSession',     
+		    type:'post',     
+		    data:{    
+		        "perferredTime":perTime
+	   		},     
+		    success:function(data){
+		    },
+	   		error:function(){       
+		    }
+		});
+	}
+</script>
+		
