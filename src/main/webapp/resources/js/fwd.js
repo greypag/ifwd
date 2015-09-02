@@ -539,12 +539,42 @@ $(function () {
 			}
 			if($("#selectAgeRange1").length > 0){
 				$("#selectAgeRange1").val(selected);
+			}else if($("#insureDob1").length > 0){
+				console.log(ev.date.valueOf());
+				$("#insureDob1").val($("#applicantDob").val());
 			}
 		}
 		$("#dobInvalid").html("");
 		$("#input_dob").removeClass("invalid-field");
 	});
 	$('#input_dob').datepicker('setDate', dob_end_date);
+	
+	$('.dob_input').datepicker({
+		startView: "decade",
+		autoclose: true,
+		format: "dd-mm-yyyy",
+		startDate: dob_start_date,
+		endDate: dob_end_date
+		/*language: getBundleLanguage*/
+	}).on('changeDate', function (ev) {
+//		var selected = 2;
+//		if(ev.date != undefined) {
+//			if(ev.date.valueOf() < dob_end_date.valueOf() && ev.date.valueOf() > dob_70_date.valueOf()){
+//				selected = 2;
+//			}else{
+//				selected = 3;
+//			}
+//			
+//			
+//			if($("#selectAgeRange1").length > 0){
+//				$("#selectAgeRange1").val(selected);
+//			}
+//		}
+		$(this).next().html("");
+		$(this).removeClass("invalid-field");
+	});
+	$('.dob_input').datepicker('setDate', dob_end_date);
+	
 
 	var checkin = $('#dp1').datepicker({
 		beforeShowDay: function (date) {
