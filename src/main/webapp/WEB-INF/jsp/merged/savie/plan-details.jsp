@@ -203,21 +203,21 @@ var context = "${pageContext.request.contextPath}";
 	                                    <tbody>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-0-1'>5</td>  
-												<td class="black-text desktop-only" id="credit-rate-0-1">0</td> 
+												<td class="black-text desktop-only" id="credit-rate-0-1">0%</td> 
 												<td class="black-text" id="premium-change-0-1"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-0-1"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-0-1"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-0-2'>10</td> 
-												<td class="black-text desktop-only" id="credit-rate-0-2">0</td>  
+												<td class="black-text desktop-only" id="credit-rate-0-2">0%</td>  
 												<td class="black-text" id="premium-change-0-2"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-0-2"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-0-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
 												<td class="left-border" id='policy-year-0-3'><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>  
-												<td class="black-text desktop-only" id="credit-rate-0-3">0</td> 
+												<td class="black-text desktop-only" id="credit-rate-0-3">0%</td> 
 												<td class="black-text" id="premium-change-0-3"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-0-3"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-0-3"><span>$</span> 0</td>    
@@ -240,21 +240,21 @@ var context = "${pageContext.request.contextPath}";
 	                                    <tbody>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-2-1'>5</td>  
-												<td class="black-text desktop-only" id="credit-rate-2-1">2</td> 
+												<td class="black-text desktop-only" id="credit-rate-2-1">2%</td> 
 												<td class="black-text" id="premium-change-2-1"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-2-1"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-2-1"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-2-2'>10</td> 
-												<td class="black-text desktop-only" id="credit-rate-2-2">2</td>  
+												<td class="black-text desktop-only" id="credit-rate-2-2">2%</td>  
 												<td class="black-text" id="premium-change-2-2"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-2-2"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-2-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
 												<td class="left-border" id='policy-year-2-3'><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>  
-												<td class="black-text desktop-only" id="credit-rate-2-3">2</td> 
+												<td class="black-text desktop-only" id="credit-rate-2-3">2%</td> 
 												<td class="black-text" id="premium-change-2-3"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-2-3"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-2-3"><span>$</span> 0</td>    
@@ -277,21 +277,21 @@ var context = "${pageContext.request.contextPath}";
 	                                    <tbody>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-3-1'>5</td>  
-												<td class="black-text desktop-only" id="credit-rate-3-1">3</td> 
+												<td class="black-text desktop-only" id="credit-rate-3-1">3%</td> 
 												<td class="black-text" id="premium-change-3-1"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-3-1"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-3-1"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-3-2'>10</td> 
-												<td class="black-text desktop-only" id="credit-rate-3-2">3</td>  
+												<td class="black-text desktop-only" id="credit-rate-3-2">3%</td>  
 												<td class="black-text" id="premium-change-3-2"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-3-2"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-3-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
 												<td class="left-border" id='policy-year-3-3'><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>  
-												<td class="black-text desktop-only" id="credit-rate-3-3">3</td> 
+												<td class="black-text desktop-only" id="credit-rate-3-3">3%</td> 
 												<td class="black-text" id="premium-change-3-3"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-3-3"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-3-3"><span>$</span> 0</td>    
@@ -314,21 +314,21 @@ var context = "${pageContext.request.contextPath}";
 	                                    <tbody>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-4-1'>5</td>  
-												<td class="black-text desktop-only" id="credit-rate-4-1">4</td> 
+												<td class="black-text desktop-only" id="credit-rate-4-1">4%</td> 
 												<td class="black-text" id="premium-change-4-1"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-4-1"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-4-1"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-4-2'>10</td> 
-												<td class="black-text desktop-only" id="credit-rate-4-2">4</td>  
+												<td class="black-text desktop-only" id="credit-rate-4-2">4%</td>  
 												<td class="black-text" id="premium-change-4-2"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-4-2"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-4-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
 												<td class="left-border" id='policy-year-4-3'><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>  
-												<td class="black-text desktop-only" id="credit-rate-4-3">4</td> 
+												<td class="black-text desktop-only" id="credit-rate-4-3">4%</td> 
 												<td class="black-text" id="premium-change-4-3"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-4-3"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-4-3"><span>$</span> 0</td>    
