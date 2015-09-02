@@ -326,7 +326,7 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 						<div class="modal-body hunger-selling-body">
 							<form id="o2o-landing-form" method="post">
-								<input placeholder="<fmt:message key="savie.o2o.landing.Access.code" bundle="${msg}" />" type="text" name="accessCodeConfirm" id="accessCodeConfirm" />
+								<input placeholder="<fmt:message key="savie.o2o.landing.Access.code" bundle="${msg}" />" type="text" name="accessCodeConfirm" id="accessCodeConfirm" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" onafterpaste="value=value.replace(/[^\w\.\/]/ig,'')" />
 								<span class="validation-msg hidden-error-msg"><fmt:message key="savie.o2o.landing.The.code" bundle="${msg}" /></span>							
 								<button type="submit" id="hunger-btn" class="btn hunger-btn"><fmt:message key="savie.o2o.landing.Submit" bundle="${msg}" /></button>
 							</form>
