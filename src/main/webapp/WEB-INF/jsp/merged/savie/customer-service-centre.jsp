@@ -71,7 +71,7 @@ var language = "${language}";
 									<p class="confirm-call"><fmt:message key="savie.customerServiceCentre.confirmCall" bundle="${msg}" /></p>
 								</div>
 								
-								<div class="col-md-6 hidden-xs hidden-sm">
+								<div class="col-xs-12 col-md-6">
 									<c:forEach varStatus="l" var="list" items="${serviceCentre.serviceCentres}">
 							            <div id="centre-${list.serviceCentreCode }" class="centre-info ${l.first?'':'hidden' }">
 										    <c:choose>
