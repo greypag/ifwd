@@ -17,6 +17,7 @@
     url("../../fonts/Foco-Bold_gdi.svg#svgFontName") format("svg")
 }
 
+/**
 @font-face {
   font-family: 'Calibri';
   src: url("../../fonts/Calibri_gdi.eot");
@@ -24,6 +25,13 @@
     url("../../fonts/Calibri_gdi.woff") format("woff"),
     url("../../fonts/Calibri_gdi.ttf") format("truetype"),
     url("../../fonts/Calibri_gdi.svg#svgFontName") format("svg")
+}**/
+
+@font-face {
+    font-family: 'Calibri';
+    src: url('../../font/Calibri.ttf');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {

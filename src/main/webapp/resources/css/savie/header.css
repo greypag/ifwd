@@ -308,7 +308,14 @@ a {
   color: #f68a1d;
   font-size: 24px;
   text-align: left;
+  font-family: Calibri, sans-serif;
 }
+
+h2 {
+    font-weight: bold;
+    font-size: 36px;
+}
+
 h4.margin-shift {
   margin-top: 10px;
   margin-bottom: 8px;
@@ -317,12 +324,13 @@ h4.margin-shift {
   color: #061d2a;
   font-size: 18px;
   font-weight: normal !important;
-  font-family: 'Microsoft JhengHei', Calibri, sans-serif;
+  font-family: Calibri, sans-serif;
 }
 .login-form h4 a {
   color: #f68a1d;
   font-size: 18px;
   padding: 4px 0px;
+  font-weight: 500 !important;
 }
 .fwd-savie-wrapper .sub-link {
 	text-decoration: underline;
@@ -402,6 +410,7 @@ h4.margin-shift {
   margin-top: 10px !important;
   text-decoration: underline;
   font-weight: normal !important;
+  font-family: Calibri, sans-serif;
 }
 .sidepanel-menu li {
   border-bottom: 1px solid #f6871e;
@@ -801,4 +810,12 @@ ul.maintabs li a span.special-offer:hover{
 
 .invalid-field {
     border: 2px solid red !important;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+.empHide .text-red{
+	font-weight: normal;
 }

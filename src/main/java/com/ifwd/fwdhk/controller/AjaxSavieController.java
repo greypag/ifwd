@@ -300,4 +300,15 @@ public class AjaxSavieController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = {"/ajax/savie/savings-insurance/putTimeSession"})
+	public void putTimeSession(Model model, HttpServletRequest request,HttpServletResponse response) {
+		try {
+			String perferredTime = request.getParameter("perferredTime");
+			request.getSession().setAttribute("perferredTime", perferredTime);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }
