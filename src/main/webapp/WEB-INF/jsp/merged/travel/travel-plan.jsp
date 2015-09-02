@@ -80,7 +80,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 
 		return flag;
 	}
-	function chkDueAmount(form,formId) {	
+	function chkDueAmount() {	
 		$(".errDue").html('');
 		var flag = false;
 		var amount = document.getElementById("amountdue").innerHTML;
@@ -94,27 +94,12 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	        }
 			flag = true;
 		}
-		var result = false;
-		var formId = '#' + formId;
-		$.ajax({
-			type : "POST",
-			url : '<%=request.getContextPath()%>/ajax/annualTravel/prepareTravelInsuranceUserDetails',
-			data : $(formId).serialize(),
-			async : false,
-			success : function(data) {
-				if (data == 'success') {
-					form.action = '${pageContext.request.contextPath}/${language}/travel-insurance/user-details';
-					result = true;
-				} else {
-					$(".errDue").html("api is Wrong");
-					result = false;
-				}
-			}
-		});
+		
 		if(!flag){
 	        $('#loading-overlay').modal('hide');
 	    }
-		return flag&&result;
+
+		return flag;
 	}
 	
 	function applyTravelPromoCode() {
@@ -130,7 +115,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	            })
 	        	$.ajax({
 	                type : 'POST',
-	                url : '<%=request.getContextPath()%>/ajax/annualTravel/applyTravelPromoCode/apply',
+	                url : '<%=request.getContextPath()%>/applyTravelPromoCode',
 	                data : $('#frmTravelPlan input').serialize(),
 	                success : function(data) {
 	                	$('#loading-overlay').modal('hide');
@@ -165,7 +150,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
             
 			$.ajax({
 				type : 'POST',
-				url : '<%=request.getContextPath()%>/ajax/annualTravel/updateTravelQuote/update',
+				url : '<%=request.getContextPath()%>/updateTravelQuote',
 				data : $('#frmTravelPlan input').serialize(),
 				success : function(data) {
 					$('#loading-overlay').modal('hide');
@@ -298,7 +283,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form:form name="frmTravelPlan" id="frmTravelPlan" action='' method="post" modelAttribute="travelQuote" onsubmit="return chkDueAmount(this,'frmTravelPlan');" >
+			<form:form name="frmTravelPlan" id="frmTravelPlan" action='${pageContext.request.contextPath}/${language}/travel-insurance/user-details' method="post" modelAttribute="travelQuote" onsubmit="return chkDueAmount();" >
 				<ol class="breadcrumb pad-none">
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a></li>
@@ -1703,7 +1688,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
         if (get_promo_val()) {
             $.ajax({
                 type : "POST",
-                url : "<%=request.getContextPath()%>/ajax/annualTravel/sendEmail/send",
+                url : "<%=request.getContextPath()%>/sendEmail",
                 data : $("#sendmailofpromocode form").serialize(),
                 async : false,
                 success : function(data) {
