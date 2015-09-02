@@ -49,7 +49,7 @@ var context = "${pageContext.request.contextPath}";
 					<img class="money" src="<%=request.getContextPath()%>/resources/images/savie/money-logo.png">
 					<div id="investment-amount">    
 						<div id="desktop-left">
-							<h3 class="saving"><fmt:message key="savie.planDetails.Savings.amount" bundle="${msg}" /><button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Initial savings amount you are planning to deposit."></button></h3>
+							<h3 class="saving"><fmt:message key="savie.planDetails.Savings.amount" bundle="${msg}" /><!--<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Savings.amount.tooltips" bundle="${msg}" />"></button>--></h3>
 							<div id="left" class="pull-left">
 								<p><fmt:message key="savie.planDetails.Min" bundle="${msg}" /></p>
 								<p>$30,000</p>
@@ -60,7 +60,7 @@ var context = "${pageContext.request.contextPath}";
 								<p>$400,000</p>
 							</div>
 
-							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="100" data-slider-value="${savingAmount != null && savingAmount != '' ? savingAmount : '200000'}" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="${savingAmount != null && savingAmount != '' ? savingAmount : '200000'}" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 
 							<h3 class="pull-right total"><span id="range">${formatSavingAmount != null && formatSavingAmount != '' ? formatSavingAmount : '200,000'}</span></h3>
 							<label id="hkd" class="pull-right total"><fmt:message key="savie.planDetails.HK" bundle="${msg}" /></label>
@@ -68,8 +68,8 @@ var context = "${pageContext.request.contextPath}";
 
 						<div id="desktop-right">
 							<img class="promo-code hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie/bday-icon.png">
-							<h2 id="promo"><fmt:message key="savie.planDetails.Date.Birth" bundle="${msg}" />
-								<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.birth.above" bundle="${msg}" />"></button>
+							<h2 id="promo"><fmt:message key="savie.planDetails.Date.Birth" bundle="${msg}" /><!--
+								<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.birth.above" bundle="${msg}" />"></button>-->
 							</h2>
 							<div id="birthday">
 							<!-- 
@@ -95,8 +95,8 @@ var context = "${pageContext.request.contextPath}";
 							<img id="birthday" src="<%=request.getContextPath()%>/resources/images/savie/promo-img.png">
 						</div>
 
-						<h2><fmt:message key="savie.planDetails.promo.code" bundle="${msg}" />
-							<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="If you have received a promo code, enter below for special rates."></button>
+						<h2><fmt:message key="savie.planDetails.promo.code" bundle="${msg}" /><!--
+							<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.promo.code.tooltips" bundle="${msg}" />"></button>-->
 						</h2>
 						<input value="${savingPromocode }" name="promocode" type="text" placeholder="<fmt:message key="savie.planDetails.promo.code.placeholder" bundle="${msg}" />" class="promocode" id="promocode">
 						<span class="error-msg-promo hideSpan" id="promo-code-errmsg">Invalid promo code. Try again?</span>
@@ -114,23 +114,23 @@ var context = "${pageContext.request.contextPath}";
 	                    <div>
 	                        <div class="container-fluid summary-tab-max-width">
 	                            <div class="investment-table-desktop">
-	                                <h2><fmt:message key="savie.planDetails.Summary" bundle="${msg}" />
+	                                <h2><fmt:message key="savie.planDetails.Summary" bundle="${msg}" /><!--
 	                                	<button type="button" class="btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Summary.tooltips">
 	                                		<img src="<fmt:message key="savie.planDetails.info-image" bundle="${msg}" />">
-	                                	</button>
+	                                	</button>-->
 	                                </h2>
 	                                <h3><fmt:message key="savie.planDetails.year.guaranteed" bundle="${msg}" /></h3>
-	                                <h3 class="desktop-right hidden-xs hidden-sm"><fmt:message key="savie.planDetails.End.of.3rd.years.part1" bundle="${msg}" /><span id="3rd_policy_year">0</span><fmt:message key="savie.planDetails.End.of.3rd.years.part2" bundle="${msg}" /></h3>
+	                                <h3 class="desktop-right"><fmt:message key="savie.planDetails.End.of.3rd.years.part1" bundle="${msg}" /><span id="3rd_policy_year">0</span><fmt:message key="savie.planDetails.End.of.3rd.years.part2" bundle="${msg}" /></h3>
 	                            </div>
 	                            <div class="rate-table">
 	                                <table class="table table-hover">
 	                                    <thead>
 	                                    <tr>
-	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.End.of.policy.year.tooltips"></button></span></th>
+	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.End.of.policy.year.tooltips" bundle="${msg}" />"></button></span></th>
 	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Annual.Crediting.Rate" bundle="${msg}" /></th>
-	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Total.paid.tooltips"></button></th>
-	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Account.value.tooltips"></button></th>
-	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Surrender.benefit.tooltips"></button></th>
+	                                        <th class="premium"><span><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Total.paid.tooltips" bundle="${msg}" />"></button></th>
+	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Account.value.tooltips" bundle="${msg}" />"></button></th>
+	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Surrender.benefit.tooltips" bundle="${msg}" />"></button></th>
 	                                    </tr>
 	                                    </thead>
 	                                    <tbody>
@@ -195,29 +195,29 @@ var context = "${pageContext.request.contextPath}";
 	                                    <tr>
 	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
 											<th class="credit-rate desktop-only"><fmt:message key="savie.planDetails.annual.rate" bundle="${msg}" /></th>
-	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
-	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
-	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
+	                                        <th class="premium"><span><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Total.paid.tooltips"></button></th>
+	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Account.value.tooltips"></button></th>
+	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Surrender.benefit.tooltips"></button></th>
 	                                    </tr>
 	                                    </thead>
 	                                    <tbody>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-0-1'>5</td>  
-												<td class="black-text desktop-only" id="credit-rate-0-1">0</td> 
+												<td class="black-text desktop-only" id="credit-rate-0-1">0%</td> 
 												<td class="black-text" id="premium-change-0-1"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-0-1"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-0-1"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-0-2'>10</td> 
-												<td class="black-text desktop-only" id="credit-rate-0-2">0</td>  
+												<td class="black-text desktop-only" id="credit-rate-0-2">0%</td>  
 												<td class="black-text" id="premium-change-0-2"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-0-2"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-0-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
 												<td class="left-border" id='policy-year-0-3'><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>  
-												<td class="black-text desktop-only" id="credit-rate-0-3">0</td> 
+												<td class="black-text desktop-only" id="credit-rate-0-3">0%</td> 
 												<td class="black-text" id="premium-change-0-3"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-0-3"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-0-3"><span>$</span> 0</td>    
@@ -232,29 +232,29 @@ var context = "${pageContext.request.contextPath}";
 	                                    <tr>
 	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
 											<th class="credit-rate desktop-only"><fmt:message key="savie.planDetails.annual.rate" bundle="${msg}" /></th>
-	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
-	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
-	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
+	                                        <th class="premium"><span><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Total.paid.tooltips"></button></th>
+	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Account.value.tooltips"></button></th>
+	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Surrender.benefit.tooltips"></button></th>
 	                                    </tr>
 	                                    </thead>
 	                                    <tbody>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-2-1'>5</td>  
-												<td class="black-text desktop-only" id="credit-rate-2-1">2</td> 
+												<td class="black-text desktop-only" id="credit-rate-2-1">2%</td> 
 												<td class="black-text" id="premium-change-2-1"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-2-1"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-2-1"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-2-2'>10</td> 
-												<td class="black-text desktop-only" id="credit-rate-2-2">2</td>  
+												<td class="black-text desktop-only" id="credit-rate-2-2">2%</td>  
 												<td class="black-text" id="premium-change-2-2"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-2-2"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-2-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
 												<td class="left-border" id='policy-year-2-3'><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>  
-												<td class="black-text desktop-only" id="credit-rate-2-3">2</td> 
+												<td class="black-text desktop-only" id="credit-rate-2-3">2%</td> 
 												<td class="black-text" id="premium-change-2-3"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-2-3"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-2-3"><span>$</span> 0</td>    
@@ -269,29 +269,29 @@ var context = "${pageContext.request.contextPath}";
 	                                    <tr>
 	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
 											<th class="credit-rate desktop-only"><fmt:message key="savie.planDetails.annual.rate" bundle="${msg}" /></th>
-	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
-	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
-	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
+	                                        <th class="premium"><span><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Total.paid.tooltips"></button></th>
+	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Account.value.tooltips"></button></th>
+	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Surrender.benefit.tooltips"></button></th>
 	                                    </tr>
 	                                    </thead>
 	                                    <tbody>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-3-1'>5</td>  
-												<td class="black-text desktop-only" id="credit-rate-3-1">3</td> 
+												<td class="black-text desktop-only" id="credit-rate-3-1">3%</td> 
 												<td class="black-text" id="premium-change-3-1"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-3-1"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-3-1"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-3-2'>10</td> 
-												<td class="black-text desktop-only" id="credit-rate-3-2">3</td>  
+												<td class="black-text desktop-only" id="credit-rate-3-2">3%</td>  
 												<td class="black-text" id="premium-change-3-2"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-3-2"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-3-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
 												<td class="left-border" id='policy-year-3-3'><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>  
-												<td class="black-text desktop-only" id="credit-rate-3-3">3</td> 
+												<td class="black-text desktop-only" id="credit-rate-3-3">3%</td> 
 												<td class="black-text" id="premium-change-3-3"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-3-3"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-3-3"><span>$</span> 0</td>    
@@ -306,29 +306,29 @@ var context = "${pageContext.request.contextPath}";
 	                                    <tr>
 	                                        <th class="left-border"><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="End of policy year"></button></span></th>
 											<th class="credit-rate desktop-only"><fmt:message key="savie.planDetails.annual.rate" bundle="${msg}" /></th>
-	                                        <th class="premium"><span class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><span class="hidden-md hidden-lg"><fmt:message key="savie.planDetails.Premium.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Total premium paid"></button></th>
-	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Account value"></button></th>
-	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="Surrender benefit"></button></th>
+	                                        <th class="premium"><span><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></span><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Total.paid.tooltips"></button></th>
+	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Account.value.tooltips"></button></th>
+	                                        <th class="right-border"><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="savie.planDetails.Surrender.benefit.tooltips"></button></th>
 	                                    </tr>
 	                                    </thead>
 	                                    <tbody>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-4-1'>5</td>  
-												<td class="black-text desktop-only" id="credit-rate-4-1">4</td> 
+												<td class="black-text desktop-only" id="credit-rate-4-1">4%</td> 
 												<td class="black-text" id="premium-change-4-1"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-4-1"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-4-1"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr>    
 												<td class="left-border" id='policy-year-4-2'>10</td> 
-												<td class="black-text desktop-only" id="credit-rate-4-2">4</td>  
+												<td class="black-text desktop-only" id="credit-rate-4-2">4%</td>  
 												<td class="black-text" id="premium-change-4-2"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-4-2"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-4-2"><span>$</span> 0</td>    
 											</tr>
 	                                        <tr class="bottom-border">  
 												<td class="left-border" id='policy-year-4-3'><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td>  
-												<td class="black-text desktop-only" id="credit-rate-4-3">4</td> 
+												<td class="black-text desktop-only" id="credit-rate-4-3">4%</td> 
 												<td class="black-text" id="premium-change-4-3"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-4-3"><span>$</span> 0</td>    
 												<td class="black-text right-border" id="surrender-change-4-3"><span>$</span> 0</td>    

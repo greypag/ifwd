@@ -17,6 +17,7 @@
     url("../../fonts/Foco-Bold_gdi.svg#svgFontName") format("svg")
 }
 
+/**
 @font-face {
   font-family: 'Calibri';
   src: url("../../fonts/Calibri_gdi.eot");
@@ -24,6 +25,13 @@
     url("../../fonts/Calibri_gdi.woff") format("woff"),
     url("../../fonts/Calibri_gdi.ttf") format("truetype"),
     url("../../fonts/Calibri_gdi.svg#svgFontName") format("svg")
+}**/
+
+@font-face {
+    font-family: 'Calibri';
+    src: url('../../font/Calibri.ttf');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {
@@ -2580,21 +2588,21 @@ body {
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a {
   /* font-size: 18px; */
   color: #f68a1d;
-  border-bottom: 1px solid  #f68a1d;
+  /*border-bottom: 1px solid  #f68a1d;*/
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a.link-plan-details {
   font-size: 14px;
   color: #f58220;
   font-family: 'Calibri';
-  border-bottom: 1px solid  #f58220;
+  /*border-bottom: 1px solid  #f58220;*/
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a.link-plan-details:hover, .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a.link-plan-details:focus {
   color: #9fb1b2;
-  border-bottom: 1px solid  #9fb1b2;
+  /*border-bottom: 1px solid  #9fb1b2;*/
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a:hover, .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a:focus {
   color: #9fb1b2;
-  border-bottom: 1px solid  #9fb1b2;
+  /*border-bottom: 1px solid  #9fb1b2;*/
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body .input-orange {
   height: 65px;
@@ -4668,10 +4676,15 @@ span.explanation {
   }
 }
 .fwd-savie-wrapper .investment .investment-table-desktop h3.desktop-right {
-  font-size: 24px;
-  position: absolute;
-  right: 0;
-  bottom: 25px;
+  font-size: 20px;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .investment .investment-table-desktop h3.desktop-right {
+    font-size: 24px;
+    position: absolute;
+    right: 0;
+    bottom: 25px;
+  }
 }
 .fwd-savie-wrapper .investment .investment-table-desktop .credit-rate-dropdown {
   font-size: 18px;
@@ -12291,6 +12304,11 @@ span.dup-error-msg {
   margin-top: 14px;
   margin-bottom: 35px;
 }
+.fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body div.disclaimer {
+  font-size: 14px;
+  width: 353px;
+  margin: 20px auto 0;
+}
 @media (min-width: 992px) {
   .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body form {
     padding: 0 40px;
@@ -14450,7 +14468,7 @@ input[type=number] {
 }
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner {
   background-color: #e9edf0;
-  padding-top: 6px;
+  /*padding-top: 6px;*/
 }
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner p {
   font-size: 24px;
@@ -14473,7 +14491,7 @@ input[type=number] {
 }
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.mobile {
   display: block;
-  max-width: 400px;
+  /*max-width: 400px;*/
   margin: 0 auto;
 }
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.desktop {
@@ -14482,7 +14500,7 @@ input[type=number] {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.desktop {
     display: block;
-    max-width: 1114px;
+    /*max-width: 1114px;*/
     margin: 0 auto;
   }
   .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.mobile {
@@ -14493,7 +14511,7 @@ input[type=number] {
   .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner {
     margin-top: 0;
     background-color: #e1e4e4;
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
   }
 }
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav {
@@ -14864,6 +14882,9 @@ input[type=number] {
 
 
 /**Confirmation-Offline Page**/
+.fwd-savie-wrapper .thank-you-container .details-container .whats-next {
+  margin-bottom: 14px;
+}
 /* line 163, ../sass/partials/_thank-you-update.scss */
 .fwd-savie-wrapper .thank-you-container .offline-procedure {
   background-color: #f1f3f5;
@@ -14879,6 +14900,9 @@ input[type=number] {
 /* line 174, ../sass/partials/_thank-you-update.scss */
 .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3 {
   padding-top: 43px;
+}
+body.chin .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3 {
+  padding-top: 60px;
 }
 /* line 178, ../sass/partials/_thank-you-update.scss */
 .fwd-savie-wrapper .thank-you-container .offline-procedure p {
@@ -15362,8 +15386,14 @@ input[type=number] {
 }
 /* line 374, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #set-appointment .centre-info {
-  font-size: 18px;
-  padding-left: 10px;
+  margin-top: 20px;
+  padding-left: 0;
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper #set-appointment .centre-info {
+    margin-top: 0;
+    padding-left: 10px;
+  }
 }
 /* line 378, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #set-appointment .centre-info h4 {
@@ -15373,12 +15403,6 @@ input[type=number] {
 /* line 384, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #set-appointment .confirm-appointment {
   margin-top: 40px;
-}
-@media (min-width: 992px) {
-  /* line 384, ../sass/partials/_page-set-appointment.scss */
-  .fwd-savie-wrapper #set-appointment .confirm-appointment {
-    margin-top: 100px;
-  }
 }
 
 /**Pick Another Centre Modal --- Customer Service Centre Page**/

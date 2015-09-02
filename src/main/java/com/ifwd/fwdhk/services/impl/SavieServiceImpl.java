@@ -1281,6 +1281,8 @@ public class SavieServiceImpl implements SavieService {
 		response.setContentType("text/json;charset=utf-8");
 		String csCenter = request.getParameter("csCenter");
 		String perferredDate = request.getParameter("perferredDate");
+		request.getSession().setAttribute("csCenter", csCenter);
+		request.getSession().setAttribute("perferredDate", perferredDate);
 		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + perferredDate + "&serviceCentreCode=" + csCenter;
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")) {

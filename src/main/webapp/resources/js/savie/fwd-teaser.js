@@ -466,7 +466,7 @@ function validationUsername(evt){
 	return false;
 }
 
-function getTimeSlot(){
+function getTimeSlot(perTime){
 	var csCenter = $("#centre").val();
 	var perferredDate = $("#preferred-date").val();
 	$.ajax({     
@@ -487,6 +487,9 @@ function getTimeSlot(){
 		    			$("#preferred-time").append("<option value='" + data.timeSlots[i].timeSlot + "'>" + data.timeSlots[i].timeSlot + "</option>");
 		    		}
 		    	}
+		    	if(perTime !=null && perTime !=''){
+	    			$("#preferred-time").val(perTime);
+	    		}
 	    	}else {
 	    		$("#preferred-time").prepend("<option value=''></option>");
 	    		$('#pickAnotherCentre').modal('show');
