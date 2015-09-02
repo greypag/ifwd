@@ -2588,21 +2588,21 @@ body {
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a {
   /* font-size: 18px; */
   color: #f68a1d;
-  border-bottom: 1px solid  #f68a1d;
+  /*border-bottom: 1px solid  #f68a1d;*/
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a.link-plan-details {
   font-size: 14px;
   color: #f58220;
   font-family: 'Calibri';
-  border-bottom: 1px solid  #f58220;
+  /*border-bottom: 1px solid  #f58220;*/
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a.link-plan-details:hover, .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a.link-plan-details:focus {
   color: #9fb1b2;
-  border-bottom: 1px solid  #9fb1b2;
+  /*border-bottom: 1px solid  #9fb1b2;*/
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a:hover, .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a:focus {
   color: #9fb1b2;
-  border-bottom: 1px solid  #9fb1b2;
+  /*border-bottom: 1px solid  #9fb1b2;*/
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body .input-orange {
   height: 65px;

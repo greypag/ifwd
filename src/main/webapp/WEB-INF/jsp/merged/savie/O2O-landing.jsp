@@ -361,14 +361,14 @@ var home_url = "<%=request.getContextPath()%>";
 					<div class="modal-content hunger-selling-content">
 						<div class="hunger-selling-header text-center">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<h4 class="hunger-selling-title">Sign up now and await for our notification!</h4>
+							<h4 class="hunger-selling-title"><fmt:message key="savie.o2o.landing.waiting.list.title" bundle="${msg}" /></h4>
 						</div>
 						<div class="modal-body hunger-selling-body">
 							<form method="post" id="teaserSignUpForm" action="">
 								<div class="input-holder">
-									<input placeholder="Email address [compulsory]" type="text" name="signupEmail" id="teaserEmail"/>
-									<span id="emailErrMsg" class="error-email">Please enter your email address.</span>
-									<input placeholder="Mobile no." type="text" name="signupMobileNo" id="teaserPhoneNo"/>
+									<input placeholder="<fmt:message key="savie.o2o.landing.waiting.list.email.placeholder" bundle="${msg}" />" type="text" name="signupEmail" id="teaserEmail"/>
+									<span id="emailErrMsg" class="error-email"><fmt:message key="savie.o2o.landing.waiting.list.email.error" bundle="${msg}" /></span>
+									<input placeholder="<fmt:message key="savie.o2o.landing.waiting.list.phone.placeholder" bundle="${msg}" />" type="text" name="signupMobileNo" id="teaserPhoneNo"/>
 									<span id="phoneErrMsg" class="error-email hideSpan">&nbsp;</span>
 									<input type="hidden" name="affiliate" value="${affiliate}">
 								</div>
@@ -376,16 +376,16 @@ var home_url = "<%=request.getContextPath()%>";
 								<div class="fwd-checkbox">
 									<input type="checkbox" id="personal-information-statement-signup" name="isPics" value="pics">
 									<label for="personal-information-statement-signup"></label>
-									<p class="notice">I have read, understood and accept this <a href="<fmt:message key="savie.interestGather.personal.collection.link" bundle="${msg}" />" target="_blank">Personal Information Collection Statement.</a></p>
+									<p class="notice"><fmt:message key="savie.o2o.landing.waiting.list.personal.statement.part1" bundle="${msg}" /><a href="<fmt:message key="savie.interestGather.personal.collection.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.o2o.landing.waiting.list.personal.statement.link.text" bundle="${msg}" /></a><fmt:message key="savie.o2o.landing.waiting.list.personal.statement.part2" bundle="${msg}" /></p>
 								</div>
 
 								<div class="fwd-checkbox">
 									<input type="checkbox" id="terms-condition-statement-signup" name="isTc" value="tc">
 									<label for="terms-condition-statement-signup"></label>
-									<p class="notice">I have read, understood and accept these <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.terms.conditions.link" bundle="${msg}" />" target="_blank">Terms and Conditions.</a></p>
+									<p class="notice"><fmt:message key="savie.o2o.landing.waiting.list.terms.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.terms.conditions.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.o2o.landing.waiting.list.terms.link.text" bundle="${msg}" /></a><fmt:message key="savie.o2o.landing.waiting.list.terms.part2" bundle="${msg}" /></p>
 								</div>
 								<span class="error-email chk hideSpan" id="checkboxErrorMessage">&nbsp;</span>					
-								<button type="submit" id="signup-btn" class="btn hunger-btn">Sign up now</button>
+								<button type="submit" id="signup-btn" class="btn hunger-btn"><fmt:message key="savie.o2o.landing.waiting.list.submit" bundle="${msg}" /></button>
 							</form>
 						</div>
 					</div><!-- /.modal-content -->
