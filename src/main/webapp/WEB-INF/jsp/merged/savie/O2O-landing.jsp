@@ -73,7 +73,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Second.year" bundle="${msg}" /></span><div class="white right"></div></li>
 							<li><span class="percent gold">4% </span><span class="year gold"><fmt:message key="savie.o2o.landing.Third.year" bundle="${msg}" /></span></li>
 						</ul>
-						<p class="additional footnote hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.Lump.sum.info" bundle="${msg}" /></p>
+						<p class="bottom-text"><fmt:message key="savie.o2o.landing.Lump.sum.info" bundle="${msg}" /></p>
 					</div>
 				</div>
 			</div>
@@ -83,10 +83,10 @@ var home_url = "<%=request.getContextPath()%>";
 				<div class="get-started-holder text-center">
 					<button id="hunger-selling-buy-now-O2O" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
 				</div>
-				<p class="sign-up-header below"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p>
 				<p class="sign-up-header below"><fmt:message key="savie.o2o.landing.Haven't.applied" bundle="${msg}" />
 					<button id="signup"><fmt:message key="savie.o2o.landing.here" bundle="${msg}" /></button>
 				.</p>
+				<p class="footnote below"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p>
 			</div>
 			
 	        <div class="teaser-three-column O2O-landing">
@@ -158,10 +158,10 @@ var home_url = "<%=request.getContextPath()%>";
 										<ul>
 											<li><p><fmt:message key="savie.interestGather.otherfeatures.context1" bundle="${msg}" /></p></li>
 											<a class="read-more hidden-md hidden-lg" id="read-more-other-benefits">Read more</a>
-											<li class="hidden-xs hidden-sm" id="other-benefits-list-0"><p><fmt:message key="savie.interestGather.otherfeatures.context5" bundle="${msg}" /></p></li>
-											<li class="hidden-xs hidden-sm" id="other-benefits-list-1"><p><fmt:message key="savie.interestGather.otherfeatures.context2" bundle="${msg}" /></p></li>
-											<li class="hidden-xs hidden-sm" id="other-benefits-list-2"><p><fmt:message key="savie.interestGather.otherfeatures.context6" bundle="${msg}" /></p></li>
-											<li class="hidden-xs hidden-sm" id="other-benefits-list-3"><p><fmt:message key="savie.interestGather.otherfeatures.context3" bundle="${msg}" /></p></li>
+											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-0"><p><fmt:message key="savie.interestGather.otherfeatures.context5" bundle="${msg}" /></p></li>
+											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-1"><p><fmt:message key="savie.interestGather.otherfeatures.context2" bundle="${msg}" /></p></li>
+											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-2"><p><fmt:message key="savie.interestGather.otherfeatures.context6" bundle="${msg}" /></p></li>
+											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-3"><p><fmt:message key="savie.interestGather.otherfeatures.context3" bundle="${msg}" /></p></li>
 										</ul>
 									</div>
 								</div>
@@ -275,15 +275,15 @@ var home_url = "<%=request.getContextPath()%>";
 					<div class="row text-left">
 						<div class="col-xs-12 col-md-4 fwd-col">
 							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/power-1-percent-savings-interest.jpg"/>
-							<h3><a href="#"><fmt:message key="savie.o2o.landing.Staying.connected" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
+							<h3><a href="<fmt:message key="savie.o2o.landing.Staying.connected.link" bundle="${msg}" />"><fmt:message key="savie.o2o.landing.Staying.connected" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
 						</div>
 						<div class="col-md-4 fwd-col hidden-xs hidden-sm">
 							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/saving-is-easier-than-you-think.jpg"/>
-							<h3><a href="#"><fmt:message key="savie.o2o.landing.7.musts" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
+							<h3><a href="<fmt:message key="savie.o2o.landing.7.musts.link" bundle="${msg}" />"><fmt:message key="savie.o2o.landing.7.musts" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
 						</div>
 						<div class="col-md-4 fwd-col hidden-xs hidden-sm">
 							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/3-saving-tips-smart-parents.jpg"/>
-							<h3><a href="#"><fmt:message key="savie.o2o.landing.Top.tips" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
+							<h3><a href="<fmt:message key="savie.o2o.landing.Top.tips.link" bundle="${msg}" />"><fmt:message key="savie.o2o.landing.Top.tips" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
 						</div>
 					</div>
 					<p class="text-left hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.The.information" bundle="${msg}" /></p>
@@ -326,7 +326,7 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 						<div class="modal-body hunger-selling-body">
 							<form id="o2o-landing-form" method="post">
-								<input placeholder="<fmt:message key="savie.o2o.landing.Access.code" bundle="${msg}" />" type="text" name="accessCodeConfirm" id="accessCodeConfirm" />
+								<input placeholder="<fmt:message key="savie.o2o.landing.Access.code" bundle="${msg}" />" type="text" name="accessCodeConfirm" id="accessCodeConfirm" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" onafterpaste="value=value.replace(/[^\w\.\/]/ig,'')" />
 								<span class="validation-msg hidden-error-msg"><fmt:message key="savie.o2o.landing.The.code" bundle="${msg}" /></span>							
 								<button type="submit" id="hunger-btn" class="btn hunger-btn"><fmt:message key="savie.o2o.landing.Submit" bundle="${msg}" /></button>
 							</form>
@@ -505,6 +505,12 @@ var home_url = "<%=request.getContextPath()%>";
 			// Sign up Now Button
 			$('#signup').click(function(e){
 				$('#signup-now-modal').modal('show');
+			});
+			
+			$('#read-more-other-benefits').click(function(e){
+				$('.other-benefits-list-mobile').removeClass('hidden-xs');
+				$('.other-benefits-list-mobile').removeClass('hidden-sm');
+				$('#read-more-other-benefits').hide();
 			});
 			
 		</script>

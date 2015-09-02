@@ -338,7 +338,7 @@ public class SavieController extends BaseController{
 				+ "downloadTest");
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/service-center"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/customer-service-centre"})
 	public ModelAndView chooseServiceCenter(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		//savingAmount为空时返回首页
@@ -383,7 +383,7 @@ public class SavieController extends BaseController{
 		
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/O2O-landing","/{lang}/savings-insurance","/{lang}/savings-insurance/"})
+	@RequestMapping(value = {"/{lang}/savings-insurance","/{lang}/savings-insurance/"})
 	public ModelAndView o2OLanding(Model model, HttpServletRequest request) {
 		String affiliate = (String) request.getParameter("affiliate");
 		if(affiliate == null){

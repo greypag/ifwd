@@ -698,8 +698,8 @@ $(function() {
 	});
 	
 	//DATE PICKER
-	if($("#datePicker").length > 0 && getWidth() >= 992) {
-		var datePlaceholder = (getWidth() >= 992) ? "28th May 1996" : "1996-05-28";
+	if($("#datePicker").length > 0 && getWidth() >= 0) {
+		var datePlaceholder = (getWidth() >= 0) ? "28th May 1996" : "1996-05-28";
 		var $datePicker = $("#datePicker");
 		$('#dates').attr('placeholder', datePlaceholder);
 		changeDatePickerValue($datePicker);
