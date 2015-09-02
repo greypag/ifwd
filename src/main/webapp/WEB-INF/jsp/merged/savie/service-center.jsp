@@ -62,7 +62,7 @@ var language = "${language}";
 											<div class="selectDiv timeslot">
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<!-- <input type="text" name="preferred-time" id="preferred-time" value=""> -->
-												<select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
+												<select name="preferred-time" id="preferred-time" onclick="putTimeSession();" class="form-control gray-dropdown">
 											        <option value=""></option>
 												</select>
 											</div>
@@ -160,13 +160,24 @@ var language = "${language}";
 		    		var date = preferred_date.getDate();
 		    		month = (month < 10) ? '0' + month : month;
 		    		date = (date < 10) ? '0' + date : date;
-		    		$("#centre").val(serviceCentreCode);
-		    		$("#preferred-date").datepicker("setDate", month +'-'+ date + '-' + year);
+		    		if('${csCenter }' !=null && '${csCenter }' !=''){
+		    			$("#centre").val('${csCenter }');
+		    		}
+		    		else{
+		    			$("#centre").val(serviceCentreCode);
+		    		}
+		    		if('${perferredDate }' !=null && '${perferredDate }' !=''){
+		    			var perDate = '${perferredDate }';
+		    			$("#preferred-date").datepicker("setDate", perDate.split('-')[0] +'-'+ perDate.split('-')[1] + '-' + perDate.split('-')[2]);
+		    		}
+		    		else{
+		    			$("#preferred-date").datepicker("setDate", month +'-'+ date + '-' + year);
+		    		}
 		    		
 		    		$('.centre-info').addClass('hidden');
 					$('#centre-' + serviceCentreCode).removeClass('hidden');
 					if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
-						getTimeSlot();
+						getTimeSlot('${perferredTime }');
 					}
 		    	}else {
 					$('#fullyBooked').modal('show');
@@ -194,7 +205,7 @@ var language = "${language}";
 			daysOfWeekDisabled: [0]
 		}).on('changeDate', function (ev) {
 			if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
-				getTimeSlot();
+				getTimeSlot('${perferredTime }');
 			}
 		});
 		$('#centre').on('change', function() {
@@ -203,7 +214,7 @@ var language = "${language}";
 			$('.centre-info').addClass('hidden');
 			$('#centre-' + centre).removeClass('hidden');
 			if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
-				getTimeSlot();
+				getTimeSlot('${perferredTime }');
 			}
 		});
 		
@@ -252,4 +263,19 @@ var language = "${language}";
 			});
 		});
 	});
+	
+	function putTimeSession(){
+		var perTime = $("#preferred-time").val();
+		$.ajax({     
+		    url:context+'/ajax/savie/savings-insurance/putTimeSession',     
+		    type:'post',     
+		    data:{    
+		        "perferredTime":perTime
+	   		},     
+		    success:function(data){
+		    },
+	   		error:function(){       
+		    }
+		});
+	}
 </script>
