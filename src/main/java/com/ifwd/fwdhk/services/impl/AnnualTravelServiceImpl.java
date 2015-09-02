@@ -1,6 +1,7 @@
 package com.ifwd.fwdhk.services.impl;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -12,9 +13,11 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.joda.time.Days;
 import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
@@ -28,6 +31,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.CreatePolicy;
@@ -1081,9 +1085,10 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				+ "annualtravel/annual-travel-plan-details");	
 	}
 	
+	@SuppressWarnings("unchecked")
 	public ModelAndView prepareTravelInsuranceTravelSummary(PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception{
-		HttpSession session = request.getSession();
+			HttpSession session = request.getSession();
 		UserRestURIConstants.setController("Travel");
 		if (planDetailsForm.getDepartureDate() != null) {
 			session.removeAttribute("travelCreatePolicy");
@@ -1149,36 +1154,11 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
 		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress",	session, request);
-		String selectedHkidPassApplicant = WebServiceUtils.getParameterValue("selectedHkidPassApplicant",	session, request);
+		String selectedHkidPassApplicant = "HKID";
 		String dob = WebServiceUtils.getParameterValue("applicantDob",	session, request);
-		
-		
-		Enumeration<String> parameterNames = request.getParameterNames();
-		while (parameterNames.hasMoreElements()) {
-			String paramName = parameterNames.nextElement();
-			
-			String[] paramValues = request.getParameterValues(paramName);
-			for (int i = 0; i < paramValues.length; i++) {
-				String paramValue = paramValues[i];
-			}
-		}
-		
-		//String dob = WebServiceUtils.getParameterValue("applicantDob", session, request);
-		/*try {
-			Calendar dateDob = Calendar.getInstance();
-			dateDob.setTime(new Date(dob));
-			Format f = new SimpleDateFormat("yyyy-MM-dd");
-			dob = f.format(dateDob.getTime());
-		} catch (Exception e) {
-			
-		}*/
-		
 		dob = DateApi.pickDate1(dob);
 		
 		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
-		String strChildCount = WebServiceUtils.getParameterValue("totalChildTraveller", session, request);
-		String strAdultCount = WebServiceUtils.getParameterValue("totalAdultTraveller", session, request);
-		String strOtherCount = WebServiceUtils.getParameterValue("totalOtherTraveller", session, request);
 				
 		if (planDetailsForm.getDepartureDate() != null) {
 			session.setAttribute("travelPlanDetailsForm", planDetailsForm);
@@ -1186,30 +1166,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			planDetailsForm = (PlanDetailsForm) session
 					.getAttribute("travelPlanDetailsForm");
 		}
-		int totalChild;
-		int totalAdults;
-		int totalOthers;
-		int totalPersonal = planDetailsForm.getTotalPersonalTraveller();
 		
-		if (strChildCount != "" || strChildCount != null) {
-			totalChild = Integer.valueOf(strChildCount);
-		} else {
-			totalChild = 0;
-		}
-
-		if (strAdultCount != "" || strAdultCount != null) {
-			totalAdults = Integer.valueOf(strAdultCount);
-		} else {
-			totalAdults = 0;
-		}
-		if (strOtherCount != "" || strOtherCount != null) {
-			totalOthers = Integer.valueOf(strOtherCount);
-		} else {
-			totalOthers = 0;
-		}
-
-		int totalCount = totalPersonal + totalAdults + totalChild + totalOthers;
-
 		userDetails.setFullName(applicantFullName);
 		userDetails.setHkid(applicantHKID);
 		userDetails.setMobileNo(applicantMobNo);
@@ -1217,19 +1174,8 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		userDetails.setDob(dob);
         final String BENE_RELATIONSHIP_SELF = "SE";
 
-		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
-
-		if (planDetailsForm.getPlanSelected().equals("personal")) {
-		} else if (planDetailsForm.getPlanSelected().equals("family")) {
-			relationOfChildTraveller = "CH";
-			relationOfOtherTraveller = "OT";
-		}
-
 		JSONObject parameters = new JSONObject();
 		parameters.put("planCode", session.getAttribute("planSelected"));
-		
-		//parameters.put("planCode", planDetailsForm.getPlanCode());
-		
 		parameters.put("commencementDate", deaprtureDate);
 		parameters.put("expiryDate", returnDate);
 		JSONArray insured = new JSONArray();
@@ -1240,19 +1186,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			planDetailsForm.setPersonalAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getPersonalAgeRange(), langSelected));
 		}
 		
-		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
-			planDetailsForm.setAdultAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getAdultAgeRange(), langSelected));
-		}
-		
-		for (int inx = 0; inx < planDetailsForm.getTotalChildTraveller(); inx++) {
-			planDetailsForm.setChildAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getChildAgeRange(), langSelected));
-		}
-		
-		for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {	
-			planDetailsForm.setOtherAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getOtherAgeRange(), langSelected));		
-		}
-		
-		// personal
+		String HKID = "HKID";
  		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
 			JSONObject beneficiary = new JSONObject();
 			JSONObject personal = new JSONObject();
@@ -1262,30 +1196,28 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			
 			
 			personal.put(hkId,	checkPasswortAndHkid(hkId,
-					planDetailsForm.getSelectedPersonalHkidPass()[inx],
+					HKID,
 					planDetailsForm.getPersonalHKID()[inx])
 			 );
 			personal.put(passId, checkPasswortAndHkid(passId,
-					planDetailsForm.getSelectedPersonalHkidPass()[inx],
+					HKID,
 					planDetailsForm.getPersonalHKID()[inx])
 			 );
 
 			
 			personal.put(hkId,	checkPasswortAndHkid(hkId,
-							planDetailsForm.getSelectedPersonalHkidPass()[inx],
-							planDetailsForm.getPersonalHKID()[inx])
-					 );
+					HKID,
+					planDetailsForm.getPersonalHKID()[inx])
+			);
 					 
 			personal.put(passId, checkPasswortAndHkid(passId,
-							planDetailsForm.getSelectedPersonalHkidPass()[inx],
-							planDetailsForm.getPersonalHKID()[inx])
-					 );
+					HKID,
+					planDetailsForm.getPersonalHKID()[inx])
+			);
 
 
-			if (inx != 0) {// For other travelers skip first one
+			if (inx != 0) {
 				personal.put("relationship", "RF");
-				
-			
 				if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getPersonalBenificiaryFullName()[inx].isEmpty() 
 							&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getPersonalBeneficiary()[inx]) != 0) {// If have beneficiary
@@ -1293,54 +1225,51 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 						beneficiary.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
+												HKID,
 												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
 						beneficiary.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
+												HKID,
 												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
 						beneficiary.put("relationship", StringHelper.emptyIfNull( planDetailsForm.getPersonalBeneficiary()[inx] ).toUpperCase());
 						personal.put("beneficiary", beneficiary);
-					} else {// If don't have beneficiary then
+					} else {
 						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
 						beneficiary.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm.getSelectedPersonalHkidPass()[inx],
+												HKID,
 												planDetailsForm.getPersonalHKID()[inx]));
 						beneficiary.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm.getSelectedPersonalHkidPass()[inx],
+												HKID,
 												planDetailsForm.getPersonalHKID()[inx]));
 						beneficiary.put("relationship", "SE");
 						personal.put("beneficiary", beneficiary);
 						
-						// clear bene info if bene relationship is SE
 						planDetailsForm.getPersonalBenificiaryFullName()[inx] = "";
 						planDetailsForm.getPersonalBenificiaryHkid()[inx] = "";
 						
 					}
-				} else {// If don't have beneficiary then
-					
+				} else {
 					beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase());
 					beneficiary
 							.put(hkId,
 									checkPasswortAndHkid(hkId, 
-											planDetailsForm.getSelectedPersonalHkidPass()[inx],
+											HKID,
 											planDetailsForm.getPersonalHKID()[inx]));
 					beneficiary
 							.put(passId,
 									checkPasswortAndHkid(
 											passId,
-											planDetailsForm.getSelectedPersonalHkidPass()[inx],
+											HKID,
 											planDetailsForm.getPersonalHKID()[inx]));
 					beneficiary.put("relationship", "SE");
 					personal.put("beneficiary", beneficiary);				
 				}
-			} else {// This is for Myself - with & wothout the beneficiary
-                // update relationship 
+			} else {
                 String personalID;
                 if(personal.get("hkId") != null && !personal.get("hkId").toString().isEmpty()){
                     personalID = personal.get("hkId").toString();
@@ -1359,13 +1288,13 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 								.put(hkId,
 										checkPasswortAndHkid(
 												hkId,
-												planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
+												HKID,
 												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
 						beneficiary
 								.put(passId,
 										checkPasswortAndHkid(
 												passId,
-												planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
+												HKID,
 												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
 						beneficiary.put("relationship", planDetailsForm.getPersonalBeneficiary()[inx]);
 						personal.put("beneficiary", beneficiary);
@@ -1374,34 +1303,30 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 						beneficiary
 						.put(hkId,
 								checkPasswortAndHkid(hkId, 
-										planDetailsForm.getSelectedPersonalHkidPass()[inx],
+										HKID,
 										planDetailsForm.getPersonalHKID()[inx]));
 						beneficiary
 						.put(passId,
 								checkPasswortAndHkid(
 										passId,
-										planDetailsForm.getSelectedPersonalHkidPass()[inx],
+										HKID,
 										planDetailsForm.getPersonalHKID()[inx]));
 						beneficiary.put("relationship", "SE");
 						personal.put("beneficiary", beneficiary);
 						
-						// clear bene info if bene relationship is SE
 						planDetailsForm.getPersonalBenificiaryFullName()[inx] = "";
-						//planDetailsForm.getPersonalBenificiaryHkid()[inx] = "";
 					}
-				} else {// If don't have beneficiary then
-					
+				} else {
 					beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
-					
 					beneficiary.put("hkId", 
 							checkPasswortAndHkid(
 									"hkId",
-									planDetailsForm.getSelectedPersonalHkidPass()[inx],
+									HKID,
 									planDetailsForm.getPersonalHKID()[inx]));
 					beneficiary.put("passport",
 							checkPasswortAndHkid(
 									"passport",
-									planDetailsForm.getSelectedPersonalHkidPass()[inx],
+									HKID,
 									planDetailsForm.getPersonalHKID()[inx]));
 					beneficiary.put("relationship", "SE");
 					personal.put("beneficiary", beneficiary);
@@ -1411,365 +1336,19 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 							
 			insured.add(personal);
 			
-			// update relationship desc
 			String[] relationships = planDetailsForm.getPersonalRelationDesc();
 			if(relationships == null){
-				// not found in ModelAttribute
 				relationships = new String[planDetailsForm.getTotalPersonalTraveller()];
 			}
 			String[] beneRelationships = planDetailsForm.getPersonalBeneRelationDesc();
 			if(beneRelationships == null){
-				// not found in ModelAttribute
 				beneRelationships = new String[planDetailsForm.getTotalPersonalTraveller()];
 			}
-			
 			planDetailsForm.setPersonalRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, personal.get("relationship").toString(), inx));
-			
 			planDetailsForm.setPersonalBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
 		}
 		// personal
 
-		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
-			JSONObject beneficiary = new JSONObject();
-			JSONObject adult = new JSONObject();
-			adult.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase() );
-			adult.put("ageRange", StringHelper.emptyIfNull( planDetailsForm.getAdultAgeRange()[inx] ).toUpperCase() );
-			adult.put(hkId,	checkPasswortAndHkid(hkId,
-							planDetailsForm.getSelectedAdHkidPass()[inx],
-							planDetailsForm.getAdultHKID()[inx])
-					 );
-			adult.put(passId, checkPasswortAndHkid(passId,
-							planDetailsForm.getSelectedAdHkidPass()[inx],
-							planDetailsForm.getAdultHKID()[inx])
-					 );
-
-
-			if (inx != 0) {// For other travelers skip first one
-				
-				if (planDetailsForm.getPlanSelected().equals("personal")) {
-					adult.put("relationship", "RF");
-				} else {
-					adult.put("relationship", "SP");
-				}
-				
-				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getAdultBenificiaryFullName()[inx].isEmpty() 
-							&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getAdultBeneficiary()[inx]) != 0) {// If have beneficiary
-						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultBenificiaryFullName()[inx] ).toUpperCase());
-						beneficiary.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
-												planDetailsForm.getAdultBenificiaryHkid()[inx]));
-						beneficiary.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
-												planDetailsForm.getAdultBenificiaryHkid()[inx]));
-						beneficiary.put("relationship", StringHelper.emptyIfNull( planDetailsForm.getAdultBeneficiary()[inx] ).toUpperCase());
-						adult.put("beneficiary", beneficiary);
-					} else {// If don't have beneficiary then
-						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase());
-						beneficiary.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedAdHkidPass()[inx],
-												planDetailsForm.getAdultHKID()[inx]));
-						beneficiary.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedAdHkidPass()[inx],
-												planDetailsForm.getAdultHKID()[inx]));
-						beneficiary.put("relationship", "SE");
-						adult.put("beneficiary", beneficiary);
-						
-						// clear bene info if bene relationship is SE
-						planDetailsForm.getAdultBenificiaryFullName()[inx] = "";
-						planDetailsForm.getAdultBenificiaryHkid()[inx] = "";
-						
-					}
-				} else {// If don't have beneficiary then
-					beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase());
-					beneficiary
-							.put(hkId,
-									checkPasswortAndHkid(hkId, 
-											planDetailsForm.getSelectedAdHkidPass()[inx],
-											planDetailsForm.getAdultHKID()[inx]));
-					beneficiary
-							.put(passId,
-									checkPasswortAndHkid(
-											passId,
-											planDetailsForm.getSelectedAdHkidPass()[inx],
-											planDetailsForm.getAdultHKID()[inx]));
-					beneficiary.put("relationship", "SE");
-					adult.put("beneficiary", beneficiary);				
-				}
-			} else {// This is for Myself - with & wothout the beneficiary
-                // update relationship 
-                String adultID;
-                if(adult.get("hkId") != null && !adult.get("hkId").toString().isEmpty()){
-                    adultID = adult.get("hkId").toString();
-                }else if(adult.get("passport") != null && !adult.get("passport").toString().isEmpty()){
-                    adultID = adult.get("passport").toString();
-                }else {
-                    adultID = "";
-                }
-                adult.put("relationship", ValidationUtils.getRelationshipById(applicantHKID, adultID));
-
-				if (planDetailsForm.getAdultBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getAdultBenificiaryFullName()[inx].isEmpty()
-							&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getAdultBeneficiary()[inx]) != 0) {// If have beneficiary
-						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultBenificiaryFullName()[inx] ).toUpperCase());
-						beneficiary
-								.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
-												planDetailsForm.getAdultBenificiaryHkid()[inx]));
-						beneficiary
-								.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
-												planDetailsForm.getAdultBenificiaryHkid()[inx]));
-						beneficiary.put("relationship", planDetailsForm.getAdultBeneficiary()[inx]);
-						adult.put("beneficiary", beneficiary);
-					} else {// If don't have beneficiary then
-						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase());
-						beneficiary
-								.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedAdHkidPass()[inx],
-												planDetailsForm.getAdultHKID()[inx]));
-						beneficiary
-								.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedAdHkidPass()[inx],
-												planDetailsForm.getAdultHKID()[inx]));
-
-						beneficiary.put("relationship", "SE");
-						adult.put("beneficiary", beneficiary);
-						
-						// clear bene info if bene relationship is SE
-						planDetailsForm.getAdultBenificiaryFullName()[inx] = "";
-						planDetailsForm.getAdultBenificiaryHkid()[inx] = "";
-					}
-				} else {// If don't have beneficiary then
-					beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase());
-					beneficiary.put(hkId,
-									checkPasswortAndHkid(hkId, planDetailsForm
-											.getSelectedAdHkidPass()[inx],
-											planDetailsForm.getAdultHKID()[inx]));
-					beneficiary.put(passId,
-									checkPasswortAndHkid(
-											passId,
-											planDetailsForm.getSelectedAdHkidPass()[inx],
-											planDetailsForm.getAdultHKID()[inx]));
-					beneficiary.put("relationship", "SE");
-					adult.put("beneficiary", beneficiary);
-				}
-			}
-						
-			insured.add(adult);
-			
-			// update relationship desc
-			String[] relationships = planDetailsForm.getAdultRelationDesc();
-			if(relationships == null){
-				// not found in ModelAttribute
-				relationships = new String[planDetailsForm.getTotalAdultTraveller()];
-			}
-			String[] beneRelationships = planDetailsForm.getAdultBeneRelationDesc();
-			if(beneRelationships == null){
-				// not found in ModelAttribute
-				beneRelationships = new String[planDetailsForm.getTotalAdultTraveller()];
-			}
-			planDetailsForm.setAdultRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, adult.get("relationship").toString(), inx));
-			planDetailsForm.setAdultBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
-		}
-		if (planDetailsForm.getTotalChildTraveller() > 0) {
-			for (int inx = 0; inx < planDetailsForm.getTotalChildTraveller(); inx++) {
-				JSONObject child = new JSONObject();
-				JSONObject beneficiary = new JSONObject();
-				child.put("name",     StringHelper.emptyIfNull( planDetailsForm.getChildName()[inx] ).toUpperCase());
-				child.put("ageRange", StringHelper.emptyIfNull( planDetailsForm.getChildAgeRange()[inx] ).toUpperCase());
-				
-				child.put(
-						hkId,
-						checkPasswortAndHkid(hkId,
-								planDetailsForm.getSelectedChldHkidPass()[inx],
-								planDetailsForm.getChildHKID()[inx]));
-				child.put(
-						passId,
-						checkPasswortAndHkid(passId,
-								planDetailsForm.getSelectedChldHkidPass()[inx],
-								planDetailsForm.getChildHKID()[inx]));
-				child.put("relationship", relationOfChildTraveller);
-
-				/* String strings = planDetailsForm.getAdultBeneficiary()[inx]; */
-				/* JSONObject beneficiary = new JSONObject(); */
-				if (planDetailsForm.getChildBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getChildBenificiaryFullName()[inx].isEmpty()
-							&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getChildBeneficiary()[inx]) != 0) {// If have beneficiary
-						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getChildBenificiaryFullName()[inx] ).toUpperCase());
-						beneficiary.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedChldBenefitiaryHkidPass()[inx],
-												planDetailsForm.getChildBenificiaryHkid()[inx]));
-						beneficiary.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedChldBenefitiaryHkidPass()[inx],
-												planDetailsForm.getChildBenificiaryHkid()[inx]));
-						beneficiary.put("relationship", planDetailsForm.getChildBeneficiary()[inx]);
-						child.put("beneficiary", beneficiary);
-					} else {// If don't have beneficiary
-						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getChildName()[inx] ).toUpperCase());
-						beneficiary.put(hkId,
-								checkPasswortAndHkid(hkId, planDetailsForm.getSelectedChldHkidPass()[inx],
-										planDetailsForm.getChildHKID()[inx]));
-						beneficiary.put(passId,	checkPasswortAndHkid(passId, planDetailsForm
-										.getSelectedChldHkidPass()[inx],
-										planDetailsForm.getChildHKID()[inx]));
-						beneficiary.put("relationship", "SE");
-						child.put("beneficiary", beneficiary);
-						
-						// clear bene info if bene relationship is SE
-						planDetailsForm.getChildBenificiaryFullName()[inx] = "";
-						planDetailsForm.getChildBenificiaryHkid()[inx] = "";
-					}
-				} else {// If don't have beneficiary
-					beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getChildName()[inx] ).toUpperCase());
-					beneficiary
-							.put(hkId,
-									checkPasswortAndHkid(hkId, planDetailsForm
-											.getSelectedChldHkidPass()[inx],
-											planDetailsForm.getChildHKID()[inx]));
-					beneficiary
-							.put(passId,
-									checkPasswortAndHkid(
-											passId,
-											planDetailsForm
-													.getSelectedChldHkidPass()[inx],
-											planDetailsForm.getChildHKID()[inx]));
-					beneficiary.put("relationship","SE");
-					child.put("beneficiary", beneficiary);
-				}
-				insured.add(child);
-				
-				
-				// update relationship desc
-				String[] relationships = planDetailsForm.getChildRelationDesc();
-				if(relationships == null){
-					// not found in ModelAttribute
-					relationships = new String[planDetailsForm.getTotalChildTraveller()];
-				}
-				String[] beneRelationships = planDetailsForm.getChildBeneRelationDesc();
-				if(beneRelationships == null){
-					// not found in ModelAttribute
-					beneRelationships = new String[planDetailsForm.getTotalChildTraveller()];
-				}
-				planDetailsForm.setChildRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, child.get("relationship").toString(), inx));
-				planDetailsForm.setChildBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));	
-				
-			}
-		}
-		if (planDetailsForm.getTotalOtherTraveller() > 0) {
-			for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {
-				JSONObject other = new JSONObject();
-				other.put("name", StringHelper.emptyIfNull( planDetailsForm.getOtherName()[inx] ).toUpperCase());
-				other.put("ageRange", StringHelper.emptyIfNull( planDetailsForm.getOtherAgeRange()[inx]).toUpperCase());
-				other.put(
-						hkId,
-						checkPasswortAndHkid(hkId,
-								planDetailsForm.getSelectedOtHkidPass()[inx],
-								planDetailsForm.getOtherHKID()[inx]));
-				other.put(
-						passId,
-						checkPasswortAndHkid(passId,
-								planDetailsForm.getSelectedOtHkidPass()[inx],
-								planDetailsForm.getOtherHKID()[inx]));
-				other.put("relationship", relationOfOtherTraveller);
-
-				JSONObject beneficiary = new JSONObject();
-
-				if (planDetailsForm.getOtherBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getOtherBenificiaryFullName()[inx].isEmpty()
-							&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getOtherBeneficiary()[inx]) != 0) {
-						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getOtherBenificiaryFullName()[inx] ).toUpperCase());
-						beneficiary
-								.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedOtherBenefitiaryHkidPass()[inx],
-												planDetailsForm.getOtherBenificiaryHkid()[inx]));
-						beneficiary
-								.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedOtherBenefitiaryHkidPass()[inx],
-												planDetailsForm.getOtherBenificiaryHkid()[inx]));
-						beneficiary.put("relationship", planDetailsForm.getOtherBeneficiary()[inx]);
-						other.put("beneficiary", beneficiary);
-					} else {// If don't have beneficiary
-						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getOtherName()[inx] ).toUpperCase());
-						beneficiary
-								.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												planDetailsForm.getSelectedOtHkidPass()[inx],
-												planDetailsForm.getOtherHKID()[inx]));
-						beneficiary
-								.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												planDetailsForm.getSelectedOtHkidPass()[inx],
-												planDetailsForm.getOtherHKID()[inx]));
-						beneficiary.put("relationship","SE");
-						other.put("beneficiary", beneficiary);
-						
-						// clear bene info if bene relationship is SE
-						planDetailsForm.getOtherBenificiaryFullName()[inx] = "";
-						planDetailsForm.getOtherBenificiaryHkid()[inx] = "";						
-					}
-				} else {// If don't have beneficiary
-					beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getOtherName()[inx] ).toUpperCase());
-					beneficiary
-							.put(hkId,
-									checkPasswortAndHkid(hkId, planDetailsForm
-											.getSelectedOtHkidPass()[inx],
-											planDetailsForm.getOtherHKID()[inx]));
-					beneficiary
-							.put(passId,
-									checkPasswortAndHkid(
-											passId,
-											planDetailsForm
-													.getSelectedOtHkidPass()[inx],
-											planDetailsForm.getOtherHKID()[inx]));
-					beneficiary.put("relationship","SE");
-					other.put("beneficiary", beneficiary);
-				}
-								
-				insured.add(other);
-				
-				// update relationship desc
-				String[] relationships = planDetailsForm.getOtherRelationDesc();
-				if(relationships == null){
-					// not found in ModelAttribute
-					relationships = new String[planDetailsForm.getTotalOtherTraveller()];
-				}
-				String[] beneRelationships = planDetailsForm.getOtherBeneRelationDesc();
-				if(beneRelationships == null){
-					// not found in ModelAttribute
-					beneRelationships = new String[planDetailsForm.getTotalOtherTraveller()];
-				}
-				planDetailsForm.setOtherRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, other.get("relationship").toString(), inx));
-				planDetailsForm.setOtherBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));				
-			}
-		}
-		
 		parameters.put("insured", insured);
 
 		/* parameters.put("referralCode", userReferralCode); */
@@ -1906,7 +1485,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "/annualtravel/annual-travel-summary-payment");				
+				+ "/annualtravel/annual-travel-summary-payment");			
 	}
 	
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {

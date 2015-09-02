@@ -160,7 +160,7 @@ $(document).ready(function() {
     <!--/.carousel inner--> 
   </div>
   <!--/.carousel--> 
-  <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="" method="post" onsubmit="return flightValidateDeskTravel(this,'frmTravelGetQuote','${language}');">
+  <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="" method="post" onsubmit="return validateAnnualTravel(this,'frmTravelGetQuote','${language}');">
 	<section id="middle" class="hidden-sm hidden-xs">
         <div class="container bmg_flighttravel_main_container">
 	    <div class="row">
@@ -311,7 +311,7 @@ $(document).ready(function() {
 	                <button type="submit" class="border-radius btn btn-primary get-btn " style="line-height:32px;margin-left: 4%;" onclick="reset_desktop_submit()">
 	                   <fmt:message key="travel.main.quote.top.action" bundle="${msg}" />
 	                </button>
-	                 <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即報價</a> -->
+	                 <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return validateAnnualTravel()">立即報價</a> -->
 	              </td>
 	             </tr>
 	             <tr class="product-landing-error-wrap">
@@ -1190,3 +1190,4 @@ function setGetParameter(paramName, paramValue)
     window.location.href = url;
 }
 </script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/annual-travel.js"></script>

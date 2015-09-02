@@ -612,7 +612,7 @@
 		if (get_promo_val()) {
 			$.ajax({
 				type : "POST",
-				url : "<%=request.getContextPath()%>/ajax/annualTravel/sendEmail/send",
+				url : "<%=request.getContextPath()%>/sendEmail",
 				data : $("#sendmailofpromocode form").serialize(),
 				async : false,
 				success : function(data) {
