@@ -14468,7 +14468,7 @@ input[type=number] {
 }
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner {
   background-color: #e9edf0;
-  padding-top: 6px;
+  /*padding-top: 6px;*/
 }
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner p {
   font-size: 24px;
@@ -14491,7 +14491,7 @@ input[type=number] {
 }
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.mobile {
   display: block;
-  max-width: 400px;
+  /*max-width: 400px;*/
   margin: 0 auto;
 }
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.desktop {
@@ -14500,7 +14500,7 @@ input[type=number] {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.desktop {
     display: block;
-    max-width: 1114px;
+    /*max-width: 1114px;*/
     margin: 0 auto;
   }
   .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner img.mobile {
@@ -14511,7 +14511,7 @@ input[type=number] {
   .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner {
     margin-top: 0;
     background-color: #e1e4e4;
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
   }
 }
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav {

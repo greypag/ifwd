@@ -178,21 +178,36 @@ var home_url = "<%=request.getContextPath()%>";
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner" role="listbox">
 							<div class="item active">
-								<div class="savings-banner-text">
+								<!--<div class="savings-banner-text">
 									<p><fmt:message key="savie.o2o.landing.Guaranteed.crediting" bundle="${msg}" /></p>
-								</div>
+								</div>-->
 								<div class="savings-banner">
-									<img class="mobile" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/crediting-reates-mobile.jpg" />
-									<img class="desktop" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/crediting-reates.jpg" />
+									<img class="mobile" src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide1.image.mobile" bundle="${msg}" />" />
+									<img class="desktop" src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide1.image.desktop" bundle="${msg}" />" />
 								</div>
 							</div>
 							<div class="item">
-								<div class="savings-banner-text">
-									<p><fmt:message key="savie.o2o.landing.Guaranteed.crediting" bundle="${msg}" /></p>
-								</div>
 								<div class="savings-banner">
-									<img class="mobile" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/crediting-reates-mobile.jpg" />
-									<img class="desktop" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/crediting-reates.jpg" />
+									<img class="mobile" src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide2.image.mobile" bundle="${msg}" />" />
+									<img class="desktop" src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide2.image.desktop" bundle="${msg}" />" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="savings-banner">
+									<img class="mobile" src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide3.image.mobile" bundle="${msg}" />" />
+									<img class="desktop" src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide3.image.desktop" bundle="${msg}" />" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="savings-banner">
+									<img class="mobile" src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide4.image.mobile" bundle="${msg}" />" />
+									<img class="desktop" src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide4.image.desktop" bundle="${msg}" />" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="savings-banner">
+									<img class="mobile" src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide5.image.mobile" bundle="${msg}" />" />
+									<img class="desktop" src="<%=request.getContextPath()%><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide5.image.desktop" bundle="${msg}" />" />
 								</div>
 							</div>
 						</div>
