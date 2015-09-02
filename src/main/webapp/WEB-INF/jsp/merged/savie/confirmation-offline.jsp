@@ -51,7 +51,7 @@ var affiliate = "${affiliate}";
 											<span class="step">1</span>
 											<p><fmt:message key="savie.confirmation.offline.A.hkid" bundle="${msg}" /></p>
 											<p class="small-text"><fmt:message key="savie.confirmation.offline.A.passport" bundle="${msg}" /></p>
-											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-1.png" class="img-responsive" /></div>
+											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-1.jpg" class="img-responsive" /></div>
 										</div>
 									</div>
 									<div class="col-xs-12 col-md-4">
