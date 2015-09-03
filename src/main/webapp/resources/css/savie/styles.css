@@ -3862,7 +3862,8 @@ body {
   height: 40px;
   border: none;
   padding: 0;
-  color: #9ba5a7;
+  /*color: #9ba5a7;*/
+  color: #000;
   font-family: 'Calibri';
   font-size: 17.92px;
   padding-left: 20px;
@@ -3958,7 +3959,8 @@ body {
   background-repeat: no-repeat;
   border: none;
   padding: 0;
-  color: #9ba5a7;
+  /*color: #9ba5a7;*/
+  color: #000;
   font-family: 'Calibri';
   font-size: 17.92px;
   padding-left: 60px;
