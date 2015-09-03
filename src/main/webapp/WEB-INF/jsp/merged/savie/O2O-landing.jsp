@@ -40,8 +40,8 @@ var home_url = "<%=request.getContextPath()%>";
 			</div>-->
 			
 			<div class="text-center o2o-landing banner-widget hunger-selling container-fluid">
-				<img class="mobile-banner" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/hero-banner-mobile.jpg" />
-				<img class="desktop-banner" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/hero-banner.jpg" />
+				<img class="mobile-banner" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.banner.image.mobile" bundle="${msg}" />" />
+				<img class="desktop-banner" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.banner.image.desktop" bundle="${msg}" />" />
 				<div class="fwd-container container-fluid breadcrumbs">
 					<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
 						<li><a href="#"><fmt:message key="savie.o2o.landing.Home" bundle="${msg}" /></a></li>
@@ -51,7 +51,7 @@ var home_url = "<%=request.getContextPath()%>";
 				</div>
 
 				<div class="text-content hunger-img hidden-sm hidden-xs">
-					<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/just-walk-the-talk.png" title="Just walk the talk" alt="Just walk the talk" class="img-responsive">
+					<img src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.tagline.image.desktop" bundle="${msg}" />" title="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" alt="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" class="img-responsive">
 				</div>
 				
 				<!--<div class="hunger-text-section">
