@@ -402,34 +402,6 @@ var context = "${pageContext.request.contextPath}";
 					$('#rate-table-3').removeClass('hidden');
 					$('#rate-table-4').addClass('hidden');
 				});
-				
-				$('#rate-0').click(function(){
-					$('#rate-3').removeClass('active');
-					$('#rate-table-0').removeClass('hidden');
-					$('#rate-table-2').addClass('hidden');
-					$('#rate-table-3').addClass('hidden');
-					$('#rate-table-4').addClass('hidden');
-				});
-				$('#rate-2').click(function(){
-					$('#rate-3').removeClass('active');
-					$('#rate-table-0').addClass('hidden');
-					$('#rate-table-2').removeClass('hidden');
-					$('#rate-table-3').addClass('hidden');
-					$('#rate-table-4').addClass('hidden');
-				});
-				$('#rate-3').click(function(){
-					$('#rate-table-0').addClass('hidden');
-					$('#rate-table-2').addClass('hidden');
-					$('#rate-table-3').removeClass('hidden');
-					$('#rate-table-4').addClass('hidden');
-				});
-				$('#rate-4').click(function(){
-					$('#rate-3').removeClass('active');
-					$('#rate-table-0').addClass('hidden');
-					$('#rate-table-2').addClass('hidden');
-					$('#rate-table-3').addClass('hidden');
-					$('#rate-table-4').removeClass('hidden');
-				});
 			});
 			
 			//login
