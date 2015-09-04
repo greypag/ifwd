@@ -135,14 +135,14 @@ var language = "${language}";
 			</div><!-- /.modal -->
 			
 			<!--Modal in Customer Service Centre (access code had been used)-->
-			<div class="modal fade" role="dialog" aria-labelledby="fullyBooked" id="accessCodeUsed">
+			<div class="modal fade" role="dialog" aria-labelledby="accessCodeUsed" id="accessCodeUsed">
 				<div class="modal-dialog teaserSurvey" role="document">
 					<div class="modal-content teaserSurvey">
 						<div class="modal-header teaserSurvey">
 							<h2><fmt:message key="savie.customerServiceCentre.accessCodeUsedheader" bundle="${msg}" /></h2>
 						</div>
 						<div class="modal-body teaserSurvey">
-							<p class="registered"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbody" bundle="${msg}" /></p>
+							<!-- <p class="registered"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbody" bundle="${msg}" /></p>-->
 							<button type="submit" class="btn btn-orange" id="back-to-home-btn"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbtnTxt" bundle="${msg}" /></button>
 						</div>
 					</div><!-- /.modal-content -->

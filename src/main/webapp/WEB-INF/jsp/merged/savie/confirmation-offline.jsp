@@ -26,11 +26,8 @@ var affiliate = "${affiliate}";
 					<div class="row">
 						<div class="col-xs-12 orange-section">
 							<div class="clearfix position">
-								<div class="description-desktop hidden-sm hidden-xs">
+								<div class="description-desktop">
 									<span><fmt:message key="savie.confirmation.offline.We.are.done" bundle="${msg}" /></span>
-								</div>
-								<div class="description-desktop hidden-md hidden-lg">
-									<span><fmt:message key="savie.confirmation.offline.service.centre" bundle="${msg}" /></span>
 								</div>
 							</div>
 						</div>

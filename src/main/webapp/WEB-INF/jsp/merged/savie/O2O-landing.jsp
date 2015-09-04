@@ -173,7 +173,7 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 					</div>
 	            
-	            <div class="fwd-full-container container-fluid o2o-landing saving-plans">
+	            <div class="hidden-xs hidden-sm fwd-full-container container-fluid o2o-landing saving-plans">
 					<div id="savings-carousel" class="carousel slide" data-ride="carousel">
 						<!-- Wrapper for slides -->
 						<div class="carousel-inner" role="listbox">
@@ -347,7 +347,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<button type="submit" id="hunger-btn" class="btn hunger-btn"><fmt:message key="savie.o2o.landing.Submit" bundle="${msg}" /></button>
 								</form>
 							</div>
-							<div class="disclaier">
+							<div class="disclaimer">
 								<fmt:message key="savie.o2o.landing.Access.code.disclaimer.part1" bundle="${msg}" /> <a href="<fmt:message key="savie.o2o.landing.Access.code.disclaimer.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.o2o.landing.Access.code.disclaimer.link.text" bundle="${msg}" /></a> <fmt:message key="savie.o2o.landing.Access.code.disclaimer.part2" bundle="${msg}" />
 							</div>
 						</div>
