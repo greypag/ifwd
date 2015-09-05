@@ -490,6 +490,16 @@ var home_url = "<%=request.getContextPath()%>";
 								$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.used.access.code.validation.msg"));
 								errorMsg = true;
 							}
+							else if(data.errMsgs == "Access has been used"){
+								$('.validation-msg').removeClass('hidden-error-msg');
+								$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.used.access.code.validation.msg"));
+								errorMsg = true;
+							}
+							else if(data.errMsgs == "Access Code Invalid"){
+								$('.validation-msg').removeClass('hidden-error-msg');
+								$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.used.access.code.validation.msg"));
+								errorMsg = true;
+							}
 							else if(data.errMsgs){
 								$('.validation-msg').removeClass('hidden-error-msg');
 								$('.validation-msg').html(data.errMsgs);
