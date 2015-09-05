@@ -143,7 +143,7 @@ var language = "${language}";
 						</div>
 						<div class="modal-body teaserSurvey">
 							<!-- <p class="registered"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbody" bundle="${msg}" /></p>-->
-							<button type="submit" class="btn btn-orange" id="back-to-home-btn"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbtnTxt" bundle="${msg}" /></button>
+							<p class="registered"><button type="submit" class="btn btn-orange" id="back-to-home-btn"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbtnTxt" bundle="${msg}" /></button></p>
 						</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->	
@@ -323,11 +323,16 @@ var language = "${language}";
 						    }
 						});
 			    	}else{
+			    		$('#accessCodeUsed').modal('show');
 			    		console.log(data.errMsgs);
 			    	}
 			    }  
 			});
 		});
+		$('#back-to-home-btn').click(function(){
+    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance");
+	    	$("#serviceCenterForm").submit();
+		});		
 	});
 	
 	function putTimeSession(){
