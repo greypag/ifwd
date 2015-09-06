@@ -1,5 +1,7 @@
 package com.ifwd.fwdhk.controller;
 
+import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.text.ParseException;
@@ -8,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletOutputStream;
@@ -16,9 +19,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.codec.binary.StringUtils;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,6 +48,7 @@ import com.ifwd.fwdhk.util.CommonEnum.MaritalStatusEnum;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
 public class SavieController extends BaseController{
@@ -349,6 +356,31 @@ public class SavieController extends BaseController{
 			}else {
 				model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreEN);
 			}
+			
+			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all";
+			if (lang.equals("tc")) {
+				lang = "CN";
+			}
+			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+			header.put("userName", "*DIRECTGI");
+			header.put("token", commonUtils.getToken("reload"));
+			header.put("language", WebServiceUtils.transformLanaguage(lang));
+			org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+			org.json.simple.JSONArray serviceCentresArr = (JSONArray) responseJsonObj.get("serviceCentres");
+			org.json.simple.JSONObject serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
+			org.json.simple.JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
+			org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
+			if(session.getAttribute("csCenter") == null || session.getAttribute("csCenter") == ""){
+				session.setAttribute("csCenter", serviceCentreObj.get("serviceCentreCode"));
+			}
+			if(session.getAttribute("perferredDate") == null || session.getAttribute("perferredDate") == ""){
+		        Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
+		        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
+		        logger.info(formatter.format(date));
+				session.setAttribute("perferredDate", formatter.format(date));
+			}
+			logger.info(session.getAttribute("perferredDate").toString());
+			
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER);
 		} else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)

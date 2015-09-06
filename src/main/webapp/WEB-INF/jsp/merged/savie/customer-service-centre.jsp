@@ -42,7 +42,7 @@ var language = "${language}";
 												<span class="icon-chevron-thin-down orange-caret"></span>
 												<select name="centre" id="centre" class="form-control gray-dropdown">
 													<c:forEach var="list" items="${serviceCentre.serviceCentres}">
-											            <option value="${list.serviceCentreCode }">${list.serviceCentreName }</option>
+											            <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
 											        </c:forEach>
 												</select>
 											</div>
@@ -143,124 +143,23 @@ var language = "${language}";
 						</div>
 						<div class="modal-body teaserSurvey">
 							<!-- <p class="registered"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbody" bundle="${msg}" /></p>-->
-							<button type="submit" class="btn btn-orange" id="back-to-home-btn"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbtnTxt" bundle="${msg}" /></button>
+							<p class="registered"><button type="submit" class="btn btn-orange" id="back-to-home-btn"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbtnTxt" bundle="${msg}" /></button></p>
 						</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->	
 			</div><!-- /.modal -->
 	</form>
 </div>
-<%-- <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+<%-- 
 <script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script> --%>
 <script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
 
-<script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 
-		<!-- <script>
-			$(function() {
-				$('#accessCodeUsed').modal('show');
-				//$('#fullyBooked').modal('show');
-				//console.log($('#fullyBooked').length);
-				
-				$('#pick-another-centre-btn').click(function(){
-					$('#pickAnotherCentre').modal('hide');
-				});
-				
-				$('#btn-cstmr-srvc-cnter').click(function(){
-					$('#fullyBooked').modal('show');
-				});
-				
-				$('#preferred-time').timepicker({
-					appendTo: '.timeslot',
-					timeFormat: 'H:i',
-				});
-				
-				// temp fixes
-				$('#time-orange-caret').click(function(){
-					$('#preferred-time').click();
-				});
-
-				$('#preferred-date').datepicker({
-					format: "mm-dd-yyyy",
-					container: "#date",
-					startDate: new Date(),
-				});
-				// fix by tommy
-				$('#centre').selectpicker();
-				$('button[data-id="centre"]').on('click', function() {
-               var $self = $(this);
-               var $warp = $self.parent('.bootstrap-select');
-					$warp.toggleClass('open');
-				});
-				$('#centre').on('change', function() {
-					var centre = $('#centre option:selected').val();
-					// display corresponding info
-					$('.centre-info').addClass('hidden');
-					$('#centre-' + centre).removeClass('hidden');
-					
-					//display modal 
-					$('#pickAnotherCentre').modal('show');
-				});
-			});
-		</script> -->
-		
 <script>
 	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
 	var endDate= new Date((new Date()).getTime() + 22*24*60*60*1000);
 	$(function() {
-		$.ajax({     
-		    url:context+'/ajax/savie/savings-insurance/getAllAvailableTimeSlot',     
-		    type:'post',  
-		    error:function(){       
-		    },     
-		    success:function(data){
-		    	if(data != null && data.serviceCentres != null && data.serviceCentres != ''){
-		    		var serviceCentreCode = data.serviceCentres[0].serviceCentreCode;
-		    		var date = data.serviceCentres[0].dates[0].date;
-		    		var timeSlot = data.serviceCentres[0].dates[0].timeSlots[0].timeSlot;
-		    		var preferred_date = new Date()
-		    		
-		    		preferred_date.setTime(date)
-		    		var year = preferred_date.getFullYear();
-		    		var month = preferred_date.getMonth() + 1;
-		    		var date = preferred_date.getDate();
-		    		month = (month < 10) ? '0' + month : month;
-		    		date = (date < 10) ? '0' + date : date;
-		    		if('${csCenter }' !=null && '${csCenter }' !=''){
-		    			$("#centre").val('${csCenter }');
-		    		}
-		    		else{
-		    			$("#centre").val(serviceCentreCode);
-		    		}
-		    		if('${perferredDate }' !=null && '${perferredDate }' !=''){
-		    			var perDate = '${perferredDate }';
-		    			$("#preferred-date").datepicker("setDate", perDate.split('-')[0] +'-'+ perDate.split('-')[1] + '-' + perDate.split('-')[2]);
-		    		}
-		    		else{
-		    			$("#preferred-date").datepicker("setDate", month +'-'+ date + '-' + year);
-		    		}
-		    		
-		    		$('.centre-info').addClass('hidden');
-					$('#centre-' + serviceCentreCode).removeClass('hidden');
-					if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
-						getTimeSlot('${perferredTime }');
-					}
-		    	}else {
-					$('#fullyBooked').modal('show');
-		    	}
-		    	
-		    }  
-		});
-		
-		$('#pick-another-centre-btn').click(function(){
-			$('#pickAnotherCentre').modal('hide');
-		});
-		
-		/* $('#preferred-time').timepicker({
-			appendTo: '.timeslot',
-			disableTimeRanges: [['0:00', '24:00']],
-			timeFormat: 'H:i',
-		}); */
 		
 		$('#preferred-date').datepicker({
 			format: "dd-mm-yyyy",
@@ -274,6 +173,21 @@ var language = "${language}";
 				getTimeSlot('${perferredTime }');
 			}
 		});
+		
+		var serviceCentreCode = '${csCenter }';
+		var perDate = '${perferredDate }';
+		$("#preferred-date").datepicker("setDate", perDate.split('-')[0] +'-'+ perDate.split('-')[1] + '-' + perDate.split('-')[2]);
+		
+		$('.centre-info').addClass('hidden');
+		$('#centre-' + serviceCentreCode).removeClass('hidden');
+		if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
+			getTimeSlot('${perferredTime }');
+		}
+		
+		$('#pick-another-centre-btn').click(function(){
+			$('#pickAnotherCentre').modal('hide');
+		});
+		
 		$('#centre').on('change', function() {
 			var centre = $('#centre option:selected').val();
 			// display corresponding info
@@ -323,11 +237,16 @@ var language = "${language}";
 						    }
 						});
 			    	}else{
+			    		$('#accessCodeUsed').modal('show');
 			    		console.log(data.errMsgs);
 			    	}
 			    }  
 			});
 		});
+		$('#back-to-home-btn').click(function(){
+    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance");
+	    	$("#serviceCenterForm").submit();
+		});		
 	});
 	
 	function putTimeSession(){

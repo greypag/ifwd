@@ -342,7 +342,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="modal-body hunger-selling-body">
 							<div>
 								<form id="o2o-landing-form" method="post">
-									<input placeholder="<fmt:message key="savie.o2o.landing.Access.code" bundle="${msg}" />" type="text" name="accessCodeConfirm" id="accessCodeConfirm" onkeyup="value=value.eplace(/[^\w\.\/]/ig,'')" onafterpaste="value=value.replace(/[^\w\.\/]/ig,'')" />
+									<input placeholder="<fmt:message key="savie.o2o.landing.Access.code" bundle="${msg}" />" type="text" name="accessCodeConfirm" id="accessCodeConfirm" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" onafterpaste="value=value.replace(/[^\w\.\/]/ig,'')" />
 									<span class="validation-msg hidden-error-msg"><fmt:message key="savie.o2o.landing.The.code" bundle="${msg}" /></span>							
 									<button type="submit" id="hunger-btn" class="btn hunger-btn"><fmt:message key="savie.o2o.landing.Submit" bundle="${msg}" /></button>
 								</form>
@@ -488,6 +488,11 @@ var home_url = "<%=request.getContextPath()%>";
 							else if(data.errMsgs == "Access has been used"){
 								$('.validation-msg').removeClass('hidden-error-msg');
 								$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.used.access.code.validation.msg"));
+								errorMsg = true;
+							}
+							else if(data.errMsgs == "Access Code Invalid"){
+								$('.validation-msg').removeClass('hidden-error-msg');
+								$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.used.access.code.invalid.msg"));
 								errorMsg = true;
 							}
 							else if(data.errMsgs){
