@@ -4235,8 +4235,8 @@ span.explanation {
 }
 
 .fwd-savie-wrapper #thankYouModal .modal-dialog {
-  width: 90%;
-  max-width: 1000px;
+  /*width: 90%;*/
+  max-width: 701px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
@@ -4244,7 +4244,7 @@ span.explanation {
 
 @media (min-width: 992px){
   .fwd-savie-wrapper #thankYouModal .modal-dialog {
-      margin-top: 105px;
+      margin-top: 60px;
   }
 }
 
