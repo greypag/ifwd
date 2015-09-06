@@ -365,7 +365,7 @@ $(document).ready(function() {
 				<h2><fmt:message key="home.main.other.benefit" bundle="${msg}" /></h2>
 				  <ul class="bullets">
 				    <li>
-				      <p class="h4-5"><fmt:message key="home.main.other.benefit.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc1.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc1.part3" bundle="${msg}" /></p>
+				      <p class="h4-5"><fmt:message key="home.main.other.benefit.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.eshop.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc1.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc1.part3" bundle="${msg}" /></p>				    
 				    </li>
 				    <li>
 				    	<p class="h4-5"><fmt:message key="home.main.other.benefit.desc2.part1" bundle="${msg}" /> <a href="<fmt:message key="boconcept.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc2.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc2.part3" bundle="${msg}" /></p>
@@ -374,6 +374,7 @@ $(document).ready(function() {
 				  <div class="col-lg-12 col-md-12 hidden-xs hidden-sm main-partner" style="">
 				    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-right:15px;">
 				    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class="" style="margin-right:15px;">
+                    <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class="" style="margin-right:15px;">
 				  </div>
 
 				<div class="spacer1"></div>
@@ -408,7 +409,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				          <div class="slide-margin">
 				            <div class="other-benefits-wrap text-center">
 				              <div class="other-benefits-inner">
-				                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc1.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc1.part3" bundle="${msg}" /></p>
+				                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.eshop.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc1.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc1.part3" bundle="${msg}" /></p>				              
 				              </div>
 				            </div>
 				          </div>
@@ -439,6 +440,9 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				    <div class="col-lg-12 col-md-12 col-xs-12">
 				    	<img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class="" style="margin-bottom:15px;">
 				    </div>
+                    <div class="col-lg-12 col-md-12 col-xs-12">
+                        <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class="" style="margin-bottom:15px;">
+                    </div>				    
 				  </div>
 
 				  <div class="spacer3"></div>

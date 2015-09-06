@@ -71,7 +71,7 @@ var language = "${language}";
 									<p class="confirm-call"><fmt:message key="savie.customerServiceCentre.confirmCall" bundle="${msg}" /></p>
 								</div>
 								
-								<div class="col-md-6 hidden-xs hidden-sm">
+								<div class="col-xs-12 col-md-6">
 									<c:forEach varStatus="l" var="list" items="${serviceCentre.serviceCentres}">
 							            <div id="centre-${list.serviceCentreCode }" class="centre-info ${l.first?'':'hidden' }">
 										    <c:choose>
@@ -133,6 +133,21 @@ var language = "${language}";
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->	
 			</div><!-- /.modal -->
+			
+			<!--Modal in Customer Service Centre (access code had been used)-->
+			<div class="modal fade" role="dialog" aria-labelledby="accessCodeUsed" id="accessCodeUsed">
+				<div class="modal-dialog teaserSurvey" role="document">
+					<div class="modal-content teaserSurvey">
+						<div class="modal-header teaserSurvey">
+							<h2><fmt:message key="savie.customerServiceCentre.accessCodeUsedheader" bundle="${msg}" /></h2>
+						</div>
+						<div class="modal-body teaserSurvey">
+							<!-- <p class="registered"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbody" bundle="${msg}" /></p>-->
+							<p class="registered"><button type="submit" class="btn btn-orange" id="back-to-home-btn"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbtnTxt" bundle="${msg}" /></button></p>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->	
+			</div><!-- /.modal -->
 	</form>
 </div>
 <%-- 
@@ -141,6 +156,57 @@ var language = "${language}";
 
 <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 
+<<<<<<< HEAD
+=======
+		<!-- <script>
+			$(function() {
+				$('#accessCodeUsed').modal('show');
+				//$('#fullyBooked').modal('show');
+				//console.log($('#fullyBooked').length);
+				
+				$('#pick-another-centre-btn').click(function(){
+					$('#pickAnotherCentre').modal('hide');
+				});
+				
+				$('#btn-cstmr-srvc-cnter').click(function(){
+					$('#fullyBooked').modal('show');
+				});
+				
+				$('#preferred-time').timepicker({
+					appendTo: '.timeslot',
+					timeFormat: 'H:i',
+				});
+				
+				// temp fixes
+				$('#time-orange-caret').click(function(){
+					$('#preferred-time').click();
+				});
+
+				$('#preferred-date').datepicker({
+					format: "mm-dd-yyyy",
+					container: "#date",
+					startDate: new Date(),
+				});
+				// fix by tommy
+				$('#centre').selectpicker();
+				$('button[data-id="centre"]').on('click', function() {
+               var $self = $(this);
+               var $warp = $self.parent('.bootstrap-select');
+					$warp.toggleClass('open');
+				});
+				$('#centre').on('change', function() {
+					var centre = $('#centre option:selected').val();
+					// display corresponding info
+					$('.centre-info').addClass('hidden');
+					$('#centre-' + centre).removeClass('hidden');
+					
+					//display modal 
+					$('#pickAnotherCentre').modal('show');
+				});
+			});
+		</script> -->
+		
+>>>>>>> branch 'fwdhk_savie_o2o' of https://fwdhkeCommerce:fwd24680!@bitbucket.org/fwdhkeCommerce/fwdhk.git
 <script>
 	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
 	var endDate= new Date((new Date()).getTime() + 22*24*60*60*1000);
@@ -222,11 +288,16 @@ var language = "${language}";
 						    }
 						});
 			    	}else{
+			    		$('#accessCodeUsed').modal('show');
 			    		console.log(data.errMsgs);
 			    	}
 			    }  
 			});
 		});
+		$('#back-to-home-btn').click(function(){
+    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance");
+	    	$("#serviceCenterForm").submit();
+		});		
 	});
 	
 	function putTimeSession(){

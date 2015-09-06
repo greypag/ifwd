@@ -4,7 +4,7 @@ var isCurrentDefault = true;
 var currentCreditRate = 'three';
 
 
-function changeCreditTable(currentRate){
+/*function changeCreditTable(currentRate){
 	console.log('Change Credit Table:'+currentRate);
 	console.log(jsonTableData);
 	$total_years = jsonTableData.salesIllustration.yearPlans.length;
@@ -174,12 +174,12 @@ function changeCreditTable(currentRate){
 					}
 				//}
 			}
-}
+}*/
 
 $(function () {	
 	showFWDChart(currentRate, zoomCtr, isCurrentDefault);
 	
-	$('#zero-rate').on('click', function() {
+	/*$('#zero-rate').on('click', function() {
 		$('.percent-buttons button').removeClass('active');
 		$(this).addClass('active');
 		currentRate = 0;
@@ -209,7 +209,44 @@ $(function () {
 		currentRate = 4;
 		//changeCreditRate(currentRate, zoomCtr, isCurrentDefault);
 		changeCreditTable(currentRate);
-	});
+	});*/
+    
+    // vp#916
+    $('#rate-0').on('click', function() {
+        $('.percent-buttons button').removeClass('active');
+        $(this).addClass('active');
+        $('#rate-table-0').removeClass('hidden');
+        $('#rate-table-2').addClass('hidden');
+        $('#rate-table-3').addClass('hidden');
+        $('#rate-table-4').addClass('hidden');
+    });
+    
+    $('#rate-2').on('click', function() {
+        $('.percent-buttons button').removeClass('active');
+        $(this).addClass('active');
+        $('#rate-table-0').addClass('hidden');
+        $('#rate-table-2').removeClass('hidden');
+        $('#rate-table-3').addClass('hidden');
+        $('#rate-table-4').addClass('hidden');
+    });
+    
+    $('#rate-3').on('click', function() {
+        $('.percent-buttons button').removeClass('active');
+        $(this).addClass('active');
+        $('#rate-table-0').addClass('hidden');
+        $('#rate-table-2').addClass('hidden');
+        $('#rate-table-3').removeClass('hidden');
+        $('#rate-table-4').addClass('hidden');
+    });
+    
+    $('#rate-4').on('click', function() {
+        $('.percent-buttons button').removeClass('active');
+        $(this).addClass('active');
+        $('#rate-table-0').addClass('hidden');
+        $('#rate-table-2').addClass('hidden');
+        $('#rate-table-3').addClass('hidden');
+        $('#rate-table-4').removeClass('hidden');
+    });
 
 	$(".investment-summary").swipe( {
 		//Generic swipe handler for all directions
