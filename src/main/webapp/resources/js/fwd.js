@@ -2652,7 +2652,7 @@ $(function () {
 
 //Travel plan details page validation
 var travelp_click = false;
-function tPlanValid(form,formId,language)
+function tPlanValid()
 {
 	if($("#inputFullName").val().trim()==namePlaceholder.trim()){
     	$("#inputFullName").val('');
@@ -3829,25 +3829,7 @@ function tPlanValid(form,formId,language)
     		$('#loading-overlay').modal('hide');
     	}
     	
-    	var contextPath = window.location.pathname.split("/")[1];
-    	var result = false;
-    	var formId = '#' + formId;
-    	var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceTravelSummary';
-    	$.ajax({
-    		type : "POST",
-    		url : method,
-    		data : $(formId).serialize(),
-    		async : false,
-    		success : function(data) {
-    			if (data == 'success') {
-    				form.action = '/'+contextPath+'/'+language+'/travel-insurance/travel-summary';
-    				result = true;
-    			} else {
-    				result = false;
-    			}
-    		}
-    	});
-    	return flag&&result;
+    	return flag;
     }	
 	
 
@@ -3980,88 +3962,56 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 	return flag;
 }
 
-function flightValidateDeskTravel(form, formId,language){
+function flightValidateDeskTravel()
+{
 	var flag = true;
-	var contextPath = window.location.pathname.split("/")[1];
 	document.getElementById("startDateDeskIn").innerHTML = "";
 	document.getElementById("endDateDeskIn").innerHTML = "";
 	document.getElementById("travelCountDeskIn").style.display = "none";
 	
-	/*var startDate = document.getElementById("txtStartDateDesk").value;    
-	var endDate = document.getElementById("txtEndDateDesk").value;
-	var travellers = document.getElementById("txtTravellersDesk").value;*/
-	
 	var startDate = $("#txtStartDateDesk").val();    
 	var endDate = $("#txtEndDateDesk").val();
 	var travellers = $("#txtTravellersDesk").val();
-	
 	var peopleCount = document.getElementById("lblPeopleDesk").innerHTML;
-
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	
 	var startDates= new Array();
 	startDates=startDate.split("-");
 	var new_start = new Date(startDates[2],startDates[1] - 1,startDates[0], 0, 0, 0, 0);
-	
 	var endDates = new Array();
 	endDates = endDate.split("-");
 	var new_end = new Date(endDates[2],endDates[1] - 1,endDates[0], 0, 0, 0, 0);
-	
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
 
-	if(startDate.trim()=="")
-	{
+	if(startDate.trim()==""){
 		$('#startDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
 		flag = false;
-	}
-	else {
-		if (startdays > 90) {
+	}else {
+		if (startdays > 90){
 			$('#startDateDeskIn').html(getBundle(getBundleLanguage, "travelcare.policy.startDate.moreThan30Days.message"));
 			flag = false;
 		}
 	}
-	if(endDate.trim()=="")
-	{
+	if(endDate.trim()==""){
 		$('#endDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
 		flag = false;
-	}
-	else {
-		if (enddays > 180) {
+	}else{
+		if(enddays > 180) {
 			$('#endDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
 			flag = false;
 		}
 	}
-	if(travellers.trim()=="")
-	{
+	if(travellers.trim()==""){
 		document.getElementById("travelCountDeskIn").style.display = "block";
 		flag = false;
 	}
-	if(peopleCount.trim()==""||peopleCount=="0")
-	{
+	if(peopleCount.trim()==""||peopleCount=="0"){
 		document.getElementById("travelCountDeskIn").style.display = "block";
 		flag = false;
 	}
-	var result = false;
-	var formId = '#' + formId;
-	var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceQuote';
-	$.ajax({
-		type : "POST",
-		url : method,
-		data : $(formId).serialize(),
-		async : false,
-		success : function(data) {
-			if (data == 'success') {
-				form.action = '/'+contextPath+'/'+language+'/travel-insurance/quote';
-				result = true;
-			} else {
-				$('#startDateDeskIn').html("api is Wrong");
-				result = false;
-			}
-		}
-	});
-	return flag&&result;
+	return flag;
+
 }
 
 function flightValidateMobTravel() {
