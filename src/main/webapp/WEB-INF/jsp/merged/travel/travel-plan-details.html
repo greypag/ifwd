@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -1816,7 +1809,7 @@ function activateUserAccountJoinUs() {
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="http://localhost:8080/fwdhk/resources/images/calendar.png" alt=""></span>
-                                        <input name="applicantDob" type="text"  class="pointer datepicker form-control border-radius" id="applicantDob" value="29-08-2015" readonly>
+                                        <input name="applicantDob" type="text"  class="pointer datepicker form-control border-radius" id="applicantDob" value="" readonly>
                                     </div>
                                     <span id="dobInvalid" class="text-red"></span>
                                </div>
@@ -1895,7 +1888,7 @@ function activateUserAccountJoinUs() {
                                
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                       <label for="inputFullName" class="field-label bold-500">Rm/Flr/Blk</label>
+                                       <label for="inputFullName" class="field-label bold-500">Building</label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
@@ -1911,7 +1904,7 @@ function activateUserAccountJoinUs() {
                                
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                       <label for="inputFullName" class="field-label bold-500">Rm/Flr/Blk</label>
+                                       <label for="inputFullName" class="field-label bold-500">Estate</label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
@@ -1927,7 +1920,7 @@ function activateUserAccountJoinUs() {
                                
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                       <label for="inputFullName" class="field-label bold-500">Rm/Flr/Blk</label>
+                                       <label for="inputFullName" class="field-label bold-500">Street no.</label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
@@ -1942,7 +1935,7 @@ function activateUserAccountJoinUs() {
                                
                                <div class="form-group float">
                                    <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                       <label for="inputFullName" class="field-label bold-500">Rm/Flr/Blk</label>
+                                       <label for="inputFullName" class="field-label bold-500">Street name</label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
@@ -2529,44 +2522,13 @@ function activateUserAccountJoinUs() {
                                        <!-- age start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <label class="field-label bold-500">Age range</label>
+                                               <label class="field-label bold-500">Date of birth</label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <div class="styled-select">
-                                                        <select
-                                                            name="personalAgeRange" class="form-control soflow select-label"
-                                                            id="selectAgeRange1">
-        
-                                                            
-                                                                
-                                                                    
-                                                                        
-                                                                            
-                                                                                <option
-                                                                                    value="2" selected>
-                                                                            
-                                                                            
-                                                                        
-                                                                        18 - 70 years old
-                                                                        </option>
-                                                                    
-                                                                        
-                                                                            
-                                                                            
-                                                                                <option
-                                                                                    value="3">
-                                                                            
-                                                                        
-                                                                        71 - 85 years old
-                                                                        </option>
-                                                                    
-                                                                
-                                                                
-                                                            
-                                                        </select>
-                                                    </div>
-                                                    <span id="errselectAgeRange1" class="text-red">
-                                                    </span>
+                                               <div class="input-group date" id="input_insure_dob1"> <span class="input-group-addon in border-radius"><img src="http://localhost:8080/fwdhk/resources/images/calendar.png" alt=""></span>
+			                                        <input name="personalDob" type="text"  class="pointer datepicker form-control border-radius" id="insureDob1" value="" readonly>
+			                                    </div>
+			                                    <span id="errtxtInsuDob1" class="text-red"></span>
                                            </div>
                                        </div>
                                        <!-- age end -->
@@ -2768,54 +2730,13 @@ function activateUserAccountJoinUs() {
                                        <!-- age start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <label class="field-label bold-500">Age range</label>
+                                               <label class="field-label bold-500">Date of birth</label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <div class="styled-select">
-                                                        <select
-                                                            name="personalAgeRange" class="form-control soflow select-label"
-                                                            id="selectAgeRange2">
-        
-                                                            
-                                                                
-                                                                
-                                                                    
-                                                                        
-                                                                            
-                                                                            
-                                                                                <option
-                                                                                    value="1">
-                                                                            
-                                                                        
-                                                                        6 weeks to 17 years old
-                                                                        </option>
-                                                                    
-                                                                        
-                                                                            
-                                                                                <option
-                                                                                    value="2" selected>
-                                                                            
-                                                                            
-                                                                        
-                                                                        18 - 70 years old
-                                                                        </option>
-                                                                    
-                                                                        
-                                                                            
-                                                                            
-                                                                                <option
-                                                                                    value="3">
-                                                                            
-                                                                        
-                                                                        71 - 85 years old
-                                                                        </option>
-                                                                    
-                                                                
-                                                            
-                                                        </select>
-                                                    </div>
-                                                    <span id="errselectAgeRange2" class="text-red">
-                                                    </span>
+                                               <div class="input-group date dob_input" id="input_insure_dob2"> <span class="input-group-addon in border-radius"><img src="http://localhost:8080/fwdhk/resources/images/calendar.png" alt=""></span>
+                                                    <input name="personalDob" type="text"  class="pointer datepicker form-control border-radius" id="insureDob2" value="" readonly>
+                                                </div>
+                                                <span id="errtxtInsuDob2" class="text-red"></span>
                                            </div>
                                        </div>
                                        <!-- age end -->
@@ -3017,54 +2938,13 @@ function activateUserAccountJoinUs() {
                                        <!-- age start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <label class="field-label bold-500">Age range</label>
+                                               <label class="field-label bold-500">Date of birth</label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <div class="styled-select">
-                                                        <select
-                                                            name="personalAgeRange" class="form-control soflow select-label"
-                                                            id="selectAgeRange3">
-        
-                                                            
-                                                                
-                                                                
-                                                                    
-                                                                        
-                                                                            
-                                                                            
-                                                                                <option
-                                                                                    value="1">
-                                                                            
-                                                                        
-                                                                        6 weeks to 17 years old
-                                                                        </option>
-                                                                    
-                                                                        
-                                                                            
-                                                                                <option
-                                                                                    value="2" selected>
-                                                                            
-                                                                            
-                                                                        
-                                                                        18 - 70 years old
-                                                                        </option>
-                                                                    
-                                                                        
-                                                                            
-                                                                            
-                                                                                <option
-                                                                                    value="3">
-                                                                            
-                                                                        
-                                                                        71 - 85 years old
-                                                                        </option>
-                                                                    
-                                                                
-                                                            
-                                                        </select>
-                                                    </div>
-                                                    <span id="errselectAgeRange3" class="text-red">
-                                                    </span>
+                                               <div class="input-group date dob_input" id="input_insure_dob3"> <span class="input-group-addon in border-radius"><img src="http://localhost:8080/fwdhk/resources/images/calendar.png" alt=""></span>
+                                                    <input name="personalDob" type="text"  class="pointer datepicker form-control border-radius" id="insureDob3" value="" readonly>
+                                                </div>
+                                                <span id="errtxtInsuDob3" class="text-red"></span>
                                            </div>
                                        </div>
                                        <!-- age end -->
@@ -3266,54 +3146,13 @@ function activateUserAccountJoinUs() {
                                        <!-- age start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <label class="field-label bold-500">Age range</label>
+                                               <label class="field-label bold-500">Date of birth</label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <div class="styled-select">
-                                                        <select
-                                                            name="personalAgeRange" class="form-control soflow select-label"
-                                                            id="selectAgeRange4">
-        
-                                                            
-                                                                
-                                                                
-                                                                    
-                                                                        
-                                                                            
-                                                                            
-                                                                                <option
-                                                                                    value="1">
-                                                                            
-                                                                        
-                                                                        6 weeks to 17 years old
-                                                                        </option>
-                                                                    
-                                                                        
-                                                                            
-                                                                                <option
-                                                                                    value="2" selected>
-                                                                            
-                                                                            
-                                                                        
-                                                                        18 - 70 years old
-                                                                        </option>
-                                                                    
-                                                                        
-                                                                            
-                                                                            
-                                                                                <option
-                                                                                    value="3">
-                                                                            
-                                                                        
-                                                                        71 - 85 years old
-                                                                        </option>
-                                                                    
-                                                                
-                                                            
-                                                        </select>
-                                                    </div>
-                                                    <span id="errselectAgeRange4" class="text-red">
-                                                    </span>
+                                               <div class="input-group date dob_input" id="input_insure_dob4"> <span class="input-group-addon in border-radius"><img src="http://localhost:8080/fwdhk/resources/images/calendar.png" alt=""></span>
+                                                    <input name="personalDob" type="text"  class="pointer datepicker form-control border-radius" id="insureDob4" value="" readonly>
+                                                </div>
+                                                <span id="errtxtInsuDob4" class="text-red"></span>
                                            </div>
                                        </div>
                                        <!-- age end -->
