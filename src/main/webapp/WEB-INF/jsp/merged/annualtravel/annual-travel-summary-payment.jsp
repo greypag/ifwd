@@ -173,9 +173,6 @@ var enablePayment=true;
                                                     }
                                                     else
                                                     {
-                                                        out.println( planDetailsForm.getTotalAdultTraveller() +
-                                                                     planDetailsForm.getTotalChildTraveller() +
-                                                                     planDetailsForm.getTotalOtherTraveller()   );
                                                     }
                                                 }               
                                             %>
@@ -318,7 +315,7 @@ var enablePayment=true;
                                 <tbody>
                                     <tr class="">
                                         <td  ><span class="bd"><fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" /> <%=i + 1%></span></td>
-                                        <% if(planDetailsForm.getPersonalBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getPersonalBeneRelationDesc()[i].equals("Own Estate")){
+                                        <% if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
                                             
                                             }else{
                                         %>
@@ -327,7 +324,7 @@ var enablePayment=true;
                                     </tr>
                                     <tr>
                                         <td ><span class=""><%=planDetailsForm.getPersonalName()[i]%></span></td>
-                                        <% if(planDetailsForm.getPersonalBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getPersonalBeneRelationDesc()[i].equals("Own Estate")){
+                                        <% if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
                                             
 	                                        }else{
 	                                    %>
@@ -336,7 +333,7 @@ var enablePayment=true;
                                     </tr>
                                     <tr>
                                         <td ><span class=""><%=planDetailsForm.getPersonalAgeRangeName()[i]%></span></td>
-                                        <% if(planDetailsForm.getPersonalBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getPersonalBeneRelationDesc()[i].equals("Own Estate")){
+                                        <% if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
                                             
                                             }else{
                                         %>
@@ -345,7 +342,7 @@ var enablePayment=true;
                                     </tr>
                                     <tr>
                                         <td ><span class=""><%=planDetailsForm.getPersonalHKID()[i]%></span></td>
-                                        <% if(planDetailsForm.getPersonalBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getPersonalBeneRelationDesc()[i].equals("Own Estate")){
+                                        <% if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
                                             
                                             }else{
                                         %>
@@ -354,7 +351,7 @@ var enablePayment=true;
                                     </tr>
                                     <tr>
                                         <td ></td>  <!-- hide relationship if insured -->
-                                        <% if(planDetailsForm.getPersonalBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getPersonalBeneRelationDesc()[i].equals("Own Estate")){
+                                        <% if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
                                             
                                             }else{
                                         %>
@@ -370,190 +367,7 @@ var enablePayment=true;
                                 <%
                                     }
                                 %>
-                                <%
-
-                                    for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
-                                %>
-                                <tr><td class="col-xs-12"><table class="col-xs-12">
                                 
-
-                                <tbody>
-                                    <tr class="">
-                                        <td  ><span class="bd"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" /> <%=i + 1%></span></td>
-                                        <% if(planDetailsForm.getAdultBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getAdultBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td ><span class="bd gy"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <td ><span class=""><%=planDetailsForm.getAdultName()[i]%></span></td>
-                                        <% if(planDetailsForm.getAdultBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getAdultBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td  class="gy"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <td ><span class=""><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
-                                        <% if(planDetailsForm.getAdultBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getAdultBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td  class="">&nbsp;</td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <td ><span class=""><%=planDetailsForm.getAdultHKID()[i]%></span></td>
-                                        <% if(planDetailsForm.getAdultBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getAdultBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td  class="gy"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <td ></td>  <!-- hide relationship if insured -->
-                                        <% if(planDetailsForm.getAdultBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getAdultBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td  class="gy"><%=planDetailsForm.getAdultBeneRelationDesc()[i]%></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr><td>&nbsp;</td></tr>
-
-                                    
-                                </tbody>
-                                </table></td></tr>
-                                
-                                <%
-                                    }
-                                %>
-                                <%
-                                    for (int i = 0; i < planDetailsForm.getTotalChildTraveller(); i++) {
-                                %>
-                                <tr><td class="col-xs-12"><table class="col-xs-12">
-                                <tbody>
-                                    <tr><td>&nbsp;</td></tr>
-                                    <tr>
-                                        <td ><span class="bd"><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" /> <%=i + 1%></span></td>
-                                        <% if(planDetailsForm.getChildBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getChildBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td ><span class="bd gy" ><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>    
-                                        <td ><%=planDetailsForm.getChildName()[i]%></td>
-                                        <% if(planDetailsForm.getChildBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getChildBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td class="gy"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <td ><%=planDetailsForm.getChildAgeRangeName()[i]%></td>
-                                        <% if(planDetailsForm.getChildBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getChildBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td >&nbsp;</td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <td ><%=planDetailsForm.getChildHKID()[i]%></td>
-                                        <% if(planDetailsForm.getChildBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getChildBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td  class="gy"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <td ></td>  <!-- hide relationship if insured -->
-                                        <% if(planDetailsForm.getChildBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getChildBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td  class="gy"><%=planDetailsForm.getChildBeneRelationDesc()[i]%></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr><td>&nbsp;</td></tr>
-                                </tbody>
-                                </table></td></tr>
-
-                                <%
-                                    }
-                                %>
-                                <%
-                                    for (int i = 0; i < planDetailsForm.getTotalOtherTraveller(); i++) {
-                                %>
-                                <tr><td class="col-xs-12"><table class="col-xs-12">
-                                <tbody>
-                                    <tr><td>&nbsp;</td></tr>
-                                    <tr class="">
-                                        <td ><span class="bd"><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" /><%=i + 1%></span></td>
-                                        <% if(planDetailsForm.getOtherBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getOtherBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td ><span  class="bd gy"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <td ><%=planDetailsForm.getOtherName()[i]%></td>
-                                        <% if(planDetailsForm.getOtherBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getOtherBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td  class="gy"><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <!-- vincent getOtherAgeRangeName - null ptr -->
-                                        <td ><% 
-                                                    if (planDetailsForm.getOtherAgeRangeName()[i] != null) 
-                                                        out.println(planDetailsForm.getOtherAgeRangeName()[i]);
-                                             %>
-                                        </td>
-                                        <% if(planDetailsForm.getOtherBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getOtherBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td >&nbsp;</td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <td ><%=planDetailsForm.getOtherHKID()[i]%></td>
-                                        <% if(planDetailsForm.getOtherBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getOtherBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td  class="gy"><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <td ></td>  <!-- hide relationship if insured -->
-                                        <% if(planDetailsForm.getOtherBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getOtherBeneRelationDesc()[i].equals("Own Estate")){
-                                            
-                                            }else{
-                                        %>
-                                        <td  class="gy"><%=planDetailsForm.getOtherBeneRelationDesc()[i]%></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr><td>&nbsp;</td></tr>
-                                </tbody>
-                                </table></td></tr>
-                                <%
-                                    }
-                                %>
-
-
                             </table>
                                     <!-- Mobile table ends -->
                             </div>
@@ -591,13 +405,13 @@ var enablePayment=true;
                                             <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getPersonalHKID()[i]%></span></td>
                                             <td data-title="Relationship"><span class="h4-5"></span></td>   <!-- hide relationship if insured -->
                                         </tr>
-                                        <% if(planDetailsForm.getPersonalBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getPersonalBeneRelationDesc()[i].equals("Own Estate")){
+                                        <% if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
 		                                        
 		                                    }else{
 		                                %>
                                         <tr class="<%=planDetailsForm.getPersonalBenificiaryFullName().length%>">
                                             <td data-title="Personal1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-                                            <% if(planDetailsForm.getPersonalBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getPersonalBeneRelationDesc()[i].equals("Own Estate")){ %>
+                                            <% if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){ %>
                                             <td data-title="Full name" class="travel-tb-h3">&nbsp;</td>
                                             <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
                                             <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
@@ -616,127 +430,6 @@ var enablePayment=true;
                                     <%
                                              }
                                     %>
-                                    <%
-                                        for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) 
-                                        {
-                                    %>
-
-                                    <tr class="hidden-sm hidden-xs">
-                                        <td data-title="Adult <%=i + 1%>">
-                                        <span class="h2-1-td">
-                                            <fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />
-                                                <%=i + 1%>
-                                        </span>
-                                        </td>
-                                        <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
-                                        <td data-title="Age range"><span class="h4-5"><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
-                                        <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getAdultHKID()[i]%></span></td>
-                                        <td data-title="Relationship"><span class="h4-5"></span></td>   <!-- hide relationship if insured -->
-                                    </tr>
-                                    <% if(planDetailsForm.getAdultBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getAdultBeneRelationDesc()[i].equals("Own Estate")){
-		                                    
-		                                }else{
-		                            %>
-                                    <tr>
-                                        <td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-                                        <% if(planDetailsForm.getAdultBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getAdultBeneRelationDesc()[i].equals("Own Estate")){ %>
-                                            <td data-title="Full name" class="travel-tb-h3">&nbsp;</td>
-                                            <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-                                            <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
-                                            <% }else{ %>
-                                            <td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
-                                        <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-                                        <td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
-                                            <% } %>
-                                        <td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getAdultBeneRelationDesc()[i]%></td>
-<!--                                        <td data-title="Relationship" class="travel-tb-h3"></td> -->
-                                    </tr>
-                                    <%
-                                            }
-                                    %>
-                                </tbody>
-                                <%
-                                         }
-                                %>
-                                <%
-                                    for (int i = 0; i < planDetailsForm.getTotalChildTraveller(); i++) {
-                                %>
-                                <tr>
-                                    <td data-title="Child <%=i + 1%>"><span class="h2-1-td"><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />
-                                            <%=i + 1%></span></td>
-                                    <td class="h4-5" data-title="Full name"><%=planDetailsForm.getChildName()[i]%></td>
-                                    <td class="h4-5" data-title="Age range"><%=planDetailsForm.getChildAgeRangeName()[i]%></td>
-                                    <td class="h4-5" data-title="HKID"><%=planDetailsForm.getChildHKID()[i]%></td>                                  
-                                    <td class="h4-5" data-title="Relationship"></td>    <!-- hide relationship if insured -->
-                                </tr>
-                                <% if(planDetailsForm.getChildBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getChildBeneRelationDesc()[i].equals("Own Estate")){
-                                        
-                                    }else{
-                                %>
-                                <tr>
-                                    <td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-                                    
-                                    <% if(planDetailsForm.getChildBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getChildBeneRelationDesc()[i].equals("Own Estate")){ %>
-                                            <td data-title="Full name" class="travel-tb-h3">&nbsp;</td>
-                                            <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-                                            <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
-                                            <% }else{ %>
-                                            <td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
-                                        <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-                                        <td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
-                                            <% } %>
-                                    
-                                    <td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getChildBeneRelationDesc()[i]%></td>
-                                </tr>
-                                <%
-                                    }
-                                %>
-                                </tbody>
-                                <%
-                                    }
-                                %>
-                                <%
-                                    for (int i = 0; i < planDetailsForm.getTotalOtherTraveller(); i++) {
-                                %>
-                                <tbody>
-                                    <tr class="hidden-sm hidden-xs">
-                                        <td data-title="Other<%=i + 1%>"><span class="h2-1-td"><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />
-                                                <%=i + 1%></span></td>
-                                        <td class=" h4-5" data-title="Full name"><%=planDetailsForm.getOtherName()[i]%></td>
-                                        <!-- vincent getOtherAgeRangeName - null ptr -->
-                                        <td class=" h4-5" data-title="Age range">
-                                        <% 
-                                            if ( planDetailsForm.getOtherAgeRangeName()[i] != null ) 
-                                                out.println(planDetailsForm.getOtherAgeRangeName()[i]); 
-                                        %></td> 
-                                        <td class=" h4-5" data-title="HKID"><%=planDetailsForm.getOtherHKID()[i]%></td>
-                                        <td class=" h4-5" data-title="Relationship"></td>   <!-- hide relationship if insured -->
-                                    </tr>
-                                    <% if(planDetailsForm.getOtherBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getOtherBeneRelationDesc()[i].equals("Own Estate")){
-                                    	
-                                    	}else{
-                                   	%>
-                                    <tr>
-                                        <td data-title="Adult1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-                                        <% if(planDetailsForm.getOtherBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getOtherBeneRelationDesc()[i].equals("Own Estate")){ %>
-                                            <td data-title="Full name" class="travel-tb-h3">&nbsp;</td>
-                                            <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-                                            <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
-                                            <% }else{ %>
-                                            <td data-title="Full name" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
-                                        <td data-title="Age range" class="travel-tb-h3 ">&nbsp;</td>
-                                        <td data-title="HKID" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>          
-                                            <% } %>                             
-                                        <td data-title="Relationship" class="travel-tb-h3 "><%=planDetailsForm.getOtherBeneRelationDesc()[i]%></td>
-                                    </tr>
-                                    <%
-                                        }
-                                    %>
-                                </tbody>
-                                <%
-                                    }
-                                %>
-
 
                             </table>
                           </div>
