@@ -67,7 +67,7 @@
          $('#txtChildDesk').val(0);
      }
      
-     var frm = document.getElementById("frmTravelGetQuote");
+     var frm = document.getElementById("frmTravelGetQuoteDesk");
     }  
  
  function reset_mobile_submit()
@@ -83,7 +83,7 @@
       $('#txtChildMob').val(0);
   }
   
-  var frm = document.getElementById("frmTravelGetQuote");
+  var frm = document.getElementById("frmTravelGetQuoteMob");
  }  
  
  function reset_bottom_submit()
@@ -99,7 +99,7 @@
       $('#txtChildBtm').val(0);
   }
   
-  var frm = document.getElementById("frmTravelGetQuote");
+  var frm = document.getElementById("frmTravelGetQuoteBtm");
  }
  
  function selectTravelCareType(type, type_string){
@@ -109,17 +109,35 @@
 		 $('.family_plan_selectArea').show();
 		 
 		 $('#dp2').show();
+		 $('#endDateDeskIn').show();
 		 $('#dp4').parent().show();
          $('#dp4').parent().prev().show();
          $('#dp6').show();
+         $('#endDateBtmIn').show();
+         
+         $("#travelTypeDesk").val('single');
+         $("#travelTypeMob").val('single');
+         $("#travelTypeBtm").val('single');
+         $("#frmTravelGetQuoteDesk").attr("action", "<%=request.getContextPath()%>/${language}/travel-insurance/quote");
+         $("#frmTravelGetQuoteMob").attr("action", "<%=request.getContextPath()%>/${language}/travel-insurance/quote");
+         $("#frmTravelGetQuoteBtm").attr("action", "<%=request.getContextPath()%>/${language}/travel-insurance/quote");
 	 }else{
 		 $('.personal_plan_selectArea').trigger('click');
 		 $('.family_plan_selectArea').hide();
 		 
 		 $('#dp2').hide();
+		 $('#endDateDeskIn').hide();
 		 $('#dp4').parent().hide();
          $('#dp4').parent().prev().hide();
 		 $('#dp6').hide();
+		 $('#endDateBtmIn').hide();
+		 
+         $("#travelTypeDesk").val('annual');
+         $("#travelTypeMob").val('annual');
+         $("#travelTypeBtm").val('annual');
+         $("#frmTravelGetQuoteDesk").attr("action", "<%=request.getContextPath()%>/${language}/annual-travel-insurance/quote");
+         $("#frmTravelGetQuoteMob").attr("action", "<%=request.getContextPath()%>/${language}/annual-travel-insurance/quote");
+         $("#frmTravelGetQuoteBtm").attr("action", "<%=request.getContextPath()%>/${language}/annual-travel-insurance/quote");
 	 }
  }
 </script>
@@ -181,7 +199,7 @@ $(document).ready(function() {
     <!--/.carousel inner--> 
   </div>
   <!--/.carousel--> 
-  <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="<%=request.getContextPath()%>/${language}/travel-insurance/quote" method="post" onsubmit="return flightValidateDeskTravel();">
+  <form name="frmTravelGetQuote" id="frmTravelGetQuoteDesk" commandName="travelQuote" action="" method="post" onsubmit="return flightValidateDeskTravel();">
 	<section id="middle" class="hidden-sm hidden-xs">
         <div class="container bmg_flighttravel_main_container">
 	    <div class="row">
@@ -218,7 +236,7 @@ $(document).ready(function() {
                            </div>
                            <div class="clearfix"></div>
                            
-                           <input type="hidden" name="travel_type" />
+                           <input type="hidden" id="travelTypeDesk" name="travel_type" />
                         </div>
                      </td>
 	                  
@@ -370,7 +388,7 @@ $(document).ready(function() {
 
 <!--Mobileform-->
 <div class="slider-form hidden-lg hidden-md" style="background-color:#383A37;padding-bottom: 30px;">
-<form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="<%=request.getContextPath()%>/${language}/travel-insurance/quote" method="post" onsubmit="return flightValidateMobTravel();">
+<form name="frmTravelGetQuote" id="frmTravelGetQuoteMob" commandName="travelQuote" action="" method="post" onsubmit="return flightValidateMobTravel();">
   <div class="form-container">
     <h2 style="text-align: center;color: #f6871e;padding-top: 10px;padding-bottom: 10px;"><fmt:message key="travel.main.quote.top.heading" bundle="${msg}" /></h2>
     <h4 style="color: #fff;"><fmt:message key="travel.main.quote.q1" bundle="${msg}" /></h4>
@@ -381,12 +399,12 @@ $(document).ready(function() {
       <div class="drop-content pad-none">
           <div class="product_landing_custom_selectbox" onclick="selectTravelCareType('single',$(this).html());">Single Trip Travel</div>
           <div class="product_landing_custom_selectbox" onclick="selectTravelCareType('annual',$(this).html());">Annual Travel</div>
-       </div>
-     </div>
-     <div class="clearfix"></div>
-     
-      <input type="hidden" name="travel_type" />
       </div>
+    </div>
+    <span id="travelTypeMobIn" style="color:red"> </span>
+    <div class="clearfix"></div>
+       <input type="hidden" id="travelTypeMob" name="travel_type" />
+    </div>
     <h4 style="color: #fff;"><fmt:message key="travel.main.quote.q1" bundle="${msg}" /></h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
@@ -1005,7 +1023,7 @@ $(document).ready(function() {
 <section id="bottom-form" class="hidden-sm hidden-xs">
   <div class="container bmg_flighttravel_main_container">
     <div class="row">
-    <form name="frmTravelGetQuote" id="frmTravelGetQuote" commandName="travelQuote" action="<%=request.getContextPath()%>/${language}/travel-insurance/quote" method="post" onsubmit="return flightValidateBtmTravel();">
+    <form name="frmTravelGetQuote" id="frmTravelGetQuoteBtm" commandName="travelQuote" action="" method="post" onsubmit="return flightValidateBtmTravel();">
       <div class="col-lg-12 col-md-12 pad-none-lg slide-form">
         <!-- <h2><fmt:message key="travel.main.quote.bottom.heading" bundle="${msg}" /></h2> -->
         <table class="table activation-form3">
@@ -1040,7 +1058,7 @@ $(document).ready(function() {
                       </div>
                       <div class="clearfix"></div>
                       
-                      <input type="hidden" name="travel_type" />
+                      <input type="hidden" id="travelTypeBtm" name="travel_type" />
                    </div>
                 </td>
             
@@ -1165,6 +1183,7 @@ $(document).ready(function() {
                  </td>
             </tr>
             <tr class="product-landing-error-wrap">
+              <td><span id="travelTypeBtmIn" style="color:red"> </span></td>
               <td><span id="startDateBtmIn" style="color:red"> </span></td>
               <td><span id="endDateBtmIn" style="color:red"> </span></td>
               <td><span id="travelCountBtmIn" class="hide-html">

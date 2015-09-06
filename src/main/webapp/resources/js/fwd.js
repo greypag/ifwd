@@ -3962,28 +3962,36 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 	return flag;
 }
 
-function flightValidateDeskTravel()
-{
+function flightValidateDeskTravel(){
 	var flag = true;
 	document.getElementById("startDateDeskIn").innerHTML = "";
 	document.getElementById("endDateDeskIn").innerHTML = "";
 	document.getElementById("travelCountDeskIn").style.display = "none";
 	
+	var travelType = $("#travelTypeDesk").val();
 	var startDate = $("#txtStartDateDesk").val();    
 	var endDate = $("#txtEndDateDesk").val();
 	var travellers = $("#txtTravellersDesk").val();
 	var peopleCount = document.getElementById("lblPeopleDesk").innerHTML;
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+	
 	var startDates= new Array();
 	startDates=startDate.split("-");
 	var new_start = new Date(startDates[2],startDates[1] - 1,startDates[0], 0, 0, 0, 0);
+	
 	var endDates = new Array();
 	endDates = endDate.split("-");
 	var new_end = new Date(endDates[2],endDates[1] - 1,endDates[0], 0, 0, 0, 0);
+	
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
 
+	if(travelType.trim()==""){
+		$('#travelTypeDeskIn').html(getBundle(getBundleLanguage, "travel.travelType.notSelected.message"));
+		flag = false;
+	}
+	
 	if(startDate.trim()==""){
 		$('#startDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
 		flag = false;
@@ -3993,15 +4001,18 @@ function flightValidateDeskTravel()
 			flag = false;
 		}
 	}
-	if(endDate.trim()==""){
-		$('#endDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
-		flag = false;
-	}else{
-		if(enddays > 180) {
+	if(travelType != "annual"){
+		if(endDate.trim()==""){
 			$('#endDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
 			flag = false;
+		}else{
+			if(enddays > 180) {
+				$('#endDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
+				flag = false;
+			}
 		}
 	}
+	
 	if(travellers.trim()==""){
 		document.getElementById("travelCountDeskIn").style.display = "block";
 		flag = false;
@@ -4021,9 +4032,7 @@ function flightValidateMobTravel() {
 	document.getElementById("endDateMobIn").innerHTML = "";
 	document.getElementById("travelCountMobIn").style.display = "none";
 	
-	/*var startDate = document.getElementById("txtStartDateMob").value;
-	var endDate = document.getElementById("txtEndDateMob").value;
-	var travellers = document.getElementById("txtTravellersMob").value;*/
+	var travelType = $("#travelTypeMob").val();
 	var startDate = $("#txtStartDateMob").val();
 	var endDate = $("#txtEndDateMob").val();
 	var travellers = $("#txtTravellersMob").val();
@@ -4041,6 +4050,11 @@ function flightValidateMobTravel() {
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
 
+	if(travelType.trim()==""){
+		$('#travelTypeMobIn').html(getBundle(getBundleLanguage, "travel.travelType.notSelected.message"));
+		flag = false;
+	}
+	
 	if (startDate.trim() == "") {
 		$('#startDateMobIn').html(getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
 		flag = false;
@@ -4051,15 +4065,19 @@ function flightValidateMobTravel() {
 			flag = false;
 		}
 	}
-	if (endDate.trim() == "") {
-		$('#endDateMobIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
-		flag = false;
-	} else {
-		if (enddays > 180) {
+	
+	if(travelType != "annual"){
+		if (endDate.trim() == "") {
 			$('#endDateMobIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
 			flag = false;
+		} else {
+			if (enddays > 180) {
+				$('#endDateMobIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
+				flag = false;
+			}
 		}
 	}
+	
 	if (travellers.trim() == "") {
 		document.getElementById("travelCountMobIn").style.display = "block";
 		flag = false;
@@ -4078,10 +4096,8 @@ function flightValidateBtmTravel() {
 	document.getElementById("startDateBtmIn").innerHTML = "";
 	document.getElementById("endDateBtmIn").innerHTML = "";
 	$("#travelCountBtmIn").hide();
-	/*var startDate = document.getElementById("txtStartDateBtm").value;
-	var endDate = document.getElementById("txtEndDateBtm").value;
-	var travellers = document.getElementById("txtTravellersBtm").value;*/
 	
+	var travelType = $("#travelTypeBtm").val();
 	var startDate =$("#txtStartDateBtm").val();
 	var endDate = $("#txtEndDateBtm").val();
 	var travellers = $("#txtTravellersBtm").val();
@@ -4089,8 +4105,6 @@ function flightValidateBtmTravel() {
 	var peopleCount = document.getElementById("lblPeopleBtm").innerHTML;
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	/*var new_start = new Date(startDate);
-	var new_end = new Date(endDate);*/
 	
 	var startDates= new Array();
 	startDates=startDate.split("-");
@@ -4103,35 +4117,38 @@ function flightValidateBtmTravel() {
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
 
+	if(travelType.trim()==""){
+		$('#travelTypeBtmIn').html(getBundle(getBundleLanguage, "travel.travelType.notSelected.message"));
+		flag = false;
+	}
+	
 	if (startDate.trim() == "") {
 		$('#startDateBtmIn').html(getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
 		flag = false;
-	}
-	else
-	{
-		if(startdays>90)
-		{
+	}else{
+		if(startdays>90){
 			$('#startDateBtmIn').html(getBundle(getBundleLanguage, "travelcare.policy.startDate.moreThan30Days.message"));
 			flag = false;
 		}
 	}
-	if (endDate.trim() == "") {
-		$('#endDateBtmIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
-		flag = false;
-	}
-	else
-	{
-		if (enddays > 180) {
+	
+	if(travelType != "annual"){
+		if (endDate.trim() == "") {
 			$('#endDateBtmIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
 			flag = false;
+		}else{
+			if (enddays > 180) {
+				$('#endDateBtmIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
+				flag = false;
+			}
 		}
 	}
+	
 	if (travellers.trim() == "") {
 		$("#travelCountBtmIn").show();
 		flag = false;
 	}
-	if(peopleCount.trim()==""||peopleCount=="0")
-	{
+	if(peopleCount.trim()==""||peopleCount=="0"){
 		$("#travelCountBtmIn").show();
 		flag = false;
 	}
