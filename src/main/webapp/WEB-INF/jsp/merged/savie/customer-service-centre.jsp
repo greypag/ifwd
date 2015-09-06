@@ -156,57 +156,6 @@ var language = "${language}";
 
 <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 
-<<<<<<< HEAD
-=======
-		<!-- <script>
-			$(function() {
-				$('#accessCodeUsed').modal('show');
-				//$('#fullyBooked').modal('show');
-				//console.log($('#fullyBooked').length);
-				
-				$('#pick-another-centre-btn').click(function(){
-					$('#pickAnotherCentre').modal('hide');
-				});
-				
-				$('#btn-cstmr-srvc-cnter').click(function(){
-					$('#fullyBooked').modal('show');
-				});
-				
-				$('#preferred-time').timepicker({
-					appendTo: '.timeslot',
-					timeFormat: 'H:i',
-				});
-				
-				// temp fixes
-				$('#time-orange-caret').click(function(){
-					$('#preferred-time').click();
-				});
-
-				$('#preferred-date').datepicker({
-					format: "mm-dd-yyyy",
-					container: "#date",
-					startDate: new Date(),
-				});
-				// fix by tommy
-				$('#centre').selectpicker();
-				$('button[data-id="centre"]').on('click', function() {
-               var $self = $(this);
-               var $warp = $self.parent('.bootstrap-select');
-					$warp.toggleClass('open');
-				});
-				$('#centre').on('change', function() {
-					var centre = $('#centre option:selected').val();
-					// display corresponding info
-					$('.centre-info').addClass('hidden');
-					$('#centre-' + centre).removeClass('hidden');
-					
-					//display modal 
-					$('#pickAnotherCentre').modal('show');
-				});
-			});
-		</script> -->
-		
->>>>>>> branch 'fwdhk_savie_o2o' of https://fwdhkeCommerce:fwd24680!@bitbucket.org/fwdhkeCommerce/fwdhk.git
 <script>
 	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
 	var endDate= new Date((new Date()).getTime() + 22*24*60*60*1000);
