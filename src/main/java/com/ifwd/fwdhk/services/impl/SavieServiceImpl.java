@@ -1340,7 +1340,7 @@ public class SavieServiceImpl implements SavieService {
 		
 		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 		parameters.put("planCode", planCode);
-		
+		parameters.put("accessCode", accessCode);
 		org.json.simple.JSONObject appJsonObj = restService.consumeApi(HttpMethod.PUT, applicationUrl, header, parameters);
 		applicationNumber = (String)appJsonObj.get("applicationNumber");
 		session.setAttribute("applicationNumber", applicationNumber);
