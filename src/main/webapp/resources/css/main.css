@@ -8003,5 +8003,26 @@ tr.product-landing-error-wrap {
 	.product_payment_detail_form_container .form-group{
 	    width:100%;
 	}
+	
+	.product_summary_container{
+	   border:none;
+	}
+	
+	.product_summary_orange_price{
+	   margin-top: 10px !important;
+	}
+	
+	.product_summary_container .h4-4-orange-b{
+	   line-height: 28px !important;
+	}
+	
+	.product_summary_table_field{
+		margin-bottom: 5px;
+		margin-top: 5px;
+	}
+	
+	.product_summary_table_field.summary-detail-head{
+	   width:100px;
+	}
 }
 /** annual travel **/
