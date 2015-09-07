@@ -21,7 +21,7 @@ var home_url = "<%=request.getContextPath()%>";
 			boolean isEservicesActiveClass = false;
 		%>
 		<div class="fwd-savie-wrapper">			
-			
+			<div class="teaser-container">
 			<!-- Access Code Cover Div -->
 			<!--<div class="hunger-selling-container container-fluid" id="myAccessCode">
 				<div class="hunger-selling-content">
@@ -89,6 +89,7 @@ var home_url = "<%=request.getContextPath()%>";
 					<fmt:message key="savie.o2o.landing.Haven't.applied.part1" bundle="${msg}" /><button id="signup"><fmt:message key="savie.o2o.landing.Haven't.applied.link.text" bundle="${msg}" /></button><fmt:message key="savie.o2o.landing.Haven't.applied.part2" bundle="${msg}" />
 				</p>
 				<p class="footnote below hidden-sm hidden-xs"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p>
+			</div>
 			</div>
 			
 	        <div class="teaser-three-column O2O-landing">

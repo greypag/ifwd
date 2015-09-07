@@ -11290,6 +11290,7 @@ span.dup-error-msg {
   right: 0;
   padding: 40px 20px 40px 20px;
 }
+
 @media (min-width: 992px) {
   .fwd-savie-wrapper .sign-up-teaser {
     background: rgba(0, 0, 0, 0.5);
@@ -11299,7 +11300,7 @@ span.dup-error-msg {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000);
     right: 4%;
     width: 500px;
-    top: 352px;
+    //top: 352px;
     position: absolute;
     padding-left: 65px;
     padding-right: 65px;
@@ -14715,6 +14716,7 @@ input[type=number] {
   color: white;
   margin: 20px 0;
 }
+
 @media (min-width: 992px) {
   .fwd-savie-wrapper .sign-up-teaser {
     margin-top: 0;
@@ -14727,7 +14729,8 @@ input[type=number] {
     right: 4%;
     max-width: 450px;
     width: 35%;
-    top: 285px;
+    //top: 285px;
+    bottom: 85px;
     position: absolute;
     padding-left: 65px;
     padding-right: 65px;
@@ -14747,21 +14750,35 @@ input[type=number] {
     max-width: none;
   }
 }
+
 @media (min-width: 1120px) {
   .fwd-savie-wrapper .sign-up-teaser {
-    top: 325px;
+    //top: 325px;
   }
 }
 @media (min-width: 1200px) {
   .fwd-savie-wrapper .sign-up-teaser {
-    top: 380px;
+    //top: 380px;
   }
 }
 @media (min-width: 1480px) {
   .fwd-savie-wrapper .sign-up-teaser {
-    top: 485px;
+    //top: 485px;
   }
 }
+
+@media (min-width: 1046px){
+  .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 120px;
+  }
+}
+
+@media (min-width: 1115px){
+  .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 135px;
+  }
+}
+
 @media (min-width: 1200px) {
   .fwd-savie-wrapper .sign-up-teaser button.get-started {
     font-size: 48px;
