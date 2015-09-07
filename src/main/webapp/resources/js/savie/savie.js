@@ -303,7 +303,7 @@ function jsGetAge(strBirthday){
 		else{returnAge = -1;
 		}
 	}
-	return returnAge;
+	return returnAge+1;
 }
 
 function getguaranteed3Years(){
