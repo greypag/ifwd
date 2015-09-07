@@ -98,7 +98,7 @@ public class SavieController extends BaseController{
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
 		}else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/savings-insurance/" + UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
+					+ "/savings-insurance");
 		}
 	}	
 	
@@ -379,7 +379,7 @@ public class SavieController extends BaseController{
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER);
 		} else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/savings-insurance/" + UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
+					+ "/savings-insurance");
 		}
 	}
 	
@@ -405,7 +405,7 @@ public class SavieController extends BaseController{
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE);
 		}else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/savings-insurance/" + UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
+					+ "/savings-insurance");
 		}
 		
 	}
