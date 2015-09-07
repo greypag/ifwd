@@ -905,6 +905,13 @@ $(function() {
 				}
 			}
 		}
+ 		
+		// Plan Details Datepicker
+		// vp#950
+		$('#sales-illu-dob').datepicker({
+			format: "mm-dd-yyyy",
+			autoclose: true
+		});
 		
 		// modals
 		var top = $('header .navbar-fixed-top').height();
