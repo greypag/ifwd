@@ -10593,7 +10593,7 @@ span.dup-error-msg {
   font-size: 30px;
   color: #ff8200;
   text-align: center;
-  margin: 35px 20%;
+  margin: 35px 20% 0;
   line-height: 30px;
 }
 @media (min-width: 992px) {
@@ -15470,6 +15470,7 @@ body.chin .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3
 /* line 356, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #set-appointment p.confirm-call {
   color: #ff8200;
+  margin-bottom: 35px;
 }
 /* line 360, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #set-appointment .preferred-date {
