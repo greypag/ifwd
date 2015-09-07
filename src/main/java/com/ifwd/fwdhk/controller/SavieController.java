@@ -92,7 +92,7 @@ public class SavieController extends BaseController{
 			calendar.add(calendar.YEAR, -18);
 			calendar.add(calendar.DATE, -1);
 			date = calendar.getTime();
-			SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+			SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 			String dd =format.format(date);
 			model.addAttribute("defaultDOB", dd);
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
