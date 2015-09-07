@@ -10754,7 +10754,8 @@ span.dup-error-msg {
 .fwd-savie-wrapper #set-appointment #service-centre .btn-group.bootstrap-select {
    width: 100% !important;
 }
-.fwd-savie-wrapper #set-appointment #service-centre button[data-id=centre] {
+.fwd-savie-wrapper #set-appointment #service-centre button[data-id=centre],
+.fwd-savie-wrapper #set-appointment #service-centre button[data-id=preferred-time] {
    font-size: 16px;
    background: none;
    border: 0 none;
@@ -10764,7 +10765,8 @@ span.dup-error-msg {
    padding-right: 35px;
    padding-left: 18px;
 }
-.fwd-savie-wrapper #set-appointment #service-centre button[data-id=centre] .icon-chevron-thin-down {
+.fwd-savie-wrapper #set-appointment #service-centre button[data-id=centre] .icon-chevron-thin-down,
+.fwd-savie-wrapper #set-appointment #service-centre button[data-id=preferred-time] .icon-chevron-thin-down {
    position: absolute;
    font-size: 18px;
    color: #ff8200;
