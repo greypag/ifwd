@@ -299,50 +299,12 @@ public class AnnualTravelController {
 	}
 	
 	
-	@SuppressWarnings({ "unchecked", "unused" })
+	@SuppressWarnings({"unused" })
 	@RequestMapping(value = {"/{lang}/annual-travel-insurance/summary"})
 	public ModelAndView prepareSummary(
 			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
-		UserRestURIConstants.setController("Travel");
-		if (planDetailsForm.getDepartureDate() != null) {
-			session.removeAttribute("travelCreatePolicy");
-			
-		} else {
-			JSONObject parameters = new JSONObject();
-			JSONObject responsObject = new JSONObject();
-			String creditCardNo = (String)session.getAttribute("creditCardNo");
-			
-			HashMap<String, String> header = new HashMap<String, String>(
-					COMMON_HEADERS);
-			header.put("userName", session.getAttribute("username").toString());
-			header.put("token", session.getAttribute("token").toString());
-			header.put("language", WebServiceUtils
-					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));
-			
-			parameters.put("referenceNo", session.getAttribute("finalizeReferenceNo"));
-			parameters.put("transactionNumber", session.getAttribute("transNo"));
-			parameters.put("transactionDate", session.getAttribute("transactionDate"));
-			parameters.put("paymentFail", "1");
-			
-			if (creditCardNo !=null) { 
-				try {
-					parameters
-							.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo")));
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			parameters.put("expiryDate", session.getAttribute("expiryDate"));
-			logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
-			responsObject = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header, parameters);
-			logger.info("TRAVEL_FINALIZE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
-			
-		}
-		
-		String hkId = "hkId", passId = "passport";
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 		
@@ -376,12 +338,7 @@ public class AnnualTravelController {
 		
 		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
 				
-		if (planDetailsForm.getDepartureDate() != null) {
-			session.setAttribute("travelPlanDetailsForm", planDetailsForm);
-		} else {
-			planDetailsForm = (PlanDetailsForm) session
-					.getAttribute("travelPlanDetailsForm");
-		}
+		planDetailsForm = (PlanDetailsForm) session.getAttribute("travelPlanDetailsFormBySummary");
 		
 		userDetails.setFullName(applicantFullName);
 		userDetails.setHkid(applicantHKID);
@@ -390,284 +347,6 @@ public class AnnualTravelController {
 		userDetails.setDob(dob);
         final String BENE_RELATIONSHIP_SELF = "SE";
 
-		JSONObject parameters = new JSONObject();
-		parameters.put("planCode", session.getAttribute("planSelected"));
-		parameters.put("commencementDate", deaprtureDate);
-		parameters.put("expiryDate", returnDate);
-		JSONArray insured = new JSONArray();
-
-		String langSelected = UserRestURIConstants.getLanaguage(request);
-		
-		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
-			planDetailsForm.setPersonalAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getPersonalAgeRange(), langSelected));
-		}
-		
-		String HKID = "HKID";
- 		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
-			JSONObject beneficiary = new JSONObject();
-			JSONObject personal = new JSONObject();
-		
-			personal.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase() );
-			personal.put("ageRange", StringHelper.emptyIfNull( planDetailsForm.getPersonalAgeRange()[inx] ).toUpperCase() );
-			
-			
-			personal.put(hkId,	checkPasswortAndHkid(hkId,
-					HKID,
-					planDetailsForm.getPersonalHKID()[inx])
-			 );
-			personal.put(passId, checkPasswortAndHkid(passId,
-					HKID,
-					planDetailsForm.getPersonalHKID()[inx])
-			 );
-
-			
-			personal.put(hkId,	checkPasswortAndHkid(hkId,
-					HKID,
-					planDetailsForm.getPersonalHKID()[inx])
-			);
-					 
-			personal.put(passId, checkPasswortAndHkid(passId,
-					HKID,
-					planDetailsForm.getPersonalHKID()[inx])
-			);
-
-
-			if (inx != 0) {
-				personal.put("relationship", "RF");
-				if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getPersonalBenificiaryFullName()[inx].isEmpty() 
-							&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getPersonalBeneficiary()[inx]) != 0) {// If have beneficiary
-						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalBenificiaryFullName()[inx] ).toUpperCase());
-						beneficiary.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												HKID,
-												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
-						beneficiary.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												HKID,
-												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
-						beneficiary.put("relationship", StringHelper.emptyIfNull( planDetailsForm.getPersonalBeneficiary()[inx] ).toUpperCase());
-						personal.put("beneficiary", beneficiary);
-					} else {
-						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
-						beneficiary.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												HKID,
-												planDetailsForm.getPersonalHKID()[inx]));
-						beneficiary.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												HKID,
-												planDetailsForm.getPersonalHKID()[inx]));
-						beneficiary.put("relationship", "SE");
-						personal.put("beneficiary", beneficiary);
-						
-						planDetailsForm.getPersonalBenificiaryFullName()[inx] = "";
-						planDetailsForm.getPersonalBenificiaryHkid()[inx] = "";
-						
-					}
-				} else {
-					beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase());
-					beneficiary
-							.put(hkId,
-									checkPasswortAndHkid(hkId, 
-											HKID,
-											planDetailsForm.getPersonalHKID()[inx]));
-					beneficiary
-							.put(passId,
-									checkPasswortAndHkid(
-											passId,
-											HKID,
-											planDetailsForm.getPersonalHKID()[inx]));
-					beneficiary.put("relationship", "SE");
-					personal.put("beneficiary", beneficiary);				
-				}
-			} else {
-                String personalID;
-                if(personal.get("hkId") != null && !personal.get("hkId").toString().isEmpty()){
-                    personalID = personal.get("hkId").toString();
-                }else if(personal.get("passport") != null && !personal.get("passport").toString().isEmpty()){
-                    personalID = personal.get("passport").toString();
-                }else {
-                    personalID = "";
-                }
-                personal.put("relationship", ValidationUtils.getRelationshipById(applicantHKID, personalID));
-                
-				if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) {
-					if (!planDetailsForm.getPersonalBenificiaryFullName()[inx].isEmpty()
-							&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getPersonalBeneficiary()[inx]) != 0) {// If have beneficiary
-						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalBenificiaryFullName()[inx] ).toUpperCase());
-						beneficiary
-								.put(hkId,
-										checkPasswortAndHkid(
-												hkId,
-												HKID,
-												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
-						beneficiary
-								.put(passId,
-										checkPasswortAndHkid(
-												passId,
-												HKID,
-												planDetailsForm.getPersonalBenificiaryHkid()[inx]));
-						beneficiary.put("relationship", planDetailsForm.getPersonalBeneficiary()[inx]);
-						personal.put("beneficiary", beneficiary);
-					} else {// If don't have beneficiary then
-						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
-						beneficiary
-						.put(hkId,
-								checkPasswortAndHkid(hkId, 
-										HKID,
-										planDetailsForm.getPersonalHKID()[inx]));
-						beneficiary
-						.put(passId,
-								checkPasswortAndHkid(
-										passId,
-										HKID,
-										planDetailsForm.getPersonalHKID()[inx]));
-						beneficiary.put("relationship", "SE");
-						personal.put("beneficiary", beneficiary);
-						
-						planDetailsForm.getPersonalBenificiaryFullName()[inx] = "";
-					}
-				} else {
-					beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
-					beneficiary.put("hkId", 
-							checkPasswortAndHkid(
-									"hkId",
-									HKID,
-									planDetailsForm.getPersonalHKID()[inx]));
-					beneficiary.put("passport",
-							checkPasswortAndHkid(
-									"passport",
-									HKID,
-									planDetailsForm.getPersonalHKID()[inx]));
-					beneficiary.put("relationship", "SE");
-					personal.put("beneficiary", beneficiary);
-					
-				}
-			}
-							
-			insured.add(personal);
-			
-			String[] relationships = planDetailsForm.getPersonalRelationDesc();
-			if(relationships == null){
-				relationships = new String[planDetailsForm.getTotalPersonalTraveller()];
-			}
-			String[] beneRelationships = planDetailsForm.getPersonalBeneRelationDesc();
-			if(beneRelationships == null){
-				beneRelationships = new String[planDetailsForm.getTotalPersonalTraveller()];
-			}
-			planDetailsForm.setPersonalRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, personal.get("relationship").toString(), inx));
-			planDetailsForm.setPersonalBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
-		}
-		// personal
-
-		parameters.put("insured", insured);
-
-		/* parameters.put("referralCode", userReferralCode); */
-		parameters.put("referralCode", session.getAttribute("referralCode"));
-
-		String name     = StringHelper.emptyIfNull( applicantFullName ).toUpperCase();
-		emailAddress 	= StringHelper.emptyIfNull( emailAddress ).toUpperCase();
-		applicantHKID   = StringHelper.emptyIfNull( applicantHKID ).toUpperCase();
-		
-		JSONObject applicantJsonObj = new JSONObject();
-		applicantJsonObj.put("name", name);
-		applicantJsonObj.put("gender", "M");
-		
-		if (selectedHkidPassApplicant.toUpperCase().equals("HKID")) {
-			applicantJsonObj.put("hkId", applicantHKID);
-			applicantJsonObj.put("passport", "");	
-		} else {
-			applicantJsonObj.put("hkId", "");
-			applicantJsonObj.put("passport", applicantHKID);
-		}
-			
-		
-		
-		
-		
-		applicantJsonObj.put("dob", dob);
-		applicantJsonObj.put("mobileNo", applicantMobNo);
-		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
-		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4());
-		applicantJsonObj.put("email", emailAddress);
-
-		parameters.put("applicant", applicantJsonObj);
-
-		JSONObject addressJsonObj = new JSONObject();
-		parameters.put("address", addressJsonObj);
-
-
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		header.put("userName", (String) session.getAttribute("username"));
-		header.put("token", (String) session.getAttribute("token"));
-		header.put("language", WebServiceUtils
-				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
-		//TO ENFORCE THE POLICY IS CREATED AND MAKE SURE THE TRANSACTION NUMBER IS NOT REUSED
-		
-		CreatePolicy createPolicy = (CreatePolicy)session.getAttribute("travelCreatePolicy");
-		
-		JSONObject responsObject = new JSONObject();
- 		if (createPolicy == null) {
-
- 			logger.info("TRAVEL_CREATE_POLICY Request " + JsonUtils.jsonPrint(parameters));
-			responsObject = restService.consumeApi(HttpMethod.PUT,
-					UserRestURIConstants.TRAVEL_CREATE_POLICY, header,
-					parameters);
-			logger.info("TRAVEL_CREATE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
-			createPolicy = new CreatePolicy();
-
-			String finalizeReferenceNo = "";
-
-			if (responsObject.get("errMsgs") == null) {
-				JSONObject jsonPriceInfoA = (JSONObject) responsObject
-						.get("priceInfoA");
-
-				finalizeReferenceNo = checkJsonObjNull(responsObject, "referenceNo");
-				createPolicy.setReferenceNo(checkJsonObjNull(responsObject, "referenceNo"));
-				createPolicy.setCurrCode(checkJsonObjNull(responsObject, "currCode"));
-				createPolicy.setMerchantId(checkJsonObjNull(responsObject, "merchantId"));
-				createPolicy.setPolicyNo(checkJsonObjNull(responsObject, "policyNo"));
-				createPolicy.setLang(checkJsonObjNull(responsObject, "lang"));
-				createPolicy.setPaymentGateway(checkJsonObjNull(responsObject, "paymentGateway"));
-				createPolicy.setPaymentType(checkJsonObjNull(responsObject, "paymentType"));
-
-				// Calling Api of Confirm Travel Care Policy
-				JSONObject confirmPolicyParameter = new JSONObject();
-				confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
-				session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
-				logger.info("Request From Confirm Travel Policy " + confirmPolicyParameter);
-				JSONObject jsonResponse = restService.consumeApi(
-						HttpMethod.POST,
-						UserRestURIConstants.TRAVEL_CONFIRM_POLICY, header,
-						confirmPolicyParameter);
-				logger.info("Response From Confirm Travel Policy " + JsonUtils.jsonPrint(jsonResponse));
-
-				createPolicy.setSecureHash(checkJsonObjNull(jsonResponse,
-						"secureHash"));
-				createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse,
-						"transactionNumber"));
-				createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse,
-						"transactionDate"));
-				session.setAttribute("travelCreatePolicy", createPolicy);
-				model.addAttribute(createPolicy);
-				session.setAttribute("createPolicy", createPolicy);
-			} else {
-				model.addAttribute("errMsgs", responsObject.get("errMsgs"));
-				return new ModelAndView("redirect:" + "/" + (String) session.getAttribute("language") + "/travel-insurance/user-details");
-			}
-
-		} 
-		session.setAttribute("finalizeReferenceNo",
-				createPolicy.getReferenceNo());
-		session.setAttribute("transactionDate",
-				createPolicy.getTransactionDate());
-		session.setAttribute("transNo", createPolicy.getTransactionNo());
-
 		TravelQuoteBean travelBean = new TravelQuoteBean();
 		travelBean.setTrLeavingDate(deaprtureDate);
 		travelBean.setTrBackDate(returnDate);
@@ -675,6 +354,7 @@ public class AnnualTravelController {
 				+ planDetailsForm.getTotalChildTraveller()
 				+ planDetailsForm.getTotalOtherTraveller()
 				+ planDetailsForm.getTravellerCount());
+		
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);
 		model.addAttribute("dueAmount", dueAmount.replace(",", ""));
@@ -682,11 +362,8 @@ public class AnnualTravelController {
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);
-		model.addAttribute("path",
-				path.replace("travel-summary", "confirmation?utm_nooverride=1"));
-		model.addAttribute("path",
-				path.replace("travel-summary", "confirmation?utm_nooverride=1"));
-		
+		model.addAttribute("path", path.replace("travel-summary", "confirmation?utm_nooverride=1"));
+		model.addAttribute("path", path.replace("travel-summary", "confirmation?utm_nooverride=1"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
         String errorMsg =request.getParameter("errorMsg");
@@ -694,7 +371,8 @@ public class AnnualTravelController {
             errorMsg = "Payment failure";     
         }        
         model.addAttribute("errormsg", errorMsg);        
-        model.addAttribute("referralCode", session.getAttribute("referralCode"));        
+        model.addAttribute("referralCode", session.getAttribute("referralCode"));
+        model.addAttribute(session.getAttribute("createPolicy"));
         
         String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));

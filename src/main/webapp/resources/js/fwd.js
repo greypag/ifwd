@@ -2652,7 +2652,7 @@ $(function () {
 
 //Travel plan details page validation
 var travelp_click = false;
-function tPlanValid(form,formId,language)
+function tPlanValid()
 {
 	if($("#inputFullName").val().trim()==namePlaceholder.trim()){
     	$("#inputFullName").val('');
@@ -3829,25 +3829,7 @@ function tPlanValid(form,formId,language)
     		$('#loading-overlay').modal('hide');
     	}
     	
-    	var contextPath = window.location.pathname.split("/")[1];
-    	var result = false;
-    	var formId = '#' + formId;
-    	var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceTravelSummary';
-    	$.ajax({
-    		type : "POST",
-    		url : method,
-    		data : $(formId).serialize(),
-    		async : false,
-    		success : function(data) {
-    			if (data == 'success') {
-    				form.action = '/'+contextPath+'/'+language+'/travel-insurance/travel-summary';
-    				result = true;
-    			} else {
-    				result = false;
-    			}
-    		}
-    	});
-    	return flag&&result;
+    	return flag;
     }	
 	
 
@@ -3980,23 +3962,17 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 	return flag;
 }
 
-function flightValidateDeskTravel(form, formId,language){
+function flightValidateDeskTravel(){
 	var flag = true;
-	var contextPath = window.location.pathname.split("/")[1];
 	document.getElementById("startDateDeskIn").innerHTML = "";
 	document.getElementById("endDateDeskIn").innerHTML = "";
 	document.getElementById("travelCountDeskIn").style.display = "none";
 	
-	/*var startDate = document.getElementById("txtStartDateDesk").value;    
-	var endDate = document.getElementById("txtEndDateDesk").value;
-	var travellers = document.getElementById("txtTravellersDesk").value;*/
-	
+	var travelType = $("#travelTypeDesk").val();
 	var startDate = $("#txtStartDateDesk").val();    
 	var endDate = $("#txtEndDateDesk").val();
 	var travellers = $("#txtTravellersDesk").val();
-	
 	var peopleCount = document.getElementById("lblPeopleDesk").innerHTML;
-
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 	
@@ -4011,57 +3987,42 @@ function flightValidateDeskTravel(form, formId,language){
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
 
-	if(startDate.trim()=="")
-	{
-		$('#startDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
+	if(travelType.trim()==""){
+		$('#travelTypeDeskIn').html(getBundle(getBundleLanguage, "travel.travelType.notSelected.message"));
 		flag = false;
 	}
-	else {
-		if (startdays > 90) {
+	
+	if(startDate.trim()==""){
+		$('#startDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
+		flag = false;
+	}else {
+		if (startdays > 90){
 			$('#startDateDeskIn').html(getBundle(getBundleLanguage, "travelcare.policy.startDate.moreThan30Days.message"));
 			flag = false;
 		}
 	}
-	if(endDate.trim()=="")
-	{
-		$('#endDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
-		flag = false;
-	}
-	else {
-		if (enddays > 180) {
+	if(travelType != "annual"){
+		if(endDate.trim()==""){
 			$('#endDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
 			flag = false;
-		}
-	}
-	if(travellers.trim()=="")
-	{
-		document.getElementById("travelCountDeskIn").style.display = "block";
-		flag = false;
-	}
-	if(peopleCount.trim()==""||peopleCount=="0")
-	{
-		document.getElementById("travelCountDeskIn").style.display = "block";
-		flag = false;
-	}
-	var result = false;
-	var formId = '#' + formId;
-	var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceQuote';
-	$.ajax({
-		type : "POST",
-		url : method,
-		data : $(formId).serialize(),
-		async : false,
-		success : function(data) {
-			if (data == 'success') {
-				form.action = '/'+contextPath+'/'+language+'/travel-insurance/quote';
-				result = true;
-			} else {
-				$('#startDateDeskIn').html("api is Wrong");
-				result = false;
+		}else{
+			if(enddays > 180) {
+				$('#endDateDeskIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
+				flag = false;
 			}
 		}
-	});
-	return flag&&result;
+	}
+	
+	if(travellers.trim()==""){
+		document.getElementById("travelCountDeskIn").style.display = "block";
+		flag = false;
+	}
+	if(peopleCount.trim()==""||peopleCount=="0"){
+		document.getElementById("travelCountDeskIn").style.display = "block";
+		flag = false;
+	}
+	return flag;
+
 }
 
 function flightValidateMobTravel() {
@@ -4071,9 +4032,7 @@ function flightValidateMobTravel() {
 	document.getElementById("endDateMobIn").innerHTML = "";
 	document.getElementById("travelCountMobIn").style.display = "none";
 	
-	/*var startDate = document.getElementById("txtStartDateMob").value;
-	var endDate = document.getElementById("txtEndDateMob").value;
-	var travellers = document.getElementById("txtTravellersMob").value;*/
+	var travelType = $("#travelTypeMob").val();
 	var startDate = $("#txtStartDateMob").val();
 	var endDate = $("#txtEndDateMob").val();
 	var travellers = $("#txtTravellersMob").val();
@@ -4091,6 +4050,11 @@ function flightValidateMobTravel() {
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
 
+	if(travelType.trim()==""){
+		$('#travelTypeMobIn').html(getBundle(getBundleLanguage, "travel.travelType.notSelected.message"));
+		flag = false;
+	}
+	
 	if (startDate.trim() == "") {
 		$('#startDateMobIn').html(getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
 		flag = false;
@@ -4101,15 +4065,19 @@ function flightValidateMobTravel() {
 			flag = false;
 		}
 	}
-	if (endDate.trim() == "") {
-		$('#endDateMobIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
-		flag = false;
-	} else {
-		if (enddays > 180) {
+	
+	if(travelType != "annual"){
+		if (endDate.trim() == "") {
 			$('#endDateMobIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
 			flag = false;
+		} else {
+			if (enddays > 180) {
+				$('#endDateMobIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
+				flag = false;
+			}
 		}
 	}
+	
 	if (travellers.trim() == "") {
 		document.getElementById("travelCountMobIn").style.display = "block";
 		flag = false;
@@ -4128,10 +4096,8 @@ function flightValidateBtmTravel() {
 	document.getElementById("startDateBtmIn").innerHTML = "";
 	document.getElementById("endDateBtmIn").innerHTML = "";
 	$("#travelCountBtmIn").hide();
-	/*var startDate = document.getElementById("txtStartDateBtm").value;
-	var endDate = document.getElementById("txtEndDateBtm").value;
-	var travellers = document.getElementById("txtTravellersBtm").value;*/
 	
+	var travelType = $("#travelTypeBtm").val();
 	var startDate =$("#txtStartDateBtm").val();
 	var endDate = $("#txtEndDateBtm").val();
 	var travellers = $("#txtTravellersBtm").val();
@@ -4139,8 +4105,6 @@ function flightValidateBtmTravel() {
 	var peopleCount = document.getElementById("lblPeopleBtm").innerHTML;
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-	/*var new_start = new Date(startDate);
-	var new_end = new Date(endDate);*/
 	
 	var startDates= new Array();
 	startDates=startDate.split("-");
@@ -4153,35 +4117,38 @@ function flightValidateBtmTravel() {
 	var startdays = dateDiffInDays(now, new_start);
 	var enddays = dateDiffInDays(new_start, new_end);
 
+	if(travelType.trim()==""){
+		$('#travelTypeBtmIn').html(getBundle(getBundleLanguage, "travel.travelType.notSelected.message"));
+		flag = false;
+	}
+	
 	if (startDate.trim() == "") {
 		$('#startDateBtmIn').html(getBundle(getBundleLanguage, "date.policy.startDate.notValid.message"));
 		flag = false;
-	}
-	else
-	{
-		if(startdays>90)
-		{
+	}else{
+		if(startdays>90){
 			$('#startDateBtmIn').html(getBundle(getBundleLanguage, "travelcare.policy.startDate.moreThan30Days.message"));
 			flag = false;
 		}
 	}
-	if (endDate.trim() == "") {
-		$('#endDateBtmIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
-		flag = false;
-	}
-	else
-	{
-		if (enddays > 180) {
+	
+	if(travelType != "annual"){
+		if (endDate.trim() == "") {
 			$('#endDateBtmIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
 			flag = false;
+		}else{
+			if (enddays > 180) {
+				$('#endDateBtmIn').html(getBundle(getBundleLanguage, "date.policy.endDate.notValid.message"));
+				flag = false;
+			}
 		}
 	}
+	
 	if (travellers.trim() == "") {
 		$("#travelCountBtmIn").show();
 		flag = false;
 	}
-	if(peopleCount.trim()==""||peopleCount=="0")
-	{
+	if(peopleCount.trim()==""||peopleCount=="0"){
 		$("#travelCountBtmIn").show();
 		flag = false;
 	}

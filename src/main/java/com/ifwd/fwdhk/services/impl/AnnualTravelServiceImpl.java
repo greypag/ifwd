@@ -7,7 +7,6 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -893,12 +892,9 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		
 		String planName = WebServiceUtils.getParameterValue("planName", session, request);
-		String planSummary = WebServiceUtils.getParameterValue(
-				"selectedAmountDue", session, request);
-		String selectPlanPremium = WebServiceUtils.getParameterValue(
-				"selectPlanPremium", session, request);
-		String selectPlanName = WebServiceUtils.getParameterValue(
-				"selectPlanName", session, request);
+		String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
+		String selectPlanPremium = WebServiceUtils.getParameterValue("selectPlanPremium", session, request);
+		String selectPlanName = WebServiceUtils.getParameterValue("selectPlanName", session, request);
 		selectPlanName = planName;
 		
 		if (travelQuote.getTrLeavingDate() != null) {
@@ -1085,11 +1081,18 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				+ "annualtravel/annual-travel-plan-details");	
 	}
 	
+	/**
+	 * @param planDetailsForm
+	 * @param result
+	 * @param model
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
 	@SuppressWarnings("unchecked")
 	public ModelAndView prepareTravelInsuranceTravelSummary(PlanDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception{
 			HttpSession session = request.getSession();
-		UserRestURIConstants.setController("Travel");
 		if (planDetailsForm.getDepartureDate() != null) {
 			session.removeAttribute("travelCreatePolicy");
 			
@@ -1142,12 +1145,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		 
-		
-		UserDetails userDetails = new UserDetails();
-		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",session, request);
-		session.setAttribute("dueAmount", dueAmount);
-		
-		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
 		String deaprtureDate = DateApi.pickDate1((String)session.getAttribute("departureDate"));
 		String returnDate = DateApi.pickDate1((String) session.getAttribute("returnDate"));
 		String applicantFullName = WebServiceUtils.getParameterValue("fullName", session, request);
@@ -1158,8 +1155,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		String dob = WebServiceUtils.getParameterValue("applicantDob",	session, request);
 		dob = DateApi.pickDate1(dob);
 		
-		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
-				
 		if (planDetailsForm.getDepartureDate() != null) {
 			session.setAttribute("travelPlanDetailsForm", planDetailsForm);
 		} else {
@@ -1167,11 +1162,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 					.getAttribute("travelPlanDetailsForm");
 		}
 		
-		userDetails.setFullName(applicantFullName);
-		userDetails.setHkid(applicantHKID);
-		userDetails.setMobileNo(applicantMobNo);
-		userDetails.setEmailAddress(emailAddress);
-		userDetails.setDob(dob);
         final String BENE_RELATIONSHIP_SELF = "SE";
 
 		JSONObject parameters = new JSONObject();
@@ -1181,7 +1171,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		JSONArray insured = new JSONArray();
 
 		String langSelected = UserRestURIConstants.getLanaguage(request);
-		
 		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
 			planDetailsForm.setPersonalAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getPersonalAgeRange(), langSelected));
 		}
@@ -1347,8 +1336,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			planDetailsForm.setPersonalRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, personal.get("relationship").toString(), inx));
 			planDetailsForm.setPersonalBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
 		}
-		// personal
-
 		parameters.put("insured", insured);
 
 		/* parameters.put("referralCode", userReferralCode); */
@@ -1408,9 +1395,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			String finalizeReferenceNo = "";
 
 			if (responsObject.get("errMsgs") == null) {
-				JSONObject jsonPriceInfoA = (JSONObject) responsObject
-						.get("priceInfoA");
-
 				finalizeReferenceNo = checkJsonObjNull(responsObject, "referenceNo");
 				createPolicy.setReferenceNo(checkJsonObjNull(responsObject, "referenceNo"));
 				createPolicy.setCurrCode(checkJsonObjNull(responsObject, "currCode"));
@@ -1431,12 +1415,9 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 						confirmPolicyParameter);
 				logger.info("Response From Confirm Travel Policy " + JsonUtils.jsonPrint(jsonResponse));
 
-				createPolicy.setSecureHash(checkJsonObjNull(jsonResponse,
-						"secureHash"));
-				createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse,
-						"transactionNumber"));
-				createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse,
-						"transactionDate"));
+				createPolicy.setSecureHash(checkJsonObjNull(jsonResponse, "secureHash"));
+				createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse, "transactionNumber"));
+				createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse, "transactionDate"));
 				session.setAttribute("travelCreatePolicy", createPolicy);
 				model.addAttribute(createPolicy);
 				session.setAttribute("createPolicy", createPolicy);
@@ -1444,46 +1425,13 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				model.addAttribute("errMsgs", responsObject.get("errMsgs"));
 				return new ModelAndView("redirect:" + "/" + (String) session.getAttribute("language") + "/travel-insurance/user-details");
 			}
-
-		} 
-		session.setAttribute("finalizeReferenceNo",
-				createPolicy.getReferenceNo());
-		session.setAttribute("transactionDate",
-				createPolicy.getTransactionDate());
+		}
+ 		
+		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
+		session.setAttribute("transactionDate", createPolicy.getTransactionDate());
 		session.setAttribute("transNo", createPolicy.getTransactionNo());
+		session.setAttribute("travelPlanDetailsFormBySummary", planDetailsForm);
 
-		TravelQuoteBean travelBean = new TravelQuoteBean();
-		travelBean.setTrLeavingDate(deaprtureDate);
-		travelBean.setTrBackDate(returnDate);
-		travelBean.setTotalTraveller(planDetailsForm.getTotalAdultTraveller()
-				+ planDetailsForm.getTotalChildTraveller()
-				+ planDetailsForm.getTotalOtherTraveller()
-				+ planDetailsForm.getTravellerCount());
-		String path = request.getRequestURL().toString();
-		model.addAttribute("selectPlanName", selectPlanName);
-		model.addAttribute("dueAmount", dueAmount.replace(",", ""));
-		model.addAttribute("totalTravellingDays", totalTravellingDays);
-		model.addAttribute("userDetails", userDetails);
-		model.addAttribute("travelBean", travelBean);
-		model.addAttribute("planDetailsForm", planDetailsForm);
-		model.addAttribute("path",
-				path.replace("travel-summary", "confirmation?utm_nooverride=1"));
-		model.addAttribute("path",
-				path.replace("travel-summary", "confirmation?utm_nooverride=1"));
-		
-		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
-        String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
-        String errorMsg =request.getParameter("errorMsg");
-        if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){            
-            errorMsg = "Payment failure";     
-        }        
-        model.addAttribute("errormsg", errorMsg);        
-        model.addAttribute("referralCode", session.getAttribute("referralCode"));        
-        
-        String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
-		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
-		model.addAttribute("pageTitle", pageTitle);
-		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "/annualtravel/annual-travel-summary-payment");			
 	}
