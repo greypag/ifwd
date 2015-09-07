@@ -7937,9 +7937,17 @@ tr.product-landing-error-wrap {
 	padding:5px 20px !important;
 }
 
+.product_payment_details input{
+	padding:4px 15px;
+}
+
 @media (min-width: 992px) {
     .product_landing_download_button{
         margin-right: 20px;
+    }
+    
+    .product_payment_details_title{
+        margin-top: 8px;
     }
 }
 
@@ -8019,10 +8027,16 @@ tr.product-landing-error-wrap {
 	.product_summary_table_field{
 		margin-bottom: 5px;
 		margin-top: 5px;
+		min-width:230px !important;
 	}
 	
 	.product_summary_table_field.summary-detail-head{
-	   width:100px;
+	   min-width:180px !important;
+	}
+	
+	.product_summary_table_header{
+	   color: #999;
+       font-weight: bold;
 	}
 }
 /** annual travel **/
