@@ -18,11 +18,6 @@ public interface AnnualTravelService {
 	public String getPromoCode(HttpServletRequest request,HttpServletResponse response);
 	public String sendEmail(HttpServletRequest request);
 	public ModelAndView getTravelPlan(TravelQuoteBean travelQuote, Model model, HttpServletRequest request) throws Exception;
-	public ModelAndView getTravelHomePage(final String promo, HttpServletRequest request, Model model, 
-			final String utm_source,
-			final String utm_medium,
-			final String utm_campaign,
-			final String utm_content) throws Exception;
 	public ModelAndView prepareTravelInsuranceUserDetails(TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception;
 	public ModelAndView prepareTravelInsuranceTravelSummary(PlanDetailsForm planDetailsForm,

@@ -54,53 +54,37 @@
   var t2 = "${corrTravelQuote.totalChildTraveller}";
   var t3 = "${corrTravelQuote.totalOtherTraveller}";  
     
-    function reset_desktop_submit()
-    {        
-     if(document.getElementById("family_plan_desk").checked)
-     {
-         $('#txtTravellersDesk').val(0);
-     }
-     else if (document.getElementById("personal_plan_desk").checked)
-     {
-         $('#txtAdultsDesk').val(0);
-         $('#txtOtherDesk').val(0);
-         $('#txtChildDesk').val(0);
-     }
-     
-     var frm = document.getElementById("frmTravelGetQuoteDesk");
-    }  
+  function reset_desktop_submit(){
+      if(document.getElementById("family_plan_desk").checked){
+          $('#txtTravellersDesk').val(0);
+      }else if (document.getElementById("personal_plan_desk").checked){
+          $('#txtAdultsDesk').val(0);
+          $('#txtOtherDesk').val(0);
+          $('#txtChildDesk').val(0);
+      }
+      var frm = document.getElementById("frmTravelGetQuoteDesk");
+  }  
+  function reset_mobile_submit(){        
+      if(document.getElementById("family_plan_mob").checked){
+          $('#txtTravellersMob').val(0);
+      }else if (document.getElementById("personal_plan_mob").checked){
+          $('#txtAdultsMob').val(0);
+          $('#txtOtherMob').val(0);
+          $('#txtChildMob').val(0);
+      }
+      var frm = document.getElementById("frmTravelGetQuoteMob");
+  }  
  
- function reset_mobile_submit()
- {        
-  if(document.getElementById("family_plan_mob").checked)
-  {
-      $('#txtTravellersMob').val(0);
+  function reset_bottom_submit(){        
+      if(document.getElementById("family_plan_btm").checked){
+          $('#txtTravellersBtm').val(0);
+      }else if (document.getElementById("personal_plan_btm").checked){
+          $('#txtAdultsBtm').val(0);
+          $('#txtOtherBtm').val(0);
+          $('#txtChildBtm').val(0);
+      }
+      var frm = document.getElementById("frmTravelGetQuoteBtm");
   }
-  else if (document.getElementById("personal_plan_mob").checked)
-  {
-      $('#txtAdultsMob').val(0);
-      $('#txtOtherMob').val(0);
-      $('#txtChildMob').val(0);
-  }
-  
-  var frm = document.getElementById("frmTravelGetQuoteMob");
- }  
- 
- function reset_bottom_submit()
- {        
-  if(document.getElementById("family_plan_btm").checked)
-  {
-      $('#txtTravellersBtm').val(0);
-  }
-  else if (document.getElementById("personal_plan_btm").checked)
-  {
-      $('#txtAdultsBtm').val(0);
-      $('#txtOtherBtm').val(0);
-      $('#txtChildBtm').val(0);
-  }
-  
-  var frm = document.getElementById("frmTravelGetQuoteBtm");
- }
  
  function selectTravelCareType(type, type_string){
 	 $(".travel_type_label").html(type_string);
