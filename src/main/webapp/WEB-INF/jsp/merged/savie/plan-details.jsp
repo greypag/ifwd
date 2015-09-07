@@ -390,6 +390,13 @@ var context = "${pageContext.request.contextPath}";
 					</div>
 				</div>
 			</div>
+
+			<!-- AJAX loading mask -->
+			<div class="loading-mask">
+				<div class="content">
+					<img src="<%=request.getContextPath()%>/resources/images/savie/iFWD_O2O_payment-in-progress.gif" class="img-responsive">
+				</div>
+			</div>
 	</div>
 	
 		

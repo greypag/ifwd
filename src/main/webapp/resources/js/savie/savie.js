@@ -69,6 +69,10 @@ function getSaviePlanDetails() {
 		console.log("Invalid Savings amount!");
 	}
 	else{
+		// display loading mask
+		$('.loading-mask').toggle();
+		$('body').addClass('modal-open');
+
 		$('#promo-code-errmsg').addClass('hideSpan');
 		$('#promo-code-dateOfBirth').addClass('hideSpan');
 		$.get(contextPath+'/ajax/savie/planDetails/get',
@@ -80,6 +84,10 @@ function getSaviePlanDetails() {
 			birthOfDay:birthOfDay
 		},
 		function(data) {
+			// hide loading mask
+			$('.loading-mask').toggle();
+			$('body').removeClass('modal-open');
+
 			if(data.result == "success"){
 				var json = $.parseJSON(JSON.stringify(data));
 				jsonTableData = $.parseJSON(JSON.stringify(data));
