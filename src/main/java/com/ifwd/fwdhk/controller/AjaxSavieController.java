@@ -37,7 +37,6 @@ public class AjaxSavieController extends BaseController{
 			return;
 		try {
 			savieService.getPlanDetails(model, request, response, httpSession);
-			logger.info(request.getParameter("birthOfDay"));
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
