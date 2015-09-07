@@ -52,7 +52,7 @@ var language = "${language}";
 										<div class="col-xs-12 col-md-4"><label for="preferred-date"><fmt:message key="savie.customerServiceCentre.date" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div id="date" class="selectDiv preferred-date">
-												<input type="text" class="date" name="preferred-date" id="preferred-date" value="" readonly="">
+												<input type="text" class="date" name="preferred-date" id="preferred-date" value="${perferredDate }" readonly="">
 											</div>
 										</div>
 									</div>
@@ -175,8 +175,8 @@ var language = "${language}";
 		});
 		
 		var serviceCentreCode = '${csCenter }';
-		var perDate = '${perferredDate }';
-		$("#preferred-date").datepicker("setDate", perDate.split('-')[0] +'-'+ perDate.split('-')[1] + '-' + perDate.split('-')[2]);
+		//var perDate = '${perferredDate }';
+		//$("#preferred-date").datepicker("setDate", perDate.split('-')[0] +'-'+ perDate.split('-')[1] + '-' + perDate.split('-')[2]);
 		
 		$('.centre-info').addClass('hidden');
 		$('#centre-' + serviceCentreCode).removeClass('hidden');
