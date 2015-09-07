@@ -12212,12 +12212,13 @@ span.dup-error-msg {
 }
 
 .fwd-savie-wrapper .banner-widget .hunger-selling-text {
-  font-size: 24px;
+  font-size: 17px;
   font-family: 'Calibri-bold';
   color: white;
   text-shadow: 1px 1px 10px #000;
   padding: 0;
-  line-height: 30px;
+  line-height: 24px;
+  width: 65%;
 }
 @media (min-width: 480px) {
   .fwd-savie-wrapper .banner-widget .hunger-selling-text {
@@ -14230,15 +14231,19 @@ input[type=number] {
   }
 }
 .fwd-savie-wrapper .o2o-landing.banner-widget .text-content {
-  display: none;
+  display: block;
+  position: absolute;
+  top: 82px;
+  margin: 0;
+  padding: 0;
 }
 @media (min-width: 768px) {
   .fwd-savie-wrapper .o2o-landing.banner-widget .text-content {
-    display: block;
-    position: absolute;
+/*    display: block;
+    position: absolute;*/
     top: 50px;
-    margin: 0;
-    padding: 0;
+/*    margin: 0;
+    padding: 0;*/
   }
   .fwd-savie-wrapper .o2o-landing.banner-widget .text-content.hunger-img img {
     margin: 0;
@@ -14692,15 +14697,22 @@ input[type=number] {
 .fwd-savie-wrapper .o2o-landing #savings-carousel {
   background-color: #e9edf0;
 }
+.fwd-savie-wrapper .hunger-text-section button.get-started,
 .fwd-savie-wrapper .sign-up-teaser button.get-started {
-  background-color: #ff8200;
-  color: white;
   font-family: 'calibri-bold';
   height: 48px;
   width: 65%;
   max-width: 245px;
   font-size: 28px;
   border: 1px solid #ff8000;
+}
+.fwd-savie-wrapper .hunger-text-section button.get-started {
+  background-color: #fff;
+  color: #ff8200;
+}
+.fwd-savie-wrapper .sign-up-teaser button.get-started {
+  background-color: #ff8200;
+  color: white;
   margin: 20px 0;
 }
 @media (min-width: 992px) {
@@ -14765,6 +14777,14 @@ input[type=number] {
   border: none;
   padding: 0;
   outline: none;
+}
+
+.fwd-savie-wrapper .hunger-text-section p.footnote {
+  color: #fff;
+  width: 65%;
+  margin: 0 auto;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .fwd-savie-wrapper .sign-up-teaser p.footnote {

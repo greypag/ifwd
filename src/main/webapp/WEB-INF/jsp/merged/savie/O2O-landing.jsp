@@ -50,15 +50,17 @@ var home_url = "<%=request.getContextPath()%>";
 					</ol>
 				</div>
 
-				<div class="text-content hunger-img hidden-sm hidden-xs">
+				<div class="text-content hunger-img">
 					<img src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.tagline.image.desktop" bundle="${msg}" />" title="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" alt="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" class="img-responsive">
 				</div>
 				
-				<!--<div class="hunger-text-section">
-					<p class="hunger-selling-text text-1">SAVIE is currently in its pre<span>-</span>launch application stage.</p> 
-					<p class="hunger-selling-text text-2">You are required to enter a valid access code to apply.</p>
-					<a href="#" id="hunger-selling-buy-now-O2O" class="buy-now hunger-buy-now">Get started</a>
-				</div>-->
+				<div class="hunger-text-section hidden-md hidden-lg">
+					<p class="hunger-selling-text text-1"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p> 
+					<div class="get-started-holder text-center">
+						<button id="hunger-selling-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
+					</div>
+					<p class="footnote below"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p>
+				</div>
 			</div>
 			
 			<div class="fwd-full-container container-fluid o2o-landing teaser">
@@ -79,14 +81,14 @@ var home_url = "<%=request.getContextPath()%>";
 			</div>
 			
 			<div class="sign-up-teaser">
-				<p class="sign-up-header"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>
+				<p class="sign-up-header hidden-sm hidden-xs"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>
 				<div class="get-started-holder text-center">
 					<button id="hunger-selling-buy-now-O2O" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
 				</div>
-				<p class="sign-up-header below">
+				<p class="sign-up-header below hidden-sm hidden-xs">
 					<fmt:message key="savie.o2o.landing.Haven't.applied.part1" bundle="${msg}" /><button id="signup"><fmt:message key="savie.o2o.landing.Haven't.applied.link.text" bundle="${msg}" /></button><fmt:message key="savie.o2o.landing.Haven't.applied.part2" bundle="${msg}" />
 				</p>
-				<p class="footnote below"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p>
+				<p class="footnote below hidden-sm hidden-xs"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p>
 			</div>
 			
 	        <div class="teaser-three-column O2O-landing">
@@ -456,6 +458,9 @@ var home_url = "<%=request.getContextPath()%>";
 			// Access Code Cover
 			$('#hunger-selling-buy-now-O2O').click(function(e){
 				//$('.hunger-selling-container').removeClass('hidden');
+				$('#accessCodeO2O').modal('show');
+			});
+			$('#hunger-selling-buy-now-O2O-mobile').click(function(e){
 				$('#accessCodeO2O').modal('show');
 			});
             //
