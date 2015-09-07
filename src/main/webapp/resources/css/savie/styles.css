@@ -12305,7 +12305,7 @@ span.dup-error-msg {
   font-size: 30px;
   color: #ff8200;
   line-height: 31px;
-  padding: 0 30px;
+  padding: 0 20px;
 }
 .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body {
   padding: 0;
@@ -14906,7 +14906,7 @@ input[type=number] {
 }
 /* line 724, ../sass/partials/_o2o-landing.scss */
 #signup-now-modal #signup-btn {
-  margin-top: 25px;
+  /*margin-top: 25px;*/
 }
 @media (min-width: 992px) {
   /* line 724, ../sass/partials/_o2o-landing.scss */
