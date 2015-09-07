@@ -32,6 +32,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.controller.TravelController;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.PlanDetailsForm;
@@ -469,7 +470,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			travelQuote = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
 			
 			if(travelQuote == null) {
-				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");		
+				return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");		
 			}				
 		}
 		session.setAttribute("corrTravelQuote", travelQuote);
@@ -642,13 +643,13 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			}else {
 				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
 				return new ModelAndView(UserRestURIConstants.getSitePath(request)
-						+ "annualtravel/annual-travel");
+						+ "travel/travel");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("errMsgs", "System Error");
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					+ "annualtravel/annual-travel");
+					+ "travel/travel");
 		}
 		String pageTitle = WebServiceUtils.getPageTitle("page.travelQuote", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelQuote", UserRestURIConstants.getLanaguage(request));
@@ -657,222 +658,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "annualtravel/annual-travel-plan");
-	}
-	
-	public ModelAndView getTravelHomePage(final String promo, HttpServletRequest request, Model model, 
-			final String utm_source,
-			final String utm_medium,
-			final String utm_campaign,
-			final String utm_content) throws Exception {
-			//String promo = (String)request.getAttribute("promo");
-			String departureDate = (String)request.getParameter("departureDate");
-			String returnDate = (String)request.getParameter("returnDate");
-			String plan = (String)request.getParameter("plan");
-			String traveler = (String)request.getParameter("traveler");
-			String adult = (String)request.getParameter("adult");
-			String child = (String)request.getParameter("child");
-			String other = (String)request.getParameter("other");
-			int iTraveler = 0;
-			int iAdult = 0;
-			int iChild = 0;
-			int iOther = 0;
-			boolean result = true; 
-			
-			UserRestURIConstants.setController("Travel");
-			UserRestURIConstants urc = new UserRestURIConstants(); 
-			urc.updateLanguage(request);
-			
-			request.setAttribute("controller", UserRestURIConstants.getController());
-			HttpSession session = request.getSession();
-			if (promo != null) {
-				if (!promo.equals("")) {
-					session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
-				}	
-			}
-			session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
-			TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
-			
-			/**
-			 * 判断URL是否带数据跟数据验证
-			 */
-			if("".equals(departureDate) || (departureDate != null && !DateApi.isValidDate(departureDate))) {
-				result = false;
-			}else if("".equals(returnDate) || (returnDate != null && !DateApi.isValidDate(returnDate))) {
-				result = false;
-			}else if(plan != null) {
-				if("personal".equals(plan)) {
-					if("".equals(traveler)) {
-						result = false;
-					}else {
-						try{
-							iTraveler = Integer.valueOf(traveler);
-							if(1 > iTraveler || iTraveler > 15) {
-								result = false;
-							}
-						} catch (Exception e) {
-							e.printStackTrace();
-							result = false;
-						}
-					}
-				}else if("family".equals(plan)) {
-					if("".equals(adult) || "".equals(child) || "".equals(other)) {
-						result = false;
-					}else {
-						try{
-							iAdult = Integer.valueOf(adult);
-							iChild = Integer.valueOf(child);
-							iOther = Integer.valueOf(other);
-							if(1 > iAdult || iAdult > 2) {
-								result = false;
-							}else if (iChild < 1) {
-								result = false;
-							}else if(iAdult + iChild + iOther> 15){
-								result = false;
-							}
-						} catch (Exception e) {
-							e.printStackTrace();
-							result = false;
-						}
-					}
-				}else {
-					result = false;
-				}
-			}else if("".equals(promo)) {
-				result = false;
-			}
-			
-			/**
-			 * 如果由URL跳转传值将直接进入PLAN页面
-			*/
-			if(plan != null && plan != "" && result){
-				if(travelQuote == null){
-					travelQuote = new TravelQuoteBean();
-				}
-				travelQuote.setTotalPersonalTraveller(iTraveler);
-				travelQuote.setTotalAdultTraveller(iAdult);
-				travelQuote.setTotalChildTraveller(iChild);
-				travelQuote.setTotalOtherTraveller(iOther);
-				travelQuote.setPlanSelected(plan);
-				travelQuote.setTrLeavingDate(departureDate);
-				travelQuote.setTrBackDate(returnDate);
-				session.setAttribute("corrTravelQuote", travelQuote);
-				model.addAttribute("travelQuote", travelQuote);
-				ModelAndView date = getTravelPlan(travelQuote, model, request);
-				if(!date.getViewName().endsWith("annual-travel-insurance") && !date.getViewName().endsWith("annual-travel")) {
-					model.addAttribute("promo", promo);
-					model.addAttribute("departureDate", departureDate);
-					model.addAttribute("returnDate", returnDate);
-					model.addAttribute("plan", plan);
-					model.addAttribute("traveler", traveler);
-					model.addAttribute("adult", adult);
-					model.addAttribute("child", child);
-					model.addAttribute("other", other);
-					return date;
-				}
-			}
-			
-			if(travelQuote == null){
-				travelQuote = new TravelQuoteBean();
-				travelQuote.setTotalPersonalTraveller(1);
-				travelQuote.setTotalAdultTraveller(1);
-				travelQuote.setTotalChildTraveller(1);
-				travelQuote.setTotalOtherTraveller(0);
-				travelQuote.setPlanSelected("personal");
-			}
-			session.setAttribute("corrTravelQuote", travelQuote);
-			model.addAttribute("travelQuote", travelQuote);
-			
-			String pageTitle = WebServiceUtils.getPageTitle("page.travel", UserRestURIConstants.getLanaguage(request));
-			String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travel", UserRestURIConstants.getLanaguage(request));
-			
-			String ogTitle = "";
-			String ogType = "";
-			String ogUrl = "";
-			String ogImage = "";
-			String ogDescription = "";
-			
-			String googleRickSnippetBrand ="";
-			String googleRickSnippetName ="";
-			String googleRickSnippetImageUrl ="";
-			String googleRickSnippetImageAlt ="";
-			String googleRickSnippetRating ="";
-			String googleRickSnippetPrice ="";
-			String googleRickSnippetAvailability = "";
-			String googleRickSnippetAvailabilityText ="";
-			String googleRickSnippetDescription1 ="";
-			String googleRickSnippetDescription2 ="";
-			
-			if (request.getRequestURI().toString().equals(request.getContextPath() + "/tc/travel-insurance/sharing/") || request.getRequestURI().toString().equals(request.getContextPath() + "/en/travel-insurance/sharing/")) 
-			{
-				ogTitle = WebServiceUtils.getPageTitle("travel.og.title", UserRestURIConstants.getLanaguage(request));
-				ogType = WebServiceUtils.getPageTitle("travel.og.type", UserRestURIConstants.getLanaguage(request));
-				ogUrl = WebServiceUtils.getPageTitle("travel.og.url", UserRestURIConstants.getLanaguage(request));
-				ogImage = WebServiceUtils.getPageTitle("travel.og.image", UserRestURIConstants.getLanaguage(request));
-				ogDescription = WebServiceUtils.getPageTitle("travel.og.description", UserRestURIConstants.getLanaguage(request));
-			} else {
-				ogTitle = WebServiceUtils.getPageTitle("travel.sharing.og.title", UserRestURIConstants.getLanaguage(request));
-				ogType = WebServiceUtils.getPageTitle("travel.sharing.og.type", UserRestURIConstants.getLanaguage(request));
-				
-				ogUrl = WebServiceUtils.getPageTitle("travel.sharing.og.url", UserRestURIConstants.getLanaguage(request));
-				if (promo != null) {
-					ogUrl = ogUrl + "?promo=" + promo;	
-				}
-				ogImage = WebServiceUtils.getPageTitle("travel.sharing.og.image", UserRestURIConstants.getLanaguage(request));
-				ogDescription = WebServiceUtils.getPageTitle("travel.sharing.og.description", UserRestURIConstants.getLanaguage(request));
-				
-				googleRickSnippetBrand =WebServiceUtils.getPageTitle(
-						"travel.googleRickSnippetBrand",
-						UserRestURIConstants.getLanaguage(request));
-				googleRickSnippetName =WebServiceUtils.getPageTitle(
-						"travel.googleRickSnippetName",
-						UserRestURIConstants.getLanaguage(request));
-				
-				googleRickSnippetImageUrl =WebServiceUtils.getPageTitle(
-						"travel.googleRickSnippetImageUrl",
-						UserRestURIConstants.getLanaguage(request));
-				googleRickSnippetImageAlt =WebServiceUtils.getPageTitle(
-						"travel.googleRickSnippetImageAlt",
-						UserRestURIConstants.getLanaguage(request));
-				googleRickSnippetRating =WebServiceUtils.getPageTitle(
-						"travel.googleRickSnippetRating",
-						UserRestURIConstants.getLanaguage(request));
-				googleRickSnippetPrice =WebServiceUtils.getPageTitle(
-						"travel.googleRickSnippetPrice",
-						UserRestURIConstants.getLanaguage(request));
-				googleRickSnippetAvailability =WebServiceUtils.getPageTitle(
-						"flight.googleRickSnippetAvailability",
-						UserRestURIConstants.getLanaguage(request));
-				googleRickSnippetAvailabilityText =WebServiceUtils.getPageTitle(
-						"travel.googleRickSnippetAvailabilityText",
-						UserRestURIConstants.getLanaguage(request));
-				googleRickSnippetDescription1 =WebServiceUtils.getPageTitle(
-						"travel.googleRickSnippetDescription1",
-						UserRestURIConstants.getLanaguage(request));
-				googleRickSnippetDescription2 =WebServiceUtils.getPageTitle(
-						"travel.googleRickSnippetDescription2",
-						UserRestURIConstants.getLanaguage(request));
-				
-				
-			}
-			
-			model.addAttribute("pageTitle", pageTitle);
-			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-			model.addAttribute("ogTitle", ogTitle);
-			model.addAttribute("ogType", ogType);
-			model.addAttribute("ogUrl", ogUrl);
-			model.addAttribute("ogImage", ogImage);
-			model.addAttribute("ogDescription", ogDescription);
-			model.addAttribute("googleRickSnippetBrand", googleRickSnippetBrand);
-			model.addAttribute("googleRickSnippetName", googleRickSnippetName);
-			model.addAttribute("googleRickSnippetImageUrl", googleRickSnippetImageUrl);
-			model.addAttribute("googleRickSnippetImageAlt", googleRickSnippetImageAlt);
-			model.addAttribute("googleRickSnippetRating", googleRickSnippetRating);
-			model.addAttribute("googleRickSnippetPrice", googleRickSnippetPrice);
-			model.addAttribute("googleRickSnippetAvailability", googleRickSnippetAvailability);
-			model.addAttribute("googleRickSnippetAvailabilityText", googleRickSnippetAvailabilityText);
-			model.addAttribute("googleRickSnippetDescription1", googleRickSnippetDescription1);
-			model.addAttribute("googleRickSnippetDescription2", googleRickSnippetDescription2);
-			return new ModelAndView(UserRestURIConstants.getSitePath(request) + "annualtravel/annual-travel");
 	}
 	
 	public ModelAndView prepareTravelInsuranceUserDetails(TravelQuoteBean travelQuote,
@@ -885,7 +670,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		if (session.getAttribute("token") == null) 
 		{
 			model.addAttribute("errMsgs", "Session Expired");
-			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
+			return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
 		}
 		
 		UserRestURIConstants.setController("Travel");
@@ -902,7 +687,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		} else {
 			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
 			if(travelQuote == null){
-				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
+				return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 			}				
 		}
 		try {
@@ -1137,10 +922,10 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		String planSelected = (String) session.getAttribute("planSelected");
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
-			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
+			return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
 		}
 		if(travelQuote == null || planSelected == null){
-			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");		
+			return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");		
 		}
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());

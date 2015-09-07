@@ -4,7 +4,6 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -30,7 +29,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.PlanDetailsForm;
 import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
@@ -40,7 +38,6 @@ import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
-import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
@@ -54,15 +51,6 @@ public class AnnualTravelController {
 	@Autowired
 	private AnnualTravelService annualTravelService;
 	
-	@RequestMapping(value = {"/{lang}/annual-travel", "/{lang}/annual-travel-insurance", "/{lang}/annual-travel-insurance/sharing/"})
-	public ModelAndView getTravelHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model,
-			@RequestParam(required = false) final String utm_source,
-			@RequestParam(required = false) final String utm_medium,
-			@RequestParam(required = false) final String utm_campaign,
-			@RequestParam(required = false) final String utm_content) throws Exception  {
-		return annualTravelService.getTravelHomePage(promo, request, model, utm_source, utm_medium, utm_campaign, utm_content);
-	}
-
 	@RequestMapping(value = {"/{lang}/annual-travel-insurance/quote"})
 	public ModelAndView prepareTravelPlan(
 			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
@@ -88,7 +76,7 @@ public class AnnualTravelController {
 		if (session.getAttribute("token") == null) 
 		{
 			model.addAttribute("errMsgs", "Session Expired");
-			return annualTravelService.getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
+			return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
 		}
 		
 		UserRestURIConstants.setController("Travel");
@@ -108,7 +96,7 @@ public class AnnualTravelController {
 		} else {
 			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
 			if(travelQuote == null){
-				return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
+				return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 			}				
 		}
 		try {
@@ -312,10 +300,10 @@ public class AnnualTravelController {
 		String planSelected = (String) session.getAttribute("planSelected");
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
-			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
+			return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
 		}
 		if(travelQuote == null || planSelected == null){
-			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");		
+			return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");		
 		}
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());

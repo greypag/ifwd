@@ -3964,6 +3964,7 @@ function flightValidateGetQuote(depDateId, errDepDateId, returnDateId, errReturn
 
 function flightValidateDeskTravel(){
 	var flag = true;
+	document.getElementById("travelTypeDeskIn").innerHTML = "";
 	document.getElementById("startDateDeskIn").innerHTML = "";
 	document.getElementById("endDateDeskIn").innerHTML = "";
 	document.getElementById("travelCountDeskIn").style.display = "none";
@@ -4028,6 +4029,7 @@ function flightValidateDeskTravel(){
 function flightValidateMobTravel() {
 	var flag = true;
 
+	document.getElementById("travelTypeMobIn").innerHTML = "";
 	document.getElementById("startDateMobIn").innerHTML = "";
 	document.getElementById("endDateMobIn").innerHTML = "";
 	document.getElementById("travelCountMobIn").style.display = "none";
@@ -4093,6 +4095,7 @@ function flightValidateMobTravel() {
 function flightValidateBtmTravel() {
 	var flag = true;
 
+	document.getElementById("travelTypeBtmIn").innerHTML = "";
 	document.getElementById("startDateBtmIn").innerHTML = "";
 	document.getElementById("endDateBtmIn").innerHTML = "";
 	$("#travelCountBtmIn").hide();
