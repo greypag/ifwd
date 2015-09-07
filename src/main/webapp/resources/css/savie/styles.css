@@ -5049,12 +5049,16 @@ span.explanation {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .investment .tab-content.credits .percent-buttons .fwd-chart-col {
-    width: 50%;
+    width: 35%;
     background-color: transparent;
     padding-top: 0;
     padding-bottom: 0;
     padding-right: 0;
     margin-top: 0;
+  }
+
+  .fwd-savie-wrapper .after-year-three{
+    width: 65%;
   }
 }
 .fwd-savie-wrapper .investment .tab-content.credits .percent-buttons .fwd-chart-col .chart-button-left, .fwd-savie-wrapper .investment .tab-content.credits .percent-buttons .fwd-chart-col .chart-button-right {
@@ -14736,6 +14740,11 @@ input[type=number] {
     padding-right: 65px;
     padding-top: 35px;
   }
+
+  body.chin .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 95px;
+  }
+
   .fwd-savie-wrapper .sign-up-teaser button.get-started {
     font-family: 'calibri-bold';
     font-size: 32px;
@@ -14751,25 +14760,33 @@ input[type=number] {
   }
 }
 
-@media (min-width: 1120px) {
-  .fwd-savie-wrapper .sign-up-teaser {
-    //top: 325px;
+@media (min-width: 1023px){
+  body.chin .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 120px;
   }
 }
-@media (min-width: 1200px) {
+
+@media (min-width: 1029px){
   .fwd-savie-wrapper .sign-up-teaser {
-    //top: 380px;
+    bottom: 105px;
   }
 }
-@media (min-width: 1480px) {
-  .fwd-savie-wrapper .sign-up-teaser {
-    //top: 485px;
+
+@media (min-width: 1040px){
+  body.chin .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 120px;
   }
 }
 
 @media (min-width: 1046px){
   .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 120px;
+    bottom: 105px;
+  }
+}
+
+@media (min-width: 1076px){
+  .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 130px;
   }
 }
 
@@ -14786,6 +14803,11 @@ input[type=number] {
   }
 }
 
+@media (min-width: 1263px) {
+  body.chin .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 145px;
+  }
+}
 
 /**click here button in O2O-landing*/
 .fwd-savie-wrapper .sign-up-teaser p.sign-up-header #signup {
@@ -14842,7 +14864,8 @@ input[type=number] {
     text-align: left;
     color: #fff;
     line-height: 29px;
-    padding-right: 20px;
+    //padding-right: 20px;
+    padding-right: 12px;
     padding-bottom: 13px;
   }
 }
