@@ -82,38 +82,6 @@ $(function() {
     $('input, textarea').placeholder();
 });
 </script>
-
-<c:choose>
-    <c:when test="${language=='en'}">
-       <!-- Start of LiveChat (www.livechatinc.com) code -->
-        <script type="text/javascript">
-        var __lc = {};
-        __lc.license = 6320751;
-        __lc.group = 1;
-        (function() {
-        var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
-        lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
-        })();
-        </script>
-        <!-- End of LiveChat code -->
-    </c:when>
-    <c:otherwise>
-       <!-- Start of LiveChat (www.livechatinc.com) code -->
-        <script type="text/javascript">
-        var __lc = {};
-        __lc.license = 6320751;
-        __lc.group = 2;
-        (function() {
-        var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
-        lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
-        })();
-        </script>
-        <!-- End of LiveChat code -->
-    </c:otherwise>
-</c:choose>
-
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
 <script type="text/javascript"
