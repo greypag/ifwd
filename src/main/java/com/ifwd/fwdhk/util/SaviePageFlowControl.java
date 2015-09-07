@@ -17,6 +17,9 @@ public class SaviePageFlowControl {
 	public static ModelAndView pageFlow(Model model, HttpServletRequest request, String key) {
 
 		logger.debug("-----------------------------------page flow start--------------------------------------------");
+		
+		UserRestURIConstants.setController("Savie");
+		request.setAttribute("controller", UserRestURIConstants.getController());
 
 		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
 				UserRestURIConstants.getLanaguage(request));

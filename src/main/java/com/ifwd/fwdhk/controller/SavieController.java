@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.codec.binary.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -40,11 +39,9 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.model.OptionItemDesc;
-import com.ifwd.fwdhk.model.savie.SavieBeneficiaryBean;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
-import com.ifwd.fwdhk.util.CommonEnum.MaritalStatusEnum;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
@@ -239,8 +236,6 @@ public class SavieController extends BaseController{
 		}else{
 			savieAns=InitApplicationMessage.savieAnsEN;
 		}
-		UserRestURIConstants.setController("Savie");
-		request.setAttribute("controller", UserRestURIConstants.getController());
 		
 		model.addAttribute("savieAns", savieAns);
 		model.addAttribute("affiliate", affiliate);
