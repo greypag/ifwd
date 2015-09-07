@@ -427,6 +427,19 @@ public class SavieController extends BaseController{
 		}
 		model.addAttribute("savieAns", savieAns);
 		model.addAttribute("affiliate", affiliate);
+		
+		HttpSession session = request.getSession();
+		session.removeAttribute("savingDob");
+		session.removeAttribute("applicationNumber");
+		session.removeAttribute("centreDetails");
+		session.removeAttribute("planDetailData");
+		session.removeAttribute("birthOfDay");
+		session.removeAttribute("savingAmount");
+		session.removeAttribute("planDetail");
+		session.removeAttribute("savingPromocode");
+		session.removeAttribute("accessCode");
+		session.removeAttribute("userDetails");
+		session.removeAttribute("formatSavingAmount");
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
 	}
 }
