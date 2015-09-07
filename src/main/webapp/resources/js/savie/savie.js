@@ -57,7 +57,7 @@ function getSaviePlanDetails() {
 	
 	var planCode = "savie";
 	var issueAge = jsGetAge(birthOfDay);
-	var paymentTerm = 100-issueAge+1;
+	var paymentTerm = 100-issueAge;
 	var premium = amount;
 	var referralCode = promocode;
 	

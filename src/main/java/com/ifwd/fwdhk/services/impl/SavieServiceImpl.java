@@ -134,7 +134,7 @@ public class SavieServiceImpl implements SavieService {
 		try {
 			String planCode = request.getParameter("planCode");
 			String issueAge = request.getParameter("issueAge");
-			String paymentTerm = String.valueOf(Integer.parseInt(request.getParameter("paymentTerm")) - 1);
+			String paymentTerm = request.getParameter("paymentTerm");
 			
 			String premium = request.getParameter("premium");
 			String referralCode = request.getParameter("referralCode");
@@ -251,34 +251,34 @@ public class SavieServiceImpl implements SavieService {
 						List<JSONObject> plansList = new ArrayList<JSONObject>();
 						
 						JSONObject plan0 = new JSONObject();
-						plan0.accumulate("accountBalance", Float.valueOf(planDetails0Rate.get(i).getAccountEOP()));
+						plan0.accumulate("accountBalance", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
 						plan0.accumulate("totalPremium", premium);
-						plan0.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan0.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
+						plan0.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan0.accumulate("guaranteedDeathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
 						plan0.accumulate("rate","zero");
 						plansList.add(plan0);
 						
 						JSONObject plan2 = new JSONObject();
-						plan2.accumulate("accountBalance", Float.valueOf(planDetails2Rate.get(i).getAccountEOP()));
+						plan2.accumulate("accountBalance", formartNumber(planDetails2Rate.get(i).getAccountEOP()));
 						plan2.accumulate("totalPremium", premium);
-						plan2.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan2.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
+						plan2.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan2.accumulate("guaranteedDeathBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
 						plan2.accumulate("rate","two");
 						plansList.add(plan2);
 						
 						JSONObject plan3 = new JSONObject();
-						plan3.accumulate("accountBalance", Float.valueOf(planDetails3Rate.get(i).getAccountEOP()));
+						plan3.accumulate("accountBalance", formartNumber(planDetails3Rate.get(i).getAccountEOP()));
 						plan3.accumulate("totalPremium", premium);
-						plan3.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan3.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
+						plan3.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan3.accumulate("guaranteedDeathBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
 						plan3.accumulate("rate","three");
 						plansList.add(plan3);
 						
 						JSONObject plan4 = new JSONObject();
-						plan4.accumulate("accountBalance", Float.valueOf(planDetails4Rate.get(i).getAccountEOP()));
+						plan4.accumulate("accountBalance", formartNumber(planDetails4Rate.get(i).getAccountEOP()));
 						plan4.accumulate("totalPremium", premium);
-						plan4.accumulate("guaranteedSurrenderBenefit", Float.valueOf(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
-						plan4.accumulate("guaranteedDeathBenefit", Float.valueOf(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
+						plan4.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
+						plan4.accumulate("guaranteedDeathBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
 						plan4.accumulate("rate","four");
 						plansList.add(plan4);
 						
@@ -1514,5 +1514,12 @@ public class SavieServiceImpl implements SavieService {
 			e.printStackTrace();
 		}
 		return br;
+	}
+	private String formartNumber(String num){
+		if(num.contains(".")){
+			num = num.split("\\.")[0];
+		}
+		logger.info(num);
+		return num;
 	}
 }
