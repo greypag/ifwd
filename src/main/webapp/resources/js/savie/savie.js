@@ -69,6 +69,7 @@ function getSaviePlanDetails() {
 		console.log("Invalid Savings amount!");
 	}
 	else{
+		$('#promo-code-errmsg').addClass('hideSpan');
 		$('#promo-code-dateOfBirth').addClass('hideSpan');
 		$.get(contextPath+'/ajax/savie/planDetails/get',
 		{ 
@@ -255,7 +256,6 @@ function getSaviePlanDetails() {
 				//zoomCtr = 4;
 				//currentRate = 3;
 				//showFWDChart(currentRate, zoomCtr, isCurrentDefault);
-				$('#promo-code-errmsg').addClass('hideSpan');
 			}
 			else{
 				$('#promo-code-errmsg').removeClass('hideSpan');
