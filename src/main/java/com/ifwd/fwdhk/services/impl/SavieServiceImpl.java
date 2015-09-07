@@ -1519,7 +1519,6 @@ public class SavieServiceImpl implements SavieService {
 		if(num.contains(".")){
 			num = num.split("\\.")[0];
 		}
-		logger.info(num);
 		return num;
 	}
 }
