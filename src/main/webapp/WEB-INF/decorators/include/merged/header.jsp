@@ -439,7 +439,7 @@ function submitLoginForm(formID) {
 		<div class="clearfix"></div>
 	</div>
 	<div class="logobox">
-		<div class="navbar-header">
+		<div class="navbar-header" style="overflow:hidden;">
 			<button type="button"
 				class="navbar-toggle pull-right col-xs-1 col-sm-1"
 				data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
