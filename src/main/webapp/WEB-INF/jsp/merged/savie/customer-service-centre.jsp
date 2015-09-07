@@ -32,6 +32,7 @@ var language = "${language}";
 				<div class="application-flux customer-service">
 					<div id="service-centre" class="container-fluid fwd-container page-application">
 						<h2><fmt:message key="savie.customerServiceCentre.headerText1" bundle="${msg}" /></h2>
+						<p class="confirm-call"><fmt:message key="savie.customerServiceCentre.confirmCall" bundle="${msg}" /></p>
 						<form>
 							<div class="row">
 								<div class="col-xs-12 col-md-6">
@@ -68,7 +69,6 @@ var language = "${language}";
 											</div>
 										</div>
 									</div>
-									<p class="confirm-call"><fmt:message key="savie.customerServiceCentre.confirmCall" bundle="${msg}" /></p>
 								</div>
 								
 								<div class="col-xs-12 col-md-6">

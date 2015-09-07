@@ -109,9 +109,9 @@ var affiliate = "${affiliate}";
 									</div>-->
 								</div>
 							</div>
-							<div class="col-xs-12 print-document">
+							<!--<div class="col-xs-12 print-document">
 								<a href="" class="hidden-xs hidden-sm" id="print-this-page"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/print-icon.png" class="img-responsive" /><fmt:message key="savie.confirmation.offline.Print" bundle="${msg}" /></a>
-							</div>
+							</div>-->
 						</div>
 					</div>
 					
