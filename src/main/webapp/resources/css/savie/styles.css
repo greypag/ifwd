@@ -2520,7 +2520,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 .fwd-savie-wrapper .modal.fade .modal-dialog {
   /*width: 480px;*/
   /* width: 377px; */
-  width: auto;
+  /*width: auto;*/
   margin-left: auto;
   margin-right: auto;
 }
