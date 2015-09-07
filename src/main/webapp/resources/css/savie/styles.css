@@ -105,6 +105,9 @@ body {
   font-family: 'Calibri-Bold';
   padding: 7px 40px;
 }
+body.chin .fwd-savie-wrapper .btn-orange {
+  font-family: 'Microsoft Yahei';
+}
 .fwd-savie-wrapper .btn-orange:hover {
   background: #fff;
   color: #ff8200;
@@ -3788,6 +3791,9 @@ body {
   font-size: 24px;
   margin: 9px 5px 0;
 }
+body.chin #illustration-filters #investment-amount #hkd {
+  font-family: 'Microsoft Yahei';
+}
 #illustration-filters #investment-amount #hkd span {
   font-family: 'Calibri';
   font-weight: normal;
@@ -5188,6 +5194,9 @@ span.explanation {
   font-family: 'Calibri-Bold';
   font-size: 18px;
 }
+body.chin .fwd-savie-wrapper .investment .tab-content.credits table thead {
+  font-family: 'Microsoft Yahei';
+}
 @media (min-width: 992px) {
   .fwd-savie-wrapper .investment .tab-content.credits table thead {
     font-size: 22.98px;
@@ -5803,6 +5812,10 @@ span.dup-error-msg {
   background: #ff8200;
   font-size: 24px;
   font-family: 'Calibri-bold';
+}
+.fwd-savie-wrapper button.next,
+.fwd-savie-wrapper a.next {
+  font-family: 'Microsoft Yahei';
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper button.next,
@@ -12353,7 +12366,10 @@ span.dup-error-msg {
   width: 100%;
   margin-top: 6px;
 }
-.fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body form .hunger-btn:active, .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body form .hunger-btn:hover, .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body form .hunger-btn:focus {
+body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body form .hunger-btn {
+  font-family: 'Microsoft JhengHei';
+}
+.fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body form .hunger-btn:hover {
   background-color: #fff;
   color: #ff8200;
   outline: 0;
@@ -13881,6 +13897,9 @@ input[type=number] {
     font-size: 36px;
     font-family: 'Calibri-Bold';
   }
+  body.chin .fwd-savie-wrapper .investment .after-3-years-btn .btn.btn-white.see-more {
+    font-family: 'Microsoft Yahei';
+  }
 }
 
 .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn {
@@ -14711,6 +14730,9 @@ input[type=number] {
   font-size: 28px;
   border: 1px solid #ff8000;
 }
+body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
+  font-family: 'Microsoft JhengHei';
+}
 .fwd-savie-wrapper .hunger-text-section button.get-started {
   background-color: #fff;
   color: #ff8200;
@@ -15520,6 +15542,10 @@ body.chin .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3
   font-size: 30px;
   padding: 15px;
   font-family: 'Calibri';
+}
+.fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .modal-body button,
+.fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .modal-body button {
+  font-family: 'Microsoft Yahei';
 }
 .fwd-savie-wrapper .page-application .selectDiv {
   position: relative;
