@@ -92,13 +92,13 @@ public class SavieController extends BaseController{
 			calendar.add(calendar.YEAR, -18);
 			calendar.add(calendar.DATE, -1);
 			date = calendar.getTime();
-			SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+			SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 			String dd =format.format(date);
 			model.addAttribute("defaultDOB", dd);
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
 		}else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/savings-insurance/" + UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
+					+ "/savings-insurance");
 		}
 	}	
 	
@@ -379,7 +379,7 @@ public class SavieController extends BaseController{
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER);
 		} else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/savings-insurance/" + UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
+					+ "/savings-insurance");
 		}
 	}
 	
@@ -405,7 +405,7 @@ public class SavieController extends BaseController{
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE);
 		}else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/savings-insurance/" + UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
+					+ "/savings-insurance");
 		}
 		
 	}
@@ -427,6 +427,19 @@ public class SavieController extends BaseController{
 		}
 		model.addAttribute("savieAns", savieAns);
 		model.addAttribute("affiliate", affiliate);
+		
+		HttpSession session = request.getSession();
+		session.removeAttribute("savingDob");
+		session.removeAttribute("applicationNumber");
+		session.removeAttribute("centreDetails");
+		session.removeAttribute("planDetailData");
+		session.removeAttribute("birthOfDay");
+		session.removeAttribute("savingAmount");
+		session.removeAttribute("planDetail");
+		session.removeAttribute("savingPromocode");
+		session.removeAttribute("accessCode");
+		session.removeAttribute("userDetails");
+		session.removeAttribute("formatSavingAmount");
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
 	}
 }

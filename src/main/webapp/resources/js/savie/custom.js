@@ -131,7 +131,7 @@ $(function() {
 		})
 	//Plan Details Validation
 	//by: RMN
-	$('#sales-illu-apply-now').click(function(){
+	$('#sales-illu-apply-now111').click(function(){
 		var promoCode = $('#promocode').val();
 		var planDetailsDob = new Date($('#sales-illu-dob').val());
 		var planDetailsAge = calculateAge(planDetailsDob.format('Y-m-d'));
@@ -909,7 +909,7 @@ $(function() {
 		// Plan Details Datepicker
 		// vp#950
 		$('#sales-illu-dob').datepicker({
-			format: "mm-dd-yyyy",
+			format: "dd-mm-yyyy",
 			autoclose: true
 		});
 		

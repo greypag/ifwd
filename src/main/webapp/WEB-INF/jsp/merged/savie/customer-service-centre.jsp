@@ -32,6 +32,7 @@ var language = "${language}";
 				<div class="application-flux customer-service">
 					<div id="service-centre" class="container-fluid fwd-container page-application">
 						<h2><fmt:message key="savie.customerServiceCentre.headerText1" bundle="${msg}" /></h2>
+						<p class="confirm-call"><fmt:message key="savie.customerServiceCentre.confirmCall" bundle="${msg}" /></p>
 						<form>
 							<div class="row">
 								<div class="col-xs-12 col-md-6">
@@ -52,7 +53,7 @@ var language = "${language}";
 										<div class="col-xs-12 col-md-4"><label for="preferred-date"><fmt:message key="savie.customerServiceCentre.date" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div id="date" class="selectDiv preferred-date">
-												<input type="text" class="date" name="preferred-date" id="preferred-date" value="" readonly="">
+												<input type="text" class="date" name="preferred-date" id="preferred-date" value="${perferredDate }" readonly="">
 											</div>
 										</div>
 									</div>
@@ -68,7 +69,6 @@ var language = "${language}";
 											</div>
 										</div>
 									</div>
-									<p class="confirm-call"><fmt:message key="savie.customerServiceCentre.confirmCall" bundle="${msg}" /></p>
 								</div>
 								
 								<div class="col-xs-12 col-md-6">
@@ -175,8 +175,8 @@ var language = "${language}";
 		});
 		
 		var serviceCentreCode = '${csCenter }';
-		var perDate = '${perferredDate }';
-		$("#preferred-date").datepicker("setDate", perDate.split('-')[0] +'-'+ perDate.split('-')[1] + '-' + perDate.split('-')[2]);
+		//var perDate = '${perferredDate }';
+		//$("#preferred-date").datepicker("setDate", perDate.split('-')[0] +'-'+ perDate.split('-')[1] + '-' + perDate.split('-')[2]);
 		
 		$('.centre-info').addClass('hidden');
 		$('#centre-' + serviceCentreCode).removeClass('hidden');

@@ -61,13 +61,20 @@ function getSaviePlanDetails() {
 	var referralCode = promocode;
 	
 	if(issueAge == null || issueAge < 18 || issueAge > 100){
-		$('#promo-code-dateOfBirth').removeClass('hidden');
+		if($('#promo-code-dateOfBirth').hasClass('hideSpan')){
+			$('#promo-code-dateOfBirth').removeClass('hideSpan');
+		}
 	}
 	else if(premium ==null || premium <30000 || premium > 400000){
 		console.log("Invalid Savings amount!");
 	}
 	else{
-		$('#promo-code-dateOfBirth').addClass('hidden');
+		// display loading mask
+		$('.loading-mask').toggle();
+		$('body').addClass('modal-open');
+
+		$('#promo-code-errmsg').addClass('hideSpan');
+		$('#promo-code-dateOfBirth').addClass('hideSpan');
 		$.get(contextPath+'/ajax/savie/planDetails/get',
 		{ 
 			planCode : planCode,
@@ -77,6 +84,10 @@ function getSaviePlanDetails() {
 			birthOfDay:birthOfDay
 		},
 		function(data) {
+			// hide loading mask
+			$('.loading-mask').toggle();
+			$('body').removeClass('modal-open');
+
 			if(data.result == "success"){
 				var json = $.parseJSON(JSON.stringify(data));
 				jsonTableData = $.parseJSON(JSON.stringify(data));
@@ -253,7 +264,6 @@ function getSaviePlanDetails() {
 				//zoomCtr = 4;
 				//currentRate = 3;
 				//showFWDChart(currentRate, zoomCtr, isCurrentDefault);
-				$('#promo-code-errmsg').addClass('hideSpan');
 			}
 			else{
 				$('#promo-code-errmsg').removeClass('hideSpan');
@@ -270,8 +280,8 @@ function jsGetAge(strBirthday){
 	var returnAge;
 	var strBirthdayArr=strBirthday.split("-");
 	var birthYear = strBirthdayArr[2];
-	var birthMonth = strBirthdayArr[0];
-	var birthDay = strBirthdayArr[1];
+	var birthMonth = strBirthdayArr[1];
+	var birthDay = strBirthdayArr[0];
 	
 	d = new Date();
 	var nowYear = d.getFullYear();

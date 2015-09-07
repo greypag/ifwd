@@ -54,7 +54,7 @@ var affiliate = "${affiliate}";
 									<div class="col-xs-12 col-md-4">
 										<div class="offline-procedure text-center">
 											<span class="step">2</span>
-											<p><fmt:message key="savie.confirmation.offline.A.address.part1" bundle="${msg}" /><a href="<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.confirmation.offline.A.address.link.text" bundle="${msg}" /></a><fmt:message key="savie.confirmation.offline.A.address.part2" bundle="${msg}" /></p>
+											<p><fmt:message key="savie.confirmation.offline.A.address.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.confirmation.offline.A.address.link.text" bundle="${msg}" /></a><fmt:message key="savie.confirmation.offline.A.address.part2" bundle="${msg}" /></p>
 											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-2.jpg" class="img-responsive" /></div>
 										</div>
 									</div>
@@ -109,9 +109,9 @@ var affiliate = "${affiliate}";
 									</div>-->
 								</div>
 							</div>
-							<div class="col-xs-12 print-document">
+							<!--<div class="col-xs-12 print-document">
 								<a href="" class="hidden-xs hidden-sm" id="print-this-page"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/print-icon.png" class="img-responsive" /><fmt:message key="savie.confirmation.offline.Print" bundle="${msg}" /></a>
-							</div>
+							</div>-->
 						</div>
 					</div>
 					
