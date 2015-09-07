@@ -419,37 +419,35 @@ var context = "${pageContext.request.contextPath}";
 					$('#rate-table-3').removeClass('hidden');
 					$('#rate-table-4').addClass('hidden');
 				});
-			});
 			
-			//login
-			$("#made-decision-next-btn").on('click', function(){
-				var savingAmount = $("input[name='amount']").val();
-				var savingDob = $("input[name='dob']").val();
-				var savingPromocode = $("input[name='promocode']").val();
-				$.ajax({     
-				    url:'${pageContext.request.contextPath}/ajax/savie/savings-insurance/saveAmount',     
-				    type:'post',     
-				    data:{    
-				    	"savingAmount": savingAmount,
-				    	"savingDob": savingDob,
-				    	"savingPromocode": savingPromocode,
-			   		},     
-				    error:function(){       
-				    },     
-				    success:function(data){  
-				    }  
-				});
-				
-				if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-					$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
-					$('#thankYouModal').modal('show');
-				}
-				else{
-					$('#loginpopup').modal('show');
-				}
-		    });	
-			
-			$(document).ready(function(){
+				//login
+				$("#made-decision-next-btn").on('click', function(){
+					var savingAmount = $("input[name='amount']").val();
+					var savingDob = $("input[name='dob']").val();
+					var savingPromocode = $("input[name='promocode']").val();
+					$.ajax({     
+					    url:'${pageContext.request.contextPath}/ajax/savie/savings-insurance/saveAmount',     
+					    type:'post',     
+					    data:{    
+					    	"savingAmount": savingAmount,
+					    	"savingDob": savingDob,
+					    	"savingPromocode": savingPromocode,
+				   		},     
+					    error:function(){       
+					    },     
+					    success:function(data){  
+					    }  
+					});
+					
+					if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+						$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
+						$('#thankYouModal').modal('show');
+					}
+					else{
+						$('#loginpopup').modal('show');
+					}
+			    });	
+
 				var thankyou = "${thankyou }";
 				if(thankyou == "thankyou" && "${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
 					$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
