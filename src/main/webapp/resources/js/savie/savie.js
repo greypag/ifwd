@@ -57,7 +57,6 @@ function getSaviePlanDetails() {
 	
 	var planCode = "savie";
 	var issueAge = jsGetAge(birthOfDay);
-	var paymentTerm = 100-issueAge;
 	var premium = amount;
 	var referralCode = promocode;
 	
@@ -73,7 +72,6 @@ function getSaviePlanDetails() {
 		{ 
 			planCode : planCode,
 			issueAge: issueAge,
-			paymentTerm: paymentTerm,
 			premium: premium,
 			referralCode: referralCode,
 			birthOfDay:birthOfDay
@@ -270,7 +268,7 @@ function getSaviePlanDetails() {
 
 function jsGetAge(strBirthday){ 
 	var returnAge;
-	var strBirthdayArr=strBirthday.split("/");
+	var strBirthdayArr=strBirthday.split("-");
 	var birthYear = strBirthdayArr[2];
 	var birthMonth = strBirthdayArr[0];
 	var birthDay = strBirthdayArr[1];
@@ -303,7 +301,7 @@ function jsGetAge(strBirthday){
 		else{returnAge = -1;
 		}
 	}
-	return returnAge+1;
+	return returnAge;
 }
 
 function getguaranteed3Years(){

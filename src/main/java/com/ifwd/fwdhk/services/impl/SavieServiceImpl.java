@@ -133,8 +133,8 @@ public class SavieServiceImpl implements SavieService {
 	public void getPlanDetails(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws ECOMMAPIException {
 		try {
 			String planCode = request.getParameter("planCode");
-			String issueAge = request.getParameter("issueAge");
-			String paymentTerm = request.getParameter("paymentTerm");
+			int issueAge = Integer.valueOf(request.getParameter("issueAge"))+1;
+			int paymentTerm = 100-issueAge;
 			
 			String premium = request.getParameter("premium");
 			String referralCode = request.getParameter("referralCode");
