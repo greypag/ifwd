@@ -13937,14 +13937,15 @@ input[type=number] {
 
 
 .fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
-    max-height: 800px;
+    max-height: 400px;
     overflow: scroll;
 }
 
 @media (min-width: 768px){
-.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
-    overflow: hidden;
-}
+  .fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
+      max-height: 800px;
+      overflow: hidden;
+  }
 }
 
 .fwd-savie-wrapper .yellow-stick-btn {
