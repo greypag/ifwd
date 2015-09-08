@@ -4260,6 +4260,18 @@ span.explanation {
   }
 }
 
+@media (max-width: 750px){
+  .fwd-savie-wrapper #thankYouModal .modal-dialog {
+      height: 100%;
+  }
+
+  .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content{
+      max-height: 980%;
+      height: 90%;
+      overflow-y: auto;
+  }
+}
+
 
 .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content {
   padding: 0;
