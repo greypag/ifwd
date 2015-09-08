@@ -3730,7 +3730,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
     position: absolute;
     top: -40px;
     padding-left: 35px;
-    z-index: 5;
+    z-index: 1;
   }
 }
 #illustration-filters #triangle {
