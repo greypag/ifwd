@@ -906,13 +906,6 @@ $(function() {
 			}
 		}
  		
-		// Plan Details Datepicker
-		// vp#950
-		$('#sales-illu-dob').datepicker({
-			format: "dd-mm-yyyy",
-			autoclose: true
-		});
-		
 		// modals
 		var top = $('header .navbar-fixed-top').height();
 		$('.modal.in').css('margin-top', top + 'px');
@@ -1210,7 +1203,7 @@ function changeDatePickerValue($datePicker) {
 		startView: "decade",
 		startDate: dob_start_date,
 		endDate: dob_end_date,
-		formatDate: 'mm-dd-yyyy'
+		formatDate: 'dd-mm-yyyy'
     }).on("changeDate", function(e) {
         $datePicker.datepicker('hide');
 		
@@ -1221,7 +1214,7 @@ function changeDatePickerValue($datePicker) {
 			//$('#dates').val(dateVal.format('jS M Y'));
 			$('#dates').val(dateVal.format('d-m-Y'));
 		} else {
-			$('#dates').val(dateVal.format('Y-m-d'));
+			$('#dates').val(dateVal.format('d-m-Y'));
 		}
 	});
 }

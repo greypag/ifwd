@@ -79,7 +79,7 @@ var context = "${pageContext.request.contextPath}";
 								hidden-xs hidden-sm
 								 -->
 								<div class="input-group input-append date" id="datePicker">
-									<input type="text" class="date" value="${savingDob!=null ? savingDob:defaultDOB }" name="dob" id="sales-illu-dob" placeholder="mm/dd/year" onfocusin="fnSetStyle()" readonly />
+									<input type="text" class="date" value="${savingDob!=null ? savingDob:defaultDOB }" name="dob" id="sales-illu-dob" placeholder="dd-mm-year" readonly />
 									<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 								</div>
 								<span class="error-msg-dob hideSpan" id="promo-code-dateOfBirth">Invalid date of birth. You must be 19 and above to apply.</span>
@@ -406,8 +406,16 @@ var context = "${pageContext.request.contextPath}";
 		<script src="<%=request.getContextPath()%>/resources/js/savie/highcharts.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-chart.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
-		<script type="text/javascript">		
-			$(function () {	
+		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+		<script type="text/javascript">	
+		        $(function() {
+				$('#datePicker').datepicker({
+					format: "dd-mm-yyyy",
+					startDate: '${startDOB }',
+					endDate: '${defaultDOB }',
+					autoclose: true
+				});
+				
 				$('#see-more-3-years').click(function(){
 					$('#after-3-years-div').addClass('hidden');
 					$('#after-3-years').removeClass('hidden');

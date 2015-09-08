@@ -86,15 +86,18 @@ public class SavieController extends BaseController{
 			if("thankyou".equals(request.getParameter("thankyou"))){
 				model.addAttribute("thankyou", request.getParameter("thankyou"));
 			}
-			Date date = new Date();
-			Calendar calendar = new GregorianCalendar();
-			calendar.setTime(date); 
-			calendar.add(calendar.YEAR, -18);
-			calendar.add(calendar.DATE, -1);
-			date = calendar.getTime();
 			SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-			String dd =format.format(date);
-			model.addAttribute("defaultDOB", dd);
+			Date date = new Date();
+			Calendar startDOB = new GregorianCalendar();
+			startDOB.setTime(date); 
+			startDOB.add(startDOB.YEAR, -70);
+			startDOB.add(startDOB.DATE, 1);
+			model.addAttribute("startDOB", format.format(startDOB.getTime()));
+			
+			Calendar defaultDOB = new GregorianCalendar();
+			defaultDOB.setTime(date); 
+			defaultDOB.add(defaultDOB.YEAR, -18);
+			model.addAttribute("defaultDOB", format.format(defaultDOB.getTime()));
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
 		}else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
