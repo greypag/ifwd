@@ -160,7 +160,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="col-xs-12 col-md-8 fwd-col">
 										<ul>
 											<li><p><fmt:message key="savie.interestGather.otherfeatures.context1" bundle="${msg}" /></p></li>
-											<a class="read-more hidden-md hidden-lg" id="read-more-other-benefits">Read more</a>
+											<a class="read-more hidden-md hidden-lg" id="read-more-other-benefits"><fmt:message key="savie.landing.hidden.readmore" bundle="${msg}" /></a>
 											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-0"><p><fmt:message key="savie.interestGather.otherfeatures.context5" bundle="${msg}" /></p></li>
 											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-1"><p><fmt:message key="savie.interestGather.otherfeatures.context2" bundle="${msg}" /></p></li>
 											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-2"><p><fmt:message key="savie.interestGather.otherfeatures.context6" bundle="${msg}" /></p></li>
@@ -307,7 +307,7 @@ var home_url = "<%=request.getContextPath()%>";
 					<p class="text-left hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.The.information" bundle="${msg}" /></p>
 				</div>			
 			</div>
-			<a class="btn btn-full hidden-md hidden-lg" href="http://blog.fwd.com.hk/en_US/" target="_blank"><fmt:message key="savie.o2o.landing.Read" bundle="${msg}" /></a>	
+			<a class="btn btn-full hidden-md hidden-lg" href="http://blog.fwd.com.hk/en_US/" target="_blank"><fmt:message key="savie.landing.hidden.readmore.mobile" bundle="${msg}" /></a>	
 			
 			<!-- Customer Center Modal -->
 			<div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">
