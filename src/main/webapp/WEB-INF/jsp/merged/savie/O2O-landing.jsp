@@ -372,7 +372,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<input placeholder="<fmt:message key="savie.o2o.landing.waiting.list.email.placeholder" bundle="${msg}" />" type="text" name="signupEmail" id="teaserEmail"/>
 									<span id="emailErrMsg" class="error-email"><fmt:message key="savie.o2o.landing.waiting.list.email.error" bundle="${msg}" /></span>
 									<input placeholder="<fmt:message key="savie.o2o.landing.waiting.list.phone.placeholder" bundle="${msg}" />" type="number" name="signupMobileNo" id="teaserPhoneNo"/>
-									<!--<span id="phoneErrMsg" class="error-email hideSpan">&nbsp;</span>-->
+									<span id="phoneErrMsg" class="error-email hideSpan">&nbsp;</span>
 									<input type="hidden" name="affiliate" value="${affiliate}">
 								</div>
 
