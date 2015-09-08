@@ -7833,6 +7833,7 @@ tr.product-landing-error-wrap {
 }
 
 .product_plan_panel{
+	position: relative;
 	background-color: #9BA5A7;
 	margin-bottom:1px;
 	cursor:pointer;
@@ -7845,10 +7846,13 @@ tr.product-landing-error-wrap {
 }
 
 .product_plan_panel .fa{
-    margin-top: 15px;
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
 }
 
 .product_plan_inner_panel{
+	position: relative;
     background-color: #C5CFD8;
     cursor:pointer;
 }
@@ -7860,7 +7864,9 @@ tr.product-landing-error-wrap {
 }
 
 .product_plan_inner_panel .fa{
-    margin-top: 15px;
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
 }
 
 .product_plan_panel_inner_content{
@@ -8060,3 +8066,89 @@ tr.product-landing-error-wrap {
 	}
 }
 /** annual travel **/
+
+.table-container
+{
+    width: 100%;
+    overflow-y: auto;
+    _overflow: auto;
+    margin: 0 0 1em;
+}
+
+.table-container::-webkit-scrollbar
+{
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+}
+
+.table-container::-webkit-scrollbar-thumb
+{
+    border-radius: 8px;
+    border: 3px solid #F2F3F5;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.table-container-outer { position: relative; }
+
+.table-container-fade
+{
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    background-image: -webkit-linear-gradient(0deg, rgba(255,255,255,.5), #F2F3F5);
+    background-image: -moz-linear-gradient(0deg, rgba(255,255,255,.5), #F2F3F5);
+    background-image: -ms-linear-gradient(0deg, rgba(255,255,255,.5), #F2F3F5);
+    background-image: -o-linear-gradient(0deg, rgba(255,255,255,.5), #F2F3F5);
+    background-image: linear-gradient(0deg, rgba(255,255,255,.5), #F2F3F5);
+}
+
+@media only screen and (max-width: 320px) {
+	/* Force table to not be like tables anymore */
+	#plan-no-more-tables table,
+	#plan-no-more-tables thead,
+	#plan-no-more-tables tbody,
+	#plan-no-more-tables th,
+	#plan-no-more-tables td,
+	#plan-no-more-tables tr {
+	    display: block;
+	}
+	 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#plan-no-more-tables thead tr {
+	 position: absolute;
+	 top: -9999px;
+	 left: -9999px;
+	}
+	 
+	#plan-no-more-tables tr { border: 1px solid #ccc; }
+	  
+	#plan-no-more-tables td {
+	 /* Behave like a "row" */
+	 border: none;
+	 border-bottom: 1px solid #eee;
+	 position: relative;
+	 padding-left: 50%;
+	 white-space: normal;
+	 text-align:left;
+	}
+	 
+	#plan-no-more-tables td:before {
+	 /* Now like a table header */
+	 position: absolute;
+	 /* Top/left values mimic padding */
+	 top: 6px;
+	 left: 6px;
+	 width: 45%;
+	 padding-right: 10px;
+	 white-space: nowrap;
+	 text-align:left;
+	 font-weight: bold;
+	}
+	 
+	/*
+	Label the data
+	*/
+	#plan-no-more-tables td:before { content: attr(data-title); }
+}
