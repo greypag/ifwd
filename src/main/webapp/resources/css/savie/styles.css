@@ -64,6 +64,12 @@ body {
   font-size: 15px;
 }
 
+@media screen and (max-width: 992px) {
+   .modal-dialog {
+      width: auto;
+   }
+}
+
 .fwd-savie-wrapper h1,
 .fwd-savie-wrapper h2,
 .fwd-savie-wrapper h3,
@@ -12329,7 +12335,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body div.disclaimer {
   font-size: 14px;
-  width: 353px;
+  max-width: 353px;
   margin: 20px auto 0;
 }
 @media (min-width: 992px) {
@@ -13936,7 +13942,7 @@ input[type=number] {
 }
 
 
-.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
+/*.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
     max-height: 400px;
     overflow: scroll;
 }
@@ -13946,7 +13952,7 @@ input[type=number] {
       max-height: 800px;
       overflow: hidden;
   }
-}
+}*/
 
 .fwd-savie-wrapper .yellow-stick-btn {
   color: #fffffe;
@@ -14767,7 +14773,7 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
   }
 
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 95px;
+    bottom: 70px;
   }
 
   .fwd-savie-wrapper .sign-up-teaser button.get-started {
@@ -14787,37 +14793,37 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
 
 @media (min-width: 1023px){
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 120px;
+    bottom: 75px;
   }
 }
 
 @media (min-width: 1029px){
   .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 105px;
+    bottom: 85px;
   }
 }
 
 @media (min-width: 1040px){
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 120px;
-  }
-}
-
-@media (min-width: 1046px){
-  .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 105px;
+    bottom: 100px;
   }
 }
 
 @media (min-width: 1076px){
   .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 130px;
+    bottom: 110px;
   }
 }
 
 @media (min-width: 1115px){
   .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 135px;
+    //bottom: 135px;
+  }
+}
+
+@media (min-width: 1195px){
+  body.chin .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 120px;
   }
 }
 
@@ -14828,9 +14834,15 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
   }
 }
 
-@media (min-width: 1263px) {
-  body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 145px;
+@media (min-width: 1213px){
+  .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 115px;
+  }
+}
+
+@media (min-width: 1230px){
+  .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 135px;
   }
 }
 
