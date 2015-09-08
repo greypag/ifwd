@@ -313,7 +313,12 @@ var home_url = "<%=request.getContextPath()%>";
 					<p class="text-left hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.The.information" bundle="${msg}" /></p>
 				</div>			
 			</div>
+
+
 			<a class="btn btn-full hidden-md hidden-lg" href="<fmt:message key="fwd.blog.save.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.landing.hidden.readmore.mobile" bundle="${msg}" /></a>	
+			<div class="mobile-disclaimer">
+				<p class="text-left hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.The.information" bundle="${msg}" /></p>
+			</div>
 			
 			<!-- Customer Center Modal -->
 			<div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">

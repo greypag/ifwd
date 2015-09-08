@@ -15612,3 +15612,10 @@ body.chin .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3
   max-width: 300px;
   border-radius: 20px;
 }
+
+.fwd-savie-wrapper .mobile-disclaimer{
+  padding: 15px 30px;
+  font-size: 12px;
+  margin-bottom: 11px;
+  line-height: 14px;
+}
