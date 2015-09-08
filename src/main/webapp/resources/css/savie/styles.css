@@ -3708,8 +3708,8 @@ body.chin .fwd-savie-wrapper .btn-orange {
   font-family: 'Calibri';
   color: #e4002b;
   font-size: 14px;
-  position: absolute;
-  line-height: 11px;
+  display: block;
+  margin-top: 3px;
 }
 #illustration-filters form {
   padding: 0;
