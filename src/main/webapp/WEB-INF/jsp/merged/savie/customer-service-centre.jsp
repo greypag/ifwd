@@ -32,7 +32,6 @@ var language = "${language}";
 				<div class="application-flux customer-service">
 					<div id="service-centre" class="container-fluid fwd-container page-application">
 						<h2><fmt:message key="savie.customerServiceCentre.headerText1" bundle="${msg}" /></h2>
-						<p class="confirm-call"><fmt:message key="savie.customerServiceCentre.confirmCall" bundle="${msg}" /></p>
 						<form>
 							<div class="row">
 								<div class="col-xs-12 col-md-6">
@@ -40,8 +39,8 @@ var language = "${language}";
 										<div class="col-xs-12 col-md-4"><label for="centre"><fmt:message key="savie.customerServiceCentre.center" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div class="selectDiv">
-												<!-- <span class="icon-chevron-thin-down orange-caret"></span> -->
-												<select name="centre" id="centre" class="selectpicker">
+												<span class="icon-chevron-thin-down orange-caret"></span>
+												<select name="centre" id="centre" class="form-control gray-dropdown">
 													<c:forEach var="list" items="${serviceCentre.serviceCentres}">
 											            <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
 											        </c:forEach>
@@ -61,14 +60,15 @@ var language = "${language}";
 										<div class="col-xs-12 col-md-4"><label for="preferred-time"><fmt:message key="savie.customerServiceCentre.time" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div class="selectDiv timeslot">
-												<!--<span class="icon-chevron-thin-down orange-caret" id="time-orange-caret"></span>-->
+												<span class="icon-chevron-thin-down orange-caret" id="time-orange-caret"></span>
 												<!-- <input type="text" name="preferred-time" id="preferred-time" value=""> -->
-												<select name="preferred-time" id="preferred-time" onclick="putTimeSession();" class="selectpicker">
+												<select name="preferred-time" id="preferred-time" onclick="putTimeSession();" class="form-control gray-dropdown">
 											        <option value=""></option>
 												</select>
 											</div>
 										</div>
 									</div>
+									<p class="confirm-call"><fmt:message key="savie.customerServiceCentre.confirmCall" bundle="${msg}" /></p>
 								</div>
 								
 								<div class="col-xs-12 col-md-6">
@@ -187,21 +187,7 @@ var language = "${language}";
 		$('#pick-another-centre-btn').click(function(){
 			$('#pickAnotherCentre').modal('hide');
 		});
-
-		// fix by tommy
-		$('#centre').selectpicker();
-		$('button[data-id="centre"]').on('click', function() {
-			var $self = $(this);
-			var $warp = $self.parent('.bootstrap-select');
-			$warp.toggleClass('open');
-		});
-		$('#preferred-time').selectpicker();
-		$('button[data-id="preferred-time"]').on('click', function() {
-			var $self = $(this);
-			var $warp = $self.parent('.bootstrap-select');
-			$warp.toggleClass('open');
-		});
-
+		
 		$('#centre').on('change', function() {
 			var centre = $('#centre option:selected').val();
 			// display corresponding info
