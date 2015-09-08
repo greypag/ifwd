@@ -127,9 +127,7 @@ var context = "${pageContext.request.contextPath}";
 	                                    <thead>
 	                                    <tr>
 	                                        <th class="left-border">
-	                                        	<span>
-	                                        		<button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.End.of.policy.year.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.End.of" bundle="${msg}" />
-                                        		</span><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" />
+	                                        	<button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.End.of.policy.year.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" />
 	                                        </th>
 	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Annual.Crediting.Rate" bundle="${msg}" /></th>
 	                                        <th class="premium">
