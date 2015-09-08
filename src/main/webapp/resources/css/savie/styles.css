@@ -3730,7 +3730,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
     position: absolute;
     top: -40px;
     padding-left: 35px;
-    z-index: 5;
+    z-index: 1;
   }
 }
 #illustration-filters #triangle {
@@ -4272,6 +4272,11 @@ span.explanation {
   margin: 20px auto;
   width: 90%;
 }
+
+body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn{
+  font-family: 'Microsoft JhengHei';
+}
+
 @media (min-width: 992px) {
   .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
     width: 45%;
@@ -13914,6 +13919,11 @@ input[type=number] {
   height: 50px;
   width: 60%;
 }
+
+body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn{
+  font-family: 'Microsoft JhengHei';
+}
+
 @media (min-width: 992px) {
   .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn {
     height: 80px;
@@ -13942,7 +13952,7 @@ input[type=number] {
 }
 
 
-/*.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
+.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
     max-height: 400px;
     overflow: scroll;
 }
@@ -13952,7 +13962,7 @@ input[type=number] {
       max-height: 800px;
       overflow: hidden;
   }
-}*/
+}
 
 .fwd-savie-wrapper .yellow-stick-btn {
   color: #fffffe;
