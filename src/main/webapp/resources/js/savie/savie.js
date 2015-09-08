@@ -5,6 +5,20 @@ var contextPath = '<%=request.getContextPath()%>';
 var contextPath = context;
 var jsonTableData;
 var jsonTableData;
+
+var getBundleLanguage = "";
+var lang = UILANGUAGE;
+
+if(lang === "EN"){
+	getBundleLanguage = "en";
+}else 
+if(lang === "tc"){
+	getBundleLanguage = "zh";
+} 
+else{
+	getBundleLanguage = "en";
+}
+
 $(function () {
 	var wh_nowTemp = new Date();
 	var wh_now = new Date(wh_nowTemp.getFullYear(), wh_nowTemp.getMonth(), wh_nowTemp.getDate(), 0, 0, 0, 0);
@@ -268,7 +282,7 @@ function getSaviePlanDetails() {
 			else{
 				$('#promo-code-errmsg').removeClass('hideSpan');
 				//data.errMsgs
-				$('#promo-code-errmsg').html("Invalid promo code entered");
+				$('#promo-code-errmsg').html( getBundle(getBundleLanguage, "promocode.notValid.message") );
 			}
 		})
 		.fail(function(data) {
@@ -428,4 +442,26 @@ function fmoney(s)
    }   
    return t.split("").reverse().join("");   
 } 
+
+// get resource bundle
+function getBundle(lang, key) {
+	var rtn; 
+	loadBundles(lang, key, function(value){
+		rtn = value;
+	});
+	return rtn;
+}
+function loadBundles(lang, key, fn) {
+	//var u = window.location.origin+''+home+'/resources/bundle/';
+   	$.i18n.properties({
+        name: 'Messages',
+        path: ''+home_url+'/resources/bundle/',
+        mode: 'both',
+        language: lang,
+        cache: true,
+        callback: function() {
+        	fn($.i18n.prop(key)); //msg_welcome;	//$.i18n.prop("msg_welcome")      
+        }
+    });
+}
 
