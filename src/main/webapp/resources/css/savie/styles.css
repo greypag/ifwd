@@ -4272,6 +4272,11 @@ span.explanation {
   margin: 20px auto;
   width: 90%;
 }
+
+body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn{
+  font-family: 'Microsoft JhengHei';
+}
+
 @media (min-width: 992px) {
   .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
     width: 45%;
@@ -13914,6 +13919,11 @@ input[type=number] {
   height: 50px;
   width: 60%;
 }
+
+body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn{
+  font-family: 'Microsoft JhengHei';
+}
+
 @media (min-width: 992px) {
   .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn {
     height: 80px;
