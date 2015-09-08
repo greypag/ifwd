@@ -152,80 +152,80 @@ public class UserController {
 
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = {"/getAccByUsernaneAndPassword", "/{lang}/account"}, method = RequestMethod.GET)
-	public ModelAndView getAccountDetailsByUsernameAndPassoword(
-			HttpServletRequest servletRequest, Model model) {
-		
+	public ModelAndView getAccountDetailsByUsernameAndPassoword(HttpServletRequest servletRequest, Model model) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(servletRequest);
-		try {
-			HttpSession session = servletRequest.getSession(false);
-			String tokenInSession = session.getAttribute("token").toString();
-			String usernameInSession = session.getAttribute("username")
-					.toString();
+		HttpSession session = servletRequest.getSession(false);
+		UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
+		if(userDetails != null){
+			try {
+				String tokenInSession = session.getAttribute("token").toString();
+				String usernameInSession = session.getAttribute("username").toString();
+				
+				userDetails.setFullName(userDetails.getFullName());
+				userDetails.setEmailAddress(userDetails.getEmailAddress());
+				userDetails.setMobileNo(userDetails.getMobileNo());
+				userDetails.setUserName(userDetails.getUserName());
+				model.addAttribute(userDetails);
 
-			UserDetails userDetails = (UserDetails) session
-					.getAttribute("userDetails");
-			userDetails.setFullName(userDetails.getFullName());
-			userDetails.setEmailAddress(userDetails.getEmailAddress());
-			userDetails.setMobileNo(userDetails.getMobileNo());
-			userDetails.setUserName(userDetails.getUserName());
-			model.addAttribute(userDetails);
+				/* Purchase History */
+				if (!tokenInSession.isEmpty() && !usernameInSession.isEmpty()) {
 
-			/* Purchase History */
-			if (!tokenInSession.isEmpty() && !usernameInSession.isEmpty()) {
+					HashMap<String, String> header = new HashMap<String, String>(
+							COMMON_HEADERS);
+					header.put("userName", usernameInSession);
+					header.put("token", tokenInSession);
 
-				HashMap<String, String> header = new HashMap<String, String>(
-						COMMON_HEADERS);
-				header.put("userName", usernameInSession);
-				header.put("token", tokenInSession);
+					/*
+					 * if(restService.validateToken(usernameInSession,
+					 * tokenInSession)){
+					 */
 
-				/*
-				 * if(restService.validateToken(usernameInSession,
-				 * tokenInSession)){
-				 */
+					JSONObject jsonUPHResponse = restService.consumeApi(
+							HttpMethod.GET,
+							UserRestURIConstants.USER_PURCHASE_POLICY_HISTORY,
+							header, null);
+					logger.info("USER_PURCHASE_POLICY_HISTORY Response " + JsonUtils.jsonPrint(jsonUPHResponse));
+					/*
+					 * 
+					 * {"policies":
+					 * [{"amount":0.0,"policyNumber":"74F000010","submissionDate"
+					 * :"2015-03-07 13:57:57", "planCode":"Flight"},
+					 */
 
-				JSONObject jsonUPHResponse = restService.consumeApi(
-						HttpMethod.GET,
-						UserRestURIConstants.USER_PURCHASE_POLICY_HISTORY,
-						header, null);
-				logger.info("USER_PURCHASE_POLICY_HISTORY Response " + JsonUtils.jsonPrint(jsonUPHResponse));
-				/*
-				 * 
-				 * {"policies":
-				 * [{"amount":0.0,"policyNumber":"74F000010","submissionDate"
-				 * :"2015-03-07 13:57:57", "planCode":"Flight"},
-				 */
+					if (jsonUPHResponse.get("errMsgs") == null) {
+						JSONArray jsonArray = (JSONArray) jsonUPHResponse
+								.get("policies");
+						Iterator<?> itr = jsonArray.iterator();
+						ArrayList al = new ArrayList();
+						while (itr.hasNext()) {
+							JSONObject jsonObjHistory = (JSONObject) itr.next();
+							PurchaseHistory purchaseHistory = new PurchaseHistory();
+							purchaseHistory.setAmount(checkJsonObjNull(
+									jsonObjHistory, "amount"));
+							purchaseHistory.setPolicyNumber(checkJsonObjNull(
+									jsonObjHistory, "policyNumber"));
+							purchaseHistory.setSubmissionDate(checkJsonObjNull(
+									jsonObjHistory, "submissionDate"));
+							purchaseHistory.setPlanCode(checkJsonObjNull(
+									jsonObjHistory, "planCode"));
 
-				if (jsonUPHResponse.get("errMsgs") == null) {
-					JSONArray jsonArray = (JSONArray) jsonUPHResponse
-							.get("policies");
-					Iterator<?> itr = jsonArray.iterator();
-					ArrayList al = new ArrayList();
-					while (itr.hasNext()) {
-						JSONObject jsonObjHistory = (JSONObject) itr.next();
-						PurchaseHistory purchaseHistory = new PurchaseHistory();
-						purchaseHistory.setAmount(checkJsonObjNull(
-								jsonObjHistory, "amount"));
-						purchaseHistory.setPolicyNumber(checkJsonObjNull(
-								jsonObjHistory, "policyNumber"));
-						purchaseHistory.setSubmissionDate(checkJsonObjNull(
-								jsonObjHistory, "submissionDate"));
-						purchaseHistory.setPlanCode(checkJsonObjNull(
-								jsonObjHistory, "planCode"));
+							al.add(purchaseHistory);
+						}
 
-						al.add(purchaseHistory);
+						servletRequest.setAttribute("al", al);
+						return new ModelAndView(UserRestURIConstants.getSitePath(servletRequest)+"useraccount");
 					}
-
-					servletRequest.setAttribute("al", al);
-					return new ModelAndView(UserRestURIConstants.getSitePath(servletRequest)+"useraccount");
 				}
+				return new ModelAndView(UserRestURIConstants.getSitePath(servletRequest)+ "useraccount");
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			return new ModelAndView(UserRestURIConstants.getSitePath(servletRequest)+ "useraccount");
-		} catch (Exception e) {
-			e.printStackTrace();
+		}
+		else{
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(servletRequest)+ "/home");
 		}
 		return new ModelAndView("");
-
 	}
 
 	@RequestMapping(value = {"/{lang}/joinus", "/{lang}/join-us"}, method = RequestMethod.GET)
