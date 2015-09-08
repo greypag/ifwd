@@ -13952,7 +13952,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 }
 
 
-/*.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
+.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
     max-height: 400px;
     overflow: scroll;
 }
@@ -13962,7 +13962,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
       max-height: 800px;
       overflow: hidden;
   }
-}*/
+}
 
 .fwd-savie-wrapper .yellow-stick-btn {
   color: #fffffe;
