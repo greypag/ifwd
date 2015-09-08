@@ -14787,7 +14787,7 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
 
 @media (min-width: 1023px){
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 100px;
+    bottom: 75px;
   }
 }
 
@@ -14797,9 +14797,9 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
   }
 }
 
-@media (min-width: 1046px){
-  .fwd-savie-wrapper .sign-up-teaser {
-    //bottom: 105px;
+@media (min-width: 1040px){
+  body.chin .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 100px;
   }
 }
 
