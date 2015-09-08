@@ -441,7 +441,7 @@ public class SavieController extends BaseController{
 		session.removeAttribute("planDetail");
 		session.removeAttribute("savingPromocode");
 		session.removeAttribute("accessCode");
-		session.removeAttribute("userDetails");
+		//session.removeAttribute("userDetails");
 		session.removeAttribute("formatSavingAmount");
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
 	}
