@@ -74,12 +74,12 @@ function getSaviePlanDetails() {
 	var premium = amount;
 	var referralCode = promocode;
 	
-	if(issueAge == null || issueAge < 18 || issueAge > 100){
+	/*if(issueAge == null || issueAge < 18 || issueAge > 100){
 		if($('#promo-code-dateOfBirth').hasClass('hideSpan')){
 			$('#promo-code-dateOfBirth').removeClass('hideSpan');
 		}
-	}
-	else if(premium ==null || premium <30000 || premium > 400000){
+	}*/
+	if(premium ==null || premium <30000 || premium > 400000){
 		console.log("Invalid Savings amount!");
 	}
 	else{
@@ -88,7 +88,7 @@ function getSaviePlanDetails() {
 		$('body').addClass('modal-open');
 
 		$('#promo-code-errmsg').addClass('hideSpan');
-		$('#promo-code-dateOfBirth').addClass('hideSpan');
+		//$('#promo-code-dateOfBirth').addClass('hideSpan');
 		$.get(contextPath+'/ajax/savie/planDetails/get',
 		{ 
 			planCode : planCode,

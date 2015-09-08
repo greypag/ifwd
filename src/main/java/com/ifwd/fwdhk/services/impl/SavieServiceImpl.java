@@ -1609,7 +1609,6 @@ public class SavieServiceImpl implements SavieService {
 			
 			
 			if(null != csCenter){
-				String lang = UserRestURIConstants.getLanaguage(request);
 				ServiceCentreResponse serviceCentreResponseChi;
 				ServiceCentreResponse serviceCentreResponseEng;
 				
