@@ -444,7 +444,7 @@ function activateUserAccountJoinUs() {
                                         class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" id="inputFullName"
                                         <c:choose>
 										    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
-										    value="${userDetails.userName }"
+										    value="${userDetails.userName }" readonly="readonly"
 										    </c:when>
 										    <c:otherwise>
                                             value="<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />"
@@ -513,7 +513,12 @@ function activateUserAccountJoinUs() {
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <input name="mobileNo" type="tel"
                                         class="form-control full-control" value="${userDetails.mobileNo.trim()}"
-                                        id="inputMobileNo" 
+                                        id="inputMobileNo"
+                                        <c:choose>
+										    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+										    readonly="readonly"
+										    </c:when>
+										</c:choose>
                                         onkeypress="return isNumeric(event)"
                                         onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8" /> 
                                     <span id="errMobileNo" class="text-red">
@@ -530,6 +535,11 @@ function activateUserAccountJoinUs() {
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input class="form-control full-control textLower" name="emailAddress" type="email"
                                         value="${userDetails.emailAddress.trim()}" id="inputEmailId"
+                                        <c:choose>
+										    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+										    readonly="readonly"
+										    </c:when>
+										</c:choose>
                                         maxlength="50" onblur="validateEmail('inputEmailId','emailid');" > <span id="emailid" class="text-red"></span>
                                </div>
                            </div>

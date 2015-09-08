@@ -361,6 +361,9 @@ public class SavieController extends BaseController{
 			header.put("token", commonUtils.getToken("reload"));
 			header.put("language", WebServiceUtils.transformLanaguage(lang));
 			org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+			if(responseJsonObj.get("serviceCentres") == null || responseJsonObj.get("serviceCentres") == ""){
+				logger.info(responseJsonObj.toString());
+			}
 			org.json.simple.JSONArray serviceCentresArr = (JSONArray) responseJsonObj.get("serviceCentres");
 			org.json.simple.JSONObject serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
 			org.json.simple.JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");

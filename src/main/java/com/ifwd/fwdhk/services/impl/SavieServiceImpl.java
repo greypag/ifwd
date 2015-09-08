@@ -1441,7 +1441,9 @@ public class SavieServiceImpl implements SavieService {
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		
 		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		
+		if(responseJsonObj.get("timeSlots") == null || responseJsonObj.get("timeSlots") == ""){
+			logger.info(responseJsonObj.toString());
+		}
 		response.setContentType("text/json;charset=utf-8");
 		try {
 			logger.info(responseJsonObj.toString());
