@@ -375,9 +375,9 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="modal-body hunger-selling-body">
 							<form method="post" id="teaserSignUpForm" action="">
 								<div class="input-holder">
-									<input placeholder="<fmt:message key="savie.o2o.landing.waiting.list.email.placeholder" bundle="${msg}" />" type="text" name="signupEmail" id="teaserEmail"/>
+									<input placeholder="<fmt:message key="savie.o2o.landing.waiting.list.email.placeholder" bundle="${msg}" />" type="text" name="signupEmail" id="teaserEmail" maxlength="40" />
 									<span id="emailErrMsg" class="error-email"><fmt:message key="savie.o2o.landing.waiting.list.email.error" bundle="${msg}" /></span>
-									<input placeholder="<fmt:message key="savie.o2o.landing.waiting.list.phone.placeholder" bundle="${msg}" />" type="number" name="signupMobileNo" id="teaserPhoneNo"/>
+									<input placeholder="<fmt:message key="savie.o2o.landing.waiting.list.phone.placeholder" bundle="${msg}" />" type="number" name="signupMobileNo" id="teaserPhoneNo" maxlength="8" oninput="maxLengthReview(this)" onkeydown="return isNumberKey(event)" />
 									<span id="phoneErrMsg" class="error-email hideSpan">&nbsp;</span>
 									<input type="hidden" name="affiliate" value="${affiliate}">
 								</div>
@@ -532,11 +532,34 @@ var home_url = "<%=request.getContextPath()%>";
 				var signupEmail = $('#signupEmail').val();
 				var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 				var validEmail = re.test(signupEmail);
+				var isPlaceholder = true;
 				if (signupEmail == "" || !validEmail) {
 					// $('#emailErrMsg').addClass('visible');
 					$('#emailErrMsg').css('visibility', 'visible');
 					errorMsg = true;
 				}
+
+				var phone = $('#teaserPhoneNo').val().length;
+				if ($('#teaserPhoneNo').val() == $('#teaserPhoneNo').attr('placeholder')) {
+					isPlaceholder=false;					
+				} else if (phone > 0 && phone < 8) {
+					$('#phoneErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.invalid.message")).removeClass('hideSpan');
+					errorMsg = true;
+				} else {
+					$('#phoneErrMsg').addClass('hideSpan');
+
+					var firstNum = $('#teaserPhoneNo').val().substr(0, 1);
+					switch(firstNum) {
+						case "1": case "2": case "3": case "4": case "7": case "0":
+							$('#phoneErrMsg').html(getBundle(getBundleLanguage, "savie.interestgather.signupform.phoneNo.invalid.message")).removeClass('hideSpan');
+							errorMsg = true;
+					}
+				}
+
+				if(!isPlaceholder){
+					$('#teaserPhoneNo').val('');
+				}
+				
 			});
 			
 			// Sign up Now Button
