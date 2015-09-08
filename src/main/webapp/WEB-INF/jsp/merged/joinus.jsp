@@ -224,7 +224,7 @@
 						<div class="checkbox">
 							<input id="checkbox1" type="checkbox"> <label
 								for="checkbox1"> <fmt:message key="member.registration.declarations.PICS.part1" bundle="${msg}" /> <a
-								href="<fmt:message key="member.PICS.link" bundle="${msg}" />" class="sub-link"><fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
+								href="<fmt:message key="member.PICS.link" bundle="${msg}" />"  target="_blank" class="sub-link"><fmt:message key="member.registration.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="member.registration.declarations.PICS.part3" bundle="${msg}" />
 								<p><span id="errorDeclaration" class="text-red"></span>
 								<hr />
 								
