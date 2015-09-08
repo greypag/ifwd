@@ -711,10 +711,10 @@ function activateUserAccountJoinUs() {
                                             onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'appfullname');"
                                             onkeypress=" return alphaOnly(event);" maxlength="50" /> -->
                                        <input type="text"
-                                            class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" id="inputFullName" name="applicantName"
+                                            class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" id="inputFullName" name="applicantName"
                                             <c:choose>
-											    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
-											    value="${userDetails.userName }" readonly="readonly"
+											    <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
+											    value="${userDetails.fullName }" readonly="readonly"
 											    </c:when>
 											    <c:otherwise>
 	                                            value="<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />"

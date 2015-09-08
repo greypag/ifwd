@@ -440,11 +440,11 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
 	                                   onblur="replaceAlpha(this); validateName('inputFullName','fullnameinvalid',true,'applicant');"
 	                                   onkeypress="return alphaOnly(event);" maxlength="50" <c:if test="${authenticate == 'true'}">readonly="readonly"</c:if> /> -->
                                    <input type="text"
-                                       class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
+                                       class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
                                        id="inputFullName" name="fullName"
                                        <c:choose>
-										   <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
-										   value="${userDetails.userName }" readonly="readonly"
+										   <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
+										   value="${userDetails.fullName }" readonly="readonly"
 										   </c:when>
 										   <c:otherwise>
 	                                       value="<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />"

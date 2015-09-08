@@ -460,11 +460,11 @@ function activateUserAccountJoinUs() {
 										value="${userDetails.fullName}"
 										onblur="replaceAlpha(this); chkNotNullApplicantName(this, 'inputFullName');"
 										onkeypress=" return alphaOnly(event);" maxlength="50" /> -->
-									<input type="text" class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
+									<input type="text" class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
                                         id="inputFullName" name="whAppFullName"
                                         <c:choose>
-										    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
-										    value="${userDetails.userName }" readonly="readonly"
+										    <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
+										    value="${userDetails.fullName }" readonly="readonly"
 										    </c:when>
 										    <c:otherwise>
 										    value="<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />"
