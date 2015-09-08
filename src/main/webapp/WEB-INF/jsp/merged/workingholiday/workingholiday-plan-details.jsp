@@ -464,7 +464,7 @@ function activateUserAccountJoinUs() {
                                         id="inputFullName" name="whAppFullName"
                                         <c:choose>
 										    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
-										    value="${userDetails.userName }"
+										    value="${userDetails.userName }" readonly="readonly"
 										    </c:when>
 										    <c:otherwise>
 										    value="<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />"
@@ -544,6 +544,11 @@ function activateUserAccountJoinUs() {
 									<input type="tel" class="form-control full-control"
 										id="inputMobileNo" name="whAppMobileNO"
 										value="${userDetails.mobileNo}"
+										<c:choose>
+										    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+										    readonly="readonly"
+										    </c:when>
+										</c:choose>
 										onkeypress="return isNumeric(event)"
 										onblur="replaceNumeric(this); chkValidApplicantMobileNo(this, 'whAppMobileNO');"
 										maxlength="8" /> <span id="whAppMobileNO" class="text-red"></span>
@@ -563,6 +568,11 @@ function activateUserAccountJoinUs() {
 									<input class="form-control full-control textLower" id="inputEmailId"
 										name="whAppEmailAdd" type="email"
 										value="${userDetails.emailAddress}"
+										<c:choose>
+										    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+										    readonly="readonly"
+										    </c:when>
+										</c:choose>
 										onblur="chkValidApplicantEmail(this, 'whAppEmailAdd');"
 										onkeypress="return validationEmail(event);"
 										maxlength="50"> <span id="whAppEmailAdd"

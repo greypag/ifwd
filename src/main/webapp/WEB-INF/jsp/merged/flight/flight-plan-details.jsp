@@ -444,7 +444,7 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                        id="inputFullName" name="fullName"
                                        <c:choose>
 										   <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
-										   value="${userDetails.userName }"
+										   value="${userDetails.userName }" readonly="readonly"
 										   </c:when>
 										   <c:otherwise>
 	                                       value="<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />"
@@ -500,6 +500,11 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                     <input type="tel"
 						                value="${userDetails.mobileNo.trim()}" class="form-control full-control"
 						                name="mobileNo" id="inputMobileNo"
+						                <c:choose>
+										    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+										    readonly="readonly"
+										    </c:when>
+										</c:choose>
 						                onkeypress="return isNumeric(event)"
 						                onblur="replaceNumeric(this); validateMobile('inputMobileNo','mobileNoInvalid');" maxlength="8" /> 
 						            <span id="mobileNoInvalid" class="text-red"></span>
@@ -517,6 +522,11 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                    <input type="email" class="form-control full-control textLower"
 					                value="${userDetails.emailAddress.trim()}" name="emailAddress"
 					                id="inputEmailId"
+					                <c:choose>
+										    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+										    readonly="readonly"
+										    </c:when>
+										</c:choose>
 					                maxlength="50" onblur="validateEmail('inputEmailId','emailid');" /> 
 					                <span id="emailid" class="text-red"></span>
                                </div>
