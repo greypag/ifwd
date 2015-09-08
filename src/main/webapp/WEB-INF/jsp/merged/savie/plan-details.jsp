@@ -82,8 +82,8 @@ var context = "${pageContext.request.contextPath}";
 									<input type="text" class="date" value="${savingDob!=null ? savingDob:defaultDOB }" name="dob" id="sales-illu-dob" placeholder="dd-mm-year" readonly />
 									<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
 								</div>
-								<span class="error-msg-dob hideSpan" id="promo-code-dateOfBirth">Invalid date of birth. You must be 19 and above to apply.</span>
-								<span class="error-msg-promo hideSpan" id="promo-code-dateOfBirthEmpty">Please input date of birth.</span>
+								<span class="error-msg-dob hideSpan" id="promo-code-dateOfBirth"><fmt:message key="savie.planDetails.birth.above" bundle="${msg}" /></span>
+								<span class="error-msg-promo hideSpan" id="promo-code-dateOfBirthEmpty"><fmt:message key="savie.planDetails.birth.empty" bundle="${msg}" /></span>
 							</div>
 						</div>
 
