@@ -14767,7 +14767,7 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
   }
 
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 95px;
+    bottom: 70px;
   }
 
   .fwd-savie-wrapper .sign-up-teaser button.get-started {
@@ -14787,37 +14787,37 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
 
 @media (min-width: 1023px){
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 120px;
+    bottom: 100px;
   }
 }
 
 @media (min-width: 1029px){
   .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 105px;
-  }
-}
-
-@media (min-width: 1040px){
-  body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 120px;
+    bottom: 85px;
   }
 }
 
 @media (min-width: 1046px){
   .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 105px;
+    //bottom: 105px;
   }
 }
 
 @media (min-width: 1076px){
   .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 130px;
+    bottom: 110px;
   }
 }
 
 @media (min-width: 1115px){
   .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 135px;
+    //bottom: 135px;
+  }
+}
+
+@media (min-width: 1195px){
+  body.chin .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 120px;
   }
 }
 
@@ -14828,9 +14828,15 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
   }
 }
 
-@media (min-width: 1263px) {
-  body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 145px;
+@media (min-width: 1213px){
+  .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 115px;
+  }
+}
+
+@media (min-width: 1230px){
+  .fwd-savie-wrapper .sign-up-teaser {
+    bottom: 135px;
   }
 }
 
