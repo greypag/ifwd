@@ -1918,7 +1918,7 @@ public class SavieServiceImpl implements SavieService {
 			 
 			String subject = "Savie Appointment Acknowledgement email from FWD";
 			String attachment = "";
-			String from = "Fanny Wing <i-info.hk@fwd.com>";
+			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
