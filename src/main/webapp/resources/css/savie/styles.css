@@ -64,6 +64,12 @@ body {
   font-size: 15px;
 }
 
+@media screen and (max-width: 992px) {
+   .modal-dialog {
+      width: auto;
+   }
+}
+
 .fwd-savie-wrapper h1,
 .fwd-savie-wrapper h2,
 .fwd-savie-wrapper h3,
@@ -12329,7 +12335,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body div.disclaimer {
   font-size: 14px;
-  width: 353px;
+  max-width: 353px;
   margin: 20px auto 0;
 }
 @media (min-width: 992px) {
@@ -13936,7 +13942,7 @@ input[type=number] {
 }
 
 
-.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
+/*.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
     max-height: 400px;
     overflow: scroll;
 }
@@ -13946,7 +13952,7 @@ input[type=number] {
       max-height: 800px;
       overflow: hidden;
   }
-}
+}*/
 
 .fwd-savie-wrapper .yellow-stick-btn {
   color: #fffffe;
