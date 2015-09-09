@@ -67,12 +67,14 @@ function getSaviePlanDetails() {
 	
 	var amount = $('#R').val();
 	var promocode = $('#promocode').val();
+	var promocodePlaceholder = $('#promocode[placeholder]').attr('placeholder');
 	var birthOfDay = $('#sales-illu-dob').val();
 	
 	var planCode = "savie";
 	var issueAge = jsGetAge(birthOfDay);
 	var premium = amount;
 	var referralCode = promocode;
+	var referralCode = (promocode!=promocodePlaceholder)?promocode:'';
 	
 	/*if(issueAge == null || issueAge < 18 || issueAge > 100){
 		if($('#promo-code-dateOfBirth').hasClass('hideSpan')){
