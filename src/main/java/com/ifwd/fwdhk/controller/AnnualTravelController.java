@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -32,11 +33,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.PlanDetailsForm;
 import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.AnnualTravelService;
+import com.ifwd.fwdhk.services.HomeCareService;
+import com.ifwd.fwdhk.services.HomeCareServiceImpl;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.Methods;
@@ -275,6 +279,13 @@ public class AnnualTravelController {
 						+ "annualtravel/annual-travel-plan");		
 			}
 
+			String token = session.getAttribute("token").toString();
+			String userName = session.getAttribute("username").toString();
+			HomeCareService homecareService = new HomeCareServiceImpl();
+			List<DistrictBean> districtList = homecareService.getDistrict(userName, token, lang);
+			request.setAttribute("districtList", districtList);
+			model.addAttribute("districtList", districtList);
+			
 			model.addAttribute("planName", planName);
 			model.addAttribute("planSummary", planSummary);
 //			model.addAttribute("planPremium", selectPlanPremium);

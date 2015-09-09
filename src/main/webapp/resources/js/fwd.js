@@ -540,7 +540,6 @@ $(function () {
 			if($("#selectAgeRange1").length > 0){
 				$("#selectAgeRange1").val(selected);
 			}else if($("#insureDob1").length > 0){
-				console.log(ev.date.valueOf());
 				$("#insureDob1").val($("#applicantDob").val());
 			}
 		}
@@ -548,6 +547,31 @@ $(function () {
 		$("#input_dob").removeClass("invalid-field");
 	});
 	$('#input_dob').datepicker('setDate', dob_end_date);
+	
+	$('#input_annual_dob').datepicker({
+		startView: "decade",
+		autoclose: true,
+		format: "dd-mm-yyyy",
+		startDate: dob_start_date,
+		endDate: dob_end_date
+	}).on('changeDate', function (ev) {
+		$('#input_insure_dob1').datepicker('setDate', $("#applicantDob").val());
+		$("#dobInvalid").html("");
+		$("#input_dob").removeClass("invalid-field");
+	});
+	
+	$('.annual_dob').datepicker({
+		startView: "decade",
+		autoclose: true,
+		format: "dd-mm-yyyy",
+		startDate: dob_start_date,
+		endDate: dob_end_date
+	}).on('changeDate', function (ev) {
+		//$("#dobInvalid").html("");
+		//$("#input_dob").removeClass("invalid-field");
+		$(this).next().html("");
+		$(this).removeClass("invalid-field");
+	});
 	
 	$('.dob_input').datepicker({
 		startView: "decade",

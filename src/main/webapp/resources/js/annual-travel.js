@@ -144,9 +144,9 @@ function validateAnnualTravelDetails(form,formId,language)
 	if (applicantDob.trim() == "") 
 	 {
 		 $('#dobInvalid').html(getBundle(getBundleLanguage, "applicant.dob.notNull.message"));
-		 $('#input_dob').addClass('invalid-field');
+		 $('#input_annual_dob').addClass('invalid-field');
 			if(firstErrorElementId==""){
-				firstErrorElementId="input_dob";
+				firstErrorElementId="input_annual_dob";
 			}
 	     flag = false;
 	 } else {

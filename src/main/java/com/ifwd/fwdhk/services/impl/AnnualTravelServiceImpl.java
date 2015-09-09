@@ -526,7 +526,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			promoCode = java.net.URLEncoder.encode(promoCode, "UTF-8").replace("+", "%20");
 			
 			
-			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
+			String Url = UserRestURIConstants.ANNUAL_TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
 					+ "&childInput=" + childCount + "&otherInput="
 					+ otherCount + "&commencementDate="

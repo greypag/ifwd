@@ -6,6 +6,8 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+<%@page import="java.util.*"%>
+<%@page	import="com.ifwd.fwdhk.model.DistrictBean,com.ifwd.fwdhk.model.WorkingHolidayDetailsBean"%>
 
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -55,6 +57,16 @@ var insureHkidPlaceholder="<fmt:message key="travel.details.insured.hkid.placeho
 var benNamePlaceholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />";
 var benHkidPlaceholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />";
     
+function setDropArea(id) {
+	$('#selectCADistHid').find('option[value="' + id + '"]').attr('selected', 'selected');
+	
+	if ($("#selectCADistHid option[value='"+id+"']").text() == "HK")
+        document.getElementById("inlineCARadio3").checked = true;
+    else if ($("#selectCADistHid option[value='"+id+"']").text() == "KL")
+        document.getElementById("inlineCARadio4").checked = true;
+    else
+        document.getElementById("inlineCARadio5").checked = true;
+}
 
 </script>
 
@@ -412,8 +424,8 @@ function activateUserAccountJoinUs() {
                                    <label for="inputApplicantDob" class="field-label bold-500"><fmt:message key="annual.details.birthday" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                        <input name="applicantDob" type="text"  class="pointer datepicker form-control border-radius" id="applicantDob" value="${corrTravelQuote.trLeavingDate}" readonly>
+                                    <div class="input-group date" id="input_annual_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+                                        <input name="applicantDob" type="text"  class="pointer datepicker form-control border-radius" id="applicantDob" value="" readonly>
                                     </div>
                                     <span id="dobInvalid" class="text-red"></span>
                                </div>
@@ -463,20 +475,26 @@ function activateUserAccountJoinUs() {
                                        <div class="row">
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
-                                                id="inputCARoom" name="applicantRoom" placeholder="Room"
-                                                onfocus="placeholderOnFocus(this,'Room');" onblur="placeholderOnBlur(this,'Room');"
+                                                id="inputCARoom" name="applicantRoom"
+                                                placeholder="<fmt:message key="annual.details.address.room.placeholder" bundle="${msg}" />"
+                                                onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.address.room.placeholder" bundle="${msg}" />');"
+                                                onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.address.room.placeholder" bundle="${msg}" />');"
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
-                                                id="inputCAFloor" name="applicantFloor" placeholder="Floor"  
-                                                onfocus="placeholderOnFocus(this,'Floor');" onblur="placeholderOnBlur(this,'Floor');"     
+                                                id="inputCAFloor" name="applicantFloor"
+                                                placeholder="<fmt:message key="annual.details.address.floor.placeholder" bundle="${msg}" />"  
+                                                onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.address.floor.placeholder" bundle="${msg}" />');"
+                                                onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.address.floor.placeholder" bundle="${msg}" />');"     
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="5"/>
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
-                                                id="inputCABlock" name="applicantBlock" placeholder="Block"
-                                                onfocus="placeholderOnFocus(this,'Block');" onblur="placeholderOnBlur(this,'Block');"
+                                                id="inputCABlock" name="applicantBlock"
+                                                placeholder="<fmt:message key="annual.details.address.block.placeholder" bundle="${msg}" />"
+                                                onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.address.block.placeholder" bundle="${msg}" />');"
+                                                onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.address.block.placeholder" bundle="${msg}" />');"
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
                                            </div>
                                            <div class="clearfix"></div>
@@ -492,9 +510,9 @@ function activateUserAccountJoinUs() {
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
                                                 id="inputCABuilding" name="applicantBuilding"
-                                                placeholder="Building"
-                                                onfocus="placeholderOnFocus(this,'Building');"
-                                                onblur="placeholderOnBlur(this,'Building'); chkNotNullCABuilding(this, 'errCABuilding');"
+                                                placeholder="<fmt:message key="annual.details.address.building.placeholder" bundle="${msg}" />"
+                                                onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.address.building.placeholder" bundle="${msg}" />');"
+                                                onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.address.building.placeholder" bundle="${msg}" />'); chkNotNullCABuilding(this, 'errCABuilding');"
                                                 onkeypress="return isAlphaNumeric(event);" maxlength="50" />
                                                 <span id="errCABuilding" class="text-red"> </span>
                                    </div>
@@ -508,9 +526,9 @@ function activateUserAccountJoinUs() {
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
                                                 id="inputCAEstate" name="applicantEstate"
-                                                placeholder="Estate"
-                                                onfocus="placeholderOnFocus(this,'Estate');"
-                                                onblur="placeholderOnBlur(this,'Estate'); chkNotNullCAEstate(this, 'errCAEstate');"
+                                                placeholder="<fmt:message key="annual.details.address.estate.placeholder" bundle="${msg}" />"
+                                                onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.address.estate.placeholder" bundle="${msg}" />');"
+                                                onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.address.estate.placeholder" bundle="${msg}" />'); chkNotNullCAEstate(this, 'errCAEstate');"
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
                                                 <span id="errCAEstate" class="text-red"> </span>
                                    </div>
@@ -524,9 +542,9 @@ function activateUserAccountJoinUs() {
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
                                             id="inputCAStreetNo" name="applicantStreetNo"
-                                            placeholder="Street no."
-                                            onfocus="placeholderOnFocus(this,'Street no.');"
-                                            onblur="placeholderOnBlur(this,'Street no.');"
+                                            placeholder="<fmt:message key="annual.details.address.streetNo.placeholder" bundle="${msg}" />"
+                                            onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.address.streetNo.placeholder" bundle="${msg}" />');"
+                                            onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.address.streetNo.placeholder" bundle="${msg}" />');"
                                             onkeypress="" maxlength="5" />
                                    </div>
                                    <div class="clearfix"></div>
@@ -539,9 +557,9 @@ function activateUserAccountJoinUs() {
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
                                                 id="inputCAStreetName" name="applicantStreetName"
-                                                placeholder="Street name"
-                                                onfocus="placeholderOnFocus(this,'Street name');"
-                                                onblur="placeholderOnBlur(this,'Street name');"
+                                                placeholder="<fmt:message key="annual.details.address.streetName.placeholder" bundle="${msg}" />"
+                                                onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.address.streetName.placeholder" bundle="${msg}" />');"
+                                                onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.address.streetName.placeholder" bundle="${msg}" />');"
                                                 onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
                                    </div>
                                    <div class="clearfix"></div>
@@ -585,18 +603,34 @@ function activateUserAccountJoinUs() {
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select" id="inputCADistrict">
                                                 <select name="applicantDistrict"class="form-control soflow full-control" id="selectCADist" onchange="setDropArea(this.value)">
-                                                <option value="">District</option>
-                                                
-                                                <option value="AD">ABERDEEN</option>
-                                                
-                                        </select></div>
+	                                                <option value="">District</option>
+	                                                <%
+														List lst = (List) request.getAttribute("districtList");
+														Iterator itr = lst.iterator();
+														int i = 1;
+														while (itr.hasNext()) {
+															DistrictBean districtList = (DistrictBean) itr.next();
+													%>
+														<option value="<%=districtList.getCode()%>"><%=districtList.getDescription()%></option>
+													<%
+														}
+													%>
+                                                </select>
+                                            </div>
                                             <div class="hidden">
                                                 <select name="applicantDistrictHid"
                                                     class="form-control soflow full-control" id="selectCADistHid">
                                                     <option value="">District</option>
-                                                    
-                                                    <option value="AD">HK</option>
-                                                    
+                                                    <%
+														List lst1 = (List) request.getAttribute("districtList");
+														Iterator itr1 = lst1.iterator();
+														while (itr1.hasNext()) {
+															DistrictBean districtList = (DistrictBean) itr1.next();
+													%>
+													<option value="<%=districtList.getCode()%>"><%=districtList.getArea()%></option>
+													<%
+														}
+													%>
                                                 </select>
                                             </div> <span id="errCADist" class="text-red"> </span>
                                    </div>
@@ -681,10 +715,13 @@ function activateUserAccountJoinUs() {
                                                <label class="field-label bold-500"><fmt:message key="annual.details.insured.birthday" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <div class="input-group date" id="input_insure_dob1"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-			                                        <input name="personalDob" type="text"  class="pointer datepicker form-control border-radius" id="insureDob1" value="" readonly>
-			                                    </div>
-			                                    <span id="errtxtInsuDob1" class="text-red"></span>
+                                               <div class="input-group date annual_dob" id="input_insure_dob${inx}"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+			                                       <input name="personalDob" type="text"  class="pointer datepicker form-control border-radius" id="insureDob${inx}" value="" readonly>
+			                                   </div>
+			                                   <c:if test="${inx == 1}">
+                                                   <div style="cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)">&nbsp;</div>
+                                               </c:if>
+			                                   <span id="errtxtInsuDob${inx}" class="text-red"></span>
                                            </div>
                                        </div>
                                        <!-- age end -->
