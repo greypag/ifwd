@@ -14326,13 +14326,14 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
   max-width: 290px;
   padding: 0;
+  margin-bottom: 5px;
 }
 @media (min-width: 768px) {
   .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
     max-width: 100%;
     font-size: 20px;
-    text-align: right;
-    padding-right: 30px;
+    //text-align: right;
+    //padding-right: 30px;
   }
 }
 @media (min-width: 992px) {
@@ -14883,6 +14884,7 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
   margin: 0 auto;
   font-size: 12px;
   line-height: 16px;
+  margin-top: 5px;
 }
 
 .fwd-savie-wrapper .sign-up-teaser p.footnote {
