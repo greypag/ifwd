@@ -127,14 +127,14 @@ $('.product_plan_panel').click(function(e){
 $('.product_plan_inner_panel').click(function(e){
 	$panel=$(this);
 	if($panel.next('.product_plan_inner_panel_content:visible').length>0){
-		$('.product_plan_panel').find('.fa-chevron-up').removeClass('fa-minus');
+		$('.product_plan_inner_panel').find('.fa-minus').removeClass('fa-minus');
 		$('.product_plan_inner_panel_content:visible').slideUp("slow",function(){
 			var $target = $panel.next('.fwdpanel-body');
 			$target.find('table').parent().removeAttr('id');
 		});
 	}else if($('.product_plan_inner_panel_content:visible').length>0){
 		$("#plan-no-more-tables").removeAttr('id');
-		$('.product_plan_panel').find('.fa-chevron-up').removeClass('fa-minus');
+		$('.product_plan_inner_panel').find('.fa-minus').removeClass('fa-minus');
 		$('.product_plan_inner_panel_content:visible').slideUp("fast",function(){
 			var $target = $panel.next('.fwdpanel-body');
 			$target.find('table').parent().attr('id', 'plan-no-more-tables');

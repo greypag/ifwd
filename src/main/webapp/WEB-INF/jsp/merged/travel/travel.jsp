@@ -92,11 +92,11 @@
 	 if(type=='single'){
 		 $('.family_plan_selectArea').show();
 		 
-		 $('#dp2').show();
+		 $('#dp2').parent().show();
 		 $('#endDateDeskIn').show();
 		 $('#dp4').parent().show();
          $('#dp4').parent().prev().show();
-         $('#dp6').show();
+         $('#dp6').parent().show();
          $('#endDateBtmIn').show();
          
          $("#travelTypeDesk").val('single');
@@ -109,11 +109,11 @@
 		 $('.personal_plan_selectArea').trigger('click');
 		 $('.family_plan_selectArea').hide();
 		 
-		 $('#dp2').hide();
+		 $('#dp2').parent().hide();
 		 $('#endDateDeskIn').hide();
 		 $('#dp4').parent().hide();
          $('#dp4').parent().prev().hide();
-		 $('#dp6').hide();
+		 $('#dp6').parent().hide();
 		 $('#endDateBtmIn').hide();
 		 
          $("#travelTypeDesk").val('annual');
@@ -204,7 +204,7 @@ $(document).ready(function() {
 	                  </div></td>
 	                </tr>
 	                  <tr>
-	                  <td class="col-md-2 pad-none">
+	                  <td class="" style="min-width: 210px;">
                         <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup">
                           <a class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
                              <label class="select-label travel_type_label" style="cursor: pointer;white-space: nowrap;">Please select</label>
@@ -224,20 +224,20 @@ $(document).ready(function() {
                         </div>
                      </td>
 	                  
-	                  <td class="pad-none">
+	                  <td class="" style="min-width: 150px;">
 	                    <div class="input-group date" id="dp1" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
 	                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateDesk" value="${departureDate != '' ? departureDate : corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
-	                  <td class="pad-none">
+	                  <td class="" style="min-width: 150px;">
 	                    <div class="input-group date" id="dp2" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
 	                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateDesk" value="${returnDate != '' ? returnDate : corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
-	                  <td class="pad-none">
-	                    <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown" style="min-width:190px;">
+	                  <td class="" style="min-width: 190px;">
+	                    <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdown">
 	                      <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
-                               <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountDesk"></label>&nbsp; <i class="fa fa-caret-down pull-right"></i>
+                               <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountDesk"></label>&nbsp; <i class="fa fa-caret-down pull-right" style="position: absolute;right: 7px;"></i>
                           </a>
 	                      <div class="dropdown-menu bdr1" style="width: 355px;">
 	                        <div class="drop-content">
@@ -332,8 +332,8 @@ $(document).ready(function() {
 	                   <div class="clearfix"></div>
 	                 </div>
 	                 </td>
-	               <td class="col-md-2 pad-none">
-	                <button type="submit" class="border-radius btn btn-primary get-btn " style="line-height:32px;margin-left: 4%;" onclick="reset_desktop_submit()">
+	               <td class="">
+	                <button type="submit" class="border-radius btn btn-primary get-btn " style="line-height:32px;padding: 8px 20px !important;width: 100%;" onclick="reset_desktop_submit()">
 	                   <fmt:message key="travel.main.quote.top.action" bundle="${msg}" />
 	                </button>
 	                 <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即報價</a> -->
@@ -1026,7 +1026,7 @@ $(document).ready(function() {
              </td>
           </tr>
             <tr>
-                <td class="col-md-2 pad-none">
+                <td class="" style="min-width: 210px;">
                    <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup">
                      <a class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
                         <label class="select-label travel_type_label" style="cursor: pointer;white-space: nowrap;">Please select</label>
@@ -1046,20 +1046,20 @@ $(document).ready(function() {
                    </div>
                 </td>
             
-              <td class="pad-none">
+              <td class="" style="min-width: 150px;">
                 <div class="input-group date" id="dp5" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateBtm" value="${corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
                 </td>
-              <td class="pad-none">
+              <td class="" style="min-width: 150px;">
                 <div class="input-group date" id="dp6" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trBackDate" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateBtm" value="${corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
                 </td>
-              <td class="pad-none">
-                <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm" style="min-width:190px;">
+              <td class="" style="min-width: 190px;">
+                <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="myFWDropdownBtm">
                  
-                  <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountBtm"></label>&nbsp;<i class="fa fa-caret-down pull-right"></i> </a>
+                  <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">  <label class="select-label"><fmt:message key="flight.main.quote.plan1.type" bundle="${msg}" />:</label> <label id="lblCountBtm"></label>&nbsp;<i class="fa fa-caret-down pull-right" style="position: absolute;right: 7px;"></i> </a>
                   <div class="dropdown-menu bdr1" style="width:355px;">
                     <div class="drop-content">
                       <div class="col-lg-6 col-md-6">
@@ -1162,8 +1162,8 @@ $(document).ready(function() {
                 </div>
                 
         </td>
-              <td class="col-md-2 pad-none">
-                  <button type="submit" onclick="reset_bottom_submit()" class="border-radius btn btn-primary get-btn" style="line-height:32px;margin-left: 4%;"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
+              <td class="">
+                  <button type="submit" onclick="reset_bottom_submit()" class="border-radius btn btn-primary get-btn" style="line-height:32px;padding: 8px 20px !important;width: 100%;"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
                  </td>
             </tr>
             <tr class="product-landing-error-wrap">

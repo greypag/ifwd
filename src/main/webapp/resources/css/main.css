@@ -2906,10 +2906,10 @@ table.activation-form3 tr td {
     padding: 8px 0px;
 }
 table.activation-form3 tr td .input-group {
-    width: 96%;
+    width: 100%;
 }
 table.activation-form3 tr td .input-group-div {
-    width: 96% !important;
+    width: 100% !important;
 }
 table.activation-form3 td .control-label {
     line-height: 60px;
@@ -6397,7 +6397,7 @@ p.mute{
     padding-left: 0 !important;
 }
 table.activation-form3 > tbody > tr > td:not(.pad-none){
-    padding: 0;
+    padding: 5px;
 }
 tr.product-landing-error-wrap {
     height: 26px;
@@ -7765,25 +7765,29 @@ tr.product-landing-error-wrap {
 	font-weight:bold;
 }
 
+.product_plan_box_price_container{
+	margin-left:10px;
+}
+
 .plan-box3 h4.product_plan_box_title_right{
 	font-size: 18px;
     line-height: 1.5;
     font-weight:normal;
     text-align:center;
-    margin-left: 10px;
+    margin-left: 0px;
     margin-top: 30px;
     margin-bottom: 0px;
 }
 
 .plan-box3 h2.product_plan_box_price_right{
-	margin-left: 10px;
+	margin-left: 0px;
 	text-align:center;
     margin-top: 0px;
     margin-bottom: 0px;
 }
 
 .plan-box3 div.del.product_plan_box_del{
-    margin-left: 10px;
+    margin-left: 0px;
     text-align: center;
     font-size: 24px;
     line-height: 31.5px;
@@ -7792,6 +7796,7 @@ tr.product-landing-error-wrap {
 .product_plan_box_select_button_container{
 	margin-left: 10px;
 	margin-top:10px;
+	margin-bottom: 30px;
 }
 
 .product_plan_box_select_button_container .product_plan_box_select_button{
@@ -7989,8 +7994,16 @@ tr.product-landing-error-wrap {
 	    float: left;
     }
     
-    .product_plan_box_title_right, .product_plan_box_price_right, .product_plan_box_select_button_container{
-        margin-left:0px;
+    .plan-box3 h2.product_plan_box_price_right {
+        font-size:30px;
+    }
+    
+    .product_plan_box_price_container, .product_plan_box_select_button_container{
+        margin-left:0px !important;
+    }
+    
+    .product_plan_box_select_button_container{
+        margin-top:30px;
     }
     
     .product_plan_panel h4{
@@ -8065,44 +8078,13 @@ tr.product-landing-error-wrap {
        margin-top: -5px;
 	}
 }
+
+@media (max-width: 480px) {
+   	.product_plan_box_price_container, .product_plan_box_select_button_container{
+        width:100% !important;
+    }
+}
 /** annual travel **/
-
-.table-container
-{
-    width: 100%;
-    overflow-y: auto;
-    _overflow: auto;
-    margin: 0 0 1em;
-}
-
-.table-container::-webkit-scrollbar
-{
-    -webkit-appearance: none;
-    width: 14px;
-    height: 14px;
-}
-
-.table-container::-webkit-scrollbar-thumb
-{
-    border-radius: 8px;
-    border: 3px solid #F2F3F5;
-    background-color: rgba(0, 0, 0, .3);
-}
-
-.table-container-outer { position: relative; }
-
-.table-container-fade
-{
-    position: absolute;
-    right: 0;
-    width: 30px;
-    height: 100%;
-    background-image: -webkit-linear-gradient(0deg, rgba(255,255,255,.5), #F2F3F5);
-    background-image: -moz-linear-gradient(0deg, rgba(255,255,255,.5), #F2F3F5);
-    background-image: -ms-linear-gradient(0deg, rgba(255,255,255,.5), #F2F3F5);
-    background-image: -o-linear-gradient(0deg, rgba(255,255,255,.5), #F2F3F5);
-    background-image: linear-gradient(0deg, rgba(255,255,255,.5), #F2F3F5);
-}
 
 @media only screen and (max-width: 320px) {
 	/* Force table to not be like tables anymore */
