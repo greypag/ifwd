@@ -271,11 +271,11 @@ var language = "${language}";
 							    }
 							});
 				    	}
-				    	else if(data.errMsgs == "Access code has been used"){
+				    	else if(data.errMsgs == "Access code has already been used"){
 				    		$('#accessCodeUsed').modal('show');
 				    		console.log(data.errMsgs);
 				    	}
-				    	else if(data.errMsgs == "Reservation Invalid"){
+				    	else if(data.errMsgs == "Reservation is invalid"){
 				    		$('#reservationInvalid').modal('show');
 				    		console.log(data.errMsgs);
 				    	}
