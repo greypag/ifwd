@@ -461,8 +461,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 	
 	public ModelAndView getTravelPlan(TravelQuoteBean travelQuote, Model model, HttpServletRequest request) throws Exception{
 		HttpSession session = request.getSession();
-		session.removeAttribute("createPolicy");
-		session.removeAttribute("policyNo");
 		
 		if(travelQuote.getTrLeavingDate() != null) {
 			session.setAttribute("travelQuote", travelQuote);
@@ -516,7 +514,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 					spouseCover = false;
 				}
 			}
-			
 			TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
 			travelQuoteCount.setSelfCover(selfCover);
 			travelQuoteCount.setSpouseCover(spouseCover);
@@ -528,7 +525,8 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			String promoCode = (String) session.getAttribute("referralCode");
 			promoCode = java.net.URLEncoder.encode(promoCode, "UTF-8").replace("+", "%20");
 			
-			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
+			
+			String Url = UserRestURIConstants.ANNUAL_TRAVEL_GET_QUOTE + "?planCode=A"
 					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
 					+ "&childInput=" + childCount + "&otherInput="
 					+ otherCount + "&commencementDate="
@@ -590,11 +588,8 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				quoteDetails.setToalDue(totalDue);
 				quoteDetails.setPlanName(planeName);
 
-				request.setAttribute("quoteDetails", quoteDetails);
-				model.addAttribute("quoteDetails", quoteDetails);
 				session.setAttribute("quoteDetails", quoteDetails);
 				
-				model.addAttribute("travelQuoteBean", travelQuote);
 			} else if (responseJsonObj.get("errMsgs").toString().contains("Promotion code is not valid")) {
 				QuoteDetails quoteDetails = new QuoteDetails();
 				quoteDetails.setPlanSelected(travelQuote.getPlanSelected());
@@ -634,14 +629,11 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				quoteDetails.setToalDue(totalDue);
 				quoteDetails.setPlanName(planeName);
 
-				request.setAttribute("quoteDetails", quoteDetails);
-				model.addAttribute("quoteDetails", quoteDetails);
 				session.setAttribute("quoteDetails", quoteDetails);
 				
-				model.addAttribute("travelQuoteBean", travelQuote);
 				session.setAttribute("referralCode", "");
 			}else {
-				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
+				session.setAttribute("errMsgs", responseJsonObj.get("errMsgs"));
 				return new ModelAndView(UserRestURIConstants.getSitePath(request)
 						+ "travel/travel");
 			}
@@ -665,100 +657,26 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
         UserRestURIConstants.setController("Travel");
 		
 		HttpSession session = request.getSession();
-		UserRestURIConstants urc = new UserRestURIConstants();
-		urc.updateLanguage(request);
-		if (session.getAttribute("token") == null) 
-		{
+		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
 			return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
 		}
-		
-		UserRestURIConstants.setController("Travel");
-		request.setAttribute("controller", UserRestURIConstants.getController());
-		
-		String planName = WebServiceUtils.getParameterValue("planName", session, request);
-		String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
-		String selectPlanPremium = WebServiceUtils.getParameterValue("selectPlanPremium", session, request);
-		String selectPlanName = WebServiceUtils.getParameterValue("selectPlanName", session, request);
-		selectPlanName = planName;
-		
-		if (travelQuote.getTrLeavingDate() != null) {
-			session.setAttribute("travelQuote", travelQuote);
-		} else {
-			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
-			if(travelQuote == null){
-				return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
-			}				
-		}
 		try {
+			String Url = UserRestURIConstants.GET_AGE_TYPE + "?itemTable=AgeType";
 
-			request.setAttribute("travelQuote", travelQuote);
-			model.addAttribute("planName", planName);
-			
-			model.addAttribute("selectPlanName", selectPlanName);
-			QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
-			if ("A".equals(selectPlanName)) {
-				session.setAttribute("planSelected", "A");
-				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[0]);
-				
-				NumberFormat formatter = new DecimalFormat("#0.00");  
-				
-				String splanSummary = quoteDetails.getToalDue()[0];
-				float fplanSummary = Float.parseFloat(splanSummary);
-				quoteDetails.getToalDue()[0] = formatter.format(fplanSummary);
-				model.addAttribute("planSummary", quoteDetails.getToalDue()[0]);
-				
- 
-				String sgrossPremium = quoteDetails.getGrossPremium()[0];
-				float grossPremium = Float.parseFloat(sgrossPremium);
-				quoteDetails.getGrossPremium()[0] = formatter.format(grossPremium);
-				
-				model.addAttribute("planPremium", quoteDetails.getGrossPremium()[0]);
-				
-			} else {
-				session.setAttribute("planSelected", "B");
-				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[1]);
-				
-				
-				NumberFormat formatter = new DecimalFormat("#0.00");  
-				
-				String splanSummary = quoteDetails.getToalDue()[1];
-				float fplanSummary = Float.parseFloat(splanSummary);
-				quoteDetails.getToalDue()[1] = formatter.format(fplanSummary);
-				model.addAttribute("planSummary", quoteDetails.getToalDue()[1]);
-				
-				
-				String sgrossPremium = quoteDetails.getGrossPremium()[1];
-				
-				float grossPremium = Float.parseFloat(sgrossPremium);
-				quoteDetails.getGrossPremium()[1] = formatter.format(grossPremium);
-				
-				model.addAttribute("planPremium", quoteDetails.getGrossPremium()[1]);
-			}
-			//travelQuote.setTotalAdultTraveller(travelQuote.getTotalAdultTraveller()	+ travelQuote.getTotalPersonalTraveller());
-			request.getSession().setAttribute("departureDate",
-					travelQuote.getTrLeavingDate());
-			request.getSession().setAttribute("returnDate",
-					travelQuote.getTrBackDate());
-			String Url = UserRestURIConstants.GET_AGE_TYPE
-					+ "?itemTable=AgeType";
-
-			HashMap<String, String> header = new HashMap<String, String>(
-					COMMON_HEADERS);
+			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 			
 			String lang = UserRestURIConstants.getLanaguage(request);
 			if (lang.equals("tc"))
 				lang = "CN";
 			
-			header.put("language", WebServiceUtils
-					.transformLanaguage(lang));
+			header.put("language", WebServiceUtils.transformLanaguage(lang));
 			
 			if (request.getSession().getAttribute("username") != null) {
 				header.put("userName", session.getAttribute("username")
 						.toString());
 				header.put("token", session.getAttribute("token").toString());
 			}
-
 			
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
 					Url, header, null);
@@ -791,10 +709,9 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 					}
 					
 				}
-				model.addAttribute("mapAgeType", mapAgeType);
+				/*model.addAttribute("mapAgeType", mapAgeType);
 				model.addAttribute("mapSelfType", mapSelfType);
-				model.addAttribute("mapChildType", mapChildType);
-
+				model.addAttribute("mapChildType", mapChildType);*/
 
 				/*
 				 * API Call for get Benifitiary Relationship
@@ -819,8 +736,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 								checkJsonObjNull(obj, "itemCode"),
 								checkJsonObjNull(obj, "itemDesc"));
 					}
-					model.addAttribute("mapRelationshipCode",
-							mapRelationshipCode);
+					//model.addAttribute("mapRelationshipCode", mapRelationshipCode);
 
 				}
 			} else {
@@ -828,39 +744,12 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				return new ModelAndView(UserRestURIConstants.getSitePath(request)
 						+ "annualtravel/annual-travel-plan");		
 			}
-
-			model.addAttribute("planName", planName);
-			model.addAttribute("planSummary", planSummary);
-//			model.addAttribute("planPremium", selectPlanPremium);
-			
-			session.setAttribute("travelQuote", travelQuote); // vincent - fix back btn from 3rd page to 2nd page
-			model.addAttribute("travelQuote", travelQuote);
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("errMsgs", "System Error");
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)
 					+ "annualtravel/annual-travel-plan");		
-		}
-		Map<String,String> mapHkId = new TreeMap<>();
-
-		String lang = UserRestURIConstants.getLanaguage(request);
-		String hkIdLbl = "HKID";
-		String passportLbl = "Passport";
-		if("tc".equals(lang)){
-			hkIdLbl = "香港身份證";
-			passportLbl = "護照號碼";
-		} else {
-			hkIdLbl = "HKID";
-			passportLbl = "Passport";
-		}
-		mapHkId.put("HKID", hkIdLbl);
-		mapHkId.put("passport", passportLbl);		
-		model.addAttribute("mapHkId", mapHkId);
-		String pageTitle = WebServiceUtils.getPageTitle("page.travelUserDetails", UserRestURIConstants.getLanaguage(request));
-		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
-		model.addAttribute("pageTitle", pageTitle);
-		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		session.removeAttribute("travelCreatePolicy");
+		}	
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "annualtravel/annual-travel-plan-details");	
@@ -956,9 +845,9 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		JSONArray insured = new JSONArray();
 
 		String langSelected = UserRestURIConstants.getLanaguage(request);
-		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
+		/*for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
 			planDetailsForm.setPersonalAgeRangeName(WebServiceUtils.getAgeRangeNames(planDetailsForm.getPersonalAgeRange(), langSelected));
-		}
+		}*/
 		
 		String HKID = "HKID";
  		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
@@ -966,8 +855,8 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			JSONObject personal = new JSONObject();
 		
 			personal.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase() );
-			personal.put("ageRange", StringHelper.emptyIfNull( planDetailsForm.getPersonalAgeRange()[inx] ).toUpperCase() );
-			
+			//personal.put("ageRange", StringHelper.emptyIfNull( planDetailsForm.getPersonalAgeRange()[inx] ).toUpperCase() );
+			personal.put("ageRange", "2");
 			
 			personal.put(hkId,	checkPasswortAndHkid(hkId,
 					HKID,
@@ -977,18 +866,14 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 					HKID,
 					planDetailsForm.getPersonalHKID()[inx])
 			 );
-
-			
 			personal.put(hkId,	checkPasswortAndHkid(hkId,
 					HKID,
 					planDetailsForm.getPersonalHKID()[inx])
 			);
-					 
 			personal.put(passId, checkPasswortAndHkid(passId,
 					HKID,
 					planDetailsForm.getPersonalHKID()[inx])
 			);
-
 
 			if (inx != 0) {
 				personal.put("relationship", "RF");

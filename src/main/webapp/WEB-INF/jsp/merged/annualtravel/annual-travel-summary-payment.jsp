@@ -70,63 +70,57 @@ var enablePayment=true;
         <div class="row">
             <form name="paymentForm" id="paymentForm" method="post">
                 <ol class="breadcrumb pad-none">
-                    <li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-                    <li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-                    <li><a href="#"><span class="clearfix"></span> <fmt:message key="travel.breadcrumb1.item3" bundle="${msg}" /></a><i
-                        class="fa fa-caret-right"></i></li>
-                    <li><a href="#"><fmt:message key="travel.breadcrumb1.item4" bundle="${msg}" /></a></li>
-                    <li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="travel.breadcrumb1.item5" bundle="${msg}" /></li>
+                    <li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="annual.title.home" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+                    <li><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="annual.title.travelcare" bundle="${msg}" /></a></li>
+                    <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="annual.title.summarypayment" bundle="${msg}" /></li>
                 </ol>
-                <div class="container ">
+                <!-- <div class="container ">
                     <div class="col-md-12 shop-tracking-status">
                         <div class="center wow fadeInDown animated"
                             style="visibility: visible;">
-                            <h2><fmt:message key="travel.summary.jumbo" bundle="${msg}" /></h2>
+                            <h2>Summary & Payment</h2>
                         </div>
                         <br>
                         <div class="col-lg-12">
                             <div id="tr-wizard" class="shop-tracking-status">
                                 <div class="order-status has-four">
                                     <div class="order-status-timeline-new">
-                                <!--
-                                        There can be n '.order-status-timeline-completion'
-                                        dots-inactive and dots-active color the dots -->
                                         <div class="order-status-timeline-completion dots-active"></div>
                                         <div class="order-status-timeline-completion dots-active"></div>
                                         <div class="order-status-timeline-completion dots-inactive"></div>
                                     </div>
                                     <div class="image-order-status image-order-status-new active img-circle first">
-                                        <span class="status color3"> <fmt:message key="travel.breadcrumb2.item1" bundle="${msg}" /></span>
+                                        <span class="status color3"> Your Options</span>
                                         <div class="icon">1</div>
                                     </div>
                                     <div class="image-order-status image-order-status-intransit  img-circle second">
-                                        <span class="status color3"><fmt:message key="travel.breadcrumb2.item2" bundle="${msg}" /></span>
+                                        <span class="status color3">Your Details</span>
                                         <div class="icon">2</div>
                                     </div>
                                     <div class="image-order-status image-order-status-delivered  img-circle act third">
-                                        <span class="status color2"> <fmt:message key="travel.breadcrumb2.item3" bundle="${msg}" /></span>
+                                        <span class="status color2"> Summary & Payment</span>
                                         <div class="icon">3</div>
                                     </div>
                                     <div class="image-order-status image-order-status-completed  img-circle fourth">
-                                        <span class="status lst-status"> <fmt:message key="travel.breadcrumb2.item4" bundle="${msg}" /></span>
+                                        <span class="status lst-status"> Confirmation</span>
                                         <div class="icon">4</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="container pad-none bdr ur-opt-content gray-bg3">
-                    <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1 summary-container">
+                    <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1 summary-container product_summary_container">
                        <div class="row summary-row">
                            <div style="width:80%;margin-left:10%;">
                                <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 pad-none">
-                                <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin" style="margin-left:0px !important;"><fmt:message key="travel.summary.heading" bundle="${msg}" /></h3>
+                                <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin" style="margin-left:0px !important;"><fmt:message key="annual.summary.plansummary" bundle="${msg}" /></h3>
                             </div>
                             <!-- 
                             <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
                                 <h4 class="h4-trav-full">
-                                    <a href="<%=request.getContextPath()%>/${language}/annual-travel-insurance/user-details" onclick="perventRedirect=false;" ><fmt:message key="travel.summary.subheading" bundle="${msg}" /></a>
+                                    <a href="/fwdhk/en/travel-insurance/user-details" onclick="perventRedirect=false;" >Change details</a>
                                 </h4>
                             </div>
                              -->
@@ -138,67 +132,63 @@ var enablePayment=true;
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none">
                                 <div class="table activation-form vert-middle travel-summary">
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.name" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.fullname" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.fullName }</div>
+                                            <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.hkid" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.hkid" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.hkid}</div>
+                                            <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.email" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.emailaddress" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.emailAddress }</div>
+                                            <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.mobileNo" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.mobile" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.mobileNo }</div>
+                                            <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.requestNo" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.correspondenceaddress" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">FWD Financial Centre, 308-320 Des Voeux Rd Central, Sheung Wan</div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.request" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createPolicy.referenceNo}</div>
+                                            <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.plan" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="travel.summary.plan" bundle="${msg}" /> ${selectPlanName}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.plan" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="annual.summary.plan" bundle="${msg}" /> ${selectPlanName}</div>
+                                            <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.insuredNo" bundle="${msg}" /> <br></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
-                                            <%
-                                                if (planDetailsForm != null) 
-                                                {
-                                                    if (planDetailsForm.getPlanSelected().equals("personal"))
-                                                    {
-                                                        out.println( planDetailsForm.getTotalPersonalTraveller() );
-                                                    }
-                                                    else
-                                                    {
-                                                    }
-                                                }               
-                                            %>
-                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.no" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${planDetailsForm.totalPersonalTraveller }</div>
+                                            <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.period" bundle="${msg}" /></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.period" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="travel.summary.period.from" bundle="${msg}" /> ${travelBean.trLeavingDate} <fmt:message key="travel.summary.period.to" bundle="${msg}" /> ${travelBean.trBackDate}</div>
+                                            <div class="clearfix"></div>
                                         </div>
-                                        <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.days" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${totalTravellingDays}</div>
+                                        <div class="row summary-row product_summary_orange_price">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="annual.summary.amount" bundle="${msg}" /></span></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none"><span class="h4-4-orange-b h2-3-existing-fwd-head pad-none"><fmt:message key="annual.common.dollar" bundle="${msg}" /> ${dueAmount}</span></div>
+                                            <div class="clearfix"></div>
                                         </div>
-                                        <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.summary.amountDue" bundle="${msg}" /></span></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.dollar" bundle="${msg}" /> ${dueAmount} </span></div> 
-                                        </div>
-                                        <div class="row summary-row">
+                                        <!-- <div class="row summary-row">
                                             <div class="hidden-xs hidden-sm col-md-12 col-lg-12 pad-none">
-                                            <!-- Plan benefits -->
                                                 <div class="fwdpanel summary-fwdpanel">
-                                                    <c:if test="${selectPlanName=='A'}">
+                                                    
                                                         <div class="fwdpanel-heading">
                                                             <h4 class="benefits">
                                                                 <span>
-                                                                    <a href="#" class="fwdpanel-minimize uline"><i class="fa fa-plus"></i> <fmt:message key="travel.quote.plan1.benefits" bundle="${msg}" /></a>
+                                                                    <a href="#" class="fwdpanel-minimize uline"><i class="fa fa-plus"></i> Plan benefits</a>
                                                                 </span>
                                                             </h4>
                                                         </div>
@@ -206,87 +196,44 @@ var enablePayment=true;
                                                         <div class="col-xs-11 col-xs-offset-1">
                                                         <div class="row">
                                                             <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                                    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc1" bundle="${msg}" /></div>
+                                                                    <i class="fa fa-circle small-fa-bullet"></i> Hospital or quarantine cash</div>
                                                         <div class="col-lg-4 col-md-4 col-xs-5">
-                                                            <fmt:message key="travel.quote.plan1.benefits.desc1.price" bundle="${msg}" />
+                                                            $10,000
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc2" bundle="${msg}" />
+                                                            <i class="fa fa-circle small-fa-bullet"></i> Worldwide emergency assistance Fully Covered
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-xs-5">
-                                                            <fmt:message key="travel.quote.plan1.benefits.desc2.price" bundle="${msg}" />
-                                                            </div>
-                                                        </div> 
-                                                        
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc3" bundle="${msg}" /> </div>
-                                                        <div class="col-lg-4 col-md-4 col-xs-5">
-                                                            <fmt:message key="travel.quote.plan1.benefits.desc3.price" bundle="${msg}" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan1.benefits.desc4" bundle="${msg}" /></div>
-                                                        <div class="col-lg-4 col-md-4 col-xs-5">
-                                                            <fmt:message key="travel.quote.plan1.benefits.desc4.price" bundle="${msg}" />
-                                                                    </div>
-                                                                    </div>
-                                                                </div>
-                                                        </div>
-                                                    </c:if>
-                                                    <c:if test="${selectPlanName=='B'}">
-                                                        <div class="fwdpanel-heading">
-                                                            <h4 class=" benefits">
-                                                                <span>
-                                                                  <a href="#" class="fwdpanel-minimize uline text-black"><i class="fa fa-plus"></i> <fmt:message key="travel.quote.plan2.benefits" bundle="${msg}" /></a>
-                                                                </span>
-                                                            </h4>
-                                                        </div>
-                                                        <div class="fwdpanel-body" style="display: none;">
-                                                        <div class="col-xs-11 col-xs-offset-1">
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                                    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc1" bundle="${msg}" /></div>
-                                                        <div class="col-lg-4 col-md-4 col-xs-5">
-                                                            <fmt:message key="travel.quote.plan2.benefits.desc1.price" bundle="${msg}" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc2" bundle="${msg}" />
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-xs-5">
-                                                            <fmt:message key="travel.quote.plan2.benefits.desc2.price" bundle="${msg}" />
+                                                            
                                                             </div>
                                                         </div> 
                                                         
                                                         <div class="row">
                                                             <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc3" bundle="${msg}" /> </div>
+                                                            <i class="fa fa-circle small-fa-bullet"></i> Rental vehicle excess </div>
                                                         <div class="col-lg-4 col-md-4 col-xs-5">
-                                                            <fmt:message key="travel.quote.plan2.benefits.desc3.price" bundle="${msg}" />
+                                                            $5,000
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="travel.quote.plan2.benefits.desc4" bundle="${msg}" /></div>
+                                                            <i class="fa fa-circle small-fa-bullet"></i> Golfer Hole in one</div>
                                                         <div class="col-lg-4 col-md-4 col-xs-5">
-                                                            <fmt:message key="travel.quote.plan2.benefits.desc4.price" bundle="${msg}" />
+                                                            $3,000
                                                                     </div>
                                                                     </div>
                                                                 </div>
                                                         </div>
-                                                    </c:if>
+                                                    
+                                                    
                                                     
                                                     
                                                     <div class="clearfix"></div>
                                                 </div>
-                                            <!-- / Plan benefits -->
                                             </div>
-                                        </div>
+                                        </div> -->
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -295,152 +242,115 @@ var enablePayment=true;
                         </div>
                         <div class="clearfix"></div>
                         
-                        <div id="no-more-tables2" class="hidden-md hidden-lg">
-                          <div style="width:80%;margin-left:10%;">
+                        <hr class="hidden-lg hidden-md"/>
                         
+                        <div id="no-more-tables2" class="hidden-md hidden-lg" style="margin-bottom:30px;">
+                          <div style="width:80%;margin-left:10%;">
                             <div class="col-xs-12 col-sm-12 pad-none">
-                                <div class="travel-tb-td text-left">
-                                    <h3 class="color4 h2-1 insur padding-t"><fmt:message key="travel.summary.insured" bundle="${msg}" /></h3>
-                                    
-                                    <!-- Mobile Table starts -->
+                                <div class="text-left">
+                                    <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin"><fmt:message key="annual.summary.insured.person" bundle="${msg}" /></h3>
                                 </div>
-                            <table class="col-xs-12 table-condensed cf insur pad-none">
                                 <%
-
                                     for (int i = 0; i < planDetailsForm.getTotalPersonalTraveller(); i++) {
                                 %>
-                                <tr><td class="col-xs-12 pad-none"><table class="col-xs-12 pad-none">
-                                
-
-                                <tbody>
-                                    <tr class="">
-                                        <td  ><span class="bd"><fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" /> <%=i + 1%></span></td>
-                                        <% if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
-                                            
-                                            }else{
+                                <div class="row summary-row">
+                                    <div class="product_summary_table_field product_summary_table_header"><fmt:message key="annual.summary.insured.traveller" bundle="${msg}" /> <%=i + 1%></div>
+                                </div>
+                                <div class="row summary-row">
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.fullname" bundle="${msg}" /></div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none"><%=planDetailsForm.getPersonalName()[i]%></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="row summary-row">
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.dateofbirth" bundle="${msg}" /></div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none">September 27, 1961</div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="row summary-row">
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.hkid" bundle="${msg}" /></div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none"><%=planDetailsForm.getPersonalHKID()[i]%></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="row summary-row" style="margin-bottom:10px !important;">
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.beneficiary" bundle="${msg}" /></div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none">
+                                        <%
+                                        	if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
                                         %>
-                                        <td ><span class="bd gy"><fmt:message key="travel.summary.insured.label.personal.beneficiary" bundle="${msg}" /></span></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <td ><span class=""><%=planDetailsForm.getPersonalName()[i]%></span></td>
-                                        <% if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
-                                            
-	                                        }else{
-	                                    %>
-                                        <td  class="gy"><%=planDetailsForm.getPersonalBenificiaryFullName()[i]%></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <td ><span class=""><%=planDetailsForm.getPersonalAgeRangeName()[i]%></span></td>
-                                        <% if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
-                                            
-                                            }else{
+                                        <%=planDetailsForm.getPersonalBeneRelationDesc()[i] %>
+                                        <%
+		                                    }else{
+		                                %>
+		                                <%=planDetailsForm.getPersonalBenificiaryFullName()[i]%> (<%=planDetailsForm.getPersonalBeneRelationDesc()[i] %>)
+		                                <div style="margin-top:10px;"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</div>
+                                        <%
+                                            }
                                         %>
-                                        <td  class="">&nbsp;</td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <td ><span class=""><%=planDetailsForm.getPersonalHKID()[i]%></span></td>
-                                        <% if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
-                                            
-                                            }else{
-                                        %>
-                                        <td  class="gy"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr>
-                                        <td ></td>  <!-- hide relationship if insured -->
-                                        <% if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
-                                            
-                                            }else{
-                                        %>
-                                        <td  class="gy"><%=planDetailsForm.getPersonalBeneRelationDesc()[i]%></td>
-                                        <% } %>
-                                    </tr>
-                                    <tr><td>&nbsp;</td></tr>
-
-                                    
-                                </tbody>
-                                </table></td></tr>
-                                
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
                                 <%
                                     }
                                 %>
-                                
-                            </table>
-                                    <!-- Mobile table ends -->
                             </div>
-                            
+                            <div class="clearfix"></div>
                             </div>
                         </div>
                         
                         
-                        <div id="no-more-tables" class="hidden-sm hidden-xs">
+                        <div id="no-more-tables" class="hidden-sm hidden-xs" style="margin-bottom:30px;">
                             <div style="width:80%;margin-left:10%;">
-                            <table class="col-md-12 table-condensed cf pad-left-20 beneList bmg_custom_benelist">
-
-                                <tbody>
+                            <table class="table-striped cf beneList bmg_custom_benelist product_payment_detail_benelist">
+                                <thead>
                                     <tr class="travel-tb-head">
-                                        <td class=" h2-1  travel-tb-td"><fmt:message key="travel.summary.insured" bundle="${msg}" /></td>
-                                        <td class=" h2-1  travel-tb-td"><fmt:message key="travel.summary.insured.name" bundle="${msg}" /></td>
-                                        <td class=" h2-1  travel-tb-td"><fmt:message key="travel.summary.insured.age" bundle="${msg}" /></td>
-                                        <td class=" h2-1  travel-tb-td"><fmt:message key="travel.summary.insured.hkid" bundle="${msg}" /></td>
-                                        <td class=" h2-1  travel-tb-td"><fmt:message key="travel.summary.insured.beneficiary.relation" bundle="${msg}" /></td>
-                                    </tr>
+	                                    <td class="travel-tb-td"><fmt:message key="annual.summary.insured.person" bundle="${msg}" /></td>
+	                                    <td class="travel-tb-td"><fmt:message key="annual.summary.insured.fullname" bundle="${msg}" /></td>
+	                                    <td class="travel-tb-td"><fmt:message key="annual.summary.insured.dateofbirth" bundle="${msg}" /></td>
+	                                    <td class="travel-tb-td"><fmt:message key="annual.summary.insured.hkid" bundle="${msg}" /></td>
+	                                    <td class="travel-tb-td"><fmt:message key="annual.summary.insured.beneficiaryrelationship" bundle="${msg}" /></td>
+	                                </tr>
+                                </thead>
+                                <tbody>
                                     <%
-                                        for (int i = 0; i < planDetailsForm.getTotalPersonalTraveller(); i++) 
-                                        {
-                                    %>
-
-                                        <tr class="hidden-sm hidden-xs">
-                                            <td data-title="Personal <%=i + 1%>">
-                                            <span class="h2-1-td">
-                                                <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-                                                    <%=i + 1%>
-                                            </span>
-                                            </td>
-                                            <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getPersonalName()[i]%></span></td>
-                                            <td data-title="Age range"><span class="h4-5"><%=planDetailsForm.getPersonalAgeRangeName()[i]%></span></td>
-                                            <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getPersonalHKID()[i]%></span></td>
-                                            <td data-title="Relationship"><span class="h4-5"></span></td>   <!-- hide relationship if insured -->
-                                        </tr>
-                                        <% if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
-		                                        
+	                                    for (int i = 0; i < planDetailsForm.getTotalPersonalTraveller(); i++) {
+	                                %>
+	                                <tr>
+	                                    <td data-title="Personal 4"><span class="h4-5"><fmt:message key="annual.summary.insured.traveller" bundle="${msg}" /> <%=i + 1%></span></td>
+	                                    <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getPersonalName()[i]%></span></td>
+	                                    <td data-title="Date of birth"><span class="h4-5">May 9, 2012</span></td>
+	                                    <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getPersonalHKID()[i]%></span></td>
+	                                    <%
+                                        	if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
+                                        %>
+	                                    <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getPersonalBeneRelationDesc()[i] %></span></td>
+	                                </tr>
+	                                    <%
 		                                    }else{
 		                                %>
-                                        <tr class="<%=planDetailsForm.getPersonalBenificiaryFullName().length%>">
-                                            <td data-title="Personal1"><span class="h4-6-td"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-                                            <% if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){ %>
-                                            <td data-title="Full name" class="travel-tb-h3">&nbsp;</td>
-                                            <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-                                            <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
-                                            <% }else{ %>
-                                            <td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getPersonalBenificiaryFullName()[i]%></td>
-                                            <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-                                            <td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%></td>
-                                            <% } %>
-                                            <td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getPersonalBeneRelationDesc()[i]%></td>
-    <!--                                        <td data-title="Relationship" class="travel-tb-h3"></td> -->
-                                        </tr>
-                                        <%
-                                                }
-                                        %>
-                                    </tbody>
+	                                    <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getPersonalBenificiaryFullName()[i]%> (<%=planDetailsForm.getPersonalBeneRelationDesc()[i] %>)</span></td>   <!-- hide relationship if insured -->
+	                                </tr>
+	                                <tr>
+                                        <td data-title="Personal 4"><span class="h4-5"></span></td>
+                                        <td data-title="Full name"><span class="h4-5"></span></td>
+                                        <td data-title="Date of birth"><span class="h4-5"></span></td>
+                                        <td data-title="HKID"><span class="h4-5"></span></td>
+                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
+                                    </tr>
                                     <%
-                                             }
+		                                    }
+	                                    }
                                     %>
-
+                                </tbody>
                             </table>
                           </div>
                         </div>
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="gray-bg1">
+                <div class="gray-bg1 product_payment_detail_form_container">
                     <div style="width:80%;margin-left:10%;">
                     <div class="col-xs-12 pad-none">
-                       <h2 class="from-control" style="padding:0px !important;"><fmt:message key="travel.payment" bundle="${msg}" /></h2>
+                       <h2 class="from-control" style="padding:0px !important;">Payment Details</h2>
                        <span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
                     </div>
                     <input type="hidden" name="merchantId" value="${createPolicy.merchantId}">
@@ -453,16 +363,8 @@ var enablePayment=true;
                     <input type="hidden" name="errorUrl" value="${failurePath }">
                     <input type="hidden" name="payType" value="${createPolicy.paymentType}">
                     <input type="hidden" name="referenceNo" value="${createPolicy.referenceNo}">
-                    <%
-                        String payLang = (String) session.getAttribute("language");
-                        //payLang = payLang.substring(0, 1);
-                        
-                        payLang = "C";
-                        
-                        //if (payLang.equals("t"))
-                        
-                    %>
-<%--                    <input type="hidden" name="lang" value="<%=payLang%>"> <input --%>
+                    
+
                     <input type="hidden" name="lang" value="C"> <input
                         type="hidden" name="secureHash"
                         value="${createPolicy.secureHash }"> <input
@@ -475,21 +377,21 @@ var enablePayment=true;
 
 
 
-                    <div class="col-xs-12 pad-none">
+                    <div class="col-xs-12 pad-none product_payment_details">
                         <div class="form-group float">
-                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
-                                <label class="control-label h4-5"><fmt:message key="travel.payment.card.type" bundle="${msg}" /></label>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+                                <label class="control-label h4-5"><fmt:message key="annual.summary.cardtype" bundle="${msg}" /></label>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
                                 <img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group float" style="display: none;">
-                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
                                 <label class="control-label h4-5">Payment Method</label>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
                                 <label class="radio-inline">                            
                                  <input type="radio" name="pMethod" checked="checked" value="VISA" id="chkVisa"> VISA
                                 </label>    
@@ -506,10 +408,10 @@ var enablePayment=true;
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group float">
-                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
-                                <label class="control-label h4-5"><fmt:message key="travel.payment.card.no" bundle="${msg}" /></label>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+                                <label class="control-label h4-5"><fmt:message key="annual.summary.creditcardnumber" bundle="${msg}" /></label>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
                                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pad-none" style="padding-right: 3% !important;">
                                     <input id="cardNo1" name="cardNo1" type="tel" class="input-block-level cardnumber" style="text-align: center;" maxlength="4" data-min="4" onkeypress="return isNumeric(event);" onkeyup="changeCreditCardFocus(this,'','cardNo2');" onblur="mergeCreditCard();"/>
                                 </div>
@@ -537,10 +439,10 @@ var enablePayment=true;
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group float">
-                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
-                                <label class="control-label  h4-5"><fmt:message key="travel.payment.card.expiryDate" bundle="${msg}" /></label>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+                                <label class="control-label  h4-5"><fmt:message key="annual.summary.expirydate" bundle="${msg}" /></label>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-right: 2% !important;">
+                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-right: 2% !important;">
                                 <div class="styled-select payment-select" id="inputMonth"><select class="pay-details-select"
                                     id="month" name="epMonth" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
                                         <option value="0"><fmt:message key="travel.payment.card.expiryDate.month" bundle="${msg}" /></option>
@@ -560,7 +462,7 @@ var enablePayment=true;
                                 <span id="errmonth"
                                     class="error-msg"></span>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-left: 2% !important;">
+                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-left: 2% !important;">
                                 <div class="styled-select payment-select" id="inputYear"><select class="pay-details-select" id="year"
                                     name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
                                         <option value="0"><fmt:message key="travel.payment.card.expiryDate.year" bundle="${msg}" /></option>
@@ -582,6 +484,7 @@ var enablePayment=true;
                                         <c:set var="currentYear" value="${year + loop.index}" />
                                         <option value="${currentYear}">${currentYear}</option>
                                     </c:forEach>
+                                    
                                 </select></div>
                                 <span id="erryear"
                                     class="error-msg"></span>
@@ -589,10 +492,10 @@ var enablePayment=true;
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group float">
-                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
-                                <label class="control-label  h4-5"><fmt:message key="travel.payment.card.holderName" bundle="${msg}" /></label>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+                                <label class="control-label  h4-5"><fmt:message key="annual.summary.nameoncreditcard" bundle="${msg}" /></label>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
                                 <input id="holdername" name="cardHolder" type="text"
                                             class="input-block-level"
                                             onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
@@ -602,10 +505,10 @@ var enablePayment=true;
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group float">
-                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none">
-                                <label class="control-label  h4-5"><fmt:message key="travel.payment.card.cvv" bundle="${msg}" /></label>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
+                                <label class="control-label  h4-5"><fmt:message key="annual.summary.securitycode" bundle="${msg}" /></label>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-right: 2% !important;">
+                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-right: 2% !important;">
                                 <input id="seccode" type="password" name="securityCode"
                                             class="input-block-level" autocomplete="off" maxlength="3"
                                             title=""
@@ -614,7 +517,7 @@ var enablePayment=true;
                                 <span id="errcode"
                                     class="error-msg"></span>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pad-none" style="padding-left: 2% !important;">
+                            <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-left: 2% !important;">
                                 <img src="<%=request.getContextPath()%>/resources/images/icon-card.png" alt="">
                             </div>
                             <div class="clearfix"></div>
@@ -629,7 +532,7 @@ var enablePayment=true;
                     <div class="declaration-content" style="margin:0px !important;">
                         <div class="checkbox" style="padding-left: 24px;">
                             <input id="checkbox3" type="checkbox"> <label
-                                for="checkbox3"> <fmt:message key="travel.payment.declarations" bundle="${msg}" /></label>
+                                for="checkbox3"> <fmt:message key="annual.summary.declarations" bundle="${msg}" /></label>
                         </div>
                         <span id="errchk1" class="error-msg"></span>
 
@@ -659,27 +562,25 @@ var enablePayment=true;
                         <!-- vincent add a button for paymnet confirmation (mobile) --> 
                         
                         
-                        <div class="row">
-                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 pull-left">
-                                <!-- <a href="<%=request.getContextPath()%>/${language}/annual-travel-insurance/user-details" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;">
-                                    <fmt:message key="travel.action.back" bundle="${msg}" /> 
+                        <div class="row" style="margin-top:30px;">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pull-right">
+                                <c:choose>
+								    <c:when test="${language=='en'}">
+								        <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 EN','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+								            class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
+								    </c:when>
+								    <c:otherwise>
+									    <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+								            class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
+								    </c:otherwise>
+								</c:choose>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 pull-right">
+                                <!-- <a href="/fwdhk/en/travel-insurance/user-details" class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;">
+                                    Back 
                                 </a> -->
                                 
-                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 pull-left">
-                                <c:choose>
-       <c:when test="${language=='en'}">
-                                	<a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 EN','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
-                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
-       </c:when>
-       <c:otherwise>
-	                                <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
-                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
-</c:otherwise>
-</c:choose>
-                                
-                                
+                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="annual.button.back" bundle="${msg}" /></a>
                             </div>
                         </div>
                         
@@ -696,11 +597,11 @@ var enablePayment=true;
                             </div> -->
                             <!-- 
                             <div class="hidden-sm hidden-xs pad-none">
-                            <a href="<%=request.getContextPath()%>/${language}/annual-travel-insurance/user-details"
-                                class="bdr-curve btn btn-primary bck-btn2"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+                            <a href="/fwdhk/en/travel-insurance/user-details"
+                                class="bdr-curve btn btn-primary bck-btn2">Back </a>
                             <input type="submit"
                                 class="bdr-curve btn btn-primary nxt-btn margin-left" 
-                                value="<fmt:message key="travel.action.payment" bundle="${msg}" />">
+                                value="Confirm">
                                 
                               </div>
                               
@@ -709,14 +610,14 @@ var enablePayment=true;
                             <div class="clearfix"></div>
 
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                                <a href="<%=request.getContextPath()%>/${language}/annual-travel-insurance/user-details"
-                                    class="bdr-curve btn btn-primary bck-btn"><fmt:message key="travel.action.back" bundle="${msg}" />  </a>
+                                <a href="/fwdhk/en/travel-insurance/user-details"
+                                    class="bdr-curve btn btn-primary bck-btn">Back  </a>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
                                 
                                 <input type="submit"
                                     class="bdr-curve-none btn btn-primary nxt-btn"
-                                    value="<fmt:message key="travel.payment.confirmPayment" bundle="${msg}" />" />
+                                    value="Confirm" />
 
 
                             </div>
@@ -741,7 +642,7 @@ var enablePayment=true;
                              <img src="<%=request.getContextPath()%>/resources/images/icon-pay-dollar.png" alt="">
                             </div>
                             <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
-                             <fmt:message key="travel.action.paydollar" bundle="${msg}" />
+                             <fmt:message key="annual.summary.paydollar" bundle="${msg}" />
                             </div>
                             <div class="clearfix"></div>
                           </div>
@@ -750,7 +651,7 @@ var enablePayment=true;
                              <img src="<%=request.getContextPath()%>/resources/images/icon-visa.png" alt="">
                             </div>
                             <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
-                             <fmt:message key="travel.action.visa" bundle="${msg}" />
+                             <fmt:message key="annual.summary.visa" bundle="${msg}" />
                             </div>
                             <div class="clearfix"></div>
                           </div>
@@ -759,7 +660,7 @@ var enablePayment=true;
                              <img src="<%=request.getContextPath()%>/resources/images/icon-master.png" alt="">
                             </div>
                             <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
-                             <fmt:message key="travel.action.master" bundle="${msg}" />
+                             <fmt:message key="annual.summary.master" bundle="${msg}" />
                             </div>
                             <div class="clearfix"></div>
                           </div>
@@ -768,6 +669,20 @@ var enablePayment=true;
                         <br/>
                         <br/>
                         </div>
+                    </div>
+                    
+                    <div class="form-wrap" style="margin-bottom: 10px;">
+                    <h4 class="h4-4 product_landing_download_button pull-left">
+                        <i class="fa fa-download"></i> <a
+                            href="http://www.fwd.com.hk/upload/en-US/travel_care_insurance.pdf"
+                            target="_blank"><fmt:message key="annual.common.productbrochure" bundle="${msg}" />   </a>
+                    </h4>
+                    <h4 class="h4-4 product_landing_download_button pull-left">
+                        <i class="fa fa-download"></i> <a
+                            href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
+                            target="_blank"><fmt:message key="annual.common.policyprovisions" bundle="${msg}" />   </a>
+                    </h4>
+                    <div class="clearfix"></div>
                     </div>
                 </div>
             </form>
