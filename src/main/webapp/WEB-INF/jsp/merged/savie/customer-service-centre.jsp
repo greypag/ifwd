@@ -109,8 +109,8 @@ var language = "${language}";
 						<div class="modal-body teaserSurvey">
 							<p class="registered"><fmt:message key="savie.customerServiceCentre.modalothertimeslots" bundle="${msg}" /></p>
 							
-							<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>-->
-							<button type="submit" class="btn btn-orange" id="pick-another-centre-btn"><fmt:message key="savie.customerServiceCentre.modalPickAnotherCenter" bundle="${msg}" /></button>
+							<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>
+							<button type="submit" class="btn btn-orange" id="pick-another-centre-btn"><fmt:message key="savie.customerServiceCentre.modalPickAnotherCenter" bundle="${msg}" /></button>-->
 						</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->	
@@ -149,15 +149,37 @@ var language = "${language}";
 				</div><!-- /.modal-dialog -->	
 			</div><!-- /.modal -->
 			
-			<div class="modal fade" role="dialog" aria-labelledby="confirmMsg" id="confirmMsg">
+			<!--Modal in Customer Service Centre-->
+			<div class="modal fade" role="dialog" aria-labelledby="perferredTimeIsNull" id="perferredTimeIsNull">
 				<div class="modal-dialog teaserSurvey" role="document">
 					<div class="modal-content teaserSurvey">
 						<div class="modal-header teaserSurvey">
-							<h2 id="confirmMsgContext"></h2>
+							<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+							<h2><fmt:message key="savie.customerServiceCentre.perferredTimeIsNull" bundle="${msg}" /></h2>
 						</div>
-					</div>
-				</div>
-			</div>
+						<div class="modal-body teaserSurvey">
+							<p class="registered"><fmt:message key="savie.customerServiceCentre.perferredTimeIsNullContext" bundle="${msg}" /></p>
+							
+							<!--<button type="submit" class="btn btn-white btn-thank-you" id="teaser-mmodal-submit">Submit</button>
+							<button type="submit" class="btn btn-orange" id="pick-another-centre-btn"><fmt:message key="savie.customerServiceCentre.modalPickAnotherCenter" bundle="${msg}" /></button>-->
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->	
+			</div><!-- /.modal -->
+			
+			<!--Modal in Customer Service Centre (Reservation Invalid)-->
+			<div class="modal fade" role="dialog" aria-labelledby="reservationInvalid" id="reservationInvalid">
+				<div class="modal-dialog teaserSurvey" role="document">
+					<div class="modal-content teaserSurvey">
+						<div class="modal-header teaserSurvey">
+							<h2><fmt:message key="savie.customerServiceCentre.reservationInvalid" bundle="${msg}" /></h2>
+						</div>
+						<div class="modal-body teaserSurvey">
+							<!-- <p class="registered"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbody" bundle="${msg}" /></p>-->
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->	
+			</div><!-- /.modal -->
 	</form>
 </div>
 <%-- 
@@ -212,17 +234,8 @@ var language = "${language}";
 			var csCenter = $("#centre").val();
 			var perferredDate = $("#preferred-date").val();
 			var perferredTime = $("#preferred-time").val();
-			if(csCenter == null || csCenter.trim() == ""){
-				$("#confirmMsgContext").html("请选择客户服务中心");
-				$('#confirmMsg').modal('show');
-			}
-			else if(perferredDate == null || perferredDate.trim() == ""){
-				$("#confirmMsgContext").html("请选择日期");
-				$('#confirmMsg').modal('show');
-			}
-			else if(perferredTime == null || perferredTime.trim() == ""){
-				$("#confirmMsgContext").html("请选择时间");
-				$('#confirmMsg').modal('show');
+			if(perferredTime == null || perferredTime.trim() == ""){
+				$('#perferredTimeIsNull').modal('show');
 			}
 			else{
 				$.ajax({     
@@ -258,8 +271,13 @@ var language = "${language}";
 							    error:function(){       
 							    }
 							});
-				    	}else{
+				    	}
+				    	else if(data.errMsgs == "Access code has been used"){
 				    		$('#accessCodeUsed').modal('show');
+				    		console.log(data.errMsgs);
+				    	}
+				    	else if(data.errMsgs == "Reservation Invalid"){
+				    		$('#reservationInvalid').modal('show');
 				    		console.log(data.errMsgs);
 				    	}
 				    }  
