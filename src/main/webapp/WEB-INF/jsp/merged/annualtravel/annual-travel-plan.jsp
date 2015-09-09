@@ -291,69 +291,35 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	          personalSpinnerStyle = "style='display:none'";
 	          familySpinnerStyle = "";
 	        } 
-	        //System.out.println(familySpinnerStyle);
-	        //System.out.println(personalSpinnerStyle);
 	  }
 %>
+
+<section class="product_header_path_container ">
+    <div class="container">
+        <div class="product_header_path_item back"><i class="fa fa-arrow-left"></i><div class="partition hidden-lg hidden-md"></div></div>
+        <div class="product_header_path_item active"><fmt:message key="annual.title.planoption" bundle="${msg}" /></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.application" bundle="${msg}" /><div class="partition"></div></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.payment" bundle="${msg}" /><div class="partition"></div></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.confirmation" bundle="${msg}" /></div>
+    </div>
+</section>
+
 <section>
 	<div id="cn" class="container">
 		<div class="row">
 			<form:form name="frmTravelPlan" id="frmTravelPlan" action='' method="post" modelAttribute="travelQuote" onsubmit="return chkDueAmount(this,'frmTravelPlan');" >
 				<ol class="breadcrumb pad-none">
-					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a></li>
-					<li class="active "><i class="fa fa-caret-right"></i><fmt:message key="travel.breadcrumb1.item3" bundle="${msg}" /></li>
+					<li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="annual.title.home" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="annual.title.travelcare" bundle="${msg}" /></a></li>
+					<li class="active "><i class="fa fa-caret-right"></i><fmt:message key="annual.title.youroptions" bundle="${msg}" /></li>
 				</ol>
-				<div class="container ">
-					<div class="col-lg-12 col-md-12 shop-tracking-status">
-						<div class="center wow fadeInDown animated"
-							style="visibility: visible;">
-							<h2><fmt:message key="travel.quote.jumbo" bundle="${msg}" /></h2>
-						</div>
-						<br>
-						<div class="col-lg-12 col-md-12">
-							<div id="tr-wizard" class="shop-tracking-status">
-								<div class="order-status has-four">
-									<div class="order-status-timeline-new">
-								<!--
-										There can be n '.order-status-timeline-completion'
-										dots-inactive and dots-active color the dots -->
-										<div class="order-status-timeline-completion dots-inactive"></div>
-										<div class="order-status-timeline-completion dots-inactive"></div>
-										<div class="order-status-timeline-completion dots-inactive"></div>
-									</div>
-									<div
-										class="image-order-status image-order-status-new active img-circle act first">
-										<span class="status"><fmt:message key="travel.breadcrumb2.item1" bundle="${msg}" /></span>
-										<div class="icon">1</div>
-									</div>
-									<div
-										class="image-order-status image-order-status-intransit  img-circle second">
-										<span class="status"><fmt:message key="travel.breadcrumb2.item2" bundle="${msg}" /></span>
-										<div class="icon">2</div>
-									</div>
-									<div
-										class="image-order-status image-order-status-delivered  img-circle third">
-										<span class="status"><fmt:message key="travel.breadcrumb2.item3" bundle="${msg}" /></span>
-										<div class="icon">3</div>
-									</div>
-									<div
-										class="image-order-status image-order-status-completed  img-circle fourth">
-										<span class="status lst-status"><fmt:message key="travel.breadcrumb2.item4" bundle="${msg}" /></span>
-										<div class="icon">4</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div id="quote-wrap" class="container pad-none bdr">
-					<div class="col-lg-8 col-xs-12 col-sm-12 col-md-8 pad-none">
+				<div id="quote-wrap" class="container pad-none bdr gray-bg3">
+					<div class="col-lg-8 col-xs-12 col-sm-12 col-md-8 pad-none white-bg1">
 					   <div class="workingholiday-plan-margin form-wrap">
-						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="travel.quote.choose" bundle="${msg}" /></h2>
+						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="annual.quote.choose" bundle="${msg}" /></h2>
+						
 						<%
 							QuoteDetails travelQuote = (QuoteDetails) request.getAttribute("quoteDetails");
-						
 							TravelQuoteBean travelQuoteBean = (TravelQuoteBean)request.getAttribute("travelQuote"); 
 							
 					    	if (travelQuote != null)
@@ -374,111 +340,28 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 								if (travelQuote.getPlanName().length > 0) {
 									for (int i = 0; i < travelQuote.getPlanName().length; i++) {
 						%>
-						<div class="col-lg-12 col-md-12 plan-box3 travelproductbox"
+						<div class="col-lg-12 col-md-12 plan-box3 travelproductbox annual_travelproductbox"
 							id="box<%=i%>"
 							onclick="changeColorAndPrice('box<%=i%>','<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
-							<div class="col-lg-8 col-md-8 col-sm-7 col-xs-5 pad-none">								
+							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none">								
 								<h2>
-									<fmt:message key="travel.quote.plan" bundle="${msg}" /> <%=travelQuote.getPlanName()[i]%>									
-									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
-									{%>  <fmt:message key="travel.quote.plan1.type" bundle="${msg}" /><br> HK$ 1,000,000 <fmt:message key="travel.quote.plan1.medical" bundle="${msg}" />
-								<%}	else{ %>
-										<fmt:message key="travel.quote.plan2.type" bundle="${msg}" /><br> HK$	500,000 <fmt:message key="travel.quote.plan2.medical" bundle="${msg}" />
-									<%} %>
-									
-								</h2>	
+									PLAN <%=travelQuote.getPlanName()[i]%>
+								</h2>
+								<h4 class="product_plan_box_description">TravelCare Single Travel provides you with conprehensive travel protection <span class="product_plan_box_description_orange">up to HK$1,000,000 nedical premium cover</span> for leisure and business tips</h4>
 							</div>
-							<div class="col-lg-4 col-md-4 col-sm-5 col-xs-7">
-								
-								<h3><fmt:message key="travel.dollar" bundle="${msg}" /></h3>
-								<%
-										if (Double.parseDouble(travelQuote.getDiscountAmount()[i]) == 0) {
-									%>
-									<h6>
-									<!-- <span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%></span> -->
-									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getGrossPremium()[i]%>" />.00</span>
+							<div class="partition"></div>
+							<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+								<h4 class="product_plan_box_title_right">
+								    Annual Premium
+								</h4>
+				                <h2 class="product_plan_box_price_right">
+									HK$ <span class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getGrossPremium()[i]%>" />.00</span>
 									<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
-								</h6>
-								<span class="del actualPrice<%=travelQuote.getPlanName()[i]%>"><del></del></span>
-									<%
-										} else {
-									%>
-									<h6>
-									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%></span>
-									<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
-								</h6>
-								<span class="del actualPrice<%=travelQuote.getPlanName()[i]%>"><del><%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%></del></span>
-									<%
-										}
-									%>
-								
-								
-								
-								
-							
-								
-								
-								
+								</h2>
+								<div class="del actualPriceA product_plan_box_del hide">HK$ <del>240.00</del></div>
+								<div class="product_plan_box_select_button_container"><div class="product_plan_box_select_button">Select</div></div>
 							</div>
 							<div class="clearfix"></div>
-							<!-- Plan benefits -->
-							<div class="fwdpanel">
-								<div class="fwdpanel-heading">
-									<h4 class=" benefits">
-									<%
-										String planBenefitKey = "travel.quote.plan" + (i+1)+ ".benefits";
-										String planBenefitDesc1Key = "travel.quote.plan" + (i+1)+ ".benefits.desc1";
-										String planBenefitDesc2Key = "travel.quote.plan" + (i+1)+ ".benefits.desc2";
-										String planBenefitDesc3Key = "travel.quote.plan" + (i+1)+ ".benefits.desc3";
-										String planBenefitDesc4Key = "travel.quote.plan" + (i+1)+ ".benefits.desc4";
-										String planBenefitDesc1PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc1.price";
-										String planBenefitDesc2PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc2.price";
-										String planBenefitDesc3PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc3.price";
-										String planBenefitDesc4PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc4.price";
-									%>
-										<span><a href="#" class="fwdpanel-minimize uline text-black"><i class="fa fa-plus"></i> <fmt:message key="<%=planBenefitKey%>" bundle="${msg}" /></a> </span>
-									</h4>
-								</div>
-								<div class="fwdpanel-body" style="display: none;">
-										<div class="col-xs-11 col-xs-offset-1">
-										<div class="row">
-											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-													<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc1Key%>" bundle="${msg}" /></div>
-											<div class="col-lg-4 col-md-4 col-xs-5">
-												<fmt:message key="<%=planBenefitDesc1PriceKey%>" bundle="${msg}" />
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc2Key%>" bundle="${msg}" />
-											</div>
-											<div class="col-lg-4 col-md-4 col-xs-5">
-												<fmt:message key="<%=planBenefitDesc2PriceKey%>" bundle="${msg}" />
-											</div>
-										</div> 
-										
-										<div class="row">
-											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc3Key%>" bundle="${msg}" /> </div>
-											<div class="col-lg-4 col-md-4 col-xs-5">
-												<fmt:message key="<%=planBenefitDesc3PriceKey%>" bundle="${msg}" />
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc4Key%>" bundle="${msg}" /></div>
-											<div class="col-lg-4 col-md-4 col-xs-5">
-												<fmt:message key="<%=planBenefitDesc4PriceKey%>" bundle="${msg}" />
-											</div>
-											</div>
-										</div>
-								</div>
-								
-								
-								
-								<div class="clearfix"></div>
-							</div>
-							<!-- / Plan benefits -->
 						</div>
 
 						<input type="hidden" name="txtTotalDue" id="txtTotalDue<%=i%>"
@@ -499,723 +382,740 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						 	}
 					    	else 
 					    	{
-					    		//System.out.println("travel-plan.jsp travelQuote is null!!!");
 					    	}
 						%>
+						
 						<div class="clearfix"></div>
+						
 						<!--Full Coverage-->
-						<div class="fwdpanel">
-							<div class="fwdpanel-heading">
-								<h4 class="fwdpanel-title h4-4-full">
-									<span>
-									<a href="#" class="fwdpanel-minimize">
-									   <i class="fa fa-plus"></i> <fmt:message key="travel.quote.fullDetails.heading" bundle="${msg}" /></span>
-									</a>		
-								</h4>
-							</div>
-							<div class="fwdpanel-body" style="display: none;">
-								<div class="row">
-									<div class="col-md-12">
-										<!--  Product Highlights  -->
-										<div class="fwdpanel fwdpanel-primary">
-											<div class="fwdpanel-heading">
-												<h4 class="fwdpanel-title h4-4-full ">
-													<span><i
-															class="fa fa-plus"></i> <a href="#"data-target="#details-popup-1" data-toggle="modal"><fmt:message key="travel.quote.fullDetails.keyFeature1" bundle="${msg}" /></a> </span>
-												</h4>
-											</div>
-											<div class="modal fade details-popup" id="details-popup-1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-				                                <div class="modal-dialog modal-lg">
-				                                    <div class="modal-content plan-modal">
-				                                        <a class="close" aria-label="Close" data-dismiss="modal">
-				                                        <span aria-hidden="true" style="font-size:30px;">×</span>
-				                                        </a>
-				                                        <div class="fwdpanel-heading">
-				                                            <h4 class="fwdpanel-title h4-4-full "><fmt:message key="travel.quote.fullDetails.keyFeature1" bundle="${msg}" /></h4>
-				                                        </div>
-				                                        <div class="fwdpanel-body">
-			                                                <p><fmt:message key="travel.quote.fullDetails.keyFeature1.subheading" bundle="${msg}" /></p>
-			                                                <br>
-			                                                <p>
-			                                                    <ul class="text-justify">
-			                                                        <li>
-			                                                            <fmt:message key="travel.quote.fullDetails.keyFeature1.desc1" bundle="${msg}" />
-			                                                        </li>
-			                                                        <li>
-			                                                            <fmt:message key="travel.quote.fullDetails.keyFeature1.desc2" bundle="${msg}" />
-			                                                        </li>
-			                                                        <li>
-			                                                            <fmt:message key="travel.quote.fullDetails.keyFeature1.desc3" bundle="${msg}" />
-			                                                        </li>
-			                                                        <li>
-			                                                            <fmt:message key="travel.quote.fullDetails.keyFeature1.desc4" bundle="${msg}" />
-			                                                        </li>
-			                                                        <li>
-			                                                            <fmt:message key="travel.quote.fullDetails.keyFeature1.desc5" bundle="${msg}" />
-			                                                        </li>
-			                                                        <li>
-			                                                            <fmt:message key="travel.quote.fullDetails.keyFeature1.desc6" bundle="${msg}" />
-			                                                        </li>
-			                                                        <li>
-			                                                            <fmt:message key="travel.quote.fullDetails.keyFeature1.desc7" bundle="${msg}" />
-			                                                        </li>
-			                                                    </ul>
-			                                                </p>
-			
-			                                            </div>
-				                                    </div>
-				                                 </div>
-				                            </div>
-											
-										</div>
-										<!-- /  Product Highlights -->
-										<!--  Summary of Coverage  -->
-										<div class="fwdpanel fwdpanel-primary">
-											<div class="fwdpanel-heading">
-												<h4 class="fwdpanel-title h4-4-full">
-													<span><i
-															class="fa fa-plus"></i> <a href="#" data-target="#details-popup-2" data-toggle="modal"><fmt:message key="travel.quote.fullDetails.keyFeature2" bundle="${msg}" /></a> </span>
-												</h4>
-											</div>
-											<div class="modal fade details-popup" id="details-popup-2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-                                                <div class="modal-dialog modal-lg">
-                                                    <div class="modal-content plan-modal">
-                                                        <a class="close" aria-label="Close" data-dismiss="modal">
-                                                        <span aria-hidden="true" style="font-size:30px;">×</span>
-                                                        </a>
-                                                        <div class="fwdpanel-heading">
-                                                            <h4 class="fwdpanel-title h4-4-full "><fmt:message key="travel.quote.fullDetails.keyFeature2" bundle="${msg}" /></h4>
-                                                        </div>
-                                                        <div class="fwdpanel-body" >
-			                                                <table id="summary" class="table table-bordred">
-			                                                    <tbody>
-			                                                        <tr>
-			                                                            <td rowspan="2"><fmt:message key="travel.quote.fullDetails.table.header1" bundle="${msg}" /></td>
-			                                                            <td rowspan="2"><fmt:message key="travel.quote.fullDetails.table.header2" bundle="${msg}" /></td>
-			                                                            <td colspan="2"><fmt:message key="travel.quote.fullDetails.table.header3" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.header3.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.header3.col2" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row1.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row1.col2.desc1" bundle="${msg}" /> <br/><br/>
-			                                                                <fmt:message key="travel.quote.fullDetails.table.row1.col2.desc2" bundle="${msg}" />
-			                                                            </td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row1.col3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row1.col4" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td rowspan="2"><fmt:message key="travel.quote.fullDetails.table.row2.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row2.col2.desc1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row2.col3.desc1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row2.col4.desc1" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row2.col2.desc2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row2.col3.desc2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row2.col4.desc2" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td rowspan="9"><fmt:message key="travel.quote.fullDetails.table.row3.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col2.desc1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col3.desc1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col4.desc1" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col2.desc2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col3.desc2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col4.desc2" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col2.desc3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col3.desc3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col4.desc3" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col2.desc4" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col3.desc4" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col4.desc4" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col2.desc5" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col3.desc5" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col4.desc5" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col2.desc6" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col3.desc6" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col4.desc6" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col2.desc7" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col3.desc7" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col4.desc7" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col2.desc8" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col3.desc8" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col4.desc8" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col2.desc9" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col3.desc9" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row3.col4.desc9" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td rowspan="3"><fmt:message key="travel.quote.fullDetails.table.row4.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col2.desc1.subheading" bundle="${msg}" /><br/>
-			                                                                <fmt:message key="travel.quote.fullDetails.table.row4.col2.desc1.content" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col3.desc1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col4.desc1" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col2.desc2.subheading" bundle="${msg}" /><br/>
-			                                                                <fmt:message key="travel.quote.fullDetails.table.row4.col2.desc2.content" bundle="${msg}" />
-			                                                            </td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col3.desc2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col4.desc2" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col2.desc3.subheading" bundle="${msg}" /><br/> 
-			                                                                <fmt:message key="travel.quote.fullDetails.table.row4.col2.desc3.content" bundle="${msg}" />
-			                                                            </td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col3.desc3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row4.col4.desc3" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row5.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row5.col2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row5.col3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row5.col4" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row6.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row6.col2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row6.col3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row6.col4" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row7.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row7.col2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row7.col3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row7.col4" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row8.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row8.col2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row8.col3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row8.col4" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td rowspan="3"><fmt:message key="travel.quote.fullDetails.table.row9.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row9.col2.desc1.subheading" bundle="${msg}" /><br/>
-			                                                                <fmt:message key="travel.quote.fullDetails.table.row9.col2.desc1.content" bundle="${msg}" />
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row9.col3.desc1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row9.col4.desc1" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row9.col2.desc2.subheading" bundle="${msg}" /><br/>
-			                                                                <fmt:message key="travel.quote.fullDetails.table.row9.col2.desc2.content" bundle="${msg}" />
-			                                                            </td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row9.col3.desc2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row9.col4.desc2" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row9.col2.desc3.subheading" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row9.col3.desc3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row9.col4.desc3" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row10.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row10.col2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row10.col3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row10.col4" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row11.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row11.col2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row11.col3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row11.col4" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row12.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row12.col2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row12.col3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row12.col4" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row13.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row13.col2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row13.col3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row13.col4" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row14.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row14.col2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row14.col3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row14.col4" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row15.col1" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row15.col2" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row15.col3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.table.row15.col4" bundle="${msg}" /></td>
-			                                                        </tr>
-			                                                    </tbody>
-			                                                </table>
-			                                            </div>
-                                                    </div>
-                                                </div>
-                                             </div>
-											
-										</div>
-										<!-- / Summary of Coverage -->
-										<!--   Major Exclusions  -->
-										<div class="fwdpanel fwdpanel-primary">
-											<div class="fwdpanel-heading">
-												<h4 class="fwdpanel-title h4-4-full">
-													<span><i
-															class="fa fa-plus"></i> <a href="#" data-target="#details-popup-3" data-toggle="modal"><fmt:message key="travel.quote.fullDetails.majorExclusion" bundle="${msg}" /></a> </span>
-												</h4>
-											</div>
-											<div class="modal fade details-popup" id="details-popup-3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-                                                <div class="modal-dialog modal-lg">
-                                                    <div class="modal-content plan-modal">
-                                                        <a class="close" aria-label="Close" data-dismiss="modal">
-                                                        <span aria-hidden="true" style="font-size:30px;">×</span>
-                                                        </a>
-                                                        <div class="fwdpanel-heading">
-                                                            <h4 class="fwdpanel-title h4-4-full "><fmt:message key="travel.quote.fullDetails.majorExclusion" bundle="${msg}" /></h4>
-                                                        </div>
-                                                        <div class="fwdpanel-body">
-			                                                <ol class="text-justify">
-			                                                    <li><fmt:message key="travel.quote.fullDetails.majorExclusion.desc1" bundle="${msg}" /></li>
-			                                                    <li><fmt:message key="travel.quote.fullDetails.majorExclusion.desc2" bundle="${msg}" /></li>
-			                                                    <li><fmt:message key="travel.quote.fullDetails.majorExclusion.desc3" bundle="${msg}" /></li>
-			                                                    <li><fmt:message key="travel.quote.fullDetails.majorExclusion.desc4" bundle="${msg}" /></li>
-			                                                    <li><fmt:message key="travel.quote.fullDetails.majorExclusion.desc5" bundle="${msg}" /></li>
-			                                                    <li><fmt:message key="travel.quote.fullDetails.majorExclusion.desc6" bundle="${msg}" /></li>
-			                                                    <li><fmt:message key="travel.quote.fullDetails.majorExclusion.desc7" bundle="${msg}" /></li>
-			                                                    <li><fmt:message key="travel.quote.fullDetails.majorExclusion.desc8" bundle="${msg}" /></li>
-			                                                    <li><fmt:message key="travel.quote.fullDetails.majorExclusion.desc9" bundle="${msg}" /></li>
-			                                                    <li><fmt:message key="travel.quote.fullDetails.majorExclusion.desc10" bundle="${msg}" /></li>
-			                                                </ol>
-			                                            </div>
-                                                    </div>
-                                                </div>
-                                             </div>
-											
-										</div>
-										<!-- /  Major Exclusions -->
-										<!--   Age limit  -->
-										<div class="fwdpanel fwdpanel-primary">
-											<div class="fwdpanel-heading">
-												<h4 class="fwdpanel-title h4-4-full">
-													<span><i
-															class="fa fa-plus"></i>  <a href="#" data-target="#details-popup-4" data-toggle="modal"><fmt:message key="travel.quote.fullDetails.ageLimit" bundle="${msg}" /></a> </span>
-												</h4>
-											</div>
-											<div class="modal fade details-popup" id="details-popup-4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-                                                <div class="modal-dialog modal-lg">
-                                                    <div class="modal-content plan-modal">
-                                                        <a class="close" aria-label="Close" data-dismiss="modal">
-                                                        <span aria-hidden="true" style="font-size:30px;">×</span>
-                                                        </a>
-                                                        <div class="fwdpanel-body">
-	                                                        <div class="fwdpanel-heading">
-	                                                            <h4 class="fwdpanel-title h4-4-full "><fmt:message key="travel.quote.fullDetails.ageLimit" bundle="${msg}" /></h4>
-	                                                        </div>
-			                                                <p><fmt:message key="travel.quote.fullDetails.ageLimit.desc1" bundle="${msg}" /><br/>
-			                                                    <fmt:message key="travel.quote.fullDetails.ageLimit.desc2" bundle="${msg}" />
-			                                                </p>
-			                                            </div>
-                                                    </div>
-                                                </div>
-                                             </div>
-											
-										</div>
-										<!-- / Age limit -->
-										<!--   Premium table (���)  -->
-										<div class="fwdpanel fwdpanel-primary">
-											<div class="fwdpanel-heading">
-												<h4 class="fwdpanel-title h4-4-full">
-													<span><i
-															class="fa fa-plus"></i> <a href="#" data-target="#details-popup-5" data-toggle="modal"><fmt:message key="travel.quote.fullDetails.priceTable" bundle="${msg}" /></a> </span>
-												</h4>
-											</div>
-											<div class="modal fade details-popup" id="details-popup-5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-                                                <div class="modal-dialog modal-lg">
-                                                    <div class="modal-content plan-modal">
-                                                        <a class="close" aria-label="Close" data-dismiss="modal">
-                                                        <span aria-hidden="true" style="font-size:30px;">×</span>
-                                                        </a>
-                                                        <div class="fwdpanel-heading">
-                                                            <h4 class="fwdpanel-title h4-4-full "><fmt:message key="travel.quote.fullDetails.priceTable" bundle="${msg}" /></h4>
-                                                        </div>
-                                                        <div class="fwdpanel-body">
-			                                                <h4 class="h4-2">
-			                                                    <strong><fmt:message key="travel.quote.fullDetails.priceTable.single.heading" bundle="${msg}" /></strong>
-			                                                </h4>
-			                                                <table id="Premium" class="table table-bordred">
-			                                                    <tbody>
-			                                                        <tr>
-			                                                            <td rowspan="2"><strong><fmt:message key="travel.quote.fullDetails.priceTable.single.header1" bundle="${msg}" /></strong></td>
-			                                                            <td colspan="2"><strong><fmt:message key="travel.quote.fullDetails.priceTable.single.header2" bundle="${msg}" /></strong></td>
-			                                                            <td colspan="2"><strong><fmt:message key="travel.quote.fullDetails.priceTable.single.header3" bundle="${msg}" /></strong></td>
-			                                                            <td colspan="2"><strong><fmt:message key="travel.quote.fullDetails.priceTable.single.header4" bundle="${msg}" /></strong></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td width="101"><strong><fmt:message key="travel.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></strong></td>
-			                                                            <td width="86"><strong><fmt:message key="travel.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
-			                                                            <td width="84"><strong><fmt:message key="travel.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></strong></td>
-			                                                            <td width="81"><strong><fmt:message key="travel.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
-			                                                            <td width="93"><strong><fmt:message key="travel.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></strong></td>
-			                                                            <td width="88"><strong><fmt:message key="travel.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></strong></td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td style="background-color: #fff;color: #333">1</td>
-			                                                            <td>120</td>
-			                                                            <td>95</td>
-			                                                            <td>210</td>
-			                                                            <td>166</td>
-			                                                            <td>300</td>
-			                                                            <td>238</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>2</td>
-			                                                            <td>130</td>
-			                                                            <td>105</td>
-			                                                            <td>228</td>
-			                                                            <td>184</td>
-			                                                            <td>325</td>
-			                                                            <td>263</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>3</td>
-			                                                            <td>145</td>
-			                                                            <td>115</td>
-			                                                            <td>254</td>
-			                                                            <td>201</td>
-			                                                            <td>363</td>
-			                                                            <td>288</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>4</td>
-			                                                            <td>180</td>
-			                                                            <td>135</td>
-			                                                            <td>315</td>
-			                                                            <td>236</td>
-			                                                            <td>450</td>
-			                                                            <td>338</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>5</td>
-			                                                            <td>215</td>
-			                                                            <td>155</td>
-			                                                            <td>376</td>
-			                                                            <td>271</td>
-			                                                            <td>538</td>
-			                                                            <td>388</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>6</td>
-			                                                            <td>250</td>
-			                                                            <td>175</td>
-			                                                            <td>438</td>
-			                                                            <td>306</td>
-			                                                            <td>625</td>
-			                                                            <td>438</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>7</td>
-			                                                            <td>270</td>
-			                                                            <td>188</td>
-			                                                            <td>473</td>
-			                                                            <td>329</td>
-			                                                            <td>675</td>
-			                                                            <td>470</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>8</td>
-			                                                            <td>290</td>
-			                                                            <td>200</td>
-			                                                            <td>508</td>
-			                                                            <td>350</td>
-			                                                            <td>725</td>
-			                                                            <td>500</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>9</td>
-			                                                            <td>305</td>
-			                                                            <td>212</td>
-			                                                            <td>534</td>
-			                                                            <td>371</td>
-			                                                            <td>763</td>
-			                                                            <td>530</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>10</td>
-			                                                            <td>320</td>
-			                                                            <td>225</td>
-			                                                            <td>560</td>
-			                                                            <td>394</td>
-			                                                            <td>800</td>
-			                                                            <td>563</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>11</td>
-			                                                            <td>345</td>
-			                                                            <td>237</td>
-			                                                            <td>604</td>
-			                                                            <td>415</td>
-			                                                            <td>863</td>
-			                                                            <td>593</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>12</td>
-			                                                            <td>370</td>
-			                                                            <td>249</td>
-			                                                            <td>648</td>
-			                                                            <td>436</td>
-			                                                            <td>925</td>
-			                                                            <td>623</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>13</td>
-			                                                            <td>390</td>
-			                                                            <td>261</td>
-			                                                            <td>683</td>
-			                                                            <td>457</td>
-			                                                            <td>975</td>
-			                                                            <td>653</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>14</td>
-			                                                            <td>410</td>
-			                                                            <td>273</td>
-			                                                            <td>718</td>
-			                                                            <td>478</td>
-			                                                            <td>1025</td>
-			                                                            <td>683</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>15</td>
-			                                                            <td>435</td>
-			                                                            <td>285</td>
-			                                                            <td>761</td>
-			                                                            <td>499</td>
-			                                                            <td>1088</td>
-			                                                            <td>713</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>16</td>
-			                                                            <td>470</td>
-			                                                            <td>297</td>
-			                                                            <td>823</td>
-			                                                            <td>520</td>
-			                                                            <td>1175</td>
-			                                                            <td>743</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>17</td>
-			                                                            <td>495</td>
-			                                                            <td>309</td>
-			                                                            <td>866</td>
-			                                                            <td>541</td>
-			                                                            <td>1238</td>
-			                                                            <td>773</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>18</td>
-			                                                            <td>515</td>
-			                                                            <td>321</td>
-			                                                            <td>901</td>
-			                                                            <td>562</td>
-			                                                            <td>1288</td>
-			                                                            <td>803</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>19</td>
-			                                                            <td>535</td>
-			                                                            <td>333</td>
-			                                                            <td>936</td>
-			                                                            <td>583</td>
-			                                                            <td>1338</td>
-			                                                            <td>833</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>20</td>
-			                                                            <td>555</td>
-			                                                            <td>345</td>
-			                                                            <td>971</td>
-			                                                            <td>604</td>
-			                                                            <td>1388</td>
-			                                                            <td>863</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>21</td>
-			                                                            <td>575</td>
-			                                                            <td>357</td>
-			                                                            <td>1006</td>
-			                                                            <td>625</td>
-			                                                            <td>1438</td>
-			                                                            <td>893</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>22</td>
-			                                                            <td>595</td>
-			                                                            <td>369</td>
-			                                                            <td>1041</td>
-			                                                            <td>646</td>
-			                                                            <td>1488</td>
-			                                                            <td>923</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>23</td>
-			                                                            <td>615</td>
-			                                                            <td>381</td>
-			                                                            <td>1076</td>
-			                                                            <td>667</td>
-			                                                            <td>1538</td>
-			                                                            <td>953</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>24</td>
-			                                                            <td>635</td>
-			                                                            <td>393</td>
-			                                                            <td>1111</td>
-			                                                            <td>688</td>
-			                                                            <td>1588</td>
-			                                                            <td>983</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>25</td>
-			                                                            <td>655</td>
-			                                                            <td>405</td>
-			                                                            <td>1146</td>
-			                                                            <td>709</td>
-			                                                            <td>1638</td>
-			                                                            <td>1013</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>26</td>
-			                                                            <td>675</td>
-			                                                            <td>417</td>
-			                                                            <td>1181</td>
-			                                                            <td>730</td>
-			                                                            <td>1688</td>
-			                                                            <td>1043</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>27</td>
-			                                                            <td>695</td>
-			                                                            <td>429</td>
-			                                                            <td>1216</td>
-			                                                            <td>751</td>
-			                                                            <td>1738</td>
-			                                                            <td>1073</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>28</td>
-			                                                            <td>715</td>
-			                                                            <td>441</td>
-			                                                            <td>1251</td>
-			                                                            <td>772</td>
-			                                                            <td>1788</td>
-			                                                            <td>1103</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>29</td>
-			                                                            <td>735</td>
-			                                                            <td>453</td>
-			                                                            <td>1286</td>
-			                                                            <td>793</td>
-			                                                            <td>1838</td>
-			                                                            <td>1133</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>30</td>
-			                                                            <td>755</td>
-			                                                            <td>465</td>
-			                                                            <td>1321</td>
-			                                                            <td>814</td>
-			                                                            <td>1888</td>
-			                                                            <td>1163</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td>31</td>
-			                                                            <td>775</td>
-			                                                            <td>477</td>
-			                                                            <td>1356</td>
-			                                                            <td>835</td>
-			                                                            <td>1938</td>
-			                                                            <td>1193</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.priceTable.dayLimit" bundle="${msg}" />
-			                                                            <td>20</td>
-			                                                            <td>12</td>
-			                                                            <td>35</td>
-			                                                            <td>21</td>
-			                                                            <td>50</td>
-			                                                            <td>30</td>
-			                                                        </tr>
-			                                                    </tbody>
-			                                                </table>
-			                                                <!--<h4 class="h4-2">
-			                                                    <strong><fmt:message key="travel.quote.fullDetails.priceTable.annual.heading" bundle="${msg}" /></strong>
-			                                                </h4>
-			                                                <table id="annual" class="table table-bordred">
-			                                                    <tbody>
-			                                                        <tr>
-			                                                            <td width="208" rowspan="4"><strong><fmt:message key="travel.quote.fullDetails.priceTable.annual.header1" bundle="${msg}" /></strong></td>
-			                                                            <td colspan="2" rowspan="2"><fmt:message key="travel.quote.fullDetails.priceTable.annual.header2" bundle="${msg}" /></td>
-			                                                            <td width="108"><fmt:message key="travel.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></td>
-			                                                            <td width="36">1,800</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></td>
-			                                                            <td>1,300</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td colspan="2" rowspan="2"><fmt:message key="travel.quote.fullDetails.priceTable.annual.header3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></td>
-			                                                            <td>3,600</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></td>
-			                                                            <td>2,600</td>
-			                                                        </tr>
-			                                                    </tbody>
-			                                                </table>
-			                                                <br>-->
-			                                                <h4 class="h4-2">
-			                                                    <strong><fmt:message key="travel.quote.fullDetails.priceTable.remark" bundle="${msg}" /></strong>
-			                                                </h4>
-			                                                <p><fmt:message key="travel.quote.fullDetails.priceTable.remark.desc1" bundle="${msg}" /><br/>
-			                                                    <fmt:message key="travel.quote.fullDetails.priceTable.remark.desc2" bundle="${msg}" /><br/>
-			                                                    <fmt:message key="travel.quote.fullDetails.priceTable.remark.desc3" bundle="${msg}" /><br/>
-			                                                    <fmt:message key="travel.quote.fullDetails.priceTable.remark.desc4" bundle="${msg}" />
-			                                                </p>
-			                                            </div>
-                                                    </div>
-                                                </div>
-                                             </div>
-											
-										</div>
-										<!-- / Premium table (���) -->
-									</div>
-									<!-- / col-md-12 -->
-								</div>
-								<!-- /row -->
-							</div>
-							<h4 class="h4-4">
-								<i class="fa fa-download"></i> <a
-									href="<fmt:message key="travel.brochure.link" bundle="${msg}" />"
-									target="_blank"><fmt:message key="travel.quote.fullDetails.download" bundle="${msg}" /></a>
-							</h4>
+						<div class="fwdpanel product_plan_panel_container">
+						    <div class="fwdpanel-heading product_plan_panel">
+                                <h4 class="fwdpanel-title h4-4-full">
+                                    Product Highlights
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </h4>
+                            </div>
+                            <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
+                                <div class="row product_plan_panel_content_row">
+                                    <div class="col-xs-12">
+                                        <p>TravelCare provides you with comprehensive travel protection for leisure and business trips. Medical Expenses, Worldwide Emergency Services, Hospital Cash Allowance, Personal Accident, Major Burns, Personal Money, Baggage, Personal Liability, Travel Delay, Cancellation and Curtailment of Trip are all included. For details, please refer to the section of "Coverage" below.</p>
+                                        <br>
+                                        <p>
+                                            <ul class="bullets">
+                                                <li>
+                                                    No excess for all benefits
+                                                </li>
+                                                <li>
+                                                    24-hour Worldwide Emergency Assistance Services
+                                                </li>
+                                                <li>
+                                                    Cover for leisure and amateur sports activities including winter sports, bungee jumping, hiking, rock climbing, horse riding, scuba diving and other water sports
+                                                </li>
+                                                <li>
+                                                    Cover for personal accident and medical related claims caused by an act of terrorism
+                                                </li>
+                                                <li>
+                                                    Premium is calculated on a daily basis according to the exact length of your trip
+                                                </li>
+                                                <li>
+                                                    Unlimited number of children for Individual & Children or Family Plan
+                                                </li>
+                                                <li>
+                                                    Free automatic extension up to 10 days in case of an unavoidable delay of the stipulated itinerary
+                                                </li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fwdpanel-heading product_plan_panel">
+                                <h4 class="fwdpanel-title h4-4-full">
+                                    Summary of Coverage
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </h4>
+                            </div>
+                            <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+	                                <h4 class="fwdpanel-title h4-4-full">
+	                                    Medical Expenses
+	                                    <i class="fa fa-plus pull-right"></i>
+	                                </h4>
+	                            </div>
+	                            <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+	                               <div class="row product_plan_panel_inner_content_row">
+	                                    <div class="col-xs-12">
+	                                        <table>
+                                               <tr>
+                                                   <th>Benefits</th>
+                                                   <th>Plan A</th>
+                                                   <th>Plan B</th>
+                                               </tr>
+                                               <tr>
+                                                   <td>a)  Medical Expenses - the cost of qualified medical treatment, surgery and hospitalisation arising from sickness or accidental injury. <br/><br/>b)  Follow-up Expenses - medical, hospital and treatment expenses reasonably incurred within 90 days of the Insured Person’s return to the place of origin from overseas up to HK$100,000 (Including Chinese Bonesetting in Hong Kong up to HK$3,000 with maximum daily limit per visit HK$200 ).</td>
+                                                   <td>$1,000,000</td>
+                                                   <td>$500,000</td>
+                                               </tr>
+                                            </table>
+	                                    </div>
+	                                    <div class="clearfix"></div>
+	                                </div>
+	                            </div>
+	                            <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        Hospital or Quarantine Cash Allowance
+                                        <i class="fa fa-plus pull-right"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <tr>
+                                                   <th>Benefits</th>
+                                                   <th>Plan A</th>
+                                                   <th>Plan B</th>
+                                               </tr>
+                                               <tr>
+                                                   <td>a) Overseas Hospital - HK$500 for each complete day in hospital to meet Insured Person's extra expenses.</td>
+                                                   <td>$10,000</td>
+                                                   <td>$5,000</td>
+                                               </tr>
+                                               <tr>
+                                                   <td>b) Compulsory Quarantine - HK$500 for each complete day during the journey or 7 days upon return to Hong Kong.</td>
+                                                   <td>$10,000</td>
+                                                   <td>$5,000</td>
+                                               </tr>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        Worldwide Emergency Assistance Service
+                                        <i class="fa fa-plus pull-right"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <tr>
+                                                   <th>Benefits</th>
+                                                   <th>Plan A</th>
+                                                   <th>Plan B</th>
+                                               </tr>
+                                               <tr>
+                                                   <td>a) Emergency Medical Evacuation and Repatriation - to the nearest facility capable of providing adequate medical care and to repatriate back to Hong Kong if the physician determines that it is necessary.</td>
+                                                   <td>Fully Covered</td>
+                                                   <td>Fully Covered</td>
+                                               </tr>
+                                               <tr>
+                                                   <td>b) Guarantee of Hospital Admission Deposits - for hospital admittance fees on behalf of the Insured Person.</td>
+                                                   <td>$40,000</td>
+                                                   <td>$40,000</td>
+                                               </tr>
+                                               <tr>
+                                                   <td>c) Additional Costs of Accommodation - for an Insured Person's family member or travelling companion when such costs arise from hospitalization or delay due to a serious medical condition of the Insured Person.</td>
+                                                   <td>$40,000</td>
+                                                   <td>$15,000</td>
+                                               </tr>
+                                               <tr>
+                                                   <td>d) Compassionate Visit and Hotel Accommodation - up to 2 immediate family members, includes travelling cost to join the Insured Person who is confined in hospital for more than 3 days or dies abroad.</td>
+                                                   <td>$40,000</td>
+                                                   <td>$15,000</td>
+                                               </tr>
+                                               <tr>
+                                                   <td>e) Return of Minor Children - reasonable additional accommodation and travelling expenses for the return of unattended Insured Person's children (aged below 18) to Hong Kong.</td>
+                                                   <td>$40,000</td>
+                                                   <td>$15,000</td>
+                                               </tr>
+                                               <tr>
+                                                   <td>f) Repatriation of Mortal Remains - transportation charges for repatriation of the mortal remains to Hong Kong.</td>
+                                                   <td>$40,000</td>
+                                                   <td>$15,000</td>
+                                               </tr>
+                                               <tr>
+                                                   <td>g) Unexpected Return in the Event of the Death of a Close Relative - return economy class airfare for unexpected return to Hong Kong following the death of a close relative.</td>
+                                                   <td>$40,000</td>
+                                                   <td>$15,000</td>
+                                               </tr>
+                                               <tr>
+                                                   <td>h) Other Assistance - including telephone medical advice, emergency travel service assistance or legal referral etc.</td>
+                                                   <td>included</td>
+                                                   <td>included</td>
+                                               </tr>
+                                               <tr>
+                                                   <td>Worldwide Emergency Assistance Service is arranged by International SOS (HK) Limited.</td>
+                                                   <td></td>
+                                                   <td></td>
+                                               </tr>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        Medical Expenses
+                                        <i class="fa fa-plus pull-right"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <tr>
+                                                   <th>Benefits</th>
+                                                   <th>Plan A</th>
+                                                   <th>Plan B</th>
+                                               </tr>
+                                               <tr>
+                                                   <td>a)  Medical Expenses - the cost of qualified medical treatment, surgery and hospitalisation arising from sickness or accidental injury. <br/><br/>b)  Follow-up Expenses - medical, hospital and treatment expenses reasonably incurred within 90 days of the Insured Person’s return to the place of origin from overseas up to HK$100,000 (Including Chinese Bonesetting in Hong Kong up to HK$3,000 with maximum daily limit per visit HK$200 ).</td>
+                                                   <td>$1,000,000</td>
+                                                   <td>$500,000</td>
+                                               </tr>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        Medical Expenses
+                                        <i class="fa fa-plus pull-right"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <tr>
+                                                   <th>Benefits</th>
+                                                   <th>Plan A</th>
+                                                   <th>Plan B</th>
+                                               </tr>
+                                               <tr>
+                                                   <td>a)  Medical Expenses - the cost of qualified medical treatment, surgery and hospitalisation arising from sickness or accidental injury. <br/><br/>b)  Follow-up Expenses - medical, hospital and treatment expenses reasonably incurred within 90 days of the Insured Person’s return to the place of origin from overseas up to HK$100,000 (Including Chinese Bonesetting in Hong Kong up to HK$3,000 with maximum daily limit per visit HK$200 ).</td>
+                                                   <td>$1,000,000</td>
+                                                   <td>$500,000</td>
+                                               </tr>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        Medical Expenses
+                                        <i class="fa fa-plus pull-right"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <tr>
+                                                   <th>Benefits</th>
+                                                   <th>Plan A</th>
+                                                   <th>Plan B</th>
+                                               </tr>
+                                               <tr>
+                                                   <td>a)  Medical Expenses - the cost of qualified medical treatment, surgery and hospitalisation arising from sickness or accidental injury. <br/><br/>b)  Follow-up Expenses - medical, hospital and treatment expenses reasonably incurred within 90 days of the Insured Person’s return to the place of origin from overseas up to HK$100,000 (Including Chinese Bonesetting in Hong Kong up to HK$3,000 with maximum daily limit per visit HK$200 ).</td>
+                                                   <td>$1,000,000</td>
+                                                   <td>$500,000</td>
+                                               </tr>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        Medical Expenses
+                                        <i class="fa fa-plus pull-right"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <tr>
+                                                   <th>Benefits</th>
+                                                   <th>Plan A</th>
+                                                   <th>Plan B</th>
+                                               </tr>
+                                               <tr>
+                                                   <td>a)  Medical Expenses - the cost of qualified medical treatment, surgery and hospitalisation arising from sickness or accidental injury. <br/><br/>b)  Follow-up Expenses - medical, hospital and treatment expenses reasonably incurred within 90 days of the Insured Person’s return to the place of origin from overseas up to HK$100,000 (Including Chinese Bonesetting in Hong Kong up to HK$3,000 with maximum daily limit per visit HK$200 ).</td>
+                                                   <td>$1,000,000</td>
+                                                   <td>$500,000</td>
+                                               </tr>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        Medical Expenses
+                                        <i class="fa fa-plus pull-right"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <tr>
+                                                   <th>Benefits</th>
+                                                   <th>Plan A</th>
+                                                   <th>Plan B</th>
+                                               </tr>
+                                               <tr>
+                                                   <td>a)  Medical Expenses - the cost of qualified medical treatment, surgery and hospitalisation arising from sickness or accidental injury. <br/><br/>b)  Follow-up Expenses - medical, hospital and treatment expenses reasonably incurred within 90 days of the Insured Person’s return to the place of origin from overseas up to HK$100,000 (Including Chinese Bonesetting in Hong Kong up to HK$3,000 with maximum daily limit per visit HK$200 ).</td>
+                                                   <td>$1,000,000</td>
+                                                   <td>$500,000</td>
+                                               </tr>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        Medical Expenses
+                                        <i class="fa fa-plus pull-right"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <tr>
+                                                   <th>Benefits</th>
+                                                   <th>Plan A</th>
+                                                   <th>Plan B</th>
+                                               </tr>
+                                               <tr>
+                                                   <td>a)  Medical Expenses - the cost of qualified medical treatment, surgery and hospitalisation arising from sickness or accidental injury. <br/><br/>b)  Follow-up Expenses - medical, hospital and treatment expenses reasonably incurred within 90 days of the Insured Person’s return to the place of origin from overseas up to HK$100,000 (Including Chinese Bonesetting in Hong Kong up to HK$3,000 with maximum daily limit per visit HK$200 ).</td>
+                                                   <td>$1,000,000</td>
+                                                   <td>$500,000</td>
+                                               </tr>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        Medical Expenses
+                                        <i class="fa fa-plus pull-right"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <tr>
+                                                   <th>Benefits</th>
+                                                   <th>Plan A</th>
+                                                   <th>Plan B</th>
+                                               </tr>
+                                               <tr>
+                                                   <td>a)  Medical Expenses - the cost of qualified medical treatment, surgery and hospitalisation arising from sickness or accidental injury. <br/><br/>b)  Follow-up Expenses - medical, hospital and treatment expenses reasonably incurred within 90 days of the Insured Person’s return to the place of origin from overseas up to HK$100,000 (Including Chinese Bonesetting in Hong Kong up to HK$3,000 with maximum daily limit per visit HK$200 ).</td>
+                                                   <td>$1,000,000</td>
+                                                   <td>$500,000</td>
+                                               </tr>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fwdpanel-heading product_plan_panel">
+                                <h4 class="fwdpanel-title h4-4-full">
+                                    Major Exclusions
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </h4>
+                            </div>
+                            <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
+                                <div class="row product_plan_panel_content_row">
+                                    <div class="col-xs-12">
+                                        <ol class="">
+                                            <li>War (whether declared or not), civil war, act of foreign enemies, rebellion, military or usurped power.</li>
+                                            <li>Nuclear hazards.</li>
+                                            <li>Acts of Terrorism (except the Personal Accident, Medical Cover, Worldwide Emergency Services, Travel Delay, Cancellation Charges and Trip Curtailment covered by TravelCare).</li>
+                                            <li>Pre-existing condition, congenital and hereditary condition.</li>
+                                            <li>Suicide, attempted suicide or intentional self-inflicted bodily injuries, insanity, abortion, miscarriage, assigned complications, pregnancy, child-birth, venereal diseases, the use of alcohol or drugs other than those prescribed by a qualified registered physician, dental treatment (unless resulting from accidental bodily injury to sound and natural teeth).</li>
+                                            <li>Racing (other than on foot) or any sports or games in a professional capacity or where the Insured Person would or could earn income or remuneration from engaging in such sport.</li>
+                                            <li>Any activities in the air unless an insured person is (i) travelling as a fare paying passenger in a licensed aircraft operated by a recognised airline, or (ii) participating in such activity where the maneuver or navigation of such activity is managed and controlled by another licensed person and the provider of such activity must be authorised by the relevant local authority.</li>
+                                            <li>Losses not reported within 24 hours to the authorities (such as airlines, police) and failure to provide the report certified by the relevant authorities.</li>
+                                            <li>Pager, Mobile Phone, handheld portable telecommunication equipment, computer equipment (except Lap Top Computer).</li>
+                                            <li>Personal liabilities arising from use or operation of vehicles, aircraft, watercraft, willful, malicious or unlawful acts.</li>
+                                        </ol>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fwdpanel-heading product_plan_panel">
+                                <h4 class="fwdpanel-title h4-4-full">
+                                    Age Limit
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </h4>
+                            </div>
+                            <div class="fwdpanel-body product_plan_panel_content" style="display: none;height: auto;">
+                                <div class="row product_plan_panel_content_row">
+                                    <div class="col-xs-12">
+                                        <p>A minimum age of 6 weeks to a maximum of 85 years. Children under 18 years of age must be accompanied by at least one adult who is also insured under the same policy.<br/>
+                                            (This summary gives only an outline of the insurance cover. Please refer to the Insurance Policy for the precise terms and conditions.)
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fwdpanel-heading product_plan_panel">
+                                <h4 class="fwdpanel-title h4-4-full">
+                                    Premium table (HK$)
+                                    <i class="fa fa-chevron-down pull-right"></i>
+                                </h4>
+                            </div>
+                            <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
+                                <div class="row product_plan_panel_content_row">
+                                    <div class="col-xs-12">
+                                        <h4 class="h4-2">
+                                            <strong>Single Trip Premium Table (HK$)</strong>
+                                        </h4>
+                                        <table id="Premium" class="table table-bordred">
+                                            <tbody>
+                                                <tr>
+                                                    <td rowspan="2"><strong>No. of Day(s)</strong></td>
+                                                    <td colspan="2"><strong>Individual</strong></td>
+                                                    <td colspan="2"><strong>Individual & Children</strong></td>
+                                                    <td colspan="2"><strong>Family</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="101"><strong>Plan A</strong></td>
+                                                    <td width="86"><strong>Plan B</strong></td>
+                                                    <td width="84"><strong>Plan A</strong></td>
+                                                    <td width="81"><strong>Plan B</strong></td>
+                                                    <td width="93"><strong>Plan A</strong></td>
+                                                    <td width="88"><strong>Plan B</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="background-color: #fff;color: #333">1</td>
+                                                    <td>120</td>
+                                                    <td>95</td>
+                                                    <td>210</td>
+                                                    <td>166</td>
+                                                    <td>300</td>
+                                                    <td>238</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>130</td>
+                                                    <td>105</td>
+                                                    <td>228</td>
+                                                    <td>184</td>
+                                                    <td>325</td>
+                                                    <td>263</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>145</td>
+                                                    <td>115</td>
+                                                    <td>254</td>
+                                                    <td>201</td>
+                                                    <td>363</td>
+                                                    <td>288</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>180</td>
+                                                    <td>135</td>
+                                                    <td>315</td>
+                                                    <td>236</td>
+                                                    <td>450</td>
+                                                    <td>338</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>5</td>
+                                                    <td>215</td>
+                                                    <td>155</td>
+                                                    <td>376</td>
+                                                    <td>271</td>
+                                                    <td>538</td>
+                                                    <td>388</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>6</td>
+                                                    <td>250</td>
+                                                    <td>175</td>
+                                                    <td>438</td>
+                                                    <td>306</td>
+                                                    <td>625</td>
+                                                    <td>438</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>7</td>
+                                                    <td>270</td>
+                                                    <td>188</td>
+                                                    <td>473</td>
+                                                    <td>329</td>
+                                                    <td>675</td>
+                                                    <td>470</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>8</td>
+                                                    <td>290</td>
+                                                    <td>200</td>
+                                                    <td>508</td>
+                                                    <td>350</td>
+                                                    <td>725</td>
+                                                    <td>500</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>9</td>
+                                                    <td>305</td>
+                                                    <td>212</td>
+                                                    <td>534</td>
+                                                    <td>371</td>
+                                                    <td>763</td>
+                                                    <td>530</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>10</td>
+                                                    <td>320</td>
+                                                    <td>225</td>
+                                                    <td>560</td>
+                                                    <td>394</td>
+                                                    <td>800</td>
+                                                    <td>563</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>11</td>
+                                                    <td>345</td>
+                                                    <td>237</td>
+                                                    <td>604</td>
+                                                    <td>415</td>
+                                                    <td>863</td>
+                                                    <td>593</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>12</td>
+                                                    <td>370</td>
+                                                    <td>249</td>
+                                                    <td>648</td>
+                                                    <td>436</td>
+                                                    <td>925</td>
+                                                    <td>623</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>13</td>
+                                                    <td>390</td>
+                                                    <td>261</td>
+                                                    <td>683</td>
+                                                    <td>457</td>
+                                                    <td>975</td>
+                                                    <td>653</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>14</td>
+                                                    <td>410</td>
+                                                    <td>273</td>
+                                                    <td>718</td>
+                                                    <td>478</td>
+                                                    <td>1025</td>
+                                                    <td>683</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>15</td>
+                                                    <td>435</td>
+                                                    <td>285</td>
+                                                    <td>761</td>
+                                                    <td>499</td>
+                                                    <td>1088</td>
+                                                    <td>713</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>16</td>
+                                                    <td>470</td>
+                                                    <td>297</td>
+                                                    <td>823</td>
+                                                    <td>520</td>
+                                                    <td>1175</td>
+                                                    <td>743</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>17</td>
+                                                    <td>495</td>
+                                                    <td>309</td>
+                                                    <td>866</td>
+                                                    <td>541</td>
+                                                    <td>1238</td>
+                                                    <td>773</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>18</td>
+                                                    <td>515</td>
+                                                    <td>321</td>
+                                                    <td>901</td>
+                                                    <td>562</td>
+                                                    <td>1288</td>
+                                                    <td>803</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>19</td>
+                                                    <td>535</td>
+                                                    <td>333</td>
+                                                    <td>936</td>
+                                                    <td>583</td>
+                                                    <td>1338</td>
+                                                    <td>833</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>20</td>
+                                                    <td>555</td>
+                                                    <td>345</td>
+                                                    <td>971</td>
+                                                    <td>604</td>
+                                                    <td>1388</td>
+                                                    <td>863</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>21</td>
+                                                    <td>575</td>
+                                                    <td>357</td>
+                                                    <td>1006</td>
+                                                    <td>625</td>
+                                                    <td>1438</td>
+                                                    <td>893</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>22</td>
+                                                    <td>595</td>
+                                                    <td>369</td>
+                                                    <td>1041</td>
+                                                    <td>646</td>
+                                                    <td>1488</td>
+                                                    <td>923</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>23</td>
+                                                    <td>615</td>
+                                                    <td>381</td>
+                                                    <td>1076</td>
+                                                    <td>667</td>
+                                                    <td>1538</td>
+                                                    <td>953</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>24</td>
+                                                    <td>635</td>
+                                                    <td>393</td>
+                                                    <td>1111</td>
+                                                    <td>688</td>
+                                                    <td>1588</td>
+                                                    <td>983</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>25</td>
+                                                    <td>655</td>
+                                                    <td>405</td>
+                                                    <td>1146</td>
+                                                    <td>709</td>
+                                                    <td>1638</td>
+                                                    <td>1013</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>26</td>
+                                                    <td>675</td>
+                                                    <td>417</td>
+                                                    <td>1181</td>
+                                                    <td>730</td>
+                                                    <td>1688</td>
+                                                    <td>1043</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>27</td>
+                                                    <td>695</td>
+                                                    <td>429</td>
+                                                    <td>1216</td>
+                                                    <td>751</td>
+                                                    <td>1738</td>
+                                                    <td>1073</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>28</td>
+                                                    <td>715</td>
+                                                    <td>441</td>
+                                                    <td>1251</td>
+                                                    <td>772</td>
+                                                    <td>1788</td>
+                                                    <td>1103</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>29</td>
+                                                    <td>735</td>
+                                                    <td>453</td>
+                                                    <td>1286</td>
+                                                    <td>793</td>
+                                                    <td>1838</td>
+                                                    <td>1133</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>30</td>
+                                                    <td>755</td>
+                                                    <td>465</td>
+                                                    <td>1321</td>
+                                                    <td>814</td>
+                                                    <td>1888</td>
+                                                    <td>1163</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>31</td>
+                                                    <td>775</td>
+                                                    <td>477</td>
+                                                    <td>1356</td>
+                                                    <td>835</td>
+                                                    <td>1938</td>
+                                                    <td>1193</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Each additional day<br> up to 180 days
+                                                    <td>20</td>
+                                                    <td>12</td>
+                                                    <td>35</td>
+                                                    <td>21</td>
+                                                    <td>50</td>
+                                                    <td>30</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <h4 class="h4-2">
+                                            <strong>Notes: </strong>
+                                        </h4>
+                                        <p>Individual - refers to the Insured Person aged between 18 and 85 <br/>
+                                            Children - refers to dependent & unmarried children who is/are 6 weeks to 17 years of age travelling with the Insured Person during the entire journey <br/>
+                                            Individual & Children - refers to Insured Person and his/her children defined above with no limit on number of children <br/>
+                                            Family - refers to the Insured Person and his/her spouse and children as defined above with no limit on number of children
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+						</div>
+						<div style="margin-bottom:20px;">
+						      <h4 class="h4-4 product_landing_download_button pull-left">
+		                            <i class="fa fa-download"></i> <a
+		                                href="http://www.fwd.com.hk/upload/en-US/travel_care_insurance.pdf"
+		                                target="_blank"><fmt:message key="annual.common.productbrochure" bundle="${msg}" />   </a>
+		                        </h4>
+		                        <h4 class="h4-4 product_landing_download_button pull-left">
+		                            <i class="fa fa-download"></i> <a
+		                                href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
+		                                target="_blank"><fmt:message key="annual.common.policyprovisions" bundle="${msg}" />   </a>
+		                        </h4>
+		                        <div class="clearfix"></div>
 						</div>
 						</div>
 					</div>
@@ -1225,17 +1125,18 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						<div class="hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left" style="width:150px;">
-									<h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
+									<h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="annual.quote.care" bundle="${msg}" /></h2>
+									<h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;"><fmt:message key="annual.quote.care.annualtravel" bundle="${msg}" /></h2>
 									<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanname"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname"
 										value="">
 									
 										
 								</div>
-								<div class="pull-right" style="padding-top: 45px;">
+								<div class="pull-right" style="padding-top: 80px;">
 									<div class="text-left pad-right1 h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
-										<div class="hk" style="font-size: 18px;">
-											<fmt:message key="travel.dollar" bundle="${msg}" />
+										<div class="hk" style="font-size: 18px;text-align: right;">
+											<fmt:message key="annual.common.dollar" bundle="${msg}" />
 											<div style="font-weight: bold;font-size: 28px;" class="flightcare-hk" id="plansummary">0</div>
 											<input type="hidden" name="txtgrossPremiumAmt"
 												id="txtgrossPremiumAmt" value="">
@@ -1247,38 +1148,30 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 							<div class="orange-bdr"></div>
 							<div class="form-container" style="padding: 0px !important;">
 							     <div style="width: 80%;margin-left: 10%;">
-								 <h3><fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /> 
+								 <h3><fmt:message key="annual.quote.care.starting" bundle="${msg}" />  
 	                            </h3>
 	                            <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                                   <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" value="${corrTravelQuote.trLeavingDate}" readonly>
                                 </div>
-								<h3><fmt:message key="travel.sidebar.summary.option2" bundle="${msg}" />
+								<h3><fmt:message key="annual.quote.care.ending" bundle="${msg}" /> 
                                 </h3>
-                          
                               <div class="input-group date"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
                                 <input type="text" name="trBackDate" class="datepicker form-control" value="${corrTravelQuote.trBackDate}" readonly>
                               </div>
-                              
-								<!-- return date end  -->
-								<!-- traveller start -->
-								<div id="numOfDays">
-                                    <fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan"> ${travelQuoteBean.totalTravellingDays} <input
-                                        type="hidden" name="totalTravellingDays"
-                                        id="totalTravellingDays"
-                                        value="${travelQuoteBean.totalTravellingDays}">
-                                    </span>
-                                    <fmt:message key="flight.quote.summary.option5" bundle="${msg}" />
-                                </div>
-								<!-- traveller end -->
+								<div>
+								    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
+	                                    <h3><fmt:message key="annual.quote.care.numberoftraveller" bundle="${msg}" /></h3>
+	                                </div>
+	                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
+	                                    <h3 style="text-align: right;font-weight: normal;">
+		                                    <c:if test="${travelQuoteBean.totalPersonalTraveller!=0}">${travelQuoteBean.totalPersonalTraveller} <fmt:message key="annual.quote.care.traveller" bundle="${msg}" /></c:if>
+	                                    </h3>
+	                                </div>
+	                                <div class="clearfix"></div>
+								</div>
 								
-								<h3><fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" />
 								
-								<!-- <span class="span2 uline">
-                                <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span> -->
-                                
-								</h3>
-								
-								<span class="text-grey" id="loadingUpdate" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
+								<span class="text-grey" id="loadingUpdate" style="display:none;"><fmt:message key="annual.quote.care.updating" bundle="${msg}" /></span>
 								
                       
                       <input type="hidden" name="totalPersonalTraveller" id="txtTravellersInline" data-min="1" data-max="15" value="${corrTravelQuote.totalPersonalTraveller}"/>
@@ -1287,25 +1180,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                  <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="15" value="${corrTravelQuote.totalChildTraveller}"/>
                                  <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="15" value="${corrTravelQuote.totalOtherTraveller}"/>
 								
-					<div id="show-traveller" class="form-group likeDatePicker bcg-trans">
+					<div id="show-traveller" class="form-group likeDatePicker bcg-trans" style="display:none;">
             					<div class="input-group wd2 datepicker form-control" style="width:100% !important;margin: 0px !important;"> 
-						<%	
-							if (travelQuote == null)
-					 			travelQuote = (QuoteDetails) session.getAttribute("tq");
-						
-							if (travelQuote != null && travelQuote.getPlanSelected().equals("personal"))
-							{ 
-						%>
-								<c:if test="${travelQuoteBean.totalPersonalTraveller!=0}"> <fmt:message key="travel.sidebar.summary.label.personal" bundle="${msg}" /> : ${travelQuoteBean.totalPersonalTraveller}    </c:if>
-						<% } 
-						   else 
-						   {
-						%>
-								<c:if test="${travelQuoteBean.totalAdultTraveller!=0}"> <fmt:message key="travel.sidebar.summary.label.family.parent" bundle="${msg}" /> : ${travelQuoteBean.totalAdultTraveller}  <br></c:if>
-								<c:if test="${travelQuoteBean.totalChildTraveller!=0}"> <fmt:message key="travel.sidebar.summary.label.family.child" bundle="${msg}" /> : ${travelQuoteBean.totalChildTraveller} <br></c:if>
-								<c:if test="${travelQuoteBean.totalOtherTraveller!=0}"> <fmt:message key="travel.sidebar.summary.label.family.others" bundle="${msg}" /> : ${travelQuoteBean.totalOtherTraveller} <br></c:if>
-						<% }
-						%>
+								 Traveller(s) : 1    
 						</div>
 					</div>
 								</div>
@@ -1314,8 +1191,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						</div>
 						<div id="promo-code-body" class="hide-html col-xs-12 pad-none">
 						  <div style="width: 80%;margin-left: 10%;">
-							<h3 style="font-size:18px;"><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
-							<span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="loading.text" bundle="${msg}" /></span>
+							<h3 style="font-size:18px;"><fmt:message key="annual.quote.care.promotioncode" bundle="${msg}" /></h3>
+							<span class="text-grey" id="loadingPromo" style="display:none;"><fmt:message key="annual.quote.care.updating" bundle="${msg}" /></span>
 							<span class="text-red" id="errPromoCode"></span>
 							<div id="promo-wrap" class="form-group">
 								<div class="input-group" id="inputPromo" style="display:inital;width:100%;">
@@ -1324,23 +1201,23 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 								</div>
 							</div>
 							<div class="travel-italic workingholiday-getpromocode" style="font-size:14px;">
-					            <a href="" class="sub-link" data-toggle="modal" data-target=".bs-promo-modal-lg"><i><fmt:message key="travel.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
+					            <a href="" class="sub-link" data-toggle="modal" data-target=".bs-promo-modal-lg"><i><fmt:message key="annual.quote.care.getpromotioncode" bundle="${msg}" /></i></a>
 							</div>
 							</div>
 						</div>
 						<div class="col-md-12 hidden-sm hidden-xs pad-none">
                           <div style="width: 80%;margin-left: 10%;">
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /></h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="annual.quote.care.subtotal" bundle="${msg}" /></h3>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="subtotal" style="padding-right: 0px;font-size: 18px;"></h3>
 							<input type="hidden" name="subTotal" id="subTotal" value="540">
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="travel.sidebar.summary.discount" bundle="${msg}" /></h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="annual.quote.care.discount" bundle="${msg}" /></h3>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="discountAmt" style="padding-right: 0px;font-size: 18px;">-</h3>
 							<input type="hidden" name="selectedDiscountAmt"id="selectedDiscountAmt" value="">
 							<div class="clearfix"></div>
 						</div>
 						<div class="orange-bdr"></div>
 						<div style="width:80%;margin-left:10%">
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="travel.sidebar.summary.amountDue" bundle="${msg}" /></h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="annual.quote.care.amountdue" bundle="${msg}" /></h3>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="amountdue" style="padding-right: 0px;font-size: 18px;">0</h3>
 							<input type="hidden" name="selectedAmountDue" id="selectedAmountDue" value="">
 							<input type="hidden" name="selectPlanPremium" id="selectPlanPremium" value="">
@@ -1349,22 +1226,20 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						<div class="col-xs-12 hidden-sm hidden-xs pad-none">
                           <div style="width: 80%;margin-left: 10%;">
                             <div class="top35 pull-left pad-none" style="width:47%">
-                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="annual.button.back" bundle="${msg}" /> </a>
                             </div>
                             <div class="top35 pull-right pad-none" style="width:47%">
-                                <c:choose>
-	                            <c:when test="${language=='en'}">
-	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});">
-	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
-	                            </c:when>
-	                            <c:otherwise>
-	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});">
-	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
-	                            </c:otherwise>
-                            </c:choose>
-
-                                
-
+	                            <c:choose>
+		                            <c:when test="${language=='en'}">
+		                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});">
+		                                    <fmt:message key="annual.button.next" bundle="${msg}" /></button>
+		                            </c:when>
+		                            <c:otherwise>
+		                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});">
+		                                    <fmt:message key="annual.button.next" bundle="${msg}" /></button>
+		                            </c:otherwise>
+	                            </c:choose>
+	                            
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-xs-12"><span class="text-red errDue"></span></div>
@@ -1380,46 +1255,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		<input type="hidden" name="planSelected" id="planSeelcted"
 			value="<%=travelQuote.getPlanSelected()%>">
 		<p class="padding1 workingholiday-plan-disclaimer">
-			<fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
-				<a class="sub-link"
-				href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />"
-				target="_blank"><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a> 
-				<fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> 
-				<a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> 
-					<u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u>
-				</a> 
-				<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" />
+			<fmt:message key="annual.quote.bottom1" bundle="${msg}" />
 				<br>
-				<fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" />
+				<fmt:message key="annual.quote.bottom2" bundle="${msg}" />
 		</p>
-		
-		<div class="col-xs-12 hidden-md hidden-lg pad-none">
-		   <div style="width: 80%;margin-left: 10%; margin-bottom: 40px;">
-		        <div class="top35 pull-left pad-none" style="width:47%">
-		            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
-		        </div>
-		        <div class="top35 pull-right pad-none" style="width:47%">
-		            <c:choose>
-	                            <c:when test="${language=='en'}">
-	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});">
-	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
-	                            </c:when>
-	                            <c:otherwise>
-	                                <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;$('#loading-overlay').modal({backdrop: 'static',keyboard: false});">
-	                                    <fmt:message key="travel.action.next" bundle="${msg}" /></button>
-	                            </c:otherwise>
-                            </c:choose>
-
-		            
-           
-		        </div>
-		        <div class="clearfix"></div>
-		        <span class="text-red errDue"></span>
-		    </div>
-		</div>
-
 		</form:form>
-		
 	</div>
 	<!--/.row-->
 	</div>
@@ -1448,18 +1288,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                         <span id="errPromoEmail" class="text-red"></span> <br>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
-                                <!-- <a class="bdr-curve btn btn-primary btn-lg wd5" href="#" onclick="sendEmail();"><fmt:message key="promotion.get.code.action" bundle="${msg}" /></a> -->
                                 
                                 <button type="submit" onclick="return sendEmail()"
-                                                            class="bdr-curve btn btn-primary btn-lg wd5">
-                                                            <fmt:message key="promotion.get.code.action" bundle="${msg}" />
+                                    class="bdr-curve btn btn-primary btn-lg wd5">
+                                    <fmt:message key="promotion.get.code.action" bundle="${msg}" />
                                 </button>
                             </div>
                             <div class="col-md-2">
                                 <br>
                             </div>
                             <div class="col-lg-4 col-md-4">
-                                <!-- <a class="bdr-curve btn btn-primary btn-lg promo-pop-close wd5" href="#" data-dismiss="modal">Close </a>  -->
                             </div>
                             <br> <br>
                             <div class="col-lg-12 col-md-12">
@@ -1511,13 +1349,6 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
         });
 	});
 	
-//	function enterKeyPress(e){
-
-//	    if (e.keyCode == 13) {
-//	    	sendEmail();
-//	        return false;
-//       }
-//    }
 	function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 		$("#promo-code-body").fadeIn();
 		var selected_div;

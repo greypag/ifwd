@@ -4022,7 +4022,32 @@ function flightValidateDeskTravel(){
 		document.getElementById("travelCountDeskIn").style.display = "block";
 		flag = false;
 	}
-	return flag;
+	
+	if(travelType == "annual"){
+		var result = false;
+		var formId = '#frmTravelGetQuoteDesk';
+		var contextPath = window.location.pathname.split("/")[1];
+		var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceQuote';
+		$.ajax({
+			type : "POST",
+			url : method,
+			data : $(formId).serialize(),
+			async : false,
+			success : function(data) {
+				if (data == 'success') {
+					//form.action = '/'+contextPath+'/'+language+'/travel-insurance/quote';
+					result = true;
+				} else {
+					$('#startDateDeskIn').html("api is Wrong");
+					result = false;
+				}
+			}
+		});
+		return flag&&result;
+	}else {
+		return flag;
+	}
+		
 
 }
 

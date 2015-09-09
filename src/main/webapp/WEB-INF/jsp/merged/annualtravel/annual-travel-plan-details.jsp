@@ -282,21 +282,31 @@ function activateUserAccountJoinUs() {
 </script>
 <% } %> 
 
+
+<section class="product_header_path_container ">
+    <div class="container">
+        <div class="product_header_path_item back"><i class="fa fa-arrow-left"></i><div class="partition"></div></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.planoption" bundle="${msg}" /></div>
+        <div class="product_header_path_item active"><fmt:message key="annual.title.application" bundle="${msg}" /></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.payment" bundle="${msg}" /><div class="partition"></div></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.confirmation" bundle="${msg}" /></div>
+    </div>
+</section>
+
 <section>
     <div id="cn" class="container">
         <div class="row">
             <form:form name="frmYourDetails" id="frmYourDetails" onsubmit="return validateAnnualTravelDetails(this,'frmYourDetails','${language}');" modelAttribute="frmYourDetails" method="post" action="" >
                 <ol class="breadcrumb pad-none">
-                    <li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-                    <li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-                    <li><a href="#"><fmt:message key="travel.breadcrumb1.item3" bundle="${msg}" /></a></li>
-                    <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="travel.breadcrumb1.item4" bundle="${msg}" /></li>
+                    <li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="annual.title.home" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+                    <li><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="annual.title.travelcare" bundle="${msg}" /></a></li>
+                    <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="annual.title.youroptions" bundle="${msg}" /></li>
                 </ol>
-                <div class="container ">
+                <!-- <div class="container ">
                     <div class="col-md-12 shop-tracking-status">
                         <div class="center wow fadeInDown animated"
                             style="visibility: visible;">
-                            <h2><fmt:message key="travel.details.jumbo" bundle="${msg}" /></h2>
+                            <h2>Your Details</h2>
                         </div>
                         <br>
                         <div class="col-lg-12">
@@ -309,79 +319,66 @@ function activateUserAccountJoinUs() {
                                     </div>
                                     <div
                                         class="image-order-status image-order-status-new active img-circle first">
-                                        <span class="status color3"><fmt:message key="travel.breadcrumb2.item1" bundle="${msg}" /></span>
+                                        <span class="status color3">Your Options</span>
                                         <div class="icon">1</div>
                                     </div>
 
                                     <div
                                         class="image-order-status image-order-status-intransit  img-circle act second">
-                                        <span class="status color2"><fmt:message key="travel.breadcrumb2.item2" bundle="${msg}" /></span>
+                                        <span class="status color2">Your Details</span>
                                         <div class="icon">2</div>
                                     </div>
                                     <div
                                         class="image-order-status image-order-status-delivered  img-circle third">
-                                        <span class="status"><fmt:message key="travel.breadcrumb2.item3" bundle="${msg}" /></span>
+                                        <span class="status">Summary & Payment</span>
                                         <div class="icon">3</div>
                                     </div>
                                     <div
                                         class="image-order-status image-order-status-completed  img-circle fourth">
-                                        <span class="status lst-status"><fmt:message key="travel.breadcrumb2.item4" bundle="${msg}" /></span>
+                                        <span class="status lst-status">Confirmation</span>
                                         <div class="icon">4</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div> -->
+                <%
+                    if (authenticate.equals("false") || "direct".equalsIgnoreCase(request.getSession()
+                        .getAttribute("authenticate").toString())) {
+                %>
+                <div class="product_plan_details_member_title white-bg1">
+	                <h3 class="pull-left h2-3-existing-fwd-head bmg-detail-exist-member-head">
+	                <fmt:message key="annual.common.member" bundle="${msg}" />
+	                </h3>
+	                <div class="pull-left">
+	                    <a href="#" class="pull-left btn-box-2 color4 login-btn" data-toggle="modal" data-target="#loginpopup"><fmt:message key="annual.common.login" bundle="${msg}" /></a>    
+	                    <div class="pull-left text-left">
+	                        <h3 class="text-left or-continue">
+	                            <span style="margin-left:10px;margin-right:10px;"><fmt:message key="annual.common.login" bundle="${msg}" /></span>
+	                            <fmt:message key="annual.common.guest" bundle="${msg}" />
+	                        </h3>
+	                    </div>
+	                    <div class="clearfix"></div>
+	                </div>
+	                <div class="clearfix"></div>
                 </div>
+                <%
+                    }
+                %>
                 <div id="quote-wrap" class="container pad-none bdr ur-opt-content gray-bg3">
                     <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none white-bg1">
-                        <br>
-                        <div class="form-wrap">
-                        <%
-                            if (authenticate.equals("false") || authenticate.equals("direct")) {
-                        %>
-                        <h3 class="h2-3-existing-fwd-head bmg-detail-exist-member-head">
-                        <fmt:message key="travel.details.login" bundle="${msg}" />
-                        <a
-                        class="tool-tip show-inline-md"
-                        data-toggle="tooltip" data-placement="bottom"
-                        data-toggle="tooltip" data-placement="top"
-                        title="<fmt:message key="member.account.login.help" bundle="${msg}" />">
-                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
-                        alt=""></a>
-                        </h3>
-                        <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 btn-box-2 color4 login-btn" data-toggle="modal" data-target="#loginpopup"><fmt:message key="travel.details.login.action" bundle="${msg}" /></a>    
-                        <div class="col-lg-9 col-md-9 col-xs-9 col-sm-9 text-left">
-                            <h3 class="text-left or-continue">
-                                <span><fmt:message key="travel.details.login.other.part1" bundle="${msg}" /></span>
-                                <fmt:message key="travel.details.login.other.part2" bundle="${msg}" />
-                            </h3>
-                        </div>
-                        <div class="clearfix"></div>
-                        <input type="hidden" id="isLogin" value="false">
-                        <%
-                            }
-                            else
-                            {
-                        %>
-                            <input type="hidden" id="isLogin" value="true">
-                        <%
-                            }
-                        %>
-                        </div>
-
                         <br/>
-                        <div class="gray-bdr"></div>
+                        <!-- <div class="gray-bdr"></div> -->
                         <!-- updated responsive design start -->
                         <div class="form-wrap">
-                            <div class="big-title black-bold pad-none bmg-big-title">
-                                <fmt:message key="flight.details.applicant.heading"
-                                    bundle="${msg}" />
+                            <div class="big-title black-bold pad-none bmg-big-title" style="color: #f68a1d;">
+                                <fmt:message key="annual.details.details" bundle="${msg}" />
                             </div>
                             <!-- english name start -->
                            <div class="form-group float">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                   <label for="inputFullName" class="field-label bold-500"><fmt:message key="travel.details.applicant.name" bundle="${msg}" /></label>
+                                   <label for="inputFullName" class="field-label bold-500"><fmt:message key="annual.details.fullname" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input type="text" name="fullName"
@@ -397,7 +394,7 @@ function activateUserAccountJoinUs() {
                            <!-- id card starts -->
                            <div class="form-group float">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                   <label for="inputHkid" class="field-label bold-500"><fmt:message key="travel.details.applicant.hkid.option1" bundle="${msg}" /></label>
+                                   <label for="inputHkid" class="field-label bold-500"><fmt:message key="annual.details.hkid" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input type="text" name="hkid" class="form-control numberinput textUpper full-control bmg_custom_placeholder" id="inputTxtAppHkid" 
@@ -412,8 +409,7 @@ function activateUserAccountJoinUs() {
                            <!-- birthday starts -->
                            <div class="form-group float">
                                <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                   <label for="inputApplicantDob"
-                                        class="field-label bold-500"><fmt:message key="travel.details.applicant.birthday" bundle="${msg}" /></label>
+                                   <label for="inputApplicantDob" class="field-label bold-500"><fmt:message key="annual.details.birthday" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <div class="input-group date" id="input_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
@@ -427,7 +423,7 @@ function activateUserAccountJoinUs() {
                            <div class="form-group float">
                                <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                    <label for="inputMobileNo"
-                                        class="field-label bold-500"><fmt:message key="travel.details.applicant.mobile" bundle="${msg}" /></label>
+                                        class="field-label bold-500"><fmt:message key="annual.details.mobile" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <input name="mobileNo" type="tel"
@@ -444,7 +440,7 @@ function activateUserAccountJoinUs() {
                            <div class="form-group float">
                                <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                    <label for="inputEmailId"
-                                        class="field-label bold-500"><fmt:message key="travel.details.applicant.email" bundle="${msg}" /></label>
+                                        class="field-label bold-500"><fmt:message key="annual.details.email" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input class="form-control full-control textLower" name="emailAddress" type="email"
@@ -452,97 +448,197 @@ function activateUserAccountJoinUs() {
                                         maxlength="50" onblur="validateEmail('inputEmailId','emailid');" > <span id="emailid" class="text-red"></span>
                                </div>
                            </div>
+                           <!-- email address ends -->
                          </div>
-                        <%
-                            if (authenticate.equals("false") || "direct".equalsIgnoreCase(request.getSession()
-                                    .getAttribute("authenticate").toString())) {
-                        %>
-                        <div class="gray-bg3-wid container membership-wrap" style="padding-top: 20px;padding-left:0px;padding-right:0px;">
-                            <div class="form-wrap">
-                            <div class="membership-header">
-                                <h3 class="bmg-membership-header"><fmt:message key="travel.details.registration.heading" bundle="${msg}" /></h3>
-                                <i class="text-grey"><fmt:message key="travel.details.registration.desc" bundle="${msg}" /></i>
-                                <h3 class="error-hide" style='display:none; color:red; font-size:15px;'></h3>                                
-                            </div>
-                            <div class="form-group float row">
-                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label class="field-label bold-500"><fmt:message key="travel.details.registration.username" bundle="${msg}" /></label>
+                         <!-- updated responsive design end -->
+                        
+                        
+                        <div class="form-wrap">          
+                               <div class="big-title field-label bold-500 pad-none" style="margin-top: 30px;"><fmt:message key="annual.details.address.correspondence" bundle="${msg}" /></div>                       
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                       <label for="inputFullName" class="field-label bold-500"><fmt:message key="annual.details.address.RFB" bundle="${msg}" /></label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                       <div class="row">
+                                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                               <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
+                                                id="inputCARoom" name="applicantRoom" placeholder="Room"
+                                                onfocus="placeholderOnFocus(this,'Room');" onblur="placeholderOnBlur(this,'Room');"
+                                                onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
+                                           </div>
+                                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
+                                                id="inputCAFloor" name="applicantFloor" placeholder="Floor"  
+                                                onfocus="placeholderOnFocus(this,'Floor');" onblur="placeholderOnBlur(this,'Floor');"     
+                                                onkeypress="    return isAlphaNumeric(event);" maxlength="5"/>
+                                           </div>
+                                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
+                                                id="inputCABlock" name="applicantBlock" placeholder="Block"
+                                                onfocus="placeholderOnFocus(this,'Block');" onblur="placeholderOnBlur(this,'Block');"
+                                                onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
+                                           </div>
+                                           <div class="clearfix"></div>
+                                        </div>
+                                   </div>
+                                   <div class="clearfix"></div>
                                </div>
-                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                   <input type="text"
-                                            name="username" class="form-control full-control input-white"
-                                            id="Username" 
-                                            onfocus="emptyMembershipError();" onkeypress="return validationUsername(event);"><span
-                                            id="UsernameError" class="text-red"> </span>
+                               
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                       <label for="inputFullName" class="field-label bold-500"><fmt:message key="annual.details.address.building" bundle="${msg}" /></label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
+                                                id="inputCABuilding" name="applicantBuilding"
+                                                placeholder="Building"
+                                                onfocus="placeholderOnFocus(this,'Building');"
+                                                onblur="placeholderOnBlur(this,'Building'); chkNotNullCABuilding(this, 'errCABuilding');"
+                                                onkeypress="return isAlphaNumeric(event);" maxlength="50" />
+                                                <span id="errCABuilding" class="text-red"> </span>
+                                   </div>
+                                   <div class="clearfix"></div>
                                </div>
-                            </div>
-                            <div class="form-group float row">
-                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label
-                                            class="field-label bold-500"><fmt:message key="travel.details.registration.password" bundle="${msg}" /></label>
+                               
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                       <label for="inputFullName" class="field-label bold-500"><fmt:message key="annual.details.address.estate" bundle="${msg}" /></label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
+                                                id="inputCAEstate" name="applicantEstate"
+                                                placeholder="Estate"
+                                                onfocus="placeholderOnFocus(this,'Estate');"
+                                                onblur="placeholderOnBlur(this,'Estate'); chkNotNullCAEstate(this, 'errCAEstate');"
+                                                onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
+                                                <span id="errCAEstate" class="text-red"> </span>
+                                   </div>
+                                   <div class="clearfix"></div>
                                </div>
-                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                   <input type="password"
-                                            name="password" class="form-control full-control input-white"
-                                            id="Password" autocomplete="off"
-                                            onfocus="emptyMembershipError();"> <span
-                                            id="PasswordError" class="text-red"> </span>
+                               
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                       <label for="inputFullName" class="field-label bold-500"><fmt:message key="annual.details.address.streetno" bundle="${msg}" /></label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
+                                            id="inputCAStreetNo" name="applicantStreetNo"
+                                            placeholder="Street no."
+                                            onfocus="placeholderOnFocus(this,'Street no.');"
+                                            onblur="placeholderOnBlur(this,'Street no.');"
+                                            onkeypress="" maxlength="5" />
+                                   </div>
+                                   <div class="clearfix"></div>
                                </div>
-                            </div>
-                            <div class="form-group float row">
-                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label
-                                            class="field-label bold-500"><fmt:message key="travel.details.registration.confirmPassword" bundle="${msg}" /></label>
+                               
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                       <label for="inputFullName" class="field-label bold-500"><fmt:message key="annual.details.address.streetname" bundle="${msg}" /></label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
+                                                id="inputCAStreetName" name="applicantStreetName"
+                                                placeholder="Street name"
+                                                onfocus="placeholderOnFocus(this,'Street name');"
+                                                onblur="placeholderOnBlur(this,'Street name');"
+                                                onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
+                                   </div>
+                                   <div class="clearfix"></div>
                                </div>
-                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                  <input type="password"
-                                            class="form-control full-control input-white" id="Confirm-Password"
-                                            autocomplete="off"
-                                            onfocus="emptyMembershipError();"> <span id="Confirm-PasswordError"
-                                            class="text-red"> </span>
+                               
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 hidden-sm hidden-xs pad-none">
+                                       <label for="inputFullName" class="field-label bold-500">&nbsp;</label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                       <div class="row" style="margin-top: 10px;">
+                                           <div class="col-xs-4">
+                                               <label class="radio-inline homecare-lb">
+                                                   <input type="radio" name="applicantArea" id="inlineCARadio3"
+                                                   value="HK" checked="" class="home-input1"> <span>HK
+                                               </span>
+                                           </label> 
+                                           </div>
+                                           <div class="col-xs-4">
+                                               <label class="radio-inline homecare-lb"> <input
+                                                       type="radio" name="applicantArea" id="inlineCARadio4"
+                                                       value="KL" class="home-input1"> <span> KLN</span>
+                                               </label>
+                                           </div>
+                                           <div class="col-xs-4">
+                                               <label class="radio-inline"> <input type="radio"
+                                                   name="applicantArea" id="inlineCARadio5" value="NT"
+                                                   class="home-input1"> <span> NT</span>
+                                                </label>
+                                           </div>
+                                           <div class="clearfix"></div>
+                                        </div>
+                                   </div>
+                                   <div class="clearfix"></div>
                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <input type="hidden" id="isLogin" value="false">
-                        <input type="hidden" id="totalTravellingDays" name="totalTravellingDays" value="${corrTravelQuote.totalTravellingDays}">
-                        <%
-                            }
-                            else
-                            {
-                        %>
-                            <input type="hidden" id="isLogin" value="true">
-                        <%
-                            }
-                        %>
+                               
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 hidden-sm hidden-xs pad-none">
+                                       <label for="inputFullName" class="field-label bold-500">&nbsp;</label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <div class="styled-select" id="inputCADistrict">
+                                                <select name="applicantDistrict"class="form-control soflow full-control" id="selectCADist" onchange="setDropArea(this.value)">
+                                                <option value="">District</option>
+                                                
+                                                <option value="AD">ABERDEEN</option>
+                                                
+                                        </select></div>
+                                            <div class="hidden">
+                                                <select name="applicantDistrictHid"
+                                                    class="form-control soflow full-control" id="selectCADistHid">
+                                                    <option value="">District</option>
+                                                    
+                                                    <option value="AD">HK</option>
+                                                    
+                                                </select>
+                                            </div> <span id="errCADist" class="text-red"> </span>
+                                   </div>
+                                   <div class="clearfix"></div>
+                               </div>
+                               
+                               
+                               
+                               
+                             </div>
+                        
+                        
                         <div class="clearfix"></div>
                         <div class="form-wrap">
-                            <div class="big-title black-bold" style="padding-left:0px !important;">
-                                <fmt:message key="flight.details.insured.heading" bundle="${msg}" />
+                            <div class="black-bold" style="padding-left:0px !important;color: #f68a1d;">
+                                <fmt:message key="annual.details.insured" bundle="${msg}" />
                             </div>
                         </div>
-
+                        
                             <!-- Personal -->
                             <input type="hidden" name="totalPersonalTraveller"
                                 id="totalPersonalTraveller"
                                 value="${corrTravelQuote.totalPersonalTraveller}">
+                            
                             <c:forEach var="inx" begin="1"
                                 end="${corrTravelQuote.totalPersonalTraveller}">
+                                
                                 <div class="form-wrap">
-                                <div class="personaltraveller">
-                                    <h4 class="bold big-title" style="padding-left:0px !important;">
-                                        <fmt:message key="flight.details.insured.label.personal" bundle="${msg}" />
+                                <div class="personaltraveller" style="border: none;">
+                                    <h4 class="bold" style="padding-left:0px !important;color:#ccc;">
+                                        <fmt:message key="annual.details.insured.traveller" bundle="${msg}" />
                                         <c:out value="${inx}"></c:out>
-                                        <c:if test="${inx == 1}"><fmt:message key="travel.details.insured.firstinsuredhint" bundle="${msg}" /></c:if>
+                                        <c:if test="${inx == 1}"><fmt:message key="annual.details.insured.same" bundle="${msg}" /></c:if>
                                     </h4>
                                     <div>
                                         <!-- english name start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="annual.details.insured.fullname" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <c:if test="${inx == 1}">
+                                                  <c:if test="${inx == 1}">
                                                   <input type="text"
                                                         id="txtInsuFullName${inx}" name="personalName"
                                                         class="form-control full-control textUpper bmg_custom_placeholder" 
@@ -567,7 +663,7 @@ function activateUserAccountJoinUs() {
                                        <!-- id card start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <label class="field-label bold-500"><fmt:message key="travel.details.applicant.hkid.option1" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="annual.details.hkid" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
@@ -582,67 +678,20 @@ function activateUserAccountJoinUs() {
                                        <!-- age start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.age" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="annual.details.insured.birthday" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <div class="styled-select">
-                                                        <select
-                                                            name="personalAgeRange" class="form-control soflow select-label"
-                                                            id="selectAgeRange${inx}">
-        
-                                                            <c:choose>
-                                                                <c:when
-                                                                    test="${inx == 1}">
-                                                                    <c:forEach
-                                                                        var="ageList" items="${mapSelfType}">
-                                                                        <c:choose>
-                                                                            <c:when
-                                                                                test="${ageList.key == '2'}">
-                                                                                <option
-                                                                                    value="${ageList.key}" selected>
-                                                                            </c:when>
-                                                                            <c:otherwise>
-                                                                                <option
-                                                                                    value="${ageList.key}">
-                                                                            </c:otherwise>
-                                                                        </c:choose>
-                                                                        <c:out
-                                                                            value="${ageList.value}" />
-                                                                        </option>
-                                                                    </c:forEach>
-                                                                </c:when>
-                                                                <c:when
-                                                                    test="${inx >1}">
-                                                                    <c:forEach
-                                                                        var="ageList" items="${mapAgeType}">
-                                                                        <c:choose>
-                                                                            <c:when
-                                                                                test="${ageList.key == '2'}">
-                                                                                <option
-                                                                                    value="${ageList.key}" selected>
-                                                                            </c:when>
-                                                                            <c:otherwise>
-                                                                                <option
-                                                                                    value="${ageList.key}">
-                                                                            </c:otherwise>
-                                                                        </c:choose>
-                                                                        <c:out
-                                                                            value="${ageList.value}" />
-                                                                        </option>
-                                                                    </c:forEach>
-                                                                </c:when>
-                                                            </c:choose>
-                                                        </select>
-                                                    </div>
-                                                    <span id="errselectAgeRange${inx}" class="text-red">
-                                                    </span>
+                                               <div class="input-group date" id="input_insure_dob1"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+			                                        <input name="personalDob" type="text"  class="pointer datepicker form-control border-radius" id="insureDob1" value="" readonly>
+			                                    </div>
+			                                    <span id="errtxtInsuDob1" class="text-red"></span>
                                            </div>
                                        </div>
                                        <!-- age end -->
                                        <!-- beneficiary start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>
+                                               <label class="field-label bold-500"><fmt:message key="annual.details.insured.beneficiary" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
@@ -661,7 +710,6 @@ function activateUserAccountJoinUs() {
                                            </div>
                                        </div>
                                        <!-- beneficiary end -->
-                                       
                                        <!-- personalbenificiaryId start -->
                                        <div class="form-group float hide" id="personalbenificiaryId${inx}">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
@@ -670,7 +718,7 @@ function activateUserAccountJoinUs() {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">                                                    
                                                     <label class="field-label bold-500">
-                                                      <fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" />
+                                                        <fmt:message key="annual.details.insured.fullname" bundle="${msg}" />
                                                     </label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
@@ -687,36 +735,16 @@ function activateUserAccountJoinUs() {
                                            </div>
                                        </div>
                                        <!-- personalbenificiaryId end -->
-                                       <!-- personalbenificiaryId b start -->
-                                       <div class="form-group float hide" id="personalbenificiaryId${inx}b">
-                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                              <label class="field-label form-label bold-500"></label>
-                                           </div>
-                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                              <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
-                                                  <label class="field-label form-label bold-500">
-                                                    <fmt:message key="travel.details.insured.beneficiary.type" bundle="${msg}" />
-                                                    </label>
-                                               </div>
-                                               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-                                                  <div class="styled-select">
-                                                    <select id="selectPersonalBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedPersonalBenefitiaryHkidPass" onchange="togglePlaceholder(this,'personalBenefitiaryHKId${inx}','<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');">
-                                                        <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
-                                                        <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
-                                                    </select>
-                                                    </div>
-                                               </div>
-                                           </div>
-                                       </div>
-                                       <!-- personalbenificiaryId b end -->
                                        <!-- personalbenificiaryId c start -->
                                        <div class="form-group float hide" id="personalbenificiaryId${inx}c">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                              <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
+                                               <label class="field-label bold-500"></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                               <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
-                                                  <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
+                                                   <label class="field-label bold-500">
+                                                       <fmt:message key="annual.details.hkid" bundle="${msg}" />
+                                                   </label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <input
@@ -735,20 +763,26 @@ function activateUserAccountJoinUs() {
                                 </div>
                                 </div>
                             </c:forEach>
+                            
+                            <input type="hidden" name="totalAdultTraveller" id="totalAdultTraveler" value="0">
+                            <input type="hidden" name="totalChildTraveller" id="totalCountOfChild" value="0">
+                            <input type="hidden" name="totalOtherTraveller" id="totalCountOther" value="0">
+
                        <div class="clearfix"></div>
+							
 							<div class="form-wrap">
-								<h4 class="h4-2 bmg-disclaimer-header"><fmt:message key="travel.details.declarations.heading" bundle="${msg}" /></h4>
+								<h4 class="h4-2 bmg-disclaimer-header"><fmt:message key="annual.details.declarations.heading" bundle="${msg}" /></h4>
 								<div class="declaration-content" style="margin-left: 0px;margin-right: 0px;">
 								<div class="checkbox">
 									<input id="checkbox1" name="checkbox1" type="checkbox"> 
 									<label for="checkbox1">
-										<fmt:message key="travel.details.declarations.tnc" bundle="${msg}" /> 
+										<fmt:message key="annual.details.declarations.tnc" bundle="${msg}" /> 
 										<ol class="ol-disclaimer">
-											<li><fmt:message key="travel.details.declarations.tnc.desc1" bundle="${msg}" /></li>
-											<li><fmt:message key="travel.details.declarations.tnc.desc2" bundle="${msg}" /></li>
-											<li><fmt:message key="travel.details.declarations.tnc.desc3" bundle="${msg}" /></li>
-											<li><fmt:message key="travel.details.declarations.tnc.desc4" bundle="${msg}" /></li>
-											<li><fmt:message key="travel.details.declarations.tnc.desc5" bundle="${msg}" /></li>
+											<li><fmt:message key="annual.details.declarations.tnc.desc1" bundle="${msg}" /></li>
+											<li><fmt:message key="annual.details.declarations.tnc.desc2" bundle="${msg}" /></li>
+											<li><fmt:message key="annual.details.declarations.tnc.desc3" bundle="${msg}" /></li>
+											<li><fmt:message key="annual.details.declarations.tnc.desc4" bundle="${msg}" /></li>
+											<li><fmt:message key="annual.details.declarations.tnc.desc5" bundle="${msg}" /></li>
 										</ol>
 									</label>
 								</div>	
@@ -756,32 +790,37 @@ function activateUserAccountJoinUs() {
 								<div class="checkbox">
 									<input id="checkbox2" name="checkbox2" type="checkbox"> <label
 										for="checkbox2">
-										<fmt:message key="travel.details.declarations.PICS.part1" bundle="${msg}" /> <a
+										<fmt:message key="annual.details.declarations.PICS.part1" bundle="${msg}" /> <a
 										href="<fmt:message key="PICS.link" bundle="${msg}" />"
-										class="sub-link" target="_blank"><fmt:message key="travel.details.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="travel.details.declarations.PICS.part3" bundle="${msg}" />
+										class="sub-link" target="_blank"><fmt:message key="annual.details.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="annual.details.declarations.PICS.part3" bundle="${msg}" />
+										
+
+
 										</label>
 								</div>
 								<span id="chk2" class="text-red"></span>
 								<hr/>
 								<div>
 									 <label>
- 									<fmt:message key="travel.details.declarations.PDPO" bundle="${msg}" /> <br>
+ 									<fmt:message key="annual.details.declarations.PDPO" bundle="${msg}" /> <br>
 									</label>
 								</div>
 								 <div class="checkbox">
 									<input id="checkbox3" name="checkbox3" type="checkbox"> <label
-										for="checkbox3"> <fmt:message key="travel.details.declarations.PDPO.option1" bundle="${msg}" /><br>
+
+										for="checkbox3"> <fmt:message key="annual.details.declarations.PDPO.option1" bundle="${msg}" /><br>
+										
 									</label>
 								</div>
 								<div class="checkbox">
 									<input id="checkbox4" name="checkbox4" type="checkbox"> <label
 										for="checkbox4">
-                                        <fmt:message key="travel.details.declarations.PDPO.option2" bundle="${msg}" /><br>
+                                        <fmt:message key="annual.details.declarations.PDPO.option2" bundle="${msg}" /><br>
                                     </label>
                                 </div>
                                 
                                 <div class="checkboxBubble">
-                                    <fmt:message key="travel.details.declarations.PDPO.warning" bundle="${msg}" />
+                                    <fmt:message key="annual.details.declarations.PDPO.warning" bundle="${msg}" />
                                 </div>
 
                                 <script type="text/javascript">
@@ -804,20 +843,101 @@ function activateUserAccountJoinUs() {
 
                             </div>
                             </div>
+                        <%
+                            if (authenticate.equals("false") || "direct".equalsIgnoreCase(request.getSession()
+                                    .getAttribute("authenticate").toString())) {
+                        %>   
+                        <div class="gray-bg3-wid container membership-wrap" style="padding-top: 20px;padding-left:0px;padding-right:0px;">
+                            <div class="form-wrap">
+                            <div class="membership-header">
+                                <h3 class="bmg-membership-header"><fmt:message key="annual.details.member.create" bundle="${msg}" /></h3>
+                                <i class="text-grey"><fmt:message key="annual.details.member.leave" bundle="${msg}" /></i>
+                                <h3 id="error_hide" class="error-hide" style='display:none; color:red; font-size:15px;'></h3>                                
+                            </div>
+                            <div class="form-group float row">
+                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                   <label class="field-label bold-500"><fmt:message key="annual.details.member.username" bundle="${msg}" /></label>
+                               </div>
+                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                   <input type="text"
+                                            name="username" class="form-control full-control input-white"
+                                            id="Username" 
+                                            onfocus="emptyMembershipError();" onkeypress="return validationUsername(event);"><span
+                                            id="UsernameError" class="text-red"> </span>
+                               </div>
+                            </div>
+                            <div class="form-group float row">
+                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                   <label
+                                            class="field-label bold-500"><fmt:message key="annual.details.member.password" bundle="${msg}" /></label>
+                               </div>
+                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                   <input type="password"
+                                            name="password" class="form-control full-control input-white"
+                                            id="Password" autocomplete="off"
+                                            onfocus="emptyMembershipError();"> <span
+                                            id="PasswordError" class="text-red"> </span>
+                               </div>
+                            </div>
+                            <div class="form-group float row">
+                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                   <label
+                                            class="field-label bold-500"><fmt:message key="annual.details.member.confirm" bundle="${msg}" /></label>
+                               </div>
+                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                  <input type="password"
+                                            class="form-control full-control input-white" id="Confirm-Password"
+                                            autocomplete="off"
+                                            onfocus="emptyMembershipError();"> <span id="Confirm-PasswordError"
+                                            class="text-red"> </span>
+                               </div>
+                            </div>
+                            </div>
                         </div>
+                        <input type="hidden" id="isLogin" value="false">
+                        <input type="hidden" id="totalTravellingDays" name="totalTravellingDays" value="${corrTravelQuote.totalTravellingDays}">
+                        <%
+                            }
+                            else
+                            {
+                        %>
+                            <input type="hidden" id="isLogin" value="true">
+                        <%
+                            }
+                        %>
+                        <div class="form-wrap" style="margin-bottom: 10px;">
+                        <h4 class="h4-4 product_landing_download_button pull-left">
+                            <i class="fa fa-download"></i> <a
+                                href="http://www.fwd.com.hk/upload/en-US/travel_care_insurance.pdf"
+                                target="_blank"><fmt:message key="annual.common.productbrochure" bundle="${msg}" />   </a>
+                        </h4>
+                        <h4 class="h4-4 product_landing_download_button pull-left">
+                            <i class="fa fa-download"></i> <a
+                                href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
+                                target="_blank"><fmt:message key="annual.common.policyprovisions" bundle="${msg}" />   </a>
+                        </h4>
+                        <div class="clearfix"></div>
+                        </div>
+                        
+                        </div>
+                    
+
+
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12  gray-bg pad-none wht-bg3 floatingbox">
+
                         <div class="hidden-sm hidden-xs">
-                            <div class="wd2">
+
+                            <div class="wd2">                                
                                 <div class="pull-left" style="width:150px;">
-                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
-                                    <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;"><fmt:message key="travel.sidebar.summary.desc.part1" bundle="${msg}" /> ${planName} <fmt:message key="travel.sidebar.summary.desc.part2" bundle="${msg}" /></h4>
-                                    <input type="hidden" name="selectedPlanName" value="${planName }">
+                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="annual.title.travelcare" bundle="${msg}" /></h2>
+                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;"><fmt:message key="annual.title.annualtravel" bundle="${msg}" /></h2>
+                                    <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;"><fmt:message key="annual.common.plan" bundle="${msg}" /> ${planName }</h4>
+                                    <input type="hidden" id="selectedPlanName" value="${planName }">
                                 </div>
-                                
-                                <div class="pull-right" style="padding-top: 45px;">
-                                    <div class="text-right h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
-                                        <div class="hk" style="font-size: 18px;">
-                                            <fmt:message key="travel.dollar" bundle="${msg}" />
+                                <div class="pull-right" style="padding-top: 80px;">
+                                    <div class="text-left pad-right1 h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
+                                        <div class="hk" style="font-size: 18px;text-align: right;">
+                                            <fmt:message key="annual.common.dollar" bundle="${msg}" />
                                             <div class="flightcare-hk" style="font-weight: bold;font-size: 28px;">${planPremium}</div>
                                         </div>
                                     </div>
@@ -829,100 +949,79 @@ function activateUserAccountJoinUs() {
                             <div class="form-container" style="padding: 0px !important;">
                                 <div style="width: 80%;margin-left: 10%;">
                                 <h3 class="txt-bold">
-                                    <fmt:message key="travel.sidebar.summary.option1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/annual-travel-insurance"></a>
+                                    <fmt:message key="annual.quote.care.starting" bundle="${msg}" /> 
                                 </h3>
                                 <h4> 
                                 <div class="input-group date"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                         <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${corrTravelQuote.trLeavingDate}" readonly>
+                                    <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${corrTravelQuote.trLeavingDate}" readonly>
                                 </div>
                              </h4>
                                 <input type="hidden" name="departureDate" id="departureDate"
                                     value="01-01-2015">
 
                                 <h3 class="txt-bold">
-                                    <fmt:message key="travel.sidebar.summary.option2" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/${language}/annual-travel-insurance"></a>
+                                    <fmt:message key="annual.quote.care.ending" bundle="${msg}" /> 
                                 </h3>
                                 <h4>
-                                                    <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${corrTravelQuote.trBackDate}" readonly>
-                    </div>
+                                <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                                    <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${corrTravelQuote.trBackDate}" readonly>
+                                </div>
                                 
                                 </h4>
                                 <input type="hidden" name="backDate" id="backDate"
-                                    value="${corrTravelQuote.trBackDate}">
+                                    value="29-08-2015">
 
-                                <h3 class="txt-bold">
-                                    <fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" /><a href="<%=request.getContextPath()%>/${language}/annual-travel-insurance"></a>
-                                </h3>
-                                <h4>
-                                <%                              
-                                    if (sessTravelQuoteBean.getPlanSelected() != null && sessTravelQuoteBean.getPlanSelected().equals("personal"))
-                                    { 
-                                %>
-                                        <c:if test="${ corrTravelQuote.totalPersonalTraveller!=0}">
-                                            <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-                                            : ${corrTravelQuote.totalPersonalTraveller}
-                                        </c:if>
-                                        <!-- vincent, values was stored in adult print adult values though the personal plan is selected!! -->
-                                        <c:if test="${corrTravelQuote.totalAdultTraveller!=0}">
-                                            <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-                                            : ${corrTravelQuote.totalAdultTraveller}
-                                        </c:if>
-
-                                <%  }
-                                    else
-                                    {                                       
-                                %>  
-
-                                    <c:if test="${ corrTravelQuote.totalAdultTraveller!=0}"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />: ${corrTravelQuote.totalAdultTraveller+corrTravelQuote.totalPersonalTraveller}</c:if>
-                                    <c:if test="${ corrTravelQuote.totalChildTraveller!=0}"><br><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />: ${corrTravelQuote.totalChildTraveller}</c:if>
-                                    <c:if test="${ corrTravelQuote.totalOtherTraveller!=0}"><br><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />: ${corrTravelQuote.totalOtherTraveller}</c:if>
-                                    <c:if test="${planDetailsForm.travellerCount!=0}"> ${planDetailsForm.travellerCount}</c:if>
-                                <%  } %>
-                                </h4>
-                                
+                                <div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
+                                        <h3><fmt:message key="annual.quote.care.numberoftraveller" bundle="${msg}" /></h3>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
+                                        <h3 style="text-align: right;font-weight: normal;">
+                                            ${corrTravelQuote.totalPersonalTraveller} <fmt:message key="annual.quote.care.traveller" bundle="${msg}" />
+                                        </h3>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
                                 <input type="hidden" name="planSelected" value="${corrTravelQuote.planSelected}">
-                                <h3 class="txt-bold">
-                                    <fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${corrTravelQuote.totalTravellingDays}</span>
-                                </h3>
                                 <input type="hidden" name="totalTravellingDays" value="${corrTravelQuote.totalTravellingDays}">
-                                <c:if test="${referralCode!=''}">
-                                    <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
-                                    <h4>${referralCode}</h4>
-                                </c:if>
-                                
                                </div>
             </div>
+            <div class="orange-bdr"></div>
                 <div style="width: 80%;margin-left: 10%;">
-                    <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /> </h3>
+                    <c:if test="${referralCode!=''}">
+                        <h3 style="margin-bottom:0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h3>
+                        <h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;">${referralCode}</h4>
+                    </c:if>
+                    <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="annual.quote.care.subtotal" bundle="${msg}" /> </h3>
                     <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">${planPremium}</h3>
-                    <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="travel.sidebar.summary.discount" bundle="${msg}" /> </h3>
+                    <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="annual.quote.care.discount" bundle="${msg}" /> </h3>
                     <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">${planDiscount} </h3>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="orange-bdr"></div>
                 <div style="width: 80%;margin-left: 10%;">
-                    <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="travel.sidebar.summary.amountDue" bundle="${msg}" />  </h3>
+                    <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="annual.quote.care.amountdue" bundle="${msg}" />  </h3>
                     <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">${planSummary}</h3>
                     <input type="hidden" name="finalDueAmount" value="${planSummary}">
+                    <div class="clearfix"></div>
                 </div>
                 
                 <div style="width: 80%;margin-left: 10%;">
                     <div class="top35 pull-left pad-none" style="width:47%">
-                         <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+                         <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="annual.button.back" bundle="${msg}" /> </a>
                     </div>
                     <div class="top35 pull-right pad-none" style="width:47%"> 
                         <c:choose>
-<c:when test="${language=='en'}">
-           <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 EN','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
-       </c:when>
-       <c:otherwise>
-           <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 ZH','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
-       </c:otherwise>
-</c:choose>
-
-						                        
+                            <c:when test="${language=='en'}">
+                                <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 EN','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="annual.button.next" bundle="${msg}" />" />
+                            </c:when>
+                            <c:otherwise>
+                                <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 ZH','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="annual.button.next" bundle="${msg}" />" />
+                            </c:otherwise>
+                        </c:choose>
                     </div>
+                    <div class="clearfix"></div>
                 </div>
 <div class="clearfix"></div>
 <br>
@@ -931,37 +1030,34 @@ function activateUserAccountJoinUs() {
 <div class="clearfix"></div>
 </div>
 
+<!-- 
 <div class="col-xs-12 hidden-md hidden-lg pad-none">
      <div style="width: 80%;margin-left: 10%;">
          <hr/>
      </div>
 </div>
+ -->
 
-<p class="padding1 workingholiday-plan-disclaimer"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
-<a class="sub-link" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank">
-<fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a> 
-<fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> 
-<a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> 
-    <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u>
-</a> 
-<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /><br>
-<fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p>
+<p class="padding1 workingholiday-plan-disclaimer">
+	<fmt:message key="annual.quote.bottom1" bundle="${msg}" />
+	<br>
+	<fmt:message key="annual.quote.bottom2" bundle="${msg}" />
+</p>
 
 <div class="col-xs-12 hidden-md hidden-lg pad-none">
    <div style="width: 80%;margin-left: 10%;  margin-bottom: 50px;">
         <div class="top35 pull-left pad-none" style="width:47%">
-            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+            <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="annual.button.back" bundle="${msg}" /></a>
         </div>
         <div class="top35 pull-right pad-none" style="width:47%">
 			<c:choose>
-<c:when test="${language=='en'}">
-       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 EN','USD');$('#loading-overlay').modal({backdrop: 'static',keyboard: false});return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
-       </c:when>
-       <c:otherwise>
-       	<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 ZH','USD');$('#loading-overlay').modal({backdrop: 'static',keyboard: false});return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="travel.action.next" bundle="${msg}" />" />
-       </c:otherwise>
-</c:choose>
-
+				<c:when test="${language=='en'}">
+	       			<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 EN','USD');$('#loading-overlay').modal({backdrop: 'static',keyboard: false});return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="annual.button.next" bundle="${msg}" />" />
+	        	</c:when>
+	        	<c:otherwise>
+	       			<input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Travel_Step2 ZH','USD');$('#loading-overlay').modal({backdrop: 'static',keyboard: false});return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="annual.button.next" bundle="${msg}" />" />
+	       		</c:otherwise>
+			</c:choose>
         </div>
         <div class="clearfix"></div>
     </div>

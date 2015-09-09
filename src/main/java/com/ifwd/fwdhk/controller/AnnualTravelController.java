@@ -4,6 +4,7 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -13,6 +14,8 @@ import java.util.TreeMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.joda.time.Days;
+import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -60,7 +63,41 @@ public class AnnualTravelController {
 		
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		return annualTravelService.getTravelPlan(travelQuote, model, request);
+		
+		HttpSession session = request.getSession();
+		session.removeAttribute("createPolicy");
+		session.removeAttribute("policyNo");
+		
+		if(travelQuote.getTrLeavingDate() != null) {
+			session.setAttribute("travelQuote", travelQuote);
+		}else {
+			travelQuote = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
+			if(travelQuote == null) {
+				return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");		
+			}				
+		}
+		session.setAttribute("corrTravelQuote", travelQuote);
+		
+		QuoteDetails quoteDetails;
+		if (session.getAttribute("quoteDetails") != null) {
+			quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
+			
+			request.setAttribute("quoteDetails", quoteDetails);
+			model.addAttribute("quoteDetails", quoteDetails);
+			model.addAttribute("travelQuoteBean", travelQuote);
+		} else {
+			model.addAttribute("errMsgs", session.getAttribute("errMsgs"));
+			return new ModelAndView(UserRestURIConstants.getSitePath(request)
+					+ "travel/travel");
+		}
+			
+		String pageTitle = WebServiceUtils.getPageTitle("page.travelQuote", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelQuote", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		return new ModelAndView(UserRestURIConstants.getSitePath(request)
+				+ "annualtravel/annual-travel-plan");
 	}
 
 	@SuppressWarnings({ "unused", "rawtypes" })
@@ -83,12 +120,9 @@ public class AnnualTravelController {
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		
 		String planName = WebServiceUtils.getParameterValue("planName", session, request);
-		String planSummary = WebServiceUtils.getParameterValue(
-				"selectedAmountDue", session, request);
-		String selectPlanPremium = WebServiceUtils.getParameterValue(
-				"selectPlanPremium", session, request);
-		String selectPlanName = WebServiceUtils.getParameterValue(
-				"selectPlanName", session, request);
+		String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
+		String selectPlanPremium = WebServiceUtils.getParameterValue("selectPlanPremium", session, request);
+		String selectPlanName = WebServiceUtils.getParameterValue("selectPlanName", session, request);
 		selectPlanName = planName;
 		
 		if (travelQuote.getTrLeavingDate() != null) {
@@ -106,6 +140,9 @@ public class AnnualTravelController {
 			
 			model.addAttribute("selectPlanName", selectPlanName);
 			QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
+			
+			
+			
 			if ("A".equals(selectPlanName)) {
 				session.setAttribute("planSelected", "A");
 				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[0]);
@@ -327,6 +364,7 @@ public class AnnualTravelController {
 		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
 				
 		planDetailsForm = (PlanDetailsForm) session.getAttribute("travelPlanDetailsFormBySummary");
+		//error
 		
 		userDetails.setFullName(applicantFullName);
 		userDetails.setHkid(applicantHKID);
@@ -350,8 +388,7 @@ public class AnnualTravelController {
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);
-		model.addAttribute("path", path.replace("travel-summary", "confirmation?utm_nooverride=1"));
-		model.addAttribute("path", path.replace("travel-summary", "confirmation?utm_nooverride=1"));
+		model.addAttribute("path", path.replace("summary", "confirmation?utm_nooverride=1"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
         String errorMsg =request.getParameter("errorMsg");

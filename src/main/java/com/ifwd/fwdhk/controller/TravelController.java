@@ -1666,11 +1666,7 @@ public class TravelController {
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);
-		model.addAttribute("path",
-				path.replace("travel-summary", "confirmation?utm_nooverride=1"));
-		model.addAttribute("path",
-				path.replace("travel-summary", "confirmation?utm_nooverride=1"));
-		
+		model.addAttribute("path", path.replace("travel-summary", "confirmation?utm_nooverride=1"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
         String errorMsg =request.getParameter("errorMsg");
