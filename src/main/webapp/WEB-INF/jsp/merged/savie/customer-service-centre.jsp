@@ -148,6 +148,16 @@ var language = "${language}";
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->	
 			</div><!-- /.modal -->
+			
+			<div class="modal fade" role="dialog" aria-labelledby="confirmMsg" id="confirmMsg">
+				<div class="modal-dialog teaserSurvey" role="document">
+					<div class="modal-content teaserSurvey">
+						<div class="modal-header teaserSurvey">
+							<h2 id="confirmMsgContext"></h2>
+						</div>
+					</div>
+				</div>
+			</div>
 	</form>
 </div>
 <%-- 
@@ -202,46 +212,59 @@ var language = "${language}";
 			var csCenter = $("#centre").val();
 			var perferredDate = $("#preferred-date").val();
 			var perferredTime = $("#preferred-time").val();
-			
-			$.ajax({     
-			    url:context+'/ajax/savie/savings-insurance/upsertAppointment',     
-			    type:'post',     
-			    data:{    
-			    	"csCenter": csCenter,
-			        "perferredDate":perferredDate,
-			        "perferredTime":perferredTime
-		   		},     
-			    error:function(){       
-			    },     
-			    success:function(data){
-			    	if(data.errMsgs == null){
-			    		//send email
-			    		$.ajax({     
-						    url:context+'/ajax/savie/service-center-confirm/email',     
-						    type:'post',
-						    data:{    
-						    	"csCenter": csCenter,
-						        "perferredDate":perferredDate,
-						        "perferredTime":perferredTime
-					   		}, 
-						    success:function(data){
-						    	if(data.errMsgs == null){
-						    		console.log("send email success");
-						    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation");
-							    	$("#serviceCenterForm").submit();
-						    	}else{
-						    		console.log(data.errMsgs);
-						    	}
-						    },
-						    error:function(){       
-						    }
-						});
-			    	}else{
-			    		$('#accessCodeUsed').modal('show');
-			    		console.log(data.errMsgs);
-			    	}
-			    }  
-			});
+			if(csCenter == null || csCenter.trim() == ""){
+				$("#confirmMsgContext").html("请选择客户服务中心");
+				$('#confirmMsg').modal('show');
+			}
+			else if(perferredDate == null || perferredDate.trim() == ""){
+				$("#confirmMsgContext").html("请选择日期");
+				$('#confirmMsg').modal('show');
+			}
+			else if(perferredTime == null || perferredTime.trim() == ""){
+				$("#confirmMsgContext").html("请选择时间");
+				$('#confirmMsg').modal('show');
+			}
+			else{
+				$.ajax({     
+				    url:context+'/ajax/savie/savings-insurance/upsertAppointment',     
+				    type:'post',     
+				    data:{    
+				    	"csCenter": csCenter,
+				        "perferredDate":perferredDate,
+				        "perferredTime":perferredTime
+			   		},     
+				    error:function(){       
+				    },     
+				    success:function(data){
+				    	if(data.errMsgs == null){
+				    		//send email
+				    		$.ajax({     
+							    url:context+'/ajax/savie/service-center-confirm/email',     
+							    type:'post',
+							    data:{    
+							    	"csCenter": csCenter,
+							        "perferredDate":perferredDate,
+							        "perferredTime":perferredTime
+						   		}, 
+							    success:function(data){
+							    	if(data.errMsgs == null){
+							    		console.log("send email success");
+							    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation");
+								    	$("#serviceCenterForm").submit();
+							    	}else{
+							    		console.log(data.errMsgs);
+							    	}
+							    },
+							    error:function(){       
+							    }
+							});
+				    	}else{
+				    		$('#accessCodeUsed').modal('show');
+				    		console.log(data.errMsgs);
+				    	}
+				    }  
+				});
+			}
 		});
 		$('#back-to-home-btn').click(function(){
     		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance");
