@@ -3875,7 +3875,7 @@ body.chin #illustration-filters #investment-amount #hkd {
   border: none;
   padding: 0;
   /*color: #9ba5a7;*/
-  color: #000;
+  /*color: #000;*/
   font-family: 'Calibri';
   font-size: 17.92px;
   padding-left: 20px;
@@ -3883,6 +3883,11 @@ body.chin #illustration-filters #investment-amount #hkd {
   width: 100%;
   border-radius: 0;
 }
+
+body.chin #illustration-filters .promocode{
+  font-family: 'Microsoft JhengHei';
+}
+
 @media (min-width: 992px) {
   #illustration-filters .promocode {
     margin-left: 0;
