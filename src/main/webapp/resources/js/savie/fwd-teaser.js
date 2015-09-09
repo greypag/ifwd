@@ -484,12 +484,14 @@ function getTimeSlot(perTime){
 	    	if(data.timeSlots != null && data.timeSlots.length > 0){
 		    	for(var i=0; i<data.timeSlots.length; i++) {
 		    		if(data.timeSlots[i].manPower>0) {
-		    			$("#preferred-time").append("<option value='" + data.timeSlots[i].timeSlot + "'>" + data.timeSlots[i].timeSlot + "</option>");
+		    			var op = "<option value='" + data.timeSlots[i].timeSlot + "'";
+		    			if(perTime !=null && perTime !='' && perTime == data.timeSlots[i].timeSlot){
+		    				op = op + " selected='selected'";
+		    			}
+		    			op = op + ">" + data.timeSlots[i].timeSlot + "</option>";
+		    			$("#preferred-time").append(op);
 		    		}
 		    	}
-		    	if(perTime !=null && perTime !=''){
-	    			$("#preferred-time").val(perTime);
-	    		}
 	    	}else {
 	    		$("#preferred-time").prepend("<option value=''></option>");
 	    		$('#pickAnotherCentre').modal('show');
