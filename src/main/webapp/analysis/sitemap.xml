@@ -5,81 +5,113 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 <url>
-  <loc>https://i.fwd.com.hk/tc/home</loc>
+  <loc>https://i.fwd.com.hk/tc</loc>
+  <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://i.fwd.com.hk/join-us</loc>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/en/home</loc>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/forgotUserName</loc>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/forgotPassword</loc>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/joinus</loc>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/tc/flight-insurance</loc>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/tc/travel-insurance</loc>
+  <loc>https://i.fwd.com.hk/tc/savings-insurance</loc>
+  <changefreq>weekly</changefreq>
 </url>
 <url>
   <loc>https://i.fwd.com.hk/tc/working-holiday-insurance</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/tc/flight-insurance</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/tc/travel-insurance</loc>
+  <changefreq>weekly</changefreq>
 </url>
 <url>
   <loc>https://i.fwd.com.hk/tc/home-insurance</loc>
+  <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://i.fwd.com.hk/en/flight-insurance</loc>
+  <loc>https://i.fwd.com.hk/tc/faq</loc>
+  <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://i.fwd.com.hk/en/travel-insurance</loc>
+  <loc>https://i.fwd.com.hk/tc/offers</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/en</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/en/savings-insurance</loc>
+  <changefreq>weekly</changefreq>
 </url>
 <url>
   <loc>https://i.fwd.com.hk/en/working-holiday-insurance</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/en/flight-insurance</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/en/travel-insurance</loc>
+  <changefreq>weekly</changefreq>
 </url>
 <url>
   <loc>https://i.fwd.com.hk/en/home-insurance</loc>
+  <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://i.fwd.com.hk/changeLang?selectLang=tc&amp;action=/forgotUserName</loc>
+  <loc>https://i.fwd.com.hk/en/faq</loc>
+  <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://i.fwd.com.hk/changeLang?selectLang=CN&amp;action=/forgotUserName</loc>
+  <loc>https://i.fwd.com.hk/en/offers</loc>
+  <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://i.fwd.com.hk/changeLang?selectLang=tc&amp;action=/forgotPassword</loc>
+  <loc>https://i.fwd.com.hk/resources/policy-provisions-pdf/Savie_T&amp;C.pdf</loc>
+  <lastmod>2015-08-11T10:01:50+00:00</lastmod>
+  <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://i.fwd.com.hk/changeLang?selectLang=CN&amp;action=/forgotPassword</loc>
+  <loc>https://i.fwd.com.hk/resources/brochure-pdf/savie_brochure.pdf</loc>
+  <lastmod>2015-08-14T06:56:38+00:00</lastmod>
+  <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>https://i.fwd.com.hk/changeLang?selectLang=tc&amp;action=/joinus</loc>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/changeLang?selectLang=CN&amp;action=/joinus</loc>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf</loc>
-  <lastmod>2015-05-21T06:26:50+00:00</lastmod>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf</loc>
-  <lastmod>2015-04-17T01:26:44+00:00</lastmod>
-</url>
-<url>
-  <loc>https://i.fwd.com.hk/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf</loc>
-  <lastmod>2015-04-17T01:26:44+00:00</lastmod>
+  <loc>https://i.fwd.com.hk/resources/policy-provisions-pdf/Savie_Zh_Provisions_Aug_2015.pdf</loc>
+  <lastmod>2015-08-11T10:01:50+00:00</lastmod>
+  <changefreq>weekly</changefreq>
 </url>
 <url>
   <loc>https://i.fwd.com.hk/resources/policy-provisions-pdf/Working_HolidayCare_Provisions_May_2015.pdf</loc>
-  <lastmod>2015-06-19T11:38:44+00:00</lastmod>
+  <lastmod>2015-08-11T10:01:50+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/resources/brochure-pdf/working_holidaycare_insurance.pdf</loc>
+  <lastmod>2015-08-11T10:01:48+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf</loc>
+  <lastmod>2015-08-11T10:01:50+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf</loc>
+  <lastmod>2015-08-11T10:01:50+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/resources/policy-provisions-pdf/iFWD_HK_Guaranteed_Home_T&amp;Cs.pdf</loc>
+  <lastmod>2015-08-11T10:01:50+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf</loc>
+  <lastmod>2015-08-11T10:01:50+00:00</lastmod>
+  <changefreq>weekly</changefreq>
 </url>
 </urlset>
