@@ -192,14 +192,13 @@ var language = "${language}";
 	var startDate= new Date((new Date()).getTime() + 2*24*60*60*1000);
 	var endDate= new Date((new Date()).getTime() + 21*24*60*60*1000);
 	$(function() {
-		
+		//daysOfWeekDisabled: [0]
 		$('#preferred-date').datepicker({
 			format: "dd-mm-yyyy",
 			container: "#date",
 			startDate: startDate,
 			endDate: endDate,
-			autoclose: true,
-			daysOfWeekDisabled: [0]
+			autoclose: true
 		}).on('changeDate', function (ev) {
 			if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
 				getTimeSlot('${perferredTime }');
