@@ -1470,9 +1470,9 @@ public class SavieServiceImpl implements SavieService {
 		String applicationNumber = "";
 		String userName = (String)session.getAttribute("username");
 		String status = "Active";
-		String remarks = "this is remarks";
+		String remarks = "";
 		String accessCode = (String)request.getSession().getAttribute("accessCode");
-		String servicingAgent = "Agent2";
+		String servicingAgent = "";
 		
 		String applicationUrl = UserRestURIConstants.SERVICE_URL + "/savie/application";
 		String makeUrl = UserRestURIConstants.SERVICE_URL + "/appointment/make";
