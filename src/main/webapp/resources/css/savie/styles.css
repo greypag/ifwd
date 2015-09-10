@@ -15674,7 +15674,8 @@ body.chin #btn-cstmr-srvc-cnter {
   z-index: 5;
 }
 
-.fwd-savie-wrapper #set-appointment .selectDiv #centre {
+.fwd-savie-wrapper #set-appointment .selectDiv #centre,
+.fwd-savie-wrapper #set-appointment .selectDiv #preferred-time {
   z-index: 1;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -15684,10 +15685,11 @@ body.chin #btn-cstmr-srvc-cnter {
   width: 110%;
 }
 
-.fwd-savie-wrapper #set-appointment .selectDiv #centre::-ms-expand {
+.fwd-savie-wrapper #set-appointment .selectDiv #centre::-ms-expand,
+.fwd-savie-wrapper #set-appointmentpreferred-time .selectDiv #preferred-time::-ms-expand {
   display: none;
 }
 
-.fwd-savie-wrapper #set-appointment .selectDiv .icon-chevron-thin-down.orange-caret {
+.fwd-savie-wrapper #set-appointment .selectDiv .icon-chevron-thin-down.orange-caret{
   z-index: 0;
 }
