@@ -413,7 +413,8 @@ var context = "${pageContext.request.contextPath}";
 					format: "dd-mm-yyyy",
 					startDate: '${startDOB }',
 					endDate: '${defaultDOB }',
-					autoclose: true
+					autoclose: true,
+					startView: 2
 				});
 				
 				$('#see-more-3-years').click(function(){
