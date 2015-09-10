@@ -341,7 +341,6 @@ function validateAnnualTravelDetails(form,formId,language)
 		scrollToElement(firstErrorElementId);
 	}
 	
-	
     if(travelp_click){
     	$('#loading-overlay').modal('hide');
     	return false;
@@ -352,29 +351,31 @@ function validateAnnualTravelDetails(form,formId,language)
 	           backdrop: 'static',
 	           keyboard: false
 	        })
+	        
+	        var contextPath = window.location.pathname.split("/")[1];
+    		var result = false;
+    		var formId = '#' + formId;
+    		var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceTravelSummary';
+    		$.ajax({
+    			type : "POST",
+    			url : method,
+    			data : $(formId).serialize(),
+    			async : false,
+    			success : function(data) {
+    				if (data == 'success') {
+    					form.action = '/'+contextPath+'/'+language+'/annual-travel-insurance/summary';
+    					result = true;
+    				} else {
+    					result = false;
+    				}
+    			}
+    		});
+    		return flag&&result;
     	}else{
     		$('#loading-overlay').modal('hide');
+    		return flag
     	}
     	
-    	var contextPath = window.location.pathname.split("/")[1];
-    	var result = false;
-    	var formId = '#' + formId;
-    	var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceTravelSummary';
-    	$.ajax({
-    		type : "POST",
-    		url : method,
-    		data : $(formId).serialize(),
-    		async : false,
-    		success : function(data) {
-    			if (data == 'success') {
-    				form.action = '/'+contextPath+'/'+language+'/annual-travel-insurance/summary';
-    				result = true;
-    			} else {
-    				result = false;
-    			}
-    		}
-    	});
-    	return flag&&result;
     }	
 	
 

@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@page import="com.ifwd.fwdhk.model.PlanDetailsForm"%>
+<%@page import="com.ifwd.fwdhk.model.AnnualDetailsForm"%>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -62,7 +62,7 @@ var enablePayment=true;
 
 
 <%
-    PlanDetailsForm planDetailsForm = (PlanDetailsForm) request.getAttribute("planDetailsForm");
+AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("planDetailsForm");
 %>
 <!--/#main-Content-->
 <section>

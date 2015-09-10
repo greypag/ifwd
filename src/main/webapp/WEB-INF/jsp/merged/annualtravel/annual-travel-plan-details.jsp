@@ -7,7 +7,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 <%@page import="java.util.*"%>
-<%@page	import="com.ifwd.fwdhk.model.DistrictBean,com.ifwd.fwdhk.model.WorkingHolidayDetailsBean"%>
+<%@page	import="com.ifwd.fwdhk.model.DistrictBean,com.ifwd.fwdhk.model.AnnualTravelQuoteBean"%>
 
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -19,8 +19,8 @@
                 .getAttribute("authenticate").toString();
     }
     
-    TravelQuoteBean sessTravelQuoteBean = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
-    request.setAttribute("travelQuote", sessTravelQuoteBean);
+    AnnualTravelQuoteBean sessTravelQuoteBean = (AnnualTravelQuoteBean) session.getAttribute("corrAnnualTravelQuote");
+    request.setAttribute("annualTravelQuote", sessTravelQuoteBean);
 %>
 
 <script>
@@ -111,7 +111,7 @@ function activateUserAccountJoinUs() {
     var firstErrorElementId="";
     
     if(name == "" && password == "" && password2 == ""){
-    	$('#frmYourDetails').submit()
+    	$('#frmYourDetails').submit();
     }else{
     	if(name != "" && password != "" && password2 != ""){
     		$('#chk1').html('');
@@ -653,10 +653,10 @@ function activateUserAccountJoinUs() {
                             <!-- Personal -->
                             <input type="hidden" name="totalPersonalTraveller"
                                 id="totalPersonalTraveller"
-                                value="${corrTravelQuote.totalPersonalTraveller}">
+                                value="${corrAnnualTravelQuote.totalPersonalTraveller}">
                             
                             <c:forEach var="inx" begin="1"
-                                end="${corrTravelQuote.totalPersonalTraveller}">
+                                end="${corrAnnualTravelQuote.totalPersonalTraveller}">
                                 
                                 <div class="form-wrap">
                                 <div class="personaltraveller" style="border: none;">
@@ -801,10 +801,6 @@ function activateUserAccountJoinUs() {
                                 </div>
                             </c:forEach>
                             
-                            <input type="hidden" name="totalAdultTraveller" id="totalAdultTraveler" value="0">
-                            <input type="hidden" name="totalChildTraveller" id="totalCountOfChild" value="0">
-                            <input type="hidden" name="totalOtherTraveller" id="totalCountOther" value="0">
-
                        <div class="clearfix"></div>
 							
 							<div class="form-wrap">
@@ -932,7 +928,6 @@ function activateUserAccountJoinUs() {
                             </div>
                         </div>
                         <input type="hidden" id="isLogin" value="false">
-                        <input type="hidden" id="totalTravellingDays" name="totalTravellingDays" value="${corrTravelQuote.totalTravellingDays}">
                         <%
                             }
                             else
@@ -990,7 +985,7 @@ function activateUserAccountJoinUs() {
                                 </h3>
                                 <h4> 
                                 <div class="input-group date"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                    <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${corrTravelQuote.trLeavingDate}" readonly>
+                                    <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="${corrAnnualTravelQuote.trLeavingDate}" readonly>
                                 </div>
                              </h4>
                                 <input type="hidden" name="departureDate" id="departureDate"
@@ -1001,7 +996,7 @@ function activateUserAccountJoinUs() {
                                 </h3>
                                 <h4>
                                 <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                                    <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${corrTravelQuote.trBackDate}" readonly>
+                                    <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="${corrAnnualTravelQuote.trBackDate}" readonly>
                                 </div>
                                 
                                 </h4>
@@ -1014,13 +1009,12 @@ function activateUserAccountJoinUs() {
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
                                         <h3 style="text-align: right;font-weight: normal;">
-                                            ${corrTravelQuote.totalPersonalTraveller} <fmt:message key="annual.quote.care.traveller" bundle="${msg}" />
+                                            ${corrAnnualTravelQuote.totalPersonalTraveller} <fmt:message key="annual.quote.care.traveller" bundle="${msg}" />
                                         </h3>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
-                                <input type="hidden" name="planSelected" value="${corrTravelQuote.planSelected}">
-                                <input type="hidden" name="totalTravellingDays" value="${corrTravelQuote.totalTravellingDays}">
+                                <input type="hidden" name="planSelected" value="${corrAnnualTravelQuote.planSelected}">
                                </div>
             </div>
             <div class="orange-bdr"></div>

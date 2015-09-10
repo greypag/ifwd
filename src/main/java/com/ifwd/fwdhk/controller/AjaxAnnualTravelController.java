@@ -2,8 +2,10 @@ package com.ifwd.fwdhk.controller;
 
 import java.io.IOException;
 import java.text.ParseException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.ifwd.fwdhk.model.PlanDetailsForm;
+
+import com.ifwd.fwdhk.model.AnnualDetailsForm;
+import com.ifwd.fwdhk.model.AnnualTravelQuoteBean;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.services.AnnualTravelService;
 @Controller
@@ -29,7 +33,7 @@ public class AjaxAnnualTravelController {
 	// return JSON
 	@RequestMapping(value = "/ajax/annualTravel/updateTravelQuote/update", method = RequestMethod.POST)
 	@ResponseBody
-	public String updateTravelQuote(@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,BindingResult result, Model model, HttpServletRequest request) {
+	public String updateTravelQuote(@ModelAttribute("annualTravelQuote") TravelQuoteBean travelQuote,BindingResult result, Model model, HttpServletRequest request) {
 		String str = null;
 		try {
 			str = annualTravelService.updateTravelQuote(travelQuote, result, model, request);
@@ -42,7 +46,7 @@ public class AjaxAnnualTravelController {
 	
 	@RequestMapping(value = "/ajax/annualTravel/applyTravelPromoCode/apply", method = RequestMethod.POST)
 	@ResponseBody
-	public String applyPromotionCode(@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,BindingResult result, Model model, HttpServletRequest request) throws ParseException {
+	public String applyPromotionCode(@ModelAttribute("annualTravelQuote") TravelQuoteBean travelQuote,BindingResult result, Model model, HttpServletRequest request) throws ParseException {
 		String str = null;
 		try {
 			str = annualTravelService.applyPromotionCode(travelQuote, result, model, request);
@@ -94,14 +98,14 @@ public class AjaxAnnualTravelController {
 	
 	@RequestMapping(value = "/ajax/annualTravel/prepareTravelInsuranceQuote")
 	@ResponseBody
-	public String prepareTravelInsuranceQuote(@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
+	public String prepareTravelInsuranceQuote(@ModelAttribute("annualTravelQuote") AnnualTravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception {
 		try {
 			UserRestURIConstants urc = new UserRestURIConstants();
 			urc.updateLanguage(request);
 			UserRestURIConstants.setController("Travel");
 			request.setAttribute("controller", UserRestURIConstants.getController());
-			annualTravelService.getTravelPlan(travelQuote, model, request);
+			annualTravelService.getAnnualTravelPlan(travelQuote, model, request);
 			logger.info("api is Ok");
 			return "success";
 		} catch (Exception e) {
@@ -115,7 +119,7 @@ public class AjaxAnnualTravelController {
 	@RequestMapping(value = "/ajax/annualTravel/prepareTravelInsuranceUserDetails")
 	@ResponseBody
 	public String prepareTravelInsuranceUserDetails(
-			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
+			@ModelAttribute("annualTravelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception {
 		try {
 			annualTravelService.prepareTravelInsuranceUserDetails(travelQuote, result, model, request);
@@ -132,7 +136,7 @@ public class AjaxAnnualTravelController {
 	@RequestMapping(value = "/ajax/annualTravel/prepareTravelInsuranceTravelSummary")
 	@ResponseBody
 	public String prepareTravelInsuranceTravelSummary(
-			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
+			@ModelAttribute("frmYourDetails") AnnualDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception {
 		try {
 			annualTravelService.prepareTravelInsuranceTravelSummary(planDetailsForm, result, model, request);

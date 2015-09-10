@@ -4,7 +4,6 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -15,8 +14,6 @@ import java.util.TreeMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.joda.time.Days;
-import org.joda.time.LocalDate;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -33,6 +30,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.model.AnnualDetailsForm;
+import com.ifwd.fwdhk.model.AnnualTravelQuoteBean;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.PlanDetailsForm;
 import com.ifwd.fwdhk.model.QuoteDetails;
@@ -60,7 +59,7 @@ public class AnnualTravelController {
 	
 	@RequestMapping(value = {"/{lang}/annual-travel-insurance/quote"})
 	public ModelAndView prepareTravelPlan(
-			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
+			@ModelAttribute("annualTravelQuote") AnnualTravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
@@ -73,14 +72,14 @@ public class AnnualTravelController {
 		session.removeAttribute("policyNo");
 		
 		if(travelQuote.getTrLeavingDate() != null) {
-			session.setAttribute("travelQuote", travelQuote);
+			session.setAttribute("annualTravelQuote", travelQuote);
 		}else {
-			travelQuote = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
+			travelQuote = (AnnualTravelQuoteBean) session.getAttribute("corrAnnualTravelQuote");
 			if(travelQuote == null) {
 				return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");		
 			}				
 		}
-		session.setAttribute("corrTravelQuote", travelQuote);
+		session.setAttribute("corrAnnualTravelQuote", travelQuote);
 		
 		QuoteDetails quoteDetails;
 		if (session.getAttribute("quoteDetails") != null) {
@@ -88,7 +87,7 @@ public class AnnualTravelController {
 			
 			request.setAttribute("quoteDetails", quoteDetails);
 			model.addAttribute("quoteDetails", quoteDetails);
-			model.addAttribute("travelQuoteBean", travelQuote);
+			model.addAttribute("annualTravelQuoteBean", travelQuote);
 		} else {
 			model.addAttribute("errMsgs", session.getAttribute("errMsgs"));
 			return new ModelAndView(UserRestURIConstants.getSitePath(request)
@@ -107,7 +106,7 @@ public class AnnualTravelController {
 	@SuppressWarnings({ "unused", "rawtypes" })
 	@RequestMapping(value = {"/{lang}/annual-travel-insurance/user-details"})
 	public ModelAndView prepareYourDetails(
-			@ModelAttribute("travelQuote") TravelQuoteBean travelQuote,
+			@ModelAttribute("annualTravelQuote") AnnualTravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception {
 		UserRestURIConstants.setController("Travel");
 		
@@ -130,22 +129,19 @@ public class AnnualTravelController {
 		selectPlanName = planName;
 		
 		if (travelQuote.getTrLeavingDate() != null) {
-			session.setAttribute("travelQuote", travelQuote);
+			session.setAttribute("annualTravelQuote", travelQuote);
 		} else {
-			travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+			travelQuote = (AnnualTravelQuoteBean) session.getAttribute("annualTravelQuote");
 			if(travelQuote == null){
 				return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");
 			}				
 		}
 		try {
-
-			request.setAttribute("travelQuote", travelQuote);
+			request.setAttribute("annualTravelQuote", travelQuote);
 			model.addAttribute("planName", planName);
 			
 			model.addAttribute("selectPlanName", selectPlanName);
 			QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
-			
-			
 			
 			if ("A".equals(selectPlanName)) {
 				session.setAttribute("planSelected", "A");
@@ -185,11 +181,8 @@ public class AnnualTravelController {
 				
 				model.addAttribute("planPremium", quoteDetails.getGrossPremium()[1]);
 			}
-			//travelQuote.setTotalAdultTraveller(travelQuote.getTotalAdultTraveller()	+ travelQuote.getTotalPersonalTraveller());
-			request.getSession().setAttribute("departureDate",
-					travelQuote.getTrLeavingDate());
-			request.getSession().setAttribute("returnDate",
-					travelQuote.getTrBackDate());
+			request.getSession().setAttribute("departureDate", travelQuote.getTrLeavingDate());
+			request.getSession().setAttribute("returnDate", "30-09-2016");
 			String Url = UserRestURIConstants.GET_AGE_TYPE
 					+ "?itemTable=AgeType";
 
@@ -245,7 +238,6 @@ public class AnnualTravelController {
 				model.addAttribute("mapSelfType", mapSelfType);
 				model.addAttribute("mapChildType", mapChildType);
 
-
 				/*
 				 * API Call for get Benifitiary Relationship
 				 */
@@ -290,8 +282,8 @@ public class AnnualTravelController {
 			model.addAttribute("planSummary", planSummary);
 //			model.addAttribute("planPremium", selectPlanPremium);
 			
-			session.setAttribute("travelQuote", travelQuote); // vincent - fix back btn from 3rd page to 2nd page
-			model.addAttribute("travelQuote", travelQuote);
+			session.setAttribute("annualTravelQuote", travelQuote); // vincent - fix back btn from 3rd page to 2nd page
+			model.addAttribute("annualTravelQuote", travelQuote);
 		} catch (Exception e) {
 			e.printStackTrace();
 			model.addAttribute("errMsgs", "System Error");
@@ -338,13 +330,13 @@ public class AnnualTravelController {
 	@SuppressWarnings({"unused" })
 	@RequestMapping(value = {"/{lang}/annual-travel-insurance/summary"})
 	public ModelAndView prepareSummary(
-			@ModelAttribute("frmYourDetails") PlanDetailsForm planDetailsForm,
+			@ModelAttribute("frmYourDetails") AnnualDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 		
-		TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
+		AnnualTravelQuoteBean travelQuote = (AnnualTravelQuoteBean) session.getAttribute("annualTravelQuote");
 		String planSelected = (String) session.getAttribute("planSelected");
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
@@ -374,7 +366,7 @@ public class AnnualTravelController {
 		
 		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
 				
-		planDetailsForm = (PlanDetailsForm) session.getAttribute("travelPlanDetailsFormBySummary");
+		planDetailsForm = (AnnualDetailsForm) session.getAttribute("travelPlanDetailsFormBySummary");
 		//error
 		
 		userDetails.setFullName(applicantFullName);
@@ -387,10 +379,7 @@ public class AnnualTravelController {
 		TravelQuoteBean travelBean = new TravelQuoteBean();
 		travelBean.setTrLeavingDate(deaprtureDate);
 		travelBean.setTrBackDate(returnDate);
-		travelBean.setTotalTraveller(planDetailsForm.getTotalAdultTraveller()
-				+ planDetailsForm.getTotalChildTraveller()
-				+ planDetailsForm.getTotalOtherTraveller()
-				+ planDetailsForm.getTravellerCount());
+		travelBean.setTotalTraveller(planDetailsForm.getTotalPersonalTraveller());
 		
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);
@@ -500,7 +489,7 @@ public class AnnualTravelController {
 				session.removeAttribute("upgradeCreateFlightPolicy");
 				session.removeAttribute("upgradeSelectPlanName");
 				session.removeAttribute("upgradeDueAmount");
-				session.removeAttribute("travelQuote");
+				session.removeAttribute("annualTravelQuote");
 				session.removeAttribute("travelCreatePolicy");
 				session.removeAttribute("travel-temp-save");
 				session.setAttribute("policyNo", responsObject.get("policyNo"));

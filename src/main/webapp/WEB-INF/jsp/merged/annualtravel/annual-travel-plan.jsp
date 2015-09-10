@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="com.ifwd.fwdhk.model.QuoteDetails"%>
-<%@page import="com.ifwd.fwdhk.model.TravelQuoteBean"%>
+<%@page import="com.ifwd.fwdhk.model.AnnualTravelQuoteBean"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -9,7 +9,7 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <%
-    TravelQuoteBean sessTravelQuoteBean = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
+AnnualTravelQuoteBean sessTravelQuoteBean = (AnnualTravelQuoteBean) session.getAttribute("corrAnnualTravelQuote");
     if( sessTravelQuoteBean != null ) {
         //System.out.println("------------------------------------------------------------");     
         //System.out.println( "sess Personal: " + sessTravelQuoteBean.getTotalPersonalTraveller() );
@@ -28,32 +28,16 @@ perventRedirect=true;
 // personal or family
 var traveller;  
 // personal
-var personalTraveller = parseInt("${corrTravelQuote.totalPersonalTraveller}");
+var personalTraveller = parseInt("${corrAnnualTravelQuote.totalPersonalTraveller}");
 // family
-var familyAdult = parseInt("${corrTravelQuote.totalAdultTraveller}");
-var familyChild = parseInt("${corrTravelQuote.totalChildTraveller}");
-var familyOther = parseInt("${corrTravelQuote.totalOtherTraveller}");  
-var familyTraveller = familyAdult+familyChild+familyOther;
-
-var t1 = "${corrTravelQuote.totalAdultTraveller}";
-var t2 = "${corrTravelQuote.totalChildTraveller}";
-var t3 = "${corrTravelQuote.totalOtherTraveller}";
 var promoData = '';
 
 //bmg inline variable
 var promoCodeInsertFlag = true;
 var updateQuoteFlag = true;
 var tempPersonalTraveller = personalTraveller;
-var tempAdultTraveller = familyAdult;
-var tempChildTraveller = familyChild;
-var tempOtherTraveller = familyOther;
 
-var tempTotalTraveller = 0;
-if(personalTraveller>familyTraveller){
-	tempTotalTraveller=personalTraveller;
-}else{
-	tempTotalTraveller=familyTraveller;
-}
+var tempTotalTraveller=personalTraveller;
 //bmg inline variable
 
 var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />";
@@ -157,9 +141,6 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			
 			$('#lblCountDesk').html(tempTotalTraveller);
 			$("#totalPersonalTraveller").val(tempPersonalTraveller);
-			$("#totalAdultTraveller").val(tempAdultTraveller);
-            $("#totalChildTraveller").val(tempChildTraveller);
-            $("#totalOtherTraveller").val(tempOtherTraveller);
 			
             $('#myFWDropdown').toggleClass('open');
             
@@ -174,8 +155,10 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 					var json = JSON.parse(data);
 					promoData = json;
 					setValue(json);
-					$("#totalTravellingDays").val(json.totalDays);
-					$("#totalTravellingDaysSpan").html(json.totalDays);
+					
+					alert(json)//XXX
+					//$("#totalTravellingDays").val(json.totalDays);
+					//$("#totalTravellingDaysSpan").html(json.totalDays);
 				}
 			});
 		}
@@ -249,7 +232,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	}
 	$(document).ready(function() {
 	   // update quote area to show headcounts
-	    if("${corrTravelQuote.planSelected}".toLowerCase() == "family"){
+	    if("${corrAnnualTravelQuote.planSelected}".toLowerCase() == "family"){
 	        if (familyTraveller > 0){
 	            $('#family_plan_desk_spinner').show();
 	            $('#family_plan_btm_spinner').show();
@@ -307,7 +290,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 <section>
 	<div id="cn" class="container">
 		<div class="row">
-			<form:form name="frmTravelPlan" id="frmTravelPlan" action='' method="post" modelAttribute="travelQuote" onsubmit="return chkDueAmount(this,'frmTravelPlan');" >
+			<form:form name="frmTravelPlan" id="frmTravelPlan" action='' method="post" modelAttribute="annualTravelQuote" onsubmit="return chkDueAmount(this,'frmTravelPlan');" >
 				<ol class="breadcrumb pad-none">
 					<li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="annual.title.home" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
 					<li><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="annual.title.travelcare" bundle="${msg}" /></a></li>
@@ -320,13 +303,13 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						
 						<%
 							QuoteDetails travelQuote = (QuoteDetails) request.getAttribute("quoteDetails");
-							TravelQuoteBean travelQuoteBean = (TravelQuoteBean)request.getAttribute("travelQuote"); 
+							AnnualTravelQuoteBean travelQuoteBean = (AnnualTravelQuoteBean)request.getAttribute("annualTravelQuote"); 
 							
 					    	if (travelQuote != null)
 						 	{
 					    		if(travelQuote.getPlanSelected().equalsIgnoreCase("personal"))
 					    		{
-					    			travelQuoteBean.setTotalOtherTraveller(0);
+					    			//travelQuoteBean.setTotalOtherTraveller(0);
 					    		}
 					    	 	session.setAttribute("tq", travelQuote);
 						 	}
@@ -1062,12 +1045,12 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 								 <h3><fmt:message key="annual.quote.care.starting" bundle="${msg}" />  
 	                            </h3>
 	                            <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" value="${corrTravelQuote.trLeavingDate}" readonly>
+                                  <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" value="${corrAnnualTravelQuote.trLeavingDate}" readonly>
                                 </div>
 								<h3><fmt:message key="annual.quote.care.ending" bundle="${msg}" /> 
                                 </h3>
                               <div class="input-group date"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
-                                <input type="text" name="trBackDate" class="datepicker form-control" value="${corrTravelQuote.trBackDate}" readonly>
+                                <input type="text" name="trBackDate" class="datepicker form-control" value="${corrAnnualTravelQuote.trBackDate}" readonly>
                               </div>
 								<div>
 								    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
@@ -1075,7 +1058,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                                </div>
 	                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
 	                                    <h3 style="text-align: right;font-weight: normal;">
-		                                    <c:if test="${travelQuoteBean.totalPersonalTraveller!=0}">${travelQuoteBean.totalPersonalTraveller} <fmt:message key="annual.quote.care.traveller" bundle="${msg}" /></c:if>
+		                                    <c:if test="${annualTravelQuoteBean.totalPersonalTraveller!=0}">${annualTravelQuoteBean.totalPersonalTraveller} <fmt:message key="annual.quote.care.traveller" bundle="${msg}" /></c:if>
 	                                    </h3>
 	                                </div>
 	                                <div class="clearfix"></div>
@@ -1085,11 +1068,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 								<span class="text-grey" id="loadingUpdate" style="display:none;"><fmt:message key="annual.quote.care.updating" bundle="${msg}" /></span>
 								
                       
-                      <input type="hidden" name="totalPersonalTraveller" id="txtTravellersInline" data-min="1" data-max="15" value="${corrTravelQuote.totalPersonalTraveller}"/>
-                      <input type="hidden" name="familyPlan" id="family_desk_count" value="${corrTravelQuote.totalFamilyTravellers}">
-                                 <input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="${corrTravelQuote.totalAdultTraveller}"/>
-                                 <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="15" value="${corrTravelQuote.totalChildTraveller}"/>
-                                 <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="15" value="${corrTravelQuote.totalOtherTraveller}"/>
+                      <input type="hidden" name="totalPersonalTraveller" id="txtTravellersInline" data-min="1" data-max="15" value="${corrAnnualTravelQuote.totalPersonalTraveller}"/>
 								
 					<div id="show-traveller" class="form-group likeDatePicker bcg-trans" style="display:none;">
             					<div class="input-group wd2 datepicker form-control" style="width:100% !important;margin: 0px !important;"> 
