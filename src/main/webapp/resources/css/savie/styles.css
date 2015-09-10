@@ -15651,3 +15651,43 @@ body.chin #btn-cstmr-srvc-cnter {
   margin-bottom: 11px;
   line-height: 14px;
 }
+
+/*Checklist 912*/
+.fwd-savie-wrapper #set-appointment .selectDiv .centre-holder {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.fwd-savie-wrapper #set-appointment .selectDiv .centre-holder:before {
+  display: block;
+  position: absolute;
+  content: '';
+  right: 0px;
+  top: 0px;
+  height: 1em;
+  width: 1em;
+  margin: 2px;
+  background: transparent;
+  z-index: 5;
+}
+
+.fwd-savie-wrapper #set-appointment .selectDiv #centre {
+  z-index: 1;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  margin-bottom: 0;
+  width: 110%;
+}
+
+.fwd-savie-wrapper #set-appointment .selectDiv #centre::-ms-expand {
+  display: none;
+}
+
+.fwd-savie-wrapper #set-appointment .selectDiv .icon-chevron-thin-down.orange-caret {
+  z-index: 0;
+}

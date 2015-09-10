@@ -40,11 +40,13 @@ var language = "${language}";
 										<div class="col-xs-12 col-md-8">
 											<div class="selectDiv">
 												<span class="icon-chevron-thin-down orange-caret"></span>
-												<select name="centre" id="centre" class="form-control gray-dropdown">
-													<c:forEach var="list" items="${serviceCentre.serviceCentres}">
-											            <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
-											        </c:forEach>
-												</select>
+                                                <div class="centre-holder">
+                                                    <select name="centre" id="centre" class="form-control gray-dropdown">
+                                                        <c:forEach var="list" items="${serviceCentre.serviceCentres}">
+                                                            <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
+                                                        </c:forEach>
+                                                    </select>
+                                                </div>
 											</div>
 										</div>
 									</div>
@@ -62,9 +64,11 @@ var language = "${language}";
 											<div class="selectDiv timeslot">
 												<span class="icon-chevron-thin-down orange-caret" id="time-orange-caret"></span>
 												<!-- <input type="text" name="preferred-time" id="preferred-time" value=""> -->
-												<select name="preferred-time" id="preferred-time" onclick="putTimeSession();" class="form-control gray-dropdown">
-											        <option value=""></option>
-												</select>
+                                                <div class="centre-holder">
+                                                    <select name="preferred-time" id="preferred-time" onclick="putTimeSession();" class="form-control gray-dropdown">
+                                                        <option value=""></option>
+                                                    </select>
+                                                </div>
 											</div>
 										</div>
 									</div>
