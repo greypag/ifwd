@@ -189,8 +189,8 @@ var language = "${language}";
 <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 
 <script>
-	var startDate= new Date((new Date()).getTime() + 2*24*60*60*1000);
-	var endDate= new Date((new Date()).getTime() + 21*24*60*60*1000);
+	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
+	var endDate= new Date((new Date()).getTime() + 22*24*60*60*1000);
 	$(function() {
 		//daysOfWeekDisabled: [0]
 		$('#preferred-date').datepicker({
