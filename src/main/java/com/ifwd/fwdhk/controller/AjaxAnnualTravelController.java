@@ -33,7 +33,7 @@ public class AjaxAnnualTravelController {
 	// return JSON
 	@RequestMapping(value = "/ajax/annualTravel/updateTravelQuote/update", method = RequestMethod.POST)
 	@ResponseBody
-	public String updateTravelQuote(@ModelAttribute("annualTravelQuote") TravelQuoteBean travelQuote,BindingResult result, Model model, HttpServletRequest request) {
+	public String updateTravelQuote(@ModelAttribute("annualTravelQuote") AnnualTravelQuoteBean travelQuote,BindingResult result, Model model, HttpServletRequest request) {
 		String str = null;
 		try {
 			str = annualTravelService.updateTravelQuote(travelQuote, result, model, request);
@@ -46,7 +46,7 @@ public class AjaxAnnualTravelController {
 	
 	@RequestMapping(value = "/ajax/annualTravel/applyTravelPromoCode/apply", method = RequestMethod.POST)
 	@ResponseBody
-	public String applyPromotionCode(@ModelAttribute("annualTravelQuote") TravelQuoteBean travelQuote,BindingResult result, Model model, HttpServletRequest request) throws ParseException {
+	public String applyPromotionCode(@ModelAttribute("annualTravelQuote") AnnualTravelQuoteBean travelQuote,BindingResult result, Model model, HttpServletRequest request) throws ParseException {
 		String str = null;
 		try {
 			str = annualTravelService.applyPromotionCode(travelQuote, result, model, request);

@@ -6,9 +6,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,10 +23,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.controller.TravelController;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.AnnualDetailsForm;
 import com.ifwd.fwdhk.model.AnnualTravelQuoteBean;
@@ -55,26 +50,14 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 	@Autowired
 	private SendEmailDao sendEmail;
 	
-	public String updateTravelQuote(@ModelAttribute("annualTravelQuote") TravelQuoteBean travelQuote,BindingResult result, Model model, HttpServletRequest request){
+	public String updateTravelQuote(@ModelAttribute("annualTravelQuote") AnnualTravelQuoteBean travelQuote,BindingResult result, Model model, HttpServletRequest request){
 			UserRestURIConstants.setController("Travel");
-			
 			// test planselected
-			if( travelQuote.getTotalPersonalTraveller() > 0 ) {
-				travelQuote.setPlanSelected("personal");
-			}
-			else if( travelQuote.getTotalAdultTraveller() > 0 ) {
-				travelQuote.setPlanSelected("family");
-			}
+			travelQuote.setPlanSelected("personal");
 			travelQuote.setTotalPersonalTraveller(Integer.parseInt(request.getParameter("totalPersonalTraveller")));
-			travelQuote.setTotalAdultTraveller(Integer.parseInt(request.getParameter("totalAdultTraveller")));
-			travelQuote.setTotalChildTraveller(Integer.parseInt(request.getParameter("totalChildTraveller")));
-			travelQuote.setTotalOtherTraveller(Integer.parseInt(request.getParameter("totalOtherTraveller")));
 			travelQuote.setTrLeavingDate(request.getParameter("trLeavingDate"));
 			travelQuote.setTrBackDate(request.getParameter("trBackDate"));
-			travelQuote.setTotalTraveller(travelQuote.getTotalAdultTraveller()
-					+ travelQuote.getTotalChildTraveller()
-					+ travelQuote.getTotalOtherTraveller()
-					+ travelQuote.getTotalPersonalTraveller());
+			travelQuote.setTotalTraveller(travelQuote.getTotalPersonalTraveller());
 			
 			UserRestURIConstants.setController("Travel");
 			request.setAttribute("controller", UserRestURIConstants.getController());
@@ -82,23 +65,16 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			session.removeAttribute("createPolicy");
 			session.removeAttribute("policyNo");
 			
-			if (travelQuote.getTrLeavingDate() != null) 
-			{
+			if (travelQuote.getTrLeavingDate() != null) {
 				session.setAttribute("annualTravelQuote", travelQuote);
-			} 
-			else 
-			{
-				travelQuote = (TravelQuoteBean) session.getAttribute("corrAnnualTravelQuote");
-				
-				if(travelQuote == null)
-				{
-					//return getTravelHomePage((String)session.getAttribute("referralCode"), request, model);
+			}else {
+				travelQuote = (AnnualTravelQuoteBean) session.getAttribute("corrAnnualTravelQuote");
+				if(travelQuote == null) {
 					return "travelQuote == null";
 				}				
 			}
 			
 			session.setAttribute("corrAnnualTravelQuote", travelQuote);
-			
 			try {
 				
 				String token = null, username = null;
@@ -113,59 +89,26 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 						username = session.getAttribute("username").toString();
 					}
 				}
-				
-				int days = 0;
-
 				/* Calculate total Days */
 				Date dateD1 = DateApi.formatDate(travelQuote.getTrLeavingDate());
-				Date dateD2 = DateApi.formatDate(travelQuote.getTrBackDate());
 				LocalDate commencementDate = new LocalDate(dateD1);
-				LocalDate expiryDate = new LocalDate(dateD2);
-				days = Days.daysBetween(commencementDate, expiryDate).getDays();
-				travelQuote.setTotalTravellingDays(days + 1);
 				
-				int otherCount = 0, childCount = 0, adultCount = 0;
-				boolean spouseCover = false, selfCover = false;
-				if (travelQuote.getPlanSelected().equals("personal")) 
-				{
-					selfCover = true;
-					spouseCover = false;
-					otherCount = travelQuote.getTotalPersonalTraveller();
-					otherCount -= 1;
-				} 
-				else 
-				{
-					adultCount = travelQuote.getTotalAdultTraveller();
-					childCount = travelQuote.getTotalChildTraveller();
-					otherCount = travelQuote.getTotalOtherTraveller();
-					
-					selfCover = true;
-					if (adultCount > 1) 
-					{
-						spouseCover = true;
-					} 
-					else 
-					{
-						spouseCover = false;
-					}
-				}
+				int otherCount = travelQuote.getTotalPersonalTraveller();
+				boolean selfCover = true;
 				
-				TravelQuoteBean travelQuoteCount = new TravelQuoteBean();
+				AnnualTravelQuoteBean travelQuoteCount = new AnnualTravelQuoteBean();
 				travelQuoteCount.setSelfCover(selfCover);
-				travelQuoteCount.setSpouseCover(spouseCover);
-				travelQuoteCount.setTotalChildTraveller(childCount);
-				travelQuoteCount.setTotalOtherTraveller(otherCount);
+				travelQuoteCount.setTotalPersonalTraveller(otherCount);
 				session.setAttribute("annualTravelQuoteCount", travelQuoteCount);
 				session.setAttribute("planSelected", travelQuote.getPlanSelected());
 				
-				
 				String promoCode = (String) session.getAttribute("referralCode");
 				promoCode = java.net.URLEncoder.encode(promoCode, "UTF-8").replace("+", "%20");
-				String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
-						+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
-						+ "&childInput=" + childCount + "&otherInput="
-						+ otherCount + "&commencementDate="
-						+ commencementDate + "&expiryDate=" + expiryDate
+				String Url = UserRestURIConstants.ANNUAL_TRAVEL_GET_QUOTE
+						+ "?planCode=A"
+						+ "&selfCover=" + selfCover
+						+ "&otherInput=" + otherCount
+						+ "&commencementDate=" + commencementDate
 						+ "&referralCode=" + promoCode;
 
 				HashMap<String, String> header = new HashMap<String, String>(
@@ -185,10 +128,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 
 				logger.info("Get Travel Quotes API " + responseJsonObj);
 				if (responseJsonObj.get("errMsgs") == null) {
-					
-					
-					responseJsonObj.put("totalDays", travelQuote.getTotalTravellingDays());
-					
 					QuoteDetails quoteDetails = new QuoteDetails();
 					quoteDetails.setPlanSelected(travelQuote.getPlanSelected());
 					responseJsonObj.get("referralCode");
@@ -246,7 +185,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			}
 	}
 	
-	public String applyPromotionCode(@ModelAttribute("annualTravelQuote") TravelQuoteBean travelQuote,BindingResult result, Model model, HttpServletRequest request) throws ParseException{
+	public String applyPromotionCode(@ModelAttribute("annualTravelQuote") AnnualTravelQuoteBean travelQuote,BindingResult result, Model model, HttpServletRequest request) throws ParseException{
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		JSONObject responseJsonObj = new JSONObject();
 		HttpSession session = request.getSession();
@@ -254,32 +193,24 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			model.addAttribute("errMsgs", "Session Expired");
 			return "fail";		
 		}
-		int days = 0;
-		int otherCount = 0, childCount = 0, adultCount = 0;
-		boolean spouseCover = false, selfCover = false;
-		/*Date dateD1 = new Date(travelQuote.getTrLeavingDate());
-		Date dateD2 = new Date(travelQuote.getTrBackDate());*/
+		int otherCount = 0;
+		boolean selfCover = false;
 		Date dateD1 = sdf.parse(travelQuote.getTrLeavingDate());
-		Date dateD2 = sdf.parse(travelQuote.getTrBackDate());
 		LocalDate commencementDate = new LocalDate(dateD1);
-		LocalDate expiryDate = new LocalDate(dateD2);
-		days = Days.daysBetween(commencementDate, expiryDate).getDays();
-		TravelQuoteBean travelQuoteCount = (TravelQuoteBean)session.getAttribute("annualTravelQuoteCount");
+		AnnualTravelQuoteBean travelQuoteCount = (AnnualTravelQuoteBean)session.getAttribute("annualTravelQuoteCount");
 		selfCover = travelQuoteCount.isSelfCover();
-		spouseCover = travelQuoteCount.isSpouseCover();
-		childCount = travelQuoteCount.getTotalChildTraveller();
-		otherCount = travelQuoteCount.getTotalOtherTraveller();
 		
 		try {
-			travelQuote.setTotalTravellingDays(days + 1);
 			String promoCode = request.getParameter("promoCode");
 			promoCode = java.net.URLEncoder.encode(promoCode, "UTF-8").replace("+", "%20");
-			String Url = UserRestURIConstants.TRAVEL_GET_QUOTE + "?planCode=A"
-					+ "&selfCover=" + selfCover + "&spouseCover=" + spouseCover
-					+ "&childInput=" + childCount + "&otherInput=" + otherCount
-					+ "&commencementDate=" + commencementDate + "&expiryDate="
-					+ expiryDate + "&referralCode=" + promoCode;
 
+			String Url = UserRestURIConstants.ANNUAL_TRAVEL_GET_QUOTE
+					+ "?planCode=A"
+					+ "&selfCover=" + selfCover
+					+ "&otherInput=" + otherCount
+					+ "&commencementDate=" + commencementDate
+					+ "&referralCode=" + promoCode;
+			
 			String lang = UserRestURIConstants.getLanaguage(request);
 			if (lang.equals("tc"))
 				lang = "CN";
@@ -420,7 +351,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 	
 	public String sendEmail(HttpServletRequest request){
 		boolean mailed = false;
-		HttpSession session = request.getSession();
 		String planCode = request
 				.getParameter("planCode");
 		String usernameInSession = null;
@@ -460,7 +390,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		HttpSession session = request.getSession();
 		
 		if(travelQuote.getTrLeavingDate() != null) {
-			session.setAttribute("annualTravelQuote", travelQuote);
 		}else {
 			travelQuote = (AnnualTravelQuoteBean) session.getAttribute("corrAnnualTravelQuote");
 			if(travelQuote == null) {

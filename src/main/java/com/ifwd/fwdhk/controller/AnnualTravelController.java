@@ -4,6 +4,8 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -72,6 +74,12 @@ public class AnnualTravelController {
 		session.removeAttribute("policyNo");
 		
 		if(travelQuote.getTrLeavingDate() != null) {
+			Date trLeavingDate = DateApi.formatDate(travelQuote.getTrLeavingDate());
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(trLeavingDate);
+			calendar.add(Calendar.YEAR, 1);
+			trLeavingDate = calendar.getTime();
+			travelQuote.setTrBackDate(DateApi.formatString(trLeavingDate));
 			session.setAttribute("annualTravelQuote", travelQuote);
 		}else {
 			travelQuote = (AnnualTravelQuoteBean) session.getAttribute("corrAnnualTravelQuote");
@@ -182,7 +190,7 @@ public class AnnualTravelController {
 				model.addAttribute("planPremium", quoteDetails.getGrossPremium()[1]);
 			}
 			request.getSession().setAttribute("departureDate", travelQuote.getTrLeavingDate());
-			request.getSession().setAttribute("returnDate", "30-09-2016");
+			request.getSession().setAttribute("returnDate", travelQuote.getTrBackDate());
 			String Url = UserRestURIConstants.GET_AGE_TYPE
 					+ "?itemTable=AgeType";
 
@@ -475,7 +483,7 @@ public class AnnualTravelController {
 							.getLanaguage(request)));
 			logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
 			responsObject = restService.consumeApi(HttpMethod.POST,
-					UserRestURIConstants.TRAVEL_FINALIZE_POLICY, header,
+					UserRestURIConstants.ANNUAL_TRAVEL_FINALIZE_POLICY, header,
 					parameters);
 			logger.info("TRAVEL_FINALIZE_POLICY Response " + responsObject);
 			

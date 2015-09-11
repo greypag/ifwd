@@ -132,7 +132,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		}
 	}
 	function updateTravelQuote() {
-		if(updateQuoteFlag){
+		<%-- if(updateQuoteFlag){
 			$('#loading-overlay').modal({
 			    backdrop: 'static',
 			    keyboard: false
@@ -156,12 +156,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 					promoData = json;
 					setValue(json);
 					
-					alert(json)//XXX
 					//$("#totalTravellingDays").val(json.totalDays);
 					//$("#totalTravellingDaysSpan").html(json.totalDays);
 				}
 			});
-		}
+		} --%>
 	}
 	
 	
