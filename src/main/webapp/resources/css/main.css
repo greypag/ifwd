@@ -867,7 +867,6 @@ vertical-align:middle;
     font-size: 18px;
     line-height: 1.4;
     color: #061d2a;
-    text-align: justify;
     margin-bottom: 0;
 }
 .h4-6 {
@@ -7706,7 +7705,7 @@ tr.product-landing-error-wrap {
 }
 
 .annualTravel_policy_item{
-    height:180px;
+    height:200px;
 }
 
 .annualTravel_policy_item img{
@@ -7714,7 +7713,6 @@ tr.product-landing-error-wrap {
 }
 
 .annualTravel_policy_item h5{
-    color: #f68a1d;
     margin-top:20px;
 }
 
