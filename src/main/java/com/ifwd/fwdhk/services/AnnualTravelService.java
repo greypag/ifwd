@@ -21,9 +21,9 @@ public interface AnnualTravelService {
 	public String processPayment(HttpServletRequest request,HttpServletResponse response);
 	public String getPromoCode(HttpServletRequest request,HttpServletResponse response);
 	public String sendEmail(HttpServletRequest request);
-	public ModelAndView getAnnualTravelPlan(AnnualTravelQuoteBean travelQuote, Model model, HttpServletRequest request) throws Exception;
-	public ModelAndView prepareTravelInsuranceUserDetails(TravelQuoteBean travelQuote,
+	public String getAnnualTravelPlan(AnnualTravelQuoteBean travelQuote, Model model, HttpServletRequest request) throws Exception;
+	public String prepareTravelInsuranceUserDetails(TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception;
-	public ModelAndView prepareTravelInsuranceTravelSummary(AnnualDetailsForm planDetailsForm,
+	public String prepareTravelInsuranceTravelSummary(AnnualDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception;
 }

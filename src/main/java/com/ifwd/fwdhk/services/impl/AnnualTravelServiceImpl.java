@@ -456,21 +456,19 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		}
     }
 	
-	public ModelAndView getAnnualTravelPlan(AnnualTravelQuoteBean travelQuote, Model model, HttpServletRequest request) throws Exception{
+	public String getAnnualTravelPlan(AnnualTravelQuoteBean travelQuote, Model model, HttpServletRequest request) throws Exception{
 		HttpSession session = request.getSession();
 		
 		if(travelQuote.getTrLeavingDate() != null) {
 			session.setAttribute("annualTravelQuote", travelQuote);
 		}else {
 			travelQuote = (AnnualTravelQuoteBean) session.getAttribute("corrAnnualTravelQuote");
-			
 			if(travelQuote == null) {
-				return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");		
+				return "fail";
 			}				
 		}
 		session.setAttribute("corrAnnualTravelQuote", travelQuote);
 		
-		try {
 			String token = null, username = null;
 			if ((session.getAttribute("token") != null)
 					&& (session.getAttribute("username") != null)) {
@@ -563,7 +561,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				quoteDetails.setPlanName(planeName);
 
 				session.setAttribute("quoteDetails", quoteDetails);
-				
+				return "success";
 			} else if (responseJsonObj.get("errMsgs").toString().contains("Promotion code is not valid")) {
 				QuoteDetails quoteDetails = new QuoteDetails();
 				quoteDetails.setPlanSelected(travelQuote.getPlanSelected());
@@ -606,127 +604,60 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				session.setAttribute("quoteDetails", quoteDetails);
 				
 				session.setAttribute("referralCode", "");
+				return "success";
 			}else {
 				session.setAttribute("errMsgs", responseJsonObj.get("errMsgs"));
-				return new ModelAndView(UserRestURIConstants.getSitePath(request)
-						+ "travel/travel");
+				return "fail";
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			model.addAttribute("errMsgs", "System Error");
-			return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					+ "travel/travel");
-		}
-		String pageTitle = WebServiceUtils.getPageTitle("page.travelQuote", UserRestURIConstants.getLanaguage(request));
-		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelQuote", UserRestURIConstants.getLanaguage(request));
-		model.addAttribute("pageTitle", pageTitle);
-		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		
-		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "annualtravel/annual-travel-plan");
 	}
 	
-	public ModelAndView prepareTravelInsuranceUserDetails(TravelQuoteBean travelQuote,
+	public String prepareTravelInsuranceUserDetails(TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception{
         UserRestURIConstants.setController("Travel");
 		
 		HttpSession session = request.getSession();
-		if (session.getAttribute("token") == null) {
-			model.addAttribute("errMsgs", "Session Expired");
-			return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
+		String Url = UserRestURIConstants.GET_AGE_TYPE + "?itemTable=AgeType";
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		
+		if (request.getSession().getAttribute("username") != null) {
+			header.put("userName", session.getAttribute("username")
+					.toString());
+			header.put("token", session.getAttribute("token").toString());
 		}
-		try {
-			String Url = UserRestURIConstants.GET_AGE_TYPE + "?itemTable=AgeType";
+		
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
+				Url, header, null);
 
-			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-			
-			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc"))
-				lang = "CN";
-			
-			header.put("language", WebServiceUtils.transformLanaguage(lang));
-			
-			if (request.getSession().getAttribute("username") != null) {
-				header.put("userName", session.getAttribute("username")
-						.toString());
-				header.put("token", session.getAttribute("token").toString());
-			}
-			
-			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
-					Url, header, null);
+		if (responseJsonObj.get("errMsgs") == null) {
+			JSONArray jsonAgeTypeArray = (JSONArray) responseJsonObj
+					.get("optionItemDesc");
+			logger.info("GET_AGE_TYPE Response" + jsonAgeTypeArray);
+
+			String relationshipCode = UserRestURIConstants.GET_BENE_RELATIONSHIP_CODE
+					+ "?itemTable=BeneRelationshipCode";
+
+			JSONObject jsonRelationShipCode = restService.consumeApi(
+					HttpMethod.GET, relationshipCode, header, null);
 
 			if (responseJsonObj.get("errMsgs") == null) {
-				JSONArray jsonAgeTypeArray = (JSONArray) responseJsonObj
+				JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode
 						.get("optionItemDesc");
-				logger.info("GET_AGE_TYPE Response" + jsonAgeTypeArray);
-				Map<String, String> mapAgeType = new HashMap<String, String>();
-				Map<String, String> mapSelfType = new HashMap<String, String>();
-				Map<String, String> mapChildType = new HashMap<String, String>();
-				for (int i = 0; i < jsonAgeTypeArray.size(); i++) {
-					JSONObject obj = (JSONObject) jsonAgeTypeArray.get(i);
-					mapAgeType.put(checkJsonObjNull(obj, "itemCode"),
-							checkJsonObjNull(obj, "itemDesc"));
-				}
-				Iterator iterator = mapAgeType.entrySet().iterator();
-				while (iterator.hasNext()) {
-					Map.Entry mapEntry = (Map.Entry) iterator.next();
-					if (mapEntry.getKey().equals("2") || mapEntry.getKey().equals("3")) {
-						mapSelfType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
-					}
-					
-				}
-				iterator = mapAgeType.entrySet().iterator();
-				while (iterator.hasNext()) {
-					Map.Entry mapEntry = (Map.Entry) iterator.next();
-					if (mapEntry.getKey().equals("1")) {
-						mapChildType.put((String)mapEntry.getKey(), (String)mapEntry.getValue());
-					}
-					
-				}
-				/*model.addAttribute("mapAgeType", mapAgeType);
-				model.addAttribute("mapSelfType", mapSelfType);
-				model.addAttribute("mapChildType", mapChildType);*/
-
-				/*
-				 * API Call for get Benifitiary Relationship
-				 */
-
-				String relationshipCode = UserRestURIConstants.GET_BENE_RELATIONSHIP_CODE
-						+ "?itemTable=BeneRelationshipCode";
-
-				JSONObject jsonRelationShipCode = restService.consumeApi(
-						HttpMethod.GET, relationshipCode, header, null);
-
-				if (responseJsonObj.get("errMsgs") == null) {
-					JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode
-							.get("optionItemDesc");
-					logger.info("jsonRelationShipArray ====>>>>>>" + jsonRelationshipCode);
-
-					Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
-					for (int i = 0; i < jsonRelationshipCode.size(); i++) {
-						JSONObject obj = (JSONObject) jsonRelationshipCode
-								.get(i);
-						mapRelationshipCode.put(
-								checkJsonObjNull(obj, "itemCode"),
-								checkJsonObjNull(obj, "itemDesc"));
-					}
-					//model.addAttribute("mapRelationshipCode", mapRelationshipCode);
-
-				}
-			} else {
+				logger.info("jsonRelationShipArray ====>>>>>>" + jsonRelationshipCode);
+				return "success";
+			}else {
 				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
-				return new ModelAndView(UserRestURIConstants.getSitePath(request)
-						+ "annualtravel/annual-travel-plan");		
+				return "fail";
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			model.addAttribute("errMsgs", "System Error");
-			return new ModelAndView(UserRestURIConstants.getSitePath(request)
-					+ "annualtravel/annual-travel-plan");		
-		}	
-		
-		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "annualtravel/annual-travel-plan-details");	
+		} else {
+			model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
+			return "fail";
+		}
 	}
 	
 	/**
@@ -738,7 +669,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 	 * @throws Exception
 	 */
 	@SuppressWarnings("unchecked")
-	public ModelAndView prepareTravelInsuranceTravelSummary(AnnualDetailsForm planDetailsForm,
+	public String prepareTravelInsuranceTravelSummary(AnnualDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception{
 			HttpSession session = request.getSession();
 		if (planDetailsForm.getDepartureDate() != null) {
@@ -776,21 +707,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		}
 		
 		String hkId = "hkId", passId = "passport";
-		UserRestURIConstants urc = new UserRestURIConstants();
-		urc.updateLanguage(request);
-		
-		AnnualTravelQuoteBean travelQuote = (AnnualTravelQuoteBean) session.getAttribute("annualTravelQuote");
-		String planSelected = (String) session.getAttribute("planSelected");
-		if (session.getAttribute("token") == null) {
-			model.addAttribute("errMsgs", "Session Expired");
-			return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
-		}
-		if(travelQuote == null || planSelected == null){
-			return new TravelController().getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");		
-		}
-		UserRestURIConstants.setController("Travel");
-		request.setAttribute("controller", UserRestURIConstants.getController());
-		 
 		String deaprtureDate = DateApi.pickDate1((String)session.getAttribute("departureDate"));
 		String returnDate = DateApi.pickDate1((String) session.getAttribute("returnDate"));
 		String applicantFullName = WebServiceUtils.getParameterValue("fullName", session, request);
@@ -975,11 +891,12 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse, "transactionNumber"));
 				createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse, "transactionDate"));
 				session.setAttribute("travelCreatePolicy", createPolicy);
-				model.addAttribute(createPolicy);
+				//model.addAttribute(createPolicy);
 				session.setAttribute("createPolicy", createPolicy);
+				
 			} else {
 				model.addAttribute("errMsgs", responsObject.get("errMsgs"));
-				return new ModelAndView("redirect:" + "/" + (String) session.getAttribute("language") + "/travel-insurance/user-details");
+				return "fail";
 			}
 		}
  		
@@ -987,9 +904,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		session.setAttribute("transactionDate", createPolicy.getTransactionDate());
 		session.setAttribute("transNo", createPolicy.getTransactionNo());
 		session.setAttribute("travelPlanDetailsFormBySummary", planDetailsForm);
-
-		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "/annualtravel/annual-travel-summary-payment");			
+		return "success";
 	}
 	
 	public String checkJsonObjNull(JSONObject obj, String checkByStr) {

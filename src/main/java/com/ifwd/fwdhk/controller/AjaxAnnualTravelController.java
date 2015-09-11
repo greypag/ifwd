@@ -101,17 +101,10 @@ public class AjaxAnnualTravelController {
 	public String prepareTravelInsuranceQuote(@ModelAttribute("annualTravelQuote") AnnualTravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception {
 		try {
-			UserRestURIConstants urc = new UserRestURIConstants();
-			urc.updateLanguage(request);
-			UserRestURIConstants.setController("Travel");
-			request.setAttribute("controller", UserRestURIConstants.getController());
-			annualTravelService.getAnnualTravelPlan(travelQuote, model, request);
-			logger.info("api is Ok");
-			return "success";
+			return annualTravelService.getAnnualTravelPlan(travelQuote, model, request);
 		} catch (Exception e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
-			logger.info("api is Wrong");
 			return "fail";
 		}
 	}
@@ -122,13 +115,10 @@ public class AjaxAnnualTravelController {
 			@ModelAttribute("annualTravelQuote") TravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception {
 		try {
-			annualTravelService.prepareTravelInsuranceUserDetails(travelQuote, result, model, request);
-			logger.info("api is Ok");
-			return "success";
+			return annualTravelService.prepareTravelInsuranceUserDetails(travelQuote, result, model, request);
 		} catch (Exception e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
-			logger.info("api is Wrong");
 			return "fail";
 		}
 	}
@@ -139,13 +129,10 @@ public class AjaxAnnualTravelController {
 			@ModelAttribute("frmYourDetails") AnnualDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception {
 		try {
-			annualTravelService.prepareTravelInsuranceTravelSummary(planDetailsForm, result, model, request);
-			logger.info("api is Ok");
-			return "success";
+			return annualTravelService.prepareTravelInsuranceTravelSummary(planDetailsForm, result, model, request);
 		} catch (Exception e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
-			logger.info("api is Wrong");
 			return "fail";
 		}
 	}
