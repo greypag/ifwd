@@ -4047,7 +4047,7 @@ function flightValidateDeskTravel(){
 		flag = false;
 	}
 	
-	if(travelType == "annual"){
+	if(flag && travelType == "annual"){
 		var result = false;
 		var formId = '#frmTravelGetQuoteDesk';
 		var contextPath = window.location.pathname.split("/")[1];
