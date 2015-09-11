@@ -7975,7 +7975,6 @@ tr.product-landing-error-wrap {
 @media (max-width: 991px) {
     .product_landing_download_button{
         width: 100%;
-        text-align: center;
     }
     
     .product_header_path_item, .product_header_path_item.active{
