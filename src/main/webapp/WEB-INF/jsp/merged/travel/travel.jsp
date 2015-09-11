@@ -207,15 +207,15 @@ $(document).ready(function() {
 	                  <td class="" style="min-width: 210px;">
                         <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup">
                           <a class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
-                             <label class="select-label travel_type_label" style="cursor: pointer;white-space: nowrap;">Please select</label>
+                             <label class="select-label travel_type_label" style="cursor: pointer;white-space: nowrap;"><fmt:message key="travel.main.quote.pleaseselect" bundle="${msg}" /></label>
                              <span class="product_landing_custom_fa-caret-down">
                                 <i class="fa fa-caret-down"></i>
                              </span>
                           </a>
                           <div class="dropdown-menu bdr1 pad-none" style="width: 190px;">
                             <div class="drop-content pad-none">
-                                <div class="product_landing_custom_selectbox" onclick="selectTravelCareType('single',$(this).html());">Single Trip Travel</div>
-                                <div class="product_landing_custom_selectbox" onclick="selectTravelCareType('annual',$(this).html());">Annual Travel</div>
+                                <div class="product_landing_custom_selectbox" onclick="selectTravelCareType('single',$(this).html());"><fmt:message key="travel.main.quote.singletriptravel" bundle="${msg}" /></div>
+                                <div class="product_landing_custom_selectbox" onclick="selectTravelCareType('annual',$(this).html());"><fmt:message key="travel.main.quote.annualtravel" bundle="${msg}" /></div>
                              </div>
                            </div>
                            <div class="clearfix"></div>

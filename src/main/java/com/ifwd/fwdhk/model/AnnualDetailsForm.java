@@ -59,7 +59,25 @@ public class AnnualDetailsForm {
 	private String applicantStreetNo;
 	private String applicantStreetName;
 	private String applicantDistrict;
+	private String applicantDistrictDesc;
 	private String applicantArea;
+	private String applicantAreaDesc;
+
+	public String getApplicantDistrictDesc() {
+		return applicantDistrictDesc;
+	}
+
+	public void setApplicantDistrictDesc(String applicantDistrictDesc) {
+		this.applicantDistrictDesc = applicantDistrictDesc;
+	}
+
+	public String getApplicantAreaDesc() {
+		return applicantAreaDesc;
+	}
+
+	public void setApplicantAreaDesc(String applicantAreaDesc) {
+		this.applicantAreaDesc = applicantAreaDesc;
+	}
 
 	public String[] getPersonalDob() {
 		return personalDob;

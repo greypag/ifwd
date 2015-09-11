@@ -5,10 +5,6 @@ function validateAnnualTravel(form, formId,language){
 	document.getElementById("endDateDeskIn").innerHTML = "";
 	document.getElementById("travelCountDeskIn").style.display = "none";
 	
-	/*var startDate = document.getElementById("txtStartDateDesk").value;    
-	var endDate = document.getElementById("txtEndDateDesk").value;
-	var travellers = document.getElementById("txtTravellersDesk").value;*/
-	
 	var startDate = $("#txtStartDateDesk").val();    
 	var endDate = $("#txtEndDateDesk").val();
 	var travellers = $("#txtTravellersDesk").val();
@@ -84,8 +80,12 @@ function validateAnnualTravel(form, formId,language){
 
 //Travel plan details page validation
 var travelp_click = false;
-function validateAnnualTravelDetails(form,formId,language)
-{
+function validateAnnualTravelDetails(form,formId,language){
+	$('#loading-overlay').modal({
+        backdrop: 'static',
+        keyboard: false
+     })
+	
 	if($("#inputFullName").val().trim()==namePlaceholder.trim()){
     	$("#inputFullName").val('');
     }
@@ -217,17 +217,6 @@ function validateAnnualTravelDetails(form,formId,language)
 			document.getElementById("errtxtPersonalFullName" + i).innerHTML = "";
 		}
 		
-		/*var age = document.getElementById("selectAgeRange" + i).value;
-		if (age.trim() == "" || age.trim() == 0) {
-			document.getElementById("errselectAgeRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message");
-			$("#selectAgeRange" + i).addClass('invalid-field');
-			if(firstErrorElementId==""){
-				firstErrorElementId="selectAgeRange" + i;
-			}
-			flag = false;
-		}else{
-			document.getElementById("errselectAgeRange" + i).innerHTML = "";
-		}*/
 		var hkid = document.getElementById("txtInsuHkid" + i).value;
 		document.getElementById("errtxtInsuHkid" + i).innerHTML = "";
 		
@@ -347,11 +336,6 @@ function validateAnnualTravelDetails(form,formId,language)
     }else{
     	if(flag){
     		travelp_click = true;
-    		$('#loading-overlay').modal({
-	           backdrop: 'static',
-	           keyboard: false
-	        })
-	        
 	        var contextPath = window.location.pathname.split("/")[1];
     		var result = false;
     		var formId = '#' + formId;
@@ -370,7 +354,10 @@ function validateAnnualTravelDetails(form,formId,language)
     				}
     			}
     		});
-    		return flag&&result;
+    		if(!result) {
+    			$('#loading-overlay').modal('hide');
+    		}
+    		return result;
     	}else{
     		$('#loading-overlay').modal('hide');
     		return flag

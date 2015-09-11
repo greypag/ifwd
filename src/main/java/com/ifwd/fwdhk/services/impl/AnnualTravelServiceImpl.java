@@ -6,6 +6,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,9 +31,12 @@ import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.model.AnnualDetailsForm;
 import com.ifwd.fwdhk.model.AnnualTravelQuoteBean;
 import com.ifwd.fwdhk.model.CreatePolicy;
+import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.services.AnnualTravelService;
+import com.ifwd.fwdhk.services.HomeCareService;
+import com.ifwd.fwdhk.services.HomeCareServiceImpl;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.Methods;
@@ -600,7 +605,11 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 	@SuppressWarnings("unchecked")
 	public String prepareTravelInsuranceTravelSummary(AnnualDetailsForm planDetailsForm,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception{
-			HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
+		String username = session.getAttribute("username").toString();
+		String token = session.getAttribute("token").toString();
+		String language =  WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request));
+		
 		if (planDetailsForm.getDepartureDate() != null) {
 			session.removeAttribute("travelCreatePolicy");
 			
@@ -611,11 +620,9 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
-			header.put("userName", session.getAttribute("username").toString());
-			header.put("token", session.getAttribute("token").toString());
-			header.put("language", WebServiceUtils
-					.transformLanaguage(UserRestURIConstants
-							.getLanaguage(request)));
+			header.put("userName", username);
+			header.put("token", token);
+			header.put("language", language);
 			parameters.put("referenceNo", session.getAttribute("finalizeReferenceNo"));
 			parameters.put("transactionNumber", session.getAttribute("transNo"));
 			parameters.put("transactionDate", session.getAttribute("transactionDate"));
@@ -775,10 +782,9 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 
 
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		header.put("userName", (String) session.getAttribute("username"));
-		header.put("token", (String) session.getAttribute("token"));
-		header.put("language", WebServiceUtils
-				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+		header.put("userName", username);
+		header.put("token", token);
+		header.put("language", language);
 		//TO ENFORCE THE POLICY IS CREATED AND MAKE SURE THE TRANSACTION NUMBER IS NOT REUSED
 		
 		CreatePolicy createPolicy = (CreatePolicy)session.getAttribute("travelCreatePolicy");
@@ -829,9 +835,16 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			}
 		}
  		
+ 		HomeCareService homecareService = new HomeCareServiceImpl();
+		List<DistrictBean> districts = homecareService.getDistrict(username, token, language);
+		Map<String, String> areas = homecareService.getArea(username, token, language);
+		planDetailsForm.setApplicantAreaDesc(WebServiceUtils.getAreaDesc(areas, planDetailsForm.getApplicantArea()));
+		planDetailsForm.setApplicantDistrictDesc(WebServiceUtils.getDistrictDesc(districts, planDetailsForm.getApplicantDistrict()));
+ 		
 		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
 		session.setAttribute("transactionDate", createPolicy.getTransactionDate());
 		session.setAttribute("transNo", createPolicy.getTransactionNo());
+		
 		session.setAttribute("travelPlanDetailsFormBySummary", planDetailsForm);
 		return "success";
 	}

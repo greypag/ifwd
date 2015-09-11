@@ -162,7 +162,38 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.correspondenceaddress" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">FWD Financial Centre, 308-320 Des Voeux Rd Central, Sheung Wan</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
+                                            	<c:if test="${planDetailsForm.applicantRoom != ''}">
+	                                                Room/Flat ${planDetailsForm.applicantRoom}, 
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.applicantFloor != ''}">
+	                                                Floor ${planDetailsForm.applicantFloor}, 
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.applicantBlock != ''}">
+	                                                Block ${planDetailsForm.applicantBlock}, 
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${planDetailsForm.applicantBuilding != ''}">
+	                                                ${planDetailsForm.applicantBuilding},
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${planDetailsForm.applicantEstate != ''}">
+	                                                ${planDetailsForm.applicantEstate},
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.applicantStreetNo != ''}">
+	                                                ${planDetailsForm.applicantStreetNo},
+	                                            </c:if>
+	                                             <c:if test="${planDetailsForm.applicantStreetName != ''}">
+	                                                ${planDetailsForm.applicantStreetName},
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${planDetailsForm.applicantDistrictDesc != ''}">
+	                                                ${planDetailsForm.applicantDistrictDesc},
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.applicantAreaDesc != ''}">
+	                                                ${planDetailsForm.applicantAreaDesc}
+	                                            </c:if>
+                                            </div>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">

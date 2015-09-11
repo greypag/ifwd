@@ -150,6 +150,11 @@ public class AnnualTravelController {
 			
 			model.addAttribute("selectPlanName", selectPlanName);
 			QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
+			if(quoteDetails == null) {
+				model.addAttribute("errMsgs", session.getAttribute("errMsgs"));
+				return new ModelAndView(UserRestURIConstants.getSitePath(request)
+						+ "travel/travel");
+			}
 			
 			if ("A".equals(selectPlanName)) {
 				session.setAttribute("planSelected", "A");
@@ -375,7 +380,6 @@ public class AnnualTravelController {
 		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
 				
 		planDetailsForm = (AnnualDetailsForm) session.getAttribute("travelPlanDetailsFormBySummary");
-		//error
 		
 		userDetails.setFullName(applicantFullName);
 		userDetails.setHkid(applicantHKID);
@@ -445,7 +449,7 @@ public class AnnualTravelController {
 					.put("transactionNumber", session.getAttribute("transNo"));
 			parameters.put("transactionDate",
 					session.getAttribute("transactionDate"));
-			parameters.put("paymentFail", "0");
+			//parameters.put("paymentFail", "0");
 			
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
 			
