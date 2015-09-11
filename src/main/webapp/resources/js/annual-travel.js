@@ -232,7 +232,7 @@ function validateAnnualTravelDetails(form,formId,language){
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
+				document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.dob.notNull.message"); // getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
 				$("#txtInsuHkid" + i).addClass('invalid-field');
 				if(firstErrorElementId==""){
 					firstErrorElementId="txtInsuHkid" + i;
@@ -254,6 +254,18 @@ function validateAnnualTravelDetails(form,formId,language){
 				}
 			}
 		}
+		var insureDob = document.getElementById("insureDob" + i).value;
+		if (insureDob.trim() == "") {
+			document.getElementById("errtxtInsuDob" + i).innerHTML = getBundle(getBundleLanguage, "insured.dob.notNull.message"); //"Please enter Insured Person's Name in English.";
+			$("#input_insure_dob" + i).addClass('invalid-field');
+			if(firstErrorElementId==""){
+				firstErrorElementId="insureDob" + i;
+			}
+			flag = false;
+		}else{
+			document.getElementById("errtxtInsuDob" + i).innerHTML = "";
+		}
+		
 		var selectedValue = document.getElementById("personalselectBenificiary" + i).value;
 		var HkidPass = document.getElementById("personalBenefitiaryHKId"+i).value;
 		

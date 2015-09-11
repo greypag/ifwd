@@ -64,6 +64,19 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 
 		return flag;
 	}
+	
+	function submitPlan(){
+		$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
+		
+		setTimeout(function(){
+			if(chkDueAmount()){
+				$("#frmTravelPlan").submit();
+			}else{
+				$('#loading-overlay').modal('hide');
+			}
+		}, 500);
+	}
+	
 	function chkDueAmount(form,formId) {	
 		$(".errDue").html('');
 		var flag = false;
@@ -368,6 +381,21 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						%>
 						
 						<div class="clearfix"></div>
+						
+						<div class="col-xs-12 hidden-md hidden-lg pad-none" style="margin-top: 50px;">
+				          <c:choose>
+	                          <c:when test="${language=='en'}">
+	                              <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 EN','USD');perventRedirect=false;submitPlan();">
+	                                  <fmt:message key="annual.button.next" bundle="${msg}" /></button>
+	                          </c:when>
+	                          <c:otherwise>
+	                              <button type="submit" class="bdr-curve btn btn-primary nxt-btn" onclick="javascript:kenshoo_conv('Registration_Step1','<%=travelQuote.getToalDue()%>','','Regis_Travel_Step1 ZH','USD');perventRedirect=false;submitPlan();">
+	                                  <fmt:message key="annual.button.next" bundle="${msg}" /></button>
+	                          </c:otherwise>
+                          </c:choose>
+				          <span class="text-red errDue"></span>
+				        </div>
+				        <div class="clearfix"></div>
 						
 						<!--Full Coverage-->
 						<div class="fwdpanel product_plan_panel_container">
