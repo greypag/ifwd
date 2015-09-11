@@ -56,6 +56,14 @@ var insureHkidPlaceholder="<fmt:message key="travel.details.insured.hkid.placeho
 
 var benNamePlaceholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />";
 var benHkidPlaceholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />";
+
+var roomPlaceholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />";
+var floorPlaceholder="<fmt:message key="home.details.registration.insuaddress.floor.placeholder" bundle="${msg}" />";
+var blockPlaceholder="<fmt:message key="home.details.registration.insuaddress.block.placeholder" bundle="${msg}" />";
+var buildingPlaceholder="<fmt:message key="home.details.registration.insuaddress.building.placeholder" bundle="${msg}" />";
+var estatePlaceholder="<fmt:message key="home.details.registration.insuaddress.estate.placeholder" bundle="${msg}" />";
+var streetNoPlaceholder="<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />";
+var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />";
     
 function setDropArea(id) {
 	$('#selectCADistHid').find('option[value="' + id + '"]').attr('selected', 'selected');
