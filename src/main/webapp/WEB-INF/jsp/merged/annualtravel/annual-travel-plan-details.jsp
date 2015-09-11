@@ -578,37 +578,6 @@ function activateUserAccountJoinUs() {
                                        <label for="inputFullName" class="field-label bold-500">&nbsp;</label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                       <div class="row" style="margin-top: 10px;">
-                                           <div class="col-xs-4">
-                                               <label class="radio-inline homecare-lb">
-                                                   <input type="radio" name="applicantArea" id="inlineCARadio3"
-                                                   value="HK" checked="" class="home-input1"> <span>HK
-                                               </span>
-                                           </label> 
-                                           </div>
-                                           <div class="col-xs-4">
-                                               <label class="radio-inline homecare-lb"> <input
-                                                       type="radio" name="applicantArea" id="inlineCARadio4"
-                                                       value="KL" class="home-input1"> <span> KLN</span>
-                                               </label>
-                                           </div>
-                                           <div class="col-xs-4">
-                                               <label class="radio-inline"> <input type="radio"
-                                                   name="applicantArea" id="inlineCARadio5" value="NT"
-                                                   class="home-input1"> <span> NT</span>
-                                                </label>
-                                           </div>
-                                           <div class="clearfix"></div>
-                                        </div>
-                                   </div>
-                                   <div class="clearfix"></div>
-                               </div>
-                               
-                               <div class="form-group float">
-                                   <div class="form-label col-lg-5 col-md-5 hidden-sm hidden-xs pad-none">
-                                       <label for="inputFullName" class="field-label bold-500">&nbsp;</label>
-                                   </div>
-                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select" id="inputCADistrict">
                                                 <select name="applicantDistrict"class="form-control soflow full-control" id="selectCADist" onchange="setDropArea(this.value)">
 	                                                <option value="">District</option>
@@ -641,6 +610,37 @@ function activateUserAccountJoinUs() {
 													%>
                                                 </select>
                                             </div> <span id="errCADist" class="text-red"> </span>
+                                   </div>
+                                   <div class="clearfix"></div>
+                               </div>
+                               
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 hidden-sm hidden-xs pad-none">
+                                       <label for="inputFullName" class="field-label bold-500">&nbsp;</label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                       <div class="row" style="margin-top: 10px;">
+                                           <div class="col-xs-4">
+                                               <label class="radio-inline homecare-lb">
+                                                   <input type="radio" name="applicantArea" id="inlineCARadio3"
+                                                   value="HK" checked="" class="home-input1"> <span>HK
+                                               </span>
+                                           </label> 
+                                           </div>
+                                           <div class="col-xs-4">
+                                               <label class="radio-inline homecare-lb"> <input
+                                                       type="radio" name="applicantArea" id="inlineCARadio4"
+                                                       value="KL" class="home-input1"> <span> KLN</span>
+                                               </label>
+                                           </div>
+                                           <div class="col-xs-4">
+                                               <label class="radio-inline"> <input type="radio"
+                                                   name="applicantArea" id="inlineCARadio5" value="NT"
+                                                   class="home-input1"> <span> NT</span>
+                                                </label>
+                                           </div>
+                                           <div class="clearfix"></div>
+                                        </div>
                                    </div>
                                    <div class="clearfix"></div>
                                </div>
