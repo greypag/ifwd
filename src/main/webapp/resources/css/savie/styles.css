@@ -5179,7 +5179,9 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 }
 .fwd-savie-wrapper .investment .tab-content.credits table {
   border-top: dashed 1px #ff8200;
-  font-size: 24px;
+  /*font-size: 24px;*/
+  /*Checklist 991*/
+  font-size: 22px;
   text-align: center;
   margin-bottom: 0;
 }
