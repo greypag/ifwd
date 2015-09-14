@@ -487,6 +487,7 @@ var home_url = "<%=request.getContextPath()%>";
 				
 				var errorMsg = false;
 				var accessCodeVal = $('#accessCodeConfirm').val();
+				accessCodeVal = accessCodeVal.replace(/\s+/g,"");
 				if (accessCodeVal == "") {
 					$('.validation-msg').removeClass('hidden-error-msg');
 					$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.validation.msg"));

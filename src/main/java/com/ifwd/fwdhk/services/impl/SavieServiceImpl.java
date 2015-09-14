@@ -1368,6 +1368,7 @@ public class SavieServiceImpl implements SavieService {
 	public void verifyAccessCode(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
 		response.setContentType("text/json;charset=utf-8");
 		String accessCode = request.getParameter("accessCode");
+		accessCode = accessCode.replace(" ", "");
 		//request.getSession().setAttribute("accessCode", accessCode);
 		String Url = UserRestURIConstants.SERVICE_URL + "/savie/accessCodes/validate?accessCode="+accessCode;
 		String lang = UserRestURIConstants.getLanaguage(request);
