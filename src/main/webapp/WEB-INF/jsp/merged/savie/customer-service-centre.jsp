@@ -208,6 +208,10 @@ var language = "${language}";
 			if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
 				getTimeSlot('${perferredTime }');
 			}
+			else{
+				$("#preferred-time").empty();
+				$("#preferred-time").prepend("<option value=''></option>");
+			}
 		});
 		
 		var serviceCentreCode = '${csCenter }';
