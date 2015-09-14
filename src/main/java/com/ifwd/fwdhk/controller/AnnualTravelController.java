@@ -449,7 +449,7 @@ public class AnnualTravelController {
 					.put("transactionNumber", session.getAttribute("transNo"));
 			parameters.put("transactionDate",
 					session.getAttribute("transactionDate"));
-			//parameters.put("paymentFail", "0");
+			parameters.put("paymentFail", "0");
 			
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
 			
