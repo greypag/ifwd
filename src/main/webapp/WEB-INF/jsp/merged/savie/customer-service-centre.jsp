@@ -179,7 +179,8 @@ var language = "${language}";
 							<h2><fmt:message key="savie.customerServiceCentre.reservationInvalid" bundle="${msg}" /></h2>
 						</div>
 						<div class="modal-body teaserSurvey">
-							<!-- <p class="registered"><fmt:message key="savie.customerServiceCentre.accessCodeUsedbody" bundle="${msg}" /></p>-->
+							<p class="registered"><fmt:message key="savie.customerServiceCentre.reservationInvalid.body" bundle="${msg}" /></p>
+							<button type="button" class="btn btn-orange" id="reservationInvalid-btn"><fmt:message key="savie.customerServiceCentre.modalPickAnotherCenter" bundle="${msg}" /></button>
 						</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->	

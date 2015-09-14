@@ -370,6 +370,9 @@ var context = "${pageContext.request.contextPath}";
 							<p class="expl-txt"><fmt:message key="savie.planDetails.context1" bundle="${msg}" /></p>
 						</li>
 						<li class="explanation-li">
+							<p class="expl-txt"><fmt:message key="savie.planDetails.context3" bundle="${msg}" /></p>
+						</li>
+						<li class="explanation-li">
 							<p class="expl-txt"><fmt:message key="savie.planDetails.context2" bundle="${msg}" /></p>
 						</li>
 					</ul>
