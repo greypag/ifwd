@@ -7745,3 +7745,37 @@ tr.product-landing-error-wrap {
     }
 }
 /** home promo banner **/
+
+#main-slider .text-content {
+	display: block;
+	position: absolute;
+	top: 82px;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+#main-slider .text-content.hunger-img img {
+	position: relative;
+    height:initial;
+}
+@media (max-width: 991px) {
+  #main-slider .text-content {
+    top: initial;
+    bottom: 20%;
+  }
+  #main-slider .text-content.hunger-img img {
+    margin: 0 auto;
+    padding: 0;
+    width: 340px;
+  }
+}
+@media (min-width: 992px) {
+  #main-slider .text-content {
+    top: 20%;
+  }
+  #main-slider .text-content.hunger-img img {
+    width: 50%;
+    max-width: 510px;
+  }
+}
