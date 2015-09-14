@@ -81,6 +81,16 @@ $(document).ready(function(){
 <%
 AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("planDetailsForm");
 %>
+
+<section class="product_header_path_container ">
+    <div class="container">
+        <div class="product_header_path_item back"><i class="fa fa-arrow-left"></i><div class="partition"></div></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.planoption" bundle="${msg}" /><div class="partition"></div></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.application" bundle="${msg}" /></div>
+        <div class="product_header_path_item active"><fmt:message key="annual.title.payment" bundle="${msg}" /></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.confirmation" bundle="${msg}" /></div>
+    </div>
+</section>
 <!--/#main-Content-->
 <section>
     <div id="cn" class="container">
