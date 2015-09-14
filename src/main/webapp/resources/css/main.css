@@ -7772,10 +7772,10 @@ tr.product-landing-error-wrap {
 }
 @media (min-width: 992px) {
   #main-slider .text-content {
-    top: 20%;
+    top: 28%;
   }
   #main-slider .text-content.hunger-img img {
-    width: 50%;
-    max-width: 510px;
+    width: 34%;
+    padding:0px;
   }
 }
