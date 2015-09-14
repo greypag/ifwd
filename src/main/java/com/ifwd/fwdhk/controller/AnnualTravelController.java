@@ -77,6 +77,7 @@ public class AnnualTravelController {
 			Date trLeavingDate = DateApi.formatDate(travelQuote.getTrLeavingDate());
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(trLeavingDate);
+			calendar.add(Calendar.DATE, -1);
 			calendar.add(Calendar.YEAR, 1);
 			trLeavingDate = calendar.getTime();
 			travelQuote.setTrBackDate(DateApi.formatString(trLeavingDate));
