@@ -15702,3 +15702,9 @@ body.chin #btn-cstmr-srvc-cnter {
 .fwd-savie-wrapper #set-appointment .selectDiv .icon-chevron-thin-down.orange-caret{
   z-index: 0;
 }
+
+/*Checklist 965 */
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #a9a9a9;
+}
