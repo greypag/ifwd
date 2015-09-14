@@ -367,7 +367,7 @@ public class AnnualTravelController {
 		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",session, request);
 		session.setAttribute("dueAmount", dueAmount);
 		
-		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
+		String selectPlanName = planSelected;
 		String deaprtureDate = DateApi.pickDate1((String)session.getAttribute("departureDate"));
 		String returnDate = DateApi.pickDate1((String) session.getAttribute("returnDate"));
 		String applicantFullName = WebServiceUtils.getParameterValue("fullName", session, request);
@@ -378,9 +378,32 @@ public class AnnualTravelController {
 		String dob = WebServiceUtils.getParameterValue("applicantDob",	session, request);
 		dob = DateApi.pickDate1(dob);
 		
-		String totalTravellingDays = WebServiceUtils.getParameterValue("totalTravellingDays", session, request);
-				
 		planDetailsForm = (AnnualDetailsForm) session.getAttribute("travelPlanDetailsFormBySummary");
+		
+		HomeCareService homecareService = new HomeCareServiceImpl();
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		List<DistrictBean> districts = homecareService.getDistrict(session.getAttribute("username").toString(), session.getAttribute("token").toString(), lang);
+		Map<String, String> areas = homecareService.getArea(session.getAttribute("username").toString(), session.getAttribute("token").toString(), lang);
+		planDetailsForm.setApplicantAreaDesc(WebServiceUtils.getAreaDesc(areas, planDetailsForm.getApplicantArea()));
+		planDetailsForm.setApplicantDistrictDesc(WebServiceUtils.getDistrictDesc(districts, planDetailsForm.getApplicantDistrict()));
+
+		String langSelected = UserRestURIConstants.getLanaguage(request);
+		String[] relationships;
+		String[] beneRelationships;
+		for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
+			relationships = planDetailsForm.getPersonalRelationDesc();
+			if(relationships == null){
+				relationships = new String[planDetailsForm.getTotalPersonalTraveller()];
+			}
+			beneRelationships = planDetailsForm.getPersonalBeneRelationDesc();
+			if(beneRelationships == null){
+				beneRelationships = new String[planDetailsForm.getTotalPersonalTraveller()];
+			}
+			planDetailsForm.setPersonalRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, planDetailsForm.getPersonalBeneficiary()[inx], inx));
+			planDetailsForm.setPersonalBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, planDetailsForm.getPersonalBeneficiary()[inx], inx));		
+		}
 		
 		userDetails.setFullName(applicantFullName);
 		userDetails.setHkid(applicantHKID);
@@ -397,7 +420,6 @@ public class AnnualTravelController {
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);
 		model.addAttribute("dueAmount", dueAmount.replace(",", ""));
-		model.addAttribute("totalTravellingDays", totalTravellingDays);
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);

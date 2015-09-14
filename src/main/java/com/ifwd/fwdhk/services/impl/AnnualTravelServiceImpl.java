@@ -745,8 +745,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			if(beneRelationships == null){
 				beneRelationships = new String[planDetailsForm.getTotalPersonalTraveller()];
 			}
-			planDetailsForm.setPersonalRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, personal.get("relationship").toString(), inx));
-			planDetailsForm.setPersonalBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, beneficiary.get("relationship").toString(), inx));			
 		}
 		parameters.put("insured", insured);
 
@@ -835,12 +833,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				return "fail";
 			}
 		}
- 		
- 		HomeCareService homecareService = new HomeCareServiceImpl();
-		List<DistrictBean> districts = homecareService.getDistrict(username, token, language);
-		Map<String, String> areas = homecareService.getArea(username, token, language);
-		planDetailsForm.setApplicantAreaDesc(WebServiceUtils.getAreaDesc(areas, planDetailsForm.getApplicantArea()));
-		planDetailsForm.setApplicantDistrictDesc(WebServiceUtils.getDistrictDesc(districts, planDetailsForm.getApplicantDistrict()));
  		
 		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
 		session.setAttribute("transactionDate", createPolicy.getTransactionDate());

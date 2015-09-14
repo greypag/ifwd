@@ -239,59 +239,6 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none"><span class="h4-4-orange-b h2-3-existing-fwd-head pad-none"><fmt:message key="annual.common.dollar" bundle="${msg}" /> ${dueAmount}</span></div>
                                             <div class="clearfix"></div>
                                         </div>
-                                        <!-- <div class="row summary-row">
-                                            <div class="hidden-xs hidden-sm col-md-12 col-lg-12 pad-none">
-                                                <div class="fwdpanel summary-fwdpanel">
-                                                    
-                                                        <div class="fwdpanel-heading">
-                                                            <h4 class="benefits">
-                                                                <span>
-                                                                    <a href="#" class="fwdpanel-minimize uline"><i class="fa fa-plus"></i> Plan benefits</a>
-                                                                </span>
-                                                            </h4>
-                                                        </div>
-                                                        <div class="fwdpanel-body" style="display: none;">
-                                                        <div class="col-xs-11 col-xs-offset-1">
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                                    <i class="fa fa-circle small-fa-bullet"></i> Hospital or quarantine cash</div>
-                                                        <div class="col-lg-4 col-md-4 col-xs-5">
-                                                            $10,000
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> Worldwide emergency assistance Fully Covered
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-xs-5">
-                                                            
-                                                            </div>
-                                                        </div> 
-                                                        
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> Rental vehicle excess </div>
-                                                        <div class="col-lg-4 col-md-4 col-xs-5">
-                                                            $5,000
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-                                                            <i class="fa fa-circle small-fa-bullet"></i> Golfer Hole in one</div>
-                                                        <div class="col-lg-4 col-md-4 col-xs-5">
-                                                            $3,000
-                                                                    </div>
-                                                                    </div>
-                                                                </div>
-                                                        </div>
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                        </div> -->
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
