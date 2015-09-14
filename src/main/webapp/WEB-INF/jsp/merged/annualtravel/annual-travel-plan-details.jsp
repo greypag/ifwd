@@ -74,6 +74,10 @@ function setDropArea(id) {
         document.getElementById("inlineCARadio4").checked = true;
     else
         document.getElementById("inlineCARadio5").checked = true;
+	if(id != '') {
+		$("#errCADist").html('');
+		$('#inputCADistrict').removeClass('invalid-field');
+	}
 }
 
 </script>

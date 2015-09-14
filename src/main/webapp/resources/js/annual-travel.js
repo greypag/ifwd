@@ -1,3 +1,45 @@
+$(function () {
+	$( "#inputCAEstate" ).on( "blur", function() {
+	    var estate = $(this).val();
+	    var building = $("#inputCABuilding").val();
+	    if(building.trim()==buildingPlaceholder.trim()){
+	    	building='';
+	    }
+	    if(estate.trim()==estatePlaceholder.trim()){
+	    	estate='';
+	    }
+	    if (estate.trim() == "" && building.trim() == "" ) {
+			$("#errCAEstate").html( getBundle(getBundleLanguage, "workinghoilday.estate.message"));
+			$("#inputCAEstate").addClass("invalid-field");
+			return false;
+		}
+	    $("#inputCAEstate").removeClass("invalid-field");
+	    $("#inputCABuilding").removeClass("invalid-field");
+		$("#errCAEstate").html('');
+		$("#errCABuilding").html('');
+	});
+	
+	$( "#inputCABuilding" ).on( "blur", function() {
+	    var building = $(this).val();
+	    var estate = $("#inputCAEstate").val();
+	    if(building.trim()==buildingPlaceholder.trim()){
+	    	building='';
+	    }
+	    if(estate.trim()==estatePlaceholder.trim()){
+	    	estate='';
+	    }
+	    if (estate.trim() == "" && building.trim() == "" ) {
+			$("#errCABuilding").html( getBundle(getBundleLanguage, "workinghoilday.building.message"));
+			$("#inputCABuilding").addClass("invalid-field");
+			return false;
+		}
+	    $("#inputCAEstate").removeClass("invalid-field");
+	    $("#inputCABuilding").removeClass("invalid-field");
+		$("#errCAEstate").html('');
+		$("#errCABuilding").html('');
+	});
+})
+
 function validateAnnualTravel(form, formId,language){
 	var flag = true;
 	var contextPath = window.location.pathname.split("/")[1];
@@ -112,6 +154,17 @@ function validateAnnualTravelDetails(form,formId,language){
 	var appHkid = document.getElementById("inputTxtAppHkid").value;
 	var applicantDob = document.getElementById("applicantDob").value;
 	
+	var applicantBuilding = document.getElementById("inputCABuilding").value;
+	var applicantEstate = document.getElementById("inputCAEstate").value;
+	var applicantDistrict = document.getElementById("selectCADist").value;
+	
+	if(applicantBuilding.trim()==buildingPlaceholder.trim()){
+		applicantBuilding='';
+    }
+    if(applicantEstate.trim()==estatePlaceholder.trim()){
+    	applicantEstate='';
+    }
+	
 	var firstErrorElementId="";
 
 	if (fullname.trim() == "") {
@@ -196,9 +249,27 @@ function validateAnnualTravelDetails(form,formId,language){
 		}
 	}
 
-	var rowCountPersonal=document.getElementById("totalPersonalTraveller").value;
+	if(applicantEstate.trim() == "" && applicantBuilding.trim() == ""){
+		$("#errCABuilding").html(getBundle(getBundleLanguage, "workinghoilday.building.message"));
+		$("#errCAEstate").html(getBundle(getBundleLanguage, "workinghoilday.estate.message"));
+		$("#inputCABuilding").addClass("invalid-field");
+		$("#inputCAEstate").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="inputCABuilding";
+		}
+		flag = false;
+	}
 	
-
+	if (applicantDistrict.trim() == "") {
+		$("#errCADist").html(getBundle(getBundleLanguage, "workinghoilday.district.message"));
+		$("#inputCADistrict").addClass("invalid-field");
+		if(firstErrorElementId==""){
+			firstErrorElementId="inputCADistrict";
+		}
+		flag = false;
+	}
+	
+	var rowCountPersonal=document.getElementById("totalPersonalTraveller").value;
 	for (var i = 1; i <= parseInt(rowCountPersonal) ; i++)
 	{
 		if($("#txtInsuFullName" + i).val().trim()==insureNamePlaceholder.trim()){
