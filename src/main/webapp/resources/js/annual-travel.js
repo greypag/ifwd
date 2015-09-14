@@ -5,10 +5,6 @@ function validateAnnualTravel(form, formId,language){
 	document.getElementById("endDateDeskIn").innerHTML = "";
 	document.getElementById("travelCountDeskIn").style.display = "none";
 	
-	/*var startDate = document.getElementById("txtStartDateDesk").value;    
-	var endDate = document.getElementById("txtEndDateDesk").value;
-	var travellers = document.getElementById("txtTravellersDesk").value;*/
-	
 	var startDate = $("#txtStartDateDesk").val();    
 	var endDate = $("#txtEndDateDesk").val();
 	var travellers = $("#txtTravellersDesk").val();
@@ -84,8 +80,12 @@ function validateAnnualTravel(form, formId,language){
 
 //Travel plan details page validation
 var travelp_click = false;
-function validateAnnualTravelDetails(form,formId,language)
-{
+function validateAnnualTravelDetails(form,formId,language){
+	$('#loading-overlay').modal({
+        backdrop: 'static',
+        keyboard: false
+     })
+	
 	if($("#inputFullName").val().trim()==namePlaceholder.trim()){
     	$("#inputFullName").val('');
     }
@@ -220,17 +220,6 @@ function validateAnnualTravelDetails(form,formId,language)
 			document.getElementById("errtxtPersonalFullName" + i).innerHTML = "";
 		}
 		
-		/*var age = document.getElementById("selectAgeRange" + i).value;
-		if (age.trim() == "" || age.trim() == 0) {
-			document.getElementById("errselectAgeRange" + i).innerHTML = getBundle(getBundleLanguage, "insured.age.notValid.message");
-			$("#selectAgeRange" + i).addClass('invalid-field');
-			if(firstErrorElementId==""){
-				firstErrorElementId="selectAgeRange" + i;
-			}
-			flag = false;
-		}else{
-			document.getElementById("errselectAgeRange" + i).innerHTML = "";
-		}*/
 		var hkid = document.getElementById("txtInsuHkid" + i).value;
 		document.getElementById("errtxtInsuHkid" + i).innerHTML = "";
 		
@@ -246,7 +235,7 @@ function validateAnnualTravelDetails(form,formId,language)
 			var tr=IsHKID(hkid.trim());
 			if(tr==false)
 			{
-				document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message"); // getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
+				document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.dob.notNull.message"); // getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
 				$("#txtInsuHkid" + i).addClass('invalid-field');
 				if(firstErrorElementId==""){
 					firstErrorElementId="txtInsuHkid" + i;
@@ -268,6 +257,18 @@ function validateAnnualTravelDetails(form,formId,language)
 				}
 			}
 		}
+		var insureDob = document.getElementById("insureDob" + i).value;
+		if (insureDob.trim() == "") {
+			document.getElementById("errtxtInsuDob" + i).innerHTML = getBundle(getBundleLanguage, "insured.dob.notNull.message"); //"Please enter Insured Person's Name in English.";
+			$("#input_insure_dob" + i).addClass('invalid-field');
+			if(firstErrorElementId==""){
+				firstErrorElementId="insureDob" + i;
+			}
+			flag = false;
+		}else{
+			document.getElementById("errtxtInsuDob" + i).innerHTML = "";
+		}
+		
 		var selectedValue = document.getElementById("personalselectBenificiary" + i).value;
 		var HkidPass = document.getElementById("personalBenefitiaryHKId"+i).value;
 		
@@ -350,11 +351,6 @@ function validateAnnualTravelDetails(form,formId,language)
     }else{
     	if(flag){
     		travelp_click = true;
-    		$('#loading-overlay').modal({
-	           backdrop: 'static',
-	           keyboard: false
-	        })
-	        
 	        var contextPath = window.location.pathname.split("/")[1];
     		var result = false;
     		var formId = '#' + formId;
@@ -373,7 +369,10 @@ function validateAnnualTravelDetails(form,formId,language)
     				}
     			}
     		});
-    		return flag&&result;
+    		if(!result) {
+    			$('#loading-overlay').modal('hide');
+    		}
+    		return result;
     	}else{
     		$('#loading-overlay').modal('hide');
     		return flag

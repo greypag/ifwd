@@ -58,8 +58,6 @@ public class UserRestURIConstants {
 			+ "1/gi/annualTravel/policies";
 	public static final String ANNUAL_TRAVEL_CONFIRM_POLICY = SERVICE_URL.substring(0, SERVICE_URL.length() - 1)
 			+ "1/gi/annualTravel/payments/make";
-	public static final String ANNUAL_TRAVEL_SUBMIT_POLICY = SERVICE_URL.substring(0, SERVICE_URL.length() - 1)
-			+ "1/gi/homeCare/payments/submit";
 	public static final String ANNUAL_TRAVEL_FINALIZE_POLICY = SERVICE_URL.substring(0, SERVICE_URL.length() - 1)
 			+ "1/gi/annualTravel/policies";
 	public static final String ANNUAL_TRAVEL_GET_PROMOCODE = SERVICE_URL + "/leads/partnership/promoCode";

@@ -11,6 +11,15 @@
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
 <script>
+$(document).ready(function(){
+	$('#cardNo1').payment('formatCardNumber');
+	$('#cardNo1').keyup(function() {
+	    var replaceSpace = $(this).val(); 
+	    var result = replaceSpace.replace(/\s/g,'');
+	    $("#cardnumber").val(result);
+	});
+})
+
 perventRedirect=true;
 
 var enablePayment=true;
@@ -161,7 +170,38 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.correspondenceaddress" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">FWD Financial Centre, 308-320 Des Voeux Rd Central, Sheung Wan</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
+                                            	<c:if test="${planDetailsForm.applicantRoom != ''}">
+	                                                Room/Flat ${planDetailsForm.applicantRoom}, 
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.applicantFloor != ''}">
+	                                                Floor ${planDetailsForm.applicantFloor}, 
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.applicantBlock != ''}">
+	                                                Block ${planDetailsForm.applicantBlock}, 
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${planDetailsForm.applicantBuilding != ''}">
+	                                                ${planDetailsForm.applicantBuilding},
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${planDetailsForm.applicantEstate != ''}">
+	                                                ${planDetailsForm.applicantEstate},
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.applicantStreetNo != ''}">
+	                                                ${planDetailsForm.applicantStreetNo},
+	                                            </c:if>
+	                                             <c:if test="${planDetailsForm.applicantStreetName != ''}">
+	                                                ${planDetailsForm.applicantStreetName},
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${planDetailsForm.applicantDistrictDesc != ''}">
+	                                                ${planDetailsForm.applicantDistrictDesc},
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.applicantAreaDesc != ''}">
+	                                                ${planDetailsForm.applicantAreaDesc}
+	                                            </c:if>
+                                            </div>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
@@ -420,29 +460,8 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 <label class="control-label h4-5"><fmt:message key="annual.summary.creditcardnumber" bundle="${msg}" /></label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
-                                <!-- <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pad-none" style="padding-right: 3% !important;">
-                                    <input id="cardNo1" name="cardNo1" type="tel" class="input-block-level cardnumber" style="text-align: center;" maxlength="4" data-min="4" onkeypress="return isNumeric(event);" onkeyup="changeCreditCardFocus(this,'','cardNo2');" onblur="mergeCreditCard();"/>
-                                </div>
-                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pad-none" style="padding-left: 1% !important;padding-right: 2% !important;">
-                                    <input id="cardNo2" name="cardNo2" type="tel" class="input-block-level cardnumber" style="text-align: center;" maxlength="4" data-min="4" onkeypress="return isNumeric(event)" onkeyup="changeCreditCardFocus(this,'cardNo1','cardNo3');" onblur="mergeCreditCard();"/>
-                                </div>
-                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pad-none" style="padding-left: 2% !important;padding-right: 1% !important;">
-                                    <input id="cardNo3" name="cardNo3" type="tel" class="input-block-level cardnumber" style="text-align: center;" maxlength="4" data-min="4" onkeypress="return isNumeric(event)" onkeyup="changeCreditCardFocus(this,'cardNo2','cardNo4');" onblur="mergeCreditCard();"/>
-                                </div>
-                                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pad-none" style="padding-left: 3% !important;">
-                                    <input id="cardNo4" name="cardNo4" type="tel" class="input-block-level cardnumber" style="text-align: center;" maxlength="4" data-min="4" onkeypress="return isNumeric(event)" onkeyup="changeCreditCardFocus(this,'cardNo3','');" onblur="mergeCreditCard();"/>
-                                </div>
-                                <div class="clearfix"></div>
-                                
-                                <div style="display:none;">
-	                                <div id="cardNo1_trigger">cardNo1</div>
-	                                <div id="cardNo2_trigger">cardNo2</div>
-	                                <div id="cardNo3_trigger">cardNo3</div>
-	                                <div id="cardNo4_trigger">cardNo4</div>
-                                </div> -->
-                                
                                 <input id="cardNo1" type="tel" class="input-block-level cardnumber" maxlength="19" data-min="19" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardnumber').val());"/>
-                                
+
                                 <span id="errcardno" class="error-msg"></span>
                                 <input id="cardnumber" name="cardNo" type="hidden" class="input-block-level" maxlength="16" data-min="16"/>
                             </div>

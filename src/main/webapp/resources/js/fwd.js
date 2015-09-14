@@ -557,7 +557,7 @@ $(function () {
 	}).on('changeDate', function (ev) {
 		$('#input_insure_dob1').datepicker('setDate', $("#applicantDob").val());
 		$("#dobInvalid").html("");
-		$("#input_dob").removeClass("invalid-field");
+		$("#input_annual_dob").removeClass("invalid-field");
 	});
 	
 	$('.annual_dob').datepicker({
