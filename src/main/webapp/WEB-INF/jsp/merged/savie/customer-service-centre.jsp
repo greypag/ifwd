@@ -55,6 +55,7 @@ var language = "${language}";
 										<div class="col-xs-12 col-md-8">
 											<div id="date" class="selectDiv preferred-date">
 												<input type="text" class="date" name="preferred-date" id="preferred-date" value="${perferredDate }" readonly="">
+												<input type="hidden" id="preferred-date-mirror" value="${perferredDate }">
 											</div>
 										</div>
 									</div>
@@ -205,6 +206,12 @@ var language = "${language}";
 			endDate: endDate,
 			autoclose: true
 		}).on('changeDate', function (ev) {
+			if(ev.date != null){
+				$("#preferred-date-mirror").val($("#preferred-date").val().trim());
+			}
+			else{
+				$('#preferred-date').datepicker('update', $("#preferred-date-mirror").val().trim());
+			}
 			if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
 				getTimeSlot('${perferredTime }');
 			}
