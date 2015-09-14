@@ -23,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -429,7 +430,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 			session.setAttribute("planSelected", travelQuote.getPlanSelected());
 			
 			String promoCode = (String) session.getAttribute("referralCode");
-			promoCode = java.net.URLEncoder.encode(promoCode, "UTF-8").replace("+", "%20");
+			promoCode = java.net.URLEncoder.encode(StringUtils.isEmpty(promoCode) ? "" : promoCode, "UTF-8").replace("+", "%20");
 			
 			
 			String Url = UserRestURIConstants.ANNUAL_TRAVEL_GET_QUOTE
