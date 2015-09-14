@@ -4070,31 +4070,32 @@ function flightValidateDeskTravel(){
 	}
 	
 	if(flag && travelType == "annual"){
-		var result = false;
-		var formId = '#frmTravelGetQuoteDesk';
-		var contextPath = window.location.pathname.split("/")[1];
-		var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceQuote';
-		$.ajax({
-			type : "POST",
-			url : method,
-			data : $(formId).serialize(),
-			async : false,
-			success : function(data) {
-				if (data == 'success') {
-					//form.action = '/'+contextPath+'/'+language+'/travel-insurance/quote';
-					result = true;
-				} else {
-					$('#startDateDeskIn').html("api is Wrong");
-					result = false;
-				}
-			}
-		});
-		return flag&&result;
+		return prepareTravelInsuranceQuote();
 	}else {
 		return flag;
 	}
-		
+}
 
+function prepareTravelInsuranceQuote() {
+	var result = false;
+	var formId = '#frmTravelGetQuoteDesk';
+	var contextPath = window.location.pathname.split("/")[1];
+	var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceQuote';
+	$.ajax({
+		type : "POST",
+		url : method,
+		data : $(formId).serialize(),
+		async : false,
+		success : function(data) {
+			if (data == 'success') {
+				result = true;
+			} else {
+				$('#startDateDeskIn').html("api is Wrong");
+				result = false;
+			}
+		}
+	});
+	return result;
 }
 
 function flightValidateMobTravel() {
@@ -4160,7 +4161,11 @@ function flightValidateMobTravel() {
 		document.getElementById("travelCountMobIn").style.display = "block";
 		flag = false;
 	}
-	return flag;
+	if(flag && travelType == "annual"){
+		return prepareTravelInsuranceQuote();
+	}else {
+		return flag;
+	}
 
 }
 function flightValidateBtmTravel() {
@@ -4226,7 +4231,11 @@ function flightValidateBtmTravel() {
 		$("#travelCountBtmIn").show();
 		flag = false;
 	}
-	return flag;
+	if(flag && travelType == "annual"){
+		return prepareTravelInsuranceQuote();
+	}else {
+		return flag;
+	}
 
 }
 
