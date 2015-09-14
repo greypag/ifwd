@@ -346,15 +346,18 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 							</div>
 							<div class="partition"></div>
 							<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-								<h4 class="product_plan_box_title_right">
-								    Annual Premium
-								</h4>
-				                <h2 class="product_plan_box_price_right">
-									HK$ <span class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getGrossPremium()[i]%>" />.00</span>
-									<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
-								</h2>
-								<div class="del actualPriceA product_plan_box_del hide">HK$ <del>240.00</del></div>
-								<div class="product_plan_box_select_button_container"><div class="product_plan_box_select_button">Select</div></div>
+								<div class="product_plan_box_price_container col-lg-12 col-md-12 col-sm-6 col-xs-6 pad-none">
+									<h4 class="product_plan_box_title_right">
+									    Annual Premium
+									</h4>
+					                <h2 class="product_plan_box_price_right">
+										HK$ <span class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getGrossPremium()[i]%>" />.00</span>
+										<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
+									</h2>
+									<div class="del actualPriceA product_plan_box_del hide">HK$ <del>240.00</del></div>
+								</div>
+								<div class="product_plan_box_select_button_container col-lg-12 col-md-12 col-sm-6 col-xs-6 pad-none"><div class="product_plan_box_select_button">Select</div></div>
+								<div class="clearfix"></div>
 							</div>
 							<div class="clearfix"></div>
 						</div>

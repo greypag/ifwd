@@ -603,7 +603,7 @@ function activateUserAccountJoinUs() {
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select" id="inputCADistrict">
                                                 <select name="applicantDistrict"class="form-control soflow full-control" id="selectCADist" onchange="setDropArea(this.value)">
-	                                                <option value="">District</option>
+	                                                <option value=""><fmt:message key="annual.details.address.district" bundle="${msg}" /></option>
 	                                                <%
 														List lst = (List) request.getAttribute("districtList");
 														Iterator itr = lst.iterator();
