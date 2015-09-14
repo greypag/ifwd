@@ -100,6 +100,9 @@ function validateAnnualTravelDetails(form,formId,language){
 	document.getElementById("mobileNo").innerHTML = "";
 	document.getElementById("dobInvalid").innerHTML = "";
 	
+	document.getElementById("errCABuilding").innerHTML = "";
+	document.getElementById("errCAEstate").innerHTML = "";
+	
 	document.getElementById("chk1").innerHTML = "";
 	document.getElementById("chk2").innerHTML = "";
 

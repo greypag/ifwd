@@ -66,7 +66,15 @@ var enablePayment=true;
 	        };
     	}
     }
-
+$(document).ready(function(){
+    $('#cardNo1').payment('formatCardNumber');
+    $('#cardNo1').keyup(function() {
+        var replaceSpace = $(this).val(); 
+        var result = replaceSpace.replace(/\s/g,'');
+        $("#cardnumber").val(result);
+    });
+});
+    
 </script>
 
 
@@ -453,6 +461,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
                                 <input id="cardNo1" type="tel" class="input-block-level cardnumber" maxlength="19" data-min="19" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardnumber').val());"/>
+
                                 <span id="errcardno" class="error-msg"></span>
                                 <input id="cardnumber" name="cardNo" type="hidden" class="input-block-level" maxlength="16" data-min="16"/>
                             </div>
@@ -657,29 +666,29 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                         
                         
                         <div id="paydoller-wrap" class="declaration-content" style="margin:0px !important;">
-                          <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
-                            <div id="paydollar-icon" class="col-xs-6 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                          <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none paymethod-container">
+                            <div id="paydollar-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
                              <img src="<%=request.getContextPath()%>/resources/images/icon-pay-dollar.png" alt="">
                             </div>
-                            <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
+                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
                              <fmt:message key="annual.summary.paydollar" bundle="${msg}" />
                             </div>
                             <div class="clearfix"></div>
                           </div>
-                          <div id="visa-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
-                            <div id="visa-icon" class="col-xs-6 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                          <div id="visa-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none paymethod-container">
+                            <div id="visa-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
                              <img src="<%=request.getContextPath()%>/resources/images/icon-visa.png" alt="">
                             </div>
-                            <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
+                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
                              <fmt:message key="annual.summary.visa" bundle="${msg}" />
                             </div>
                             <div class="clearfix"></div>
                           </div>
-                          <div id="master-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
-                            <div id="master-icon" class="col-xs-6 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
+                          <div id="master-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none paymethod-container">
+                            <div id="master-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
                              <img src="<%=request.getContextPath()%>/resources/images/icon-master.png" alt="">
                             </div>
-                            <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
+                            <div class="col-xs-7 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
                              <fmt:message key="annual.summary.master" bundle="${msg}" />
                             </div>
                             <div class="clearfix"></div>

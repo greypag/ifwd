@@ -105,6 +105,9 @@
          $("#frmTravelGetQuoteDesk").attr("action", "<%=request.getContextPath()%>/${language}/travel-insurance/quote");
          $("#frmTravelGetQuoteMob").attr("action", "<%=request.getContextPath()%>/${language}/travel-insurance/quote");
          $("#frmTravelGetQuoteBtm").attr("action", "<%=request.getContextPath()%>/${language}/travel-insurance/quote");
+         
+         $(".travel_feature").hide();
+         $("#single_travel_feature").show();
 	 }else{
 		 $('.personal_plan_selectArea').trigger('click');
 		 $('.family_plan_selectArea').hide();
@@ -122,6 +125,9 @@
          $("#frmTravelGetQuoteDesk").attr("action", "<%=request.getContextPath()%>/${language}/annual-travel-insurance/quote");
          $("#frmTravelGetQuoteMob").attr("action", "<%=request.getContextPath()%>/${language}/annual-travel-insurance/quote");
          $("#frmTravelGetQuoteBtm").attr("action", "<%=request.getContextPath()%>/${language}/annual-travel-insurance/quote");
+         
+         $(".travel_feature").hide();
+         $("#annual_travel_feature").show();
 	 }
  }
 </script>
@@ -572,54 +578,105 @@ $(document).ready(function() {
 	</div>
 	
 	
-	<!--desktop Features-->
-    <div class="center wow fadeInDown">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
-                <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
-                    <fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" />
-                  </h3>
-                  <div style="margin-top:25px;">
-                       <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon1.png" />
-                  </div>
-                  <div style="margin-top:10px;">
-                       <fmt:message key="travel.main.feature1.paragraph" bundle="${msg}" />
-                  </div>
-                  </div>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
-                   <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
-                     <fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature2.heading2" bundle="${msg}" />
-                  </h3>
-                  <div style="margin-top:25px;">
-                       <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon2.png" />
-                  </div>
-                  <div style="margin-top:10px;">
-                        <fmt:message key="travel.main.feature2.paragraph" bundle="${msg}" />
-                  </div>
-                  </div>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
-                  <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
-                       <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
-                         <fmt:message key="travel.main.feature3.heading" bundle="${msg}" />
+    <div id="single_travel_feature" class="travel_feature">
+	    <div class="center wow fadeInDown">
+	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	            <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+	                <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+	                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+	                    <fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" />
+	                  </h3>
+	                  <div style="margin-top:25px;">
+	                       <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/usp2.png" />
+	                  </div>
+	                  <div style="margin-top:10px;">
+	                       <fmt:message key="travel.main.feature1.paragraph" bundle="${msg}" />
+	                  </div>
+	                  </div>
+	              </div>
+	              <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+	                   <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+	                  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+	                     <fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature2.heading2" bundle="${msg}" />
+	                  </h3>
+	                  <div style="margin-top:25px;">
+	                       <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/usp3.png" />
+	                  </div>
+	                  <div style="margin-top:10px;">
+	                        <fmt:message key="travel.main.feature2.paragraph" bundle="${msg}" />
+	                  </div>
+	                  </div>
+	              </div>
+	              <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+	                  <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+	                       <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+	                         <fmt:message key="travel.main.feature3.heading" bundle="${msg}" />
+	                      </h3>
+	                      <div style="margin-top:25px;">
+	                           <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon3.png" />
+	                      </div>
+	                      <div style="margin-top:10px;">
+	                          <fmt:message key="travel.main.feature3.paragraph" bundle="${msg}" />
+	                      </div>
+	                  </div>
+	              </div>
+	              <div class="clearfix"></div>
+	          </div>
+	          <div class="clearfix"></div>
+	      </div>
+      </div>
+      
+      <div id="annual_travel_feature" class="travel_feature" style="display:none;">
+        <div class="center wow fadeInDown">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+                    <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+                      <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                        <fmt:message key="travel.main.feature1.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature1.heading2" bundle="${msg}" />
                       </h3>
                       <div style="margin-top:25px;">
-                           <img style="max-width:30%" src="<%=request.getContextPath()%>/resources/images/iFWD_travel_icon3.png" />
+                           <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/usp1.png" />
                       </div>
                       <div style="margin-top:10px;">
-                          <fmt:message key="travel.main.feature3.paragraph" bundle="${msg}" />
+                           <fmt:message key="travel.main.feature1.paragraph" bundle="${msg}" />
+                      </div>
                       </div>
                   </div>
+                  <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+                       <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+                      <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                         <fmt:message key="travel.main.feature2.heading1" bundle="${msg}" /> <fmt:message key="travel.main.feature2.heading2" bundle="${msg}" />
+                      </h3>
+                      <div style="margin-top:25px;">
+                           <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/usp2.png" />
+                      </div>
+                      <div style="margin-top:10px;">
+                            <fmt:message key="travel.main.feature2.paragraph" bundle="${msg}" />
+                      </div>
+                      </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
+                      <div style="border: 1px solid #D1D1D1; height:450px;margin-bottom: 20px;padding-left: 10%;padding-right: 10%;">
+                           <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+                             <fmt:message key="travel.main.feature3.heading" bundle="${msg}" />
+                          </h3>
+                          <div style="margin-top:25px;">
+                               <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/usp3.png" />
+                          </div>
+                          <div style="margin-top:10px;">
+                              <fmt:message key="travel.main.feature3.paragraph" bundle="${msg}" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="clearfix"></div>
               </div>
               <div class="clearfix"></div>
           </div>
-          <div class="clearfix"></div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"><span style="color: #f68a1d;">*</span> Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trips</div>
       </div>
+      
+      
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:left;">
-        <div class="hidden-xs hidden-sm"><span style="color: #f68a1d;">*</span> Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trip Round-trips</div>
         <h4 class="product_landing_download_button h4-4 pull-left">
 	          <i class="fa fa-download"></i> <a
 	              href="<fmt:message key="travel.brochure.link" bundle="${msg}" />"
@@ -635,34 +692,40 @@ $(document).ready(function() {
    </div>
 </section>
       
-<div style="background-color:#071D2A;text-align:center;padding-top: 20px;padding-bottom: 20px;">
+<div style="background-color:#F2F3F5;text-align:center;padding-top: 20px;padding-bottom: 20px;">
     <div class="container pad-none">
-        <h2 style="color:#fff;">Policy coverage</h2>
-        <h4 style="color:#fff;"><span style="color: #f68a1d;">TravelCare</span> provides you with comprehensive travel protection for leisure and business trips, coverage including:</h4>
+        <h2>Policy coverage</h2>
+        <h4><strong>TravelCare</strong> provides you with comprehensive travel protection for leisure and business trips, coverage including:</h4>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:40px;">
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/medical-icon.png">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon1.png">
                 <h5>Medical Expenses</h5>
+                <a href="javascript:;" style="text-decoration: underline;">Learn more</a>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/baggage.png">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon2.png">
                 <h5>Baggage Loss / Damage</h5>
+                <a href="javascript:;" style="text-decoration: underline;">Learn more</a>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/money.png">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon3.png">
                 <h5>Lost of Personal Money<br/>& Travel Document</h5>
+                <a href="javascript:;" style="text-decoration: underline;">Learn more</a>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/personal.png">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon4.png">
                 <h5>Personal Liability</h5>
+                <a href="javascript:;" style="text-decoration: underline;">Learn more</a>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/car.png">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon5.png">
                 <h5>Rental Vehicle Excess</h5>
+                <a href="javascript:;" style="text-decoration: underline;">Learn more</a>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/excess.png">
+                <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon6.png">
                 <h5>No Excess</h5>
+                <a href="javascript:;" style="text-decoration: underline;">Learn more</a>
             </div>
             <div class="clearfix"></div>
         </div>

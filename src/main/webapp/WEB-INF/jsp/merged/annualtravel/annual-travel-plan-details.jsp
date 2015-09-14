@@ -56,6 +56,14 @@ var insureHkidPlaceholder="<fmt:message key="travel.details.insured.hkid.placeho
 
 var benNamePlaceholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />";
 var benHkidPlaceholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />";
+
+var roomPlaceholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />";
+var floorPlaceholder="<fmt:message key="home.details.registration.insuaddress.floor.placeholder" bundle="${msg}" />";
+var blockPlaceholder="<fmt:message key="home.details.registration.insuaddress.block.placeholder" bundle="${msg}" />";
+var buildingPlaceholder="<fmt:message key="home.details.registration.insuaddress.building.placeholder" bundle="${msg}" />";
+var estatePlaceholder="<fmt:message key="home.details.registration.insuaddress.estate.placeholder" bundle="${msg}" />";
+var streetNoPlaceholder="<fmt:message key="home.details.registration.insuaddress.streetNo.placeholder" bundle="${msg}" />";
+var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddress.streetName.placeholder" bundle="${msg}" />";
     
 function setDropArea(id) {
 	$('#selectCADistHid').find('option[value="' + id + '"]').attr('selected', 'selected');
@@ -570,37 +578,6 @@ function activateUserAccountJoinUs() {
                                        <label for="inputFullName" class="field-label bold-500">&nbsp;</label>
                                    </div>
                                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                       <div class="row" style="margin-top: 10px;">
-                                           <div class="col-xs-4">
-                                               <label class="radio-inline homecare-lb">
-                                                   <input type="radio" name="applicantArea" id="inlineCARadio3"
-                                                   value="HK" checked="" class="home-input1"> <span>HK
-                                               </span>
-                                           </label> 
-                                           </div>
-                                           <div class="col-xs-4">
-                                               <label class="radio-inline homecare-lb"> <input
-                                                       type="radio" name="applicantArea" id="inlineCARadio4"
-                                                       value="KL" class="home-input1"> <span> KLN</span>
-                                               </label>
-                                           </div>
-                                           <div class="col-xs-4">
-                                               <label class="radio-inline"> <input type="radio"
-                                                   name="applicantArea" id="inlineCARadio5" value="NT"
-                                                   class="home-input1"> <span> NT</span>
-                                                </label>
-                                           </div>
-                                           <div class="clearfix"></div>
-                                        </div>
-                                   </div>
-                                   <div class="clearfix"></div>
-                               </div>
-                               
-                               <div class="form-group float">
-                                   <div class="form-label col-lg-5 col-md-5 hidden-sm hidden-xs pad-none">
-                                       <label for="inputFullName" class="field-label bold-500">&nbsp;</label>
-                                   </div>
-                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select" id="inputCADistrict">
                                                 <select name="applicantDistrict"class="form-control soflow full-control" id="selectCADist" onchange="setDropArea(this.value)">
 	                                                <option value=""><fmt:message key="annual.details.address.district" bundle="${msg}" /></option>
@@ -633,6 +610,37 @@ function activateUserAccountJoinUs() {
 													%>
                                                 </select>
                                             </div> <span id="errCADist" class="text-red"> </span>
+                                   </div>
+                                   <div class="clearfix"></div>
+                               </div>
+                               
+                               <div class="form-group float">
+                                   <div class="form-label col-lg-5 col-md-5 hidden-sm hidden-xs pad-none">
+                                       <label for="inputFullName" class="field-label bold-500">&nbsp;</label>
+                                   </div>
+                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                       <div class="row" style="margin-top: 10px;">
+                                           <div class="col-xs-4">
+                                               <label class="radio-inline homecare-lb">
+                                                   <input type="radio" name="applicantArea" id="inlineCARadio3"
+                                                   value="HK" checked="" class="home-input1"> <span>HK
+                                               </span>
+                                           </label> 
+                                           </div>
+                                           <div class="col-xs-4">
+                                               <label class="radio-inline homecare-lb"> <input
+                                                       type="radio" name="applicantArea" id="inlineCARadio4"
+                                                       value="KL" class="home-input1"> <span> KLN</span>
+                                               </label>
+                                           </div>
+                                           <div class="col-xs-4">
+                                               <label class="radio-inline"> <input type="radio"
+                                                   name="applicantArea" id="inlineCARadio5" value="NT"
+                                                   class="home-input1"> <span> NT</span>
+                                                </label>
+                                           </div>
+                                           <div class="clearfix"></div>
+                                        </div>
                                    </div>
                                    <div class="clearfix"></div>
                                </div>

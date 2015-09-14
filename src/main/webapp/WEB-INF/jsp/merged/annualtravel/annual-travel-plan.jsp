@@ -338,7 +338,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						<div class="col-lg-12 col-md-12 plan-box3 travelproductbox annual_travelproductbox"
 							id="box<%=i%>"
 							onclick="changeColorAndPrice('box<%=i%>','<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
-							<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none">								
+                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none" style="margin-bottom: 20px;">							
 								<h2>
 									PLAN <%=travelQuote.getPlanName()[i]%>
 								</h2>
@@ -405,7 +405,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						    <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
                                     Product Highlights
-                                    <i class="fa fa-chevron-down pull-right"></i>
+                                    <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
@@ -445,14 +445,14 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
                                     Summary of Coverage
-                                    <i class="fa fa-chevron-down pull-right"></i>
+                                    <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
                                 <div class="fwdpanel-heading product_plan_inner_panel">
 	                                <h4 class="fwdpanel-title h4-4-full">
 	                                    Medical Expenses
-	                                    <i class="fa fa-plus pull-right"></i>
+	                                    <i class="fa fa-plus"></i>
 	                                </h4>
 	                            </div>
 	                            <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -481,7 +481,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                            <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Hospital or Quarantine Cash Allowance
-                                        <i class="fa fa-plus pull-right"></i>
+                                        <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -515,7 +515,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Worldwide Emergency Assistance Service
-                                        <i class="fa fa-plus pull-right"></i>
+                                        <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -584,7 +584,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Personal Accident
-                                        <i class="fa fa-plus pull-right"></i>
+                                        <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -623,7 +623,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Baggage
-                                        <i class="fa fa-plus pull-right"></i>
+                                        <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -652,7 +652,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Baggage Delay
-                                        <i class="fa fa-plus pull-right"></i>
+                                        <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -681,7 +681,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Personal Money
-                                        <i class="fa fa-plus pull-right"></i>
+                                        <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -710,7 +710,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Loss of Travel Document
-                                        <i class="fa fa-plus pull-right"></i>
+                                        <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -739,7 +739,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Travel Delay
-                                        <i class="fa fa-plus pull-right"></i>
+                                        <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -778,7 +778,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Cancellation Charge
-                                        <i class="fa fa-plus pull-right"></i>
+                                        <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -807,7 +807,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Curtailment of Trip
-                                        <i class="fa fa-plus pull-right"></i>
+                                        <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -836,7 +836,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Loss of Home Contents
-                                        <i class="fa fa-plus pull-right"></i>
+                                        <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -865,7 +865,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Personal Liability
-                                        <i class="fa fa-plus pull-right"></i>
+                                        <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -894,7 +894,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Rental Vehicle Excess
-                                        <i class="fa fa-plus pull-right"></i>
+                                        <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -923,7 +923,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Golfer "Hole-in-One"
-                                        <i class="fa fa-plus pull-right"></i>
+                                        <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
@@ -953,7 +953,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
                                     Important Notes
-                                    <i class="fa fa-chevron-down pull-right"></i>
+                                    <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
@@ -989,7 +989,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
                                     Major Exclusions
-                                    <i class="fa fa-chevron-down pull-right"></i>
+                                    <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
@@ -1014,7 +1014,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
                                     Age Limit
-                                    <i class="fa fa-chevron-down pull-right"></i>
+                                    <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;height: auto;">
