@@ -627,20 +627,22 @@ function activateUserAccountJoinUs() {
                                            <div class="col-xs-4">
                                                <label class="radio-inline homecare-lb">
                                                    <input type="radio" name="applicantArea" id="inlineCARadio3"
-                                                   value="HK" checked="" class="home-input1"> <span>HK
-                                               </span>
+                                                   value="HK" checked="" class="home-input1">
+                                                   <span><fmt:message key="home.details.registration.hk" bundle="${msg}" /></span>
                                            </label> 
                                            </div>
                                            <div class="col-xs-4">
                                                <label class="radio-inline homecare-lb"> <input
                                                        type="radio" name="applicantArea" id="inlineCARadio4"
-                                                       value="KL" class="home-input1"> <span> KLN</span>
+                                                       value="KL" class="home-input1">
+                                                       <span><fmt:message key="home.details.registration.kln" bundle="${msg}" /></span>
                                                </label>
                                            </div>
                                            <div class="col-xs-4">
                                                <label class="radio-inline"> <input type="radio"
                                                    name="applicantArea" id="inlineCARadio5" value="NT"
-                                                   class="home-input1"> <span> NT</span>
+                                                   class="home-input1">
+                                                   <span><fmt:message key="home.details.registration.nt" bundle="${msg}" /></span>
                                                 </label>
                                            </div>
                                            <div class="clearfix"></div>
