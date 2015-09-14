@@ -50,7 +50,6 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 slide-form workingholiday-text-align-center">
-					<h1 class="workingholiday-heading"><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h1>
 					<table class="table activation-form3">
 						<tbody>
 							<tr>  
@@ -74,7 +73,6 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
               <fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /> 
       </button>
 </form>
-<h1 class="workingholiday-heading" style="text-align: center;"><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h1>
 </div>
 <!--Mobileform--> 
 
@@ -84,6 +82,8 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   <div class="container pad-none">
     <div class="center wow fadeInDown">
       <!--desktop-->
+      
+      <h1 class="workingholiday-heading"><fmt:message key="workingholiday.main.quote.top.heading" bundle="${msg}" /></h1>
       
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
