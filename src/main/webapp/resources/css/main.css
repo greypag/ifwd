@@ -6907,7 +6907,7 @@ tr.product-landing-error-wrap {
 }
 
 .workingholiday-heading{
-	color: #fff;
+	color: #f6871e;
     font-size: 36px;
     line-height: 1.1;
     font-weight: 700;
@@ -6915,7 +6915,7 @@ tr.product-landing-error-wrap {
 }
 @media (max-width: 991px) {
 	.workingholiday-heading{
-        color: inherit;
+        font-size: 24px;
 	}
 }
 
