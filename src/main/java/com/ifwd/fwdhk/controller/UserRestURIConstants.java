@@ -51,6 +51,17 @@ public class UserRestURIConstants {
 			+ "/gi/travel/policies";
 	public static final String TRAVEL_GET_PROMOCODE = SERVICE_URL + "/leads/partnership/promoCode";
 	
+	// Travel URL
+	public static final String ANNUAL_TRAVEL_GET_QUOTE = SERVICE_URL
+			+ "/gi/annualTravel/quote";
+	public static final String ANNUAL_TRAVEL_CREATE_POLICY = SERVICE_URL
+			+ "/gi/annualTravel/policies";
+	public static final String ANNUAL_TRAVEL_CONFIRM_POLICY = SERVICE_URL
+			+ "/gi/annualTravel/payments/make";
+	public static final String ANNUAL_TRAVEL_FINALIZE_POLICY = SERVICE_URL
+			+ "/gi/annualTravel/policies";
+	public static final String ANNUAL_TRAVEL_GET_PROMOCODE = SERVICE_URL + "/leads/partnership/promoCode";
+	
 	/* WorkingHoliday URL */
 	public static final String WORKINGHOLIDAY_GET_QUOTE = SERVICE_URL
 			+ "/gi/workingHoliday/quote";

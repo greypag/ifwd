@@ -101,6 +101,90 @@ var chk = 0;
     //chk = 0;
     }
  });
+  
+var product_plan_panel_valid=true;
+$('.product_plan_panel').click(function(e){
+	if(product_plan_panel_valid){
+		product_plan_panel_valid=false;
+		$panel=$(this);
+		if($panel.next('.product_plan_panel_content:visible').length>0){
+			$('.product_plan_panel').find('.fa-chevron-up').addClass('fa-chevron-down');
+			$('.product_plan_panel').find('.fa-chevron-up').removeClass('fa-chevron-up');
+			$('.product_plan_panel_content:visible').slideUp("slow",function(){
+				$(".product_plan_panel_content").mCustomScrollbar("destroy");
+				product_plan_panel_valid=true;
+			});
+		}else if($('.product_plan_panel_content:visible').length>0){
+			$('.product_plan_panel').find('.fa-chevron-up').addClass('fa-chevron-down');
+			$('.product_plan_panel').find('.fa-chevron-up').removeClass('fa-chevron-up');
+			$('.product_plan_panel_content:visible').slideUp("slow",function(){
+				$(".product_plan_panel_content").mCustomScrollbar("destroy");
+				
+				var $target = $panel.next('.fwdpanel-body');
+				scrollDownProductPanel($target);
+			});
+		}else{
+			var $target = $panel.next('.fwdpanel-body');		
+			scrollDownProductPanel($target);
+		}
+	}
+});
+
+var product_plan_inner_panel_valid=true;
+$('.product_plan_inner_panel').click(function(e){
+	if(product_plan_inner_panel_valid){
+		product_plan_inner_panel_valid=false;
+		$panel=$(this);
+		if($panel.next('.product_plan_inner_panel_content:visible').length>0){
+			$('.product_plan_inner_panel').find('.fa-minus').addClass('fa-plus');
+			$('.product_plan_inner_panel').find('.fa-minus').removeClass('fa-minus');
+			$('.product_plan_inner_panel_content:visible').slideUp("slow",function(){
+				var $target = $panel.next('.fwdpanel-body');
+				$target.find('table').parent().removeAttr('id');
+				
+				product_plan_inner_panel_valid=true;
+			});
+		}else if($('.product_plan_inner_panel_content:visible').length>0){
+			$("#plan-no-more-tables").removeAttr('id');
+			$('.product_plan_inner_panel').find('.fa-minus').addClass('fa-plus');
+			$('.product_plan_inner_panel').find('.fa-minus').removeClass('fa-minus');
+			$('.product_plan_inner_panel_content:visible').slideUp("fast",function(){
+				var $target = $panel.next('.fwdpanel-body');
+				$target.find('table').parent().attr('id', 'plan-no-more-tables');
+				$target.slideDown("slow", function(){
+					$panel.find('i').removeClass('fa-plus');
+					$panel.find('i').addClass('fa-minus');
+					
+					product_plan_inner_panel_valid=true;
+				});
+			});
+		}else{
+			$("#plan-no-more-tables").removeAttr('id');
+			var $target = $panel.next('.fwdpanel-body');
+			$target.find('table').parent().attr('id', 'plan-no-more-tables');
+			$target.slideDown("slow", function(){
+				$panel.find('i').removeClass('fa-plus');
+				$panel.find('i').addClass('fa-minus');
+				
+				product_plan_inner_panel_valid=true;
+			});
+		}
+	}
+});
+
+function scrollDownProductPanel($element){
+	$element.slideDown("slow", function(){
+		$panel.find('i').addClass('fa-chevron-up');
+		$panel.find('i').removeClass('fa-chevron-down');
+		$.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+		$.mCustomScrollbar.defaults.axis="y";
+		$(".product_plan_panel_content").mCustomScrollbar({
+			theme:"light-2"
+		});
+		
+		product_plan_panel_valid=true;
+	});
+}
 
 
 
@@ -291,3 +375,4 @@ function faqMainMenuMob(care){
 	$("#faq_"+care+"_mob").hide();
 	$("#faq_main_menu_mob").show();
 }
+

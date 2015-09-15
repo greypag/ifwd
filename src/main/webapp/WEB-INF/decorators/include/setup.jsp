@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/responsive.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/datepicker.min.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.mCustomScrollbar.min.css">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/ZeroClipboard.js"></script>

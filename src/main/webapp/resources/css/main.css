@@ -924,7 +924,6 @@ vertical-align:middle;
     font-size: 18px;
     line-height: 1.4;
     color: #061d2a;
-    text-align: justify;
     margin-bottom: 0;
 }
 .h4-6 {
@@ -1440,9 +1439,9 @@ input.search-form:hover {
     padding: 7px 12px;
     border-color: #f2f2f2;
     box-shadow: none;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
 }
 .slider-form h4 {
     color: #061d2a;
@@ -1459,14 +1458,16 @@ input.search-form:hover {
 }
 .slider-form .form-group {
     border: 1px solid #bdc4c4;
-    border-radius: 6px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
 }
 
 .slider-form .drop-down {
-        -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
-    }
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
 
 
 
@@ -2961,10 +2962,10 @@ table.activation-form3 tr td {
     padding: 8px 0px;
 }
 table.activation-form3 tr td .input-group {
-    width: 96%;
+    width: 100%;
 }
 table.activation-form3 tr td .input-group-div {
-    width: 96% !important;
+    width: 100% !important;
 }
 table.activation-form3 td .control-label {
     line-height: 60px;
@@ -4528,8 +4529,8 @@ a.h4-4 {
     margin-top: 30px;
     color: #061d2a;
 }
-.plan-box3:hover, .plan-box3:hover h3, .plan-box3:hover .fwdpanel h4.benefits a{color:#fff !important;}
-.plan-box5, .plan-box4, .plan-box4 .fwdpanel h4.benefits a{color:#fff !important;}
+.plan-box3:hover, .plan-box3:hover h3, .plan-box3:hover .fwdpanel h4.benefits a,.plan-box3:hover h4 .product_plan_box_description_orange{color:#fff !important;}
+.plan-box5, .plan-box4, .plan-box4 .fwdpanel h4.benefits a, .plan-box4 .product_plan_box_description_orange{color:#fff !important;}
 .plan-box5 .fwdpanel h4.benefits a{color:white !important;}
 .plan-box3 h2 {
     
@@ -5679,7 +5680,9 @@ border-left: 7px solid transparent;}
 .marg-t2{ margin-top:7px;}
 .marg-b2{ margin-bottom:0px !important;}
 #txtStartDateDesk, 
-#txtEndDateDesk {
+#txtEndDateDesk,
+#txtStartDateBtm,
+#txtEndDateBtm {
     border: none;
 }
 /*CN*/
@@ -6485,7 +6488,7 @@ p.mute{
     padding-left: 0 !important;
 }
 table.activation-form3 > tbody > tr > td:not(.pad-none){
-    padding: 0;
+    padding: 5px;
 }
 tr.product-landing-error-wrap {
     height: 26px;
@@ -6757,6 +6760,7 @@ tr.product-landing-error-wrap {
 
 .paymethod-icon{
     text-align: center;
+    height: 45px;
 }
 
 .summary-row{
@@ -7745,6 +7749,498 @@ tr.product-landing-error-wrap {
     }
 }
 /** home promo banner **/
+
+
+/** mCustomScrollbar **/
+.mCSB_container_wrapper{
+    margin-right:17px !important;
+}
+
+.mCSB_inside>.mCSB_container{
+    padding: 0px !important;
+    margin-right:17px !important;
+}
+
+.mCSB_draggerContainer{
+    background-color: #B7C4CD;
+}
+
+.mCSB_scrollTools_vertical{
+    background-color: #9BA5A7;
+    opacity: 1 !important;
+}
+
+.mCSB_buttonUp{
+    opacity: 1 !important;
+}
+
+.mCSB_buttonDown{
+    opacity: 1 !important;
+}
+
+.mCSB_dragger_bar{
+    background-color: #9BA5A7 !important;
+    width:100% !important;
+}
+
+.mCSB_draggerRail{
+    display:none;
+}
+/** mCustomScrollbar **/
+
+/** annual travel **/
+.product_landing_custom_selectbox{
+    font-size: 23px;
+    padding:10px;
+}
+.product_landing_custom_selectbox:hover{
+    color:#fff;
+    background-color:#1E90FF;
+    cursor: default;
+}
+
+.product_landing_custom_fa-caret-down{
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    width: 15px;
+    height: 48px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.product_landing_download_button{
+    margin-top: 20px;
+}
+
+.annualTravel_policy_item{
+    height:200px;
+}
+
+.annualTravel_policy_item img{
+    width:80px;
+}
+
+.annualTravel_policy_item h5{
+    margin-top:20px;
+}
+
+.product_header_path_container{
+	background-color: #f68a1d;
+}
+
+.product_header_path_item{
+	color:#fff;
+	width:20%;
+	float:left;
+	text-align:center;
+	padding-top: 40px;
+    padding-bottom: 40px;
+	position:relative;
+	font-size: 23px;
+}
+
+.product_header_path_item.back{
+	font-size: 22px;
+}
+
+.product_header_path_item.active{
+    color:#f68a1d;
+    background-color:#fff;
+    border-top: solid 2px #f68a1d;
+    border-bottom: solid 2px #f68a1d;
+    padding-top: 38px;
+    padding-bottom: 38px;
+}
+
+.product_header_path_item .partition{
+    height: 100%;
+    width: 2px;
+    background-color: #FFB367;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.plan-box3 h4.product_plan_box_description{
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.plan-box3 h4 .product_plan_box_description_orange{
+	color:#f68a1d;
+	font-weight:bold;
+}
+
+.product_plan_box_price_container{
+	margin-left:10px;
+}
+
+.plan-box3 h4.product_plan_box_title_right{
+	font-size: 18px;
+    line-height: 1.5;
+    font-weight:normal;
+    text-align:center;
+    margin-left: 0px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+.plan-box3 h2.product_plan_box_price_right{
+	margin-left: 0px;
+	text-align:center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.plan-box3 div.del.product_plan_box_del{
+    margin-left: 0px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 31.5px;
+}
+
+.product_plan_box_select_button_container{
+	margin-left: 10px;
+	margin-top:10px;
+	margin-bottom: 30px;
+}
+
+.product_plan_box_select_button_container .product_plan_box_select_button{
+    width: 130px;
+    text-align: center;
+    border: solid 1px #f68a1d;
+    color: #f68a1d;
+    margin: 0 auto;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.annual_travelproductbox{
+	position:relative;
+	border: 1px solid #ccc;
+}
+
+.annual_travelproductbox .partition{
+	position:absolute;
+	top:0px;
+	right:33.33333333333333%;
+	width:1px;
+	height:100%;
+	background-color: #ccc;
+}
+
+.annual_travelproductbox:hover .partition{
+    background-color: #FFB367;
+}
+
+.annual_travelproductbox:hover .partition{
+    background-color: #FFB367;
+}
+
+.product_plan_panel_container{
+	margin-top:50px;
+}
+
+.product_plan_panel{
+	position: relative;
+	background-color: #9BA5A7;
+	margin-bottom:1px;
+	cursor:pointer;
+}
+
+.product_plan_panel h4{
+	margin:0px;
+	padding: 0px 20px;
+	color:#fff;
+}
+
+.product_plan_panel .fa{
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
+}
+
+.product_plan_inner_panel{
+	position: relative;
+    background-color: #C5CFD8;
+    cursor:pointer;
+}
+
+.product_plan_inner_panel h4{
+    margin:0px;
+    padding: 0px 20px;
+    color:#333;
+}
+
+.product_plan_inner_panel .fa{
+    position: absolute;
+    bottom: 15px;
+    right: 10px;
+}
+
+.product_plan_panel_inner_content{
+    margin-bottom:1px;
+}
+
+.product_plan_panel_inner_content_row{
+	background-color: #F2F3F5;
+	padding: 20px;
+	margin-bottom:1px;
+}
+
+.product_plan_panel_inner_content_row table{
+    width:100%;
+}
+
+.product_plan_panel_inner_content_row table th{
+	text-align:center;
+}
+
+.product_plan_panel_inner_content_row table th, .product_plan_panel_inner_content_row table td{
+	border:solid 1px #333;
+	padding:10px;
+}
+
+.product_plan_panel_container .bullets{
+    list-style-image: url('../images/li-icon.png');
+    color: #f68a1d;
+    padding: 0px 18px;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.product_plan_panel_container .bullets li{
+    font-size: 16px;
+    line-height: 22px;
+    color: #333;
+    margin-bottom:0px;
+}
+
+.product_plan_panel_content{
+    height: 300px;
+    margin-bottom:1px;
+}
+
+.product_plan_panel_content_row{
+    padding:20px;
+}
+
+.product_plan_details_member_title .login-btn{
+	width: 150px;
+    margin-left: 20px;
+}
+
+.product_payment_detail_form_container .form-group{
+	width:620px;
+}
+
+.product_payment_detail_benelist{
+	border: solid 1px #f6871e;
+	width: 100%;
+}
+
+.product_payment_detail_benelist .travel-tb-td{
+	background-color:#f6871e;
+	font-size: 18px;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: #f5f5f5;
+}
+
+.product_payment_detail_benelist td{
+	padding:5px 20px !important;
+}
+
+.product_payment_details input{
+	padding:4px 15px;
+}
+
+.disclaimer .product_confirmation_dis{
+    font-size: 10px;
+    margin-top:-5px;
+}
+
+@media (min-width: 992px) {
+    .product_landing_download_button{
+        margin-right: 20px;
+    }
+    
+    .product_payment_details_title{
+        margin-top: 8px;
+    }
+    
+    td .product_confirmation_dis{
+        font-size: 12px;
+        position: absolute;
+    }
+}
+
+@media (max-width: 991px) {
+    .product_landing_download_button{
+        width: 100%;
+    }
+    
+    .product_header_path_item, .product_header_path_item.active{
+        width:auto;
+        padding:20px 10px;
+        border:0px;
+        color:#fff;
+        background-color:#f68a1d;
+    }
+    
+    .annual_travelproductbox .partition{
+        position: initial;
+	    width: 100%;
+	    height: 1px;
+	    background-color: #ccc;
+	    float: left;
+    }
+    
+    .plan-box3 h2.product_plan_box_price_right {
+        font-size:30px;
+    }
+    
+    .product_plan_box_price_container, .product_plan_box_select_button_container{
+        margin-left:0px !important;
+    }
+    
+    .product_plan_box_select_button_container{
+        margin-top:30px;
+    }
+    
+    .product_plan_panel h4{
+        font-size: 24px;
+        line-height: 42px;
+    }
+    
+    .product_plan_panel_content{
+        height:auto;
+    }
+    
+    .product_plan_inner_panel h4{
+        font-size: 24px;
+        line-height: 42px;
+    }
+    
+    .mCSB_inside>.mCSB_container{
+        margin-right:0px !important;
+    }
+    
+    .product_plan_details_member_title{
+        margin-left:10%;
+        width:80%;
+    }
+    
+    .product_plan_details_member_title .h2-3-existing-fwd-head{
+        width:100%;
+    }
+    
+    .product_plan_details_member_title .login-btn{
+	    margin-left: 0px;
+	}
+	
+	.product_payment_detail_form_container .form-group{
+	    width:100%;
+	}
+	
+	.product_summary_container{
+	   border:none;
+	}
+	
+	.product_summary_orange_price{
+	   margin-top: 10px !important;
+	}
+	
+	.product_summary_container .h4-4-orange-b{
+	   line-height: 28px !important;
+	}
+	
+	.product_summary_table_field{
+		margin-bottom: 5px;
+		margin-top: 5px;
+		min-width:230px !important;
+	}
+	
+	.product_summary_table_field.summary-detail-head{
+	   min-width:180px !important;
+	}
+	
+	.product_summary_table_header{
+	   color: #999;
+       font-weight: bold;
+	}
+	
+	h4 .product_confirmation_dis{
+	   font-size: 16px;
+       position: absolute;
+	}
+	
+	.product_confirmation_dis{
+	   font-size: 12px;
+       margin-top: -5px;
+	}
+}
+
+@media (max-width: 480px) {
+   	.product_plan_box_price_container, .product_plan_box_select_button_container{
+        width:100% !important;
+    }
+}
+/** annual travel **/
+
+@media only screen and (max-width: 320px) {
+	/* Force table to not be like tables anymore */
+	#plan-no-more-tables table,
+	#plan-no-more-tables thead,
+	#plan-no-more-tables tbody,
+	#plan-no-more-tables th,
+	#plan-no-more-tables td,
+	#plan-no-more-tables tr {
+	    display: block;
+	}
+	 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#plan-no-more-tables thead tr {
+	 position: absolute;
+	 top: -9999px;
+	 left: -9999px;
+	}
+	 
+	#plan-no-more-tables tr { border: 1px solid #ccc; }
+	  
+	#plan-no-more-tables td {
+	 /* Behave like a "row" */
+	 border: none;
+	 border-bottom: 1px solid #eee;
+	 position: relative;
+	 padding-left: 50%;
+	 white-space: normal;
+	 text-align:left;
+	}
+	 
+	#plan-no-more-tables td:before {
+	 /* Now like a table header */
+	 position: absolute;
+	 /* Top/left values mimic padding */
+	 top: 6px;
+	 left: 6px;
+	 width: 45%;
+	 padding-right: 10px;
+	 white-space: nowrap;
+	 text-align:left;
+	 font-weight: bold;
+	}
+	 
+	/*
+	Label the data
+	*/
+	#plan-no-more-tables td:before { content: attr(data-title); }
+}
+
 
 #main-slider .text-content {
 	display: block;
