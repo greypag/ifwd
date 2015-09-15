@@ -92,6 +92,10 @@ function setDropArea(id) {
 
 
 function activateUserAccountJoinUs() {
+	$('#loading-overlay').modal({
+        backdrop: 'static',
+        keyboard: false
+     });
 	//html change, change the submit input type to button, add a onclick function
 	//html change, added some error html note for user, so they know if the user name and email is not success
 	
@@ -180,6 +184,7 @@ function activateUserAccountJoinUs() {
     	    }
     		
         	if (!validateForm){
+        		$('#loading-overlay').modal('hide');
         		return;
         	}    		
 
@@ -196,11 +201,6 @@ function activateUserAccountJoinUs() {
   	        name = document.getElementById("inputFullName").value;
   	        userName = document.getElementById("Username").value;
   	        email = document.getElementById("inputEmailId").value;
-  	      
-            $('#loading-overlay').modal({
-              backdrop: 'static',
-              keyboard: false
-           })
 
   	       $.ajax({
   	                   type : 'POST',
@@ -221,10 +221,10 @@ function activateUserAccountJoinUs() {
   	                             $('#frmYourDetails').submit();
   	                            return;                            
   	                        } else {
-  	                        	
-     	                            $("#link-error").click();
-     	                            $(".error-hide").css("display", "block");
-     	                            $('#loading-overlay').modal('hide');
+  	                        	$('#loading-overlay').modal('hide');
+     	                        $("#link-error").click();
+     	                        $(".error-hide").css("display", "block");
+     	                        $('#loading-overlay').modal('hide');
   								if (data == 'This username already in use, please try again') {
   								    $('.error-hide').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
   								} else if (data == 'email address and mobile no. already registered') {
@@ -232,12 +232,11 @@ function activateUserAccountJoinUs() {
   								} else {
   								    $('.error-hide').html(data);
   								}
-     	                            return;
+     	                        return;
   	                        } 
   	                    },
   	                    error : function(xhr, status, error) {
   	                        $('#loading-overlay').modal('hide');
-
   	                    }
   	                });
     	}else{
@@ -289,6 +288,7 @@ function activateUserAccountJoinUs() {
     }
     
     if(firstErrorElementId!=""){
+    	$('#loading-overlay').modal('hide');
         scrollToElement(firstErrorElementId);
     }
     

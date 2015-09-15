@@ -123,11 +123,6 @@ function validateAnnualTravel(form, formId,language){
 //Travel plan details page validation
 var travelp_click = false;
 function validateAnnualTravelDetails(form,formId,language){
-	$('#loading-overlay').modal({
-        backdrop: 'static',
-        keyboard: false
-     })
-	
 	if($("#inputFullName").val().trim()==namePlaceholder.trim()){
     	$("#inputFullName").val('');
     }
