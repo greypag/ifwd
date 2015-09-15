@@ -180,7 +180,7 @@ function submitLoginForm(formID) {
 						id="headerLoginForm">
 
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+							<li class="active"><a href="<%=request.getContextPath()%>/${language}"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
 							<li> | </li>
 							<li><a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />"
 								target="_blank"><fmt:message key="header.menu.about" bundle="${msg}" /></a></li>
@@ -384,7 +384,7 @@ function submitLoginForm(formID) {
 	<nav class="navbar navbar-inverse">
 		<div class="container pad-none">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="<%=request.getContextPath()%>/${language}/home"><img
+				<a class="navbar-brand" href="<%=request.getContextPath()%>/${language}"><img
 					src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="<fmt:message key="logo.alt" bundle="${msg}" />"></a>
 			</div>
 			<div class="col-lg-8 col-md-7 pull-right">		
@@ -447,7 +447,7 @@ function submitLoginForm(formID) {
 					class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="<%=request.getContextPath()%>/${language}/home"><img
+			<a class="navbar-brand pull-left col-xs-8 col-sm-8" href="<%=request.getContextPath()%>/${language}"><img
 				src="<%=request.getContextPath()%>/resources/images/logo.jpg" alt="<fmt:message key="logo.alt" bundle="${msg}" />" class="img-responsive"></a>
 			<div class="clearfix"></div>
 		</div>
@@ -540,7 +540,7 @@ function submitLoginForm(formID) {
 	</div>
 							
 	<ul class="nav navmenu-nav sidepanel-menu">
-	    <li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+	    <li><a href="<%=request.getContextPath()%>/${language}"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
         <li class="<% if(actionName.equals("Savie")){ %>active<%} %>"><span><fmt:message key="header.limitedOffer" bundle="${msg}" /></span><a class="limited-offer-mobile" href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.savie.part1" bundle="${msg}" /> <br class="visible-md visible-lg"/><fmt:message key="header.product.savie.part2" bundle="${msg}" /></a><div class="special-offer"></div></li> 
 		<li class="<% if(actionName.equals("WorkingHoliday")){ %>active<%} %>"><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.workingholiday" bundle="${msg}" /></a></li>
 		<li class="<% if(actionName.equals("Flight")){ %>active<%} %>"><a href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.flight" bundle="${msg}" /></a><div class="offer"></div></li>

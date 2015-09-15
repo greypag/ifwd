@@ -98,7 +98,7 @@
     </div>
     
     <div align="center" style="margin-top:55px; margin-bottom:80px;" >
-        <a href="<%=request.getContextPath()%>/${language}/home" class="btn-box-2 color4 " style="padding-left:25px; padding-right:25px;" >
+        <a href="<%=request.getContextPath()%>/${language}" class="btn-box-2 color4 " style="padding-left:25px; padding-right:25px;" >
         <!-- Back to Home -->
         <fmt:message key="system.back.to.me" bundle="${msg}" />
         </a>
