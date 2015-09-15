@@ -466,31 +466,20 @@ public class AnnualTravelController {
 			JSONObject parameters = new JSONObject();
 			String requestNo = (String) session.getAttribute("transNo");
 			String email = (String) session.getAttribute("emailAddress");
-			parameters.put("referenceNo",
-					session.getAttribute("finalizeReferenceNo"));
-			parameters
-					.put("transactionNumber", session.getAttribute("transNo"));
-			parameters.put("transactionDate",
-					session.getAttribute("transactionDate"));
+			parameters.put("referenceNo", session.getAttribute("finalizeReferenceNo"));
+			parameters.put("transactionNumber", session.getAttribute("transNo"));
+			parameters.put("transactionDate", session.getAttribute("transactionDate"));
 			parameters.put("paymentFail", "0");
 			
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
 			
 			if (creditCardNo !=null) { 
-				parameters
-						.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
+				parameters.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
 			} else {
-				
 				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
-				
-				model.addAttribute("emailAddress",
-						session.getAttribute("emailAddress"));
-				
-				
+				model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
 				model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
-				
-				model.addAttribute("referralCode",
-						session.getAttribute("referralCode"));
+				model.addAttribute("referralCode", session.getAttribute("referralCode"));
 				String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				model.addAttribute("pageTitle", pageTitle);
@@ -501,6 +490,10 @@ public class AnnualTravelController {
 				
 			parameters.put("expiryDate", session.getAttribute("expiryDate"));
 
+			if(JsonUtils.hasEmpty(parameters)) {
+				return UserRestURIConstants.getSitePath(request) + "travel/travel";
+			}
+			
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
 			header.put("userName", session.getAttribute("username").toString());

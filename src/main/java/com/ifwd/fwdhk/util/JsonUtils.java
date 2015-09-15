@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.Properties;
 import java.util.Set;
 
+import org.apache.commons.lang.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -11,6 +12,26 @@ public class JsonUtils {
 
 	private static String REPLACE_KEY;
 	private static final String RE_CHAR = "*";
+	
+	@SuppressWarnings("unchecked")
+	public static final boolean hasEmpty(JSONObject obj) {
+		Set<Object> keys = obj.keySet();
+		for(Object key : keys){
+			if(obj.get(key) == null) {
+				return Boolean.TRUE;
+			}else if(obj.get(key) instanceof JSONObject || obj.get(key) instanceof JSONArray) {
+				if(obj.get(key) == null) {
+					return Boolean.TRUE;
+				}
+			}else if (obj.get(key) instanceof String) {
+				System.out.println(key + "||" + obj.get(key).toString());
+				if(StringUtils.isEmpty(obj.get(key).toString())) {
+					return Boolean.TRUE;
+				}
+			}
+		}
+		return Boolean.FALSE;
+	}
 	
 	public static final JSONObject jsonPrint(JSONObject obj){
 		return obj == null ? null : jsonPrint(obj, null);

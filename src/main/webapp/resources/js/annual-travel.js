@@ -412,7 +412,6 @@ function validateAnnualTravelDetails(form,formId,language){
 	}
 	
     if(travelp_click){
-    	$('#loading-overlay').modal('hide');
     	return false;
     }else{
     	if(flag){
@@ -432,6 +431,7 @@ function validateAnnualTravelDetails(form,formId,language){
     					result = true;
     				} else {
     					result = false;
+    					travelp_click=false;
     				}
     			}
     		});
@@ -441,6 +441,7 @@ function validateAnnualTravelDetails(form,formId,language){
     		return result;
     	}else{
     		$('#loading-overlay').modal('hide');
+    		travelp_click=false;
     		return flag
     	}
     	

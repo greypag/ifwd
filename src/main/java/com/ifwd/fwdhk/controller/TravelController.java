@@ -1788,6 +1788,10 @@ public class TravelController {
 			}
 				
 			parameters.put("expiryDate", session.getAttribute("expiryDate"));
+			
+			if(JsonUtils.hasEmpty(parameters)) {
+				return UserRestURIConstants.getSitePath(request) + "travel/travel";
+			}
 
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
