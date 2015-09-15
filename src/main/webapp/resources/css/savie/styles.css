@@ -15710,3 +15710,11 @@ body.chin #btn-cstmr-srvc-cnter {
   /* Internet Explorer 10-11 */
   color: #a9a9a9;
 }
+
+/*Checklist 998*/
+@media (min-width: 768px) {
+  .fwd-savie-wrapper .three-column-widget .fwd-col .col-content .pull-left.mobile-image,
+  .fwd-savie-wrapper #other-benefits .pull-left.mobile-image {
+    width: 20%;
+  }
+}
