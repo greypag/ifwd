@@ -55,7 +55,7 @@ public class UserController {
 	public ModelAndView logout(HttpServletRequest servletRequest) 
 	{	
 
-		String homeURL = "/changeLang?selectLang=EN&action=/tc";
+		String homeURL = "/changeLang?selectLang=EN&action=/tc/";
 		String lang = UserRestURIConstants.getLanaguage(servletRequest);
 		HttpSession session = servletRequest.getSession(false);
 		
@@ -69,9 +69,9 @@ public class UserController {
 		if (lang != null)
 		{
 			if (lang.equals("tc"))
-				homeURL = "/changeLang?selectLang=tc&action=/en";
+				homeURL = "/changeLang?selectLang=tc&action=/en/";
 			else
-				homeURL = "/changeLang?selectLang=tc&action=/tc";
+				homeURL = "/changeLang?selectLang=tc&action=/tc/";
 		}
 		return new ModelAndView("redirect:" + homeURL);
 	}

@@ -1410,7 +1410,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		    </div>
 		</div>
 
-		</form>
+		</form:form>
 		
 	</div>
 	<!--/.row-->

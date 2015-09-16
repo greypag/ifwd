@@ -384,7 +384,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		// String referalCOde = session.getAttribute("referralCode").toString();
 			mailed = sendEmail.sendEmail(emailToSendPromoCode, "ECHOME", header);
 		else
-			mailed = sendEmail.sendEmail(emailToSendPromoCode, "TRA123", header);
+			mailed = sendEmail.sendEmail(emailToSendPromoCode, "ANNTRA", header);
 		if (mailed) {
 			return "success";
 		} else {

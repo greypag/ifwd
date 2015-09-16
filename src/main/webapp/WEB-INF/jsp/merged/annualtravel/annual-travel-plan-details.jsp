@@ -406,8 +406,15 @@ function activateUserAccountJoinUs() {
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input type="text" name="fullName"
-                                        class="form-control full-control textUpper bmg_custom_placeholder" id="inputFullName"
-                                        value="<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />"
+                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" id="inputFullName"
+                                        <c:choose>
+										    <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
+										    value="${userDetails.fullName }" readonly="readonly"
+										    </c:when>
+										    <c:otherwise>
+                                            value="<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />"
+                                            </c:otherwise>
+										</c:choose>
 	                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />');" 
 	                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />'); validateName('inputFullName','fullnameinvalid',true,'applicant');"
                                         onkeypress="return alphaOnly(event);" maxlength="50" />
@@ -452,7 +459,12 @@ function activateUserAccountJoinUs() {
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <input name="mobileNo" type="tel"
                                         class="form-control full-control" value="${userDetails.mobileNo.trim()}"
-                                        id="inputMobileNo" 
+                                        id="inputMobileNo"
+                                        <c:choose>
+										    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+										    readonly="readonly"
+										    </c:when>
+										</c:choose>
                                         onkeypress="return isNumeric(event)"
                                         onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8" /> 
                                     <span id="errMobileNo" class="text-red">
@@ -469,6 +481,11 @@ function activateUserAccountJoinUs() {
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input class="form-control full-control textLower" name="emailAddress" type="email"
                                         value="${userDetails.emailAddress.trim()}" id="inputEmailId"
+                                        <c:choose>
+										    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+										    readonly="readonly"
+										    </c:when>
+										</c:choose>
                                         maxlength="50" onblur="validateEmail('inputEmailId','emailid');" > <span id="emailid" class="text-red"></span>
                                </div>
                            </div>
@@ -650,12 +667,7 @@ function activateUserAccountJoinUs() {
                                    </div>
                                    <div class="clearfix"></div>
                                </div>
-                               
-                               
-                               
-                               
                              </div>
-                        
                         
                         <div class="clearfix"></div>
                         <div class="form-wrap">
@@ -689,8 +701,15 @@ function activateUserAccountJoinUs() {
                                                   <c:if test="${inx == 1}">
                                                   <input type="text"
                                                         id="txtInsuFullName${inx}" name="personalName"
-                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
-                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" 
+                                                        <c:choose>
+														    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+														    value="${userDetails.userName }"
+														    </c:when>
+														    <c:otherwise>
+	                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+				                                            </c:otherwise>
+														</c:choose>
 		                                                onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
 		                                                onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
                                                         onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly"/>
