@@ -193,6 +193,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 		</noscript>
 		
 <dec:head />
+<link rel="icon" type="image/x-icon" href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 </head>
 	<%
 	if (langFlag && "EN".equals(session.getAttribute("language").toString().toUpperCase())) {
