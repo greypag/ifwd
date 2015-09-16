@@ -204,7 +204,7 @@ function activateUserAccountJoinUs() {
 		  	        userName = document.getElementById("Username").value;
 		  	        email = document.getElementById("inputEmailId").value;
 		  	      
-		
+		  	      console.log({ optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" });
 		  	       $.ajax({
 		  	                   type : 'POST',
 		  	                    url : '<%=request.getContextPath()%>/${language}/joinus',
@@ -224,6 +224,7 @@ function activateUserAccountJoinUs() {
 		  	                             $('#frmYourDetails').submit();
 		  	                            return;                            
 		  	                        } else {
+		  	                        	console.log(data);
 		  	                        	travelp_click = false;
 	     	                            $("#link-error").click();
 	     	                            $(".error-hide").css("display", "block");
@@ -2555,6 +2556,7 @@ function activateUserAccountJoinUs() {
 function userLoginFnc() {
 
     $('#ajax-loading').show();
+    console.log($("#popUploginform input").serialize());
     $.ajax({
         type : "POST",
         url : "<%=request.getContextPath()%>/userLogin",
@@ -2565,6 +2567,7 @@ function userLoginFnc() {
             if (data == 'success') {
             	window.location.reload();
             } else if (data == 'fail') {
+            	console.log(data);
                 $('#ajax-loading').hide();
                 $('#login-err-msg').show();
                 $('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));

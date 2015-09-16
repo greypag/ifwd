@@ -877,6 +877,7 @@ function confirmDetails(form){
 	        contentType : 'application/json'  
 	    });
 		
+		console.log(JSON.stringify(planDetailsForm));
 		$.ajax({
 			type : "POST",
 			url : method,
@@ -886,6 +887,7 @@ function confirmDetails(form){
 				if (data == 'success') {
 					result=true;
 				} else {
+					console.log(data) 
 					$("#errorMsg").html(data);
 					details_clicked = false;
 					wh_click = false;

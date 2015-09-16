@@ -26,6 +26,7 @@ var clicked = false;
 	 			var method = "<%=request.getContextPath()%>/processWorkingHolidayPayment";
 	 			
 	 			var geteWayUrl = $(gatewayUrlId).val();
+	 			console.log($(paymentFormId).serialize());
 	 			$.ajax({
 	 						type : "POST",
 	 						url : method,
@@ -38,6 +39,7 @@ var clicked = false;
                                         $("#"+form).submit();
                                     }, 3000);
 	 							} else {
+	 								console.log(data);
 	 								$("#PaymentingDiv").hide();
                                     enablePayment=true;
                                     $('#paymentErrorPopup').modal('show');

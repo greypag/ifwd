@@ -4078,6 +4078,7 @@ function prepareTravelInsuranceQuote() {
 	var formId = '#frmTravelGetQuoteDesk';
 	var contextPath = window.location.pathname.split("/")[1];
 	var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceQuote';
+	console.log($(formId).serialize());
 	$.ajax({
 		type : "POST",
 		url : method,
@@ -4087,7 +4088,8 @@ function prepareTravelInsuranceQuote() {
 			if (data == 'success') {
 				result = true;
 			} else {
-				$('#startDateDeskIn').html("api is Wrong");
+				console.log(data);
+				$('#startDateDeskIn').html(data.errMsgs);
 				result = false;
 			}
 		}

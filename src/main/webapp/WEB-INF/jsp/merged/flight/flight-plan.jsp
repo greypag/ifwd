@@ -90,7 +90,7 @@
           $("#totalOtherTraveller").val(tempOtherTraveller);
           
           $('#myFWDropdown').toggleClass('open');
-          
+          console.log($('#frmFlightPlan input').serialize());
 	      $.ajax({
 	          type : 'POST',
 	          url : '<%=request.getContextPath()%>/updateFlightQuote',
@@ -104,7 +104,6 @@
 	              $("#totalTravellingDays").val(json.totalDays);
 	              $("#totalTravellingDaysSpan").html(json.totalDays);
 	              $("#days").val(json.totalDays);
-	              
 	          }
 	      });
 	  }
@@ -618,6 +617,7 @@
 <script type="text/javascript">
 	function sendEmail() {
 		if (get_promo_val()) {
+			console.log($("#sendmailofpromocode form").serialize());
 			$.ajax({
 				type : "POST",
 				url : "<%=request.getContextPath()%>/sendEmail",
@@ -627,6 +627,7 @@
 					console.log(data);
 					if (data == 'success') {
 					} else {
+						console.log(data);
 					}
 
 				},

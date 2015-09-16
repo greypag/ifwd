@@ -835,9 +835,10 @@ perventRedirect=true;
  			pay = true;
  			
  			var geteWayUrl = $('#gateway').val();
- 				$.ajax({
- 						type : "POST",
- 						url : "<%=request.getContextPath()%>/processHomeCarePayment",
+ 			console.log($("#paymentForm").serialize());
+ 			$.ajax({
+ 				type : "POST",
+ 				url : "<%=request.getContextPath()%>/processHomeCarePayment",
 				data : $("#paymentForm").serialize(),
 				async : false,
 				success : function(data) {
@@ -847,6 +848,7 @@ perventRedirect=true;
 						form.action = geteWayUrl;
 						$('#PaymentingDiv').hide();
 					} else {
+						console.log(data);
 						$("#button_confirm").show();
 						$('#paymentErrorPopup').modal('show');
 					}
@@ -874,6 +876,7 @@ perventRedirect=true;
 	 			var method = "<%=request.getContextPath()%>/processHomeCarePayment";
 	 			
 	 			var geteWayUrl = $(gatewayUrlId).val();
+	 			console.log($(paymentFormId).serialize());
 	 			$.ajax({
 	 						type : "POST",
 	 						url : method,
@@ -888,6 +891,7 @@ perventRedirect=true;
                                         $("#"+form).submit();
                                     }, 3000);
 	                            } else {
+	                            	console.log(data);
 	                            	$("#PaymentingDiv").hide();
                                     enablePayment=true;
 	                                $('#paymentErrorPopup').modal('show');

@@ -72,6 +72,7 @@ var promoCodeInsertFlag = true;
 	                backdrop: 'static',
 	                keyboard: false
 	            })
+	            console.log($('#frmWorkingHolidayPlan input').serialize());
 	            $.ajax({
 	                type : 'POST',
 	                url : '<%=request.getContextPath()%>/applyWorkingHolidayPromoCode',
@@ -139,6 +140,7 @@ var promoCodeInsertFlag = true;
 		var formId = '#' + formId;
 		var method = "<%=request.getContextPath()%>/wh-details";
 		if(chkDueAmount()){
+			console.log($(formId).serialize());
 			$.ajax({
 				type : "POST",
 				url : method,
@@ -149,7 +151,7 @@ var promoCodeInsertFlag = true;
 						form.action = "<%=request.getContextPath()%>/${language}/working-holiday-insurance/user-details";
 						result = true;
 					} else {
-						/* console.log("fail to process prepareWorkingHolidayUserDetails " + data); */
+						console.log(data);
 						result = false;
 						console.log("hihi");
 					}
@@ -956,20 +958,19 @@ var promoCodeInsertFlag = true;
 	function sendEmail() {
 		$('.proSuccess').addClass('hide');
 		if (get_promo_val()) {
+			console.log($("#sendmailofpromocode form").serialize());
 			$.ajax({
 				type : "POST",
 				url : "<%=request.getContextPath()%>/sendEmail",
 				data : $("#sendmailofpromocode form").serialize(),
 				async : false,
 				success : function(data) {
-					
 					if (data == 'success') {
 						$('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
 					} else {
-						
+						console.log(data);
 						$('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
 					}
-
 				},
 				error : function() {
 				}

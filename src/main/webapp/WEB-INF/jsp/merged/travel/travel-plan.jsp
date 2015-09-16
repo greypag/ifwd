@@ -122,6 +122,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                backdrop: 'static',
 	                keyboard: false
 	            })
+	            console.log($('#frmTravelPlan input').serialize());
 	        	$.ajax({
 	                type : 'POST',
 	                url : '<%=request.getContextPath()%>/applyTravelPromoCode',
@@ -129,7 +130,6 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                success : function(data) {
 	                	$('#loading-overlay').modal('hide');
 	                    promoCodeInsertFlag = true;
-	                    
 	                    var json = JSON.parse(data);
 	                    promoData = json;
 	                    setValue(json);
@@ -156,7 +156,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
             $("#totalOtherTraveller").val(tempOtherTraveller);
 			
             $('#myFWDropdown').toggleClass('open');
-            
+            console.log($('#frmTravelPlan input').serialize());
 			$.ajax({
 				type : 'POST',
 				url : '<%=request.getContextPath()%>/updateTravelQuote',
@@ -1563,20 +1563,19 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	function sendEmail() {
         $('.proSuccess').addClass('hide');
         if (get_promo_val()) {
+        	console.log($("#sendmailofpromocode form").serialize());
             $.ajax({
                 type : "POST",
                 url : "<%=request.getContextPath()%>/sendEmail",
                 data : $("#sendmailofpromocode form").serialize(),
                 async : false,
                 success : function(data) {
-                    
                     if (data == 'success') {
                         $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
                     } else {
-                        
+                    	console.log(data);
                         $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
                     }
-
                 },
                 error : function() {
                 }

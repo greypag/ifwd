@@ -219,6 +219,7 @@ function activateUserAccountJoinUs() {
 		   	                             $('#freeFlightForm').submit()
 		   	                            return;                            
 		   	                        } else {
+		   	                        	console.log(data);
 		   	                            $("#link-error").click();
 		   	                            $(".error-hide").css("display", "block");
 		   	                            $('#loading-overlay').modal('hide');
@@ -2493,6 +2494,8 @@ $('#ajax-loading').show();
 /* 
 if(a==true)
 { */
+
+console.log($("#popUploginform input").serialize());
 $.ajax({
 type : "POST",
 url : "<%=request.getContextPath()%>/userLogin",
@@ -2504,6 +2507,7 @@ if (data == 'success') {
 window.location.reload();
 /* window.location.href = "getAccByUsernaneAndPassword"; */
 } else if (data == 'fail') {
+console.log(data);
 $('#ajax-loading').hide();
 $('#login-err-msg').show();
 $('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
@@ -2524,6 +2528,7 @@ function createFlightFnc(form){
     
     if (!flight_click){
         flight_click = true;
+        console.log($("#freeFlightForm").serialize());
         $.ajax(
         {
             type : "POST",
@@ -2540,6 +2545,7 @@ function createFlightFnc(form){
                     flag= true;
                     form.action = "<%=request.getContextPath()%>/${language}/flight-insurance/confirmation";
                 } else {
+                	console.log(data);
                     flag= false;
                     $('#errorMessages').removeClass('hide');
                     $('#errorMessages').html(errMsg);

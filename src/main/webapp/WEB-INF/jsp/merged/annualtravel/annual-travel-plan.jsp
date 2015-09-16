@@ -93,6 +93,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		}
 		var result = false;
 		var formId = '#' + formId;
+		console.log($(formId).serialize());
 		$.ajax({
 			type : "POST",
 			url : '<%=request.getContextPath()%>/ajax/annualTravel/prepareTravelInsuranceUserDetails',
@@ -103,6 +104,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 					form.action = '${pageContext.request.contextPath}/${language}/annual-travel-insurance/user-details';
 					result = true;
 				} else {
+					console.log(data);
 					$(".errDue").html("api is Wrong");
 					result = false;
 				}
@@ -125,6 +127,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                backdrop: 'static',
 	                keyboard: false
 	            })
+	            console.log($('#frmTravelPlan input').serialize());
 	        	$.ajax({
 	                type : 'POST',
 	                url : '<%=request.getContextPath()%>/ajax/annualTravel/applyTravelPromoCode/apply',
@@ -1322,20 +1325,19 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	function sendEmail() {
         $('.proSuccess').addClass('hide');
         if (get_promo_val()) {
+        	console.log($("#sendmailofpromocode form").serialize())
             $.ajax({
                 type : "POST",
                 url : "<%=request.getContextPath()%>/ajax/annualTravel/sendEmail/send",
                 data : $("#sendmailofpromocode form").serialize(),
                 async : false,
                 success : function(data) {
-                    
                     if (data == 'success') {
                         $('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
                     } else {
-                        
+                    	console.log(data)
                         $('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
                     }
-
                 },
                 error : function() {
                 }

@@ -281,6 +281,7 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 	}
 
 	function applyHomePromoCode() {
+		console.log($('#frmYourDetails input').serialize());
 		$.ajax({
 			type : 'POST',
 			url : '<%=request.getContextPath()%>/applyHomePromoCode',
@@ -324,6 +325,7 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 		/* 
 		if(a==true)
 		{ */
+		console.log($("#popUploginform input").serialize());
 		$.ajax({
 			type : "POST",
 			url : "<%=request.getContextPath()%>/userLogin",
@@ -335,6 +337,7 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 					window.location.reload();
 					/* window.location.href = "getAccByUsernaneAndPassword"; */
 				} else if (data == 'fail') {
+					console.log(data);
 					$('#ajax-loading').hide();
 					$('#login-err-msg').show();
 					$('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));
@@ -348,6 +351,7 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 
 	function sendEmail() {
 		if (get_promo_val()) {
+			console.log($("#sendmailofpromocode form").serialize());
 			$.ajax({
 				type : "POST",
 				url : "<%=request.getContextPath()%>/sendEmail",
@@ -356,7 +360,7 @@ var streetNamePlaceholder="<fmt:message key="home.details.registration.insuaddre
 				success : function(data) {
 					if (data == 'success') {
 					} else {
-
+						console.log(data);
 					}
 
 				},
@@ -497,6 +501,7 @@ function activateUserAccountJoinUs() {
 			                        	$('#frmYourDetails').submit();
 			                            return;                            
 			                        } else {
+			                        	console.log(data);
 			                        	home_click = false;
 			                        	$('#loading-overlay').modal('hide');
 			                        	

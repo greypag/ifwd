@@ -102,6 +102,7 @@ function validateAnnualTravel(form, formId,language){
 	var result = false;
 	var formId = '#' + formId;
 	var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceQuote';
+	console.log($(formId).serialize());
 	$.ajax({
 		type : "POST",
 		url : method,
@@ -112,7 +113,8 @@ function validateAnnualTravel(form, formId,language){
 				form.action = '/'+contextPath+'/'+language+'/annual-travel-insurance/quote';
 				result = true;
 			} else {
-				$('#startDateDeskIn').html("api is Wrong");
+				console.log(data);
+				$('#startDateDeskIn').html(data.errMsgs);
 				result = false;
 			}
 		}
@@ -420,6 +422,7 @@ function validateAnnualTravelDetails(form,formId,language){
     		var result = false;
     		var formId = '#' + formId;
     		var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceTravelSummary';
+    		console.log($(formId).serialize());
     		$.ajax({
     			type : "POST",
     			url : method,
@@ -430,6 +433,7 @@ function validateAnnualTravelDetails(form,formId,language){
     					form.action = '/'+contextPath+'/'+language+'/annual-travel-insurance/summary';
     					result = true;
     				} else {
+    					console.log(data);
     					result = false;
     					travelp_click=false;
     				}

@@ -81,6 +81,7 @@ function checkPromoCodePlaceholder(){
 	                backdrop: 'static',
 	                keyboard: false
 	            })
+	            console.log($('#frmHomeCarePlan input').serialize());
 				$.ajax({
 					type : 'POST',
 					url : '<%=request.getContextPath()%>/applyHomePromoCode',
@@ -125,17 +126,17 @@ function checkPromoCodePlaceholder(){
 	function sendEmail() {
 		$('.proSuccess').addClass('hide');
 		if (get_promo_val()) {
+			console.log($("#sendmailofpromocode form").serialize());
 			$.ajax({
 				type : "POST",
 				url : "<%=request.getContextPath()%>/sendEmail",
 				data : $("#sendmailofpromocode form").serialize(),
 				async : false,
 				success : function(data) {
-					
 					if (data == 'success') {
 						$('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
 					} else {
-						
+						console.log(data);
 						$('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
 					}
 

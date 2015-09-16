@@ -28,6 +28,7 @@ var enablePayment=true;
 	            var method = "<%=request.getContextPath()%>/processTravePayment";
 	            
 	            var geteWayUrl = $(gatewayUrlId).val();
+	            console.log($(paymentFormId).serialize());
 	            $.ajax({
 	                        type : "POST",
 	                        url : method,
@@ -42,6 +43,7 @@ var enablePayment=true;
 	                                    $("#"+form).submit();
                                     }, 3000);
 	                            } else {
+	                            	console.log(data);
 	                            	$("#PaymentingDiv").hide();
                                     enablePayment=true;
 	                                $('#paymentErrorPopup').modal('show');

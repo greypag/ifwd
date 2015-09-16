@@ -14,6 +14,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 	var result = false;
 	var paymentFormId = '#' + paymentFormId;
 	var method = "<%=request.getContextPath()%>/prepareWorkingHolidayPlan";
+	console.log($(paymentFormId).serialize());
 	$.ajax({
 		type : "POST",
 		url : method,
@@ -24,6 +25,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 				form.action = "<%=request.getContextPath()%>/${language}/working-holiday-insurance/quote";
 				result = true;
 			} else {
+				console.log(data);
 				result = false;
 			}
 		}
