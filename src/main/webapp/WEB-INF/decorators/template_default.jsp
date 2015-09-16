@@ -49,7 +49,7 @@
 <% String requestUri = request.getRequestURI(); %>
 <% if(!requestUri.endsWith("-insurance") && 
 		!(requestUri.endsWith("/tc/home") || requestUri.endsWith("/tc/home/") 
-			|| requestUri.endsWith("/tc") || requestUri.endsWith("/tc/"))) { %>
+			|| requestUri.endsWith("/tc") || requestUri.endsWith("/tc/"))&& !requestUri.endsWith("/offers")&&!requestUri.endsWith("/faq")) { %>
 <meta name="robots" content="noindex">
 <% }
    
