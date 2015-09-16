@@ -775,10 +775,10 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                                                         
                                                         <input
                                                         type="text" name="personalName" id="txtInsuFullName${inx}"
-                                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
+                                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
                                                         <c:choose>
-														    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
-														    value="${userDetails.userName }"
+														    <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI'}">
+														    value="${userDetails.fullName }"
 														    </c:when>
 														    <c:otherwise>
 	                                                        value="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />"
