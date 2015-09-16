@@ -31,7 +31,7 @@
 							<div class="header-top-menu">
 								<ul class="clearfix">
 									<li>
-										<a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="header.menu.home" bundle="${msg}" /></a>
+										<a href="<%=request.getContextPath()%>/${language}"><fmt:message key="header.menu.home" bundle="${msg}" /></a>
 									</li>
 									<li class="reset-padding-menu">|</li>
 									<li>

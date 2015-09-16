@@ -951,6 +951,10 @@ public class WorkingHolidayController {
 			}
 				
 			parameters.put("expiryDate", session.getAttribute("expiryDate"));
+			
+			if(JsonUtils.hasEmpty(parameters)) {
+				return UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday";
+			}
 
 			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 			header.put("userName", session.getAttribute("username").toString());

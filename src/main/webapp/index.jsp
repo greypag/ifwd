@@ -8,6 +8,6 @@
 		
 	}
 	
-	response.sendRedirect(request.getContextPath() + "/" + session.getAttribute("language") + "/home");
+	response.sendRedirect(request.getContextPath() + "/" + session.getAttribute("language"));
 	// response.sendRedirect(request.getContextPath() + "/home");
 %>

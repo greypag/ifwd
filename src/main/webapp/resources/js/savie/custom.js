@@ -390,7 +390,7 @@ $(function() {
 	// Thank you to Overall
 	$("#back-home-btn").on('click', function(){
 		//window.location = "overall";    
-		window.location = context + "/" + language + "/home";    
+		window.location = context + "/" + language;    
  	});
 
 	// Overall Page Links

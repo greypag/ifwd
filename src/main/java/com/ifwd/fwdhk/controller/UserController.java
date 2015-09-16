@@ -55,7 +55,7 @@ public class UserController {
 	public ModelAndView logout(HttpServletRequest servletRequest) 
 	{	
 
-		String homeURL = "/changeLang?selectLang=EN&action=/tc/home";
+		String homeURL = "/changeLang?selectLang=EN&action=/tc/";
 		String lang = UserRestURIConstants.getLanaguage(servletRequest);
 		HttpSession session = servletRequest.getSession(false);
 		
@@ -69,9 +69,9 @@ public class UserController {
 		if (lang != null)
 		{
 			if (lang.equals("tc"))
-				homeURL = "/changeLang?selectLang=tc&action=/en/home";
+				homeURL = "/changeLang?selectLang=tc&action=/en/";
 			else
-				homeURL = "/changeLang?selectLang=tc&action=/tc/home";
+				homeURL = "/changeLang?selectLang=tc&action=/tc/";
 		}
 		return new ModelAndView("redirect:" + homeURL);
 	}
@@ -223,7 +223,7 @@ public class UserController {
 			}
 		}
 		else{
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(servletRequest)+ "/home");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(servletRequest));
 		}
 		return new ModelAndView("");
 	}
@@ -271,7 +271,7 @@ public class UserController {
 		if (userName.equals("ifwdUser") && password.equals("Pass1234")) {
 			HttpSession session = request.getSession();
 			session.setAttribute("uatAuth", "ifwdUser");
-			return new ModelAndView("redirect:" + "/tc/home");
+			return new ModelAndView("redirect:" + "/tc");
 		}
 		return null;
 	}

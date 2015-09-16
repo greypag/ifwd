@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -759,6 +760,10 @@ public class HomeCareController {
 		String emailId = (String) session.getAttribute("emailAddress");
 		String email = (String) session.getAttribute("emailAddress");
 		
+		if(StringUtils.isAllLowerCase(referenceNo) || StringUtils.isAllLowerCase(transactionNumber) || StringUtils.isAllLowerCase(transactionDate)
+				|| StringUtils.isAllLowerCase(creditCardNo) || StringUtils.isAllLowerCase(expiryDate)) {
+			return UserRestURIConstants.getSitePath(request) + "homecare/homecare";
+		}
 		
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		CreatePolicy finalizePolicy = homecareService.finalizeHomeCarePolicy(

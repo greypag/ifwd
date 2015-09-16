@@ -60,6 +60,10 @@ body {
   position: relative;
 }
 
+body.modal-open {
+  padding-right: 0 !important;
+}
+
 .small-text {
   font-size: 15px;
 }
@@ -2511,6 +2515,9 @@ body.chin .fwd-savie-wrapper .btn-orange {
   font-size: 24px;
   color: #061d2a;
 }*/
+.fwd-savie-wrapper .modal.fade {
+  padding-right: 0 !important;
+}
 .fwd-savie-wrapper .modal.fade .modal-dialog.plan-details {
   width: 100%;
   max-width: 460px;
@@ -15709,4 +15716,12 @@ body.chin #btn-cstmr-srvc-cnter {
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
   color: #a9a9a9;
+}
+
+/*Checklist 998*/
+@media (min-width: 768px) {
+  .fwd-savie-wrapper .three-column-widget .fwd-col .col-content .pull-left.mobile-image,
+  .fwd-savie-wrapper #other-benefits .pull-left.mobile-image {
+    width: 20%;
+  }
 }

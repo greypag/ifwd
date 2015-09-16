@@ -292,7 +292,7 @@ public class RestServiceImpl implements RestServiceDao {
 						.toString());
 				session.setAttribute("myReferralCode", "");
 				session.setAttribute("myHomeReferralCode", "ECHOME");
-				session.setAttribute("myTravelReferralCode", "TRA123");
+				session.setAttribute("myTravelReferralCode", "ANNTRA");
 				
 				
 				

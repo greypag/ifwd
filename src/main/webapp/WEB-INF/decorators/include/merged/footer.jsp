@@ -114,3 +114,5 @@ $(function() {
   src="<%=request.getContextPath()%>/resources/js/numeral.min.js"></script>
 <script type="text/javascript"
   src="<%=request.getContextPath()%>/resources/js/fwd.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.payment.js"></script>

@@ -240,6 +240,9 @@ var language = "${language}";
 		$('#perferredTimeIsNull-btn').click(function(){
 			$('#perferredTimeIsNull').modal('hide');
 		});
+		$('#reservationInvalid-btn').click(function(){
+			$('#reservationInvalid').modal('hide');
+		});
 		
 		$('#centre').on('change', function() {
 			var centre = $('#centre option:selected').val();
