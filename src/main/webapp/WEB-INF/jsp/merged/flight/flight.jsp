@@ -562,12 +562,14 @@ $(document).ready(function() {
             <li>
               <p class="h4-5"><fmt:message key="flight.main.other.tnc.desc7.part1" bundle="${msg}" /> <a href="<fmt:message key="y5buddy.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc7.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc7.part3" bundle="${msg}" /></p>
             </li>
+            <li>
+              <p class="h4-5"><fmt:message key="flight.main.other.tnc.desc8.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc8.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc8.part3" bundle="${msg}" /></p>  
+            </li>
           </ul>
           <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
-		    <div class="main-partner-1">
-		        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="">
-		    </div>
-		  </div>
+		        <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-right:15px;">
+            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-right:15px;">
+		      </div>
           <div class="spacer3"></div>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class=""><u><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part4" bundle="${msg}" /></p>
@@ -647,6 +649,16 @@ $(document).ready(function() {
                   </div>
               </div>
               <!--/.item-->
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc8.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc8.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc8.part3" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              <!--/.item-->
             </div>
             <!--/.carousel-inner-->
             <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
@@ -656,7 +668,13 @@ $(document).ready(function() {
           <div class="clearfix"></div>
           
           <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center">
-		    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="float:initial;">
+		        <div class="col-lg-12 col-md-12 col-xs-12">
+              <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
+            </div>
+            <div class="col-lg-12 col-md-12 col-xs-12">
+              <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
+            </div>
+          </div>
 		  </div>
           
           <div class="spacer3"></div>

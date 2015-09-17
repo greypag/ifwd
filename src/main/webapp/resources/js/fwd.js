@@ -2689,7 +2689,7 @@ function tPlanValid()
     	$("#inputTxtAppHkid").val('');
     }
 	
-	if($("#inputCARoom").val().trim()==roomPlaceholder.trim()){
+	/*if($("#inputCARoom").val().trim()==roomPlaceholder.trim()){
     	$("#inputCARoom").val('');
     }
     if($("#inputCAFloor").val().trim()==floorPlaceholder.trim()){
@@ -2709,8 +2709,7 @@ function tPlanValid()
     }
     if($("#inputCAStreetName").val().trim()==streetNamePlaceholder.trim()){
     	$("#inputCAStreetName").val('');
-    }
-	
+    }*/
 
 	var flag=true;
 	document.getElementById("fullnameinvalid").innerHTML = "";
@@ -2718,13 +2717,6 @@ function tPlanValid()
 	document.getElementById("emailid").innerHTML = "";    
 	document.getElementById("mobileNo").innerHTML = "";
 	document.getElementById("dobInvalid").innerHTML = "";
-	
-	
-	
-	
-	
-	
-	
 	document.getElementById("chk1").innerHTML = "";
 	document.getElementById("chk2").innerHTML = "";
 

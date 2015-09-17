@@ -121,6 +121,36 @@
 	                    </div>
 	                    <div class="clearfix"></div>
 	                </div>
+	                <hr class="partner_hr"/>
+	                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content">
+	                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pad-none partner_image_container">
+	                        <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png"/>
+	                    </div>
+	                    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
+	                        <div class="partner_title"><fmt:message key="partner.pricerite.title" bundle="${msg}" /></div>
+	                        <!-- <div class="partner_description h4-5"><fmt:message key="partner.pricerite.desc1" bundle="${msg}" /></div> -->
+	                        <div class="partner_desc_list">
+									<ul class="bullets">
+										<li>
+									       <p class="h4-5"><fmt:message key="partner.pricerite.desc1" bundle="${msg}" /></p>
+										</li>
+									</ul>
+	                            </div>
+	                        <div class="partner_tnc">
+	                            <div class="partner_tnc_list">
+									<ul class="bullets">
+										<li>
+										   <p class="h4-5"><fmt:message key="partner.pricerite.tnc1" bundle="${msg}" /></p>
+										</li>
+									</ul>
+	                            </div>
+	                        </div>
+	                        <div class="partner_link">
+	                           <a href="<fmt:message key="pricerite.eshop.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.visit.website" bundle="${msg}" /></u></a>
+	                        </div>
+	                    </div>
+	                    <div class="clearfix"></div>
+	                </div>
 	                <div class="clearfix"></div>
                 </div>
 			</div>

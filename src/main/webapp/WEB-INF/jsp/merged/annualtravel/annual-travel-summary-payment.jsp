@@ -324,7 +324,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
 	                                <tr>
 	                                    <td data-title="Personal 4"><span class="h4-5"><fmt:message key="annual.summary.insured.traveller" bundle="${msg}" /> <%=i + 1%></span></td>
 	                                    <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getPersonalName()[i]%></span></td>
-	                                    <td data-title="Date of birth"><span class="h4-5">May 9, 2012</span></td>
+	                                    <td data-title="Date of birth"><span class="h4-5"><%=planDetailsForm.getPersonalDob()[i]%></span></td>
 	                                    <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getPersonalHKID()[i]%></span></td>
 	                                    <%
                                         	if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
@@ -357,7 +357,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                 <div class="gray-bg1 product_payment_detail_form_container">
                     <div style="width:80%;margin-left:10%;">
                     <div class="col-xs-12 pad-none">
-                       <h2 class="from-control" style="padding:0px !important;">Payment Details</h2>
+                       <h2 class="from-control" style="padding:0px !important;"><fmt:message key="annual.summary.paymentdetails" bundle="${msg}" /></h2>
                        <span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
                     </div>
                     <input type="hidden" name="merchantId" value="${createPolicy.merchantId}">
