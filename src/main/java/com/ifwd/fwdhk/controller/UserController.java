@@ -26,6 +26,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.ECommWsConnector;
+import com.ifwd.fwdhk.connector.response.savie.AccountBalanceResponse;
+import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
+import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.model.PurchaseHistory;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
@@ -41,6 +45,9 @@ public class UserController {
 	
 	@Autowired
 	RestServiceDao restService;
+	
+	@Autowired 
+	protected ECommWsConnector connector;
 
 	@RequestMapping(value = "/verifyRecaptcha", method = RequestMethod.POST)
 	@ResponseBody
@@ -501,6 +508,53 @@ public class UserController {
 		
 		String str=  UserRestURIConstants.getSitePath(req)+ "faq";	
 		return UserRestURIConstants.getSitePath(req)+ "faq";
+	}
+	
+	
+	@RequestMapping(value = {"/{lang}/purchase-history"}, method = RequestMethod.GET)
+	public ModelAndView getPurchaseHistory(HttpServletRequest request, Model model) {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		HttpSession session = request.getSession(false);
+		UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
+		if(userDetails != null){
+			try {
+				String tokenInSession = session.getAttribute("token").toString();
+				String usernameInSession = session.getAttribute("username").toString();
+				
+				userDetails.setFullName(userDetails.getFullName());
+				userDetails.setEmailAddress(userDetails.getEmailAddress());
+				userDetails.setMobileNo(userDetails.getMobileNo());
+				userDetails.setUserName(userDetails.getUserName());
+				model.addAttribute(userDetails);
+
+				/* getPurchaseHistory */
+				if (!tokenInSession.isEmpty() && !usernameInSession.isEmpty()) {
+					HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+					header.put("userName", usernameInSession);
+					header.put("token", tokenInSession);
+
+					PurchaseHistoryResponse purchaseHistory = connector.getPurchaseHistory(header);
+					model.addAttribute("purchaseHistory", purchaseHistory);
+				}
+				/* getAccountBalance */
+				if (!tokenInSession.isEmpty() && !usernameInSession.isEmpty()) {
+					HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+					header.put("userName", usernameInSession);
+					header.put("token", tokenInSession);
+
+					AccountBalanceResponse accountBalance = connector.getAccountBalance(header);
+					model.addAttribute("accountBalance", accountBalance);
+				}
+				return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "purchase-history");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else{
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request));
+		}
+		return new ModelAndView("");
 	}
 	
 

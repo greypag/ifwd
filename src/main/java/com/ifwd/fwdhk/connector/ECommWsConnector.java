@@ -35,6 +35,8 @@ import org.springframework.stereotype.Component;
 
 import com.google.common.collect.Maps;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
+import com.ifwd.fwdhk.connector.response.savie.AccountBalanceResponse;
+import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
 import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
@@ -112,6 +114,14 @@ public class ECommWsConnector {
 	
 	public BaseResponse uploadDocuments(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.SEND_DOCUMENTS,HttpMethod.POST,parameters,BaseResponse.class,header);
+	}
+	
+	public PurchaseHistoryResponse getPurchaseHistory(final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.USER_PURCHASE_HISTORY,HttpMethod.GET,null,PurchaseHistoryResponse.class,header);
+	}
+	
+	public AccountBalanceResponse getAccountBalance(final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.USER_ACCOUNT_BALANCE,HttpMethod.GET,null,AccountBalanceResponse.class,header);
 	}
 	
 	public <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {
