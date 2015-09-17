@@ -564,10 +564,8 @@ $(document).ready(function() {
             </li>
           </ul>
           <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
-		    <div class="main-partner-1">
-		        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="">
-		    </div>
-		  </div>
+		        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-right:15px;">
+		      </div>
           <div class="spacer3"></div>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf" target="_blank" class=""><u><fmt:message key="flight.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="flight.main.other.disclaimer.part3" bundle="${msg}" /></p>
           <p class="h4-6"><fmt:message key="flight.main.other.disclaimer.part4" bundle="${msg}" /></p>
