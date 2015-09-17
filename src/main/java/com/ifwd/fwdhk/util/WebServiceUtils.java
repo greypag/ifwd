@@ -289,5 +289,27 @@ public class WebServiceUtils {
         	return "";
         }
 	}
+	
+public static String getMessage(String key, String language) {
+		
+		
+        try {
+            Properties propEn = new Properties();
+        
+            InputStream stream = null;
+            ClassLoader loader = Thread.currentThread().getContextClassLoader();  
+            if (language.toUpperCase().equals("EN"))
+            	 stream = loader.getResourceAsStream("messages_en_US.properties");
+            else
+            	stream = loader.getResourceAsStream("messages_zh_HK.properties");
+            propEn.load(stream);
+            return  (String)propEn.get(key);
+            
+            
+        } catch (Exception e) {
+        	e.printStackTrace();
+        	return "";
+        }
+	}
 
 }

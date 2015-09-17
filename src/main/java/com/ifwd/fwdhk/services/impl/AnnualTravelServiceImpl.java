@@ -767,13 +767,56 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		parameters.put("applicant", applicantJsonObj);
 
 		JSONObject addressJsonObj = new JSONObject();
-		addressJsonObj.put("room", planDetailsForm.getApplicantRoom());
-		addressJsonObj.put("floor", planDetailsForm.getApplicantFloor());
-		addressJsonObj.put("block", planDetailsForm.getApplicantBlock());
-		addressJsonObj.put("building", planDetailsForm.getApplicantBuilding());
-		addressJsonObj.put("estate", planDetailsForm.getApplicantEstate());
-		addressJsonObj.put("streetNo", planDetailsForm.getApplicantStreetNo());
-		addressJsonObj.put("streetName", planDetailsForm.getApplicantStreetName());
+		
+		String room = WebServiceUtils.getMessage("annual.details.address.room.placeholder", UserRestURIConstants.getLanaguage(request));
+		String floor = WebServiceUtils.getMessage("annual.details.address.floor.placeholder", UserRestURIConstants.getLanaguage(request));
+		String block = WebServiceUtils.getMessage("annual.details.address.block.placeholder", UserRestURIConstants.getLanaguage(request));
+		String building = WebServiceUtils.getMessage("annual.details.address.building.placeholder", UserRestURIConstants.getLanaguage(request));
+		String estate = WebServiceUtils.getMessage("annual.details.address.estate.placeholder", UserRestURIConstants.getLanaguage(request));
+		String streetNo = WebServiceUtils.getMessage("annual.details.address.streetNo.placeholder", UserRestURIConstants.getLanaguage(request));
+		String streetName = WebServiceUtils.getMessage("annual.details.address.streetName.placeholder", UserRestURIConstants.getLanaguage(request));
+		if(room.equals(planDetailsForm.getApplicantRoom())) {
+			room = "";
+		}else {
+			room = planDetailsForm.getApplicantRoom();
+		}
+		if(floor.equals(planDetailsForm.getApplicantFloor())) {
+			floor = "";
+		}else {
+			floor = planDetailsForm.getApplicantFloor();
+		}
+		if(block.equals(planDetailsForm.getApplicantBlock())) {
+			block = "";
+		}else {
+			block = planDetailsForm.getApplicantBlock();
+		}
+		if(building.equals(planDetailsForm.getApplicantBuilding())) {
+			building = "";
+		}else {
+			building = planDetailsForm.getApplicantBuilding();
+		}
+		if(estate.equals(planDetailsForm.getApplicantEstate())) {
+			estate = "";
+		}else {
+			estate = planDetailsForm.getApplicantEstate();
+		}
+		if(streetNo.equals(planDetailsForm.getApplicantStreetNo())) {
+			streetNo = "";
+		}else {
+			streetNo = planDetailsForm.getApplicantStreetNo();
+		}
+		if(streetName.equals(planDetailsForm.getApplicantStreetName())) {
+			streetName = "";
+		}else {
+			streetName = planDetailsForm.getApplicantStreetName();
+		}
+		addressJsonObj.put("room", room);
+		addressJsonObj.put("floor", floor);
+		addressJsonObj.put("block", block);
+		addressJsonObj.put("building", building);
+		addressJsonObj.put("estate", estate);
+		addressJsonObj.put("streetNo", streetNo);
+		addressJsonObj.put("streetName", streetName);
 		addressJsonObj.put("district", planDetailsForm.getApplicantDistrict());
 		addressJsonObj.put("area", planDetailsForm.getApplicantArea());
 		
