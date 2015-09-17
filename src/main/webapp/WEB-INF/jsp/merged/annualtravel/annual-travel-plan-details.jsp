@@ -325,7 +325,7 @@ function activateUserAccountJoinUs() {
                 <ol class="breadcrumb pad-none">
                     <li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="annual.title.home" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
                     <li><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="annual.title.travelcare" bundle="${msg}" /></a></li>
-                    <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="annual.title.youroptions" bundle="${msg}" /></li>
+                    <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="annual.title.application" bundle="${msg}" /></li>
                 </ol>
                 <!-- <div class="container ">
                     <div class="col-md-12 shop-tracking-status">
@@ -998,7 +998,7 @@ function activateUserAccountJoinUs() {
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="annual.title.travelcare" bundle="${msg}" /></h2>
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;"><fmt:message key="annual.title.annualtravel" bundle="${msg}" /></h2>
                                     <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;"><fmt:message key="annual.common.plan" bundle="${msg}" /> ${planName }</h4>
-                                    <input type="hidden" id="selectedPlanName" value="${planName }">
+                                    <input type="hidden" name="selectedPlanName" value="${planName }">
                                 </div>
                                 <div class="pull-right" style="padding-top: 80px;">
                                     <div class="text-left pad-right1 h2-2 h2" style="margin-top:0px;margin-bottom:0px;">

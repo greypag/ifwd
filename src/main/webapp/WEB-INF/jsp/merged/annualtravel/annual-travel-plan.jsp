@@ -345,21 +345,25 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 								<h2>
 									PLAN <%=travelQuote.getPlanName()[i]%>
 								</h2>
-								<h4 class="product_plan_box_description">TravelCare Single Travel provides you with conprehensive travel protection <span class="product_plan_box_description_orange">up to HK$1,000,000 nedical premium cover</span> for leisure and business tips</h4>
+								<%if(i==0) { %>
+								<h4 class="product_plan_box_description"><fmt:message key="annual.quote.productplan0" bundle="${msg}" /></h4>
+								<%}else if(i==1) { %>
+								<h4 class="product_plan_box_description"><fmt:message key="annual.quote.productplan1" bundle="${msg}" /></h4>
+								<%} %>
 							</div>
 							<div class="partition"></div>
 							<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 								<div class="product_plan_box_price_container col-lg-12 col-md-12 col-sm-6 col-xs-6 pad-none">
 									<h4 class="product_plan_box_title_right">
-									    Annual Premium
+									    <fmt:message key="annual.quote.annualpremium" bundle="${msg}" />
 									</h4>
 					                <h2 class="product_plan_box_price_right">
-										HK$ <span class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getGrossPremium()[i]%>" />.00</span>
+										<fmt:message key="annual.quote.dollar" bundle="${msg}" /> <span class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getGrossPremium()[i]%>" />.00</span>
 										<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
 									</h2>
 									<div class="del actualPriceA product_plan_box_del hide">HK$ <del>240.00</del></div>
 								</div>
-								<div class="product_plan_box_select_button_container col-lg-12 col-md-12 col-sm-6 col-xs-6 pad-none"><div class="product_plan_box_select_button">Select</div></div>
+								<div class="product_plan_box_select_button_container col-lg-12 col-md-12 col-sm-6 col-xs-6 pad-none"><div class="product_plan_box_select_button"><fmt:message key="annual.common.select" bundle="${msg}" /></div></div>
 								<div class="clearfix"></div>
 							</div>
 							<div class="clearfix"></div>
@@ -407,37 +411,37 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						<div class="fwdpanel product_plan_panel_container">
 						    <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
-                                    Product Highlights
+                                    <fmt:message key="annual.quote.producthighlights" bundle="${msg}" />
                                     <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
                                 <div class="row product_plan_panel_content_row">
                                     <div class="col-xs-12">
-                                        <p>TravelCare provides you with comprehensive travel protection for leisure and business trips. Medical Expenses, Worldwide Emergency Services, Hospital Cash Allowance, Personal Accident, Major Burns, Personal Money, Baggage, Personal Liability, Travel Delay, Cancellation and Curtailment of Trip are all included. For details, please refer to the section of "Coverage" below.</p>
+                                        <p><fmt:message key="annual.quote.producthighlights.content" bundle="${msg}" /></p>
                                         <br>
                                         <p>
                                             <ul class="bullets">
                                                 <li>
-                                                    No excess for all benefits
+                                                    <fmt:message key="annual.quote.producthighlights.content1" bundle="${msg}" />
                                                 </li>
                                                 <li>
-                                                    24-hour Worldwide Emergency Assistance Services
+                                                    <fmt:message key="annual.quote.producthighlights.content2" bundle="${msg}" />
                                                 </li>
                                                 <li>
-                                                    Cover for leisure and amateur sports activities including winter sports, bungee jumping, hiking, rock climbing, horse riding, scuba diving and other water sports
+                                                    <fmt:message key="annual.quote.producthighlights.content3" bundle="${msg}" />
                                                 </li>
                                                 <li>
-                                                    Cover for personal accident and medical related claims caused by an act of terrorism
+                                                    <fmt:message key="annual.quote.producthighlights.content4" bundle="${msg}" />
                                                 </li>
                                                 <li>
-                                                    Premium is calculated on a daily basis according to the exact length of your trip
+                                                    <fmt:message key="annual.quote.producthighlights.content5" bundle="${msg}" />
                                                 </li>
                                                 <li>
-                                                    Unlimited number of children for Individual & Children or Family Plan
+                                                    <fmt:message key="annual.quote.producthighlights.content6" bundle="${msg}" />
                                                 </li>
                                                 <li>
-                                                    Free automatic extension up to 10 days in case of an unavoidable delay of the stipulated itinerary
+                                                    <fmt:message key="annual.quote.producthighlights.content7" bundle="${msg}" />
                                                 </li>
                                             </ul>
                                         </p>
@@ -447,14 +451,14 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             </div>
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
-                                    Summary of Coverage
+                                    <fmt:message key="annual.quote.summaryofcoverage" bundle="${msg}" />
                                     <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
                                 <div class="fwdpanel-heading product_plan_inner_panel">
 	                                <h4 class="fwdpanel-title h4-4-full">
-	                                    Medical Expenses
+	                                    <fmt:message key="annual.quote.summaryofcoverage.medicalexpenses" bundle="${msg}" />
 	                                    <i class="fa fa-plus"></i>
 	                                </h4>
 	                            </div>
@@ -464,16 +468,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                                        <table>
 	                                            <thead>
 	                                              <tr>
-	                                                  <th>Benefits</th>
-	                                                  <th>Plan A</th>
-	                                                  <th>Plan B</th>
+	                                                  <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                                  <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                                  <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
 	                                              </tr>
 	                                              </thead>
 	                                              <tbody>
 	                                              <tr>
-                                                      <td data-title="Benefits">a)  Medical Expenses - the cost of qualified medical treatment, surgery and hospitalisation arising from sickness or accidental injury. <br/><br/>b)  Follow-up Expenses - medical, hospital and treatment expenses reasonably incurred within 90 days of the Insured Person’s return to the place of origin from overseas up to HK$100,000 (Including Chinese Bonesetting in Hong Kong up to HK$3,000 with maximum daily limit per visit HK$200 ).</td>
-                                                      <td data-title="Plan A">$1,000,000</td>
-                                                      <td data-title="Plan B">$500,000</td>
+                                                      <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.benefits" bundle="${msg}" /></td>
+                                                      <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.plana" bundle="${msg}" /></td>
+                                                      <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.planb" bundle="${msg}" /></td>
                                                   </tr>
 	                                              </tbody>
 	                                           </table>
@@ -483,7 +487,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                            </div>
 	                            <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Hospital or Quarantine Cash Allowance
+                                        <fmt:message key="annual.quote.summaryofcoverage.hospital" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -493,21 +497,21 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">a) Overseas Hospital - HK$500 for each complete day in hospital to meet Insured Person's extra expenses.</td>
-                                                   <td data-title="Plan A">$10,000</td>
-                                                   <td data-title="Plan B">$5,000</td>
+                                               	   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.hospital.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.hospital.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.hospital.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">b) Compulsory Quarantine - HK$500 for each complete day during the journey or 7 days upon return to Hong Kong.</td>
-                                                   <td data-title="Plan A">$10,000</td>
-                                                   <td data-title="Plan B">$5,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.hospital.benefits2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.hospital.plana2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.hospital.planb2" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -517,7 +521,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Worldwide Emergency Assistance Service
+                                        <fmt:message key="annual.quote.summaryofcoverage.worldwide" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -527,54 +531,54 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             <table>
                                                <thead>
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">a) Emergency Medical Evacuation and Repatriation - to the nearest facility capable of providing adequate medical care and to repatriate back to Hong Kong if the physician determines that it is necessary.</td>
-                                                   <td data-title="Plan A">Fully Covered</td>
-                                                   <td data-title="Plan B">Fully Covered</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">b) Guarantee of Hospital Admission Deposits - for hospital admittance fees on behalf of the Insured Person.</td>
-                                                   <td data-title="Plan A">$40,000</td>
-                                                   <td data-title="Plan B">$40,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb2" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">c) Additional Costs of Accommodation - for an Insured Person's family member or travelling companion when such costs arise from hospitalization or delay due to a serious medical condition of the Insured Person.</td>
-                                                   <td data-title="Plan A">$40,000</td>
-                                                   <td data-title="Plan B">$15,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits3" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana3" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb3" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">d) Compassionate Visit and Hotel Accommodation - up to 2 immediate family members, includes travelling cost to join the Insured Person who is confined in hospital for more than 3 days or dies abroad.</td>
-                                                   <td data-title="Plan A">$40,000</td>
-                                                   <td data-title="Plan B">$15,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits4" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana4" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb4" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">e) Return of Minor Children - reasonable additional accommodation and travelling expenses for the return of unattended Insured Person's children (aged below 18) to Hong Kong.</td>
-                                                   <td data-title="Plan A">$40,000</td>
-                                                   <td data-title="Plan B">$15,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits5" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana5" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb5" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">f) Repatriation of Mortal Remains - transportation charges for repatriation of the mortal remains to Hong Kong.</td>
-                                                   <td data-title="Plan A">$40,000</td>
-                                                   <td data-title="Plan B">$15,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits6" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana6" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb6" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">g) Unexpected Return in the Event of the Death of a Close Relative - return economy class airfare for unexpected return to Hong Kong following the death of a close relative.</td>
-                                                   <td data-title="Plan A">$40,000</td>
-                                                   <td data-title="Plan B">$15,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits7" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana7" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb7" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">h) Other Assistance - including telephone medical advice, emergency travel service assistance or legal referral etc.</td>
-                                                   <td data-title="Plan A">included</td>
-                                                   <td data-title="Plan B">included</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits8" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana8" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb8" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">Worldwide Emergency Assistance Service is arranged by International SOS (HK) Limited.</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits9" bundle="${msg}" /></td>
                                                    <td></td>
                                                    <td></td>
                                                </tr>
@@ -586,7 +590,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Personal Accident
+                                        <fmt:message key="annual.quote.summaryofcoverage.personalaccident" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -596,26 +600,26 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Accidental death/permanent total disablement/total and permanent loss of sight in one or both eyes/loss by severance or permanent and total loss of use of one or more limbs. (Death benefit for children under 18 years old and for person over 70 years old shall not exceed HK$300,000.) </td>
-                                                   <td data-title="Plan A">$1,200,000</td>
-                                                   <td data-title="Plan B">$600,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">Major Burns<br/>Suffering of Third Degree Burns with burnt areas equal to or greater than 5% of head or 10% of total body surface area.</td>
-                                                   <td data-title="Plan A">$200,000</td>
-                                                   <td data-title="Plan B">$100,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.benefits2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.plana2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.planb2" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">Credit Card Protection<br/>In the event of accidental death of the Insured Person during the journey, the outstanding balance of the Insured Person's credit card as at the date of accident will be covered.</td>
-                                                   <td data-title="Plan A">$30,000</td>
-                                                   <td data-title="Plan B">$15,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.benefits3" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.plana3" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.planb3" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -625,7 +629,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Baggage
+                                        <fmt:message key="annual.quote.summaryofcoverage.baggage" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -635,16 +639,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Loss, physical breakage of damage directly resulting from accident, theft, burglary, or mishandling by carriers to the Insured Person’s baggage or personal property carry-on. The limit for each item, pair or set shall be HK$3,000.</td>
-                                                   <td data-title="Plan A">$20,000</td>
-                                                   <td data-title="Plan B">$3,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.baggage.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.baggage.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.baggage.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -654,7 +658,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Baggage Delay
+                                        <fmt:message key="annual.quote.summaryofcoverage.baggagedelay" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -664,16 +668,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Emergency purchases of essential items of toiletries and clothing and the additional travelling cost to get back the baggage consequent upon temporary deprivation of baggage for at least 6 hours from the time of arrival at destination abroad due to delay or misdirection in delivery.</td>
-                                                   <td data-title="Plan A">$1,500</td>
-                                                   <td data-title="Plan B">$500</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.baggagedelay.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.baggagedelay.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.baggagedelay.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -683,7 +687,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Personal Money
+                                        <fmt:message key="annual.quote.summaryofcoverage.personalmoney" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -693,16 +697,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Loss of cash, banknotes and travellers cheque arising from theft, burglary or robbery.</td>
-                                                   <td data-title="Plan A">$3,000</td>
-                                                   <td data-title="Plan B">$2,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalmoney.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalmoney.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalmoney.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -712,7 +716,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Loss of Travel Document
+                                        <fmt:message key="annual.quote.summaryofcoverage.traveldocument" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -722,16 +726,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Cost of obtaining replacement air tickets, travel expenses and accommodation incurred to obtain such replacement arising from theft, burglary, robbery and accidental loss (Reimbursement is limited to HK$2,000 per day for Plan A or HK$1,000 per day for Plan B).</td>
-                                                   <td data-title="Plan A">$20,000</td>
-                                                   <td data-title="Plan B">$5,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.traveldocument.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.traveldocument.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.traveldocument.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -741,7 +745,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Travel Delay
+                                        <fmt:message key="annual.quote.summaryofcoverage.traveldelay" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -751,24 +755,24 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">a) Additional Travel Cost<br/>Public transportation expenses necessarily incurred as a direct consequence of airline or other public transportation is being delayed due to serious weather condition, industrial action, hijack, mechanical derangement, but only if the Insured Person has to re-route the trip as the result of the cancellation of the transportation previously confirmed.</td>
-                                                   <td data-title="Plan A">$10,000</td>
-                                                   <td data-title="Plan B">$2,500</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">b) Cash Allowance<br/>If the Insured Person needs to pay additional travelling cost in the event of travel delay, the Insured Person will be indemnified at HK$300 for each full 6-hour period delay.</td>
-                                                   <td data-title="Plan A">$2,500</td>
-                                                   <td data-title="Plan B">$600</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.benefits2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.plana2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.planb2" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">(Select either a or b for compensation only.)</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.benefits3" bundle="${msg}" /></td>
                                                    <td></td>
                                                    <td></td>
                                                </tr>
@@ -780,7 +784,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Cancellation Charge
+                                        <fmt:message key="annual.quote.summaryofcoverage.cancellationcharge" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -790,16 +794,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Reimbursement of irrecoverable prepaid tour costs and airfares in the event of death, serious sickness or injury of the Insured Person, immediate family members, travel companion or close business partner of the Insured Person, witness summons, jury service, compulsory quarantine of the Insured Person, natural disaster or unanticipated outbreak of epidemic diseases/industrial action, riot/civil commotion at the destination within 7 days before departure date, serious damage to the Insured Person’s principal home in Hong Kong arising from fire or flooding within 10 days from the departure date or Black Outbound Travel Alert for the destination is in effect 7 days before the departure date.</td>
-                                                   <td data-title="Plan A">$30,000</td>
-                                                   <td data-title="Plan B">$5,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.cancellationcharge.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.cancellationcharge.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.cancellationcharge.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -809,7 +813,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Curtailment of Trip
+                                        <fmt:message key="annual.quote.summaryofcoverage.curtailmentoftrip" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -819,16 +823,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Reimbursement of irrecoverable prepaid tour costs and airfares in the event of death, serious sickness or injury of the Insured Person, immediate family members, travel companion or close business partner of the Insured Person, witness summons, jury service, compulsory quarantine of the Insured Person, natural disaster or unanticipated outbreak of epidemic diseases/industrial action, riot/civil commotion at the destination within 7 days before departure date, serious damage to the Insured Person’s principal home in Hong Kong arising from fire or flooding within 10 days from the departure date or Black Outbound Travel Alert for the destination is in effect 7 days before the departure date.</td>
-                                                   <td data-title="Plan A">$30,000</td>
-                                                   <td data-title="Plan B">$5,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.curtailmentoftrip.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.curtailmentoftrip.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.curtailmentoftrip.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -838,7 +842,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Loss of Home Contents
+                                        <fmt:message key="annual.quote.summaryofcoverage.lossofhomecontents" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -848,16 +852,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">The loss of or damage to the contents or personal effects of the Insured Person’s principal home as a result of burglary accompanied by forcible and violent entry to or exit from the premise whilst the home is unoccupied during the period of travel.</td>
-                                                   <td data-title="Plan A">$30,000</td>
-                                                   <td data-title="Plan B">$10,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.lossofhomecontents.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.lossofhomecontents.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.lossofhomecontents.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -867,7 +871,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Personal Liability
+                                        <fmt:message key="annual.quote.summaryofcoverage.personalliability" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -877,16 +881,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Indemnity against third party legal liability arising from a result of accidental injury. Loss or damage to third party’s property during the Period of Insurance. (This benefit does not apply to liability arising from the use or hire of motor vehicle.)</td>
-                                                   <td data-title="Plan A">$3,000,000</td>
-                                                   <td data-title="Plan B">$1,500,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalliability.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalliability.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalliability.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -896,7 +900,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Rental Vehicle Excess
+                                        <fmt:message key="annual.quote.summaryofcoverage.rentalvehicleexcess" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -906,16 +910,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the Insured Person will be reimbursed.</td>
-                                                   <td data-title="Plan A">$5,000</td>
-                                                   <td data-title="Plan B">$3,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.rentalvehicleexcess.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.rentalvehicleexcess.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.rentalvehicleexcess.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -925,7 +929,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Golfer "Hole-in-One"
+                                        <fmt:message key="annual.quote.summaryofcoverage.golfer" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -935,16 +939,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+	                                               <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">If the Insured Person achieve a "hole-in-one" at any recognized golf course.</td>
-                                                   <td data-title="Plan A">$3,000</td>
-                                                   <td data-title="Plan B">$1,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.golfer.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.golfer.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.golfer.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -955,7 +959,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             </div>
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
-                                    Important Notes
+                                    <fmt:message key="annual.quote.importantnotes" bundle="${msg}" />
                                     <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
@@ -963,26 +967,25 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="row product_plan_panel_content_row">
                                     <div class="col-xs-12">
                                         <p>
-                                            For the Insured Person<br/>
+                                            <fmt:message key="annual.quote.importantnotes.content1" bundle="${msg}" /><br/>
                                             <ul class="bullets">
-                                                <li>Citizenship of the Insured Person MUST holding a valid HKID during the Period of Insurance.</li>
-                                                <li>Age limit for persons(s) insured under this Policy shall be from a minimum age of 18 years up to a maximum age of 70 years. </li>
-                                                <li>This policy excluded any accidents whilst engaging in sports or games in a professional capacity or where an Insured Person would or could earn income or remuneration from engaging in such sport or game; racing (other than on foot). </li>
-                                                <li>This policy do not cover the Insured Person being a crew member or an operator of any air carrier; accident whilst engaging in any kind of manual labour work; engaging in offshore activities including commercial diving, oil rigging, mining or aerial photography; handling of explosives, performing as an actor/actress, being a site worker, tour guide or tour escort; or armed force services. </li>
+                                                <li><fmt:message key="annual.quote.importantnotes.content2" bundle="${msg}" /></li>
+                                                <li><fmt:message key="annual.quote.importantnotes.content3" bundle="${msg}" /></li>
+                                                <li><fmt:message key="annual.quote.importantnotes.content4" bundle="${msg}" /></li>
                                             </ul>
                                         </p>
                                         <p>
-                                            About the Journey<br/>
+                                            <fmt:message key="annual.quote.importantnotes.content5" bundle="${msg}" /><br/>
                                             <ul class="bullets">
-                                                <li>Each Journey commences when the Insured Person completes the immigration departure clearance procedure from Hong Kong and ends when the Insured Person completes the immigration arrival clearance procedure for returning to Hong Kong after such Journey </li>
-                                                <li>Duration of Journeys taken by the Insured Person within the Period of Insurance and for a period of no longer than 90 consecutive days each will be covered under this Policy. </li>
+                                                <li><fmt:message key="annual.quote.importantnotes.content6" bundle="${msg}" /></li>
+                                                <li><fmt:message key="annual.quote.importantnotes.content7" bundle="${msg}" /></li>
                                             </ul>
                                         </p>
                                         <p>
-                                            General Remind<br/>
+                                            <li><fmt:message key="annual.quote.importantnotes.content8" bundle="${msg}" /><br/>
                                             <ul class="bullets">
-                                                <li>In the event that an Insured Person is covered by more than one policy issued by the Company for the same journey, benefit will be based on the policy which provides the greatest amount of benefit. </li>
-                                                <li>This policy may cancel provided that no claim has been made. In this event, the policyholder will be entitled to a partial refund of the premium paid, following a deduction according to a pro-rata refund of premium paid and subject to a minimum premium of HK$500 per policy.</li>
+                                                <li><li><fmt:message key="annual.quote.importantnotes.content9" bundle="${msg}" /></li>
+                                                <li><li><fmt:message key="annual.quote.importantnotes.content10" bundle="${msg}" /></li>
                                             </ul>
                                         </p>
                                     </div>
@@ -991,7 +994,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             </div>
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
-                                    Major Exclusions
+                                    <fmt:message key="annual.quote.majorexclusions" bundle="${msg}" />
                                     <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
@@ -999,16 +1002,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="row product_plan_panel_content_row">
                                     <div class="col-xs-12">
                                         <ol class="">
-                                            <li>War (whether declared or not), civil war, act of foreign enemies, rebellion, military or usurped power.</li>
-                                            <li>Nuclear hazards.</li>
-                                            <li>Acts of Terrorism (except the Personal Accident, Medical Cover, Worldwide Emergency Services, Travel Delay, Cancellation Charges and Trip Curtailment covered by TravelCare).</li>
-                                            <li>Pre-existing condition, congenital and hereditary condition.</li>
-                                            <li>Suicide, attempted suicide or intentional self-inflicted bodily injuries, insanity, abortion, miscarriage, assigned complications, pregnancy, child-birth, venereal diseases, the use of alcohol or drugs other than those prescribed by a qualified registered physician, dental treatment (unless resulting from accidental bodily injury to sound and natural teeth).</li>
-                                            <li>Racing (other than on foot) or any sports or games in a professional capacity or where the Insured Person would or could earn income or remuneration from engaging in such sport.</li>
-                                            <li>Any activities in the air unless an insured person is (i) travelling as a fare paying passenger in a licensed aircraft operated by a recognised airline, or (ii) participating in such activity where the maneuver or navigation of such activity is managed and controlled by another licensed person and the provider of such activity must be authorised by the relevant local authority.</li>
-                                            <li>Losses not reported within 24 hours to the authorities (such as airlines, police) and failure to provide the report certified by the relevant authorities.</li>
-                                            <li>Pager, Mobile Phone, handheld portable telecommunication equipment, computer equipment (except Lap Top Computer).</li>
-                                            <li>Personal liabilities arising from use or operation of vehicles, aircraft, watercraft, willful, malicious or unlawful acts.</li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content1" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content2" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content3" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content4" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content5" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content6" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content7" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content8" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content9" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content10" bundle="${msg}" /></li>
                                         </ol>
                                     </div>
                                     <div class="clearfix"></div>
@@ -1016,7 +1019,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             </div>
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
-                                    Age Limit
+                                    <fmt:message key="annual.quote.agelimit" bundle="${msg}" />
                                     <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
@@ -1024,7 +1027,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="row product_plan_panel_content_row">
                                     <div class="col-xs-12">
                                         <p>
-                                            A minimum age of 18 years to a maximum of 70 years.<br/><br/>(This summary gives only an outline of the insurance cover. Please refer to the Insurance Policy for the precise terms and conditions.)
+                                            <fmt:message key="annual.quote.agelimit.content1" bundle="${msg}" /><br/><br/><fmt:message key="annual.quote.agelimit.content2" bundle="${msg}" />
                                         </p>
                                     </div>
                                     <div class="clearfix"></div>

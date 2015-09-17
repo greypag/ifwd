@@ -56,12 +56,16 @@
 
 body {
   font-size: 18px;
-  font-family: 'Calibri', Arial;
+  font-family: Calibri, sans-serif !important;
   position: relative;
 }
 
 body.modal-open {
   padding-right: 0 !important;
+}
+
+body.chin{
+    font-family: 'Microsoft JhengHei', Calibri, sans-serif !important;
 }
 
 .small-text {
@@ -79,7 +83,7 @@ body.modal-open {
 .fwd-savie-wrapper h3,
 .fwd-savie-wrapper h4,
 .fwd-savie-wrapper h5 {
-  font-family: 'Calibri-Bold', Arial;
+  font-family: 'Calibri-Bold', Arial, sans-serif;
 }
 .fwd-savie-wrapper h2 {
   font-size: 36px;
@@ -112,11 +116,11 @@ body.modal-open {
   color: #fff;
   background: #ff8200;
   font-size: 24px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   padding: 7px 40px;
 }
 body.chin .fwd-savie-wrapper .btn-orange {
-  font-family: 'Microsoft Yahei';
+  font-family: 'Microsoft Yahei', Calibri, sans-serif;
 }
 .fwd-savie-wrapper .btn-orange:hover {
   background: #fff;
@@ -132,7 +136,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   background-color: #fff;
   color: #ff8200;
   font-size: 24px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   padding: 7px 40px;
   border: 1px solid #ff8200;
 }
@@ -148,7 +152,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 .fwd-savie-wrapper .btn-full {
   width: 100%;
   height: 50px;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 24px;
   background-color: #ff8200;
   color: #fff;
@@ -203,7 +207,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   opacity: 0.8;
 }
 .fwd-savie-wrapper .chinese {
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei', Calibri, sans-serif;
 }
 .fwd-savie-wrapper .mini-calculator {
   width: 100%;
@@ -226,7 +230,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   height: 33px;
   background-color: #061d29;
   color: #fff;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 14px;
 }
 @media (min-width: 992px) {
@@ -261,7 +265,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 @media (min-width: 992px) {
   .fwd-savie-wrapper header .navbar-fixed-top .header-hotline p {
     height: 40px;
-    font-family: 'Calibri', sans-serif;
+    font-family: 'Calibri', sans-serif !important;
   }
 }
 .fwd-savie-wrapper header .navbar-fixed-top .notification-menu {
@@ -279,7 +283,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   color: #373a36;
   border-left: solid 4px #ff8200;
   font-size: 14px;
-  font-family: 'Calibri';
+  font-family: 'Calibri', sans-serif !important;
 }
 .fwd-savie-wrapper header .navbar-fixed-top .notification-menu .btn-notifications:hover, .fwd-savie-wrapper header .navbar-fixed-top .notification-menu .btn-notifications:active, .fwd-savie-wrapper header .navbar-fixed-top .notification-menu .btn-notifications:focus {
   outline: 0;
@@ -302,7 +306,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper header .navbar-fixed-top .notification-menu p.time {
   font-size: 12px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: #9ba5a7;
 }
 .fwd-savie-wrapper header .navbar-fixed-top .notification-menu span.notification {
@@ -345,7 +349,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   border-top: none;
   color: #373a36;
   font-size: 14px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   text-align: center;
   padding: 10px 0;
 }
@@ -376,7 +380,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   font-size: 14px;
 }
 .fwd-savie-wrapper header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   display: block;
   float: left;
   color: #333230;
@@ -387,7 +391,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   display: block;
 }
 .fwd-savie-wrapper header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li.top-menu-chinese {
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei', Calibri, sans-serif;
 }
 .fwd-savie-wrapper header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li.reset-padding-menu {
   padding: 7px 5px;
@@ -422,7 +426,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
     height: 40px;
     padding: 8px;
     margin-left: 5px;
-    font-family: 'Calibri-Bold';
+    font-family: 'Calibri-Bold', sans-serif;
     font-size: 14px;
     line-height: 24px;
     color: #fff;
@@ -445,7 +449,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
     height: 40px;
     padding: 8px;
     margin-left: 5px;
-    font-family: 'Calibri-Bold';
+    font-family: 'Calibri-Bold', sans-serif;
     font-size: 16px;
     line-height: 24px;
     color: #fff;
@@ -461,7 +465,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
     width: auto;
     max-width: none;
     height: 40px;
-    font-family: 'Calibri-Bold';
+    font-family: 'Calibri-Bold', sans-serif;
     font-size: 16px;
     padding: 9px 17px;
   }
@@ -472,7 +476,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 .fwd-savie-wrapper header .navbar-fixed-top .buttons-and-chat .btn-chinese {
   float: left;
   background-color: black;
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei', Calibri, sans-serif;
   font-size: 16px;
   padding: 6px 10px;
   height: 33px;
@@ -509,7 +513,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper header .navbar-fixed-top .buttons-and-chat .btn-chinese .login-eServices {
   position: relative;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 14px;
 }
 @media (min-width: 992px) {
@@ -517,14 +521,14 @@ body.chin .fwd-savie-wrapper .btn-orange {
     width: auto;
     max-width: none;
     height: 40px;
-    font-family: 'Calibri-Bold';
+    font-family: 'Calibri-Bold', sans-serif;
     font-size: 14px;
     padding: 9px 17px;
   }
 }
 .fwd-savie-wrapper header .navbar-fixed-top .buttons-and-chat .btn-login {
   display: none;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 16px;
   background-color: black;
   height: 50px;
@@ -661,7 +665,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   padding: 0 30px 0 15px;
   margin-top: 28px;
   margin-bottom: 18px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 24px;
 }
 .fwd-savie-wrapper header .navbar-menu .header-menu li .dropdown-menu .savie-dropdown .row {
@@ -673,7 +677,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper header .navbar-menu .header-menu li .dropdown-menu .savie-dropdown h3 {
   font-size: 24px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   color: #ff8200;
   margin-top: 0;
   margin-bottom: 25px;
@@ -683,7 +687,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper header .navbar-menu .header-menu li .dropdown-menu .savie-dropdown p {
   font-size: 14px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: #000;
   margin-top: 3px;
   margin-bottom: 15px;
@@ -750,7 +754,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   top: 25px;
   width: 100%;
   font-size: 14px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
 }
 .fwd-savie-wrapper header .navbar-menu.teaser-header .header-menu li .orange-header-menu:hover, .fwd-savie-wrapper header .navbar-menu.teaser-header .header-menu li .orange-header-menu:focus {
   outline: 0;
@@ -780,7 +784,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper .header-nav-mobile {
   font-size: 24px;
-  font-family: 'foco_bold';
+  font-family: 'foco_bold', Calibri, sans-serif;
   height: 0;
 }
 .fwd-savie-wrapper .header-nav-mobile .offcanvas.in.on {
@@ -856,7 +860,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   margin: 0 15px 15px 0;
 }
 .fwd-savie-wrapper .header-nav-mobile .header-nav-menu-mobile .mobile-accrdn-list {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 30px;
 }
 .fwd-savie-wrapper .header-nav-mobile .header-nav-menu-mobile .mobile-accrdn-list .login-to-fwd {
@@ -872,7 +876,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   background-color: #061d2a;
   color: #fff;
   font-size: 24px;
-  font-family: 'calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   outline: 0;
   border-radius: 0;
   border: 0;
@@ -1007,14 +1011,14 @@ body.chin .fwd-savie-wrapper .btn-orange {
   background-color: #020202;
   font-size: 13px;
   color: #fff;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   padding: 0 15px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper footer .fwd-full-container.footer-tm {
     height: 44px;
     padding: 10px 0 0 0;
-    font-family: "foco_regular";
+    font-family: 'foco_regular', Calibri, sans-serif;
     font-size: 14px;
   }
 }
@@ -1056,14 +1060,14 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper footer .fwd-full-container.footer-tm .footer-max-width .footer-trade .footer-list li {
   display: inline;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 16px;
   line-height: 22px;
   color: #df7f1e;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper footer .fwd-full-container.footer-tm .footer-max-width .footer-trade .footer-list li {
-    font-family: 'foco_regular';
+    font-family: 'foco_regular', Calibri, sans-serif;
     font-size: 14px;
     color: #fff;
   }
@@ -1101,7 +1105,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper footer .fwd-full-container.footer-tm .footer-max-width .footer-trade .footer-list li.rst-padding {
-    font-family: foco_regular;
+    font-family: foco_regular, Calibri, sans-serif;
     font-size: 16px;
     color: #333333;
   }
@@ -1139,7 +1143,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   color: #ff8200;
   padding-right: 0px;
   padding-left: 0px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu li {
@@ -1147,7 +1151,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
     float: left;
     padding-right: 11px;
     padding-left: 11px;
-    font-family: "foco_bold";
+    font-family: 'foco_bold', Calibri, sans-serif;
     font-size: 24px;
     line-height: 26px;
     color: #df7f1e;
@@ -1213,7 +1217,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   padding-left: 5px;
   float: left;
   clear: both;
-  font-family: 'Calibri', sans-serif;
+  font-family: Calibri, sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-menu-right {
@@ -1718,7 +1722,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper .banner-widget .buy-now {
   font-size: 28px;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-Bold', sans-serif;
   color: white;
   border: 1px solid #ff8000;
   background-color: #ff8000;
@@ -1761,7 +1765,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 .fwd-savie-wrapper .banner-widget .widget-btns a {
   color: #fff;
   background: #ff8200;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 28px;
   padding: 8px 75px;
   margin: 0 2px;
@@ -1788,7 +1792,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper .banner-widget .widget-link a {
   color: #fff;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 18px;
   text-decoration: underline;
 }
@@ -1853,7 +1857,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   margin-bottom: 15px;
 }
 .fwd-savie-wrapper .box-container .btn {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 24px;
   text-align: center;
   width: 100%;
@@ -1893,7 +1897,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   margin: 10px;
 }
 .fwd-savie-wrapper .benefits .benefit-col p {
-  font-family: Calibri;
+  font-family: Calibri, sans-serif;
   font-size: 18px;
 }
 
@@ -1920,7 +1924,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper .blog-widget .read-blog-mobile a {
   font-size: 24px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   color: #fff;
 }
 @media (min-width: 992px) {
@@ -1974,7 +1978,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper .blog-widget #sticker a {
   font-size: 24px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   color: #fff;
 }
 .fwd-savie-wrapper .blog-widget .stick {
@@ -1992,7 +1996,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 .fwd-savie-wrapper .breadcrumbs {
   display: none;
   text-align: left;
-  font-family: 'foco_bold';
+  font-family: 'foco_bold', Calibri, sans-serif;
   font-size: 18px;
 }
 @media (min-width: 992px) {
@@ -2089,7 +2093,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   }
 }
 .fwd-savie-wrapper .three-column-widget .fwd-col .col-content h2 {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 24px;
   margin-bottom: 0;
   margin-top: 0;
@@ -2176,7 +2180,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 .fwd-savie-wrapper .three-column-widget h1 {
   color: #f6871d;
   font-size: 36px;
-  font-family: foco_regular;
+  font-family: foco_regular, Calibri, sans-serif;
   font-weight: bold;
 }
 .fwd-savie-wrapper .three-column-widget h1 span:after {
@@ -2184,7 +2188,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .three-column-widget h1 {
-    font-family: 'Calibri-Bold', Arial;
+    font-family: 'Calibri-Bold', Arial, sans-serif;
   }
   .fwd-savie-wrapper .three-column-widget h1 span:after {
     content: 'step';
@@ -2236,7 +2240,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper .three-column-widget a, .fwd-savie-wrapper .three-column-widget a:focus {
   color: #f6871f;
-  font-family: 'Calibri-Bold', Arial;
+  font-family: 'Calibri-Bold', Arial, sans-serif;
   font-size: 24px;
 }
 .fwd-savie-wrapper .three-column-widget a:hover {
@@ -2285,7 +2289,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 
 .fwd-savie-wrapper .email-row {
   border: 1px solid #b7c3cd;
-  font-family: 'Calibri-Bold', Arial;
+  font-family: 'Calibri-Bold', Arial, sans-serif;
   margin-left: 15px;
   margin-right: 15px;
   padding-top: 13px;
@@ -2359,7 +2363,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper .email-row .email-input .email-text {
   width: 100%;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 16.64px;
   border-left: none;
   border-right: none;
@@ -2423,7 +2427,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   }
 }
 .fwd-savie-wrapper .email-row .email-input p {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   text-align: left;
   font-size: 12px;
   margin-bottom: 0;
@@ -2511,7 +2515,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   opacity: 0.8 !important;
 }
 /*.fwd-savie-wrapper .modal.fade {
-  font-family: Calibri;
+  font-family: Calibri, sans-serif;
   font-size: 24px;
   color: #061d2a;
 }*/
@@ -2564,14 +2568,14 @@ body.chin .fwd-savie-wrapper .btn-orange {
   border: 0;
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-header h4 {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 36px;
   color: #f68a1d;
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-header h4.h4-plan-details {
   font-size: 24px;
   color: #f58220;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-header .close {
   font-size: 25px;
@@ -2598,7 +2602,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body .pull-left.txt {
   color: #0a1d29;
   font-size: 18px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   padding-top: 10px;
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a {
@@ -2609,7 +2613,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a.link-plan-details {
   font-size: 14px;
   color: #f58220;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   /*border-bottom: 1px solid  #f58220;*/
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a.link-plan-details:hover, .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-body a.link-plan-details:focus {
@@ -2632,7 +2636,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   border: 0;
   color: #9aa4a6;
   background-color: #ebeded;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   margin-top: 2px;
   box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0);
 }
@@ -2682,18 +2686,18 @@ body.chin .fwd-savie-wrapper .btn-orange {
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-footers h5 {
   font-style: italic;
   font-size: 18px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   margin: 0;
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-footers h6, .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-footers p {
   margin: 0;
   text-align: center;
   color: #0a1d29;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-footers h6.plan-details, .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-footers p.plan-details {
   font-size: 14px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: #0a1d29;
   padding-top: 4px;
   margin-bottom: -10px;
@@ -2723,7 +2727,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-footers a.register {
-    font-family: 'Calibri-Bold';
+    font-family: 'Calibri-Bold', sans-serif;
   }
 }
 .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-footers a.register:hover, .fwd-savie-wrapper .modal.fade .modal-dialog .modal-content .modal-footers a.register:focus {
@@ -2740,7 +2744,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   text-align: justify;
 }
 .fwd-savie-wrapper .login-mobile {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 24px;
   color: #061d2a;
   width: 100%;
@@ -2789,7 +2793,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper .login-mobile p.plan-details {
   font-size: 14px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: #0a1d29;
   padding-top: 15px;
 }
@@ -3108,7 +3112,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   .fwd-savie-wrapper #fwd-carousel .carousel-inner .item p,
   .fwd-savie-wrapper #fwd-carousel .carousel-inner .item.next p {
     font-size: 24px;
-    font-family: 'Calibri-Bold';
+    font-family: 'Calibri-Bold', sans-serif;
     line-height: 24px;
   }
 }
@@ -3276,7 +3280,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   }
 }
 .fwd-savie-wrapper .product-details .carousel .carousel-inner .item .carousel-caption.add-padding {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   padding-bottom: 80px;
 }
 .fwd-savie-wrapper .product-details .carousel .carousel-inner .item .carousel-caption.add-padding h3 {
@@ -3304,7 +3308,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper #motto {
   font-size: 36px;
-  font-family: 'foco_bold';
+  font-family: 'foco_bold', Calibri, sans-serif;
   color: #f6871f;
   background: white;
   padding: 18px 26px;
@@ -3320,7 +3324,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 @media (min-width: 992px) {
   .fwd-savie-wrapper #motto h2 {
     padding: 0px 26%;
-    font-family: 'Calibri-Bold';
+    font-family: 'Calibri-Bold', sans-serif;
     font-size: 36px;
     margin-top: 0;
     margin-bottom: 0;
@@ -3365,7 +3369,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper #message h2 {
   font-size: 30px;
-  font-family: 'foco_bold';
+  font-family: 'foco_bold', Calibri, sans-serif;
   color: black;
   margin-top: 35px;
   line-height: 1.19999997;
@@ -3374,7 +3378,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 @media (min-width: 992px) {
   .fwd-savie-wrapper #message h2 {
     margin-top: -6px;
-    font-family: 'Calibri';
+    font-family: Calibri, sans-serif;
     font-weight: bold;
     padding: 0 8%;
   }
@@ -3382,7 +3386,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 .fwd-savie-wrapper #message #letter {
   width: 70px;
   background-color: #f68b1f;
-  font-family: 'foco_bold';
+  font-family: 'foco_bold', Calibri, sans-serif;
   font-size: 41.4px;
   color: white;
   padding: 6px 0;
@@ -3392,7 +3396,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper #message #letter {
-    font-family: 'Calibri';
+    font-family: Calibri, sans-serif;
     font-size: 30px;
     width: 50px;
     padding: 4px 0;
@@ -3400,7 +3404,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   }
 }
 .fwd-savie-wrapper #message p {
-  font-family: 'foco_regular';
+  font-family: 'foco_regular', Calibri, sans-serif;
   font-size: 18px;
   margin-top: 19px;
   text-align: left;
@@ -3409,7 +3413,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper #message p {
-    font-family: 'Calibri';
+    font-family: Calibri, sans-serif;
     font-size: 16px;
     margin-top: -4px;
   }
@@ -3424,7 +3428,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper #questions .right {
   display: inline-block;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: black;
   margin-top: 9px;
 }
@@ -3458,7 +3462,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper #product-highlights h2 {
   font-size: 30px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: bold;
   color: black;
   padding-bottom: 10px;
@@ -3484,7 +3488,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 .fwd-savie-wrapper #get-covered h3 {
   font-size: 26.9px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: white;
   font-weight: bold;
   padding: 11px 0;
@@ -3656,7 +3660,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   }
 }
 .fwd-savie-wrapper .page-sales-illustration .sales-head h1 {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: bold;
   font-size: 36px;
   color: #f6871f;
@@ -3705,14 +3709,14 @@ body.chin .fwd-savie-wrapper .btn-orange {
   bottom: 6px;
 }
 #illustration-filters span.error-msg-promo {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: #e4002b;
   font-size: 14px;
   display: block;
   margin-top: 3px;
 }
 #illustration-filters span.error-msg-dob {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: #e4002b;
   font-size: 14px;
   display: block;
@@ -3781,7 +3785,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 #illustration-filters #investment-amount h3 {
   color: white;
-  font-family: 'foco_bold';
+  font-family: 'foco_bold', Calibri, sans-serif;
   font-size: 24px;
   text-align: left;
   margin: 0 0 5px;
@@ -3800,21 +3804,21 @@ body.chin .fwd-savie-wrapper .btn-orange {
 }
 #illustration-filters #investment-amount #hkd {
   color: white;
-  font-family: 'foco_regular';
+  font-family: 'foco_regular', Calibri, sans-serif;
   font-size: 24px;
   margin: 9px 5px 0;
 }
 body.chin #illustration-filters #investment-amount #hkd {
-  font-family: 'Microsoft Yahei';
+  font-family: 'Microsoft Yahei', Calibri, sans-serif;
 }
 #illustration-filters #investment-amount #hkd span {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
 }
 #illustration-filters #investment-amount #left, #illustration-filters #investment-amount #right {
   color: white;
   text-align: center;
-  font-family: 'foco_regular';
+  font-family: 'foco_regular', Calibri, sans-serif;
   font-size: 15px;
 }
 #illustration-filters #investment-amount #left p, #illustration-filters #investment-amount #right p {
@@ -3840,7 +3844,7 @@ body.chin #illustration-filters #investment-amount #hkd {
   margin-right: 10px;
 }
 #illustration-filters #investment-amount #crediting-rate {
-  font-family: 'foco_bold';
+  font-family: 'foco_bold', Calibri, sans-serif;
   font-size: 18px;
   color: #cd6e08;
   margin-top: 17px;
@@ -3883,7 +3887,7 @@ body.chin #illustration-filters #investment-amount #hkd {
   padding: 0;
   /*color: #9ba5a7;*/
   /*color: #000;*/
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 17.92px;
   padding-left: 20px;
   margin-top: 5px;
@@ -3892,7 +3896,7 @@ body.chin #illustration-filters #investment-amount #hkd {
 }
 
 body.chin #illustration-filters .promocode{
-  font-family: 'Microsoft JhengHei';
+  font-family: 'Microsoft JhengHei', Calibri, sans-serif;;
 }
 
 @media (min-width: 992px) {
@@ -3945,7 +3949,7 @@ body.chin #illustration-filters .promocode{
   font-size: 23.9px;
   text-align: left;
   padding: 18px 0 0 0;
-  font-family: 'foco_bold';
+  font-family: 'foco_bold', Calibri, sans-serif;
   position: relative;
 }
 #illustration-filters #information h2 .info-tip {
@@ -3984,8 +3988,8 @@ body.chin #illustration-filters .promocode{
   border: none;
   padding: 0;
   /*color: #9ba5a7;*/
-  color: #000;
-  font-family: 'Calibri';
+  /*color: #000; */
+  font-family: Calibri, sans-serif;
   font-size: 17.92px;
   padding-left: 60px;
   width: 100%;
@@ -4152,7 +4156,7 @@ body.chin #illustration-filters .promocode{
 .fwd-full-container.container-fluid.made-your-decision-section h6 {
   font-size: 30px;
   color: #061d2a;
-  font-family: Calibri-Bold;
+  font-family: 'Calibri-Bold', sans-serif;
   margin: 0;
   line-height: 30px;
 }
@@ -4298,7 +4302,7 @@ span.explanation {
 }
 
 body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn{
-  font-family: 'Microsoft JhengHei';
+  font-family: 'Microsoft JhengHei', Calibri, sans-serif;;
 }
 
 @media (min-width: 992px) {
@@ -4322,7 +4326,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 }
 .fwd-savie-wrapper .next-sales-block .explanation-content h4 {
   font-size: 18px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   margin: 0 0 5px 0;
 }
 .fwd-savie-wrapper .next-sales-block .explanation-content ul {
@@ -4350,7 +4354,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   }
 }
 .fwd-savie-wrapper .next-sales-block .next-btn {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 24px;
   text-align: center;
   width: 100%;
@@ -4476,7 +4480,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   margin-top: 4px;
 }
 .fwd-savie-wrapper .sales-sticky-filter .tab-content #illustration-filters #investment-amount h4 {
-  font-family: 'foco_bold';
+  font-family: 'foco_bold', Calibri, sans-serif;
   font-size: 18px;
 }
 .fwd-savie-wrapper .sales-sticky-filter .tab-content #illustration-filters #investment-amount h3 {
@@ -4491,7 +4495,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   background-color: transparent;
 }
 .fwd-savie-wrapper .sales-sticky-filter .tab-content #illustration-filters #information h3 {
-  font-family: 'foco_bold';
+  font-family: 'foco_bold', Calibri, sans-serif;
   font-size: 23.9px;
   padding-bottom: 1px;
 }
@@ -4500,7 +4504,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   margin-bottom: 9px;
 }
 .fwd-savie-wrapper .sales-sticky-filter .tab-content #illustration-filters #information #birthday #age {
-  font-family: 'foco_regular';
+  font-family: 'foco_regular', Calibri, sans-serif;
   font-size: 14px;
 }
 .fwd-savie-wrapper .sales-sticky-filter .tab-content #illustration-filters #information #birthday #age p {
@@ -4653,7 +4657,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   }
 }
 .fwd-savie-wrapper .investment .investment-table-desktop {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 30px;
   padding-bottom: 15px;
   position: relative;
@@ -4731,7 +4735,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 }
 .fwd-savie-wrapper .investment .investment-table-desktop .credit-rate-dropdown {
   font-size: 18px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 .fwd-savie-wrapper .investment .investment-table-desktop .credit-rate-dropdown .btn.dropdown-toggle.selectpicker.btn-default {
   margin-left: 10px;
@@ -4776,15 +4780,20 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   width: 75%;
 }
 .fwd-savie-wrapper .investment .investment-table-desktop .description {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 14px;
   color: #000;
 }
 .fwd-savie-wrapper .investment .investment-summary-title-desktop {
   font-size: 30px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   padding-bottom: 15px;
 }
+
+body.chin .fwd-savie-wrapper .investment .investment-summary-title-desktop {
+  font-family: 'Microsoft JhengHei', Calibri, sans-serif;
+}
+
 @media (min-width: 992px) {
   .fwd-savie-wrapper .investment .investment-summary-title-desktop {
     background-color: transparent;
@@ -4807,7 +4816,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   }
 }
 .fwd-savie-wrapper .investment .investment-summary-title-desktop p {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 15px;
   margin: 8px 0 0 0;
 }
@@ -4845,7 +4854,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   margin-bottom: 10px;
 }
 .fwd-savie-wrapper .investment .investment-summary-title-desktop .checkbox-credit-rates {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 18px;
   color: #868789;
   font-weight: normal;
@@ -4958,7 +4967,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   width: 1%;
 }
 .fwd-savie-wrapper .investment .nav.nav-pills.nav-justified {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 24px;
 }
 @media (min-width: 992px) {
@@ -4991,7 +5000,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 .fwd-savie-wrapper .investment .tab-content.credits {
   font-size: 18px;
   color: #ff8200;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 .fwd-savie-wrapper .investment .tab-content.credits .expand-desktop {
   display: none;
@@ -5038,7 +5047,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   font-size: 18px;
   color: #b0bdbd;
   width: 80px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   line-height: 20px;
   margin: 9px auto 25px 14px;
 }
@@ -5132,7 +5141,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   color: #000;
   padding-top: 10px;
   padding-right: 4px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 18px;
   margin: 0 0 10px 0;
   padding: 10px 4px 0 0;
@@ -5192,6 +5201,14 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   text-align: center;
   margin-bottom: 0;
 }
+
+@media (max-width: 640px) {
+  .fwd-savie-wrapper .investment .tab-content.credits table {
+    /*Checklist 991*/
+    font-size: 18px;
+  }
+}
+
 @media (min-width: 992px) {
   .fwd-savie-wrapper .investment .tab-content.credits table {
     font-size: 22.98px;
@@ -5228,11 +5245,11 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   }
 }
 .fwd-savie-wrapper .investment .tab-content.credits table thead {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 18px;
 }
 body.chin .fwd-savie-wrapper .investment .tab-content.credits table thead {
-  font-family: 'Microsoft Yahei';
+  font-family: 'Microsoft Yahei', Calibri, sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .investment .tab-content.credits table thead {
@@ -5369,7 +5386,7 @@ body.chin .fwd-savie-wrapper .investment .tab-content.credits table thead {
   }
 }
 .fwd-savie-wrapper .investment-summary .fwd-chart .fwd-chart-age {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 18px;
   color: #ff8200;
 }
@@ -5407,7 +5424,7 @@ body.chin .fwd-savie-wrapper .investment .tab-content.credits table thead {
   background: rgba(176, 189, 189, 0.6);
   padding: 52px 20px;
   border-radius: 50%;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   color: #ffffff;
   line-height: 18px;
 }
@@ -5536,24 +5553,24 @@ body.chin .fwd-savie-wrapper .investment .tab-content.credits table thead {
 .fwd-savie-wrapper .application-page-header .orange-section .dollars-monthly-right .figures .single-premium {
   color: #fff;
   font-size: 18px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   margin-bottom: -4px;
 }
 .fwd-savie-wrapper .application-page-header .orange-section .dollars-monthly-right .figures .figure-description {
   display: block;
-  font-family: 'Calibri-Light';
+  font-family: 'Calibri-Light', sans-serif;
   line-height: 23px;
 }
 .fwd-savie-wrapper .application-page-header .orange-section .dollars-monthly-right span {
   color: #fff;
 }
 .fwd-savie-wrapper .application-page-header .orange-section .dollars-monthly-right span.dollars {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 30px;
   line-height: 32px;
 }
 .fwd-savie-wrapper .application-page-header .orange-section .dollars-monthly-right span.dollars2 {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 24px;
   line-height: 32px;
 }
@@ -5561,7 +5578,7 @@ body.chin .fwd-savie-wrapper .investment .tab-content.credits table thead {
   display: block;
 }
 .fwd-savie-wrapper .application-page-header .orange-section .dollars-monthly-right span.monthly {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 18px;
 }
 .fwd-savie-wrapper .application-page-header .orange-section .dollars-monthly-right span.desc-desktop {
@@ -5653,7 +5670,7 @@ body.chin .fwd-savie-wrapper .investment .tab-content.credits table thead {
 **/
 .bv-form .help-block {
   color: #e4002b !important;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 
 span.error-msg {
@@ -5663,7 +5680,7 @@ span.error-msg {
 span.dup-error-msg {
   font-size: 15px;
   color: #e4002b;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 
 .fwd-savie-wrapper .page-application h2 {
@@ -5675,7 +5692,7 @@ span.dup-error-msg {
   height: 40px;
   border: 0;
   margin-bottom: 9px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   padding-left: 18px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
   font-size: 18px;
@@ -5712,7 +5729,7 @@ span.dup-error-msg {
   height: 40px;
   border: 0;
   margin-bottom: 9px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   padding-left: 18px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
   font-size: 18px;
@@ -5727,6 +5744,12 @@ span.dup-error-msg {
   /* Chrome and its variants  */
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
 }
+
+body.chin .fwd-savie-wrapper .page-application .form-control.gray-textbox,
+body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
+  font-family: 'Microsoft JhengHei', Calibri, sans-serif !important;
+}
+
 @media (min-width: 992px) {
   .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
     margin-top: 0;
@@ -5803,7 +5826,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .page-application span.optional {
   color: #9ba5a7;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 14px;
   font-weight: normal;
 }
@@ -5821,7 +5844,7 @@ span.dup-error-msg {
   background-color: #f1f3f5;
   font-size: 18px;
   margin-bottom: 0;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: #b4bcbe;
   padding-left: 20px;
   width: 100%;
@@ -5848,11 +5871,11 @@ span.dup-error-msg {
   color: white;
   background: #ff8200;
   font-size: 24px;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-Bold', sans-serif;
 }
 .fwd-savie-wrapper button.next,
 .fwd-savie-wrapper a.next {
-  font-family: 'Microsoft Yahei';
+  font-family: 'Microsoft Yahei', Calibri, sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper button.next,
@@ -5945,7 +5968,7 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper .personal-info-widget {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 18px;
 }
 .fwd-savie-wrapper .personal-info-widget .row.margin {
@@ -5961,7 +5984,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .personal-info-widget .has-error .help-block {
   color: #e4002b;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 .fwd-savie-wrapper .personal-info-widget .form-control.gray-textbox.residential {
   margin-bottom: 10px;
@@ -5978,7 +6001,7 @@ span.dup-error-msg {
   margin-top: 5px;
   margin-bottom: 5px;
   background-position-y: -3px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 18px;
 }
 @media (min-width: 992px) {
@@ -6050,7 +6073,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .personal-info-widget h2 .tooltip-inner {
   background-color: #ff8200;
   font-size: 14px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   max-width: 100%;
   height: 46px;
   display: table-cell;
@@ -6117,7 +6140,7 @@ span.dup-error-msg {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0);
 }
 .fwd-savie-wrapper .personal-info-widget .btn.gender-btn {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   background-color: #ff8200;
   font-size: 18px;
   color: #fff;
@@ -6186,7 +6209,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .personal-info-widget .gender-section .descriptions {
   display: none;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .personal-info-widget .gender-section .descriptions {
@@ -6214,7 +6237,7 @@ span.dup-error-msg {
   border: solid 1px #ff8200;
   text-align: center;
   color: #ff8200;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
   height: 40px;
 }
@@ -6314,7 +6337,7 @@ span.dup-error-msg {
   border: solid 1px #ff8200;
   text-align: center;
   color: #ff8200;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
   height: 40px;
 }
@@ -6456,7 +6479,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .personal-info-widget .left-desktop.text-box span.warning-note {
   color: #162a35;
   font-size: 14px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   padding-top: 15px;
 }
 .fwd-savie-wrapper .personal-info-widget .left-desktop.text-box span.orange {
@@ -6523,7 +6546,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .personal-info-widget .checkbox-section .pull-left.right-checkbox span.checkbox-text {
   color: #061d2a;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 .fwd-savie-wrapper .personal-info-widget label {
   font-weight: normal;
@@ -6540,7 +6563,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper #employment-info h2 {
   color: #ff8200;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 30px;
   margin: 32px 0 0;
 }
@@ -6558,7 +6581,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper #employment-info .content .employment-info-row label {
   color: black;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 18px;
   margin-bottom: 7px;
   color: #061d2a;
@@ -6615,7 +6638,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper #beneficiary-info .beneficiary-info-header h2 {
   color: #ff8200;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 30px;
   margin: 80px 0 0;
 }
@@ -6651,7 +6674,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper #beneficiary-info .beneficiary-info-header h2 .tooltip-inner {
   background-color: #ff8200;
   font-size: 14px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   max-width: 100%;
   height: 46px;
   display: table-cell;
@@ -6672,7 +6695,7 @@ span.dup-error-msg {
   background-position: -160px -15px;
 }
 .fwd-savie-wrapper #beneficiary-info .beneficiary-info-header h4 {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 18px;
   color: #9ba5a7;
   margin: 5px 0 35px;
@@ -6723,7 +6746,7 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper #beneficiary-info .add-beneficiary .add-beneficiary-text h4 {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: #9ba5a7;
 }
 @media (min-width: 992px) {
@@ -6771,7 +6794,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper #beneficiary-info .content h3.mobile-desc {
   margin: 0;
   color: #ff8200;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
 }
 .fwd-savie-wrapper #beneficiary-info .content h3.mobile-desc span {
   color: #9ba5a7;
@@ -6806,7 +6829,7 @@ span.dup-error-msg {
   cursor: pointer;
   position: absolute;
   left: 49px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   margin-top: 7px;
   color: white;
 }
@@ -6904,7 +6927,7 @@ span.dup-error-msg {
   border: solid 1px #ff8200;
   text-align: center;
   color: #ff8200;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
   height: 40px;
 }
@@ -7004,7 +7027,7 @@ span.dup-error-msg {
   border: solid 1px #ff8200;
   text-align: center;
   color: #ff8200;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
   height: 40px;
 }
@@ -7116,7 +7139,7 @@ span.dup-error-msg {
   background: white;
   position: relative;
   float: left;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: #ff8200;
   padding-top: 7px;
   font-weight: normal;
@@ -7279,7 +7302,7 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper .fwd-payment form .pay-later .more-details {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: white;
   font-size: 18px;
 }
@@ -7292,7 +7315,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .fwd-payment form .pay-later span.pay-la {
   display: block;
   color: white;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   position: absolute;
   font-size: 18px;
   width: 100%;
@@ -7303,7 +7326,7 @@ span.dup-error-msg {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .fwd-payment form .pay-later span.pay-la {
-    font-family: 'Calibri-Bold';
+    font-family: 'Calibri-Bold', sans-serif;
     margin-left: 30px;
     color: #1b2e3a;
     margin-top: 0;
@@ -7322,7 +7345,7 @@ span.dup-error-msg {
   border: solid 1px #ff8200;
   background-color: #fff;
   color: #ff8200;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
   padding-top: 15px;
   line-height: 18px;
@@ -7350,7 +7373,7 @@ span.dup-error-msg {
   color: #fff;
   top: 0;
   left: 0;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
   padding-top: 10px;
 }
@@ -7395,7 +7418,7 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper .fwd-payment form .pay-online .more-details {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: white;
   font-size: 18px;
 }
@@ -7408,7 +7431,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .fwd-payment form .pay-online span.pay-ol {
   display: block;
   color: white;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   position: absolute;
   font-size: 18px;
   width: 100%;
@@ -7418,7 +7441,7 @@ span.dup-error-msg {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .fwd-payment form .pay-online span.pay-ol {
-    font-family: 'Calibri-Bold';
+    font-family: 'Calibri-Bold', sans-serif;
     margin-left: 30px;
     color: #1b2e3a;
     margin-top: 0;
@@ -7436,7 +7459,7 @@ span.dup-error-msg {
   height: 100%;
   background-color: #fff;
   color: #ff8200;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
   padding-top: 10px;
   border: solid 1px #ff8200;
@@ -7466,7 +7489,7 @@ span.dup-error-msg {
   color: #fff;
   top: 0;
   left: 0;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
   padding-top: 10px;
 }
@@ -7513,11 +7536,11 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .fwd-payment form .right-pad {
   padding-right: 95px;
-  font-family: "Calibri-Bold";
+  font-family: 'Calibri-Bold', sans-serif;
 }
 .fwd-savie-wrapper .fwd-payment form .right-pad span {
   font-size: 14px;
-  font-family: "Calibri";
+  font-family: Calibri, sans-serif;
   color: #9ba5a7;
 }
 .fwd-savie-wrapper .fwd-payment form .form-group {
@@ -7525,7 +7548,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .fwd-payment form .form-group .payment-link {
   color: #f68a1d;
-  font-family: "Calibri-Bold";
+  font-family: 'Calibri-Bold', sans-serif;
 }
 .fwd-savie-wrapper .fwd-payment form .form-group #account-no {
   font-size: 18px;
@@ -7651,7 +7674,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .fwd-payment form .btn-proceed {
   font-size: 24px;
-  font-family: "Calibri-Bold";
+  font-family: 'Calibri-Bold', sans-serif;
   color: #ff8200;
   border: solid 1px #ff8200;
   background-color: #fff;
@@ -7720,7 +7743,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .declare-authorize h5 {
   margin: 0;
   color: #061d2a;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
   padding-top: 37px;
   padding-bottom: 15px;
@@ -7737,7 +7760,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .declare-authorize .declare-agree {
   padding: 0 0 13px 0;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   font-size: 14px;
 }
 .fwd-savie-wrapper .declare-authorize .agreement-description .proceed-btn {
@@ -7769,7 +7792,7 @@ span.dup-error-msg {
   padding-bottom: 16px;
 }
 .fwd-savie-wrapper .declare-authorize .agreement-description .clearfix.declaration.application-declaration span.order {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
 }
 .fwd-savie-wrapper .declare-authorize .agreement-description .clearfix.declaration.application-declaration.sub-header {
   padding-bottom: 0;
@@ -7804,14 +7827,14 @@ span.dup-error-msg {
   width: 93%;
 }
 .fwd-savie-wrapper .declare-authorize .agreement-description .yes-policy-replace-desc {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 14px;
   color: #9ba5a7;
   padding-top: 2px;
 }
 .fwd-savie-wrapper .declare-authorize .agreement-description .yes-policy-replace-desc span.orange-number {
   color: #ff8200;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
 }
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.yes-policy-replace-desc {
   width: 85%;
@@ -7837,7 +7860,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.policy-replace-desc {
   width: 85%;
   font-size: 14px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   color: #061d2a;
   line-height: 15px;
   padding-top: 3px;
@@ -7853,7 +7876,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .declare-authorize .agreement-description .policy-desc {
   width: 89%;
   font-size: 14px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: #061d2a;
   line-height: 15px;
   padding-top: 3px;
@@ -7897,7 +7920,7 @@ span.dup-error-msg {
   border: 0;
   color: #9aa4a6;
   background-color: #f1f3f5;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   margin-top: 2px;
   box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0);
   margin-top: 8px;
@@ -7918,7 +7941,7 @@ span.dup-error-msg {
   width: 89%;
   color: #061d2a;
   font-size: 16px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-Bold', sans-serif;
   line-height: 19px;
 }
 @media (min-width: 768px) {
@@ -8136,7 +8159,7 @@ span.dup-error-msg {
   border: solid 1px #ff8200;
   text-align: center;
   color: #ff8200;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
   height: 40px;
 }
@@ -8236,7 +8259,7 @@ span.dup-error-msg {
   border: solid 1px #ff8200;
   text-align: center;
   color: #ff8200;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
   height: 40px;
 }
@@ -8362,7 +8385,7 @@ span.dup-error-msg {
   height: 40px;
   font-size: 14px;
   color: #fff;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   display: table-cell;
   vertical-align: middle;
   border-radius: 5px;
@@ -8381,7 +8404,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .signature span.span-text-img {
   margin: 0;
   color: #1b2e3a;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   text-align: center;
   font-weight: normal;
   padding-top: 15px;
@@ -8434,7 +8457,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .signature .signature-section h4 {
   margin: 0;
   color: #1b2e3a;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   text-align: center;
   padding-bottom: 15px;
 }
@@ -8520,12 +8543,12 @@ span.dup-error-msg {
 .fwd-savie-wrapper .signature .pull-left.digital-signature span.desktop-text {
   color: #1b2e3a;
   font-size: 17px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 .fwd-savie-wrapper .signature .pull-left.digital-signature p {
   color: #9ba5a7;
   font-size: 14px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 .fwd-savie-wrapper .signature .pull-left.offline-signature {
   width: 50%;
@@ -8545,12 +8568,12 @@ span.dup-error-msg {
 .fwd-savie-wrapper .signature .pull-left.offline-signature span.desktop-text {
   color: #1b2e3a;
   font-size: 17px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 .fwd-savie-wrapper .signature .pull-left.offline-signature p {
   color: #9ba5a7;
   font-size: 14px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 
 /*
@@ -8679,7 +8702,7 @@ span.dup-error-msg {
   margin: 18px 10px;
   font-size: 18px;
   color: #061d2a;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .document-upload .upload-now-section .document-upload-progress {
@@ -8808,7 +8831,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .document-upload .upload-now-section .select-file-hkid .select-file-section .desk {
   color: #373a36;
   font-size: 14px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 .fwd-savie-wrapper .document-upload .upload-now-section .select-file label.mobile-camera-pic-file,
 .fwd-savie-wrapper .document-upload .upload-now-section .select-file-passport label.mobile-camera-pic-file,
@@ -8831,7 +8854,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .document-upload .upload-now-section .select-file-hkid span.OR {
   color: #373a36;
   font-size: 14px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 .fwd-savie-wrapper .document-upload .upload-now-section .select-file input[type="file"],
 .fwd-savie-wrapper .document-upload .upload-now-section .select-file-passport input[type="file"],
@@ -8869,7 +8892,7 @@ span.dup-error-msg {
   vertical-align: middle;
   color: #ff8200;
   font-size: 14px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   height: 30px;
   text-align: center;
   width: 100px;
@@ -8877,7 +8900,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .document-upload .upload-now-section .upload-now-row h4 {
   margin: 0;
   color: #373a36;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   text-align: center;
 }
 @media (min-width: 992px) {
@@ -8888,7 +8911,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .document-upload .upload-now-section .upload-now-row h5 {
   margin: 0;
   color: #9ba5a7;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   text-align: center;
   padding-bottom: 17px;
   padding-top: 1px;
@@ -8905,7 +8928,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .document-upload .upload-now-section .pull-left.residence-text {
   width: 85%;
   font-size: 18px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   color: #373a36;
   padding-top: 0;
 }
@@ -9006,14 +9029,14 @@ span.dup-error-msg {
 .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.give-at-store span.desktop-text {
   color: #1b2e3a;
   font-size: 17px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.upload-now p,
 .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.upload-later p,
 .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.give-at-store p {
   color: #9ba5a7;
   font-size: 14px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.upload-now {
@@ -9036,7 +9059,7 @@ span.dup-error-msg {
   border: solid 1px #ff8200;
   text-align: center;
   color: #ff8200;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
   height: 40px;
 }
@@ -9136,7 +9159,7 @@ span.dup-error-msg {
   border: solid 1px #ff8200;
   text-align: center;
   color: #ff8200;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
   height: 40px;
 }
@@ -9236,7 +9259,7 @@ span.dup-error-msg {
   border: solid 1px #ff8200;
   text-align: center;
   color: #ff8200;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-weight: normal;
   height: 40px;
 }
@@ -9346,7 +9369,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .document-upload .description {
   font-size: 18px;
   color: #373a36;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   padding-top: 35px;
   padding-bottom: 35px;
 }
@@ -9380,7 +9403,7 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper .thank-you-container h1 {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   font-size: 30px;
   text-align: center;
   margin: 0;
@@ -9417,7 +9440,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .thank-you-container .details-container h2 {
   font-size: 24px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   margin: 0;
   padding-bottom: 13px;
   color: #ff8200;
@@ -9440,7 +9463,7 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper .thank-you-container .details-container p span {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 .fwd-savie-wrapper .thank-you-container .details-container p.steps {
   margin: 0;
@@ -9651,7 +9674,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .plan-row {
   padding: 35px 45px 45px;
   color: #061d2a;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   margin-left: -15px;
   margin-right: -15px;
 }
@@ -9680,11 +9703,11 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper .plan-row .plan-col {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   word-break: break-word;
 }
 .fwd-savie-wrapper .plan-row .plan-col.chinese {
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei', Calibri, sans-serif;
 }
 .fwd-savie-wrapper .plan-row.inner-plan-row {
   background-color: #fff;
@@ -9734,7 +9757,7 @@ span.dup-error-msg {
   color: #ff8200;
   font-size: 14px;
   text-decoration: underline;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 .fwd-savie-wrapper .plan-row.inner-plan-row .inner-plan-col .inner-col h3.h3-pad {
   padding-top: 50px;
@@ -9822,7 +9845,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .illustration-review .illustration-head h2 {
   margin: 0;
   padding: 19px 0 14px 0;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   font-size: 30px;
 }
 .fwd-savie-wrapper .illustration-review .illustration-head h2.appli {
@@ -9866,7 +9889,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .illustration-review .btn-style .btn-next {
   font-size: 24px;
-  font-family: "Calibri-Bold";
+  font-family: 'Calibri-bold', sans-serif;
   color: #ff8200;
   border: solid 1px #ff8200;
   background-color: #fff;
@@ -9951,7 +9974,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .modal.application-modal .modal-dialog .modal-content .modal-body .amount {
   color: #ff8200;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   margin-top: -6px;
   display: block;
   margin-bottom: 4px;
@@ -10045,7 +10068,7 @@ span.dup-error-msg {
   color: #ff8200;
 }
 .fwd-savie-wrapper .fna-container p.hotline {
-  font-family: 'Calibri-Light';
+  font-family: 'Calibri-Light', sans-serif;
   font-size: 14px;
   margin-bottom: 16px;
   color: #505759;
@@ -10053,7 +10076,7 @@ span.dup-error-msg {
   text-align: center;
 }
 .fwd-savie-wrapper .fna-container p.hotline span {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   color: #ff8200;
 }
 @media (min-width: 992px) {
@@ -10156,7 +10179,7 @@ span.dup-error-msg {
   height: 203px;
   padding: 15px 20px;
   font-size: 18px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper #fna-no .modal-content .modal-body textarea {
@@ -10169,7 +10192,7 @@ span.dup-error-msg {
   border: 0;
   background-color: #e2e7eb;
   font-size: 18px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   padding: 7px 20px;
 }
 .fwd-savie-wrapper #fna-no .modal-content .modal-body .next {
@@ -10199,7 +10222,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper #fna-yes .modal-dialog .modal-content p {
   color: #061d2a;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   margin-bottom: 3px;
 }
 .fwd-savie-wrapper #fna-yes .modal-dialog .modal-content .next {
@@ -10211,7 +10234,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .fna-row {
   padding: 35px 15px;
   color: #061d2a;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   margin-left: -15px;
   margin-right: -15px;
 }
@@ -10225,7 +10248,7 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper .fna-row .fna-col {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   word-break: break-word;
   padding-bottom: 5px;
 }
@@ -10235,7 +10258,7 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper .fna-row .fna-col.chinese {
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei', Calibri, sans-serif;
   padding-bottom: 15px;
 }
 .fwd-savie-wrapper .fna-row .fna-col p {
@@ -10452,7 +10475,7 @@ span.dup-error-msg {
   color: #ff8200;
   font-size: 14px;
   text-decoration: underline;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 .fwd-savie-wrapper .fna-row.inner-fna-row .inner-fna-col .inner-col .name-break {
   padding-top: 6px;
@@ -10463,7 +10486,7 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper .fna-row.inner-fna-row .inner-fna-col .inner-col .note {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   padding-top: 5px;
   padding-left: 15px;
   margin-bottom: -38px;
@@ -10528,7 +10551,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .fna-sales-review .btn-style .btn-next {
   font-size: 24px;
-  font-family: "Calibri-Bold";
+  font-family: 'Calibri-bold', sans-serif;
   color: #ff8200;
   border: solid 1px #ff8200;
   background-color: #fff;
@@ -10568,7 +10591,7 @@ span.dup-error-msg {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .fna-sales-review .btn-style .btn-next.edit-btn {
     font-size: 14px;
-    font-family: "Calibri";
+    font-family: Calibri, sans-serif;
     color: #ff8200;
     border: none;
     background-color: transparent;
@@ -10585,7 +10608,7 @@ span.dup-error-msg {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .fna-sales-review .btn-style .btn-next.done-btn {
     font-size: 14px;
-    font-family: "Calibri";
+    font-family: Calibri, sans-serif;
     color: #ff8200;
     border: none;
     background-color: transparent;
@@ -10598,7 +10621,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .fna-sales-review .btn-style .cancel-btn {
   font-size: 18px;
-  font-family: "Calibri";
+  font-family: Calibri, sans-serif;
   color: #ff8200;
   border: none;
   background-color: #fff;
@@ -10613,7 +10636,7 @@ span.dup-error-msg {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .fna-sales-review .btn-style .cancel-btn {
     font-size: 14px;
-    font-family: "Calibri";
+    font-family: Calibri, sans-serif;
     color: #061d2a;
     border: none;
     background-color: transparent;
@@ -10626,7 +10649,7 @@ span.dup-error-msg {
 }
 
 .fwd-savie-wrapper #set-appointment h2 {
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
   font-size: 30px;
   color: #ff8200;
   text-align: center;
@@ -10642,12 +10665,12 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper #set-appointment h5 {
   font-size: 14px;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
   margin: 0;
 }
 .fwd-savie-wrapper #set-appointment h4 {
   color: #061d2a;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
   font-size: 18px;
   margin: 0;
 }
@@ -10658,7 +10681,7 @@ span.dup-error-msg {
   width: 100%;
   height: 50px;
   font-size: 24px;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
   color: #ff8200;
   border: 1px solid #ff8200;
   background: white;
@@ -10677,7 +10700,7 @@ span.dup-error-msg {
   text-align: center;
   padding: 7px 0;
   font-size: 24px;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper #set-appointment .radio-label {
@@ -10747,7 +10770,7 @@ span.dup-error-msg {
   margin-top: 16px;
 }
 .fwd-savie-wrapper #set-appointment .service-centre-cells .content p {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 14px;
   line-height: 15px;
   margin-top: 2px;
@@ -10887,7 +10910,7 @@ span.dup-error-msg {
   background-color: #f1f3f5;
   margin-bottom: 5px;
   background-position-y: -2px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 18px;
   background-position-x: 3px;
 }
@@ -10909,7 +10932,7 @@ span.dup-error-msg {
   height: 40px;
   border: 0;
   margin-bottom: 9px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   padding-left: 25px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
   font-size: 18px;
@@ -10976,7 +10999,7 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper .overall-disclaimer p {
-  font-family: "Calibri";
+  font-family: Calibri, sans-serif;
   font-size: 14px;
   margin-bottom: 11px;
   line-height: 14px;
@@ -11013,12 +11036,12 @@ span.dup-error-msg {
 .fwd-savie-wrapper .fwd-overall h2 {
   font-size: 36px;
   color: #373a36;
-  font-family: "Calibri";
+  font-family: Calibri, sans-serif;
 }
 .fwd-savie-wrapper .fwd-overall h3 {
   font-size: 14px;
   color: #9ba5a7;
-  font-family: "Calibri";
+  font-family: Calibri, sans-serif;
   margin-top: 0;
   padding-bottom: 25px;
 }
@@ -11088,7 +11111,7 @@ span.dup-error-msg {
 * by: RMN
 */
 .modal-backdrop.in {
-  font-family: Calibri;
+  font-family: Calibri, sans-serif;
   font-size: 24px;
   color: #061d2a;
   background: rgb(6, 29, 42);
@@ -11146,7 +11169,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .modal.fade .modal-dialog.teaserSurvey .modal-content.teaserSurvey .modal-body.teaserSurvey p.registered {
   font-size: 18px;
   color: #061d2a;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   text-align: center;
   padding-top: 10px;
   line-height: 21px;
@@ -11160,7 +11183,7 @@ span.dup-error-msg {
   font-size: 18px;
   color: #061d2a;
   text-align: center;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   line-height: 20px;
 }
 @media (min-width: 992px) {
@@ -11186,7 +11209,7 @@ span.dup-error-msg {
   border-radius: 0;
   height: 40px;
   border: 0;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   padding-left: 18px;
   box-shadow: inset 0 1px 1px rgba(0,0,0,0);
   font-size: 18px;
@@ -11211,7 +11234,7 @@ span.dup-error-msg {
   border-radius: 0;
   height: 40px;
   border: 0;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   padding-left: 18px;
   box-shadow: inset 0 1px 1px rgba(0,0,0,0);
   font-size: 18px;
@@ -11287,7 +11310,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .modal.fade .modal-content.willToSave .modal-header.willToSave h2 {
   font-size: 30px;
   margin: 0;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   color: #ff8200;
   line-height: 30px;
 }
@@ -11305,13 +11328,13 @@ span.dup-error-msg {
 .fwd-savie-wrapper .modal.fade .modal-content.willToSave .modal-body.willToSave h3 {
   text-align: center;
   color: #373a36;
-  font-family: 'foco_bold';
+  font-family: 'foco_bold', Calibri, sans-serif;
   margin: 0;
 }
 .fwd-savie-wrapper .modal.fade .modal-content.willToSave .modal-body.willToSave p {
   margin: 0;
   color: #061d2a;
-  font-family: 'foco_regular';
+  font-family: 'foco_regular', Calibri, sans-serif;
   font-size: 15px;
   line-height: 17px;
 }
@@ -11319,7 +11342,7 @@ span.dup-error-msg {
   padding-top: 30px;
   color: #ff8200;
   font-size: 30px;
-  font-family: 'foco_regular';
+  font-family: 'foco_regular', Calibri, sans-serif;
   text-align: center;
   display: block;
   line-height: 30px;
@@ -11327,7 +11350,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .modal.fade .modal-content.willToSave .modal-body.willToSave span.figures {
   color: #ff8200;
   font-size: 30px;
-  font-family: 'foco_bold';
+  font-family: 'foco_bold', Calibri, sans-serif;
 }
 .fwd-savie-wrapper .modal.fade .modal-content.willToSave .modal-footer.willToSave {
   padding-top: 30px;
@@ -11422,7 +11445,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .sign-up-teaser p.email-notification {
   color: #061d2a;
   font-size: 18px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   text-align: center;
   line-height: 22px;
 }
@@ -11488,7 +11511,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .sign-up-teaser .pull-left.text {
   width: 90%;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: #061d2a;
   font-size: 14px;
   line-height: 15px;
@@ -11659,7 +11682,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper p.save-my-way {
   font-size: 38px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   color: #ff8200;
   text-align: center;
   line-height: 30px;
@@ -11671,7 +11694,7 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper p.guaranteed {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   color: #ff8200;
   font-size: 28px;
   line-height: 34px;
@@ -11696,7 +11719,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper p.additional {
   font-size: 18px;
   color: #fff;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   line-height: 23px;
   text-align: center;
 }
@@ -11709,7 +11732,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper p.additional.top {
   padding: 32px 0 0 0;
   font-size: 30px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   color: #ff8200;
   line-height: 28px;
 }
@@ -11731,7 +11754,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper p.sign-up {
   text-align: center;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   color: #fff;
   font-size: 18px;
   padding: 10px 10% 0 10%;
@@ -11759,7 +11782,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper p.bottom-text.upper {
   margin-top: 5px;
   margin-bottom: 10px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper p.bottom-text.upper {
@@ -11781,13 +11804,13 @@ span.dup-error-msg {
 .fwd-savie-wrapper span.add {
   color: #ff8200;
   font-size: 18px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper span.add {
     color: #fff;
     font-size: 24px;
-    font-family: 'Calibri';
+    font-family: Calibri, sans-serif;
   }
 }
 
@@ -11811,14 +11834,14 @@ span.dup-error-msg {
   margin: 0;
   font-size: 30px;
   color: #ff8200;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 .fwd-savie-wrapper .teaser-confirmation h2 span.next-line {
   display: block;
 }
 .fwd-savie-wrapper .teaser-confirmation h4 {
   margin: 0;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: #061d2a;
   padding-top: 14px;
   padding-bottom: 38px;
@@ -11832,12 +11855,12 @@ span.dup-error-msg {
   margin: 0;
 }
 .fwd-savie-wrapper .teaser-confirmation h4 span.savie-bold {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 .fwd-savie-wrapper .teaser-confirmation h3 {
   margin: 0;
   color: #061d2a;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   padding-top: 17px;
   padding-bottom: 15px;
   line-height: 23px;
@@ -11965,7 +11988,7 @@ span.dup-error-msg {
   margin-right: auto;
 }
 .fwd-savie-wrapper .teaser-confirmation a.back-at-home {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   font-size: 24px;
   color: #ff8200;
   height: 60px;
@@ -11979,7 +12002,7 @@ span.dup-error-msg {
 
 #application-registration {
   padding: 12px 30px 50px 20px;
-  font-family: "Calibri-Bold";
+  font-family: 'Calibri-Bold', sans-serif;
 }
 @media (min-width: 992px) {
   #application-registration {
@@ -11993,7 +12016,7 @@ span.dup-error-msg {
   height: 40px;
   border: 0;
   margin-bottom: 9px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   padding-left: 18px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
   font-size: 18px;
@@ -12105,7 +12128,7 @@ span.dup-error-msg {
 }
 #application-registration form .notice, #application-registration form .notice-password {
   font-size: 14px;
-  font-family: "Calibri";
+  font-family: Calibri, sans-serif;
   color: #9ba5a7;
   margin-bottom: 3px;
   margin-top: 5px;
@@ -12220,7 +12243,7 @@ span.dup-error-msg {
   padding: 16px 20px;
   margin-left: -90px;
   margin-top: -13px;
-  font-family: "Calibri";
+  font-family: Calibri, sans-serif;
   font-size: 14px;
 }
 #application-registration .tooltip.top .tooltip-arrow {
@@ -12270,7 +12293,7 @@ span.dup-error-msg {
 
 .fwd-savie-wrapper .banner-widget .hunger-selling-text {
   font-size: 17px;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
   color: white;
   text-shadow: 1px 1px 10px #000;
   padding: 0;
@@ -12283,14 +12306,14 @@ span.dup-error-msg {
   }
 }
 .fwd-savie-wrapper .banner-widget .hunger-selling-text span {
-  font-family: 'fantasy';
+  font-family: 'fantasy', Calibri, sans-serif;
 }
 .fwd-savie-wrapper .banner-widget .text-content.hunger-img img {
   margin-top: -60px;
   margin-bottom: 30px;
 }
 .fwd-savie-wrapper .banner-widget .buy-now.hunger-buy-now {
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
   color: #ff8000;
   border: 1px solid #ff8000;
   background-color: #fff;
@@ -12353,7 +12376,7 @@ span.dup-error-msg {
   outline: 0;
 }
 .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-header .hunger-selling-title {
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   font-size: 30px;
   color: #ff8200;
   line-height: 31px;
@@ -12397,7 +12420,7 @@ span.dup-error-msg {
 }
 .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body form .hunger-btn {
   font-size: 27px;
-  font-family: "Calibri-Bold";
+  font-family: 'Calibri-Bold', sans-serif;
   background-color: #ff8200;
   border: solid 1px #ff8200;
   color: #fff;
@@ -12406,7 +12429,7 @@ span.dup-error-msg {
   margin-top: 6px;
 }
 body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body form .hunger-btn {
-  font-family: 'Microsoft JhengHei';
+  font-family: 'Microsoft JhengHei', Calibri, sans-serif;;
 }
 .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .hunger-selling-body form .hunger-btn:hover {
   background-color: #fff;
@@ -12435,7 +12458,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
 }
 .purchase-history h2 {
   color: #ff8200;
-  font-family: "Calibri-Bold";
+  font-family: 'Calibri-Bold', sans-serif;
   margin-bottom: 25px;
   width: 70%;
   float: left;
@@ -12483,7 +12506,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
   border-radius: 0;
   height: 38px;
   border: 0;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   padding-left: 18px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
   font-size: 18px;
@@ -12522,7 +12545,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
 .purchase-history .plan-item .plan-item-cols h5 {
   margin: 0;
   margin-bottom: 2px;
-  font-family: "Calibri-Bold";
+  font-family: 'Calibri-Bold', sans-serif;
 }
 .purchase-history .plan-item .plan-item-cols p {
   margin: 0;
@@ -12635,7 +12658,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
   background: transparent;
   color: #ff8200;
   font-size: 24px;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
   border-radius: 0;
   outline: none;
 }
@@ -12657,7 +12680,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
 }
 .referral h2 {
   color: #ff8200;
-  font-family: "Calibri-Bold";
+  font-family: 'Calibri-Bold', sans-serif;
   margin-bottom: 14px;
   font-size: 30px;
 }
@@ -12690,7 +12713,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
 }
 .referral .referral-item .referral-item-cols h5, .referral .promo-item .referral-item-cols h5, .referral .promo-item .promo-item-cols h5 {
   margin: 0;
-  font-family: "Calibri-Bold";
+  font-family: 'Calibri-Bold', sans-serif;
   line-height: 10px;
 }
 .referral .referral-item .referral-item-cols p, .referral .promo-item .referral-item-cols p, .referral .promo-item .promo-item-cols p {
@@ -12784,7 +12807,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
   border: solid 1px #ff8200;
   background: transparent;
   color: #ff8200;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
   border-radius: 0;
   outline: none;
 }
@@ -12950,7 +12973,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
   border-radius: 0;
   outline: none;
   float: left;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 @media (min-width: 992px) {
   .referral .referral-link .your-referral-link .copy-link {
@@ -12997,7 +13020,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
 .fwd-savie-wrapper .pull-left.eServices-sidebar {
   color: #fff;
   width: 100%;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .pull-left.eServices-sidebar {
@@ -13032,7 +13055,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
 .fwd-savie-wrapper .pull-left.eServices-sidebar .profile p.name {
   padding-top: 15px;
   font-size: 18px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .pull-left.eServices-sidebar .profile p.name {
@@ -13259,7 +13282,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
 .fwd-savie-wrapper .notification-header .pull-left.notifications {
   color: #fff;
   font-size: 24px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 .fwd-savie-wrapper .notification-header .pull-left.notifications .text {
   height: 82px;
@@ -13270,7 +13293,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
 .fwd-savie-wrapper .notifications-mobile .notification-body {
   color: #373a36;
   font-size: 14px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 .fwd-savie-wrapper .notifications-mobile .notification-body ul.notifications-ul {
   margin: 0;
@@ -13283,7 +13306,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
 .fwd-savie-wrapper .notifications-mobile .notification-body ul li.notifications-list a {
   color: #373a36;
   font-size: 14px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 .fwd-savie-wrapper .notifications-mobile .notification-body ul li.notifications-list .table {
   display: table;
@@ -13332,7 +13355,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
 .fwd-savie-wrapper .personal-row {
   padding: 0 15px 35px;
   color: #061d2a;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   margin-left: -15px;
   margin-right: -15px;
 }
@@ -13346,7 +13369,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
   }
 }
 .fwd-savie-wrapper .personal-row .personal-col {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   word-break: break-word;
   padding-bottom: 5px;
 }
@@ -13362,7 +13385,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
   }
 }
 .fwd-savie-wrapper .personal-row .personal-col.chinese {
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei', Calibri, sans-serif;
   padding-bottom: 15px;
 }
 .fwd-savie-wrapper .personal-row .personal-col p {
@@ -13422,7 +13445,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
   color: #ff8200;
   font-size: 14px;
   text-decoration: underline;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 .fwd-savie-wrapper .personal-row.inner-personal-row .inner-personal-col .inner-col {
   background-color: #fff;
@@ -13513,7 +13536,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
   font-size: 24px;
   color: #fff;
   padding-left: 15px;
-  font-family: 'Calibri-Bold', Arial;
+  font-family: 'Calibri-Bold', Arial, sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .eservices-personal-info .personal-info {
@@ -13547,7 +13570,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
 }
 .fwd-savie-wrapper .eservices-personal-info .btn-style .btn-next {
   font-size: 24px;
-  font-family: "Calibri-Bold";
+  font-family: 'Calibri-Bold', sans-serif;
   color: #ff8200;
   border: solid 1px #ff8200;
   background-color: #fff;
@@ -13578,7 +13601,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
 @media (min-width: 992px) {
   .fwd-savie-wrapper .eservices-personal-info .btn-style .btn-next.edit-btn {
     font-size: 18px;
-    font-family: "Calibri";
+    font-family: Calibri, sans-serif;
     color: #ff8200;
     border: none;
     background-color: transparent;
@@ -13601,7 +13624,7 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
 @media (min-width: 992px) {
   .fwd-savie-wrapper .eservices-personal-info .btn-style .btn-next.done-btn {
     font-size: 18px;
-    font-family: "Calibri";
+    font-family: Calibri, sans-serif;
     color: #ff8200;
     border: none;
     background-color: transparent;
@@ -13620,18 +13643,15 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
   }
 }
 
-body.chin {
-  font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
-}
 body.chin .fwd-savie-wrapper h1, body.chin .fwd-savie-wrapper h2, body.chin .fwd-savie-wrapper h3, body.chin .fwd-savie-wrapper h4, body.chin .fwd-savie-wrapper h5 {
-  font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+  font-family: 'Microsoft JhengHei', Calibri, sans-serif !important;
   font-weight: bold;
 }
 body.chin .fwd-savie-wrapper p,
 body.chin .fwd-savie-wrapper a,
 body.chin .fwd-savie-wrapper li,
 body.chin .fwd-savie-wrapper span:not(.icon):not(.glyphicon):not(.orange-caret) {
-  font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+  font-family: 'Microsoft JhengHei', Calibri, sans-serif !important;
 }
 body.chin .fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu li a {
   font-weight: bold;
@@ -13701,7 +13721,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   color: #ff8200;
   background-color: #fff;
   font-size: 24px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   padding: 7px 40px;
 }
 .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:hover, .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:focus, .fwd-savie-wrapper .sign-up-teaser .btn-orange-teaser:active {
@@ -13934,10 +13954,10 @@ input[type=number] {
     height: 80px;
     width: 535px;
     font-size: 36px;
-    font-family: 'Calibri-Bold';
+    font-family: 'Calibri-bold', sans-serif;
   }
   body.chin .fwd-savie-wrapper .investment .after-3-years-btn .btn.btn-white.see-more {
-    font-family: 'Microsoft Yahei';
+    font-family: 'Microsoft Yahei', Calibri, sans-serif;
   }
 }
 
@@ -13947,14 +13967,14 @@ input[type=number] {
 }
 
 body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn{
-  font-family: 'Microsoft JhengHei';
+  font-family: 'Microsoft JhengHei', Calibri, sans-serif;;
 }
 
 @media (min-width: 992px) {
   .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn {
     height: 80px;
     font-size: 36px;
-    font-family: 'Calibri-Bold';
+    font-family: 'Calibri-bold', sans-serif;
     width: 220px;
   }
 }
@@ -13968,12 +13988,20 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   }
 }
 
+button#thank-you-continue {
+  font-family: Calibri, sans-serif;
+}
+
+body.chin button#thank-you-continue {
+  font-family: 'Microsoft JhengHei', Calibri, sans-serif !important;
+}
+
 @media (min-width: 768px) {
   button#thank-you-continue {
     background: #ff8200;
     color: white;
     height: 50px;
-    font-family: "Calibri";
+    //font-family: Calibri, sans-serif;
   }
 }
 
@@ -13993,7 +14021,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 .fwd-savie-wrapper .yellow-stick-btn {
   color: #fffffe;
   font-size: 24px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   background-color: #fdb714;
   height: 80px;
   width: 80px;
@@ -14039,7 +14067,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 .fwd-savie-wrapper .teaser .teaser-banner-text a.product {
   font-size: 18px;
   color: #ff8200;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   display: block;
   text-align: center;
 }
@@ -14549,13 +14577,13 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 }
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner p {
   font-size: 24px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   color: #fff;
   background-color: #fdb714;
   padding: 15px 10%;
 }
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner p .bold {
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner p {
@@ -14668,7 +14696,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .download a .action-text h2,
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-menu .sign-up a .action-text h2 {
   font-size: 26px;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
   padding: 0 15px;
   margin: 0 0 15px;
 }
@@ -14769,7 +14797,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 }
 .fwd-savie-wrapper .hunger-text-section button.get-started,
 .fwd-savie-wrapper .sign-up-teaser button.get-started {
-  font-family: 'calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
   height: 48px;
   width: 65%;
   max-width: 245px;
@@ -14777,7 +14805,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   border: 1px solid #ff8000;
 }
 body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
-  font-family: 'Microsoft JhengHei';
+  font-family: 'Microsoft JhengHei', Calibri, sans-serif;;
 }
 .fwd-savie-wrapper .hunger-text-section button.get-started {
   background-color: #fff;
@@ -14814,7 +14842,7 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
   }
 
   .fwd-savie-wrapper .sign-up-teaser button.get-started {
-    font-family: 'calibri-bold';
+    font-family: 'Calibri-bold', sans-serif;
     font-size: 32px;
     display: block;
     width: 94%;
@@ -14924,7 +14952,7 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
 .fwd-savie-wrapper .sign-up-teaser p.sign-up-header {
   color: #ff8200;
   font-size: 24px;
-  font-family: 'Calibri-Bold';
+  font-family: 'Calibri-bold', sans-serif;
   text-align: center;
   max-width: 300px;
   margin: 0 auto;
@@ -15006,7 +15034,7 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
   padding-top: 2px;
   color: #333;
   font-size: 13px;
-  font-family: "Calibri";
+  font-family: Calibri, sans-serif;
   margin-bottom: 3px;
   margin-top: 5px;
 }
@@ -15071,7 +15099,7 @@ body.chin .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3
 /* line 190, ../sass/partials/_thank-you-update.scss */
 .fwd-savie-wrapper .thank-you-container .offline-procedure .step {
   color: #ffffff;
-  font-family: 'foco_bold';
+  font-family: 'foco_bold', Calibri, sans-serif;
   font-size: 26px;
   background: #ff8200;
   border: 3px solid #ffffff;
@@ -15129,7 +15157,7 @@ body.chin .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3
 
 /* line 4, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #set-appointment h2 {
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
   font-size: 30px;
   color: #ff8200;
   text-align: center;
@@ -15147,13 +15175,13 @@ body.chin .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3
 /* line 17, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #set-appointment h5 {
   font-size: 14px;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
   margin: 0;
 }
 /* line 22, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #set-appointment h4 {
   color: #061d2a;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
   font-size: 18px;
   margin: 0;
 }
@@ -15166,7 +15194,7 @@ body.chin .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3
   width: 100%;
   height: 50px;
   font-size: 24px;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
   color: #ff8200;
   border: 1px solid #ff8200;
   background: white;
@@ -15187,7 +15215,7 @@ body.chin .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3
   text-align: center;
   padding: 7px 0;
   font-size: 24px;
-  font-family: 'Calibri-bold';
+  font-family: 'Calibri-bold', sans-serif;
 }
 @media (min-width: 992px) {
   /* line 48, ../sass/partials/_page-set-appointment.scss */
@@ -15272,7 +15300,7 @@ body.chin .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3
 }
 /* line 129, ../sass/partials/_page-set-appointment.scss */
 .fwd-savie-wrapper #set-appointment .service-centre-cells .content p {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 14px;
   line-height: 15px;
   margin-top: 2px;
@@ -15410,7 +15438,7 @@ body.chin .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3
   background-color: #f1f3f5;
   margin-bottom: 5px;
   background-position-y: -2px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   font-size: 18px;
   background-position-x: 3px;
 }
@@ -15435,7 +15463,7 @@ body.chin .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3
   height: 40px;
   border: 0;
   margin-bottom: 9px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
   padding-left: 25px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
   font-size: 18px;
@@ -15616,22 +15644,22 @@ body.chin .fwd-savie-wrapper .thank-you-container .offline-procedure.procedure-3
   min-width: 200px;
   font-size: 30px;
   padding: 15px;
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 body.chin .fwd-savie-wrapper #pickAnotherCentre .modal-dialog .modal-content .modal-body button,
 body.chin .fwd-savie-wrapper #fullyBooked .modal-dialog .modal-content .modal-body button,
 body.chin .fwd-savie-wrapper #accessCodeUsed .modal-dialog .modal-content .modal-body button,
 body.chin .fwd-savie-wrapper #perferredTimeIsNull .modal-dialog .modal-content .modal-body button,
 body.chin .fwd-savie-wrapper #reservationInvalid .modal-dialog .modal-content .modal-body button{
-  font-family: 'Microsoft Yahei';
+  font-family: 'Microsoft Yahei', Calibri, sans-serif;
 }
 
 #btn-cstmr-srvc-cnter {
-  font-family: 'Calibri';
+  font-family: Calibri, sans-serif;
 }
 
 body.chin #btn-cstmr-srvc-cnter {
-  font-family: 'Microsoft Yahei';
+  font-family: 'Microsoft Yahei', Calibri, sans-serif;
 }
 
 .fwd-savie-wrapper .page-application .selectDiv {
