@@ -702,10 +702,10 @@ function activateUserAccountJoinUs() {
                                                   <c:if test="${inx == 1}">
                                                   <input type="text"
                                                         id="txtInsuFullName${inx}" name="personalName"
-                                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" 
+                                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" 
                                                         <c:choose>
-														    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
-														    value="${userDetails.userName }"
+														    <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI'}">
+														    value="${userDetails.fullName }"
 														    </c:when>
 														    <c:otherwise>
 	                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
