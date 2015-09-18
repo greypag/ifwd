@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +44,7 @@ import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
 import com.ifwd.fwdhk.util.CommonUtils;
+import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
@@ -359,9 +361,15 @@ public class SavieController extends BaseController{
 			if (lang.equals("tc")) {
 				lang = "CN";
 			}
-			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-			header.put("userName", "*DIRECTGI");
-			header.put("token", commonUtils.getToken("reload"));
+			Map<String,String> header = new HashMap<String, String>(COMMON_HEADERS);
+			if(session.getAttribute("authenticate") !=null && session.getAttribute("authenticate").equals("true")){
+				HeaderUtil hu = new HeaderUtil();
+				header = hu.getHeader(request);
+			}
+			else{
+				header.put("userName", "*DIRECTGI");
+				header.put("token", commonUtils.getToken("reload"));
+			}
 			header.put("language", WebServiceUtils.transformLanaguage(lang));
 			org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 			if(responseJsonObj.get("serviceCentres") == null || responseJsonObj.get("serviceCentres") == ""){
