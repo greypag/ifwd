@@ -199,7 +199,7 @@ public class UserController {
 					AccountBalanceResponse accountBalance = connector.getAccountBalance(header);
 					model.addAttribute("accountBalance", accountBalance);
 				}
-				return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "useraccount");
+				return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "eServices-combine");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
