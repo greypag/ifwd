@@ -3,15 +3,10 @@ package com.ifwd.fwdhk.controller;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,7 +26,6 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.savie.AccountBalanceResponse;
 import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
-import com.ifwd.fwdhk.model.PurchaseHistory;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
 import com.ifwd.fwdhk.util.JsonUtils;
@@ -160,10 +154,10 @@ public class UserController {
 
 	@SuppressWarnings("rawtypes")
 	@RequestMapping(value = {"/getAccByUsernaneAndPassword", "/{lang}/account"}, method = RequestMethod.GET)
-	public ModelAndView getAccountDetailsByUsernameAndPassoword(HttpServletRequest servletRequest, Model model) {
+	public ModelAndView getAccountDetailsByUsernameAndPassoword(HttpServletRequest request, Model model) {
 		UserRestURIConstants urc = new UserRestURIConstants();
-		urc.updateLanguage(servletRequest);
-		HttpSession session = servletRequest.getSession(false);
+		urc.updateLanguage(request);
+		HttpSession session = request.getSession(false);
 		UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
 		if(userDetails != null){
 			try {
@@ -175,63 +169,43 @@ public class UserController {
 				userDetails.setMobileNo(userDetails.getMobileNo());
 				userDetails.setUserName(userDetails.getUserName());
 				model.addAttribute(userDetails);
-
-				/* Purchase History */
+				
+				/* getPurchaseHistory */
 				if (!tokenInSession.isEmpty() && !usernameInSession.isEmpty()) {
-
-					HashMap<String, String> header = new HashMap<String, String>(
-							COMMON_HEADERS);
+					HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 					header.put("userName", usernameInSession);
 					header.put("token", tokenInSession);
 
-					/*
-					 * if(restService.validateToken(usernameInSession,
-					 * tokenInSession)){
-					 */
-
-					JSONObject jsonUPHResponse = restService.consumeApi(
-							HttpMethod.GET,
-							UserRestURIConstants.USER_PURCHASE_POLICY_HISTORY,
-							header, null);
-					logger.info("USER_PURCHASE_POLICY_HISTORY Response " + JsonUtils.jsonPrint(jsonUPHResponse));
-					/*
-					 * 
-					 * {"policies":
-					 * [{"amount":0.0,"policyNumber":"74F000010","submissionDate"
-					 * :"2015-03-07 13:57:57", "planCode":"Flight"},
-					 */
-
-					if (jsonUPHResponse.get("errMsgs") == null) {
-						JSONArray jsonArray = (JSONArray) jsonUPHResponse
-								.get("policies");
-						Iterator<?> itr = jsonArray.iterator();
-						ArrayList al = new ArrayList();
-						while (itr.hasNext()) {
-							JSONObject jsonObjHistory = (JSONObject) itr.next();
-							PurchaseHistory purchaseHistory = new PurchaseHistory();
-							purchaseHistory.setAmount(checkJsonObjNull(
-									jsonObjHistory, "amount"));
-							purchaseHistory.setPolicyNumber(checkJsonObjNull(
-									jsonObjHistory, "policyNumber"));
-							purchaseHistory.setSubmissionDate(checkJsonObjNull(
-									jsonObjHistory, "submissionDate"));
-							purchaseHistory.setPlanCode(checkJsonObjNull(
-									jsonObjHistory, "planCode"));
-
-							al.add(purchaseHistory);
+					PurchaseHistoryResponse purchaseHistory = connector.getPurchaseHistory(header);
+					if(purchaseHistory !=null && !purchaseHistory.hasError() && purchaseHistory.getPolicies().size()>0){
+						for(int i=0;i<purchaseHistory.getPolicies().size();i++){
+							SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+							if(purchaseHistory.getPolicies().get(i).getCommencementDate() !=null && purchaseHistory.getPolicies().get(i).getCommencementDate().length() >9 ){
+								purchaseHistory.getPolicies().get(i).setCommencementDate(sdf.format(new Date(Long.valueOf(purchaseHistory.getPolicies().get(i).getCommencementDate()))));
+							}
+							if(purchaseHistory.getPolicies().get(i).getCommencementDate() !=null && purchaseHistory.getPolicies().get(i).getExpiryDate().length() >9 ){
+								purchaseHistory.getPolicies().get(i).setExpiryDate(sdf.format(new Date(Long.valueOf(purchaseHistory.getPolicies().get(i).getExpiryDate()))));
+							}
 						}
-
-						servletRequest.setAttribute("al", al);
-						return new ModelAndView(UserRestURIConstants.getSitePath(servletRequest)+"useraccount");
 					}
+					model.addAttribute("purchaseHistory", purchaseHistory);
 				}
-				return new ModelAndView(UserRestURIConstants.getSitePath(servletRequest)+ "useraccount");
+				/* getAccountBalance */
+				if (!tokenInSession.isEmpty() && !usernameInSession.isEmpty()) {
+					HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+					header.put("userName", usernameInSession);
+					header.put("token", tokenInSession);
+
+					AccountBalanceResponse accountBalance = connector.getAccountBalance(header);
+					model.addAttribute("accountBalance", accountBalance);
+				}
+				return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "useraccount");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 		else{
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(servletRequest));
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request));
 		}
 		return new ModelAndView("");
 	}
@@ -510,61 +484,4 @@ public class UserController {
 		String str=  UserRestURIConstants.getSitePath(req)+ "faq";	
 		return UserRestURIConstants.getSitePath(req)+ "faq";
 	}
-	
-	
-	@RequestMapping(value = {"/{lang}/purchase-history"}, method = RequestMethod.GET)
-	public ModelAndView getPurchaseHistory(HttpServletRequest request, Model model) {
-		UserRestURIConstants urc = new UserRestURIConstants();
-		urc.updateLanguage(request);
-		HttpSession session = request.getSession(false);
-		UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
-		if(userDetails != null){
-			try {
-				String tokenInSession = session.getAttribute("token").toString();
-				String usernameInSession = session.getAttribute("username").toString();
-				
-				userDetails.setFullName(userDetails.getFullName());
-				userDetails.setEmailAddress(userDetails.getEmailAddress());
-				userDetails.setMobileNo(userDetails.getMobileNo());
-				userDetails.setUserName(userDetails.getUserName());
-				model.addAttribute(userDetails);
-
-				/* getPurchaseHistory */
-				if (!tokenInSession.isEmpty() && !usernameInSession.isEmpty()) {
-					HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-					header.put("userName", usernameInSession);
-					header.put("token", tokenInSession);
-
-					PurchaseHistoryResponse purchaseHistory = connector.getPurchaseHistory(header);
-					if(purchaseHistory !=null && !purchaseHistory.hasError() && purchaseHistory.getPolicies().size()>0){
-						for(int i=0;i<purchaseHistory.getPolicies().size();i++){
-							SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-							logger.info(sdf.format(new Date(Long.valueOf(purchaseHistory.getPolicies().get(i).getCommencementDate()))));
-							purchaseHistory.getPolicies().get(i).setCommencementDate(sdf.format(new Date(Long.valueOf(purchaseHistory.getPolicies().get(i).getCommencementDate()))));
-							purchaseHistory.getPolicies().get(i).setExpiryDate(sdf.format(new Date(Long.valueOf(purchaseHistory.getPolicies().get(i).getExpiryDate()))));
-						}
-					}
-					model.addAttribute("purchaseHistory", purchaseHistory);
-				}
-				/* getAccountBalance */
-				if (!tokenInSession.isEmpty() && !usernameInSession.isEmpty()) {
-					HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-					header.put("userName", usernameInSession);
-					header.put("token", tokenInSession);
-
-					AccountBalanceResponse accountBalance = connector.getAccountBalance(header);
-					model.addAttribute("accountBalance", accountBalance);
-				}
-				return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "purchase-history");
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		else{
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request));
-		}
-		return new ModelAndView("");
-	}
-	
-
 }
