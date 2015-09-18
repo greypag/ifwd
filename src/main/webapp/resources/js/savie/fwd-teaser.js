@@ -306,7 +306,7 @@ function sendMessagesEmail(email,attachment) {
 	    },     
 	    success:function(data){  
 	    	if(data.errMsgs != null){
-		    	console.log(data.errMsgs);
+		    	console.log(data.errMsgs); 
 	    	}      
 	    }  
 	});
@@ -350,7 +350,6 @@ function sendlead(email,mobileNo,answer1,step,captcha) {
 		    	if(!('placeholder' in document.createElement('input')) && $('#teaserPhoneNo').val() == '') {
 		    		$('#teaserPhoneNo').val($('#teaserPhoneNo').attr('placeholder'))
 		    	}
-		    	console.log(data.errMsgs); 
 	    	}
 			$('#teaser-sign-up-btn').prop('disabled', false);
 	    }  
@@ -400,7 +399,6 @@ function sendleadbyo2o(email,mobileNo,answer1,step,captcha) {
 		    	if(!('placeholder' in document.createElement('input')) && $('#teaserPhoneNo').val() == '') {
 		    		$('#teaserPhoneNo').val($('#teaserPhoneNo').attr('placeholder'))
 		    	}
-		    	console.log(data.errMsgs); 
 	    	}
 			$('#signup-btn').prop('disabled', false);
 	    }  
@@ -481,6 +479,7 @@ function getTimeSlot(perTime){
 	    error:function(){       
 	    },     
 	    success:function(data){
+	    	
 	    	$("#preferred-time option").remove(); 
 	    	if(data.timeSlots != null && data.timeSlots.length > 0){
 		    	for(var i=0; i<data.timeSlots.length; i++) {
@@ -493,8 +492,11 @@ function getTimeSlot(perTime){
 		    			$("#preferred-time").append(op);
 		    		}
 		    	}
-	    	}else {
-	    		console.log(data);
+	    	}
+	    	else if(data.sessionError != null && data.sessionError == "sessionError"){
+	    		window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-insurance'; 
+	    	}
+	    	else {
 	    		$("#preferred-time").prepend("<option value=''></option>");
 	    		$('#pickAnotherCentre').modal('show');
 	    	}

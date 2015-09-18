@@ -1426,25 +1426,31 @@ public class SavieServiceImpl implements SavieService {
 	 */
 	@Override
 	public void getTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		response.setContentType("text/json;charset=utf-8");
-		String csCenter = request.getParameter("csCenter");
-		String perferredDate = request.getParameter("perferredDate");
-		request.getSession().setAttribute("csCenter", csCenter);
-		request.getSession().setAttribute("perferredDate", perferredDate);
-		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + perferredDate + "&serviceCentreCode=" + csCenter;
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc")) {
-			lang = "CN";
+		HttpSession session = request.getSession();
+		org.json.simple.JSONObject responseJsonObj = new org.json.simple.JSONObject();
+		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount")) && org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("username")) && org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("accessCode"))) {
+			String csCenter = request.getParameter("csCenter");
+			String perferredDate = request.getParameter("perferredDate");
+			request.getSession().setAttribute("csCenter", csCenter);
+			request.getSession().setAttribute("perferredDate", perferredDate);
+			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + perferredDate + "&serviceCentreCode=" + csCenter;
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if (lang.equals("tc")) {
+				lang = "CN";
+			}
+			
+			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+			header.put("userName", "*DIRECTGI");
+			header.put("token", commonUtils.getToken("reload"));
+			header.put("language", WebServiceUtils.transformLanaguage(lang));
+			
+			responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+			if(responseJsonObj.get("timeSlots") == null || responseJsonObj.get("timeSlots") == ""){
+				logger.info(responseJsonObj.toString());
+			}
 		}
-		
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		header.put("userName", "*DIRECTGI");
-		header.put("token", commonUtils.getToken("reload"));
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
-		
-		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		if(responseJsonObj.get("timeSlots") == null || responseJsonObj.get("timeSlots") == ""){
-			logger.info(responseJsonObj.toString());
+		else{
+			responseJsonObj.put("sessionError", "sessionError");
 		}
 		response.setContentType("text/json;charset=utf-8");
 		try {

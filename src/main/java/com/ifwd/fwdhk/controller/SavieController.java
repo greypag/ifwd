@@ -347,7 +347,7 @@ public class SavieController extends BaseController{
 	public ModelAndView chooseServiceCenter(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		//savingAmount为空时返回首页
-		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))) {
+		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount")) && org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("username")) && org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("accessCode"))) {
 			String lang = UserRestURIConstants.getLanaguage(request);
 			if (lang.equals("tc")) {
 				model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreCN);
@@ -434,18 +434,7 @@ public class SavieController extends BaseController{
 		model.addAttribute("savieAns", savieAns);
 		model.addAttribute("affiliate", affiliate);
 		
-		HttpSession session = request.getSession();
-		session.removeAttribute("savingDob");
-		session.removeAttribute("applicationNumber");
-		session.removeAttribute("centreDetails");
-		session.removeAttribute("planDetailData");
-		session.removeAttribute("birthOfDay");
-		session.removeAttribute("savingAmount");
-		session.removeAttribute("planDetail");
-		session.removeAttribute("savingPromocode");
-		session.removeAttribute("accessCode");
-		//session.removeAttribute("userDetails");
-		session.removeAttribute("formatSavingAmount");
+		
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
 	}
 }
