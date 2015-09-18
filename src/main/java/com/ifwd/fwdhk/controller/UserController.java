@@ -183,7 +183,7 @@ public class UserController {
 							if(purchaseHistory.getPolicies().get(i).getCommencementDate() !=null && purchaseHistory.getPolicies().get(i).getCommencementDate().length() >9 ){
 								purchaseHistory.getPolicies().get(i).setCommencementDate(sdf.format(new Date(Long.valueOf(purchaseHistory.getPolicies().get(i).getCommencementDate()))));
 							}
-							if(purchaseHistory.getPolicies().get(i).getCommencementDate() !=null && purchaseHistory.getPolicies().get(i).getExpiryDate().length() >9 ){
+							if(purchaseHistory.getPolicies().get(i).getExpiryDate() !=null && purchaseHistory.getPolicies().get(i).getExpiryDate().length() >9 ){
 								purchaseHistory.getPolicies().get(i).setExpiryDate(sdf.format(new Date(Long.valueOf(purchaseHistory.getPolicies().get(i).getExpiryDate()))));
 							}
 						}
