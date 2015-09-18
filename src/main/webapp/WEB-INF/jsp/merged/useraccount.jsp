@@ -27,7 +27,7 @@
                   <div class="row reset-margin">
                      <div class="col-xs-12 profile">
                         <img src="<%=request.getContextPath()%>/resources/images/avatar.png" class="avatar">
-                        <p class="name">Taiman Chan</p>
+                        <p class="name">${userDetails.userName }</p>
                         <!-- <p class="age"></p> -->
                      </div>
                      <div class="col-xs-6 col-md-12 menu setting">
@@ -35,7 +35,7 @@
                            <span class="icon-sidebar-menu">
                               <span class="eServices-icons profile-setting" id="profile-setting-span"></span>
                            </span>
-                           <span class="text">Profile setting</span>
+                           <span class="text"><fmt:message key="userAccount.Profile.setting" bundle="${msg}" /></span>
                         </a>
                      </div>
                      <div class="col-xs-6 col-md-12 menu purchase">
@@ -43,7 +43,7 @@
                            <span class="icon-sidebar-menu">
                               <span class="eServices-icons purchase-history-icon " id="purchase-history-span"></span>
                            </span>
-                           <span class="text">Purchase history</span>
+                           <span class="text"><fmt:message key="userAccount.Purchase.history" bundle="${msg}" /></span>
                         </a>
                      </div>
                      <div class="col-xs-6 col-md-12 menu referrals">
@@ -51,7 +51,7 @@
                            <span class="icon-sidebar-menu">
                               <span class="eServices-icons menu-referrals-icon " id="referrals-and-promo-span"></span>
                            </span>
-                           <span class="text">Referrals & promo</span>
+                           <span class="text"><fmt:message key="userAccount.Referrals.promo" bundle="${msg}" /></span>
                         </a>
                      </div>
                      <div class="col-xs-6 col-md-12 menu logout">
@@ -59,7 +59,7 @@
                            <span class="icon-sidebar-menu">
                               <span class="eServices-icons menu-logout-icon " id="logout-span"></span>
                            </span>
-                           <span class="text">Logout</span>
+                           <span class="text"><fmt:message key="userAccount.Logout" bundle="${msg}" /></span>
                         </a>
                      </div>
                   </div>
@@ -73,7 +73,7 @@
 									</a>
 								</div>
 								<div class="pull-left notifications">
-									<div class="text">Personal setting</div>
+									<div class="text"><fmt:message key="userAccount.Profile.setting" bundle="${msg}" /></div>
 								</div>
 							</div>
 						</div>
@@ -83,7 +83,7 @@
 							<div class="fwd-container fwd-container-limit personal-info">
 								<div class="row personal-row inner-personal-row">
 									<div class="clearfix inner-personal-col">
-										<h3 class="text-center">Personal info</h3>
+										<h3 class="text-center"><fmt:message key="userAccount.Personal.info" bundle="${msg}" /></h3>
 										<div class="col-xs-12 col-md-12 inner-col">
 											<div class="row">
 												<form id="eservices-personal-info" method="post">                      
@@ -94,7 +94,7 @@
 
 													<!--  -->
 													<div class="col-xs-4 col-md-4 no-left upper lower">
-														<p>Full name</p>
+														<p><fmt:message key="userAccount.Full.name" bundle="${msg}" /></p>
 													</div>
 													<div class="col-xs-8 col-md-8 personal-col last">
 														<input type="text" id="fullName" name="fullName" value="${userDetails.fullName }" readonly />
@@ -103,7 +103,7 @@
 
 													<!--  -->
 													<div class="col-xs-4 col-md-4 no-left upper lower">
-														<p>Mobile no.</p>
+														<p><fmt:message key="userAccount.Mobile.no" bundle="${msg}" /></p>
 													</div>
 													<div class="col-xs-8 col-md-8 personal-col">
 														<input class="mobile" type="text" id="mobileNumber" name="mobileNumber" value="${userDetails.mobileNo }" readonly />
@@ -112,7 +112,7 @@
 
 													<!--  -->
 													<div class="col-xs-4 col-md-4 no-left upper lower">
-														<p>Email address</p>
+														<p><fmt:message key="userAccount.Email.address" bundle="${msg}" /></p>
 													</div>
 													<div class="col-xs-8 col-md-8 personal-col">
 														<input type="email" id="emailAddress" name="emailAddress" value="${userDetails.emailAddress }" readonly />
@@ -140,7 +140,7 @@
 													</div>
 													<div class="clearfix"></div> -->
 													<div class="col-xs-4 col-md-4 no-left upper lower">
-														<p>Username</p>
+														<p><fmt:message key="userAccount.Username" bundle="${msg}" /></p>
 													</div>
 													<div class="col-xs-8 col-md-8 personal-col">
 														<input type="text" id="username" name="username" value="${userDetails.userName }" readonly />
@@ -168,7 +168,7 @@
                   <!-- eServices Purchase History Block -->
                   <div class="purchase-history tab-pane" id="purchase-history-tab">
 				          	<div class="clearfix hidden-xs hidden-sm">
-				              	<h2>Purchase history</h2>
+				              	<h2><fmt:message key="userAccount.Purchase.history" bundle="${msg}" /></h2>
 				              	<!-- <div class="filter clearfix">
 				                  	<p>Period</p>
 				                  	<div class="selectDiv">
@@ -184,16 +184,16 @@
 					        <div class="plans">
 					              	<div class="plan-item hidden-sm hidden-xs title">
 					                    <div class="plan-item-cols">
-					                        <p>Plan name</p>
+					                        <p><fmt:message key="userAccount.Plan.name" bundle="${msg}" /></p>
 					                    </div>
 					                    <div class="plan-item-cols">
-					                        <p>Policy no.</p>
+					                        <p><fmt:message key="userAccount.Policy.no" bundle="${msg}" /></p>
 					                    </div>
 					                    <div class="plan-item-cols bottom">
-					                        <p>Day start</p>
+					                        <p><fmt:message key="userAccount.Day.start" bundle="${msg}" /></p>
 					                    </div>
 					                    <div class="plan-item-cols bottom">
-					                        <p>Day end</p>
+					                        <p><fmt:message key="userAccount.Day.end" bundle="${msg}" /></p>
 					                    </div>
 					                </div>
 					                <c:choose>  
@@ -201,19 +201,19 @@
 									      <c:forEach var="list" varStatus="obj" items="${purchaseHistory.policies}">
 									        <div class="plan-item <c:if test="${obj.count%2 != '0'}">first</c:if><c:if test="${obj.count%2 == '0'}">colored</c:if>">
 							                    <div class="plan-item-cols">
-							                        <h5 class="hidden-md hidden-lg">Plan name</h5>
+							                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Plan.name" bundle="${msg}" /></h5>
 							                        <p>${list.planCode }</p>
 							                    </div>
 							                    <div class="plan-item-cols">
-							                        <h5 class="hidden-md hidden-lg">Policy no.</h5>
+							                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Policy.no" bundle="${msg}" /></h5>
 							                        <p>${list.policyNumber }</p>
 							                    </div>
 							                    <div class="plan-item-cols bottom">
-							                        <h5 class="hidden-md hidden-lg">Day start</h5>
+							                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Day.start" bundle="${msg}" /></h5>
 							                        <p>${list.commencementDate }</p>
 							                    </div>
 							                    <div class="plan-item-cols bottom">
-							                        <h5 class="hidden-md hidden-lg">Day end</h5>
+							                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Day.end" bundle="${msg}" /></h5>
 							                        <p class="hidden-lg hidden-md">${list.expiryDate }</p>
 							                        <p class="hidden-sm hidden-xs">${list.expiryDate }</p>
 							                    </div>
@@ -222,7 +222,7 @@
 									   </c:when>  
 									   <c:otherwise>
 									       <div class="plan-item first">
-							                    0 record found/沒有紀錄
+							                    <fmt:message key="userAccount.0.record.found" bundle="${msg}" />
 							               </div>
 									   </c:otherwise>  
 									</c:choose>
@@ -231,16 +231,16 @@
 					          	<div class="plans savie">
 					              	<div class="plan-item hidden-sm hidden-xs title">
 					                  	<div class="plan-item-cols">
-					                      	<p>Plan name</p>
+					                      	<p><fmt:message key="userAccount.Plan.name" bundle="${msg}" /></p>
 					                  	</div>
 					                  	<div class="plan-item-cols">
-					                      	<p>Reference no.</p>
+					                      	<p><fmt:message key="userAccount.Reference.no" bundle="${msg}" /></p>
 					                  	</div>
 					                  	<div class="plan-item-cols bottom">
-					                      	<p>Status</p>
+					                      	<p><fmt:message key="userAccount.Status" bundle="${msg}" /></p>
 					                  	</div>
 					                  	<div class="plan-item-cols bottom">
-					                      	<p>Account value<span class="asterisk">*</span></p>
+					                      	<p><fmt:message key="userAccount.Account.value" bundle="${msg}" /><span class="asterisk">*</span></p>
 					                  	</div>
 					              	</div>
 					              	<c:choose>  
@@ -249,19 +249,19 @@
 									        <div class="plan-item savie-plan">
 							                  	<div class="clearfix">
 							                      	<div class="plan-item-cols">
-							                        	<h5 class="hidden-md hidden-lg">Plan name</h5>
+							                        	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Plan.name" bundle="${msg}" /></h5>
 							                        	<p>${list.planCode }</p>
 							                      	</div>
 							                      	<div class="plan-item-cols">
-							                          	<h5 class="hidden-md hidden-lg">Policy no.</h5>
+							                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Reference.no" bundle="${msg}" /></h5>
 							                          	<p>${list.policyNo }</p>
 							                      	</div>
 							                      	<div class="plan-item-cols bottom">
-							                          	<h5 class="hidden-md hidden-lg">Status</h5>
+							                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Status" bundle="${msg}" /></h5>
 							                          	<p>${list.status }</p>
 							                      	</div>
 							                      	<div class="plan-item-cols bottom">
-							                          	<h5 class="hidden-md hidden-lg">Account balance <span class="asterisk">*</span></h5>
+							                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Account.value" bundle="${msg}" /> <span class="asterisk">*</span></h5>
 							                          	<p>HK$ ${list.accountBalance }</p>
 							                      	</div>
 							                  	</div>
@@ -269,7 +269,9 @@
 								          </c:forEach>
 									   </c:when>  
 									   <c:otherwise>
-									        <div class="plan-item savie-plan">0 record found/沒有紀錄</div>
+									        <div class="plan-item savie-plan">
+									             <fmt:message key="userAccount.0.record.found" bundle="${msg}" />
+									        </div>
 									   </c:otherwise>  
 									</c:choose> 
 					          	</div>
@@ -277,53 +279,53 @@
 
 					          	<div class="notice text-center ">
 					              	<p class="notice-text"><span class="next-line"><span class="asterisk">* </span>
-					              Amount indicative only. </span>
-					              	<span class="next-line">Please call our 24-hour hotline at 3123 3123 for</span>
-					              	<span class="next-line">up-to-date account value.</span></p>
+					              <fmt:message key="userAccount.Amount.indicative.only" bundle="${msg}" /></span>
+					              	<span class="next-line"><fmt:message key="userAccount.Please.call.our" bundle="${msg}" /></span>
+					              	<span class="next-line"><fmt:message key="userAccount.up-to-date" bundle="${msg}" /></span></p>
 					          	</div>
 					          	<div class="text-center hidden-md hidden-lg">
-					              	<button type="button" class="btn view-all">View all</button>
+					              	<button type="button" class="btn view-all"><fmt:message key="userAccount.View.all" bundle="${msg}" /></button>
 					        	</div>
                   </div>
                   
                   <!-- eServices Referal Block -->
 						<div class="referral tab-pane" id="referral-tab">
-				          	<h2 class="text-center">Referrals</h2>
+				          	<h2 class="text-center"><fmt:message key="userAccount.Referrals" bundle="${msg}" /></h2>
 
 				          	<div class="referral-list">
 				              	<div class="referral-item hidden-sm hidden-xs title-gray">
 				                  	<div class="referral-item-cols">
-				                    	<p class="hidden-md hidden-lg">Date</p>
+				                    	<p class="hidden-md hidden-lg"><fmt:message key="userAccount.Date" bundle="${msg}" /></p>
 				                  	</div>
 				                  	<div class="referral-item-cols">
-				                      	<p>Partner</p>
+				                      	<p><fmt:message key="userAccount.Partner" bundle="${msg}" /></p>
 				                  	</div>
 				                  	<div class="referral-item-cols bottom">
-				                      	<p>Discount</p>
+				                      	<p><fmt:message key="userAccount.Discount" bundle="${msg}" /></p>
 				                  	</div>
 				                  	<div class="referral-item-cols bottom">
-				                      	<p>Discount code</p>
+				                      	<p><fmt:message key="userAccount.Discount.code" bundle="${msg}" /></p>
 				                  	</div>
 				              	</div>
 				              	<div class="referral-item first">
 				                    <div class="referral-item-cols" id="referral-date">
-				                        <h5 class="hidden-md hidden-lg">Date</h5>
+				                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Date" bundle="${msg}" /></h5>
 				                        <p class="hidden-md hidden-lg">3<sup>rd</sup> April 15</p>
 				                    </div>
 				                    <div class="referral-item-cols">
-				                        <h5 class="hidden-md hidden-lg">Partner</h5>
+				                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Partner" bundle="${msg}" /></h5>
 				                        <p>Agoda</p>
 				                    </div>
 				                    <div class="referral-item-cols bottom" id="referral-discount">
-				                        <h5 class="hidden-md hidden-lg">Discount</h5>
+				                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Discount" bundle="${msg}" /></h5>
 				                        <p>5%</p>
 				                    </div>
 				                    <div class="referral-item-cols bottom">
-				                        <h5 class="hidden-md hidden-lg">Discount code</h5>
+				                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Discount.code" bundle="${msg}" /></h5>
 				                        <p class="discount-code">agoda5DFGRL</p>
 				                    </div>
 				                    <div class="text-center copy-code-holder">
-				                        <button type="button" class="btn copy-code">Copy code</button>
+				                        <button type="button" class="btn copy-code"><fmt:message key="userAccount.Copy.code" bundle="${msg}" /></button>
 				                    </div>
 				              	</div>
 
@@ -333,19 +335,19 @@
 				                        <p class="hidden-md hidden-lg">19<sup>th</sup> March 15</p>
 				                    </div>-->
 				                    <div class="referral-item-cols">
-				                        <h5 class="hidden-md hidden-lg">Partner</h5>
+				                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Partner" bundle="${msg}" /></h5>
 				                        <p >Y5buddy</p>
 				                    </div>
 				                    <div class="referral-item-cols">
-				                        <h5 class="hidden-md hidden-lg">Discount</h5>
+				                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Discount" bundle="${msg}" /></h5>
 				                        <p>10%</p>
 				                    </div>
 				                    <div class="referral-item-cols bottom">
-				                        <h5 class="hidden-md hidden-lg">Discount code</h5>
+				                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Discount.code" bundle="${msg}" /></h5>
 				                        <p class="discount-code">pace10</p>
 				                    </div>
 				                    <div class="text-center  copy-code-holder">
-				                        <button type="button" class="btn copy-code">Copy code</button>
+				                        <button type="button" class="btn copy-code"><fmt:message key="userAccount.Copy.code" bundle="${msg}" /></button>
 				                    </div>
 				              	</div>
 
@@ -355,41 +357,41 @@
 				                        <p class="hidden-md hidden-lg">28<sup>th</sup> February 15</p>
 				                    </div>-->
 				                    <div class="referral-item-cols">
-				                        <h5 class="hidden-md hidden-lg">Partner</h5>
+				                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Partner" bundle="${msg}" /></h5>
 				                        <p>BoConcept</p>
 				                    </div>
 				                    <div class="referral-item-cols">
-				                        <h5 class="hidden-md hidden-lg">Discount</h5>
+				                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Discount" bundle="${msg}" /></h5>
 				                        <p>8%</p>
 				                    </div>
 				                    <div class="referral-item-cols bottom">
-				                        <h5 class="hidden-md hidden-lg">Discount code</h5>
+				                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Discount.code" bundle="${msg}" /></h5>
 				                        <p class="discount-code">get8Save</p>
 				                    </div>
 				                    <div class="text-center copy-code-holder">
-				                        <button type="button" class="btn copy-code">Copy code</button>
+				                        <button type="button" class="btn copy-code"><fmt:message key="userAccount.Copy.code" bundle="${msg}" /></button>
 				                    </div>
 				              	</div>
 
 				              	<div class="text-center hidden-md hidden-lg">
-				                  	<button type="button" class="btn view-all" id="referral-view">View all</button>
+				                  	<button type="button" class="btn view-all" id="referral-view"><fmt:message key="userAccount.View.all" bundle="${msg}" /></button>
 				              	</div>				              
 				          	</div>
 
-				          	<h2 class="text-center personal-promotion-code">Personal promotion code: <span>9S273</span></h2>
+				          	<h2 class="text-center personal-promotion-code"><fmt:message key="userAccount.Personal.promotion.code" bundle="${msg}" /><span>9S273</span></h2>
 				          
 							<div class="promo-item hidden-sm hidden-xs title-orange">
 				                <div class="promo-item-cols">
-				                   	<p>Promotion type</p>
+				                   	<p><fmt:message key="userAccount.Promotion.type" bundle="${msg}" /></p>
 				                </div>
 				                <div class="promo-item-cols">
-				                   	<p>Type of Offer</p>
+				                   	<p><fmt:message key="userAccount.Type.of.Offer" bundle="${msg}" /></p>
 				                </div>
 				                <div class="promo-item-cols bottom">
-				                   	<p>Discount</p>
+				                   	<p><fmt:message key="userAccount.Discount" bundle="${msg}" /></p>
 				                </div>
 				                <div class="promo-item-cols bottom">
-				                   	<p>Offer period</p>
+				                   	<p><fmt:message key="userAccount.Offer.period" bundle="${msg}" /></p>
 				                </div>
 				            </div>
 				          	<div class="promo-list">
@@ -397,20 +399,20 @@
 				              	<div class="promo-item first">
 				                  	<div class="clear">
 				                      	<div class="promo-item-cols">
-				                          	<h5 class="hidden-md hidden-lg">Promotion type</h5>
+				                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Promotion.type" bundle="${msg}" /></h5>
 				                          	<p>Personal Promotional Code</p>
 				                      	</div>
 				                      	<div class="promo-item-cols">
-				                          	<h5 class="hidden-md hidden-lg">Type of Offer</h5>
+				                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Type.of.Offer" bundle="${msg}" /></h5>
 				                          	<p>TravelCare</p>
 				                      	</div>
 				                  	</div>
 				                  	<div class="promo-item-cols bottom">
-				                      	<h5 class="hidden-md hidden-lg">Discount</h5>
+				                      	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Discount" bundle="${msg}" /></h5>
 				                      	<p>25% off</p>
 				                  	</div>
 				                  	<div class="promo-item-cols bottom">
-				                      	<h5 class="hidden-md hidden-lg">Offer period</h5>
+				                      	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Offer.period" bundle="${msg}" /></h5>
 				                      	<p>Year-Round</p>
 				                  	</div>
 				              	</div>
@@ -418,20 +420,20 @@
 				               	<div class="promo-item gray-color">
 				                  	<div class="clear">
 				                      	<div class="promo-item-cols">
-				                          	<h5 class="hidden-md hidden-lg">Promotion type</h5>
+				                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Promotion.type" bundle="${msg}" /></h5>
 				                          	<p class="invisible">Personal Promotional Code</p>
 				                      	</div>
 				                      	<div class="promo-item-cols">
-				                          	<h5 class="hidden-md hidden-lg">Type of Offer</h5>
+				                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Type.of.Offer" bundle="${msg}" /></h5>
 				                          	<p>Easy HomeCare</p>
 				                      	</div>
 				                  	</div>
 				                  	<div class="promo-item-cols bottom">
-				                      	<h5 class="hidden-md hidden-lg">Discount</h5>
+				                      	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Discount" bundle="${msg}" /></h5>
 				                      	<p>8% off</p>
 				                  	</div>
 				                  	<div class="promo-item-cols bottom">
-				                      	<h5 class="hidden-md hidden-lg">Offer period</h5>
+				                      	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Offer.period" bundle="${msg}" /></h5>
 				                      	<p>Year-Round</p>
 				                  	</div>
 				              	</div>
@@ -439,20 +441,20 @@
 				               	<div class="promo-item">
 				                 	<div class="clear">
 				                      	<div class="promo-item-cols">
-				                          	<h5 class="hidden-md hidden-lg">Promotion type</h5>
+				                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Promotion.type" bundle="${msg}" /></h5>
 				                          	<p>Referal Program<sup class="hidden-xs hidden-sm">1</sup></p>
 				                      	</div>
 				                      	<div class="promo-item-cols">
-				                          	<h5 class="hidden-md hidden-lg">Type of Offer</h5>
+				                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Type.of.Offer" bundle="${msg}" /></h5>
 				                          	<p>TravelCare</p>
 				                      	</div>
 				                  	</div>
 				                  	<div class="promo-item-cols bottom">
-				                      	<h5 class="hidden-md hidden-lg">Discount</h5>
+				                      	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Discount" bundle="${msg}" /></h5>
 				                      	<p>30% off</p>
 				                  	</div>
 				                  	<div class="promo-item-cols bottom">
-				                      	<h5 class="hidden-md hidden-lg">Offer period</h5>
+				                      	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Offer.period" bundle="${msg}" /></h5>
 				                      	<p>One-off<sup>2</sup></p>
 				                  	</div>
 				              	</div>
@@ -460,41 +462,41 @@
 				               	<div class="promo-item gray-color">
 				                 	<div class="clear">
 				                      	<div class="promo-item-cols">
-				                          	<h5 class="hidden-md hidden-lg">Promotion type</h5>
+				                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Promotion.type" bundle="${msg}" /></h5>
 											<p class="invisible"><span>Referal Program</span></p>
 				                      	</div>
 				                      	<div class="promo-item-cols">
-				                          	<h5 class="hidden-md hidden-lg">Type of Offer</h5>
+				                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Type.of.Offer" bundle="${msg}" /></h5>
 				                          	<p>Agoda</p>
 				                      	</div>
 				                  	</div>
 				                  	<div class="promo-item-cols bottom">
-				                      	<h5 class="hidden-md hidden-lg">Discount</h5>
+				                      	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Discount" bundle="${msg}" /></h5>
 				                      	<p>5% off</p>
 				                  	</div>
 				                  	<div class="promo-item-cols bottom">
-				                      	<h5 class="hidden-md hidden-lg">Offer period</h5>
+				                      	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Offer.period" bundle="${msg}" /></h5>
 				                      	<p>One-off<sup>2</sup></p>
 				                  	</div>
 				              	</div>
 				              	<div class="promo-item ">
 				                 	<div class="clear">
 				                      	<div class="promo-item-cols">
-				                          	<h5 class="hidden-md hidden-lg">Promotion type</h5>
+				                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Promotion.type" bundle="${msg}" /></h5>
 											<p class="invisible"><span>Referal Program</span></p>
 				                      	</div>
 				                      	<div class="promo-item-cols">
-				                          	<h5 class="hidden-md hidden-lg">Type of Offer</h5>
+				                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Type.of.Offer" bundle="${msg}" /></h5>
 				                          	<p>Pricerite</p>
 				                      	</div>
 				                  	</div>
 				                  	<div class="promo-item-cols bottom">
-				                      	<h5 class="hidden-md hidden-lg">Discount</h5>
+				                      	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Discount" bundle="${msg}" /></h5>
 				                      	<p>HK $50</p>
 				                      	<p>e-coupon<sup>3</sup></p>
 				                  	</div>
 				                  	<div class="promo-item-cols bottom">
-				                      	<h5 class="hidden-md hidden-lg">Offer period</h5>
+				                      	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Offer.period" bundle="${msg}" /></h5>
 				                      	<p>Up till 31<sup>st</sup> December, 2015</p>
 				                  	</div>
 				              	</div>
@@ -504,21 +506,21 @@
 								<div class="promo-item gray-color">
 									<div class="clear">
 										<div class="promo-item-cols">
-											<h5 class="hidden-md hidden-lg">Promotion type</h5>
+											<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Promotion.type" bundle="${msg}" /></h5>
 											<p>Member's privilege</p>
 										</div>
 										<div class="promo-item-cols">
-											<h5 class="hidden-md hidden-lg">Type of Offer</h5>
+											<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Type.of.Offer" bundle="${msg}" /></h5>
 											<p>Agoda</p>
-											<button type="button" class="btn btn-orange get-now">Get now</button>
+											<button type="button" class="btn btn-orange get-now"><fmt:message key="userAccount.Get.now" bundle="${msg}" /></button>
 										</div>
 									</div>
 									<div class="promo-item-cols bottom">
-										<h5 class="hidden-md hidden-lg">Discount</h5>
+										<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Discount" bundle="${msg}" /></h5>
 										<p>8% off</p>
 									</div>
 									<div class="promo-item-cols bottom">
-										<h5 class="hidden-md hidden-lg">Offer period</h5>
+										<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Offer.period" bundle="${msg}" /></h5>
 										<p>Up till 31<sup>st</sup> December,2015</p>
 									</div>
 								</div>
@@ -526,11 +528,11 @@
 							
 
 				          	<div class="notice">
-				              	<p><sup class="hidden-xs hidden-sm">1</sup> This referral offer is only applicable when one or more of your referred customer successfully purchases TravelCare insurance or Easy HomeCare insurance with FWD</p>
+				              	<p><sup class="hidden-xs hidden-sm">1</sup> <fmt:message key="userAccount.This.referral.offer" bundle="${msg}" /></p>
 
-				              	<p><sup class="hidden-xs hidden-sm">2</sup> Please review the detailed <a href="" class="terms">terms and conditions</a> of the referral program  </p>
+				              	<p><sup class="hidden-xs hidden-sm">2</sup> <fmt:message key="userAccount.Please.review" bundle="${msg}" /> <a href="" class="terms"><fmt:message key="userAccount.terms.and.conditions" bundle="${msg}" /></a> <fmt:message key="userAccount.of.the.referral.program" bundle="${msg}" />  </p>
 
-				              	<p><sup class="hidden-xs hidden-sm">3</sup> Applicable to puchase over HK$500 at <a href="" class="terms">Pricerite eShop</a>.</p>
+				              	<p><sup class="hidden-xs hidden-sm">3</sup> <fmt:message key="userAccount.Applicable.to.puchase" bundle="${msg}" /> <a href="" class="terms"><fmt:message key="userAccount.Pricerite.eShop" bundle="${msg}" /></a>.</p>
 				          	</div>
 
 				          	<div class="referral-link gray-color-referral-link">
@@ -551,10 +553,10 @@
 				                  	</div>
 				              	</div>
 				              	<div class="your-referral-link">
-				                  	<h2 class="text-center"> Your referral link</h2>
+				                  	<h2 class="text-center"> <fmt:message key="userAccount.Your.referral.link" bundle="${msg}" /></h2>
 				                  	<div class="link">http//i.fwd.com.hk/savie/referral?andylau01</div>
 									
-										<button type="button" class="btn copy-link invisible" id="copy-link">Copy link</button>
+										<button type="button" class="btn copy-link invisible" id="copy-link"><fmt:message key="userAccount.Copy.link" bundle="${msg}" /></button>
 										<div class="share">
 											<a href="#"><i class="fa fa-facebook"></i></a>
 											<a href="#"><i class="fa fa-twitter"></i></a>
@@ -582,7 +584,7 @@
 								</a>
 							</div>
 							<div class="pull-left notifications">
-								<div class="text">Notifications</div>
+								<div class="text"><fmt:message key="userAccount.Notifications" bundle="${msg}" /></div>
 							</div>
 						</div>
 					</div>
@@ -595,8 +597,8 @@
 											<span class="eServices-notification-icon exclamation"></span>
 										</div>
 										<div class="table-cell text">
-											Please upload your document
-											<p class="time">1 hour ago</p>
+											<fmt:message key="userAccount.Please.upload.your" bundle="${msg}" />
+											<p class="time"><fmt:message key="userAccount.1.hour.ago" bundle="${msg}" /></p>
 										</div>
 									</div>
 								</a>
@@ -608,8 +610,8 @@
 											<span class="eServices-notification-icon exclamation"></span>
 										</div>
 										<div class="table-cell text">
-											Please add your signature
-											<p class="time">1 hour ago</p>
+											<fmt:message key="userAccount.Please.add.your" bundle="${msg}" />
+											<p class="time"><fmt:message key="userAccount.1.hour.ago" bundle="${msg}" /></p>
 										</div>
 									</div>
 								</a>
@@ -621,7 +623,7 @@
 											<span class="eServices-notification-icon star"></span>
 										</div>
 										<div class="table-cell text">
-											Your received 20% discount in Agoda store.
+											<fmt:message key="userAccount.Your.received.20%" bundle="${msg}" />
 											<p class="time">11 hour ago</p>
 										</div>
 									</div>
@@ -634,7 +636,7 @@
 											<span class="eServices-notification-icon check"></span>
 										</div>
 										<div class="table-cell text">
-											You just updated your personal info.
+											<fmt:message key="userAccount.You.just.updated.your" bundle="${msg}" />
 											<p class="time">Jun 10 at 7: 41</p>
 										</div>
 									</div>
