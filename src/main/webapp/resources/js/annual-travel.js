@@ -131,6 +131,28 @@ function validateAnnualTravelDetails(form,formId,language){
 	if($("#inputTxtAppHkid").val().trim()==hkidPlaceholder.trim()){
     	$("#inputTxtAppHkid").val('');
     }
+	
+	if($("#inputCARoom").val().trim()==roomPlaceholder.trim()){
+		$("#inputCARoom").val('');
+	}
+	if($("#inputCAFloor").val().trim()==floorPlaceholder.trim()){
+		$("#inputCAFloor").val('');
+	}
+	if($("#inputCABlock").val().trim()==blockPlaceholder.trim()){
+		$("#inputCABlock").val('');
+	}
+	if($("#inputCABuilding").val().trim()==buildingPlaceholder.trim()){
+		$("#inputCABuilding").val('');
+	}
+	if($("#inputCAEstate").val().trim()==estatePlaceholder.trim()){
+		$("#inputCAEstate").val('');
+	}
+	if($("#inputCAStreetNo").val().trim()==streetNoPlaceholder.trim()){
+		$("#inputCAStreetNo").val('');
+	}
+	if($("#inputCAStreetName").val().trim()==streetNamePlaceholder.trim()){
+		$("#inputCAStreetName").val('');
+	}
 
 	var flag=true;
 	document.getElementById("fullnameinvalid").innerHTML = "";

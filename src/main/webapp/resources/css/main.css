@@ -3681,7 +3681,7 @@ del {
     font-weight: normal;
 }
 .flightcare-hk {
-    text-align: left;
+    text-align: right;
     font-weight: bold;
      font-size: 40px;
 }
@@ -7914,7 +7914,7 @@ tr.product-landing-error-wrap {
     margin: 0 auto;
     font-size: 30px;
     font-weight: bold;
-    padding: 20px;
+    padding: 20px 10px;
     background-color: #fff;
 }
 
