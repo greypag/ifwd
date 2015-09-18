@@ -1064,7 +1064,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 										
 								</div>
 								<div class="pull-right" style="padding-top: 80px;">
-									<div class="text-left pad-right1 h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
+									<div class="text-left h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
 										<div class="hk" style="font-size: 18px;text-align: right;">
 											<fmt:message key="annual.common.dollar" bundle="${msg}" />
 											<div style="font-weight: bold;font-size: 28px;" class="flightcare-hk" id="plansummary">0</div>
@@ -1095,6 +1095,12 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
 	                                    <h3 style="text-align: right;font-weight: normal;">
 		                                    <c:if test="${annualTravelQuoteBean.totalPersonalTraveller!=0}">${annualTravelQuoteBean.totalPersonalTraveller} <fmt:message key="annual.quote.care.traveller" bundle="${msg}" /></c:if>
+		                                    
+		                                    
+		                                    
+		                                    2 adult<br/>
+                                            1 child<br/>
+                                            1 Others
 	                                    </h3>
 	                                </div>
 	                                <div class="clearfix"></div>
@@ -1105,7 +1111,15 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 								
                       
                       <input type="hidden" name="totalPersonalTraveller" id="txtTravellersInline" data-min="1" data-max="15" value="${corrAnnualTravelQuote.totalPersonalTraveller}"/>
-								
+						
+						
+						
+						<input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="0"/>
+                                 <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="15" value="0"/>
+                                 <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="15" value="0"/>		
+                                 
+                                 
+                                 
 					<div id="show-traveller" class="form-group likeDatePicker bcg-trans" style="display:none;">
             					<div class="input-group wd2 datepicker form-control" style="width:100% !important;margin: 0px !important;"> 
 								 Traveller(s) : 1    
@@ -1134,7 +1148,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						<div class="col-md-12 hidden-sm hidden-xs pad-none">
                           <div style="width: 80%;margin-left: 10%;">
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="annual.quote.care.subtotal" bundle="${msg}" /></h3>
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="subtotal" style="padding-right: 0px;font-size: 18px;"></h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="subtotal" style="padding-right: 0px;font-size: 18px;">0</h3>
 							<input type="hidden" name="subTotal" id="subTotal" value="540">
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="annual.quote.care.discount" bundle="${msg}" /></h3>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="discountAmt" style="padding-right: 0px;font-size: 18px;">-</h3>
