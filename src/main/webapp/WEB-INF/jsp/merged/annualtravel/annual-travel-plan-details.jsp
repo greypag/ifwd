@@ -112,189 +112,190 @@ function activateUserAccountJoinUs() {
     password = document.getElementById("Password").value;
     password2 = document.getElementById("Confirm-Password").value;*/
     
-    name = $("#Username").val();
-    password = $("#Password").val();
-    password2 = $("#Confirm-Password").val();
-    
-    $("#UsernameError").text("");
-    $("#PasswordError").text("");
-    $("#Confirm-PasswordError").text("");
-    $("#Username").removeClass("invalid-field");
-    $("#Password").removeClass("invalid-field");
-    $("#Confirm-Password").removeClass("invalid-field");
-    
-    //first error element
-    var firstErrorElementId="";
-    
-    if(name == "" && password == "" && password2 == ""){
-    	$('#frmYourDetails').submit();
-    }else{
-    	if(name != "" && password != "" && password2 != ""){
-    		$('#chk1').html('');
-    	    $('#chk2').html('');
-    	    
-    	    $('#dobInvalid').html('');
-    	    
-    		validateForm = true;
-    		if (!checkMembership("Username")){
-    			if(firstErrorElementId==""){
-                    firstErrorElementId="Username";
-                }
-                validateForm = false;	
-    		}
-    		if (!checkMembership("Password")){
-    			if(firstErrorElementId==""){
-                    firstErrorElementId="Password";
-                }
-                validateForm = false;	
-    		}
-    		if (!checkMembership("Confirm-Password")){
-    			if(firstErrorElementId==""){
-                    firstErrorElementId="Confirm-Password";
-                }
-                validateForm = false;	
-    		}
-    		var applicantDob = $("#applicantDob").val();
-            if (applicantDob.trim() == "") {
-                
-                document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
-                $("#input_dob").addClass("invalid-field");
-                if(firstErrorElementId==""){
-                    firstErrorElementId="applicantDob";
-                }
-                validateForm = false;   
-            
-            }
-    		if (!validateMobile('inputMobileNo','mobileNoInvalid')){
-    			if(firstErrorElementId==""){
-                    firstErrorElementId="inputMobileNo";
-                }
-                validateForm = false;	
-    		}    		
-    		if (!validateEmail('inputEmailId','emailid')){
-    			if(firstErrorElementId==""){
-                    firstErrorElementId="inputEmailId";
-                }
-                validateForm = false;	
-    		}    
-    		
-    		
-    		if(firstErrorElementId!=""){
-    	        scrollToElement(firstErrorElementId);
-    	    }
-    		
-        	if (!validateForm){
-        		$('#loading-overlay').modal('hide');
-        		return;
-        	}    		
-
-        	optIn1 = "false"
-  	        optIn2 = "false"
-  	        if($('#checkbox4').is(':checked')){
-  	            optIn2 = "true";    
-  	        }
-  	        if($('#checkbox3').is(':checked')){
-  	            optIn1 = "true";    
-  	        }
-  	        password = document.getElementById("Password").value; 
-  	        mobile = document.getElementById("inputMobileNo").value;
-  	        name = document.getElementById("inputFullName").value;
-  	        userName = document.getElementById("Username").value;
-  	        email = document.getElementById("inputEmailId").value;
-
-  	       $.ajax({
-  	                   type : 'POST',
-  	                    url : '<%=request.getContextPath()%>/${language}/joinus',
-  	                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
-  	                    async : false,
-  	                    success : function(data) {
-  	                        
-  	                        if (data == 'success') {
-  	                        	
-  	                            $(".membership-wrap").css("display", "none"); 
-  	                            document.getElementById("Username").value = "";
-  	                            document.getElementById("Password").value = "";
-  	                            document.getElementById("Confirm-Password").value = "";
-  	                            
-  	                            $("#link-error").click();
-  	                            perventRedirect=false;
-  	                             $('#frmYourDetails').submit();
-  	                            return;                            
-  	                        } else {
-  	                        	console.log(data);
-  	                        	$('#loading-overlay').modal('hide');
-     	                        $("#link-error").click();
-     	                        $(".error-hide").css("display", "block");
-     	                        $('#loading-overlay').modal('hide');
-  								if (data == 'This username already in use, please try again') {
-  								    $('.error-hide').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
-  								} else if (data == 'email address and mobile no. already registered') {
-  								    $('.error-hide').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
-  								} else {
-  								    $('.error-hide').html(data);
-  								}
-     	                        return;
-  	                        } 
-  	                    },
-  	                    error : function(xhr, status, error) {
-  	                        $('#loading-overlay').modal('hide');
-  	                    }
-  	                });
-    	}else{
-    		// not all the fields filled
-            if (name == ""){
-                $('#UsernameError').text(isValidUsername($("#Username").val().trim()));
-                $("#Username").addClass("invalid-field");
-                if(firstErrorElementId==""){
-                    firstErrorElementId="Username";
-                } 
-            }else{
-            	if (!checkMembership("Username")){
-                    if(firstErrorElementId==""){
-                        firstErrorElementId="Username";
-                    } 
-                }
-            }
-            
-            if (password == ""){
-                $('#PasswordError').text(isValidPassword($("#Password").val().trim()));
-                $("#Password").addClass("invalid-field");
-                if(firstErrorElementId==""){
-                    firstErrorElementId="Password";
-                } 
-            }else{
-            	if (!checkMembership("Password")){
-                    if(firstErrorElementId==""){
-                        firstErrorElementId="Password";
-                    } 
-                }
-            }
-            
-            
-            if (password2 == ""){
-                $('#Confirm-PasswordError').text(passMatch($('#Password').val(), $("#Confirm-Password").val().trim()));
-                $("#Confirm-Password").addClass("invalid-field");
-                if(firstErrorElementId==""){
-                    firstErrorElementId="Confirm-Password";
-                } 
-            }else{
-            	if (!checkMembership("Confirm-Password")){
-                    if(firstErrorElementId==""){
-                        firstErrorElementId="Confirm-Password";
-                    } 
-                }
-            }
-    	}
-    	
-    }
-    
-    if(firstErrorElementId!=""){
-    	$('#loading-overlay').modal('hide');
-        scrollToElement(firstErrorElementId);
-    }
-    
-    return;
-       
+    setTimeout(function(){
+	    name = $("#Username").val();
+	    password = $("#Password").val();
+	    password2 = $("#Confirm-Password").val();
+	    
+	    $("#UsernameError").text("");
+	    $("#PasswordError").text("");
+	    $("#Confirm-PasswordError").text("");
+	    $("#Username").removeClass("invalid-field");
+	    $("#Password").removeClass("invalid-field");
+	    $("#Confirm-Password").removeClass("invalid-field");
+	    
+	    //first error element
+	    var firstErrorElementId="";
+	    
+	    if(name == "" && password == "" && password2 == ""){
+	    	$('#frmYourDetails').submit();
+	    }else{
+	    	if(name != "" && password != "" && password2 != ""){
+	    		$('#chk1').html('');
+	    	    $('#chk2').html('');
+	    	    
+	    	    $('#dobInvalid').html('');
+	    	    
+	    		validateForm = true;
+	    		if (!checkMembership("Username")){
+	    			if(firstErrorElementId==""){
+	                    firstErrorElementId="Username";
+	                }
+	                validateForm = false;	
+	    		}
+	    		if (!checkMembership("Password")){
+	    			if(firstErrorElementId==""){
+	                    firstErrorElementId="Password";
+	                }
+	                validateForm = false;	
+	    		}
+	    		if (!checkMembership("Confirm-Password")){
+	    			if(firstErrorElementId==""){
+	                    firstErrorElementId="Confirm-Password";
+	                }
+	                validateForm = false;	
+	    		}
+	    		var applicantDob = $("#applicantDob").val();
+	            if (applicantDob.trim() == "") {
+	                
+	                document.getElementById("dobInvalid").innerHTML = getBundle(getBundleLanguage, "applicant.dob.notNull.message");
+	                $("#input_dob").addClass("invalid-field");
+	                if(firstErrorElementId==""){
+	                    firstErrorElementId="applicantDob";
+	                }
+	                validateForm = false;   
+	            
+	            }
+	    		if (!validateMobile('inputMobileNo','mobileNoInvalid')){
+	    			if(firstErrorElementId==""){
+	                    firstErrorElementId="inputMobileNo";
+	                }
+	                validateForm = false;	
+	    		}    		
+	    		if (!validateEmail('inputEmailId','emailid')){
+	    			if(firstErrorElementId==""){
+	                    firstErrorElementId="inputEmailId";
+	                }
+	                validateForm = false;	
+	    		}    
+	    		
+	    		
+	    		if(firstErrorElementId!=""){
+	    	        scrollToElement(firstErrorElementId);
+	    	    }
+	    		
+	        	if (!validateForm){
+	        		$('#loading-overlay').modal('hide');
+	        		return;
+	        	}    		
+	
+	        	optIn1 = "false"
+	  	        optIn2 = "false"
+	  	        if($('#checkbox4').is(':checked')){
+	  	            optIn2 = "true";    
+	  	        }
+	  	        if($('#checkbox3').is(':checked')){
+	  	            optIn1 = "true";    
+	  	        }
+	  	        password = document.getElementById("Password").value; 
+	  	        mobile = document.getElementById("inputMobileNo").value;
+	  	        name = document.getElementById("inputFullName").value;
+	  	        userName = document.getElementById("Username").value;
+	  	        email = document.getElementById("inputEmailId").value;
+	
+	  	       $.ajax({
+	  	                   type : 'POST',
+	  	                    url : '<%=request.getContextPath()%>/${language}/joinus',
+	  	                    data : { optIn1: optIn1, optIn2: optIn2, password: password, mobile: mobile, name: name, userName: userName, email: email, ajax: "true" },
+	  	                    async : false,
+	  	                    success : function(data) {
+	  	                        
+	  	                        if (data == 'success') {
+	  	                        	
+	  	                            $(".membership-wrap").css("display", "none"); 
+	  	                            document.getElementById("Username").value = "";
+	  	                            document.getElementById("Password").value = "";
+	  	                            document.getElementById("Confirm-Password").value = "";
+	  	                            
+	  	                            $("#link-error").click();
+	  	                            perventRedirect=false;
+	  	                             $('#frmYourDetails').submit();
+	  	                            return;                            
+	  	                        } else {
+	  	                        	console.log(data);
+	  	                        	$('#loading-overlay').modal('hide');
+	     	                        $("#link-error").click();
+	     	                        $(".error-hide").css("display", "block");
+	     	                        $('#loading-overlay').modal('hide');
+	  								if (data == 'This username already in use, please try again') {
+	  								    $('.error-hide').html('<fmt:message key="member.registration.fail.username.registered" bundle="${msg}" />');
+	  								} else if (data == 'email address and mobile no. already registered') {
+	  								    $('.error-hide').html('<fmt:message key="member.registration.fail.emailMobile.registered" bundle="${msg}" />');
+	  								} else {
+	  								    $('.error-hide').html(data);
+	  								}
+	     	                        return;
+	  	                        } 
+	  	                    },
+	  	                    error : function(xhr, status, error) {
+	  	                        $('#loading-overlay').modal('hide');
+	  	                    }
+	  	                });
+	    	}else{
+	    		// not all the fields filled
+	            if (name == ""){
+	                $('#UsernameError').text(isValidUsername($("#Username").val().trim()));
+	                $("#Username").addClass("invalid-field");
+	                if(firstErrorElementId==""){
+	                    firstErrorElementId="Username";
+	                } 
+	            }else{
+	            	if (!checkMembership("Username")){
+	                    if(firstErrorElementId==""){
+	                        firstErrorElementId="Username";
+	                    } 
+	                }
+	            }
+	            
+	            if (password == ""){
+	                $('#PasswordError').text(isValidPassword($("#Password").val().trim()));
+	                $("#Password").addClass("invalid-field");
+	                if(firstErrorElementId==""){
+	                    firstErrorElementId="Password";
+	                } 
+	            }else{
+	            	if (!checkMembership("Password")){
+	                    if(firstErrorElementId==""){
+	                        firstErrorElementId="Password";
+	                    } 
+	                }
+	            }
+	            
+	            
+	            if (password2 == ""){
+	                $('#Confirm-PasswordError').text(passMatch($('#Password').val(), $("#Confirm-Password").val().trim()));
+	                $("#Confirm-Password").addClass("invalid-field");
+	                if(firstErrorElementId==""){
+	                    firstErrorElementId="Confirm-Password";
+	                } 
+	            }else{
+	            	if (!checkMembership("Confirm-Password")){
+	                    if(firstErrorElementId==""){
+	                        firstErrorElementId="Confirm-Password";
+	                    } 
+	                }
+	            }
+	    	}
+	    	
+	    }
+	    
+	    if(firstErrorElementId!=""){
+	    	$('#loading-overlay').modal('hide');
+	        scrollToElement(firstErrorElementId);
+	    }
+	    
+	    return;
+    }, 500);
 }
 </script>
 <% }else{ %>
@@ -302,7 +303,11 @@ function activateUserAccountJoinUs() {
 <script>
 function activateUserAccountJoinUs() {
 	perventRedirect=false;
-	$('#frmYourDetails').submit();
+    $('#loading-overlay').modal({backdrop: 'static',keyboard: false});
+    
+    setTimeout(function(){
+    	   $('#frmYourDetails').submit();
+    }, 500);
 }
 </script>
 <% } %> 
@@ -835,6 +840,596 @@ function activateUserAccountJoinUs() {
                                 </div>
                             </c:forEach>
                             
+                            <!-- adult  -->
+                            
+                            <input type="hidden" name="totalAdultTraveller"
+                                id="totalAdultTraveler"
+                                value="${corrTravelQuote.totalAdultTraveller}">
+                            <c:forEach var="inx" begin="1"
+                                end="${corrTravelQuote.totalAdultTraveller}">
+                                <div class="form-wrap">
+                                <div class="adulttraveller" style="border: none;">
+                                    <h4 class="bold big-title" style="padding-left:0px !important;color:#ccc;">
+                                        <fmt:message
+                                            key="flight.details.insured.label.family.parent"
+                                            bundle="${msg}" />
+                                        <c:out value="${inx}"></c:out>
+                                        <c:if test="${inx == 1}"><fmt:message key="travel.details.insured.firstinsuredhint" bundle="${msg}" /></c:if>
+                                    </h4>
+                                    <div>
+                                        <!-- english name start -->
+                                       <div class="form-group float">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <c:if test="${inx == 1}">
+                                                    <input type="text"
+                                                        id="txtInsuFullName${inx}" name="adultName"
+                                                        class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" 
+                                                        <c:choose>
+                                                            <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+                                                            value="${userDetails.userName }"
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                            value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
+                                                    </c:if>
+                                                    <c:if test="${inx > 1}">
+                                                    <input type="text"
+                                                        id="txtInsuFullName${inx}" name="adultName"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100"/>
+                                                    </c:if>
+                                                    <span id="errtxtAdFullName${inx}" class="text-red"></span>
+                                           </div>
+                                       </div>
+                                       <!-- english name end -->
+                                       <!-- id card start -->
+                                       <div class="form-group float">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                                <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
+                                                          key="travel.details.insured.hkid"
+                                                          bundle="${msg}" /></label>
+                                               <div class="bmg-label-styled-select styled-select">
+                                                    <select id="selectedAdHkidPass${inx}" class="form-control soflow select-label" name="selectedAdHkidPass" onchange="togglePlaceholder(this,'txtInsuHkid${inx}','<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');">
+                                                        <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
+                                                        <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
+                                                    </select>
+                                                    <c:if test="${inx == 1}">
+                                                       <div style="cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)">&nbsp;</div>
+                                                   </c:if>
+                                                </div>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
+                                               value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);"
+                                               onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
+                                               onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedAdHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
+                                               <c:if test="${inx == 1}">readonly="readonly"</c:if>/> 
+                                                    <span id="errtxtInsuHkid${inx}" class="text-red"> </span>
+                                           </div>
+                                       </div>
+                                       <!-- id card end -->
+                                       <!-- age start -->
+                                       <div class="form-group float">
+                                           <div class="form-group float">
+	                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+	                                               <label class="field-label bold-500"><fmt:message key="annual.details.insured.birthday" bundle="${msg}" /></label>
+	                                           </div>
+	                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+	                                               <div class="input-group date annual_dob" id="input_insure_dob${inx}"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+	                                                   <input name="adultDob" type="text"  class="pointer datepicker form-control border-radius" id="insureDob${inx}" value="" readonly>
+	                                               </div>
+	                                               <c:if test="${inx == 1}">
+	                                                   <div style="cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)">&nbsp;</div>
+	                                               </c:if>
+	                                               <span id="errtxtInsuDob${inx}" class="text-red"></span>
+	                                           </div>
+	                                       </div>
+                                       </div>
+                                       <!-- age end -->
+                                       <!-- beneficiary start -->
+                                       <div class="form-group float">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                              <label class="field-label bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <div class="styled-select">
+                                                   <select name="adultBeneficiary" id="adultsselectBenificiary${inx}" 
+                                                          onChange="activeDiv('adultsbenificiaryId${inx}','adultsselectBenificiary${inx}', 'adultBenefitiaryId${inx}', 'adultBenefitiaryHKId${inx}')"
+                                                      class="form-control soflow select-label" >
+                                                      <c:forEach var="relationshipList" items="${mapRelationshipCode}">
+                                                        <enhance:out escapeXml="false">
+                                                          <option value="${relationshipList.key}"><c:out
+                                                                  value="${relationshipList.value}" /></option>
+                                                        </enhance:out>
+                                                      </c:forEach>
+                                                  </select>
+                                               </div>
+                                               <span id="erradultsselectBenificiary${inx}" class="text-red"></span>
+                                            </div>
+                                       </div>
+                                       <!-- beneficiary end -->
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       <!-- adult beneficiary start -->
+                                       <div class="form-group float hide" id="adultsbenificiaryId${inx}">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                               <label class="field-label bold-500"></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">                                                    
+                                                    <label class="field-label bold-500">
+                                                      <fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" />
+                                                    </label>
+                                               </div>
+                                               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+                                                   <input type="text"
+                                                      name="adultBenificiaryFullName"
+                                                      id="adultBenefitiaryId${inx}"
+                                                      class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                      value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+                                                      onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
+                                                      onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('adultBenefitiaryId${inx}','erradultBenefitiaryId${inx}',false,'beneficiary');"
+                                                      onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                  <span id="erradultBenefitiaryId${inx}" class="text-red">
+                                                  </span>
+                                               </div>
+                                               <div class="clearfix"></div>
+                                           </div>
+                                       </div>
+                                       <!-- adult beneficiary end -->
+                                       <!-- adult beneficiary b start -->
+                                       <div class="form-group float hide" id="adultsbenificiaryId${inx}b">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                              <label class="field-label form-label bold-500"></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                              <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
+                                                  <label class="field-label form-label bold-500">
+                                                    <fmt:message key="travel.details.insured.beneficiary.type" bundle="${msg}" />
+                                                    </label>
+                                               </div>
+                                               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+                                                  <div class="styled-select">
+                                                    <select id="selectAdBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedAdBenefitiaryHkidPass" onchange="togglePlaceholder(this,'adultBenefitiaryHKId${inx}','<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');">
+                                                        <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
+                                                        <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
+                                                    </select>
+                                                    </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <!-- adult beneficiary b end -->
+                                       <!-- adult beneficiary c start -->
+                                       <div class="form-group float hide" id="adultsbenificiaryId${inx}c">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                              <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                              <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
+                                                  <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
+                                               </div>
+                                               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+                                                  <input
+                                                    id="adultBenefitiaryHKId${inx}" name="adultBenificiaryHkid"
+                                                    class="form-control textUpper full-control bmg_custom_placeholder"
+                                                    value="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
+                                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');" 
+                                                  onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'); validateHkid('adultBenefitiaryHKId${inx}','selectAdBenefitiaryHkidPass${inx}','erradultBenefitiaryHKId${inx}',false,'beneficiary');"/> <span id="erradultBenefitiaryHKId${inx}"
+                                                    class="text-red"> </span><span id="errInvalidadultBenefitiaryHKId${inx}"
+                                                    class="text-red"> </span>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <!-- adult beneficiary c end -->
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                    </div>
+                                 </div>
+                                </div>
+                            </c:forEach>
+
+                            <!-- child  -->
+                            
+                            <input type="hidden" name="totalChildTraveller"
+                                id="totalCountOfChild"
+                                value="${corrTravelQuote.totalChildTraveller}">
+                            <c:forEach var="inx" begin="1"
+                                end="${corrTravelQuote.totalChildTraveller}">
+                                <div class="form-wrap">
+                                <div class="childtraveller" style="border: none;">
+                                    <h4 class="bold big-title" style="padding-left:0px !important;color:#ccc;">
+                                       <fmt:message key="flight.details.insured.label.family.child"
+                                            bundle="${msg}" />
+                                        <c:out value="${inx}"></c:out>
+                                    </h4>
+                                    <div>
+                                         <!-- english name start -->
+                                       <div class="form-group float">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <input type="text"
+                                                        name="childName" id="txtChldFullName${inx}"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder"
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtChldFullName${inx}','errtxtChldFullName${inx}',false,'insured');"
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                    <span id="errtxtChldFullName${inx}" class="text-red"></span>
+                                           </div>
+                                       </div>
+                                       <!-- english name end -->
+                                       <!-- id card start -->
+                                       <div class="form-group float">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                                <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
+                                                          key="travel.details.insured.hkid"
+                                                          bundle="${msg}" /></label>
+                                               <div class="bmg-label-styled-select styled-select">
+                                                  <select id="selectedChldHkidPass${inx}" class="form-control soflow select-label" name="selectedChldHkidPass" onchange="togglePlaceholder(this,'txtChldInsuHkid${inx}','<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');">
+                                                      <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
+                                                      <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
+                                                  </select>
+                                              </div>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <input
+                                                    id="txtChldInsuHkid${inx}" name="childHKID"
+                                                    class="form-control textUpper full-control bmg_custom_placeholder"
+                                                    value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
+                                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
+                                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtChldInsuHkid${inx}','selectedChldHkidPass${inx}','errtxtChldInsuHkid${inx}',false,'insured');"/> <span id="errtxtChldInsuHkid${inx}"
+                                                    class="text-red"> </span><span
+                                                    id="errtxtChldInvalidInsuHkid${inx}" class="text-red"> </span>                                           </div>
+                                       </div>
+                                       <!-- id card end -->
+                                       <!-- age start -->
+                                       <div class="form-group float">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                               <label class="field-label bold-500"><fmt:message key="annual.details.insured.birthday" bundle="${msg}" /></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <div class="input-group date annual_dob" id="input_child_dob${inx}"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+                                                   <input name="childDob" type="text"  class="pointer datepicker form-control border-radius" id="childDob${inx}" value="" readonly>
+                                               </div>
+                                               <span id="errtxtChildInvalidInsuDob${inx}" class="text-red"></span>
+                                           </div>
+                                       </div>
+                                       <!-- age end -->
+                                       <!-- beneficiary start -->
+                                       <div class="form-group float">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <div class="styled-select">
+                                                    <select
+                                                        id="childselectBenificiary${inx}" name="childBeneficiary"
+                                                        onchange="activeDiv('childbenificiaryId${inx}','childselectBenificiary${inx}', 'childBenefitiaryName${inx}', 'txtchildInsuHkid${inx}')"
+                                                        class="form-control soflow select-label">
+                                                        <c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
+                                                        <enhance:out escapeXml="false">
+                                                            <option value="${relationshipCodeList.key}"><c:out
+                                                                    value="${relationshipCodeList.value}" /></option>
+                                                        </enhance:out>
+                                                        </c:forEach>
+                                                    </select>
+                                                    </div>
+                                                     <span id="errselectChildbenificiary${inx}" class="text-red"></span>
+                                           </div>
+                                       </div>
+                                       <!-- beneficiary end -->
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       <!-- child beneficiary start -->
+                                       <div class="form-group float hide" id="childbenificiaryId${inx}">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                               <label class="field-label bold-500"></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">                                                    
+                                                    <label class="field-label bold-500">
+                                                      <fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" />
+                                                    </label>
+                                               </div>
+                                               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+                                                   <input type="text"
+                                                    name="childBenificiaryFullName"
+                                                    id="childBenefitiaryName${inx}"
+                                                    class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                    value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+                                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
+                                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('childBenefitiaryName${inx}','errchildBenefitiaryName${inx}',false,'beneficiary');"
+                                                    onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                <span id="errchildBenefitiaryName${inx}" class="text-red"></span>
+                                               </div>
+                                               <div class="clearfix"></div>
+                                           </div>
+                                       </div>
+                                       <!-- child beneficiary end -->
+                                       <!-- child beneficiary b start -->
+                                       <div class="form-group float hide" id="childbenificiaryId${inx}b">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                              <label class="field-label form-label bold-500"></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                              <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
+                                                  <label class="field-label form-label bold-500">
+                                                    <fmt:message key="travel.details.insured.beneficiary.type" bundle="${msg}" />
+                                                    </label>
+                                               </div>
+                                               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+                                                  <div class="styled-select">
+                                                    <select id="selectedChldBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="SelectedChldBenefitiaryHkidPass" onchange="togglePlaceholder(this,'txtchildInsuHkid${inx}','<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');">
+                                                        <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
+                                                        <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
+                                                    </select>
+                                                    </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <!-- child beneficiary b end -->
+                                       <!-- child beneficiary c start -->
+                                       <div class="form-group float hide" id="childbenificiaryId${inx}c">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                              <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                              <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
+                                                  <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
+                                               </div>
+                                               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+                                                  <input
+                                                    id="txtchildInsuHkid${inx}" name="childBenificiaryHkid"
+                                                    class="form-control textUpper full-control bmg_custom_placeholder" 
+                                                    value="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
+                                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');" 
+                                                  onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtchildInsuHkid${inx}','selectedChldBenefitiaryHkidPass${inx}','errtxtchildInsuHkid${inx}',false,'beneficiary');"/> <span id="errtxtchildInsuHkid${inx}"
+                                                    class="text-red"> </span><span id="errtxtInvalidchildInsuHkid${inx}"
+                                                    class="text-red"> </span>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <!-- child beneficiary c end -->
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                    </div>
+                                </div>
+                                </div>
+                            </c:forEach>
+
+                            <!--other traveller-->
+                            <input type="hidden" name="totalOtherTraveller"
+                                id="totalCountOther"
+                                value="${corrTravelQuote.totalOtherTraveller}">
+                            
+                            <c:forEach var="inx" begin="1"
+                                end="${corrTravelQuote.totalOtherTraveller}">
+                                <div class="form-wrap">
+                                <div class="otherTraveller" style="border: none;">
+                                    <h4 class="bold big-title" style="padding-left:0px !important;color:#ccc;">
+                                       <fmt:message key="travel.details.insured.label.family.others"
+                                            bundle="${msg}" />
+                                        <c:out value="${inx}"></c:out>
+                                    </h4>
+                                     <div>
+                                        <!-- english name start -->
+                                       <div class="form-group float">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                               <label class="field-label bold-500"><fmt:message key="travel.details.insured.name" bundle="${msg}" /></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <input type="text"
+                                                        name="otherName" id="txtOtherFullName${inx}"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtOtherFullName${inx}','errtxtOtherFullName${inx}',false,'insured');"
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                    <span id="errtxtOtherFullName${inx}" class="text-red"></span>
+                                           </div>
+                                       </div>
+                                       <!-- english name end -->
+                                       <!-- id card start -->
+                                       <div class="form-group float">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                                <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
+                                                          key="travel.details.insured.hkid"
+                                                          bundle="${msg}" /></label>
+                                               <div class="bmg-label-styled-select styled-select">
+                                                    <select id="selectOtHkidPass${inx}" class="form-control soflow select-label" name="selectedOtHkidPass" onchange="togglePlaceholder(this,'txtOtherInsuHkid${inx}','<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');">
+                                                        <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
+                                                        <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
+                                                    </select>
+                                                </div>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                              <input
+                                                    id="txtOtherInsuHkid${inx}" name="otherHKID"
+                                                    class="form-control textUpper full-control bmg_custom_placeholder"
+                                                    value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
+                                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
+                                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtOtherInsuHkid${inx}','selectOtHkidPass${inx}','errtxtOtherInsuHkid${inx}',false,'insured');"/> <span id="errtxtOtherInsuHkid${inx}"
+                                                    class="text-red"> </span><span
+                                                    id="errtxtOtherInvalidInsuHkid${inx}" class="text-red"> </span>
+                                           </div>
+                                       </div>
+                                       <!-- id card end -->
+                                       <!-- age start -->
+                                       <div class="form-group float">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                               <label class="field-label bold-500"><fmt:message key="annual.details.insured.birthday" bundle="${msg}" /></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <div class="input-group date annual_dob" id="input_other_dob${inx}"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+                                                   <input name="otherDob" type="text"  class="pointer datepicker form-control border-radius" id="otherDob${inx}" value="" readonly>
+                                               </div>
+                                               <span id="errtxtOtherInvalidInsuDob${inx}" class="text-red"></span>
+                                           </div>
+                                       </div>
+                                       <!-- age end -->
+                                       <!-- beneficiary start -->
+                                       <div class="form-group float">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                                <label class="field-label bold-500"><fmt:message key="travel.details.insured.beneficiary" bundle="${msg}" /></label>                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                              <div class="styled-select"><select id="otherSelectBenificiary${inx}" name="otherBeneficiary"
+                                                        onchange="activeDiv('otherbenificiaryId${inx}','otherSelectBenificiary${inx}', 'otherBenefitiaryName${inx}', 'txtOtherBenInsuHkid${inx}')"
+                                                        class="form-control soflow select-label">
+                                                        <c:forEach var="relationshipCodeList" items="${mapRelationshipCode}">
+                                                        <enhance:out escapeXml="false">
+                                                            <option value="${relationshipCodeList.key}"><c:out
+                                                                    value="${relationshipCodeList.value}" /></option>
+                                                        </enhance:out>
+                                                        </c:forEach>
+                                                    </select></div><span id="benificiary" style="display: none"> <label
+                                                        class="text-red"></label>
+                                                    </span>
+                                           </div>
+                                       </div>
+                                       <!-- beneficiary end -->
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       <!-- other beneficiary start -->
+                                       <div class="form-group float hide" id="otherbenificiaryId${inx}">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                               <label class="field-label bold-500"></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">                                                    
+                                                    <label class="field-label bold-500">
+                                                      <fmt:message key="travel.details.insured.beneficiary.name" bundle="${msg}" />
+                                                    </label>
+                                               </div>
+                                               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+                                                   <input type="text"
+                                                        name="otherBenificiaryFullName"
+                                                        id="otherBenefitiaryName${inx}"
+                                                        class="form-control full-control textUpper bmg_custom_placeholder" 
+                                                        value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
+                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
+                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('otherBenefitiaryName${inx}','errotherBenefitiaryName${inx}',false,'beneficiary');"
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                    <span id="errotherBenefitiaryName${inx}" class="text-red"></span>
+                                               </div>
+                                               <div class="clearfix"></div>
+                                           </div>
+                                       </div>
+                                       <!-- other beneficiary end -->
+                                       <!-- other beneficiary b start -->
+                                       <div class="form-group float hide" id="otherbenificiaryId${inx}b">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                              <label class="field-label form-label bold-500"></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                              <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
+                                                  <label class="field-label form-label bold-500">
+                                                    <fmt:message key="travel.details.insured.beneficiary.type" bundle="${msg}" />
+                                                    </label>
+                                               </div>
+                                               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+                                                  <div class="styled-select">
+                                                    <select id="selectOtherBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="SelectedOtherBenefitiaryHkidPass" onchange="togglePlaceholder(this,'txtOtherBenInsuHkid${inx}','<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');">
+                                                        <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
+                                                        <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
+                                                    </select>
+                                                    </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <!-- other beneficiary b end -->
+                                       <!-- other beneficiary c start -->
+                                       <div class="form-group float hide" id="otherbenificiaryId${inx}c">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                              <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                              <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
+                                                  <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
+                                               </div>
+                                               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+                                                  <input
+                                                  id="txtOtherBenInsuHkid${inx}" name="otherBenificiaryHkid"
+                                                  class="form-control textUpper full-control bmg_custom_placeholder" 
+                                                  value="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
+                                                  onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');" 
+                                                  onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtOtherBenInsuHkid${inx}','selectOtherBenefitiaryHkidPass${inx}','errtxtOtherBenInsuHkid${inx}',false,'beneficiary');"/> <span id="errtxtOtherBenInsuHkid${inx}"
+                                                  class="text-red"> </span>
+                                                  <span id="errtxtOtherInvalidBenInsuHkid${inx}"
+                                                  class="text-red"> </span>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <!-- other beneficiary c end -->
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                       
+                                     </div>
+                                 </div>
+                                </div>
+                            </c:forEach>
+                            
                        <div class="clearfix"></div>
 							
 							<div class="form-wrap">
@@ -1044,6 +1639,10 @@ function activateUserAccountJoinUs() {
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
                                         <h3 style="text-align: right;font-weight: normal;">
                                             ${corrAnnualTravelQuote.totalPersonalTraveller} <fmt:message key="annual.quote.care.traveller" bundle="${msg}" />
+                                            
+                                            2 adult<br/>
+                                            1 child<br/>
+                                            1 Others
                                         </h3>
                                     </div>
                                     <div class="clearfix"></div>
