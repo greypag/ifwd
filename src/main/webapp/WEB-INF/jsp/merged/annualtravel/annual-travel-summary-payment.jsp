@@ -415,39 +415,6 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                         }
                                     %>
                                     <!-- Child -->
-                                    
-                                    
-                                    <!-- Other -->
-                                    <%
-                                        for (int i = 0; i < planDetailsForm.getTotalOtherTraveller(); i++) {
-                                    %>
-                                    <tr>
-                                        <td data-title="Personal 4"><span class="h4-5"><fmt:message key="annual.summary.insured.traveller" bundle="${msg}" /> <%=i + 1%></span></td>
-                                        <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getOtherName()[i]%></span></td>
-                                        <td data-title="Date of birth"><span class="h4-5"><%=planDetailsForm.getPersonalDob()[i]%></span></td>
-                                        <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getOtherHKID()[i]%></span></td>
-                                        <%
-                                            if("個人遺產".equals(planDetailsForm.getOtherBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getOtherBeneRelationDesc()[i])){
-                                        %>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getOtherBeneRelationDesc()[i] %></span></td>
-                                    </tr>
-                                        <%
-                                            }else{
-                                        %>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getOtherBenificiaryFullName()[i]%> (<%=planDetailsForm.getOtherBeneRelationDesc()[i] %>)</span></td>   <!-- hide relationship if insured -->
-                                    </tr>
-                                    <tr>
-                                        <td data-title="Personal 4"><span class="h4-5"></span></td>
-                                        <td data-title="Full name"><span class="h4-5"></span></td>
-                                        <td data-title="Date of birth"><span class="h4-5"></span></td>
-                                        <td data-title="HKID"><span class="h4-5"></span></td>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getOtherBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
-                                    </tr>
-                                    <%
-                                            }
-                                        }
-                                    %>
-                                    <!-- Other -->
                                 </tbody>
                             </table>
                           </div>

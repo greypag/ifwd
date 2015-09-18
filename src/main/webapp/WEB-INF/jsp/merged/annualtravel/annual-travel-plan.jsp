@@ -1099,8 +1099,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		                                    
 		                                    
 		                                    2 adult<br/>
-                                            1 child<br/>
-                                            1 Others
+                                            1 child
 	                                    </h3>
 	                                </div>
 	                                <div class="clearfix"></div>
@@ -1116,7 +1115,6 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						
 						<input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="0"/>
                                  <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="15" value="0"/>
-                                 <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="15" value="0"/>		
                                  
                                  
                                  
