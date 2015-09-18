@@ -90,7 +90,7 @@
 	 $(".travel_type_label").html(type_string);
 	 
 	 if(type=='single'){
-		 $('.family_plan_selectArea').show();
+		 //$('.family_plan_selectArea').show();
 		 
 		 $('#dp2').parent().show();
 		 $('#endDateDeskIn').show();
@@ -109,8 +109,8 @@
          $(".travel_feature").hide();
          $("#single_travel_feature").show();
 	 }else{
-		 $('.personal_plan_selectArea').trigger('click');
-		 $('.family_plan_selectArea').hide();
+		 //$('.personal_plan_selectArea').trigger('click');
+		 //$('.family_plan_selectArea').hide();
 		 
 		 $('#dp2').parent().hide();
 		 $('#endDateDeskIn').hide();
