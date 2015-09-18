@@ -92,6 +92,9 @@
 	 if(type=='single'){
 		 //$('.family_plan_selectArea').show();
 		 
+		 $('.personal-data-updown').show();
+		 $('.other-data-container').show();
+		 
 		 $('#dp2').parent().show();
 		 $('#endDateDeskIn').show();
 		 $('#dp4').parent().show();
@@ -111,6 +114,16 @@
 	 }else{
 		 //$('.personal_plan_selectArea').trigger('click');
 		 //$('.family_plan_selectArea').hide();
+		 
+		 if($('input[name=planSelected]').val()=='personal'){
+			 $('.family_plan_selectArea').trigger('click');
+			 $('.personal_plan_selectArea').trigger('click');
+		 }else{
+			 $('.personal_plan_selectArea').trigger('click');
+		 }
+		 
+		 $('.personal-data-updown').hide();
+		 $('.other-data-container').hide();
 		 
 		 $('#dp2').parent().hide();
 		 $('#endDateDeskIn').hide();
@@ -270,12 +283,12 @@ $(document).ready(function() {
 	                           <h4><fmt:message key="travel.main.quote.plan1.type" bundle="${msg}" /></h4>
 	                         </div>
 	                         <div class="col-lg-6">
-	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
+	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn personal-data-updown">
 	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk"  data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
 	                             </span>
 	                  <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalPersonalTraveller}</div>
 	                             <input type="hidden" name="totalPersonalTraveller" id="txtTravellersDesk" data-min="1" data-max="15" value="${corrTravelQuote.totalPersonalTraveller}"/>
-	                             <span class="input-group-btn data-up ">
+	                             <span class="input-group-btn data-up personal-data-updown">
 	                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
 	                             </span> </div>
 	                         </div>
@@ -313,10 +326,10 @@ $(document).ready(function() {
 	                             </span> </div>
 	                         </div>
 	                         <div class="clearfix"></div>
-	                         <div class="col-lg-6">
+	                         <div class="col-lg-6 other-data-container">
 	                           <h4><fmt:message key="travel.main.quote.plan2.type3" bundle="${msg}" /></h4>
 	                         </div>
-	                         <div class="col-lg-6">
+	                         <div class="col-lg-6 other-data-container">
 	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
 	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
 	                             </span>
@@ -326,9 +339,11 @@ $(document).ready(function() {
 	                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherDesk" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
 	                             </span> </div>
 	                         </div>
+	                         <div class="clearfix"></div>
 	                         <div class="col-lg-12 child-notes">
 	                           <h4><fmt:message key="travel.main.quote.childnotes" bundle="${msg}" /></h4>
 	                         </div>
+	                         <div class="clearfix"></div>
 	                       </div>
 	                       
 	                       <!-- start of family plan bottom spinner-->
@@ -440,14 +455,14 @@ $(document).ready(function() {
           </div>
            <div class="col-xs-6 col-sm-4">
             <div class="input-group number-spinner none-bd "> 
-              <span class="input-group-btn data-dwn">
+              <span class="input-group-btn data-dwn personal-data-updown">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtTravellersMob" data-parent="personal">
                       <span class="glyphicon glyphicon-minus"></span>
                 </button>
               </span>
               <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalPersonalTraveller}</div>
               <input type="hidden" name="totalPersonalTraveller" id="txtTravellersMob" data-min="1" data-max="15" value="${corrTravelQuote.totalPersonalTraveller}"/>
-              <span class="input-group-btn data-up ">
+              <span class="input-group-btn data-up personal-data-updown">
                  <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersMob" data-parent="personal">
                    <span class="glyphicon glyphicon-plus"></span>
                  </button>
@@ -502,10 +517,10 @@ $(document).ready(function() {
           </div>
          <div class="clearfix"></div>
 
-          <div class="col-xs-6 col-sm-8">
+          <div class="col-xs-6 col-sm-8 other-data-container">
             <h4><fmt:message key="travel.main.quote.plan2.type3" bundle="${msg}" /></h4>
           </div>
-           <div class="col-xs-6 col-sm-4">
+           <div class="col-xs-6 col-sm-4 other-data-container">
             <div class="input-group number-spinner none-bd "> 
               <span class="input-group-btn data-dwn">
                 <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="minus" data-field="txtOtherMob" data-parent="family">
@@ -1150,12 +1165,12 @@ $(document).ready(function() {
 
                         </div>
                         <div class="col-lg-6">
-                          <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
+                          <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn personal-data-updown">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
                             <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalPersonalTraveller}</div>
                             <input type="hidden" name="totalPersonalTraveller" id="txtTravellersBtm" data-min="1" data-max="15" value="${corrTravelQuote.totalPersonalTraveller}"/>
-                            <span class="input-group-btn data-up ">
+                            <span class="input-group-btn data-up personal-data-updown">
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersBtm" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
                         </div>
@@ -1195,11 +1210,11 @@ $(document).ready(function() {
                             </span> </div>
                         </div>
                         <div class="clearfix"></div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 other-data-container">
                           <h4><fmt:message key="travel.main.quote.plan2.type3" bundle="${msg}" /></h4>
 
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 other-data-container">
                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn">
                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-minus"></span> </button>
                             </span>
@@ -1209,9 +1224,11 @@ $(document).ready(function() {
                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtOtherBtm" data-parent="family"> <span class="glyphicon glyphicon-plus"></span> </button>
                             </span> </div>
                         </div>
+                        <div class="clearfix"></div>
                         <div class="col-lg-12 child-notes">
                             <h4><fmt:message key="travel.main.quote.childnotes" bundle="${msg}" /></h4>
                         </div>
+                        <div class="clearfix"></div>
                       </div>
                       
                       <!-- start of family plan bottom spinner-->
