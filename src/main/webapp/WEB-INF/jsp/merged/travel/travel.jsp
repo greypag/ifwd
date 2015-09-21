@@ -714,32 +714,62 @@ $(document).ready(function() {
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
                 <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon1.png">
                 <h5><fmt:message key="annual.main.medicalexpenses" bundle="${msg}" /></h5>
-                <a href="javascript:;" style="text-decoration: underline;"><!-- Learn more --></a>
+                <div class="hidden-content">
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon1.png"></div>
+                    <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.medicalexpenses" bundle="${msg}" /></div>
+                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="clearfix"></div>
+                </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
                 <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon2.png">
                 <h5><fmt:message key="annual.main.baggage" bundle="${msg}" /></h5>
-                <a href="javascript:;" style="text-decoration: underline;"></a>
+                <div class="hidden-content">
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon2.png"></div>
+                    <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.baggage" bundle="${msg}" /></div>
+                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="clearfix"></div>
+                </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
                 <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon3.png">
                 <h5><fmt:message key="annual.main.lostofpersonal" bundle="${msg}" /></h5>
-                <a href="javascript:;" style="text-decoration: underline;"></a>
+                <div class="hidden-content">
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon3.png"></div>
+                    <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.lostofpersonal" bundle="${msg}" /></div>
+                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="clearfix"></div>
+                </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
                 <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon4.png">
                 <h5><fmt:message key="annual.main.personalliability" bundle="${msg}" /></h5>
-                <a href="javascript:;" style="text-decoration: underline;"></a>
+                <div class="hidden-content">
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon4.png"></div>
+                    <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.personalliability" bundle="${msg}" /></div>
+                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="clearfix"></div>
+                </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
                 <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon5.png">
                 <h5><fmt:message key="annual.main.rentalvehicleexcess" bundle="${msg}" /></h5>
-                <a href="javascript:;" style="text-decoration: underline;"></a>
+                <div class="hidden-content">
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon5.png"></div>
+                    <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.rentalvehicleexcess" bundle="${msg}" /></div>
+                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="clearfix"></div>
+                </div>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
                 <img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon6.png">
                 <h5><fmt:message key="annual.main.noexcess" bundle="${msg}" /></h5>
-                <a href="javascript:;" style="text-decoration: underline;"></a>
+                <div class="hidden-content">
+                    <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon6.png"></div>
+                    <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.noexcess" bundle="${msg}" /></div>
+                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="clearfix"></div>
+                </div>
             </div>
             <div class="clearfix"></div>
         </div>
@@ -1308,4 +1338,26 @@ function setGetParameter(paramName, paramValue)
     }
     window.location.href = url;
 }
+
+$(document).ready(function() {
+	if(isMobile){
+		$(".annualTravel_policy_item").click(function(){
+			var html=$(this).children('.hidden-content').children().clone();
+			$("#modal_policy_container").html(html);
+			$("#policyCoveragePopup").modal("show");
+		});
+	}
+});
 </script>
+
+<div class="modal fade bs-example-modal-lg  in" id="policyCoveragePopup" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content plan-modal">
+        <div class="modal-body">
+            <a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true" style="font-size:30px;">×</span></a>
+            <div id="modal_policy_container" style="padding-top: 10px;text-align: center;">
+            </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7814,7 +7814,25 @@ tr.product-landing-error-wrap {
 }
 
 .annualTravel_policy_item{
-    height:200px;
+	position:relative;
+    height:180px;
+}
+
+.annualTravel_policy_item .hidden-content{
+	position: absolute;
+    top: 0px;
+    z-index: 999;
+    background-color: #F2F3F5;
+    opacity: 0.9;
+    display: none;
+}
+
+.annualTravel_policy_item .hidden-content .hidden-content-title{
+	font-weight:bold;
+}
+
+.annualTravel_policy_item .hidden-content .hidden-content-p{
+    font-size:14px;
 }
 
 .annualTravel_policy_item img{
@@ -8066,6 +8084,10 @@ tr.product-landing-error-wrap {
 }
 
 @media (min-width: 992px) {
+	.annualTravel_policy_item:hover .hidden-content{
+	    display: block;
+	}
+	
     .product_landing_download_button{
         margin-right: 20px;
     }
@@ -8275,4 +8297,11 @@ tr.product-landing-error-wrap {
     width: 34%;
     padding:0px;
   }
+}
+
+#modal_policy_container .hidden-content-title{
+	color:#f68a1d;
+	font-weight:bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
