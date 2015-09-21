@@ -554,7 +554,7 @@
 				              	</div>
 				              	<div class="your-referral-link">
 				                  	<h2 class="text-center"> <fmt:message key="userAccount.Your.referral.link" bundle="${msg}" /></h2>
-				                  	<div class="link">http//i.fwd.com.hk/savie/referral?andylau01</div>
+				                  	<div class="link"><a class="padding6 h4-5-b " href="${userDetails.getReferralLink()}" target="_blank">${userDetails.getReferralLink()}</a></div>
 									
 										<button type="button" class="btn copy-link invisible" id="copy-link"><fmt:message key="userAccount.Copy.link" bundle="${msg}" /></button>
 										<div class="share">
