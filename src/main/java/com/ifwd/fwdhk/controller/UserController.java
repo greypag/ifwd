@@ -125,9 +125,8 @@ public class UserController {
 							"referralCode"));
 					userDetails.setReferralCodeUsedCount(checkJsonObjNull(
 							customer, "referralCodeUsedCount"));
-					/*userDetails.setReferralLink(checkJsonObjNull(customer,
-							"referralLink"));*/
-					userDetails.setReferralLink("http://i.fwd.com.hk/ecomm/referral?code=9S273");
+					userDetails.setReferralLink(checkJsonObjNull(customer,
+							"referralLink"));
 					userDetails.setGender(checkJsonObjNull(customer, "gender"));
 					userDetails.setDob(checkJsonObjNull(customer, "dob"));
 					userDetails.setOptIn1(checkJsonObjNull(customer, "optIn1"));
