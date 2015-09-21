@@ -84,6 +84,12 @@ jQuery(function($) {'use strict',
 
 // travel plan
 
+	
+$(".product_header_path_item.back").click(function(){
+	BackMe();
+});
+	
+	
 // PANELS
 
 var chk = 0;
