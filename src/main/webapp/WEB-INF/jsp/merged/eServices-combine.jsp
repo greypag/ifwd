@@ -378,7 +378,7 @@
 				              	</div>				              
 				          	</div>
 
-				          	<h2 class="text-center personal-promotion-code"><fmt:message key="userAccount.Personal.promotion.code" bundle="${msg}" /><span>9S273</span></h2>
+				          	<h2 class="text-center personal-promotion-code"><fmt:message key="userAccount.Personal.promotion.code" bundle="${msg}" /><span>${userDetails.referralCode }</span></h2>
 				          
 							<div class="promo-item hidden-sm hidden-xs title-orange">
 				                <div class="promo-item-cols">
