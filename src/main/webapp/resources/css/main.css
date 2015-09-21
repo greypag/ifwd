@@ -7842,6 +7842,7 @@ tr.product-landing-error-wrap {
 
 .product_header_path_item.back{
 	font-size: 22px;
+	cursor: pointer;
 }
 
 .product_header_path_item.active{

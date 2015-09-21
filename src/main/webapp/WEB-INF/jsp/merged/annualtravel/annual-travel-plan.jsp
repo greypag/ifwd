@@ -1054,7 +1054,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gray-bg pad-none">
 						<div class="hidden-sm hidden-xs">
 							<div class="wd2">
-								<div class="pull-left" style="width:150px;">
+								<div class="pull-left" style="width:145px;">
 									<h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="annual.quote.care" bundle="${msg}" /></h2>
 									<h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;"><fmt:message key="annual.quote.care.annualtravel" bundle="${msg}" /></h2>
 									<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanname"></h4>

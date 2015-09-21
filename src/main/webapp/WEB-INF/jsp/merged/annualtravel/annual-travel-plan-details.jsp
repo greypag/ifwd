@@ -431,7 +431,22 @@ function activateUserAccountJoinUs() {
                            <!-- id card starts -->
                            <div class="form-group float">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                   <label for="inputHkid" class="field-label bold-500"><fmt:message key="annual.details.hkid" bundle="${msg}" /></label>
+                                   <div class="bmg-label-styled-select styled-select ">
+                                        <select id="selectHkidPass"
+                                            name="selectedHkidPassApplicant" onchange="selected(this); togglePlaceholder(this,'inputTxtAppHkid','<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />');"
+                                            class="form-control soflow select-label">
+                                            <c:forEach var="hkidList"
+                                                items="${mapHkId}">
+                                                
+                                                <option
+                                                    value="${hkidList.key}">
+                                                    <c:out
+                                                        value="${hkidList.value}" />
+                                                </option>
+                                                
+                                            </c:forEach>
+                                        </select>
+                                    </div>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input type="text" name="hkid" class="form-control numberinput textUpper full-control bmg_custom_placeholder" id="inputTxtAppHkid" 
@@ -736,7 +751,15 @@ function activateUserAccountJoinUs() {
                                        <!-- id card start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <label class="field-label bold-500"><fmt:message key="annual.details.hkid" bundle="${msg}" /></label>
+                                               <div class=" bmg-label-styled-select styled-select">
+                                                   <select id="selectedPersonalHkidPass${inx}" class="form-control soflow select-label" name="selectedPersonalHkidPass" onchange="togglePlaceholder(this,'txtInsuHkid${inx}','<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');">
+                                                       <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
+                                                       <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
+                                                   </select>
+                                                   <c:if test="${inx == 1}">
+                                                       <div style="cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)">&nbsp;</div>
+                                                   </c:if>
+                                               </div>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
@@ -1403,7 +1426,7 @@ function activateUserAccountJoinUs() {
                         <div class="hidden-sm hidden-xs">
 
                             <div class="wd2">                                
-                                <div class="pull-left" style="width:150px;">
+                                <div class="pull-left" style="width:145px;">
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="annual.title.travelcare" bundle="${msg}" /></h2>
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;"><fmt:message key="annual.title.annualtravel" bundle="${msg}" /></h2>
                                     <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;"><fmt:message key="annual.common.plan" bundle="${msg}" /> ${planName }</h4>
