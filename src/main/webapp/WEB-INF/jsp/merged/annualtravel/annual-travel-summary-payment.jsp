@@ -162,27 +162,27 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 <div class="table activation-form vert-middle travel-summary">
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.fullname" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.fullName }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${userDetails.fullName }</div>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.hkid" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.hkid}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${userDetails.hkid}</div>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.emailaddress" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.emailAddress }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${userDetails.emailAddress }</div>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.mobile" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.mobileNo }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${userDetails.mobileNo }</div>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.correspondenceaddress" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
                                             	<c:if test="${planDetailsForm.applicantRoom != ''}">
 	                                                Room/Flat ${planDetailsForm.applicantRoom}, 
 	                                            </c:if>
@@ -218,27 +218,27 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.request" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createPolicy.referenceNo}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${createPolicy.referenceNo}</div>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.plan" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="annual.summary.plan" bundle="${msg}" /> ${selectPlanName}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper"><fmt:message key="annual.summary.plan" bundle="${msg}" /> ${selectPlanName}</div>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.no" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${planDetailsForm.totalPersonalTraveller }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.totalPersonalTraveller }</div>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.period" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="travel.summary.period.from" bundle="${msg}" /> ${travelBean.trLeavingDate} <fmt:message key="travel.summary.period.to" bundle="${msg}" /> ${travelBean.trBackDate}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper"><fmt:message key="travel.summary.period.from" bundle="${msg}" /> ${travelBean.trLeavingDate} <fmt:message key="travel.summary.period.to" bundle="${msg}" /> ${travelBean.trBackDate}</div>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row product_summary_orange_price">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="annual.summary.amount" bundle="${msg}" /></span></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none"><span class="h4-4-orange-b h2-3-existing-fwd-head pad-none"><fmt:message key="annual.common.dollar" bundle="${msg}" /> ${dueAmount}</span></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b h2-3-existing-fwd-head pad-none"><fmt:message key="annual.common.dollar" bundle="${msg}" /> ${dueAmount}</span></div>
                                             <div class="clearfix"></div>
                                         </div>
                                     <div class="clearfix"></div>
@@ -265,22 +265,22 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.fullname" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none"><%=planDetailsForm.getPersonalName()[i]%></div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper"><%=planDetailsForm.getPersonalName()[i]%></div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.dateofbirth" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none">September 27, 1961</div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper">September 27, 1961</div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.hkid" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none"><%=planDetailsForm.getPersonalHKID()[i]%></div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper"><%=planDetailsForm.getPersonalHKID()[i]%></div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row" style="margin-bottom:10px !important;">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.beneficiary" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none">
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper">
                                         <%
                                         	if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
                                         %>
@@ -309,22 +309,22 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.fullname" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none"><%=planDetailsForm.getAdultName()[i]%></div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper"><%=planDetailsForm.getAdultName()[i]%></div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.dateofbirth" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none">September 27, 1961</div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper">September 27, 1961</div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.hkid" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none"><%=planDetailsForm.getAdultHKID()[i]%></div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper"><%=planDetailsForm.getAdultHKID()[i]%></div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row" style="margin-bottom:10px !important;">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.beneficiary" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none">
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper">
                                         <%
                                             if("個人遺產".equals(planDetailsForm.getAdultBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getAdultBeneRelationDesc()[i])){
                                         %>
@@ -354,22 +354,22 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.fullname" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none"><%=planDetailsForm.getChildName()[i]%></div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper"><%=planDetailsForm.getChildName()[i]%></div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.dateofbirth" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none">September 27, 1961</div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper">September 27, 1961</div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.hkid" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none"><%=planDetailsForm.getChildHKID()[i]%></div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper"><%=planDetailsForm.getChildHKID()[i]%></div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row" style="margin-bottom:10px !important;">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.beneficiary" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none">
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper">
                                         <%
                                             if("個人遺產".equals(planDetailsForm.getChildBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getChildBeneRelationDesc()[i])){
                                         %>
@@ -413,25 +413,25 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
 	                                %>
 	                                <tr>
 	                                    <td data-title="Personal 4"><span class="h4-5"><fmt:message key="annual.summary.insured.traveller" bundle="${msg}" /> <%=i + 1%></span></td>
-	                                    <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getPersonalName()[i]%></span></td>
-	                                    <td data-title="Date of birth"><span class="h4-5"><%=planDetailsForm.getPersonalDob()[i]%></span></td>
-	                                    <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getPersonalHKID()[i]%></span></td>
+	                                    <td data-title="Full name"><span class="h4-5 textUpper"><%=planDetailsForm.getPersonalName()[i]%></span></td>
+	                                    <td data-title="Date of birth"><span class="h4-5 textUpper"><%=planDetailsForm.getPersonalDob()[i]%></span></td>
+	                                    <td data-title="HKID"><span class="h4-5 textUpper"><%=planDetailsForm.getPersonalHKID()[i]%></span></td>
 	                                    <%
                                         	if("個人遺產".equals(planDetailsForm.getPersonalBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getPersonalBeneRelationDesc()[i])){
                                         %>
-	                                    <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getPersonalBeneRelationDesc()[i] %></span></td>
+	                                    <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getPersonalBeneRelationDesc()[i] %></span></td>
 	                                </tr>
 	                                    <%
 		                                    }else{
 		                                %>
-	                                    <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getPersonalBenificiaryFullName()[i]%> (<%=planDetailsForm.getPersonalBeneRelationDesc()[i] %>)</span></td>   <!-- hide relationship if insured -->
+	                                    <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getPersonalBenificiaryFullName()[i]%> (<%=planDetailsForm.getPersonalBeneRelationDesc()[i] %>)</span></td>   <!-- hide relationship if insured -->
 	                                </tr>
 	                                <tr>
                                         <td data-title="Personal 4"><span class="h4-5"></span></td>
                                         <td data-title="Full name"><span class="h4-5"></span></td>
                                         <td data-title="Date of birth"><span class="h4-5"></span></td>
                                         <td data-title="HKID"><span class="h4-5"></span></td>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getChildBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getChildBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
                                     </tr>
                                     <%
 		                                    }
@@ -446,25 +446,25 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                     %>
                                     <tr>
                                         <td data-title="Personal 4"><span class="h4-5"><fmt:message key="annual.summary.insured.traveller" bundle="${msg}" /> <%=i + 1%></span></td>
-                                        <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
-                                        <td data-title="Date of birth"><span class="h4-5"><%=planDetailsForm.getPersonalDob()[i]%></span></td>
-                                        <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getAdultHKID()[i]%></span></td>
+                                        <td data-title="Full name"><span class="h4-5 textUpper"><%=planDetailsForm.getAdultName()[i]%></span></td>
+                                        <td data-title="Date of birth"><span class="h4-5 textUpper"><%=planDetailsForm.getPersonalDob()[i]%></span></td>
+                                        <td data-title="HKID"><span class="h4-5 textUpper"><%=planDetailsForm.getAdultHKID()[i]%></span></td>
                                         <%
                                             if("個人遺產".equals(planDetailsForm.getAdultBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getAdultBeneRelationDesc()[i])){
                                         %>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getAdultBeneRelationDesc()[i] %></span></td>
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getAdultBeneRelationDesc()[i] %></span></td>
                                     </tr>
                                         <%
                                             }else{
                                         %>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%> (<%=planDetailsForm.getAdultBeneRelationDesc()[i] %>)</span></td>   <!-- hide relationship if insured -->
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%> (<%=planDetailsForm.getAdultBeneRelationDesc()[i] %>)</span></td>   <!-- hide relationship if insured -->
                                     </tr>
                                     <tr>
                                         <td data-title="Personal 4"><span class="h4-5"></span></td>
                                         <td data-title="Full name"><span class="h4-5"></span></td>
                                         <td data-title="Date of birth"><span class="h4-5"></span></td>
                                         <td data-title="HKID"><span class="h4-5"></span></td>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
                                     </tr>
                                     <%
                                             }
@@ -479,25 +479,25 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                     %>
                                     <tr>
                                         <td data-title="Personal 4"><span class="h4-5"><fmt:message key="annual.summary.insured.traveller" bundle="${msg}" /> <%=i + 1%></span></td>
-                                        <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getChildName()[i]%></span></td>
-                                        <td data-title="Date of birth"><span class="h4-5"><%=planDetailsForm.getPersonalDob()[i]%></span></td>
-                                        <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getChildHKID()[i]%></span></td>
+                                        <td data-title="Full name"><span class="h4-5 textUpper"><%=planDetailsForm.getChildName()[i]%></span></td>
+                                        <td data-title="Date of birth"><span class="h4-5 textUpper"><%=planDetailsForm.getPersonalDob()[i]%></span></td>
+                                        <td data-title="HKID"><span class="h4-5 textUpper"><%=planDetailsForm.getChildHKID()[i]%></span></td>
                                         <%
                                             if("個人遺產".equals(planDetailsForm.getChildBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getChildBeneRelationDesc()[i])){
                                         %>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getChildBeneRelationDesc()[i] %></span></td>
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getChildBeneRelationDesc()[i] %></span></td>
                                     </tr>
                                         <%
                                             }else{
                                         %>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getChildBenificiaryFullName()[i]%> (<%=planDetailsForm.getChildBeneRelationDesc()[i] %>)</span></td>   <!-- hide relationship if insured -->
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getChildBenificiaryFullName()[i]%> (<%=planDetailsForm.getChildBeneRelationDesc()[i] %>)</span></td>   <!-- hide relationship if insured -->
                                     </tr>
                                     <tr>
                                         <td data-title="Personal 4"><span class="h4-5"></span></td>
                                         <td data-title="Full name"><span class="h4-5"></span></td>
                                         <td data-title="Date of birth"><span class="h4-5"></span></td>
                                         <td data-title="HKID"><span class="h4-5"></span></td>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getChildBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getChildBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
                                     </tr>
                                     <%
                                             }

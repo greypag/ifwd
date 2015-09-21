@@ -141,23 +141,23 @@ var enablePayment=true;
                                 <div class="table activation-form vert-middle travel-summary">
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.name" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.fullName }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${userDetails.fullName }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.hkid" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.hkid}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${userDetails.hkid}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.email" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.emailAddress }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${userDetails.emailAddress }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.applicant.mobileNo" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.mobileNo }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${userDetails.mobileNo }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.requestNo" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${createPolicy.referenceNo}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${createPolicy.referenceNo}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.plan" bundle="${msg}" /></div>
@@ -165,7 +165,7 @@ var enablePayment=true;
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.insuredNo" bundle="${msg}" /> <br></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
                                             <%
                                                 if (planDetailsForm != null) 
                                                 {
@@ -185,15 +185,15 @@ var enablePayment=true;
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.period" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="travel.summary.period.from" bundle="${msg}" /> ${travelBean.trLeavingDate} <fmt:message key="travel.summary.period.to" bundle="${msg}" /> ${travelBean.trBackDate}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper"><fmt:message key="travel.summary.period.from" bundle="${msg}" /> ${travelBean.trLeavingDate} <fmt:message key="travel.summary.period.to" bundle="${msg}" /> ${travelBean.trBackDate}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.days" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${totalTravellingDays}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${totalTravellingDays}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.summary.amountDue" bundle="${msg}" /></span></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.dollar" bundle="${msg}" /> ${dueAmount} </span></div> 
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.dollar" bundle="${msg}" /> ${dueAmount} </span></div> 
                                         </div>
                                         <div class="row summary-row">
                                             <div class="hidden-xs hidden-sm col-md-12 col-lg-12 pad-none">
@@ -324,20 +324,20 @@ var enablePayment=true;
                                             
                                             }else{
                                         %>
-                                        <td ><span class="bd gy"><fmt:message key="travel.summary.insured.label.personal.beneficiary" bundle="${msg}" /></span></td>
+                                        <td ><span class="bd gy textUpper"><fmt:message key="travel.summary.insured.label.personal.beneficiary" bundle="${msg}" /></span></td>
                                         <% } %>
                                     </tr>
                                     <tr>
-                                        <td ><span class=""><%=planDetailsForm.getPersonalName()[i]%></span></td>
+                                        <td ><span class=" textUpper"><%=planDetailsForm.getPersonalName()[i]%></span></td>
                                         <% if(planDetailsForm.getPersonalBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getPersonalBeneRelationDesc()[i].equals("Own Estate")){
                                             
 	                                        }else{
 	                                    %>
-                                        <td  class="gy"><%=planDetailsForm.getPersonalBenificiaryFullName()[i]%></td>
+                                        <td  class="gy textUpper"><%=planDetailsForm.getPersonalBenificiaryFullName()[i]%></td>
                                         <% } %>
                                     </tr>
                                     <tr>
-                                        <td ><span class=""><%=planDetailsForm.getPersonalAgeRangeName()[i]%></span></td>
+                                        <td ><span class=" textUpper"><%=planDetailsForm.getPersonalAgeRangeName()[i]%></span></td>
                                         <% if(planDetailsForm.getPersonalBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getPersonalBeneRelationDesc()[i].equals("Own Estate")){
                                             
                                             }else{
@@ -346,21 +346,21 @@ var enablePayment=true;
                                         <% } %>
                                     </tr>
                                     <tr>
-                                        <td ><span class=""><%=planDetailsForm.getPersonalHKID()[i]%></span></td>
+                                        <td ><span class=" textUpper"><%=planDetailsForm.getPersonalHKID()[i]%></span></td>
                                         <% if(planDetailsForm.getPersonalBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getPersonalBeneRelationDesc()[i].equals("Own Estate")){
                                             
                                             }else{
                                         %>
-                                        <td  class="gy"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%></td>
+                                        <td  class="gy textUpper"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%></td>
                                         <% } %>
                                     </tr>
                                     <tr>
-                                        <td ></td>  <!-- hide relationship if insured -->
+                                        <td class=" textUpper"></td>  <!-- hide relationship if insured -->
                                         <% if(planDetailsForm.getPersonalBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getPersonalBeneRelationDesc()[i].equals("Own Estate")){
                                             
                                             }else{
                                         %>
-                                        <td  class="gy"><%=planDetailsForm.getPersonalBeneRelationDesc()[i]%></td>
+                                        <td  class="gy textUpper"><%=planDetailsForm.getPersonalBeneRelationDesc()[i]%></td>
                                         <% } %>
                                     </tr>
                                     <tr><td>&nbsp;</td></tr>
@@ -386,20 +386,20 @@ var enablePayment=true;
                                             
                                             }else{
                                         %>
-                                        <td ><span class="bd gy"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
+                                        <td ><span class="bd gy textUpper"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
                                         <% } %>
                                     </tr>
                                     <tr>
-                                        <td ><span class=""><%=planDetailsForm.getAdultName()[i]%></span></td>
+                                        <td ><span class=" textUpper"><%=planDetailsForm.getAdultName()[i]%></span></td>
                                         <% if(planDetailsForm.getAdultBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getAdultBeneRelationDesc()[i].equals("Own Estate")){
                                             
                                             }else{
                                         %>
-                                        <td  class="gy"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
+                                        <td  class="gy textUpper"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
                                         <% } %>
                                     </tr>
                                     <tr>
-                                        <td ><span class=""><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
+                                        <td ><span class=" textUpper"><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
                                         <% if(planDetailsForm.getAdultBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getAdultBeneRelationDesc()[i].equals("Own Estate")){
                                             
                                             }else{
@@ -408,12 +408,12 @@ var enablePayment=true;
                                         <% } %>
                                     </tr>
                                     <tr>
-                                        <td ><span class=""><%=planDetailsForm.getAdultHKID()[i]%></span></td>
+                                        <td ><span class=" textUpper"><%=planDetailsForm.getAdultHKID()[i]%></span></td>
                                         <% if(planDetailsForm.getAdultBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getAdultBeneRelationDesc()[i].equals("Own Estate")){
                                             
                                             }else{
                                         %>
-                                        <td  class="gy"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
+                                        <td  class="gy textUpper"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
                                         <% } %>
                                     </tr>
                                     <tr>
@@ -422,7 +422,7 @@ var enablePayment=true;
                                             
                                             }else{
                                         %>
-                                        <td  class="gy"><%=planDetailsForm.getAdultBeneRelationDesc()[i]%></td>
+                                        <td  class="gy textUpper"><%=planDetailsForm.getAdultBeneRelationDesc()[i]%></td>
                                         <% } %>
                                     </tr>
                                     <tr><td>&nbsp;</td></tr>
@@ -446,20 +446,20 @@ var enablePayment=true;
                                             
                                             }else{
                                         %>
-                                        <td ><span class="bd gy" ><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
+                                        <td ><span class="bd gy textUpper" ><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
                                         <% } %>
                                     </tr>
                                     <tr>    
-                                        <td ><%=planDetailsForm.getChildName()[i]%></td>
+                                        <td class=" textUpper"><%=planDetailsForm.getChildName()[i]%></td>
                                         <% if(planDetailsForm.getChildBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getChildBeneRelationDesc()[i].equals("Own Estate")){
                                             
                                             }else{
                                         %>
-                                        <td class="gy"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
+                                        <td class="gy textUpper"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
                                         <% } %>
                                     </tr>
                                     <tr>
-                                        <td ><%=planDetailsForm.getChildAgeRangeName()[i]%></td>
+                                        <td class=" textUpper"><%=planDetailsForm.getChildAgeRangeName()[i]%></td>
                                         <% if(planDetailsForm.getChildBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getChildBeneRelationDesc()[i].equals("Own Estate")){
                                             
                                             }else{
@@ -468,12 +468,12 @@ var enablePayment=true;
                                         <% } %>
                                     </tr>
                                     <tr>
-                                        <td ><%=planDetailsForm.getChildHKID()[i]%></td>
+                                        <td class=" textUpper"><%=planDetailsForm.getChildHKID()[i]%></td>
                                         <% if(planDetailsForm.getChildBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getChildBeneRelationDesc()[i].equals("Own Estate")){
                                             
                                             }else{
                                         %>
-                                        <td  class="gy"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
+                                        <td  class="gy textUpper"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
                                         <% } %>
                                     </tr>
                                     <tr>
@@ -482,7 +482,7 @@ var enablePayment=true;
                                             
                                             }else{
                                         %>
-                                        <td  class="gy"><%=planDetailsForm.getChildBeneRelationDesc()[i]%></td>
+                                        <td  class="gy textUpper"><%=planDetailsForm.getChildBeneRelationDesc()[i]%></td>
                                         <% } %>
                                     </tr>
                                     <tr><td>&nbsp;</td></tr>
@@ -504,21 +504,21 @@ var enablePayment=true;
                                             
                                             }else{
                                         %>
-                                        <td ><span  class="bd gy"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
+                                        <td ><span  class="bd gy textUpper"><fmt:message key="travel.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
                                         <% } %>
                                     </tr>
                                     <tr>
-                                        <td ><%=planDetailsForm.getOtherName()[i]%></td>
+                                        <td class=" textUpper"><%=planDetailsForm.getOtherName()[i]%></td>
                                         <% if(planDetailsForm.getOtherBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getOtherBeneRelationDesc()[i].equals("Own Estate")){
                                             
                                             }else{
                                         %>
-                                        <td  class="gy"><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
+                                        <td  class="gy textUpper"><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
                                         <% } %>
                                     </tr>
                                     <tr>
                                         <!-- vincent getOtherAgeRangeName - null ptr -->
-                                        <td ><% 
+                                        <td class=" textUpper"><% 
                                                     if (planDetailsForm.getOtherAgeRangeName()[i] != null) 
                                                         out.println(planDetailsForm.getOtherAgeRangeName()[i]);
                                              %>
@@ -531,12 +531,12 @@ var enablePayment=true;
                                         <% } %>
                                     </tr>
                                     <tr>
-                                        <td ><%=planDetailsForm.getOtherHKID()[i]%></td>
+                                        <td class=" textUpper"><%=planDetailsForm.getOtherHKID()[i]%></td>
                                         <% if(planDetailsForm.getOtherBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getOtherBeneRelationDesc()[i].equals("Own Estate")){
                                             
                                             }else{
                                         %>
-                                        <td  class="gy"><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>
+                                        <td  class="gy textUpper"><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>
                                         <% } %>
                                     </tr>
                                     <tr>
@@ -545,7 +545,7 @@ var enablePayment=true;
                                             
                                             }else{
                                         %>
-                                        <td  class="gy"><%=planDetailsForm.getOtherBeneRelationDesc()[i]%></td>
+                                        <td  class="gy textUpper"><%=planDetailsForm.getOtherBeneRelationDesc()[i]%></td>
                                         <% } %>
                                     </tr>
                                     <tr><td>&nbsp;</td></tr>
@@ -588,10 +588,10 @@ var enablePayment=true;
                                                     <%=i + 1%>
                                             </span>
                                             </td>
-                                            <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getPersonalName()[i]%></span></td>
-                                            <td data-title="Age range"><span class="h4-5"><%=planDetailsForm.getPersonalAgeRangeName()[i]%></span></td>
-                                            <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getPersonalHKID()[i]%></span></td>
-                                            <td data-title="Relationship"><span class="h4-5"></span></td>   <!-- hide relationship if insured -->
+                                            <td data-title="Full name"><span class="h4-5 textUpper"><%=planDetailsForm.getPersonalName()[i]%></span></td>
+                                            <td data-title="Age range"><span class="h4-5 textUpper"><%=planDetailsForm.getPersonalAgeRangeName()[i]%></span></td>
+                                            <td data-title="HKID"><span class="h4-5 textUpper"><%=planDetailsForm.getPersonalHKID()[i]%></span></td>
+                                            <td data-title="Relationship"><span class="h4-5 textUpper"></span></td>   <!-- hide relationship if insured -->
                                         </tr>
                                         <% if(planDetailsForm.getPersonalBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getPersonalBeneRelationDesc()[i].equals("Own Estate")){
 		                                        
@@ -604,11 +604,11 @@ var enablePayment=true;
                                             <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
                                             <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
                                             <% }else{ %>
-                                            <td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getPersonalBenificiaryFullName()[i]%></td>
+                                            <td data-title="Full name" class="travel-tb-h3 textUpper"><%=planDetailsForm.getPersonalBenificiaryFullName()[i]%></td>
                                             <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-                                            <td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%></td>
+                                            <td data-title="HKID" class="travel-tb-h3 textUpper"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%></td>
                                             <% } %>
-                                            <td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getPersonalBeneRelationDesc()[i]%></td>
+                                            <td data-title="Relationship" class="travel-tb-h3 textUpper"><%=planDetailsForm.getPersonalBeneRelationDesc()[i]%></td>
     <!--                                        <td data-title="Relationship" class="travel-tb-h3"></td> -->
                                         </tr>
                                         <%
@@ -630,10 +630,10 @@ var enablePayment=true;
                                                 <%=i + 1%>
                                         </span>
                                         </td>
-                                        <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
-                                        <td data-title="Age range"><span class="h4-5"><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
-                                        <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getAdultHKID()[i]%></span></td>
-                                        <td data-title="Relationship"><span class="h4-5"></span></td>   <!-- hide relationship if insured -->
+                                        <td data-title="Full name"><span class="h4-5 textUpper"><%=planDetailsForm.getAdultName()[i]%></span></td>
+                                        <td data-title="Age range"><span class="h4-5 textUpper"><%=planDetailsForm.getAdultAgeRangeName()[i]%></span></td>
+                                        <td data-title="HKID"><span class="h4-5 textUpper"><%=planDetailsForm.getAdultHKID()[i]%></span></td>
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"></span></td>   <!-- hide relationship if insured -->
                                     </tr>
                                     <% if(planDetailsForm.getAdultBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getAdultBeneRelationDesc()[i].equals("Own Estate")){
 		                                    
@@ -646,11 +646,11 @@ var enablePayment=true;
                                             <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
                                             <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
                                             <% }else{ %>
-                                            <td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
-                                        <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-                                        <td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
+                                            <td data-title="Full name" class="travel-tb-h3 textUpper"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%></td>
+                                        <td data-title="Age range" class="travel-tb-h3 textUpper">&nbsp;</td>
+                                        <td data-title="HKID" class="travel-tb-h3 textUpper"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%></td>
                                             <% } %>
-                                        <td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getAdultBeneRelationDesc()[i]%></td>
+                                        <td data-title="Relationship" class="travel-tb-h3 textUpper"><%=planDetailsForm.getAdultBeneRelationDesc()[i]%></td>
 <!--                                        <td data-title="Relationship" class="travel-tb-h3"></td> -->
                                     </tr>
                                     <%
@@ -666,10 +666,10 @@ var enablePayment=true;
                                 <tr>
                                     <td data-title="Child <%=i + 1%>"><span class="h2-1-td"><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />
                                             <%=i + 1%></span></td>
-                                    <td class="h4-5" data-title="Full name"><%=planDetailsForm.getChildName()[i]%></td>
-                                    <td class="h4-5" data-title="Age range"><%=planDetailsForm.getChildAgeRangeName()[i]%></td>
-                                    <td class="h4-5" data-title="HKID"><%=planDetailsForm.getChildHKID()[i]%></td>                                  
-                                    <td class="h4-5" data-title="Relationship"></td>    <!-- hide relationship if insured -->
+                                    <td class="h4-5 textUpper" data-title="Full name"><%=planDetailsForm.getChildName()[i]%></td>
+                                    <td class="h4-5 textUpper" data-title="Age range"><%=planDetailsForm.getChildAgeRangeName()[i]%></td>
+                                    <td class="h4-5 textUpper" data-title="HKID"><%=planDetailsForm.getChildHKID()[i]%></td>                                  
+                                    <td class="h4-5 textUpper" data-title="Relationship"></td>    <!-- hide relationship if insured -->
                                 </tr>
                                 <% if(planDetailsForm.getChildBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getChildBeneRelationDesc()[i].equals("Own Estate")){
                                         
@@ -683,12 +683,12 @@ var enablePayment=true;
                                             <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
                                             <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
                                             <% }else{ %>
-                                            <td data-title="Full name" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
-                                        <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
-                                        <td data-title="HKID" class="travel-tb-h3"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
+                                            <td data-title="Full name" class="travel-tb-h3 textUpper"><%=planDetailsForm.getChildBenificiaryFullName()[i]%></td>
+                                        <td data-title="Age range" class="travel-tb-h3 textUpper">&nbsp;</td>
+                                        <td data-title="HKID" class="travel-tb-h3 textUpper"><%=planDetailsForm.getChildBenificiaryHkid()[i]%></td>
                                             <% } %>
                                     
-                                    <td data-title="Relationship" class="travel-tb-h3"><%=planDetailsForm.getChildBeneRelationDesc()[i]%></td>
+                                    <td data-title="Relationship" class="travel-tb-h3 textUpper"><%=planDetailsForm.getChildBeneRelationDesc()[i]%></td>
                                 </tr>
                                 <%
                                     }
@@ -704,15 +704,15 @@ var enablePayment=true;
                                     <tr class="hidden-sm hidden-xs">
                                         <td data-title="Other<%=i + 1%>"><span class="h2-1-td"><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />
                                                 <%=i + 1%></span></td>
-                                        <td class=" h4-5" data-title="Full name"><%=planDetailsForm.getOtherName()[i]%></td>
+                                        <td class=" h4-5 textUpper" data-title="Full name"><%=planDetailsForm.getOtherName()[i]%></td>
                                         <!-- vincent getOtherAgeRangeName - null ptr -->
-                                        <td class=" h4-5" data-title="Age range">
+                                        <td class=" h4-5 textUpper" data-title="Age range">
                                         <% 
                                             if ( planDetailsForm.getOtherAgeRangeName()[i] != null ) 
                                                 out.println(planDetailsForm.getOtherAgeRangeName()[i]); 
                                         %></td> 
-                                        <td class=" h4-5" data-title="HKID"><%=planDetailsForm.getOtherHKID()[i]%></td>
-                                        <td class=" h4-5" data-title="Relationship"></td>   <!-- hide relationship if insured -->
+                                        <td class=" h4-5 textUpper" data-title="HKID"><%=planDetailsForm.getOtherHKID()[i]%></td>
+                                        <td class=" h4-5 textUpper" data-title="Relationship"></td>   <!-- hide relationship if insured -->
                                     </tr>
                                     <% if(planDetailsForm.getOtherBeneRelationDesc()[i].equals("個人遺產") || planDetailsForm.getOtherBeneRelationDesc()[i].equals("Own Estate")){
                                     	
@@ -725,11 +725,11 @@ var enablePayment=true;
                                             <td data-title="Age range" class="travel-tb-h3">&nbsp;</td>
                                             <td data-title="HKID" class="travel-tb-h3">&nbsp;</td>
                                             <% }else{ %>
-                                            <td data-title="Full name" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
-                                        <td data-title="Age range" class="travel-tb-h3 ">&nbsp;</td>
-                                        <td data-title="HKID" class="travel-tb-h3 "><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>          
+                                            <td data-title="Full name" class="travel-tb-h3 textUpper"><%=planDetailsForm.getOtherBenificiaryFullName()[i]%></td>
+                                        <td data-title="Age range" class="travel-tb-h3 textUpper">&nbsp;</td>
+                                        <td data-title="HKID" class="travel-tb-h3 textUpper"><%=planDetailsForm.getOtherBenificiaryHkid()[i]%></td>          
                                             <% } %>                             
-                                        <td data-title="Relationship" class="travel-tb-h3 "><%=planDetailsForm.getOtherBeneRelationDesc()[i]%></td>
+                                        <td data-title="Relationship" class="travel-tb-h3 textUpper"><%=planDetailsForm.getOtherBeneRelationDesc()[i]%></td>
                                     </tr>
                                     <%
                                         }

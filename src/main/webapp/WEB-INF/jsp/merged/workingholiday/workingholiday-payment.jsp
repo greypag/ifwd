@@ -146,23 +146,23 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                                         </div> -->
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.applicant.name" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.fullName}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${userDetails.fullName}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.applicant.hkid" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.hkid}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${userDetails.hkid}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.applicant.email" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.emailAddress}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${userDetails.emailAddress}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.applicant.mobileNo" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${userDetails.mobileNo}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${userDetails.mobileNo}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.applicant.requestNo" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${whCreatePolicy.referenceNo}</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${whCreatePolicy.referenceNo}</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.plan" bundle="${msg}" /></div>
@@ -178,19 +178,19 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.period" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
                                                 <fmt:message key="workingholiday.summary.period.from" bundle="${msg}" />
 	                                            ${commencementDate} <fmt:message key="workingholiday.summary.period.to" bundle="${msg}" /> ${expiryDate}
                                             </div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="workingholiday.summary.days" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${totalDays}
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${totalDays}
                                             </div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head" style="color: #f68a1d !important;"><fmt:message key="workingholiday.summary.amountDue" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
                                                 <span class="h4-4-orange-b pad-none"><fmt:message key="workingholiday.dollar" bundle="${msg}" /> ${dueAmount} </span>
                                             </div>
                                         </div>
@@ -312,19 +312,19 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 								<tbody>
 									<tr class="hidden-sm hidden-xs">
 										<td data-title="Other"><span class="h2-1-td"><fmt:message key="workingholiday.summary.insured.traveller" bundle="${msg}" /></span></td>
-										<td class=" h4-5" data-title="Full name">${userDetails.fullName}</td>
+										<td class=" h4-5 textUpper" data-title="Full name">${userDetails.fullName}</td>
 										<!-- <td class=" h4-5" data-title="Age range"></td> --> 
-										<td class=" h4-5" data-title="HKID">${userDetails.hkid}</td>
+										<td class=" h4-5 textUpper" data-title="HKID">${userDetails.hkid}</td>
 										<td data-title="Relationship"><span class="h4-5"></span></td>
 									</tr>
 									
 									<c:if test="${workingHolidayPlanDetailsForm != null && workingHolidayPlanDetailsForm.whInsBeneficary != 'SE'}" >
 									<tr>
 										<td data-title="Personal1"><span class="h4-6-td"><fmt:message key="workingholiday.summary.insured.label.family.beneficiary" bundle="${msg}" /></span></td>
-	                                    <td data-title="Full name" class="travel-tb-h3">${workingHolidayPlanDetailsForm.whInsFullName}</td>
+	                                    <td data-title="Full name" class="travel-tb-h3 textUpper">${workingHolidayPlanDetailsForm.whInsFullName}</td>
                                         <!-- <td data-title="Age range" class="travel-tb-h3">&nbsp;</td> -->
-                                        <td data-title="HKID" class="travel-tb-h3">${workingHolidayPlanDetailsForm.whInsHKID}</td>
-	                                    <td data-title="Relationship" class="travel-tb-h3">${whInsBeneficaryDesc}</td>
+                                        <td data-title="HKID" class="travel-tb-h3 textUpper">${workingHolidayPlanDetailsForm.whInsHKID}</td>
+	                                    <td data-title="Relationship" class="travel-tb-h3 textUpper">${whInsBeneficaryDesc}</td>
 									</tr>
 									</c:if>
 								</tbody>
