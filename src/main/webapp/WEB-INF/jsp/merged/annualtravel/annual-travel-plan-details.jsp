@@ -1378,10 +1378,9 @@ function activateUserAccountJoinUs() {
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
                                         <h3 style="text-align: right;font-weight: normal;">
-                                            ${corrAnnualTravelQuote.totalPersonalTraveller} <fmt:message key="annual.quote.care.traveller" bundle="${msg}" />
-                                            
-                                            2 adult<br/>
-                                            1 child
+                                            <c:if test="${corrAnnualTravelQuote.totalPersonalTraveller>0}">${corrAnnualTravelQuote.totalPersonalTraveller} <fmt:message key="annual.quote.care.traveller" bundle="${msg}" /></c:if>
+                                            <c:if test="${corrAnnualTravelQuote.totalAdultTraveller>0}">${corrAnnualTravelQuote.totalAdultTraveller} <fmt:message key="annual.quote.care.adult" bundle="${msg}" /><br/></c:if>
+                                            <c:if test="${corrAnnualTravelQuote.totalChildTraveller>0}">${corrAnnualTravelQuote.totalChildTraveller} <fmt:message key="annual.quote.care.child" bundle="${msg}" /></c:if>
                                         </h3>
                                     </div>
                                     <div class="clearfix"></div>
