@@ -512,7 +512,7 @@
 										<div class="promo-item-cols">
 											<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Type.of.Offer" bundle="${msg}" /></h5>
 											<p>Agoda</p>
-											<button type="button" class="btn btn-orange get-now"><fmt:message key="userAccount.Get.now" bundle="${msg}" /></button>
+											<button type="button" class="btn btn-orange get-now" onclick="getPromoCode();"><fmt:message key="userAccount.Get.now" bundle="${msg}" /></button>
 										</div>
 									</div>
 									<div class="promo-item-cols bottom">
@@ -554,7 +554,7 @@
 				              	</div>
 				              	<div class="your-referral-link">
 				                  	<h2 class="text-center"> <fmt:message key="userAccount.Your.referral.link" bundle="${msg}" /></h2>
-				                  	<div class="link"><a class="padding6 h4-5-b " href="${userDetails.getReferralLink()}" target="_blank">${userDetails.getReferralLink()}</a></div>
+				                  	<div class="link"><a class="padding6 h4-5-b " href="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}?promo=<%=session.getAttribute("myReferralCode")%>" target="_blank"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}?promo=<%=session.getAttribute("myReferralCode")%></a></div>
 									
 										<button type="button" class="btn copy-link invisible" id="copy-link"><fmt:message key="userAccount.Copy.link" bundle="${msg}" /></button>
 										<div class="share">
@@ -646,7 +646,39 @@
 						
 					</div>
 				</div>
-			</div>			
+			</div>	
+			
+			
+			<div class="modal fade details-popup" id="agoda_promo_code_popup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+                                  <div class="modal-dialog modal-lg">
+                                      <div class="modal-content plan-modal">
+                                          <a class="close" aria-label="Close" data-dismiss="modal">
+                                          <span aria-hidden="true" style="font-size:30px;">×</span>
+                                          </a>
+                                          <div class="fwdpanel-heading">
+                                              <span class="fwdpanel-title h4-4-full "><fmt:message key="partner.agoda.get.title" bundle="${msg}" /></span><span id="agoda_promo_code" style="font-weight:bold;font-size: 24px;line-height: 42px;"></span>
+                                          </div>
+                                          <div class="fwdpanel-body" >
+                                                <table id="Premium" class="table table-bordred">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><fmt:message key="agoda.link.desc" bundle="${msg}" /></td>
+                                                            <td><a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" class="sub-link" target="_blank"><fmt:message key="agoda.promo.link" bundle="${msg}" /></a></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="color: #fff;background-color: #f68a1d;"><fmt:message key="agoda.desc1.title" bundle="${msg}" /></td>
+                                                            <td><fmt:message key="agoda.desc1.detail" bundle="${msg}" /></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><fmt:message key="agoda.desc2.title" bundle="${msg}" /></td>
+                                                            <td><fmt:message key="agoda.desc2.detail" bundle="${msg}" /></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                          </div>
+                                      </div>
+                                  </div>
+                               </div>		
 
 		</div>
         <script src="<%=request.getContextPath()%>/resources/js/ZeroClipboard.js"></script>
@@ -666,6 +698,18 @@
             $('.profile-meu-item').removeClass('active');
             $(this).addClass('active');
          });
+         
+         function getPromoCode(){
+     	    $.ajax({
+     	        type : "POST",
+     	        url : '<%=request.getContextPath()%>/getPromoCode',
+     	        async : false,
+     	        success : function(data) {
+     	            $("#agoda_promo_code").html(data);
+     	            $('#agoda_promo_code_popup').modal();
+     	        }
+     	    });
+     	}
             
 		</script>
 	</body>
