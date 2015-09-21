@@ -82,6 +82,22 @@ a.active {
 
 /**End**/
 
+::-webkit-input-placeholder {
+   font-family: Calibri, sans-serif !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   font-family: Calibri, sans-serif !important;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   font-family: Calibri, sans-serif !important;
+}
+
+:-ms-input-placeholder {  
+   font-family: Calibri, sans-serif !important;
+}
+
 .topten{
     margin-top:-10px;   
 }
