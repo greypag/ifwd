@@ -202,20 +202,20 @@
 									        <div class="plan-item <c:if test="${obj.count%2 != '0'}">first</c:if><c:if test="${obj.count%2 == '0'}">colored</c:if>">
 							                    <div class="plan-item-cols">
 							                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Plan.name" bundle="${msg}" /></h5>
-							                        <p>${list.planCode }</p>
+							                        <p>${ list.planCode != null ? list.planCode : "&nbsp" }</p>
 							                    </div>
 							                    <div class="plan-item-cols">
 							                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Policy.no" bundle="${msg}" /></h5>
-							                        <p>${list.policyNumber }</p>
+							                        <p>${ list.policyNumber != null ? list.policyNumber : "&nbsp" }</p>
 							                    </div>
 							                    <div class="plan-item-cols bottom">
 							                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Day.start" bundle="${msg}" /></h5>
-							                        <p>${list.commencementDate }</p>
+							                        <p>${ list.commencementDate != null ? list.commencementDate : "&nbsp" }</p>
 							                    </div>
 							                    <div class="plan-item-cols bottom">
 							                        <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Day.end" bundle="${msg}" /></h5>
-							                        <p class="hidden-lg hidden-md">${list.expiryDate }</p>
-							                        <p class="hidden-sm hidden-xs">${list.expiryDate }</p>
+							                        <p class="hidden-lg hidden-md">${ list.expiryDate != null ? list.expiryDate : "&nbsp" }</p>
+							                        <p class="hidden-sm hidden-xs">${ list.expiryDate != null ? list.expiryDate : "&nbsp" }</p>
 							                    </div>
 							                </div>
 								          </c:forEach>
@@ -250,19 +250,19 @@
 							                  	<div class="clearfix">
 							                      	<div class="plan-item-cols">
 							                        	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Plan.name" bundle="${msg}" /></h5>
-							                        	<p>${list.planCode }</p>
+							                        	<p>${ list.planCode != null ? list.planCode : "&nbsp" }</p>
 							                      	</div>
 							                      	<div class="plan-item-cols">
 							                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Reference.no" bundle="${msg}" /></h5>
-							                          	<p>${list.policyNo }</p>
+							                          	<p>${ list.policyNo != null ? list.policyNo : "&nbsp" }</p>
 							                      	</div>
 							                      	<div class="plan-item-cols bottom">
 							                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Status" bundle="${msg}" /></h5>
-							                          	<p>${list.status }</p>
+							                          	<p>${ list.status != null ? list.status : "&nbsp" }</p>
 							                      	</div>
 							                      	<div class="plan-item-cols bottom">
 							                          	<h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Account.value" bundle="${msg}" /> <span class="asterisk">*</span></h5>
-							                          	<p>HK$ ${list.accountBalance }</p>
+							                          	<p>HK$ ${ list.accountBalance != null ? list.accountBalance : "&nbsp" }</p>
 							                      	</div>
 							                  	</div>
 							              	</div>
@@ -554,7 +554,7 @@
 				              	</div>
 				              	<div class="your-referral-link">
 				                  	<h2 class="text-center"> <fmt:message key="userAccount.Your.referral.link" bundle="${msg}" /></h2>
-				                  	<div class="link">http//i.fwd.com.hk/savie/referral?andylau01</div>
+				                  	<div class="link"><a class="padding6 h4-5-b " href="${userDetails.getReferralLink()}" target="_blank">${userDetails.getReferralLink()}</a></div>
 									
 										<button type="button" class="btn copy-link invisible" id="copy-link"><fmt:message key="userAccount.Copy.link" bundle="${msg}" /></button>
 										<div class="share">
