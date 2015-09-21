@@ -160,7 +160,20 @@ $(document).ready(function() {
      }else{
        traveller = personalTraveller;
      }
+    
+    if(getParameterByUrl("product")=="annual"){
+    	selectTravelCareType('annual', getBundle(getBundleLanguage, "travel.main.quote.annualtravel"));
+    }else {
+    	selectTravelCareType('single', getBundle(getBundleLanguage, "travel.main.quote.singletriptravel"));
+    }
 });
+
+
+function getParameterByUrl(name){
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
 </script>
 <!-- End fixed header -->
 <%
