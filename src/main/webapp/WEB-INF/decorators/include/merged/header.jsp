@@ -77,9 +77,10 @@ function submitLoginForm(formID) {
 						}
 						else {
 							perventRedirect=false;
-							///////window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
+							//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
 							ga('send', 'event', 'Login', 'Click', 'Login success');
-							location.reload();
+							//location.reload();
+							window.location.href=window.location.href;
 						}
 					} else if (data == 'Provided User Account Details Does Not Exist') {
 						try{$('.login-ajax-loading').hide();}catch(error){}

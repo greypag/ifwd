@@ -786,7 +786,8 @@ function userLoginFnc() {
         async : false,
         success : function(data) {
             if (data == 'success') {
-                window.location.reload();
+            	window.location.href=window.location.href;
+                //window.location.reload();
             } else if (data == 'fail') {
                 $('.login-ajax-loading').hide();
                 $('#login-err-msg').show();

@@ -7,6 +7,9 @@ public class AnnualDetailsForm {
 	private int travellerCount;
 
 	private int totalPersonalTraveller;
+	private int totalAdultTraveller;
+	private int totalChildTraveller;
+	private int totalOtherTraveller;
 
 	private String hkid;
 	private String totalDue;
@@ -20,35 +23,49 @@ public class AnnualDetailsForm {
 
 	private String[] personalName;
 	private String[] personalHKID;
-	private String[] personalAgeRange;
-	private String[] personalAgeRangeName;
 	private String[] personalDob;
-
-	// private AdultBeneficiary[] adultBeneficiary;
-	private String[] childBeneficiary;
-	private String[] adultBeneficiary;
 	private String[] personalBeneficiary;
-
-	private String[] personalRelationDesc; // adult - insured relationship desc
-	private String[] personalBeneRelationDesc; // adult - bene relationship desc
-												// of insured
-
-	private String[] adultRelationDesc; // adult - insured relationship desc
-	private String[] adultBeneRelationDesc; // adult - bene relationship desc of
-											// insured
-	private String[] childRelationDesc; // child - insured relationship desc
-	private String[] childBeneRelationDesc; // adult - bene relationship desc of
-											// insured
-
+	private String[] personalRelationDesc;
+	private String[] personalBeneRelationDesc;
 	private String[] personalBenificiaryHkid;
-
 	private String[] personalBenificiaryFullName;
-	// private AdultBeneficiary[] adultBeneficiary;
+	private String[] selectedPersonalBenefitiaryHkidPass;
 
+	private String[] adultName;
+	private String[] selectedAdHkidPass;
+	private String[] adultHKID;
+	private String[] adultDob;
+	private String[] adultBeneficiary;
+	private String[] adultRelationDesc;
+	private String[] adultBeneRelationDesc;
+	private String[] adultBenificiaryHkid;
+	private String[] adultBenificiaryFullName;
+	private String[] selectedAdBenefitiaryHkidPass;
+	
+	private String[] childName;
+	private String[] selectedChldHkidPass;
+	private String[] childHKID;
+	private String[] childDob;
+	private String[] childBeneficiary;
+	private String[] childRelationDesc;
+	private String[] childBeneRelationDesc;
+	private String[] otherBenificiaryHkid;
+	private String[] otherBenificiaryFullName;
+	private String[] selectedOtherBenefitiaryHkidPass;
+	
+	private String[] otherName;
+	private String[] otherHKID;
+	private String[] otherDob;
+	private String[] otherBeneficiary;
+	private String[] otherRelationDesc;
+	private String[] otherBeneRelationDesc;
+	private String[] childBenificiaryHkid;
+	private String[] childBenificiaryFullName;
+	private String[] selectedChldBenefitiaryHkidPass;
+	
 	private String selectedHkidPassApplicant;
 	private String[] selectedPersonalHkidPass;
 
-	private String[] otherName;
 	private int days;
 	
 	private String applicantRoom;
@@ -62,6 +79,218 @@ public class AnnualDetailsForm {
 	private String applicantDistrictDesc;
 	private String applicantArea;
 	private String applicantAreaDesc;
+
+	public String[] getSelectedAdHkidPass() {
+		return selectedAdHkidPass;
+	}
+
+	public void setSelectedAdHkidPass(String[] selectedAdHkidPass) {
+		this.selectedAdHkidPass = selectedAdHkidPass;
+	}
+
+	public String[] getSelectedChldHkidPass() {
+		return selectedChldHkidPass;
+	}
+
+	public void setSelectedChldHkidPass(String[] selectedChldHkidPass) {
+		this.selectedChldHkidPass = selectedChldHkidPass;
+	}
+
+	public String[] getSelectedPersonalBenefitiaryHkidPass() {
+		return selectedPersonalBenefitiaryHkidPass;
+	}
+
+	public void setSelectedPersonalBenefitiaryHkidPass(
+			String[] selectedPersonalBenefitiaryHkidPass) {
+		this.selectedPersonalBenefitiaryHkidPass = selectedPersonalBenefitiaryHkidPass;
+	}
+
+	public String[] getSelectedAdBenefitiaryHkidPass() {
+		return selectedAdBenefitiaryHkidPass;
+	}
+
+	public void setSelectedAdBenefitiaryHkidPass(
+			String[] selectedAdBenefitiaryHkidPass) {
+		this.selectedAdBenefitiaryHkidPass = selectedAdBenefitiaryHkidPass;
+	}
+
+	public String[] getSelectedOtherBenefitiaryHkidPass() {
+		return selectedOtherBenefitiaryHkidPass;
+	}
+
+	public void setSelectedOtherBenefitiaryHkidPass(
+			String[] selectedOtherBenefitiaryHkidPass) {
+		this.selectedOtherBenefitiaryHkidPass = selectedOtherBenefitiaryHkidPass;
+	}
+
+	public String[] getSelectedChldBenefitiaryHkidPass() {
+		return selectedChldBenefitiaryHkidPass;
+	}
+
+	public void setSelectedChldBenefitiaryHkidPass(
+			String[] selectedChldBenefitiaryHkidPass) {
+		this.selectedChldBenefitiaryHkidPass = selectedChldBenefitiaryHkidPass;
+	}
+
+	public int getTotalAdultTraveller() {
+		return totalAdultTraveller;
+	}
+
+	public void setTotalAdultTraveller(int totalAdultTraveller) {
+		this.totalAdultTraveller = totalAdultTraveller;
+	}
+
+	public int getTotalChildTraveller() {
+		return totalChildTraveller;
+	}
+
+	public void setTotalChildTraveller(int totalChildTraveller) {
+		this.totalChildTraveller = totalChildTraveller;
+	}
+
+	public int getTotalOtherTraveller() {
+		return totalOtherTraveller;
+	}
+
+	public void setTotalOtherTraveller(int totalOtherTraveller) {
+		this.totalOtherTraveller = totalOtherTraveller;
+	}
+
+	public String[] getAdultName() {
+		return adultName;
+	}
+
+	public void setAdultName(String[] adultName) {
+		this.adultName = adultName;
+	}
+
+	public String[] getAdultHKID() {
+		return adultHKID;
+	}
+
+	public void setAdultHKID(String[] adultHKID) {
+		this.adultHKID = adultHKID;
+	}
+
+	public String[] getAdultDob() {
+		return adultDob;
+	}
+
+	public void setAdultDob(String[] adultDob) {
+		this.adultDob = adultDob;
+	}
+
+	public String[] getAdultBenificiaryHkid() {
+		return adultBenificiaryHkid;
+	}
+
+	public void setAdultBenificiaryHkid(String[] adultBenificiaryHkid) {
+		this.adultBenificiaryHkid = adultBenificiaryHkid;
+	}
+
+	public String[] getAdultBenificiaryFullName() {
+		return adultBenificiaryFullName;
+	}
+
+	public void setAdultBenificiaryFullName(String[] adultBenificiaryFullName) {
+		this.adultBenificiaryFullName = adultBenificiaryFullName;
+	}
+
+	public String[] getChildName() {
+		return childName;
+	}
+
+	public void setChildName(String[] childName) {
+		this.childName = childName;
+	}
+
+	public String[] getChildHKID() {
+		return childHKID;
+	}
+
+	public void setChildHKID(String[] childHKID) {
+		this.childHKID = childHKID;
+	}
+
+	public String[] getChildDob() {
+		return childDob;
+	}
+
+	public void setChildDob(String[] childDob) {
+		this.childDob = childDob;
+	}
+
+	public String[] getOtherBenificiaryHkid() {
+		return otherBenificiaryHkid;
+	}
+
+	public void setOtherBenificiaryHkid(String[] otherBenificiaryHkid) {
+		this.otherBenificiaryHkid = otherBenificiaryHkid;
+	}
+
+	public String[] getOtherBenificiaryFullName() {
+		return otherBenificiaryFullName;
+	}
+
+	public void setOtherBenificiaryFullName(String[] otherBenificiaryFullName) {
+		this.otherBenificiaryFullName = otherBenificiaryFullName;
+	}
+
+	public String[] getOtherHKID() {
+		return otherHKID;
+	}
+
+	public void setOtherHKID(String[] otherHKID) {
+		this.otherHKID = otherHKID;
+	}
+
+	public String[] getOtherDob() {
+		return otherDob;
+	}
+
+	public void setOtherDob(String[] otherDob) {
+		this.otherDob = otherDob;
+	}
+
+	public String[] getOtherBeneficiary() {
+		return otherBeneficiary;
+	}
+
+	public void setOtherBeneficiary(String[] otherBeneficiary) {
+		this.otherBeneficiary = otherBeneficiary;
+	}
+
+	public String[] getOtherRelationDesc() {
+		return otherRelationDesc;
+	}
+
+	public void setOtherRelationDesc(String[] otherRelationDesc) {
+		this.otherRelationDesc = otherRelationDesc;
+	}
+
+	public String[] getOtherBeneRelationDesc() {
+		return otherBeneRelationDesc;
+	}
+
+	public void setOtherBeneRelationDesc(String[] otherBeneRelationDesc) {
+		this.otherBeneRelationDesc = otherBeneRelationDesc;
+	}
+
+	public String[] getChildBenificiaryHkid() {
+		return childBenificiaryHkid;
+	}
+
+	public void setChildBenificiaryHkid(String[] childBenificiaryHkid) {
+		this.childBenificiaryHkid = childBenificiaryHkid;
+	}
+
+	public String[] getChildBenificiaryFullName() {
+		return childBenificiaryFullName;
+	}
+
+	public void setChildBenificiaryFullName(String[] childBenificiaryFullName) {
+		this.childBenificiaryFullName = childBenificiaryFullName;
+	}
 
 	public String getApplicantDistrictDesc() {
 		return applicantDistrictDesc;
@@ -288,14 +517,6 @@ public class AnnualDetailsForm {
 		this.personalHKID = personalHKID;
 	}
 
-	public String[] getPersonalAgeRange() {
-		return personalAgeRange;
-	}
-
-	public void setPersonalAgeRange(String[] personalAgeRange) {
-		this.personalAgeRange = personalAgeRange;
-	}
-
 	public String[] getPersonalBeneficiary() {
 		return personalBeneficiary;
 	}
@@ -350,14 +571,6 @@ public class AnnualDetailsForm {
 
 	public void setTotalPersonalTraveller(int totalPersonalTraveller) {
 		this.totalPersonalTraveller = totalPersonalTraveller;
-	}
-
-	public String[] getPersonalAgeRangeName() {
-		return personalAgeRangeName;
-	}
-
-	public void setPersonalAgeRangeName(String[] personalAgeRangeName) {
-		this.personalAgeRangeName = personalAgeRangeName;
 	}
 
 	public String[] getPersonalRelationDesc() {

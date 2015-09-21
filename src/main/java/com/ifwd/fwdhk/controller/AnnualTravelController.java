@@ -148,7 +148,6 @@ public class AnnualTravelController {
 		try {
 			request.setAttribute("annualTravelQuote", travelQuote);
 			model.addAttribute("planName", planName);
-			
 			model.addAttribute("selectPlanName", selectPlanName);
 			QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
 			if(quoteDetails == null) {
@@ -167,18 +166,15 @@ public class AnnualTravelController {
 				float fplanSummary = Float.parseFloat(splanSummary);
 				quoteDetails.getToalDue()[0] = formatter.format(fplanSummary);
 				model.addAttribute("planSummary", quoteDetails.getToalDue()[0]);
-				
  
 				String sgrossPremium = quoteDetails.getGrossPremium()[0];
 				float grossPremium = Float.parseFloat(sgrossPremium);
 				quoteDetails.getGrossPremium()[0] = formatter.format(grossPremium);
 				
 				model.addAttribute("planPremium", quoteDetails.getGrossPremium()[0]);
-				
 			} else {
 				session.setAttribute("planSelected", "B");
 				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[1]);
-				
 				
 				NumberFormat formatter = new DecimalFormat("#0.00");  
 				
@@ -255,7 +251,6 @@ public class AnnualTravelController {
 				/*
 				 * API Call for get Benifitiary Relationship
 				 */
-
 				String relationshipCode = UserRestURIConstants.GET_BENE_RELATIONSHIP_CODE
 						+ "?itemTable=BeneRelationshipCode";
 
@@ -404,6 +399,42 @@ public class AnnualTravelController {
 			planDetailsForm.setPersonalRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, planDetailsForm.getPersonalBeneficiary()[inx], inx));
 			planDetailsForm.setPersonalBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, planDetailsForm.getPersonalBeneficiary()[inx], inx));		
 		}
+		for (int inx = 0; inx < planDetailsForm.getTotalAdultTraveller(); inx++) {
+			relationships = planDetailsForm.getAdultRelationDesc();
+			if(relationships == null){
+				relationships = new String[planDetailsForm.getTotalAdultTraveller()];
+			}
+			beneRelationships = planDetailsForm.getAdultBeneRelationDesc();
+			if(beneRelationships == null){
+				beneRelationships = new String[planDetailsForm.getTotalAdultTraveller()];
+			}
+			planDetailsForm.setAdultRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, planDetailsForm.getAdultBeneficiary()[inx], inx));
+			planDetailsForm.setAdultBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, planDetailsForm.getAdultBeneficiary()[inx], inx));			
+		}
+		for (int inx = 0; inx < planDetailsForm.getTotalChildTraveller(); inx++) {
+			relationships = planDetailsForm.getChildRelationDesc();
+			if(relationships == null){
+				relationships = new String[planDetailsForm.getTotalChildTraveller()];
+			}
+			beneRelationships = planDetailsForm.getChildBeneRelationDesc();
+			if(beneRelationships == null){
+				beneRelationships = new String[planDetailsForm.getTotalChildTraveller()];
+			}
+			planDetailsForm.setChildRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, planDetailsForm.getChildBeneficiary()[inx], inx));
+			planDetailsForm.setChildBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, planDetailsForm.getChildBeneficiary()[inx], inx));
+		}
+		/*for (int inx = 0; inx < planDetailsForm.getTotalOtherTraveller(); inx++) {
+			relationships = planDetailsForm.getOtherRelationDesc();
+			if(relationships == null){
+				relationships = new String[planDetailsForm.getTotalOtherTraveller()];
+			}
+			beneRelationships = planDetailsForm.getOtherBeneRelationDesc();
+			if(beneRelationships == null){
+				beneRelationships = new String[planDetailsForm.getTotalOtherTraveller()];
+			}
+			planDetailsForm.setOtherRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, planDetailsForm.getOtherBeneficiary()[inx], inx));
+			planDetailsForm.setOtherBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, planDetailsForm.getOtherBeneficiary()[inx], inx));
+		}*/
 		
 		userDetails.setFullName(applicantFullName);
 		userDetails.setHkid(applicantHKID);
