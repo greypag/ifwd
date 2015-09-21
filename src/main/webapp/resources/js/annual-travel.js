@@ -289,6 +289,9 @@ function validateAnnualTravelDetails(form,formId,language){
 	}
 	
 	var rowCountPersonal=document.getElementById("totalPersonalTraveller").value;
+	var rowCountAdult=document.getElementById("totalAdultTraveler").value;
+	var rowCountChild=document.getElementById("totalCountOfChild").value;
+	
 	for (var i = 1; i <= parseInt(rowCountPersonal) ; i++)
 	{
 		if($("#txtInsuFullName" + i).val().trim()==insureNamePlaceholder.trim()){
@@ -413,6 +416,409 @@ function validateAnnualTravelDetails(form,formId,language){
 					flag = false;
 				}	
 		    }
+		}
+	}
+	/* Adult Beneficiary validation */
+	for (var i = 1; i <= parseInt(rowCountAdult) ; i++)
+	{
+		if($("#txtInsuFullName" + i).val().trim()==insureNamePlaceholder.trim()){
+	    	$("#txtInsuFullName" + i).val('');
+	    }
+		if($("#txtInsuHkid" + i).val().trim()==insureHkidPlaceholder.trim()){
+	    	$("#txtInsuHkid" + i).val('');
+	    }
+
+		var fullname = document.getElementById("txtInsuFullName" + i).value;
+		if (fullname.trim() == "") {
+			document.getElementById("errtxtAdFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.name.notNull.message"); //"Please enter Insured Person's Name in English.";
+			$("#txtInsuFullName" + i).addClass('invalid-field');
+			if(firstErrorElementId==""){
+				firstErrorElementId="txtInsuFullName" + i;
+			}
+			flag = false;
+		}else{
+			document.getElementById("errtxtAdFullName" + i).innerHTML = "";
+		}
+
+		var hkid = document.getElementById("txtInsuHkid" + i).value;
+		document.getElementById("errtxtInsuHkid" + i).innerHTML = "";
+        var selectedAdHkidPass = document.getElementById("selectedAdHkidPass" + i).value;
+		
+		if (hkid.trim() == "") {
+			if (selectedAdHkidPass.toUpperCase() == 'HKID') {
+				document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notNull.message")
+				$("#txtInsuHkid" + i).addClass('invalid-field');
+				if(firstErrorElementId==""){
+					firstErrorElementId="txtInsuHkid" + i;
+				}
+				flag = false;					
+			} else {
+				document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.passport.notNull.message")
+				$("#txtInsuHkid" + i).addClass('invalid-field');
+				if(firstErrorElementId==""){
+					firstErrorElementId="txtInsuHkid" + i;
+				}
+				flag = false;
+			}
+			
+		}
+		else
+		{
+			if (selectedAdHkidPass.toUpperCase() == 'HKID') {
+				var tr=IsHKID(hkid.trim());
+				if(tr==false)
+				{
+					document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
+					$("#txtInsuHkid" + i).addClass('invalid-field');
+					if(firstErrorElementId==""){
+						firstErrorElementId="txtInsuHkid" + i;
+					}
+					flag = false;
+				}
+			} else {
+				var tr=chkTravelHKPass(hkid.trim());
+				if(tr==false)
+				{
+					document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.passport.notValid.message"); // getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
+					$("#txtInsuHkid" + i).addClass('invalid-field');
+					if(firstErrorElementId==""){
+						firstErrorElementId="txtInsuHkid" + i;
+					}
+					flag = false;
+				}
+				var tr1=chkTravelHKPassLen(hkid.trim());
+				if(tr1==false)
+				{
+					document.getElementById("errtxtInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"); // getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
+					$("#txtInsuHkid" + i).addClass('invalid-field');
+					if(firstErrorElementId==""){
+						firstErrorElementId="txtInsuHkid" + i;
+					}
+					flag = false;
+				}
+			}
+		}
+		
+		var insureDob = document.getElementById("adultDob" + i).value;
+		if (insureDob.trim() == "") {
+			document.getElementById("errtxtAdDob" + i).innerHTML = getBundle(getBundleLanguage, "insured.dob.notNull.message"); //"Please enter Insured Person's Name in English.";
+			$("#input_adult_dob" + i).addClass('invalid-field');
+			if(firstErrorElementId==""){
+				firstErrorElementId="adultDob" + i;
+			}
+			flag = false;
+		}else{
+			document.getElementById("errtxtAdDob" + i).innerHTML = "";
+		}
+		
+		if (hkid.trim() != "") {
+			for (var j = 1; j <= i-1; j++)
+			{
+				var hkid1 = document.getElementById("txtInsuHkid" + j).value;
+				if (hkid.toUpperCase() == hkid1.toUpperCase())
+				{	
+					$('#errtxtInsuHkid'+j).html(getBundle(getBundleLanguage, "insured.hkId.duplicate.meesage"));
+					$("#txtInsuHkid" + j).addClass('invalid-field');
+					if(firstErrorElementId==""){
+						firstErrorElementId="txtInsuHkid" + j;
+					}
+					flag = false;
+				}
+			}
+			
+			for (var j=1; j<=parseInt(rowCountChild);j++){
+				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
+				if (hkid.toUpperCase() == hkid1.toUpperCase()){
+					$('#errtxtChldInsuHkid'+j).html(getBundle(getBundleLanguage, "insured.hkId.duplicate.meesage"));
+					$("#txtChldInsuHkid" + j).addClass('invalid-field');
+					if(firstErrorElementId==""){
+						firstErrorElementId="txtChldInsuHkid" + j;
+					}
+					flag = false;
+				}
+			}
+		}
+		var selectedValue = document.getElementById("adultsselectBenificiary" + i).value;
+		var HkidPass = document.getElementById("adultBenefitiaryHKId"+i).value;
+		var selectAdBenefitiaryHkidPass = document.getElementById("selectAdBenefitiaryHkidPass" + i).value;
+		
+		if($("#adultBenefitiaryId" + i).val().trim()==benNamePlaceholder.trim()){
+	    	$("#adultBenefitiaryId" + i).val('');
+	    }
+		if($("#adultBenefitiaryHKId" + i).val().trim()==benHkidPlaceholder.trim()){
+	    	$("#adultBenefitiaryHKId" + i).val('');
+	    }
+		
+		if(selectedValue != "SE"){
+			if (document.getElementById("adultBenefitiaryId" + i).value == "")
+			{
+				document.getElementById("erradultBenefitiaryId" + i).innerHTML= getBundle(getBundleLanguage, "beneficiary.name.notNull.message"); // getBundle(getBundleLanguage, "beneficiary.name.notNull.message");;
+				$("#adultBenefitiaryId" + i).addClass('invalid-field');
+				if(firstErrorElementId==""){
+					firstErrorElementId="adultBenefitiaryId" + i;
+				}
+				flag = false;             
+			}
+			else
+			{
+				document.getElementById("erradultBenefitiaryId" + i).innerHTML = "";
+			}
+			var hkida = document.getElementById("adultBenefitiaryHKId" + i).value;
+			if (selectAdBenefitiaryHkidPass.toUpperCase() == 'HKID' ) {				
+				if (hkida.trim() == "") {
+			    	$("#erradultBenefitiaryHKId" + i).html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
+			    	$("#adultBenefitiaryHKId" + i).addClass('invalid-field');
+					if(firstErrorElementId==""){
+						firstErrorElementId="adultBenefitiaryHKId" + i;
+					}
+					flag = false;
+			    } else {
+			    	if(IsHKID(hkida.trim())==false)
+					{	
+						$("#erradultBenefitiaryHKId" + i).html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+						$("#adultBenefitiaryHKId" + i).addClass('invalid-field');
+						if(firstErrorElementId==""){
+							firstErrorElementId="adultBenefitiaryHKId" + i;
+						}
+						flag = false;
+					} else if (hkid.toUpperCase() == HkidPass.toUpperCase()){
+						$('#erradultBenefitiaryHKId'+i).html(getBundle(getBundleLanguage, "beneficiary.hkId.duplicate.message"));
+						$("#adultBenefitiaryHKId" + i).addClass('invalid-field');
+						if(firstErrorElementId==""){
+							firstErrorElementId="adultBenefitiaryHKId" + i;
+						}
+						flag = false;
+					}	
+			    }
+			} else {
+				if (hkida.trim() == "") {
+					document.getElementById("erradultBenefitiaryHKId" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.passport.notNull.message"); // "Please enter Insured Person's HKID No.";
+					$("#adultBenefitiaryHKId" + i).addClass('invalid-field');
+					if(firstErrorElementId==""){
+						firstErrorElementId="adultBenefitiaryHKId" + i;
+					}
+					flag = false;
+				} else {
+					if(chkTravelHKPassLen(hkida.trim()) == false) {
+						$("#errpersonalBenefitiaryHKId" + i).html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
+						$("#adultBenefitiaryHKId" + i).addClass('invalid-field');
+						if(firstErrorElementId==""){
+							firstErrorElementId="adultBenefitiaryHKId" + i;
+						}
+						flag = false;
+					}else if(chkTravelHKPass(hkida.trim()) == false) {
+						$("#errpersonalBenefitiaryHKId" + i).html(getBundle(getBundleLanguage, "beneficiary.passport.notValid.message"));
+						$("#adultBenefitiaryHKId" + i).addClass('invalid-field');
+						if(firstErrorElementId==""){
+							firstErrorElementId="adultBenefitiaryHKId" + i;
+						}
+						flag = false;
+					}else if (hkida.toUpperCase() == hkid.toUpperCase()){
+						$('#errpersonalBenefitiaryHKId'+i).html(getBundle(getBundleLanguage, "beneficiary.passport.duplicate.message"));
+						$("#adultBenefitiaryHKId" + i).addClass('invalid-field');
+						if(firstErrorElementId==""){
+							firstErrorElementId="adultBenefitiaryHKId" + i;
+						}
+						flag = false;
+					}	 
+				}
+			}
+		} 
+	}
+
+	/* Child Beneficiary validation */
+	for (var i = 1; i <= parseInt(rowCountChild) ; i++)
+	{
+		if($("#txtChldFullName" + i).val().trim()==insureNamePlaceholder.trim()){
+	    	$("#txtChldFullName" + i).val('');
+	    }
+		if($("#txtChldInsuHkid" + i).val().trim()==insureHkidPlaceholder.trim()){
+	    	$("#txtChldInsuHkid" + i).val('');
+	    }
+		
+		var fullname = document.getElementById("txtChldFullName" + i).value;
+		if (fullname.trim() == "") {
+			document.getElementById("errtxtChldFullName" + i).innerHTML = getBundle(getBundleLanguage, "insured.name.notNull.message");
+			$("#txtChldFullName" + i).addClass('invalid-field');
+			if(firstErrorElementId==""){
+				firstErrorElementId="txtChldFullName" + i;
+			}
+			flag = false;
+		}else{
+			document.getElementById("errtxtChldFullName" + i).innerHTML = "";
+		}
+
+		var hkid = document.getElementById("txtChldInsuHkid" + i).value;
+		var selectedChldHkidPass = document.getElementById("selectedChldHkidPass" + i).value;
+		if (hkid.trim() == "") {
+			if (selectedChldHkidPass.toUpperCase() == 'HKID') {
+				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notNull.message")
+				$("#txtChldInsuHkid" + i).addClass('invalid-field');
+				if(firstErrorElementId==""){
+					firstErrorElementId="txtChldInsuHkid" + i;
+				}
+				flag = false;	
+			} else {
+				document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.passport.notNull.message")
+				$("#txtChldInsuHkid" + i).addClass('invalid-field');
+				if(firstErrorElementId==""){
+					firstErrorElementId="txtChldInsuHkid" + i;
+				}
+				flag = false;	
+			}
+			 
+		}
+		else
+		{
+			if (selectedChldHkidPass.toUpperCase() == 'HKID') {
+				var tr=IsHKID(hkid.trim());
+				if(tr==false)
+				{
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
+					$("#txtChldInsuHkid" + i).addClass('invalid-field');
+					if(firstErrorElementId==""){
+						firstErrorElementId="txtChldInsuHkid" + i;
+					}
+					flag = false;
+				}
+			} else {
+				var tr=chkTravelHKPass(hkid.trim());
+				if(tr==false)
+				{
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "insured.passport.notValid.message"); // getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
+					$("#txtChldInsuHkid" + i).addClass('invalid-field');
+					if(firstErrorElementId==""){
+						firstErrorElementId="txtChldInsuHkid" + i;
+					}
+					flag = false;
+				}
+				var tr1=chkTravelHKPassLen(hkid.trim());
+				if(tr1==false)
+				{
+					document.getElementById("errtxtChldInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"); // getBundle(getBundleLanguage, "insured.hkId.notValid.message");;
+					$("#txtChldInsuHkid" + i).addClass('invalid-field');
+					if(firstErrorElementId==""){
+						firstErrorElementId="txtChldInsuHkid" + i;
+					}
+					flag = false;
+				}
+			}
+		}
+		
+		var insureDob = document.getElementById("childDob" + i).value;
+		if (insureDob.trim() == "") {
+			document.getElementById("errtxtChldDob" + i).innerHTML = getBundle(getBundleLanguage, "insured.dob.notNull.message"); //"Please enter Insured Person's Name in English.";
+			$("#input_child_dob" + i).addClass('invalid-field');
+			if(firstErrorElementId==""){
+				firstErrorElementId="childDob" + i;
+			}
+			flag = false;
+		}else{
+			document.getElementById("errtxtChldDob" + i).innerHTML = "";
+		}
+		
+		if (hkid.trim() != "") {
+			for (var j = 1; j <= i-1; j++)
+			{
+				var hkid1 = document.getElementById("txtChldInsuHkid" + j).value;
+				if (hkid.toUpperCase() == hkid1.toUpperCase())
+				{	
+					$('#errtxtChldInsuHkid'+j).html(getBundle(getBundleLanguage, "insured.hkId.duplicate.meesage"));
+					$("#txtChldInsuHkid" + j).addClass('invalid-field');
+					if(firstErrorElementId==""){
+						firstErrorElementId="txtChldInsuHkid" + j;
+					}
+					flag = false;
+				}
+			}
+		}
+		
+		var selectedValue = document.getElementById("childselectBenificiary" + i).value;
+		var HkidPass = document.getElementById("txtchildInsuHkid"+i).value;
+		var selectedChldBenefitiaryHkidPass = document.getElementById("selectedChldBenefitiaryHkidPass" + i).value;
+		if($("#childBenefitiaryName" + i).val().trim()==benNamePlaceholder.trim()){
+	    	$("#childBenefitiaryName" + i).val('');
+	    }
+		if($("#txtchildInsuHkid" + i).val().trim()==benHkidPlaceholder.trim()){
+	    	$("#txtchildInsuHkid" + i).val('');
+	    }
+		
+		if(selectedValue != "SE"){
+			if (document.getElementById("childBenefitiaryName" + i).value == "")
+			{
+				document.getElementById("errchildBenefitiaryName" + i).innerHTML= getBundle(getBundleLanguage, "beneficiary.name.notNull.message"); // getBundle(getBundleLanguage, "beneficiary.name.notNull.message");;
+				$("#childBenefitiaryName" + i).addClass('invalid-field');
+				if(firstErrorElementId==""){
+					firstErrorElementId="childBenefitiaryName" + i;
+				}
+				flag = false;             
+			}
+			else
+			{
+				document.getElementById("errchildBenefitiaryName" + i).innerHTML = "";
+			}
+			
+			var hkida = document.getElementById("txtchildInsuHkid" + i).value;
+			if (selectedChldBenefitiaryHkidPass.toUpperCase() == 'HKID' ) {
+				if (hkida.trim() == "") {
+			    	$("#errtxtchildInsuHkid" + i).html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
+			    	$("#txtchildInsuHkid" + i).addClass('invalid-field');
+					if(firstErrorElementId==""){
+						firstErrorElementId="txtchildInsuHkid" + i;
+					}
+					flag = false;
+			    } else {
+					if(IsHKID(hkida.trim())==false)
+					{	
+						$("#errtxtchildInsuHkid" + i).html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+						$("#txtchildInsuHkid" + i).addClass('invalid-field');
+						if(firstErrorElementId==""){
+							firstErrorElementId="txtchildInsuHkid" + i;
+						}
+						flag = false;
+					} else if (hkid.toUpperCase() == HkidPass.toUpperCase()){
+						$('#errtxtchildInsuHkid'+i).html(getBundle(getBundleLanguage, "beneficiary.hkId.duplicate.message"));
+						$("#txtchildInsuHkid" + i).addClass('invalid-field');
+						if(firstErrorElementId==""){
+							firstErrorElementId="txtchildInsuHkid" + i;
+						}
+						flag = false;
+					}	
+			    }
+				
+			} else {
+				if (hkida.trim() == "") {
+					document.getElementById("errtxtchildInsuHkid" + i).innerHTML = getBundle(getBundleLanguage, "beneficiary.passport.notNull.message"); // "Please enter Insured Person's HKID No.";
+					$("#txtchildInsuHkid" + i).addClass('invalid-field');
+					if(firstErrorElementId==""){
+						firstErrorElementId="txtchildInsuHkid" + i;
+					}
+					flag = false;
+				} else {
+					if(chkTravelHKPassLen(hkida.trim()) == false) {
+						$("#errtxtchildInsuHkid" + i).html(getBundle(getBundleLanguage, "applicant.passport.notValidLength.message"));
+						$("#txtchildInsuHkid" + i).addClass('invalid-field');
+						if(firstErrorElementId==""){
+							firstErrorElementId="txtchildInsuHkid" + i;
+						}
+						flag = false;
+					}else if(chkTravelHKPass(hkida.trim()) == false) {
+						$("#errtxtchildInsuHkid" + i).html(getBundle(getBundleLanguage, "beneficiary.passport.notValid.message"));
+						$("#txtchildInsuHkid" + i).addClass('invalid-field');
+						if(firstErrorElementId==""){
+							firstErrorElementId="txtchildInsuHkid" + i;
+						}
+						flag = false;
+					}else if (hkida.toUpperCase() == hkid.toUpperCase()){
+						$('#errtxtchildInsuHkid'+i).html(getBundle(getBundleLanguage, "beneficiary.passport.duplicate.message"));
+						$("#txtchildInsuHkid" + i).addClass('invalid-field');
+						if(firstErrorElementId==""){
+							firstErrorElementId="txtchildInsuHkid" + i;
+						}
+						flag = false;
+					}	 
+				}
+			}
 		}
 	}
 	

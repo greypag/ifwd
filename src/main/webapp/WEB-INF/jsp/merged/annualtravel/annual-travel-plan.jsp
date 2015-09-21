@@ -1095,11 +1095,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
 	                                    <h3 style="text-align: right;font-weight: normal;">
 		                                    <c:if test="${annualTravelQuoteBean.totalPersonalTraveller!=0}">${annualTravelQuoteBean.totalPersonalTraveller} <fmt:message key="annual.quote.care.traveller" bundle="${msg}" /></c:if>
-		                                    
-		                                    
-		                                    
-		                                    2 adult<br/>
-                                            1 child
+		                                    <c:if test="${annualTravelQuoteBean.totalAdultTraveller!=0}">${annualTravelQuoteBean.totalAdultTraveller} <fmt:message key="annual.quote.care.adult" bundle="${msg}" /><br></c:if>
+								            <c:if test="${annualTravelQuoteBean.totalChildTraveller!=0}">${annualTravelQuoteBean.totalChildTraveller} <fmt:message key="annual.quote.care.child" bundle="${msg}" /><br></c:if>
 	                                    </h3>
 	                                </div>
 	                                <div class="clearfix"></div>
@@ -1109,12 +1106,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 								<span class="text-grey" id="loadingUpdate" style="display:none;"><fmt:message key="annual.quote.care.updating" bundle="${msg}" /></span>
 								
                       
-                      <input type="hidden" name="totalPersonalTraveller" id="txtTravellersInline" data-min="1" data-max="15" value="${corrAnnualTravelQuote.totalPersonalTraveller}"/>
-						
-						
-						
-						<input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="2" value="0"/>
-                                 <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="15" value="0"/>
+                    <input type="hidden" name="totalPersonalTraveller" id="txtTravellersInline" data-min="1" data-max="15" value="${corrAnnualTravelQuote.totalPersonalTraveller}"/>
+					<input type="hidden" name="totalAdultTraveller" id="txtAdultsInline" data-min="1" data-max="1" value="${corrAnnualTravelQuote.totalAdultTraveller}"/>
+                    <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="1" data-max="13" value="${corrAnnualTravelQuote.totalChildTraveller}"/>		
                                  
                                  
                                  
