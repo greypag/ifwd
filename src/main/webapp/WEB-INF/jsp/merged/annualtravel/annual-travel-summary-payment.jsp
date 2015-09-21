@@ -401,7 +401,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                         <td data-title="Full name"><span class="h4-5"></span></td>
                                         <td data-title="Date of birth"><span class="h4-5"></span></td>
                                         <td data-title="HKID"><span class="h4-5"></span></td>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getChildBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
+                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
                                     </tr>
                                     <%
 		                                    }

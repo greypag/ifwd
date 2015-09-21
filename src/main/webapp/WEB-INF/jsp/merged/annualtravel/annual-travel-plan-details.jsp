@@ -52,7 +52,7 @@ var namePlaceholder="<fmt:message key="travel.details.applicant.name.placeholder
 var hkidPlaceholder="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />";
 
 var insureNamePlaceholder="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />";
-var insureHkidPlaceholder="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />";
+var insureHkidPlaceholder="<fmt:message key="annual.details.insured.hkid.placeholder" bundle="${msg}" />";
 
 var benNamePlaceholder="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />";
 var benHkidPlaceholder="<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />";
@@ -694,21 +694,14 @@ function activateUserAccountJoinUs() {
                                        <!-- id card start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <div class=" bmg-label-styled-select styled-select">
-                                                   <select id="selectedPersonalHkidPass${inx}" class="form-control soflow select-label" name="selectedPersonalHkidPass" onchange="togglePlaceholder(this,'txtInsuHkid${inx}','<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');">
-                                                       <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
-                                                       <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
-                                                   </select>
-                                                   <c:if test="${inx == 1}">
-                                                       <div style="cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)">&nbsp;</div>
-                                                   </c:if>
-                                               </div>
+                                               <label class="field-label bold-500"><fmt:message key="annual.details.hkid" bundle="${msg}" /></label>
+                                               <input type="hidden" id="selectedPersonalHkidPass${inx}" value="HKID"/>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
-                                               value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
-                                               onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
-                                               onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedPersonalHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
+                                               value="<fmt:message key="annual.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
+                                               onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.insured.hkid.placeholder" bundle="${msg}" />');" 
+                                               onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedPersonalHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
                                                <c:if test="${inx == 1}">readonly="readonly"</c:if>/> 
                                                     <span id="errtxtInsuHkid${inx}" class="text-red"> </span>
                                            </div>
@@ -777,16 +770,36 @@ function activateUserAccountJoinUs() {
                                            </div>
                                        </div>
                                        <!-- personalbenificiaryId end -->
-                                       <!-- personalbenificiaryId c start -->
-                                       <div class="form-group float hide" id="personalbenificiaryId${inx}c">
+                                       <!-- personalbenificiaryId b start -->
+                                       <div class="form-group float hide" id="personalbenificiaryId${inx}b">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <label class="field-label bold-500"></label>
+                                              <label class="field-label form-label bold-500"></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                               <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
-                                                   <label class="field-label bold-500">
-                                                       <fmt:message key="annual.details.hkid" bundle="${msg}" />
-                                                   </label>
+                                                  <label class="field-label form-label bold-500">
+                                                    <fmt:message key="travel.details.insured.beneficiary.type" bundle="${msg}" />
+                                                    </label>
+                                               </div>
+                                               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+                                                  <div class="styled-select">
+                                                    <select id="selectPersonalBenefitiaryHkidPass${inx}" class="form-control soflow select-label" name="selectedPersonalBenefitiaryHkidPass" onchange="togglePlaceholder(this,'personalBenefitiaryHKId${inx}','<fmt:message key="travel.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />');">
+                                                        <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></option>
+                                                        <option value="passport"><fmt:message key="travel.details.insured.beneficiary.hkid.option2" bundle="${msg}" /></option>
+                                                    </select>
+                                                    </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <!-- personalbenificiaryId b end -->
+                                       <!-- personalbenificiaryId c start -->
+                                       <div class="form-group float hide" id="personalbenificiaryId${inx}c">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                              <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                              <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
+                                                  <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <input
@@ -864,7 +877,7 @@ function activateUserAccountJoinUs() {
                                                </c:if>
                                                <c:if test="${inx > 1}">
                                                    <div class="bmg-label-styled-select styled-select">
-                                                       <select id="selectedAdHkidPass${inx}" class="form-control soflow select-label" name="selectedAdHkidPass" onchange="togglePlaceholder(this,'txtInsuHkid${inx}','<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');">
+                                                       <select id="selectedAdHkidPass${inx}" class="form-control soflow select-label" name="selectedAdHkidPass" onchange="togglePlaceholder(this,'txtInsuHkid${inx}','<fmt:message key="annual.details.insured.hkid.placeholder" bundle="${msg}" />');">
                                                            <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
                                                            <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
                                                        </select>
@@ -873,9 +886,9 @@ function activateUserAccountJoinUs() {
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
-                                               value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);"
-                                               onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
-                                               onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedAdHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
+                                               value="<fmt:message key="annual.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);"
+                                               onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.insured.hkid.placeholder" bundle="${msg}" />');" 
+                                               onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtInsuHkid${inx}','selectedAdHkidPass${inx}','errtxtInsuHkid${inx}',false,'insured');"
                                                <c:if test="${inx == 1}">readonly="readonly"</c:if>/> 
                                                     <span id="errtxtInsuHkid${inx}" class="text-red"> </span>
                                            </div>
@@ -1027,7 +1040,7 @@ function activateUserAccountJoinUs() {
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                                <div class="bmg-label-styled-select styled-select">
-                                                  <select id="selectedChldHkidPass${inx}" class="form-control soflow select-label" name="selectedChldHkidPass" onchange="togglePlaceholder(this,'txtChldInsuHkid${inx}','<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');">
+                                                  <select id="selectedChldHkidPass${inx}" class="form-control soflow select-label" name="selectedChldHkidPass" onchange="togglePlaceholder(this,'txtChldInsuHkid${inx}','<fmt:message key="annual.details.insured.hkid.placeholder" bundle="${msg}" />');">
                                                       <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
                                                       <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
                                                   </select>
@@ -1037,9 +1050,9 @@ function activateUserAccountJoinUs() {
                                                <input
                                                     id="txtChldInsuHkid${inx}" name="childHKID"
                                                     class="form-control textUpper full-control bmg_custom_placeholder"
-                                                    value="<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
-                                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');" 
-                                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtChldInsuHkid${inx}','selectedChldHkidPass${inx}','errtxtChldInsuHkid${inx}',false,'insured');"/> <span id="errtxtChldInsuHkid${inx}"
+                                                    value="<fmt:message key="annual.details.insured.hkid.placeholder" bundle="${msg}" />" onkeypress=" return hkidOnkeypress(event);" 
+                                                    onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.insured.hkid.placeholder" bundle="${msg}" />');" 
+                                                    onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.insured.hkid.placeholder" bundle="${msg}" />'); validateHkid('txtChldInsuHkid${inx}','selectedChldHkidPass${inx}','errtxtChldInsuHkid${inx}',false,'insured');"/> <span id="errtxtChldInsuHkid${inx}"
                                                     class="text-red"> </span><span
                                                     id="errtxtChldInvalidInsuHkid${inx}" class="text-red"> </span>
                                            </div>

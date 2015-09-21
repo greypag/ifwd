@@ -733,8 +733,16 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				if (!planDetailsForm.getPersonalBenificiaryFullName()[inx].isEmpty() 
 						&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getPersonalBeneficiary()[inx]) != 0) {// If have beneficiary
 					beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalBenificiaryFullName()[inx] ).toUpperCase());
-					beneficiary.put(hkId, checkPasswortAndHkid(hkId, HKID, planDetailsForm.getPersonalBenificiaryHkid()[inx]));
-					beneficiary.put(passId, "");
+					beneficiary.put(hkId,
+									checkPasswortAndHkid(
+											hkId,
+											planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
+											planDetailsForm.getPersonalBenificiaryHkid()[inx]));
+					beneficiary.put(passId,
+									checkPasswortAndHkid(
+											passId,
+											planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
+											planDetailsForm.getPersonalBenificiaryHkid()[inx]));
 					beneficiary.put("relationship", StringHelper.emptyIfNull( planDetailsForm.getPersonalBeneficiary()[inx] ).toUpperCase());
 					personal.put("beneficiary", beneficiary);
 				} else {
@@ -763,8 +771,16 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 					if (!planDetailsForm.getPersonalBenificiaryFullName()[inx].isEmpty()
 							&& BENE_RELATIONSHIP_SELF.compareToIgnoreCase(planDetailsForm.getPersonalBeneficiary()[inx]) != 0) {// If have beneficiary
 						beneficiary.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalBenificiaryFullName()[inx] ).toUpperCase());
-						beneficiary.put(hkId, checkPasswortAndHkid(hkId, HKID, planDetailsForm.getPersonalBenificiaryHkid()[inx]));
-						beneficiary.put(passId, "");
+						beneficiary.put(hkId,
+								checkPasswortAndHkid(
+										hkId,
+										planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
+										planDetailsForm.getPersonalBenificiaryHkid()[inx]));
+						beneficiary.put(passId,
+								checkPasswortAndHkid(
+										passId,
+										planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
+										planDetailsForm.getPersonalBenificiaryHkid()[inx]));
 						beneficiary.put("relationship", planDetailsForm.getPersonalBeneficiary()[inx]);
 						personal.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary then
