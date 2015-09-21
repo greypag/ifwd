@@ -506,6 +506,9 @@ $(function () {
 	//================================================================================================================================	
 	//================================================================================================================================ end fight page detail datepicker
 	//================================================================================================================================
+	// 35 day
+	var dob_35_date = new Date();
+	dob_35_date.setDate(dob_35_date.getDate()-35);
 	
 	// 18 year ago date
 	var dob_end_date = new Date();
@@ -556,8 +559,10 @@ $(function () {
 		endDate: dob_end_date
 	}).on('changeDate', function (ev) {
 		$('#input_insure_dob1').datepicker('setDate', $("#applicantDob").val());
+		$('#input_adult_dob1').datepicker('setDate', $("#applicantDob").val());
 		$("#dobInvalid").html("");
 		$("#errtxtInsuDob1").html("");
+		$("#errtxtAdDob1").html("");
 		$("#input_annual_dob").removeClass("invalid-field");
 	});
 	
@@ -568,8 +573,17 @@ $(function () {
 		startDate: dob_start_date,
 		endDate: dob_end_date
 	}).on('changeDate', function (ev) {
-		//$("#dobInvalid").html("");
-		//$("#input_dob").removeClass("invalid-field");
+		$(this).next().html("");
+		$(this).removeClass("invalid-field");
+	});
+	
+	$('.annual_child_dob').datepicker({
+		startView: "decade",
+		autoclose: true,
+		format: "dd-mm-yyyy",
+		startDate: dob_end_date,
+		endDate: dob_35_date
+	}).on('changeDate', function (ev) {
 		$(this).next().html("");
 		$(this).removeClass("invalid-field");
 	});

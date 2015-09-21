@@ -5,11 +5,56 @@ public class AnnualTravelQuoteBean {
 	private String trLeavingDate;
 	private String trBackDate;
 	private int totalTraveller;
-	private boolean personalPlan;
-	private boolean familyPlan;
+	private boolean personalPlan ;
+	private boolean familyPlan ;
 	private int totalPersonalTraveller;
+	private int totalAdultTraveller;
+	private int totalChildTraveller;
+	private int totalOtherTraveller;
+	private int totalTravellingDays;
 	private String planSelected;
 	private boolean selfCover;
+	private boolean spouseCover;
+
+	public int getTotalAdultTraveller() {
+		return totalAdultTraveller;
+	}
+
+	public void setTotalAdultTraveller(int totalAdultTraveller) {
+		this.totalAdultTraveller = totalAdultTraveller;
+	}
+
+	public int getTotalChildTraveller() {
+		return totalChildTraveller;
+	}
+
+	public void setTotalChildTraveller(int totalChildTraveller) {
+		this.totalChildTraveller = totalChildTraveller;
+	}
+
+	public int getTotalOtherTraveller() {
+		return totalOtherTraveller;
+	}
+
+	public void setTotalOtherTraveller(int totalOtherTraveller) {
+		this.totalOtherTraveller = totalOtherTraveller;
+	}
+
+	public int getTotalTravellingDays() {
+		return totalTravellingDays;
+	}
+
+	public void setTotalTravellingDays(int totalTravellingDays) {
+		this.totalTravellingDays = totalTravellingDays;
+	}
+
+	public boolean isSpouseCover() {
+		return spouseCover;
+	}
+
+	public void setSpouseCover(boolean spouseCover) {
+		this.spouseCover = spouseCover;
+	}
 
 	public String getTrBackDate() {
 		return trBackDate;

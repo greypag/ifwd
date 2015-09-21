@@ -103,42 +103,6 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                     <li><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="annual.title.travelcare" bundle="${msg}" /></a></li>
                     <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="annual.title.summarypayment" bundle="${msg}" /></li>
                 </ol>
-                <!-- <div class="container ">
-                    <div class="col-md-12 shop-tracking-status">
-                        <div class="center wow fadeInDown animated"
-                            style="visibility: visible;">
-                            <h2>Summary & Payment</h2>
-                        </div>
-                        <br>
-                        <div class="col-lg-12">
-                            <div id="tr-wizard" class="shop-tracking-status">
-                                <div class="order-status has-four">
-                                    <div class="order-status-timeline-new">
-                                        <div class="order-status-timeline-completion dots-active"></div>
-                                        <div class="order-status-timeline-completion dots-active"></div>
-                                        <div class="order-status-timeline-completion dots-inactive"></div>
-                                    </div>
-                                    <div class="image-order-status image-order-status-new active img-circle first">
-                                        <span class="status color3"> Your Options</span>
-                                        <div class="icon">1</div>
-                                    </div>
-                                    <div class="image-order-status image-order-status-intransit  img-circle second">
-                                        <span class="status color3">Your Details</span>
-                                        <div class="icon">2</div>
-                                    </div>
-                                    <div class="image-order-status image-order-status-delivered  img-circle act third">
-                                        <span class="status color2"> Summary & Payment</span>
-                                        <div class="icon">3</div>
-                                    </div>
-                                    <div class="image-order-status image-order-status-completed  img-circle fourth">
-                                        <span class="status lst-status"> Confirmation</span>
-                                        <div class="icon">4</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="container pad-none bdr ur-opt-content gray-bg3">
                     <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1 summary-container product_summary_container">
                        <div class="row summary-row">
@@ -146,13 +110,6 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 pad-none">
                                 <h3 class="h2-3-existing-fwd-head summary-header summary-header-margin" style="margin-left:0px !important;"><fmt:message key="annual.summary.plansummary" bundle="${msg}" /></h3>
                             </div>
-                            <!-- 
-                            <div class="hidden-xs hidden-sm col-md-2 col-lg-2 pad-none summary-header-margin">
-                                <h4 class="h4-trav-full">
-                                    <a href="/fwdhk/en/travel-insurance/user-details" onclick="perventRedirect=false;" >Change details</a>
-                                </h4>
-                            </div>
-                             -->
                              <div class="clearfix"></div>
                            </div>
                         </div>
@@ -228,7 +185,22 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="annual.summary.no" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${planDetailsForm.totalPersonalTraveller }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
+                                            <%
+                                                if (planDetailsForm != null) 
+                                                {
+                                                    if (planDetailsForm.getPlanSelected().equals("personal"))
+                                                    {
+                                                        out.println( planDetailsForm.getTotalPersonalTraveller() );
+                                                    }
+                                                    else
+                                                    {
+                                                        out.println( planDetailsForm.getTotalAdultTraveller() +
+                                                                     planDetailsForm.getTotalChildTraveller());
+                                                    }
+                                                }               
+                                            %>
+                                            </div>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="row summary-row">
@@ -270,7 +242,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.dateofbirth" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none">September 27, 1961</div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none"><%=planDetailsForm.getPersonalDob()[i]%></div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row">
@@ -300,12 +272,11 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                     }
                                 %>
                                 
-                                
                                 <%
                                     for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
                                 %>
                                 <div class="row summary-row">
-                                    <div class="product_summary_table_field product_summary_table_header"><fmt:message key="annual.summary.insured.traveller" bundle="${msg}" /> <%=i + 1%></div>
+                                    <div class="product_summary_table_field product_summary_table_header"><fmt:message key="annual.quote.care.adult" bundle="${msg}" /> <%=i + 1%></div>
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.fullname" bundle="${msg}" /></div>
@@ -314,7 +285,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.dateofbirth" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none">September 27, 1961</div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none"><%=planDetailsForm.getAdultDob()[i]%></div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row">
@@ -326,14 +297,14 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.beneficiary" bundle="${msg}" /></div>
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none">
                                         <%
-                                            if("個人遺產".equals(planDetailsForm.getAdultBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getAdultBeneRelationDesc()[i])){
+                                        	if("個人遺產".equals(planDetailsForm.getAdultBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getAdultBeneRelationDesc()[i])){
                                         %>
                                         <%=planDetailsForm.getAdultBeneRelationDesc()[i] %>
                                         <%
-                                            }else{
-                                        %>
-                                        <%=planDetailsForm.getAdultBenificiaryFullName()[i]%> (<%=planDetailsForm.getAdultBeneRelationDesc()[i] %>)
-                                        <div style="margin-top:10px;"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</div>
+		                                    }else{
+		                                %>
+		                                <%=planDetailsForm.getAdultBenificiaryFullName()[i]%> (<%=planDetailsForm.getAdultBeneRelationDesc()[i] %>)
+		                                <div style="margin-top:10px;"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</div>
                                         <%
                                             }
                                         %>
@@ -344,13 +315,11 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                     }
                                 %>
                                 
-                                
-                                
                                 <%
                                     for (int i = 0; i < planDetailsForm.getTotalChildTraveller(); i++) {
                                 %>
                                 <div class="row summary-row">
-                                    <div class="product_summary_table_field product_summary_table_header"><fmt:message key="annual.summary.insured.traveller" bundle="${msg}" /> <%=i + 1%></div>
+                                    <div class="product_summary_table_field product_summary_table_header"><fmt:message key="annual.quote.care.child" bundle="${msg}" /> <%=i + 1%></div>
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.fullname" bundle="${msg}" /></div>
@@ -359,7 +328,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.dateofbirth" bundle="${msg}" /></div>
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none">September 27, 1961</div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none"><%=planDetailsForm.getChildDob()[i]%></div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row">
@@ -371,14 +340,14 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.beneficiary" bundle="${msg}" /></div>
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none">
                                         <%
-                                            if("個人遺產".equals(planDetailsForm.getChildBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getChildBeneRelationDesc()[i])){
+                                        	if("個人遺產".equals(planDetailsForm.getChildBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getChildBeneRelationDesc()[i])){
                                         %>
                                         <%=planDetailsForm.getChildBeneRelationDesc()[i] %>
                                         <%
-                                            }else{
-                                        %>
-                                        <%=planDetailsForm.getChildBenificiaryFullName()[i]%> (<%=planDetailsForm.getChildBeneRelationDesc()[i] %>)
-                                        <div style="margin-top:10px;"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</div>
+		                                    }else{
+		                                %>
+		                                <%=planDetailsForm.getChildBenificiaryFullName()[i]%> (<%=planDetailsForm.getChildBeneRelationDesc()[i] %>)
+		                                <div style="margin-top:10px;"><%=planDetailsForm.getChildBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</div>
                                         <%
                                             }
                                         %>
@@ -388,6 +357,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 <%
                                     }
                                 %>
+                                
                             </div>
                             <div class="clearfix"></div>
                             </div>
@@ -437,29 +407,26 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
 		                                    }
 	                                    }
                                     %>
-                                    <!-- Personal -->
                                     
-                                    
-                                    <!-- Adult -->
                                     <%
-                                        for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
-                                    %>
-                                    <tr>
-                                        <td data-title="Personal 4"><span class="h4-5"><fmt:message key="annual.summary.insured.traveller" bundle="${msg}" /> <%=i + 1%></span></td>
-                                        <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
-                                        <td data-title="Date of birth"><span class="h4-5"><%=planDetailsForm.getPersonalDob()[i]%></span></td>
-                                        <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getAdultHKID()[i]%></span></td>
-                                        <%
-                                            if("個人遺產".equals(planDetailsForm.getAdultBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getAdultBeneRelationDesc()[i])){
+	                                    for (int i = 0; i < planDetailsForm.getTotalAdultTraveller(); i++) {
+	                                %>
+	                                <tr>
+	                                    <td data-title="Personal 4"><span class="h4-5"><fmt:message key="annual.quote.care.adult" bundle="${msg}" /> <%=i + 1%></span></td>
+	                                    <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getAdultName()[i]%></span></td>
+	                                    <td data-title="Date of birth"><span class="h4-5"><%=planDetailsForm.getAdultDob()[i]%></span></td>
+	                                    <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getAdultHKID()[i]%></span></td>
+	                                    <%
+                                        	if("個人遺產".equals(planDetailsForm.getAdultBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getAdultBeneRelationDesc()[i])){
                                         %>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getAdultBeneRelationDesc()[i] %></span></td>
-                                    </tr>
-                                        <%
-                                            }else{
-                                        %>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%> (<%=planDetailsForm.getAdultBeneRelationDesc()[i] %>)</span></td>   <!-- hide relationship if insured -->
-                                    </tr>
-                                    <tr>
+	                                    <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getAdultBeneRelationDesc()[i] %></span></td>
+	                                </tr>
+	                                    <%
+		                                    }else{
+		                                %>
+	                                    <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getAdultBenificiaryFullName()[i]%> (<%=planDetailsForm.getAdultBeneRelationDesc()[i] %>)</span></td>   <!-- hide relationship if insured -->
+	                                </tr>
+	                                <tr>
                                         <td data-title="Personal 4"><span class="h4-5"></span></td>
                                         <td data-title="Full name"><span class="h4-5"></span></td>
                                         <td data-title="Date of birth"><span class="h4-5"></span></td>
@@ -467,32 +434,29 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                         <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
                                     </tr>
                                     <%
-                                            }
-                                        }
+		                                    }
+	                                    }
                                     %>
-                                    <!-- Adult -->
                                     
-                                    
-                                    <!-- Child -->
                                     <%
-                                        for (int i = 0; i < planDetailsForm.getTotalChildTraveller(); i++) {
-                                    %>
-                                    <tr>
-                                        <td data-title="Personal 4"><span class="h4-5"><fmt:message key="annual.summary.insured.traveller" bundle="${msg}" /> <%=i + 1%></span></td>
-                                        <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getChildName()[i]%></span></td>
-                                        <td data-title="Date of birth"><span class="h4-5"><%=planDetailsForm.getPersonalDob()[i]%></span></td>
-                                        <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getChildHKID()[i]%></span></td>
-                                        <%
-                                            if("個人遺產".equals(planDetailsForm.getChildBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getChildBeneRelationDesc()[i])){
+	                                    for (int i = 0; i < planDetailsForm.getTotalChildTraveller(); i++) {
+	                                %>
+	                                <tr>
+	                                    <td data-title="Personal 4"><span class="h4-5"><fmt:message key="annual.quote.care.child" bundle="${msg}" /> <%=i + 1%></span></td>
+	                                    <td data-title="Full name"><span class="h4-5"><%=planDetailsForm.getChildName()[i]%></span></td>
+	                                    <td data-title="Date of birth"><span class="h4-5"><%=planDetailsForm.getChildDob()[i]%></span></td>
+	                                    <td data-title="HKID"><span class="h4-5"><%=planDetailsForm.getChildHKID()[i]%></span></td>
+	                                    <%
+                                        	if("個人遺產".equals(planDetailsForm.getChildBeneRelationDesc()[i]) || "Own Estate".equals(planDetailsForm.getChildBeneRelationDesc()[i])){
                                         %>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getChildBeneRelationDesc()[i] %></span></td>
-                                    </tr>
-                                        <%
-                                            }else{
-                                        %>
-                                        <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getChildBenificiaryFullName()[i]%> (<%=planDetailsForm.getChildBeneRelationDesc()[i] %>)</span></td>   <!-- hide relationship if insured -->
-                                    </tr>
-                                    <tr>
+	                                    <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getChildBeneRelationDesc()[i] %></span></td>
+	                                </tr>
+	                                    <%
+		                                    }else{
+		                                %>
+	                                    <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getChildBenificiaryFullName()[i]%> (<%=planDetailsForm.getChildBeneRelationDesc()[i] %>)</span></td>   <!-- hide relationship if insured -->
+	                                </tr>
+	                                <tr>
                                         <td data-title="Personal 4"><span class="h4-5"></span></td>
                                         <td data-title="Full name"><span class="h4-5"></span></td>
                                         <td data-title="Date of birth"><span class="h4-5"></span></td>
@@ -500,10 +464,9 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                         <td data-title="Relationship"><span class="h4-5"><%=planDetailsForm.getChildBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
                                     </tr>
                                     <%
-                                            }
-                                        }
+		                                    }
+	                                    }
                                     %>
-                                    <!-- Child -->
                                 </tbody>
                             </table>
                           </div>
@@ -527,7 +490,6 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                     <input type="hidden" name="errorUrl" value="${failurePath }">
                     <input type="hidden" name="payType" value="${createPolicy.paymentType}">
                     <input type="hidden" name="referenceNo" value="${createPolicy.referenceNo}">
-                    
 
                     <input type="hidden" name="lang" value="C"> <input
                         type="hidden" name="secureHash"
@@ -536,11 +498,6 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                         value="${userDetails.emailAddress}"> <input
                         type="hidden" id="gateway" name="gateway"
                         value="${createPolicy.paymentGateway}">
-
-
-
-
-
                     <div class="col-xs-12 pad-none product_payment_details">
                         <div class="form-group float">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
@@ -562,12 +519,6 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 <label class="radio-inline">        
                                     <input type="radio" name="pMethod" value="Master" id="chkMaster"> MasterCard 
                                 </label>
-                                
-                                <!-- <input type="radio" name="pMethod" value="Diners">Diners
-                                    Club <input type="radio" name="pMethod" value="JCB">JCB
-                                    <input type="radio" name="pMethod" value="AMEX">AMEX
-                                    
-                                    -->
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -611,20 +562,6 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 <div class="styled-select payment-select" id="inputYear"><select class="pay-details-select" id="year"
                                     name="epYear" onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
                                         <option value="0"><fmt:message key="travel.payment.card.expiryDate.year" bundle="${msg}" /></option>
-<!--                                        <option value="2015">2015</option> -->
-<!--                                        <option value="2016">2016</option> -->
-<!--                                        <option value="2017">2017</option> -->
-<!--                                        <option value="2018">2018</option> -->
-<!--                                        <option value="2019">2019</option> -->
-<!--                                        <option value="2020">2020</option> -->
-
-<!--                                        <option value="2021">2021</option> -->
-<!--                                        <option value="2022">2022</option> -->
-<!--                                        <option value="2023">2023</option> -->
-<!--                                        <option value="2024">2024</option> -->
-<!--                                        <option value="2025">2025</option> -->
-
-
                                     <c:forEach begin="0" end="10" varStatus="loop">
                                         <c:set var="currentYear" value="${year + loop.index}" />
                                         <option value="${currentYear}">${currentYear}</option>
@@ -669,10 +606,6 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                    
-                    
-                    
-                    
                     <div class="clearfix"></div>
                     <div class="declaration-content" style="margin:0px !important;">
                         <div class="checkbox" style="padding-left: 24px;">
@@ -683,30 +616,6 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
 
                         <span id="errchk2" class="error-msg"></span>
                         <div class="clearfix"></div>
-                        <!--     <div class="col-lg-12 pad-none"><a href="travel-plan-details.html" class="bdr-curve btn btn-primary bck-btn2">返� </a> <a href="travel-confirmation.html" class="bdr-curve btn btn-primary nxt-btn margin-left" onclick="return payValid();"> 確�付款</a> </div>-->
-                        <!-- <div class="hidden-sm hidden-xs pad-none">
-                            
-                                class="bdr-curve btn btn-primary bck-btn2">返� </a> <input
-                                type="submit"
-                                class="bdr-curve btn btn-primary nxt-btn margin-left"
-                                value="確�付款" onclick="confirmPayment()" />
-                        </div>
-                        <br> <br>
-                        
-                        <div class="pad-none hidden-md hidden-lg">
-                            <a href="travel-plan-details.html"
-                                class="bdr-curve btn btn-primary bck-btn col-xs-5 col-sm-5 text-center">返�
-                            </a>
-                        </div> -->
-                        <!-- vincent add a button for paymnet confirmation (mobile) -->
-                        <!-- <div class="pad-none hidden-md hidden-lg">
-                            <input
-                                type="submit"
-                                class="bdr-curve btn btn-primary nxt-btn"
-                                value="確�付款" onclick="confirmPayment()" /> -->
-                        <!-- vincent add a button for paymnet confirmation (mobile) --> 
-                        
-                        
                         <div class="row" style="margin-top:30px;">
                             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pull-right">
                                 <c:choose>
@@ -728,59 +637,9 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="annual.button.back" bundle="${msg}" /></a>
                             </div>
                         </div>
-                        
-                        <!-- <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                                <a href="#" onclick="BackMe()"
-                                    class="bdr-curve btn btn-primary bck-btn">返� </a>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-                                <input type="submit"
-                                    class="bdr-curve-none btn btn-primary nxt-btn "
-                                    value="確�付款" onclick="confirmPayment()" />
-                                
-
-                            </div> -->
-                            <!-- 
-                            <div class="hidden-sm hidden-xs pad-none">
-                            <a href="/fwdhk/en/travel-insurance/user-details"
-                                class="bdr-curve btn btn-primary bck-btn2">Back </a>
-                            <input type="submit"
-                                class="bdr-curve btn btn-primary nxt-btn margin-left" 
-                                value="Confirm">
-                                
-                              </div>
-                              
-                        <br> <br>
-                        <div class="row hidden-md hidden-lg">
-                            <div class="clearfix"></div>
-
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-left">
-                                <a href="/fwdhk/en/travel-insurance/user-details"
-                                    class="bdr-curve btn btn-primary bck-btn">Back  </a>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pull-right">
-                                
-                                <input type="submit"
-                                    class="bdr-curve-none btn btn-primary nxt-btn"
-                                    value="Confirm" />
-
-
-                            </div>
                             <div class="clearfix"></div>
                         </div>
-                             -->
-                            
-                            
-                                                    
-                            <div class="clearfix"></div>
-                        </div>
-                        
-                        
-                        
                         <hr class="summary-hr"/>
-                        
-                        
-                        
                         <div id="paydoller-wrap" class="declaration-content" style="margin:0px !important;">
                           <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none paymethod-container">
                             <div id="paydollar-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
