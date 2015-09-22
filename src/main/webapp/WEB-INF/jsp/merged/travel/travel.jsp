@@ -413,7 +413,7 @@ function getParameterByUrl(name){
 <form name="frmTravelGetQuote" id="frmTravelGetQuoteMob" commandName="travelQuote" action="" method="post" onsubmit="return flightValidateMobTravel();">
   <div class="form-container">
     <h2 style="text-align: center;color: #f6871e;padding-top: 10px;padding-bottom: 10px;"><fmt:message key="travel.main.quote.top.heading" bundle="${msg}" /></h2>
-    <h4 style="color: #fff;"><fmt:message key="travel.main.quote.q1" bundle="${msg}" /></h4>
+    <h4 style="color: #fff;"><fmt:message key="travel.main.quote.planSelect" bundle="${msg}" /></h4>
     <div class="dropdown  form-group drop-down" style="background-color: #fff;">
       
       <a class="dropdown-toggle col-xs-12 col-sm-12" data-toggle="dropdown"> <label class="select-label travel_type_label" style="cursor: pointer;font-size: 23px !important;"><fmt:message key="travel.main.quote.pleaseselect" bundle="${msg}" /></label>&nbsp; <i class="fa fa-caret-down pull-right"></i></a>
