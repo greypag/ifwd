@@ -56,8 +56,7 @@ public class MessagePageUtils {
 	
 	
 	
-	public String getMessagePage(String messageKey, HttpServletRequest request) {
-		String path = getClass().getResource("/").getFile().toString().replace("/classes" , "")+"jsp/merged";
+	public static String getMessagePage(String messageKey, String path) {
 		String page="";
 		File file = new File(path);
 		File[] files = file.listFiles();
@@ -77,7 +76,7 @@ public class MessagePageUtils {
 		return page;
 	}
 	
-	private void readFile(File[] files,String path,List<String> nameList){
+	private static void readFile(File[] files,String path,List<String> nameList){
 		for (int i = 0; i < files.length; i++) {
 			  if(!files[i].isDirectory()){
 				  nameList.add(path+"/"+files[i].getName());
@@ -91,7 +90,7 @@ public class MessagePageUtils {
 	}
 	
 	@SuppressWarnings("resource")
-	private  boolean searchFile(String path,String messageKey){
+	private static boolean searchFile(String path,String messageKey){
         try {
 			File file = new File(path);
 			InputStreamReader read = new InputStreamReader(new FileInputStream(file));//考虑到编码格式
