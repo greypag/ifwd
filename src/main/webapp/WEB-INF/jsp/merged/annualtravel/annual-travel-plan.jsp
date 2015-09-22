@@ -1187,9 +1187,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		<input type="hidden" name="planSelected" id="planSeelcted"
 			value="<%=travelQuote.getPlanSelected()%>">
 		<p class="padding1 workingholiday-plan-disclaimer">
-			<fmt:message key="annual.quote.bottom1" bundle="${msg}" />
+			<fmt:message key="annual.quote.disclaimer1" bundle="${msg}" />
 				<br>
-				<fmt:message key="annual.quote.bottom2" bundle="${msg}" />
+				<fmt:message key="annual.quote.disclaimer2" bundle="${msg}" />
 		</p>
 		</form:form>
 	</div>

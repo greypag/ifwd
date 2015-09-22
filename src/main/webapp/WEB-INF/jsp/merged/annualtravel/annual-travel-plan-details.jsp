@@ -1442,9 +1442,9 @@ function activateUserAccountJoinUs() {
  -->
 
 <p class="padding1 workingholiday-plan-disclaimer">
-	<fmt:message key="annual.quote.bottom1" bundle="${msg}" />
+	<fmt:message key="annual.quote.disclaimer1" bundle="${msg}" />
 	<br>
-	<fmt:message key="annual.quote.bottom2" bundle="${msg}" />
+	<fmt:message key="annual.quote.disclaimer2" bundle="${msg}" />
 </p>
 
 <div class="col-xs-12 hidden-md hidden-lg pad-none">
