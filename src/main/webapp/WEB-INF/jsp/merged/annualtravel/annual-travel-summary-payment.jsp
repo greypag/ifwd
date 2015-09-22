@@ -249,7 +249,9 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row">
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.hkid" bundle="${msg}" /></div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head">
+                                        <fmt:message key="annual.summary.insured.benefitiary.hkid" bundle="${msg}" />
+                                    </div>
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper"><%=planDetailsForm.getPersonalHKID()[i]%></div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -264,7 +266,11 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
 		                                    }else{
 		                                %>
 		                                <%=planDetailsForm.getPersonalBenificiaryFullName()[i]%> (<%=planDetailsForm.getPersonalBeneRelationDesc()[i] %>)
-		                                <div style="margin-top:10px;"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</div>
+		                                <div style="margin-top:10px;"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%> 
+		                                    <% if("HKID".equals(planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[i])) { %>(<fmt:message key="annual.summary.insured.benefitiary.hkid" bundle="${msg}" />)
+		                                    <% }else { %>(<fmt:message key="annual.summary.insured.benefitiary.passport" bundle="${msg}" />)
+		                                    <% } %>
+		                                </div>
                                         <%
                                             }
                                         %>
@@ -294,7 +300,11 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row">
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.hkid" bundle="${msg}" /></div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head">
+                                        <% if("HKID".equals(planDetailsForm.getSelectedAdHkidPass()[i])) { %><fmt:message key="annual.summary.insured.benefitiary.hkid" bundle="${msg}" />
+	                                    <% }else { %><fmt:message key="annual.summary.insured.benefitiary.passport" bundle="${msg}" />
+	                                    <% } %>
+                                    </div>
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper"><%=planDetailsForm.getAdultHKID()[i]%></div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -309,7 +319,11 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
 		                                    }else{
 		                                %>
 		                                <%=planDetailsForm.getAdultBenificiaryFullName()[i]%> (<%=planDetailsForm.getAdultBeneRelationDesc()[i] %>)
-		                                <div style="margin-top:10px;"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</div>
+		                                <div style="margin-top:10px;"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%> 
+                                            <% if("HKID".equals(planDetailsForm.getSelectedAdBenefitiaryHkidPass()[i])) { %>(<fmt:message key="annual.summary.insured.benefitiary.hkid" bundle="${msg}" />)
+		                                    <% }else { %>(<fmt:message key="annual.summary.insured.benefitiary.passport" bundle="${msg}" />)
+		                                    <% } %>
+		                                </div>
                                         <%
                                             }
                                         %>
@@ -339,7 +353,11 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="row summary-row">
-                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head"><fmt:message key="annual.summary.insured.hkid" bundle="${msg}" /></div>
+                                    <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head">
+                                        <% if("HKID".equals(planDetailsForm.getSelectedChldHkidPass()[i])) { %><fmt:message key="annual.summary.insured.benefitiary.hkid" bundle="${msg}" />
+	                                    <% }else { %><fmt:message key="annual.summary.insured.benefitiary.passport" bundle="${msg}" />
+	                                    <% } %>
+                                    </div>
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none textUpper"><%=planDetailsForm.getChildHKID()[i]%></div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -354,7 +372,11 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
 		                                    }else{
 		                                %>
 		                                <%=planDetailsForm.getChildBenificiaryFullName()[i]%> (<%=planDetailsForm.getChildBeneRelationDesc()[i] %>)
-		                                <div style="margin-top:10px;"><%=planDetailsForm.getChildBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</div>
+		                                <div style="margin-top:10px;"><%=planDetailsForm.getChildBenificiaryHkid()[i]%> 
+		                                    <% if("HKID".equals(planDetailsForm.getSelectedChldBenefitiaryHkidPass()[i])) { %>(<fmt:message key="annual.summary.insured.benefitiary.hkid" bundle="${msg}" />)
+		                                    <% }else { %>(<fmt:message key="annual.summary.insured.benefitiary.passport" bundle="${msg}" />)
+		                                    <% } %>
+		                                </div>
                                         <%
                                             }
                                         %>
@@ -408,7 +430,11 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                         <td data-title="Full name"><span class="h4-5"></span></td>
                                         <td data-title="Date of birth"><span class="h4-5"></span></td>
                                         <td data-title="HKID"><span class="h4-5"></span></td>
-                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getPersonalBenificiaryHkid()[i]%> 
+                                            <% if("HKID".equals(planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[i])) { %>(<fmt:message key="annual.summary.insured.benefitiary.hkid" bundle="${msg}" />)
+		                                    <% }else { %>(<fmt:message key="annual.summary.insured.benefitiary.passport" bundle="${msg}" />)
+		                                    <% } %>
+                                        </span></td>
                                     </tr>
                                     <%
 		                                    }
@@ -438,7 +464,11 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                         <td data-title="Full name"><span class="h4-5"></span></td>
                                         <td data-title="Date of birth"><span class="h4-5"></span></td>
                                         <td data-title="HKID"><span class="h4-5"></span></td>
-                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getAdultBenificiaryHkid()[i]%> 
+                                            <% if("HKID".equals(planDetailsForm.getSelectedAdBenefitiaryHkidPass()[i])) { %>(<fmt:message key="annual.summary.insured.benefitiary.hkid" bundle="${msg}" />)
+		                                    <% }else { %>(<fmt:message key="annual.summary.insured.benefitiary.passport" bundle="${msg}" />)
+		                                    <% } %>
+                                        </span></td>
                                     </tr>
                                     <%
 		                                    }
@@ -468,7 +498,11 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                         <td data-title="Full name"><span class="h4-5"></span></td>
                                         <td data-title="Date of birth"><span class="h4-5"></span></td>
                                         <td data-title="HKID"><span class="h4-5"></span></td>
-                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getChildBenificiaryHkid()[i]%> (<fmt:message key="annual.summary.insured.hkid" bundle="${msg}" />)</span></td>
+                                        <td data-title="Relationship"><span class="h4-5 textUpper"><%=planDetailsForm.getChildBenificiaryHkid()[i]%> 
+                                            <% if("HKID".equals(planDetailsForm.getSelectedChldBenefitiaryHkidPass()[i])) { %>(<fmt:message key="annual.summary.insured.benefitiary.hkid" bundle="${msg}" />)
+		                                    <% }else { %>(<fmt:message key="annual.summary.insured.benefitiary.passport" bundle="${msg}" />)
+		                                    <% } %>
+                                        </span></td>
                                     </tr>
                                     <%
 		                                    }
