@@ -7878,6 +7878,9 @@ tr.product-landing-error-wrap {
 	font-size: 22px;
 	cursor: pointer;
 }
+.chin .product_header_path_item.back{
+    font-size: 20px;
+}
 
 .product_header_path_item.active{
     color:#f68a1d;
