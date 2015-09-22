@@ -364,6 +364,9 @@ function activateUserAccountJoinUs() {
                             <div class="big-title black-bold pad-none bmg-big-title" style="color: #f68a1d;">
                                 <fmt:message key="annual.details.details" bundle="${msg}" />
                             </div>
+                            <div class="form-group float">
+								<span id="errorMsg"  class="text-red">${errormsg}</span>
+							</div>
                             <!-- english name start -->
                            <div class="form-group float">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
