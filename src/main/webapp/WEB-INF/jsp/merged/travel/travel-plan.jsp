@@ -498,6 +498,16 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						%>
 						<div class="clearfix"></div>
 						<!--Full Coverage-->
+						
+						<div class="annual_travel_tips hidden-xs hidden-sm">
+						  <table>
+						      <tr>
+						          <td><img src="<%=request.getContextPath()%>/resources/images/annual_travel/i-icon.png" alt=""></td>
+						          <td>If travel more than 3 times a year, you should consider <strong>Annual Travel</strong> year round coverage with better price.</td>
+						      </tr>
+						  </table>
+                        </div>
+						
 						<div class="fwdpanel">
 							<div class="fwdpanel-heading">
 								<h4 class="fwdpanel-title h4-4-full">
