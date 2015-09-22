@@ -799,7 +799,7 @@ function getParameterByUrl(name){
 
 <section style="margin-top:40px;margin-bottom:40px;">
   <div class="container pad-none">
-<div class="other-benefits col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-left:10px;">
+<div class="other-benefits col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <h2><fmt:message key="travel.main.other.benefit" bundle="${msg}" /></h2>
   <ul class="bullets">
     <!-- <li>

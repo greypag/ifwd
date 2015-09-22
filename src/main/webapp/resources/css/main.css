@@ -986,16 +986,23 @@ vertical-align:middle;
     background: #fff;
     color: #f6871e;
     border: 1px solid #f6871e;
-
 }
 
-.btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+.btn-primary:active {
     padding: 8px 20px;
     background: #f6871e;
-    /*color: #fff;*/
+    color: #fff;
     border: none;
-        border: 1px solid #f6871e;
+    border: 1px solid #f6871e;
 }
+
+.btn-primary.active, .open .dropdown-toggle.btn-primary {
+    padding: 8px 20px;
+    background: #f6871e;
+    border: none;
+    border: 1px solid #f6871e;
+}
+
 .btn-transparent {
     border: 3px solid #fff;
     background: transparent;
@@ -6052,11 +6059,17 @@ select#selectHkidPass, .selectHkidPass{ /*width:98% !important;*/ margin-right:1
     }
     .navbar-toggle {
         display:inline;
-        width:60px;
+        width:50px;
         margin-top: 35px;
-        margin-right: -10px;
     }
 
+    .btn-primary:hover, .btn-primary:active {
+	    padding: 8px 20px;
+	    background: #f6871e;
+	    color: #fff;
+	    border: none;
+	    border: 1px solid #f6871e;
+	}
 }
 .testimonial:after {
     display:none;
