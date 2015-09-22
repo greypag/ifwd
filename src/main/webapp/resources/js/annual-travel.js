@@ -897,6 +897,8 @@ function validateAnnualTravelDetails(form,formId,language){
     					result = true;
     				} else {
     					console.log(data);
+    					$("#errorMsg").html(data.errorMsg);
+    					scrollToElement("errorMsg");
     					result = false;
     					travelp_click=false;
     				}
