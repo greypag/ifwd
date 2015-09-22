@@ -1310,12 +1310,12 @@ function activateUserAccountJoinUs() {
                         <div class="form-wrap" style="margin-bottom: 10px;">
                         <h4 class="h4-4 product_landing_download_button pull-left">
                             <i class="fa fa-download"></i> <a
-                                href="http://www.fwd.com.hk/upload/en-US/travel_care_insurance.pdf"
+                                href="<%=request.getContextPath()%>/<fmt:message key="annualtravel.brochure.link" bundle="${msg}" />"
                                 target="_blank"><fmt:message key="annual.common.productbrochure" bundle="${msg}" />   </a>
                         </h4>
                         <h4 class="h4-4 product_landing_download_button pull-left">
                             <i class="fa fa-download"></i> <a
-                                href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
+                                href="<%=request.getContextPath()%>/<fmt:message key="annualtravel.provision.link" bundle="${msg}" />"
                                 target="_blank"><fmt:message key="annual.common.policyprovisions" bundle="${msg}" />   </a>
                         </h4>
                         <div class="clearfix"></div>

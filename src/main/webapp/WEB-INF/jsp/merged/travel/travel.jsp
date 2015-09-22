@@ -111,6 +111,8 @@
          
          $(".travel_feature").hide();
          $("#single_travel_feature").show();
+         $("#annual_travel_provision_button").hide();
+         $("#travel_provision_button").show();
 	 }else{
 		 //$('.personal_plan_selectArea').trigger('click');
 		 //$('.family_plan_selectArea').hide();
@@ -141,6 +143,8 @@
          
          $(".travel_feature").hide();
          $("#annual_travel_feature").show();
+         $("#travel_provision_button").hide();
+         $("#annual_travel_provision_button").show();
 	 }
  }
 </script>
@@ -710,9 +714,13 @@ function getParameterByUrl(name){
 	              target="_blank"><fmt:message key="annual.common.productbrochure" bundle="${msg}" /></a>
 	      </h4>
 	      <h4 class="product_landing_download_button h4-4 pull-left">
-	          <i class="fa fa-download"></i> <a
-	              href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
-	              target="_blank"><fmt:message key="annual.common.policyprovisions" bundle="${msg}" /></a>
+	          <i class="fa fa-download"></i> 
+	          	  <a
+	              id="travel_provision_button" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />"
+	              target="_blank" style="display:none;" ><fmt:message key="annual.common.policyprovisions" bundle="${msg}" /></a>
+	              <a
+	              id="annual_travel_provision_button" href="<%=request.getContextPath()%>/<fmt:message key="annualtravel.provision.link" bundle="${msg}" />"
+	              target="_blank" style="display:none;" ><fmt:message key="annual.common.policyprovisions" bundle="${msg}" /></a>
 	      </h4>
       </div>
       <div class="clearfix"></div>
@@ -829,6 +837,9 @@ function getParameterByUrl(name){
     <div class="col-md-12 col-xs-12">
         <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
     </div>
+  </div>
+  <div>
+  	<p class="h4-6"><fmt:message key="annual.quote.disclaimer2" bundle="${msg}" /></p>
   </div>
   <!-- <div class="spacer3"></div>
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
