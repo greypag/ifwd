@@ -343,7 +343,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 							onclick="changeColorAndPrice('box<%=i%>','<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none" style="margin-bottom: 20px;">							
 								<h2>
-									PLAN <%=travelQuote.getPlanName()[i]%>
+									<fmt:message key="travel.summary.plan" bundle="${msg}" /> <%=travelQuote.getPlanName()[i]%>
 								</h2>
 								<%if(i==0) { %>
 								<h4 class="product_plan_box_description"><fmt:message key="annual.quote.productplan0" bundle="${msg}" /></h4>
@@ -1311,7 +1311,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		$('#subtotal').html(numeral(selected_price).format('0,0.00'));
 		//$('#plansummary').html(parseFloat(selected_price).toFixed(2));
 		$('#plansummary').html(numeral(selected_price).format('0,0.00'));
-		$('#seletedplanname').html('<fmt:message key="travel.summary.plan" bundle="${msg}" />'+planName);
+		$('#seletedplanname').html('<fmt:message key="travel.summary.plan" bundle="${msg}" /> '+planName);
 		$('#inputseletedplanname').val(planName);
 		$('#selectPlanPremium').val(parseFloat(selected_price).toFixed(2));
 

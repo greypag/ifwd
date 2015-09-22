@@ -730,7 +730,7 @@ function getParameterByUrl(name){
                 <div class="hidden-content">
                     <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon1.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.medicalexpenses" bundle="${msg}" /></div>
-                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.medicalexpenses.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -740,7 +740,7 @@ function getParameterByUrl(name){
                 <div class="hidden-content">
                     <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon2.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.baggage" bundle="${msg}" /></div>
-                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.baggage.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -750,7 +750,7 @@ function getParameterByUrl(name){
                 <div class="hidden-content">
                     <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon3.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.lostofpersonal" bundle="${msg}" /></div>
-                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.lostofpersonal.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -760,7 +760,7 @@ function getParameterByUrl(name){
                 <div class="hidden-content">
                     <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon4.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.personalliability" bundle="${msg}" /></div>
-                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.personalliability.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -770,7 +770,7 @@ function getParameterByUrl(name){
                 <div class="hidden-content">
                     <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon5.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.rentalvehicleexcess" bundle="${msg}" /></div>
-                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.rentalvehicleexcess.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -780,7 +780,7 @@ function getParameterByUrl(name){
                 <div class="hidden-content">
                     <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon6.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.noexcess" bundle="${msg}" /></div>
-                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.noexcess.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
