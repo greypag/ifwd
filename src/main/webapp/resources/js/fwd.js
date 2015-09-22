@@ -507,8 +507,8 @@ $(function () {
 	//================================================================================================================================ end fight page detail datepicker
 	//================================================================================================================================
 	// 35 day
-	var dob_35_date = new Date();
-	dob_35_date.setDate(dob_35_date.getDate()-35);
+	var dob_42_date = new Date();
+	dob_42_date.setDate(dob_42_date.getDate()-43);
 	
 	// 18 year ago date
 	var dob_end_date = new Date();
@@ -582,7 +582,7 @@ $(function () {
 		autoclose: true,
 		format: "dd-mm-yyyy",
 		startDate: dob_end_date,
-		endDate: dob_35_date
+		endDate: dob_42_date
 	}).on('changeDate', function (ev) {
 		$(this).next().html("");
 		$(this).removeClass("invalid-field");

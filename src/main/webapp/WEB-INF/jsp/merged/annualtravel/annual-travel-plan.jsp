@@ -343,7 +343,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 							onclick="changeColorAndPrice('box<%=i%>','<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
                             <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none" style="margin-bottom: 20px;">							
 								<h2>
-									PLAN <%=travelQuote.getPlanName()[i]%>
+									<fmt:message key="travel.summary.plan" bundle="${msg}" /> <%=travelQuote.getPlanName()[i]%>
 								</h2>
 								<%if(i==0) { %>
 								<h4 class="product_plan_box_description"><fmt:message key="annual.quote.productplan0" bundle="${msg}" /></h4>
@@ -982,10 +982,10 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                             </ul>
                                         </p>
                                         <p>
-                                            <li><fmt:message key="annual.quote.importantnotes.content8" bundle="${msg}" /><br/>
+                                            <fmt:message key="annual.quote.importantnotes.content8" bundle="${msg}" /><br/>
                                             <ul class="bullets">
-                                                <li><li><fmt:message key="annual.quote.importantnotes.content9" bundle="${msg}" /></li>
-                                                <li><li><fmt:message key="annual.quote.importantnotes.content10" bundle="${msg}" /></li>
+                                                <li><fmt:message key="annual.quote.importantnotes.content9" bundle="${msg}" /></li>
+                                                <li><fmt:message key="annual.quote.importantnotes.content10" bundle="${msg}" /></li>
                                             </ul>
                                         </p>
                                     </div>
@@ -1037,12 +1037,12 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						<div style="margin-bottom:20px;">
 						      <h4 class="h4-4 product_landing_download_button pull-left">
 		                            <i class="fa fa-download"></i> <a
-		                                href="http://www.fwd.com.hk/upload/en-US/travel_care_insurance.pdf"
+		                                href="<%=request.getContextPath()%>/<fmt:message key="annualtravel.brochure.link" bundle="${msg}" />"
 		                                target="_blank"><fmt:message key="annual.common.productbrochure" bundle="${msg}" />   </a>
 		                        </h4>
 		                        <h4 class="h4-4 product_landing_download_button pull-left">
 		                            <i class="fa fa-download"></i> <a
-		                                href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
+		                                href="<%=request.getContextPath()%>/<fmt:message key="annualtravel.provision.link" bundle="${msg}" />"
 		                                target="_blank"><fmt:message key="annual.common.policyprovisions" bundle="${msg}" />   </a>
 		                        </h4>
 		                        <div class="clearfix"></div>
@@ -1311,7 +1311,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		$('#subtotal').html(numeral(selected_price).format('0,0.00'));
 		//$('#plansummary').html(parseFloat(selected_price).toFixed(2));
 		$('#plansummary').html(numeral(selected_price).format('0,0.00'));
-		$('#seletedplanname').html('<fmt:message key="travel.summary.plan" bundle="${msg}" />'+planName);
+		$('#seletedplanname').html('<fmt:message key="travel.summary.plan" bundle="${msg}" /> '+planName);
 		$('#inputseletedplanname').val(planName);
 		$('#selectPlanPremium').val(parseFloat(selected_price).toFixed(2));
 

@@ -1160,7 +1160,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				
 			} else {
 				model.addAttribute("errMsgs", responsObject.get("errMsgs"));
-				return "fail";
+				return responsObject.get("errMsgs").toString();
 			}
 		}
  		

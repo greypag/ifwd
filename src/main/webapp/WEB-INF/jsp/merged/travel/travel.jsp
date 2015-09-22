@@ -111,6 +111,8 @@
          
          $(".travel_feature").hide();
          $("#single_travel_feature").show();
+         $("#annual_travel_provision_button").hide();
+         $("#travel_provision_button").show();
 	 }else{
 		 //$('.personal_plan_selectArea').trigger('click');
 		 //$('.family_plan_selectArea').hide();
@@ -141,6 +143,8 @@
          
          $(".travel_feature").hide();
          $("#annual_travel_feature").show();
+         $("#travel_provision_button").hide();
+         $("#annual_travel_provision_button").show();
 	 }
  }
 </script>
@@ -258,12 +262,12 @@ function getParameterByUrl(name){
 	                  
 	                  <td class="" style="min-width: 150px;">
 	                    <div class="input-group date" id="dp1" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-	                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius bmg_custom_placeholder" style="display:inline-block;width:70%;" id="txtStartDateDesk" value="${departureDate != '' ? departureDate : corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
+	                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius bmg_custom_placeholder" style="display:inline-block;width:70%;" id="txtStartDateDesk" <%-- value="${departureDate != '' ? departureDate : corrTravelQuote.trLeavingDate}" --%> placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
 	                  <td class="" style="min-width: 150px;">
 	                    <div class="input-group date" id="dp2" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-	                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateDesk" value="${returnDate != '' ? returnDate : corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+	                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateDesk" <%-- value="${returnDate != '' ? returnDate : corrTravelQuote.trBackDate}" --%> placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
 	                  <td class="" style="min-width: 190px;">
@@ -299,7 +303,7 @@ function getParameterByUrl(name){
 	                           <div class="input-group number-spinner none-bd" > <span class="input-group-btn data-dwn personal-data-updown">
 	                             <button class="btn btn-default btn-info drop-down-bg btn-new  btn-number" data-type="minus" data-field="txtTravellersDesk"  data-parent="personal"> <span class="glyphicon glyphicon-minus"></span> </button>
 	                             </span>
-	                  <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalPersonalTraveller}</div>
+	                             <div class="text-center drop-down-plus wd4 input-number">${corrTravelQuote.totalPersonalTraveller}</div>
 	                             <input type="hidden" name="totalPersonalTraveller" id="txtTravellersDesk" data-min="1" data-max="15" value="${corrTravelQuote.totalPersonalTraveller}"/>
 	                             <span class="input-group-btn data-up personal-data-updown">
 	                             <button class="btn btn-default btn-info drop-down-bg btn-new btn-number" data-type="plus" data-field="txtTravellersDesk" data-parent="personal"> <span class="glyphicon glyphicon-plus"></span> </button>
@@ -426,14 +430,14 @@ function getParameterByUrl(name){
     <h4 style="color: #fff;"><fmt:message key="travel.main.quote.q1" bundle="${msg}" /></h4>
     <div class="form-group">
       <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-        <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob" style="font-size: 23px !important;" value="${corrTravelQuote.trLeavingDate}" readonly>
+        <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob" style="font-size: 23px !important;" <%-- value="${corrTravelQuote.trLeavingDate}" --%> readonly>
       </div>
     </div>
     <span id="startDateMobIn" style="color:red"> </span>
     <h4 style="color: #fff;"><fmt:message key="travel.main.quote.q2" bundle="${msg}" /></h4>
     <div class="form-group">
       <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-        <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob" style="font-size: 23px !important;" value="${corrTravelQuote.trBackDate}" readonly>
+        <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob" style="font-size: 23px !important;" <%-- value="${corrTravelQuote.trBackDate}" --%> readonly>
       </div>
     </div>
     <span id="endDateMobIn" style="color:red"> </span>
@@ -710,9 +714,13 @@ function getParameterByUrl(name){
 	              target="_blank"><fmt:message key="annual.common.productbrochure" bundle="${msg}" /></a>
 	      </h4>
 	      <h4 class="product_landing_download_button h4-4 pull-left">
-	          <i class="fa fa-download"></i> <a
-	              href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf"
-	              target="_blank"><fmt:message key="annual.common.policyprovisions" bundle="${msg}" /></a>
+	          <i class="fa fa-download"></i> 
+	          	  <a
+	              id="travel_provision_button" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />"
+	              target="_blank" style="display:none;" ><fmt:message key="annual.common.policyprovisions" bundle="${msg}" /></a>
+	              <a
+	              id="annual_travel_provision_button" href="<%=request.getContextPath()%>/<fmt:message key="annualtravel.provision.link" bundle="${msg}" />"
+	              target="_blank" style="display:none;" ><fmt:message key="annual.common.policyprovisions" bundle="${msg}" /></a>
 	      </h4>
       </div>
       <div class="clearfix"></div>
@@ -730,7 +738,7 @@ function getParameterByUrl(name){
                 <div class="hidden-content">
                     <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon1.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.medicalexpenses" bundle="${msg}" /></div>
-                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.medicalexpenses.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -740,7 +748,7 @@ function getParameterByUrl(name){
                 <div class="hidden-content">
                     <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon2.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.baggage" bundle="${msg}" /></div>
-                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.baggage.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -750,7 +758,7 @@ function getParameterByUrl(name){
                 <div class="hidden-content">
                     <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon3.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.lostofpersonal" bundle="${msg}" /></div>
-                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.lostofpersonal.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -760,7 +768,7 @@ function getParameterByUrl(name){
                 <div class="hidden-content">
                     <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon4.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.personalliability" bundle="${msg}" /></div>
-                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.personalliability.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -770,7 +778,7 @@ function getParameterByUrl(name){
                 <div class="hidden-content">
                     <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon5.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.rentalvehicleexcess" bundle="${msg}" /></div>
-                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.rentalvehicleexcess.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -780,7 +788,7 @@ function getParameterByUrl(name){
                 <div class="hidden-content">
                     <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/annual_travel/icon6.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="annual.main.noexcess" bundle="${msg}" /></div>
-                    <div class="col-xs-12 hidden-content-p"><p>If the Insured Person hires a rental vehicle during the journey and is involved in a car accident, or the vehicle is damaged or stolen, the claims excess in the motor insurance policy purchased by the insured Person will be reimbursed.</p></div>
+                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="annual.main.noexcess.details" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -829,6 +837,9 @@ function getParameterByUrl(name){
     <div class="col-md-12 col-xs-12">
         <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
     </div>
+  </div>
+  <div>
+  	<p class="h4-6"><fmt:message key="annual.quote.disclaimer2" bundle="${msg}" /></p>
   </div>
   <!-- <div class="spacer3"></div>
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
@@ -1178,12 +1189,12 @@ function getParameterByUrl(name){
             
               <td class="" style="min-width: 150px;">
                 <div class="input-group date" id="dp5" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateBtm" value="${corrTravelQuote.trLeavingDate}" placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
+                  <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateBtm" <%-- value="${corrTravelQuote.trLeavingDate}" --%> placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
                 </td>
               <td class="" style="min-width: 150px;">
                 <div class="input-group date" id="dp6" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                  <input type="text" name="trBackDate" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateBtm" value="${corrTravelQuote.trBackDate}" placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
+                  <input type="text" name="trBackDate" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateBtm" <%-- value="${corrTravelQuote.trBackDate}" --%> placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
                 </td>
               <td class="" style="min-width: 190px;">
