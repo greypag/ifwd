@@ -16515,12 +16515,12 @@ button#thank-you-continue {
   color: #9fb1b2;
 }
 /* line 132, ../sass/partials/_purchase-history.scss */
-.purchase-history .plan-item .bottom {
+.purchase-history .plan-item .esph-bottom {
   margin-top: 9px;
 }
 @media (min-width: 992px) {
   /* line 132, ../sass/partials/_purchase-history.scss */
-  .purchase-history .plan-item .bottom {
+  .purchase-history .plan-item .esph-bottom {
     margin-top: 0;
   }
 }
@@ -16774,12 +16774,12 @@ button#thank-you-continue {
   }
 }
 /* line 125, ../sass/partials/_eservices-referral.scss */
-.referral .promo-item .bottom {
+.referral .promo-item .esph-bottom {
   margin-top: 15px;
 }
 @media (min-width: 992px) {
   /* line 125, ../sass/partials/_eservices-referral.scss */
-  .referral .promo-item .bottom {
+  .referral .promo-item .esph-bottom {
     margin-top: 0;
   }
 }
@@ -16807,12 +16807,12 @@ button#thank-you-continue {
   }
 }
 /* line 148, ../sass/partials/_eservices-referral.scss */
-.referral .bottom {
+.referral .esph-bottom {
   margin-top: 12px;
 }
 @media (min-width: 992px) {
   /* line 148, ../sass/partials/_eservices-referral.scss */
-  .referral .bottom {
+  .referral .esph-bottom {
     margin-top: 0;
   }
 }
