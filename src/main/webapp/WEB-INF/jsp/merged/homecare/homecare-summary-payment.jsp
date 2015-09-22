@@ -820,7 +820,7 @@ perventRedirect=true;
 
 <div id="PaymentingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
     <img
-        style="width: 200px; height: 200px;"
+        style="width: 300px; height: 300px;"
         src="<%=request.getContextPath()%>/resources/images/ajax-loader2.gif">
 </div>
 
