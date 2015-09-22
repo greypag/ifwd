@@ -503,7 +503,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						  <table>
 						      <tr>
 						          <td><img src="<%=request.getContextPath()%>/resources/images/annual_travel/i-icon.png" alt=""></td>
-						          <td>If travel more than 3 times a year, you should consider <strong>Annual Travel</strong> year round coverage with better price.</td>
+						          <td><fmt:message key="travel.quote.upsell" bundle="${msg}" /></td>
 						      </tr>
 						  </table>
                         </div>
