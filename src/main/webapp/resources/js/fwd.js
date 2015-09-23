@@ -6200,8 +6200,8 @@ function checkMembership(field){
 function checkUsername(el){
 	if(el.split('@').length-1 > 1){
 		return getBundle(getBundleLanguage, 'user.username.only64.message');
-	}else if (el.split('.').length-1 > 1){
-		return getBundle(getBundleLanguage, 'user.username.only46.message');
+	/*}else if (el.split('.').length-1 > 1){
+		return getBundle(getBundleLanguage, 'user.username.only46.message');*/
 	}else if (el.indexOf('@') == 0 || el.lastIndexOf('@') == el.length - 1){
 		return getBundle(getBundleLanguage, 'user.username.beginorover64.message');
 	}else if (el.indexOf('.') == 0 || el.lastIndexOf('.') == el.length - 1){
