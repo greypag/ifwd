@@ -12,45 +12,45 @@
   Boolean isMember = !(currUser == null || currUser.equals(Constants.DEFAULT_USERNAME));
   String userType = (isMember)?"member":"visitor";
 
-  String key_promocodeLabel = "travel.confirmation." + userType + ".promocodeLabel";
-  String key_referralCodeDesc = "travel.confirmation." + userType + ".referralCodeDesc";
+  String key_promocodeLabel = "annual.confirmation." + userType + ".promocodeLabel";
+  String key_referralCodeDesc = "annual.confirmation." + userType + ".referralCodeDesc";
 
-  String key_header1 = "travel.referral.benefits." + userType + ".table.header1";
-  String key_header2 = "travel.referral.benefits." + userType + ".table.header2";
-  String key_header3 = "travel.referral.benefits." + userType + ".table.header3";
-  String key_header4 = "travel.referral.benefits." + userType + ".table.header4";
+  String key_header1 = "annual.referral.benefits." + userType + ".table.header1";
+  String key_header2 = "annual.referral.benefits." + userType + ".table.header2";
+  String key_header3 = "annual.referral.benefits." + userType + ".table.header3";
+  String key_header4 = "annual.referral.benefits." + userType + ".table.header4";
 
-  String key_row1col1 = "travel.referral.benefits." + userType + ".table.row1.col1";
-  String key_row1col2 = "travel.referral.benefits." + userType + ".table.row1.col2";
-  String key_row1col3 = "travel.referral.benefits." + userType + ".table.row1.col3";
-  String key_row1col4 = "travel.referral.benefits." + userType + ".table.row1.col4";
+  String key_row1col1 = "annual.referral.benefits." + userType + ".table.row1.col1";
+  String key_row1col2 = "annual.referral.benefits." + userType + ".table.row1.col2";
+  String key_row1col3 = "annual.referral.benefits." + userType + ".table.row1.col3";
+  String key_row1col4 = "annual.referral.benefits." + userType + ".table.row1.col4";
 
-  String key_row2col1 = "travel.referral.benefits." + userType + ".table.row2.col1";
-  String key_row2col2 = "travel.referral.benefits." + userType + ".table.row2.col2";
-  String key_row2col3 = "travel.referral.benefits." + userType + ".table.row2.col3";
-  String key_row2col4 = "travel.referral.benefits." + userType + ".table.row2.col4";
+  String key_row2col1 = "annual.referral.benefits." + userType + ".table.row2.col1";
+  String key_row2col2 = "annual.referral.benefits." + userType + ".table.row2.col2";
+  String key_row2col3 = "annual.referral.benefits." + userType + ".table.row2.col3";
+  String key_row2col4 = "annual.referral.benefits." + userType + ".table.row2.col4";
 
-  String key_row3col1 = "travel.referral.benefits." + userType + ".table.row3.col1";
-  String key_row3col2 = "travel.referral.benefits." + userType + ".table.row3.col2";
-  String key_row3col3 = "travel.referral.benefits." + userType + ".table.row3.col3";
-  String key_row3col4 = "travel.referral.benefits." + userType + ".table.row3.col4";
+  String key_row3col1 = "annual.referral.benefits." + userType + ".table.row3.col1";
+  String key_row3col2 = "annual.referral.benefits." + userType + ".table.row3.col2";
+  String key_row3col3 = "annual.referral.benefits." + userType + ".table.row3.col3";
+  String key_row3col4 = "annual.referral.benefits." + userType + ".table.row3.col4";
 
-  String key_row4col1 = "travel.referral.benefits." + userType + ".table.row4.col1";
-  String key_row4col2 = "travel.referral.benefits." + userType + ".table.row4.col2";
-  String key_row4col3 = "travel.referral.benefits." + userType + ".table.row4.col3";
-  String key_row4col4 = "travel.referral.benefits." + userType + ".table.row4.col4";
+  String key_row4col1 = "annual.referral.benefits." + userType + ".table.row4.col1";
+  String key_row4col2 = "annual.referral.benefits." + userType + ".table.row4.col2";
+  String key_row4col3 = "annual.referral.benefits." + userType + ".table.row4.col3";
+  String key_row4col4 = "annual.referral.benefits." + userType + ".table.row4.col4";
   
-  String key_row6col1 = "travel.referral.benefits." + userType + ".table.row6.col1";
-  String key_row6col2 = "travel.referral.benefits." + userType + ".table.row6.col2";
-  String key_row6col3 = "travel.referral.benefits." + userType + ".table.row6.col3";
-  String key_row6col4 = "travel.referral.benefits." + userType + ".table.row6.col4";
+  String key_row6col1 = "annual.referral.benefits." + userType + ".table.row6.col1";
+  String key_row6col2 = "annual.referral.benefits." + userType + ".table.row6.col2";
+  String key_row6col3 = "annual.referral.benefits." + userType + ".table.row6.col3";
+  String key_row6col4 = "annual.referral.benefits." + userType + ".table.row6.col4";
 
-  String key_disclaimer1 = "travel.referral.benefits." + userType + ".disclaimer1";
-  String key_disclaimer2Part1 = "travel.referral.benefits." + userType + ".disclaimer2.part1";
-  String key_disclaimer2Part2 = "travel.referral.benefits." + userType + ".disclaimer2.part2";
-  String key_disclaimer2Part3 = "travel.referral.benefits." + userType + ".disclaimer2.part3";
-  String key_disclaimer3Part1 = "travel.referral.benefits." + userType + ".disclaimer3.part1";
-  String key_disclaimer3Part2 = "travel.referral.benefits." + userType + ".disclaimer3.part2";
+  String key_disclaimer1 = "annual.referral.benefits." + userType + ".disclaimer1";
+  String key_disclaimer2Part1 = "annual.referral.benefits." + userType + ".disclaimer2.part1";
+  String key_disclaimer2Part2 = "annual.referral.benefits." + userType + ".disclaimer2.part2";
+  String key_disclaimer2Part3 = "annual.referral.benefits." + userType + ".disclaimer2.part3";
+  String key_disclaimer3Part1 = "annual.referral.benefits." + userType + ".disclaimer3.part1";
+  String key_disclaimer3Part2 = "annual.referral.benefits." + userType + ".disclaimer3.part2";
 %>
 
 <!--/#main-Content-->
@@ -80,21 +80,21 @@
           <div class="col-sm-12 pad-none" >
             <div style="width:80%;margin-left:10%">
 	            <h3 class="bmg-confirmation-h3">
-	              <fmt:message key="travel.confirmation.msg.part1" bundle="${msg}" />
-	              <fmt:message key="travel.confirmation.msg.part2" bundle="${msg}" />
-	              <fmt:message key="travel.confirmation.msg.part3" bundle="${msg}" />
-	              <fmt:message key="travel.confirmation.msg.part4" bundle="${msg}" />
-	              <fmt:message key="travel.confirmation.msg.part5" bundle="${msg}" />
+	              <fmt:message key="annual.confirmation.msg.part1" bundle="${msg}" />
+	              <fmt:message key="annual.confirmation.msg.part2" bundle="${msg}" />
+	              <fmt:message key="annual.confirmation.msg.part3" bundle="${msg}" />
+	              <fmt:message key="annual.confirmation.msg.part4" bundle="${msg}" />
+	              <fmt:message key="annual.confirmation.msg.part5" bundle="${msg}" />
 	              <strong>${emailAddress}</strong>
-	              <fmt:message key="travel.confirmation.msg.part6" bundle="${msg}" />
+	              <fmt:message key="annual.confirmation.msg.part6" bundle="${msg}" />
 	            </h3>
 	            
-	            <h4 class="bmg-confirmation-h4"><strong><fmt:message key="travel.confirmation.policyNo" bundle="${msg}" /></strong><span> ${policyNo}</span></h4>
+	            <h4 class="bmg-confirmation-h4"><strong><fmt:message key="annual.confirmation.policyNo" bundle="${msg}" /></strong><span> ${policyNo}</span></h4>
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">
                 <div style="width:80%;margin-left:10%">
               <h5 class="bmg-confirmation-h5">
-                  <strong><fmt:message key="<%=key_promocodeLabel%>" bundle="${msg}" /></strong><span><%=session.getAttribute("myTravelReferralCode")%></span>
+                  <strong><fmt:message key="<%=key_promocodeLabel%>" bundle="${msg}" /></strong> <span><%=session.getAttribute("myTravelReferralCode")%></span>
               </h5>
 				
               <div class="h4-3-b margin-bottom-10" style="color: #f6871e;">
@@ -374,32 +374,34 @@
             
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none gray-bg1" style="padding-bottom:10px;">
                 <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
-                <div><fmt:message key="travel.confirmation.partnerDesc.part1" bundle="${msg}" /> <strong><fmt:message key="travel.confirmation.partnerDesc.part2" bundle="${msg}" /></strong> <fmt:message key="travel.confirmation.partnerDesc.part3" bundle="${msg}" /></div>
+                <div><fmt:message key="annual.confirmation.partnerDesc.part1" bundle="${msg}" /> <strong><fmt:message key="annual.confirmation.partnerDesc.part2" bundle="${msg}" /></strong> <fmt:message key="annual.confirmation.partnerDesc.part3" bundle="${msg}" /></div>
                 
                 <div class="fwd_partner_title"><fmt:message key="fwd.partners" bundle="${msg}" /></div>
                 <div class="hidden-xs hidden-sm">
                     <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-right:15px;">
 		            <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-right:15px;">
+                <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class=" " style="margin-right:15px;">
 		            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-right:15px;">
                 </div>
                 <div class="hidden-lg hidden-md" style="text-align:center;">
                     <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-bottom:20px;"><br/>
                     <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-bottom:20px;"><br/>
+                    <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class=" " style="margin-bottom:20px;"><br/>
                     <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-bottom:20px;"><br/>
                 </div>
                 <div class="clearfix"></div>
-                <div class="h4-2"><fmt:message key="travel.confirmation.sharenow" bundle="${msg}" /></div>
+                <div class="h4-2"><fmt:message key="annual.confirmation.sharenow" bundle="${msg}" /></div>
                 <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
                     <div class=" wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/annual-travel-insurance?promo=<%=session.getAttribute("myTravelReferralCode")%></div>
                     <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage hidden-sm hidden-xs"><fmt:message key="link.copy.desktop" bundle="${msg}" /></span><span class="boxMessage hidden-md hidden-lg"><fmt:message key="link.copy.mobile" bundle="${msg}" /></span> <span class="boxDownArrow"></span> </div>
                 </div>
                 <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
                     <!-- <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">
-                        <fmt:message key="travel.referral.copy" bundle="${msg}" />
+                        <fmt:message key="annual.referral.copy" bundle="${msg}" />
                     </div> -->
                     
                     <div class="copy-link pull-left" onclick="autoSelect('toBeCopied');">
-                        <fmt:message key="travel.referral.copy" bundle="${msg}" />
+                        <fmt:message key="annual.referral.copy" bundle="${msg}" />
                     </div>
 
                     <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/annual-travel-insurance/sharing/?promo=<%=session.getAttribute("myTravelReferralCode")%>" data-title="iFWD"></div>
@@ -416,7 +418,7 @@
               
               <div class="clearfix"></div><br>
 
-              <div class="h4-2"><fmt:message key="travel.confirmation.sharenow" bundle="${msg}" /></div>
+              <div class="h4-2"><fmt:message key="annual.confirmation.sharenow" bundle="${msg}" /></div>
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
                     <div class=" wht-bg1 text-center" id="toBeCopied"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/annual-travel-insurance?promo=<%=session.getAttribute("myTravelReferralCode")%>
@@ -424,7 +426,7 @@
                 </div>
                 <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
                     <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">
-                        <fmt:message key="travel.referral.copy" bundle="${msg}" />
+                        <fmt:message key="annual.referral.copy" bundle="${msg}" />
                     </div>
 
                     <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/annual-travel-insurance/sharing/?promo=<%=session.getAttribute("myTravelReferralCode")%>" data-title="iFWD"></div>
@@ -435,19 +437,19 @@
               <br>
               <div class="col-lg-12 col-md-12 travel-b">
                 <!--
-                <div class="declaration-content1"> <b><fmt:message key="travel.referral.disclaimer" bundle="${msg}" /></b>
+                <div class="declaration-content1"> <b><fmt:message key="annual.referral.disclaimer" bundle="${msg}" /></b>
                   <p>
-                      <fmt:message key="travel.referral.disclaimer.section1.header" bundle="${msg}" /><br/>
-                      <fmt:message key="travel.referral.disclaimer.section1.desc1" bundle="${msg}" /><br>
-                      <fmt:message key="travel.referral.disclaimer.section1.desc2" bundle="${msg}" /><br>
-                      <fmt:message key="travel.referral.disclaimer.section2.header" bundle="${msg}" /><br>
-                      <fmt:message key="travel.referral.disclaimer.section2.desc1" bundle="${msg}" /><br>
+                      <fmt:message key="annual.referral.disclaimer.section1.header" bundle="${msg}" /><br/>
+                      <fmt:message key="annual.referral.disclaimer.section1.desc1" bundle="${msg}" /><br>
+                      <fmt:message key="annual.referral.disclaimer.section1.desc2" bundle="${msg}" /><br>
+                      <fmt:message key="annual.referral.disclaimer.section2.header" bundle="${msg}" /><br>
+                      <fmt:message key="annual.referral.disclaimer.section2.desc1" bundle="${msg}" /><br>
 
-            			<fmt:message key="travel.referral.disclaimer.section3.desc.part1" bundle="${msg}" />
+            			<fmt:message key="annual.referral.disclaimer.section3.desc.part1" bundle="${msg}" />
             			<a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link">
-            				<fmt:message key="travel.referral.disclaimer.section3.desc.part2" bundle="${msg}" />
+            				<fmt:message key="annual.referral.disclaimer.section3.desc.part2" bundle="${msg}" />
             			</a>
-            			<fmt:message key="travel.referral.disclaimer.section3.desc.part3" bundle="${msg}" />
+            			<fmt:message key="annual.referral.disclaimer.section3.desc.part3" bundle="${msg}" />
                   </p></div>
                 -/->
               </div>
@@ -464,14 +466,14 @@
                   <img src="<%=request.getContextPath()%>/resources/images/home7.png" alt=""> </div>
                 <div class="col-md-8 col-lg-8 text-left col-xs-offset-travel">
                   <div>
-                    <h4 class="center-h2"><fmt:message key="travel.confirmation.heading" bundle="${msg}" /></h4>                  
+                    <h4 class="center-h2"><fmt:message key="annual.confirmation.heading" bundle="${msg}" /></h4>                  
                     <div class="h2-32" style="margin-top:30px;">
-                      <strong><fmt:message key="travel.confirmation.subheading" bundle="${msg}" /></strong>
+                      <strong><fmt:message key="annual.confirmation.subheading" bundle="${msg}" /></strong>
                     </div>
                     <br>
-                    <p class="h4-5"><fmt:message key="travel.confirmation.subheading.desc" bundle="${msg}" /></p><br>
+                    <p class="h4-5"><fmt:message key="annual.confirmation.subheading.desc" bundle="${msg}" /></p><br>
                     <a href="<%=request.getContextPath()%>/${language}/home-insurance" class="border-radius btn btn-primary  get-btn" >
-                    <fmt:message key="travel.confirmation.getQuote" bundle="${msg}" /></a>
+                    <fmt:message key="annual.confirmation.getQuote" bundle="${msg}" /></a>
                   </div>
                 </div>
               </div>  
