@@ -319,12 +319,19 @@ function activateUserAccountJoinUs() {
 </script>
 <% } %> 
 
-<!-- action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" method="post" onsubmit="return tPlanValid();"-->
+<section class="product_header_path_container ">
+    <div class="container">
+        <div class="product_header_path_item back"><i class="fa fa-arrow-left"></i><div class="partition"></div></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.planoption" bundle="${msg}" /></div>
+        <div class="product_header_path_item active"><fmt:message key="annual.title.application" bundle="${msg}" /></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.payment" bundle="${msg}" /><div class="partition"></div></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.confirmation" bundle="${msg}" /></div>
+    </div>
+</section>
+
 <section>
     <div id="cn" class="container">
         <div class="row">
-        
-
             <form:form name="frmYourDetails" id="frmYourDetails" modelAttribute="frmYourDetails" method="post" action="${pageContext.request.contextPath}/${language}/travel-insurance/travel-summary" >
                 <ol class="breadcrumb pad-none">
                     <li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
@@ -332,98 +339,38 @@ function activateUserAccountJoinUs() {
                     <li><a href="#"><fmt:message key="travel.breadcrumb1.item3" bundle="${msg}" /></a></li>
                     <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="travel.breadcrumb1.item4" bundle="${msg}" /></li>
                 </ol>
-                <div class="container ">
-                    <div class="col-md-12 shop-tracking-status">
-                        <div class="center wow fadeInDown animated"
-                            style="visibility: visible;">
-                            <h2><fmt:message key="travel.details.jumbo" bundle="${msg}" /></h2>
-                        </div>
-                        <br>
-                        <div class="col-lg-12">
-                            <div id="tr-wizard" class="shop-tracking-status">
-                                <div class="order-status has-four">
-                                    <div class="order-status-timeline-new">
-                                <!--
-                                        There can be n '.order-status-timeline-completion'
-                                        dots-inactive and dots-active color the dots -->
-                                        <div class="order-status-timeline-completion dots-active"></div>
-                                        <div class="order-status-timeline-completion dots-inactive"></div>
-                                        <div class="order-status-timeline-completion dots-inactive"></div>
-                                    </div>
-                                    <div
-                                        class="image-order-status image-order-status-new active img-circle first">
-                                        <span class="status color3"><fmt:message key="travel.breadcrumb2.item1" bundle="${msg}" /></span>
-                                        <div class="icon">1</div>
-                                    </div>
-
-                                    <div
-                                        class="image-order-status image-order-status-intransit  img-circle act second">
-                                        <span class="status color2"><fmt:message key="travel.breadcrumb2.item2" bundle="${msg}" /></span>
-                                        <div class="icon">2</div>
-                                    </div>
-                                    <div
-                                        class="image-order-status image-order-status-delivered  img-circle third">
-                                        <span class="status"><fmt:message key="travel.breadcrumb2.item3" bundle="${msg}" /></span>
-                                        <div class="icon">3</div>
-                                    </div>
-                                    <div
-                                        class="image-order-status image-order-status-completed  img-circle fourth">
-                                        <span class="status lst-status"><fmt:message key="travel.breadcrumb2.item4" bundle="${msg}" /></span>
-                                        <div class="icon">4</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="quote-wrap" class="container pad-none bdr ur-opt-content gray-bg3">
-                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none white-bg1">
-                        <br>
-                        <div class="form-wrap">
-                        <%
-                            if (authenticate.equals("false") || authenticate.equals("direct")) {
-                        %>
-                        <h3 class="h2-3-existing-fwd-head bmg-detail-exist-member-head">
-                        <fmt:message key="travel.details.login" bundle="${msg}" />
-                        <!--
-                        278 
-                        278
-                        --> 
-                        <a
-                        class="tool-tip show-inline-md"
-                        data-toggle="tooltip" data-placement="bottom"
-                        data-toggle="tooltip" data-placement="top"
-                        title="<fmt:message key="member.account.login.help" bundle="${msg}" />">
-                        <img src="<%=request.getContextPath()%>/resources/images/ic.png"
-                        alt=""></a>
-                        </h3>
-                        
-
-                        <!-- <a href="#"
-                            class="col-lg-5 col-md-5 col-sm-5 col-xs-5 btn-box-2 margin-left-2 color4"
-                            data-toggle="modal" data-target=".bs-example-modal-lg"><fmt:message key="travel.details.login.action" bundle="${msg}" /></a> -->
-                        <a href="#" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 btn-box-2 color4 login-btn" data-toggle="modal" data-target="#loginpopup"><fmt:message key="travel.details.login.action" bundle="${msg}" /></a>    
-                        <div class="col-lg-9 col-md-9 col-xs-9 col-sm-9 text-left">
+                <%
+                    if (authenticate.equals("false") || "direct".equalsIgnoreCase(request.getSession()
+                        .getAttribute("authenticate").toString())) {
+                %>
+                <div class="product_plan_details_member_title white-bg1">
+                    <h3 class="pull-left h2-3-existing-fwd-head bmg-detail-exist-member-head">
+                    <fmt:message key="travel.details.login" bundle="${msg}" />
+                    <a class="tool-tip show-inline-md"
+                    data-toggle="tooltip" data-placement="bottom"
+                    title="<fmt:message key="member.account.login.help" bundle="${msg}" />">
+                    <img src="<%=request.getContextPath()%>/resources/images/ic.png"
+                    alt=""></a>
+                    </h3>
+                    <div class="pull-left">
+                        <a href="#" class="pull-left btn-box-2 color4 login-btn" data-toggle="modal" data-target="#loginpopup"><fmt:message key="travel.details.login.action" bundle="${msg}" /></a>    
+                        <div class="pull-left text-left">
                             <h3 class="text-left or-continue">
-                                <span><fmt:message key="travel.details.login.other.part1" bundle="${msg}" /></span>
+                                <span style="margin-left:10px;margin-right:10px;"><fmt:message key="travel.details.login.other.part1" bundle="${msg}" /></span>
                                 <fmt:message key="travel.details.login.other.part2" bundle="${msg}" />
                             </h3>
                         </div>
                         <div class="clearfix"></div>
-                        <input type="hidden" id="isLogin" value="false">
-                        <%
-                            }
-                            else
-                            {
-                        %>
-                            <input type="hidden" id="isLogin" value="true">
-                        <%
-                            }
-                        %>
-                        </div>
-
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <%
+                    }
+                %>
+                <div id="quote-wrap" class="container pad-none bdr ur-opt-content gray-bg3">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none white-bg1">
                         <br/>
-                        <div class="gray-bdr"></div>
+                        <!-- <div class="gray-bdr"></div> -->
                         <!-- updated responsive design start -->
                         <div class="form-wrap">
                             <div class="big-title black-bold pad-none bmg-big-title">
@@ -619,108 +566,7 @@ function activateUserAccountJoinUs() {
                                 </tr>
                             </tbody>
                         </table> --%>
-                        <%
-                            if (authenticate.equals("false") || "direct".equalsIgnoreCase(request.getSession()
-                                    .getAttribute("authenticate").toString())) {
-                        %>
-                        <div class="gray-bg3-wid container membership-wrap" style="padding-top: 20px;padding-left:0px;padding-right:0px;">
-                            <div class="form-wrap">
-                            <div class="membership-header">
-                                <h3 class="bmg-membership-header"><fmt:message key="travel.details.registration.heading" bundle="${msg}" /></h3>
-                                <i class="text-grey"><fmt:message key="travel.details.registration.desc" bundle="${msg}" /></i>
-                                <h3 id="error_hide" class="error-hide" style='display:none; color:red; font-size:15px;'></h3>                                
-                            </div>
-                            <div class="form-group float row">
-                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label class="field-label bold-500"><fmt:message key="travel.details.registration.username" bundle="${msg}" /></label>
-                               </div>
-                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                   <input type="text"
-                                            name="username" class="form-control full-control input-white"
-                                            id="Username" 
-                                            onfocus="emptyMembershipError();" onkeypress="return validationUsername(event);"><span
-                                            id="UsernameError" class="text-red"> </span>
-                               </div>
-                            </div>
-                            <div class="form-group float row">
-                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label
-                                            class="field-label bold-500"><fmt:message key="travel.details.registration.password" bundle="${msg}" /></label>
-                               </div>
-                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                   <input type="password"
-                                            name="password" class="form-control full-control input-white"
-                                            id="Password" autocomplete="off"
-                                            onfocus="emptyMembershipError();"> <span
-                                            id="PasswordError" class="text-red"> </span>
-                               </div>
-                            </div>
-                            <div class="form-group float row">
-                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label
-                                            class="field-label bold-500"><fmt:message key="travel.details.registration.confirmPassword" bundle="${msg}" /></label>
-                               </div>
-                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
-                                  <input type="password"
-                                            class="form-control full-control input-white" id="Confirm-Password"
-                                            autocomplete="off"
-                                            onfocus="emptyMembershipError();"> <span id="Confirm-PasswordError"
-                                            class="text-red"> </span>
-                               </div>
-                            </div>
-                            </div>
-                        </div>
-                        <%-- <div class="gray-bg3-wid">
-                            <table class="table plandetail-form margin-left-2 vert-middle"
-                                id="input-white">
-                                <tbody>
-                                    <tr>
-                                        <td colspan="2"><h3><fmt:message key="travel.details.registration.heading" bundle="${msg}" /></h3>
-                                            <i class="text-grey"><fmt:message key="travel.details.registration.desc" bundle="${msg}" /></i> <br></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2">&nbsp;</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><label
-                                            class="bold-500"><fmt:message key="travel.details.registration.username" bundle="${msg}" /></label></td>
-                                        <td><input type="text"
-                                            name="userName" class="form-control full-control"
-                                            id="Username" placeholder="<fmt:message key="travel.details.registration.username.placeholder" bundle="${msg}" />"><span
-                                            id="UsernameError" class="text-red"> </span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label
-                                            class="bold-500"><fmt:message key="travel.details.registration.password" bundle="${msg}" /></label></td>
-                                        <td><input type="password"
-                                            name="password" class="form-control full-control"
-                                            id="Password" placeholder="<fmt:message key="travel.details.registration.password.placeholder" bundle="${msg}" />" autocomplete="off"> <span
-                                            id="PasswordError" class="text-red"> </span></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label
-                                            class="bold-500"><fmt:message key="travel.details.registration.confirmPassword" bundle="${msg}" /></label></td>
-                                        <td><input type="password"
-                                            class="form-control full-control" id="Confirm-Password"
-                                            placeholder="<fmt:message key="travel.details.registration.confirmPassword.placeholder" bundle="${msg}" />" autocomplete="off"> <span id="Confirm-PasswordError"
-                                            class="text-red"> </span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div> --%>
-                        <input type="hidden" id="isLogin" value="false">
-                        <input type="hidden" id="totalTravellingDays" name="totalTravellingDays" value="${corrTravelQuote.totalTravellingDays}">
                         
-                        
-                        <%
-                            }
-                            else
-                            {
-                        %>
-                            <input type="hidden" id="isLogin" value="true">
-                        <%
-                            }
-                        %>
                         <div class="clearfix"></div>
                         <div class="form-wrap">
                             <div class="big-title black-bold" style="padding-left:0px !important;">
@@ -2283,6 +2129,123 @@ function activateUserAccountJoinUs() {
 
                             </div>
                             </div>
+                            
+                            <%
+                            if (authenticate.equals("false") || "direct".equalsIgnoreCase(request.getSession()
+                                    .getAttribute("authenticate").toString())) {
+                        %>
+                        <div class="gray-bg3-wid container membership-wrap" style="padding-top: 20px;padding-left:0px;padding-right:0px;">
+                            <div class="form-wrap">
+                            <div class="membership-header">
+                                <h3 class="bmg-membership-header"><fmt:message key="travel.details.registration.heading" bundle="${msg}" /></h3>
+                                <i class="text-grey"><fmt:message key="travel.details.registration.desc" bundle="${msg}" /></i>
+                                <h3 id="error_hide" class="error-hide" style='display:none; color:red; font-size:15px;'></h3>                                
+                            </div>
+                            <div class="form-group float row">
+                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                   <label class="field-label bold-500"><fmt:message key="travel.details.registration.username" bundle="${msg}" /></label>
+                               </div>
+                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                   <input type="text"
+                                            name="username" class="form-control full-control input-white"
+                                            id="Username" 
+                                            onfocus="emptyMembershipError();" onkeypress="return validationUsername(event);"><span
+                                            id="UsernameError" class="text-red"> </span>
+                               </div>
+                            </div>
+                            <div class="form-group float row">
+                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                   <label
+                                            class="field-label bold-500"><fmt:message key="travel.details.registration.password" bundle="${msg}" /></label>
+                               </div>
+                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                   <input type="password"
+                                            name="password" class="form-control full-control input-white"
+                                            id="Password" autocomplete="off"
+                                            onfocus="emptyMembershipError();"> <span
+                                            id="PasswordError" class="text-red"> </span>
+                               </div>
+                            </div>
+                            <div class="form-group float row">
+                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                   <label
+                                            class="field-label bold-500"><fmt:message key="travel.details.registration.confirmPassword" bundle="${msg}" /></label>
+                               </div>
+                               <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                                  <input type="password"
+                                            class="form-control full-control input-white" id="Confirm-Password"
+                                            autocomplete="off"
+                                            onfocus="emptyMembershipError();"> <span id="Confirm-PasswordError"
+                                            class="text-red"> </span>
+                               </div>
+                            </div>
+                            </div>
+                        </div>
+                        <%-- <div class="gray-bg3-wid">
+                            <table class="table plandetail-form margin-left-2 vert-middle"
+                                id="input-white">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2"><h3><fmt:message key="travel.details.registration.heading" bundle="${msg}" /></h3>
+                                            <i class="text-grey"><fmt:message key="travel.details.registration.desc" bundle="${msg}" /></i> <br></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><label
+                                            class="bold-500"><fmt:message key="travel.details.registration.username" bundle="${msg}" /></label></td>
+                                        <td><input type="text"
+                                            name="userName" class="form-control full-control"
+                                            id="Username" placeholder="<fmt:message key="travel.details.registration.username.placeholder" bundle="${msg}" />"><span
+                                            id="UsernameError" class="text-red"> </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label
+                                            class="bold-500"><fmt:message key="travel.details.registration.password" bundle="${msg}" /></label></td>
+                                        <td><input type="password"
+                                            name="password" class="form-control full-control"
+                                            id="Password" placeholder="<fmt:message key="travel.details.registration.password.placeholder" bundle="${msg}" />" autocomplete="off"> <span
+                                            id="PasswordError" class="text-red"> </span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label
+                                            class="bold-500"><fmt:message key="travel.details.registration.confirmPassword" bundle="${msg}" /></label></td>
+                                        <td><input type="password"
+                                            class="form-control full-control" id="Confirm-Password"
+                                            placeholder="<fmt:message key="travel.details.registration.confirmPassword.placeholder" bundle="${msg}" />" autocomplete="off"> <span id="Confirm-PasswordError"
+                                            class="text-red"> </span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div> --%>
+                        <input type="hidden" id="isLogin" value="false">
+                        <input type="hidden" id="totalTravellingDays" name="totalTravellingDays" value="${corrTravelQuote.totalTravellingDays}">
+                        
+                        
+                        <%
+                            }
+                            else
+                            {
+                        %>
+                            <input type="hidden" id="isLogin" value="true">
+                        <%
+                            }
+                        %>
+                        <div class="form-wrap" style="margin-bottom: 10px;">
+                        <h4 class="h4-4 product_landing_download_button pull-left">
+                            <i class="fa fa-download"></i> <a
+                                href="<fmt:message key="annualtravel.brochure.link" bundle="${msg}" />"
+                                target="_blank"><fmt:message key="annual.common.productbrochure" bundle="${msg}" />   </a>
+                        </h4>
+                        <h4 class="h4-4 product_landing_download_button pull-left">
+                            <i class="fa fa-download"></i> <a
+                                href="<%=request.getContextPath()%>/<fmt:message key="annualtravel.provision.link" bundle="${msg}" />"
+                                target="_blank"><fmt:message key="annual.common.policyprovisions" bundle="${msg}" />   </a>
+                        </h4>
+                        <div class="clearfix"></div>
+                        </div>  
+                            
                         </div>
                     
 
@@ -2292,13 +2255,14 @@ function activateUserAccountJoinUs() {
                         <div class="hidden-sm hidden-xs">
 
                             <div class="wd2">
-                                <div class="pull-left" style="width:150px;">
-                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
+                                <div class="pull-left" style="width:145px;">
+                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
+                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;">Single Travel</h2>
                                     <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;"><fmt:message key="travel.sidebar.summary.desc.part1" bundle="${msg}" /> ${planName} <fmt:message key="travel.sidebar.summary.desc.part2" bundle="${msg}" /></h4>
                                     <input type="hidden" name="selectedPlanName" value="${planName }">
                                 </div>
                                 
-                                <div class="pull-right" style="padding-top: 45px;">
+                                <div class="pull-right" style="padding-top: 80px;">
                                     <div class="text-right h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
                                         <div class="hk" style="font-size: 18px;">
                                             <fmt:message key="travel.dollar" bundle="${msg}" />
@@ -2335,49 +2299,58 @@ function activateUserAccountJoinUs() {
                                 <input type="hidden" name="backDate" id="backDate"
                                     value="${corrTravelQuote.trBackDate}">
 
-                                <h3 class="txt-bold">
+                                <div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
+                                        <h3><fmt:message key="annual.quote.care.numberoftraveller" bundle="${msg}" /></h3>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
+                                        <h3 style="text-align: right;font-weight: normal;">
+                                            <%                              
+                                                if (sessTravelQuoteBean.getPlanSelected() != null && sessTravelQuoteBean.getPlanSelected().equals("personal"))
+                                                { 
+                                            %>
+                                                    <c:if test="${ corrTravelQuote.totalPersonalTraveller!=0}">
+                                                        ${corrTravelQuote.totalPersonalTraveller} <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
+                                                    </c:if>
+                                                    <!-- vincent, values was stored in adult print adult values though the personal plan is selected!! -->
+                                                    <c:if test="${corrTravelQuote.totalAdultTraveller!=0}">
+                                                        ${corrTravelQuote.totalAdultTraveller} <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
+                                                    </c:if>
+            
+                                            <%  }
+                                                else
+                                                {                                       
+                                            %>  
+            
+                                                <c:if test="${ corrTravelQuote.totalAdultTraveller!=0}">${corrTravelQuote.totalAdultTraveller+corrTravelQuote.totalPersonalTraveller} <fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" /><br/></c:if>
+                                                <c:if test="${ corrTravelQuote.totalChildTraveller!=0}">${corrTravelQuote.totalChildTraveller} <fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" /><br/></c:if>
+                                                <c:if test="${ corrTravelQuote.totalOtherTraveller!=0}">${corrTravelQuote.totalOtherTraveller} <fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" /><br/></c:if>
+                                                <c:if test="${planDetailsForm.travellerCount!=0}"> ${planDetailsForm.travellerCount}</c:if>
+                                            <%  } %>
+                                        </h3>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <h3 class="txt-bold" style="display:none;">
                                     <fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" /><a href="<%=request.getContextPath()%>/${language}/travel-insurance"></a>
                                 </h3>
-                                <h4>
-                                <%                              
-                                    if (sessTravelQuoteBean.getPlanSelected() != null && sessTravelQuoteBean.getPlanSelected().equals("personal"))
-                                    { 
-                                %>
-                                        <c:if test="${ corrTravelQuote.totalPersonalTraveller!=0}">
-                                            <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-                                            : ${corrTravelQuote.totalPersonalTraveller}
-                                        </c:if>
-                                        <!-- vincent, values was stored in adult print adult values though the personal plan is selected!! -->
-                                        <c:if test="${corrTravelQuote.totalAdultTraveller!=0}">
-                                            <fmt:message key="travel.summary.insured.label.personal" bundle="${msg}" />
-                                            : ${corrTravelQuote.totalAdultTraveller}
-                                        </c:if>
-
-                                <%  }
-                                    else
-                                    {                                       
-                                %>  
-
-                                    <c:if test="${ corrTravelQuote.totalAdultTraveller!=0}"><fmt:message key="travel.summary.insured.label.family.parent" bundle="${msg}" />: ${corrTravelQuote.totalAdultTraveller+corrTravelQuote.totalPersonalTraveller}</c:if>
-                                    <c:if test="${ corrTravelQuote.totalChildTraveller!=0}"><br><fmt:message key="travel.summary.insured.label.family.child" bundle="${msg}" />: ${corrTravelQuote.totalChildTraveller}</c:if>
-                                    <c:if test="${ corrTravelQuote.totalOtherTraveller!=0}"><br><fmt:message key="travel.summary.insured.label.family.others" bundle="${msg}" />: ${corrTravelQuote.totalOtherTraveller}</c:if>
-                                    <c:if test="${planDetailsForm.travellerCount!=0}"> ${planDetailsForm.travellerCount}</c:if>
-                                <%  } %>
-                                </h4>
+                                
                                 
                                 <input type="hidden" name="planSelected" value="${corrTravelQuote.planSelected}">
-                                <h3 class="txt-bold">
+                                <h3 class="txt-bold" style="display:none;">
                                     <fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" /> <span>${corrTravelQuote.totalTravellingDays}</span>
                                 </h3>
                                 <input type="hidden" name="totalTravellingDays" value="${corrTravelQuote.totalTravellingDays}">
-                                <c:if test="${referralCode!=''}">
-                                    <h3><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
-                                    <h4>${referralCode}</h4>
-                                </c:if>
                                 
                                </div>
             </div>
+            <div class="orange-bdr"></div>
                 <div style="width: 80%;margin-left: 10%;">
+                    <c:if test="${referralCode!=''}">
+                        <h3 style="margin-bottom:0px;"><fmt:message key="travel.sidebar.summary.promocode" bundle="${msg}" /></h3>
+                        <h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;">${referralCode}</h4>
+                    </c:if>
                     <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="travel.sidebar.summary.subtotal" bundle="${msg}" /> </h3>
                     <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">${planPremium}</h3>
                     <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="travel.sidebar.summary.discount" bundle="${msg}" /> </h3>

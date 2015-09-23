@@ -344,7 +344,7 @@ function activateUserAccountJoinUs() {
 	                    <a href="#" class="pull-left btn-box-2 color4 login-btn" data-toggle="modal" data-target="#loginpopup"><fmt:message key="annual.common.login" bundle="${msg}" /></a>    
 	                    <div class="pull-left text-left">
 	                        <h3 class="text-left or-continue">
-	                            <span style="margin-left:10px;margin-right:10px;"><fmt:message key="annual.common.login" bundle="${msg}" /></span>
+	                            <span style="margin-left:10px;margin-right:10px;"><fmt:message key="annual.common.or" bundle="${msg}" /></span>
 	                            <fmt:message key="annual.common.guest" bundle="${msg}" />
 	                        </h3>
 	                    </div>

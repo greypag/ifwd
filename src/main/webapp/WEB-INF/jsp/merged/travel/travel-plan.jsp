@@ -289,6 +289,17 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	        //System.out.println(personalSpinnerStyle);
 	  }
 %>
+
+<section class="product_header_path_container ">
+    <div class="container">
+        <div class="product_header_path_item back"><i class="fa fa-arrow-left"></i><div class="partition hidden-lg hidden-md"></div></div>
+        <div class="product_header_path_item active"><fmt:message key="annual.title.planoption" bundle="${msg}" /></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.application" bundle="${msg}" /><div class="partition"></div></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.payment" bundle="${msg}" /><div class="partition"></div></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.confirmation" bundle="${msg}" /></div>
+    </div>
+</section>
+
 <section>
 	<div id="cn" class="container">
 		<div class="row">
@@ -298,51 +309,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 					<li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a></li>
 					<li class="active "><i class="fa fa-caret-right"></i><fmt:message key="travel.breadcrumb1.item3" bundle="${msg}" /></li>
 				</ol>
-				<div class="container ">
-					<div class="col-lg-12 col-md-12 shop-tracking-status">
-						<div class="center wow fadeInDown animated"
-							style="visibility: visible;">
-							<h2><fmt:message key="travel.quote.jumbo" bundle="${msg}" /></h2>
-						</div>
-						<br>
-						<div class="col-lg-12 col-md-12">
-							<div id="tr-wizard" class="shop-tracking-status">
-								<div class="order-status has-four">
-									<div class="order-status-timeline-new">
-								<!--
-										There can be n '.order-status-timeline-completion'
-										dots-inactive and dots-active color the dots -->
-										<div class="order-status-timeline-completion dots-inactive"></div>
-										<div class="order-status-timeline-completion dots-inactive"></div>
-										<div class="order-status-timeline-completion dots-inactive"></div>
-									</div>
-									<div
-										class="image-order-status image-order-status-new active img-circle act first">
-										<span class="status"><fmt:message key="travel.breadcrumb2.item1" bundle="${msg}" /></span>
-										<div class="icon">1</div>
-									</div>
-									<div
-										class="image-order-status image-order-status-intransit  img-circle second">
-										<span class="status"><fmt:message key="travel.breadcrumb2.item2" bundle="${msg}" /></span>
-										<div class="icon">2</div>
-									</div>
-									<div
-										class="image-order-status image-order-status-delivered  img-circle third">
-										<span class="status"><fmt:message key="travel.breadcrumb2.item3" bundle="${msg}" /></span>
-										<div class="icon">3</div>
-									</div>
-									<div
-										class="image-order-status image-order-status-completed  img-circle fourth">
-										<span class="status lst-status"><fmt:message key="travel.breadcrumb2.item4" bundle="${msg}" /></span>
-										<div class="icon">4</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div id="quote-wrap" class="container pad-none bdr">
-					<div class="col-lg-8 col-xs-12 col-sm-12 col-md-8 pad-none">
+				<div id="quote-wrap" class="container pad-none bdr gray-bg3">
+					<div class="col-lg-8 col-xs-12 col-sm-12 col-md-8 pad-none white-bg1">
 					   <div class="workingholiday-plan-margin form-wrap">
 						<h2 class="h2-3-choose hidden-sm hidden-xs"><fmt:message key="travel.quote.choose" bundle="${msg}" /></h2>
 						<%
@@ -368,123 +336,106 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 								if (travelQuote.getPlanName().length > 0) {
 									for (int i = 0; i < travelQuote.getPlanName().length; i++) {
 						%>
-						<div class="col-lg-12 col-md-12 plan-box3 travelproductbox"
-							id="box<%=i%>"
-							onclick="changeColorAndPrice('box<%=i%>','<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
-							<div class="col-lg-8 col-md-8 col-sm-7 col-xs-5 pad-none">								
-								<h2>
-									<fmt:message key="travel.quote.plan" bundle="${msg}" /> <%=travelQuote.getPlanName()[i]%>									
-									<br> <%if (travelQuote.getPlanName()[i].equals("A"))
-									{%>  <fmt:message key="travel.quote.plan1.type" bundle="${msg}" /><br> HK$ 1,000,000 <fmt:message key="travel.quote.plan1.medical" bundle="${msg}" />
-								<%}	else{ %>
-										<fmt:message key="travel.quote.plan2.type" bundle="${msg}" /><br> HK$	500,000 <fmt:message key="travel.quote.plan2.medical" bundle="${msg}" />
-									<%} %>
-									
-								</h2>	
-							</div>
-							<div class="col-lg-4 col-md-4 col-sm-5 col-xs-7">
-								
-								<h3><fmt:message key="travel.dollar" bundle="${msg}" /></h3>
-								<%
-										if (Double.parseDouble(travelQuote.getDiscountAmount()[i]) == 0) {
-									%>
-									<h6>
-									<!-- <span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%></span> -->
-									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getGrossPremium()[i]%>" />.00</span>
-									<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
-								</h6>
-								<span class="del actualPrice<%=travelQuote.getPlanName()[i]%>"><del></del></span>
-									<%
-										} else {
-									%>
-									<h6>
-									<span id="grossPremium"<%=i%> class="totalPrice<%=travelQuote.getPlanName()[i]%>"><%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%></span>
-									<span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
-								</h6>
-								<span class="del actualPrice<%=travelQuote.getPlanName()[i]%>"><del><%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%></del></span>
-									<%
-										}
-									%>
-								
-								
-								
-								
-							
-								
-								
-								
-							</div>
-							<div class="clearfix"></div>
-							<!-- Plan benefits -->
-							<div class="fwdpanel">
-								<div class="fwdpanel-heading">
-									<h4 class=" benefits">
-									<%
-										String planBenefitKey = "travel.quote.plan" + (i+1)+ ".benefits";
-										String planBenefitDesc1Key = "travel.quote.plan" + (i+1)+ ".benefits.desc1";
-										String planBenefitDesc2Key = "travel.quote.plan" + (i+1)+ ".benefits.desc2";
-										String planBenefitDesc3Key = "travel.quote.plan" + (i+1)+ ".benefits.desc3";
-										String planBenefitDesc4Key = "travel.quote.plan" + (i+1)+ ".benefits.desc4";
-										String planBenefitDesc1PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc1.price";
-										String planBenefitDesc2PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc2.price";
-										String planBenefitDesc3PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc3.price";
-										String planBenefitDesc4PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc4.price";
-									%>
-										<span><a href="#" class="fwdpanel-minimize uline text-black"><i class="fa fa-plus"></i> <fmt:message key="<%=planBenefitKey%>" bundle="${msg}" /></a> </span>
-									</h4>
-								</div>
-								<div class="fwdpanel-body" style="display: none;">
-										<div class="col-xs-11 col-xs-offset-1">
-										<div class="row">
-											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-													<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc1Key%>" bundle="${msg}" /></div>
-											<div class="col-lg-4 col-md-4 col-xs-5">
-												<fmt:message key="<%=planBenefitDesc1PriceKey%>" bundle="${msg}" />
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc2Key%>" bundle="${msg}" />
-											</div>
-											<div class="col-lg-4 col-md-4 col-xs-5">
-												<fmt:message key="<%=planBenefitDesc2PriceKey%>" bundle="${msg}" />
-											</div>
-										</div> 
-										
-										<div class="row">
-											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc3Key%>" bundle="${msg}" /> </div>
-											<div class="col-lg-4 col-md-4 col-xs-5">
-												<fmt:message key="<%=planBenefitDesc3PriceKey%>" bundle="${msg}" />
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-lg-8 col-md-8 col-xs-7 pad-none">
-											<i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc4Key%>" bundle="${msg}" /></div>
-											<div class="col-lg-4 col-md-4 col-xs-5">
-												<fmt:message key="<%=planBenefitDesc4PriceKey%>" bundle="${msg}" />
-											</div>
-											</div>
-										</div>
-								</div>
-								
-								
-								
-								<div class="clearfix"></div>
-							</div>
-							<!-- / Plan benefits -->
-						</div>
+							<div class="col-lg-12 col-md-12 plan-box3 travelproductbox annual_travelproductbox"
+                            id="box<%=i%>"
+                            onclick="changeColorAndPrice('box<%=i%>','<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=travelQuote.getDiscountAmount()[i]%>','<%=travelQuote.getToalDue()[i]%>')">
+                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none" style="margin-bottom: 20px;">                           
+                                <h2>
+                                    <fmt:message key="travel.summary.plan" bundle="${msg}" /> <%=travelQuote.getPlanName()[i]%>
+                                </h2>
+                                <%if(i==0) { %>
+                                <h4 class="product_plan_box_description"><fmt:message key="travel.quote.plan1.type" bundle="${msg}" /><br> HK$ 1,000,000 <fmt:message key="travel.quote.plan1.medical" bundle="${msg}" /></h4>
+                                <%}else if(i==1) { %>
+                                <h4 class="product_plan_box_description"><fmt:message key="travel.quote.plan2.type" bundle="${msg}" /><br> HK$  500,000 <fmt:message key="travel.quote.plan2.medical" bundle="${msg}" /></h4>
+                                <%} %>
+                                
+                                <!-- Plan benefits -->
+	                            <div class="fwdpanel">
+	                                <div class="fwdpanel-heading">
+	                                    <h4 class=" benefits">
+	                                    <%
+	                                        String planBenefitKey = "travel.quote.plan" + (i+1)+ ".benefits";
+	                                        String planBenefitDesc1Key = "travel.quote.plan" + (i+1)+ ".benefits.desc1";
+	                                        String planBenefitDesc2Key = "travel.quote.plan" + (i+1)+ ".benefits.desc2";
+	                                        String planBenefitDesc3Key = "travel.quote.plan" + (i+1)+ ".benefits.desc3";
+	                                        String planBenefitDesc4Key = "travel.quote.plan" + (i+1)+ ".benefits.desc4";
+	                                        String planBenefitDesc1PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc1.price";
+	                                        String planBenefitDesc2PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc2.price";
+	                                        String planBenefitDesc3PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc3.price";
+	                                        String planBenefitDesc4PriceKey = "travel.quote.plan" + (i+1)+ ".benefits.desc4.price";
+	                                    %>
+	                                        <span><a href="#" class="fwdpanel-minimize uline text-black"><i class="fa fa-plus"></i> <fmt:message key="<%=planBenefitKey%>" bundle="${msg}" /></a> </span>
+	                                    </h4>
+	                                </div>
+	                                <div class="fwdpanel-body" style="display: none;">
+	                                        <div class="col-xs-11 col-xs-offset-1">
+	                                        <div class="row">
+	                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+	                                                    <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc1Key%>" bundle="${msg}" /></div>
+	                                            <div class="col-lg-4 col-md-4 col-xs-5">
+	                                                <fmt:message key="<%=planBenefitDesc1PriceKey%>" bundle="${msg}" />
+	                                            </div>
+	                                        </div>
+	                                        <div class="row">
+	                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+	                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc2Key%>" bundle="${msg}" />
+	                                            </div>
+	                                            <div class="col-lg-4 col-md-4 col-xs-5">
+	                                                <fmt:message key="<%=planBenefitDesc2PriceKey%>" bundle="${msg}" />
+	                                            </div>
+	                                        </div> 
+	                                        
+	                                        <div class="row">
+	                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+	                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc3Key%>" bundle="${msg}" /> </div>
+	                                            <div class="col-lg-4 col-md-4 col-xs-5">
+	                                                <fmt:message key="<%=planBenefitDesc3PriceKey%>" bundle="${msg}" />
+	                                            </div>
+	                                        </div>
+	                                        <div class="row">
+	                                            <div class="col-lg-8 col-md-8 col-xs-7 pad-none">
+	                                            <i class="fa fa-circle small-fa-bullet"></i> <fmt:message key="<%=planBenefitDesc4Key%>" bundle="${msg}" /></div>
+	                                            <div class="col-lg-4 col-md-4 col-xs-5">
+	                                                <fmt:message key="<%=planBenefitDesc4PriceKey%>" bundle="${msg}" />
+	                                            </div>
+	                                            </div>
+	                                        </div>
+	                                </div>
+	                                
+	                                
+	                                
+	                                <div class="clearfix"></div>
+	                            </div>
+	                            <!-- / Plan benefits -->
+                            </div>
+                            <div class="partition"></div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="product_plan_box_price_container col-lg-12 col-md-12 col-sm-6 col-xs-6 pad-none">
+                                    <h4 class="product_plan_box_title_right">
+                                        <fmt:message key="annual.quote.annualpremium" bundle="${msg}" />
+                                    </h4>
+                                    <h2 class="product_plan_box_price_right">
+                                        <fmt:message key="annual.quote.dollar" bundle="${msg}" /> <span class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getGrossPremium()[i]%>" />.00</span>
+                                        <span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
+                                    </h2>
+                                    <div class="del actualPriceA product_plan_box_del hide">HK$ <del>240.00</del></div>
+                                </div>
+                                <div class="product_plan_box_select_button_container col-lg-12 col-md-12 col-sm-6 col-xs-6 pad-none"><div class="product_plan_box_select_button"><fmt:message key="annual.common.select" bundle="${msg}" /></div></div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
 
-						<input type="hidden" name="txtTotalDue" id="txtTotalDue<%=i%>"
-							value="<%=travelQuote.getToalDue()[i]%>"> <input
-							type="hidden" name="txtGrossPremium" id="txtGrossPremium<%=i%>"
-							value="<%=travelQuote.getGrossPremium()[i]%>"> <input
-							type="hidden" name="txtDiscountAmount" id="txtDiscountAmount<%=i%>"
-							value="<%=travelQuote.getDiscountAmount()[i]%>"> <input
-							type="hidden" name="referralCode" id="referralCode<%=i%>"
-							value="<%=travelQuote.getReferralCode()%>"> <input
-							type="hidden" name="referralName" id="referralName<%=i%>"
-							value="<%=travelQuote.getReferralName()%>">
+                        <input type="hidden" name="txtTotalDue" id="txtTotalDue<%=i%>"
+                            value="<%=travelQuote.getToalDue()[i]%>"> <input
+                            type="hidden" name="txtGrossPremium" id="txtGrossPremium<%=i%>"
+                            value="<%=travelQuote.getGrossPremium()[i]%>"> <input
+                            type="hidden" name="txtDiscountAmount" id="txtDiscountAmount<%=i%>"
+                            value="<%=travelQuote.getDiscountAmount()[i]%>"> <input
+                            type="hidden" name="referralCode" id="referralCode<%=i%>"
+                            value="<%=travelQuote.getReferralCode()%>"> <input
+                            type="hidden" name="referralName" id="referralName<%=i%>"
+                            value="<%=travelQuote.getReferralName()%>">
 						<%
 							}
 						%>
@@ -507,8 +458,668 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						      </tr>
 						  </table>
                         </div>
+                        
+                        
+                        
+                        <div class="fwdpanel product_plan_panel_container">
+                            <div class="fwdpanel-heading product_plan_panel">
+                                <h4 class="fwdpanel-title h4-4-full">
+                                    <fmt:message key="annual.quote.producthighlights" bundle="${msg}" />
+                                    <i class="fa fa-chevron-down"></i>
+                                </h4>
+                            </div>
+                            <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
+                                <div class="row product_plan_panel_content_row">
+                                    <div class="col-xs-12">
+                                        <p><fmt:message key="annual.quote.producthighlights.content" bundle="${msg}" /></p>
+                                        <br>
+                                        <p>
+                                            <ul class="bullets">
+                                                <li>
+                                                    <fmt:message key="annual.quote.producthighlights.content1" bundle="${msg}" />
+                                                </li>
+                                                <li>
+                                                    <fmt:message key="annual.quote.producthighlights.content2" bundle="${msg}" />
+                                                </li>
+                                                <li>
+                                                    <fmt:message key="annual.quote.producthighlights.content3" bundle="${msg}" />
+                                                </li>
+                                                <li>
+                                                    <fmt:message key="annual.quote.producthighlights.content4" bundle="${msg}" />
+                                                </li>
+                                                <li>
+                                                    <fmt:message key="annual.quote.producthighlights.content5" bundle="${msg}" />
+                                                </li>
+                                                <li>
+                                                    <fmt:message key="annual.quote.producthighlights.content6" bundle="${msg}" />
+                                                </li>
+                                                <li>
+                                                    <fmt:message key="annual.quote.producthighlights.content7" bundle="${msg}" />
+                                                </li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fwdpanel-heading product_plan_panel">
+                                <h4 class="fwdpanel-title h4-4-full">
+                                    <fmt:message key="annual.quote.summaryofcoverage" bundle="${msg}" />
+                                    <i class="fa fa-chevron-down"></i>
+                                </h4>
+                            </div>
+                            <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.medicalexpenses" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                                <thead>
+                                                  <tr>
+                                                      <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                      <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                      <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                                  </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                  <tr>
+                                                      <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.benefits" bundle="${msg}" /></td>
+                                                      <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.plana" bundle="${msg}" /></td>
+                                                      <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.planb" bundle="${msg}" /></td>
+                                                  </tr>
+                                                  </tbody>
+                                               </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.hospital" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <thead> 
+                                               <tr>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                               </tr>
+                                               </thead>
+                                               <tbody>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.hospital.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.hospital.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.hospital.planb1" bundle="${msg}" /></td>
+                                               </tr>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.hospital.benefits2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.hospital.plana2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.hospital.planb2" bundle="${msg}" /></td>
+                                               </tr>
+                                               </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.worldwide" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <thead>
+                                               <tr>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                               </tr>
+                                               </thead>
+                                               <tbody>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb1" bundle="${msg}" /></td>
+                                               </tr>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb2" bundle="${msg}" /></td>
+                                               </tr>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits3" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana3" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb3" bundle="${msg}" /></td>
+                                               </tr>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits4" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana4" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb4" bundle="${msg}" /></td>
+                                               </tr>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits5" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana5" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb5" bundle="${msg}" /></td>
+                                               </tr>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits6" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana6" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb6" bundle="${msg}" /></td>
+                                               </tr>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits7" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana7" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb7" bundle="${msg}" /></td>
+                                               </tr>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits8" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana8" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb8" bundle="${msg}" /></td>
+                                               </tr>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits9" bundle="${msg}" /></td>
+                                                   <td></td>
+                                                   <td></td>
+                                               </tr>
+                                               </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.personalaccident" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <thead> 
+                                               <tr>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                               </tr>
+                                               </thead>
+                                               <tbody>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.planb1" bundle="${msg}" /></td>
+                                               </tr>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.benefits2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.plana2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.planb2" bundle="${msg}" /></td>
+                                               </tr>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.benefits3" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.plana3" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.planb3" bundle="${msg}" /></td>
+                                               </tr>
+                                               </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.baggage" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <thead> 
+                                               <tr>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                               </tr>
+                                               </thead>
+                                               <tbody>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.baggage.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.baggage.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.baggage.planb1" bundle="${msg}" /></td>
+                                               </tr>
+                                               </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.baggagedelay" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <thead> 
+                                               <tr>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                               </tr>
+                                               </thead>
+                                               <tbody>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.baggagedelay.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.baggagedelay.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.baggagedelay.planb1" bundle="${msg}" /></td>
+                                               </tr>
+                                               </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.personalmoney" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <thead> 
+                                               <tr>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                               </tr>
+                                               </thead>
+                                               <tbody>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalmoney.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalmoney.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalmoney.planb1" bundle="${msg}" /></td>
+                                               </tr>
+                                               </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.traveldocument" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <thead> 
+                                               <tr>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                               </tr>
+                                               </thead>
+                                               <tbody>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.traveldocument.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.traveldocument.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.traveldocument.planb1" bundle="${msg}" /></td>
+                                               </tr>
+                                               </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.traveldelay" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <thead> 
+                                               <tr>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                               </tr>
+                                               </thead>
+                                               <tbody>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.planb1" bundle="${msg}" /></td>
+                                               </tr>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.benefits2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.plana2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.planb2" bundle="${msg}" /></td>
+                                               </tr>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.benefits3" bundle="${msg}" /></td>
+                                                   <td></td>
+                                                   <td></td>
+                                               </tr>
+                                               </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.cancellationcharge" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <thead> 
+                                               <tr>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                               </tr>
+                                               </thead>
+                                               <tbody>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.cancellationcharge.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.cancellationcharge.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.cancellationcharge.planb1" bundle="${msg}" /></td>
+                                               </tr>
+                                               </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.curtailmentoftrip" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <thead> 
+                                               <tr>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                               </tr>
+                                               </thead>
+                                               <tbody>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.curtailmentoftrip.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.curtailmentoftrip.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.curtailmentoftrip.planb1" bundle="${msg}" /></td>
+                                               </tr>
+                                               </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.lossofhomecontents" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <thead> 
+                                               <tr>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                               </tr>
+                                               </thead>
+                                               <tbody>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.lossofhomecontents.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.lossofhomecontents.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.lossofhomecontents.planb1" bundle="${msg}" /></td>
+                                               </tr>
+                                               </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.personalliability" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <thead> 
+                                               <tr>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                               </tr>
+                                               </thead>
+                                               <tbody>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalliability.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalliability.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalliability.planb1" bundle="${msg}" /></td>
+                                               </tr>
+                                               </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.rentalvehicleexcess" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <thead> 
+                                               <tr>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                               </tr>
+                                               </thead>
+                                               <tbody>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.rentalvehicleexcess.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.rentalvehicleexcess.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.rentalvehicleexcess.planb1" bundle="${msg}" /></td>
+                                               </tr>
+                                               </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="fwdpanel-heading product_plan_inner_panel">
+                                    <h4 class="fwdpanel-title h4-4-full">
+                                        <fmt:message key="annual.quote.summaryofcoverage.golfer" bundle="${msg}" />
+                                        <i class="fa fa-plus"></i>
+                                    </h4>
+                                </div>
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                   <div class="row product_plan_panel_inner_content_row">
+                                        <div class="col-xs-12">
+                                            <table>
+                                               <thead> 
+                                               <tr>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" /></th>
+                                               </tr>
+                                               </thead>
+                                               <tbody>
+                                               <tr>
+                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.golfer.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.golfer.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.golfer.planb1" bundle="${msg}" /></td>
+                                               </tr>
+                                               </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fwdpanel-heading product_plan_panel">
+                                <h4 class="fwdpanel-title h4-4-full">
+                                    <fmt:message key="annual.quote.importantnotes" bundle="${msg}" />
+                                    <i class="fa fa-chevron-down"></i>
+                                </h4>
+                            </div>
+                            <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
+                                <div class="row product_plan_panel_content_row">
+                                    <div class="col-xs-12">
+                                        <p>
+                                            <fmt:message key="annual.quote.importantnotes.content1" bundle="${msg}" /><br/>
+                                            <ul class="bullets">
+                                                <li><fmt:message key="annual.quote.importantnotes.content2" bundle="${msg}" /></li>
+                                                <li><fmt:message key="annual.quote.importantnotes.content3" bundle="${msg}" /></li>
+                                                <li><fmt:message key="annual.quote.importantnotes.content4" bundle="${msg}" /></li>
+                                            </ul>
+                                        </p>
+                                        <p>
+                                            <fmt:message key="annual.quote.importantnotes.content5" bundle="${msg}" /><br/>
+                                            <ul class="bullets">
+                                                <li><fmt:message key="annual.quote.importantnotes.content6" bundle="${msg}" /></li>
+                                                <li><fmt:message key="annual.quote.importantnotes.content7" bundle="${msg}" /></li>
+                                            </ul>
+                                        </p>
+                                        <p>
+                                            <fmt:message key="annual.quote.importantnotes.content8" bundle="${msg}" /><br/>
+                                            <ul class="bullets">
+                                                <li><fmt:message key="annual.quote.importantnotes.content9" bundle="${msg}" /></li>
+                                                <li><fmt:message key="annual.quote.importantnotes.content10" bundle="${msg}" /></li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fwdpanel-heading product_plan_panel">
+                                <h4 class="fwdpanel-title h4-4-full">
+                                    <fmt:message key="annual.quote.majorexclusions" bundle="${msg}" />
+                                    <i class="fa fa-chevron-down"></i>
+                                </h4>
+                            </div>
+                            <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
+                                <div class="row product_plan_panel_content_row">
+                                    <div class="col-xs-12">
+                                        <ol class="">
+                                            <li><fmt:message key="annual.quote.majorexclusions.content1" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content2" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content3" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content4" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content5" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content6" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content7" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content8" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content9" bundle="${msg}" /></li>
+                                            <li><fmt:message key="annual.quote.majorexclusions.content10" bundle="${msg}" /></li>
+                                        </ol>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="fwdpanel-heading product_plan_panel">
+                                <h4 class="fwdpanel-title h4-4-full">
+                                    <fmt:message key="annual.quote.agelimit" bundle="${msg}" />
+                                    <i class="fa fa-chevron-down"></i>
+                                </h4>
+                            </div>
+                            <div class="fwdpanel-body product_plan_panel_content" style="display: none;height: auto;">
+                                <div class="row product_plan_panel_content_row">
+                                    <div class="col-xs-12">
+                                        <p>
+                                            <fmt:message key="annual.quote.agelimit.content1" bundle="${msg}" /><br/><br/><fmt:message key="annual.quote.agelimit.content2" bundle="${msg}" />
+                                        </p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:20px;">
+                              <h4 class="h4-4 product_landing_download_button pull-left">
+                                    <i class="fa fa-download"></i> <a
+                                        href="<fmt:message key="annualtravel.brochure.link" bundle="${msg}" />"
+                                        target="_blank"><fmt:message key="annual.common.productbrochure" bundle="${msg}" />   </a>
+                                </h4>
+                                <h4 class="h4-4 product_landing_download_button pull-left">
+                                    <i class="fa fa-download"></i> <a
+                                        href="<%=request.getContextPath()%>/<fmt:message key="annualtravel.provision.link" bundle="${msg}" />"
+                                        target="_blank"><fmt:message key="annual.common.policyprovisions" bundle="${msg}" />   </a>
+                                </h4>
+                                <div class="clearfix"></div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
 						
-						<div class="fwdpanel">
+						<!-- <div class="fwdpanel">
 							<div class="fwdpanel-heading">
 								<h4 class="fwdpanel-title h4-4-full">
 									<span>
@@ -520,7 +1131,6 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 							<div class="fwdpanel-body" style="display: none;">
 								<div class="row">
 									<div class="col-md-12">
-										<!--  Product Highlights  -->
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full ">
@@ -572,8 +1182,6 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 				                            </div>
 											
 										</div>
-										<!-- /  Product Highlights -->
-										<!--  Summary of Coverage  -->
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full">
@@ -775,8 +1383,6 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                              </div>
 											
 										</div>
-										<!-- / Summary of Coverage -->
-										<!--   Major Exclusions  -->
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full">
@@ -812,8 +1418,6 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                              </div>
 											
 										</div>
-										<!-- /  Major Exclusions -->
-										<!--   Age limit  -->
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full">
@@ -840,8 +1444,6 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                              </div>
 											
 										</div>
-										<!-- / Age limit -->
-										<!--   Premium table (���)  -->
 										<div class="fwdpanel fwdpanel-primary">
 											<div class="fwdpanel-heading">
 												<h4 class="fwdpanel-title h4-4-full">
@@ -1168,33 +1770,6 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			                                                        </tr>
 			                                                    </tbody>
 			                                                </table>
-			                                                <!--<h4 class="h4-2">
-			                                                    <strong><fmt:message key="travel.quote.fullDetails.priceTable.annual.heading" bundle="${msg}" /></strong>
-			                                                </h4>
-			                                                <table id="annual" class="table table-bordred">
-			                                                    <tbody>
-			                                                        <tr>
-			                                                            <td width="208" rowspan="4"><strong><fmt:message key="travel.quote.fullDetails.priceTable.annual.header1" bundle="${msg}" /></strong></td>
-			                                                            <td colspan="2" rowspan="2"><fmt:message key="travel.quote.fullDetails.priceTable.annual.header2" bundle="${msg}" /></td>
-			                                                            <td width="108"><fmt:message key="travel.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></td>
-			                                                            <td width="36">1,800</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></td>
-			                                                            <td>1,300</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td colspan="2" rowspan="2"><fmt:message key="travel.quote.fullDetails.priceTable.annual.header3" bundle="${msg}" /></td>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.priceTable.plan1" bundle="${msg}" /></td>
-			                                                            <td>3,600</td>
-			                                                        </tr>
-			                                                        <tr>
-			                                                            <td><fmt:message key="travel.quote.fullDetails.priceTable.plan2" bundle="${msg}" /></td>
-			                                                            <td>2,600</td>
-			                                                        </tr>
-			                                                    </tbody>
-			                                                </table>
-			                                                <br>-->
 			                                                <h4 class="h4-2">
 			                                                    <strong><fmt:message key="travel.quote.fullDetails.priceTable.remark" bundle="${msg}" /></strong>
 			                                                </h4>
@@ -1209,18 +1784,15 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                              </div>
 											
 										</div>
-										<!-- / Premium table (���) -->
 									</div>
-									<!-- / col-md-12 -->
 								</div>
-								<!-- /row -->
 							</div>
 							<h4 class="h4-4">
 								<i class="fa fa-download"></i> <a
 									href="<fmt:message key="travel.brochure.link" bundle="${msg}" />"
 									target="_blank"><fmt:message key="travel.quote.fullDetails.download" bundle="${msg}" /></a>
 							</h4>
-						</div>
+						</div>-->
 						</div>
 					</div>
 
@@ -1228,16 +1800,17 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 						class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gray-bg pad-none">
 						<div class="hidden-sm hidden-xs">
 							<div class="wd2">
-								<div class="pull-left" style="width:150px;">
-									<h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
+								<div class="pull-left" style="width:145px;">
+								    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
+                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;">Single Travel</h2>
 									<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanname"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname"
 										value="">
 									
 										
 								</div>
-								<div class="pull-right" style="padding-top: 45px;">
-									<div class="text-left pad-right1 h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
+								<div class="pull-right" style="padding-top: 80px;">
+									<div class="text-left h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
 										<div class="hk" style="font-size: 18px;">
 											<fmt:message key="travel.dollar" bundle="${msg}" />
 											<div style="font-weight: bold;font-size: 28px;" class="flightcare-hk" id="plansummary">0</div>
@@ -1261,20 +1834,47 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                               <div class="input-group date"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
                                 <input type="text" name="trBackDate" class="datepicker form-control" value="${corrTravelQuote.trBackDate}" readonly>
                               </div>
+                              <div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
+                                        <h3><fmt:message key="annual.quote.care.numberoftraveller" bundle="${msg}" /></h3>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
+                                        <h3 style="text-align: right;font-weight: normal;">                                            
+                                            <%  
+					                            if (travelQuote == null)
+					                                travelQuote = (QuoteDetails) session.getAttribute("tq");
+					                        
+					                            if (travelQuote != null && travelQuote.getPlanSelected().equals("personal"))
+					                            { 
+					                        %>
+					                                <c:if test="${travelQuoteBean.totalPersonalTraveller!=0}">${travelQuoteBean.totalPersonalTraveller} <fmt:message key="travel.sidebar.summary.label.personal" bundle="${msg}" /></c:if>
+					                        <% } 
+					                           else 
+					                           {
+					                        %>
+					                                <c:if test="${travelQuoteBean.totalAdultTraveller!=0}">${travelQuoteBean.totalAdultTraveller} <fmt:message key="travel.sidebar.summary.label.family.parent" bundle="${msg}" /><br></c:if>
+					                                <c:if test="${travelQuoteBean.totalChildTraveller!=0}">${travelQuoteBean.totalChildTraveller} <fmt:message key="travel.sidebar.summary.label.family.child" bundle="${msg}" /><br></c:if>
+					                                <c:if test="${travelQuoteBean.totalOtherTraveller!=0}">${travelQuoteBean.totalOtherTraveller} <fmt:message key="travel.sidebar.summary.label.family.others" bundle="${msg}" /><br></c:if>
+					                        <% }
+					                        %>
+                                        </h3>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
                               
 								<!-- return date end  -->
 								<!-- traveller start -->
-								<div id="numOfDays">
+								<!-- <div id="numOfDays">
                                     <fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan"> ${travelQuoteBean.totalTravellingDays} <input
                                         type="hidden" name="totalTravellingDays"
                                         id="totalTravellingDays"
                                         value="${travelQuoteBean.totalTravellingDays}">
                                     </span>
                                     <fmt:message key="flight.quote.summary.option5" bundle="${msg}" />
-                                </div>
+                                </div> -->
 								<!-- traveller end -->
 								
-								<h3><fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" />
+								<h3 style="display:none;"><fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" />
 								
 								<!-- <span class="span2 uline">
                                 <a id="inline-change-3" class="inline-change"><fmt:message key="flight.details.summary.change" bundle="${msg}" /></a></span> -->
@@ -1289,7 +1889,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                  <input type="hidden" name="totalChildTraveller" id="txtChildInline" data-min="1" data-max="15" value="${corrTravelQuote.totalChildTraveller}"/>
                                  <input type="hidden" name="totalOtherTraveller" id="txtOtherInline" data-min="0" data-max="15" value="${corrTravelQuote.totalOtherTraveller}"/>
 								
-					<div id="show-traveller" class="form-group likeDatePicker bcg-trans">
+					<div id="show-traveller" class="form-group likeDatePicker bcg-trans" style="display:none;">
             					<div class="input-group wd2 datepicker form-control" style="width:100% !important;margin: 0px !important;"> 
 						<%	
 							if (travelQuote == null)
