@@ -306,6 +306,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				quoteDetails.setPlanName(planeName);
 				session.setAttribute("priceInfoA", jsonPriceInfoA);
 				session.setAttribute("priceInfoB", jsonPriceInfoB);
+				quoteDetails.setPlanSelected(session.getAttribute("planSelected").toString());
 				request.setAttribute("quoteDetails", quoteDetails);
 				
 				session.setAttribute("quoteDetails", quoteDetails);

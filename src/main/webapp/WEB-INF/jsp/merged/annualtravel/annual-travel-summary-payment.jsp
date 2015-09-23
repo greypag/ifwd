@@ -158,7 +158,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
 	                                                ${planDetailsForm.applicantEstate},
 	                                            </c:if>
 	                                            <c:if test="${planDetailsForm.applicantStreetNo != ''}">
-	                                                ${planDetailsForm.applicantStreetNo},
+	                                                ${planDetailsForm.applicantStreetNo} 
 	                                            </c:if>
 	                                             <c:if test="${planDetailsForm.applicantStreetName != ''}">
 	                                                ${planDetailsForm.applicantStreetName},
