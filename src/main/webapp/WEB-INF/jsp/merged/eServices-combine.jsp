@@ -228,7 +228,7 @@
 									</c:choose>
 					          	</div>
 
-					          	<div class="plans savie">
+					          	<!--<div class="plans savie">
 					              	<div class="plan-item hidden-sm hidden-xs title">
 					                  	<div class="plan-item-cols">
 					                      	<p><fmt:message key="userAccount.Plan.name" bundle="${msg}" /></p>
@@ -285,7 +285,7 @@
 					          	</div>
 					          	<div class="text-center hidden-md hidden-lg">
 					              	<button type="button" class="btn view-all"><fmt:message key="userAccount.View.all" bundle="${msg}" /></button>
-					        	</div>
+					        	</div>-->
                   </div>
                   
                   <!-- eServices Referal Block -->
