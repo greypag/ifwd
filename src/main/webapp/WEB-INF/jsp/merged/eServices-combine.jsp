@@ -54,14 +54,14 @@
                            <span class="text"><fmt:message key="userAccount.Referrals.promo" bundle="${msg}" /></span>
                         </a>
                      </div>
-                     <div class="col-xs-6 col-md-12 menu logout">
+                     <!--<div class="col-xs-6 col-md-12 menu logout">
                         <a href="<%=request.getContextPath()%>/userLogout" class="link-menu " id="logout">
                            <span class="icon-sidebar-menu">
                               <span class="eServices-icons menu-logout-icon " id="logout-span"></span>
                            </span>
                            <span class="text"><fmt:message key="userAccount.Logout" bundle="${msg}" /></span>
                         </a>
-                     </div>
+                     </div>-->
                   </div>
 					</div>
 					<div class="pull-left eServices-body tab-content" id="eServices-body">
