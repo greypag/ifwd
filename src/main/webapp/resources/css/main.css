@@ -7850,10 +7850,11 @@ tr.product-landing-error-wrap {
 .annualTravel_policy_item .hidden-content{
 	position: absolute;
     top: 0px;
-    z-index: 999;
+    z-index: 99;
     background-color: #F2F3F5;
     opacity: 0.9;
     display: none;
+    min-height: 180px;
 }
 
 .annualTravel_policy_item .hidden-content .hidden-content-title{
