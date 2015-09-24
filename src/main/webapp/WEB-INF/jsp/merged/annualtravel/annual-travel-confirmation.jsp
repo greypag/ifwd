@@ -94,7 +94,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">
                 <div style="width:80%;margin-left:10%">
               <h5 class="bmg-confirmation-h5">
-                  <strong><fmt:message key="<%=key_promocodeLabel%>" bundle="${msg}" /></strong> <span><%=session.getAttribute("myTravelReferralCode")%></span>
+                  <strong><fmt:message key="<%=key_promocodeLabel%>" bundle="${msg}" /></strong> <span><%=session.getAttribute("myAnnualTravelReferralCode")%></span>
               </h5>
 				
               <div class="h4-3-b margin-bottom-10" style="color: #f6871e;">
@@ -392,7 +392,7 @@
                 <div class="clearfix"></div>
                 <div class="h4-2"><fmt:message key="annual.confirmation.sharenow" bundle="${msg}" /></div>
                 <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
-                    <div class=" wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/annual-travel-insurance?promo=<%=session.getAttribute("myTravelReferralCode")%></div>
+                    <div class=" wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/travel-insurance?product=annual&promo=<%=session.getAttribute("myAnnualTravelReferralCode")%></div>
                     <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage hidden-sm hidden-xs"><fmt:message key="link.copy.desktop" bundle="${msg}" /></span><span class="boxMessage hidden-md hidden-lg"><fmt:message key="link.copy.mobile" bundle="${msg}" /></span> <span class="boxDownArrow"></span> </div>
                 </div>
                 <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
@@ -404,7 +404,7 @@
                         <fmt:message key="annual.referral.copy" bundle="${msg}" />
                     </div>
 
-                    <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/annual-travel-insurance/sharing/?promo=<%=session.getAttribute("myTravelReferralCode")%>" data-title="iFWD"></div>
+                    <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/travel-insurance/sharing/?product=annual&promo=<%=session.getAttribute("myAnnualTravelReferralCode")%>" data-title="iFWD"></div>
                 </div>
                 <div class="clearfix"></div>
                 </div>
@@ -421,7 +421,7 @@
               <div class="h4-2"><fmt:message key="annual.confirmation.sharenow" bundle="${msg}" /></div>
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
-                    <div class=" wht-bg1 text-center" id="toBeCopied"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/annual-travel-insurance?promo=<%=session.getAttribute("myTravelReferralCode")%>
+                    <div class=" wht-bg1 text-center" id="toBeCopied"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/annual-travel-insurance?promo=<%=session.getAttribute("myAnnualTravelReferralCode")%>
                     </div>
                 </div>
                 <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
@@ -429,7 +429,7 @@
                         <fmt:message key="annual.referral.copy" bundle="${msg}" />
                     </div>
 
-                    <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/annual-travel-insurance/sharing/?promo=<%=session.getAttribute("myTravelReferralCode")%>" data-title="iFWD"></div>
+                    <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/annual-travel-insurance/sharing/?promo=<%=session.getAttribute("myAnnualTravelReferralCode")%>" data-title="iFWD"></div>
                 </div>
               </div> 
               
