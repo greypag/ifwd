@@ -69,8 +69,8 @@
       <form>
         <ol class="breadcrumb pad-none">
           <li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="annual.title.home" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-          <li><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="annual.title.travelcare" bundle="${msg}" /> </a ></li>
-          <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="annual.title.confirmation" bundle="${msg}" /></li>
+          <li><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="annual.title.travelcare" bundle="${msg}" /></a></li>
+          <li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="annual.title.confirmation" bundle="${msg}" /></li>
         </ol>
       <c:if test="${not empty errormsg}">
           <div id="confirm-error-msg" class="alert alert-danger hide"
