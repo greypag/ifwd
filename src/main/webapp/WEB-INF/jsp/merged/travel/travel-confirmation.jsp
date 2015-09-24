@@ -55,48 +55,24 @@
 %>
 
 <!--/#main-Content-->
+<section class="product_header_path_container ">
+    <div class="container">
+        <div class="product_header_path_item back"><i class="fa fa-arrow-left"></i><div class="partition"></div></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.planoption" bundle="${msg}" /></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.application" bundle="${msg}" /></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="annual.title.payment" bundle="${msg}" /></div>
+        <div class="product_header_path_item active"><fmt:message key="annual.title.confirmation" bundle="${msg}" /></div>
+    </div>
+</section>
 <section>
    <div id="cn" class="container">
     <div class="row">
       <form>
         <ol class="breadcrumb pad-none">
           <li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-          <li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /> </a > <i class="fa fa-caret-right"></i></li>
-          <li><a href="#"><fmt:message key="travel.breadcrumb1.item3" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-          <li><a href="#"><fmt:message key="travel.breadcrumb1.item4" bundle="${msg}" /> </a> <i class="fa fa-caret-right"></i></li>
-           <li><a href="#"><fmt:message key="travel.breadcrumb1.item5" bundle="${msg}" /> </a> </li>
-          <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="travel.breadcrumb1.item6" bundle="${msg}" /></li>
+          <li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a></li>
+          <li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="travel.breadcrumb1.item6" bundle="${msg}" /></li>
         </ol>
-        <div class="container ">
-          <div class="col-md-12 shop-tracking-status">
-            <div class="center wow fadeInDown animated" style="visibility: visible;">
-              <h2><fmt:message key="travel.confirmation.jumbo" bundle="${msg}" /></h2>
-            </div>
-            <br>
-            <div id="tr-wizard" class="shop-tracking-status">
-        <div class="order-status has-four">
-              <div class="order-status-timeline-new">
-            <div class="order-status-timeline-completion dots-active"></div>
-            <div class="order-status-timeline-completion dots-active"></div>
-            <div class="order-status-timeline-completion dots-active"></div>
-          </div>
-        <div class="image-order-status image-order-status-new active img-circle first"> <span class="status color3"><fmt:message key="travel.breadcrumb2.item1" bundle="${msg}" /></span>
-          <div class="icon">1</div>
-        </div>
-        
-        <div class="image-order-status image-order-status-intransit  img-circle second"> <span class="status color3"><fmt:message key="travel.breadcrumb2.item2" bundle="${msg}" /></span>
-          <div class="icon">2</div>
-        </div>
-        <div class="image-order-status image-order-status-delivered  img-circle third"> <span class="status color3"><fmt:message key="travel.breadcrumb2.item3" bundle="${msg}" /></span>
-          <div class="icon">3</div>
-        </div>
-        <div class="image-order-status image-order-status-completed  img-circle act fourth"> <span class="status color3 lst-status"><fmt:message key="travel.breadcrumb2.item4" bundle="${msg}" /></span>
-          <div class="icon">4</div>
-        </div>
-      </div>
-</div>
-          </div>
-        </div>
 
         
       <c:if test="${not empty errormsg}"><br><div id="confirm-error-msg" class="alert alert-danger hide"

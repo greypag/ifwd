@@ -11,15 +11,6 @@
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 
 <script>
-$(document).ready(function(){
-	$('#cardNo1').payment('formatCardNumber');
-	$('#cardNo1').keyup(function() {
-	    var replaceSpace = $(this).val(); 
-	    var result = replaceSpace.replace(/\s/g,'');
-	    $("#cardnumber").val(result);
-	});
-})
-
 perventRedirect=true;
 
 var enablePayment=true;
@@ -101,7 +92,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                 <ol class="breadcrumb pad-none">
                     <li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="annual.title.home" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
                     <li><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="annual.title.travelcare" bundle="${msg}" /></a></li>
-                    <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="annual.title.summarypayment" bundle="${msg}" /></li>
+                    <li class="active"><i class="fa fa-caret-right"></i> <fmt:message key="annual.title.summarypayment" bundle="${msg}" /></li>
                 </ol>
                 <div class="container pad-none bdr ur-opt-content gray-bg3">
                     <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1 summary-container product_summary_container">
@@ -682,7 +673,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                         </div>
                         <hr class="summary-hr"/>
                         <div id="paydoller-wrap" class="declaration-content" style="margin:0px !important;">
-                          <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none paymethod-container">
+                          <div id="paydollar-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
                             <div id="paydollar-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
                              <img src="<%=request.getContextPath()%>/resources/images/icon-pay-dollar.png" alt="">
                             </div>
@@ -691,7 +682,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                             </div>
                             <div class="clearfix"></div>
                           </div>
-                          <div id="visa-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none paymethod-container">
+                          <div id="visa-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
                             <div id="visa-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
                              <img src="<%=request.getContextPath()%>/resources/images/icon-visa.png" alt="">
                             </div>
@@ -700,7 +691,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                             </div>
                             <div class="clearfix"></div>
                           </div>
-                          <div id="master-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none paymethod-container">
+                          <div id="master-container" class="col-xs-12 col-sm-12 col-md-4 col-lg-4 paymethod-container">
                             <div id="master-icon" class="col-xs-5 col-sm-3 col-md-12 col-lg-12 pad-none pull-left paymethod-icon">
                              <img src="<%=request.getContextPath()%>/resources/images/icon-master.png" alt="">
                             </div>
