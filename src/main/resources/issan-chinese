@@ -1,0 +1,1934 @@
+	# Last modified Date: 20140604
+	# Content Keys
+	# ***** global *****
+
+
+	promotion.get.code = 尚未擁有推廣編號？輸入您的電郵地址，你將收到我們送給你的尊屬推廣編號。
+	promotion.get.code.email = 電郵地址
+	promotion.get.code.disclaimer = 我同意提交我的電子郵件地址作為接收富衛的推廣編號之用，並在未來接收其他優惠資訊。
+	promotion.get.code.action = 提交
+
+	dollar.hkd = HK$
+
+	# links
+	index.hero.image = resources/images/slider/main_cn.jpg
+	flight.hero.image = resources/images/slider/flight_cn.jpg
+	travel.hero.image = resources/images/slider/travel_cn.jpg
+	workingholiday.hero.image = resources/images/slider/travel_cn.jpg
+	home.hero.image = resources/images/slider/home_cn.jpg
+	index.hero.image.mobile = resources/images/slider/main_cn_m.jpg
+	flight.hero.image.mobile = resources/images/slider/flight_cn_m.jpg
+	travel.hero.image.mobile = resources/images/slider/travel_cn_m.jpg
+	workingholiday.hero.image.mobile = resources/images/slider/workingholiday_cn_m.jpg
+	home.hero.image.mobile = resources/images/slider/home_cn_m.jpg
+
+	member.PICS.link = http://www.fwd.com.hk/zh-HK/home/pdo.html
+	PICS.link = http://www.fwd.com.hk/upload/zh-HK/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf
+	flight.provision.link = resources/policy-provisions-pdf/FlightCare_Provisions_Mar_2015.pdf
+	travel.provision.link = resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf
+	workingholiday.provision.link = resources/policy-provisions-pdf/WorkingholidayCare_Provisions_Mar_2015.pdf
+	home.provision.link = resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf
+	travel.brochure.link = http://www.fwd.com.hk/upload/zh-HK/travel_care_insurance.pdf
+	workingholiday.brochure.link = http://www.fwd.com.hk/upload/zh-HK/workingholiday_care_insurance.pdf
+	home.brochure.link = http://www.fwd.com.hk/upload/en-US/Easy_HomeCare_Brochure.pdf
+	app.download.link = http://www.fwd.com.hk/zh-HK/fwd-n-you/e_services_app.html
+	referral.tnc.link = resources/policy-provisions-pdf/iFWD_HK_Referral_Campaign_T&Cs.pdf
+
+	fwd.homepage.link = http://www.fwd.com.hk/
+	fwd.about.link = http://www.fwd.com.hk/zh-HK/about/index.html
+	fwd.blog.link = http://blog.fwd.com.hk/
+	fwd.security.link = http://www.fwd.com.hk/zh-HK/home/security.html
+	fwd.disclaimer.link = http://www.fwd.com.hk/zh-HK/home/disclaimer.html
+	fwd.privacy.link = http://www.fwd.com.hk/zh-HK/home/pdo.html
+
+	header.menu.about.link=http://www.fwd.com.hk/zh-HK/about/index.html
+	footer.menu.security.link=http://www.fwd.com.hk/zh-HK/home/security.html
+	footer.menu.disclaimer.link=http://www.fwd.com.hk/zh-HK/home/disclaimer.html
+	footer.menu.privacy.link=http://www.fwd.com.hk/zh-HK/home/pdo.html
+	footer.menu.home.link = http://www.fwd.com.hk/zh-HK/
+	footer.menu.blog.link = http://blog.fwd.com.hk/zh_HK/
+	footer.menu.claim.link = http://www.fwd.com.hk/zh-HK/cs/claims-procedure-general-travel.html#
+
+	index.blog.post1.link = http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/
+	index.blog.post2.link = http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/
+	index.blog.post3.link = http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/
+	home.blog.post1.link = http://blog.fwd.com.hk/zh_HK/2015/03/19/protecting-your-family-heirlooms/
+	home.blog.post2.link = http://blog.fwd.com.hk/zh_HK/2015/03/20/top-tips-to-make-a-small-flat-stylish/
+	home.blog.post3.link = http://blog.fwd.com.hk/zh_HK/2015/03/19/preventing-household-accidents/
+	travel.blog.post1.link = http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/
+	travel.blog.post2.link = http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/
+	travel.blog.post3.link = http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/
+
+	workingholiday.blog.post1.link = http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/
+	workingholiday.blog.post2.link = http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/
+	workingholiday.blog.post3.link = http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/
+
+	flight.blog.post1.link = http://blog.fwd.com.hk/zh_HK/2015/03/19/protecting-your-family-heirlooms/
+	flight.blog.post2.link = http://blog.fwd.com.hk/zh_HK/2015/03/20/top-tips-to-make-a-small-flat-stylish/
+	flight.blog.post3.link = http://blog.fwd.com.hk/zh_HK/2015/03/19/preventing-household-accidents/
+
+	# ***** global - header *****
+	header.hotline = 24小時熱線 3123 3123
+	header.hotlineSmall = 24小時熱線 3123 3123
+	header.menu.home = 主頁
+	header.menu.about = 關於我們
+	header.menu.join = 加入我們
+	header.menu.language = EN
+	header.menu.login = 登入
+	header.menu.logout = 登出
+	header.menu.chatnow = 富衛香港
+	header.menu.activate.heading = 啟動富衛會員帳戶
+	header.menu.member = 富衛會員帳戶
+	header.login.heading = 登入富衛客戶網上服務
+	header.login.username = 用戶名稱
+	header.login.password = 個人密碼
+	header.login.username.forget = 忘記用戶名稱?
+	header.login.username.forget.part1 = 忘記用戶名稱
+	header.login.password.forget = 忘記密碼?
+	header.login.password.forget.part1 = 忘記密碼
+	header.login.action = 登入
+	header.login.action2 = 提交
+	header.login.registration.heading = 新會員？
+	header.login.registration.action = 請註冊
+	header.login.disclaimer = 本人在此同意通過本網站購買指定保險計劃（以下簡稱「計劃」），並將我的個人資料從富衛電子服務轉移到計劃的承保員。
+	header.login.welcome = 歡迎
+	header.product.flight = 航空保險
+	header.product.travel = 旅遊保險
+	header.product.workingholiday = 假期保險
+	header.product.home = 家居保險
+	header.specialOffer = 特別優惠
+
+	# ***** global - footer *****
+	footer.hotline = 24小時熱線3123 3123
+	footer.hotline.part1 = 24小時熱線
+	footer.hotline.part2 = 3123 3123
+	footer.menu.home = 富衛主頁
+	footer.menu.about = 關於我們
+	footer.menu.blog = 博客
+	footer.menu.security = 網上保安
+	footer.menu.disclaimer = 免責聲明
+	footer.menu.privacy = 個人資料保護政策及執行
+	footer.menu.claim = 理賠程序
+	footer.copyright = © 2015 富衛香港 版權所有 不得轉載
+
+	# ***** menu *****
+	menu.home = 主頁
+	menu.member.account= 富衛會員帳戶
+
+	# ***** Registration ****
+	member.account.promotionCode.share.message.bodyregistration.title = 富衛會員帳戶
+	member.registration.tab.details = 會員資料
+	member.registration.tab.purchaseHistory = 購買紀錄
+	member.registration.tab.promotionCode = 推廣編號
+	member.registration.details.header = 會員資料	
+	member.registration.details.label.fullName = 英文全名
+	member.registration.details.label.fullName.placeholder = 
+	member.registration.details.label.fullName.desc =（與香港身份證號碼 / 護照號碼相同）
+	member.registration.details.label.mobileNo = 手機號碼
+	member.registration.details.label.mobileNo.placeholder = 
+	member.registration.details.label.emailAddress = 電郵地址
+	member.registration.details.label.emailAddress.placeholder = 
+	member.registration.details.label.emailAddress.desc =  (保險證書將發送到此電郵地址）
+	member.registration.details.label.userName = 用戶名稱
+	member.registration.details.label.userName.placeholder = 
+	member.registration.details.label.userName.help = 用戶名稱必須是6至50個字元。
+	member.registration.details.action = 提交
+	member.registration.details.label.username = 用戶名稱
+	member.registration.details.label.username.placeholder = 
+	member.registration.details.label.username.help = 用戶名稱必須是6至50個字元。
+	member.registration.details.label.password = 密碼
+	member.registration.details.label.password.placeholder = 
+	member.registration.details.label.password.help = 密碼字元至少8位數，必須包含字母（大楷及小楷﹚及數字
+	member.registration.details.label.confirmPassword = 確認密碼
+	member.registration.details.label.confirmPassword.placeholder = 
+	member.registration.details.label.whyaccount = 為何要建立會員帳戶？
+	member.registration.details.label.whyaccount.desc = 享受全年不同優惠及推薦計劃獎賞。
+	member.registration.declarations.header = 聲明:-
+	member.registration.declarations.PICS.part1 = 本人已參閱及明白
+	member.registration.declarations.PICS.part2 = 收集個人資料聲明
+	member.registration.declarations.PICS.part3 = ，並同意接受其約束。
+	member.registration.declarations.PDPO = 若閣下不希望本公司使用閣下的個人資料，或將閣下的個人資料提供予其他人士或公司作直接促銷用途，請剔以下有關方格，藉以行使閣下不同意此項安排的權利: 
+	member.registration.declarations.PDPO.option1 = 請不要將直接促銷資料發給本人。
+	member.registration.declarations.PDPO.option2 = 請不要將本人的個人資料提供予其他人士或公司作其直接促銷用途。
+	member.registration.declarations.PDPO.error = 遞交申請表前，請先閱讀及接受收集個人資料聲明。
+	member.registration.activate = 啓動
+
+	member.registration.details.label.mobileNo.errorEmptyMob = 請輸入您的手機號碼。
+	member.registration.details.label.mobileNo.errorInvalidMob = 請輸入正確/有效的手機號碼。
+	member.registration.details.label.emailAddress.errorEmptyEmailId = 請輸入您的電郵地址。
+	member.registration.details.label.emailAddress.errorInvalidEmailId = 請輸入有效的電郵地址。
+	member.registration.details.label.userName.errorEmptyUName = 請輸入您的用戶名稱。
+	member.registration.details.label.userName.errorInvalidUName = 請輸入正確/有效的的用戶名稱。
+
+	member.registration.fail.username.registered = 您所填寫的用戶名稱已被使用。
+	member.registration.fail.emailMobile.registered = 您所填寫的電郵地址和手機號碼已被使用。
+
+	# ***** member *****
+	member.account.title = 富衛會員帳戶
+	member.account.tab.details = 會員資料
+	member.account.tab.purchaseHistory = 購買紀錄
+	member.account.tab.promotionCode = 推廣編號
+	member.account.details.header = 會員資料
+	member.account.details.label.fullName = 英文全名
+	member.account.details.label.mobileNo = 手機號碼
+	member.account.details.label.emailAddress = 電郵地址
+	member.account.details.label.Username = 用戶名稱
+	#member.purchaseHistory.header = Purchase History
+	#member.purchaseHistory.travelCare.header = TravelCare Insurance
+	member.account.purchaseHistory.travelCare.label.heading = 旅遊保險
+	member.account.purchaseHistory.travelCare.label.referenceNo = 參考號碼 :
+	member.account.purchaseHistory.travelCare.label.datePurchase = 購買日期 :
+	member.account.purchaseHistory.homeCare.label.heading = 家居保險
+	member.account.promotionCode.share.header = 分享
+	member.account.promotionCode.share.message.header = 您的專屬推廣編號 :
+	member.account.promotionCode.share.message.body = 與朋友分享，一同取得更多富衛合作夥伴之優惠!*
+	member.account.promotionCode.share.social.message.header = 立即分享您的專屬推廣編號，尊享額外優惠!
+	member.account.referral.heading = 推薦計劃
+	member.account.referral.desc1 = 成功推薦每一名合資格客戶，你會獲得：
+	member.account.referral.desc2 = - 富衛旅遊保險7折優惠
+	member.account.referral.desc3 = - Agoda 95折優惠訂購酒店
+	member.account.referral.desc4 = 推薦計劃僅適用於推薦一位或以上並成功購買富衛旅遊保險之顧客。
+	member.account.referral.desc5 = 
+	member.account.referral.desc6 = 請参閱推薦計劃之
+	member.account.referral.desc7 = 條款及细則
+	member.account.referral.desc8 = 。
+	member.account.referral.copy = 複制
+	member.account.promotionCode.share.social.message.other = Other sharing options
+	member.account.promotionCode.share.termsAndConditions.message.header = Terms & Conditions of Referral Offer
+	member.account.promotionCode.share.termsAndConditions.message.details = Referral offers only applicable when one or more of your referrals successfully purchase a TravelCare travel Insurance policy with FWD.<br> Details of the promotion code to redeem your partner offer will be provided in your confirmation email.
+	member.account.referral.disclaimer = *推薦計劃
+	member.account.referral.disclaimer.section1.header = 成功推薦每一名合資格客戶，你會獲得：
+	member.account.referral.disclaimer.section1.desc1 = - 富衛旅遊保險7折優惠
+	member.account.referral.disclaimer.section1.desc2 = - Agoda 95折優惠訂購酒店
+	member.account.referral.disclaimer.section2.header = 被推薦客戶將獲得富衛旅遊保險75折優惠及易安心家居保92折優惠
+	member.account.referral.disclaimer.section2.desc1 = 推薦計劃僅適用於已成功推薦一位或以上之客戶，而該被推薦客戶已成功購買富衛旅遊保險。
+	member.account.referral.disclaimer.section3.desc.part1 = 請参閱推薦計劃之
+	member.account.referral.disclaimer.section3.desc.part2 = 條款及細則
+	member.account.referral.disclaimer.section3.desc.part3 = 。
+
+	member.account.referral.benefits.table.header1 = 推廣類型
+	member.account.referral.benefits.table.header2 = 優惠類型
+	member.account.referral.benefits.table.header3 = 折扣
+	member.account.referral.benefits.table.header4 = 優惠有效期
+	member.account.referral.benefits.table.row1.col1 = 專屬推廣編號
+	member.account.referral.benefits.table.row1.col2 = 旅遊保險
+	member.account.referral.benefits.table.row1.col3 = 75折
+	member.account.referral.benefits.table.row1.col4 = 全年適用
+	member.account.referral.benefits.table.row2.col1 = 
+	member.account.referral.benefits.table.row2.col2 = 易安心家居保
+	member.account.referral.benefits.table.row2.col3 = 92折
+	member.account.referral.benefits.table.row2.col4 = 全年適用
+	member.account.referral.benefits.table.row3.col1 = 推薦計劃<sup>1</sup>
+	member.account.referral.benefits.table.row3.col2 = 旅遊保險
+	member.account.referral.benefits.table.row3.col3 = 7折
+	member.account.referral.benefits.table.row3.col4 = 一次性<sup>2</sup>
+	member.account.referral.benefits.table.row4.col1 = 
+	member.account.referral.benefits.table.row4.col2 = Agoda
+	member.account.referral.benefits.table.row4.col3 = 95折
+	member.account.referral.benefits.table.row4.col4 = 一次性<sup>2</sup>
+	member.account.referral.benefits.disclaimer1 = <sup>1</sup>推薦計劃僅適用於已成功推薦一位或以上客戶之顧客，而該被推薦客戶已成功購買富衛旅遊保險
+	member.account.referral.benefits.disclaimer2.part1 = <sup>2</sup>請参閱推薦計劃之
+	member.account.referral.benefits.disclaimer2.part2 = 條款及细則
+	member.account.referral.benefits.disclaimer2.part3 = 
+
+	# **** index ****
+	index.jumbo = 嶄新保險體驗 盡在富衛
+	index.product.flight = 航空保險
+	index.product.travel = 旅遊保險
+	index.product.workingholiday = 工作假期保險
+	index.product.home = 家居保險
+	index.highlight1.heading = 常在您左右
+	index.highlight1.paragraph = 富衛提供全天候24小時熱線支援，另設有5間分佈全港的客戶服務中心，加上富衛流動應用程式，隨時為您解答任何查詢。
+	index.highlight1.desc.part1 = 富衛提供全天候24小時熱線支援，另設有5間分佈全港的客戶服務中心，加上
+	index.highlight1.desc.part2 = 富衛流動應用程式
+	index.highlight1.desc.part3 = ，隨時為您解答任何查詢。
+	index.highlight2.heading = 安全，可靠
+	index.highlight2.paragraph = 富衛香港的壽險獲國際評級機構授予卓越的財務實力評級 -- 其中獲「穆迪」 評為A3級 及「惠譽國際」評為A級。
+	index.highlight3.heading = 賞您所想
+	index.highlight3.paragraph = 富衛不斷為您提供各種獎賞及優惠，令您的保險計劃更吸引，例如將來的保費折扣及其他商户提供的優惠等。
+	index.customer.heading = 顧客親身體驗
+	index.customer1.paragraph = 我選擇FWD旅遊保險因為佢地24小時都有人聽電話，最緊要係放工時間和身處外國都可以搵到人。
+	index.customer1.name.part1 = 楊先生
+	index.customer1.name.part2 = (30歲)
+	index.customer1.name.part3 = 楊先生 (30歲)
+	index.customer2.paragraph = 我是一個背包客。富衛旅遊保及國際SOS緊急救援電話是我每次流浪時隨身必備的幫手 – 因為你永遠無法想像會在亞馬遜叢林遇上甚麼驚喜。
+	index.customer2.name.part1 = 龔先生
+	index.customer2.name.part2 = (26歲)
+	index.customer2.name.part3 = 龔先生 (26歲)
+	index.customer.disclaimer = 以上意見及觀點純屬客戶意見，並不代表富衛人壽保險(百慕達)有限公司及其聯繫公司(「富衛」)之意見。 富衛不需要承擔任何有關之責任及其準確性或完整性。
+	index.blog.heading = 閱讀更多
+	index.blog.desc1 = 放長假前必做七件事
+	index.blog.desc2 = 外出旅遊，連繫無間
+	index.blog.desc3 = 親子旅行小貼士
+	index.blog.disclaimer = 博客資料謹供參考，富衛人壽保險(百慕達)有限公司及其聯繫公司(「富衛」)雖然已盡力確保所載的資料正確無誤，但富衛並不就資料的準確性或完整性作出任何保證或陳述。富衛將不會因無法或不能使用任何資料或任何此博客所載之資料的錯誤或遺漏而負上任何直接、附帶、後果性、間接或懲罰性的損失的責任，使用者應自行小心評估資料。
+
+	# ***** flightcare *****
+	flight.main.jumbo = 安心四圍飛，樂享富衛免費保障
+
+	flight.main.quote.top.heading = 
+	flight.main.quote.bottom.heading = 
+	flight.main.quote.top.action = 立即申請!
+	flight.main.quote.bottom.action = 立即申請!
+	flight.main.quote.q1 = 出發日期
+	flight.main.quote.q2 = 回程日期
+	flight.main.quote.q3 = 同行人數
+	flight.main.quote.q3.error = Please enter Traveller's information
+	flight.main.quote.plan1 = 個人計劃
+	flight.main.quote.plan2 = 家庭計劃
+	flight.main.quote.plan1.type = 旅客
+	flight.main.quote.plan2.type1 = 家長
+	flight.main.quote.plan2.type2 = 子女
+	flight.main.quote.plan2.type3 = 其他旅客
+	flight.main.quote.total.people = 位旅客 ; 
+	flight.main.quote.total.days = 天
+	flight.main.quote.childnotes = *附註：<br><ul><li>必須為6星期至17歲</li><li>與”家長”有直屬關係，並非其他人之子女</li></ul>
+
+	flight.main.desc = 享受由香港出發來回航班的航空意外保險，<br>費用全免！
+	flight.main.feature1.heading = 零保費，全面安心
+	flight.main.feature1.paragraph = 假如您在航程中不幸意外的身亡，我們將為您的摯親免費提供港幣$500,000體恤金。能夠讓家人有此穩靠保障，飛往哪裡都無後顧之憂。
+	flight.main.feature2.heading = 一、二、飛！就係咁簡單！
+	flight.main.feature2.paragraph = 投保申請非常簡單，您只需要通知我們出發日期就大功告成。富衛深信旅遊要即興才好玩，所以就算於登機前一刻才申請都無問題！
+	flight.main.feature3.heading = 瞬間提升保險組合
+	flight.main.feature3.paragraph = 富衛的航空意外保與您現有的任何旅遊保險計劃都同樣匹配！不論您是否已購買旅遊保險，亦可免費申請以獲得額外保障！
+	flight.main.feature.getquote = 立即申請
+
+	flight.main.other.tnc = 主要條款及細則：
+	flight.main.other.tnc.desc1 = 只適用於受保人以付款乘客身份乘坐任何公共航空交通工具期間因遭受意外而死亡的情況，並不包括承包，特許或私人營運商，以及主要向乘客提供觀光服務及消閒娛樂的營運商。
+	flight.main.other.tnc.desc2 = 受保的行程須由香港出發，並以香港為回程終點。
+	flight.main.other.tnc.desc3 = 行程中的航班數目並沒有限制。
+	flight.main.other.tnc.desc4 = 保險期可長達連續30天。
+	flight.main.other.tnc.desc5 = 受保的旅程須於投保申請日之30天內出發。
+	flight.main.other.tnc.desc6 = 不適用於機組人員、任何營運商、導遊、領隊或軍事行動。
+
+	flight.main.other.disclaimer.part1 = 以上資料只作參考用途。詳情請查看
+	flight.main.other.disclaimer.part2 = 保單條款
+	flight.main.other.disclaimer.part3 = 。
+	flight.main.other.disclaimer.part4 = 有關條款細則的詳細資料，請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。
+
+	flight.main.highlight1.heading.line1 = 常在您左右
+	flight.main.highlight1.heading.line2 = 
+	flight.main.highlight1.desc.part1 = 富衛提供全天候24小時熱線支援，另設有5間分佈全港的客戶服務中心，加上
+	flight.main.highlight1.desc.part2 = 富衛流動應用程式
+	flight.main.highlight1.desc.part3 = ，隨時為您解答任何查詢。
+	flight.main.highlight2.heading.line1 = 安全，可靠
+	flight.main.highlight2.heading.line2 = 
+	flight.main.highlight2.desc = 富衛香港的壽險獲國際評級機構授予卓越的財務實力評級 -- 其中獲「穆迪」 評為A3級 及「惠譽國際」評為A級。
+	flight.main.highlight3.heading.line1 = 賞您所想
+	flight.main.highlight3.heading.line2 = 
+	flight.main.highlight3.desc = 富衛不斷為您提供各種獎賞及優惠，令您的保險計劃更吸引，例如將來的保費折扣及其他商户提供的優惠等。
+
+	flight.main.blog.heading = 閱讀更多
+	flight.main.blog.subheading1 = 放長假前必做七件事
+	flight.main.blog.subheading2 = 外出旅遊，連繫無間
+	flight.main.blog.subheading3 = 親子旅行小貼士
+	flight.main.blog.disclaimer = 博客資料謹供參考，富衛人壽保險(百慕達)有限公司及其聯繫公司 (「富衛」)雖然已盡力確保所載的資料正確無誤，但富衛並不就資料的準確性或完整性作出任何保證或陳述。富衛將不會因無法或不能使用任何資料或任何此博客所載之資料的錯誤或遺漏而負上任何直接、附帶、後果性、間接或懲罰性的損失的責任，使用者應自行小心評估資料。
+
+	flight.breadcrumb1.item1 = 主頁
+	flight.breadcrumb1.item2 = 航空意外保險
+	flight.breadcrumb1.item3 = 您的選擇
+	flight.breadcrumb1.item4 = 個人資料
+	flight.breadcrumb1.item5 = 確認保單
+
+	flight.breadcrumb2.item1 = 您的選擇
+	flight.breadcrumb2.item2 = 個人資料
+	flight.breadcrumb2.item3 = 確認保單
+
+	flight.quote.jumbo = 您的選擇
+	flight.details.jumbo = 個人資料
+	flight.confirmation.jumbo = 確認保單
+
+	flight.quote.choose = 選擇計劃
+	flight.quote.plan = 航空意外保險
+	flight.quote.price = 免費
+	flight.quote.price.desc = 只適用於優惠期內
+	flight.quote.fullDetails.heading = 更多保障詳情
+	flight.quote.fullDetails.keyFeature = 產品特點：
+	flight.quote.fullDetails.keyFeature.desc1 = 提供500,000 港元之人身意外死亡保障。
+	flight.quote.fullDetails.keyFeature.desc2 = 航空意外保險之每人最高賠償額為500,000 港元。
+	flight.quote.fullDetails.keyFeature.desc3 = 可配合其他旅遊保險。
+	flight.quote.fullDetails.eligibility = 受保資格：
+	flight.quote.fullDetails.eligibility.desc1 = 只適用於香港身份證持有人。
+	flight.quote.fullDetails.eligibility.desc2 = 受保人須為年滿6星期至85歲的人仕。
+	flight.quote.other.tnc = 主要條款及細則：
+	flight.quote.other.tnc.desc1 = 只適用於受保人以付款乘客身份乘坐任何公共航空交通工具期間因遭受意外而死亡的情況，並不包括承包，特許或私人營運商，以及主要向乘客提供觀光服務及消閒娛樂的營運商。
+	flight.quote.other.tnc.desc2 = 受保的行程須由香港出發，並以香港為回程終點。
+	flight.quote.other.tnc.desc3 = 行程中的航班數目並沒有限制。
+	flight.quote.other.tnc.desc4 = 保險期可長達連續30天。
+	flight.quote.other.tnc.desc5 = 受保的旅程須於投保申請日之30天內出發。
+	flight.quote.other.tnc.desc6 = 不適用於機組人員、任何營運商、導遊、領隊或軍事行動。
+
+	flight.quote.other.disclaimer.part1 = 以上資料只作參考用途。詳情請查看
+	flight.quote.other.disclaimer.part2 = 保單條款
+	flight.quote.other.disclaimer.part3 = 。
+	flight.quote.other.disclaimer.part4 = 有關條款細則的詳細資料，請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。
+
+	flight.quote.summary.product = 航空意外保險
+	flight.quote.summary.desc = 計劃概覽
+	flight.quote.summary.option1 = 出發日期
+	flight.quote.summary.option2 = 回程日期
+	flight.quote.summary.option3 = 同行人數
+	flight.quote.summary.option4 = 合共
+	flight.quote.summary.option5 = 天
+	flight.sidebar.summary.label.personal = 旅客
+	flight.sidebar.summary.label.family.parent = 家長
+	flight.sidebar.summary.label.family.child = 子女
+	flight.sidebar.summary.label.family.others = 其他旅客
+
+	flight.quote.action.next = 下一頁
+	flight.quote.action.back = 上一頁
+
+	flight.details.login = 富衛 eServices現有會員？
+	flight.details.login.action = 登入
+	flight.details.login.other.part1 = 或
+	flight.details.login.other.part2 = 以訪客身份申請
+
+	flight.details.applicant.heading = 申請人資料
+	flight.details.applicant.name = 英文全名
+	flight.details.applicant.name.placeholder = 
+	flight.details.applicant.hkid = 香港身份證
+	flight.details.applicant.hkid.placeholder = X1234567
+	flight.details.applicant.mobile = 手機號碼
+	flight.details.applicant.mobile.placeholder = 
+	flight.details.applicant.email = 電郵地址
+	flight.details.applicant.email.placeholder = 
+	flight.details.registration.heading = 建立富衛會員帳戶 － 享受全年不同優惠及推薦計劃獎賞
+	flight.details.registration.desc = 如不需要建立會員帳戶，請留空此欄
+	flight.details.registration.username = 用戶名稱 
+	flight.details.registration.username.placeholder = 
+	flight.details.registration.password = 個人密碼
+	flight.details.registration.password.placeholder = 
+	flight.details.registration.confirmPassword = 確認密碼
+	flight.details.registration.confirmPassword.placeholder = 
+	flight.details.insured.heading = 受保人資料
+	flight.details.insured.label.personal = 旅客
+	flight.details.insured.label.family.parent = 家長
+	flight.details.insured.label.family.child = 子女
+	flight.details.insured.label.family.others = 其他旅客
+	flight.details.insured.name = 英文全名
+	flight.details.insured.name.placeholder = 
+	flight.details.insured.hkid = 身份證號碼
+	flight.details.insured.hkid.placeholder = 
+	flight.details.insured.age = 年齡
+	flight.details.insured.age.placeholder = 
+	flight.details.insured.beneficiary = 受益人
+	flight.details.insured.beneficiary.name = 受益人全名
+	flight.details.insured.beneficiary.name.placeholder = 
+	flight.details.insured.beneficiary.hkid = 身份證號碼 / 護照號碼
+	flight.details.insured.beneficiary.hkid.placeholder = X1234567 /護照號碼
+	flight.details.insured.age.select = 請選擇
+	flight.details.insured.beneficiary.default = 個人遺產
+
+	flight.details.declarations.heading = 聲明:-
+	flight.details.declarations.tnc = 本人已參閱及明白保障範圍並在此聲明:
+	flight.details.declarations.tnc.desc1 = 上列資料及本人所知一切據實填報 ;
+	flight.details.declarations.tnc.desc2 = 並據實相信各受保人絕不會違反醫生的囑咐或僅為獲醫療而外出旅遊。本人更清楚明白任何現已存在之疾病、現有、不時復發或先天疾病皆不在承保之列。本人保證已對安排而又必須取消或縮短旅程之事絕不知情;及
+	flight.details.declarations.tnc.desc3 = 同意此申請書及聲明將構成本人與富衛保險有限公司之間的合約根據。
+	flight.details.declarations.tnc.desc4 = 本投保書是在香港特別行政區內申請，如有任何訛騙或資料失實，本人或受保人之保障有失效之虞。
+	flight.details.declarations.tnc.desc5 = 本人已得到其他受保人之同意把上述資料交予富衛保險有限公司用作申請航空意外保險之用。
+	flight.details.declarations.PICS.part1 = 本人已參閱及明白
+	flight.details.declarations.PICS.part2 = 收集個人資料聲明
+	flight.details.declarations.PICS.part3 = ，並同意接受其約束。
+	flight.details.declarations.PDPO = 若閣下不希望本公司使用閣下的個人資料，或將閣下的個人資料提供予其他人士或公司作直接促銷用途，請剔以下有關方格，藉以行使閣下不同意此項安排的權利：
+	flight.details.declarations.PDPO.option1 = 請不要將直接促銷資料發給本人。
+	flight.details.declarations.PDPO.option2 = 請不要將本人的個人資料提供予其他人士或公司作其直接促銷用途。
+	flight.details.declarations.PDPO.warning = 您將會無法收到富衛最新的推廣優惠！
+
+	flight.details.other.disclaimer.part1 = 以上資料只作參考用途。詳情請查看
+	flight.details.other.disclaimer.part2 = 保單條款
+	flight.details.other.disclaimer.part3 = 。
+	flight.details.other.disclaimer.part4 = 有關條款細則的詳細資料，請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。
+
+	flight.details.summary.product = 航空意外保險
+	flight.details.summary.desc = 計劃概覽
+	flight.details.summary.option1 = 出發日期
+	flight.details.summary.option2 = 回程日期
+	flight.details.summary.option3 = 同行人數
+	flight.details.summary.option4 = 合共
+	flight.details.summary.option5 = 天
+
+	flight.details.summary.change = 更改
+
+	flight.details.action.next = 下一頁
+	flight.details.action.back = 上一頁
+
+	flight.confirmation.msg.part1 = 你已成功申請富衛
+	flight.confirmation.msg.part2 = 航空意外保險
+	flight.confirmation.msg.part3 = 。
+	flight.confirmation.msg.part4 = 
+	flight.confirmation.msg.part5 = 確認電郵將會發送至
+	flight.confirmation.msg.part6 = ，內附保單內容及細節。
+	flight.confirmation.policyNo = 保單編號：
+	flight.confirmation.heading = 以八折優惠提升至更全面的旅遊保障！
+	flight.confirmation.subheading = 只限富衛航空意外保險計劃客戶
+	flight.confirmation.upgrade.plan1 = 計劃A
+	flight.confirmation.upgrade.plan1.type = 優越計劃	
+	flight.confirmation.upgrade.plan1.medical = HK$ 1,000,000 醫療保障
+	flight.confirmation.upgrade.plan1.benefits = 承保範圍
+	flight.confirmation.upgrade.plan1.benefits.desc1 = 住院或檢疫現金津貼 $10,000
+	flight.confirmation.upgrade.plan1.benefits.desc2 = 全球緊急支援服務
+	flight.confirmation.upgrade.plan1.benefits.desc3 = 租車自負額 $5,000
+	flight.confirmation.upgrade.plan1.benefits.desc4 = 高爾夫球「一桿入洞」 $3,000
+	flight.confirmation.upgrade.plan2 = 計劃B
+	flight.confirmation.upgrade.plan2.type = 基本計劃
+	flight.confirmation.upgrade.plan2.medical = HK$ 500,000 醫療保障
+	flight.confirmation.upgrade.plan2.benefits = 承保範圍
+	flight.confirmation.upgrade.plan2.benefits.desc1 = 住院或檢疫現金津貼 $5,000
+	flight.confirmation.upgrade.plan2.benefits.desc2 = 全球緊急支援服務
+	flight.confirmation.upgrade.plan2.benefits.desc3 = 租車自負額 $3,000
+	flight.confirmation.upgrade.plan2.benefits.desc4 = 高爾夫球「一桿入洞」 $1,000
+	flight.confirmation.upgrade.action = 立即升級！
+
+	# ***** homecare *****
+	home.main.quote.top.heading = 立即申請易安心家居保
+	home.main.quote.bottom.heading = 立即申請易安心家居保
+	home.main.quote.top.action = 立即報價
+	home.main.quote.bottom.action = 立即報價
+	home.main.quote.subheading = 富衛易安心家居保
+	home.main.quote.terms = 適用於實用面積一千尺以下單位
+	homecare.uw.question1.notEntitled.message = 多謝閣下對本公司產品感到興趣，十分抱歉我們未能接受您的網上申請。如有查詢，請致電客戶服務熱線 3123 3123 與聯絡我們。
+
+	home.main.desc = 每天只需約港幣$1，便可保障家居因火災、水浸、水渠爆裂、颱風、盜竊或意外導致的損失或毀壞。
+	home.main.feature1.heading.part1 = 保障您所珍愛的一切
+	home.main.feature1.heading.part2 = 
+	home.main.feature1.paragraph = 您將受到全險綜合保障，涵蓋家居財物高達港幣$500,000，私人財物高達港幣$100,000，其中每件私人財物最高賠償額為港幣$10,000。購買易安心家居保，您的傢俬以至雪櫃裡的食物都一律受到保障。
+	home.main.feature2.heading.part1 = 保障，豈止重新添置家居物品
+	home.main.feature2.heading.part2 = 
+	home.main.feature2.paragraph = 假如您的家居因意外損失或毀壞變得不宜居住，我們會為您支付另覓臨時居所的費用，每年高達港幣$50,000或每天高達港幣$1,000，助您的生活重拾正軌。
+	home.main.feature3.heading.part1 = 保障您的家居，還有您和您的家人!
+	home.main.feature3.heading.part2 = 
+	home.main.feature3.paragraph.part1 = 個人法律責任保險部份為您和您的家人提供保障。一旦有人因您或您的家人受到意外的身體傷害或財物損失，不論發生在世界任何地方*，我們都會提供高達港幣$5,000,000之賠償。
+	home.main.feature3.paragraph.part2 = *惟訴訟必須由香港法庭處理
+	home.main.feature.getquote = 立即報價
+
+	home.main.other.disclaimer.part1 = 以上資料只作參考用途。詳情請查看
+	home.main.other.disclaimer.part2 = 保單條款
+	home.main.other.disclaimer.part3 = 。
+	home.main.other.disclaimer.part4 = 有關條款細則的詳細資料，請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。
+
+	home.main.highlight1.heading.line1 = 常在您左右
+	home.main.highlight1.heading.line2 = 
+	home.main.highlight1.desc.part1 = 富衛提供全天候24小時熱線支援，另設有5間分佈全港的客戶服務中心，加上
+	home.main.highlight1.desc.part2 = 富衛流動應用程式
+	home.main.highlight1.desc.part3 = ，隨時為您解答任何查詢。
+	home.main.highlight2.heading.line1 = 安全，可靠
+	home.main.highlight2.heading.line2 = 
+	home.main.highlight2.desc = 富衛香港的壽險獲國際評級機構授予卓越的財務實力評級 -- 其中獲「穆迪」 評為A3級 及「惠譽國際」評為A級。
+	home.main.highlight3.heading.line1 = 賞您所想
+	home.main.highlight3.heading.line2 = 
+	home.main.highlight3.desc = 富衛不斷為您提供各種獎賞及優惠，令您的保險計劃更吸引，例如將來的保費折扣及其他商户提供的優惠等。
+
+	home.main.testimonial.heading = 顧客親身體驗
+	home.main.testimonial.customer1 = 富衛易安心家居保的保障全面，而且性價比也是全城數一數二，於是我便立即轉用。申請過程簡單快捷，只需數分鐘便完成所有手續。
+	home.main.testimonial.customer1.name = 葉小姐
+	home.main.testimonial.customer2 = 富衛家居保係我首份於富衛買既保險。本來我想找一些最普遍的家居保險，例如法律責任，但後來於網上見到一份由富衛提供的「全險保障」產品，既全面又可以保障家裡的貴重物品！以後我都會將富衛家居保推薦俾身邊既人。
+	home.main.testimonial.customer2.name1 = 梁先生
+	home.main.testimonial.customer2.name2 = (一位非常滿意的客戶)
+	home.main.testimonial.disclaimer = 以上意見及觀點純屬客戶意見，並不代表富衛人壽保險(百慕達)有限公司及其聯繫公司 (「富衛」)之意見。 富衛不需要承擔任何有關之責任及其準確性或完整性。
+
+	home.main.blog.heading = 閱讀更多
+	home.main.blog.subheading1.part1 = 家傳之寶收藏法
+	home.main.blog.subheading1.part2 = 
+	home.main.blog.subheading2 = 打造型格窩居
+	home.main.blog.subheading3.part1 = 家居零意外
+	home.main.blog.subheading3.part2 = 
+	home.main.blog.disclaimer = 博客資料謹供參考，富衛人壽保險(百慕達)有限公司及其聯繫公司 (「富衛」)雖然已盡力確保所載的資料正確無誤，但富衛並不就資料的準確性或完整性作出任何保證或陳述。富衛將不會因無法或不能使用任何資料或任何此博客所載之資料的錯誤或遺漏而負上任何直接、附帶、後果性、間接或懲罰性的損失的責任，使用者應自行小心評估資料。
+
+	home.breadcrumb1.item1 = 主頁
+	home.breadcrumb1.item2 = 易安心家居保
+	home.breadcrumb1.item3 = 您的選擇
+	home.breadcrumb1.item4 = 個人資料
+	home.breadcrumb1.item5 = 總結及付款
+	home.breadcrumb1.item6 = 確認保單
+
+	home.breadcrumb2.item1 = 您的選擇
+	home.breadcrumb2.item2 = 個人資料
+	home.breadcrumb2.item3 = 總結及付款
+	home.breadcrumb2.item4 = 確認保單
+
+	home.quote.jumbo = 您的選擇
+	home.details.jumbo = 個人資料
+	home.summary.jumbo = 總結及付款
+	home.confirmation.jumbo = 確認保單
+
+	home.quote.plan = 易安心家居保
+	home.quote.plan.benefits = 
+	home.quote.plan.benefits.desc1 = 
+	home.quote.plan.benefits.desc2 = 
+	home.quote.plan.benefits.desc3 = 
+	home.quote.plan.benefits.desc4 = 
+
+	home.quote.highlight.heading = 產品特點
+	home.quote.highlight.desc1 = 享有高達港幣500,000 的家居物品保障
+	home.quote.highlight.desc2 = 提供高達港幣5,000,000 作為業主、住戶及個人的個人法律責任及個人全球法律責任保障
+	home.quote.highlight.desc3 = 保障居所內的家居財物、傢俬及電器等因火災、水浸、水渠爆裂、颱風、盜竊或意外而導致之損毀
+	home.quote.highlight.desc4 = 適用於實用面積為1,000平方呎以內之家居
+
+	home.quote.summary.heading = 保障範圍
+	home.quote.summary.subheading1 = 第一部份：家居物品全險
+	home.quote.summary.subheading1.desc1 = 易安心家居保為你的家居財物提供 '全面保障'，範圍包括因火災、水浸、颱風、爆炸、盜竊或意外而導致之損壞。賠償總額每年最高可達港幣500,000，每件財物最高賠償額為港幣100,000。貴重物件如珠寶首飾、金、銀、手錶、攝影器材、皮草或樂器（鋼琴除外）等，每件最高賠償額為港幣10,000，而每年最高賠償總額為港幣100,000。
+	home.quote.summary.subheading1.desc2 = 除以上保障外，本計劃更為你提供以下多項額外保障：
+
+	home.quote.summary.table.header1 = 項目
+	home.quote.summary.table.header2 = 保障範圍
+	home.quote.summary.table.header3 = 最高賠償金額(港幣)
+	home.quote.summary.table.row1.col1 = 1
+	home.quote.summary.table.row1.col2.desc1 = 窗戶、門鎖及門匙更換費用
+	home.quote.summary.table.row1.col2.desc2 = 因爆竊或企圖爆竊而引致損毀需更換之大門門鎖、門匙或窗戶
+	home.quote.summary.table.row1.col3 = 每年港幣$3,000
+	home.quote.summary.table.row2.col1 = 2
+	home.quote.summary.table.row2.col2.desc1 = 短暫寄存保障
+	home.quote.summary.table.row2.col2.desc2 = 家居物品需短暫寄存於其他地方進行翻新、維修或清潔時所受到的意外損毀
+	home.quote.summary.table.row2.col3 = 每年港幣$50,000
+	home.quote.summary.table.row3.col1 = 3
+	home.quote.summary.table.row3.col2.desc1 = 搬遷保障
+	home.quote.summary.table.row3.col2.desc2 = 家居物品在下列情況下因意外而導致損毀:
+	home.quote.summary.table.row3.col2.desc3 = (a) 由專業搬運公司運往香港範圍內之新居; 或
+	home.quote.summary.table.row3.col2.desc4 = (b) 以七天為上限之短暫傢具儲存處; 或
+	home.quote.summary.table.row3.col2.desc5 = (c) 在尚未入住的新居內，以不超過兩個月為限。
+	home.quote.summary.table.row3.col2.desc6 = (必須事先通知本公司)
+	home.quote.summary.table.row3.col3 = 每年港幣$50,000
+	home.quote.summary.table.row4.col1 = 4
+	home.quote.summary.table.row4.col2.desc1 = 冷藏食物保障
+	home.quote.summary.table.row4.col2.desc2 = 冷藏食物因冰箱意外停電或故障而變壞並需重新購買之食物
+	home.quote.summary.table.row4.col3 = 每年港幣$5,000
+	home.quote.summary.table.row5.col1 = 5
+	home.quote.summary.table.row5.col2.desc1 = 災場淸理費用
+	home.quote.summary.table.row5.col2.desc2 = 意外發生後，清理現場廢物之費用
+	home.quote.summary.table.row5.col3 = 每年港幣$10,000
+	home.quote.summary.table.row6.col1 = 6
+	home.quote.summary.table.row6.col2.desc1 = 金錢保障
+	home.quote.summary.table.row6.col2.desc2 = 存放於家居的金錢遺失或被竊
+	home.quote.summary.table.row6.col3 = 每年港幣$2,500
+	home.quote.summary.table.row7.col1 = 7
+	home.quote.summary.table.row7.col2.desc1 = 家傭財物保障
+	home.quote.summary.table.row7.col2.desc2 = 家庭僱傭於家中損失之個人物品
+	home.quote.summary.table.row7.col3.desc1 = 每件港幣$1,000
+	home.quote.summary.table.row7.col3.desc2 = 每年港幣$5,000
+	home.quote.summary.table.row8.col1 = 8
+	home.quote.summary.table.row8.col2.desc1 = 加設之裝修保障
+	home.quote.summary.table.row8.col2.desc2 = 住戶加設之室內裝修意外損毀
+	home.quote.summary.table.row8.col3 = 每件港幣$100,000
+	home.quote.summary.table.row9.col1 = 9
+	home.quote.summary.table.row9.col2.desc1 = 室內裝修工程保障
+	home.quote.summary.table.row9.col2.desc2 = 室內裝修工程期間引致家居財物意外損毀
+	home.quote.summary.table.row9.col2.desc3 = (工程期以不超過兩個月為限)
+	home.quote.summary.table.row9.col3 = 每年港幣$100,000
+	home.quote.summary.table.row10.col1 = 10
+	home.quote.summary.table.row10.col2.desc1 = 臨時住所保障
+	home.quote.summary.table.row10.col2.desc2 = 家居因意外損毀以致不宜居住，需另覓臨時住所之費用
+	home.quote.summary.table.row10.col3.desc1 = 每天港幣$1,000
+	home.quote.summary.table.row10.col3.desc2 = 每年港幣$50,000
+	home.quote.summary.table.row11.col1 = 11
+	home.quote.summary.table.row11.col2.desc1 = 人身意外保障
+	home.quote.summary.table.row11.col2.desc2 = 投保人或家庭成員於家中因火災或盜竊而引致死亡
+	home.quote.summary.table.row11.col3.desc1 = 每人港幣$50,000
+	home.quote.summary.table.row11.col3.desc2 = 每年港幣$200,000
+
+	home.quote.summary.subheading2 = 第二部份： 個人法律責任保險
+	home.quote.summary.subheading2.desc1 = 如你或同住的家庭成員在以下情況因疏忽而導致他人身體受傷或財物損失需負上法律責任及作出金錢賠償時，本計劃可提供高達港幣5,000,000之保障。惟訴訟必須由香港法庭處理:
+	home.quote.summary.subheading2.desc2 = a) 以住戶身份佔用家居
+	home.quote.summary.subheading2.desc3 = b) 以業主身份(包括所在大廈公共地方)
+	home.quote.summary.subheading2.desc4 = c) 以個人身份(全球保障)
+	home.quote.summary.subheading2.desc5 = 法律責任更包括保障貴為租客的你對業主之樓宇結構固定裝置和建設的損毀。
+
+	home.quote.fullDetails.heading = 更多保障詳情
+
+	home.quote.fullDetails.priceTable = 保費表（港幣）
+	home.quote.fullDetails.priceTable.desc = 適用於實用面積為1,000平方呎以內之家居
+	home.quote.fullDetails.priceTable.single.header1 = 項目
+	home.quote.fullDetails.priceTable.single.header2 = 保障範圍
+	home.quote.fullDetails.priceTable.single.header3 = 最高賠償金額(港幣)
+	home.quote.fullDetails.priceTable.single.header4 = 年費(港幣)
+	home.quote.fullDetails.priceTable.section1 = 第一部份
+	home.quote.fullDetails.priceTable.section2 = 第二部份
+	home.quote.fullDetails.priceTable.coverage1 = 家居物品
+	home.quote.fullDetails.priceTable.coverage2 = 個人法律責任
+	home.quote.fullDetails.priceTable.liability1 = 500,000
+	home.quote.fullDetails.priceTable.liability2 = 5,000,000
+	home.quote.fullDetails.priceTable.annualP1 = 420
+	home.quote.fullDetails.priceTable.annualP2 = 隨第一部份免費附送
+
+	home.quote.fullDetails.download = 下載小冊子
+
+	home.sidebar.summary.product = 易安心家居保
+	home.sidebar.summary.desc = 計劃概覽
+	home.sidebar.summary.planType = 計劃類型
+	home.sidebar.summary.planType.desc = 基本保障，年度
+	home.sidebar.summary.promocode = 推廣編號
+	home.sidebar.summary.promocode.placeholder = 例如：FWD789
+	home.sidebar.summary.promocode.help = 如何取得推廣編號?
+	home.sidebar.summary.subtotal = 小計
+	home.sidebar.summary.discount = 折扣優惠
+	home.sidebar.summary.amountDue = 所需保費
+
+	home.details.summary.product = 易安心家居保
+	home.details.summary.desc1 = 計劃概覽
+	home.details.summary.desc2 = 計劃類型
+	home.details.summary.desc3 = 基本保障，年度
+	home.details.summary.desc4 = 推廣編號
+	home.details.summary.promocode.placeholder = 例如：FWD789
+	home.details.summary.promocode.help = 如何取得推廣編號?
+	home.details.summary.subtotal = 小計
+	home.details.summary.discount = 折扣優惠
+	home.details.summary.amountDue = 所需保費
+
+	home.quote.exclusion.heading = 主要不受保項目
+	home.quote.exclusion.desc1 = 以下為不保事項之概略，詳細內容請參閱保單。
+	home.quote.exclusion.desc2 = 一般不受保的損失如刮花、自然損耗、機械或電力等故障而導致失靈、錯誤使用或因家中飼養的動物引致等
+	home.quote.exclusion.desc3 = 眼鏡、隱形眼鏡、使用中的運動器材、電腦紀錄、手提電話的遺失或損壞、放置在天台上或戶外的物品、無線電接收或發放裝置或衛星天線
+	home.quote.exclusion.desc4 = 居所空置超逾60天期間發生之損失
+	home.quote.exclusion.desc5 = 外遊超過90天所發生的個人責任
+	home.quote.exclusion.desc6 = 戰爭、恐怖活動、聲震及輻射
+
+	home.quote.excess.heading = 自負金額
+	home.quote.excess.section1 = 第一部份：<br>家居財物全險
+	home.quote.excess.section1.desc1 = 因水浸導致的家居財物損失為每次事故賠償額之首港幣1,000
+	home.quote.excess.section1.desc2 = 因其他原因導致的家居財物損失為每次事故賠償額之首港幣500
+	home.quote.excess.section2 = 第二部份：<br>個人法律責任保障
+	home.quote.excess.section2.desc = 第三者財物損失之自負金額為每次事故賠償額之首港幣500
+
+	home.quote.other.disclaimer.part1 = 以上資料只作參考用途。詳情請查看
+	home.quote.other.disclaimer.part2 = 保單條款
+	home.quote.other.disclaimer.part3 = 。
+	home.quote.other.disclaimer.part4 = 有關條款細則的詳細資料，請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。
+
+	home.details.login = 富衛 Services現有會員？
+	home.details.login.action = 登入
+	home.details.login.other.part1 = 或
+	home.details.login.other.part2 = 以訪客身份登記
+
+	home.details.applicant.heading = 申請人資料
+	home.details.applicant.name = 英文全名
+	home.details.applicant.hkid = 香港身份證
+	home.details.applicant.passport = 護照號碼
+	home.details.applicant.mobile = 手機號碼
+	home.details.applicant.email = 電郵地址
+	home.details.registration.heading = 建立富衛會員帳戶 - 享受全年不同優惠及推薦計劃獎賞
+	home.details.registration.desc = 如不需要建立會員帳戶，請留空此欄
+	home.details.registration.username = 用戶名稱  
+	home.details.registration.password = 個人密碼
+	home.details.registration.confirmPassword = 確認密碼
+	home.details.registration.corraddress = 通訊地址
+	home.details.registration.district = 地區
+	home.details.registration.addressdetails = 地址資料
+	home.details.registration.addressdetails.msg = 與申請人通訊地址相同
+	home.details.registration.insuaddress = 投保居所地址
+	home.details.registration.FloorArea.part1 = 實用面積
+	home.details.registration.FloorArea.part2 = (平方尺)
+	home.details.registration.select = 請選擇
+	home.details.registration.effdate.part1 = 保單生效日期
+	home.details.registration.effdate.part2 = 
+	home.details.registration.effdate.placeholder = 由 日期｜月份｜年份
+
+	home.details.applicant.name.placeholder = 
+	home.details.applicant.passport.placeholder = X1234567 /護照號碼
+	home.details.applicant.mobile.placeholder= 
+	home.details.applicant.email.placeholder = 
+	home.details.registration.username.placeholder= 
+	home.details.registration.password.placeholder= 
+	home.details.registration.confirmPassword.placeholder= 
+	home.details.registration.corraddress.room.placeholder= 室
+	home.details.registration.corraddress.floor.placeholder=樓
+	home.details.registration.corraddress.block.placeholder=座
+	home.details.registration.corraddress.building.placeholder=大廈
+	home.details.registration.corraddress.estate.placeholder=屋苑
+	home.details.registration.corraddress.streetNo.placeholder=街道號碼
+	home.details.registration.corraddress.streetName.placeholder =街道名稱
+	 
+	home.details.registration.insuaddress.room.placeholder= 室
+	home.details.registration.insuaddress.floor.placeholder=樓
+	home.details.registration.insuaddress.block.placeholder=座
+	home.details.registration.insuaddress.building.placeholder=大廈 
+	home.details.registration.insuaddress.estate.placeholder=屋苑
+	home.details.registration.insuaddress.streetNo.placeholder=街道號碼
+	home.details.registration.insuaddress.streetName.placeholder =街道名稱
+
+	home.details.declarations.heading = 聲明:-
+	home.details.declarations.tnc = 本人已參閱及明白保障範圍並在此聲明:
+	home.details.declarations.tnc.desc1 = 上列資料及本人所知一切據實填報 ；
+	home.details.declarations.tnc.desc2 = 投保之居所以磚塊、 石塊或混凝土建成及有以混凝土蓋成之屋頂，並為本人及本人的家庭成員之私人住所；
+	home.details.declarations.tnc.desc3 =  本人或同住家人在過去三年內未曾就有關保險計劃列明的保障範圍蒙受損失；或曾被拒絕續保；及
+	home.details.declarations.tnc.desc4 = 同意此申請書及聲明將構成本人與富衛保險有限公司之間的合約根據。
+	home.details.declarations.tnc.desc5 = 本投保書是在香港特別行政區內申請， 如有任何訛騙或資料失實，本人或受保人之保障有失效之虞。
+	home.details.declarations.PICS.part1 = 本人已參閱及明白
+	home.details.declarations.PICS.part2 = 收集個人資料聲明
+	home.details.declarations.PICS.part3 = ，並同意接受其約束。
+	home.details.declarations.PDPO = 若閣下不希望富衛保險有限公司使用閣下的個人資料，或將閣下的個人資料提供予其他人士或公司作直接促銷用途，請剔以下有關方格，藉以行使閣下不同意此項安排的權利。 
+	home.details.declarations.PDPO.option1 = 請不要將直接促銷資料發給本人。
+	home.details.declarations.PDPO.option2 = 請不要將本人的個人資料提供予其他人士或公司作其直接促銷用途。
+	home.details.declarations.PDPO.warning = 您將會無法收到富衛最新的推廣優惠！
+
+	home.action.next = 下一頁
+	home.action.back = 上一頁
+	home.action.apply = 使用
+	home.action.change = 更改
+	home.action.payment = 確認付款
+	home.action.quote = 立即報價
+
+	home.summary.plansummary.heading = 摘要
+	home.summary.plansummary.desc1 = 申請號碼
+	home.summary.plansummary.desc2 = 保險計劃
+	home.summary.plansummary.desc3 = 基本保障
+	home.summary.plansummary.desc4 = 家居保障
+	home.summary.plansummary.desc5.part1 = 通訊地址
+	home.summary.plansummary.desc5.part2 = 
+	home.summary.plansummary.desc6 = 投保居所地址
+	home.summary.plansummary.desc7.part1 = 實用面積
+	home.summary.plansummary.desc7.part2 = (平方尺)
+	home.summary.plansummary.desc8 = 保障期
+	home.summary.plansummary.desc9.part1 = 保單生效日期
+	home.summary.plansummary.desc9.part2 = 
+	home.summary.plansummary.desc10 = 所需保費
+	home.summary.plansummary.yearly = 年度
+	home.summary.plansummary.from = 由
+	home.summary.plansummary.to = 至
+
+	home.summary.changedetail.heading = 更改資料
+	home.summary.changedetail.desc1 = 申請人資料
+	home.summary.changedetail.desc2 = 英文全名
+	home.summary.changedetail.desc3 = 香港身份證 / 護照號碼
+	home.summary.changedetail.desc4 = 電郵地址
+	home.summary.changedetail.desc5 = 手機號碼
+
+	home.summary.pmtdetail.heading = 付款
+	home.summary.pmtdetail.desc1 = 信用卡類型
+	home.summary.pmtdetail.desc2 = 信用卡號碼
+	home.summary.pmtdetail.desc3 = 到期日
+	home.summary.pmtdetail.desc3.month = 月
+	home.summary.pmtdetail.desc3.year = 年
+	home.summary.pmtdetail.desc4 = 持卡人名稱
+	home.summary.pmtdetail.desc5 = 驗證碼
+	home.summary.pmtdetail.desc6 = 這是什麼？
+
+	home.summary.action.back = 返回
+	home.summary.action.confirmPayment = 確認付款
+	home.summary.pmtdetail.desc2.placeholder = 
+	home.summary.pmtdetail.desc4.placeholder = 
+	home.summary.pmtdetail.desc5.placeholder = 
+
+	home.summary.declarations = 本人現授權富衛保險有限公司從我上述指定的信用卡賬戶扣除此保險所應繳之保費。
+
+	home.confirmation.msg.part1 = 你已成功申請
+	home.confirmation.msg.part2 = 富衛易安心家居保
+	home.confirmation.msg.part3 = 。
+	home.confirmation.msg.part4 = 
+	home.confirmation.msg.part5 = 確認電郵將會發送至
+	home.confirmation.msg.part6 = ， 內附保單內容及細節。
+	home.confirmation.policyNo = 保單編號:
+	home.confirmation.promocode = 您的專屬推廣編號:
+	home.confirmation.visitor.promocodeLabel = 額外優惠 – 使用你的推廣編號:
+	home.confirmation.member.promocodeLabel = 額外優惠 – 使用你的專屬推廣編號:
+	#home.confirmation.share = 與朋友分享，一同取得更多富衛合作夥伴之優惠!*
+	#home.confirmation.sharenow = 立即分享您的專屬推廣編號，尊享額外優惠!
+	home.confirmation.copy = 複製
+	home.confirmation.referral.heading = *推薦計劃
+	home.confirmation.referral.desc1 = 成功推薦每一名合資格客戶，你會獲得：
+	home.confirmation.referral.desc2 = - 富衛旅遊保險7折優惠
+	home.confirmation.referral.desc3 = - Agoda 95折優惠訂購酒店
+	home.confirmation.referral.desc4 = 被推薦客戶將獲得易安心家居保險92折優惠<br>推薦計劃僅適用於已成功推薦一位或以上客戶之顧客，而該被推薦客戶已成功購買富衛旅遊保險。
+	home.confirmation.referral.desc5 = 請参閱推薦計劃之
+	home.confirmation.referral.desc6 = 條款及细則
+	home.confirmation.referral.desc7 = 。
+	home.confirmation.visitor.referralCodeDesc = 您和您的朋友可以使用此推廣編號獲得網上投保折扣及合作夥伴優惠！
+	home.confirmation.member.referralCodeDesc = 您和您的朋友可以使用此專屬推廣編號獲得網上投保折扣及合作夥伴優惠！
+	home.confirmation.partnerDesc = 此外，您可從確認電郵獲得BoConcept 95折優惠詳情。
+	home.confirmation.sharenow = 立即分享您的專屬推廣編號，尊享額外優惠!
+
+	home.referral.benefits.visitor.table.header1 = 推廣類型
+	home.referral.benefits.visitor.table.header2 = 適用產品
+	home.referral.benefits.visitor.table.header3 = 優惠
+	home.referral.benefits.visitor.table.header4 = 優惠有效期
+	home.referral.benefits.visitor.table.row1.col1 = 推廣編號
+	home.referral.benefits.visitor.table.row1.col2 = 易安心家居保
+	home.referral.benefits.visitor.table.row1.col3 = 97折
+	home.referral.benefits.visitor.table.row1.col4 = 全年適用
+	#home.referral.benefits.visitor.table.row2.col1 = 
+	#home.referral.benefits.visitor.table.row2.col2 = 易安心家居保
+	#home.referral.benefits.visitor.table.row2.col3 = 92折
+	#home.referral.benefits.visitor.table.row2.col4 = 全年適用
+	#home.referral.benefits.visitor.table.row3.col1 = 推薦計劃<sup>1</sup>
+	#home.referral.benefits.visitor.table.row3.col2 = 旅遊保險
+	#home.referral.benefits.visitor.table.row3.col3 = 7折
+	#home.referral.benefits.visitor.table.row3.col4 = 一次性<sup>2</sup>
+	#home.referral.benefits.visitor.table.row4.col1 = 
+	#home.referral.benefits.visitor.table.row4.col2 = Agoda
+	#home.referral.benefits.visitor.table.row4.col3 = 95折
+	#home.referral.benefits.visitor.table.row4.col4 = 一次性<sup>2</sup>
+	#home.referral.benefits.visitor.disclaimer1 = <sup>1</sup>#推薦計劃僅適用於已成功推薦一位或以上客戶之顧客，而該被推薦客戶已成功購買富衛旅遊保險
+	#home.referral.benefits.visitor.disclaimer2.part1 = <sup>2</sup>請参閱推薦計劃之
+	#home.referral.benefits.visitor.disclaimer2.part2 = 條款及细則
+	#home.referral.benefits.visitor.disclaimer2.part3 =
+
+	home.referral.benefits.member.table.header1 = 推廣類型
+	home.referral.benefits.member.table.header2 = 適用產品/合作夥伴
+	home.referral.benefits.member.table.header3 = 優惠
+	home.referral.benefits.member.table.header4 = 優惠有效期
+	home.referral.benefits.member.table.row1.col1 = 專屬推廣編號
+	home.referral.benefits.member.table.row1.col2 = 旅遊保險
+	home.referral.benefits.member.table.row1.col3 = 75折
+	home.referral.benefits.member.table.row1.col4 = 全年適用
+	home.referral.benefits.member.table.row2.col1 = 
+	home.referral.benefits.member.table.row2.col2 = 易安心家居保
+	home.referral.benefits.member.table.row2.col3 = 92折
+	home.referral.benefits.member.table.row2.col4 = 全年適用
+	home.referral.benefits.member.table.row3.col1 = 推薦計劃<sup>1</sup>
+	home.referral.benefits.member.table.row3.col2 = 旅遊保險
+	home.referral.benefits.member.table.row3.col3 = 7折
+	home.referral.benefits.member.table.row3.col4 = 一次性<sup>2</sup>
+	home.referral.benefits.member.table.row4.col1 = 
+	home.referral.benefits.member.table.row4.col2 = Agoda
+	home.referral.benefits.member.table.row4.col3 = 95折
+	home.referral.benefits.member.table.row4.col4 = 一次性<sup>2</sup>
+	home.referral.benefits.member.disclaimer1 = <sup>1</sup>推薦計劃僅適用於已成功推薦一位或以上客戶之顧客，而該被推薦客戶已成功購買富衛旅遊保險
+	home.referral.benefits.member.disclaimer2.part1 = <sup>2</sup>請参閱推薦計劃之
+	home.referral.benefits.member.disclaimer2.part2 = 條款及细則
+	home.referral.benefits.member.disclaimer2.part3 =
+
+	home.confirmation.other.heading = 您可能會考慮
+	home.confirmation.other.subheading = 旅遊保險
+	home.confirmation.other.desc = 出外旅遊，有全面的旅遊保障是您的最佳後盾!
+	home.confirmation.other.quote = 立即報價
+
+	home.confirmation.other.heading = 您可能會考慮
+	home.confirmation.other.subheading = 旅遊保險
+	home.confirmation.other.desc = 出外旅遊，有全面的旅遊保障是您的最佳後盾!
+	home.confirmation.other.quote = 立即報價
+
+	home.details.applicant.name.placeholder = 申請人資料
+	home.details.applicant.passport.placeholder = 香港身份證
+	home.details.applicant.mobile.placeholder= 手機號碼
+	home.details.applicant.email.placeholder = 電郵地址
+	home.details.registration.username.placeholder=用戶名稱
+	home.details.registration.password.placeholder=個人密碼
+	home.details.registration.confirmPassword.placeholder= 確認密碼
+	home.details.registration.corraddress.room.placeholder= 室
+	home.details.registration.corraddress.floor.placeholder=樓
+	home.details.registration.corraddress.block.placeholder=座
+	home.details.registration.corraddress.building.placeholder=大廈
+	home.details.registration.corraddress.estate.placeholder=屋苑
+	home.details.registration.corraddress.streetNo.placeholder=街道號碼
+	home.details.registration.corraddress.streetName.placeholder =街道名稱
+	 
+	home.details.registration.insuaddress.room.placeholder= 室
+	home.details.registration.insuaddress.floor.placeholder=樓
+	home.details.registration.insuaddress.block.placeholder=座
+	home.details.registration.insuaddress.building.placeholder=大廈 
+	home.details.registration.insuaddress.estate.placeholder=屋苑
+	home.details.registration.insuaddress.streetNo.placeholder=街道號碼
+	home.details.registration.insuaddress.streetName.placeholder =街道名稱
+
+
+	home.details.registration.hk=香港
+	home.details.registration.kln=九龍
+	home.details.registration.nt=新界
+
+	home.summary.pmtdetail.desc2.placeholder=信用卡號碼
+
+	# ***** travelcare *****
+	travel.main.jumbo = 富衛旅遊保險
+
+	travel.main.quote.top.heading = 立即申請富衛旅遊保險
+	travel.main.quote.bottom.heading = 立即申請富衛旅遊保險
+	travel.main.quote.top.action = 立即報價
+	travel.main.quote.bottom.action = 立即報價
+	travel.main.quote.q1 = 出發日期
+	travel.main.quote.q2 = 回程日期
+	travel.main.quote.q3 = 同行人數
+	travel.main.quote.q3.error = Please enter Traveller's information
+	travel.main.quote.plan1 = 個人計劃
+	travel.main.quote.plan2 = 家庭計劃
+	travel.main.quote.plan1.type = 旅客
+	travel.main.quote.plan2.type1 = 家長
+	travel.main.quote.plan2.type2 = 子女
+	travel.main.quote.plan2.type3 = 其他旅客
+	travel.main.quote.total.people = 位旅客 ; 
+	travel.main.quote.total.days = 天
+	travel.main.quote.childnotes = *附註：<br><ul><li>必須為6星期至17歲</li><li>與”家長”有直屬關係，並非其他人之子女</li></ul>
+
+	travel.main.desc1 = 出外旅遊，有全面的旅遊保障是您的最佳後盾!
+	travel.main.desc2 = 
+	travel.main.mobile.desc1 = 出外旅遊，有全面的旅遊保障是您的最佳後盾!
+	travel.main.mobile.desc2 = 
+	travel.main.mobile.desc3 = 
+	travel.main.feature1.heading1 = 敢想敢做，無牽無掛
+	travel.main.feature1.heading2 = 
+	travel.main.feature1.paragraph = 放膽玩，盡情跳！富衛旅遊保險承保您的活動，由夏日海灘散步到笨豬跳、水肺潛水、冬季運動等，點玩都一樣放心。
+	travel.main.feature2.heading1 = 想去邊、幾時去，由您話事
+	travel.main.feature2.heading2 = 
+	travel.main.feature2.paragraph = 從香港到泰國、英國、瓦努阿圖或其他地方，富衛旅遊保險為未滿85歲投保人仕提供全球保障！
+	travel.main.feature3.heading = 最佳支援，為您隨時候命
+	travel.main.feature3.paragraph = 若有不時之需，得到適當支援至為重要！富衛旅遊保險與全球領先的醫療、救援和安全服務公司國際SOS合作，在全球700多個地點提供24小時服務，確保您有需要時，我們都可以隨時為您解決燃眉之急。
+	travel.main.feature.getquote = 立即報價
+
+	travel.main.other.benefit = 其他保障:
+	travel.main.other.benefit.desc1 = 不用自掏腰包 – 提供全額保障，無需額外自負額。
+	travel.main.other.benefit.desc2 = 承擔租車保險的自負額費用高達港幣5,000。
+	travel.main.other.benefit.desc3 = 個人意外保障高達港幣1,200,000。
+	travel.main.other.benefit.desc4 = 於Y5Buddy租用流動Wi-Fi數據機可享八五折優惠。
+	travel.main.other.benefit.desc5 = 每次成功推薦一位朋友購買富衛旅遊保險即享一次Agoda九五折優惠
+
+	travel.main.other.disclaimer.part1 = 以上資料只作參考用途。詳情請查看
+	travel.main.other.disclaimer.part2 = 保單條款
+	travel.main.other.disclaimer.part3 = 。
+	travel.main.other.disclaimer.part4 = 有關條款細則的詳細資料，請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。
+
+	travel.main.highlight1.heading.line1 = 常在您左右
+	travel.main.highlight1.heading.line2 = 
+	travel.main.highlight1.desc.part1 = 富衛提供全天候24小時熱線支援，另設有5間分佈全港的客戶服務中心，加上
+	travel.main.highlight1.desc.part2 = 富衛流動應用程式
+	travel.main.highlight1.desc.part3 = ，隨時為您解答任何查詢。
+	travel.main.highlight2.heading.line1 = 安全，可靠
+	travel.main.highlight2.heading.line2 = 
+	travel.main.highlight2.desc = 富衛香港的壽險獲國際評級機構授予卓越的財務實力評級 -- 其中獲「穆迪」 評為A3級 及「惠譽國際」評為A級。
+	travel.main.highlight3.heading.line1 = 賞您所想
+	travel.main.highlight3.heading.line2 = 
+	travel.main.highlight3.desc = 富衛不斷為您提供各種獎賞及優惠，令您的保險計劃更吸引，例如將來的保費折扣及其他商户提供的優惠等。
+
+	travel.main.blog.heading = 閱讀更多
+	travel.main.blog.subheading1 = 放長假前必做七件事
+	travel.main.blog.subheading2 = 外出旅遊，連繫無間
+	travel.main.blog.subheading3 = 親子旅行小貼士
+	travel.main.blog.disclaimer = 博客資料謹供參考，富衛人壽保險(百慕達)有限公司及其聯繫公司 (「富衛」)雖然已盡力確保所載的資料正確無誤，但富衛並不就資料的準確性或完整性作出任何保證或陳述。富衛將不會因無法或不能使用任何資料或任何此博客所載之資料的錯誤或遺漏而負上任何直接、附帶、後果性、間接或懲罰性的損失的責任，使用者應自行小心評估資料。
+
+	travel.main.blog.subheading1.link = http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/
+	travel.main.blog.subheading2.link = http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/
+	travel.main.blog.subheading3.link = http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-traveling-with-children/
+
+	travel.main.testimonial.heading = 顧客親身體驗
+	travel.main.testimonial.customer1.feedback = 我選擇FWD旅遊保險因為佢地24小時都有人聽電話，最緊要係放工時間和身處外國都可以搵到人。
+	travel.main.testimonial.customer1.name = 楊先生
+	travel.main.testimonial.customer1.age = (30歲)
+	travel.main.testimonial.customer2.feedback = 我是一個背包客。富衛旅遊保及國際SOS緊急救援電話是我每次流浪時隨身必備的幫手 – 因為你永遠無法想像會在亞馬遜叢林遇上甚麼驚喜。
+	travel.main.testimonial.customer2.name = 龔先生
+	travel.main.testimonial.customer2.age = (26歲)
+	travel.main.testimonial.disclaimer = 以上意見及觀點純屬客戶意見，並不代表富衛人壽保險(百慕達)有限公司及其聯繫公司 (「富衛」)之意見。 富衛不需要承擔任何有關之責任及其準確性或完整性。
+
+	travel.breadcrumb1.item1 = 主頁
+	travel.breadcrumb1.item2 = 旅遊保險
+	travel.breadcrumb1.item3 = 您的選擇
+	travel.breadcrumb1.item4 = 個人資料
+	travel.breadcrumb1.item5 = 總結及付款
+	travel.breadcrumb1.item6 = 確認保單
+
+	travel.breadcrumb2.item1 = 您的選擇
+	travel.breadcrumb2.item2 = 個人資料
+	travel.breadcrumb2.item3 = 總結及付款
+	travel.breadcrumb2.item4 = 確認保單
+
+	travel.quote.jumbo = 您的選擇
+	travel.details.jumbo = 個人資料
+	travel.summary.jumbo = 總結及付款
+	travel.confirmation.jumbo = 確認保單
+
+	travel.sidebar.summary.product = 旅遊保險
+	travel.sidebar.summary.desc.part1 = 計劃
+	travel.sidebar.summary.desc.part2 = 概覽 
+	travel.sidebar.summary.option1 = 出發日期
+	travel.sidebar.summary.option2 = 回程日期
+	travel.sidebar.summary.option3 = 同行人數
+	travel.sidebar.summary.option4 = 合共天數
+	travel.sidebar.summary.promocode = 推廣編號
+	travel.sidebar.summary.promocode.placeholder = 例如：FWD789
+	travel.sidebar.summary.promocode.help = 如何取得推廣編號?
+	travel.sidebar.summary.subtotal = 小計
+	travel.sidebar.summary.discount = 折扣優惠
+	travel.sidebar.summary.amountDue = 所需保費
+	travel.sidebar.summary.label.personal = 旅客
+	travel.sidebar.summary.label.family.parent = 家長
+	travel.sidebar.summary.label.family.child = 子女
+	travel.sidebar.summary.label.family.others = 其他旅客
+
+	travel.action.next = 下一頁
+	travel.action.back = 上一頁
+	travel.action.apply = 使用
+	travel.action.change = 更改
+	travel.action.payment = 確認付款
+	travel.action.quote = 立即報價
+
+	travel.quote.choose = 您的選擇
+	travel.quote.plan.empty = 請選擇至少一個計劃。
+	travel.plan.empty = 請選擇至少一個計劃。
+	travel.quote.plan = 計劃
+	travel.quote.plan1 = 計劃A
+	travel.quote.plan1.type = 優越保障	
+	travel.quote.plan1.medical = 醫療保障
+	travel.quote.plan1.benefits = 承保範圍
+	travel.quote.plan1.benefits.desc1 = 住院或檢疫現金津貼
+	travel.quote.plan1.benefits.desc2 = 全球緊急支援服務
+	travel.quote.plan1.benefits.desc3 = 租車自負額
+	travel.quote.plan1.benefits.desc4 = 高爾夫球「一桿入洞」
+	travel.quote.plan1.benefits.desc1.price = $10,000
+	travel.quote.plan1.benefits.desc2.price = 
+	travel.quote.plan1.benefits.desc3.price = $5,000
+	travel.quote.plan1.benefits.desc4.price = $3,000
+	travel.quote.plan2 = 計劃B
+	travel.quote.plan2.type = 基本保障	
+	travel.quote.plan2.medical = 醫療保障
+	travel.quote.plan2.benefits = 承保範圍
+	travel.quote.plan2.benefits.desc1 = 住院或檢疫現金津貼
+	travel.quote.plan2.benefits.desc2 = 全球緊急支援服務
+	travel.quote.plan2.benefits.desc3 = 租車自負額
+	travel.quote.plan2.benefits.desc4 = 高爾夫球「一桿入洞」
+	travel.quote.plan2.benefits.desc1.price = $5,000
+	travel.quote.plan2.benefits.desc2.price = 
+	travel.quote.plan2.benefits.desc3.price = $3,000
+	travel.quote.plan2.benefits.desc4.price = $1,000
+	travel.dollar = HK$
+
+	travel.quote.fullDetails.heading = 更多保障詳情
+	travel.quote.fullDetails.keyFeature1 = 產品特點
+	travel.quote.fullDetails.keyFeature1.subheading = TravelCare專為旅遊或外出公幹人仕而設，提供全面旅遊保障，讓您無論身處何地，亦可享有醫療、全球緊急支援服務，住院現金津貼，人身意外，嚴重燒傷，個人錢財，行李，個人責任，旅程延誤，取消及縮短行程等保障。有關保障詳情，請參閱以下的“保障範圍”。
+	travel.quote.fullDetails.keyFeature1.desc1 = 每項保障均無自負金額
+	travel.quote.fullDetails.keyFeature1.desc2 = 全球24小時免費緊急支援服務
+	travel.quote.fullDetails.keyFeature1.desc3 = 保障休閒和業餘體育運動，包括冬季運動、蹦極、登山、攀岩、騎馬、潛水等水上運動
+	travel.quote.fullDetails.keyFeature1.desc4 = 保障因恐怖主義活動而引起的個人意外及醫療相關的索償
+	travel.quote.fullDetails.keyFeature1.desc5 = 保費按日計算，切合實際旅程需要，毋須多付保費
+	travel.quote.fullDetails.keyFeature1.desc6 = 個人及子女或家庭計劃內受保的子女數目不限
+	travel.quote.fullDetails.keyFeature1.desc7 = 若因不能避免的原因需要延續旅程，可自動享有為期高達10天的免費額外保障
+
+	travel.quote.fullDetails.keyFeature2 = 保障範圍
+	travel.quote.fullDetails.table.header1 = 保障項目
+	travel.quote.fullDetails.table.header2 = 承保範圍
+	travel.quote.fullDetails.table.header3 = 最高保障金額(港幣)
+	travel.quote.fullDetails.table.header3.col1 = A計劃
+	travel.quote.fullDetails.table.header3.col2 = B計劃
+	travel.quote.fullDetails.table.row1.col1 = 1. 醫療費用
+	travel.quote.fullDetails.table.row1.col2.desc1 = (a)   醫療費用 -因生病或身體受傷所需的醫療費用包括門診，住院或其他醫療服務。
+	travel.quote.fullDetails.table.row1.col2.desc2 = (b)   覆診費用 - 如曾於外地就醫，返回香港後九十日內之必須醫療費用。最高可達HK$100,000 (包括跌打每日每次上限為HK$200，最高賠償額為HK$3,000) 。
+	travel.quote.fullDetails.table.row1.col3 = $1,000,000
+	travel.quote.fullDetails.table.row1.col4 = $500,000
+
+	travel.quote.fullDetails.table.row2.col1 = 2. 住院或隔離現金津貼
+	travel.quote.fullDetails.table.row2.col2.desc1 = (a)   海外住院 –受保人在住院期間，每日可獲得現金 HK$500 的附加津貼，以應付額外開支。
+	travel.quote.fullDetails.table.row2.col2.desc2 = (b)   強制隔離 –於受保旅程中被隔離，或於受保旅程完結後返回香港七日內被強制隔離，受保人可獲得每完整一天HK$500的現金津貼。
+	travel.quote.fullDetails.table.row2.col3.desc1 = $10,000
+	travel.quote.fullDetails.table.row2.col3.desc2 = $10,000
+	travel.quote.fullDetails.table.row2.col4.desc1 = $5,000
+	travel.quote.fullDetails.table.row2.col4.desc2 = $5,000
+
+	travel.quote.fullDetails.table.row3.col1 = 3. 全球緊急支援服務
+	travel.quote.fullDetails.table.row3.col2.desc1 = (a)   緊急醫療撤離及遣返 - 將受保人緊急運送至就近有足夠醫療設備的醫療中心及在必須情況下， 將受保人送返香港治療。
+	travel.quote.fullDetails.table.row3.col2.desc2 = (b)   入院按金保證 - 辦理緊急入院按金保證。
+	travel.quote.fullDetails.table.row3.col2.desc3 = (c)   額外住宿費用 - 如受保人遭遇嚴重醫療問題，使其同行的一名受保人之家人或同行朋友支付額外的住宿費用。
+	travel.quote.fullDetails.table.row3.col2.desc4 = (d)   親友探望 - 受保人遭嚴重疾病或意外導致死亡或需停留外地治療超過3天，兩名直系親屬前往該地照料而引致的交通費。
+	travel.quote.fullDetails.table.row3.col2.desc5 = (e)   安排未成年子女送返香港 - 安排受保人的十八歲以下同行及受保子女送返香港之費用。
+	travel.quote.fullDetails.table.row3.col2.desc6 = (f)   運送遺體 / 骨灰送返香港 - 若受保人不幸身故，其遺體或骨灰運返香港之費用。
+	travel.quote.fullDetails.table.row3.col2.desc7 = (g)   安排返回香港以便辦理至親人後事 - 因直系親屬去世而需臨時折返香港 (包括經濟客位機票) 。 
+	travel.quote.fullDetails.table.row3.col2.desc8 = (h)  其他援助 - 提供電話醫療諮詢服務，緊急旅遊支援服務或法律團體轉介等等。
+	travel.quote.fullDetails.table.row3.col2.desc9 = 全球緊急支援服務由國際(SOS)救援中心提供
+	travel.quote.fullDetails.table.row3.col3.desc1 = 全部開支
+	travel.quote.fullDetails.table.row3.col3.desc2 = $40,000
+	travel.quote.fullDetails.table.row3.col3.desc3 = $40,000
+	travel.quote.fullDetails.table.row3.col3.desc4 = $40,000
+	travel.quote.fullDetails.table.row3.col3.desc5 = $40,000
+	travel.quote.fullDetails.table.row3.col3.desc6 = $40,000
+	travel.quote.fullDetails.table.row3.col3.desc7 = $40,000
+	travel.quote.fullDetails.table.row3.col3.desc8 = 已包括
+	travel.quote.fullDetails.table.row3.col3.desc9 = 
+	travel.quote.fullDetails.table.row3.col4.desc1 = 全部開支
+	travel.quote.fullDetails.table.row3.col4.desc2 = $40,000
+	travel.quote.fullDetails.table.row3.col4.desc3 = $15,000
+	travel.quote.fullDetails.table.row3.col4.desc4 = $15,000
+	travel.quote.fullDetails.table.row3.col4.desc5 = $15,000
+	travel.quote.fullDetails.table.row3.col4.desc6 = $15,000
+	travel.quote.fullDetails.table.row3.col4.desc7 = $15,000
+	travel.quote.fullDetails.table.row3.col4.desc8 = 已包括
+	travel.quote.fullDetails.table.row3.col4.desc9 = 
+
+	travel.quote.fullDetails.table.row4.col1 = 4. 人身意外
+	travel.quote.fullDetails.table.row4.col2.desc1.subheading = 人身意外
+	travel.quote.fullDetails.table.row4.col2.desc1.content = 意外死亡/ 永久完全殘廢/ 一目或雙目視力全失/ 一肢或四肢不全或永久喪失功效。(死亡賠償適用於18歲以下兒童及70歲以上人士最高賠償為HK$300,000)
+	travel.quote.fullDetails.table.row4.col2.desc2.subheading = 嚴重燒傷
+	travel.quote.fullDetails.table.row4.col2.desc2.content = 受保人於旅程期間因意外遭受三級程度燒傷且燒傷部分達其頭部表面面積的5%或以上或其身體 總表面面積的10%或以上。
+	travel.quote.fullDetails.table.row4.col2.desc3.subheading = 信用卡保障
+	travel.quote.fullDetails.table.row4.col2.desc3.content = 受保人在旅途中因意外死亡，意外發生當日其信用卡之結欠將得到賠償。
+	travel.quote.fullDetails.table.row4.col3.desc1 = $1,200,000
+	travel.quote.fullDetails.table.row4.col3.desc2 = $200,000
+	travel.quote.fullDetails.table.row4.col3.desc3 = $30,000
+	travel.quote.fullDetails.table.row4.col4.desc1 = $600,000
+	travel.quote.fullDetails.table.row4.col4.desc2 = $100,000
+	travel.quote.fullDetails.table.row4.col4.desc3 = $15,000
+
+	travel.quote.fullDetails.table.row5.col1 = 5. 行李
+	travel.quote.fullDetails.table.row5.col2 = 在旅途中因盜竊、搶劫、意外遺失或損毀而導致受保人的財物損失，但每件/對/套最高賠償限額為 HK$3,000。
+	travel.quote.fullDetails.table.row5.col3 = $20,000
+	travel.quote.fullDetails.table.row5.col4 = $3,000
+
+	travel.quote.fullDetails.table.row6.col1 = 6. 行李延誤
+	travel.quote.fullDetails.table.row6.col2 = 受保人在抵達目的地6小時後，寄運之行李因誤送或延遲仍未送達，可就購買必需品或須付來回機場以取回行李之額外交通費而提出索償。(如受保人已返家或抵達最後目的地，則本部份不再適用。)
+	travel.quote.fullDetails.table.row6.col3 = $1,500
+	travel.quote.fullDetails.table.row6.col4 = $500
+
+	travel.quote.fullDetails.table.row7.col1 = 7. 個人錢財
+	travel.quote.fullDetails.table.row7.col2 = 受保人被偷竊、爆竊、搶劫而導致的金錢損失。（包括：現金、旅行支票）
+	travel.quote.fullDetails.table.row7.col3 = $3,000
+	travel.quote.fullDetails.table.row7.col4 = $2,000
+
+	travel.quote.fullDetails.table.row8.col1 = 8. 旅遊證件遺失
+	travel.quote.fullDetails.table.row8.col2 = 因遺失護照、機票及其他旅遊證件所支付的補領費用，額外交通及住宿費用等。（額外交通及住宿費用最高賠償為每天HK$2,000（A計劃）或每天HK$1,000（B計劃）。）
+	travel.quote.fullDetails.table.row8.col3 = 
+	travel.quote.fullDetails.table.row8.col4 = 
+
+	travel.quote.fullDetails.table.row9.col1 = 9. 旅程延誤
+	travel.quote.fullDetails.table.row9.col2.desc1.subheading = (a)   額外交通費
+	travel.quote.fullDetails.table.row9.col2.desc1.content = 飛機或其他公共交通工具如受惡劣天氣、工業行動、騎劫、機件故障取消或延誤，而必須改動行程而導致之額外交通費。
+	travel.quote.fullDetails.table.row9.col2.desc2.subheading = (b)   現金津貼
+	travel.quote.fullDetails.table.row9.col2.desc2.content = 如旅程延誤超過6小時而又須支付額外交通費，每超過6小時可獲HK$300現金津貼。
+	travel.quote.fullDetails.table.row9.col2.desc3.subheading = (只可選擇A項或B項作為賠償）
+	travel.quote.fullDetails.table.row9.col2.desc3.content = 
+	travel.quote.fullDetails.table.row9.col3.desc1 = $10,000
+	travel.quote.fullDetails.table.row9.col3.desc2 = $2,500
+	travel.quote.fullDetails.table.row9.col3.desc3 = 
+	travel.quote.fullDetails.table.row9.col4.desc1 = $2,500
+	travel.quote.fullDetails.table.row9.col4.desc2 = $600
+	travel.quote.fullDetails.table.row9.col4.desc3 = 
+
+	travel.quote.fullDetails.table.row10.col1 = 10. 旅程取消
+	travel.quote.fullDetails.table.row10.col2 = 若受保人因須出庭作證、出任陪審團、被強迫性隔離、或受保人其直系家人、同行伙伴 或生意伙伴遭遇身故、嚴重疾病或嚴重身體受傷或於出發前10天因住宅受到水災或火災嚴重損毀而不能成行或出發前7天目的地發出黑色外遊警示受保人可就不能取回之訂金、旅費及機票費用提出索償。
+	travel.quote.fullDetails.table.row10.col3 = $30,000
+	travel.quote.fullDetails.table.row10.col4 = $5,000
+
+	travel.quote.fullDetails.table.row11.col1 = 11. 縮短旅程
+	travel.quote.fullDetails.table.row11.col2 = 受保人及其直系家人或同行伙伴或生意伙伴遭遇身故、嚴重疾病或嚴重身體受傷，或所乘搭的交通工具被騎劫、惡劣天氣、自然災害或突然爆發廣泛性傳染病、工業行動、暴動或內亂或旅遊目的地發出黑色外遊警示而必須縮短旅程，其不獲退回之未用旅費及返回香港之額外旅費均可獲得賠償。
+	travel.quote.fullDetails.table.row11.col3 = $30,000
+	travel.quote.fullDetails.table.row11.col4 = $5,000
+
+	travel.quote.fullDetails.table.row12.col1 = 12. 家居爆竊
+	travel.quote.fullDetails.table.row12.col2 = 受保人之主要往所於外遊期間空置， 並遭人使用暴力進出及入屋爆竊引致住所內家居物品或個人財物之失竊或破損。
+	travel.quote.fullDetails.table.row12.col3 = $30,000
+	travel.quote.fullDetails.table.row12.col4 = $10,000
+
+	travel.quote.fullDetails.table.row13.col1 = 13. 人身責任
+	travel.quote.fullDetails.table.row13.col2 = 因意外導致他人身體受傷或他人財物損失而負上法律責任。（駕駛或租用汽車引起的責任不在受保範圍之列）
+	travel.quote.fullDetails.table.row13.col3 = $3,000,000
+	travel.quote.fullDetails.table.row13.col4 = $1,500,000
+
+	travel.quote.fullDetails.table.row14.col1 = 14. 租車自負額
+	travel.quote.fullDetails.table.row14.col2 = 受保人在旅行期間所租用的車輛發生汽車意外，或車輛損壞或被盜，受保人可就該租用車輛之汽車保險保單所支付的自負額獲得賠償。  
+	travel.quote.fullDetails.table.row14.col3 = $5,000
+	travel.quote.fullDetails.table.row14.col4 = $3,000
+
+	travel.quote.fullDetails.table.row15.col1 = 15. 高爾夫球 「一桿入洞」
+	travel.quote.fullDetails.table.row15.col2 = 受保人於任何認可的高爾夫球場成功打出了「一桿入洞」。
+	travel.quote.fullDetails.table.row15.col3 = $3,000
+	travel.quote.fullDetails.table.row15.col4 = $1,000
+
+	travel.quote.fullDetails.majorExclusion = 主要不受保項目
+	travel.quote.fullDetails.majorExclusion.desc1 = 戰爭（不論已宣戰與否）、內戰、外敵行動、叛亂、軍事或篡奪行動。
+	travel.quote.fullDetails.majorExclusion.desc2 = 核風險。
+	travel.quote.fullDetails.majorExclusion.desc3 = 恐怖主義（此保障計劃所承保的人身意外、醫療費用、全球緊急支援服務、 旅程延誤、旅程取消、縮短旅程項目除外）。	
+	travel.quote.fullDetails.majorExclusion.desc4 = 投保前已存在之傷疾、先天及遺傳性疾病。
+	travel.quote.fullDetails.majorExclusion.desc5 = 自殺、蓄意自我傷害、神經錯亂、墮胎、流產、懷孕及其併發症、分娩、性病、 服用酒精或非由註冊醫生處方的藥物、牙齒護理（因意外而損壞健全的牙齒除外)。
+	travel.quote.fullDetails.majorExclusion.desc6 = 任何種類的競賽（徒步進行的比賽除外）或任何職業性質的運動或受保人可能 或可以賺取收入或報酬的運動。
+	travel.quote.fullDetails.majorExclusion.desc7 = 任何空中活動，除非受保人（i）以付費乘客身份在認可及持牌航空公司的航機上， 或（ii）所參與之活動是由另一位持牌人士帶領下負責操縱及航行，而該活動的舉 辦者亦獲當地有關當局授權。
+	travel.quote.fullDetails.majorExclusion.desc8 = 任何損失未能於24小時內向有關機構報告(例如：航空公司、警署)及取回書面證明。
+	travel.quote.fullDetails.majorExclusion.desc9 = 傳呼機、手提電話、手提便攜式通訊器材、電腦器材(手提電腦除外)。
+	travel.quote.fullDetails.majorExclusion.desc10 = 由於使用汽車、飛機或船隻或因故意、蓄意或非法活動所引起的責任。
+
+	travel.quote.fullDetails.ageLimit = 年齡限制
+	travel.quote.fullDetails.ageLimit.desc1 = 受保人必須為6星期至85歲之人仕，18歲以下兒童須最少由一名成人陪同投保。
+	travel.quote.fullDetails.ageLimit.desc2 = (此乃保障計劃摘要，有關保障條款及規定，以保單內容為準。)
+
+	travel.quote.fullDetails.priceTable = 保費表（港幣）
+	travel.quote.fullDetails.priceTable.plan1 = A 計劃
+	travel.quote.fullDetails.priceTable.plan2 = B 計劃
+	travel.quote.fullDetails.priceTable.single.heading = 單次旅程保險價目表 (港幣)
+	travel.quote.fullDetails.priceTable.single.header1 = 日數
+	travel.quote.fullDetails.priceTable.single.header2 = 個人
+	travel.quote.fullDetails.priceTable.single.header3 = 個人及子女
+	travel.quote.fullDetails.priceTable.single.header4 = 家庭
+	travel.quote.fullDetails.priceTable.dayLimit = 每逾一日<br>最多為180日
+	travel.quote.fullDetails.priceTable.annual.heading = 全年保障保費價目表 (港幣)
+	travel.quote.fullDetails.priceTable.annual.header1 = 全年保障每次不逾90日
+	travel.quote.fullDetails.priceTable.annual.header2 = 個人
+	travel.quote.fullDetails.priceTable.annual.header3 = 個人及子女/家庭
+
+	travel.quote.fullDetails.priceTable.remark = 附註
+	travel.quote.fullDetails.priceTable.remark.desc1 = 個人 - 投保人年齡介乎18歲至85歲
+	travel.quote.fullDetails.priceTable.remark.desc2 = 子女 - 指年齡在6星期至17歲而於整段旅程期間均與投保人同行的未婚子女
+	travel.quote.fullDetails.priceTable.remark.desc3 = 個人及子女 - 即投保人及上述所指的17歲或以下之子女，並不限制子女數目
+	travel.quote.fullDetails.priceTable.remark.desc4 = 家庭 - 即投保人、其配偶及上述所指的17歲或以下之子女，並不限制子女數目
+
+	travel.quote.fullDetails.download = 下載小冊子	
+
+	travel.quote.other.disclaimer.part1 = 以上資料只作參考用途。詳情請查看
+	travel.quote.other.disclaimer.part2 = 保單條款
+	travel.quote.other.disclaimer.part3 = 。
+	travel.quote.other.disclaimer.part4 = 有關條款細則的詳細資料，請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。
+
+	travel.details.login = 富衛 eServices現有會員？
+	travel.details.login.action = 登入
+	travel.details.login.other.part1 = 或
+	travel.details.login.other.part2 = 以訪客身份申請
+
+	travel.details.applicant.heading = 申請人資料
+	travel.details.applicant.name = 英文全名
+	travel.details.applicant.name.placeholder = 
+	travel.details.applicant.hkid = 香港身份證 / 護照號碼
+	travel.details.applicant.hkid.placeholder = X1234567 /護照號碼
+	travel.details.applicant.hkid.option1 = 香港身份證
+	travel.details.applicant.hkid.option2 = 護照號碼
+	travel.details.applicant.mobile = 手機號碼
+	travel.details.applicant.mobile.placeholder = 
+	travel.details.applicant.email = 電郵地址
+	travel.details.applicant.email.placeholder = 
+	travel.details.registration.heading = 建立富衛會員帳戶 － 享受全年不同優惠及推薦計劃獎賞
+	travel.details.registration.desc = 如不需要建立會員帳戶，請留空此欄
+	travel.details.registration.username = 用戶名稱
+	travel.details.registration.username.placeholder = 
+	travel.details.registration.password = 個人密碼
+	travel.details.registration.password.placeholder = 
+	travel.details.registration.confirmPassword = 確認密碼
+	travel.details.registration.confirmPassword.placeholder = 
+	travel.details.insured.heading = 受保人資料
+	travel.details.insured.label.personal = 旅客
+	travel.details.insured.label.family.parent = 家長
+	travel.details.insured.label.family.child = 子女
+	travel.details.insured.label.family.others = 其他旅客
+	travel.details.insured.name = 英文全名
+	travel.details.insured.name.placeholder = 
+	travel.details.insured.hkid = 香港身份證 / 護照號碼
+	travel.details.insured.hkid.placeholder = X1234567 /護照號碼
+	travel.details.insured.hkid.option1 = 香港身份證
+	travel.details.insured.hkid.option2 = 護照號碼
+	travel.details.insured.age = 年齡
+	travel.details.insured.age.placeholder = 
+	travel.details.insured.beneficiary = 受益人
+	travel.details.insured.beneficiary.name = 受益人全名
+	travel.details.insured.beneficiary.name.placeholder = 
+	travel.details.insured.beneficiary.hkid = 香港身份證 / 護照號碼
+	travel.details.insured.beneficiary.hkid.placeholder = X1234567 /護照號碼
+	travel.details.insured.beneficiary.hkid.option1 = 香港身份證
+	travel.details.insured.beneficiary.hkid.option2 = 護照號碼
+	travel.details.insured.age.select = 請選擇
+	travel.details.insured.beneficiary.default = 個人遺產
+
+	travel.details.declarations.heading = 聲明:-
+	travel.details.declarations.tnc = 本人已參閱及明白保障範圍並在此聲明:
+	travel.details.declarations.tnc.desc1 = 上列資料及本人所知一切據實填報 ;
+	travel.details.declarations.tnc.desc2 = 並據實相信各受保人絕不會違反醫生的囑咐或僅為獲醫療而外出旅遊。本人更清楚明白任何現已存在之疾病、現有、不時復發或先天疾病皆不在承保之列。本人保證已對安排而又必須取消或縮短旅程之事絕不知情;及
+	travel.details.declarations.tnc.desc3 = 同意此申請書及聲明將構成本人與富衛保險有限公司之間的合約根據。
+	travel.details.declarations.tnc.desc4 = 本投保書是在香港特別行政區內申請， 如有任何訛騙或資料失實，本人或受保人之保障有失效之虞。
+	travel.details.declarations.tnc.desc5 = 本人已得到其他受保人之同意把上述資料交予富衛保險有限公司用作申請航空意外保險之用。
+	travel.details.declarations.PICS.part1 = 本人已參閱及明白 
+	travel.details.declarations.PICS.part2 = 收集個人資料聲明
+	travel.details.declarations.PICS.part3 = ，並同意接受其約束。
+	travel.details.declarations.PDPO = 若閣下不希望本公司使用閣下的個人資料，或將閣下的個人資料提供予其他人士或公司作直接促銷用途，請剔以下有關方格，藉以行使閣下不同意此項安排的權利：
+	travel.details.declarations.PDPO.option1 = 請不要將直接促銷資料發給本人。
+	travel.details.declarations.PDPO.option2 = 請不要將本人的個人資料提供予其他人士或公司作其直接促銷用途。
+	travel.details.declarations.PDPO.warning = 您將會無法收到富衛最新的推廣優惠！
+
+	travel.details.other.disclaimer.part1 = 以上資料只作參考用途。詳情請查看
+	travel.details.other.disclaimer.part2 = 保單條款
+	travel.details.other.disclaimer.part3 = 。
+	travel.details.other.disclaimer.part4 = 有關條款細則的詳細資料，請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。
+
+	travel.summary.heading = 摘要
+	travel.summary.subheading = 更改資料
+	travel.summary.requestNo = 申請號碼
+
+	travel.summary.plan = 保險計劃
+	travel.summary.plan1 = 計劃A
+	travel.summary.plan1.type = 優越保障	
+	travel.summary.plan1.medical = 醫療保障
+	travel.summary.plan1.benefits = 承保範圍
+	travel.summary.plan1.benefits.desc1 = 住院或檢疫現金津貼 $10,000
+	travel.summary.plan1.benefits.desc2 = 全球緊急支援服務
+	travel.summary.plan1.benefits.desc3 = 租車自負額
+	travel.summary.plan1.benefits.desc4 = 高爾夫球「一桿入洞」 $3,000
+	travel.summary.plan2 = 計劃B
+	travel.summary.plan2.type = 基本保障	
+	travel.summary.plan2.medical = 醫療保障
+	travel.summary.plan2.benefits = 承保範圍
+	travel.summary.plan2.benefits.desc1 = 住院或檢疫現金津貼 $5,000
+	travel.summary.plan2.benefits.desc2 = 全球緊急支援服務
+	travel.summary.plan2.benefits.desc3 = 租車自負額
+	travel.summary.plan2.benefits.desc4 = 高爾夫球「一桿入洞」 $1,000
+	travel.summary.insuredNo = 總受保人數
+	travel.summary.period = 保障期
+	travel.summary.period.from = 由
+	travel.summary.period.to = 至
+	travel.summary.days = 日數
+	travel.summary.amountDue = 所需保費
+	travel.summary.applicant = 申請人資料
+	travel.summary.applicant.name = 英文全名
+	travel.summary.applicant.hkid = 香港身份證 / 護照號碼
+	travel.summary.applicant.mobileNo = 手機號碼
+	travel.summary.applicant.email = 電郵地址
+
+	travel.summary.insured = 受保人
+	travel.summary.insured.name = 英文全名
+	travel.summary.insured.age = 年齡
+	travel.summary.insured.hkid = 香港身份證/護照號碼
+	travel.summary.insured.beneficiary.relation = 關係
+	travel.summary.insured.label.personal = 旅客
+	travel.summary.insured.label.family.parent = 家長
+	travel.summary.insured.label.family.child = 子女
+	travel.summary.insured.label.family.others = 其他旅客
+	travel.summary.insured.label.family.beneficiary = 受益人 
+	travel.summary.insured.beneficiary = 受益人
+
+	travel.payment = 付款
+	travel.payment.card.type = 信用卡類型
+	travel.payment.card.no = 信用卡號碼
+	travel.payment.card.no.placeholder = 
+	travel.payment.card.expiryDate = 到期日
+	travel.payment.card.expiryDate.month = 月
+	travel.payment.card.expiryDate.year = 年
+	travel.payment.card.holderName = 持卡人名稱
+	travel.payment.card.holderName.placeholder = 
+	travel.payment.card.cvv = 驗證碼
+	travel.payment.card.cvv.placeholder = 
+	travel.payment.declarations = 本人現授權富衛保險有限公司從我上述指定的信用卡賬戶扣除此保險所應繳之保費。
+
+	travel.payment.confirmPayment = 確認付款
+	travel.confirmation.msg.part1 = 您已成功申請
+	travel.confirmation.msg.part2 = 富衛旅遊保險
+	travel.confirmation.msg.part3 = 。
+	travel.confirmation.msg.part4 = 
+	travel.confirmation.msg.part5 = 確認電郵將會發送至
+	travel.confirmation.msg.part6 = ，內附保單內容及細節。
+	travel.confirmation.policyNo = 保單編號:
+	#travel.confirmation.referalCode.member = 您的專屬推廣編號:
+	travel.confirmation.visitor.promocodeLabel = 額外優惠 – 使用你的推廣編號:
+	travel.confirmation.member.promocodeLabel = 額外優惠 – 使用你的專屬推廣編號:
+	#travel.confirmation.referalCode.desc1 = 與朋友分享，一同取得更多富衛合作夥伴之優惠!*
+	#travel.confirmation.referalCode.desc2.member = 立即分享您的專屬推廣編號，尊享額外優惠!!
+	travel.confirmation.visitor.referralCodeDesc = 您和您的朋友可以使用此推廣編號獲得網上投保折扣及合作夥伴優惠！
+	travel.confirmation.member.referralCodeDesc = 您和您的朋友可以使用此專屬推廣編號獲得網上投保折扣及合作夥伴優惠！
+	travel.confirmation.partnerDesc = 此外，您可從確認電郵獲得Y5Buddy 85折優惠詳情。
+	travel.confirmation.sharenow = 立即分享您的專屬推廣編號，尊享額外優惠!
+
+	travel.referral.copy = 複製
+	travel.referral.disclaimer = *推薦計劃
+	travel.referral.disclaimer.section1.header = 成功推薦每一名合資格客戶，你會獲得：
+	travel.referral.disclaimer.section1.desc1 = - 富衛旅遊保險7折優惠
+	travel.referral.disclaimer.section1.desc2 = - Agoda 95折優惠訂購酒店
+	travel.referral.disclaimer.section2.header = 被推薦客戶將獲得富衛旅遊保險75折優惠及易安心家居保92折優惠
+	travel.referral.disclaimer.section2.desc1 = 推薦計劃僅適用於已成功推薦一位或以上之客戶，而該被推薦客戶已成功購買富衛旅遊保險。
+	travel.referral.disclaimer.section3.desc.part1 = 請参閱推薦計劃之
+	travel.referral.disclaimer.section3.desc.part2 = 條款及細則
+	travel.referral.disclaimer.section3.desc.part3 = 。
+
+	travel.referral.benefits.visitor.table.header1 = 推廣類型
+	travel.referral.benefits.visitor.table.header2 = 適用產品
+	travel.referral.benefits.visitor.table.header3 = 優惠
+	travel.referral.benefits.visitor.table.header4 = 優惠有效期
+	travel.referral.benefits.visitor.table.row1.col1 = 推廣編號
+	travel.referral.benefits.visitor.table.row1.col2 = 旅遊保險
+	travel.referral.benefits.visitor.table.row1.col3 = 8折
+	travel.referral.benefits.visitor.table.row1.col4 = 全年適用
+	#travel.referral.benefits.visitor.table.row2.col1 = 
+	#travel.referral.benefits.visitor.table.row2.col2 = 易安心家居保
+	#travel.referral.benefits.visitor.table.row2.col3 = 92折
+	#travel.referral.benefits.visitor.table.row2.col4 = 全年適用
+	#travel.referral.benefits.visitor.table.row3.col1 = 推薦計劃<sup>1</sup>
+	#travel.referral.benefits.visitor.table.row3.col2 = 旅遊保險
+	#travel.referral.benefits.visitor.table.row3.col3 = 7折
+	#travel.referral.benefits.visitor.table.row3.col4 = 一次性<sup>2</sup>
+	#travel.referral.benefits.visitor.table.row4.col1 = 
+	#travel.referral.benefits.visitor.table.row4.col2 = Agoda
+	#travel.referral.benefits.visitor.table.row4.col3 = 95折
+	#travel.referral.benefits.visitor.table.row4.col4 = 一次性<sup>2</sup>
+	#travel.referral.benefits.visitor.disclaimer1 = <sup>1</sup>#推薦計劃僅適用於已成功推薦一位或以上客戶之顧客，而該被推薦客戶已成功購買富衛旅遊保險
+	#travel.referral.benefits.visitor.disclaimer2.part1 = <sup>2</sup>請参閱推薦計劃之
+	#travel.referral.benefits.visitor.disclaimer2.part2 = 條款及细則
+	#travel.referral.benefits.visitor.disclaimer2.part3 =
+
+	travel.referral.benefits.member.table.header1 = 推廣類型
+	travel.referral.benefits.member.table.header2 = 適用產品/合作夥伴
+	travel.referral.benefits.member.table.header3 = 優惠
+	travel.referral.benefits.member.table.header4 = 優惠有效期
+	travel.referral.benefits.member.table.row1.col1 = 專屬推廣編號
+	travel.referral.benefits.member.table.row1.col2 = 旅遊保險
+	travel.referral.benefits.member.table.row1.col3 = 75折
+	travel.referral.benefits.member.table.row1.col4 = 全年適用
+	travel.referral.benefits.member.table.row2.col1 = 
+	travel.referral.benefits.member.table.row2.col2 = 易安心家居保
+	travel.referral.benefits.member.table.row2.col3 = 92折
+	travel.referral.benefits.member.table.row2.col4 = 全年適用
+	travel.referral.benefits.member.table.row3.col1 = 推薦計劃<sup>1</sup>
+	travel.referral.benefits.member.table.row3.col2 = 旅遊保險
+	travel.referral.benefits.member.table.row3.col3 = 7折
+	travel.referral.benefits.member.table.row3.col4 = 一次性<sup>2</sup>
+	travel.referral.benefits.member.table.row4.col1 = 
+	travel.referral.benefits.member.table.row4.col2 = Agoda
+	travel.referral.benefits.member.table.row4.col3 = 95折
+	travel.referral.benefits.member.table.row4.col4 = 一次性<sup>2</sup>
+	travel.referral.benefits.member.disclaimer1 = <sup>1</sup>推薦計劃僅適用於已成功推薦一位或以上客戶之顧客，而該被推薦客戶已成功購買富衛旅遊保險
+	travel.referral.benefits.member.disclaimer2.part1 = <sup>2</sup>請参閱推薦計劃之
+	travel.referral.benefits.member.disclaimer2.part2 = 條款及细則
+	travel.referral.benefits.member.disclaimer2.part3 =
+
+	travel.confirmation.heading = 您可能有興趣
+	travel.confirmation.subheading = 易安心家居保
+	travel.confirmation.subheading.desc = 每天只需約HK$1，便可保障家居因火災、水浸、水渠爆裂、颱風、盜竊或意外導致的損失或毀壞。
+	travel.confirmation.getQuote = 立即報價
+
+
+
+
+	# ***** workingholidaycare *****
+	workingholiday.main.jumbo = 富衛工作假期保險
+
+	workingholiday.main.quote.top.heading = 此刻 盡情旅活
+	workingholiday.main.quote.bottom.heading = 立即申請富衛工作假期保險		workingholiday.main.quote.bottom.next = Next Step
+	workingholiday.main.quote.bottom.heading = 此刻 盡情旅活
+	workingholiday.main.quote.bottom.desc = It''s time to get protected and choose the right coverage for you.
+	workingholiday.main.quote.top.action = 立即報價
+	workingholiday.main.quote.bottom.action = 立即報價
+
+	workingholiday.main.desc1 = 出外工作假期，有全面的工作假期保障是您的最佳後盾!
+	workingholiday.main.desc2 = 
+	workingholiday.main.mobile.desc1 = 出外工作假期，有全面的工作假期保障是您的最佳後盾!
+	workingholiday.main.mobile.desc2 = 
+	workingholiday.main.mobile.desc3 = 
+	workingholiday.main.feature1.title = Flexibility of Refund
+	workingholiday.main.feature1.heading = 實報、實銷
+	workingholiday.main.feature1.paragraph1 = 如果您未能繼續旅程，或在未能預測的情況下決定縮短工作假期旅程，您將獲得全數或按比例退款。
+	workingholiday.main.feature1.paragraph2 = *to be translated
+	workingholiday.main.feature2.title = Unforeseable Loss of Income
+	workingholiday.main.feature2.heading = 突然沒有收入？不用怕，您將會受到保障！ 
+	workingholiday.main.feature2.paragraph = 假如您在未能預測的情況下，例如意外受傷或僱主破產等而未能繼續工作，我們會為您提供入息援助，讓您繼續原定旅程！
+	workingholiday.main.feature3.title = Flexibility of Refund
+	workingholiday.main.feature3.heading = 無邊暢遊世界
+	workingholiday.main.feature3.paragraph = 想暢遊其他國家？我們的全球旅遊保障將承保您於工作假期內的所有旅程！您可以放心到各地旅行，全程受保！
+	workingholiday.main.feature.getquote = 立即報價
+
+	workingholiday.main.other.benefit = 其他保障：
+	workingholiday.main.other.benefit.desc1 = 涵蓋您的個人意外和醫療費用。
+	workingholiday.main.other.benefit.desc2 = 短期工作都受保，包括在農場、餐廳、工廠等地方工作。
+	workingholiday.main.other.benefit.desc3 = 保足一年365日，全程承保您的工作假期。
+	workingholiday.main.other.benefit.desc4 = 24小時全球緊急支援服務。
+	workingholiday.main.other.benefit.desc5 = 不用自掏腰包，所有保障無需額外自負額。
+
+	workingholiday.main.other.disclaimer.part1 = 以上資料只作參考用途。詳情請查看
+	workingholiday.main.other.disclaimer.part2 = 保單條款
+	workingholiday.main.other.disclaimer.part3 = 。
+	workingholiday.main.other.disclaimer.part4 = 有關條款細則的詳細資料，請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。
+
+	workingholiday.main.highlight1.heading = 常在您左右
+	workingholiday.main.highlight1.desc.part1 = 富衛提供全天候24小時熱線支援，另設有5間分佈全港的客戶服務中心，加上
+	workingholiday.main.highlight1.desc.part2 = 富衛流動應用程式
+	workingholiday.main.highlight1.desc.part3 = ，隨時為您解答任何查詢。
+	workingholiday.main.highlight2.heading = 安全，可靠
+	workingholiday.main.highlight2.desc = 富衛香港的壽險獲國際評級機構授予卓越的財務實力評級 -- 其中獲「穆迪」 評為A3級 及「惠譽國際」評為A級。
+	workingholiday.main.highlight3.heading = 賞您所想
+	workingholiday.main.highlight3.desc = 富衛不斷為您提供各種獎賞及優惠，令您的保險計劃更吸引，例如將來的保費折扣及其他商户提供的優惠等。
+
+	workingholiday.main.blog.heading = 閱讀更多
+	workingholiday.main.blog.subheading1 = 放長假前必做七件事
+	workingholiday.main.blog.subheading2 = 外出工作假期，連繫無間
+	workingholiday.main.blog.subheading3 = 親子旅行小貼士
+	workingholiday.main.blog.disclaimer = 博客資料謹供參考，富衛人壽保險(百慕達)有限公司及其聯繫公司 (「富衛」)雖然已盡力確保所載的資料正確無誤，但富衛並不就資料的準確性或完整性作出任何保證或陳述。富衛將不會因無法或不能使用任何資料或任何此博客所載之資料的錯誤或遺漏而負上任何直接、附帶、後果性、間接或懲罰性的損失的責任，使用者應自行小心評估資料。
+
+	workingholiday.main.blog.subheading1.link = http://blog.fwd.com.hk/zh_HK/2015/03/17/7-musts-before-a-long-vacation/
+	workingholiday.main.blog.subheading2.link = http://blog.fwd.com.hk/zh_HK/2015/03/17/staying-connected-while-travelling-abroad/
+	workingholiday.main.blog.subheading3.link = http://blog.fwd.com.hk/zh_HK/2015/03/19/tips-for-workingholidaying-with-children/
+
+	workingholiday.main.testimonial.heading = 顧客親身體驗
+	workingholiday.main.testimonial.customer1.feedback = 我選擇FWD工作假期保險因為佢地24小時都有人聽電話，最緊要係放工時間和身處外國都可以搵到人。
+	workingholiday.main.testimonial.customer1.name = 楊先生
+	workingholiday.main.testimonial.customer1.age = (30歲)
+	workingholiday.main.testimonial.customer2.feedback = 我是一個背包客。富衛工作假期保及國際SOS緊急救援電話是我每次流浪時隨身必備的幫手 – 因為你永遠無法想像會在亞馬遜叢林遇上甚麼驚喜。
+	workingholiday.main.testimonial.customer2.name = 龔先生
+	workingholiday.main.testimonial.customer2.age = (26歲)
+	workingholiday.main.testimonial.disclaimer = 以上意見及觀點純屬客戶意見，並不代表富衛人壽保險(百慕達)有限公司及其聯繫公司 (「富衛」)之意見。 富衛不需要承擔任何有關之責任及其準確性或完整性。
+
+	workingholiday.breadcrumb1.item1 = 主頁
+	workingholiday.breadcrumb1.item2 = 工作假期保險
+	workingholiday.breadcrumb1.item3 = 您的選擇
+	workingholiday.breadcrumb1.item4 = 個人資料
+	workingholiday.breadcrumb1.item5 = 總結及付款
+	workingholiday.breadcrumb1.item6 = 確認保單
+
+	workingholiday.breadcrumb2.item1 = 您的選擇
+	workingholiday.breadcrumb2.item2 = 個人資料
+	workingholiday.breadcrumb2.item3 = 總結及付款
+	workingholiday.breadcrumb2.item4 = 確認保單
+
+	workingholiday.quote.jumbo = 您的選擇
+	workingholiday.details.jumbo = 個人資料
+	workingholiday.summary.jumbo = 總結及付款
+	workingholiday.confirmation.jumbo = 確認保單
+
+	workingholiday.sidebar.summary.product = 工作假期保險
+	workingholiday.sidebar.summary.desc.part1 = 計劃
+	workingholiday.sidebar.summary.desc.part2 = 概覽 
+	workingholiday.sidebar.summary.option1 = 出發日期
+	workingholiday.sidebar.summary.option2 = 回程日期
+	workingholiday.sidebar.summary.option3 = 同行人數
+	workingholiday.sidebar.summary.option4 = 合共天數
+	workingholiday.sidebar.summary.promocode = 推廣編號
+	workingholiday.sidebar.summary.promocode.placeholder = 例如：FWD789
+	workingholiday.sidebar.summary.promocode.help = 如何取得推廣編號?
+	workingholiday.sidebar.summary.subtotal = 小計
+	workingholiday.sidebar.summary.discount = 折扣優惠
+	workingholiday.sidebar.summary.amountDue = 所需保費
+	workingholiday.sidebar.summary.label.personal = 旅客
+	workingholiday.sidebar.summary.label.family.parent = 家長
+	workingholiday.sidebar.summary.label.family.child = 子女
+	workingholiday.sidebar.summary.label.family.others = 其他旅客
+
+	workingholiday.action.next = 下一頁
+	workingholiday.action.back = 上一頁
+	workingholiday.action.apply = 使用
+	workingholiday.action.change = 更改
+	workingholiday.action.payment = 確認付款
+	workingholiday.action.quote = 立即報價
+	workingholiday.action.paydollar = PayDollar是一個全面綜合的電子付款處理 平台，結合先進網上欺詐防禦系統，協助大小企業接受網上信用卡及扣賬付款。
+	workingholiday.action.visa = 「Visa驗證」服務是讓您體驗網上安全購物的嶄新措施，確保只有您才能使用個人Visa卡。
+	workingholiday.action.master = MasterCard SecureCode是一項提升MasterCard卡保安的新服務。透過提供一個私人代碼，可加強保障，防止您的信用卡在網上購物時被非法使用。
+
+	workingholiday.quote.choose = 您的選擇
+	workingholiday.quote.plan.empty = 請選擇至少一個計劃。
+	workingholiday.plan.empty = 請選擇至少一個計劃。
+	workingholiday.quote.plan = 計劃
+	workingholiday.quote.plan1 = 計劃A
+	workingholiday.quote.plan1.type = 優越保障	
+	workingholiday.quote.plan1.medical = 醫療保障
+	workingholiday.quote.plan1.benefits = 承保範圍
+	workingholiday.quote.plan1.benefits.desc1 = 意外死亡
+	workingholiday.quote.plan1.benefits.desc2 = 旅程取消
+	workingholiday.quote.plan1.benefits.desc3 = 縮短旅程
+	workingholiday.quote.plan1.benefits.desc4 = 人身責任
+	workingholiday.quote.plan1.benefits.desc1.price = $600,000
+	workingholiday.quote.plan1.benefits.desc2.price = $30,000
+	workingholiday.quote.plan1.benefits.desc3.price = $30,000
+	workingholiday.quote.plan1.benefits.desc4.price = $$1,500,000
+	workingholiday.quote.plan2 = 計劃B
+	workingholiday.quote.plan2.type = 基本保障	
+	workingholiday.quote.plan2.medical = 醫療保障
+	workingholiday.quote.plan2.benefits = 承保範圍
+	workingholiday.quote.plan2.benefits.desc1 = 意外死亡
+	workingholiday.quote.plan2.benefits.desc2 = 旅程取消
+	workingholiday.quote.plan2.benefits.desc3 = 縮短旅程
+	workingholiday.quote.plan2.benefits.desc4 = 人身責任
+	workingholiday.quote.plan2.benefits.desc1.price = $300,000
+	workingholiday.quote.plan2.benefits.desc2.price = $5,000
+	workingholiday.quote.plan2.benefits.desc3.price = $5,000
+	workingholiday.quote.plan2.benefits.desc4.price = $750,000
+	workingholiday.dollar = HK$
+
+	workingholiday.quote.fullDetails.heading = 更多保障詳情
+	workingholiday.quote.fullDetails.keyFeature1 = 產品特點
+	workingholiday.quote.fullDetails.keyFeature1.subheading = 工作假期計劃旅遊保險提供全面旅遊保障，讓您無憂享受旅遊，包括海外醫療、全球緊急支援服務、人身意外、嚴重燒傷、個人責任、取消及縮短行程、入息援助等保障。
+	workingholiday.quote.fullDetails.keyFeature1.desc1 = 特設入息援助保障，以應付燃眉之急
+	workingholiday.quote.fullDetails.keyFeature1.desc2 = 特別保障於於簽証國家內的短期工作，包括受僱農場勞動工作、餐飲業、旅遊接待、服務性行業等工作
+	workingholiday.quote.fullDetails.keyFeature1.desc3 = 保障休閒和業餘體育運動，包括冬季運動、蹦極、登山、攀岩、騎馬、潛水等水上運動
+	workingholiday.quote.fullDetails.keyFeature1.desc4 = 保障因恐怖主義活動而引起的個人意外及醫療相關的索償
+	workingholiday.quote.fullDetails.keyFeature1.desc5 = 工作假期計劃保障期最長為365天
+	workingholiday.quote.fullDetails.keyFeature1.desc6 = 旅遊保障更伸延至全球
+	workingholiday.quote.fullDetails.keyFeature1.desc7 = 全球24小時免費緊急支援服務
+	workingholiday.quote.fullDetails.keyFeature1.desc8 = 每項保障均無自負金額
+
+	workingholiday.quote.fullDetails.keyFeature2 = 保障範圍
+	workingholiday.quote.fullDetails.table.header1 = 保障項目
+	workingholiday.quote.fullDetails.table.header2 = 承保範圍
+	workingholiday.quote.fullDetails.table.header3 = 最高保障金額(港幣)
+	workingholiday.quote.fullDetails.table.header3.col1 = A計劃
+	workingholiday.quote.fullDetails.table.header3.col2 = B計劃
+	workingholiday.quote.fullDetails.table.row1.col1 = 1. 醫療費用
+	workingholiday.quote.fullDetails.table.row1.col2.desc1 = (a)   醫療費用 -因生病或身體受傷所需的醫療費用包括門診，住院或其他醫療服務。
+	workingholiday.quote.fullDetails.table.row1.col2.desc2 = (b)   覆診費用 - 如曾於外地就醫，返回香港後九十日內之必須醫療費用。最高可達HK$100,000 (包括跌打每日每次上限為HK$200，最高賠償額為HK$3,000) 。
+	workingholiday.quote.fullDetails.table.row1.col3 = $1,000,000
+	workingholiday.quote.fullDetails.table.row1.col4 = $500,000
+
+	workingholiday.quote.fullDetails.table.row2.col1 = 2. 全球緊急支援服務
+	workingholiday.quote.fullDetails.table.row2.col2.desc1 = (a)  代辦入院按金保證 - 辦理緊急入院保證按金。
+	workingholiday.quote.fullDetails.table.row2.col2.desc2 = (b)  緊急醫療撤離及遣返 - 將受保人緊急運送至就近有足夠醫療設備的醫療中心及在必須情況下，將受保人送返香港治療。
+	workingholiday.quote.fullDetails.table.row2.col2.desc3 = (c)  運送遺體 / 骨灰送返香港 - 若受保人不幸身故，其遺體或骨灰運返香港之費用。<br>額外住宿費用 - 如受保人遭遇嚴重醫療問題, 使其同行的一名受保人之家人或同行朋友支付額外的住宿費用。
+	workingholiday.quote.fullDetails.table.row2.col2.desc4 = (d)   親友探望 - 受保人遭嚴重疾病或意外導致死亡或需停留外地治療超過3天，兩名直系親屬前往該地照料而引致的交通費。 (住宿費用最長為連續五天，每天上限為HK$1,200) 
+	workingholiday.quote.fullDetails.table.row2.col2.desc5 = (e)   復康住宿費用 - 受保人於接受緊急醫療撤離途中或在境外住院治療後，如必須安排酒店住宿。(住宿費用最長為連續五天，每天上限為HK$1,200) 
+	workingholiday.quote.fullDetails.table.row2.col2.desc6 = (f)   安排返回香港以便辦理至親人後事 - 因直系親屬去世而需臨時折返香港 (包括經濟客位機票) 。 
+	workingholiday.quote.fullDetails.table.row2.col2.desc7 = (g)  額外住宿費用 - 如受保人遭遇嚴重醫療問題，使其同行的一名受保人之家人支付額外的住宿費用。
+	workingholiday.quote.fullDetails.table.row2.col2.desc8 = (h)  其他援助 - 提供電話醫療諮詢服務, 緊急旅遊支援服務或法律團體轉介等等。<br>全球緊急支援服務由國際(SOS)救援中心提供
+	workingholiday.quote.fullDetails.table.row2.col3.desc1 = $40,000
+	workingholiday.quote.fullDetails.table.row2.col3.desc2 = 全部開支
+	workingholiday.quote.fullDetails.table.row2.col3.desc3 = $40,000
+	workingholiday.quote.fullDetails.table.row2.col3.desc4 = $40,000
+	workingholiday.quote.fullDetails.table.row2.col3.desc5 = $6,000
+	workingholiday.quote.fullDetails.table.row2.col3.desc6 = $40,000
+	workingholiday.quote.fullDetails.table.row2.col3.desc7 = $40,000
+	workingholiday.quote.fullDetails.table.row2.col3.desc8 = 已包括
+	workingholiday.quote.fullDetails.table.row2.col4.desc1 = $40,000
+	workingholiday.quote.fullDetails.table.row2.col4.desc2 = 全部開支
+	workingholiday.quote.fullDetails.table.row2.col4.desc3 = $15,000
+	workingholiday.quote.fullDetails.table.row2.col4.desc4 = $15,000
+	workingholiday.quote.fullDetails.table.row2.col4.desc5 = $6,000
+	workingholiday.quote.fullDetails.table.row2.col4.desc6 = $15,000
+	workingholiday.quote.fullDetails.table.row2.col4.desc7 = $15,000
+	workingholiday.quote.fullDetails.table.row2.col4.desc8 = 已包括
+
+	workingholiday.quote.fullDetails.table.row3.col1 = 3. 人身意外
+	workingholiday.quote.fullDetails.table.row3.col2.desc1.subheading = 人身意外
+	workingholiday.quote.fullDetails.table.row3.col2.desc1.content = 意外死亡/ 永久完全殘廢/ 一目或雙目視力全失/ 一肢或四肢不全或永久喪失功效。
+	workingholiday.quote.fullDetails.table.row3.col2.desc2.subheading = 嚴重燒傷
+	workingholiday.quote.fullDetails.table.row3.col2.desc2.content = 受保人於旅程期間因意外遭受三級程度燒傷且燒傷部分達其頭部表面面積的5%或以上或其身體 總表面面積的10%或以上。
+	workingholiday.quote.fullDetails.table.row3.col3.desc1 = $600,000
+	workingholiday.quote.fullDetails.table.row3.col3.desc2 = $100,000
+	workingholiday.quote.fullDetails.table.row3.col4.desc1 = $300,000
+	workingholiday.quote.fullDetails.table.row3.col4.desc2 = $50,000
+
+	workingholiday.quote.fullDetails.table.row4.col1 = 4. 旅程取消
+	workingholiday.quote.fullDetails.table.row4.col2 = 若受保人因須出庭作證、出任陪審團、被強迫性隔離、或受保人或直系家人遭遇身故、嚴重疾病或嚴重身體受傷、或出發前7天目的地發出自然災害或突然爆發廣泛性傳染病、工業行動、暴動或內亂、或於或出發前10天因住宅受到水災或火災嚴重損毀而不能成行或出發前7天目的地發出黑色外遊警示，受保人可就不能取回之訂金、旅費及機票費用提出索償。
+	workingholiday.quote.fullDetails.table.row4.col3 = $30,000
+	workingholiday.quote.fullDetails.table.row4.col4 = $5,000
+
+	workingholiday.quote.fullDetails.table.row5.col1 = 5. 縮短旅程
+	workingholiday.quote.fullDetails.table.row5.col2 = 受保人或其直系家人遭遇身故、嚴重疾病或嚴重身體受傷，或所乘搭的交通工具被騎劫、惡劣天氣、自然災害或突然爆發廣泛性傳染病、工業行動、暴動或內亂或旅遊目的地發出黑色外遊警示而必須縮短旅程，其不獲退回之未用旅費及返回香港之額外旅費均可獲得賠償。
+	workingholiday.quote.fullDetails.table.row5.col3 = $30,000
+	workingholiday.quote.fullDetails.table.row5.col4 = $5,000
+
+	workingholiday.quote.fullDetails.table.row6.col1 = 6. 人身責任
+	workingholiday.quote.fullDetails.table.row6.col2 = 因意外導致他人身體受傷或他人財物損失而負上法律責任。（駕駛或租用汽車引起的責任不在受保範圍之列）
+	workingholiday.quote.fullDetails.table.row6.col3 = $1,500,000
+	workingholiday.quote.fullDetails.table.row6.col4 = $750,000
+
+	workingholiday.quote.fullDetails.table.row7.col1 = 7. 入息援助保障
+	workingholiday.quote.fullDetails.table.row7.col2.desc1 = (a)  若受保人在旅程中意外受傷住院超過7天，在合資格的醫生證明下，不能返回其受僱的工作以賺取入息，每周可獲賠償HK$1,000，最長為3星期，或
+	workingholiday.quote.fullDetails.table.row7.col2.desc2 = (b) 若受保人因僱主結業而未能討回受僱工作之薪金以7天起計，每周可獲賠償HK1,000，最長為3星期。<br><br>（只可選擇a項或b項作為賠償）
+	workingholiday.quote.fullDetails.table.row7.col3 = $3,000
+	workingholiday.quote.fullDetails.table.row7.col4 = N/A
+
+	workingholiday.quote.fullDetails.table.row8.col1 = 8. 旅遊證件遺失
+	workingholiday.quote.fullDetails.table.row8.col2 = 因遺失護照、機票及其他旅遊證件所支付的補領費用，額外交通及住宿費用等。（額外交通及住宿費用最高賠償為每天HK$2,000（A計劃））
+	workingholiday.quote.fullDetails.table.row8.col3 = $20,000	 
+	workingholiday.quote.fullDetails.table.row8.col4 = N/A
+
+	workingholiday.quote.fullDetails.majorExclusion = 主要不受保項目
+	workingholiday.quote.fullDetails.majorExclusion.desc1 = 戰爭（不論已宣戰與否）、內戰、外敵行動、叛亂、軍事或篡奪行動。
+	workingholiday.quote.fullDetails.majorExclusion.desc2 = 核風險。
+	workingholiday.quote.fullDetails.majorExclusion.desc3 = 恐怖主義（此保障計劃所承保的人身意外、醫療費用、全球緊急支援服務、 旅程延誤、旅程取消、縮短旅程項目除外）。	
+	workingholiday.quote.fullDetails.majorExclusion.desc4 = 投保前已存在之傷疾、先天及遺傳性疾病。
+	workingholiday.quote.fullDetails.majorExclusion.desc5 = 自殺、蓄意自我傷害、神經錯亂、墮胎、流產、懷孕及其併發症、分娩、性病、 服用酒精或非由註冊醫生處方的藥物、牙齒護理（因意外而損壞健全的牙齒除外)。
+	workingholiday.quote.fullDetails.majorExclusion.desc6 = 任何種類的競賽（徒步進行的比賽除外）或任何職業性質的運動或受保人可能 或可以賺取收入或報酬的運動。
+	workingholiday.quote.fullDetails.majorExclusion.desc7 = 任何空中活動，除非受保人（i）以付費乘客身份在認可及持牌航空公司的航機上， 或（ii）所參與之活動是由另一位持牌人士帶領下負責操縱及航行，而該活動的舉 辦者亦獲當地有關當局授權。
+	workingholiday.quote.fullDetails.majorExclusion.desc8 = 受保人出任為任何空中乘載工具的機務人員或操作員；從事離岸活動如商業潛水、油田鑽探、採礦或空中攝影、處理爆炸品、地盤工人、或出任軍隊服務。
+	workingholiday.quote.fullDetails.majorExclusion.desc9 =  任何損失未能於24小時內向有關機構報告(例如：航空公司、警署)及取回書面證明。	
+	workingholiday.quote.fullDetails.majorExclusion.desc10 = 由於使用汽車、飛機或船隻所引起的責任。							
+	workingholiday.quote.fullDetails.majorExclusion.desc11 = 任何非法、違反政府法案/法令的行為或活動。							
+
+	workingholiday.quote.fullDetails.priceTable = 保費表（港幣）
+	workingholiday.quote.fullDetails.priceTable.plan1 = A 計劃
+	workingholiday.quote.fullDetails.priceTable.plan2 = B 計劃
+	workingholiday.quote.fullDetails.priceTable.single.header1 = 保單生效日期為受保人離港當日或之前
+	workingholiday.quote.fullDetails.priceTable.single.header2 = 個人
+	workingholiday.quote.fullDetails.priceTable.single.price1 = 4,500
+	workingholiday.quote.fullDetails.priceTable.single.price2 = 3,500 
+
+	workingholiday.quote.fullDetails.priceTable.remark = 附註
+	workingholiday.quote.fullDetails.priceTable.remark.desc1 = 個人 - 投保人年齡介乎18歲至85歲
+	workingholiday.quote.fullDetails.priceTable.remark.desc2 = 子女 - 指年齡在6星期至17歲而於整段旅程期間均與投保人同行的未婚子女
+	workingholiday.quote.fullDetails.priceTable.remark.desc3 = 個人及子女 - 即投保人及上述所指的17歲或以下之子女，並不限制子女數目
+	workingholiday.quote.fullDetails.priceTable.remark.desc4 = 家庭 - 即投保人、其配偶及上述所指的17歲或以下之子女，並不限制子女數目
+
+	workingholiday.quote.fullDetails.download = 下載小冊子	
+
+	workingholiday.quote.other.disclaimer.part1 = 以上資料只作參考用途。詳情請查看
+	workingholiday.quote.other.disclaimer.part2 = 保單條款
+	workingholiday.quote.other.disclaimer.part3 = 。
+	workingholiday.quote.other.disclaimer.part4 = 有關條款細則的詳細資料，請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。
+
+	workingholiday.details.login = 富衛 eServices現有會員？
+	workingholiday.details.login.action = 登入
+	workingholiday.details.login.other.part1 = 或
+	workingholiday.details.login.other.part2 = 以訪客身份申請
+
+	workingholiday.details.applicant.heading = 申請人資料
+	workingholiday.details.applicant.name = 英文全名
+	workingholiday.details.applicant.name.placeholder = 英文全名
+	workingholiday.details.applicant.hkid = 香港身份證 / 護照號碼
+	workingholiday.details.applicant.hkid.placeholder = X1234567 /護照號碼
+	workingholiday.details.applicant.hkid.option1 = 香港身份證
+	workingholiday.details.applicant.hkid.option2 = 護照號碼
+	workingholiday.details.applicant.dob = 出生日期
+	workingholiday.details.applicant.mobile = 手機號碼
+	workingholiday.details.applicant.mobile.placeholder =  
+	workingholiday.details.applicant.email = 電郵地址
+	workingholiday.details.applicant.email.placeholder = 
+	workingholiday.details.registration.heading = 建立富衛會員帳戶 － 享受全年不同優惠及推薦計劃獎賞
+	workingholiday.details.registration.desc = 如不需要建立會員帳戶，請留空此欄
+	workingholiday.details.registration.username = 用戶名稱
+	workingholiday.details.registration.username.placeholder = 
+	workingholiday.details.registration.password = 個人密碼
+	workingholiday.details.registration.password.placeholder = 
+	workingholiday.details.registration.confirmPassword = 確認密碼
+	workingholiday.details.registration.confirmPassword.placeholder = 
+	workingholiday.details.insured.heading = 受保人資料
+	workingholiday.details.insured.label.personal = 旅客
+	workingholiday.details.insured.label.family.parent = 家長
+	workingholiday.details.insured.label.family.child = 子女
+	workingholiday.details.insured.label.family.others = 其他旅客
+	workingholiday.details.insured.name = 英文全名
+	workingholiday.details.insured.name.placeholder = 
+	workingholiday.details.insured.hkid = 香港身份證 / 護照號碼
+	workingholiday.details.insured.hkid.placeholder = X1234567 /護照號碼
+	workingholiday.details.insured.hkid.option1 = 香港身份證
+	workingholiday.details.insured.hkid.option2 = 護照號碼
+	workingholiday.details.insured.age = 年齡
+	workingholiday.details.insured.age.placeholder = 
+	workingholiday.details.insured.beneficiary = 受益人
+
+	workingholiday.details.declarations.heading = 聲明:-
+	workingholiday.details.declarations.tnc = 本人已參閱及明白保障範圍並在此聲明:
+	workingholiday.details.declarations.tnc.desc1 = 上列資料及本人所知一切據實填報 ;
+	workingholiday.details.declarations.tnc.desc2 = 並並據實相信各受保人絕不會違反醫生的囑咐或僅為獲醫療而外出旅遊。本人更清楚明白任何現已存在之疾病、現有、不時復發或先天疾病皆不在承保之列。本人保證已對安排而又必須取消或縮短旅程之事絕不知情;及
+	workingholiday.details.declarations.tnc.desc3 = 同意此申請書及聲明將構成本人與富衛保險有限公司之間的合約根據。
+	workingholiday.details.declarations.tnc.desc4 = 本投保書是在香港特別行政區內申請， 如有任何訛騙或資料失實，本人或受保人之保障有失效之虞。
+	workingholiday.details.declarations.tnc.desc5 = 本人已得到其他受保人之同意把上述資料交予富衛保險有限公司用作申請工作假期保險之用。
+	workingholiday.details.declarations.PICS.part1 = 本人已參閱及明白 
+	workingholiday.details.declarations.PICS.part2 = 收集個人資料聲明
+	workingholiday.details.declarations.PICS.part3 = ，並同意接受其約束。
+	workingholiday.details.declarations.PDPO = 若閣下不希望本公司使用閣下的個人資料，或將閣下的個人資料提供予其他人士或公司作直接促銷用途，請剔以下有關方格，藉以行使閣下不同意此項安排的權利：
+	workingholiday.details.declarations.PDPO.option1 = 請不要將直接促銷資料發給本人。
+	workingholiday.details.declarations.PDPO.option2 = 請不要將本人的個人資料提供予其他人士或公司作其直接促銷用途。
+	workingholiday.details.declarations.PDPO.warning = 您將會無法收到富衛最新的推廣優惠！
+
+	workingholiday.details.other.disclaimer.part1 = 以上資料只作參考用途。詳情請查看
+	workingholiday.details.other.disclaimer.part2 = 保單條款
+	workingholiday.details.other.disclaimer.part3 = 。
+	workingholiday.details.other.disclaimer.part4 = 有關條款細則的詳細資料，請聯絡您的理財顧問或致電我們的24小時熱線3123 3123與客戶服務主任聯絡。
+
+	workingholiday.summary.heading = 摘要
+	workingholiday.summary.subheading = 更改資料
+	workingholiday.summary.requestNo = 申請號碼
+
+
+	workingholiday.summary = 保險總額
+	workingholiday.summary.plan = 保險計劃
+	workingholiday.summary.plan1 = 計劃A
+	workingholiday.summary.plan1.type = 優越保障	
+	workingholiday.summary.plan1.medical = 醫療保障
+	workingholiday.summary.plan1.benefits = 承保範圍
+	workingholiday.summary.plan1.benefits.desc1 = 住院或檢疫現金津貼 $10,000
+	workingholiday.summary.plan1.benefits.desc2 = 全球緊急支援服務
+	workingholiday.summary.plan1.benefits.desc3 = 租車自負額
+	workingholiday.summary.plan1.benefits.desc4 = 高爾夫球「一桿入洞」 $3,000
+	workingholiday.summary.plan2 = 計劃B
+	workingholiday.summary.plan2.type = 基本保障	
+	workingholiday.summary.plan2.medical = 醫療保障
+	workingholiday.summary.plan2.benefits = 承保範圍
+	workingholiday.summary.plan2.benefits.desc1 = 住院或檢疫現金津貼 $5,000
+	workingholiday.summary.plan2.benefits.desc2 = 全球緊急支援服務
+	workingholiday.summary.plan2.benefits.desc3 = 租車自負額
+	workingholiday.summary.plan2.benefits.desc4 = 高爾夫球「一桿入洞」 $1,000
+	workingholiday.summary.insuredNo = 總受保人數
+	workingholiday.summary.period = 保障期
+	workingholiday.summary.period.from = 由
+	workingholiday.summary.period.to = 至
+	workingholiday.summary.days = 日數
+	workingholiday.summary.amountDue = 所需保費
+	workingholiday.summary.applicant = 申請人資料
+	workingholiday.summary.applicant.name = 英文全名
+	workingholiday.summary.applicant.hkid = 香港身份證 / 護照號碼
+	workingholiday.summary.applicant.mobileNo = 手機號碼
+	workingholiday.summary.applicant.email = 電郵地址
+	workingholiday.summary.applicant.requestNo = 申請號碼
+
+	workingholiday.summary.insured = 受保人
+	workingholiday.summary.insured.name = 英文全名
+	workingholiday.summary.insured.age = 年齡
+	workingholiday.summary.insured.hkid = 香港身份證/護照號碼
+	workingholiday.summary.insured.beneficiary.relation = 關係
+	workingholiday.summary.insured.label.personal = 旅客
+	workingholiday.summary.insured.label.family.parent = 家長
+	workingholiday.summary.insured.label.family.child = 子女
+	workingholiday.summary.insured.label.family.others = 其他旅客
+	workingholiday.summary.insured.label.family.beneficiary = 受益人 
+	workingholiday.summary.insured.beneficiary = 受益人
+
+	workingholiday.payment = 付款
+	workingholiday.payment.card.type = 信用卡類型
+	workingholiday.payment.card.no = 信用卡號碼
+	workingholiday.payment.card.no.placeholder = 
+	workingholiday.payment.card.expiryDate = 到期日
+	workingholiday.payment.card.expiryDate.month = 月
+	workingholiday.payment.card.expiryDate.year = 年
+	workingholiday.payment.card.holderName = 持卡人名稱
+	workingholiday.payment.card.holderName.placeholder = 
+	workingholiday.payment.card.cvv = 驗證碼
+	workingholiday.payment.card.cvv.placeholder = 
+	workingholiday.payment.declarations = 本人現授權富衛保險有限公司從我上述指定的信用卡賬戶扣除此保險所應繳之保費。
+
+	workingholiday.payment.confirmPayment = 確認付款
+	workingholiday.confirmation.msg.part1 = 您已成功申請
+	workingholiday.confirmation.msg.part2 = 富衛工作假期旅遊保險
+	workingholiday.confirmation.msg.part3 = 。
+	workingholiday.confirmation.msg.part4 = 
+	workingholiday.confirmation.msg.part5 = 確認電郵將會發送至
+	workingholiday.confirmation.msg.part6 = ，內附保單內容及細節。
+	workingholiday.confirmation.policyNo = 保單編號:
+	workingholiday.confirmation.referalCode.member = 您的專屬推廣編號:
+	workingholiday.confirmation.visitor.promocodeLabel = 額外優惠 – 使用你的推廣編號:
+	workingholiday.confirmation.member.promocodeLabel = 額外優惠 – 使用你的專屬推廣編號:
+	workingholiday.confirmation.referalCode.desc1 = 與朋友分享，一同取得更多富衛合作夥伴之優惠!
+	workingholiday.confirmation.referalCode.desc2.member = 立即分享您的專屬推廣編號，尊享額外優惠!!
+	workingholiday.confirmation.visitor.referralCodeDesc = 您和您的朋友可以使用此推廣編號獲得網上投保折扣及合作夥伴優惠！
+	workingholiday.confirmation.member.referralCodeDesc = 您和您的朋友可以使用此專屬推廣編號獲得網上投保折扣及合作夥伴優惠！
+	workingholiday.confirmation.partnerDesc = 此外，您可從確認電郵獲得Y5Buddy 85折優惠詳情。
+	workingholiday.confirmation.sharenow = 立即分享您的專屬推廣編號，尊享額外優惠!
+
+	workingholiday.referral.copy = 複製
+	workingholiday.referral.disclaimer = *推薦計劃
+	workingholiday.referral.disclaimer.section1.header = 成功推薦每一名合資格客戶，你會獲得：
+	workingholiday.referral.disclaimer.section1.desc1 = - 富衛工作假期保險7折優惠
+	workingholiday.referral.disclaimer.section1.desc2 = - Agoda 95折優惠訂購酒店
+	workingholiday.referral.disclaimer.section2.header = 被推薦客戶將獲得易安心家居保92折優惠
+	workingholiday.referral.disclaimer.section2.desc1 = 富衛的推薦計劃僅適用於推薦一位或以上並成功購買富衛旅遊保險之顧客。
+	workingholiday.referral.disclaimer.section3.desc.part1 = 請参閱推薦計劃之
+	workingholiday.referral.disclaimer.section3.desc.part2 = 條款及細則
+	workingholiday.referral.disclaimer.section3.desc.part3 = 。
+
+	workingholiday.referral.benefits.visitor.table.header1 = 推廣類型
+	workingholiday.referral.benefits.visitor.table.header2 = 適用產品
+	workingholiday.referral.benefits.visitor.table.header3 = 優惠
+	workingholiday.referral.benefits.visitor.table.header4 = 優惠有效期
+	workingholiday.referral.benefits.visitor.table.row1.col1 = 推廣編號
+	workingholiday.referral.benefits.visitor.table.row1.col2 = 旅遊保險
+	workingholiday.referral.benefits.visitor.table.row1.col3 = 8折
+	workingholiday.referral.benefits.visitor.table.row1.col4 = 全年適用
+	#workingholiday.referral.benefits.visitor.table.row2.col1 = 
+	#workingholiday.referral.benefits.visitor.table.row2.col2 = 易安心家居保
+	#workingholiday.referral.benefits.visitor.table.row2.col3 = 92折
+	#workingholiday.referral.benefits.visitor.table.row2.col4 = 全年適用
+	#workingholiday.referral.benefits.visitor.table.row3.col1 = 推薦計劃<sup>1</sup>
+	#workingholiday.referral.benefits.visitor.table.row3.col2 = 工作假期保險
+	#workingholiday.referral.benefits.visitor.table.row3.col3 = 7折
+	#workingholiday.referral.benefits.visitor.table.row3.col4 = 一次性<sup>2</sup>
+	#workingholiday.referral.benefits.visitor.table.row4.col1 = 
+	#workingholiday.referral.benefits.visitor.table.row4.col2 = Agoda
+	#workingholiday.referral.benefits.visitor.table.row4.col3 = 95折
+	#workingholiday.referral.benefits.visitor.table.row4.col4 = 一次性<sup>2</sup>
+	#workingholiday.referral.benefits.visitor.disclaimer1 = <sup>1</sup>#推薦計劃僅適用於已成功推薦一位或以上客戶之顧客，而該被推薦客戶已成功購買富衛工作假期保險
+	#workingholiday.referral.benefits.visitor.disclaimer2.part1 = <sup>2</sup>請参閱推薦計劃之
+	#workingholiday.referral.benefits.visitor.disclaimer2.part2 = 條款及细則
+	#workingholiday.referral.benefits.visitor.disclaimer2.part3 =
+
+	workingholiday.referral.benefits.member.table.header1 = 推廣類型
+	workingholiday.referral.benefits.member.table.header2 = 適用產品/合作夥伴
+	workingholiday.referral.benefits.member.table.header3 = 優惠
+	workingholiday.referral.benefits.member.table.header4 = 優惠有效期
+	workingholiday.referral.benefits.member.table.row1.col1 = 專屬推廣編號
+	workingholiday.referral.benefits.member.table.row1.col2.desc1 = 旅遊保險
+	workingholiday.referral.benefits.member.table.row1.col2.desc2 = 易安心家居保
+	workingholiday.referral.benefits.member.table.row1.col3.desc1 = 75折
+	workingholiday.referral.benefits.member.table.row1.col3.desc2 = 92折
+	workingholiday.referral.benefits.member.table.row1.col4.desc1 = 全年適用
+	workingholiday.referral.benefits.member.table.row1.col4.desc2 = 全年適用
+	workingholiday.referral.benefits.member.table.row2.col1 = 推薦計劃<sup>1</sup>
+	workingholiday.referral.benefits.member.table.row2.col2.desc1 = 旅遊保險
+	workingholiday.referral.benefits.member.table.row2.col2.desc2 = Agoda
+	workingholiday.referral.benefits.member.table.row2.col3.desc1 = 7折
+	workingholiday.referral.benefits.member.table.row2.col3.desc2 = 95折
+	workingholiday.referral.benefits.member.table.row2.col4.desc1 = 一次性<sup>2</sup>
+	workingholiday.referral.benefits.member.table.row2.col4.desc2 = 一次性<sup>2</sup>
+	workingholiday.referral.benefits.member.disclaimer1 = <sup>1</sup>推薦計劃僅適用於已成功推薦一位或以上客戶之顧客，而該被推薦客戶已成功購買富衛工作假期保險
+	workingholiday.referral.benefits.member.disclaimer2.part1 = <sup>2</sup>請参閱推薦計劃之
+	workingholiday.referral.benefits.member.disclaimer2.part2 = 條款及细則
+	workingholiday.referral.benefits.member.disclaimer2.part3 =
+
+	workingholiday.confirmation.heading = 您可能有興趣
+	workingholiday.confirmation.subheading = 易安心家居保
+	workingholiday.confirmation.subheading.desc = 每天只需約HK$1，便可保障家居因火災、水浸、水渠爆裂、颱風、盜竊或意外導致的損失或毀壞。
+	workingholiday.confirmation.getQuote = 立即報價
