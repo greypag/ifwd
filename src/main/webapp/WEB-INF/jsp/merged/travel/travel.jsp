@@ -241,8 +241,8 @@ function getParameterByUrl(name){
 	                </tr>
 	                  <tr>
 	                  <td class="" style="min-width: 210px;">
-                        <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup">
-                          <a class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
+                        <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="travelTypeDropdown">
+                          <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
                              <label class="select-label travel_type_label" style="cursor: pointer;white-space: nowrap;"><fmt:message key="travel.main.quote.pleaseselect" bundle="${msg}" /></label>
                              <span class="product_landing_custom_fa-caret-down">
                                 <i class="fa fa-caret-down"></i>
@@ -414,9 +414,9 @@ function getParameterByUrl(name){
   <div class="form-container">
     <h2 style="text-align: center;color: #f6871e;padding-top: 10px;padding-bottom: 10px;"><fmt:message key="travel.main.quote.top.heading" bundle="${msg}" /></h2>
     <h4 style="color: #fff;"><fmt:message key="travel.main.quote.planSelect" bundle="${msg}" /></h4>
-    <div class="dropdown  form-group drop-down" style="background-color: #fff;">
+    <div class="dropdown  form-group drop-down" id="travelTypeDropdownMob" style="background-color: #fff;">
       
-      <a class="dropdown-toggle col-xs-12 col-sm-12" data-toggle="dropdown"> <label class="select-label travel_type_label" style="cursor: pointer;font-size: 23px !important;"><fmt:message key="travel.main.quote.pleaseselect" bundle="${msg}" /></label>&nbsp; <i class="fa fa-caret-down pull-right"></i></a>
+      <a href="#" class="dropdown-toggle col-xs-12 col-sm-12" data-toggle="dropdown"> <label class="select-label travel_type_label" style="cursor: pointer;font-size: 23px !important;"><fmt:message key="travel.main.quote.pleaseselect" bundle="${msg}" /></label>&nbsp; <i class="fa fa-caret-down pull-right"></i></a>
     <div class="dropdown-menu bdr1 pad-none" style="width: 100%;">
       <div class="drop-content pad-none">
           <div class="product_landing_custom_selectbox" onclick="selectTravelCareType('single',$(this).html());"><fmt:message key="travel.main.quote.singletriptravel" bundle="${msg}" /></div>
@@ -1166,11 +1166,11 @@ function getParameterByUrl(name){
           </tr>
             <tr>
                 <td class="" style="min-width: 210px;">
-                   <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup">
-                     <a class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
+                   <div class="dropdown  form-group drop-down wh-bg input-group-div marg-b2 dropup" id="travelTypeDropdownBtm">
+                     <a href="#" class="dropdown-toggle col-lg-12 col-md-12" data-toggle="dropdown">
                         <label class="select-label travel_type_label" style="cursor: pointer;white-space: nowrap;"><fmt:message key="travel.main.quote.pleaseselect" bundle="${msg}" /></label>
                         <span class="product_landing_custom_fa-caret-down">
-                           <i class="fa fa-caret-down"></i>
+                           <i class="fa fa-caret-down"></i> 
                         </span>
                      </a>
                      <div class="dropdown-menu bdr1 pad-none" style="width: 190px;">

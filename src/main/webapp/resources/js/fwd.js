@@ -1048,6 +1048,11 @@ $('#myFWDropdown .dropdown-menu,#myFWDropdownMob .dropdown-menu,#myFWDropdownBtm
 		e.stopPropagation();
 	}
 });
+$('#travelTypeDropdown .dropdown-menu,#travelTypeDropdownMob .dropdown-menu,#travelTypeDropdownBtm .dropdown-menu').on({
+	"click": function (e) {
+		e.stopPropagation();
+	}
+});
 
 function setDropDownValue(elm, val){
 	var dropdown = $(elm).closest(".simulate-drop-down");
