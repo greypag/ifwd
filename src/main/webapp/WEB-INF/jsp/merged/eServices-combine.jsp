@@ -555,7 +555,7 @@
 				                  	<h2 class="text-center"> <fmt:message key="userAccount.Your.referral.link" bundle="${msg}" /></h2>
 				                  	<div class="link"><a class="padding6 h4-5-b " href="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}?promo=<%=session.getAttribute("myReferralCode")%>" target="_blank"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}?promo=<%=session.getAttribute("myReferralCode")%></a></div>
 									
-										<button type="button" class="btn copy-link invisible" id="copy-link"><fmt:message key="userAccount.Copy.link" bundle="${msg}" /></button>
+										<button type="button" class="btn copy-link" id="copy-link"><fmt:message key="userAccount.Copy.link" bundle="${msg}" /></button>
 										<div class="share">
 											<a href="#"><i class="fa fa-facebook"></i></a>
 											<a href="#"><i class="fa fa-twitter"></i></a>
