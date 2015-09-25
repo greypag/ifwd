@@ -228,6 +228,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			}
 			if(result["priceInfoA"].totalDue!=result["priceInfoA"].grossPremium){
 				//$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+				$('.actualPriceA').removeClass('hide');
 				$('.actualPriceA del').html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
 			}
 			/*$('.totalPriceA').html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));*/
@@ -235,6 +236,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 			
 			if(result["priceInfoB"].totalDue!=result["priceInfoB"].grossPremium){
                 //$('.actualPriceB del').html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
+                $('.actualPriceB').removeClass('hide');
 				$('.actualPriceB del').html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
             }
 			//$('.totalPriceB').html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
@@ -418,7 +420,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                         <fmt:message key="annual.quote.dollar" bundle="${msg}" /> <span class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getGrossPremium()[i]%>" />.00</span>
                                         <span class="hide"><%=travelQuote.getGrossPremium()[i]%></span>
                                     </h2>
-                                    <div class="del actualPriceA product_plan_box_del hide">HK$ <del>240.00</del></div>
+                                    <div class="del actualPrice<%=travelQuote.getPlanName()[i]%> product_plan_box_del hide"><del></del></div>
                                 </div>
                                 <div class="product_plan_box_select_button_container col-lg-12 col-md-12 col-sm-6 col-xs-6 pad-none"><div class="product_plan_box_select_button"><fmt:message key="annual.common.select" bundle="${msg}" /></div></div>
                                 <div class="clearfix"></div>
