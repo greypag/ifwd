@@ -13005,15 +13005,13 @@ body.chin .fwd-savie-wrapper .hunger-selling-container .hunger-selling-content .
   }
 }
 .fwd-savie-wrapper .pull-left.eServices-body {
-  background-color: #f1f3f5;
   width: 100%;
   position: relative;
-  padding-top: 82px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .pull-left.eServices-body {
+    background-color: #f1f3f5;
     padding-left: 250px;
-    padding-top: 0;
     min-height: 450px;
   }
 }

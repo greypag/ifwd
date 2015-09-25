@@ -22,6 +22,16 @@
 			<!-- HEADER -->
 			<div class="container-fluid fwd-full-container" id="eServices-personal-info">
 				<div class="fwd-container-limit clearfix sidebar">
+                    <div class="btn-group account-dropdown hidden-md hidden-lg clearfix" id="eServices-sidebar-mp">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <span class="button-text"><fmt:message key="userAccount.Profile.setting" bundle="${msg}" /></span> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="active"><a href="#personal-info-tab" data-toggle="tab"><fmt:message key="userAccount.Profile.setting" bundle="${msg}" /></a></li>
+                            <li><a href="#purchase-history-tab" data-toggle="tab"><fmt:message key="userAccount.Purchase.history" bundle="${msg}" /></a></li>
+                            <li><a href="#referral-tab" data-toggle="tab"><fmt:message key="userAccount.Referrals.promo" bundle="${msg}" /></a></li>
+                        </ul>
+                    </div>
 					<div class="pull-left eServices-sidebar hidden-xs hidden-sm" id="eServices-sidebar">
 						<%--@include file="includes/eServices-sidebar.jsp" --%>	
                   <div class="row reset-margin">
@@ -65,7 +75,7 @@
                   </div>
 					</div>
 					<div class="pull-left eServices-body tab-content" id="eServices-body">
-						<div class="fwd-full-container container-fluid notification-header hidden-md hidden-lg">
+						<!--<div class="fwd-full-container container-fluid notification-header hidden-md hidden-lg">
 							<div class=" clearfix">
 								<div class="pull-left">
 									<a href="eServices-landing" class="arrow-left-notify" href="eServices-landing">
@@ -76,7 +86,7 @@
 									<div class="text"><fmt:message key="userAccount.Profile.setting" bundle="${msg}" /></div>
 								</div>
 							</div>
-						</div>
+						</div>-->
                   
 						<!-- eServices Personal Info Block -->
 						<div class="fwd-full-container container-fluid eservices-personal-info tab-pane in active" id="personal-info-tab">
@@ -682,6 +692,13 @@
 		</div>
         <script src="<%=request.getContextPath()%>/resources/js/ZeroClipboard.js"></script>
 		<script type="text/javascript">
+         $('#eServices-sidebar-mp a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+            var $self = $(this);
+            var $parent = $self.parent('li');
+            $parent.siblings().removeClass('active');
+            $parent.addClass('active');
+         });
+      
 		  $('#personal-info-edit').click(function(){        
 			$('#eservices-personal-info').addClass('invert');
 			$('input').removeAttr("readonly");
