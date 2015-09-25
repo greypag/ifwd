@@ -373,7 +373,7 @@ function activateUserAccountJoinUs() {
                                    <label for="inputFullName" class="field-label bold-500"><fmt:message key="annual.details.fullname" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input type="text" name="fullName"
+                                   <input type="text" name="fullName" autocomplete="off"
                                         class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" id="inputFullName"
                                         <c:choose>
 										    <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
@@ -400,7 +400,7 @@ function activateUserAccountJoinUs() {
                                    onkeypress=" return hkidOnkeypress(event);"
                                    value="<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />"
                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />');" 
-                                   onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />'); validateHkid('inputTxtAppHkid','selectHkidPass','errAppHkid',true,'applicant');"/>
+                                   onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />'); validateHkid('inputTxtAppHkid','selectHkidPass','errAppHkid',true,'applicant');" autocomplete="off"/>
                                        <span id="errAppHkid" class="text-red" ></span>
                                </div>
                            </div>
@@ -425,7 +425,7 @@ function activateUserAccountJoinUs() {
                                         class="field-label bold-500"><fmt:message key="annual.details.mobile" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <input name="mobileNo" type="tel"
+                                    <input name="mobileNo" type="tel" autocomplete="off"
                                         class="form-control full-control" value="${userDetails.mobileNo.trim()}"
                                         id="inputMobileNo"
                                         <c:choose>
@@ -447,7 +447,7 @@ function activateUserAccountJoinUs() {
                                         class="field-label bold-500"><fmt:message key="annual.details.email" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input class="form-control full-control textLower" name="emailAddress" type="email"
+                                   <input class="form-control full-control textLower" name="emailAddress" type="email" autocomplete="off"
                                         value="${userDetails.emailAddress.trim()}" id="inputEmailId"
                                         <c:choose>
 										    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
@@ -476,7 +476,7 @@ function activateUserAccountJoinUs() {
                                                 placeholder="<fmt:message key="annual.details.address.room.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.address.room.placeholder" bundle="${msg}" />');"
                                                 onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.address.room.placeholder" bundle="${msg}" />');"
-                                                onkeypress="    return isAlphaNumeric(event);" maxlength="10" />
+                                                onkeypress="    return isAlphaNumeric(event);" maxlength="10" autocomplete="off"/>
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
@@ -484,7 +484,7 @@ function activateUserAccountJoinUs() {
                                                 placeholder="<fmt:message key="annual.details.address.floor.placeholder" bundle="${msg}" />"  
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.address.floor.placeholder" bundle="${msg}" />');"
                                                 onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.address.floor.placeholder" bundle="${msg}" />');"     
-                                                onkeypress="    return isAlphaNumeric(event);" maxlength="5"/>
+                                                onkeypress="    return isAlphaNumeric(event);" maxlength="5" autocomplete="off"/>
                                            </div>
                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                                 <input type="text" class="form-control full-control bmg_custom_placeholder textUpper"
@@ -492,7 +492,7 @@ function activateUserAccountJoinUs() {
                                                 placeholder="<fmt:message key="annual.details.address.block.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.address.block.placeholder" bundle="${msg}" />');"
                                                 onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.address.block.placeholder" bundle="${msg}" />');"
-                                                onkeypress="    return isAlphaNumeric(event);" maxlength="5" />
+                                                onkeypress="    return isAlphaNumeric(event);" maxlength="5" autocomplete="off" />
                                            </div>
                                            <div class="clearfix"></div>
                                         </div>
@@ -510,7 +510,7 @@ function activateUserAccountJoinUs() {
                                                 placeholder="<fmt:message key="annual.details.address.building.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.address.building.placeholder" bundle="${msg}" />');"
                                                 onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.address.building.placeholder" bundle="${msg}" />'); chkNotNullCABuilding(this, 'errCABuilding');"
-                                                onkeypress="return isAlphaNumeric(event);" maxlength="50" />
+                                                onkeypress="return isAlphaNumeric(event);" maxlength="50" autocomplete="off"/>
                                                 <span id="errCABuilding" class="text-red"> </span>
                                    </div>
                                    <div class="clearfix"></div>
@@ -526,7 +526,7 @@ function activateUserAccountJoinUs() {
                                                 placeholder="<fmt:message key="annual.details.address.estate.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.address.estate.placeholder" bundle="${msg}" />');"
                                                 onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.address.estate.placeholder" bundle="${msg}" />'); chkNotNullCAEstate(this, 'errCAEstate');"
-                                                onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
+                                                onkeypress="    return isAlphaNumeric(event);" maxlength="50" autocomplete="off"/>
                                                 <span id="errCAEstate" class="text-red"> </span>
                                    </div>
                                    <div class="clearfix"></div>
@@ -542,7 +542,7 @@ function activateUserAccountJoinUs() {
                                             placeholder="<fmt:message key="annual.details.address.streetNo.placeholder" bundle="${msg}" />"
                                             onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.address.streetNo.placeholder" bundle="${msg}" />');"
                                             onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.address.streetNo.placeholder" bundle="${msg}" />');"
-                                            onkeypress="" maxlength="5" />
+                                            onkeypress="" maxlength="5" autocomplete="off"/>
                                    </div>
                                    <div class="clearfix"></div>
                                </div>
@@ -557,7 +557,7 @@ function activateUserAccountJoinUs() {
                                                 placeholder="<fmt:message key="annual.details.address.streetName.placeholder" bundle="${msg}" />"
                                                 onfocus="placeholderOnFocus(this,'<fmt:message key="annual.details.address.streetName.placeholder" bundle="${msg}" />');"
                                                 onblur="placeholderOnBlur(this,'<fmt:message key="annual.details.address.streetName.placeholder" bundle="${msg}" />');"
-                                                onkeypress="    return isAlphaNumeric(event);" maxlength="50" />
+                                                onkeypress="    return isAlphaNumeric(event);" maxlength="50" autocomplete="off"/>
                                    </div>
                                    <div class="clearfix"></div>
                                </div>
@@ -613,7 +613,7 @@ function activateUserAccountJoinUs() {
                                                <label class="radio-inline homecare-lb">
                                                    <input type="radio" name="applicantArea" id="inlineCARadio3"
                                                    value="HK" checked="" class="home-input1">
-                                                   <span><fmt:message key="home.details.registration.hk" bundle="${msg}" /></span>
+                                                   <span><fmt:message key="home.details.registration.hk" bundle="${msg}"/></span>
                                            </label> 
                                            </div>
                                            <div class="col-xs-4">
@@ -688,7 +688,7 @@ function activateUserAccountJoinUs() {
                                                         value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtPersonalFullName${inx}',false,'insured');"
-                                                        onkeypress="return alphaOnly(event);" maxlength="100"/>
+                                                        onkeypress="return alphaOnly(event);" maxlength="100" autocomplete="off"/>
                                                  </c:if>
                                                  <span id="errtxtPersonalFullName${inx}" class="text-red"></span>
                                            </div>
@@ -698,7 +698,7 @@ function activateUserAccountJoinUs() {
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                                <label class="field-label bold-500"><fmt:message key="annual.details.hkid" bundle="${msg}" /></label>
-                                               <input type="hidden" id="selectedPersonalHkidPass${inx}" value="HKID"/>
+                                               <input type="hidden" id="selectedPersonalHkidPass${inx}" value="HKID" autocomplete="off"/>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
@@ -766,7 +766,7 @@ function activateUserAccountJoinUs() {
                                                         value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('personalBenefitiaryId${inx}','errpersonalBenefitiaryId${inx}',false,'beneficiary');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" autocomplete="off" />
                                                     <span id="errpersonalBenefitiaryId${inx}" class="text-red"> </span>
                                                </div>
                                                <div class="clearfix"></div>
@@ -856,7 +856,7 @@ function activateUserAccountJoinUs() {
 														</c:choose>
 		                                                onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly"/>
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" readonly="readonly" autocomplete="off"/>
                                                 </c:if>
                                                 <c:if test="${inx > 1}">
                                                     <input type="text"
@@ -865,7 +865,7 @@ function activateUserAccountJoinUs() {
                                                         value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtInsuFullName${inx}','errtxtAdFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100"/>
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" autocomplete="off"/>
                                                  </c:if>
                                                  <span id="errtxtAdFullName${inx}" class="text-red"></span>
                                            </div>
@@ -876,7 +876,7 @@ function activateUserAccountJoinUs() {
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                                <c:if test="${inx == 1}">
                                                    <label class="field-label bold-500"><fmt:message key="annual.details.hkid" bundle="${msg}" /></label>
-                                                   <input type="hidden" id="selectedAdHkidPass${inx}" name="selectedAdHkidPass" value="HKID"/>
+                                                   <input type="hidden" id="selectedAdHkidPass${inx}" name="selectedAdHkidPass" value="HKID" autocomplete="off"/>
                                                </c:if>
                                                <c:if test="${inx > 1}">
                                                    <div class="bmg-label-styled-select styled-select">
@@ -954,7 +954,7 @@ function activateUserAccountJoinUs() {
 	                                                  value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
                                                       onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
                                                       onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('adultBenefitiaryId${inx}','erradultBenefitiaryId${inx}',false,'beneficiary');"
-	                                                  onkeypress="    return alphaOnly(event);" maxlength="100" />
+	                                                  onkeypress="    return alphaOnly(event);" maxlength="100" autocomplete="off"/>
                                                     <span id="erradultBenefitiaryId${inx}" class="text-red"> </span>
                                                </div>
                                                <div class="clearfix"></div>
@@ -1034,7 +1034,7 @@ function activateUserAccountJoinUs() {
                                                         value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
                                                         onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />');" 
                                                         onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />'); validateName('txtChldFullName${inx}','errtxtChldFullName${inx}',false,'insured');"
-                                                        onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                        onkeypress="    return alphaOnly(event);" maxlength="100" autocomplete="off" />
                                                     <span id="errtxtChldFullName${inx}" class="text-red"></span>
                                            </div>
                                        </div>
@@ -1116,7 +1116,7 @@ function activateUserAccountJoinUs() {
                                                        value="<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />"
                                                        onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />');" 
                                                        onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.insured.beneficiary.name.placeholder" bundle="${msg}" />'); validateName('childBenefitiaryName${inx}','errchildBenefitiaryName${inx}',false,'beneficiary');"
-                                                       onkeypress="    return alphaOnly(event);" maxlength="100" />
+                                                       onkeypress="    return alphaOnly(event);" maxlength="100" autocomplete="off" />
                                                     <span id="errchildBenefitiaryName${inx}" class="text-red"> </span>
                                                </div>
                                                <div class="clearfix"></div>
@@ -1265,7 +1265,7 @@ function activateUserAccountJoinUs() {
                                    <input type="text"
                                             name="username" class="form-control full-control input-white"
                                             id="Username" 
-                                            onfocus="emptyMembershipError();" onkeypress="return validationUsername(event);"><span
+                                            onfocus="emptyMembershipError();" onkeypress="return validationUsername(event); " autocomplete="off"><span
                                             id="UsernameError" class="text-red"> </span>
                                </div>
                             </div>
@@ -1279,7 +1279,7 @@ function activateUserAccountJoinUs() {
                                             name="password" class="form-control full-control input-white"
                                             id="Password" autocomplete="off"
                                             onfocus="emptyMembershipError();"> <span
-                                            id="PasswordError" class="text-red"> </span>
+                                            id="PasswordError" class="text-red" autocomplete="off"> </span>
                                </div>
                             </div>
                             <div class="form-group float row">
@@ -1292,7 +1292,7 @@ function activateUserAccountJoinUs() {
                                             class="form-control full-control input-white" id="Confirm-Password"
                                             autocomplete="off"
                                             onfocus="emptyMembershipError();"> <span id="Confirm-PasswordError"
-                                            class="text-red"> </span>
+                                            class="text-red" autocomplete="off"> </span>
                                </div>
                             </div>
                             </div>

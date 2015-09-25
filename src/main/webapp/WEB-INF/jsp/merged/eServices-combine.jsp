@@ -54,14 +54,14 @@
                            <span class="text"><fmt:message key="userAccount.Referrals.promo" bundle="${msg}" /></span>
                         </a>
                      </div>
-                     <div class="col-xs-6 col-md-12 menu logout">
+                     <!--<div class="col-xs-6 col-md-12 menu logout">
                         <a href="<%=request.getContextPath()%>/userLogout" class="link-menu " id="logout">
                            <span class="icon-sidebar-menu">
                               <span class="eServices-icons menu-logout-icon " id="logout-span"></span>
                            </span>
                            <span class="text"><fmt:message key="userAccount.Logout" bundle="${msg}" /></span>
                         </a>
-                     </div>
+                     </div>-->
                   </div>
 					</div>
 					<div class="pull-left eServices-body tab-content" id="eServices-body">
@@ -228,7 +228,7 @@
 									</c:choose>
 					          	</div>
 
-					          	<div class="plans savie">
+					          	<!--<div class="plans savie">
 					              	<div class="plan-item hidden-sm hidden-xs title">
 					                  	<div class="plan-item-cols">
 					                      	<p><fmt:message key="userAccount.Plan.name" bundle="${msg}" /></p>
@@ -285,7 +285,7 @@
 					          	</div>
 					          	<div class="text-center hidden-md hidden-lg">
 					              	<button type="button" class="btn view-all"><fmt:message key="userAccount.View.all" bundle="${msg}" /></button>
-					        	</div>
+					        	</div>-->
                   </div>
                   
                   <!-- eServices Referal Block -->
@@ -555,7 +555,7 @@
 				                  	<h2 class="text-center"> <fmt:message key="userAccount.Your.referral.link" bundle="${msg}" /></h2>
 				                  	<div class="link"><a class="padding6 h4-5-b " href="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}?promo=<%=session.getAttribute("myReferralCode")%>" target="_blank"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}?promo=<%=session.getAttribute("myReferralCode")%></a></div>
 									
-										<button type="button" class="btn copy-link invisible" id="copy-link"><fmt:message key="userAccount.Copy.link" bundle="${msg}" /></button>
+										<button type="button" class="btn copy-link" id="copy-link"><fmt:message key="userAccount.Copy.link" bundle="${msg}" /></button>
 										<div class="share">
 											<a href="#"><i class="fa fa-facebook"></i></a>
 											<a href="#"><i class="fa fa-twitter"></i></a>

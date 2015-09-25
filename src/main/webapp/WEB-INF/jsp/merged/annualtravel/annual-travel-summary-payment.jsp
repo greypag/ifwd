@@ -559,10 +559,10 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 <label class="control-label h4-5"><fmt:message key="annual.summary.creditcardnumber" bundle="${msg}" /></label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
-                                <input id="cardNo1" type="tel" class="input-block-level cardnumber" maxlength="19" data-min="19" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardnumber').val());"/>
+                                <input id="cardNo1" type="tel" class="input-block-level cardnumber" maxlength="19" data-min="19" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardnumber').val());" autocomplete="off"/>
 
                                 <span id="errcardno" class="error-msg"></span>
-                                <input id="cardnumber" name="cardNo" type="hidden" class="input-block-level" maxlength="16" data-min="16"/>
+                                <input id="cardnumber" name="cardNo" type="hidden" class="input-block-level" maxlength="16" data-min="16" autocomplete="off"/>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -614,7 +614,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                             class="input-block-level"
                                             onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');"
                                             onkeypress="return alphaOnly(event);"> <span
-                                            id="errname" class="error-msg"></span>
+                                            id="errname" class="error-msg" autocomplete="off"></span>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -627,7 +627,7 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                             class="input-block-level" autocomplete="off" maxlength="3"
                                             title=""
                                             onblur="replaceAlphaNumeric(this);"
-                                            onkeypress="return isAlphaNumeric(event);" >
+                                            onkeypress="return isAlphaNumeric(event);" autocomplete="off">
                                 <span id="errcode"
                                     class="error-msg"></span>
                             </div>
