@@ -429,15 +429,15 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                         </div>
 
                         <input type="hidden" name="txtTotalDue" id="txtTotalDue<%=i%>"
-                            value="<%=travelQuote.getToalDue()[i]%>"> <input
+                            value="<c:out value="<%=travelQuote.getToalDue()[i]%>"/>"> <input
                             type="hidden" name="txtGrossPremium" id="txtGrossPremium<%=i%>"
-                            value="<%=travelQuote.getGrossPremium()[i]%>"> <input
+                            value="<c:out value="<%=travelQuote.getGrossPremium()[i]%>"/>"> <input
                             type="hidden" name="txtDiscountAmount" id="txtDiscountAmount<%=i%>"
-                            value="<%=travelQuote.getDiscountAmount()[i]%>"> <input
+                            value="<c:out value="<%=travelQuote.getDiscountAmount()[i]%>"/>"> <input
                             type="hidden" name="referralCode" id="referralCode<%=i%>"
-                            value="<%=travelQuote.getReferralCode()%>"> <input
+                            value="<c:out value="<%=travelQuote.getReferralCode()%>"/>"> <input
                             type="hidden" name="referralName" id="referralName<%=i%>"
-                            value="<%=travelQuote.getReferralName()%>">
+                            value="<c:out value="<%=travelQuote.getReferralName()%>"/>">
 						<%
 							}
 						%>
