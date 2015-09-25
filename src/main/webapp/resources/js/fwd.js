@@ -147,6 +147,7 @@ $(function () {
 	var nowTemp = new Date();
 	var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 	var tillDate_from= new Date((new Date()).getTime() + 89*24*60*60*1000);
+	var tillDate_from_travel= new Date((new Date()).getTime() + 179*24*60*60*1000);
 	var duration = $('#frmTravelGetQuote').length > 0 || $('#frmTravelPlan').length > 0 ? 180*24*60*60*1000 :30*24*60*60*1000;
 	var oneDay=24*60*60*1000;
 	
@@ -1009,7 +1010,193 @@ $(function () {
 		$('#dp4').datepicker('update', endDate);
 	});
 	
+	/**
+	 * travel detepicker
+	 */
+	var tcheckin = $('#tdp1').datepicker({
+		beforeShowDay: function (date) {
+			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
+		},
+		autoclose: true,
+		todayHighlight: true,
+		format: "dd-mm-yyyy",
+	}).on('changeDate', function (ev) {
+			var newDate = new Date(ev.date);
+			newDate.setDate(newDate.getDate());
+			$('#tdp3').datepicker('update', newDate);
+			$('#tdp5').datepicker('update', newDate);
+			if (ev.date.valueOf() > tcheckout.datepicker("getDate").valueOf() || !tcheckout.datepicker("getDate").valueOf()) {
+				tcheckout.datepicker("update", newDate);
+				tcheckout2.datepicker("update", newDate);
+				tcheckout3.datepicker("update", newDate);
+			}else if(ev.date.valueOf()+duration <= tcheckout.datepicker("getDate").valueOf()){
+				var lastDate = new Date(ev.date.valueOf()+duration-oneDay);
+				lastDate.setDate(lastDate.getDate());
+				
+				tcheckout.datepicker("update", lastDate);
+				tcheckout2.datepicker("update", lastDate);
+				tcheckout3.datepicker("update", lastDate);
+			}else{
+				var lastDate = new Date(tcheckout.datepicker("getDate").valueOf());
+				lastDate.setDate(lastDate.getDate());
+				
+				tcheckout.datepicker("update", lastDate);
+				tcheckout2.datepicker("update", lastDate);
+				tcheckout3.datepicker("update", lastDate);
+			}
+			$('#tdp2')[0].focus();
+			var startDate = new Date($('#tdp1').datepicker("getDate").valueOf());
+			var endDate = new Date($('#tdp2').datepicker("getDate").valueOf());
+			var path = window.location.href;		
+			var end = path.indexOf('flight-insurance');
+			var fullPath = "";				
+			
+			if(end>0){
+				fullPath = path.substring(0, end) + "flight-insurance/quote";	
+			}else{
+				end = path.indexOf('travel-insurance')
+				fullPath = path.substring(0, end) + "travel-insurance/quote";	
+			}
+	});
+	tcheckout = $('#tdp2').datepicker({
+		beforeShowDay: function (date) {
+			if (!tcheckin.datepicker("getDate").valueOf()) {
+				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from_travel;
+			} else {
+				return date.valueOf() >= tcheckin.datepicker("getDate").valueOf() && date.valueOf() < tillDate_from_travel;
+			}
+		},
+		autoclose: true,
+		format: "dd-mm-yyyy"
+	}).on('changeDate', function (ev) {
+		var startDate = new Date($('#tdp1').datepicker("getDate").valueOf());
+		var endDate = new Date($('#tdp2').datepicker("getDate").valueOf());
+		$('#tdp4').datepicker('update', endDate);
+		$('#tdp6').datepicker('update', endDate);
+		var path = window.location.href;		
+		var end = path.indexOf('flight-insurance');
+		var fullPath = "";				
+		if(end>0){
+			fullPath = path.substring(0, end) + "flight-insurance/quote";	
+		}else{
+			 end = path.indexOf('travel-insurance')
+			fullPath = path.substring(0, end) + "travel-insurance/quote";	
+		}
+	});
+	var tcheckin2 = $('#tdp3').datepicker({
+		beforeShowDay: function (date) {
+			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
+		},
+		autoclose: true,
+		todayHighlight: true,
+		format: "dd-mm-yyyy"
 
+	}).on('changeDate', function (ev) {
+			var newDate = new Date(ev.date);
+			newDate.setDate(newDate.getDate());
+			$('#tdp1').datepicker('update', newDate);
+			$('#tdp5').datepicker('update', newDate);
+			if (ev.date.valueOf() > tcheckout2.datepicker("getDate").valueOf() || !tcheckout2.datepicker("getDate").valueOf()) {
+				tcheckout.datepicker("update", newDate);
+				tcheckout2.datepicker("update", newDate);
+				tcheckout3.datepicker("update", newDate);
+			}else if(ev.date.valueOf()+duration <= tcheckout2.datepicker("getDate").valueOf()){
+				var lastDate = new Date(ev.date.valueOf()+duration-oneDay);
+				lastDate.setDate(lastDate.getDate());
+				tcheckout.datepicker("update", lastDate);
+				tcheckout2.datepicker("update", lastDate);
+				tcheckout3.datepicker("update", lastDate);
+			}else{
+				var lastDate = new Date(tcheckout2.datepicker("getDate").valueOf());
+				lastDate.setDate(lastDate.getDate());
+				tcheckout.datepicker("update", lastDate);
+				tcheckout2.datepicker("update", lastDate);
+				tcheckout3.datepicker("update", lastDate);
+			}
+		$('#tdp4')[0].focus();
+		var startDate = new Date($('#tdp3').datepicker("getDate").valueOf());
+		var endDate = new Date($('#tdp4').datepicker("getDate").valueOf());
+		document.getElementById("divPersonsMob").style.visibility = "visible";
+		document.getElementById("lblDaysMob").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
+	});
+	var tcheckout2 = $('#tdp4').datepicker({
+		beforeShowDay: function (date) {
+			if (!tcheckin2.datepicker("getDate").valueOf()) {
+				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from_travel;
+			} else {
+				return date.valueOf() >= tcheckin2.datepicker("getDate").valueOf() && date.valueOf() < tillDate_from_travel;
+			}
+		},
+		autoclose: true,
+		format: "dd-mm-yyyy"
+	}).on('changeDate', function (ev) {
+		var startDate = new Date($('#tdp3').datepicker("getDate").valueOf());
+		var endDate = new Date($('#tdp4').datepicker("getDate").valueOf());
+		document.getElementById("divPersonsMob").style.visibility = "visible";
+		document.getElementById("lblDaysMob").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
+		$('#tdp2').datepicker('update', endDate);
+		$('#tdp6').datepicker('update', endDate);
+	});
+
+	var tcheckin3 = $('#tdp5').datepicker({
+		beforeShowDay: function (date) {
+			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
+		},
+		autoclose: true,
+		todayHighlight: true,
+		format: "dd-mm-yyyy"
+	}).on('changeDate', function (ev) {
+			var newDate = new Date(ev.date);
+			newDate.setDate(newDate.getDate());
+			
+			if (ev.date.valueOf() > tcheckout3.datepicker("getDate").valueOf() || !tcheckout3.datepicker("getDate").valueOf()) {
+				tcheckout.datepicker("update", newDate);
+				tcheckout2.datepicker("update", newDate);
+				tcheckout3.datepicker("update", newDate);
+			}else if(ev.date.valueOf()+duration <= tcheckout3.datepicker("getDate").valueOf()){
+				var lastDate = new Date(ev.date.valueOf()+duration-oneDay);
+				lastDate.setDate(lastDate.getDate());
+				
+				tcheckout.datepicker("update", lastDate);
+				tcheckout2.datepicker("update", lastDate);
+				tcheckout3.datepicker("update", lastDate);
+			}else{
+				var lastDate = new Date(tcheckout3.datepicker("getDate").valueOf());
+				lastDate.setDate(lastDate.getDate());
+				
+				tcheckout.datepicker("update", lastDate);
+				tcheckout2.datepicker("update", lastDate);
+				tcheckout3.datepicker("update", lastDate);
+			}
+			
+			$('#tdp1').datepicker('update', newDate);
+			$('#tdp3').datepicker('update', newDate);
+		$('#tdp6')[0].focus();
+		var startDate = new Date($('#tdp5').datepicker("getDate").valueOf());
+		var endDate = new Date($('#tdp6').datepicker("getDate").valueOf());
+		document.getElementById("divPersonsBtm").style.visibility = "visible";
+		document.getElementById("lblDaysBtm").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
+	});
+	var tcheckout3 = $('#tdp6').datepicker({
+		beforeShowDay: function (date) {
+			if (!tcheckin3.datepicker("getDate").valueOf()) {
+
+				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from_travel;
+			} else {
+				
+				return date.valueOf() >= tcheckin3.datepicker("getDate").valueOf() && date.valueOf() < tillDate_from_travel;
+			}
+		},
+		autoclose: true,
+		format: "dd-mm-yyyy"
+	}).on('changeDate', function (ev) { 
+		var startDate = new Date($('#tdp5').datepicker("getDate").valueOf());
+		var endDate = new Date($('#tdp6').datepicker("getDate").valueOf());
+		document.getElementById("divPersonsBtm").style.visibility = "visible";
+		document.getElementById("lblDaysBtm").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
+		$('#tdp2').datepicker('update', endDate);
+		$('#tdp4').datepicker('update', endDate);
+	});
 });//]]>  
 
 /* No spinner */

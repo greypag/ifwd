@@ -3,10 +3,15 @@ package com.ifwd.fwdhk.controller;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +31,7 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.savie.AccountBalanceResponse;
 import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
+import com.ifwd.fwdhk.model.PurchaseHistory;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.UserLogin;
 import com.ifwd.fwdhk.util.JsonUtils;
@@ -199,7 +205,41 @@ public class UserController {
 					AccountBalanceResponse accountBalance = connector.getAccountBalance(header);
 					model.addAttribute("accountBalance", accountBalance);
 				}
-				return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "eServices-combine");
+				
+				/* Purchase History */
+				ArrayList al = new ArrayList();
+				if (!tokenInSession.isEmpty() && !usernameInSession.isEmpty()) {
+					HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+					header.put("userName", usernameInSession);
+					header.put("token", tokenInSession);
+
+					JSONObject jsonUPHResponse = restService.consumeApi(
+							HttpMethod.GET,
+							UserRestURIConstants.USER_PURCHASE_POLICY_HISTORY,
+							header, null);
+					logger.info("USER_PURCHASE_POLICY_HISTORY Response " + JsonUtils.jsonPrint(jsonUPHResponse));
+
+					if (jsonUPHResponse.get("errMsgs") == null) {
+						JSONArray jsonArray = (JSONArray) jsonUPHResponse.get("policies");
+						Iterator<?> itr = jsonArray.iterator();
+						while (itr.hasNext()) {
+							JSONObject jsonObjHistory = (JSONObject) itr.next();
+							PurchaseHistory purchaseHistory = new PurchaseHistory();
+							purchaseHistory.setAmount(checkJsonObjNull(
+									jsonObjHistory, "amount"));
+							purchaseHistory.setPolicyNumber(checkJsonObjNull(
+									jsonObjHistory, "policyNumber"));
+							purchaseHistory.setSubmissionDate(checkJsonObjNull(
+									jsonObjHistory, "submissionDate"));
+							purchaseHistory.setPlanCode(checkJsonObjNull(
+									jsonObjHistory, "planCode"));
+							al.add(purchaseHistory);
+						}
+					}
+				}
+
+				request.setAttribute("al", al);
+				return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "useraccount");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
