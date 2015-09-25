@@ -95,11 +95,11 @@
 		 $('.personal-data-updown').show();
 		 $('.other-data-container').show();
 		 
-		 $('#dp2').parent().show();
+		 $('#tdp2').parent().show();
 		 $('#endDateDeskIn').show();
-		 $('#dp4').parent().show();
-         $('#dp4').parent().prev().show();
-         $('#dp6').parent().show();
+		 $('#tdp4').parent().show();
+         $('#tdp4').parent().prev().show();
+         $('#tdp6').parent().show();
          $('#endDateBtmIn').show();
          
          $("#travelTypeDesk").val('single');
@@ -127,11 +127,11 @@
 		 $('.personal-data-updown').hide();
 		 $('.other-data-container').hide();
 		 
-		 $('#dp2').parent().hide();
+		 $('#tdp2').parent().hide();
 		 $('#endDateDeskIn').hide();
-		 $('#dp4').parent().hide();
-         $('#dp4').parent().prev().hide();
-		 $('#dp6').parent().hide();
+		 $('#tdp4').parent().hide();
+         $('#tdp4').parent().prev().hide();
+		 $('#tdp6').parent().hide();
 		 $('#endDateBtmIn').hide();
 		 
          $("#travelTypeDesk").val('annual');
@@ -261,12 +261,12 @@ function getParameterByUrl(name){
                      </td>
 	                  
 	                  <td class="" style="min-width: 150px;">
-	                    <div class="input-group date" id="dp1" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+	                    <div class="input-group date" id="tdp1" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
 	                      <input name="trLeavingDate" type="text" class="datepicker form-control border-radius bmg_custom_placeholder" style="display:inline-block;width:70%;" id="txtStartDateDesk" <%-- value="${departureDate != '' ? departureDate : corrTravelQuote.trLeavingDate}" --%> placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
 	                  <td class="" style="min-width: 150px;">
-	                    <div class="input-group date" id="dp2" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+	                    <div class="input-group date" id="tdp2" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
 	                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateDesk" <%-- value="${returnDate != '' ? returnDate : corrTravelQuote.trBackDate}" --%> placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
 	                    </div>
 	                    </td>
@@ -429,14 +429,14 @@ function getParameterByUrl(name){
     </div>
     <h4 style="color: #fff;"><fmt:message key="travel.main.quote.q1" bundle="${msg}" /></h4>
     <div class="form-group">
-      <div class="input-group date" id="dp3"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+      <div class="input-group date" id="tdp3"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
         <input name="trLeavingDate" type="text" class="datepicker form-control" id="txtStartDateMob" style="font-size: 23px !important;" <%-- value="${corrTravelQuote.trLeavingDate}" --%> readonly>
       </div>
     </div>
     <span id="startDateMobIn" style="color:red"> </span>
     <h4 style="color: #fff;"><fmt:message key="travel.main.quote.q2" bundle="${msg}" /></h4>
     <div class="form-group">
-      <div class="input-group date" id="dp4"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+      <div class="input-group date" id="tdp4"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
         <input name="trBackDate" type="text" class="datepicker form-control" id="txtEndDateMob" style="font-size: 23px !important;" <%-- value="${corrTravelQuote.trBackDate}" --%> readonly>
       </div>
     </div>
@@ -1186,12 +1186,12 @@ function getParameterByUrl(name){
                 </td>
             
               <td class="" style="min-width: 150px;">
-                <div class="input-group date" id="dp5" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                <div class="input-group date" id="tdp5" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trLeavingDate"  class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtStartDateBtm" <%-- value="${corrTravelQuote.trLeavingDate}" --%> placeholder="<fmt:message key="flight.main.quote.q1" bundle="${msg}" />" readonly>
                 </div>
                 </td>
               <td class="" style="min-width: 150px;">
-                <div class="input-group date" id="dp6" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
+                <div class="input-group date" id="tdp6" style="display: inline-block;background-color:#eee;"> <span class="input-group-addon in border-radius" style="display:inline-block;width:25%;"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
                   <input type="text" name="trBackDate" class="datepicker form-control border-radius" style="display:inline-block;width:70%;" id="txtEndDateBtm" <%-- value="${corrTravelQuote.trBackDate}" --%> placeholder="<fmt:message key="flight.main.quote.q2" bundle="${msg}" />" readonly>
                 </div>
                 </td>
