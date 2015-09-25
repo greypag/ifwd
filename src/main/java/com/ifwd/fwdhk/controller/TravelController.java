@@ -928,7 +928,7 @@ public class TravelController {
 		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
 		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
 		String emailAddress = WebServiceUtils.getParameterValue("emailAddress",	session, request);
-		String selectedHkidPassApplicant = WebServiceUtils.getParameterValue("selectedHkidPassApplicant",	session, request);
+		String selectedHkidPassApplicant = "HKID";
 		String dob = WebServiceUtils.getParameterValue("applicantDob",	session, request);
 		
 		

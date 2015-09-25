@@ -406,26 +406,11 @@ function activateUserAccountJoinUs() {
                            <!-- english name end -->
                            <!-- id card starts -->
                            <div class="form-group float">
-                               <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                <label class="field-label form-label bold-500 hidden-lg hidden-md">
-                                    <fmt:message key="travel.details.insured.beneficiary.hkid" bundle="${msg}" />
+                               <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                <label class="field-label bold-500">
+                                    <fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" />
+                                    <input type="hidden" name="selectedHkidPassApplicant" id="selectHkidPass" value="HKID" />
                                 </label>
-                                   <div class="bmg-label-styled-select styled-select ">
-                                        <select id="selectHkidPass"
-                                            name="selectedHkidPassApplicant" onchange="selected(this); togglePlaceholder(this,'inputTxtAppHkid','<fmt:message key="travel.details.applicant.hkid.placeholder" bundle="${msg}" />');"
-                                            class="form-control soflow select-label">
-                                            <c:forEach var="hkidList"
-                                                items="${mapHkId}">
-                                                
-                                                <option
-                                                    value="${hkidList.key}">
-                                                    <c:out
-                                                        value="${hkidList.value}" />
-                                                </option>
-                                                
-                                            </c:forEach>
-                                        </select>
-                                    </div>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input type="text" name="hkid" class="form-control numberinput textUpper full-control bmg_custom_placeholder" id="inputTxtAppHkid" 
@@ -644,15 +629,18 @@ function activateUserAccountJoinUs() {
                                        <!-- id card start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <div class=" bmg-label-styled-select styled-select">
-                                                   <select id="selectedPersonalHkidPass${inx}" class="form-control soflow select-label" name="selectedPersonalHkidPass" onchange="togglePlaceholder(this,'txtInsuHkid${inx}','<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');">
-                                                       <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
-                                                       <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
-                                                   </select>
-                                                   <c:if test="${inx == 1}">
-                                                       <div style="cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)">&nbsp;</div>
-                                                   </c:if>
-                                               </div>
+                                               <c:if test="${inx == 1}">
+                                                   <label class="field-label bold-500"><fmt:message key="travel.details.insured.beneficiary.hkid.option1" bundle="${msg}" /></label>
+                                                   <input id="selectedPersonalHkidPass${inx}" name="selectedPersonalHkidPass" value="HKID" type="hidden" />
+                                               </c:if>
+                                               <c:if test="${inx > 1}">
+                                                   <div class=" bmg-label-styled-select styled-select">
+                                                       <select id="selectedPersonalHkidPass${inx}" class="form-control soflow select-label" name="selectedPersonalHkidPass" onchange="togglePlaceholder(this,'txtInsuHkid${inx}','<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');">
+	                                                       <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
+	                                                       <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
+	                                                   </select>
+                                                   </div>
+                                               </c:if>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input id="txtInsuHkid${inx}" name="personalHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
@@ -1054,18 +1042,20 @@ function activateUserAccountJoinUs() {
                                        <!-- id card start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                                <label class="field-label form-label bold-500 hidden-lg hidden-md"><fmt:message
-                                                          key="travel.details.insured.hkid"
-                                                          bundle="${msg}" /></label>
-                                               <div class="bmg-label-styled-select styled-select">
-                                                    <select id="selectedAdHkidPass${inx}" class="form-control soflow select-label" name="selectedAdHkidPass" onchange="togglePlaceholder(this,'txtInsuHkid${inx}','<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');">
-                                                        <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
-                                                        <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
-                                                    </select>
-                                                    <c:if test="${inx == 1}">
-                                                       <div style="cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)">&nbsp;</div>
-                                                   </c:if>
-                                                </div>
+                                               <c:if test="${inx == 1}">
+                                                   <label class="field-label bold-500">
+                                                       <fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" />
+                                                       <input type="hidden" name="selectedAdHkidPass" id="selectedAdHkidPass${inx}" value="HKID" />
+                                                   </label>
+                                               </c:if>
+                                               <c:if test="${inx > 1}">
+                                                   <div class="bmg-label-styled-select styled-select">
+                                                       <select id="selectedAdHkidPass${inx}" class="form-control soflow select-label" name="selectedAdHkidPass" onchange="togglePlaceholder(this,'txtInsuHkid${inx}','<fmt:message key="travel.details.insured.hkid.placeholder" bundle="${msg}" />');">
+                                                           <option value="HKID" selected="selected"><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" /></option>
+                                                           <option value="passport"><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" /></option>
+                                                       </select>
+                                                   </div>
+                                               </c:if>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <input id="txtInsuHkid${inx}" name="adultHKID" class="form-control textUpper full-control bmg_custom_placeholder" 
