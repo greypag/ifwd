@@ -373,6 +373,7 @@ function activateUserAccountJoinUs() {
                                    <label for="inputFullName" class="field-label bold-500"><fmt:message key="annual.details.fullname" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                   <input type="text" name="fullName" autocomplete="off"
                                         class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" id="inputFullName"
                                         <c:choose>
 										    <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
@@ -384,7 +385,7 @@ function activateUserAccountJoinUs() {
 										</c:choose>
 	                                    onfocus="placeholderOnFocus(this,'<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />');" 
 	                                    onblur="placeholderOnBlur(this,'<fmt:message key="travel.details.applicant.name.placeholder" bundle="${msg}" />'); validateName('inputFullName','fullnameinvalid',true,'applicant');"
-                                        onkeypress="return alphaOnly(event);" maxlength="50" autocomplete="off" />
+                                        onkeypress="return alphaOnly(event);" maxlength="50" />
                                     <span id="fullnameinvalid" class="text-red"></span>
                                </div>
                            </div>
@@ -424,7 +425,7 @@ function activateUserAccountJoinUs() {
                                         class="field-label bold-500"><fmt:message key="annual.details.mobile" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <input name="mobileNo" type="tel"
+                                    <input name="mobileNo" type="tel" autocomplete="off"
                                         class="form-control full-control" value="${userDetails.mobileNo.trim()}"
                                         id="inputMobileNo"
                                         <c:choose>
@@ -446,7 +447,7 @@ function activateUserAccountJoinUs() {
                                         class="field-label bold-500"><fmt:message key="annual.details.email" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input class="form-control full-control textLower" name="emailAddress" type="email"
+                                   <input class="form-control full-control textLower" name="emailAddress" type="email" autocomplete="off"
                                         value="${userDetails.emailAddress.trim()}" id="inputEmailId"
                                         <c:choose>
 										    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
