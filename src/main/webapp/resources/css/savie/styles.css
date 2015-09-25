@@ -15720,13 +15720,13 @@ body.chin #btn-cstmr-srvc-cnter {
 .fwd-savie-wrapper #set-appointment .selectDiv #centre,
 .fwd-savie-wrapper #set-appointment .selectDiv #preferred-time {
   z-index: 1;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  -webkit-appearance: menulist;
+  -moz-appearance: menulist;
   text-indent: 1px;
   text-overflow: '';
   margin-bottom: 0;
-  width: 110%;
-  width: 112%\9;
+  /*width: 110%;*/
+  /*width: 112%\9;*/
 }
 
 .fwd-savie-wrapper #set-appointment .selectDiv #centre::-ms-expand,
