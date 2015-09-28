@@ -338,7 +338,7 @@ var enablePayment=true;
                                 </div>
                                 <div class="row summary-row">
                                     <div class="product_summary_table_field col-xs-6 col-sm-6 pad-none summary-detail-head">
-                                        <% if("HKID".equals(planDetailsForm.getSelectedPersonalHkidPass()[i])) { %><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" />
+                                        <% if(planDetailsForm!=null && planDetailsForm.getSelectedPersonalHkidPass()!=null && planDetailsForm.getSelectedPersonalHkidPass()[i]!=null && "HKID".equals(planDetailsForm.getSelectedPersonalHkidPass()[i])) { %><fmt:message key="travel.details.insured.hkid.option1" bundle="${msg}" />
                                         <% }else { %><fmt:message key="travel.details.insured.hkid.option2" bundle="${msg}" />
                                         <% } %>
                                     </div>
