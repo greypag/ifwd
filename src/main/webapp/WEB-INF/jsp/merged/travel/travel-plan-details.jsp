@@ -2289,6 +2289,20 @@ function activateUserAccountJoinUs() {
                                     value="${corrTravelQuote.trBackDate}">
 
                                 <div>
+                                    <div class="numOfDays col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
+	                                    <h3>
+	                                    	<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" />
+	                                    </h3>
+	                                </div>
+	                                <div class="numOfDays col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
+                                        <h3 style="text-align: right;font-weight: normal;">
+                                        	${corrTravelQuote.totalTravellingDays} 
+	                                    	<fmt:message key="travel.sidebar.summary.option5" bundle="${msg}" />
+                                        </h3>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
                                         <h3><fmt:message key="annual.quote.care.numberoftraveller" bundle="${msg}" /></h3>
                                     </div>
@@ -2318,7 +2332,9 @@ function activateUserAccountJoinUs() {
                                             <%  } %>
                                         </h3>
                                     </div>
+
                                     <div class="clearfix"></div>
+
                                 </div>
 
                                 <h3 class="txt-bold" style="display:none;">

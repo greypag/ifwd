@@ -414,7 +414,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                 <div class="product_plan_box_price_container col-lg-12 col-md-12 col-sm-6 col-xs-6 pad-none">
                                     <h4 class="product_plan_box_title_right">
-                                        <fmt:message key="annual.quote.annualpremium" bundle="${msg}" />
+                                        <fmt:message key="travel.quote.premium" bundle="${msg}" />
                                     </h4>
                                     <h2 class="product_plan_box_price_right">
                                         <fmt:message key="annual.quote.dollar" bundle="${msg}" /> <span class="totalPrice<%=travelQuote.getPlanName()[i]%>"><fmt:formatNumber type="number" maxFractionDigits="3" value="<%=travelQuote.getGrossPremium()[i]%>" />.00</span>
@@ -1836,6 +1836,25 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                               <div class="input-group date"> <span class="input-group-addon in"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt="calendar"></span></span>
                                 <input type="text" name="trBackDate" class="datepicker form-control" value="${corrTravelQuote.trBackDate}" readonly>
                               </div>
+
+                              <div class="clearfix"></div>
+                                    
+                              <div class="numOfDays col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
+                                    <h3>
+                                    	<fmt:message key="travel.sidebar.summary.option4" bundle="${msg}" />
+                                    </h3>
+                              </div>
+                              <div id="numOfDays" class="numOfDays col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
+                                    <h3 style="text-align: right;font-weight: normal;">
+                                    	<span id="totalTravellingDaysSpan"> ${travelQuoteBean.totalTravellingDays} <input
+                                        type="hidden" name="totalTravellingDays"
+                                        id="totalTravellingDays"
+                                        value="${travelQuoteBean.totalTravellingDays}">
+                                    	</span>
+                                    	<fmt:message key="travel.sidebar.summary.option5" bundle="${msg}" />
+                                    </h3>
+                              </div>
+
                               <div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
                                         <h3><fmt:message key="annual.quote.care.numberoftraveller" bundle="${msg}" /></h3>
@@ -1861,19 +1880,13 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 					                        %>
                                         </h3>
                                     </div>
-                                    <div class="clearfix"></div>
+
+	                                <div class="clearfix"></div>
                                 </div>
                               
 								<!-- return date end  -->
 								<!-- traveller start -->
-								<!-- <div id="numOfDays">
-                                    <fmt:message key="flight.quote.summary.option4" bundle="${msg}" /> <span id="totalTravellingDaysSpan"> ${travelQuoteBean.totalTravellingDays} <input
-                                        type="hidden" name="totalTravellingDays"
-                                        id="totalTravellingDays"
-                                        value="${travelQuoteBean.totalTravellingDays}">
-                                    </span>
-                                    <fmt:message key="flight.quote.summary.option5" bundle="${msg}" />
-                                </div> -->
+								
 								<!-- traveller end -->
 								
 								<h3 style="display:none;"><fmt:message key="travel.sidebar.summary.option3" bundle="${msg}" />
