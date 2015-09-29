@@ -8252,7 +8252,7 @@ tr.product-landing-error-wrap {
 }
 /** annual travel **/
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 480px) {
 	/* Force table to not be like tables anymore */
 	#plan-no-more-tables table,
 	#plan-no-more-tables thead,
