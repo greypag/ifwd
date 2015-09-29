@@ -412,7 +412,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				          <div class="slide-margin">
 				            <div class="other-benefits-wrap text-center">
 				              <div class="other-benefits-inner">
-				                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.eshop.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc1.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc1.part3" bundle="${msg}" /></p>				              
+				                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc1.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc1.part3" bundle="${msg}" /></p>				              
 				              </div>
 				            </div>
 				          </div>
@@ -422,12 +422,22 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				          <div class="slide-margin">
 				            <div class="other-benefits-wrap text-center">
 				              <div class="other-benefits-inner">
-				                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc2.part1" bundle="${msg}" /> <a href="<fmt:message key="boconcept.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc2.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc2.part3" bundle="${msg}" /></p>
+				                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc2.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.eshop.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc2.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc2.part3" bundle="${msg}" /></p>
 				              </div>
 				            </div>
 				          </div>
 				      </div>
 				      <!--/.item-->
+                      <div class="item" >
+                          <div class="slide-margin">
+                            <div class="other-benefits-wrap text-center">
+                              <div class="other-benefits-inner">
+                                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc3.part1" bundle="${msg}" /> <a href="<fmt:message key="boconcept.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc3.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc3.part3" bundle="${msg}" /></p>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <!--/.item-->
 				    </div>
 				    <!--/.carousel-inner--> 
 				    <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
