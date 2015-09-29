@@ -1124,7 +1124,7 @@ $(function () {
 			if (!tcheckin2.datepicker("getDate").valueOf()) {
 				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from_travel;
 			} else {
-				return date.valueOf() >= tcheckin2.datepicker("getDate").valueOf() && date.valueOf() < tillDate_from_travel;
+				return date.valueOf() >= tcheckin2.datepicker("getDate").valueOf() && date.valueOf() < tcheckin2.datepicker("getDate").valueOf()+180*24*60*60*1000;;
 			}
 		},
 		autoclose: true,
@@ -1183,8 +1183,7 @@ $(function () {
 
 				return date.valueOf() >= new Date().valueOf() && date.valueOf() < tillDate_from_travel;
 			} else {
-				
-				return date.valueOf() >= tcheckin3.datepicker("getDate").valueOf() && date.valueOf() < tillDate_from_travel;
+				return date.valueOf() >= tcheckin3.datepicker("getDate").valueOf() && date.valueOf() < tcheckin3.datepicker("getDate").valueOf()+180*24*60*60*1000;;
 			}
 		},
 		autoclose: true,
