@@ -667,7 +667,7 @@ function getParameterByUrl(name){
                         <fmt:message key="annual.main.feature1.heading" bundle="${msg}" />
                       </h3>
                       <div style="margin-top:25px;">
-                           <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/usp1.png" />
+                           <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/annual_usp1.png" />
                       </div>
                       <div style="margin-top:10px;">
                            <fmt:message key="annual.main.feature1.paragraph" bundle="${msg}" />
@@ -680,7 +680,7 @@ function getParameterByUrl(name){
                          <fmt:message key="annual.main.feature2.heading" bundle="${msg}" />
                       </h3>
                       <div style="margin-top:25px;">
-                           <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/usp2.png" />
+                           <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/annual_usp2.png" />
                       </div>
                       <div style="margin-top:10px;">
                             <fmt:message key="annual.main.feature2.paragraph" bundle="${msg}" />
@@ -693,7 +693,7 @@ function getParameterByUrl(name){
                              <fmt:message key="annual.main.feature3.heading" bundle="${msg}" />
                           </h3>
                           <div style="margin-top:25px;">
-                               <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/usp3.png" />
+                               <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/annual_travel/annual_usp3.png" />
                           </div>
                           <div style="margin-top:10px;">
                               <fmt:message key="annual.main.feature3.paragraph" bundle="${msg}" />
