@@ -597,7 +597,7 @@ function activateUserAccountJoinUs() {
                                                         class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" 
                                                         <c:choose>
 														    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
-														    value="${userDetails.userName }"
+														    value="${userDetails.fullName }"
 														    </c:when>
 														    <c:otherwise>
 	                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
@@ -1011,7 +1011,7 @@ function activateUserAccountJoinUs() {
                                                         class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" 
                                                         <c:choose>
 														    <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
-														    value="${userDetails.userName }"
+														    value="${userDetails.fullName }"
 														    </c:when>
 														    <c:otherwise>
 	                                                        value="<fmt:message key="travel.details.insured.name.placeholder" bundle="${msg}" />"
