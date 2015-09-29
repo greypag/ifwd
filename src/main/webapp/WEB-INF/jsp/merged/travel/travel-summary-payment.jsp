@@ -687,15 +687,26 @@ var enablePayment=true;
                                     %>
                                 </tbody>
                             </table>
+                            <c:if test="${selectPlanName=='A' && quoteDetails.totalNetPremium[0]=='0.00'}">
+                                  <div align="center">
+	                                  <br/>
+	                                  <input class="bdr-curve btn btn-primary" type="button" value="下一页"/>
+                                  </div>
+                            </c:if>
+                            <c:if test="${selectPlanName=='B' && quoteDetails.totalNetPremium[1]=='0.00'}">
+                                  <div align="center">
+	                                  <br/>
+	                                  <input class="bdr-curve btn btn-primary" type="button" value="下一页"/>
+                                  </div>
+                            </c:if>
                           </div>
                         </div>
-                        
                         
                         
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="gray-bg1 product_payment_detail_form_container">
+                <div class="gray-bg1 product_payment_detail_form_container <c:if test="${selectPlanName=='A' && quoteDetails.totalNetPremium[0]=='0.00'}">hidden</c:if><c:if test="${selectPlanName=='B' && quoteDetails.totalNetPremium[1]=='0.00'}">hidden</c:if>">
                     <div style="width:80%;margin-left:10%;">
                     <div class="col-xs-12 pad-none">
                        <h2 class="from-control" style="padding:0px !important;"><fmt:message key="travel.payment" bundle="${msg}" /></h2>
