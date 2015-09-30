@@ -2246,7 +2246,7 @@ function activateUserAccountJoinUs() {
                             <div class="wd2">
                                 <div class="pull-left" style="width:145px;">
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
-                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;">Single Travel</h2>
+                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;"><fmt:message key="travel.sidebar.summary.product.single" bundle="${msg}" /></h2>
                                     <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;"><fmt:message key="travel.sidebar.summary.desc.part1" bundle="${msg}" /> ${planName} <fmt:message key="travel.sidebar.summary.desc.part2" bundle="${msg}" /></h4>
                                     <input type="hidden" name="selectedPlanName" value="${planName }">
                                 </div>
