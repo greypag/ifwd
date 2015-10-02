@@ -2247,7 +2247,7 @@ function activateUserAccountJoinUs() {
                                 <div class="pull-left" style="width:145px;">
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="travel.sidebar.summary.product" bundle="${msg}" /></h2>
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;"><fmt:message key="travel.sidebar.summary.product.single" bundle="${msg}" /></h2>
-                                    <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;"><fmt:message key="travel.sidebar.summary.desc.part1" bundle="${msg}" /> ${planName} <fmt:message key="travel.sidebar.summary.desc.part2" bundle="${msg}" /></h4>
+                                    <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;"><fmt:message key="travel.sidebar.summary.desc.part1" bundle="${msg}" /> ${planName}</h4>
                                     <input type="hidden" name="selectedPlanName" value="${planName }">
                                 </div>
                                 
@@ -2399,14 +2399,7 @@ function activateUserAccountJoinUs() {
      </div>
 </div>
 
-<p class="padding1 workingholiday-plan-disclaimer"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
-<a class="sub-link" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank">
-<fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a> 
-<fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> 
-<a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> 
-    <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u>
-</a> 
-<fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /><br>
+<p class="padding1 workingholiday-plan-disclaimer"><br>
 <fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p>
 
 <div class="col-xs-12 hidden-md hidden-lg pad-none">

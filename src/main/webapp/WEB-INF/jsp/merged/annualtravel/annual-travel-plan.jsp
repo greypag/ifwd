@@ -491,9 +491,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                                              </thead>
 	                                              <tbody>
 	                                              <tr>
-                                                      <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.benefits" bundle="${msg}" /></td>
-                                                      <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.plana" bundle="${msg}" /></td>
-                                                      <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.planb" bundle="${msg}" /></td>
+                                                      <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.benefits" bundle="${msg}" /></td>
+                                                      <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.plana" bundle="${msg}" /></td>
+                                                      <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.medicalexpenses.planb" bundle="${msg}" /></td>
                                                   </tr>
 	                                              </tbody>
 	                                           </table>
@@ -520,14 +520,14 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                </thead>
                                                <tbody>
                                                <tr>
-                                               	   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.hospital.benefits1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.hospital.plana1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.hospital.planb1" bundle="${msg}" /></td>
+                                               	   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.hospital.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.hospital.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.hospital.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.hospital.benefits2" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.hospital.plana2" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.hospital.planb2" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.hospital.benefits2" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.hospital.plana2" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.hospital.planb2" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -554,47 +554,47 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits2" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana2" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb2" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits2" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana2" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb2" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits3" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana3" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb3" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits3" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana3" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb3" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits4" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana4" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb4" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits4" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana4" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb4" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits5" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana5" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb5" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits5" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana5" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb5" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits6" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana6" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb6" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits6" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana6" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb6" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits7" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana7" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb7" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits7" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana7" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb7" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits8" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana8" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb8" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits8" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.plana8" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.planb8" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits9" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.worldwide.benefits9" bundle="${msg}" /></td>
                                                    <td></td>
                                                    <td></td>
                                                </tr>
@@ -623,19 +623,19 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.benefits1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.plana1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.planb1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.benefits2" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.plana2" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.planb2" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.benefits2" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.plana2" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.planb2" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.benefits3" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.plana3" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.planb3" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.benefits3" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.plana3" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalaccident.planb3" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -662,9 +662,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.baggage.benefits1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.baggage.plana1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.baggage.planb1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.baggage.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.baggage.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.baggage.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -691,9 +691,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.baggagedelay.benefits1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.baggagedelay.plana1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.baggagedelay.planb1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.baggagedelay.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.baggagedelay.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.baggagedelay.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -720,9 +720,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalmoney.benefits1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalmoney.plana1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalmoney.planb1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalmoney.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalmoney.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalmoney.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -749,9 +749,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.traveldocument.benefits1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.traveldocument.plana1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.traveldocument.planb1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.traveldocument.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.traveldocument.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.traveldocument.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -778,17 +778,17 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.benefits1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.plana1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.planb1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.benefits2" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.plana2" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.planb2" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.benefits2" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.plana2" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.planb2" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.benefits3" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.traveldelay.benefits3" bundle="${msg}" /></td>
                                                    <td></td>
                                                    <td></td>
                                                </tr>
@@ -817,9 +817,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.cancellationcharge.benefits1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.cancellationcharge.plana1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.cancellationcharge.planb1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.cancellationcharge.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.cancellationcharge.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.cancellationcharge.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -846,9 +846,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.curtailmentoftrip.benefits1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.curtailmentoftrip.plana1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.curtailmentoftrip.planb1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.curtailmentoftrip.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.curtailmentoftrip.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.curtailmentoftrip.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -875,9 +875,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.lossofhomecontents.benefits1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.lossofhomecontents.plana1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.lossofhomecontents.planb1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.lossofhomecontents.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.lossofhomecontents.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.lossofhomecontents.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -904,9 +904,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.personalliability.benefits1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.personalliability.plana1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.personalliability.planb1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalliability.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalliability.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.personalliability.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -933,9 +933,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.rentalvehicleexcess.benefits1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.rentalvehicleexcess.plana1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.rentalvehicleexcess.planb1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.rentalvehicleexcess.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.rentalvehicleexcess.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.rentalvehicleexcess.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -962,9 +962,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits"><fmt:message key="annual.quote.summaryofcoverage.golfer.benefits1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan A"><fmt:message key="annual.quote.summaryofcoverage.golfer.plana1" bundle="${msg}" /></td>
-                                                   <td data-title="Plan B"><fmt:message key="annual.quote.summaryofcoverage.golfer.planb1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.benefits" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.golfer.benefits1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.plana" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.golfer.plana1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="annual.quote.summaryofcoverage.planb" bundle="${msg}" />"><fmt:message key="annual.quote.summaryofcoverage.golfer.planb1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
