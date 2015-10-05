@@ -703,8 +703,8 @@ function checkPromoCodePlaceholder(){
 	                            <div class="travel-italic workingholiday-getpromocode" style="font-size:14px;">
 	                                <a href="" class="sub-link" data-toggle="modal" data-target=".bs-promo-modal-lg"><i><fmt:message key="home.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
 	                            </div>
-	                            <div style="margin-top: 20px; font-size: 14px;">
-	                              <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" /> Are you a <a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">HKT The Club Member</a>?
+	                            <div class="checkbox" style="margin-top: 20px; font-size: 14px;">
+	                              <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" /> <label for="the-club-member-toggle">Are you a <a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">HKT The Club Member</a>?</label>
 	                            </div>
 	                            <div class="form-group" style="margin-top: 20px; margin-bottom: 0; display: none;">
 	                                <div class="input-group" style="display:inital; width:100%;">
@@ -893,12 +893,12 @@ function checkPromoCodePlaceholder(){
                 <div class="form-container">
                     <div class="row">
                         <div class="col-xs-12">
-                            <h2 style="color: black;">Enter HKT The Club membership number to receive 50 reward points. The reward points will be credited to your HKT membership account within 14 days upon successful purchase</h2>
+                            <p>Enter HKT The Club membership number to receive 50 reward points. The reward points will be credited to your HKT membership account within 14 days upon successful purchase</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <h3><a href="https://www.theclub.com.hk/register" target="_blank">Not The Club member? Click here to join now</a></h3>                
+                            <p><a href="https://www.theclub.com.hk/register" target="_blank">Not The Club member? Click here to join now</a></p>                
                         </div>
                     </div>
                 </div>

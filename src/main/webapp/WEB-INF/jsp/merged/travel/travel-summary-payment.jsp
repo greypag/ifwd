@@ -712,6 +712,7 @@ var enablePayment=true;
                 </div>
                 <div class="gray-bg1 product_payment_detail_form_container <c:if test="${selectPlanName=='A' && quoteDetails.totalNetPremium[0]=='0.00'}">hidden</c:if><c:if test="${selectPlanName=='B' && quoteDetails.totalNetPremium[1]=='0.00'}">hidden</c:if>">
                     <div style="width:80%;margin-left:10%;">
+                    <!-- Payment Form -->
                     <div class="col-xs-12 pad-none">
                        <h2 class="from-control" style="padding:0px !important;"><fmt:message key="travel.payment" bundle="${msg}" /></h2>
                        <span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
@@ -983,10 +984,32 @@ var enablePayment=true;
                             <div class="clearfix"></div>
                         </div>
                         
-                        
+                        <!--/ Payment Form -->
+                        <!-- Show the following buttons when hiding the payment form, update the link for Confirm button
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pull-right">
+                                <c:choose>
+       <c:when test="${language=='en'}">
+                                    <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 EN','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
+       </c:when>
+       <c:otherwise>
+                                    <a id="button_confirm" onclick="javascript:kenshoo_conv('Registration_Step3','${dueAmount}','','Regis_Travel_Step3 ZH','USD');perventRedirect=false;confirmTravelPayment('paymentForm', 'gateway', 'paymentForm');"
+                                    class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.payment" bundle="${msg}" /></a>
+</c:otherwise>
+</c:choose>
+                                
+                                
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 pull-right">       
+                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        -->
                         
                         <hr class="summary-hr"/>
-                        
+
                         
                         
                         <div id="paydoller-wrap" class="declaration-content" style="margin:0px !important;">
