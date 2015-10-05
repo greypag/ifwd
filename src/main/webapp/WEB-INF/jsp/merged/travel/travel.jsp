@@ -820,12 +820,16 @@ function getParameterByUrl(name){
     <li>
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc6.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.eshop.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc6.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc6.part3" bundle="${msg}" /></p>  
     </li>
+    <li>
+      <p class="h4-5">Receive 50 <a href="https://www.theclub.com.hk/eng/" target="_blank">HKT The Club</a> reward points upon successful purchase of the policy, click here to <a href="https://www.theclub.com.hk/eng/CLUBPOINTS%20EARNING/fwd/fwd.jsp" target="_blank">find out more</a></p>  
+    </li>
   </ul>
   
   <div class="col-lg-12 col-md-12 hidden-xs hidden-sm main-partner pad-none" style="">
   	<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-right:15px;">
     <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class="" style="margin-right:15px;">
     <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-right:15px;">
+    <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-right:15px;">
   </div>
   <div class="hidden-lg hidden-md col-xs-12 col-sm-12 main-partner mob" style="text-align:center">
     <div class="col-md-12 col-xs-12">
@@ -836,6 +840,9 @@ function getParameterByUrl(name){
     </div>
     <div class="col-md-12 col-xs-12">
         <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
+    </div>
+    <div class="col-md-12 col-xs-12">
+        <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-bottom:15px;">
     </div>
   </div>
   <div class="spacer3"></div>

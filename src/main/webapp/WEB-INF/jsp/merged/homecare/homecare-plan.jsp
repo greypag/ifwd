@@ -703,6 +703,14 @@ function checkPromoCodePlaceholder(){
 	                            <div class="travel-italic workingholiday-getpromocode" style="font-size:14px;">
 	                                <a href="" class="sub-link" data-toggle="modal" data-target=".bs-promo-modal-lg"><i><fmt:message key="home.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
 	                            </div>
+	                            <div style="margin-top: 20px; font-size: 14px;">
+	                              <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" /> Are you a <a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">HKT The Club Member</a>?
+	                            </div>
+	                            <div class="form-group" style="margin-top: 20px; margin-bottom: 0; display: none;">
+	                                <div class="input-group" style="display:inital; width:100%;">
+	                                    <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder" style="display:inline-block;width:100%;" onfocus="placeholderOnFocus(this,'The Club Membership#');" onblur="placeholderOnBlur(this,'The Club Membership#');" value="The Club Membership#" />
+	                                </div>
+	                            </div>
 	                            </div>
 							</div>
 							<div class="col-md-12 hidden-sm hidden-xs pad-none">
@@ -873,6 +881,32 @@ function checkPromoCodePlaceholder(){
 
 	<!--/end Main Content-->
 
+<!-- The Club Membership popup -->
+<div class="modal fade bs-theclub-modal-lg " tabindex="-1" role="dialog"  aria-hidden="true" style="display: none;" >
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content plan-modal">
+            <div class="login-form">
+                <div style="overflow: hidden;"><a id="getPromotionClose" class="close" aria-label="Close" data-dismiss="modal">
+                    <span aria-hidden="true" style="font-size:30px;">×</span>
+                    </a>
+                </div>
+                <div class="form-container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h2 style="color: black;">Enter HKT The Club membership number to receive 50 reward points. The reward points will be credited to your HKT membership account within 14 days upon successful purchase</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3><a href="https://www.theclub.com.hk/register" target="_blank">Not The Club member? Click here to join now</a></h3>                
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+    </div>
+</div>
+<!--/ The Club Membership popup -->
 
 	<!--Get promotion code popup-->
 	<div class="modal fade bs-promo-modal-lg " tabindex="-1" role="dialog"
@@ -927,6 +961,18 @@ function checkPromoCodePlaceholder(){
 	        <img src="<%=request.getContextPath()%>/resources/images/up-arrow.png" alt="Scroll to top"  />
 	    </a>
 	</div>
+	
+<script>
+   $(document).ready(function() {
+       $('#the-club-member-toggle').on('change', function() {
+           if ($(this).is(':checked')) {
+               $('#theClubMembershipNo').closest('.form-group').show();
+           } else {
+               $('#theClubMembershipNo').closest('.form-group').hide();
+           }
+       }).change();
+   });
+</script>
 
 </body>
 </html>
