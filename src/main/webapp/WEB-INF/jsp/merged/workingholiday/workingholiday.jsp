@@ -176,9 +176,8 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   </div>
 
   <div class="spacer3"></div>
-  <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /></p>
-  
-  <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" /></p>
+  <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" />
+  </p>
 </div>
 
 <div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
@@ -262,9 +261,9 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   </div>
   
   <div class="spacer3"></div>
-  <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /></p>
-  
-  <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" /></p>
+  <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" />
+  </p>
+
 <!--/.container-->
 </div>
 </div>
