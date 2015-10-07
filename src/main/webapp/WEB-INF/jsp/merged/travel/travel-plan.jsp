@@ -1944,7 +1944,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 					            <a href="" class="sub-link" data-toggle="modal" data-target=".bs-promo-modal-lg"><i><fmt:message key="travel.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
 							</div>
 							<div class="checkbox" style="margin-top: 20px; font-size: 14px;">
-                              <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" /> <label for="the-club-member-toggle">Are you a <a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">HKT The Club Member</a>?</label>
+                              <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" /> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" /> Member?</a></label>
                             </div>
                             <div class="form-group" style="margin-top: 20px; margin-bottom: 0; display: none;">
                                 <div class="input-group" style="display:inital; width:100%;">
