@@ -333,12 +333,14 @@ jQuery(document).ready(function() {
 });
 
 var chk_cat = 0;
-$('.faq_cat_mini').click(function(e){
+$('.faq_content').click(function(e){
 	e.preventDefault();
 	if(chk_cat == 0){
 		chk_cat = 1;
-		var $target = $(this).parent().parent().next('.faq_cat_detail');
-		$(this).children('i').toggleClass('fa-chevron-up');
+		var $target = $(this).next('.faq_cat_detail');
+		
+		$(this).children('.faq_cat_arrow').children('.faq_cat_mini').children('i').toggleClass('fa-chevron-down');
+		$(this).children('.faq_cat_arrow').children('.faq_cat_mini').children('i').toggleClass('fa-chevron-up');
 		
 		$target.slideToggle(function(){
 			chk_cat = 0;
@@ -347,12 +349,13 @@ $('.faq_cat_mini').click(function(e){
 });
 
 var chk_qna = 0;
-$('.faq_qna_mini').click(function(e){
+$('.faq_qna').click(function(e){
 	e.preventDefault();
 	if(chk_qna == 0){
 		chk_qna = 1;
-		var $target = $(this).parent().parent().next('.faq_answer_container');
-		$(this).children('i').toggleClass('fa-minus');
+		var $target = $(this).children('.faq_answer_container');
+		
+		$(this).children().children('.faq_question_arrow').children('.faq_qna_mini').children('i').toggleClass('fa-minus');
 		
 		var $question = $(this).parent().prev('.faq_question');
 		

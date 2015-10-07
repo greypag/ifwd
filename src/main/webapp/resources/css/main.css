@@ -7478,6 +7478,7 @@ tr.product-landing-error-wrap {
 	font-size: 20px;
 	font-weight: bold;
 	margin-bottom: 2px;
+	cursor:pointer;
 }
 
 .faq_container .faq_cat{
@@ -7495,6 +7496,10 @@ tr.product-landing-error-wrap {
 
 .faq_container .faq_cat_detail{
 	margin-bottom: 2px;
+}
+
+.faq_container .faq_qna{
+    cursor:pointer;
 }
 
 .faq_container .faq_qna:nth-child(odd){
@@ -7584,6 +7589,7 @@ tr.product-landing-error-wrap {
     font-weight: bold;
     margin-bottom: 2px;
     padding: 20px !important;
+    cursor:pointer;
 }
 
 .faq_container_mob .faq_cat_arrow{
@@ -7600,6 +7606,7 @@ tr.product-landing-error-wrap {
 
 .faq_container_mob .faq_qna{
     padding: 20px !important;
+    cursor:pointer;
 }
 
 .faq_container_mob .faq_qna:nth-child(odd){
