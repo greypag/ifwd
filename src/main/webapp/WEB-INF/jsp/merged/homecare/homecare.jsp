@@ -349,7 +349,7 @@ $(document).ready(function() {
 		                      <div style="margin-top:10px;">
 		                          <fmt:message key="home.main.feature3.paragraph.part1" bundle="${msg}" />
 		                      </div>
-		                      <div style="margin-top:15px; font-size:10px; color:#f68a1d;">
+		                      <div style="margin-top:15px; font-size:13px; color:#f68a1d;">
 				                  <fmt:message key="home.main.feature3.paragraph.part2" bundle="${msg}" />
 				              </div>
 		                  </div>
