@@ -135,7 +135,7 @@ $(document).ready(function() {
     java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd");
 	long current = System.currentTimeMillis();  
     long start = format.parse("2015-08-03").getTime();
-    long end = format.parse("2015-09-30").getTime() + 86400000;
+    long end = format.parse("2015-10-31").getTime() + 86400000;
     if(start <= current && end >= current) {
 	%>
 	<section id="home_promo_banner">
