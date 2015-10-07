@@ -7093,12 +7093,14 @@ tr.product-landing-error-wrap {
 	background-color: #fff;
 	padding-left: 20px;
 	padding-right: 20px;
+	font-size: 16px;
 }
 
 #promoCode{
     border: 0;
     background-color: #fff;
     padding-left: 20px;
+    font-size: 16px;
 }
 
 #promo-wrap .input-group-addon{
