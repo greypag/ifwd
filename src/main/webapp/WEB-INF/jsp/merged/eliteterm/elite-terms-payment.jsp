@@ -84,8 +84,8 @@
 									<div class="page-content-item">
 										<label for="cards">Card type</label>
 										<div class="card-image-holder" id="cards">
-											<img src="assets/images/elite-terms/mastercard-logo.png">
-											<img src="assets/images/elite-terms/visa-logo.png">
+										    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/mastercard-logo.png">
+											<img src="<%=request.getContextPath()%>/resources/images/elite-terms/visa-logo.png">
 										</div>
 									</div>
 
@@ -131,7 +131,7 @@
 										<div class="clearfix desktop-half">
 											<input type="text" class="form-control gray-textbox card-cvv" placeholder="CVV" id="card-cvv" name="card-cvv">
 											<div class="cvv-image-holder">
-												<img src="assets/images/elite-terms/cvv-logo.png" class="cvv-image">
+												<img src="<%=request.getContextPath()%>/resources/images/elite-terms/cvv-logo.png" class="cvv-image">
 											</div>
 										</div>
 									</div>
@@ -158,19 +158,19 @@
 							<div class="credit-cards-definition clearfix">
 								<div class="card-item clearfix">
 									<div class="text-center">
-										<img src="assets/images/elite-terms/paydollar-icon.png">
+										<img src="<%=request.getContextPath()%>/resources/images/elite-terms/paydollar-icon.png">
 									</div>
 									<p>We adopt PayDollar Payment Gateway, a leading, secure, reliable international payment service provider to banks and online merchants.</p>
 								</div>
 								<div class="card-item clearfix">
 									<div class="text-center">
-										<img src="assets/images/elite-terms/verifiedbyvisa-icon.png">
+										<img src="<%=request.getContextPath()%>/resources/images/elite-terms/verifiedbyvisa-icon.png">
 									</div>
 									<p>Verified by Visa (VbV) is a program designed to help make shopping online more secure.</p>
 								</div>
 								<div class="card-item last clearfix">
 									<div class="text-center">
-										<img src="assets/images/elite-terms/mastercard-icon.png">
+										<img src="<%=request.getContextPath()%>/resources/images/elite-terms/mastercard-icon.png">
 									</div>
 									<p>Get an extra layer of online shopping security with MasterCard SecureCode - a private, secure code. that protects your purchases.</p>
 								</div>
