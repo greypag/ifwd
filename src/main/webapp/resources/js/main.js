@@ -113,6 +113,7 @@ $('.product_plan_panel').click(function(e){
 	if(product_plan_panel_valid){
 		product_plan_panel_valid=false;
 		$panel=$(this);
+		
 		if($panel.next('.product_plan_panel_content:visible').length>0){
 			$('.product_plan_panel').find('.fa-chevron-up').addClass('fa-chevron-down');
 			$('.product_plan_panel').find('.fa-chevron-up').removeClass('fa-chevron-up');
@@ -162,6 +163,10 @@ $('.product_plan_inner_panel').click(function(e){
 					$panel.find('i').addClass('fa-minus');
 					
 					product_plan_inner_panel_valid=true;
+					
+					$('html, body').animate({
+						scrollTop: $panel.offset().top
+					}, 500);
 				});
 			});
 		}else{
@@ -173,6 +178,10 @@ $('.product_plan_inner_panel').click(function(e){
 				$panel.find('i').addClass('fa-minus');
 				
 				product_plan_inner_panel_valid=true;
+				
+				$('html, body').animate({
+					scrollTop: $panel.offset().top
+				}, 500);
 			});
 		}
 	}
@@ -189,6 +198,10 @@ function scrollDownProductPanel($element){
 		});
 		
 		product_plan_panel_valid=true;
+		
+		$('html, body').animate({
+			scrollTop: $panel.offset().top
+		}, 500);
 	});
 }
 
@@ -336,6 +349,8 @@ var chk_cat = 0;
 $('.faq_content').click(function(e){
 	e.preventDefault();
 	if(chk_cat == 0){
+		$panel=$(this);
+		
 		chk_cat = 1;
 		var $target = $(this).next('.faq_cat_detail');
 		
@@ -344,6 +359,10 @@ $('.faq_content').click(function(e){
 		
 		$target.slideToggle(function(){
 			chk_cat = 0;
+			
+			$('html, body').animate({
+				scrollTop: $panel.offset().top
+			}, 500);
 		});
 	}
 });
@@ -352,6 +371,8 @@ var chk_qna = 0;
 $('.faq_qna').click(function(e){
 	e.preventDefault();
 	if(chk_qna == 0){
+		$panel=$(this);
+		
 		chk_qna = 1;
 		var $target = $(this).children('.faq_answer_container');
 		
@@ -363,6 +384,10 @@ $('.faq_qna').click(function(e){
 		
 		$target.slideToggle(function(){
 			chk_qna = 0;
+			
+			$('html, body').animate({
+				scrollTop: $panel.offset().top
+			}, 500);
 		});
 	}
 });
