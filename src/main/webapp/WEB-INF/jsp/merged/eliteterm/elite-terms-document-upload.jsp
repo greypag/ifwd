@@ -18,13 +18,13 @@
          	
          	<div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
                <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-                  <li><a href="#">Home</a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.documentUpload.Home" bundle="${msg}" /></a></li>
                   <li class="divider"><i class="fa fa-play"></i></li>
-                  <li><a href="#">Protection </a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.documentUpload.Protection" bundle="${msg}" /> </a></li>
                   <li class="divider"><i class="fa fa-play"></i></li>
-                  <li><a href="#">Elite term </a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.documentUpload.Elite.term" bundle="${msg}" /> </a></li>
                   <li class="divider last"><i class="fa fa-play"></i></li>
-                  <li class="active-bc" id="et-active-bc-menu">Upload document</li>
+                  <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.documentUpload.Upload.document" bundle="${msg}" /></li>
                </ol>
             </div>
 
@@ -34,19 +34,19 @@
 				<div class="application-page-header et-header-browse">
 					<div class="reset-margin hidden-xs hidden-sm clearfix">
 						<div class="reset-padding">
-							<button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="select-plan" data-et-section-target="et-select-plan-section">Select plan</button>
+							<button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="select-plan" data-et-section-target="et-select-plan-section"><fmt:message key="eliteTerms.documentUpload.Select.plan" bundle="${msg}" /></button>
 						</div>
 						<div class="reset-padding">
-							<button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="application" data-et-section-target="et-application-section" >Application</button>
+							<button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="application" data-et-section-target="et-application-section" ><fmt:message key="eliteTerms.documentUpload.Application" bundle="${msg}" /></button>
 						</div>
 						<div class="reset-padding">
-							<button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="payment" data-et-section-target="et-dec-sign-section">Payment</button>
+							<button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="payment" data-et-section-target="et-dec-sign-section"><fmt:message key="eliteTerms.documentUpload.Payment" bundle="${msg}" /></button>
 						</div>
 						<div class="reset-padding">
-							<button type="button" class="et-header-info-btn active no-hover" id="summary" data-toggle="modal" data-target="#summary-modal">Upload document</button>
+							<button type="button" class="et-header-info-btn active no-hover" id="summary" data-toggle="modal" data-target="#summary-modal"><fmt:message key="eliteTerms.documentUpload.Upload.document" bundle="${msg}" /></button>
 						</div>
 						<div class="reset-padding">
-							<button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="confirmation" data-et-section-target="et-confirmation-section">Confirmation</button>
+							<button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="confirmation" data-et-section-target="et-confirmation-section"><fmt:message key="eliteTerms.documentUpload.Confirmation" bundle="${msg}" /></button>
 						</div>
 					</div>
 					<div class="et-mobile-header-info hidden-md hidden-lg">
@@ -57,7 +57,7 @@
 								</a>
 							</div>-->
 							<div class="et-header-tex">
-								<h3 id="et-active-section-label">Upload document</h3>
+								<h3 id="et-active-section-label"><fmt:message key="eliteTerms.documentUpload.Upload.document" bundle="${msg}" /></h3>
 							</div>
 						</div>
 						
@@ -69,36 +69,34 @@
 				<div class="container-fluid fwd-container">
             
 					<div class="document-upload page-application et-document-upload">
-                  	<p class="et-ud-payment-note-head">Your payment has been accepted.</p>
-                  	<p class="et-ud-payment-note-desc">Please upload the documents to complete the application.</p>
+                  	<p class="et-ud-payment-note-head"><fmt:message key="eliteTerms.documentUpload.Your.payment.has" bundle="${msg}" /></p>
+                  	<p class="et-ud-payment-note-desc"><fmt:message key="eliteTerms.documentUpload.Please.upload.the" bundle="${msg}" /></p>
 
                   	<div class="page-content clearfix">
-						<h2>Upload Document</h2>
+						<h2><fmt:message key="eliteTerms.documentUpload.Upload.document" bundle="${msg}" /></h2>
 						<div class="clearfix document-upload-rd-btn">
 							<div class="pull-left upload-now" id="et-upload-now">
 								<label class="upload-now-radio" for="upload-now">
 									<input type="radio" id="upload-now" name="upload-doc" value="upload-now" checked>
 									<span class="upload-now-text">
-										<span class="text">Upload Now</span>
+										<span class="text"><fmt:message key="eliteTerms.documentUpload.Upload.Now" bundle="${msg}" /></span>
 									</span>
 								</label>
 								<div class="descriptions">
-									<span class="desktop-text">Upload Now</span>
-									<p>The policy will be commenced, as soon as
-									the documentation are verified</p>
+									<span class="desktop-text"><fmt:message key="eliteTerms.documentUpload.Upload.Now" bundle="${msg}" /></span>
+									<p><fmt:message key="eliteTerms.documentUpload.The.policy.will" bundle="${msg}" /></p>
 								</div>
 							</div>
 							<div class="pull-left upload-later" id="et-upload-later">
 								<label class="upload-later-radio" for="upload-later">
 									<input type="radio" id="upload-later" name="upload-doc" value="upload-later" >
 									<span class="upload-later-text">
-										<span class="text">Upload Later</span>
+										<span class="text"><fmt:message key="eliteTerms.documentUpload.Upload.Later" bundle="${msg}" /></span>
 									</span>
 								</label>
 								<div class="descriptions">
-									<span class="desktop-text">Upload Later</span>
-									<p>You may upload the required documentation
-									under profile of your eService account</p>
+									<span class="desktop-text"><fmt:message key="eliteTerms.documentUpload.Upload.Later" bundle="${msg}" /></span>
+									<p><fmt:message key="eliteTerms.documentUpload.You.may.upload" bundle="${msg}" /></p>
 								</div>
 							
 							</div>
@@ -106,8 +104,8 @@
 						<div class="clearfix"></div>
 						<div class="upload-later-section hidden" id="upload-later-section">
 							<div class="description">
-								<p class="first-desc">A FWD account will be created for you automatically.</p>
-								<p class="second-desc">You will receive an email containing instructions to update your profile shortly. Please follow the link provided and upload your proof of address, HKID and/or passport.</p>
+								<p class="first-desc"><fmt:message key="eliteTerms.documentUpload.A.FWD.account" bundle="${msg}" /></p>
+								<p class="second-desc"><fmt:message key="eliteTerms.documentUpload.You.will.receive" bundle="${msg}" /></p>
 							</div>
 							
 						</div>
@@ -125,7 +123,7 @@
 									<label for="residence-check"></label>
 								</div>
 								<div class="pull-left residence-text">
-									I’m Hong Kong permanent resident
+									<fmt:message key="eliteTerms.documentUpload.I'm.Hong" bundle="${msg}" />
 								</div>
 							</div>
 							
@@ -133,8 +131,8 @@
                      
 								<div class="upload-buttons clearfix">
 									<div class="col-xs-12 col-md-4 hk-id-holder">
-										<h4>Your HK ID</h4><button class="info hkid orange-tooltip hidden-xs hidden-sm" type="button" data-toggle="tooltip" data-placement="right" title="Lorem Ipsum"></button>
-										<h5>Upload your HKID</h5>
+										<h4><fmt:message key="eliteTerms.documentUpload.Your.HK.ID" bundle="${msg}" /></h4><button class="info hkid orange-tooltip hidden-xs hidden-sm" type="button" data-toggle="tooltip" data-placement="right" title="Lorem Ipsum"></button>
+										<h5><fmt:message key="eliteTerms.documentUpload.Upload.your.HKID" bundle="${msg}" /></h5>
 										<form action="upload-documents" id="hkid-upload-form" class="upload-form">
 											<div class="finish-upload hidden" id="finish-upload-hkid">
 												<div class="center-align">
@@ -156,15 +154,15 @@
 														</label>
 													</div>
 													<div class="desk hidden-xs hidden-sm">
-														Drag and drop files here
+														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
 													<div class="mob-desk">
-														<span class="OR">or</span>
+														<span class="OR"><fmt:message key="eliteTerms.documentUpload.or" bundle="${msg}" /></span>
 													</div>
 													<div class="mob-desk">
 														<label for="hkidFileToUpload" class="orange-select-file">
 															<input type="file" id="hkidFileToUpload" onchange="fileSelected('hkid-copy-progress','hkidFileToUpload','hkid-docu-filename','hkid-docu-fileSize','finish-upload-hkid','hkid-upload-percent-text','hkid-upload-progress-bar','');">
-															<span class="input-file-text">Select files</span>
+															<span class="input-file-text"><fmt:message key="eliteTerms.documentUpload.Select.files" bundle="${msg}" /></span>
 														</label>
 													</div>
 												</div>
@@ -173,7 +171,7 @@
 										<div class="document-upload-progress hidden" id="hkid-copy-progress">
 											<div class="clearfix">
 												<div class="pull-left">
-													<span id="hkid-docu-filename">Yourfiles.pdf </span><span id="hkid-docu-fileSize">(319.50 mb)</span>
+													<span id="hkid-docu-filename"><fmt:message key="eliteTerms.documentUpload.Yourfiles.pdf" bundle="${msg}" /> </span><span id="hkid-docu-fileSize">(319.50 mb)</span>
 												</div>
 												<div class="pull-right">
 													<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('hkid-copy-progress','finish-upload-hkid','hkid-upload-progress-bar')">
@@ -183,16 +181,16 @@
 											</div>
 											<div class="progress">
 												<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="hkid-upload-progress-bar">
-												<span class="sr-only">70% Complete</span>
+												<span class="sr-only"><fmt:message key="eliteTerms.documentUpload.70%.Complete" bundle="${msg}" /></span>
 												</div>
 											</div>
-											<p class="upload-text">Uploading: <span id="hkid-upload-percent-text">0%</span></p>
+											<p class="upload-text"><fmt:message key="eliteTerms.documentUpload.Uploading" bundle="${msg}" /><span id="hkid-upload-percent-text">0%</span></p>
 										</div>
 									</div>
 
 									<div class="col-xs-12 col-md-4 passport-holder">
-										<h4>Your passport copy</h4><button class="info passport orange-tooltip hidden-xs hidden-sm" type="button" data-toggle="tooltip" data-placement="right" title="Lorem Ipsum"></button>
-										<h5>If you are a non-permanent resident</h5>
+										<h4><fmt:message key="eliteTerms.documentUpload.Your.passport.copy" bundle="${msg}" /></h4><button class="info passport orange-tooltip hidden-xs hidden-sm" type="button" data-toggle="tooltip" data-placement="right" title="Lorem Ipsum"></button>
+										<h5><fmt:message key="eliteTerms.documentUpload.If.you.are" bundle="${msg}" /></h5>
 										<form action="upload-documents" id="passport-upload-form" class="upload-form">
 											<div class="finish-upload hidden" id="finish-upload-passport">
 												<div class="center-align">
@@ -214,15 +212,15 @@
 														</label>
 													</div>
 													<div class="desk hidden-xs hidden-sm">
-														Drag and drop files here
+														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
 													<div class="mob-desk">
-														<span class="OR">or</span>
+														<span class="OR"><fmt:message key="eliteTerms.documentUpload.or" bundle="${msg}" /></span>
 													</div>
 													<div class="mob-desk">
 														<label for="passportFileToUpload" class="orange-select-file">
 															<input type="file" id="passportFileToUpload" onchange="fileSelected('passport-copy-progress','passportFileToUpload','passport-docu-filename','passport-docu-fileSize','finish-upload-passport','passport-upload-percent-text','passport-upload-progress-bar','');">
-															<span class="input-file-text">Select files</span>
+															<span class="input-file-text"><fmt:message key="eliteTerms.documentUpload.Select.files" bundle="${msg}" /></span>
 														</label>
 													</div>
 												</div>
@@ -231,7 +229,7 @@
 										<div class="document-upload-progress hidden" id="passport-copy-progress">
 											<div class="clearfix">
 												<div class="pull-left">
-													<span id="passport-docu-filename">Yourfiles.pdf </span><span id="passport-docu-fileSize">(319.50 mb)</span>
+													<span id="passport-docu-filename"><fmt:message key="eliteTerms.documentUpload.Yourfiles.pdf" bundle="${msg}" /> </span><span id="passport-docu-fileSize">(319.50 mb)</span>
 												</div>
 												<div class="pull-right">
 													<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('passport-copy-progress','finish-upload-passport','passport-upload-progress-bar')">
@@ -241,16 +239,16 @@
 											</div>
 											<div class="progress">
 												<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="passport-upload-progress-bar">
-												<span class="sr-only">70% Complete</span>
+												<span class="sr-only"><fmt:message key="eliteTerms.documentUpload.70%.Complete" bundle="${msg}" /></span>
 												</div>
 											</div>
-											<p class="upload-text">Uploading: <span id="passport-upload-percent-text">0%</span></p>
+											<p class="upload-text"><fmt:message key="eliteTerms.documentUpload.Uploading" bundle="${msg}" /><span id="passport-upload-percent-text">0%</span></p>
 										</div>
 									</div>
 									
 									<div class="col-xs-12 col-md-4 proof-address-holder">
-										<h4>Proof of address</h4><button class="info addr orange-tooltip hidden-xs hidden-sm" type="button" data-toggle="tooltip" data-placement="right" title="Lorem Ipsum"></button>
-										<h5>Your current residential address</h5>
+										<h4><fmt:message key="eliteTerms.documentUpload.Proof.of.address" bundle="${msg}" /></h4><button class="info addr orange-tooltip hidden-xs hidden-sm" type="button" data-toggle="tooltip" data-placement="right" title="Lorem Ipsum"></button>
+										<h5><fmt:message key="eliteTerms.documentUpload.Your.current.residential" bundle="${msg}" /></h5>
 										<form action="http://murielle.php-staging.smartdrop.com.hk/pms/product/uploadfile" id="js-upload-form" method="POST" class="upload-form">
 											<div class="finish-upload hidden" id="finish-upload-addr">
 												<div class="center-align">
@@ -267,15 +265,15 @@
 														</label>
 													</div>
 													<div class="desk hidden-xs hidden-sm">
-														Drag and drop files here
+														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
 													<div class="mob-desk">
-														<span class="OR">or</span>
+														<span class="OR"><fmt:message key="eliteTerms.documentUpload.or" bundle="${msg}" /></span>
 													</div>
 													<div class="mob-desk">
 														<label for="fileToUpload" class="orange-select-file">
 															<input type="file" id="fileToUpload" onchange="fileSelected('proof-of-address-progress','fileToUpload','address-docu-filename','address-docu-fileSize','finish-upload-addr','docu-upload-percent-text','document-upload-progress-bar','');">
-															<span class="input-file-text">Select files</span>
+															<span class="input-file-text"><fmt:message key="eliteTerms.documentUpload.Select.files" bundle="${msg}" /></span>
 														</label>
 													</div>
 												</div>
@@ -284,7 +282,7 @@
 										<div class="document-upload-progress hidden" id="proof-of-address-progress">
 											<div class="clearfix">
 												<div class="pull-left">
-													<span id="address-docu-filename">Yourfiles.pdf </span><span id="address-docu-fileSize">(319.50 mb)</span>
+													<span id="address-docu-filename"><fmt:message key="eliteTerms.documentUpload.Yourfiles.pdf" bundle="${msg}" /> </span><span id="address-docu-fileSize">(319.50 mb)</span>
 												</div>
 												<div class="pull-right">
 													<button type="button" class="upload-cancel-btn" id="cancel-upload-btn" onclick="cancelUpload('proof-of-address-progress','finish-upload-addr','document-upload-progress-bar')">
@@ -294,27 +292,25 @@
 											</div>
 											<div class="progress">
 												<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="document-upload-progress-bar">
-												<span class="sr-only">70% Complete</span>
+												<span class="sr-only"><fmt:message key="eliteTerms.documentUpload.70%.Complete" bundle="${msg}" /></span>
 												</div>
 											</div>
-											<p class="upload-text">Uploading: <span id="docu-upload-percent-text">0%</span></p>
+											<p class="upload-text"><fmt:message key="eliteTerms.documentUpload.Uploading" bundle="${msg}" /> <span id="docu-upload-percent-text">0%</span></p>
 										</div>
 									</div>
 								</div>
                         
 								<div class="col-xs-12 col-md-12">
-									<p class="notice"><span class="asterisk">* </span>Policy will be effective upon receiving all valid
-									documentation within x days, otherwise your
-									application will be void.</p>
+									<p class="notice"><span class="asterisk">* </span><fmt:message key="eliteTerms.documentUpload.Policy.will.be" bundle="${msg}" /></p>
 								</div>
 							</div>					
 						</div>
                   	</div> <!-- PAGE CONTENT -->
 					<div class="submit-btn" id="submit-btn">
-						<button id="et-upload-doc-submit-btn" type="button" class="btn next">Next</button>
+						<button id="et-upload-doc-submit-btn" type="button" class="btn next"><fmt:message key="eliteTerms.documentUpload.Next" bundle="${msg}" /></button>
 					</div>
 					<div class="link-button hidden" id="upload-link-btn">
-						<button type="button" class="btn next">Send me the link</button>
+						<button type="button" class="btn next"><fmt:message key="eliteTerms.documentUpload.Send.me.the.link" bundle="${msg}" /></button>
 					</div>
 					
 				</div>

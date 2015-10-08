@@ -18,13 +18,13 @@
 
 			<div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
                <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-                  <li><a href="#">Home</a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.payment.Home" bundle="${msg}" /></a></li>
                   <li class="divider"><i class="fa fa-play"></i></li>
-                  <li><a href="#">Protection </a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.payment.Protection" bundle="${msg}" /> </a></li>
                   <li class="divider"><i class="fa fa-play"></i></li>
-                  <li><a href="#">Elite term </a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.payment.Elite.term" bundle="${msg}" /> </a></li>
                   <li class="divider last"><i class="fa fa-play"></i></li>
-                  <li class="active-bc" id="et-active-bc-menu">Payment</li>
+                  <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.payment.Payment" bundle="${msg}" /></li>
                </ol>
             </div>
 			
@@ -33,19 +33,19 @@
 				<div class="application-page-header et-header-browse">
 					<div class="clearfix reset-margin hidden-xs hidden-sm">
 		                  <div class="reset-padding">
-		                      <button type="button" class="et-header-info-btn et-bind-btn-header" id="select-plan" data-et-section-target="et-select-plan-section">Select plan</button>
+		                      <button type="button" class="et-header-info-btn et-bind-btn-header" id="select-plan" data-et-section-target="et-select-plan-section"><fmt:message key="eliteTerms.payment.Select.plan" bundle="${msg}" /></button>
 		                  </div>
 		                  <div class="reset-padding">
-		                      <button type="button" class="et-header-info-btn et-bind-btn-header" id="application" data-et-section-target="et-application-section" >Application</button>
+		                      <button type="button" class="et-header-info-btn et-bind-btn-header" id="application" data-et-section-target="et-application-section" ><fmt:message key="eliteTerms.payment.Application" bundle="${msg}" /></button>
 		                  </div>
 		                  <div class="reset-padding">
-		                      <button type="button" class="et-header-info-btn et-bind-btn-header active no-hover" id="payment" data-et-section-target="et-dec-sign-section">Payment</button>
+		                      <button type="button" class="et-header-info-btn et-bind-btn-header active no-hover" id="payment" data-et-section-target="et-dec-sign-section"><fmt:message key="eliteTerms.payment.Payment" bundle="${msg}" /></button>
 		                  </div>
 		                  <div class="reset-padding">
-		                      <button type="button" class="et-header-info-btn no-hover" id="summary" data-toggle="modal" data-target="#summary-modal">Upload document</button>
+		                      <button type="button" class="et-header-info-btn no-hover" id="summary" data-toggle="modal" data-target="#summary-modal"><fmt:message key="eliteTerms.payment.Upload.document" bundle="${msg}" /></button>
 		                  </div>
 		                  <div class="reset-padding">
-		                      <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="confirmation" data-et-section-target="et-confirmation-section">Confirmation</button>
+		                      <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="confirmation" data-et-section-target="et-confirmation-section"><fmt:message key="eliteTerms.payment.Confirmation" bundle="${msg}" /></button>
 		                  </div>
 		              </div>
 					<div class="et-mobile-header-info hidden-md hidden-lg">
@@ -56,7 +56,7 @@
 								</a>
 							</div>
 							<div class="et-header-tex">
-								<h3 id="et-active-section-label">Payment </h3>
+								<h3 id="et-active-section-label"><fmt:message key="eliteTerms.payment.Payment" bundle="${msg}" /> </h3>
 							</div>
 						</div>
 						
@@ -69,20 +69,20 @@
 				<div class="container-fluid fwd-container">
 					<div class="et-payment page-application">
 						<div class="page-header text-center">
-							<h2 class="page-header-title hidden-xs hidden-sm"><span class="hidden-md hidden-lg">Payment details</span> <span class="hidden">Your summary & payment</span></h2>
-							<p class="page-header-motto"><span>We will now collect upfront a 2-month</span> <span>premium as deposit</span></p>
-							<p class="page-header-motto">Your 1-month premium: HKD 500.</p>	
+							<h2 class="page-header-title hidden-xs hidden-sm"><span class="hidden-md hidden-lg"><fmt:message key="eliteTerms.payment.Payment.details" bundle="${msg}" /></span> <span class="hidden"><fmt:message key="eliteTerms.payment.Your.summary" bundle="${msg}" /></span></h2>
+							<p class="page-header-motto"><span><fmt:message key="eliteTerms.payment.We.will.now" bundle="${msg}" /></span> <span><fmt:message key="eliteTerms.payment.premium.as.deposit" bundle="${msg}" /></span></p>
+							<p class="page-header-motto"><fmt:message key="eliteTerms.payment.Your.1-month" bundle="${msg}" /></p>	
 							<p class="amount-holder">
-								<span class="total-amount">Total amount: </span>
+								<span class="total-amount"><fmt:message key="eliteTerms.payment.Total.amount" bundle="${msg}" /></span>
 								<span class="amount">HKD 1000</span>
 							</p>
 						</div>	
 						<div class="page-content clearfix">
 							<form>
-								<h2 class="hidden-xs hidden-sm">Payment details</h2>
+								<h2 class="hidden-xs hidden-sm"><fmt:message key="eliteTerms.payment.Payment.details" bundle="${msg}" /></h2>
 								<div class="card-inputs clearfix">
 									<div class="page-content-item">
-										<label for="cards">Card type</label>
+										<label for="cards"><fmt:message key="eliteTerms.payment.Card.type" bundle="${msg}" /></label>
 										<div class="card-image-holder" id="cards">
 										    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/mastercard-logo.png">
 											<img src="<%=request.getContextPath()%>/resources/images/elite-terms/visa-logo.png">
@@ -90,44 +90,44 @@
 									</div>
 
 									<div class="page-content-item">
-										<label for="card-num">Credit card number</label>
+										<label for="card-num"><fmt:message key="eliteTerms.payment.Credit.card.number" bundle="${msg}" /></label>
 										<input type="text" class="form-control gray-textbox desktop-half" placeholder="Credit card number" id="card-num" data-mask="9999 9999 9999 9999" name="card-num">
 									</div>
 									<div class="page-content-item">
-										<label for="card-num">Expiry date</label>
+										<label for="card-num"><fmt:message key="eliteTerms.payment.Expiry.date" bundle="${msg}" /></label>
 										<div class="clearfix desktop-half">
 											<div class="selectDiv month">
 												<select name="month" id="month" class="form-control gray-dropdown">
-													<option value="" disabled selected>Month</option>
-													<option value="">January</option>
-													<option value="">February</option>
-													<option value="">March</option>
-													<option value="">April</option>
-													<option value="">May</option>
-													<option value="">June</option>
-													<option value="">July</option>
-													<option value="">August</option>
-													<option value="">September</option>
-													<option value="">October</option>
-													<option value="">November</option>
-													<option value="">December</option>
+													<option value="" disabled selected><fmt:message key="eliteTerms.payment.Month" bundle="${msg}" /></option>
+													<option value=""><fmt:message key="eliteTerms.payment.January" bundle="${msg}" /></option>
+													<option value=""><fmt:message key="eliteTerms.payment.February" bundle="${msg}" /></option>
+													<option value=""><fmt:message key="eliteTerms.payment.March" bundle="${msg}" /></option>
+													<option value=""><fmt:message key="eliteTerms.payment.April" bundle="${msg}" /></option>
+													<option value=""><fmt:message key="eliteTerms.payment.May" bundle="${msg}" /></option>
+													<option value=""><fmt:message key="eliteTerms.payment.June" bundle="${msg}" /></option>
+													<option value=""><fmt:message key="eliteTerms.payment.July" bundle="${msg}" /></option>
+													<option value=""><fmt:message key="eliteTerms.payment.August" bundle="${msg}" /></option>
+													<option value=""><fmt:message key="eliteTerms.payment.September" bundle="${msg}" /></option>
+													<option value=""><fmt:message key="eliteTerms.payment.October" bundle="${msg}" /></option>
+													<option value=""><fmt:message key="eliteTerms.payment.November" bundle="${msg}" /></option>
+													<option value=""><fmt:message key="eliteTerms.payment.December" bundle="${msg}" /></option>
 												</select>
 											</div>
 											<div class="selectDiv">
 												<select name="year" id="year" class="form-control gray-dropdown">
-													<option value="" disabled selected>Year</option>
-													<option value="">Lorem</option>
-													<option value="">Ipsum</option>
+													<option value="" disabled selected><fmt:message key="eliteTerms.payment.Year" bundle="${msg}" /></option>
+													<option value=""><fmt:message key="eliteTerms.payment.Lorem" bundle="${msg}" /></option>
+													<option value=""><fmt:message key="eliteTerms.payment.Ipsum" bundle="${msg}" /></option>
 												</select>
 											</div>
 										</div>
 									</div>
 									<div class="page-content-item">
-										<label for="card-name">Name on credit card</label>
+										<label for="card-name"><fmt:message key="eliteTerms.payment.Name.on.credit.card" bundle="${msg}" /></label>
 										<input type="text" class="form-control gray-textbox desktop-half" placeholder="Name on credit card" value="" id="card-name" name="card-name">
 									</div>
 									<div class="page-content-item">
-										<label for="card-name">Security code</label>
+										<label for="card-name"><fmt:message key="eliteTerms.payment.Security.code" bundle="${msg}" /></label>
 										<div class="clearfix desktop-half">
 											<input type="text" class="form-control gray-textbox card-cvv" placeholder="CVV" id="card-cvv" name="card-cvv">
 											<div class="cvv-image-holder">
@@ -140,15 +140,15 @@
 									<div class="fwd-checkbox">
 										<input type="checkbox" id="personal-information-statement">
 										<label for="personal-information-statement"></label>
-										<p class="notice"><span class="hidden-md hidden-lg">I hereby authorize FWD General Insurance Company Limited to debit my Credit Card Account for the premium of this insurance.</span>
-										<span class="hidden-xs hidden-sm">I, as Policy owner, confirm that I am not acting on behalf of any other person, that the above payment is made on my own behalf, and that I authorize FWD life insurance Company (Bermuda) Limited, until further written notice, to debit the account listed above to pay the insurance premium.</span>
+										<p class="notice"><span class="hidden-md hidden-lg"><fmt:message key="eliteTerms.payment.I.hereby.authorize" bundle="${msg}" /></span>
+										<span class="hidden-xs hidden-sm"><fmt:message key="eliteTerms.payment.I.as.Policy.owner" bundle="${msg}" /></span>
 										</p>
 									</div>
 								</div>
 
 								<div class="button-holder hidden-md hidden-lg clearfix">
-									<button type="button" class="btn next et-payment-button-back hidden-xs hidden-sm">Back</button>
-									<button type="button" class="btn next et-payment-button-confirm">Complete</button>
+									<button type="button" class="btn next et-payment-button-back hidden-xs hidden-sm"><fmt:message key="eliteTerms.payment.Back" bundle="${msg}" /></button>
+									<button type="button" class="btn next et-payment-button-confirm"><fmt:message key="eliteTerms.payment.Complete" bundle="${msg}" /></button>
 								</div>
 								<div class="line hidden-xs hidden-sm"></div>
 							</form>
@@ -160,25 +160,25 @@
 									<div class="text-center">
 										<img src="<%=request.getContextPath()%>/resources/images/elite-terms/paydollar-icon.png">
 									</div>
-									<p>We adopt PayDollar Payment Gateway, a leading, secure, reliable international payment service provider to banks and online merchants.</p>
+									<p><fmt:message key="eliteTerms.payment.We.adopt.PayDollar" bundle="${msg}" /></p>
 								</div>
 								<div class="card-item clearfix">
 									<div class="text-center">
 										<img src="<%=request.getContextPath()%>/resources/images/elite-terms/verifiedbyvisa-icon.png">
 									</div>
-									<p>Verified by Visa (VbV) is a program designed to help make shopping online more secure.</p>
+									<p><fmt:message key="eliteTerms.payment.Verified.by.Visa" bundle="${msg}" /></p>
 								</div>
 								<div class="card-item last clearfix">
 									<div class="text-center">
 										<img src="<%=request.getContextPath()%>/resources/images/elite-terms/mastercard-icon.png">
 									</div>
-									<p>Get an extra layer of online shopping security with MasterCard SecureCode - a private, secure code. that protects your purchases.</p>
+									<p><fmt:message key="eliteTerms.payment.Get.an.extra" bundle="${msg}" /></p>
 								</div>
 							</div>
 						</div>
 
 						<div class="text-center complete-holder hidden-sm hidden-xs">
-							<button type="button" class="btn next ">Complete</button>
+							<button type="button" class="btn next "><fmt:message key="eliteTerms.payment.Complete" bundle="${msg}" /></button>
 						</div>				
 					</div>
 				</div>
