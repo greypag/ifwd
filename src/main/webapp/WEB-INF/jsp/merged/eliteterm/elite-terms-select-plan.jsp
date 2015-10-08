@@ -1,18 +1,19 @@
-<%@page pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<%@include file="includes/head.jsp" %>
-		
-		
-	</head>
-	<body>
+<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
 		<%!
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
 		<div class="fwd-savie-wrapper">			
-			<%@include file="includes/header-block-elite-terms.jsp" %>
 			<!--Elite Terms Header Info Widget-->
          <div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
             <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
@@ -1273,7 +1274,7 @@
                                  </div>
                                  <div class="clearfix plan-detail-holder">
                                     <h4 class="info-label">Insured amount</h4>
-                                    <p class="info" id="etaspd-insured-amount"</p>
+                                    <p class="info" id="etaspd-insured-amount"></p>
                                  </div>
                                  <div class="clearfix plan-detail-holder">
                                     <h4 class="info-label">Monthly premium</h4>
@@ -1759,11 +1760,9 @@
 			</div><!--END OF CUSTOMER SERVICE MODAL-->
          
          <!-- FOOTER -->	
-			<%@include file="includes/footer-block.jsp" %>
 		</div>
 		
 		<!-- JS INCLUDES -->
-		<%@include file="includes/js-include.jsp" %>
 		<!--<script src="assets/js/jquery.nicescroll.min.js"></script>-->
 		<script src="assets/js/bootstrap-et-slider.js"></script>
 		<script src="assets/js/highcharts.js"></script>
@@ -1774,5 +1773,3 @@
 		<script src="assets/js/jSignature/jSignature.min.js"></script>
 		<!-- SELECT PLAN JS -->
       <script type="text/javascript" src="assets/js/fwd-select-plan.js"></script>
-	</body>
-</html>

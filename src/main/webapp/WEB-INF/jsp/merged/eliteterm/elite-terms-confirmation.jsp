@@ -1,17 +1,20 @@
-<%@page pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<%@include file="includes/head.jsp" %>
-	</head>
-	<body>
+<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
 		<%!
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
 		<div class="fwd-savie-wrapper" id= "etConfirm">
 
-			<%@include file="includes/header-block-elite-terms.jsp" %>
 
 			<div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
                <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
@@ -109,11 +112,9 @@
 			</div>
 			
 			<!-- FOOTER -->
-			<%@include file="includes/footer-block.jsp" %>
 		</div>
 		
 		<!-- JS INCLUDES -->
-		<%@include file="includes/js-include.jsp" %>
 		<script>
          
          $('#et-confimation-email-form').on('submit', function(e){
@@ -141,5 +142,3 @@
             }            
          });*/ 
 		</script>
-	</body>
-</html>
