@@ -18,13 +18,13 @@
 
 			<div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
                <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-                  <li><a href="#">Home</a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.confirmation.Home" bundle="${msg}" /></a></li>
                   <li class="divider"><i class="fa fa-play"></i></li>
-                  <li><a href="#">Protection </a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.confirmation.Protection" bundle="${msg}" /> </a></li>
                   <li class="divider"><i class="fa fa-play"></i></li>
-                  <li><a href="#">Elite term </a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.confirmation.Elite.term" bundle="${msg}" /> </a></li>
                   <li class="divider last"><i class="fa fa-play"></i></li>
-                  <li class="active-bc" id="et-active-bc-menu">Confirmation</li>
+                  <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.confirmation.Confirmation" bundle="${msg}" /></li>
                </ol>
             </div>
 
@@ -34,19 +34,19 @@
 				<div class="application-page-header et-header-browse">
 					<div class="clearfix reset-margin hidden-xs hidden-sm">
 						<div class="reset-padding">
-							<button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="select-plan" data-et-section-target="et-select-plan-section">Select plan</button>
+							<button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="select-plan" data-et-section-target="et-select-plan-section"><fmt:message key="eliteTerms.confirmation.Select.plan" bundle="${msg}" /></button>
 						</div>
 						<div class="reset-padding">
-							<button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="application" data-et-section-target="et-application-section" >Application</button>
+							<button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="application" data-et-section-target="et-application-section" ><fmt:message key="eliteTerms.confirmation.Application" bundle="${msg}" /></button>
 						</div>
 						<div class="reset-padding">
-							<button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="payment" data-et-section-target="et-dec-sign-section">Payment</button>
+							<button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="payment" data-et-section-target="et-dec-sign-section"><fmt:message key="eliteTerms.confirmation.Payment" bundle="${msg}" /></button>
 						</div>
 						<div class="reset-padding">
-							<button type="button" class="et-header-info-btn no-hover" id="summary" data-toggle="modal" data-target="#summary-modal">Upload document</button>
+							<button type="button" class="et-header-info-btn no-hover" id="summary" data-toggle="modal" data-target="#summary-modal"><fmt:message key="eliteTerms.confirmation.Upload.document" bundle="${msg}" /></button>
 						</div>
 						<div class="reset-padding">
-							<button type="button" class="et-header-info-btn et-bind-btn-header active no-hover" id="confirmation" data-et-section-target="et-confirmation-section">Confirmation</button>
+							<button type="button" class="et-header-info-btn et-bind-btn-header active no-hover" id="confirmation" data-et-section-target="et-confirmation-section"><fmt:message key="eliteTerms.confirmation.Confirmation" bundle="${msg}" /></button>
 						</div>
 					</div>
 					<div class="et-mobile-header-info hidden-md hidden-lg">
@@ -57,7 +57,7 @@
 								</a>
 							</div>-->
 							<div class="et-header-tex">
-								<h3 id="et-active-section-label">Confirmation</h3>
+								<h3 id="et-active-section-label"><fmt:message key="eliteTerms.confirmation.Confirmation" bundle="${msg}" /></h3>
 							</div>
 						</div>
 						
@@ -68,25 +68,24 @@
 			<div class="application-flux">        
 				<div class="container-fluid fwd-container thank-you-container">
                
-               <p class="et-confimation-du-note">Please be reminded to upload your documents at the eServices page to complete your application.</p>
+               <p class="et-confimation-du-note"><fmt:message key="eliteTerms.confirmation.Please.be.reminded" bundle="${msg}" /></p>
              
-					<h2>Thank you <span class="et-title-break" /> for your purchase!</span></h2>
+					<h2><fmt:message key="eliteTerms.confirmation.Thank.you" bundle="${msg}" /> <span class="et-title-break" /> <fmt:message key="eliteTerms.confirmation.for.your.purchase" bundle="${msg}" /></span></h2>
 					
 					<div class="details-container">
                   <div class="detail">
-                     <h3 class="acknowledge">Acknowledgement</h3>
-                     <p>Your application is successfully processed. The confirmation email has been sent to daiman@gmail.com
-                     you can review the detail of your application</p>
+                     <h3 class="acknowledge"><fmt:message key="eliteTerms.confirmation.Acknowledgement" bundle="${msg}" /></h3>
+                     <p><fmt:message key="eliteTerms.confirmation.Your.application.is" bundle="${msg}" /></p>
                   </div>
 							
                   <div class="detail">
-                     <h3 class="policy">Policy Number: <span class="policy-number">093KG35JH</span></h3>								
+                     <h3 class="policy"><fmt:message key="eliteTerms.confirmation.Policy.Number" bundle="${msg}" /><span class="policy-number">093KG35JH</span></h3>								
                   </div>
 					</div>
 					
 					<div class="agent-container">
-						<h2 class= "agent">Please enter your agent's email below<span class="hidden-xs hidden-sm">:</span></h2>
-						<p class="agent-desc et-agent-desc">If you already have an insurance agent from FWD currently serving your needs, please provide his/her email address:</p>
+						<h2 class= "agent"><fmt:message key="eliteTerms.confirmation.Please.enter.your" bundle="${msg}" /><span class="hidden-xs hidden-sm">:</span></h2>
+						<p class="agent-desc et-agent-desc"><fmt:message key="eliteTerms.confirmation.If.you.already.have" bundle="${msg}" /></p>
 						
                   <form action="" method="POST" class="form-horizontal" id="et-confimation-email-form">
                      <div class="form-group">
@@ -94,18 +93,18 @@
                            <input type="email" name="agent-email" id="agent-email" placeholder="your.agent@fwd.com" />	
                         </div>
                         <div class="col-xs-5 col-md-2 et-submit">
-                           <button type="submit" value="Submit" class="btn">Submit</button>
+                           <button type="submit" value="Submit" class="btn"><fmt:message key="eliteTerms.confirmation.Submit" bundle="${msg}" /></button>
                         </div> 
                      </div>
                   </form>
                   
-                  <p class="submitted-info hide-element">You have submitted your agent email.</p>
+                  <p class="submitted-info hide-element"><fmt:message key="eliteTerms.confirmation.You.have.submitted" bundle="${msg}" /></p>
 							
 					</div>
 					
                <div class="row">
                   <div class="col-xs-12 text-center">
-                     <a href="#" title="Back to home" class="btn next et-back-home-btn">Back to home</a>
+                     <a href="#" title="Back to home" class="btn next et-back-home-btn"><fmt:message key="eliteTerms.confirmation.Back.to.home" bundle="${msg}" /></a>
                   </div>
                </div>
 				</div>
