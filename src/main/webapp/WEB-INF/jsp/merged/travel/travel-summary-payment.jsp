@@ -691,26 +691,35 @@ var enablePayment=true;
                                     %>
                                 </tbody>
                             </table>
-                            <c:if test="${selectPlanName=='A' && quoteDetails.totalNetPremium[0]=='0.00'}">
-                                  <div align="center">
-	                                  <br/>
-	                                  <input class="bdr-curve btn btn-primary" type="button" value="下一页"/>
-                                  </div>
-                            </c:if>
-                            <c:if test="${selectPlanName=='B' && quoteDetails.totalNetPremium[1]=='0.00'}">
-                                  <div align="center">
-	                                  <br/>
-	                                  <input class="bdr-curve btn btn-primary" type="button" value="下一页"/>
-                                  </div>
-                            </c:if>
                           </div>
                         </div>
-                        
-                        
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="gray-bg1 product_payment_detail_form_container <c:if test="${selectPlanName=='A' && quoteDetails.totalNetPremium[0]=='0.00'}">hidden</c:if><c:if test="${selectPlanName=='B' && quoteDetails.totalNetPremium[1]=='0.00'}">hidden</c:if>">
+                
+                <fmt:formatNumber var="totalA" value="${quoteDetails.toalDue[0]}" pattern="#"/>
+                <fmt:formatNumber var="totalB" value="${quoteDetails.toalDue[1]}" pattern="#"/>
+                <c:if test="${(selectPlanName=='A' && totalA<=0) || (selectPlanName=='B' && totalB<=0)}">
+                    <div class="gray-bg1 product_payment_detail_form_container">
+                        <div style="width:80%;margin-left:10%;">
+		                    <div class="declaration-content" style="margin:0px !important;">
+		                        <div class="checkbox" style="padding-top: 24px;">
+		                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pull-right">
+		                                <a id="button_confirm" href="<%=request.getContextPath()%>/${language}/travel-insurance/confirmation"
+                                        class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.next" bundle="${msg}" /></a>
+                                    </div>
+		                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 pull-right">
+		                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+		                            </div>
+		                            <div class="clearfix"></div>
+		                        </div>
+		                        <div class="clearfix"></div>
+		                    </div>
+	                    </div>
+                    </div>
+                </c:if>
+                
+                <div class="gray-bg1 product_payment_detail_form_container <c:if test="${selectPlanName=='A' && totalA<=0}">hidden</c:if><c:if test="${selectPlanName=='B' && totalB<=0}">hidden</c:if>">
                     <div style="width:80%;margin-left:10%;">
                     <!-- Payment Form -->
                     <div class="col-xs-12 pad-none">
