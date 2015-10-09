@@ -71,6 +71,11 @@ public class EliteTermController extends BaseController{
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "eliteterm/elite-terms-document-upload");
 	}
 	
+	@RequestMapping(value = {"/{lang}/elite-term/landing"})
+	public ModelAndView getLanding(Model model, HttpServletRequest request) {
+		return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "eliteterm/elite-terms-landing");
+	}
+	
 	@RequestMapping(value = {"/{lang}/elite-term/payment"})
 	public ModelAndView getPayment(Model model, HttpServletRequest request) {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "eliteterm/elite-terms-payment");
