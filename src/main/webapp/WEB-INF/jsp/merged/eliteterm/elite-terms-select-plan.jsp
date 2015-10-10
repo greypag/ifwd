@@ -1672,8 +1672,8 @@
 									<label for="cs_time"><fmt:message key="eliteTerms.selectPlan.Preffered.timeslot" bundle="${msg}" /></label>
 									<div class="select-holder">
 										<select class="form-control gray-textbox" id="cs_time" name="cs_time">
-											<option><fmt:message key="eliteTerms.selectPlan.After.hour" bundle="${msg}" /></option>
-											<option><fmt:message key="eliteTerms.selectPlan.Lorem.Ipsum" bundle="${msg}" /></option>
+											<%-- <option><fmt:message key="eliteTerms.selectPlan.After.hour" bundle="${msg}" /></option>
+											<option><fmt:message key="eliteTerms.selectPlan.Lorem.Ipsum" bundle="${msg}" /></option> --%>
 										</select>
 									</div>
 								</div>
@@ -1681,8 +1681,8 @@
 									<label for="cs_enquiry"><fmt:message key="eliteTerms.selectPlan.Enquire.type" bundle="${msg}" /></label>
 									<div class="select-holder">
 										<select class="form-control gray-textbox" id="cs_enquiry" name="cs_enquiry">
-											<option><fmt:message key="eliteTerms.selectPlan.Product.enquiry" bundle="${msg}" /></option>
-											<option><fmt:message key="eliteTerms.selectPlan.Lorem.Ipsum" bundle="${msg}" /></option>
+											<%-- <option><fmt:message key="eliteTerms.selectPlan.Product.enquiry" bundle="${msg}" /></option>
+											<option><fmt:message key="eliteTerms.selectPlan.Lorem.Ipsum" bundle="${msg}" /></option> --%>
 										</select>
 									</div>
 								</div>
