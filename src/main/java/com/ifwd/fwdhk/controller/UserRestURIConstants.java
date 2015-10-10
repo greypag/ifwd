@@ -140,6 +140,24 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIE_PDF = "pdf-show";
 	public static final String PAGE_PROPERTIES_SAVIE_SIGNATURE = "savie.signature";
 	
+	/* Page Flow Control For Elite */
+	public static final String URL_ELITE_TERMS_LANDING = "landing";
+	public static final String URL_ELITE_TERMS_SELECT_PLAN = "select-plan";
+	public static final String URL_ELITE_TERMS_PAYMENT = "payment";
+	public static final String URL_ELITE_TERMS_DOCUMENT_UPLOAD = "document-upload";
+	public static final String URL_ELITE_TERMS_CONFIRMATION = "confirmation";
+	
+	public static final String PAGE_ELITE_TERMS_LANDING = "elite-terms-landing";
+	public static final String PAGE_ELITE_TERMS_SELECT_PLAN = "elite-terms-select-plan";
+	public static final String PAGE_ELITE_TERMS_PAYMENT = "elite-terms-payment";
+	public static final String PAGE_ELITE_TERMS_DOCUMENT_UPLOAD = "elite-terms-document-upload";
+	public static final String PAGE_ELITE_TERMS_CONFIRMATION = "elite-terms-confirmation";
+	
+	public static final String PAGE_PROPERTIES_ELITE_TERMS_LANDING = "elite.terms.landing";
+	public static final String PAGE_PROPERTIES_ELITE_TERMS_SELECT_PLAN = "elite.terms.select-plan";
+	public static final String PAGE_PROPERTIES_ELITE_TERMS_PAYMENT = "elite.terms.payment";
+	public static final String PAGE_PROPERTIES_ELITE_TERMS_DOCUMENT_UPLOAD = "elite.terms.document-upload";
+	public static final String PAGE_PROPERTIES_ELITE_TERMS_CONFIRMATION = "elite.terms.confirmation";
 	
 	/* for image configuration */
 	public static final String IMAGE_CONFIG = SERVICE_URL + "/ecommerce/configuration";
