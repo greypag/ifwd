@@ -363,11 +363,11 @@
 		<script type="text/javascript">
 			var language = "en";
 		</script>
-		<script src="mini-calcu/js/jquery.animateSprite.js"></script>
-		<script src="mini-calcu/js/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
-		<script src="mini-calcu/js/jquery.ui.touch-punch.min.js"></script>
-		<script src="mini-calcu/js/jquery.loadImages.1.1.0.js"></script>
-		<script src="mini-calcu/js/index.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery.animateSprite.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery.loadImages.1.1.0.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/index.js"></script>
       <script>
          $(function() {
             $('#et-recent-works-mob').on('click', '.prev', function(e) {

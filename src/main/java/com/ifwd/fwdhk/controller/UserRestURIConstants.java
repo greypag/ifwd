@@ -105,6 +105,14 @@ public class UserRestURIConstants {
 	public static final String SEND_DOCUMENTS = "/documents/applications";
 	public static final String GENERATE_SALES_ILLUSTRATION = "/savie/salesIllustration";
 	
+	/*API For eliteTerm*/
+	public static final String CREATE_ELITE_TERM_POLICY = "/eliteterm/policies";
+	public static final String GET_ELITE_TERM_PREMIUM = "/eliteterm/premium";
+	public static final String FINALIZE_ELITE_TERM_POLICY = "/eliteterm/policies";
+	public static final String GET_UPLOADED_DOCUMENT = "/documents/uploaded";
+	public static final String CONTACT_CS = "/member/cs/contact";
+	public static final String SET_ELITE_TERM_POLICY_AGENT_EMAIL = "/eliteterm/policies/agentEmail";
+	
 	/* Page Flow Control For Savie */
 	
 	//public static final String PAGE_SAVIE_LANDING = "landing";

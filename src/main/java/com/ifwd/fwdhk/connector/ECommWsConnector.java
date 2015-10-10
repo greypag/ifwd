@@ -35,6 +35,8 @@ import org.springframework.stereotype.Component;
 
 import com.google.common.collect.Maps;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
+import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
+import com.ifwd.fwdhk.connector.response.eliteterm.GetEliteTermPremiumResponse;
 import com.ifwd.fwdhk.connector.response.savie.AccountBalanceResponse;
 import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
 import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
@@ -122,6 +124,46 @@ public class ECommWsConnector {
 	
 	public AccountBalanceResponse getAccountBalance(final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.USER_ACCOUNT_BALANCE,HttpMethod.GET,null,AccountBalanceResponse.class,header);
+	}
+	
+	public CreateEliteTermPolicyResponse createEliteTermPolicy(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.CREATE_ELITE_TERM_POLICY,HttpMethod.PUT,parameters,CreateEliteTermPolicyResponse.class,header);
+	}
+	
+	public GetEliteTermPremiumResponse getEliteTermPremium(final Map<String,String> header)throws ECOMMAPIException{
+		StringBuffer url = new StringBuffer();
+		url.append(UserRestURIConstants.GET_ELITE_TERM_PREMIUM);
+		url.append("?dob=");
+		url.append("1990-01-01");
+		url.append("&gender=");
+		url.append("M");
+		url.append("&smoke=");
+		url.append(true);
+		url.append("&insuredAmount=");
+		url.append(100000);
+		url.append("&referralCode=");
+		url.append("ABC");
+		return consumeECommWs(url.toString(),HttpMethod.GET,null,GetEliteTermPremiumResponse.class,header);
+	}
+	
+	public BaseResponse finalizeEliteTermPolicy(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.FINALIZE_ELITE_TERM_POLICY,HttpMethod.POST,parameters,BaseResponse.class,header);
+	}
+	
+	public BaseResponse getUploadedDocument(final Map<String,String> header)throws ECOMMAPIException{
+		StringBuffer url = new StringBuffer();
+		url.append(UserRestURIConstants.GET_UPLOADED_DOCUMENT);
+		url.append("?policyNo=");
+		url.append("123");
+		return consumeECommWs(url.toString(),HttpMethod.GET,null,BaseResponse.class,header);
+	}
+	
+	public BaseResponse contactCs(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.CONTACT_CS,HttpMethod.POST,parameters,BaseResponse.class,header);
+	}
+	
+	public BaseResponse setEliteTermPolicyAgentEmail(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.SET_ELITE_TERM_POLICY_AGENT_EMAIL,HttpMethod.POST,parameters,BaseResponse.class,header);
 	}
 	
 	public <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {

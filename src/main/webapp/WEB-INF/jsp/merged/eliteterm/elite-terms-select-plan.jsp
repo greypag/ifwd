@@ -1664,7 +1664,7 @@
 									<div class="select-holder">
 										<select class="form-control gray-textbox" id="cs_day" name="cs_day">
 											<option><fmt:message key="eliteTerms.selectPlan.Monday.Friday" bundle="${msg}" /></option>
-											<option><fmt:message key="<fmt:message key="eliteTerms" bundle="${msg}" />" bundle="${msg}" /></option>
+											<option><fmt:message key="eliteTerms.selectPlan.Lorem.Ipsum" bundle="${msg}" /></option>
 										</select>
 									</div>
 								</div>
@@ -1705,12 +1705,12 @@
 		
 		<!-- JS INCLUDES -->
 		<!--<script src="assets/js/jquery.nicescroll.min.js"></script>-->
-		<script src="assets/js/bootstrap-et-slider.js"></script>
-		<script src="assets/js/highcharts.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap-et-slider.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/highcharts.js"></script>
 		
       <!--[if lt IE 9]>
 		<script type="text/javascript" src="assets/js/flashcanvas.js"></script>
 		<![endif]-->
-		<script src="assets/js/jSignature/jSignature.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jSignature.min.js"></script>
 		<!-- SELECT PLAN JS -->
-      <script type="text/javascript" src="assets/js/fwd-select-plan.js"></script>
+      <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-select-plan.js"></script>
