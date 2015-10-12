@@ -1704,6 +1704,10 @@
 		</div>
 		
 		<!-- JS INCLUDES -->
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.jscrollpane.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.touchSwipe.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap-select.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap-et-slider.js"></script>
