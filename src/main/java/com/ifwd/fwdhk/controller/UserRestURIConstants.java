@@ -113,6 +113,7 @@ public class UserRestURIConstants {
 	public static final String CONTACT_CS = "/member/cs/contact";
 	public static final String SET_ELITE_TERM_POLICY_AGENT_EMAIL = "/eliteterm/policies/agentEmail";
 	public static final String UPLOAD_SIGNATURE = "/documents/signature";
+	public static final String UPLOAD_DOCUMENTS = "/documents/applications";
 	
 	/* Page Flow Control For Savie */
 	

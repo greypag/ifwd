@@ -170,6 +170,10 @@ public class ECommWsConnector {
 		return consumeECommWs(UserRestURIConstants.UPLOAD_SIGNATURE,HttpMethod.POST,parameters,BaseResponse.class,header);
 	}
 	
+	public BaseResponse uploadDocument(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.UPLOAD_DOCUMENTS,HttpMethod.POST,parameters,BaseResponse.class,header);
+	}
+	
 	public <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {
 		
 		final String url = wsUrl + path;

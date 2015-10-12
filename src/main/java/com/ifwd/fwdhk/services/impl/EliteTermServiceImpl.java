@@ -230,4 +230,26 @@ public class EliteTermServiceImpl implements EliteTermService {
 		return br;
 	}
 	
+	@Override
+	public BaseResponse uploadDocuments(HttpServletRequest request,String file)throws ECOMMAPIException{		
+		BaseResponse br = null;
+		try {
+			final Map<String,String> header = headerUtil.getHeader(request);
+			
+			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
+			JSONObject parameters = new JSONObject();
+			parameters.put("clientBrowserInfo", clientBrowserInfo);
+			parameters.put("fileType", "png");
+			parameters.put("documentType", "HKID");
+			parameters.put("originalFilePath", "C:\\abc.png");
+			parameters.put("base64", file);
+			br = connector.uploadDocument(parameters, header);
+		} catch (ECOMMAPIException e) {
+			logger.info("EliteTermServiceImpl uploadDocuments occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		return br;
+	}
+	
 }

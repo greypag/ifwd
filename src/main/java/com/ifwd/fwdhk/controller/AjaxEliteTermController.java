@@ -101,4 +101,16 @@ public class AjaxEliteTermController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = {"/ajax/eliteTerm/uploadDocuments"})
+	public void uploadDocuments(HttpServletRequest request,HttpServletResponse response,@RequestParam String file){
+		if (Methods.isXssAjax(request))
+			return;
+		try {
+			ajaxReturn(response,eliteTermService.uploadDocuments(request, file));
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }
