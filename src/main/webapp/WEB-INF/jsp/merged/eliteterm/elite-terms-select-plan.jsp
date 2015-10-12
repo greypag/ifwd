@@ -118,7 +118,7 @@
                                  <div class="et-gender-div">
                                     <input type="radio" id="et-gender-male" name="et-gender" value="et-gender-male" />
                                     <label for="et-gender-male">
-                                       <img src="assets/images/elite-terms/et-nb-male-icon.png" alt="et-male.png" />
+                                       <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-male-icon.png" alt="et-male.png" />
                                     </label>
                                     <div class="et-gnder-txt text-center"><fmt:message key="eliteTerms.selectPlan.Male" bundle="${msg}" /></div>
                                  </div>
@@ -126,7 +126,7 @@
                                  <div class="et-gender-div">
                                     <input type="radio" id="et-gender-female" name="et-gender" value="et-gender-male" checked />
                                     <label for="et-gender-female">
-                                       <img src="assets/images/elite-terms/et-nb-female-icon.png" alt="et-male.png" />
+                                       <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-female-icon.png" alt="et-male.png" />
                                     </label>
                                     <div class="et-gnder-txt text-center"><fmt:message key="eliteTerms.selectPlan.Female" bundle="${msg}" /></div>
                                  </div>
@@ -149,7 +149,7 @@
                                  <div class="et-gender-div">
                                     <input type="radio" id="et-smoker-yes" name="et-smoker" value="et-smoker-yes">
                                     <label for="et-smoker-yes" class="et-smoker-label">
-                                       <img src="assets/images/elite-terms/et-nb-smoker.png" alt="et-male.png" />
+                                       <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-smoker.png" alt="et-male.png" />
                                     </label>
                                     <div class="et-smoker-txt yes text-center"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></div>
                                  </div>
@@ -157,7 +157,7 @@
                                  <div class="et-gender-div">
                                     <input type="radio" id="et-smoker-no" name="et-smoker" value="et-smoker-no" checked>
                                     <label for="et-smoker-no" class="et-smoker-label">
-                                       <img src="assets/images/elite-terms/et-nb-non-smoker.png" alt="et-male.png" />
+                                       <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-non-smoker.png" alt="et-male.png" />
                                     </label>
                                     <div class="et-smoker-txt no text-center"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></div>
                                  </div>
@@ -204,7 +204,7 @@
                               </div>
                               <div class="col-xs-12 col-md-5">
                                  <div class="et-tooltip-wrapper">
-                                    <h3 id="promocode-hide-switch" class="et-promo-code-txt et-mbot-15"><fmt:message key="eliteTerms.selectPlan.Promo.code" bundle="${msg}" /> <img src="assets/images/orange-caret.png" class="reversed hidden-md hidden-lg"></h3>
+                                    <h3 id="promocode-hide-switch" class="et-promo-code-txt et-mbot-15"><fmt:message key="eliteTerms.selectPlan.Promo.code" bundle="${msg}" /> <img src="<%=request.getContextPath()%>/resources/images/elite-terms/orange-caret.png" class="reversed hidden-md hidden-lg"></h3>
                                     <button type="button" class="et-minimal et-promo-code-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="Our online application only accept up to <strong>HK$2,000,000</strong> insured amount, if you want to insure more than the above amount, please call our Customer Service on 3123 3123, to arrange an appointment at our Customer Service Center to complete a detail examination." data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-question-tooltip"></span></button>  
                                  </div>
                                  <div id="promocode-hidden" class="hidden-sm hidden-xs">
@@ -963,14 +963,14 @@
                               
                               <div id="add-beneficiary-1" class="col-md-4">
                                  <div class="add-beneficiary" id="beneficiary1">
-                                    <button id="add-beneficiary-button-2" value="1" class="circle" type="button"><img src="assets/images/orange-plus.png"></button>
+                                    <button id="add-beneficiary-button-2" value="1" class="circle" type="button"><img src="<%=request.getContextPath()%>/resources/images/elite-terms/orange-plus.png"></button>
                                     <div class="add-beneficiary-text"><h4><fmt:message key="eliteTerms.selectPlan.Add.beneficiary" bundle="${msg}" /></h4></div>
                                  </div>
                               </div>
 
                               <div id="add-beneficiary-2" class="col-md-4 last-row">  
                                  <div class="add-beneficiary" id="beneficiary2">
-                                    <button id="add-beneficiary-button-3" value="2" class="circle" type="button"><img src="assets/images/orange-plus.png"></button>
+                                    <button id="add-beneficiary-button-3" value="2" class="circle" type="button"><img src="<%=request.getContextPath()%>/resources/images/elite-terms/orange-plus.png"></button>
                                     <div class="add-beneficiary-text"><h4><fmt:message key="eliteTerms.selectPlan.Add.beneficiary" bundle="${msg}" /></h4></div>
                                  </div>
                               </div>
@@ -1446,21 +1446,21 @@
                                  <p class="notice"><fmt:message key="eliteTerms.selectPlan.I.DO.NOT.have.had" bundle="${msg}" /></p>
                                  <div class="row et-apsum-disease-list"> 
                                     <ul class="col-xs-12 col-md-6">
-                                       <li><img src="assets/images/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span1" bundle="${msg}" /></span></li>
-                                       <li><img src="assets/images/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span2" bundle="${msg}" /></span></li>
-                                       <li><img src="assets/images/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span3" bundle="${msg}" /></span></li>
-                                       <li><img src="assets/images/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span4" bundle="${msg}" /></span></li>
-                                       <li><img src="assets/images/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span5" bundle="${msg}" /></span></li>
-                                       <li><img src="assets/images/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span6" bundle="${msg}" /></span></li>
-                                       <li><img src="assets/images/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span7" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span1" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span2" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span3" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span4" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span5" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span6" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span7" bundle="${msg}" /></span></li>
                                     </ul>
                                     <ul class="col-xs-12 col-md-6">
-                                       <li><img src="assets/images/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span8" bundle="${msg}" /></span></li>
-                                       <li><img src="assets/images/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span9" bundle="${msg}" /></span></li>
-                                       <li><img src="assets/images/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span10" bundle="${msg}" /></span></li>
-                                       <li><img src="assets/images/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span11" bundle="${msg}" /></span></li>
-                                       <li><img src="assets/images/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span12" bundle="${msg}" /></span></li>
-                                       <li><img src="assets/images/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span13" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span8" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span9" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span10" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span11" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span12" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span13" bundle="${msg}" /></span></li>
                                     </ul>
                                  </div>
                               </div>
@@ -1503,7 +1503,7 @@
                         <div class="et-clear-signature"><a href="#" id="et-clear-signature" title="Clear signature" class=""><fmt:message key="eliteTerms.selectPlan.Clear" bundle="${msg}" /></a></div>
                         
                         <div class="correct-signature hide-element">
-                           <img src="assets/images/correct-signature.png" class="correct-sign-image"/><span class="span-text-img"><fmt:message key="eliteTerms.selectPlan.Correct.Signature" bundle="${msg}" /></span>
+                           <img src="<%=request.getContextPath()%>/resources/images/elite-terms/correct-signature.png" class="correct-sign-image"/><span class="span-text-img"><fmt:message key="eliteTerms.selectPlan.Correct.Signature" bundle="${msg}" /></span>
                         </div>
                      </div>
                      
@@ -1704,10 +1704,11 @@
 		</div>
 		
 		<!-- JS INCLUDES -->
-		<!--<script src="assets/js/jquery.nicescroll.min.js"></script>-->
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap-et-slider.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/highcharts.js"></script>
-		
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
       <!--[if lt IE 9]>
 		<script type="text/javascript" src="assets/js/flashcanvas.js"></script>
 		<![endif]-->

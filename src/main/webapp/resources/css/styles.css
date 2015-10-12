@@ -206,7 +206,7 @@ body.modal-open footer {
 }
 /* line 163, ../sass/partials/_common.scss */
 .fwd-savie-wrapper .chinese {
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei','寰蒋闆呴粦浣�', 'STXihei', '鍗庢枃绱伴粦', Arial, Helvetica, sans-serif;
 }
 /* line 167, ../sass/partials/_common.scss */
 .fwd-savie-wrapper .mini-calculator {
@@ -223,7 +223,7 @@ body.modal-open footer {
 }
 /* line 182, ../sass/partials/_common.scss */
 .fwd-savie-wrapper .et-broken-line {
-  background: transparent url("../images/dashed-divider.png");
+  background: transparent url("../images/elite-terms/dashed-divider.png");
   height: 1px;
 }
 
@@ -468,7 +468,7 @@ label {
 }
 /* line 220, ../sass/partials/_header.scss */
 .fwd-savie-wrapper header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li.top-menu-chinese {
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei','寰蒋闆呴粦浣�', 'STXihei', '鍗庢枃绱伴粦', Arial, Helvetica, sans-serif;
 }
 /* line 225, ../sass/partials/_header.scss */
 .fwd-savie-wrapper header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li.reset-padding-menu {
@@ -565,7 +565,7 @@ label {
 .fwd-savie-wrapper header .navbar-fixed-top .buttons-and-chat .btn-chinese {
   float: left;
   background-color: black;
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei','寰蒋闆呴粦浣�', 'STXihei', '鍗庢枃绱伴粦', Arial, Helvetica, sans-serif;
   font-size: 16px;
   padding: 6px 10px;
   height: 33px;
@@ -13708,7 +13708,7 @@ button#thank-you-continue {
 }
 /* line 43, ../sass/partials/_illustration-review.scss */
 .fwd-savie-wrapper .plan-row .plan-col.chinese {
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei','寰蒋闆呴粦浣�', 'STXihei', '鍗庢枃绱伴粦', Arial, Helvetica, sans-serif;
 }
 /* line 48, ../sass/partials/_illustration-review.scss */
 .fwd-savie-wrapper .plan-row.inner-plan-row {
@@ -14364,7 +14364,7 @@ button#thank-you-continue {
 }
 /* line 25, ../sass/partials/_fna-review.scss */
 .fwd-savie-wrapper .fna-row .fna-col.chinese {
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei','寰蒋闆呴粦浣�', 'STXihei', '鍗庢枃绱伴粦', Arial, Helvetica, sans-serif;
   padding-bottom: 15px;
 }
 /* line 30, ../sass/partials/_fna-review.scss */
@@ -18767,7 +18767,7 @@ button#thank-you-continue {
 }
 /* line 35, ../sass/partials/_eservices-personal-info.scss */
 .fwd-savie-wrapper .personal-row .personal-col.chinese {
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei','寰蒋闆呴粦浣�', 'STXihei', '鍗庢枃绱伴粦', Arial, Helvetica, sans-serif;
   padding-bottom: 15px;
 }
 /* line 40, ../sass/partials/_eservices-personal-info.scss */
