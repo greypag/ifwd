@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.services.EliteTermService;
@@ -89,4 +90,15 @@ public class AjaxEliteTermController extends BaseController{
 		}
 	}
 	
+	@RequestMapping(value = {"/ajax/eliteTerm/uploadSignature"})
+	public void uploadSignature(HttpServletRequest request,HttpServletResponse response,@RequestParam String image){
+		if (Methods.isXssAjax(request))
+			return;
+		try {
+			ajaxReturn(response,eliteTermService.uploadSignature(request, image));
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }

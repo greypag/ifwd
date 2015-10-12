@@ -1,13 +1,17 @@
 package com.ifwd.fwdhk.services.impl;
 
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
@@ -203,6 +207,27 @@ public class EliteTermServiceImpl implements EliteTermService {
 			e.printStackTrace();
 		}
 		return apiReturn;
+	}
+	
+	@Override
+	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException{		
+		BaseResponse br = null;
+		try {
+			final Map<String,String> header = headerUtil.getHeader(request);
+			
+			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
+			JSONObject parameters = new JSONObject();
+			parameters.put("clientBrowserInfo", clientBrowserInfo);
+			parameters.put("fileType", "png");
+			parameters.put("signatureType", "application");
+			parameters.put("base64", image);
+			br = connector.uploadSignature(parameters, header);
+		} catch (ECOMMAPIException e) {
+			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		return br;
 	}
 	
 }
