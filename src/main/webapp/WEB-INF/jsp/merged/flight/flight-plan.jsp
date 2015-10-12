@@ -490,7 +490,7 @@
 						<div class="col-xs-12 hidden-sm hidden-xs pad-none">
                           <div style="width: 80%;margin-left: 10%;">
                             <div class="checkbox" style="margin-top: 0; margin-bottom: 20px; font-size: 14px;">
-                              <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" /> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" /> Member?</a></label>
+                              <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" /> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg">I am <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" /> member.</a></label>
                             </div>
                             <div class="form-group" style="margin-top: 0; margin-bottom: 20px; display: none;">
                                 <div class="input-group" style="display:inital; width:100%;">
