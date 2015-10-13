@@ -662,6 +662,15 @@ $(document).ready(function() {
                     </div>
                   </div>
               </div>
+              <div class="item" >
+                  <div class="slide-margin">
+                    <div class="other-benefits-wrap text-center">
+                      <div class="other-benefits-inner">
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc9.part1" bundle="${msg}" /> <a href="https://www.theclub.com.hk/eng/" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part3" bundle="${msg}" /></p>
+                      </div>
+                    </div>
+                  </div>
+              </div>              
               <!--/.item-->
             </div>
             <!--/.carousel-inner-->

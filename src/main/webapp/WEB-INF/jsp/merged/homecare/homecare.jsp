@@ -447,7 +447,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
                           <div class="slide-margin">
                             <div class="other-benefits-wrap text-center">
                               <div class="other-benefits-inner">
-                                <p style="font-size: 21px;">Receive 50 <a href="https://www.theclub.com.hk/eng/" target="_blank">HKT The Club</a> reward points upon successful purchase of the policy, click here to <a href="https://www.theclub.com.hk/eng/CLUBPOINTS%20EARNING/fwd/fwd.jsp" target="_blank">find out more</a></p>
+                                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc4.part1" bundle="${msg}" /> <a href="https://www.theclub.com.hk/eng/" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part3" bundle="${msg}" /></p>
                               </div>
                             </div>
                           </div>

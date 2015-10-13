@@ -157,20 +157,20 @@
                             <img class="partner_image" src="<%=request.getContextPath()%>/resources/images/partner_theclub.png"/>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 pad-none">
-                            <div class="partner_title">The Club</div>
+                            <div class="partner_title"><fmt:message key="partner.the.club.title" bundle="${msg}" /></div>
                             <div class="partner_desc_list">
                                     <ul class="bullets">
                                         <li>
-                                           <p class="h4-5">Gain HKT The Club reward points upon successful purchase of the following FWD product via i.fwd.com.hk.</p>
+                                           <p class="h4-5"><fmt:message key="partner.the.club.desc1" bundle="${msg}" /></p>
                                         </li>
                                         <li style="list-style: none;">
                                             <ul>
-                                                <li><p class="h4-5">FWD TravelCare Plan (single trip) - 50 reward points*</p></li>
-                                                <li><p class="h4-5">FWD Annual TravelCare - 900 reward points*</p></li>
-                                                <li><p class="h4-5">FWD Easy HomeCare Insurance plan - 900 reward points*</p></li>
-                                                <li><p class="h4-5">FWD FlightCare Plan - 50 reward points</p></li>
+                                                <li><p class="h4-5"><fmt:message key="partner.the.club.desc1.point1" bundle="${msg}" /></p></li>
+                                                <li><p class="h4-5"><fmt:message key="partner.the.club.desc1.point2" bundle="${msg}" /></p></li>
+                                                <li><p class="h4-5"><fmt:message key="partner.the.club.desc1.point3" bundle="${msg}" /></p></li>
+                                                <li><p class="h4-5"><fmt:message key="partner.the.club.desc1.point4" bundle="${msg}" /></p></li>
                                             </ul>
-                                            <p class="h4-5" style="font-size: 14px; margin-left: 21px; margin-top: 12px;">* Eligible once per The Club member</p>
+                                            <p class="h4-5" style="font-size: 14px; margin-left: 21px; margin-top: 12px;"><fmt:message key="partner.the.club.desc1.notice" bundle="${msg}" /></p>
                                         </li>
                                     </ul>
                                 </div>
@@ -178,7 +178,7 @@
                                 <div class="partner_tnc_list">
                                     <ul class="bullets">
                                         <li>
-                                           <p class="h4-5">This offer is subject to its terms and conditions and FWD General Insurance Company Limited and The Club reserve the right to vary the terms and conditions of the offer.</p>
+                                           <p class="h4-5"><fmt:message key="partner.the.club.tnc1" bundle="${msg}" /></p>
                                         </li>
                                     </ul>
                                 </div>
