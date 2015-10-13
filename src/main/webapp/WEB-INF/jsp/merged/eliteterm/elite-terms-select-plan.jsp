@@ -9,6 +9,12 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+var signatureFileSize = "${signatureFileSize}";
+var selectPlanNextPageFlow = "${nextPageFlow}";
+var language = "${language}";
+</script>
 		<%!
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
@@ -116,7 +122,7 @@
                               
                               <div class="clearfix et-gender-wrapper">
                                  <div class="et-gender-div">
-                                    <input type="radio" id="et-gender-male" name="et-gender" value="et-gender-male" />
+                                    <input type="radio" id="et-gender-male" name="et-gender" value="M" />
                                     <label for="et-gender-male">
                                        <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-male-icon.png" alt="et-male.png" />
                                     </label>
@@ -124,7 +130,7 @@
                                  </div>
                                  
                                  <div class="et-gender-div">
-                                    <input type="radio" id="et-gender-female" name="et-gender" value="et-gender-male" checked />
+                                    <input type="radio" id="et-gender-female" name="et-gender" value="F" checked />
                                     <label for="et-gender-female">
                                        <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-female-icon.png" alt="et-male.png" />
                                     </label>
@@ -147,7 +153,7 @@
                               
                               <div class="clearfix et-smoke-wrapper">
                                  <div class="et-gender-div">
-                                    <input type="radio" id="et-smoker-yes" name="et-smoker" value="et-smoker-yes">
+                                    <input type="radio" id="et-smoker-yes" name="et-smoker" value="true">
                                     <label for="et-smoker-yes" class="et-smoker-label">
                                        <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-smoker.png" alt="et-male.png" />
                                     </label>
@@ -155,7 +161,7 @@
                                  </div>
                                  
                                  <div class="et-gender-div">
-                                    <input type="radio" id="et-smoker-no" name="et-smoker" value="et-smoker-no" checked>
+                                    <input type="radio" id="et-smoker-no" name="et-smoker" value="false" checked>
                                     <label for="et-smoker-no" class="et-smoker-label">
                                        <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-non-smoker.png" alt="et-male.png" />
                                     </label>
@@ -221,7 +227,7 @@
                               </div>	
                            </div>
                            <div id="promocode-hidden-button" class="et-next-btn-div et-calcu">
-                              <button type="button" class="btn btn-orange et-calculate-btn"><fmt:message key="eliteTerms.selectPlan.Calculate" bundle="${msg}" /></button>
+                              <button type="button" class="btn btn-orange et-calculate-btn" onclick="getEliteTermPremium();"><fmt:message key="eliteTerms.selectPlan.Calculate" bundle="${msg}" /></button>
                            </div>
                         </div>
                         
@@ -233,7 +239,7 @@
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount">HK$ 1, 000 <span><fmt:message key="eliteTerms.selectPlan.per.month" bundle="${msg}" /></span></p>
+                                 <p class="et-amount">HK$ <span id="et-amount">0</span><span><fmt:message key="eliteTerms.selectPlan.per.month" bundle="${msg}" /></span></p>
                                  <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.only.HK$.100" bundle="${msg}" /></p>
                               </div>
                               
@@ -1734,3 +1740,4 @@
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jSignature.min.js"></script>
 		<!-- SELECT PLAN JS -->
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-select-plan.js"></script>
+      <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>

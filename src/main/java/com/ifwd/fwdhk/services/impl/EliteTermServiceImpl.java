@@ -124,7 +124,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 		GetEliteTermPremiumResponse apiReturn = null;
 		try {
 			final Map<String,String> header = headerUtil.getHeader(request);
-			apiReturn = connector.getEliteTermPremium(header);
+			apiReturn = connector.getEliteTermPremium(request, header);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl getEliteTermPremium occurs an exception!");
 			logger.info(e.getMessage());

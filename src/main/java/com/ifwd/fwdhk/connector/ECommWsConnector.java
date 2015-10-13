@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import net.sf.json.JSONObject;
 
 import org.apache.commons.io.IOUtils;
@@ -130,19 +132,20 @@ public class ECommWsConnector {
 		return consumeECommWs(UserRestURIConstants.CREATE_ELITE_TERM_POLICY,HttpMethod.PUT,parameters,CreateEliteTermPolicyResponse.class,header);
 	}
 	
-	public GetEliteTermPremiumResponse getEliteTermPremium(final Map<String,String> header)throws ECOMMAPIException{
+	public GetEliteTermPremiumResponse getEliteTermPremium(HttpServletRequest request,final Map<String,String> header)throws ECOMMAPIException{
 		StringBuffer url = new StringBuffer();
+		String[] dob = request.getParameter("dob").toString().split("-");
 		url.append(UserRestURIConstants.GET_ELITE_TERM_PREMIUM);
 		url.append("?dob=");
-		url.append("1990-01-01");
+		url.append(dob[2]+"-"+dob[1]+"-"+dob[0]);
 		url.append("&gender=");
-		url.append("M");
+		url.append(request.getParameter("gender"));
 		url.append("&smoke=");
-		url.append(true);
+		url.append(request.getParameter("smoke"));
 		url.append("&insuredAmount=");
-		url.append(100000);
+		url.append(request.getParameter("insuredAmount"));
 		url.append("&referralCode=");
-		url.append("ABC");
+		url.append(request.getParameter("referralCode"));
 		return consumeECommWs(url.toString(),HttpMethod.GET,null,GetEliteTermPremiumResponse.class,header);
 	}
 	

@@ -23,7 +23,7 @@
                <div class="text-content et-text-content">
                   <fmt:message key="eliteTerms.landing.A.Safe.Haven" bundle="${msg}" />
                </div>
-               <a href="#" class="buy-now et-quote" ><fmt:message key="eliteTerms.landing.Get.Quote" bundle="${msg}" /></a>
+               <a href="<%=request.getContextPath()%>/${language}/elite-term/${nextPageFlow}" class="buy-now et-quote" ><fmt:message key="eliteTerms.landing.Get.Quote" bundle="${msg}" /></a>
 				</div>
 			</div>
 			

@@ -9,6 +9,11 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+var documentUploadNextPageFlow = "${nextPageFlow}";
+var language = "${language}";
+</script>
 		<%!
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
@@ -323,8 +328,8 @@
 			
 		</div>
 		<!-- JS INCLUDES -->
-		
-		<script src="assets/js/fwd-dropzone.js"></script>
+		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-dropzone.js"></script>
 		<script language="javascript">
 			$('#residence-check').click(function(){
 				$('.passport-holder').toggle();

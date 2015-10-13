@@ -9,6 +9,11 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+var paymentNextPageFlow = "${nextPageFlow}";
+var language = "${language}";
+</script>
 		<%!
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
@@ -178,7 +183,7 @@
 						</div>
 
 						<div class="text-center complete-holder hidden-sm hidden-xs">
-							<button type="button" class="btn next "><fmt:message key="eliteTerms.payment.Complete" bundle="${msg}" /></button>
+							<button type="button" class="btn next " id="et-payment-complete-btn"><fmt:message key="eliteTerms.payment.Complete" bundle="${msg}" /></button>
 						</div>				
 					</div>
 				</div>
@@ -190,6 +195,7 @@
 		<!-- JS INCLUDES -->
 		
 		<!-- <script src="assets/js/fwd-dropzone.js"></script> -->
+		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
       <script type="text/javascript">
          $(document).on('click', '.et-header-info-btn', function(e) {
             e.preventDefault();

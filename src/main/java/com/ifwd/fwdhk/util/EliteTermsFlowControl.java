@@ -62,24 +62,22 @@ public class EliteTermsFlowControl {
 
 		switch (current) {
 		case UserRestURIConstants.PAGE_ELITE_TERMS_LANDING:
-			to = UserRestURIConstants.PAGE_ELITE_TERMS_SELECT_PLAN;
+			to = UserRestURIConstants.URL_ELITE_TERMS_SELECT_PLAN;
 			break;
 		case UserRestURIConstants.PAGE_ELITE_TERMS_SELECT_PLAN:
-			to = UserRestURIConstants.PAGE_ELITE_TERMS_PAYMENT;
+			to = UserRestURIConstants.URL_ELITE_TERMS_PAYMENT;
 			break;
 		case UserRestURIConstants.PAGE_ELITE_TERMS_PAYMENT:
-			to = UserRestURIConstants.PAGE_ELITE_TERMS_DOCUMENT_UPLOAD;
+			to = UserRestURIConstants.URL_ELITE_TERMS_DOCUMENT_UPLOAD;
 			break;
 		case UserRestURIConstants.PAGE_ELITE_TERMS_DOCUMENT_UPLOAD:
-			to = UserRestURIConstants.PAGE_ELITE_TERMS_CONFIRMATION;
+			to = UserRestURIConstants.URL_ELITE_TERMS_CONFIRMATION;
 			break;
 		case UserRestURIConstants.PAGE_ELITE_TERMS_CONFIRMATION: 
-			if (referer == null) {
-				to = UserRestURIConstants.PAGE_ELITE_TERMS_LANDING;
-			}
+			to = UserRestURIConstants.URL_ELITE_TERMS_LANDING;
 			break;
 		default:
-			to = UserRestURIConstants.PAGE_ELITE_TERMS_LANDING;
+			to = UserRestURIConstants.URL_ELITE_TERMS_LANDING;
 		}
 		model.addAttribute("nextPageFlow", to);
 

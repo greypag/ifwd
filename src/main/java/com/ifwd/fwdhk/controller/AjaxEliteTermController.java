@@ -20,6 +20,30 @@ public class AjaxEliteTermController extends BaseController{
 	private RestServiceDao restService;
 	@Autowired
 	private EliteTermService eliteTermService;
+	
+	@RequestMapping(value = {"/ajax/eliteTerm/getEliteTermPremium"})
+	public void getEliteTermPremium(HttpServletRequest request,HttpServletResponse response) {
+		if (Methods.isXssAjax(request))
+			return;
+		try {
+			ajaxReturn(response, eliteTermService.getEliteTermPremium(request));
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	@RequestMapping(value = {"/ajax/eliteTerm/uploadSignature"})
+	public void uploadSignature(HttpServletRequest request,HttpServletResponse response,@RequestParam String image){
+		if (Methods.isXssAjax(request))
+			return;
+		try {
+			ajaxReturn(response,eliteTermService.uploadSignature(request, image));
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 
 	@RequestMapping(value = {"/ajax/eliteTerm/createEliteTermPolicy"})
 	public void createEliteTermPolicy(HttpServletRequest request,HttpServletResponse response) {
@@ -32,17 +56,7 @@ public class AjaxEliteTermController extends BaseController{
 			e.printStackTrace();
 		}
 	}
-	@RequestMapping(value = {"/ajax/eliteTerm/getEliteTermPremium"})
-	public void getEliteTermPremium(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
-			return;
-		try {
-			ajaxReturn(response, eliteTermService.getEliteTermPremium(request));
-		} catch (ECOMMAPIException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
-		}
-	}
+	
 	@RequestMapping(value = {"/ajax/eliteTerm/finalizeEliteTermPolicy"})
 	public void finalizeEliteTermPolicy(HttpServletRequest request,HttpServletResponse response) {
 		if (Methods.isXssAjax(request))
@@ -84,18 +98,6 @@ public class AjaxEliteTermController extends BaseController{
 			return;
 		try {
 			ajaxReturn(response, eliteTermService.setEliteTermPolicyAgentEmail(request));
-		} catch (ECOMMAPIException e) {
-			logger.info(e.getMessage());
-			e.printStackTrace();
-		}
-	}
-	
-	@RequestMapping(value = {"/ajax/eliteTerm/uploadSignature"})
-	public void uploadSignature(HttpServletRequest request,HttpServletResponse response,@RequestParam String image){
-		if (Methods.isXssAjax(request))
-			return;
-		try {
-			ajaxReturn(response,eliteTermService.uploadSignature(request, image));
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();

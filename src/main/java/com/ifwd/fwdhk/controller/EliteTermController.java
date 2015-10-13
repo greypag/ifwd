@@ -25,10 +25,21 @@ public class EliteTermController extends BaseController{
 	private SavieService savieService;
 	@Autowired
 	private CommonUtils commonUtils;
+	
+	@RequestMapping(value = {"/{lang}/elite-term/landing"})
+	public ModelAndView getLanding(Model model, HttpServletRequest request) {
+		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_LANDING);
+	}
+	
+	@RequestMapping(value = {"/{lang}/elite-term/select-plan"})
+	public ModelAndView getSelectPlan(Model model, HttpServletRequest request) {
+		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
+		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_SELECT_PLAN);
+	}
 
-	@RequestMapping(value = {"/{lang}/elite-term/confirmation"})
-	public ModelAndView getConfirmation(Model model, HttpServletRequest request) {
-		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_CONFIRMATION);
+	@RequestMapping(value = {"/{lang}/elite-term/payment"})
+	public ModelAndView getPayment(Model model, HttpServletRequest request) {
+		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_PAYMENT);
 	}
 	
 	@RequestMapping(value = {"/{lang}/elite-term/document-upload"})
@@ -36,19 +47,8 @@ public class EliteTermController extends BaseController{
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_DOCUMENT_UPLOAD);
 	}
 	
-	@RequestMapping(value = {"/{lang}/elite-term/landing"})
-	public ModelAndView getLanding(Model model, HttpServletRequest request) {
-		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_LANDING);
-	}
-	
-	@RequestMapping(value = {"/{lang}/elite-term/payment"})
-	public ModelAndView getPayment(Model model, HttpServletRequest request) {
-		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_PAYMENT);
-	}
-	
-	@RequestMapping(value = {"/{lang}/elite-term/select-plan"})
-	public ModelAndView getSelectPlan(Model model, HttpServletRequest request) {
-		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
-		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_SELECT_PLAN);
+	@RequestMapping(value = {"/{lang}/elite-term/confirmation"})
+	public ModelAndView getConfirmation(Model model, HttpServletRequest request) {
+		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_CONFIRMATION);
 	}
 }
