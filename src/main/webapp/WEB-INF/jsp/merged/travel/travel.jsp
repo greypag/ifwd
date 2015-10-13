@@ -821,7 +821,7 @@ function getParameterByUrl(name){
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc6.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.eshop.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc6.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc6.part3" bundle="${msg}" /></p>  
     </li>
     <li>
-      <p class="h4-5">Receive 50 <a href="https://www.theclub.com.hk/eng/" target="_blank">HKT The Club</a> reward points upon successful purchase of the policy, click here to <a href="https://www.theclub.com.hk/eng/CLUBPOINTS%20EARNING/fwd/fwd.jsp" target="_blank">find out more</a></p>  
+      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc8.part1" bundle="${msg}" /> <a href="https://www.theclub.com.hk/eng/" target="_blank"><fmt:message key="travel.main.other.benefit.desc8.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc8.part3" bundle="${msg}" /></p>  
     </li>
     <li>
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc7.part1" bundle="${msg}" /> <a href="<fmt:message key="flight.landing.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc7.part2" bundle="${msg}" /></a><fmt:message key="travel.main.other.benefit.desc7.part3" bundle="${msg}" />

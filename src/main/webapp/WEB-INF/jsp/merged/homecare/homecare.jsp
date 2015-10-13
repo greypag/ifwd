@@ -374,8 +374,9 @@ $(document).ready(function() {
 				    	<p class="h4-5"><fmt:message key="home.main.other.benefit.desc3.part1" bundle="${msg}" /> <a href="<fmt:message key="boconcept.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc3.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc3.part3" bundle="${msg}" /></p>
 				    </li>
 				    <li>
-                        <p class="h4-5">Receive 50 <a href="https://www.theclub.com.hk/eng/" target="_blank">HKT The Club</a> reward points upon successful purchase of the policy, click here to <a href="https://www.theclub.com.hk/eng/CLUBPOINTS%20EARNING/fwd/fwd.jsp" target="_blank">find out more</a></p>  
-                    </li>
+				        <p class="h4-5"><fmt:message key="home.main.other.benefit.desc4.part1" bundle="${msg}" /> <a href="https://www.theclub.com.hk/eng/" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part3" bundle="${msg}" /></p>  
+				    </li>                    
+                    
 				  </ul>
 				  <div class="col-lg-12 col-md-12 hidden-xs hidden-sm main-partner" style="">
 				    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-right:15px;">
