@@ -1844,7 +1844,7 @@ public class TravelController {
 			String dueAmount = (String)session.getAttribute("dueAmount");
 			if("0.00".equals(dueAmount) && creditCardNo == null) {
 				creditCardNo = "5422882800700007";
-				parameters.put("expiryDate", "0720");
+				parameters.put("expiryDate", "072020");
 			} else {
 				parameters.put("expiryDate", session.getAttribute("expiryDate"));
 			}
