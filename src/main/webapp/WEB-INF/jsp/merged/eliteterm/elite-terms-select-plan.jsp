@@ -1704,17 +1704,32 @@
 		</div>
 		
 		<!-- JS INCLUDES -->
-		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.jscrollpane.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.touchSwipe.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap-select.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap-select.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.touchSwipe.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.mousewheel.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.jscrollpane.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-validation.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/placeholders.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/date.format.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.timepicker.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
+		
+		
+		<!--For Sales Illustration Page only-->
+		<!--<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap-slider.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery-ui-custom-ease.min.js"></script>-->
+		
+		
+		
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap-et-slider.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/highcharts.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
       <!--[if lt IE 9]>
-		<script type="text/javascript" src="assets/js/flashcanvas.js"></script>
+		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/flashcanvas.js"></script>
 		<![endif]-->
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jSignature.min.js"></script>
 		<!-- SELECT PLAN JS -->
