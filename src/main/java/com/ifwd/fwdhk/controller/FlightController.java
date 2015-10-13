@@ -665,6 +665,17 @@ public class FlightController {
 			BindingResult result, Model model) {
 		UserRestURIConstants.setController("Flight");
 		HttpSession session = request.getSession();
+		
+		String theClubMembershipNo = WebServiceUtils.getParameterValue("theClubMembershipNo", session, request);
+		String placeholder = WebServiceUtils.getMessage("common.membership", UserRestURIConstants.getLanaguage(request));
+		String MembershipNo = "";
+		if(placeholder.equals(theClubMembershipNo)) {
+			MembershipNo = "";
+		}else {
+			MembershipNo = theClubMembershipNo;
+		}
+		session.setAttribute("theClubMembershipNo", MembershipNo);
+		
 		//FOLOWING IS TO HANDLE CHANGE LANGUAGE AS THE planDetails WILL BE NULL
 		if (planDetails.getReturnDate() == null) {
 			planDetails = (PlanDetails) session.getAttribute("flightPlanDetails");
@@ -1328,6 +1339,9 @@ public class FlightController {
 		request.setAttribute("optIn1", optIn1);
 		request.setAttribute("optIn2", optIn2);
 		parameters.put("applicant", applicantJsonObj);
+		
+		parameters.put("externalParty", "THE CLUB");
+		parameters.put("externalPartyCode", session.getAttribute("theClubMembershipNo"));
 
 		JSONObject addressJsonObj = new JSONObject();
 

@@ -344,6 +344,15 @@ public class HomeCareController {
 
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
+		String theClubMembershipNo = WebServiceUtils.getParameterValue("theClubMembershipNo", session, request);
+		String placeholder = WebServiceUtils.getMessage("common.membership", UserRestURIConstants.getLanaguage(request));
+		String MembershipNo = "";
+		if(placeholder.equals(theClubMembershipNo)) {
+			MembershipNo = "";
+		}else {
+			MembershipNo = theClubMembershipNo;
+		}
+		session.setAttribute("theClubMembershipNo", MembershipNo);
 
 		HomeCareService homecareService = new HomeCareServiceImpl();
 		try {
@@ -545,7 +554,8 @@ public class HomeCareController {
 		if (createdPolicy == null) {
 			createdPolicy = homecareService.createHomeCarePolicy(userName,
 					token, homeCareDetails, userDetails,
-					lang, (String)session.getAttribute("referralCode"));
+					lang, (String)session.getAttribute("referralCode"),
+					(String)session.getAttribute("theClubMembershipNo"));
 			
 			
 			session.setAttribute("homeCreatedPolicy", createdPolicy);

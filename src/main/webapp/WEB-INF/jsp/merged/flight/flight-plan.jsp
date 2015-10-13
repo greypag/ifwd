@@ -494,7 +494,7 @@
                             </div>
                             <div class="form-group" style="margin-top: 0; margin-bottom: 20px; display: none;">
                                 <div class="input-group" style="display:inital; width:100%;">
-                                    <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder" style="display:inline-block;width:100%;" onfocus="placeholderOnFocus(this,'The Club Membership#');" onblur="placeholderOnBlur(this,'The Club Membership#');" value="The Club Membership#" />
+                                    <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder" style="display:inline-block;width:100%;" onfocus="placeholderOnFocus(this,'<fmt:message key="common.membership" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="common.membership" bundle="${msg}" />');" value="<fmt:message key="common.membership" bundle="${msg}" />" />
                                 </div>
                             </div>
                           </div>

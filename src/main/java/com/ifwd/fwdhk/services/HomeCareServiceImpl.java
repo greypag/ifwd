@@ -386,7 +386,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 	@Override
 	public CreatePolicy createHomeCarePolicy(String userName, String token,
 			HomeCareDetailsBean homeCareDetails, UserDetails userDetails,
-			String language, String referralCode) {
+			String language, String referralCode, String theClubMembershipNo) {
 
 		JSONObject parameters = new JSONObject();
 		JSONObject correspondenceAddress = new JSONObject();
@@ -479,6 +479,10 @@ public class HomeCareServiceImpl implements HomeCareService {
 		
 		parameters.put("insuredAddress", insuredAddress);
 		parameters.put("referralCode", referralCode);
+		
+		parameters.put("externalParty", "THE CLUB");
+		parameters.put("externalPartyCode", theClubMembershipNo);
+		
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", userName);
 		header.put("token", token);
