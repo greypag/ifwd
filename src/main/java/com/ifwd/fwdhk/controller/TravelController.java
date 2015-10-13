@@ -1757,6 +1757,7 @@ public class TravelController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		session.removeAttribute("creditCardNo");
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "/travel/travel-summary-payment");				
 	}
@@ -1840,10 +1841,20 @@ public class TravelController {
 			parameters.put("paymentFail", "0");
 			
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
+			String dueAmount = (String)session.getAttribute("dueAmount");
+			if("0.00".equals(dueAmount) && creditCardNo == null) {
+				creditCardNo = "5422882800700007";
+				parameters.put("expiryDate", "0720");
+			} else {
+				parameters.put("expiryDate", session.getAttribute("expiryDate"));
+			}
 			
-			if (creditCardNo !=null) { 
-				parameters
-						.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
+			if (creditCardNo !=null) {
+				if("0.00".equals(dueAmount) && "5422882800700007".equals(creditCardNo)) {
+					parameters.put("creditCardNo", "5422882800700007");
+				}else {
+					parameters.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
+				}
 			} else {
 				
 				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
@@ -1865,7 +1876,6 @@ public class TravelController {
 						+ "travel/travel-confirmation";
 			}
 				
-			parameters.put("expiryDate", session.getAttribute("expiryDate"));
 			
 			if(JsonUtils.hasEmpty(parameters)) {
 				return UserRestURIConstants.getSitePath(request) + "travel/travel";
