@@ -6,6 +6,106 @@ var empEduInfoData = {};
 var beneInfoData = {};
 var underwritingSummData = {};
 
+function isValidHKID(hkid){
+	if(hkid!=''){
+		var checkSumRegex = /(.{1})\s*$/;
+		var checkSum = checkSumRegex.exec(hkid);
+		
+		console.log('CheckSum'+checkSum);
+		
+		var hkidCheckBit = hkid.replace(/^(.*).{1} /,'');
+		var hkidCheckBitArr = hkidCheckBit.split("");
+		
+		var isValid='';
+		var i , n , alphaEquivalentInt, hkidSum;
+		for(i=hkidCheckBitArr.length,n=0 ;n>=hkidCheckBitArr.length,i>=2;i--,n++){
+			
+			console.log(hkidCheckBitArr[n]+":"+i);
+			var sum;
+			if (/[A-Z]/i.test(hkidCheckBitArr[n])) {
+				alphaEquivalentInt = equivalentInteger(hkidCheckBitArr[n]);
+				sum = alphaEquivalentInt*i;
+				hkidSum = sum;
+			}else{
+				sum = hkidCheckBitArr[n]*i;
+				hkidSum+=sum;
+			}
+			
+		}
+		
+		console.log('Sum'+hkidSum);
+		
+		var hkidSumMod11 = 11- (hkidSum % 11);
+		
+		if(hkidSumMod11 == checkSum[1]){
+			isValid= 'Valid';
+			console.log('Valid');
+		}else{
+			isValid = 'Invalid';
+			console.log('Invalid');
+		}
+	}
+	else{
+		//isValid = 'Invalid';
+	}
+	return isValid;
+}
+function equivalentInteger(hkidChar){
+		var digit;
+		switch(hkidChar){
+			case 'A':
+			case 'L':
+			case 'M':
+				digit = 1;
+				break;
+			case 'B':
+			case 'M':
+			case 'X':
+				digit = 2;
+				break;
+			case 'C':
+			case 'N':
+			case 'Y':
+				digit = 3;
+				break;
+			case 'D':
+			case 'O':
+			case 'Z':
+				digit = 4;
+				break;
+			case 'E':
+			case 'P':
+				digit = 5;
+				break;
+			case 'F':
+			case 'Q':
+				digit = 6;
+				break;
+			case 'G':
+			case 'R':
+				digit = 7;
+				break;
+			case 'H':
+			case 'S':
+				digit = 8;
+				break;
+			case 'I':
+			case 'T':
+				digit = 9;
+				break;
+			case 'J':
+			case 'U':
+				digit = 10;
+				break;
+			case 'K':
+			case 'V':
+				digit = 11;
+				break;
+				
+		}
+		return digit;
+	}
+
 // REDIRECT TO SPECIFIC SECTION
 var _selectedSection = window.location.hash;
 if (_selectedSection && (_selectedSection === '#application')) {
@@ -262,6 +362,14 @@ function scrollingToSections() {
       
       // Store plan detail data
       planDetailData.insuranceAmount = $('#et-slider-range').text();
+      
+      var $appInfo = $('#et-application-first-section');
+      $appInfo.removeClass('hide-element')
+               .css('margin-bottom', '190px');
+      
+      $('body, html').animate({
+         scrollTop: ($appInfo.offset().top - stickyHeight) + 'px'
+      }, 500);
    });
    
    // Move to Application Info section
