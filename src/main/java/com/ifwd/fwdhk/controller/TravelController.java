@@ -951,7 +951,9 @@ public class TravelController {
 		
 		UserDetails userDetails = new UserDetails();
 		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",session, request);
+		String originalAmount = WebServiceUtils.getParameterValue("finalOriginalAmount",session, request);
 		session.setAttribute("dueAmount", dueAmount);
+		session.setAttribute("originalAmount", originalAmount);
 		
 		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
 		String deaprtureDate = DateApi.pickDate1((String)session.getAttribute("departureDate"));
@@ -1724,6 +1726,7 @@ public class TravelController {
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);
 		model.addAttribute("dueAmount", dueAmount.replace(",", ""));
+		model.addAttribute("originalAmount", originalAmount.replace(",", ""));
 		model.addAttribute("totalTravellingDays", totalTravellingDays);
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("travelBean", travelBean);
@@ -1838,6 +1841,7 @@ public class TravelController {
 				
 				
 				model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
+				model.addAttribute("originalAmount", session.getAttribute("originalAmount"));
 				
 				model.addAttribute("referralCode",
 						session.getAttribute("referralCode"));
