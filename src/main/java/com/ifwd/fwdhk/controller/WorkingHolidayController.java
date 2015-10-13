@@ -729,6 +729,9 @@ public class WorkingHolidayController {
 		addressJsonObj.put("district", (planDetailsForm.getWhInsDistrict()+"").toUpperCase());
 		addressJsonObj.put("area", (planDetailsForm.getWhInsArea()+"").toUpperCase());
 		parameters.put("address", addressJsonObj);
+		
+		parameters.put("externalParty", "THE CLUB");
+		parameters.put("externalPartyCode", "");
 
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", (String) session.getAttribute("username"));

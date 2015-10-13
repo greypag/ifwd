@@ -682,6 +682,15 @@ public class TravelController {
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		
+		String theClubMembershipNo = WebServiceUtils.getParameterValue("theClubMembershipNo", session, request);
+		String placeholder = WebServiceUtils.getMessage("common.membership", UserRestURIConstants.getLanaguage(request));
+		String MembershipNo = "";
+		if(placeholder.equals(theClubMembershipNo)) {
+			MembershipNo = "";
+		}else {
+			MembershipNo = theClubMembershipNo;
+		}
+		session.setAttribute("theClubMembershipNo", MembershipNo);
 		String planName = WebServiceUtils.getParameterValue("planName", session, request);
 		String planSummary = WebServiceUtils.getParameterValue(
 				"selectedAmountDue", session, request);
@@ -1619,6 +1628,9 @@ public class TravelController {
 		JSONObject addressJsonObj = new JSONObject();
 		parameters.put("address", addressJsonObj);
 		
+		parameters.put("externalParty", "THE CLUB");
+		parameters.put("externalPartyCode", session.getAttribute("theClubMembershipNo"));
+		
 		PromoCodeDetail promoCodeDetail = (PromoCodeDetail)session.getAttribute("promoCodeDetail");
 		if(promoCodeDetail != null) {
 			JSONObject promoCodeDetailJsonObj = new JSONObject();
@@ -1745,6 +1757,7 @@ public class TravelController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		session.removeAttribute("creditCardNo");
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "/travel/travel-summary-payment");				
 	}
@@ -1828,10 +1841,20 @@ public class TravelController {
 			parameters.put("paymentFail", "0");
 			
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
+			String dueAmount = (String)session.getAttribute("dueAmount");
+			if("0.00".equals(dueAmount) && creditCardNo == null) {
+				creditCardNo = "5422882800700007";
+				parameters.put("expiryDate", "072020");
+			} else {
+				parameters.put("expiryDate", session.getAttribute("expiryDate"));
+			}
 			
-			if (creditCardNo !=null) { 
-				parameters
-						.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
+			if (creditCardNo !=null) {
+				if("0.00".equals(dueAmount) && "5422882800700007".equals(creditCardNo)) {
+					parameters.put("creditCardNo", "5422882800700007");
+				}else {
+					parameters.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
+				}
 			} else {
 				
 				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
@@ -1853,7 +1876,6 @@ public class TravelController {
 						+ "travel/travel-confirmation";
 			}
 				
-			parameters.put("expiryDate", session.getAttribute("expiryDate"));
 			
 			if(JsonUtils.hasEmpty(parameters)) {
 				return UserRestURIConstants.getSitePath(request) + "travel/travel";
