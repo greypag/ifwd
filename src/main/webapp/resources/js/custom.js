@@ -1326,16 +1326,16 @@ function changeBorder (radioId) {
 function getResidentialFinalValue() {
 	var firstValue = document.getElementById("residential-first").value;
 	var secondValue = document.getElementById("residential-second").value;
-	var thirdValue = document.getElementById("residential-third").value;
-	document.getElementById("savieApplicantBean.residentialTelNo").value = firstValue + secondValue + thirdValue;
+	//var thirdValue = document.getElementById("residential-third").value;
+	document.getElementById("savieApplicantBean.residentialTelNo").value = firstValue + secondValue; //+ thirdValue;
 }   
 
 // Getting the Final Mobile No Value
 function getMobileFinalValue() {
 	var fMobileValue = document.getElementById("mobile-first").value;
 	var sMobileValue = document.getElementById("mobile-second").value;
-	var tMobileValue = document.getElementById("mobile-third").value;
-	document.getElementById("savieApplicantBean.mobileNo").value = fMobileValue + sMobileValue + tMobileValue;
+	//var tMobileValue = document.getElementById("mobile-third").value;
+	document.getElementById("savieApplicantBean.mobileNo").value = fMobileValue + sMobileValue; //+ tMobileValue;
 }
 
 //Check for invalid Promo Code

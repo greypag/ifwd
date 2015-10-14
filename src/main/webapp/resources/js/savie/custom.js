@@ -1392,8 +1392,8 @@ function getResidentialFinalValue() {
 function getMobileFinalValue() {
 	var fMobileValue = document.getElementById("mobile-first").value;
 	var sMobileValue = document.getElementById("mobile-second").value;
-	var tMobileValue = document.getElementById("mobile-third").value;
-	document.getElementById("savieApplicantBean.mobileNo").value = fMobileValue + sMobileValue + tMobileValue;
+	//var tMobileValue = document.getElementById("mobile-third").value;
+	document.getElementById("savieApplicantBean.mobileNo").value = fMobileValue + sMobileValue; //+ tMobileValue;
 }
 
 //Check for invalid Promo Code

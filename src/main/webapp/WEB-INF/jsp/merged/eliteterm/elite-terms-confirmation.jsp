@@ -9,6 +9,10 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+var language = "${language}";
+</script>
 		<%!
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
@@ -79,7 +83,7 @@
                   </div>
 							
                   <div class="detail">
-                     <h3 class="policy"><fmt:message key="eliteTerms.confirmation.Policy.Number" bundle="${msg}" /><span class="policy-number">093KG35JH</span></h3>								
+                     <h3 class="policy"><fmt:message key="eliteTerms.confirmation.Policy.Number" bundle="${msg}" /><span class="policy-number" id="policy-number">093KG35JH</span></h3>								
                   </div>
 					</div>
 					
@@ -93,7 +97,7 @@
                            <input type="email" name="agent-email" id="agent-email" placeholder="your.agent@fwd.com" />	
                         </div>
                         <div class="col-xs-5 col-md-2 et-submit">
-                           <button type="submit" value="Submit" class="btn"><fmt:message key="eliteTerms.confirmation.Submit" bundle="${msg}" /></button>
+                           <button type="button" value="Submit" class="btn" id="et-confirmation-submit"><fmt:message key="eliteTerms.confirmation.Submit" bundle="${msg}" /></button>
                         </div> 
                      </div>
                   </form>
@@ -114,6 +118,7 @@
 		</div>
 		
 		<!-- JS INCLUDES -->
+		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 		<script>
          
          $('#et-confimation-email-form').on('submit', function(e){

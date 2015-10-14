@@ -140,10 +140,10 @@ public class EliteTermServiceImpl implements EliteTermService {
 			final Map<String,String> header = headerUtil.getHeader(request);
 			
 			JSONObject parameters = new JSONObject();
-			parameters.put("creditCaredNo", "5123456789012346");
-			parameters.put("expiryDate", "0319");
-			parameters.put("cardHolderName", "SAM WONG");
-			parameters.put("policyNo", "12343");
+			parameters.put("creditCaredNo", request.getParameter("creditCaredNo"));
+			parameters.put("expiryDate", request.getParameter("expiryDate"));
+			parameters.put("cardHolderName", request.getParameter("cardHolderName"));
+			parameters.put("policyNo", request.getParameter("policyNo"));
 			apiReturn = connector.finalizeEliteTermPolicy(parameters, header);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl finalizeEliteTermPolicy occurs an exception!");
@@ -198,9 +198,9 @@ public class EliteTermServiceImpl implements EliteTermService {
 			final Map<String,String> header = headerUtil.getHeader(request);
 			
 			JSONObject parameters = new JSONObject();
-			parameters.put("policyNo", "123");
-			parameters.put("agentEmail", "agent@fwd.com");
-			apiReturn = connector.contactCs(parameters, header);
+			parameters.put("policyNo", request.getParameter("policyNo"));
+			parameters.put("agentEmail", request.getParameter("agentEmail"));
+			apiReturn = connector.setEliteTermPolicyAgentEmail(parameters, header);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl setEliteTermPolicyAgentEmail occurs an exception!");
 			logger.info(e.getMessage());

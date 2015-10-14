@@ -990,7 +990,6 @@ var language = "${language}";
                </div><!--END OF APPLICATION INFO FORM-->
             
             </div><!--END OF MEDICAL, APPLICATION INFO, EMPLOYMENT INFO, & BENEFICIARY INFO SECTION-->
-            
             <!--DECLARATION AND AUTHORIZATION PAGE-->
             <div class="container-fluid fwd-container hide-element" id="et-application-second-section">
                <div class="declare-authorize page-application et-declaration-section">
@@ -1741,3 +1740,21 @@ var language = "${language}";
 		<!-- SELECT PLAN JS -->
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-select-plan.js"></script>
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
+      <script type="text/javascript">
+		      // Move to Medical declaration section
+		      $('#et-brn-proceed-to-application').on('click', function(e) {
+	    	     if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+	    	    	 var $appInfo = $('#et-application-first-section');
+			         $appInfo.removeClass('hide-element')
+			                  .css('margin-bottom', '190px');
+			         
+			         $('body, html').animate({
+			            scrollTop: ($appInfo.offset().top - stickyHeight) + 'px'
+			         }, 500);
+				 }
+				 else{
+					// Open login modal
+					$('#loginpopup').modal('show');
+				 }
+		      });
+      </script>
