@@ -94,7 +94,7 @@ var language = "${language}";
                   <form action="" method="POST" class="form-horizontal" id="et-confimation-email-form">
                      <div class="form-group">
                         <div class="col-xs-7 col-md-4 col-md-offset-3 et-input-email">
-                           <input type="email" name="agent-email" id="agent-email" placeholder="your.agent@fwd.com" />	
+                           <input type="email" name="agent-email" id="agent-email" autocomplete="off" placeholder="your.agent@fwd.com" />	
                         </div>
                         <div class="col-xs-5 col-md-2 et-submit">
                            <button type="button" value="Submit" class="btn" id="et-confirmation-submit"><fmt:message key="eliteTerms.confirmation.Submit" bundle="${msg}" /></button>
