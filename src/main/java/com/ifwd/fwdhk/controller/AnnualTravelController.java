@@ -132,7 +132,7 @@ public class AnnualTravelController {
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		
 		String theClubMembershipNo = WebServiceUtils.getParameterValue("theClubMembershipNo", session, request);
-		String placeholder = WebServiceUtils.getMessage("common.membership", UserRestURIConstants.getLanaguage(request));
+		String placeholder = WebServiceUtils.getMessage("club.membership.number", UserRestURIConstants.getLanaguage(request));
 		String MembershipNo = "";
 		if(placeholder.equals(theClubMembershipNo)) {
 			MembershipNo = "";

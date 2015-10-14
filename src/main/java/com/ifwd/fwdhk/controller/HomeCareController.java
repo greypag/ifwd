@@ -345,7 +345,7 @@ public class HomeCareController {
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
 		String theClubMembershipNo = WebServiceUtils.getParameterValue("theClubMembershipNo", session, request);
-		String placeholder = WebServiceUtils.getMessage("common.membership", UserRestURIConstants.getLanaguage(request));
+		String placeholder = WebServiceUtils.getMessage("club.membership.number", UserRestURIConstants.getLanaguage(request));
 		String MembershipNo = "";
 		if(placeholder.equals(theClubMembershipNo)) {
 			MembershipNo = "";
