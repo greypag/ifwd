@@ -1157,7 +1157,6 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                             <div class="form-group" style="margin-top: 20px; margin-bottom: 0; display: none;">
                                 <div class="input-group" style="display:inital; width:100%;">
                                     <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder" style="display:inline-block;width:100%;" onfocus="placeholderOnFocus(this,'<fmt:message key="club.membership.number" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="club.membership.number" bundle="${msg}" />');" value="<fmt:message key="club.membership.number" bundle="${msg}" />" />
-                                    <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder" style="display:inline-block;width:100%;" onfocus="placeholderOnFocus(this,'<fmt:message key="common.membership" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="common.membership" bundle="${msg}" />');" value="<fmt:message key="common.membership" bundle="${msg}" />" />
                                 </div>
                             </div>
 							</div>
