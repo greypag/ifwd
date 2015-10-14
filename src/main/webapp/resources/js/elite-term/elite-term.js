@@ -154,6 +154,18 @@ $('#et-confirmation-submit').on('click', function(e) {
 	}
 });
 
+$('input[name="et-gender"]').on('click', function(e) {
+   if(this.value == "M"){
+	   $("#pi-male-now").attr("checked",true);
+	   $("#pi-female-now").attr("checked",false);
+	   $("#pi-female-now").removeAttr("checked");
+   }
+   else{
+	   $("#pi-male-now").attr("checked",false);
+	   $("#pi-male-now").removeAttr("checked");
+	   $("#pi-female-now").attr("checked",true);
+   }
+});
 // get resource bundle
 function getBundle(lang, key) {
 	var rtn; 

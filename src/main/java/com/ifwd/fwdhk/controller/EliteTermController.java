@@ -34,6 +34,25 @@ public class EliteTermController extends BaseController{
 	@RequestMapping(value = {"/{lang}/elite-term/select-plan"})
 	public ModelAndView getSelectPlan(Model model, HttpServletRequest request) {
 		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
+		
+		model.addAttribute("maritalStatusesEN", InitApplicationMessage.maritalStatusesEN);
+		model.addAttribute("maritalStatusesCN", InitApplicationMessage.maritalStatusesCN);
+		model.addAttribute("placeOfBirthEN", InitApplicationMessage.placeOfBirthEN);
+		model.addAttribute("placeOfBirthCN", InitApplicationMessage.placeOfBirthCN);
+		model.addAttribute("nationalityEN", InitApplicationMessage.nationalityEN);
+		model.addAttribute("nationalityCN", InitApplicationMessage.nationalityCN);
+		model.addAttribute("savieDistrictEN", InitApplicationMessage.savieDistrictEN);
+		model.addAttribute("savieDistrictCN", InitApplicationMessage.savieDistrictCN);
+		model.addAttribute("employmentStatusEN", InitApplicationMessage.employmentStatusEN);
+		model.addAttribute("employmentStatusCN", InitApplicationMessage.employmentStatusCN);
+		model.addAttribute("occupationEN", InitApplicationMessage.occupationEN);
+		model.addAttribute("occupationCN", InitApplicationMessage.occupationCN);
+		model.addAttribute("natureOfBusinessEN", InitApplicationMessage.natureOfBusinessEN);
+		model.addAttribute("natureOfBusinessCN", InitApplicationMessage.natureOfBusinessCN);
+		model.addAttribute("monthlyPersonalIncomeEN", InitApplicationMessage.monthlyPersonalIncomeEN);
+		model.addAttribute("monthlyPersonalIncomeCN", InitApplicationMessage.monthlyPersonalIncomeCN);
+		model.addAttribute("savieBeneficiaryRelationshipEN", InitApplicationMessage.savieBeneficiaryRelationshipEN);
+		model.addAttribute("savieBeneficiaryRelationshipCN", InitApplicationMessage.savieBeneficiaryRelationshipCN);
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_SELECT_PLAN);
 	}
 

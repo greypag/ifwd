@@ -122,6 +122,13 @@ public class UserController {
 					UserDetails userDetails = new UserDetails();
 					userDetails.setToken(checkJsonObjNull(response, "token"));
 					userDetails.setFullName(checkJsonObjNull(customer, "name"));
+					if(userDetails.getFullName() != null && userDetails.getFullName().contains(" ")){
+						userDetails.setFirstName(userDetails.getFullName().split(" ")[0]);
+						userDetails.setLastName(userDetails.getFullName().split(" ")[1]);
+					}
+					else{
+						userDetails.setFirstName(userDetails.getFullName());
+					}
 					userDetails.setEmailAddress(checkJsonObjNull(customer,
 							"email"));
 					userDetails.setMobileNo(checkJsonObjNull(customer,

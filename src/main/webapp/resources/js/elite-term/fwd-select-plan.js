@@ -133,7 +133,10 @@ var $planDate = $('#et-select-plan-date-input').datepicker({
    container: "#date",
    autoclose: true,
    startView: "decade"
-}).datepicker('setDate', new Date(_newdate)).val('');
+}).datepicker('setDate', new Date(_newdate)).val('')
+.on('changeDate', function(e) {
+	$('#et-illu-dob').val($('#et-select-plan-date-input').val());
+});
 
 var $infoDOB = $('#sales-illu-dob').datepicker({
    format: "dd-mm-yyyy",

@@ -25,6 +25,8 @@ public class UserDetails {
 	private String passport;
 	private String checkbox3;
 	private String checkbox4;
+	private String firstName;
+	private String lastName;
 	
 	public String getEmailAddress1() {
 		return emailAddress1;
@@ -202,6 +204,22 @@ public class UserDetails {
 
 	public void setReferralCodeUsedCount(String referralCodeUsedCount) {
 		this.referralCodeUsedCount = referralCodeUsedCount;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 }

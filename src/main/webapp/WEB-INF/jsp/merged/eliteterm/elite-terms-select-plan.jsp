@@ -477,9 +477,9 @@ var language = "${language}";
                                        <label for="give-last-name" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" /> <span class="hidden-xs hidden-sm"><fmt:message key="eliteTerms.selectPlan.Same.as.HKID" bundle="${msg}" /></span></label>
                                     </div>
                                     <div class="left-desktop text-box">
-                                       <input class="form-control gray-textbox" id="savieApplicantBean.firstName" name="savieApplicantBean.firstName" type="text" placeholder="Given Name " value="">
+                                       <input class="form-control gray-textbox" id="savieApplicantBean.firstName" name="savieApplicantBean.firstName" type="text" placeholder="Given Name " value="${userDetails.firstName }">
                                        <span class="error-msg" id="savieApplicantBeanFirstNameMsg"><small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.English.first.name" bundle="${msg}" /></small></span>
-                                       <input class="form-control gray-textbox" id="savieApplicantBean.lastName" name="savieApplicantBean.lastName" type="text" placeholder="Last Name " value="">
+                                       <input class="form-control gray-textbox" id="savieApplicantBean.lastName" name="savieApplicantBean.lastName" type="text" placeholder="Last Name " value="${userDetails.lastName }">
                                        <span class="error-msg" id="savieApplicantBeanlastNameMsg"><small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.English.last.name" bundle="${msg}" /></small></span>
                                     </div>
                                  </div>
@@ -499,7 +499,7 @@ var language = "${language}";
                                        <label for="savieApplicantBean.chineseName" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Date.of.birth" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box et-date-info">
-                                       <input type="text" class="date form-control gray-textbox" name="dob" id="sales-illu-dob" placeholder="DD-MM-YYYY " onfocusin="fnSetStyle()" readonly  />
+                                       <input type="text" class="date form-control gray-textbox" name="dob" id="et-illu-dob" placeholder="DD-MM-YYYY " onfocusin="fnSetStyle()" readonly="readonly"  />
                                        <span class="error-msg" id="sales-illu-dob-msg"><small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Date.of.birth.is.required" bundle="${msg}" /></small></span>
                                     </div>
                                  </div>
@@ -513,7 +513,7 @@ var language = "${language}";
                                           <div class="clearfix">
                                              <div class="pull-left male">
                                                 <label class="pi-male-radio" for="pi-male-now">
-                                                <input type="radio" id="pi-male-now" name="savieApplicantBean.gender" value="pi-male-now" checked>
+                                                <input type="radio" id="pi-male-now" name="savieApplicantBean.gender" value="pi-male-now" disabled="disabled">
                                                 <span class="pi-male-text">
                                                    <span class="text"><fmt:message key="eliteTerms.selectPlan.Male" bundle="${msg}" /></span>
                                                 </span>
@@ -524,7 +524,7 @@ var language = "${language}";
                                              </div>
                                              <div class="pull-left female">
                                                 <label class="pi-female-radio" for="pi-female-now">
-                                                <input type="radio" id="pi-female-now" name="savieApplicantBean.gender" value="pi-female-now" >
+                                                <input type="radio" id="pi-female-now" name="savieApplicantBean.gender" value="pi-female-now" disabled="disabled" >
                                                 <span class="pi-female-text">
                                                    <span class="text"><fmt:message key="eliteTerms.selectPlan.Female" bundle="${msg}" /></span>
                                                 </span>
@@ -559,9 +559,16 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" name="savieApplicantBean.maritalStatus"  id="savieApplicantBean.maritalStatus">
-                                             <option selected disabled value="">- Please select -</option>
-                                             <option value="single">Single</option>
-                                             <option value="married">Married</option>	
+                                             <c:if test="${language == 'en'}">
+													   <c:forEach var="list" items="${maritalStatusesEN}">
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+													   <c:forEach var="list" items="${maritalStatusesCN}">
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>
                                           </select>
                                        </div>
                                        <span class="error-msg" id="maritalStatusMessage"></span>
@@ -576,9 +583,16 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" data-style="application-select selection" id="savieApplicantBean.placeOfBirth" name="savieApplicantBean.placeOfBirth">
-                                             <option selected disabled value="">- Please select -</option>
-                                             <option value="US">US</option>
-                                             <option value="Germany">Germany</option>	
+                                             <c:if test="${language == 'en'}">
+													   <c:forEach var="list" items="${placeOfBirthEN}">
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+													   <c:forEach var="list" items="${placeOfBirthCN}">
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>	
                                           </select>
                                        </div>
                                        <span class="error-msg" id="placeOfBirthMessage"></span>
@@ -593,9 +607,16 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" id="savieApplicantBean.nationality" name="savieApplicantBean.nationality">
-                                             <option selected disabled value="">- Please select -</option>
-                                             <option value="US">US</option>
-                                             <option value="Germany">Germany</option>	
+                                             <c:if test="${language == 'en'}">
+													   <c:forEach var="list" items="${placeOfBirthEN}">
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+													   <c:forEach var="list" items="${placeOfBirthCN}">
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>	
                                           </select>
                                        </div>
                                        <span class="error-msg" id="nationalityMessage"></span>
@@ -661,9 +682,16 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.permanentAddress" id="savieApplicantBean.permanentAddress">
-                                             <option selected disabled value="">District</option>
-                                             <option value="US">US</option>
-                                             <option value="Germany">Germany</option>	
+                                             <c:if test="${language == 'en'}">
+													   <c:forEach var="list" items="${savieDistrictEN}">
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+													   <c:forEach var="list" items="${savieDistrictCN}">
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>		
                                           </select>
                                        </div>
                                        <span class="error-msg" id="perAddressMessage"></span>
@@ -683,9 +711,16 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.residentialDistrict" id="savieApplicantBean.residentialDistrict">
-                                             <option selected disabled value="">District</option>
-                                             <option value="US">US</option>
-                                             <option value="Germany">Germany</option>	
+                                             <c:if test="${language == 'en'}">
+													   <c:forEach var="list" items="${savieDistrictEN}">
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+													   <c:forEach var="list" items="${savieDistrictCN}">
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>		
                                           </select>
                                        </div>
                                        <span class="error-msg" id="resDistrictMessage"></span>
@@ -725,9 +760,16 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.correspondenceDistrict" id="savieApplicantBean.correspondenceDistrict">
-                                             <option selected disabled value="">District</option>
-                                             <option value="US">US</option>
-                                             <option value="Germany">Germany</option>	
+                                             <c:if test="${language == 'en'}">
+													   <c:forEach var="list" items="${savieDistrictEN}">
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+													   <c:forEach var="list" items="${savieDistrictCN}">
+													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													   </c:forEach>
+													</c:if>	
                                           </select>
                                        </div>
                                        <span class="error-msg" id="correspondenceDistricttMessage"></span>
@@ -758,10 +800,16 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.employmentStatus" name="savieEmploymentBean.employmentStatus" data-style="application-select">
-                                       <option selected disabled value="">- Please select -</option>
-                                       <option value="employed">Employed</option>
-                                       <option value="self-employed">Self Employed</option>	
-                                       <option value="unemployed">Unemployed</option>	
+                                       <c:if test="${language == 'en'}">
+										   <c:forEach var="list" items="${employmentStatusEN}">
+										      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+										   </c:forEach>
+										</c:if>
+										<c:if test="${language == 'tc'}">
+										   <c:forEach var="list" items="${employmentStatusCN}">
+										      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+										   </c:forEach>
+										</c:if>	
                                     </select>
                                  </div>
                                  <span class="error-msg" id="employmentStatusMessage"></span>
@@ -771,9 +819,16 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.occupation" name="savieEmploymentBean.occupation" data-style="application-select">
-                                       <option selected disabled value="">- Please select -</option>
-                                       <option value="it">IT</option>
-                                       <option value="others">Others</option>	
+                                       <c:if test="${language == 'en'}">
+											<c:forEach var="list" items="${occupationEN}">
+											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											</c:forEach>
+										</c:if>
+										<c:if test="${language == 'tc'}">
+											<c:forEach var="list" items="${occupationCN}">
+											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											</c:forEach>
+										</c:if>	
                                     </select>
                                  </div>
                                  <span class="error-msg" id="occupationMessage"></span>
@@ -809,9 +864,16 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.natureOfBusiness" name="savieEmploymentBean.natureOfBusiness" data-style="application-select">
-                                       <option selected disabled value="">- Please select -</option>
-                                       <option value="it">IT</option>
-                                       <option value="others">Others</option>	
+                                       <c:if test="${language == 'en'}">
+											<c:forEach var="list" items="${natureOfBusinessEN}">
+											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											</c:forEach>
+										</c:if>
+										<c:if test="${language == 'tc'}">
+											<c:forEach var="list" items="${natureOfBusinessCN}">
+											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											</c:forEach>
+										</c:if>	
                                     </select>
                                  </div>
                                  <span class="error-msg" id="natureOfBusinessMessage"></span>
@@ -821,9 +883,16 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.monthlyPersonalIncome" name="savieEmploymentBean.monthlyPersonalIncome" data-style="application-select">
-                                       <option selected disabled value="">- Please select -</option>
-                                       <option value="10,000">10,000</option>
-                                       <option value="others">Others</option>	
+                                       <c:if test="${language == 'en'}">
+											<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
+											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											</c:forEach>
+										</c:if>
+										<c:if test="${language == 'tc'}">
+											<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
+											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											</c:forEach>
+										</c:if>
                                     </select>
                                  </div>
                                  <span class="error-msg" id="monthlyIncomeMessage"></span>
@@ -950,9 +1019,16 @@ var language = "${language}";
                                        <div class="selectBeneficiary">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  id="savieBeneficiaryBean[0].relationship" name="savieBeneficiaryBean[0].relationship" data-style="application-select">
-                                             <option selected disabled value="">- Please select -</option>
-                                             <option value="father">Father</option>
-                                             <option value="mother">Mother</option>	
+                                             <c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
+													  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
+													  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
                                           </select>
                                        </div>
                                        <span class="error-msg" id="relationshipMessage[0]"></span>
