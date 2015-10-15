@@ -1165,11 +1165,11 @@ function storeAppInfo() {
    appInfoData.enFName = document.getElementById('savieApplicantBean.firstName').value;
    appInfoData.enLName = document.getElementById('savieApplicantBean.lastName').value;
    appInfoData.chName = document.getElementById('savieApplicantBean.chineseName').value;
-   appInfoData.dob = document.getElementById('sales-illu-dob').value;
+   appInfoData.dob = document.getElementById('et-select-plan-date-input').value;
    
-   if ($('#pi-male-now').prop('checked')) {
+   if ($('#et-gender-male').prop('checked')) {
       appInfoData.gender = 'Male';
-   } else if ($('#pi-male-now').prop('checked')) {
+   } else if ($('#et-gender-female').prop('checked')) {
       appInfoData.gender = 'Female';
    }
    
