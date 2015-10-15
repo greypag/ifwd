@@ -1670,8 +1670,17 @@ var language = "${language}";
 									<label for="day"><fmt:message key="eliteTerms.selectPlan.Preffered.day" bundle="${msg}" /></label>
 									<div class="select-holder">
 										<select class="form-control gray-textbox" id="day" name="day">
-											<option><fmt:message key="eliteTerms.selectPlan.Monday.Friday" bundle="${msg}" /></option>
-											<option><fmt:message key="eliteTerms.selectPlan.Lorem.Ipsum" bundle="${msg}" /></option>
+											<option value="">-Please select-</option>
+                                            <c:if test="${language == 'en'}">
+											   <c:forEach var="list" items="${etCsContactPreferredDayEN}">
+											      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											   </c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+											   <c:forEach var="list" items="${etCsContactPreferredDayCN}">
+											      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											   </c:forEach>
+											</c:if>
 										</select>
 									</div>
 								</div>
@@ -1679,8 +1688,17 @@ var language = "${language}";
 									<label for="time"><fmt:message key="eliteTerms.selectPlan.Preffered.timeslot" bundle="${msg}" /></label>
 									<div class="select-holder">
 										<select class="form-control gray-textbox" id="time" name="time">
-											<option><fmt:message key="eliteTerms.selectPlan.After.hour" bundle="${msg}" /></option>
-											<option><fmt:message key="eliteTerms.selectPlan.Lorem.Ipsum" bundle="${msg}" /></option>
+											<option value="">-Please select-</option>
+                                            <c:if test="${language == 'en'}">
+											   <c:forEach var="list" items="${etCsContactPreferredTimeSlotEN}">
+											      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											   </c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+											   <c:forEach var="list" items="${etCsContactPreferredTimeSlotCN}">
+											      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											   </c:forEach>
+											</c:if>
 										</select>
 									</div>
 								</div>
@@ -1688,8 +1706,17 @@ var language = "${language}";
 									<label for="enquiry"><fmt:message key="eliteTerms.selectPlan.Enquire.type" bundle="${msg}" /></label>
 									<div class="select-holder">
 										<select class="form-control gray-textbox" id="enquiry" name="enquiry">
-											<option value="enquiry1"><fmt:message key="eliteTerms.selectPlan.Product.enquiry" bundle="${msg}" /></option>
-											<option value="enquiry2"><fmt:message key="eliteTerms.selectPlan.Lorem.Ipsum" bundle="${msg}" /></option>
+											<option value="">-Please select-</option>
+                                            <c:if test="${language == 'en'}">
+											   <c:forEach var="list" items="${etEnquiryTypeEN}">
+											      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											   </c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+											   <c:forEach var="list" items="${etEnquiryTypeCN}">
+											      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+											   </c:forEach>
+											</c:if>
 										</select>
 									</div>
 								</div>
@@ -1705,6 +1732,21 @@ var language = "${language}";
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->	
 			</div><!--END OF CANNOT APPLY MODAL-->
+			
+	     <!-- CANNOT APPLY GO HOMEPAGE MODAL -->
+         <div id="goHomepageModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+               <div class="modal-content" align="center">
+                  <div class="modal-body" style="color:#fc6d08">
+                     <p><fmt:message key="eliteTerms.selectPlan.successfully.submitted" bundle="${msg}" /></p>	
+                  </div>
+                  <div>
+                     <button type="button" class="btn btn-orange et-next-btn et-pad-bot-50" id="et-select-plan-go-homepage" data-dismiss="modal"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button>
+                  </div>
+               </div>
+
+            </div>
+         </div><!-- END OF CANNOT APPLY GO HOMEPAGE MODAL -->
          
          <!-- DOB ATTENTION -->
          <div id="bdayModal" class="modal fade" role="dialog">

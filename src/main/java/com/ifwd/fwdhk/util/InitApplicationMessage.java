@@ -61,6 +61,15 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static ServiceCentreResponse serviceCentreEN;
 	public static ServiceCentreResponse serviceCentreCN;
 	
+	public static List<OptionItemDesc> etCsContactPreferredDayEN;
+	public static List<OptionItemDesc> etCsContactPreferredDayCN;
+	
+	public static List<OptionItemDesc> etCsContactPreferredTimeSlotEN;
+	public static List<OptionItemDesc> etCsContactPreferredTimeSlotCN;
+	
+	public static List<OptionItemDesc> etEnquiryTypeEN;
+	public static List<OptionItemDesc> etEnquiryTypeCN;
+	
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
@@ -305,6 +314,65 @@ public class InitApplicationMessage implements ApplicationListener{
 			}
 		}
 		logger.info("serviceCentreCN : " + serviceCentreCN);
+		
+		try {
+			etCsContactPreferredDayEN = commonUtils.getOptionItemDescList("csContactPreferredDay","EN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("etCsContactPreferredDayEN : " + etCsContactPreferredDayEN);
+		
+		try {
+			etCsContactPreferredDayCN = commonUtils.getOptionItemDescList("csContactPreferredDay","CH",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("etCsContactPreferredDayCN : " + etCsContactPreferredDayCN);
+		
+		try {
+			etCsContactPreferredTimeSlotEN = commonUtils.getOptionItemDescList("csContactPreferredTimeSlot","EN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("etCsContactPreferredTimeSlotEN : " + etCsContactPreferredTimeSlotEN);
+		
+		try {
+			etCsContactPreferredTimeSlotCN = commonUtils.getOptionItemDescList("csContactPreferredTimeSlot","CH",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("etCsContactPreferredTimeSlotCN : " + etCsContactPreferredTimeSlotCN);
+		
+		try {
+			etEnquiryTypeEN = commonUtils.getOptionItemDescList("enquiryType","EN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("etEnquiryTypeEN : " + etEnquiryTypeEN);
+		
+		try {
+			etEnquiryTypeCN = commonUtils.getOptionItemDescList("enquiryType","CH",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("etEnquiryTypeCN : " + etEnquiryTypeCN);
 	}
-	
 }

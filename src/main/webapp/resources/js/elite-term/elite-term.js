@@ -182,6 +182,7 @@ $('#et-cannot-apply-btn').on('click', function(e) {
 		function(data) {
 			if(data.errMsgs == null){
 				$('#cannot-apply-modal').modal('hide');
+				$('#goHomepageModal').modal('show');
 				console.log("data success");
 			}
 			else{
@@ -244,4 +245,6 @@ function getOccupation(value,language) {
 		alert(data.length);
 	});
 }
-
+$('#et-select-plan-go-homepage').on('click', function(e) {
+	window.location.href= contextPath+'/'+language+'/elite-term/landing';
+});
