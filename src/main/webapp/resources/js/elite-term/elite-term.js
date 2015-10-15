@@ -56,7 +56,7 @@ $('#et-signature-proceed-btn').on('click', function(e) {
         url:contextPath+'/ajax/eliteTerm/createEliteTermPolicy',
         data: formdata,
         success:function(data){
-			if(data.errMsgs == null || data.errMsgs != null){
+			if(data.errMsgs == null){
 				var $sigdiv = $("#signature");
 				var datapair = $sigdiv.jSignature("getData", "image");
 				var obj = datapair[1];
