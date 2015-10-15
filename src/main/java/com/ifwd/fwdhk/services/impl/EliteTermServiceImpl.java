@@ -47,6 +47,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 		try {
 			final Map<String,String> header = headerUtil.getHeader(request);
 			
+			logger.debug(request.getParameterMap().toString());
 			JSONObject parameters = new JSONObject();
 			parameters.put("planCode", "EliteTerm");
 			JSONObject applicant = new JSONObject();
@@ -102,12 +103,12 @@ public class EliteTermServiceImpl implements EliteTermService {
 			beneficiaries.add(beneficiarie1);
 			parameters.put("beneficiaries", beneficiaries);
 			JSONObject payment = new JSONObject();
-			applicant.put("amount", "2000.00");
-			applicant.put("paymentMethod", "CreditCard");
-			applicant.put("bankName", "");
-			applicant.put("branchName", "");
-			applicant.put("accountNo", "");
-			applicant.put("expiryDate", "");
+			payment.put("amount", "2000.00");
+			payment.put("paymentMethod", "CreditCard");
+			payment.put("bankName", "");
+			payment.put("branchName", "");
+			payment.put("accountNo", "");
+			payment.put("expiryDate", "");
 			parameters.put("payment", payment);
 			parameters.put("insuredAmount", 100000);
 			logger.info(parameters.toString());
