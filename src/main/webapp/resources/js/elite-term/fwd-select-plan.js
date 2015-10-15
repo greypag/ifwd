@@ -1205,7 +1205,7 @@ function storeAppInfo() {
  */
 function storeEmpInfo() {
    empEduInfoData.status = document.getElementById('savieEmploymentBean.employmentStatus').value;
-   empEduInfoData.occupation = document.getElementById('savieEmploymentBean.occupation').value;
+   empEduInfoData.occupation = document.getElementById('savieEmploymentBeanoccupation').value;
    empEduInfoData.eduLevel = document.getElementById('savieEmploymentBean.educationLevel').value;
    empEduInfoData.natBusiness = document.getElementById('savieEmploymentBean.natureOfBusiness').value;
    empEduInfoData.monIncome = document.getElementById('savieEmploymentBean.monthlyPersonalIncome').value;

@@ -818,7 +818,7 @@ var language = "${language}";
                                  <label for="savieEmploymentBean.occupation"><fmt:message key="eliteTerms.selectPlan.Occupation" bundle="${msg}" /></label>
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
-                                    <select class="form-control gray-dropdown" id="savieEmploymentBean.occupation" name="savieEmploymentBean.occupation" data-style="application-select">
+                                    <select class="form-control gray-dropdown" id="savieEmploymentBeanoccupation" name="savieEmploymentBean.occupation" data-style="application-select">
                                        <c:if test="${language == 'en'}">
 											<c:forEach var="list" items="${occupationEN}">
 											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -863,7 +863,7 @@ var language = "${language}";
                                  <label for="savieEmploymentBean.natureOfBusiness"><fmt:message key="eliteTerms.selectPlan.Nature.of.business" bundle="${msg}" /></label>
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
-                                    <select class="form-control gray-dropdown" id="savieEmploymentBean.natureOfBusiness" name="savieEmploymentBean.natureOfBusiness" data-style="application-select">
+                                    <select class="form-control gray-dropdown" id="savieEmploymentBean.natureOfBusiness" name="savieEmploymentBean.natureOfBusiness" data-style="application-select" onclick="getOccupation(this.value,'${language }');">
                                        <c:if test="${language == 'en'}">
 											<c:forEach var="list" items="${natureOfBusinessEN}">
 											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>

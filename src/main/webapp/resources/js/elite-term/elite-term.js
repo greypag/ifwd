@@ -226,3 +226,22 @@ function loadBundles(lang, key, fn) {
     });
 }
 
+function getOccupation(value,language) {
+	$.get(contextPath+'/ajax/savie/application/getOccupation',
+	{ 
+		value : value,
+		language : language
+	},
+	function(data) {
+		$("#savieEmploymentBeanoccupation").empty();
+		if(data != null){
+			for(var i = 0; i < data.length; i++) {
+				$("#savieEmploymentBeanoccupation").append("<option value='"+data[i].itemCode+"-"+data[i].itemDesc+"'>"+data[i].itemDesc+"</option>");
+			}
+		}
+	})
+	.fail(function(data) {
+		alert(data.length);
+	});
+}
+
