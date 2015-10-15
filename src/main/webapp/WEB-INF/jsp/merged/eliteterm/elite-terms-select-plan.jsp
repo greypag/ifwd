@@ -1677,8 +1677,8 @@ var language = "${language}";
 									<label for="enquiry"><fmt:message key="eliteTerms.selectPlan.Enquire.type" bundle="${msg}" /></label>
 									<div class="select-holder">
 										<select class="form-control gray-textbox" id="enquiry" name="enquiry">
-											<option><fmt:message key="eliteTerms.selectPlan.Product.enquiry" bundle="${msg}" /></option>
-											<option><fmt:message key="eliteTerms.selectPlan.Lorem.Ipsum" bundle="${msg}" /></option>
+											<option value="enquiry1"><fmt:message key="eliteTerms.selectPlan.Product.enquiry" bundle="${msg}" /></option>
+											<option value="enquiry2"><fmt:message key="eliteTerms.selectPlan.Lorem.Ipsum" bundle="${msg}" /></option>
 										</select>
 									</div>
 								</div>
@@ -1688,7 +1688,7 @@ var language = "${language}";
                            <p class="notice"><fmt:message key="eliteTerms.selectPlan.I.have.read.and.I" bundle="${msg}" />
                            <a href="#"><fmt:message key="eliteTerms.selectPlan.Personal.Information" bundle="${msg}" /></a></p>
                         </div>
-								<button type="submit" class="btn next"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
+								<button type="button" class="btn next" id="et-cannot-apply-btn"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
 							</form>
 						</div>
 					</div><!-- /.modal-content -->

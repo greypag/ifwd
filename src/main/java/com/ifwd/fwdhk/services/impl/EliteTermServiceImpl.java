@@ -174,14 +174,14 @@ public class EliteTermServiceImpl implements EliteTermService {
 			final Map<String,String> header = headerUtil.getHeader(request);
 			
 			JSONObject parameters = new JSONObject();
-			parameters.put("name", "Nat Cheung");
-			parameters.put("email", "nathaniel.kw.cheung@@fwd.com");
-			parameters.put("mobile", "938866166");
-			parameters.put("preferredDay", "2015-09-10");
-			parameters.put("preferredTimeSlot", "18:00-20:00");
-			parameters.put("enquiryType", "enquiry1");
-			parameters.put("channel", "channel1");
-			parameters.put("product", "eliteterm");
+			parameters.put("name", request.getParameter("name"));
+			parameters.put("email", request.getParameter("email"));
+			parameters.put("mobile", request.getParameter("mobile"));
+			parameters.put("preferredDay", request.getParameter("preferredDay"));
+			parameters.put("preferredTimeSlot", request.getParameter("preferredTimeSlot"));
+			parameters.put("enquiryType", request.getParameter("enquiryType"));
+			parameters.put("channel", request.getParameter("channel"));
+			parameters.put("product", request.getParameter("product"));
 			apiReturn = connector.contactCs(parameters, header);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl contactCs occurs an exception!");
