@@ -102,14 +102,15 @@ public class EliteTermServiceImpl implements EliteTermService {
 			beneficiaries.add(beneficiarie1);
 			parameters.put("beneficiaries", beneficiaries);
 			JSONObject payment = new JSONObject();
-			applicant.put("amount", "100.00");
-			applicant.put("paymentMethod", "");
-			applicant.put("bankName", "bankName");
-			applicant.put("branchName", "branchName");
+			applicant.put("amount", "2000.00");
+			applicant.put("paymentMethod", "CreditCard");
+			applicant.put("bankName", "");
+			applicant.put("branchName", "");
 			applicant.put("accountNo", "");
 			applicant.put("expiryDate", "");
 			parameters.put("payment", payment);
 			parameters.put("insuredAmount", 100000);
+			logger.info(parameters.toString());
 			apiReturn = connector.createEliteTermPolicy(parameters, header);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl createEliteTermPolicy occurs an exception!");

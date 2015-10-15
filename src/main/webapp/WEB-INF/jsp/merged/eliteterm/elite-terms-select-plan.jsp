@@ -559,6 +559,7 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" name="savieApplicantBean.maritalStatus"  id="savieApplicantBean.maritalStatus">
+                                             <option value="">-Please select-</option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${maritalStatusesEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -583,6 +584,7 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" data-style="application-select selection" id="savieApplicantBean.placeOfBirth" name="savieApplicantBean.placeOfBirth">
+                                             <option value="">-Please select-</option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${placeOfBirthEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -607,6 +609,7 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" id="savieApplicantBean.nationality" name="savieApplicantBean.nationality">
+                                             <option value="">-Please select-</option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${placeOfBirthEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -682,6 +685,7 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.permanentAddress" id="savieApplicantBean.permanentAddress">
+                                             <option value="">-Please select-</option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -711,6 +715,7 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.residentialDistrict" id="savieApplicantBean.residentialDistrict">
+                                             <option value="">-Please select-</option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -760,6 +765,7 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.correspondenceDistrict" id="savieApplicantBean.correspondenceDistrict">
+                                             <option value="">-Please select-</option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -800,6 +806,7 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.employmentStatus" name="savieEmploymentBean.employmentStatus" data-style="application-select">
+                                       <option value="">-Please select-</option>
                                        <c:if test="${language == 'en'}">
 										   <c:forEach var="list" items="${employmentStatusEN}">
 										      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -819,6 +826,7 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBeanoccupation" name="savieEmploymentBean.occupation" data-style="application-select">
+                                       <option value="">-Please select-</option>
                                        <c:if test="${language == 'en'}">
 											<c:forEach var="list" items="${occupationEN}">
 											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -864,6 +872,7 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.natureOfBusiness" name="savieEmploymentBean.natureOfBusiness" data-style="application-select" onclick="getOccupation(this.value,'${language }');">
+                                       <option value="">-Please select-</option>
                                        <c:if test="${language == 'en'}">
 											<c:forEach var="list" items="${natureOfBusinessEN}">
 											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -883,6 +892,7 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.monthlyPersonalIncome" name="savieEmploymentBean.monthlyPersonalIncome" data-style="application-select">
+                                       <option value="">-Please select-</option>
                                        <c:if test="${language == 'en'}">
 											<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
 											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -1019,6 +1029,7 @@ var language = "${language}";
                                        <div class="selectBeneficiary">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  id="savieBeneficiaryBean[0].relationship" name="savieBeneficiaryBean[0].relationship" data-style="application-select">
+                                             <option value="">-Please select-</option>
                                              <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
 													  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
