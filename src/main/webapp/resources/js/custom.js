@@ -76,14 +76,22 @@ $(function() {
 	//E SERVICES REFERRAL CODES!
 	if($('.referral').length > 0) {
 		$(document).on('click','.referral .view-all',function(){
+                $('#referral-discount').removeClass('bottom');
+				$('#copy-link').removeClass('invisible');
+				$('#referral-date').addClass('hidden');
 	            $('.referral-item.display.hidden-xs').removeClass('hidden-xs hidden-sm');
 
 	            if($(this).html()=='Hide') {
 	              $('.referral-item.display').addClass('hidden-xs hidden-sm');
 	              $(this).html('View all');
+                  $(this).css("color", "#ff8200");
+				  $('#copy-link').addClass('invisible');
+				  $('#referral-date').removeClass('hidden');
+				  $('#referral-discount').addClass('bottom');
 	            }
 	            else {
 	              $(this).html('Hide');
+                  $(this).css("color", "#ff8200");
 	            }
 	        });
 	        
@@ -291,6 +299,7 @@ $(function() {
 		
 		$('#upload-now-section').addClass('hidden');
 		$('#submit-btn').addClass('hidden');
+        $('#upload-link-btn').removeClass('hidden');
 	});
 	
 	//upload-now
@@ -303,6 +312,7 @@ $(function() {
 			$('#submit-btn').removeClass('hidden');
 		}
 		$('#upload-later-section').addClass('hidden');
+        $('#upload-link-btn').addClass('hidden');
 	});
 	
 	// Sales Illustration Page to FNA Page
@@ -765,8 +775,38 @@ $(function() {
 		//Eservices Page
 		//by: RMN
 		
+        if(getWidth()>=992){
+         $('.et-collapse-link[aria-expanded="true"]').parent()
+                                                   .next()
+                                                   .find('.et-panel-body')
+                                                   .jScrollPane({showArrows: true});
+   
+         
+			$('.et-select-plan-panel').on('shown.bs.collapse', function (e) {
+				var $target = $(e.currentTarget);
+				var $innerPanel = $target.find('.et-panel-body');
+				
+            if(getWidth()>=992){
+               $innerPanel.jScrollPane({showArrows: true});
+            }
+			});
+         
+		}else{
+         // Remove the jScrollpane
+         $('.et-panel-body').each(function() {
+            var $self = $(this);
+            
+            if ($self.data().jsp) {  
+               $self.data().jsp.destroy();
+            }
+         });
+		}//END OF ET Select Plan Page
+        
 		if(getWidth()>=992){
-			$('#eServices-sidebar').removeClass('hidden');
+			//Promo and Referrals Page
+			$('#copy-link').removeClass('invisible');
+            
+            $('#eServices-sidebar').removeClass('hidden');
 			$('#notifications-mobile').addClass('hidden');
 			if(($('#eServices-landing-page').length) > 0){
 				$('#eServices-landing-page').removeClass('hidden');
@@ -799,7 +839,11 @@ $(function() {
 			
 		}else{
 			//$('#notifications-mobile').addClass('hidden');
-			
+			//Promo and Referrals Page
+			if($('#referral-view').html() == "View all"){
+				$('#copy-link').addClass('invisible');
+			}
+            
 			//do nothing
 			if($('#eServices-body').hasClass('hidden-sm')){
 				//do nothing
@@ -904,9 +948,27 @@ $(function() {
 		// orange bar
 		if ($('.application-page-header').length > 0 ) { // check if flux div exists
 			var $application = $('.application-page-header');			
-			if ($application.hasClass('sticky-bar')) {
-				$application.css('top', $('.navbar-fixed-top').height() + 'px');
-			}
+			var $mobBar = $('.mob-topbar');
+            
+            if ($application.hasClass('sticky-bar')) {
+                /* var $stickyElement = $('.navbar-fixed-top').length ? $('.navbar-fixed-top') : ((getWidth() >= 992) ? $('.top-bar:first') : $('.mob-topbar:first'));
+                
+                if (!$stickyElement.length) {
+                    $stickyElement = $('.top-bar', '#header');
+                }
+                
+				$application.css('top', $stickyElement.height() + 'px'); */
+                if (getWidth() < 992) {
+                    $mobBar.css({
+                       'position' : 'fixed',
+                       'width' : '100%',
+                       'z-index': 10
+                    });
+                    $application.css('top', $mobBar.height() + 'px');
+                }
+			} else {
+                $mobBar.removeAttr('style');
+            }
 		}
 	};	
 	$(window).resize();
@@ -1105,13 +1167,24 @@ function stickApplicationOrangeBar() {
 	if ($('.application-flux').length > 0 ) { // check if flux div exists
 		var $application = $('.application-flux');
 		var $bar = $('.application-page-header');
-		
-		if ($(window).scrollTop() >= $('.navbar-menu').height()) {
+		var $navbar = $('.navbar-menu').length ? $('.navbar-menu') : ((getWidth() >= 992) ? $('.navbar-inverse:first') : $('.logobox'));
+        var $fixedTop = $('.navbar-fixed-top').length ? $('.navbar-fixed-top') : ((getWidth() >= 992) ? $('.top-bar:first') : $('.mob-topbar:first'));
+        var $mobBar = $('.mob-topbar');
+        
+		if ($(window).scrollTop() >= $navbar.height()) {
 			$bar.addClass('sticky-bar');
-			$bar.css('top', $('.navbar-fixed-top').height() + 'px');
+			$bar.css('top', $fixedTop.height() + 'px');
+            if (getWidth() < 992) {
+                $mobBar.css({
+                   'position' : 'fixed',
+                   'width' : '100%',
+                   'z-index': 10
+                });
+            }
 		} else {
 			$bar.removeClass('sticky-bar');
 			$bar.removeAttr('style');
+            $mobBar.removeAttr('style');
 		}
 	}
 }
@@ -1246,7 +1319,7 @@ function addFormBeneficiary (counter) {
 
 		+'<div class="form-group beneficiary-info-row">'
 		+'<label for="savieBeneficiaryBean['+counter+'].hkId">HKID / Passport No</label>'
-		+'<div class="clearfix">'
+		+'<div class="clearfix et-hkid-pass">'
 		+'<div class="pull-left select">'
 		+'<div class="selectDiv">'
 		+'<span class="icon-chevron-thin-down orange-caret"></span>'
@@ -1300,7 +1373,7 @@ function addFormBeneficiary (counter) {
 		
 		+ '<div class="form-group beneficiary-info-row entitle">'
 		+ '<label for="savieBeneficiaryBean['+counter+'].entitlement">Entitlement (%)</label>'
-		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].entitlement" name="savieBeneficiaryBean['+counter+'].entitlement" class="form-control gray-textbox percentage" placeholder="100%" value="">'
+		+ '<input type="number" id="savieBeneficiaryBean['+counter+'].entitlement" name="savieBeneficiaryBean['+counter+'].entitlement" class="form-control gray-textbox percentage" placeholder="100%" value="">'
 		+ '<span class="error-msg" id="entitlementMessage['+counter+']"></span>'
 		+ '<div class="clearfix hidden-md hidden-lg"><div class="pull-left"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>Remove Beneficiary</button></div></div>'
 		+ '</div>'
@@ -1324,18 +1397,22 @@ function changeBorder (radioId) {
 
 // Getting the Final Residential Tel No Value
 function getResidentialFinalValue() {
-	var firstValue = document.getElementById("residential-first").value;
-	var secondValue = document.getElementById("residential-second").value;
-	//var thirdValue = document.getElementById("residential-third").value;
-	//document.getElementById("savieApplicantBean.residentialTelNo").value = firstValue + secondValue; //+ thirdValue;
+	var firstValue = document.getElementById("residential-first") ? document.getElementById("residential-first").value : '';
+	var secondValue = document.getElementById("residential-second") ? document.getElementById("residential-second").value : '';
+	var thirdValue = document.getElementById("residential-third") ? document.getElementById("residential-third").value : '';
+	if (document.getElementById("savieApplicantBean.residentialTelNo")) {
+      document.getElementById("savieApplicantBean.residentialTelNo").value = firstValue + secondValue + thirdValue;
+   }
 }   
 
 // Getting the Final Mobile No Value
 function getMobileFinalValue() {
-	var fMobileValue = document.getElementById("mobile-first").value;
-	var sMobileValue = document.getElementById("mobile-second").value;
-	//var tMobileValue = document.getElementById("mobile-third").value;
-	document.getElementById("savieApplicantBean.mobileNo").value = fMobileValue + sMobileValue; //+ tMobileValue;
+	var fMobileValue = document.getElementById("mobile-first") ? document.getElementById("mobile-first").value : '';
+	var sMobileValue = document.getElementById("mobile-second") ? document.getElementById("mobile-second").value : '';
+	var tMobileValue = document.getElementById("mobile-third") ? document.getElementById("mobile-third").value : '';
+	if (document.getElementById("savieApplicantBean.mobileNo")) {
+      document.getElementById("savieApplicantBean.mobileNo").value = fMobileValue + sMobileValue + tMobileValue;
+   }
 }
 
 //Check for invalid Promo Code
@@ -1379,3 +1456,134 @@ var calculateAge = function(birthday) {
 
     return age;
 };
+
+/**
+ * Generic Error Modal
+ *
+ * @param Object _properties:
+ *    Structure:
+ *       {
+ *          header: 'some header text here', (if omitted default value is "Error")
+ *          'body': 'some body text here' (required)
+ *          'footer': 'some footer button text here' (if omitted default value is "OK")
+ *       }
+ */
+function showErrorModal(_properties) {
+   var $genModal = $('#fwd-gen-modal');
+   var properties = $.isEmptyObject(_properties) ? {header: 'Error', body: 'Default Body Content', footer: 'OK'} : _properties;
+   
+   // Create the modal html if it's not been initialize
+   if (!$genModal.length) {
+      $genModal = $(['<div id="fwd-gen-modal" class="modal fade fwd-generic-modal" role="dialog">',
+                        '<div class="modal-dialog">',
+                           '<div class="modal-content">',
+                              '<div class="modal-header">',
+                                 '<button type="button" class="close" data-dismiss="modal">&times;</button>',
+                                 '<h4 class="title text-center">Error</h4>',
+                              '</div>',
+                              '<div class="modal-body">',
+                                 '<p class="content">Error</p>',
+                              '</div>',
+                              '<div class="modal-footer">',
+                                 '<button type="button" class="btn-block btn-footer" id="et-btn-change-date" data-dismiss="modal">OK</button>',
+                              '</div>',
+                           '</div>',
+                        '</div>',
+                     '</div>'
+                   ].join(''));
+       
+      // Append into body 
+      $genModal.appendTo('body');
+   }
+   
+   // Append title text
+   if (properties.header) {
+      $genModal.find('.title')
+               .text(properties.header);
+   }
+   
+   // Append body content
+   if (properties.body) {
+      $genModal.find('.content')
+               .text(properties.body);
+   }
+   
+   // Append footer button label
+   if (properties.footer) {
+      $genModal.find('.btn-footer')
+               .text(properties.footer);
+   }
+   
+   $genModal.modal('show');
+}
+
+/**
+ * Add an error message to specific element
+ *
+ * @param string|jQuery _element - required
+ * @param string _errorMsg - required
+ * @param string _errorClassSelector - optional; omit the "." part of a class selector
+ */
+function addFormFieldError(_element, _errorMsg, _errorClassSelector) {
+   if (!arguments.length) {
+      throw ('Parameters _element and _errorMsg are required.');
+   }
+   
+   var $element = (typeof _element === 'string') ? $(_element) : _element;
+   
+   if (!$element.length) {
+      throw ('The _element parameter must be a valid selector or a valid jQuery Object');
+   }
+   
+   var errorMsg = _errorMsg || '';
+   var errorClassSelector = _errorClassSelector || '';
+   
+   $element.append('<small class="help-block dynamic-err-msg ' + errorClassSelector + '">' + errorMsg + '</small>');
+};
+
+/**
+ * Remove an error message or all error message from specific element
+ *
+ * @param string|jQuery _element - required
+ * @param string _errorClassSelector - optional; omit the "." part of a class selector
+ * @param boolean _removeAll - optional
+ */
+function removeFormFieldError(_element, _errorClassSelector, _removeAll) {
+   if (!arguments.length) {
+      throw ('Parameter _element is required.');
+   }
+   
+   var $element = (typeof _element === 'string') ? $(_element) : _element;
+   
+   if (!$element.length) {
+      throw ('The _element parameter must be a valid selector or a valid jQuery Object');
+   }
+   
+   var removeAll = _removeAll || false;
+   
+   if (removeAll) {
+      $element.find('.dynamic-err-msg')
+               .remove();
+   } else if ((arguments.length === 1) || ((arguments.length > 1) && !arguments[1])) { 
+      $element.find('.dynamic-err-msg')
+               .remove();
+   } else {
+      $element.find('.' + _errorClassSelector)
+               .remove();
+   }
+}
+
+/**
+ * Function helper to determine the IE version
+ * 
+ * @return number
+ */
+function msieversion() { 
+   var ua = window.navigator.userAgent
+   var msie = ua.indexOf ( "MSIE " )
+
+   if ( msie > 0 )      // If Internet Explorer, return version number
+      return parseInt (ua.substring (msie+5, ua.indexOf (".", msie )))
+   else                 // If another browser, return 0
+      return 0
+}

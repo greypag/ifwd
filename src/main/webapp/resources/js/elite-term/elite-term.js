@@ -94,6 +94,36 @@ $('#et-signature-proceed-btn').on('click', function(e) {
     });
 });
 
+$('#et-payment-complete-btn').on('click', function(e) {
+	var creditCaredNo = $('#card-num').val();
+	var expiryDate = "0319"//$('#month').val()+$('#year').val();
+	var cardHolderName = $('#card-name').val(); 
+	var policyNo = "1410781";
+	
+	if(creditCaredNo ==null || expiryDate ==null || cardHolderName ==null || policyNo ==null){
+		console.log("data error");
+	}
+	else{
+		$.get(contextPath+'/ajax/eliteTerm/finalizeEliteTermPolicy',
+		{ 
+			creditCaredNo : creditCaredNo,
+			expiryDate: expiryDate,
+			cardHolderName: cardHolderName,
+			policyNo: policyNo
+		},
+		function(data) {
+			if(data.errMsgs == null){
+				window.location.href= contextPath+'/'+language+'/elite-term/'+paymentNextPageFlow;
+			}
+			else{
+				console.log("data error");
+			}
+		})
+		.fail(function(data) {
+		});
+	}
+});
+
 $('#et-upload-doc-submit-btn').on('click', function(e) {
 	var uploadNow = $("input[name='upload-doc']:checked").val();
 	var url = contextPath+'/'+language+'/elite-term/'+documentUploadNextPageFlow;
@@ -216,6 +246,137 @@ function loadBundles(lang, key, fn) {
         	fn($.i18n.prop(key)); //msg_welcome;	//$.i18n.prop("msg_welcome")      
         }
     });
+}
+
+/**
+ * Generic Error Modal
+ *
+ * @param Object _properties:
+ *    Structure:
+ *       {
+ *          header: 'some header text here', (if omitted default value is "Error")
+ *          'body': 'some body text here' (required)
+ *          'footer': 'some footer button text here' (if omitted default value is "OK")
+ *       }
+ */
+function showErrorModal(_properties) {
+   var $genModal = $('#fwd-gen-modal');
+   var properties = $.isEmptyObject(_properties) ? {header: 'Error', body: 'Default Body Content', footer: 'OK'} : _properties;
+   
+   // Create the modal html if it's not been initialize
+   if (!$genModal.length) {
+      $genModal = $(['<div id="fwd-gen-modal" class="modal fade fwd-generic-modal" role="dialog">',
+                        '<div class="modal-dialog">',
+                           '<div class="modal-content">',
+                              '<div class="modal-header">',
+                                 '<button type="button" class="close" data-dismiss="modal">&times;</button>',
+                                 '<h4 class="title text-center">Error</h4>',
+                              '</div>',
+                              '<div class="modal-body">',
+                                 '<p class="content">Error</p>',
+                              '</div>',
+                              '<div class="modal-footer">',
+                                 '<button type="button" class="btn-block btn-footer" id="et-btn-change-date" data-dismiss="modal">OK</button>',
+                              '</div>',
+                           '</div>',
+                        '</div>',
+                     '</div>'
+                   ].join(''));
+       
+      // Append into body 
+      $genModal.appendTo('body');
+   }
+   
+   // Append title text
+   if (properties.header) {
+      $genModal.find('.title')
+               .text(properties.header);
+   }
+   
+   // Append body content
+   if (properties.body) {
+      $genModal.find('.content')
+               .text(properties.body);
+   }
+   
+   // Append footer button label
+   if (properties.footer) {
+      $genModal.find('.btn-footer')
+               .text(properties.footer);
+   }
+   
+   $genModal.modal('show');
+}
+
+/**
+ * Add an error message to specific element
+ *
+ * @param string|jQuery _element - required
+ * @param string _errorMsg - required
+ * @param string _errorClassSelector - optional; omit the "." part of a class selector
+ */
+function addFormFieldError(_element, _errorMsg, _errorClassSelector) {
+   if (!arguments.length) {
+      throw ('Parameters _element and _errorMsg are required.');
+   }
+   
+   var $element = (typeof _element === 'string') ? $(_element) : _element;
+   
+   if (!$element.length) {
+      throw ('The _element parameter must be a valid selector or a valid jQuery Object');
+   }
+   
+   var errorMsg = _errorMsg || '';
+   var errorClassSelector = _errorClassSelector || '';
+   
+   $element.append('<small class="help-block dynamic-err-msg ' + errorClassSelector + '">' + errorMsg + '</small>');
+};
+
+/**
+ * Remove an error message or all error message from specific element
+ *
+ * @param string|jQuery _element - required
+ * @param string _errorClassSelector - optional; omit the "." part of a class selector
+ * @param boolean _removeAll - optional
+ */
+function removeFormFieldError(_element, _errorClassSelector, _removeAll) {
+   if (!arguments.length) {
+      throw ('Parameter _element is required.');
+   }
+   
+   var $element = (typeof _element === 'string') ? $(_element) : _element;
+   
+   if (!$element.length) {
+      throw ('The _element parameter must be a valid selector or a valid jQuery Object');
+   }
+   
+   var removeAll = _removeAll || false;
+   
+   if (removeAll) {
+      $element.find('.dynamic-err-msg')
+               .remove();
+   } else if ((arguments.length === 1) || ((arguments.length > 1) && !arguments[1])) { 
+      $element.find('.dynamic-err-msg')
+               .remove();
+   } else {
+      $element.find('.' + _errorClassSelector)
+               .remove();
+   }
+}
+
+/**
+ * Function helper to determine the IE version
+ * 
+ * @return number
+ */
+function msieversion() { 
+   var ua = window.navigator.userAgent
+   var msie = ua.indexOf ( "MSIE " )
+
+   if ( msie > 0 )      // If Internet Explorer, return version number
+      return parseInt (ua.substring (msie+5, ua.indexOf (".", msie )))
+   else                 // If another browser, return 0
+      return 0
 }
 
 function getOccupation(value,language) {

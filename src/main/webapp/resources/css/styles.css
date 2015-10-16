@@ -38,6 +38,18 @@
   /* Legacy iOS */
 }
 
+/*ET fix*/
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.container-fluid:before, .container-fluid:after {
+  content: " ";
+  display: table;
+}
+
 /* line 1, ../sass/partials/_common.scss */
 body {
   font-size: 18px;
@@ -8335,6 +8347,65 @@ span.dup-error-msg {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0);
   font-size: 18px;
 }
+/* line 103, ../sass/partials/_page-application.scss */
+.fwd-savie-wrapper .page-application .et-80-width {
+  width: 50%;
+}
+@media (min-width: 992px) {
+  /* line 103, ../sass/partials/_page-application.scss */
+  .fwd-savie-wrapper .page-application .et-80-width {
+    width: 85% !important;
+  }
+}
+/* line 333, ../sass/partials/_page-application.scss */
+.et-app-edit-wrapper {
+  margin-right: 15px;
+  border: 1px solid #cecece;
+  width: 40%;
+  height: 40px;
+  float: right;
+}
+@media (min-width: 992px) {
+  /* line 333, ../sass/partials/_page-application.scss */
+  .et-app-edit-wrapper {
+    margin-left: 15px;
+    margin-right: 0;
+    border: 0;
+    width: auto;
+    float: left;
+  }
+}
+/* line 349, ../sass/partials/_page-application.scss */
+.et-app-edit {
+  display: table;
+  width: 100%;
+  height: 100%;
+  color: #c4c3c8;
+  font-family: 'Calibri';
+  font-size: 16px;
+}
+@media (min-width: 992px) {
+  /* line 349, ../sass/partials/_page-application.scss */
+  .et-app-edit {
+    width: auto;
+    text-decoration: underline;
+  }
+}
+/* line 364, ../sass/partials/_page-application.scss */
+.et-app-edit span {
+  display: table-cell;
+  vertical-align: middle;
+}
+@media (min-width: 992px) {
+  /* line 364, ../sass/partials/_page-application.scss */
+  .et-app-edit span {
+    text-align: left;
+  }
+}
+/* line 374, ../sass/partials/_page-application.scss */
+.et-app-edit:hover, .et-app-edit:focus {
+  color: #c4c3c8;
+}
 @media (min-width: 992px) {
   /* line 30, ../sass/partials/_page-application.scss */
   .fwd-savie-wrapper .page-application .form-control.gray-textbox {
@@ -8650,7 +8721,7 @@ span.dup-error-msg {
 /* line 347, ../sass/partials/_page-application.scss */
 .fwd-savie-wrapper .page-divider {
   height: 1px;
-  background: url(../../assets/images/page-divider.png);
+  background: url(../images/elite-terms/dashed-divider.png);
   width: 100%;
 }
 /* line 353, ../sass/partials/_page-application.scss */
@@ -9504,7 +9575,9 @@ span.dup-error-msg {
     padding-left: 15px;
   }
 }
-
+.et-app-info-tooltip {
+    background-color: transparent;
+}
 @media (min-width: 992px) {
   /* line 777, ../sass/partials/_personal_info.scss */
   .et-app-info-tooltip {
@@ -9927,7 +10000,7 @@ span.dup-error-msg {
 /* line 215, ../sass/partials/_beneficiary-info.scss */
 .fwd-savie-wrapper #beneficiary-info .content .beneficiary-info-row label {
   margin: 0;
-  margin-bottom: 3px;
+  margin-bottom: 6px;
   color: #061d2a;
 }
 /* line 221, ../sass/partials/_beneficiary-info.scss */
@@ -11038,6 +11111,7 @@ span.dup-error-msg {
   margin: 0;
   color: #061d2a;
   padding-bottom: 12px;
+  font-size: 18px;
 }
 @media (min-width: 992px) {
   /* line 32, ../sass/partials/_declaration-authorization.scss */
@@ -11241,6 +11315,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.cancellation-desc.bottom,
 .fwd-savie-wrapper .declare-authorize .agreement-description .policy-desc.bottom {
   padding-bottom: 15px;
+  background: none;
 }
 @media (min-width: 992px) {
   /* line 227, ../sass/partials/_declaration-authorization.scss */
@@ -11291,7 +11366,7 @@ span.dup-error-msg {
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.marketing-info-desk,
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.personal-data-desc {
   width: 89%;
-  color: #061d2a;
+  color: #9ba5a7;
   font-size: 16px;
   font-family: 'Calibri-Bold';
   line-height: 19px;
@@ -11314,7 +11389,7 @@ span.dup-error-msg {
   position: relative;
   margin: 0;
   height: 18px;
-  top: 72px;
+  top: 66px;
 }
 /* line 289, ../sass/partials/_declaration-authorization.scss */
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.yes-policy-replace-check label {
@@ -11359,7 +11434,7 @@ span.dup-error-msg {
   position: relative;
   margin: 0;
   height: 18px;
-  top: 72px;
+  top: 66px;
 }
 /* line 330, ../sass/partials/_declaration-authorization.scss */
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.policy-replace-check label {
@@ -11407,7 +11482,7 @@ span.dup-error-msg {
   position: relative;
   margin: 0;
   height: 18px;
-  top: 72px;
+  top: 68px;
 }
 /* line 374, ../sass/partials/_declaration-authorization.scss */
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.fatca-check label,
@@ -11422,6 +11497,11 @@ span.dup-error-msg {
   left: 0;
   bottom: 65px;
   border: solid 1px #b7c3cd;
+}
+.fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.marketing-info-check label,
+.fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.personal-data-check label {
+    border-color: #c5cfd7;
+    background-color: #c5cfd7;
 }
 /* line 383, ../sass/partials/_declaration-authorization.scss */
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.fatca-check label:after,
@@ -12047,7 +12127,7 @@ span.dup-error-msg {
 @media (min-width: 992px) {
   /* line 447, ../sass/partials/_signature.scss */
   .fwd-savie-wrapper .signature .signature-section .signature-image {
-    width: 36%;
+    width: 60%;
   }
 }
 /* line 458, ../sass/partials/_signature.scss */
@@ -12153,7 +12233,7 @@ span.dup-error-msg {
 @media (min-width: 992px) {
   /* line 557, ../sass/partials/_signature.scss */
   .fwd-savie-wrapper .et-signature .signature-section .correct-signature {
-    margin-left: 70%;
+    margin-left: 81%;
     top: -75px;
   }
 }
@@ -12172,7 +12252,7 @@ span.dup-error-msg {
     margin-left: 90px;
     margin-right: 90px;
     padding-top: 40px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #b7c3cd;
     text-align: left;
   }
@@ -12190,7 +12270,7 @@ span.dup-error-msg {
 @media (min-width: 992px) {
   /* line 592, ../sass/partials/_signature.scss */
   .fwd-savie-wrapper .et-sig-label {
-    margin-top: 25px;
+    margin-top: 5px;
     padding-bottom: 0;
   }
 }
@@ -19089,7 +19169,7 @@ body.chin .fwd-savie-wrapper h1, body.chin .fwd-savie-wrapper h2, body.chin .fwd
 body.chin .fwd-savie-wrapper p,
 body.chin .fwd-savie-wrapper a,
 body.chin .fwd-savie-wrapper li,
-body.chin .fwd-savie-wrapper span:not(.icon):not(.glyphicon) {
+body.chin .fwd-savie-wrapper span:not(.icon):not(.glyphicon):not(.fa):not([class*=" icon-"]):not([class^=icon-]) {
   font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
 }
 /* line 18, ../sass/partials/_chinese.scss */
@@ -19545,6 +19625,9 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 /* line 394, ../sass/partials/_elite-terms-widget.scss */
 #et-medic-accordion .et-medic-panel {
   border-radius: 0;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #fff;
 }
 /* line 397, ../sass/partials/_elite-terms-widget.scss */
 #et-medic-accordion .et-medic-panel + .et-medic-panel {
@@ -19596,6 +19679,9 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 /* line 439, ../sass/partials/_elite-terms-widget.scss */
 .et-medic-panel .panel-collapse.in.et-collapse {
   display: block;
+}
+.et-medic-panel .panel-collapse.in.et-collapse  .panel-body{
+    background-color: transparent;
 }
 @media (min-width: 992px) {
   /* line 444, ../sass/partials/_elite-terms-widget.scss */
@@ -19732,7 +19818,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 @media (min-width: 992px) {
   /* line 570, ../sass/partials/_elite-terms-widget.scss */
   .et-clear-signature {
-    width: 36%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -19747,7 +19833,19 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 .et-clear-signature a:hover {
   text-decoration: underline;
 }
-
+/* line 585, ../sass/partials/_elite-terms-widget.scss */
+.fwd-savie-wrapper  .back-to-home.modal .modal-dialog .modal-content {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+/* line 589, ../sass/partials/_elite-terms-widget.scss */
+.fwd-savie-wrapper  .back-to-home.modal .modal-dialog .modal-content .modal-header {
+  padding-bottom: 30px;
+}
+/* line 592, ../sass/partials/_elite-terms-widget.scss */
+.fwd-savie-wrapper  .back-to-home.modal .modal-dialog .modal-content .modal-header h4.modal-title {
+  font-size: 24px;
+}
 /*
 * Added by : Richie
 * Elite Terms Select Plan Page
@@ -19950,6 +20048,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 /* line 200, ../sass/partials/_elite-terms-select-plan.scss */
 .fwd-savie-wrapper .container-fluid.fwd-container .et-before-we-start p.et-bfr-start-txt.bottom, .fwd-savie-wrapper .container-fluid.fwd-container .et-about-urself p.et-bfr-start-txt.bottom, .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option p.et-bfr-start-txt.bottom {
   padding: 0 0 13px 0;
+  background: none;
 }
 /* line 206, ../sass/partials/_elite-terms-select-plan.scss */
 .fwd-savie-wrapper .container-fluid.fwd-container .et-before-we-start .btn.btn-white.et-select-plan-btn, .fwd-savie-wrapper .container-fluid.fwd-container .et-about-urself .btn.btn-white.et-select-plan-btn, .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option .btn.btn-white.et-select-plan-btn {
@@ -20126,6 +20225,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   margin: 0;
   padding-top: 18px;
   margin-bottom: 10px;
+  font-size: 18px;
 }
 @media (min-width: 992px) {
   /* line 368, ../sass/partials/_elite-terms-select-plan.scss */
@@ -20139,6 +20239,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   color: #2a2c29;
   margin: 0;
   padding: 3px 0 7px 0;
+  font-size: 18px;
 }
 @media (min-width: 992px) {
   /* line 380, ../sass/partials/_elite-terms-select-plan.scss */
@@ -20306,6 +20407,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   text-align: left;
   padding-left: 10px;
   width: 60%;
+  background: none;
 }
 @media (min-width: 768px) {
   /* line 601, ../sass/partials/_elite-terms-select-plan.scss */
@@ -20476,6 +20578,8 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 /* line 797, ../sass/partials/_elite-terms-select-plan.scss */
 .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option h3 {
   margin: 0;
+  font-size: 24px;
+  color: #333;
 }
 /* line 800, ../sass/partials/_elite-terms-select-plan.scss */
 .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option h3.et-dollars {
@@ -20507,6 +20611,11 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   -ms-transform: rotate(-90deg);
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
+}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option h3.et-promo-code-txt img.reversed {
+        display: none;
+    }
 }
 @media (min-width: 992px) {
   /* line 816, ../sass/partials/_elite-terms-select-plan.scss */
@@ -20608,6 +20717,9 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   left: 185px;
   top: 6px;
 }
+.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal {
+  left: 210px;
+}
 @media (min-width: 992px) {
   /* line 923, ../sass/partials/_elite-terms-select-plan.scss */
   .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal {
@@ -20620,10 +20732,16 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
     left: 200px;
     top: 30px;
   }
+  .chin .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip {
+    left: 225px;
+  }
 }
 /* line 943, ../sass/partials/_elite-terms-select-plan.scss */
 .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip {
   left: 145px;
+}
+.chin  .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip {
+  left: 165px;
 }
 @media (min-width: 992px) {
   /* line 943, ../sass/partials/_elite-terms-select-plan.scss */
@@ -20880,6 +20998,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 /* line 1218, ../sass/partials/_elite-terms-select-plan.scss */
 .fwd-savie-wrapper .et-accrdn-list p.et-accrdion-txt-normal.bottom {
   padding-bottom: 20px;
+  background: none;
 }
 /* line 1226, ../sass/partials/_elite-terms-select-plan.scss */
 .fwd-savie-wrapper .et-accrdn-list span.et-arrow-down {
@@ -20961,6 +21080,16 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   text-decoration: underline;
 }
 
+/* line 1210, ../sass/partials/_elite-terms-select-plan.scss */
+.et-po-amount-label {
+  font-family: 'Calibri-Bold';
+  font-size: 14px;
+  color: #fc6d08;
+  line-height: 15px;
+}
+.et-sp-tooltip-wrapper {
+    background-color: transparent;
+}
 /* line 1309, ../sass/partials/_elite-terms-select-plan.scss */
 .et-sp-tooltip-wrapper .tooltip-inner {
   font-size: 14px;
@@ -20972,6 +21101,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   background-color: #ff8200;
   text-align: left;
   position: relative;
+  max-width: 200px;
 }
 @media (min-width: 992px) {
   /* line 1309, ../sass/partials/_elite-terms-select-plan.scss */
@@ -20994,6 +21124,31 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 /* line 1338, ../sass/partials/_elite-terms-select-plan.scss */
 #et-employment-info-next {
   cursor: pointer;
+}
+
+/* line 1253, ../sass/partials/_elite-terms-select-plan.scss */
+.fwd-savie-wrapper .et-bfr-start-txt {
+  margin-bottom: 25px;
+  margin-left: 5px;
+  margin-right: 15px;
+  color: #061d2a;
+  font-size: 18px;
+  line-height: 22px;
+}
+@media (min-width: 992px) {
+  /* line 1253, ../sass/partials/_elite-terms-select-plan.scss */
+  .fwd-savie-wrapper .et-bfr-start-txt {
+    margin-top: 50px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  /* line 1270, ../sass/partials/_elite-terms-select-plan.scss */
+  #et-about-yoursel-section .et-broken-line.et-full {
+    margin: 57px 0;
+  }
 }
 
 /* line 4, ../sass/partials/_et-cannot-apply-modal.scss */
@@ -21195,31 +21350,31 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 }
 
 /* line 3, ../sass/partials/_et-birthday-dont-match-modal.scss */
-#bdayModal .modal-header {
+.fwd-generic-modal .modal-header {
   position: relative;
 }
 /* line 6, ../sass/partials/_et-birthday-dont-match-modal.scss */
-#bdayModal .modal-header button {
+.fwd-generic-modal .modal-header button {
   position: absolute;
   right: 0;
   top: -15px;
 }
 @media (max-width: 768px) {
   /* line 13, ../sass/partials/_et-birthday-dont-match-modal.scss */
-  #bdayModal .modal-content {
+  .fwd-generic-modal .modal-content {
     padding-left: 19px;
     padding-right: 19px;
   }
 }
 /* line 21, ../sass/partials/_et-birthday-dont-match-modal.scss */
-#bdayModal .modal-title {
+.fwd-generic-modal .modal-title {
   text-align: center;
   color: fc6d08;
   font-family: 'Calibri-Bold';
   font-size: 30px;
 }
 /* line 29, ../sass/partials/_et-birthday-dont-match-modal.scss */
-#bdayModal .modal-body {
+.fwd-generic-modal .modal-body {
   text-align: center;
   font-size: 18px;
   color: #3f4547;
@@ -21227,7 +21382,12 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   margin-bottom: 15px;
 }
 /* line 38, ../sass/partials/_et-birthday-dont-match-modal.scss */
-#bdayModal .btn-block {
+.fwd-generic-modal .modal-footer {
+  border-top-width: 0px;
+  padding: 0;
+}
+/* line 38, ../sass/partials/_et-birthday-dont-match-modal.scss */
+.fwd-generic-modal .btn-block {
   color: #fff;
   background: #fc6d08;
   font-family: 'Calibri-Bold';
@@ -21236,7 +21396,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   height: 50px;
 }
 /* line 46, ../sass/partials/_et-birthday-dont-match-modal.scss */
-#bdayModal .btn-block:hover, #bdayModal .btn-block:focus {
+.fwd-generic-modal .btn-block:hover, .fwd-generic-modal .btn-block:focus {
   color: #fff;
   background: #fc6d08;
   border: 1px solid #fc6d08;
@@ -21245,6 +21405,21 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   -ms-transition: background 0.1s ease-in;
   -o-transition: background 0.1s ease-in;
   transition: background 0.1s ease-in;
+}
+
+/* line 62, ../sass/partials/_et-birthday-dont-match-modal.scss */
+.back-to-home .btn-block {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  height: auto;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  /* line 62, ../sass/partials/_et-birthday-dont-match-modal.scss */
+  .back-to-home .btn-block {
+    width: 70%;
+    margin: auto;
+  }
 }
 
 @media (min-width: 992px) {
@@ -22111,6 +22286,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 /* line 29, ../sass/partials/_et-application-summary.scss */
 #application-summary h3.plan-detail {
   margin-bottom: 12px;
+  font-size: 24px;
 }
 @media (min-width: 992px) {
   /* line 29, ../sass/partials/_et-application-summary.scss */
@@ -22121,6 +22297,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 /* line 36, ../sass/partials/_et-application-summary.scss */
 #application-summary h3.personal-info {
   margin-top: 18px;
+  font-size: 24px;
 }
 @media (min-width: 992px) {
   /* line 36, ../sass/partials/_et-application-summary.scss */
@@ -22132,6 +22309,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 #application-summary h3.employment-info {
   margin-top: 32px;
   margin-bottom: 12px;
+  font-size: 24px;
 }
 @media (min-width: 992px) {
   /* line 43, ../sass/partials/_et-application-summary.scss */
@@ -22152,6 +22330,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 /* line 58, ../sass/partials/_et-application-summary.scss */
 #application-summary h3.uwriting {
   margin-top: 24px;
+  font-size: 24px;
 }
 @media (min-width: 992px) {
   /* line 58, ../sass/partials/_et-application-summary.scss */
@@ -22176,6 +22355,10 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   background: url(../../assets/images/summary-page-divider.png);
   width: 100%;
   margin-top: 14px;
+}
+#application-summary .container-fluid.modal-dialog  {
+    margin-top: 30px;
+    z-index: 0; 
 }
 @media (min-width: 992px) {
   /* line 85, ../sass/partials/_et-application-summary.scss */
@@ -22370,6 +22553,9 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   padding: 0;
   padding-top: 30px;
 }
+#get-promotion-code .modal-dialog .modal-content .login-form{ 
+    position: static;
+}
 @media (min-width: 992px) {
   /* line 8, ../sass/partials/_et-get-promotion-code-modal.scss */
   #get-promotion-code .modal-dialog .modal-content {
@@ -22448,4 +22634,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
     top: 15px;
     right: 15px;
   }
+}
+.panel-group {
+    margin-bottom: 20px;
 }

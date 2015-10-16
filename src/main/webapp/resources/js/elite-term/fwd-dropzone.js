@@ -11,7 +11,7 @@ var progressPercentText = '';
 
 //Drag and Drop Upload for HKID
 var startUploadHkid = function(files) {
-	fileSelected('hkid-copy-progress','fileToUpload-hkid-dragAndDrop','hkid-docu-filename','hkid-docu-fileSize','finish-upload-hkid','hkid-upload-percent-text','hkid-upload-progress-bar',files[0]);
+	fileSelected('hkid-copy-progress','fileToUpload-hkid-dragAndDrop','hkid-docu-filename','hkid-docu-fileSize','finish-upload-hkid','hkid-upload-percent-text','hkid-upload-progress-bar',files[0], '#et-hkid-file-message');
 };
 
 hkidUploadForm.addEventListener('submit', function(e) {
@@ -47,7 +47,7 @@ hkidDropZone.ondragleave = function() {
 
 //Drag and Drop Upload for Passport
 var startUploadPassport = function(files) {
-	fileSelected('passport-copy-progress','fileToUpload-passport-dragAndDrop','passport-docu-filename','passport-docu-fileSize','finish-upload-passport','passport-upload-percent-text','passport-upload-progress-bar',files[0]);
+	fileSelected('passport-copy-progress','fileToUpload-passport-dragAndDrop','passport-docu-filename','passport-docu-fileSize','finish-upload-passport','passport-upload-percent-text','passport-upload-progress-bar',files[0], '#et-passport-file-message');
 };
 
 passportUploadForm.addEventListener('submit', function(e) {
@@ -83,7 +83,7 @@ passportDropZone.ondragleave = function() {
 
 //Drag and Drop Upload for Address
 var startUploadAddress = function(files) {
-	fileSelected('proof-of-address-progress','fileToUpload-addr-dragAndDrop','address-docu-filename','address-docu-fileSize','finish-upload-addr','docu-upload-percent-text','document-upload-progress-bar',files[0]);
+	fileSelected('proof-of-address-progress','fileToUpload-addr-dragAndDrop','address-docu-filename','address-docu-fileSize','finish-upload-addr','docu-upload-percent-text','document-upload-progress-bar',files[0], '#et-address-file-message');
 	
 };
 
@@ -127,13 +127,13 @@ function displayProgressBar(progressBarId){
 }
 
 //On Select Button Upload
-function fileSelected(progressDivBarID,inputId,docuFileNameID,docuFileSizeId,uploadCompleteId,progressTextId,progressBarId,dragAndDropFiles) {
+function fileSelected(progressDivBarID, inputId, docuFileNameID, docuFileSizeId, uploadCompleteId, progressTextId, progressBarId, dragAndDropFiles, errorMsgCon) {
 	var file;
 	var forDragAndDrop;
+	var $fileObj = $('#'+inputId.toString());
 	progressBarUIId = progressBarId.toString();
 	progressPercentText = progressTextId.toString();
 	completeUplaodId = uploadCompleteId.toString();
-	displayProgressBar(progressDivBarID);
 	
 	if(dragAndDropFiles!=''){	
 		file = dragAndDropFiles;
@@ -146,28 +146,73 @@ function fileSelected(progressDivBarID,inputId,docuFileNameID,docuFileSizeId,upl
 	
 	if (file) {
 		var fileSize = 0;
-		if (file.size > 1024 * 1024)
+		if (file.size > 1024 * 1024) {
 			fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
-		else
+		} else {
 			fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
-	
-		document.getElementById(docuFileNameID.toString()).innerHTML = file.name+" ";
-		document.getElementById(docuFileSizeId.toString()).innerHTML = "\("+fileSize+"\)";
-		
-	}
-		uploadFile(inputId,forDragAndDrop);
+        }
+        
+        document.getElementById(docuFileNameID.toString()).innerHTML = file.name+" ";
+        document.getElementById(docuFileSizeId.toString()).innerHTML = "\("+fileSize+"\)";
+	} 
+
+	if (!$fileObj.attr('accept') || ($fileObj.attr('accept') && isFileValid(file, $fileObj, errorMsgCon))) {
+        if (errorMsgCon) {
+            removeFormFieldError(errorMsgCon, '', true);
+        }
+        
+        $('#et-upload-doc-submit-btn').removeAttr('disabled');
+        displayProgressBar(progressDivBarID);
+        uploadFile(inputId,forDragAndDrop);
+    }
+}
+
+function isFileValid(file, $fileObj, errorMsgCon) {
+    var isValid = true;
+    
+    // Check file size
+    // Filesize limit: 2MB
+    if ((file.size > (1024 * 1024 * 2)) && errorMsgCon) {
+           
+        if ($fileObj.closest('form').find(':reset').length) {
+            $fileObj.closest('form')
+                    .find(':reset')
+                    .trigger('click');
+        }
+            
+        addFormFieldError(errorMsgCon, 'File must not be greater than 2MB.');
+        isValid = false;
+    }
+    
+    // Check file extension and type validity
+    // Accepted file format: application/pdf, image/jpg, image/jpeg, image/gif and image/png
+    if ($.inArray(file.type, $fileObj.attr('accept').split(',')) < 0) {
+        addFormFieldError(errorMsgCon, 'File format must be a pdf, jpg, gif or png.');
+        isValid = false;
+    }
+    
+    return isValid;
 }
 
 
 //Cancel Button Upload
 function cancelUpload(progressBarID,doneID,progressBarReset){
 	xhr.abort();
-	$('#'+progressBarID.toString()).addClass('hidden');
+	 var $prog = $('#'+progressBarID.toString());
+    
+    if ($prog.siblings('form').length) {
+        $prog.siblings('form')
+            .find(':reset')
+            .trigger('click');
+    }
+    
+	$prog.addClass('hidden');
 	$('#'+doneID.toString()).addClass('hidden');
 	$('#'+progressBarReset.toString()).css("width",'0%');
 }
 
 function uploadFile(inputID,forDragAndDrop) {
+
 	var fd = new FormData();	
 	if(forDragAndDrop!=''){
 		fd.append("img",forDragAndDrop );
@@ -223,4 +268,75 @@ function getWidth() {
 		return document.body.clientWidth;
 	}
 	return 0;
+}
+
+/**
+ * Add an error message to specific element
+ *
+ * @param string|jQuery _element - required
+ * @param string _errorMsg - required
+ * @param string _errorClassSelector - optional; omit the "." part of a class selector
+ */
+function addFormFieldError(_element, _errorMsg, _errorClassSelector) {
+   if (!arguments.length) {
+      throw ('Parameters _element and _errorMsg are required.');
+   }
+   
+   var $element = (typeof _element === 'string') ? $(_element) : _element;
+   
+   if (!$element.length) {
+      throw ('The _element parameter must be a valid selector or a valid jQuery Object');
+   }
+   
+   var errorMsg = _errorMsg || '';
+   var errorClassSelector = _errorClassSelector || '';
+   
+   $element.append('<small class="help-block dynamic-err-msg ' + errorClassSelector + '">' + errorMsg + '</small>');
+};
+
+/**
+ * Remove an error message or all error message from specific element
+ *
+ * @param string|jQuery _element - required
+ * @param string _errorClassSelector - optional; omit the "." part of a class selector
+ * @param boolean _removeAll - optional
+ */
+function removeFormFieldError(_element, _errorClassSelector, _removeAll) {
+   if (!arguments.length) {
+      throw ('Parameter _element is required.');
+   }
+   
+   var $element = (typeof _element === 'string') ? $(_element) : _element;
+   
+   if (!$element.length) {
+      throw ('The _element parameter must be a valid selector or a valid jQuery Object');
+   }
+   
+   var removeAll = _removeAll || false;
+   
+   if (removeAll) {
+      $element.find('.dynamic-err-msg')
+               .remove();
+   } else if ((arguments.length === 1) || ((arguments.length > 1) && !arguments[1])) { 
+      $element.find('.dynamic-err-msg')
+               .remove();
+   } else {
+      $element.find('.' + _errorClassSelector)
+               .remove();
+   }
+}
+
+/**
+ * Function helper to determine the IE version
+ * 
+ * @return number
+ */
+function msieversion() { 
+   var ua = window.navigator.userAgent
+   var msie = ua.indexOf ( "MSIE " )
+
+   if ( msie > 0 )      // If Internet Explorer, return version number
+      return parseInt (ua.substring (msie+5, ua.indexOf (".", msie )))
+   else                 // If another browser, return 0
+      return 0
 }

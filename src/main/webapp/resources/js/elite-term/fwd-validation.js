@@ -79,6 +79,24 @@ $(function() {
 		}
 	});
 	
+    $("#savieApplicantBean\\.isResidential").change(function() {
+		if(this.checked) {
+			//console.log('Check');
+			if($('#residential-address').hasClass('hidden')){
+				$('#residential-address').removeClass('hidden');
+			}
+	
+			$('#personal-info-next').addClass('residential');
+		}
+		else{
+			$('#residential-address').addClass('hidden');
+			
+			if($('#personal-info-next').hasClass('residential')){
+				$('#personal-info-next').removeClass('residential');
+			}
+		}
+	});
+    
 	//hide or show HKID / Passport text box on dropdown change for Form 1
 	
 	$( "#beneficiaryHkidPassport\\[0\\]" ).on('change', function() {
@@ -121,112 +139,6 @@ $(function() {
 		});
 		
 	}).change();
-	
-	
-
-
-	function isValidHKID(hkid){
-		if(hkid!=''){
-			var checkSumRegex = /(.{1})\s*$/;
-			var checkSum = checkSumRegex.exec(hkid);
-			
-			console.log('CheckSum'+checkSum);
-			
-			var hkidCheckBit = hkid.replace(/^(.*).{1} /,'');
-			var hkidCheckBitArr = hkidCheckBit.split("");
-			
-			var isValid='';
-			var i , n , alphaEquivalentInt, hkidSum;
-			for(i=hkidCheckBitArr.length,n=0 ;n>=hkidCheckBitArr.length,i>=2;i--,n++){
-				
-				console.log(hkidCheckBitArr[n]+":"+i);
-				var sum;
-				if (/[A-Z]/i.test(hkidCheckBitArr[n])) {
-					alphaEquivalentInt = equivalentInteger(hkidCheckBitArr[n]);
-					sum = alphaEquivalentInt*i;
-					hkidSum = sum;
-				}else{
-					sum = hkidCheckBitArr[n]*i;
-					hkidSum+=sum;
-				}
-				
-			}
-			
-			console.log('Sum'+hkidSum);
-			
-			var hkidSumMod11 = 11- (hkidSum % 11);
-			
-			if(hkidSumMod11 == checkSum[1]){
-				isValid= 'Valid';
-				console.log('Valid');
-			}else{
-				isValid = 'Invalid';
-				console.log('Invalid');
-			}
-		}
-		else{
-			//isValid = 'Invalid';
-		}
-		return isValid;
-	}
-	
-	function equivalentInteger(hkidChar){
-		var digit;
-		switch(hkidChar){
-			case 'A':
-			case 'L':
-			case 'M':
-				digit = 1;
-				break;
-			case 'B':
-			case 'M':
-			case 'X':
-				digit = 2;
-				break;
-			case 'C':
-			case 'N':
-			case 'Y':
-				digit = 3;
-				break;
-			case 'D':
-			case 'O':
-			case 'Z':
-				digit = 4;
-				break;
-			case 'E':
-			case 'P':
-				digit = 5;
-				break;
-			case 'F':
-			case 'Q':
-				digit = 6;
-				break;
-			case 'G':
-			case 'R':
-				digit = 7;
-				break;
-			case 'H':
-			case 'S':
-				digit = 8;
-				break;
-			case 'I':
-			case 'T':
-				digit = 9;
-				break;
-			case 'J':
-			case 'U':
-				digit = 10;
-				break;
-			case 'K':
-			case 'V':
-				digit = 11;
-				break;
-				
-		}
-		return digit;
-	}
-	
-	
 	
 	$('#beneficiary-info-next').click(function(){
 		var bootstrapValidator1 = $('#beneficiaryInfoForm\\[0\\]').data('bootstrapValidator');
@@ -347,136 +259,127 @@ $(function() {
 				'savieBeneficiaryBean[2].firstName':{
 					container: '#beneficiaryFnameMessage\\[2\\]',
 					validators: {
-						notEmpty: {
-							message: 'Please input your given name.'
-						},
-						stringLength: {
-							min: 1,
-							max: 25,
-							message: 'Cannot exceed 25 characters'
-						},
-						regexp: {
-							regexp: /^[a-zA-Z0-9]*$/,
-							message: 'Please input your given name.'
-						}
-					}
+					notEmpty: {
+						message: 'Please enter Beneficiary Given Name in English.'
+                    },
+					stringLength: {
+                        max: 25,
+                        message: 'Given Name must be no more than 25 characters.'
+                    },
+					regexp: {
+						regexp: /^[a-zA-Z\s]+$/ ,
+						message: 'Please enter Beneficiary Given Name in English.'
+					},
+               callback: {
+                  message: 'Invalid Given Name in English.',
+                  callback: function (value, validator) {
+                     return value !== document.getElementById('savieBeneficiaryBean[2].firstName').getAttribute('placeholder');
+                  }
+               }
+				}
 				},
 				'savieBeneficiaryBean[2].lastName':{
 					container: '#beneficiaryLnameMessage\\[2\\]',
 					validators: {
-						notEmpty: {
-							message: 'Please input your last name.'
-						},
-						stringLength: {
-							min: 1,
-							max: 25,
-							message: 'Cannot exceed 25 characters'
-						},
-						regexp: {
-							regexp: /^[a-zA-Z0-9]*$/,
-							message: 'Please input your last name.'
-						}
-					}
+                  notEmpty: {
+                     message: 'Please enter Beneficiary Last Name in English..'
+                       },
+                  stringLength: {
+                           min: 1,
+                           max: 25,
+                           message: 'Last Name must be no more than 25 characters.'
+                       },
+                  regexp: {
+                     regexp: /^[a-zA-Z\s]+$/ ,
+                     message: 'Please enter Beneficiary Last Name in English.'
+                  },
+                  callback: {
+                     message: 'Invalid Last Name in English.',
+                     callback: function (value, validator) {
+                        return value !== document.getElementById('savieBeneficiaryBean[2].lastName').getAttribute('placeholder');
+                     }
+                  }
+               }
 				},
 				'savieBeneficiaryBean[2].chineseName':{
 					container: '#beneficiaryChineseNameMessage\\[2\\]',
 					validators: {
-						notEmpty: {
-							message: 'Please input your Chinese name.'
-						},
-						stringLength: {
-							min: 1,
-							max: 6,
-							message: 'Cannot exceed 6 characters.'
-						},
-						regexp: {
-							regexp: /^[^a-zA-Z0-9]*$/,
-							message: 'Please input your Chinese name.'
-						}
-					}
+                  notEmpty: {
+                     message: 'Please enter Beneficiary Chinese Name.'
+                       },
+                  stringLength: {
+                           min: 1,
+                           max: 6,
+                           message: 'Chinese Name must be no more than 6 characters.'
+                       },
+                  regexp: {
+                     regexp: /[^\x00-\x7F]/,
+                     message: 'Please enter Beneficiary Chinese Name.'
+                  },
+                  callback: {
+                     message: 'Invalid Beneficiary Chinese Name.',
+                     callback: function (value, validator) {
+                        return value !== document.getElementById('savieBeneficiaryBean[2].chineseName').getAttribute('placeholder');
+                     }
+                  }
+               }
 				},
 				'savieBeneficiaryBean[2].passportNo':{
 					container: '#bnfPassportMessage\\[2\\]',
 					validators: {
-						notEmpty: {
-							message: 'Please input beneficiary Passport Number.'
-						}
-					}
+                  notEmpty: {
+                     message: 'Please enter Beneficiary HKID No. / Passport No.'
+                  },
+                  regexp: {
+                     regexp: /[a-zA-Z0-9]/,
+                     message: 'Please enter Beneficiary HKID No. / Passport No.'
+                  }
+               }
 				},
 				'savieBeneficiaryBean[2].hkId':{
 					container: '#hkidOrPassportMessage\\[2\\]',
 					validators: {
-						notEmpty: {
-							message: 'Please enter Beneficiary HKID No.'
-						},
-						regexp: {
-							regexp: /^[A-Z0-9]*$/,
-							message: 'The HKID No. is invalid.'
-						},
-						callback: {
-							message: 'The HKID No. is invalid.',
-							callback: function (value, validator, $field) {
-								var res = value.match(/^[A-Z0-9]*$/);
-								
-								if( (res == null) || (res == '')){
-									return {
-										valid: false,
-										message: ''
-									};
-								}else{
-									if(isValidHKID(value) == 'Valid'){
-										return true;
-									}
-									else{
-										return false;
-									}
-								}
-								
-								
-								if(value!=""){
-									if(isValidHKID(value) == 'Valid'){
-										return true;
-									}
-									else{
-										return false;
-									}
-								}else{
-									return {
-										valid: false,
-										message: ''
-									};
-								}
-							
-							}
-						}
-					}
+                  notEmpty: {
+                     message: 'Please enter Beneficiary HKID No. / Passport No.'
+                  },
+                  regexp: {
+                     regexp: /[A-Z0-9()]/,
+                     message: 'Please enter Beneficiary HKID No. / Passport No.'
+                  },
+                  callback: {
+                     message: 'Your HKID No. is invalid.',
+                     callback: function(value, validator) {
+                        return isValidHKID(value);
+                     }
+                  }
+               }
 				},
 				'savieBeneficiaryBean[2].relationship':{
 					container: '#relationshipMessage\\[2\\]',
 					validators: {
-						notEmpty: {
-							message: 'Please select the Beneficiary Relationship with You.'
-						}
-					}
+                  notEmpty: {
+                     message: 'Please select the Beneficiary Relationship with You..'
+                  }
+               }
 				},
 				'savieBeneficiaryBean[2].entitlement':{
 					container: '#entitlementMessage\\[2\\]',
 					validators: {
-						regexp: {
-							regexp: /^(?:[1-9]\d?|100)$/,
-							message: 'Please enter the Entitlement in integer.'
-						},
-						callback: {
-							message: 'Total Beneficiary Entitlement exceeds 100%.',
-							callback: function (value, validator, $field) {
-								if(totalBeneficiaryEntitlement() == "Exceed"){
-									return false;
-								}else{
-									return true;
-								}
-							}
-						}
-					}
+                  regexp: {
+                     regexp: /[0-9]*/, // /^(?:[1-9]\d?|100)$/,
+                     message: 'Please enter the Entitlement in integer.'
+                  },
+                  callback: {
+                     message: 'Total Beneficiary Entitlement exceeds 100%.',
+                     callback: function (value, validator, $field) {
+                        if(totalBeneficiaryEntitlement() == "Exceed"){
+                           return false;
+                        }else{
+                           return true;
+                        }
+                     }
+                  }
+               }
 				}
 			}
 		});
@@ -536,135 +439,127 @@ $(function() {
 				'savieBeneficiaryBean[1].firstName':{
 					container: '#beneficiaryFnameMessage\\[1\\]',
 					validators: {
-						notEmpty: {
-							message: 'Please input your given name.'
-						},
-						stringLength: {
-							min: 1,
-							max: 25,
-							message: 'Cannot exceed 25 characters'
-						},
-						regexp: {
-							regexp: /^[a-zA-Z0-9]*$/,
-							message: 'Please input your given name.'
-						}
-					}
+					notEmpty: {
+						message: 'Please enter Beneficiary Given Name in English.'
+                    },
+					stringLength: {
+                        max: 25,
+                        message: 'Given Name must be no more than 25 characters.'
+                    },
+					regexp: {
+						regexp: /^[a-zA-Z\s]+$/ ,
+						message: 'Please enter Beneficiary Given Name in English.'
+					},
+               callback: {
+                  message: 'Invalid Given Name in English.',
+                  callback: function (value, validator) {
+                     return value !== document.getElementById('savieBeneficiaryBean[1].firstName').getAttribute('placeholder');
+                  }
+               }
+				}
 				},
 				'savieBeneficiaryBean[1].lastName':{
 					container: '#beneficiaryLnameMessage\\[1\\]',
 					validators: {
-						notEmpty: {
-							message: 'Please input your last name.'
-						},
-						stringLength: {
-							min: 1,
-							max: 25,
-							message: 'Cannot exceed 25 characters'
-						},
-						regexp: {
-							regexp: /^[a-zA-Z0-9]*$/,
-							message: 'Please input your last name.'
-						}
-					}
+					notEmpty: {
+						message: 'Please enter Beneficiary Last Name in English..'
+                    },
+					stringLength: {
+                        min: 1,
+                        max: 25,
+                        message: 'Last Name must be no more than 25 characters.'
+                    },
+					regexp: {
+						regexp: /^[a-zA-Z\s]+$/ ,
+						message: 'Please enter Beneficiary Last Name in English.'
+					},
+               callback: {
+                  message: 'Invalid Last Name in English.',
+                  callback: function (value, validator) {
+                     return value !== document.getElementById('savieBeneficiaryBean[1].lastName').getAttribute('placeholder');
+                  }
+               }
+				}
 				},
 				'savieBeneficiaryBean[1].chineseName':{
 					container: '#beneficiaryChineseNameMessage\\[1\\]',
 					validators: {
-						notEmpty: {
-							message: 'Please input your Chinese name.'
-						},
-						stringLength: {
-							min: 1,
-							max: 6,
-							message: 'Cannot exceed 6 characters.'
-						},
-						regexp: {
-							regexp: /^[^a-zA-Z0-9]*$/,
-							message: 'Please input your Chinese name.'
-						}
-					}
+                  notEmpty: {
+                     message: 'Please enter Beneficiary Chinese Name.'
+                       },
+                  stringLength: {
+                           min: 1,
+                           max: 6,
+                           message: 'Chinese Name must be no more than 6 characters.'
+                       },
+                  regexp: {
+                     regexp: /[^\x00-\x7F]/,
+                     message: 'Please enter Beneficiary Chinese Name.'
+                  },
+                  callback: {
+                     message: 'Invalid Beneficiary Chinese Name.',
+                     callback: function (value, validator) {
+                        return value !== document.getElementById('savieBeneficiaryBean[1].chineseName').getAttribute('placeholder');
+                     }
+                  }
+               }
 				},
 				'savieBeneficiaryBean[1].passportNo':{
 					container: '#bnfPassportMessage\\[1\\]',
 					validators: {
-						notEmpty: {
-							message: 'Please input beneficiary Passport Number.'
-						}
-					}
+                  notEmpty: {
+                     message: 'Please enter Beneficiary HKID No. / Passport No.'
+                  },
+                  regexp: {
+                     regexp: /[a-zA-Z0-9]/,
+                     message: 'Please enter Beneficiary HKID No. / Passport No.'
+                  }
+               }
 				},
 				'savieBeneficiaryBean[1].hkId':{
 					container: '#hkidOrPassportMessage\\[1\\]',
 					validators: {
-						notEmpty: {
-							message: 'Please enter Beneficiary HKID No.'
-						},
-						regexp: {
-							regexp: /^[A-Z0-9]*$/,
-							message: 'The HKID No. is invalid.'
-						},
-						callback: {
-							message: 'The HKID No. is invalid.',
-							callback: function (value, validator, $field) {
-								var res = value.match(/^[A-Z0-9]*$/);
-								
-								if( (res == null) || (res == '')){
-									return {
-										valid: false,
-										message: ''
-									};
-								}else{
-									if(isValidHKID(value) == 'Valid'){
-										return true;
-									}
-									else{
-										return false;
-									}
-								}
-								
-								if(value!=""){
-									if(isValidHKID(value) == 'Valid'){
-										return true;
-									}
-									else{
-										return false;
-									}
-								}else{
-									return {
-										valid: false,
-										message: ''
-									};
-								}
-							
-							}
-						}
-					}
+                  notEmpty: {
+                     message: 'Please enter Beneficiary HKID No. / Passport No.'
+                  },
+                  regexp: {
+                     regexp: /[A-Z0-9()]/,
+                     message: 'Please enter Beneficiary HKID No. / Passport No.'
+                  },
+                  callback: {
+                     message: 'Your HKID No. is invalid.',
+                     callback: function(value, validator) {
+                        return isValidHKID(value);
+                     }
+                  }
+               }
 				},
 				'savieBeneficiaryBean[1].relationship':{
 					container: '#relationshipMessage\\[1\\]',
 					validators: {
-						notEmpty: {
-							message: 'Please select the Beneficiary Relationship with You.'
-						}
-					}
+                  notEmpty: {
+                     message: 'Please select the Beneficiary Relationship with You..'
+                  }
+               }
 				},
 				'savieBeneficiaryBean[1].entitlement':{
 					container: '#entitlementMessage\\[1\\]',
 					validators: {
-						regexp: {
-							regexp: /^(?:[1-9]\d?|100)$/,
-							message: 'Please enter the Entitlement in integer.'
-						},
-						callback: {
-							message: 'Total Beneficiary Entitlement exceeds 100%.',
-							callback: function (value, validator, $field) {
-								if(totalBeneficiaryEntitlement() == "Exceed"){
-									return false;
-								}else{
-									return true;
-								}
-							}
-						}
-					}
+                  regexp: {
+                     regexp: /[0-9]*/, // /^(?:[1-9]\d?|100)$/,
+                     message: 'Please enter the Entitlement in integer.'
+                  },
+                  callback: {
+                     message: 'Total Beneficiary Entitlement exceeds 100%.',
+                     callback: function (value, validator, $field) {
+                        if(totalBeneficiaryEntitlement() == "Exceed"){
+                           return false;
+                        }else{
+                           return true;
+                        }
+                     }
+                  }
+               }
 				}
 			}
 		});		
@@ -681,51 +576,68 @@ $(function() {
 				container: '#beneficiaryFnameMessage\\[0\\]',
 				validators: {
 					notEmpty: {
-						message: 'Please input your given name.'
+						message: 'Please enter Beneficiary Given Name in English.'
                     },
 					stringLength: {
-                        min: 1,
                         max: 25,
-                        message: 'Cannot exceed 25 characters'
+                        message: 'Given Name must be no more than 25 characters.'
                     },
 					regexp: {
-						regexp: /^[a-zA-Z0-9]*$/,
-						message: 'Please input your given name.'
-					}
+						regexp: /^[a-zA-Z\s]+$/ ,
+						message: 'Please enter Beneficiary Given Name in English.'
+					},
+               callback: {
+                  message: 'Invalid Given Name in English.',
+                  callback: function (value, validator) {
+                     return value !== document.getElementById('savieBeneficiaryBean[0].firstName').getAttribute('placeholder');
+                  }
+               }
 				}
 			},
 			'savieBeneficiaryBean[0].lastName':{
 				container: '#beneficiaryLnameMessage\\[0\\]',
 				validators: {
 					notEmpty: {
-						message: 'Please input your last name.'
+						message: 'Please enter Beneficiary Last Name in English..'
                     },
 					stringLength: {
                         min: 1,
                         max: 25,
-                        message: 'Cannot exceed 25 characters'
+                        message: 'Last Name must be no more than 25 characters.'
                     },
 					regexp: {
-						regexp: /^[a-zA-Z0-9]*$/,
-						message: 'Please input your last name.'
-					}
+						regexp: /^[a-zA-Z\s]+$/ ,
+						message: 'Please enter Beneficiary Last Name in English.'
+					},
+               callback: {
+                  message: 'Invalid Last Name in English.',
+                  callback: function (value, validator) {
+                     return value !== document.getElementById('savieBeneficiaryBean[0].lastName').getAttribute('placeholder');
+                  }
+               }
 				}
 			},
 			'savieBeneficiaryBean[0].chineseName':{
 				container: '#beneficiaryChineseNameMessage\\[0\\]',
 				validators: {
 					notEmpty: {
-						message: 'Please input your Chinese name.'
+						message: 'Please enter Beneficiary Chinese Name.'
                     },
 					stringLength: {
                         min: 1,
                         max: 6,
-                        message: 'Cannot exceed 6 characters.'
+                        message: 'Chinese Name must be no more than 6 characters.'
                     },
 					regexp: {
-						regexp: /^[^a-zA-Z0-9]*$/,
-						message: 'Please input your Chinese name.'
-					}
+						regexp: /[^\x00-\x7F]/,
+						message: 'Please enter Beneficiary Chinese Name.'
+					},
+               callback: {
+                  message: 'Invalid Beneficiary Chinese Name.',
+                  callback: function (value, validator) {
+                     return value !== document.getElementById('savieBeneficiaryBean[0].chineseName').getAttribute('placeholder');
+                  }
+               }
 				}
 			},
 			'savieBeneficiaryBean[0].passportNo':{
@@ -733,8 +645,12 @@ $(function() {
 			//	enabled: true,
 				validators: {
 					notEmpty: {
-						message: 'Please input beneficiary Passport Number.'
-                    }
+						message: 'Please enter Beneficiary HKID No. / Passport No.'
+               },
+               regexp: {
+                  regexp: /[a-zA-Z0-9]/,
+                  message: 'Please enter Beneficiary HKID No. / Passport No.'
+               }
 				}
 			},
 			'savieBeneficiaryBean[0].hkId':{
@@ -742,55 +658,25 @@ $(function() {
 			//	enabled: true,
 				validators: {
 					notEmpty: {
-						message: 'Please enter Beneficiary HKID No.'
+						message: 'Please enter Beneficiary HKID No. / Passport No.'
 					},
-					regexp: {
-						regexp: /^[A-Z0-9]*$/,
-						message: 'The HKID No. is invalid.'
-					},
+               regexp: {
+                  regexp: /[A-Z0-9()]/,
+                  message: 'Please enter Beneficiary HKID No. / Passport No.'
+               },
 					callback: {
-                        message: 'Your HKID No. is invalid.',
-                        callback: function (value, validator, $field) {
-							var res = value.match(/^[A-Z0-9]*$/);
-								
-							if( (res == null) || (res == '')){
-								return {
-									valid: false,
-									message: ''
-								};
-							}else{
-								if(isValidHKID(value) == 'Valid'){
-									return true;
-								}
-								else{
-									return false;
-								}
-							}
-								
-								
-							if(value!=""){
-								if(isValidHKID(value) == 'Valid'){
-									return true;
-								}
-								else{
-									return false;
-								}
-							}else{
-								return {
-									valid: false,
-									message: ''
-								};
-							}
-                           
-                        }
-                    }
+                  message: 'Your HKID No. is invalid.',
+                  callback: function(value, validator) {
+                     return isValidHKID(value);
+                  }
+               }
 				}
 			},
 			'savieBeneficiaryBean[0].relationship':{
 				container: '#relationshipMessage\\[0\\]',
 				validators: {
 					notEmpty: {
-						message: 'Please select the Beneficiary Relationship with You.'
+						message: 'Please select the Beneficiary Relationship with You..'
 					}
 				}
 			},
@@ -798,7 +684,7 @@ $(function() {
 				container: '#entitlementMessage\\[0\\]',
 				validators: {
 					regexp: {
-						regexp: /^(?:[1-9]\d?|100)$/,
+						regexp: /[0-9]*/, // /^(?:[1-9]\d?|100)$/,
 						message: 'Please enter the Entitlement in integer.'
 					},
 					callback: {
@@ -923,43 +809,11 @@ $(function() {
 							message: 'Your HKID No. is invalid.'
 						},
 						callback: {
-							message: 'Your HKID No. is invalid.',
-							callback: function (value, validator, $field) {
-								
-								var res = value.match(/^[A-Z0-9]*$/);
-								
-								if( (res == null) || (res == '')){
-									return {
-										valid: false,
-										message: ''
-									};
-								}else{
-									if(isValidHKID(value) == 'Valid'){
-										return true;
-									}
-									else{
-										return false;
-									}
-								}
-							
-								
-								if((value!="")){
-									if(isValidHKID(value) == 'Valid'){
-										return true;
-									}
-									else{
-										return false;
-									}
-								}else{
-									return {
-										valid: false,
-										message: ''
-									};
-								}
-								
-								
-							}
-						}
+                     message: 'Your HKID No. is invalid.',
+                     callback: function(value, validator) {
+                                    return isValidHKID(value);
+                                }
+                            }
 					}
 				},
 				'savieApplicantBean.maritalStatus':{
@@ -1088,6 +942,83 @@ $(function() {
 	});
 });
 
+function isValidHKID(hkid){
+   var isValid = false;
+   
+   if (hkid && (hkid.length > 7)) {
+      var message = hkid.slice(0, hkid.indexOf('('));
+      var checksum = hkid.slice((hkid.indexOf('(') + 1), hkid.lastIndexOf(')'));
+      checksum = isNaN(checksum) ? equivalentInteger(checksum) : parseInt(checksum, 10);
+      var checkCtr = message.length + 1
+      var checksumTotal = 0;
+      
+      for (var i=0; i<message.length; i++) {
+         var digit = isNaN(message[i]) ? equivalentInteger(message[i]) : parseInt(message[i], 10);
+         
+         checksumTotal += (digit * checkCtr--);
+      }
+      
+      isValid = (checksum === (11 - (checksumTotal) % 11));
+   }
+   
+   return isValid;
+}
+
+function equivalentInteger(hkidChar){
+   var digit;
+   switch(hkidChar.toUpperCase()){
+      case 'A':
+      case 'L':
+      case 'M':
+         digit = 1;
+         break;
+      case 'B':
+      case 'M':
+      case 'X':
+         digit = 2;
+         break;
+      case 'C':
+      case 'N':
+      case 'Y':
+         digit = 3;
+         break;
+      case 'D':
+      case 'O':
+      case 'Z':
+         digit = 4;
+         break;
+      case 'E':
+      case 'P':
+         digit = 5;
+         break;
+      case 'F':
+      case 'Q':
+         digit = 6;
+         break;
+      case 'G':
+      case 'R':
+         digit = 7;
+         break;
+      case 'H':
+      case 'S':
+         digit = 8;
+         break;
+      case 'I':
+      case 'T':
+         digit = 9;
+         break;
+      case 'J':
+      case 'U':
+         digit = 10;
+         break;
+      case 'K':
+      case 'V':
+         digit = 11;
+         break;
+         
+   }
+   return digit;
+}
 
 function maxLengthCheck(object){
 	if (object.value.length > object.maxLength)

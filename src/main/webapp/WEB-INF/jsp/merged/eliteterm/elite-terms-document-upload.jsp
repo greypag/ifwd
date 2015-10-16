@@ -144,7 +144,7 @@ var language = "${language}";
 													<span class="finish-upload-check"></span>
 												</div>
 											</div>
-											<input type="file" id="fileToUpload-hkid-dragAndDrop" class="hidden" >
+											<input type="file" id="fileToUpload-hkid-dragAndDrop" class="hidden" accept="application/pdf,image/gif,image/jpeg,image/jpg,image/png" >
 											<div class="select-file-hkid" id="hkid-drop-zone" for="fileToUpload-hkid-dragAndDrop">
 												<div class="finish-upload hidden" id="finish-upload-hkid">
 													<div class="center-align">
@@ -153,8 +153,10 @@ var language = "${language}";
 												</div>
 												<div class="select-file-section" id="select-file-section">
 													<div class="mob hidden-md hidden-lg">
-														<label for="hkidFileToUploadCam" class="mobile-camera-pic-file">
-															<input type="file" id="hkidFileToUploadCam" onchange="fileSelected('hkid-copy-progress','hkidFileToUploadCam','hkid-docu-filename','hkid-docu-fileSize','finish-upload-hkid','hkid-upload-percent-text','hkid-upload-progress-bar','');">
+														<label for="hkidFileToUpload" class="mobile-camera-pic-file">
+															
+
+
 															<span class="mobile-camera"></span>
 														</label>
 													</div>
@@ -166,13 +168,16 @@ var language = "${language}";
 													</div>
 													<div class="mob-desk">
 														<label for="hkidFileToUpload" class="orange-select-file">
-															<input type="file" id="hkidFileToUpload" onchange="fileSelected('hkid-copy-progress','hkidFileToUpload','hkid-docu-filename','hkid-docu-fileSize','finish-upload-hkid','hkid-upload-percent-text','hkid-upload-progress-bar','');">
+															<input type="file" id="hkidFileToUpload" accept="application/pdf,image/gif,image/jpeg,image/jpg,image/png" onchange="fileSelected('hkid-copy-progress','hkidFileToUpload','hkid-docu-filename','hkid-docu-fileSize','finish-upload-hkid','hkid-upload-percent-text','hkid-upload-progress-bar','', '#et-hkid-file-message');">
 															<span class="input-file-text"><fmt:message key="eliteTerms.documentUpload.Select.files" bundle="${msg}" /></span>
 														</label>
 													</div>
 												</div>
 											</div>
+											<input type="reset" class="sr-only" />
 										</form>
+										<span class="err-msg" id="et-hkid-file-message"></span>
+
 										<div class="document-upload-progress hidden" id="hkid-copy-progress">
 											<div class="clearfix">
 												<div class="pull-left">
@@ -202,7 +207,7 @@ var language = "${language}";
 													<span class="finish-upload-check"></span>
 												</div>
 											</div>
-											<input type="file" id="fileToUpload-passport-dragAndDrop" class="hidden" >
+											<input type="file" id="fileToUpload-passport-dragAndDrop" class="hidden" accept="application/pdf,image/gif,image/jpeg,image/jpg,image/png" >
 											<div class="select-file-passport" id="passport-drop-zone" for="fileToUpload-passport-dragAndDrop">
 												<div class="finish-upload hidden" id="finish-upload-passport">
 													<div class="center-align">
@@ -211,8 +216,10 @@ var language = "${language}";
 												</div>
 												<div class="select-file-section" id="select-file-section">
 													<div class="mob hidden-md hidden-lg">
-														<label for="passportFileToUploadCam" class="mobile-camera-pic-file">
-															<input type="file" id="passportFileToUploadCam" onchange="fileSelected('passport-copy-progress','passportFileToUploadCam','passport-docu-filename','passport-docu-fileSize','finish-upload-passport','passport-upload-percent-text','passport-upload-progress-bar','');">
+														<label for="passportFileToUpload" class="mobile-camera-pic-file">
+															
+
+
 															<span class="mobile-camera"></span>
 														</label>
 													</div>
@@ -224,13 +231,16 @@ var language = "${language}";
 													</div>
 													<div class="mob-desk">
 														<label for="passportFileToUpload" class="orange-select-file">
-															<input type="file" id="passportFileToUpload" onchange="fileSelected('passport-copy-progress','passportFileToUpload','passport-docu-filename','passport-docu-fileSize','finish-upload-passport','passport-upload-percent-text','passport-upload-progress-bar','');">
+															<input type="file" id="passportFileToUpload" accept="application/pdf,image/gif,image/jpeg,image/jpg,image/png" onchange="fileSelected('passport-copy-progress','passportFileToUpload','passport-docu-filename','passport-docu-fileSize','finish-upload-passport','passport-upload-percent-text','passport-upload-progress-bar','', '#et-passport-file-message');">
 															<span class="input-file-text"><fmt:message key="eliteTerms.documentUpload.Select.files" bundle="${msg}" /></span>
 														</label>
 													</div>
 												</div>
 											</div>
+											<input type="reset" class="sr-only"/>
 										</form>
+										 <span class="err-msg" id="et-passport-file-message"></span>
+
 										<div class="document-upload-progress hidden" id="passport-copy-progress">
 											<div class="clearfix">
 												<div class="pull-left">
@@ -260,12 +270,14 @@ var language = "${language}";
 													<span class="finish-upload-check"></span>
 												</div>
 											</div>
-											<input type="file" id="fileToUpload-addr-dragAndDrop" class="hidden">
+											<input type="file" id="fileToUpload-addr-dragAndDrop" class="hidden" accept="application/pdf,image/gif,image/jpeg,image/jpg,image/png">
 											<div class="select-file" id="drop-zone" for="fileToUpload-addr-dragAndDrop">	
 												<div class="select-file-section" id="select-file-section-address">
 													<div class="mob hidden-md hidden-lg">
-														<label for="fileToUpload-addr-cam" class="mobile-camera-pic-file">
-															<input type="file" id="fileToUpload-addr-cam" onchange="fileSelected('proof-of-address-progress','fileToUpload-addr-cam','address-docu-filename','address-docu-fileSize','finish-upload-addr','docu-upload-percent-text','document-upload-progress-bar','');">
+														<label for="fileToUploadProofAdd" class="mobile-camera-pic-file">
+															 
+
+
 															<span class="mobile-camera"></span>
 														</label>
 													</div>
@@ -276,14 +288,17 @@ var language = "${language}";
 														<span class="OR"><fmt:message key="eliteTerms.documentUpload.or" bundle="${msg}" /></span>
 													</div>
 													<div class="mob-desk">
-														<label for="fileToUpload" class="orange-select-file">
-															<input type="file" id="fileToUpload" onchange="fileSelected('proof-of-address-progress','fileToUpload','address-docu-filename','address-docu-fileSize','finish-upload-addr','docu-upload-percent-text','document-upload-progress-bar','');">
+														<label for="fileToUploadProofAdd" class="orange-select-file">
+															<input type="file" id="fileToUploadProofAdd" accept="application/pdf,image/gif,image/jpeg,image/jpg,image/png" onchange="fileSelected('proof-of-address-progress','fileToUploadProofAdd','address-docu-filename','address-docu-fileSize','finish-upload-addr','docu-upload-percent-text','document-upload-progress-bar','', '#et-address-file-message');">
 															<span class="input-file-text"><fmt:message key="eliteTerms.documentUpload.Select.files" bundle="${msg}" /></span>
 														</label>
 													</div>
 												</div>
 											</div>
+											<input type="reset" class="sr-only" />
 										</form>
+										<span class="err-msg" id="et-address-file-message"></span>
+
 										<div class="document-upload-progress hidden" id="proof-of-address-progress">
 											<div class="clearfix">
 												<div class="pull-left">
@@ -331,9 +346,104 @@ var language = "${language}";
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-dropzone.js"></script>
 		<script language="javascript">
+
+
 			$('#residence-check').click(function(){
 				$('.passport-holder').toggle();
 			})
+
+			function goodbye(e) {
+                if(!e) e = window.event;
+                e.cancelBubble = true;
+                e.returnValue = 'Some changes may not have been saved yet'; 
+
+                if (e.stopPropagation) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }	
+            }
+            window.onbeforeunload=goodbye; 
+
+            // Form file validation
+            $('#et-upload-doc-submit-btn').on('click', function(e) {
+                var $self = $(this);
+                var isValid = isHkidValidity($self);
+                    isValid = isPassportValidity($self);
+                    isValid = isProfAddValidity($self);
+                
+                if (isValid) {     
+                    $self.removeAttr('disabled');
+                    window.location.href= contextPath+'/'+language+'/elite-term/'+documentUploadNextPageFlow;
+                } else {
+                    $self.attr('disabled', 'disabled');
+                }
+            });
+            
+            // Check if hkid is valid
+            function isHkidValidity() {
+                var isValid = true;
+                var $hkidFileDnD = $('#fileToUpload-hkid-dragAndDrop');
+                var $hkidFile = $('#hkidFileToUpload');
+                
+                // Check HKID file
+                if ($hkidFileDnD.get(0).files.length || $hkidFile.get(0).files.length) {
+                    removeFormFieldError('#et-hkid-file-message', '', true);
+           
+                    // Process hkid file here
+                } else {
+                    removeFormFieldError('#et-hkid-file-message', 'required-hkid');
+                    addFormFieldError('#et-hkid-file-message', 'HKID is required.', 'required-hkid');
+                    isValid = false;
+                }
+                
+                return isValid;
+            }
+            
+            // Check if passport is valid
+            function isPassportValidity() {
+                var isValid = true;
+                var $passportFileDnD = $('#fileToUpload-passport-dragAndDrop');
+                var $passportFile = $('#passportFileToUpload');
+                    
+                // Check HKID file
+                if ($passportFileDnD.get(0).files.length || $passportFile.get(0).files.length) {
+                    removeFormFieldError('#et-passport-file-message', '', true);
+                    
+                    // Process passport file here
+                } else {
+                    removeFormFieldError('#et-passport-file-message', 'required-hkid');
+                    addFormFieldError('#et-passport-file-message', 'Passport is required.', 'required-hkid');
+
+                    isValid = false;
+                }
+                
+                return isValid;
+            }
+            
+            // Check if proof of address is valid
+            function isProfAddValidity() {
+                if ($('#residence-check').prop('checked')) {
+                    return true;
+                }
+                
+                var isValid = true;
+                var $profAddFileDnD = $('#fileToUpload-addr-dragAndDrop');
+                var $profAddFile = $('#fileToUploadProofAdd');
+                
+                // Check HKID file
+                if ($profAddFileDnD.get(0).files.length || $profAddFile.get(0).files.length) {
+                    removeFormFieldError('#et-address-file-message', '', true);
+                    
+                    // Process proof of address file here
+                } else {
+                    removeFormFieldError('#et-address-file-message', 'required-hkid');
+                    addFormFieldError('#et-address-file-message', 'Proof of address is required.', 'required-hkid');
+
+                    isValid = false;
+                }
+                
+                return isValid;
+            }
          
          /*$(document).on('click', '.et-header-info-btn', function(e) {
             e.preventDefault();
@@ -349,4 +459,6 @@ var language = "${language}";
                window.location.href = url;
             }
          });*/
+
+			
 		</script>
