@@ -68,6 +68,8 @@ public interface SavieService {
 	
 	public BaseResponse uploadDocuments(HttpServletRequest request,MultipartFile file)throws ECOMMAPIException;
 	
+	public void uploadEliteTermDocuments(HttpServletRequest request)throws ECOMMAPIException;
+	
 	public void getOccupation(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception;
 	
 	public void verifyAccessCode(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception;

@@ -170,16 +170,16 @@ function cancelUpload(progressBarID,doneID,progressBarReset){
 function uploadFile(inputID,forDragAndDrop) {
 	var fd = new FormData();	
 	if(forDragAndDrop!=''){
-		fd.append(inputID.toString(),forDragAndDrop );
+		fd.append("img",forDragAndDrop );
 	}else{
-		fd.append(inputID.toString(), document.getElementById(inputID.toString()).files[0]);
+		fd.append("img", document.getElementById(inputID.toString()).files[0]);
 	}
-	
+	fd.append("name",inputID.toString());
 	xhr.upload.addEventListener("progress", uploadProgress, false);
 	xhr.addEventListener("load", uploadComplete, false);
 	xhr.addEventListener("error", uploadFailed, false);
 	xhr.addEventListener("abort", uploadCanceled, false);
-	xhr.open("POST", "http://murielle.php-staging.smartdrop.com.hk/pms/product/uploadfile");
+	xhr.open("POST", context+"/ajax/eliteTerm/getEliteTermImage");
 	xhr.send(fd);
 }
 

@@ -1,6 +1,6 @@
 package com.ifwd.fwdhk.controller;
 
-import java.util.Map;
+import java.io.File;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,13 +9,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
-import com.ifwd.fwdhk.model.savie.SavieApplicantBean;
 import com.ifwd.fwdhk.services.EliteTermService;
 import com.ifwd.fwdhk.util.Methods;
 @Controller
@@ -26,6 +27,34 @@ public class AjaxEliteTermController extends BaseController{
 	private RestServiceDao restService;
 	@Autowired
 	private EliteTermService eliteTermService;
+	
+	@RequestMapping(value = {"/ajax/eliteTerm/getEliteTermImage"},method = RequestMethod.POST)
+	  public void doAddImageByGroupId(HttpServletRequest request, HttpServletResponse response,
+	            @RequestParam(value = "name", required = true) String name,
+	            @RequestParam(value = "img", required = true) CommonsMultipartFile imageFile
+	            ) throws Exception {
+			try {
+				String uploadDir = request.getRealPath("/")+"upload"+"/"+"123456";  
+		        File dirPath = new File(uploadDir);  
+		        if (!dirPath.exists()) {   
+		            dirPath.mkdirs();  
+		        } 
+		        String[] str = imageFile.getContentType().split("/");
+		        String imageName = name+"."+str[str.length-1];
+				request.getSession().setAttribute(name, imageName);
+				request.getSession().setAttribute(name+"Type", imageFile.getContentType());
+		        byte[] bytes = imageFile.getBytes();
+		        String sep = System.getProperty("file.separator");  
+		        File uploadedFile = new File(uploadDir + sep  
+		                + imageName);  
+		        FileCopyUtils.copy(bytes, uploadedFile);  
+		        response.getWriter().write("true");
+			} catch (Exception e) {
+				logger.info(e.getMessage());
+				e.printStackTrace();
+			}
+	}
+	
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/getEliteTermPremium"})
 	public void getEliteTermPremium(HttpServletRequest request,HttpServletResponse response) {
