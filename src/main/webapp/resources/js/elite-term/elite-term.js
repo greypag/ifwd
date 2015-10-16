@@ -95,7 +95,24 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 });
 
 $('#et-upload-doc-submit-btn').on('click', function(e) {
-	window.location.href= contextPath+'/'+language+'/elite-term/'+documentUploadNextPageFlow;
+	var uploadNow = $("input[name='upload-doc']:checked").val();
+	var url = contextPath+'/'+language+'/elite-term/'+documentUploadNextPageFlow;
+	if(uploadNow == 'upload-now'){
+		var display = $('.passport-holder').css("display");
+		var hkidflage = $('#hkid-copy-progress').css("display");
+		var passportflage = $('#passport-copy-progress').css("display");
+		var proofflage = $('#proof-of-address-progress').css("display");
+		if(hkidflage == 'none' || proofflage == 'none'){
+			return false;
+		}
+		if(display != 'none' && passportflage == 'none'){
+//			url = url + "?passportflage=false";
+			return false;
+		}else{
+//			url = url + "?passportflage=true";
+		}
+	}
+	window.location.href= url;
 });
 
 $('#et-confirmation-submit').on('click', function(e) {

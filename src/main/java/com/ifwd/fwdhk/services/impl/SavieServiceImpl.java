@@ -5,6 +5,8 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -17,6 +19,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.imageio.ImageIO;
+import javax.imageio.stream.FileImageInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -1309,6 +1312,77 @@ public class SavieServiceImpl implements SavieService {
 		}
 		
 		return br;
+	}
+	
+
+	@SuppressWarnings({ "deprecation", "unused", "restriction", "unchecked" })
+	public void uploadEliteTermDocuments(HttpServletRequest request)throws ECOMMAPIException{
+		FileInputStream is = null;
+		BaseResponse br = null;
+		byte data[];
+		int i;
+		final Map<String, String> header = headerUtil.getHeader(request);
+		Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
+		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+		parameters.put("clientBrowserInfo", clientBrowserInfo);
+		parameters.put("policyNo", "123456");
+		try {
+			String fileToUpload = (String) request.getSession().getAttribute("fileToUpload");
+			String passportFileToUpload = (String) request.getSession().getAttribute("passportFileToUpload");
+			String uploadDir = request.getRealPath("/")+"upload"+"/"+"123456/";
+			File fileToUploadImage = new File(uploadDir+fileToUpload);
+			File passportFileToUploadImage = new File(uploadDir+passportFileToUpload);
+			is = new FileInputStream(fileToUploadImage);
+			i = is.available(); // 得到文件大小  
+			data = new byte[i];  
+			is.read(data); // 读数据  
+			is.close();  
+
+			String fileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
+			parameters.put("fileType", (String) request.getSession().getAttribute("fileToUploadType"));
+			parameters.put("documentType", "Proof");
+			parameters.put("originalFilePath", "C:\\"+fileToUpload);
+			parameters.put("base64", fileToUploadImageBase64);
+			br = connector.uploadDocuments(parameters, header);
+			
+//			if("true".equals(request.getParameter("passportflage"))){
+				String hkidFileToUpload = (String) request.getSession().getAttribute("hkidFileToUpload");
+				File hkidFileToUploadImage = new File(uploadDir+hkidFileToUpload);
+				is = new FileInputStream(hkidFileToUploadImage);
+				i = is.available(); // 得到文件大小  
+				data = new byte[i];  
+				is.read(data); // 读数据  
+				is.close();  
+				String hkidFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
+				parameters.put("fileType", (String) request.getSession().getAttribute("clientBrowserInfoType"));
+				parameters.put("documentType", "hkid");
+				parameters.put("originalFilePath", "C:\\"+hkidFileToUpload);
+				parameters.put("base64", hkidFileToUploadImageBase64);
+				br = connector.uploadDocuments(parameters, header);
+//			}
+			
+			is = new FileInputStream(passportFileToUploadImage);
+			i = is.available(); // 得到文件大小  
+			data = new byte[i];  
+			is.read(data); // 读数据  
+			is.close();  
+			String passportFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
+			parameters.put("fileType", (String) request.getSession().getAttribute("clientBrowserInfoType"));
+			parameters.put("documentType", "passport");
+			parameters.put("originalFilePath", "C:\\"+passportFileToUpload);
+			parameters.put("base64", passportFileToUploadImageBase64);
+			br = connector.uploadDocuments(parameters, header);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				is.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}  
+		}
 	}
 	
 	@Override
