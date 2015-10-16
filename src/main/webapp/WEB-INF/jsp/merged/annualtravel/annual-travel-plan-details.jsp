@@ -24,6 +24,8 @@
 %>
 
 <script>
+    var contextPath = "${pageContext.request.contextPath}";
+    
     $(function() {
         $("[data-toggle='tooltip']").tooltip();
     });
