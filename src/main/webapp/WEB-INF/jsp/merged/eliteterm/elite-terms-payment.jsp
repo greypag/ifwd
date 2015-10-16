@@ -8,6 +8,8 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<jsp:useBean id="now" class="java.util.Date" />
+<fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
@@ -103,26 +105,28 @@ var language = "${language}";
 										<div class="clearfix desktop-half">
 											<div class="selectDiv month">
 												<select name="month" id="month" class="form-control gray-dropdown">
-													<option value="" disabled selected><fmt:message key="eliteTerms.payment.Month" bundle="${msg}" /></option>
-													<option value=""><fmt:message key="eliteTerms.payment.January" bundle="${msg}" /></option>
-													<option value=""><fmt:message key="eliteTerms.payment.February" bundle="${msg}" /></option>
-													<option value=""><fmt:message key="eliteTerms.payment.March" bundle="${msg}" /></option>
-													<option value=""><fmt:message key="eliteTerms.payment.April" bundle="${msg}" /></option>
-													<option value=""><fmt:message key="eliteTerms.payment.May" bundle="${msg}" /></option>
-													<option value=""><fmt:message key="eliteTerms.payment.June" bundle="${msg}" /></option>
-													<option value=""><fmt:message key="eliteTerms.payment.July" bundle="${msg}" /></option>
-													<option value=""><fmt:message key="eliteTerms.payment.August" bundle="${msg}" /></option>
-													<option value=""><fmt:message key="eliteTerms.payment.September" bundle="${msg}" /></option>
-													<option value=""><fmt:message key="eliteTerms.payment.October" bundle="${msg}" /></option>
-													<option value=""><fmt:message key="eliteTerms.payment.November" bundle="${msg}" /></option>
-													<option value=""><fmt:message key="eliteTerms.payment.December" bundle="${msg}" /></option>
+													<option value="0"><fmt:message key="home.summary.pmtdetail.desc3.month" bundle="${msg}" /></option>
+			                                        <option value="1">01</option>
+			                                        <option value="2">02</option>
+			                                        <option value="3">03</option>
+			                                        <option value="4">04</option>
+			                                        <option value="5">05</option>
+			                                        <option value="6">06</option>
+			                                        <option value="7">07</option>
+			                                        <option value="8">08</option>
+			                                        <option value="9">09</option>
+			                                        <option value="10">10</option>
+			                                        <option value="11">11</option>
+			                                        <option value="12">12</option>
 												</select>
 											</div>
 											<div class="selectDiv">
 												<select name="year" id="year" class="form-control gray-dropdown">
-													<option value="" disabled selected><fmt:message key="eliteTerms.payment.Year" bundle="${msg}" /></option>
-													<option value=""><fmt:message key="eliteTerms.payment.Lorem" bundle="${msg}" /></option>
-													<option value=""><fmt:message key="eliteTerms.payment.Ipsum" bundle="${msg}" /></option>
+													<option value="0"><fmt:message key="home.summary.pmtdetail.desc3.year" bundle="${msg}" /></option>
+				                                    <c:forEach begin="0" end="10" varStatus="loop">
+				                                        <c:set var="currentYear" value="${year + loop.index}" />
+				                                        <option value="${currentYear}">${currentYear}</option>
+				                                    </c:forEach>
 												</select>
 											</div>
 										</div>
