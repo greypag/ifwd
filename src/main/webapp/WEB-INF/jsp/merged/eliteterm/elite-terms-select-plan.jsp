@@ -513,6 +513,8 @@ var language = "${language}";
                                           <div class="clearfix">
                                              <div class="pull-left male">
                                                 <label class="pi-male-radio" for="pi-male-now">
+                                                <input type="hidden" name="savieApplicantBeanGender" id="savieApplicantBeanGender" value="F"/>
+                                                <input type="hidden" name="savieApplicantBeanSmoke" id="savieApplicantBeanSmoke" value="false"/>
                                                 <input type="radio" id="pi-male-now" name="savieApplicantBean.gender" value="pi-male-now" disabled="disabled">
                                                 <span class="pi-male-text">
                                                    <span class="text"><fmt:message key="eliteTerms.selectPlan.Male" bundle="${msg}" /></span>
@@ -926,7 +928,7 @@ var language = "${language}";
                            <h4 class="text-center"><fmt:message key="eliteTerms.selectPlan.You.can.add.up" bundle="${msg}" /></h4>
                         </div>
                            <div class="row clearfix">
-                              <form class="content" id="beneficiaryInfoForm[0]" method="post" action="" onsubmit="return false">
+                              <form class="content" id="beneficiaryInfoFormF" method="post" action="" onsubmit="return false">
                            
                               <div class="col-md-4 first-row">
                                  <div class="beneficiary-info-row">
@@ -1004,14 +1006,14 @@ var language = "${language}";
                                     <div class="beneficiary-info-row">
                                        <label for="savieBeneficiaryBean[0].gender"><fmt:message key="eliteTerms.selectPlan.Gender" bundle="${msg}" /></label>
                                        <div id="gender-0" class="clearfix radio-buttons">
-                                          <input type="radio" name="savieBeneficiaryBean[0].gender" value="male" id="male-0" checked>
+                                          <input type="radio" name="savieBeneficiaryBean[0].gender" value="M" id="male-0" checked>
                                           <label for="male-0" class="male-0" >
                                              <span class="hidden-lg hidden-md"><fmt:message key="eliteTerms.selectPlan.Male" bundle="${msg}" /></span>
                                              <span class="orange-hover hidden-xs hidden-sm pull-left"></span>
                                           </label>
                                           <span id="male-label-0" class="pull-left second-label"><fmt:message key="eliteTerms.selectPlan.Male" bundle="${msg}" /></span>
 
-                                          <input type="radio" name="savieBeneficiaryBean[0].gender" value="female" id="female-0">
+                                          <input type="radio" name="savieBeneficiaryBean[0].gender" value="F" id="female-0">
                                           <label for="female-0" class="female">
                                              <span class="hidden-lg hidden-md"><fmt:message key="eliteTerms.selectPlan.Female" bundle="${msg}" /></span>
                                              <span class="orange-hover hidden-xs hidden-sm pull-left"></span>

@@ -48,9 +48,9 @@ function getEliteTermPremium() {
 $('#et-signature-proceed-btn').on('click', function(e) {
 	var formdata =  $('#eliteTermsInsuredInfoForm').serialize()+"&"+
 			    $('#etEmploymentInfoForm').serialize()+"&"+
-			    $('#beneficiaryInfoForm[0]').serialize()+"&"+
-			    $('#beneficiaryInfoForm[1]').serialize()+"&"+
-			    $('#beneficiaryInfoForm[2]').serialize();
+			    $('#beneficiaryInfoFormF').serialize()+"&"+
+			    $('#beneficiaryInfoFormS').serialize()+"&"+
+			    $('#beneficiaryInfoFormT').serialize();
 	$.ajax({
         type: "POST",
         url:contextPath+'/ajax/eliteTerm/createEliteTermPolicy',
@@ -194,6 +194,7 @@ $('#et-cannot-apply-btn').on('click', function(e) {
 	}
 });
 $('input[name="et-gender"]').on('click', function(e) {
+	$('#savieApplicantBeanGender').val(this.value);
    if(this.value == "M"){
 	   $("#pi-male-now").attr("checked",true);
 	   $("#pi-female-now").attr("checked",false);
@@ -204,6 +205,9 @@ $('input[name="et-gender"]').on('click', function(e) {
 	   $("#pi-male-now").removeAttr("checked");
 	   $("#pi-female-now").attr("checked",true);
    }
+});
+$('input[name="et-smoker"]').on('click', function(e) {
+	$('#savieApplicantBeanSmoke').val(this.value);
 });
 // get resource bundle
 function getBundle(lang, key) {
