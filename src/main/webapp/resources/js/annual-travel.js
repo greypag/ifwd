@@ -42,7 +42,6 @@ $(function () {
 
 function validateAnnualTravel(form, formId,language){
 	var flag = true;
-	var contextPath = window.location.pathname.split("/")[1];
 	document.getElementById("startDateDeskIn").innerHTML = "";
 	document.getElementById("endDateDeskIn").innerHTML = "";
 	document.getElementById("travelCountDeskIn").style.display = "none";
@@ -881,10 +880,9 @@ function validateAnnualTravelDetails(form,formId,language){
     }else{
     	if(flag){
     		travelp_click = true;
-	        var contextPath = window.location.pathname.split("/")[1];
     		var result = false;
     		var formId = '#' + formId;
-    		var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceTravelSummary';
+    		var method = contextPath+'/ajax/annualTravel/prepareTravelInsuranceTravelSummary';
     		console.log($(formId).serialize());
     		$.ajax({
     			type : "POST",
@@ -893,7 +891,7 @@ function validateAnnualTravelDetails(form,formId,language){
     			async : false,
     			success : function(data) {
     				if (data == 'success') {
-    					form.action = '/'+contextPath+'/'+language+'/annual-travel-insurance/summary';
+    					form.action = contextPath+'/'+language+'/annual-travel-insurance/summary';
     					result = true;
     				} else {
     					console.log(data);
