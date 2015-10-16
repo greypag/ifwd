@@ -593,7 +593,7 @@
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                         <fmt:message key="faq.savie.group3.a29.part1" bundle="${msg}" /><br/>
-                                        <a href="<fmt:message key="faq.savie.group3.a29.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.savie.group3.a29.link" bundle="${msg}" /></u></a>
+                                        <a class='faq_answer_url' href="<fmt:message key="faq.savie.group3.a29.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.savie.group3.a29.link" bundle="${msg}" /></u></a>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>

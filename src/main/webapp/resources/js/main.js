@@ -367,30 +367,42 @@ $('.faq_content').click(function(e){
 	}
 });
 
+
+var faq_url_click = false;
+$(".faq_answer_url").click(function () {
+	faq_url_click = true;
+});
+
+
 var chk_qna = 0;
 $('.faq_qna').click(function(e){
-	e.preventDefault();
-	if(chk_qna == 0){
-		$panel=$(this);
-		
-		chk_qna = 1;
-		var $target = $(this).children('.faq_answer_container');
-		
-		$(this).children().children('.faq_question_arrow').children('.faq_qna_mini').children('i').toggleClass('fa-minus');
-		
-		var $question = $(this).parent().prev('.faq_question');
-		
-		$question.toggleClass("active");
-		
-		$target.slideToggle(function(){
-			chk_qna = 0;
+	if (faq_url_click != true) {
+		e.preventDefault();
+		if(chk_qna == 0){
+			$panel=$(this);
 			
-			$('html, body').animate({
-				scrollTop: $panel.offset().top
-			}, 500);
-		});
+			chk_qna = 1;
+			var $target = $(this).children('.faq_answer_container');
+	
+			$(this).children().children('.faq_question_arrow').children('.faq_qna_mini').children('i').toggleClass('fa-minus');
+			
+			var $question = $(this).parent().prev('.faq_question');
+			
+			$question.toggleClass("active");
+			
+			$target.slideToggle(function(){
+				chk_qna = 0;
+				
+				$('html, body').animate({
+					scrollTop: $panel.offset().top
+				}, 500);
+			});
+		}
 	}
+	faq_url_click = false;
 });
+
+
 
 function faqChangeCare(element, care){
 	$(".faq_menu_item").removeClass('active');
@@ -409,4 +421,8 @@ function faqMainMenuMob(care){
 	$("#faq_"+care+"_mob").hide();
 	$("#faq_main_menu_mob").show();
 }
+
+
+
+
 
