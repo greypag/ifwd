@@ -94,36 +94,6 @@ $('#et-signature-proceed-btn').on('click', function(e) {
     });
 });
 
-$('#et-payment-complete-btn').on('click', function(e) {
-	var creditCaredNo = $('#card-num').val();
-	var expiryDate = "0319"//$('#month').val()+$('#year').val();
-	var cardHolderName = $('#card-name').val(); 
-	var policyNo = "1410781";
-	
-	if(creditCaredNo ==null || expiryDate ==null || cardHolderName ==null || policyNo ==null){
-		console.log("data error");
-	}
-	else{
-		$.get(contextPath+'/ajax/eliteTerm/finalizeEliteTermPolicy',
-		{ 
-			creditCaredNo : creditCaredNo,
-			expiryDate: expiryDate,
-			cardHolderName: cardHolderName,
-			policyNo: policyNo
-		},
-		function(data) {
-			if(data.errMsgs == null){
-				window.location.href= contextPath+'/'+language+'/elite-term/'+paymentNextPageFlow;
-			}
-			else{
-				console.log("data error");
-			}
-		})
-		.fail(function(data) {
-		});
-	}
-});
-
 $('#et-upload-doc-submit-btn').on('click', function(e) {
 	window.location.href= contextPath+'/'+language+'/elite-term/'+documentUploadNextPageFlow;
 });

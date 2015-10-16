@@ -124,6 +124,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			parameters.put("insuredAmount", 100000);
 			logger.info(parameters.toString());
 			apiReturn = connector.createEliteTermPolicy(parameters, header);
+			request.getSession().setAttribute("eliteTermPolicy", apiReturn);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl createEliteTermPolicy occurs an exception!");
 			logger.info(e.getMessage());

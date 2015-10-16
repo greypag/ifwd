@@ -85,7 +85,7 @@ var language = "${language}";
 							</p>
 						</div>	
 						<div class="page-content clearfix">
-							<form>
+							<form name="paymentForm" id="paymentForm" method="post">
 								<h2 class="hidden-xs hidden-sm"><fmt:message key="eliteTerms.payment.Payment.details" bundle="${msg}" /></h2>
 								<div class="card-inputs clearfix">
 									<div class="page-content-item">
@@ -99,6 +99,7 @@ var language = "${language}";
 									<div class="page-content-item">
 										<label for="card-num"><fmt:message key="eliteTerms.payment.Credit.card.number" bundle="${msg}" /></label>
 										<input type="text" class="form-control gray-textbox desktop-half" placeholder="Credit card number" id="card-num" autocomplete="off" data-mask="9999 9999 9999 9999" name="card-num">
+									    <input type="hidden" id="gateway" name="gateway" value="${eliteTermPolicy.paymentGateway}"/>
 									</div>
 									<div class="page-content-item">
 										<label for="card-num"><fmt:message key="eliteTerms.payment.Expiry.date" bundle="${msg}" /></label>
@@ -106,15 +107,15 @@ var language = "${language}";
 											<div class="selectDiv month">
 												<select name="month" id="month" class="form-control gray-dropdown">
 													<option value="0"><fmt:message key="home.summary.pmtdetail.desc3.month" bundle="${msg}" /></option>
-			                                        <option value="1">01</option>
-			                                        <option value="2">02</option>
-			                                        <option value="3">03</option>
-			                                        <option value="4">04</option>
-			                                        <option value="5">05</option>
-			                                        <option value="6">06</option>
-			                                        <option value="7">07</option>
-			                                        <option value="8">08</option>
-			                                        <option value="9">09</option>
+			                                        <option value="01">01</option>
+			                                        <option value="02">02</option>
+			                                        <option value="03">03</option>
+			                                        <option value="04">04</option>
+			                                        <option value="05">05</option>
+			                                        <option value="06">06</option>
+			                                        <option value="07">07</option>
+			                                        <option value="08">08</option>
+			                                        <option value="09">09</option>
 			                                        <option value="10">10</option>
 			                                        <option value="11">11</option>
 			                                        <option value="12">12</option>
@@ -187,7 +188,7 @@ var language = "${language}";
 						</div>
 
 						<div class="text-center complete-holder hidden-sm hidden-xs">
-							<button type="button" class="btn next " id="et-payment-complete-btn"><fmt:message key="eliteTerms.payment.Complete" bundle="${msg}" /></button>
+							<button type="button" class="btn next " id="et-payment-complete-btn" onclick="confirmHomeCarePayment();"><fmt:message key="eliteTerms.payment.Complete" bundle="${msg}" /></button>
 						</div>				
 					</div>
 				</div>
@@ -195,6 +196,11 @@ var language = "${language}";
 			
 			<!-- FOOTER -->
 			
+		</div>
+		<div id="PaymentingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
+		    <img
+		        style="width: 300px; height: 300px;"
+		        src="<%=request.getContextPath()%>/resources/images/ajax-loader2.gif">
 		</div>
 		<!-- JS INCLUDES -->
 		
@@ -216,3 +222,87 @@ var language = "${language}";
             }
          });
       </script>
+      
+      <script>
+	  var pay = false;
+ 	  var enablePayment=true;
+      var clicked = false;
+ 	  function confirmHomeCarePayment() {
+ 		 var creditCaredNo = $('#card-num').val();
+ 		 var expiryDate = $('#month').val()+$('#year').val().substr(2, 2);
+ 		 var cardHolderName = $('#card-name').val(); 
+ 		 var policyNo = "${eliteTermPolicy.policyNo}";
+ 		  if(enablePayment){
+              enablePayment=false;
+              $("#PaymentingDiv").show();
+	 		  if (payFormValid() && clicked === false) {
+		 		  clicked = true;
+		 		  console.log($("#paymentForm").serialize());
+		 		  $.ajax({
+		 			  type : "POST",
+		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/finalizeEliteTermPolicy",
+		 			  data : {creditCaredNo : creditCaredNo,
+		 					  expiryDate: expiryDate,
+		 					  cardHolderName: cardHolderName,
+		 					  policyNo: policyNo},
+		 			  async : false,
+		 			  success : function(data) {
+			 			  clicked = false;
+						  if (data.errMsgs == null) {
+						   	  setTimeout(function(){
+						   		  console.log($("#gateway").val());
+			                      $("#paymentForm").attr('action', $("#gateway").val());
+			                      $("#paymentForm").submit();
+		                      }, 3000);
+		                  } 
+						  else {
+		                      console.log(data);
+		                      $("#PaymentingDiv").hide();
+		                      enablePayment=true;
+		                      $('#paymentErrorPopup').modal('show');
+		                      return false;
+		                  }
+		 			  }
+		 			  
+	 		      });
+	 			  return true;
+	 		  }else{
+	              $("#PaymentingDiv").hide();
+	              enablePayment=true;
+	              return false;
+	          }
+ 		  }
+ 	  }
+ 	  
+ 	 function payFormValid(){
+ 		var flag=true;
+ 		var cardNum = $('#card-num').val();
+ 		var month = $('#month').val();
+ 		var year = $('#year').val();
+		var cardName = $('#card-name').val(); 
+ 		if(cardNum.length<16){
+ 			flag=false;
+ 		}
+ 		if(!isCreditCard(cardNum.replace(/\s+/g,""))){
+ 			flag=false;
+ 		}
+ 		if(month=="" || month== 0){
+ 			flag=false;
+ 		}
+ 		if(year=="" || year == 0){
+ 			flag=false;
+ 		}
+ 		if(cardName.trim()==""){
+ 			flag=false;
+ 		}
+ 		if ($("#personal-information-statement").checked == false){
+ 			flag = false;
+ 		}
+ 		console.log(flag);
+ 		return flag;
+ 	}
+ 	  
+	function BackMe() {
+		window.history.back();
+	}
+</script>
