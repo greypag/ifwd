@@ -1327,7 +1327,7 @@ function getResidentialFinalValue() {
 	var firstValue = document.getElementById("residential-first").value;
 	var secondValue = document.getElementById("residential-second").value;
 	//var thirdValue = document.getElementById("residential-third").value;
-	document.getElementById("savieApplicantBean.residentialTelNo").value = firstValue + secondValue; //+ thirdValue;
+	//document.getElementById("savieApplicantBean.residentialTelNo").value = firstValue + secondValue; //+ thirdValue;
 }   
 
 // Getting the Final Mobile No Value

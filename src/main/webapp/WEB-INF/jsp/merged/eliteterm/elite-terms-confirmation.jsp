@@ -83,7 +83,7 @@ var language = "${language}";
                   </div>
 							
                   <div class="detail">
-                     <h3 class="policy"><fmt:message key="eliteTerms.confirmation.Policy.Number" bundle="${msg}" /><span class="policy-number" id="policy-number">093KG35JH</span></h3>								
+                     <h3 class="policy"><fmt:message key="eliteTerms.confirmation.Policy.Number" bundle="${msg}" /><span class="policy-number" id="policy-number">${eliteTermPolicy.policyNo }</span></h3>								
                   </div>
 					</div>
 					
