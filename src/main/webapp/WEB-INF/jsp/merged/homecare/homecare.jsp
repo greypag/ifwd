@@ -349,7 +349,7 @@ $(document).ready(function() {
 		                      <div style="margin-top:10px;">
 		                          <fmt:message key="home.main.feature3.paragraph.part1" bundle="${msg}" />
 		                      </div>
-		                      <div style="margin-top:15px; font-size:13px; color:#f68a1d;">
+		                      <div style="margin-top:15px; font-size:14px; color:#f68a1d;">
 				                  <fmt:message key="home.main.feature3.paragraph.part2" bundle="${msg}" />
 				              </div>
 		                  </div>
@@ -374,7 +374,7 @@ $(document).ready(function() {
 				    	<p class="h4-5"><fmt:message key="home.main.other.benefit.desc3.part1" bundle="${msg}" /> <a href="<fmt:message key="boconcept.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc3.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc3.part3" bundle="${msg}" /></p>
 				    </li>
 				    <li>
-				        <p class="h4-5"><fmt:message key="home.main.other.benefit.desc4.part1" bundle="${msg}" /> <a href="https://www.theclub.com.hk/eng/" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part3" bundle="${msg}" /></p>  
+                        <p class="h4-5"><fmt:message key="home.main.other.benefit.desc4.part1" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part3" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part4" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part5" bundle="${msg}" /></p> 
 				    </li>                    
                     
 				  </ul>
@@ -447,7 +447,8 @@ For a complete explanation of the terms and conditions, feel free to contact an 
                           <div class="slide-margin">
                             <div class="other-benefits-wrap text-center">
                               <div class="other-benefits-inner">
-                                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc4.part1" bundle="${msg}" /> <a href="https://www.theclub.com.hk/eng/" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part3" bundle="${msg}" /></p>
+                                <p class="h4-5"><fmt:message key="home.main.other.benefit.desc4.part1" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part3" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part4" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part5" bundle="${msg}" /></p>
+
                               </div>
                             </div>
                           </div>

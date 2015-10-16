@@ -1842,19 +1842,17 @@ public class TravelController {
 			
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
 			String dueAmount = (String)session.getAttribute("dueAmount");
+			
 			if("0.00".equals(dueAmount) && creditCardNo == null) {
-				creditCardNo = "5422882800700007";
-				parameters.put("expiryDate", "072020");
+				creditCardNo = "0000000000000000";
+				parameters.put("expiryDate", "122030");
 			} else {
+				creditCardNo = Methods.decryptStr((String)session.getAttribute("creditCardNo")); 
 				parameters.put("expiryDate", session.getAttribute("expiryDate"));
 			}
 			
 			if (creditCardNo !=null) {
-				if("0.00".equals(dueAmount) && "5422882800700007".equals(creditCardNo)) {
-					parameters.put("creditCardNo", "5422882800700007");
-				}else {
-					parameters.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
-				}
+				parameters.put("creditCardNo", creditCardNo); 
 			} else {
 				
 				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));

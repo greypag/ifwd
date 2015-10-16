@@ -1287,7 +1287,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <p><a href="https://www.theclub.com.hk/register" target="_blank"><fmt:message key="club.membership.join" bundle="${msg}" /></a></p>             
+                            <p><a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" target="_blank"><fmt:message key="club.membership.join" bundle="${msg}" /></a></p>             
                         </div>
                     </div>
                 </div>

@@ -105,7 +105,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 	          <div style="margin-top:10px;">
                    <fmt:message key="workingholiday.main.feature1.paragraph1" bundle="${msg}" />
               </div>
-              <div style="margin-top:15px; font-size:13px; color:#f68a1d;">
+              <div style="margin-top:15px; font-size:14px; color:#f68a1d;">
                     <fmt:message key="workingholiday.main.feature1.paragraph2" bundle="${msg}" />
               </div>
               </div>
