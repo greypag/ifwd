@@ -71,9 +71,31 @@
 	    $('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 	    
 	    setTimeout(function(){
-    		$("#frmFlightPlan").submit();
+	    	if(chkClubMember()){
+	            $("#frmFlightPlan").submit();
+	        }else{
+	            $('#loading-overlay').modal('hide');
+	        }	    	
 	    }, 500);
 	}
+
+  function chkClubMember() {
+	    $(".errDue").html('');
+	    var flag = true;        
+	    var the_club_member_check_box = document.getElementById("the-club-member-toggle").checked;
+	    var the_club_membership_no = document.getElementById("theClubMembershipNo").value; 
+	    if (the_club_member_check_box) {
+	        if (the_club_membership_no == "<fmt:message key="club.membership.number" bundle="${msg}" />" || the_club_membership_no == "" || /^\s*$/.test(the_club_membership_no)) {
+	            $(".errDue").html("<fmt:message key="club.member.empty" bundle="${msg}" />") ;
+	            document.getElementById("theClubMembershipNo").focus();
+	            $("#theClubMembershipNo").addClass("invalid-field");
+	            
+	            flag = false;
+	        }
+	    }
+	    return flag;
+	}  
+  
   
   function updateFlightQuote() {
 	  if(updateQuoteFlag){
@@ -520,7 +542,8 @@
 	                                
 	                            </div>
 	                            <div class="clearfix"></div>
-	                            <br> <span class="text-red" id="errDue"></span> <br>
+	                            <div class="col-xs-14"><span class="text-red errDue"></span></div>
+	                            <br>  <br>
 	                        </div>
 	                    </div>
 

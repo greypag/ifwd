@@ -69,17 +69,41 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 		
 		setTimeout(function(){
-			if(chkDueAmount($("#frmTravelPlan"),"frmTravelPlan")){
+			if(chkDueAmount($("#frmTravelPlan"),"frmTravelPlan")  && chkClubMember()){
 				$("#frmTravelPlan").submit();
 			}else{
 				$('#loading-overlay').modal('hide');
 			}
 		}, 500);
 	}
+
+	
+    function chkClubMember() {
+        $(".errDue").html('');
+        var flag = true;        
+        var the_club_member_check_box = document.getElementById("the-club-member-toggle").checked;
+        var the_club_membership_no = document.getElementById("theClubMembershipNo").value; 
+        if (the_club_member_check_box) {
+            if (the_club_membership_no == "<fmt:message key="club.membership.number" bundle="${msg}" />" || the_club_membership_no == "" || /^\s*$/.test(the_club_membership_no)) {
+                $(".errDue").html("<fmt:message key="club.member.empty" bundle="${msg}" />") ;
+                document.getElementById("theClubMembershipNo").focus();
+                $("#theClubMembershipNo").addClass("invalid-field");
+                
+                flag = false;
+            }
+        }
+        return flag;
+    }	
+	
+	
+	
 	
 	function chkDueAmount(form,formId) {	
 		$(".errDue").html('');
 		var flag = false;
+		
+		
+
 		var amount = document.getElementById("amountdue").innerHTML;
 
 		if (amount == "0") {
@@ -1198,7 +1222,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 	                            
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-xs-12"><span class="text-red errDue"></span></div>
+                            <div class="col-xs-14"><span class="text-red errDue"></span></div>
                             <br>
                             <div class="clearfix"></div>
                             <span id="divPersonsDesk"></span>
