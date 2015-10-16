@@ -100,7 +100,7 @@ function validateAnnualTravel(form, formId,language){
 	}
 	var result = false;
 	var formId = '#' + formId;
-	var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceQuote';
+	var method = contextPath+'/ajax/annualTravel/prepareTravelInsuranceQuote';
 	console.log($(formId).serialize());
 	$.ajax({
 		type : "POST",
@@ -109,7 +109,7 @@ function validateAnnualTravel(form, formId,language){
 		async : false,
 		success : function(data) {
 			if (data == 'success') {
-				form.action = '/'+contextPath+'/'+language+'/annual-travel-insurance/quote';
+				form.action = contextPath+'/'+language+'/annual-travel-insurance/quote';
 				result = true;
 			} else {
 				console.log(data);
