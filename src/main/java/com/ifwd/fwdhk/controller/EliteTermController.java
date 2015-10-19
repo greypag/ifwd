@@ -2,8 +2,10 @@ package com.ifwd.fwdhk.controller;
 
 import java.util.Map;
 import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -84,6 +86,10 @@ public class EliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/elite-term/document-upload"})
 	public ModelAndView getDocumentUpload(Model model, HttpServletRequest request) {
+		String policyNumber = (String) request.getParameter("policyNumber");
+		if(StringUtils.isNotEmpty(policyNumber)){
+			request.getSession().setAttribute("policyNumber", policyNumber);
+		}
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_DOCUMENT_UPLOAD);
 	}
 	

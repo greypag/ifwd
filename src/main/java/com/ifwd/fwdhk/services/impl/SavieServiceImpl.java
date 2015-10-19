@@ -26,6 +26,7 @@ import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -1321,21 +1322,55 @@ public class SavieServiceImpl implements SavieService {
 		String uploadDir = request.getRealPath("/")+"upload"+"/"+"123456/";
 		File file = new File(uploadDir);
 		if("true".equals(uploadLaterFlage)){
-//			final Map<String,String> header = headerUtil.getHeader(request);
-//			header.put("language", "ZH");
-//			String subject = "Savie Appointment Acknowledgement email from FWD";
-//			String attachment = "";
-//			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
-//			boolean isHTML = true;
-//			
-//			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
-//			parameters.put("to", "");
-//			parameters.put("message", "");
-//			parameters.put("subject", subject);
-//			parameters.put("attachment", attachment);
-//			parameters.put("from", from);
-//			parameters.put("isHtml", isHTML);
-//			connector.sendEmail(parameters,header);
+			String url = "http://" + request.getServerName() //服务器地址  
+                    + ":"   
+                    + request.getServerPort()           //端口号  
+                    + request.getContextPath();      //项目名称 
+			String language = (String) request.getSession().getAttribute("language");
+			String policyNumber = (String) request.getSession().getAttribute("policyNumber");
+			if(StringUtils.isEmpty(language)){
+				language = "tc";
+			}
+			url = url + "/"+language+"/elite-term/document-upload?policyNumber=";
+			final Map<String,String> header = headerUtil.getHeader(request);
+			header.put("language", "ZH");
+			String subject = "FWD Elite Term – Pending["+policyNumber+"]";
+			String attachment = "";
+			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
+			boolean isHTML = true;
+			String  message = "<div> Dear [Customer Name],<br />"+
+							 "Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your first 2 months premium payment has been accepted. <br />"+
+							 " 多謝閣下經網上購買富衛智理想定期保障計劃系列 。您的首2個月保費款項已被接納。<br />"+
+							 " <br />"+
+							 " Your policy has not been officially in force, you will need upload your [ID card copy], [passport copy] and [address proof] through the following link, in order to complete your application process. <br />"+
+							 " 您的保單尚未正式生效，您需要通過以下的連結上載您的[身份證副本]，[護照複印件]和[住址證明]，以完成整個申請投保程序。<br />"+
+							 " "+url+"<br />"+
+							 " For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com.<br />"+
+							  "如有任何查詢，請致電富衛客戶服務熱線(852) 3123 3123或電郵至cs.hk@fwd.com。<br />"+
+							  "<br />"+
+							  "We wish you a happy life!<br />"+
+							  "祝閣下生活愉快！<br />"+
+							 "<br />"+
+							 " Regards,<br />"+
+							 " FWD General Insurance Company Limited<br />"+
+							 " 富衛保險有限公司 <br />"+
+							 " 謹啟<br />"+
+							 " www.fwd.com.hk<br />"+
+							  "<br />"+
+							"  Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail. <br />"+
+							 " 備註：中英文本如有歧異，概以英文本為準。<br />"+
+							 " <br />"+
+							 " This is an automatically generated email, please do not reply.<br />"+
+							 " 此乃電腦發出之電子郵件，請不要回覆<br />"+
+							"</div>";
+			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+			parameters.put("to", "Xiangyan_Chen@vandagroup.com");
+			parameters.put("message", message);
+			parameters.put("subject", subject);
+			parameters.put("attachment", attachment);
+			parameters.put("from", from);
+			parameters.put("isHtml", isHTML);
+			connector.sendEmail(parameters,header);
 			if (file.exists()) {   
 				file.delete();  
 	        }
