@@ -312,7 +312,7 @@
   <!--/.container--> 
 </section>
 <!--/#services-->
-<section class="blog-item">
+<section class="blog-item hidden-sm hidden-xs">
   <div class="container">
      <p><fmt:message key="index.blog.disclaimer" bundle="${msg}" /></p>
      
