@@ -126,7 +126,8 @@ $('#et-payment-complete-btn').on('click', function(e) {
 
 $('#et-upload-doc-submit-btn').on('click', function(e) {
 	var uploadNow = $("input[name='upload-doc']:checked").val();
-	var url = contextPath+'/'+language+'/elite-term/'+documentUploadNextPageFlow;
+	var passportFlage = true;
+	var uploadLaterFlage = false;
 	if(uploadNow == 'upload-now'){
 		var display = $('.passport-holder').css("display");
 		var hkidflage = $('#hkid-copy-progress').css("display");
@@ -138,16 +139,30 @@ $('#et-upload-doc-submit-btn').on('click', function(e) {
 		if(display != 'none' && passportflage == 'none'){
 			return false;
 		}else if(display != 'none'){
-			url = url + "?passportFlage=true";
+			passportFlage = true;
 		}else{
-			url = url + "?passportFlage=false";
+			passportFlage = false;
 		}
-		url = url + "&uploadNowFlage=false";
 	}else{
-		url = url + "?uploadNowFlage=true";
+		uploadLaterFlage = true;
 	}
-	window.location.href= url;
+	sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage);
 });
+
+
+function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
+	$.ajax({
+		        type: "POST",
+		        url:contextPath+'/ajax/eliteTerm/getEliteTermSendImageFlage',
+		        data: {
+					"passportFlage":passportFlage,
+					"uploadLaterFlage":uploadLaterFlage
+				},
+		        success:function(data){
+					window.location.href= contextPath+'/'+language+'/elite-term/'+documentUploadNextPageFlow;
+				}
+		});
+}
 
 $('#et-confirmation-submit').on('click', function(e) {
 	var policyNo = $('#policy-number').html();

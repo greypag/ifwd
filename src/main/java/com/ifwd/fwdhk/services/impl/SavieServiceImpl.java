@@ -1314,11 +1314,13 @@ public class SavieServiceImpl implements SavieService {
 	}
 	
 
-	@SuppressWarnings({ "deprecation", "unused", "restriction", "unchecked" })
+	@SuppressWarnings("unchecked")
 	public void uploadEliteTermDocuments(HttpServletRequest request)throws ECOMMAPIException{
+		String uploadLaterFlage = (String) request.getSession().getAttribute("uploadLaterFlage");
+		String passportFlage = (String) request.getSession().getAttribute("passportFlage");
 		String uploadDir = request.getRealPath("/")+"upload"+"/"+"123456/";
 		File file = new File(uploadDir);
-		if("true".equals(request.getParameter("uploadNowFlage"))){
+		if("true".equals(uploadLaterFlage)){
 //			final Map<String,String> header = headerUtil.getHeader(request);
 //			header.put("language", "ZH");
 //			String subject = "Savie Appointment Acknowledgement email from FWD";
@@ -1349,7 +1351,7 @@ public class SavieServiceImpl implements SavieService {
 		parameters.put("clientBrowserInfo", clientBrowserInfo);
 		parameters.put("policyNo", "123456");
 		try {
-			String fileToUpload = (String) request.getSession().getAttribute("fileToUpload");
+			String fileToUpload = (String) request.getSession().getAttribute("fileToUploadProofAdd");
 			String hkidFileToUpload = (String) request.getSession().getAttribute("hkidFileToUpload");
 			File hkidFileToUploadImage = new File(uploadDir+hkidFileToUpload);
 			File fileToUploadImage = new File(uploadDir+fileToUpload);
@@ -1360,13 +1362,12 @@ public class SavieServiceImpl implements SavieService {
 			is.close();  
 
 			String fileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
-			parameters.put("fileType", (String) request.getSession().getAttribute("fileToUploadType"));
+			parameters.put("fileType", (String) request.getSession().getAttribute("fileToUploadProofAddType"));
 			parameters.put("documentType", "proof");
 			parameters.put("originalFilePath", "C:\\"+fileToUpload);
 			parameters.put("base64", fileToUploadImageBase64);
 			br = connector.uploadDocuments(parameters, header);
-			
-			if("true".equals(request.getParameter("passportFlage"))){
+			if("true".equals(passportFlage)){
 				String passportFileToUpload = (String) request.getSession().getAttribute("passportFileToUpload");
 				File passportFileToUploadImage = new File(uploadDir+passportFileToUpload);
 				is = new FileInputStream(passportFileToUploadImage);
