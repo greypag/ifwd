@@ -1269,8 +1269,7 @@ public class SavieServiceImpl implements SavieService {
 			is.close();
 			files.delete();
 			String signatureWidth = InitApplicationMessage.signatureWidth;
-			String signatureHeight = InitApplicationMessage.signatureHeight
-;
+			String signatureHeight = InitApplicationMessage.signatureHeight;
 
 			if(width > Integer.valueOf(signatureWidth) || height > Integer.valueOf(signatureHeight)){
 				return false;
@@ -1317,6 +1316,29 @@ public class SavieServiceImpl implements SavieService {
 
 	@SuppressWarnings({ "deprecation", "unused", "restriction", "unchecked" })
 	public void uploadEliteTermDocuments(HttpServletRequest request)throws ECOMMAPIException{
+		String uploadDir = request.getRealPath("/")+"upload"+"/"+"123456/";
+		File file = new File(uploadDir);
+		if("true".equals(request.getParameter("uploadNowFlage"))){
+//			final Map<String,String> header = headerUtil.getHeader(request);
+//			header.put("language", "ZH");
+//			String subject = "Savie Appointment Acknowledgement email from FWD";
+//			String attachment = "";
+//			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
+//			boolean isHTML = true;
+//			
+//			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+//			parameters.put("to", "");
+//			parameters.put("message", "");
+//			parameters.put("subject", subject);
+//			parameters.put("attachment", attachment);
+//			parameters.put("from", from);
+//			parameters.put("isHtml", isHTML);
+//			connector.sendEmail(parameters,header);
+			if (file.exists()) {   
+				file.delete();  
+	        }
+			return;
+		}
 		FileInputStream is = null;
 		BaseResponse br = null;
 		byte data[];
@@ -1328,10 +1350,9 @@ public class SavieServiceImpl implements SavieService {
 		parameters.put("policyNo", "123456");
 		try {
 			String fileToUpload = (String) request.getSession().getAttribute("fileToUpload");
-			String passportFileToUpload = (String) request.getSession().getAttribute("passportFileToUpload");
-			String uploadDir = request.getRealPath("/")+"upload"+"/"+"123456/";
+			String hkidFileToUpload = (String) request.getSession().getAttribute("hkidFileToUpload");
+			File hkidFileToUploadImage = new File(uploadDir+hkidFileToUpload);
 			File fileToUploadImage = new File(uploadDir+fileToUpload);
-			File passportFileToUploadImage = new File(uploadDir+passportFileToUpload);
 			is = new FileInputStream(fileToUploadImage);
 			i = is.available(); // 得到文件大小  
 			data = new byte[i];  
@@ -1340,39 +1361,40 @@ public class SavieServiceImpl implements SavieService {
 
 			String fileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
 			parameters.put("fileType", (String) request.getSession().getAttribute("fileToUploadType"));
-			parameters.put("documentType", "Proof");
+			parameters.put("documentType", "proof");
 			parameters.put("originalFilePath", "C:\\"+fileToUpload);
 			parameters.put("base64", fileToUploadImageBase64);
 			br = connector.uploadDocuments(parameters, header);
 			
-//			if("true".equals(request.getParameter("passportflage"))){
-				String hkidFileToUpload = (String) request.getSession().getAttribute("hkidFileToUpload");
-				File hkidFileToUploadImage = new File(uploadDir+hkidFileToUpload);
-				is = new FileInputStream(hkidFileToUploadImage);
+			if("true".equals(request.getParameter("passportFlage"))){
+				String passportFileToUpload = (String) request.getSession().getAttribute("passportFileToUpload");
+				File passportFileToUploadImage = new File(uploadDir+passportFileToUpload);
+				is = new FileInputStream(passportFileToUploadImage);
 				i = is.available(); // 得到文件大小  
 				data = new byte[i];  
 				is.read(data); // 读数据  
 				is.close();  
-				String hkidFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
-				parameters.put("fileType", (String) request.getSession().getAttribute("clientBrowserInfoType"));
-				parameters.put("documentType", "hkid");
-				parameters.put("originalFilePath", "C:\\"+hkidFileToUpload);
-				parameters.put("base64", hkidFileToUploadImageBase64);
+				String passportFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
+				parameters.put("fileType", (String) request.getSession().getAttribute("passportFileToUploadType"));
+				parameters.put("documentType", "passport");
+				parameters.put("originalFilePath", "C:\\"+passportFileToUpload);
+				parameters.put("base64", passportFileToUploadImage);
 				br = connector.uploadDocuments(parameters, header);
-//			}
+			}
 			
-			is = new FileInputStream(passportFileToUploadImage);
+			is = new FileInputStream(hkidFileToUploadImage);
 			i = is.available(); // 得到文件大小  
 			data = new byte[i];  
 			is.read(data); // 读数据  
 			is.close();  
-			String passportFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
-			parameters.put("fileType", (String) request.getSession().getAttribute("clientBrowserInfoType"));
-			parameters.put("documentType", "passport");
-			parameters.put("originalFilePath", "C:\\"+passportFileToUpload);
-			parameters.put("base64", passportFileToUploadImageBase64);
+			String hkidFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
+			parameters.put("fileType", (String) request.getSession().getAttribute("hkidFileToUploadType"));
+			parameters.put("documentType", "hkid");
+			parameters.put("originalFilePath", "C:\\"+hkidFileToUpload);
+			parameters.put("base64", hkidFileToUploadImageBase64);
 			br = connector.uploadDocuments(parameters, header);
 			
+			file.delete();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
