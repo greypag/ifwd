@@ -4086,11 +4086,6 @@ del {
 	padding: 6px 7px !important;
 }
 
-@media ( min-width : 991px) {
-    .gray-bg-flight {
-    background-color: #f5f5f5;
-    }
-}
 .gray-bg {
 	background-color: #f5f5f5;
 }
@@ -8104,7 +8099,7 @@ tr.product-landing-error-wrap {
 		right: 10%;
 	}
 	#promo-wrap {
-		margin-bottom: 50px;
+		margin-bottom: 0px;
 	}
 	.workingholiday-plan-margin {
 		width: 80%;

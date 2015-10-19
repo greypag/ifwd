@@ -982,8 +982,9 @@ function checkPromoCodePlaceholder(){
 												height="12" /> <fmt:message key="club.membership.confirm"
 													bundle="${msg}" /></a></label>
 									</div>
+									
 									<div class="form-group"
-										style="margin-top: 20px; margin-bottom: 0; display: none;">
+										style="margin-top: 0px; margin-bottom: 20px; display: none;">
 										<div class="input-group" style="display: inital; width: 100%;">
 											<input type="text" id="theClubMembershipNo"
 												name="theClubMembershipNo"

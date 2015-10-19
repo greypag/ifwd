@@ -283,7 +283,7 @@
                         <br>
                         </div>
 					</div>
-					<div class="col-lg-4 col-md-4 gray-bg-flight col-sm-12 col-xs-12 pad-none">
+					<div class="col-lg-4 col-md-4 gray-bg col-sm-12 col-xs-12 pad-none">
 					   <div class="hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left" style="width:150px;">
@@ -512,6 +512,7 @@
 						</div>
 						<div class="col-xs-12 pad-none">
                           <div style="width: 80%;margin-left: 10%;">
+                            <br>
                             <div class="checkbox" style="margin-top: 0; margin-bottom: 20px; font-size: 14px;">
                               <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" /> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" /> <fmt:message key="club.membership.confirm" bundle="${msg}" /></a></label>
                             </div>
