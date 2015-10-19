@@ -55,6 +55,20 @@ public class AjaxEliteTermController extends BaseController{
 			}
 	}
 	
+	@RequestMapping(value = {"/ajax/eliteTerm/getEliteTermSendImageFlage"},method = RequestMethod.POST)
+	  public void getEliteTermSendImageFlage(HttpServletRequest request, HttpServletResponse response,
+	            @RequestParam String passportFlage,
+	            @RequestParam String uploadLaterFlage
+	            ) throws Exception {
+			try {
+				request.getSession().setAttribute("passportFlage", passportFlage);
+				request.getSession().setAttribute("uploadLaterFlage", uploadLaterFlage);
+			} catch (Exception e) {
+				logger.info(e.getMessage());
+				e.printStackTrace();
+			}
+	}
+	
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/getEliteTermPremium"})
 	public void getEliteTermPremium(HttpServletRequest request,HttpServletResponse response) {
