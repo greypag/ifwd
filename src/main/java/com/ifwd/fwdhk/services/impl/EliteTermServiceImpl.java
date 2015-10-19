@@ -1,5 +1,8 @@
 package com.ifwd.fwdhk.services.impl;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,12 +20,15 @@ import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.GetEliteTermPremiumResponse;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.services.EliteTermService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
+import com.ifwd.fwdhk.util.InitApplicationMessage;
 @Service
 public class EliteTermServiceImpl implements EliteTermService {
 	private final static Logger logger = LoggerFactory.getLogger(EliteTermServiceImpl.class);
@@ -70,6 +76,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			applicant.put("mobileNoCountryCode", request.getParameter("savieApplicantBean[0].mobileNo"));
 			applicant.put("mobileNo", request.getParameter("savieApplicantBean[1].mobileNo"));
 			applicant.put("email", request.getParameter("savieApplicantBean.emailAddress"));
+			request.getSession().setAttribute("eliteTermEmail", request.getParameter("savieApplicantBean.emailAddress"));
 			JSONObject residentialAddress = new JSONObject();
 			residentialAddress.put("line1", request.getParameter("savieApplicantBean.residentialAdress1"));
 			residentialAddress.put("line2", request.getParameter("savieApplicantBean.residentialAdress2"));
@@ -109,7 +116,8 @@ public class EliteTermServiceImpl implements EliteTermService {
 			beneficiarie1.put("hkId", request.getParameter("savieBeneficiaryBean[0].hkId"));
 			beneficiarie1.put("passport", request.getParameter("savieBeneficiaryBean[0].passportNo"));
 			beneficiarie1.put("gender", request.getParameter("savieBeneficiaryBean[0].gender"));
-			beneficiarie1.put("relationship", request.getParameter("savieBeneficiaryBean[0].relationship").split("-")[0]);
+			//request.getParameter("savieBeneficiaryBean[0].relationship").split("-")[0]
+			beneficiarie1.put("relationship", "ss");
 			beneficiarie1.put("entitlement", request.getParameter("savieBeneficiaryBean[0].entitlement"));
 			beneficiaries.add(beneficiarie1);
 			parameters.put("beneficiaries", beneficiaries);
@@ -261,6 +269,56 @@ public class EliteTermServiceImpl implements EliteTermService {
 			br = connector.uploadDocument(parameters, header);
 		} catch (ECOMMAPIException e) {
 			logger.info("EliteTermServiceImpl uploadDocuments occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		return br;
+	}
+	
+	@Override
+	public BaseResponse sendEliteTermMail(HttpServletRequest request)throws ECOMMAPIException{
+		BaseResponse br = null;
+		try {
+			String applicationNumber = (String) request.getSession().getAttribute("applicationNumber");
+			String perferred_Date = (String) request.getParameter("perferredDate");
+			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+			Date date = sdf.parse(perferred_Date);
+			SimpleDateFormat sdfC = new SimpleDateFormat("yyyy年MM月dd日",Locale.CHINESE); 
+			String perferredDateC = sdfC.format(date);
+			SimpleDateFormat sdfE = new SimpleDateFormat("dd MMM yyyy",Locale.US); 
+			String perferredDateE = sdfE.format(date);
+			String perferredTime = (String) request.getParameter("perferredTime");
+			String csCenter = (String) request.getParameter("csCenter");
+			ServiceCentreResult scrChi = new ServiceCentreResult();
+			ServiceCentreResult scrEng = new ServiceCentreResult();
+			
+			final Map<String,String> header = headerUtil.getHeader(request);
+			header.put("language", "ZH");
+			String to = (String) request.getSession().getAttribute("emailAddress");
+			logger.info("To Email:"+to);
+			String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
+			if (request.getServerPort() != 80 && request.getServerPort() != 443)
+			{
+				serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+			}
+			String message = "emial context";
+			 
+			String subject = "Savie Appointment Acknowledgement email from FWD";
+			String attachment = "";
+			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
+			boolean isHTML = true;
+			
+			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+			parameters.put("to", to);
+			parameters.put("message", message);
+			parameters.put("subject", subject);
+			parameters.put("attachment", attachment);
+			parameters.put("from", from);
+			parameters.put("isHtml", isHTML);
+			
+			br = connector.sendEmail(parameters,header);
+		}catch(Exception e){
+			logger.info("SavieServiceImpl sendAppointmentAcknowledgeMail occurs an exception!");
 			logger.info(e.getMessage());
 			e.printStackTrace();
 		}

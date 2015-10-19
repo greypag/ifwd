@@ -258,7 +258,7 @@ var language = "${language}";
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount">HK$ 1, 400 <span>/per month</span></p>
+                                 <p class="et-amount">HK$ <span id="et-amount">0</span> <span>/per month</span></p>
                                  <p class="et-per et-month">(only HK$ 100 per day)</p>
                               </div>
                               
@@ -1077,9 +1077,17 @@ var language = "${language}";
                                        <div class="selectBeneficiary">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  id="savieBeneficiaryBean[0].relationship" name="savieBeneficiaryBean[0].relationship" data-style="application-select">
-                                             <option selected disabled value="">- Please select -</option>
-                                             <option value="father">Father</option>
-                                             <option value="mother">Mother</option>	
+                                             <option value="">-Please select-</option>
+                                             <c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
+													  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
+													  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>	
                                           </select>
                                        </div>
                                        <span class="error-msg" id="relationshipMessage[0]"></span>
