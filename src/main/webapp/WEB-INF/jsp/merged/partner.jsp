@@ -184,7 +184,7 @@
                                 </div>
                             </div>
                             <div class="partner_link">
-                               <a href="https://www.theclub.com.hk/eng/" target="_blank"><u><fmt:message key="partner.visit.website" bundle="${msg}" /></u></a>
+                               <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.visit.website" bundle="${msg}" /></u></a>
                             </div>
                         </div>
                         <div class="clearfix"></div>
