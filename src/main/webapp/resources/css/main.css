@@ -9941,3 +9941,62 @@ to {
     margin:0px;
 }
 /******** hidden navbar ********/
+
+/******** ios chrome alert ********/
+#ios_chromeAlert .modal-header{
+	border-bottom: none;
+	padding: 18px; 
+}
+
+#ios_chromeAlert .modal-dialog{
+    max-width: 337px;
+    margin: 0 auto;
+}
+
+#ios_chromeAlert .modal-content{
+	padding: 18px 18px 40px 18px;
+	color: #f68a1d;
+}
+
+#ios_chromeAlert .modal-header, #ios_chromeAlert .modal-body, #ios_chromeAlert .modal-footer{
+	padding: 0;
+}
+
+#ios_chromeAlert .modal-body img{
+	margin: 0 auto;
+	display: block;
+}
+
+#ios_chromeAlert .modal-body p{
+	margin-left: 18px;
+}
+
+#ios_chromeAlert .modal-body .alert_header{
+	font-size: 25px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+#ios_chromeAlert .modal-body .alert_suggest{
+    font-size: 17px;
+}
+
+#ios_chromeAlert .modal-footer{
+	border-top: none;
+    text-align: center;
+    color: #000;  
+}
+#ios_chromeAlert .modal-footer .btn{
+	background-color: #f68a1d;
+	border-color: transparent;
+	width: 100%;
+	color: #fff;
+	font-size: 26px;
+}
+
+/******** ios chrome alert tc ********/
+#ios_chromeAlert.tc_alert .alert_suggest{
+    margin-bottom: 20px;
+}
+/******** ios chrome alert tc ********/
+/******** ios chrome alert ********/
