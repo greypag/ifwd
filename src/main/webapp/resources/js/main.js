@@ -361,8 +361,9 @@ $('.faq_content').click(function(e){
 			chk_cat = 0;
 			
 			$('html, body').animate({
-				scrollTop: $panel.offset().top
-			}, 500);
+				scrollTop: ($panel.offset().top - 50)
+			}, 800);
+			
 		});
 	}
 });
@@ -394,8 +395,8 @@ $('.faq_qna').click(function(e){
 				chk_qna = 0;
 				
 				$('html, body').animate({
-					scrollTop: $panel.offset().top
-				}, 500);
+					scrollTop: ($panel.offset().top - 50)
+				}, 800);
 			});
 		}
 	}
