@@ -56,7 +56,7 @@ $('#et-signature-proceed-btn').on('click', function(e) {
         url:contextPath+'/ajax/eliteTerm/createEliteTermPolicy',
         data: formdata,
         success:function(data){
-			if(data.errMsgs == null || data.errMsgs != null){
+			if(data.errMsgs == null){
 				var $sigdiv = $("#signature");
 				var datapair = $sigdiv.jSignature("getData", "image");
 				var obj = datapair[1];
@@ -92,36 +92,6 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 		    console.log('error');     
 	    }
     });
-});
-
-$('#et-payment-complete-btn').on('click', function(e) {
-	var creditCaredNo = $('#card-num').val();
-	var expiryDate = "0319"//$('#month').val()+$('#year').val();
-	var cardHolderName = $('#card-name').val(); 
-	var policyNo = "1410781";
-	
-	if(creditCaredNo ==null || expiryDate ==null || cardHolderName ==null || policyNo ==null){
-		console.log("data error");
-	}
-	else{
-		$.get(contextPath+'/ajax/eliteTerm/finalizeEliteTermPolicy',
-		{ 
-			creditCaredNo : creditCaredNo,
-			expiryDate: expiryDate,
-			cardHolderName: cardHolderName,
-			policyNo: policyNo
-		},
-		function(data) {
-			if(data.errMsgs == null){
-				window.location.href= contextPath+'/'+language+'/elite-term/'+paymentNextPageFlow;
-			}
-			else{
-				console.log("data error");
-			}
-		})
-		.fail(function(data) {
-		});
-	}
 });
 
 $('#et-upload-doc-submit-btn').on('click', function(e) {

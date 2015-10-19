@@ -146,6 +146,7 @@ public class ECommWsConnector {
 		url.append(request.getParameter("insuredAmount"));
 		url.append("&referralCode=");
 		url.append(request.getParameter("referralCode"));
+		url.append("&planCode=ET");
 		return consumeECommWs(url.toString(),HttpMethod.GET,null,GetEliteTermPremiumResponse.class,header);
 	}
 	

@@ -985,7 +985,7 @@ var language = "${language}";
                            <h4 class="text-center"><fmt:message key="eliteTerms.selectPlan.You.can.add.up" bundle="${msg}" /></h4>
                         </div>
                            <div class="row clearfix">
-                              <form class="content" id="beneficiaryInfoForm[0]" method="post" action="" onsubmit="return false">
+                              <form class="content" id="beneficiaryInfoFormF" method="post" action="" onsubmit="return false">
                            
                               <div class="col-md-4 first-row">
                                  <div class="beneficiary-info-row">

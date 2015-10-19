@@ -57,24 +57,25 @@ public class EliteTermServiceImpl implements EliteTermService {
 			
 			logger.debug(request.getParameterMap().toString());
 			JSONObject parameters = new JSONObject();
-			parameters.put("planCode", "EliteTerm");
+			parameters.put("planCode", "ET");
 			JSONObject applicant = new JSONObject();
 			applicant.put("firstName", request.getParameter("savieApplicantBean.firstName"));
 			applicant.put("lastName", request.getParameter("savieApplicantBean.lastName"));
 			applicant.put("chineseName", request.getParameter("savieApplicantBean.chineseName"));
 			String[] dob = request.getParameter("dob").toString().split("-");
 			applicant.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
-			applicant.put("gender", request.getParameter("savieApplicantBeanGender"));
+			//request.getParameter("savieApplicantBean.gender")
+			applicant.put("gender", "M");
 			applicant.put("hkId", request.getParameter("savieApplicantBean.hkId"));
 			applicant.put("passport", "");
 			//request.getParameter("savieApplicantBean.maritalStatus").split("-")[0]
 			applicant.put("maritalStatus", "SINGLE");
 			applicant.put("placeOfBirth", request.getParameter("savieApplicantBean.placeOfBirth").split("-")[0]);
 			applicant.put("nationality", request.getParameter("savieApplicantBean.nationality").split("-")[0]);
-			applicant.put("residentialTelNoCountryCode", request.getParameter("savieApplicantBean[0].residentialTelNo"));
-			applicant.put("residentialTelNo", request.getParameter("savieApplicantBean[1].residentialTelNo"));
-			applicant.put("mobileNoCountryCode", request.getParameter("savieApplicantBean[0].mobileNo"));
-			applicant.put("mobileNo", request.getParameter("savieApplicantBean[1].mobileNo"));
+			applicant.put("residentialTelNoCountryCode", request.getParameter("savieApplicantBean.residentialTelNo"));
+			applicant.put("residentialTelNo", request.getParameter("savieApplicantBean.residentialTelNo"));
+			applicant.put("mobileNoCountryCode", request.getParameter("savieApplicantBean.mobileNo"));
+			applicant.put("mobileNo", request.getParameter("savieApplicantBean.mobileNo"));
 			applicant.put("email", request.getParameter("savieApplicantBean.emailAddress"));
 			request.getSession().setAttribute("eliteTermEmail", request.getParameter("savieApplicantBean.emailAddress"));
 			JSONObject residentialAddress = new JSONObject();
@@ -129,7 +130,8 @@ public class EliteTermServiceImpl implements EliteTermService {
 			payment.put("accountNo", "");
 			payment.put("expiryDate", "");
 			parameters.put("payment", payment);
-			parameters.put("insuredAmount", 100000);
+			parameters.put("insuredAmount", 400000);
+			parameters.put("referralCode", eliteTermPremium.getPromoCode());
 			logger.info(parameters.toString());
 			apiReturn = connector.createEliteTermPolicy(parameters, header);
 			request.getSession().setAttribute("eliteTermPolicy", apiReturn);

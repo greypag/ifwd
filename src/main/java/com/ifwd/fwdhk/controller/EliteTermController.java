@@ -77,8 +77,8 @@ public class EliteTermController extends BaseController{
 	@RequestMapping(value = {"/{lang}/elite-term/payment"})
 	public ModelAndView getPayment(Model model, HttpServletRequest request) {
 		String path = request.getRequestURL().toString();
-		model.addAttribute("successUrl", path.replace("select-plan", "document-upload"));
-		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+		model.addAttribute("successUrl", path.replace("payment", "document-upload"));
+		model.addAttribute("failurePath", path);
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_PAYMENT);
 	}
 	

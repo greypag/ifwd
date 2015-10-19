@@ -99,12 +99,12 @@ var language = "${language}";
 									<div class="page-content-item">
 										<label for="card-num"><fmt:message key="eliteTerms.payment.Credit.card.number" bundle="${msg}" /></label>
 										<input type="text" class="form-control gray-textbox desktop-half" placeholder="Credit card number" id="card-num" autocomplete="off" data-mask="9999 9999 9999 9999" name="card-num">
-									    
+									    <!-- 
 									    <input type="hidden" name="lang" value="C">
 									    <input type="hidden" name="merchantId" value="${eliteTermPolicy.merchantId}">
 									    <input type="hidden" name="orderRef" value="${eliteTermPolicy.transactionNumber }">
 					                    <input type="hidden" name="currCode" value="344">
-					                    <input type="hidden" name="payType" value="N">
+					                    <input type="hidden" name="paymentType" value="N">
 					                    <input type="hidden" name="referenceNo" value="${eliteTermPolicy.policyNo}">
 					                    <input type="hidden" name="secureHash" value="${eliteTermPolicy.secureHash }"> 
 					                    <input type="hidden" name="amount" value="${eliteTermPremium.monthlyDuePremium.trim()}">
@@ -114,6 +114,27 @@ var language = "${language}";
 					                    <input type="hidden" name="successUrl" value="${successUrl}">
 					                    <input type="hidden" name="failUrl" value="${failurePath }">
 					                    <input type="hidden" name="errorUrl" value="${failurePath }">
+					                     -->
+					                    <input type="hidden" name="merchantId" value="${eliteTermPolicy.merchantId}">
+					                    <input type="hidden" name="amount" value="120.00">
+					                    <input type="hidden" name="orderRef" value="384RQZZ38157">
+					                    <input type="hidden" name="currCode" value="344">
+					                    <input type="hidden" name="successUrl" value="${successUrl}">
+					                    <input type="hidden" name="failUrl" value="${failurePath }">
+					                    <input type="hidden" name="cancelUrl" value="${failurePath }">
+					                    <input type="hidden" name="payType" value="N">
+					                    <input type="hidden" name="lang" value="C">
+									    <input type="hidden" name="mpsMode" value="NIL">
+					                    <input type="hidden" name="payMethod" value="ALL">
+									    <input type="hidden" name="secureHash" value="${eliteTermPolicy.secureHash }"> 
+					                    <input type="hidden" name="remark" value="">
+					                    <input type="hidden" name="redirect" value="">
+					                    <input type="hidden" name="oriCountry" value="">
+					                    <input type="hidden" name="destCountry" value="">
+					                    
+					                    <input type="hidden" name="referenceNo" value="RQZZ38157">
+					                    <input type="hidden" id="emailAddress" name="emailAddress" value="nathaniel.kw.cheung@fwd.com"> 
+									    <input type="hidden" id="gateway" name="gateway" value="${eliteTermPolicy.paymentGateway}"/>
 									</div>
 									<div class="page-content-item">
 										<label for="card-num"><fmt:message key="eliteTerms.payment.Expiry.date" bundle="${msg}" /></label>

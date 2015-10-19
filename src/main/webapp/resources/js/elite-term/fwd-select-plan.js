@@ -47,7 +47,7 @@
    // Bind event to Gender
    $('#et-gender-male, #et-gender-female').on('change', function(e){
       if (this.checked) {
-         document.getElementById('savieApplicantBean.gender').value = (this.value === 'et-gender-male') ? 'Male' : 'Female';
+         document.getElementById('savieApplicantBean.gender').value = (this.value === 'M') ? 'Male' : 'Female';
       } else {
          document.getElementById('savieApplicantBean.gender').value = '';
       }
