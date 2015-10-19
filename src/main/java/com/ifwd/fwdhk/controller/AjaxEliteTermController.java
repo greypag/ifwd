@@ -42,7 +42,7 @@ public class AjaxEliteTermController extends BaseController{
 		        String[] str = imageFile.getContentType().split("/");
 		        String imageName = name+"."+str[str.length-1];
 				request.getSession().setAttribute(name, imageName);
-				request.getSession().setAttribute(name+"Type", imageFile.getContentType());
+				request.getSession().setAttribute(name+"Type", str[str.length-1]);
 		        byte[] bytes = imageFile.getBytes();
 		        String sep = System.getProperty("file.separator");  
 		        File uploadedFile = new File(uploadDir + sep  

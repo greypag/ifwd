@@ -136,11 +136,15 @@ $('#et-upload-doc-submit-btn').on('click', function(e) {
 			return false;
 		}
 		if(display != 'none' && passportflage == 'none'){
-//			url = url + "?passportflage=false";
 			return false;
+		}else if(display != 'none'){
+			url = url + "?passportFlage=true";
 		}else{
-//			url = url + "?passportflage=true";
+			url = url + "?passportFlage=false";
 		}
+		url = url + "&uploadNowFlage=false";
+	}else{
+		url = url + "?uploadNowFlage=true";
 	}
 	window.location.href= url;
 });

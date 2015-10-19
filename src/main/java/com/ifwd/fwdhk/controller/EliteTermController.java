@@ -1,7 +1,7 @@
 package com.ifwd.fwdhk.controller;
 
 import java.util.Map;
-
+import java.io.File;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
@@ -12,6 +12,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
@@ -86,6 +87,7 @@ public class EliteTermController extends BaseController{
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_DOCUMENT_UPLOAD);
 	}
 	
+	@SuppressWarnings("deprecation")
 	@RequestMapping(value = {"/{lang}/elite-term/confirmation"})
 	public ModelAndView getConfirmation(Model model, HttpServletRequest request) {
 		try {
