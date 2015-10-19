@@ -79,8 +79,7 @@ function submitLoginForm(formID) {
 						}
 						else {
 							perventRedirect=false;
-							//window.location.href = "<%=request.getContextPath()%>
-	/getAccByUsernaneAndPassword";
+							//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
 												ga('send', 'event', 'Login',
 														'Click',
 														'Login success');
