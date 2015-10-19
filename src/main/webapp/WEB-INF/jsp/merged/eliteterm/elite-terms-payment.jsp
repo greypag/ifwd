@@ -117,7 +117,7 @@ var language = "${language}";
 					                     -->
 					                    <input type="hidden" name="merchantId" value="${eliteTermPolicy.merchantId}">
 					                    <input type="hidden" name="amount" value="120.00">
-					                    <input type="hidden" name="orderRef" value="384RQZZ38157">
+					                    <input type="hidden" name="orderRef" value="384RQZZ38156">
 					                    <input type="hidden" name="currCode" value="344">
 					                    <input type="hidden" name="successUrl" value="${successUrl}">
 					                    <input type="hidden" name="failUrl" value="${failurePath }">
@@ -125,14 +125,14 @@ var language = "${language}";
 					                    <input type="hidden" name="payType" value="N">
 					                    <input type="hidden" name="lang" value="C">
 									    <input type="hidden" name="mpsMode" value="NIL">
-					                    <input type="hidden" name="payMethod" value="ALL">
+					                    <input type="hidden" name="payMethod" value="VISA">
 									    <input type="hidden" name="secureHash" value="${eliteTermPolicy.secureHash }"> 
 					                    <input type="hidden" name="remark" value="">
 					                    <input type="hidden" name="redirect" value="">
 					                    <input type="hidden" name="oriCountry" value="">
 					                    <input type="hidden" name="destCountry" value="">
 					                    
-					                    <input type="hidden" name="referenceNo" value="RQZZ38157">
+					                    <input type="hidden" name="referenceNo" value="RQZZ38156">
 					                    <input type="hidden" id="emailAddress" name="emailAddress" value="nathaniel.kw.cheung@fwd.com"> 
 									    <input type="hidden" id="gateway" name="gateway" value="${eliteTermPolicy.paymentGateway}"/>
 									</div>
@@ -315,6 +315,7 @@ var language = "${language}";
  		var month = $('#month').val();
  		var year = $('#year').val();
 		var cardName = $('#card-name').val(); 
+		var gateway = $("#gateway").val();
  		if(cardNum.length<16){
  			flag=false;
  		}
@@ -328,6 +329,9 @@ var language = "${language}";
  			flag=false;
  		}
  		if(cardName.trim()==""){
+ 			flag=false;
+ 		}
+ 		if(gateway.trim()==""){
  			flag=false;
  		}
  		if ($("#personal-information-statement").checked == false){
