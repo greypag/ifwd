@@ -63,7 +63,7 @@ function chkClubMember() {
     var the_club_membership_no = document.getElementById("theClubMembershipNo").value; 
     if (the_club_member_check_box) {
         if (the_club_membership_no == "<fmt:message key="club.membership.number" bundle="${msg}" />" || the_club_membership_no == "" || /^\s*$/.test(the_club_membership_no)) {
-            $(".errDue").html("<fmt:message key="club.member.empty" bundle="${msg}" />") ;
+            $("#errClubMemberID").html("<fmt:message key="club.member.empty" bundle="${msg}" />") ;
             document.getElementById("theClubMembershipNo").focus();
             $("#theClubMembershipNo").addClass("invalid-field");
             
@@ -982,7 +982,7 @@ function checkPromoCodePlaceholder(){
 												height="12" /> <fmt:message key="club.membership.confirm"
 													bundle="${msg}" /></a></label>
 									</div>
-									
+									<span class="text-red" id="errClubMemberID"></span>
 									<div class="form-group"
 										style="margin-top: 0px; margin-bottom: 20px; display: none;">
 										<div class="input-group" style="display: inital; width: 100%;">
