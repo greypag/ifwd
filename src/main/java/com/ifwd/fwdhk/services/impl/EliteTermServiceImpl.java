@@ -138,9 +138,9 @@ public class EliteTermServiceImpl implements EliteTermService {
 			applicant.put("employmentStatus", employmentStatus);
 			applicant.put("smoke", request.getParameter("savieApplicantBeanSmoke"));
 			parameters.put("applicant", applicant);
+			JSONArray beneficiaries = new JSONArray();
+			JSONObject beneficiarie1 = new JSONObject();
 			if(request.getParameter("beneficiary-info") != null && request.getParameter("beneficiary-info") == "name-others-now"){
-				JSONArray beneficiaries = new JSONArray();
-				JSONObject beneficiarie1 = new JSONObject();
 				beneficiarie1.put("firstName", request.getParameter("savieBeneficiaryBean[0].firstName"));
 				beneficiarie1.put("lastName", request.getParameter("savieBeneficiaryBean[0].lastName"));
 				beneficiarie1.put("chineseName", request.getParameter("savieBeneficiaryBean[0].chineseName"));
@@ -149,9 +149,19 @@ public class EliteTermServiceImpl implements EliteTermService {
 				beneficiarie1.put("gender", request.getParameter("savieBeneficiaryBean[0].gender"));
 				beneficiarie1.put("relationship", request.getParameter("savieBeneficiaryBean[0].relationship").split("-")[0]);
 				beneficiarie1.put("entitlement", request.getParameter("savieBeneficiaryBean[0].entitlement"));
-				beneficiaries.add(beneficiarie1);
-				parameters.put("beneficiaries", beneficiaries);
 			}
+			else{
+				beneficiarie1.put("firstName", applicant.getString("firstName"));
+				beneficiarie1.put("lastName", applicant.getString("lastName"));
+				beneficiarie1.put("chineseName", applicant.getString("chineseName"));
+				beneficiarie1.put("hkId", applicant.getString("hkId"));
+				beneficiarie1.put("passport", applicant.getString("passport"));
+				beneficiarie1.put("gender", applicant.getString("gender"));
+				beneficiarie1.put("relationship", "own");
+				beneficiarie1.put("entitlement", "100");
+			}
+			beneficiaries.add(beneficiarie1);
+			parameters.put("beneficiaries", beneficiaries);
 			JSONObject payment = new JSONObject();
 			payment.put("amount", Double.valueOf(eliteTermPremium.getMonthlyDuePremium())*2.00);
 			payment.put("paymentMethod", "CreditCard");

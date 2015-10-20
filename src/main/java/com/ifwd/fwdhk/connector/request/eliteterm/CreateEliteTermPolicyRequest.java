@@ -2,7 +2,7 @@ package com.ifwd.fwdhk.connector.request.eliteterm;
 
 public class CreateEliteTermPolicyRequest{
 
-	private CreateEliteTermPolicyApplicant applicant;
+	private CreateEliteTermPolicyApplicant applicant = new CreateEliteTermPolicyApplicant();
 	public CreateEliteTermPolicyApplicant getApplicant() {
 		return applicant;
 	}
