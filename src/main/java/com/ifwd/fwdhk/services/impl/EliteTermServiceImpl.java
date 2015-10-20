@@ -281,31 +281,40 @@ public class EliteTermServiceImpl implements EliteTermService {
 	public BaseResponse sendEliteTermMail(HttpServletRequest request)throws ECOMMAPIException{
 		BaseResponse br = null;
 		try {
-			String applicationNumber = (String) request.getSession().getAttribute("applicationNumber");
-			String perferred_Date = (String) request.getParameter("perferredDate");
+			/*String perferred_Date = (String) request.getParameter("perferredDate");
 			SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 			Date date = sdf.parse(perferred_Date);
 			SimpleDateFormat sdfC = new SimpleDateFormat("yyyy年MM月dd日",Locale.CHINESE); 
 			String perferredDateC = sdfC.format(date);
 			SimpleDateFormat sdfE = new SimpleDateFormat("dd MMM yyyy",Locale.US); 
-			String perferredDateE = sdfE.format(date);
-			String perferredTime = (String) request.getParameter("perferredTime");
-			String csCenter = (String) request.getParameter("csCenter");
-			ServiceCentreResult scrChi = new ServiceCentreResult();
-			ServiceCentreResult scrEng = new ServiceCentreResult();
+			String perferredDateE = sdfE.format(date);*/
 			
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
-			String to = (String) request.getSession().getAttribute("emailAddress");
+			String to = "Peng_Xia@vandagroup.com";//(String) request.getSession().getAttribute("emailAddress");
 			logger.info("To Email:"+to);
 			String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
 			if (request.getServerPort() != 80 && request.getServerPort() != 443)
 			{
 				serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 			}
-			String message = "emial context";
-			 
-			String subject = "Savie Appointment Acknowledgement email from FWD";
+			String message = "Dear [Customer Name]<br/>"
+					       + "Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your documents are well received; your application has been processed. Your policy will be in force in x days.<br/>"
+					       + "多謝閣下經網上購買富衛智理想定期保障計劃系列。我們已經收到您上載的檔案;我們正在處理您的投保申請，您的保單於將X天內生效。<br/>"
+					       + "For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com.<br/>"
+					       + "如有任何查詢，請致電富衛客戶服務熱線(852) 3123 3123或電郵至cs.hk@fwd.com。<br/>"
+					       + "We wish you a happy life!<br/>"
+					       + "祝閣下生活愉快！<br/>"
+					       + "Regards,<br/>"
+					       + "FWD General Insurance Company Limited<br/>"
+					       + "富衛保險有限公司<br/>"
+					       + "謹啟<br/>"
+					       + "www.fwd.com.hk<br/>"
+					       + "Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail. <br/>"
+					       + "備註：中英文本如有歧異，概以英文本為準。<br/>"
+					       + "This is an automatically generated email, please do not reply.<br/>"
+					       + "此乃電腦發出之電子郵件，請不要回覆";
+			String subject = "FWD Elite Term – Complete[ ]";
 			String attachment = "";
 			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
 			boolean isHTML = true;
@@ -317,10 +326,9 @@ public class EliteTermServiceImpl implements EliteTermService {
 			parameters.put("attachment", attachment);
 			parameters.put("from", from);
 			parameters.put("isHtml", isHTML);
-			
 			br = connector.sendEmail(parameters,header);
 		}catch(Exception e){
-			logger.info("SavieServiceImpl sendAppointmentAcknowledgeMail occurs an exception!");
+			logger.info("EliteTermServiceImpl sendEliteTermMail occurs an exception!");
 			logger.info(e.getMessage());
 			e.printStackTrace();
 		}

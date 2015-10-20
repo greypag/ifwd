@@ -117,6 +117,19 @@ public class AjaxEliteTermController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = {"/ajax/eliteTerm/sendEliteTermMail"})
+	public void sendEliteTermMail(HttpServletRequest request,HttpServletResponse response) {
+		if (Methods.isXssAjax(request))
+			return;
+		try {
+			ajaxReturn(response, eliteTermService.sendEliteTermMail(request));
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
 	@RequestMapping(value = {"/ajax/eliteTerm/getUploadedDocument"})
 	public void getUploadedDocument(HttpServletRequest request,HttpServletResponse response) {
 		if (Methods.isXssAjax(request))

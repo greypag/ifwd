@@ -283,11 +283,29 @@ var language = "${language}";
 		 			  success : function(data) {
 			 			  clicked = false;
 						  if (data.errMsgs == null) {
-						   	  setTimeout(function(){
-						   		  console.log($("#gateway").val());
-			                      $("#paymentForm").attr('action', $("#gateway").val());
-			                      $("#paymentForm").submit();
-		                      }, 3000);
+							  $.ajax({
+					 			  type : "POST",
+					 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/sendEliteTermMail",
+					 			  async : false,
+					 			  success : function(data) {
+									  if (data.errMsgs == null) {
+									   	  setTimeout(function(){
+									   		  console.log($("#gateway").val());
+						                      $("#paymentForm").attr('action', $("#gateway").val());
+						                      $("#paymentForm").submit();
+					                      }, 3000);
+					                  } 
+									  else {
+					                      console.log(data);
+					                      $("#PaymentingDiv").hide();
+					                      enablePayment=true;
+					                      $('#paymentErrorPopup').modal('show');
+					                      return false;
+					                  }
+					 			  }
+					 			  
+				 		      });
+							  
 		                  } 
 						  else {
 		                      console.log(data);
