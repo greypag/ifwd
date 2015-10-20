@@ -11,7 +11,7 @@ var progressPercentText = '';
 
 //Drag and Drop Upload for HKID
 var startUploadHkid = function(files) {
-	fileSelected('hkid-copy-progress','fileToUpload-hkid-dragAndDrop','hkid-docu-filename','hkid-docu-fileSize','finish-upload-hkid','hkid-upload-percent-text','hkid-upload-progress-bar',files[0], '#et-hkid-file-message');
+	fileSelected('hkid-copy-progress','hkidFileToUpload','hkid-docu-filename','hkid-docu-fileSize','finish-upload-hkid','hkid-upload-percent-text','hkid-upload-progress-bar',files[0], '#et-hkid-file-message');
 };
 
 hkidUploadForm.addEventListener('submit', function(e) {
@@ -47,7 +47,7 @@ hkidDropZone.ondragleave = function() {
 
 //Drag and Drop Upload for Passport
 var startUploadPassport = function(files) {
-	fileSelected('passport-copy-progress','fileToUpload-passport-dragAndDrop','passport-docu-filename','passport-docu-fileSize','finish-upload-passport','passport-upload-percent-text','passport-upload-progress-bar',files[0], '#et-passport-file-message');
+	fileSelected('passport-copy-progress','passportFileToUpload','passport-docu-filename','passport-docu-fileSize','finish-upload-passport','passport-upload-percent-text','passport-upload-progress-bar',files[0], '#et-passport-file-message');
 };
 
 passportUploadForm.addEventListener('submit', function(e) {
@@ -83,7 +83,7 @@ passportDropZone.ondragleave = function() {
 
 //Drag and Drop Upload for Address
 var startUploadAddress = function(files) {
-	fileSelected('proof-of-address-progress','fileToUpload-addr-dragAndDrop','address-docu-filename','address-docu-fileSize','finish-upload-addr','docu-upload-percent-text','document-upload-progress-bar',files[0], '#et-address-file-message');
+	fileSelected('proof-of-address-progress','fileToUploadProofAdd','address-docu-filename','address-docu-fileSize','finish-upload-addr','docu-upload-percent-text','document-upload-progress-bar',files[0], '#et-address-file-message');
 	
 };
 
