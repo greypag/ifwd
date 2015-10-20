@@ -98,7 +98,8 @@ var language = "${language}";
 
 									<div class="page-content-item">
 										<label for="card-num"><fmt:message key="eliteTerms.payment.Credit.card.number" bundle="${msg}" /></label>
-										<input type="text" class="form-control gray-textbox desktop-half" placeholder="Credit card number" id="card-num" autocomplete="off" data-mask="9999 9999 9999 9999" name="card-num">
+										<input type="text" class="form-control gray-textbox desktop-half" placeholder="Credit card number" id="card-num" autocomplete="off" data-mask="9999 9999 9999 9999" onblur="copyCardNo();">
+										<input type="hidden" id="cardNo" name="cardNo">
 									    <!-- 
 									    <input type="hidden" name="lang" value="C">
 									    <input type="hidden" name="merchantId" value="${eliteTermPolicy.merchantId}">
@@ -124,15 +125,11 @@ var language = "${language}";
 					                    <input type="hidden" name="cancelUrl" value="${failurePath }">
 					                    <input type="hidden" name="payType" value="N">
 					                    <input type="hidden" name="lang" value="C">
-									    <input type="hidden" name="mpsMode" value="NIL">
-					                    <input type="hidden" name="payMethod" value="VISA">
-									    <input type="hidden" name="secureHash" value="${eliteTermPolicy.secureHash }"> 
 					                    <input type="hidden" name="remark" value="">
-					                    <input type="hidden" name="redirect" value="">
-					                    <input type="hidden" name="oriCountry" value="">
-					                    <input type="hidden" name="destCountry" value="">
-					                    
-					                    <input type="hidden" name="referenceNo" value="RQZZ38156">
+					                    <input type="hidden" name="pMethod" value="Master">
+					                    <!-- ${eliteTermPolicy.secureHash } -->
+					                    <input type="hidden" name="secureHash" value="1f411e93e0e9d814f3336f2c66fd8748149b3346">
+									    <input type="hidden" name="referenceNo" value="RQZZ38156">
 					                    <input type="hidden" id="emailAddress" name="emailAddress" value="nathaniel.kw.cheung@fwd.com"> 
 									    <input type="hidden" id="gateway" name="gateway" value="${eliteTermPolicy.paymentGateway}"/>
 									</div>
@@ -140,7 +137,7 @@ var language = "${language}";
 										<label for="card-num"><fmt:message key="eliteTerms.payment.Expiry.date" bundle="${msg}" /></label>
 										<div class="clearfix desktop-half">
 											<div class="selectDiv month">
-												<select name="month" id="month" class="form-control gray-dropdown">
+												<select name="epMonth" id="month" class="form-control gray-dropdown">
 													<option value="0"><fmt:message key="home.summary.pmtdetail.desc3.month" bundle="${msg}" /></option>
 			                                        <option value="01">01</option>
 			                                        <option value="02">02</option>
@@ -157,7 +154,7 @@ var language = "${language}";
 												</select>
 											</div>
 											<div class="selectDiv">
-												<select name="year" id="year" class="form-control gray-dropdown">
+												<select name="epYear" id="year" class="form-control gray-dropdown">
 													<option value="0"><fmt:message key="home.summary.pmtdetail.desc3.year" bundle="${msg}" /></option>
 				                                    <c:forEach begin="0" end="10" varStatus="loop">
 				                                        <c:set var="currentYear" value="${year + loop.index}" />
@@ -169,12 +166,12 @@ var language = "${language}";
 									</div>
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Name.on.credit.card" bundle="${msg}" /></label>
-										<input type="text" class="form-control gray-textbox desktop-half" placeholder="Name on credit card" value="" id="card-name" autocomplete="off" name="card-name">
+										<input type="text" class="form-control gray-textbox desktop-half" placeholder="Name on credit card" value="" id="card-name" autocomplete="off" name="cardHolder">
 									</div>
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Security.code" bundle="${msg}" /></label>
 										<div class="clearfix desktop-half">
-											<input type="text" class="form-control gray-textbox card-cvv" placeholder="CVV" id="card-cvv" autocomplete="off" name="card-cvv">
+											<input type="text" class="form-control gray-textbox card-cvv" placeholder="CVV" id="card-cvv" autocomplete="off" name="securityCode">
 											<div class="cvv-image-holder">
 												<img src="<%=request.getContextPath()%>/resources/images/elite-terms/cvv-logo.png" class="cvv-image">
 											</div>
@@ -339,6 +336,10 @@ var language = "${language}";
  		}
  		console.log(flag);
  		return flag;
+ 	}
+ 	 
+ 	function copyCardNo(){
+ 		$('#cardNo').val($('#card-num').val().replace(/\s+/g,""));
  	}
  	  
 	function BackMe() {
