@@ -67,7 +67,8 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 			    	    url:contextPath+'/ajax/eliteTerm/uploadSignature',     
 			    	    type:'post',     
 			    	    data:{    
-			    	    	"image" : datapair[1] 
+			    	    	"image" : datapair[1],
+			    	    	"policyNo" : data.policyNo
 			       		},     
 			    	    success:function(data){
 			    	    	if(data.errMsgs == null){

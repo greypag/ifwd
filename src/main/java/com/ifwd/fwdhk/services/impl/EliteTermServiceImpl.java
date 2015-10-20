@@ -276,17 +276,19 @@ public class EliteTermServiceImpl implements EliteTermService {
 	}
 	
 	@Override
-	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException{		
+	public BaseResponse uploadSignature(HttpServletRequest request,String image,String policyNo)throws ECOMMAPIException{		
 		BaseResponse br = null;
 		try {
 			final Map<String,String> header = headerUtil.getHeader(request);
-			
+
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			JSONObject parameters = new JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
 			parameters.put("fileType", "png");
-			parameters.put("signatureType", "application");
+			parameters.put("documentType", "signature");
+			parameters.put("originalFilePath", "");
 			parameters.put("base64", image);
+			parameters.put("policyNo", policyNo);
 			br = connector.uploadSignature(parameters, header);
 		} catch (ECOMMAPIException e) {
 			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");

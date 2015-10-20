@@ -95,11 +95,11 @@ public class AjaxEliteTermController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/uploadSignature"})
-	public void uploadSignature(HttpServletRequest request,HttpServletResponse response,@RequestParam String image){
+	public void uploadSignature(HttpServletRequest request,HttpServletResponse response,@RequestParam String image,@RequestParam String policyNo){
 		if (Methods.isXssAjax(request))
 			return;
 		try {
-			ajaxReturn(response,eliteTermService.uploadSignature(request, image));
+			ajaxReturn(response,eliteTermService.uploadSignature(request,image,policyNo));
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
