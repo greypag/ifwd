@@ -575,7 +575,7 @@ function submitLoginForm(formID) {
 <!--End-Desktop-header-->
 
 <!-- hidden navbar -->
-<div class="navbar_hidden_content">
+<!--<div class="navbar_hidden_content">
 	<div class="container pad-none">
 		<div class="pull-right submenu_list">
 			<div class="product_type">
@@ -602,7 +602,7 @@ function submitLoginForm(formID) {
 			$(".navbar_hidden_content").toggle();
 		});
 	</script>
-</div>
+</div>-->
 <!-- hidden navbar -->
 
 <div
