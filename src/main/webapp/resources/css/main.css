@@ -9881,15 +9881,18 @@ to {
     height:initial;
 }
 @media (max-width: 991px) {
-  #main-slider .text-content {
-    top: initial;
-    bottom: 20%;
-  }
-  #main-slider .text-content.hunger-img img {
-    margin: 0 auto;
-    padding: 0;
-    width: 340px;
-  }
+	 #main-slider .text-content {
+	   top: initial;
+	   bottom: 20%;
+	 }
+	 #main-slider .text-content.hunger-img img {
+	   margin: 0 auto;
+	   padding: 0;
+	   width: 340px;
+	 }
+	#promo-code-body.holiday-code-wrapper{
+	    padding-bottom: 58px !important;
+	}
 }
 @media (min-width: 992px) {
   #main-slider .text-content {
