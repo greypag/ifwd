@@ -291,7 +291,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
-			String to = "Peng_Xia@vandagroup.com";//(String) request.getSession().getAttribute("emailAddress");
+			String to = (String) request.getSession().getAttribute("eliteTermEmail");
 			logger.info("To Email:"+to);
 			String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
 			if (request.getServerPort() != 80 && request.getServerPort() != 443)
