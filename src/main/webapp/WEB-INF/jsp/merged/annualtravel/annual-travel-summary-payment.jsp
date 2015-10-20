@@ -200,6 +200,10 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper"><fmt:message key="travel.summary.period.from" bundle="${msg}" /> ${travelBean.trLeavingDate} <fmt:message key="travel.summary.period.to" bundle="${msg}" /> ${travelBean.trBackDate}</div>
                                             <div class="clearfix"></div>
                                         </div>
+                                        <div class="row summary-row">
+	                                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.originalamount" bundle="${msg}" /></div>
+	                                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper"><fmt:message key="annual.common.dollar" bundle="${msg}" /> ${originalAmount }</div>
+	                                    </div>
                                         <div class="row summary-row product_summary_orange_price">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="annual.summary.amount" bundle="${msg}" /></span></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b h2-3-existing-fwd-head pad-none"><fmt:message key="annual.common.dollar" bundle="${msg}" /> ${dueAmount}</span></div>
