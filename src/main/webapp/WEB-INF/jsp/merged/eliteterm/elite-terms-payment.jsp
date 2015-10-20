@@ -81,7 +81,7 @@ var language = "${language}";
 							<p class="page-header-motto"><fmt:message key="eliteTerms.payment.Your.1-month" bundle="${msg}" /></p>	
 							<p class="amount-holder">
 								<span class="total-amount"><fmt:message key="eliteTerms.payment.Total.amount" bundle="${msg}" /></span>
-								<span class="amount">HKD 1000</span>
+								<span class="amount">HKD ${eliteTermPremium.monthlyDuePremium.trim()}</span>
 							</p>
 						</div>	
 						<div class="page-content clearfix">
