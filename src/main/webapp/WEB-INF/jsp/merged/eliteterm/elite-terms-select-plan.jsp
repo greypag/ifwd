@@ -884,7 +884,7 @@ var language = "${language}";
                                  <label for="savieEmploymentBean.occupation"><fmt:message key="eliteTerms.selectPlan.Occupation" bundle="${msg}" /></label>
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
-                                       <select class="form-control gray-dropdown" id="savieEmploymentBean.occupation" name="savieEmploymentBean.occupation" data-style="application-select">
+                                       <select class="form-control gray-dropdown" id="savieEmploymentBeanOccupation" name="savieEmploymentBean.occupation" data-style="application-select">
                                            <option value="">-Please select-</option>
                                            <c:if test="${language == 'en'}">
                                                 <c:forEach var="list" items="${occupationEN}">
