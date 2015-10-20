@@ -1516,12 +1516,16 @@
    * Save all data from employee fields
    */
    function storeEmpInfo() {
-      empEduInfoData.status = document.getElementById('savieEmploymentBean.employmentStatus').value;
-      empEduInfoData.occupation = document.getElementById('savieEmploymentBeanoccupation').value;
-      empEduInfoData.eduLevel = document.getElementById('savieEmploymentBean.educationLevel').value;
-      empEduInfoData.natBusiness = document.getElementById('savieEmploymentBean.natureOfBusiness').value;
-      empEduInfoData.monIncome = document.getElementById('savieEmploymentBean.monthlyPersonalIncome').value;
-      empEduInfoData.liqAsset = document.getElementById('savieEmploymentBean.liquidAssets').value;
+	   
+	   
+	   
+	   
+	   empEduInfoData.status = document.getElementById('savieEmploymentBean.employmentStatus').value.split("-")[1];
+       empEduInfoData.occupation = $('#savieEmploymentBeanOccupation').val().split("-")[1];
+       empEduInfoData.eduLevel = document.getElementById('savieEmploymentBean.educationLevel').value.split("-")[1];
+       empEduInfoData.natBusiness = document.getElementById('savieEmploymentBean.natureOfBusiness').value.split("-")[1];
+       empEduInfoData.monIncome = document.getElementById('savieEmploymentBean.monthlyPersonalIncome').value.split("-")[1];
+       empEduInfoData.liqAsset = document.getElementById('savieEmploymentBean.liquidAssets').value.split("-")[1];
    }
    
    /**

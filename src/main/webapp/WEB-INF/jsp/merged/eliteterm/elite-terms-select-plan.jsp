@@ -906,8 +906,8 @@ var language = "${language}";
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.liquidAssets" name="savieEmploymentBean.liquidAssets" data-style="application-select">
                                        <option selected disabled value="">- Please select -</option>
-                                       <option value="asset1">Asset 1</option>
-                                       <option value="asset2">Asset 2</option>	
+                                       <option value="asset1-asset1">Asset 1</option>
+                                       <option value="asset2-asset1">Asset 2</option>	
                                     </select>
                                  </div>
                                  <span class="error-msg" id="liquidAssets"></span>
