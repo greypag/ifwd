@@ -1321,8 +1321,8 @@ public class SavieServiceImpl implements SavieService {
 		String passportFlage = (String) request.getSession().getAttribute("passportFlage");
 		String uploadDir = request.getRealPath("/")+"upload"+"/"+"123456/";
 		File file = new File(uploadDir);
-		CreateEliteTermPolicyResponse eliteTermPolicy= (CreateEliteTermPolicyResponse) request.getSession().getAttribute("etPolicyApplication");
-		String policyNumber = eliteTermPolicy.getPolicyNo();
+		//CreateEliteTermPolicyResponse eliteTermPolicy= (CreateEliteTermPolicyResponse) request.getSession().getAttribute("etPolicyApplication");
+		String policyNumber = "123456";//eliteTermPolicy.getPolicyNo();
 		if("true".equals(uploadLaterFlage)){
 			String url = "http://" + request.getServerName() //服务器地址  
                     + ":"   
@@ -1332,14 +1332,14 @@ public class SavieServiceImpl implements SavieService {
 			if(StringUtils.isEmpty(language)){
 				language = "tc";
 			}
-			CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
-			String customerName="";
-			if(etPolicyApplication.getApplicant() != null){
-				 customerName = etPolicyApplication.getApplicant().getChineseName();
-				 if(StringUtils.isEmpty(customerName)){
-					 customerName =  etPolicyApplication.getApplicant().getFirstName()+" "+etPolicyApplication.getApplicant().getLastName();
-				 }
-			}		
+			//CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
+			String customerName="[Customer Name]";
+//			if(etPolicyApplication.getApplicant() != null){
+//				 customerName = etPolicyApplication.getApplicant().getChineseName();
+//				 if(StringUtils.isEmpty(customerName)){
+//					 customerName =  etPolicyApplication.getApplicant().getFirstName()+" "+etPolicyApplication.getApplicant().getLastName();
+//				 }
+//			}		
 			url = url + "/"+language+"/elite-term/document-upload?policyNumber=";
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
