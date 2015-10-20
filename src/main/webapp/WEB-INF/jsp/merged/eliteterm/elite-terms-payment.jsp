@@ -102,9 +102,8 @@ var language = "${language}";
 										<input type="hidden" id="cardNo" name="cardNo">
 					                    <!--  
 					                    <input type="hidden" name="secureHash" value="${eliteTermPolicy.secureHash }">
-					                    ${eliteTermPolicy.merchantId}
 									    -->
-					                    <input type="hidden" name="merchantId" value="88123029">
+					                    <input type="hidden" name="merchantId" value="${eliteTermPolicy.merchantId}">
 					                    <input type="hidden" name="amount" value="${eliteTermPremium.monthlyDuePremium.trim()}">
 					                    <input type="hidden" name="orderRef" value="${eliteTermPolicy.transactionNumber }">
 					                    <input type="hidden" name="currCode" value="344">
