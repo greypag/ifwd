@@ -5,7 +5,6 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.NumberFormat;
@@ -19,7 +18,6 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.imageio.ImageIO;
-import javax.imageio.stream.FileImageInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -42,7 +40,9 @@ import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.common.util.NumberTransferUtils;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
+import com.ifwd.fwdhk.connector.request.eliteterm.CreateEliteTermPolicyRequest;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
+import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
@@ -1321,16 +1321,25 @@ public class SavieServiceImpl implements SavieService {
 		String passportFlage = (String) request.getSession().getAttribute("passportFlage");
 		String uploadDir = request.getRealPath("/")+"upload"+"/"+"123456/";
 		File file = new File(uploadDir);
+		CreateEliteTermPolicyResponse eliteTermPolicy= (CreateEliteTermPolicyResponse) request.getSession().getAttribute("etPolicyApplication");
+		String policyNumber = eliteTermPolicy.getPolicyNo();
 		if("true".equals(uploadLaterFlage)){
 			String url = "http://" + request.getServerName() //服务器地址  
                     + ":"   
                     + request.getServerPort()           //端口号  
                     + request.getContextPath();      //项目名称 
 			String language = (String) request.getSession().getAttribute("language");
-			String policyNumber = (String) request.getSession().getAttribute("policyNumber");
 			if(StringUtils.isEmpty(language)){
 				language = "tc";
 			}
+			CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
+			String customerName="";
+			if(etPolicyApplication.getApplicant() != null){
+				 customerName = etPolicyApplication.getApplicant().getChineseName();
+				 if(StringUtils.isEmpty(customerName)){
+					 customerName =  etPolicyApplication.getApplicant().getFirstName()+" "+etPolicyApplication.getApplicant().getLastName();
+				 }
+			}		
 			url = url + "/"+language+"/elite-term/document-upload?policyNumber=";
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
@@ -1338,7 +1347,7 @@ public class SavieServiceImpl implements SavieService {
 			String attachment = "";
 			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
 			boolean isHTML = true;
-			String  message = "<div> Dear [Customer Name],<br />"+
+			String  message = "<div> Dear "+customerName+",<br />"+
 							 "Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your first 2 months premium payment has been accepted. <br />"+
 							 " 多謝閣下經網上購買富衛智理想定期保障計劃系列 。您的首2個月保費款項已被接納。<br />"+
 							 " <br />"+
@@ -1384,7 +1393,8 @@ public class SavieServiceImpl implements SavieService {
 		Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 		parameters.put("clientBrowserInfo", clientBrowserInfo);
-		parameters.put("policyNo", "123456");
+		parameters.put("policyNo", policyNumber);
+		parameters.put("planCode", "ET");
 		try {
 			String fileToUpload = (String) request.getSession().getAttribute("fileToUploadProofAdd");
 			String hkidFileToUpload = (String) request.getSession().getAttribute("hkidFileToUpload");
