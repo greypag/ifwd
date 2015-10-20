@@ -721,7 +721,7 @@ var language = "${language}";
                                        <div class="checkbox-section">
                                           <div class="clearfix">
                                              <div class="pull-left left-checkbox">
-                                                <input type="checkbox" value="None" id="savieApplicantBean.isResidential" name="savieApplicantBean.isResidential" />
+                                                <input type="checkbox" value="true" id="savieApplicantBean.isResidential" name="savieApplicantBean.isResidential" />
                                                 <label for="savieApplicantBean.isResidential"></label>
                                              </div>
                                              <div class="pull-left right-checkbox">
@@ -785,7 +785,7 @@ var language = "${language}";
                                        <div class="checkbox-section">
                                           <div class="clearfix">
                                              <div class="pull-left left-checkbox">
-                                                <input type="checkbox" value="None" id="savieApplicantBean.addressIsSame" name="savieApplicantBean.addressIsSame" />
+                                                <input type="checkbox" value="true" id="savieApplicantBean.addressIsSame" name="savieApplicantBean.addressIsSame" />
                                                 <label for="savieApplicantBean.addressIsSame"></label>
                                              </div>
                                              <div class="pull-left right-checkbox">

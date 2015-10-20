@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
+import com.ifwd.fwdhk.connector.request.eliteterm.CreateEliteTermPolicyRequest;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.GetEliteTermPremiumResponse;
@@ -51,6 +52,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 	@Override
 	public CreateEliteTermPolicyResponse createEliteTermPolicy(HttpServletRequest request)throws ECOMMAPIException{
 		GetEliteTermPremiumResponse eliteTermPremium = (GetEliteTermPremiumResponse) request.getSession().getAttribute("eliteTermPremium");
+		CreateEliteTermPolicyRequest etPolicyApplication = new CreateEliteTermPolicyRequest();
 		CreateEliteTermPolicyResponse apiReturn = null;
 		try {
 			final Map<String,String> header = headerUtil.getHeader(request);
@@ -60,14 +62,21 @@ public class EliteTermServiceImpl implements EliteTermService {
 			parameters.put("planCode", "ET");
 			JSONObject applicant = new JSONObject();
 			applicant.put("firstName", request.getParameter("savieApplicantBean.firstName"));
+			etPolicyApplication.getApplicant().setFirstName(applicant.getString("firstName"));
 			applicant.put("lastName", request.getParameter("savieApplicantBean.lastName"));
+			etPolicyApplication.getApplicant().setLastName(applicant.getString("lastName"));
 			applicant.put("chineseName", request.getParameter("savieApplicantBean.chineseName"));
+			etPolicyApplication.getApplicant().setChineseName(applicant.getString("chineseName"));
 			String[] dob = request.getParameter("dob").toString().split("-");
 			applicant.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
+			etPolicyApplication.getApplicant().setDob(applicant.getString("dob"));
 			//request.getParameter("savieApplicantBean.gender")
 			applicant.put("gender", "M");
+			etPolicyApplication.getApplicant().setGender(applicant.getString("gender"));
 			applicant.put("hkId", request.getParameter("savieApplicantBean.hkId"));
+			etPolicyApplication.getApplicant().setHkId(applicant.getString("hkId"));
 			applicant.put("passport", "");
+			etPolicyApplication.getApplicant().setPassport(applicant.getString("passport"));
 			//request.getParameter("savieApplicantBean.maritalStatus").split("-")[0]
 			applicant.put("maritalStatus", "SINGLE");
 			applicant.put("placeOfBirth", request.getParameter("savieApplicantBean.placeOfBirth").split("-")[0]);
@@ -76,29 +85,49 @@ public class EliteTermServiceImpl implements EliteTermService {
 			applicant.put("residentialTelNo", request.getParameter("savieApplicantBean.residentialTelNo"));
 			applicant.put("mobileNoCountryCode", request.getParameter("savieApplicantBean.mobileNo"));
 			applicant.put("mobileNo", request.getParameter("savieApplicantBean.mobileNo"));
+			etPolicyApplication.getApplicant().setMobileNo(applicant.getString("mobileNo"));
 			applicant.put("email", request.getParameter("savieApplicantBean.emailAddress"));
 			request.getSession().setAttribute("eliteTermEmail", request.getParameter("savieApplicantBean.emailAddress"));
-			JSONObject residentialAddress = new JSONObject();
-			residentialAddress.put("line1", request.getParameter("savieApplicantBean.residentialAdress1"));
-			residentialAddress.put("line2", request.getParameter("savieApplicantBean.residentialAdress2"));
-			residentialAddress.put("line3", request.getParameter("savieApplicantBean.residentialAdress3"));
-			residentialAddress.put("line4", "R District");
-			residentialAddress.put("district", request.getParameter("savieApplicantBean.residentialDistrict").split("-")[0]);
-			applicant.put("residentialAddress", residentialAddress);
-			JSONObject correspondenceAddress = new JSONObject();
-			correspondenceAddress.put("line1", request.getParameter("savieApplicantBean.correspondenceAdress1"));
-			correspondenceAddress.put("line2", request.getParameter("savieApplicantBean.correspondenceAdress2"));
-			correspondenceAddress.put("line3", request.getParameter("savieApplicantBean.correspondenceAdress3"));
-			correspondenceAddress.put("line4", "C District");
-			correspondenceAddress.put("district", request.getParameter("savieApplicantBean.correspondenceDistrict").split("-")[0]);
-			applicant.put("correspondenceAddress", correspondenceAddress);
+			etPolicyApplication.getApplicant().setEmail(applicant.getString("email"));
 			JSONObject permanentAddress = new JSONObject();
 			permanentAddress.put("line1", request.getParameter("savieApplicantBean.permanentAddress1"));
 			permanentAddress.put("line2", request.getParameter("savieApplicantBean.permanentAddress2"));
 			permanentAddress.put("line3", request.getParameter("savieApplicantBean.permanentAddress3"));
 			permanentAddress.put("line4", "C District");
-			permanentAddress.put("district", request.getParameter("savieApplicantBean.permanentAddress").split("-")[0]);
+			permanentAddress.put("district", request.getParameter("savieApplicantBean.permanentAddressCountry").split("-")[0]);
 			applicant.put("permanentAddress", permanentAddress);
+			JSONObject residentialAddress = new JSONObject();
+			if(request.getParameter("savieApplicantBean.isResidential") != null && request.getParameter("savieApplicantBean.isResidential") == "true"){
+				residentialAddress.put("line1", request.getParameter("savieApplicantBean.residentialAdress1"));
+				residentialAddress.put("line2", request.getParameter("savieApplicantBean.residentialAdress2"));
+				residentialAddress.put("line3", request.getParameter("savieApplicantBean.residentialAdress3"));
+				residentialAddress.put("line4", "R District");
+				residentialAddress.put("district", request.getParameter("savieApplicantBean.residentialDistrict").split("-")[0]);
+			}
+			else{
+				residentialAddress.put("line1", permanentAddress.get("line1"));
+				residentialAddress.put("line2", permanentAddress.get("line2"));
+				residentialAddress.put("line3", permanentAddress.get("line3"));
+				residentialAddress.put("line4", permanentAddress.get("line4"));
+				residentialAddress.put("district", permanentAddress.get("district"));
+			}
+			applicant.put("residentialAddress", residentialAddress);
+			JSONObject correspondenceAddress = new JSONObject();
+			if(request.getParameter("savieApplicantBean.addressIsSame") != null && request.getParameter("savieApplicantBean.addressIsSame") == "true"){
+				correspondenceAddress.put("line1", request.getParameter("savieApplicantBean.correspondenceAdress1"));
+				correspondenceAddress.put("line2", request.getParameter("savieApplicantBean.correspondenceAdress2"));
+				correspondenceAddress.put("line3", request.getParameter("savieApplicantBean.correspondenceAdress3"));
+				correspondenceAddress.put("line4", "C District");
+				correspondenceAddress.put("district", request.getParameter("savieApplicantBean.correspondenceDistrict").split("-")[0]);
+			}
+			else{
+				correspondenceAddress.put("line1", residentialAddress.get("line1"));
+				correspondenceAddress.put("line2", residentialAddress.get("line2"));
+				correspondenceAddress.put("line3", residentialAddress.get("line3"));
+				correspondenceAddress.put("line4", residentialAddress.get("line4"));
+				correspondenceAddress.put("district", residentialAddress.get("district"));
+			}
+			applicant.put("correspondenceAddress", correspondenceAddress);
 			JSONObject employmentStatus = new JSONObject();
 			employmentStatus.put("employmentStatus", request.getParameter("savieEmploymentBean.employmentStatus").split("-")[0]);
 			employmentStatus.put("occupation", request.getParameter("savieEmploymentBean.occupation").split("-")[0]);
@@ -109,19 +138,20 @@ public class EliteTermServiceImpl implements EliteTermService {
 			applicant.put("employmentStatus", employmentStatus);
 			applicant.put("smoke", request.getParameter("savieApplicantBeanSmoke"));
 			parameters.put("applicant", applicant);
-			JSONArray beneficiaries = new JSONArray();
-			JSONObject beneficiarie1 = new JSONObject();
-			beneficiarie1.put("firstName", request.getParameter("savieBeneficiaryBean[0].firstName"));
-			beneficiarie1.put("lastName", request.getParameter("savieBeneficiaryBean[0].lastName"));
-			beneficiarie1.put("chineseName", request.getParameter("savieBeneficiaryBean[0].chineseName"));
-			beneficiarie1.put("hkId", request.getParameter("savieBeneficiaryBean[0].hkId"));
-			beneficiarie1.put("passport", request.getParameter("savieBeneficiaryBean[0].passportNo"));
-			beneficiarie1.put("gender", request.getParameter("savieBeneficiaryBean[0].gender"));
-			//request.getParameter("savieBeneficiaryBean[0].relationship").split("-")[0]
-			beneficiarie1.put("relationship", "ss");
-			beneficiarie1.put("entitlement", request.getParameter("savieBeneficiaryBean[0].entitlement"));
-			beneficiaries.add(beneficiarie1);
-			parameters.put("beneficiaries", beneficiaries);
+			if(request.getParameter("beneficiary-info") != null && request.getParameter("beneficiary-info") == "name-others-now"){
+				JSONArray beneficiaries = new JSONArray();
+				JSONObject beneficiarie1 = new JSONObject();
+				beneficiarie1.put("firstName", request.getParameter("savieBeneficiaryBean[0].firstName"));
+				beneficiarie1.put("lastName", request.getParameter("savieBeneficiaryBean[0].lastName"));
+				beneficiarie1.put("chineseName", request.getParameter("savieBeneficiaryBean[0].chineseName"));
+				beneficiarie1.put("hkId", request.getParameter("savieBeneficiaryBean[0].hkId"));
+				beneficiarie1.put("passport", request.getParameter("savieBeneficiaryBean[0].passportNo"));
+				beneficiarie1.put("gender", request.getParameter("savieBeneficiaryBean[0].gender"));
+				beneficiarie1.put("relationship", request.getParameter("savieBeneficiaryBean[0].relationship").split("-")[0]);
+				beneficiarie1.put("entitlement", request.getParameter("savieBeneficiaryBean[0].entitlement"));
+				beneficiaries.add(beneficiarie1);
+				parameters.put("beneficiaries", beneficiaries);
+			}
 			JSONObject payment = new JSONObject();
 			payment.put("amount", Double.valueOf(eliteTermPremium.getMonthlyDuePremium())*2.00);
 			payment.put("paymentMethod", "CreditCard");
@@ -135,6 +165,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			logger.info(parameters.toString());
 			apiReturn = connector.createEliteTermPolicy(parameters, header);
 			request.getSession().setAttribute("eliteTermPolicy", apiReturn);
+			request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl createEliteTermPolicy occurs an exception!");
 			logger.info(e.getMessage());
