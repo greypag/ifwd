@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.services.SavieService;
@@ -88,7 +89,9 @@ public class EliteTermController extends BaseController{
 	public ModelAndView getDocumentUpload(Model model, HttpServletRequest request) {
 		String policyNumber = (String) request.getParameter("policyNumber");
 		if(StringUtils.isNotEmpty(policyNumber)){
-			request.getSession().setAttribute("policyNumber", policyNumber);
+			CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
+			eliteTermPolicy.setPolicyNo(policyNumber);
+			request.getSession().setAttribute("etPolicyApplication", eliteTermPolicy);
 		}
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_DOCUMENT_UPLOAD);
 	}
