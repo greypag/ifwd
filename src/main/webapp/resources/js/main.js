@@ -139,9 +139,11 @@ $('.product_plan_panel').click(function(e){
 
 var product_plan_inner_panel_valid=true;
 $('.product_plan_inner_panel').click(function(e){
+	//console.log("1");
 	if(product_plan_inner_panel_valid){
 		product_plan_inner_panel_valid=false;
 		$panel=$(this);
+		//console.log($panel);
 		if($panel.next('.product_plan_inner_panel_content:visible').length>0){
 			$('.product_plan_inner_panel').find('.fa-minus').addClass('fa-plus');
 			$('.product_plan_inner_panel').find('.fa-minus').removeClass('fa-minus');
@@ -150,6 +152,9 @@ $('.product_plan_inner_panel').click(function(e){
 				$target.find('table').parent().removeAttr('id');
 				
 				product_plan_inner_panel_valid=true;
+				//console.log($panel.parents(".mCustomScrollbar"));
+				$panel.parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $panel);
+				
 			});
 		}else if($('.product_plan_inner_panel_content:visible').length>0){
 			$("#plan-no-more-tables").removeAttr('id');
@@ -163,7 +168,7 @@ $('.product_plan_inner_panel').click(function(e){
 					$panel.find('i').addClass('fa-minus');
 					
 					product_plan_inner_panel_valid=true;
-					
+					$panel.parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $panel);
 					$('html, body').animate({
 						scrollTop: $panel.offset().top
 					}, 500);
@@ -178,7 +183,7 @@ $('.product_plan_inner_panel').click(function(e){
 				$panel.find('i').addClass('fa-minus');
 				
 				product_plan_inner_panel_valid=true;
-				
+				$panel.parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $panel);
 				$('html, body').animate({
 					scrollTop: $panel.offset().top
 				}, 500);
