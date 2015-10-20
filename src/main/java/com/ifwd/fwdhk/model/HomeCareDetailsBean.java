@@ -35,6 +35,7 @@ public class HomeCareDetailsBean {
 	
 	private String planCode;
 	private String totalDue;
+	private String grossPremium;
 	
 	private String netFloorAreaDesc;
 	private String applicantDistrictDesc; 
@@ -47,11 +48,12 @@ public class HomeCareDetailsBean {
 	private boolean checkbox3;
 	private boolean checkbox4;
 	
-	
-	
-	
-	
-	
+	public String getGrossPremium() {
+		return grossPremium;
+	}
+	public void setGrossPremium(String grossPremium) {
+		this.grossPremium = grossPremium;
+	}
 	public String getDonotDisclose() {
 		return donotDisclose;
 	}

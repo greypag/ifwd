@@ -1856,16 +1856,9 @@ public class TravelController {
 			} else {
 				
 				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
-				
-				model.addAttribute("emailAddress",
-						session.getAttribute("emailAddress"));
-				
-				
+				model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
 				model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
-				model.addAttribute("originalAmount", session.getAttribute("originalAmount"));
-				
-				model.addAttribute("referralCode",
-						session.getAttribute("referralCode"));
+				model.addAttribute("referralCode", session.getAttribute("referralCode"));
 				String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				model.addAttribute("pageTitle", pageTitle);
