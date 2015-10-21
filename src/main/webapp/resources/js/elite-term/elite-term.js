@@ -384,7 +384,7 @@ function getOccupation(value,language) {
 		}
 	})
 	.fail(function(data) {
-		alert(data.length);
+		console.log("data error:"+data.length);
 	});
 }
 $('#et-select-plan-go-homepage').on('click', function(e) {
