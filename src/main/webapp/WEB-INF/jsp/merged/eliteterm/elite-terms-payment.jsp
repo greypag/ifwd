@@ -113,7 +113,7 @@ var language = "${language}";
 					                    <input type="hidden" name="payType" value="N">
 					                    <input type="hidden" name="lang" value="C">
 					                    <input type="hidden" name="remark" value="">
-					                    <input type="hidden" name="pMethod" value="Master">
+					                    <input type="text" name="pMethod" id="pMethod" value="Master">
 					                    <input type="hidden" id="emailAddress" name="emailAddress" value="${eliteTermEmail}"> 
 					                    
 									    <input type="hidden" name="referenceNo" value="${eliteTermPolicy.policyNo}">
@@ -344,6 +344,15 @@ var language = "${language}";
  	 
  	function copyCardNo(){
  		$('#cardNo').val($('#card-num').val().replace(/\s+/g,""));
+ 		if($('#card-num').val().substring(0,1) == "5"){
+ 			$('#pMethod').val("Master");
+ 		}
+ 		else if($('#card-num').val().substring(0,1) == "4"){
+ 			$('#pMethod').val("VISA");
+ 		}
+ 		else{
+ 			$('#pMethod').val("Master");
+ 		}
  	}
  	  
 	function BackMe() {
