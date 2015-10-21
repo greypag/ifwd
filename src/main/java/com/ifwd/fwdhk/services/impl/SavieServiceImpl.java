@@ -1333,14 +1333,14 @@ public class SavieServiceImpl implements SavieService {
 				language = "tc";
 			}
 			//CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
-			String customerName="[Customer Name]";
+			String customerName="CustomerName";
 //			if(etPolicyApplication.getApplicant() != null){
 //				 customerName = etPolicyApplication.getApplicant().getChineseName();
 //				 if(StringUtils.isEmpty(customerName)){
 //					 customerName =  etPolicyApplication.getApplicant().getFirstName()+" "+etPolicyApplication.getApplicant().getLastName();
 //				 }
 //			}		
-			url = url + "/"+language+"/elite-term/document-upload?policyNumber=";
+			url = url + "/"+language+"/elite-term/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(policyNumber.getBytes());
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
 			String subject = "FWD Elite Term – Pending["+policyNumber+"]";

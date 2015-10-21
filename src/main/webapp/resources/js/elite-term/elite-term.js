@@ -96,6 +96,9 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 });
 
 $('#et-upload-doc-submit-btn').on('click', function(e) {
+	if(!checkLogin()){
+		return false;
+	}
 	var uploadNow = $("input[name='upload-doc']:checked").val();
 	var passportFlage = true;
 	var uploadLaterFlage = false;

@@ -2,6 +2,7 @@ package com.ifwd.fwdhk.controller;
 
 import java.util.Map;
 import java.io.File;
+import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -85,13 +86,19 @@ public class EliteTermController extends BaseController{
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_PAYMENT);
 	}
 	
+	@SuppressWarnings("restriction")
 	@RequestMapping(value = {"/{lang}/elite-term/document-upload"})
 	public ModelAndView getDocumentUpload(Model model, HttpServletRequest request) {
-		String policyNumber = (String) request.getParameter("policyNumber");
-		if(StringUtils.isNotEmpty(policyNumber)){
-			CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
-			eliteTermPolicy.setPolicyNo(policyNumber);
-			request.getSession().setAttribute("etPolicyApplication", eliteTermPolicy);
+		try {
+			String policyNumber = (String) request.getParameter("policyNumber");
+			if(StringUtils.isNotEmpty(policyNumber)){
+				policyNumber = new String(new sun.misc.BASE64Decoder().decodeBuffer(policyNumber));
+				CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
+				eliteTermPolicy.setPolicyNo(policyNumber);
+				request.getSession().setAttribute("etPolicyApplication", eliteTermPolicy);
+			}		
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_DOCUMENT_UPLOAD);
 	}

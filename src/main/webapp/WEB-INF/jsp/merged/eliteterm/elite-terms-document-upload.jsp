@@ -444,7 +444,19 @@ var language = "${language}";
                 
                 return isValid;
             }
-         
+            $(function() {
+				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
+					$('#loginpopup').modal('show');
+				}
+			});
+            
+            function checkLogin() {
+            	if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+					return true;
+				}else{
+					return false;
+				}
+			}
          /*$(document).on('click', '.et-header-info-btn', function(e) {
             e.preventDefault();
             
