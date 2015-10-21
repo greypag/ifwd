@@ -496,9 +496,9 @@ var language = "${language}";
                                        <label for="give-last-name" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" /> <span class="hidden-xs hidden-sm"><fmt:message key="eliteTerms.selectPlan.Same.as.HKID" bundle="${msg}" /></span></label>
                                     </div>
                                     <div class="left-desktop text-box form-group">
-                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.firstName" name="savieApplicantBean.firstName" type="text" placeholder="Given Name " value="">
+                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.firstName" name="savieApplicantBean.firstName" type="text" placeholder="Given Name " value="${userDetails.firstName }">
                                        <span class="error-msg" id="savieApplicantBeanFirstNameMsg"><small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.English.first.name" bundle="${msg}" /></small></span>
-                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.lastName" name="savieApplicantBean.lastName" type="text" placeholder="Last Name " value="">
+                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.lastName" name="savieApplicantBean.lastName" type="text" placeholder="Last Name " value="${userDetails.lastName }">
                                        <span class="error-msg" id="savieApplicantBeanlastNameMsg"><small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.English.last.name" bundle="${msg}" /></small></span>
                                     </div>
                                  </div>
@@ -647,7 +647,7 @@ var language = "${language}";
                                        <label for="savieApplicantBean.mobileNo" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box clearfix">
-                                       <input type="text" class="form-control gray-textbox" name="savieApplicantBean.mobileNo" id="savieApplicantBean.mobileNo" placeholder="Mobile no." />
+                                       <input type="text" class="form-control gray-textbox" name="savieApplicantBean.mobileNo" id="savieApplicantBean.mobileNo" placeholder="Mobile no." value="${userDetails.mobileNo }" />
                                        <span class="error-msg" id="mobileMessage"></span>
                                     </div>
                                  </div>
@@ -657,7 +657,7 @@ var language = "${language}";
                                        <label for="savieApplicantBean.emailAddress" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box">
-                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.emailAddress" name="savieApplicantBean.emailAddress" type="text" placeholder="Email address">
+                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.emailAddress" name="savieApplicantBean.emailAddress" type="text" placeholder="Email address" value="${userDetails.emailAddress }">
                                        <span class="error-msg" id="emailMessage"></span>
                                     </div>
                                  </div>
