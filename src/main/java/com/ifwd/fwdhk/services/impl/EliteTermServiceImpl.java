@@ -53,7 +53,10 @@ public class EliteTermServiceImpl implements EliteTermService {
 	@Override
 	public CreateEliteTermPolicyResponse createEliteTermPolicy(HttpServletRequest request)throws ECOMMAPIException{
 		GetEliteTermPremiumResponse eliteTermPremium = (GetEliteTermPremiumResponse) request.getSession().getAttribute("eliteTermPremium");
-		CreateEliteTermPolicyRequest etPolicyApplication = new CreateEliteTermPolicyRequest();
+		CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
+		if(etPolicyApplication == null){
+			etPolicyApplication = new CreateEliteTermPolicyRequest();
+		}		
 		CreateEliteTermPolicyResponse apiReturn = null;
 		try {
 			final Map<String,String> header = headerUtil.getHeader(request);
@@ -380,4 +383,27 @@ public class EliteTermServiceImpl implements EliteTermService {
 		return br;
 	}
 	
+	@Override
+	public void putEtPlanOptionSession(HttpServletRequest request)throws ECOMMAPIException{
+		CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
+		if(etPolicyApplication == null){
+			etPolicyApplication = new CreateEliteTermPolicyRequest();
+		}		
+		try {
+			etPolicyApplication.getApplicant().setGender(request.getParameter("gender"));
+			etPolicyApplication.getApplicant().setDobD(request.getParameter("dobD"));
+			etPolicyApplication.getApplicant().setSmoke(request.getParameter("smoke"));
+			etPolicyApplication.setAmount(request.getParameter("amount"));
+			etPolicyApplication.setPromocode(request.getParameter("promocode"));
+			logger.debug(etPolicyApplication.getAmount());
+			logger.debug(etPolicyApplication.getApplicant().getDobD());
+			logger.debug(etPolicyApplication.getApplicant().getSmoke());
+			logger.debug(etPolicyApplication.getPromocode());
+			request.getSession().setAttribute("etPolicyApplication", etPolicyApplication);
+		}catch(Exception e){
+			logger.info("EliteTermServiceImpl putEtPlanOptionSession occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }

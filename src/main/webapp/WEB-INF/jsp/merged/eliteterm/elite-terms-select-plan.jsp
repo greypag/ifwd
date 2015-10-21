@@ -147,7 +147,7 @@ var language = "${language}";
                            <div class="col-md-4 col-xs-12">
                               <h4 class="et-dob-txt"><fmt:message key="eliteTerms.selectPlan.Your.date.of.birth" bundle="${msg}" /></h4>
                               <div id="et-select-plan-date" class="selectDiv et-select-plan-date">
-                                 <input type="text" class="date et-ays-datepicker" name="et-select-plan-date" id="et-select-plan-date-input" placeholder="DD-MM-YYYY" readonly="">
+                                 <input type="text" class="date et-ays-datepicker" name="et-select-plan-date" id="et-select-plan-date-input" placeholder="DD-MM-YYYY" readonly="" >
                                  <span class="err-msg" id="et-ays-datepicker-message"></span> 
                               </div>
                               <div class="et-broken-line et-padding hidden-md hidden-lg"></div>
@@ -157,7 +157,7 @@ var language = "${language}";
                               
                               <div class="clearfix et-smoke-wrapper">
                                  <div class="et-gender-div">
-                                    <input type="radio" id="et-smoker-yes" name="et-smoker" value="true">
+                                    <input type="radio" id="et-smoker-yes" name="et-smoker" value="true" <c:if test="#etPolicyApplication.applicant.smoke == 'true'">checked="checked"</c:if>>
                                     <label for="et-smoker-yes" class="et-smoker-label">
                                        <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-smoker.png" alt="et-male.png" />
                                     </label>
@@ -165,7 +165,7 @@ var language = "${language}";
                                  </div>
                                  
                                  <div class="et-gender-div">
-                                    <input type="radio" id="et-smoker-no" name="et-smoker" value="false">
+                                    <input type="radio" id="et-smoker-no" name="et-smoker" value="false" <c:if test="#etPolicyApplication.applicant.smoke == 'false'">checked="checked"</c:if>>
                                     <label for="et-smoker-no" class="et-smoker-label">
                                        <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-non-smoker.png" alt="et-male.png" />
                                     </label>
@@ -198,7 +198,7 @@ var language = "${language}";
                                     <h3 class="et-insured-amount"><fmt:message key="eliteTerms.selectPlan.Insured.amount" bundle="${msg}" /> </h3> 
                                     <button type="button" class="et-minimal et-insured-amount-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="Our online application only accept up to <strong>HK$2,000,000</strong> insured amount, if you want to insure more than the above amount, please call our Customer Service on 3123 3123, to arrange an appointment at our Customer Service Center to complete a detail examination." data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span></button>
                                  </div>
-                                 <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range">800,000</span></p>
+                                 <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range">${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'800000' }</span></p>
                                  <div class="clearfix et-slider-info-div">
                                     <div class="pull-left">
                                        <p class="et-slider-info center"><fmt:message key="eliteTerms.selectPlan.Min" bundle="${msg}" /></p>
@@ -209,7 +209,7 @@ var language = "${language}";
                                        <p class="et-slider-info">2,000,000</p>
                                     </div>
                                  </div>
-                                 <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-value="800000" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
+                                 <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-value="${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'800000' }" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
                                  <div class="et-broken-line et-padding hidden-md hidden-lg"></div>
                               </div>
                               <div class="col-xs-12 col-md-5">
@@ -220,7 +220,7 @@ var language = "${language}";
                                  <div id="promocode-hidden" class="hidden-sm hidden-xs">
                                     <div class="clearfix">
                                        <div class="pull-left et-promo-code-txtbox">
-                                          <input name="promocode" type="text" autocomplete="off" placeholder="e.g. SAVIE50" class="et-promocode" id="et-promocode">
+                                          <input name="promocode" type="text" autocomplete="off" placeholder="e.g. SAVIE50" class="et-promocode" id="et-promocode" value="${etPolicyApplication.promocode }">
                                           <span class="err-msg" id="et-ays-datepicker-message"></span> 
                                        </div>
                                        <div class="pull-right et-apply-btn">
@@ -258,7 +258,7 @@ var language = "${language}";
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount">HK$ <span id="et-amount">0</span> <span>/per month</span></p>
+                                 <p class="et-amount">HK$ <span id="et-amount">${eliteTermPremium.monthlyDuePremium }</span> <span>/per month</span></p>
                                  <p class="et-per et-month">(only HK$ 100 per day)</p>
                               </div>
                               
@@ -518,7 +518,7 @@ var language = "${language}";
                                        <label for="sales-illu-dob" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Date.of.birth" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box et-date-info clearfix">
-                                       <input type="text" class="form-control gray-textbox pull-left et-80-width" name="dob" id="sales-illu-dob" placeholder="DD-MM-YYYY " onfocusin="fnSetStyle()" readonly  />
+                                       <input type="text" class="form-control gray-textbox pull-left et-80-width" name="dob" id="sales-illu-dob" placeholder="DD-MM-YYYY " onfocusin="fnSetStyle()" readonly value="${etPolicyApplication.applicant.dobD }"  />
                                        <div class="et-app-edit-wrapper">
                                           <a href="#" title="Edit Date of birth" class="et-app-sum-edit et-app-edit" data-target="#et-about-yoursel-section">
                                              <span class="text-center">
@@ -535,7 +535,7 @@ var language = "${language}";
                                        <label for="savieApplicantBean.gender" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Gender" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box et-date-info clearfix">
-                                       <input type="text" class="form-control gray-textbox pull-left et-80-width" name="savieApplicantBean.gender" id="savieApplicantBean.gender" placeholder="Gender" readonly  />
+                                       <input type="text" class="form-control gray-textbox pull-left et-80-width" name="savieApplicantBean.gender" id="savieApplicantBean.gender" placeholder="Gender" readonly value="${etPolicyApplication.applicant.gender == 'M' ? 'Male':'Female' }"  />
                                         <div class="et-app-edit-wrapper">
                                           <a href="#" title="Edit Gender" class="et-app-sum-edit et-app-edit" data-target="#et-about-yoursel-section">
                                              <span class="text-center">
@@ -1935,6 +1935,20 @@ var language = "${language}";
       <script type="text/javascript">
 		      // Move to Medical declaration section
 		      $('#et-brn-proceed-to-application').on('click', function(e) {
+		    	  $.ajax({
+		 			  type : "POST",
+		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/putEtPlanOptionSession",
+		 			  data : {
+		 				      gender : $('input[name="et-gender"]:checked ').val(),
+		 				      dobD: $('#et-select-plan-date-input').val(),
+		 				      smoke: $('input[name="et-smoker"]:checked ').val(),
+		 				      amount: $('#R2').val(),
+		 				      promocode: $('#et-promocode').val()
+		 				     },
+		 			  success : function(data) {
+		 			  }
+	 		      });
+		    	  
 	    	     if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
 	    	    	 var $appInfo = $('#et-application-first-section');
 			         $appInfo.removeClass('hide-element')
@@ -1948,5 +1962,21 @@ var language = "${language}";
 					// Open login modal
 					$('#loginpopup').modal('show');
 				 }
+		      });
+		      
+		      $(document).ready(function() {
+		    	  if('${etPolicyApplication.applicant.gender}'=='M'){
+		    		  $("#et-gender-male").click();
+		    	  }
+		    	  else if('${etPolicyApplication.applicant.gender}'=='F'){
+		    		  $("#et-gender-female").click();
+		    	  }
+		    	  $('#et-select-plan-date-input').datepicker('setDate', '${etPolicyApplication.applicant.dobD }');
+		    	  if('${etPolicyApplication.applicant.smoke}'=='true'){
+		    		  $("#et-smoker-yes").click();
+		    	  }
+		    	  else if('${etPolicyApplication.applicant.smoke}'=='false'){
+		    		  $("#et-smoker-no").click();
+		    	  }
 		      });
       </script>

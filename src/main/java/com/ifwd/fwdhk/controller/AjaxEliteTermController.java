@@ -177,4 +177,16 @@ public class AjaxEliteTermController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = {"/ajax/eliteTerm/putEtPlanOptionSession"})
+	public void putEtPlanOptionSession(HttpServletRequest request) {
+		if (Methods.isXssAjax(request))
+			return;
+		try {
+			eliteTermService.putEtPlanOptionSession(request);
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }

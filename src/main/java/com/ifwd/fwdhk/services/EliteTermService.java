@@ -17,5 +17,6 @@ public interface EliteTermService {
 	public BaseResponse uploadSignature(HttpServletRequest request,String image,String policyNo)throws ECOMMAPIException;
 	public BaseResponse uploadDocuments(HttpServletRequest request,String file)throws ECOMMAPIException;
 	public BaseResponse sendEliteTermMail(HttpServletRequest request)throws ECOMMAPIException;
+	public void putEtPlanOptionSession(HttpServletRequest request)throws ECOMMAPIException;
 	
 }

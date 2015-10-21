@@ -6,6 +6,7 @@ public class CreateEliteTermPolicyApplicant{
 	private String lastName;
 	private String chineseName;
 	private String dob;
+	private String dobD;
 	private String gender;
 	private String hkId;
 	private String passport;
@@ -114,4 +115,11 @@ public class CreateEliteTermPolicyApplicant{
 	public void setSmoke(String smoke) {
 		this.smoke = smoke;
 	}
+	public String getDobD() {
+		return dobD;
+	}
+	public void setDobD(String dobD) {
+		this.dobD = dobD;
+	}
+	
 }
