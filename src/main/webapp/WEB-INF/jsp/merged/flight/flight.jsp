@@ -666,7 +666,7 @@ $(document).ready(function() {
                   <div class="slide-margin">
                     <div class="other-benefits-wrap text-center">
                       <div class="other-benefits-inner">
-                        <p class="h4-5"><fmt:message key="flight.main.other.tnc.desc9.part1" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part3" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part4" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part5" bundle="${msg}" /></p>
+                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc9.part1" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part3" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part4" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part5" bundle="${msg}" /></p>
                       </div>
                     </div>
                   </div>
