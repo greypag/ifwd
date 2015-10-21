@@ -25,6 +25,7 @@ import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
 import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.EliteTermService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
@@ -331,6 +332,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			String perferredDateC = sdfC.format(date);
 			SimpleDateFormat sdfE = new SimpleDateFormat("dd MMM yyyy",Locale.US); 
 			String perferredDateE = sdfE.format(date);*/
+			UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 			
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
@@ -341,7 +343,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			{
 				serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 			}
-			String message = "Dear [Customer Name]<br/>"
+			String message = "Dear "+userDetails.getFullName()+"<br/>"
 					       + "Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your documents are well received; your application has been processed. Your policy will be in force in x days.<br/>"
 					       + "多謝閣下經網上購買富衛智理想定期保障計劃系列。我們已經收到您上載的檔案;我們正在處理您的投保申請，您的保單於將X天內生效。<br/>"
 					       + "For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com.<br/>"
