@@ -113,7 +113,7 @@ var language = "${language}";
 					                    <input type="hidden" name="payType" value="N">
 					                    <input type="hidden" name="lang" value="C">
 					                    <input type="hidden" name="remark" value="">
-					                    <input type="text" name="pMethod" id="pMethod" value="Master">
+					                    <input type="hidden" name="pMethod" id="pMethod" value="Master">
 					                    <input type="hidden" id="emailAddress" name="emailAddress" value="${eliteTermEmail}"> 
 					                    
 									    <input type="hidden" name="referenceNo" value="${eliteTermPolicy.policyNo}">
