@@ -78,10 +78,10 @@ var language = "${language}";
 						<div class="page-header text-center">
 							<h2 class="page-header-title hidden-xs hidden-sm"><span class="hidden-md hidden-lg"><fmt:message key="eliteTerms.payment.Payment.details" bundle="${msg}" /></span> <span class="hidden"><fmt:message key="eliteTerms.payment.Your.summary" bundle="${msg}" /></span></h2>
 							<p class="page-header-motto"><span><fmt:message key="eliteTerms.payment.We.will.now" bundle="${msg}" /></span> <span><fmt:message key="eliteTerms.payment.premium.as.deposit" bundle="${msg}" /></span></p>
-							<p class="page-header-motto"><fmt:message key="eliteTerms.payment.Your.1-month" bundle="${msg}" /></p>	
+							<p class="page-header-motto"><fmt:message key="eliteTerms.payment.Your.1-month" bundle="${msg}" />${eliteTermPremium.monthlyDuePremium}</p>	
 							<p class="amount-holder">
 								<span class="total-amount"><fmt:message key="eliteTerms.payment.Total.amount" bundle="${msg}" /></span>
-								<span class="amount">HKD ${eliteTermPremium.monthlyDuePremium.trim()}</span>
+								<span class="amount">HKD ${eliteTermPremium.monthlyDuePremium*2}</span>
 							</p>
 						</div>	
 						<div class="page-content clearfix">
