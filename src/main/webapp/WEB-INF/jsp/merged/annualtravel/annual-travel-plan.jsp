@@ -30,6 +30,9 @@ var traveller;
 // personal
 var personalTraveller = parseInt("${corrAnnualTravelQuote.totalPersonalTraveller}");
 // family
+var familyAdult = parseInt("${corrAnnualTravelQuote.totalAdultTraveller}");
+var familyChild = parseInt("${corrAnnualTravelQuote.totalChildTraveller}");
+var familyTraveller = familyAdult+familyChild;
 var promoData = '';
 
 //bmg inline variable
