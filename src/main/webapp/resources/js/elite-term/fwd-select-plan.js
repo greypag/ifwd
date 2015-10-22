@@ -1097,16 +1097,21 @@
    $('#savieEmploymentBean\\.employmentStatus').on('change', function(e) {
       var $self = $(this);
       
-      if ($self.val() === 'unemployed') {
-         $('.et-emp-info-occupation-container').addClass('hide-element');
-         $('.et-emp-info-nat-business-container').addClass('hide-element');
-         $('.et-emp-info-mon-income-container').addClass('hide-element');
-         $('.et-emp-info-liq-assets-container').removeClass('hide-element');
-      } else {
-         $('.et-emp-info-occupation-container').removeClass('hide-element');
-         $('.et-emp-info-nat-business-container').removeClass('hide-element');
-         $('.et-emp-info-mon-income-container').removeClass('hide-element');
-         $('.et-emp-info-liq-assets-container').addClass('hide-element');
+      if ($self.val() === 'ES1-Full Time Employed' || $self.val() === 'ES2-Part Time Employed' || $self.val() === 'ES3-Self Employed') {
+         $('.et-emp-info-sourceOfIncome-container').addClass('hidden');
+         $('.et-emp-info-liq-assets-container').addClass('hidden');
+         $('.et-emp-info-nat-business-container').removeClass('hidden');
+         $('.et-emp-info-occupation-container').removeClass('hidden');
+         $('.et-emp-info-employer-name-container').removeClass('hidden');
+         $('.et-emp-info-mon-income-container').removeClass('hidden');
+      }
+      else {
+         $('.et-emp-info-nat-business-container').addClass('hidden');
+         $('.et-emp-info-occupation-container').addClass('hidden');
+         $('.et-emp-info-employer-name-container').addClass('hidden');
+         $('.et-emp-info-mon-income-container').addClass('hidden');
+         $('.et-emp-info-sourceOfIncome-container').removeClass('hidden');
+         $('.et-emp-info-liq-assets-container').removeClass('hidden');
       }
    });
    
