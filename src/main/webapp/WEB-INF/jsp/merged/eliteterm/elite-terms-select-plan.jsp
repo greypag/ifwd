@@ -1117,7 +1117,7 @@ var language = "${language}";
                                     </div>
                                     <div class="form-group has-error beneficiary-info-row entitle">
                                        <label for="savieBeneficiaryBean[0].entitlement"><fmt:message key="eliteTerms.selectPlan.Entitlement" bundle="${msg}" /></label>
-                                       <input type="number" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBean[0].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="100" readonly />
+                                       <input type="number" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBean[0].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="" />
                                        <span class="error-msg" id="entitlementMessage[0]"></span>
                                     </div>		                
                                  </div>
