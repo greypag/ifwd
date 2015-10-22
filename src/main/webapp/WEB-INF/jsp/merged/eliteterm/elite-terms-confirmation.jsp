@@ -108,7 +108,7 @@ var language = "${language}";
 					
                <div class="row">
                   <div class="col-xs-12 text-center">
-                     <a href="<%=request.getContextPath()%>/${language}/elite-term/${nextPageFlow}" title="Back to home" class="btn next et-back-home-btn"><fmt:message key="eliteTerms.confirmation.Back.to.home" bundle="${msg}" /></a>
+                     <a href="<%=request.getContextPath()%>/${language}/term-life-insurance/${nextPageFlow}" title="Back to home" class="btn next et-back-home-btn"><fmt:message key="eliteTerms.confirmation.Back.to.home" bundle="${msg}" /></a>
                   </div>
                </div>
 				</div>

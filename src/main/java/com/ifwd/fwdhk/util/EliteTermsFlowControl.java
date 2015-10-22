@@ -82,7 +82,7 @@ public class EliteTermsFlowControl {
 		model.addAttribute("nextPageFlow", to);
 
 		logger.debug("nextPageFlow : " + to);
-		logger.debug(UserRestURIConstants.getSitePath(request) + "eliteterm/" + current);
+		logger.debug("page:"+UserRestURIConstants.getSitePath(request) + "eliteterm/" + current);
 		logger.debug("-----------------------------------page flow end--------------------------------------------");
 
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
@@ -96,12 +96,18 @@ public class EliteTermsFlowControl {
 		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_SELECT_PLAN)) {
 			return UserRestURIConstants.PAGE_ELITE_TERMS_SELECT_PLAN;
 		}
+		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_APPLICATION)) {
+			return UserRestURIConstants.PAGE_ELITE_TERMS_SELECT_PLAN;
+		}
 		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_PAYMENT)) {
 			return UserRestURIConstants.PAGE_ELITE_TERMS_PAYMENT;
 		}		
 		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_DOCUMENT_UPLOAD)) {
 			return UserRestURIConstants.PAGE_ELITE_TERMS_DOCUMENT_UPLOAD;
-		}		
+		}	
+		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_DOCUMENT_UPLOAD_LATER)) {
+			return UserRestURIConstants.PAGE_ELITE_TERMS_DOCUMENT_UPLOAD;
+		}	
 		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_CONFIRMATION)) {
 			return UserRestURIConstants.PAGE_ELITE_TERMS_CONFIRMATION;
 		}		
