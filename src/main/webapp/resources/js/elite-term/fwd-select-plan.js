@@ -492,7 +492,7 @@
          if (!$("#signature").find('canvas').length) {
             // Initialize signature area
             $("#signature").jSignature({
-               height: '300px', 
+               height: '350px', 
                width: '100%',
                'decor-color': 'transparent',
             }).on('change', function(e) {
