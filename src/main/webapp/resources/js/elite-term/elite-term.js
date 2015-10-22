@@ -205,16 +205,6 @@ $('#et-cannot-apply-btn').on('click', function(e) {
 });
 $('input[name="et-gender"]').on('click', function(e) {
 	$('#savieApplicantBeanGender').val(this.value);
-   if(this.value == "M"){
-	   $("#pi-male-now").attr("checked",true);
-	   $("#pi-female-now").attr("checked",false);
-	   $("#pi-female-now").removeAttr("checked");
-   }
-   else{
-	   $("#pi-male-now").attr("checked",false);
-	   $("#pi-male-now").removeAttr("checked");
-	   $("#pi-female-now").attr("checked",true);
-   }
 });
 $('input[name="et-smoker"]').on('click', function(e) {
 	$('#savieApplicantBeanSmoke').val(this.value);
