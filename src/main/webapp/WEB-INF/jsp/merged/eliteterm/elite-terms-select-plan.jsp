@@ -869,24 +869,44 @@ var language = "${language}";
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.employmentStatus" name="savieEmploymentBean.employmentStatus" data-style="application-select">
                                        <option value="">-Please select-</option>
                                        <c:if test="${language == 'en'}">
-										   <c:forEach var="list" items="${employmentStatusEN}">
-										      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
-										   </c:forEach>
-										</c:if>
-										<c:if test="${language == 'tc'}">
-										   <c:forEach var="list" items="${employmentStatusCN}">
-										      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
-										   </c:forEach>
-										</c:if>	
+                                 <c:forEach var="list" items="${employmentStatusEN}">
+                                    <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                 </c:forEach>
+                              </c:if>
+                              <c:if test="${language == 'tc'}">
+                                 <c:forEach var="list" items="${employmentStatusCN}">
+                                    <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                 </c:forEach>
+                              </c:if>  
                                     </select>
                                  </div>
                                  <span class="error-msg" id="employmentStatusMessage"></span>
+                              </div>
+                              <div class="clearfix form-group has-error employment-info-row et-emp-info-nat-business-container">
+                                  <label for="savieEmploymentBean.natureOfBusiness"><fmt:message key="eliteTerms.selectPlan.Nature.of.business" bundle="${msg}" /></label>
+                                 <div class="selectEmployment">
+                                    <span class="icon-chevron-thin-down orange-caret"></span>
+                                    <select class="form-control gray-dropdown" id="savieEmploymentBean.natureOfBusiness" name="savieEmploymentBean.natureOfBusiness" data-style="application-select" onclick="getOccupation(this.value,'${language }');">
+                                       <option value="">-Please select-</option>
+                                       <c:if test="${language == 'en'}">
+                                 <c:forEach var="list" items="${natureOfBusinessEN}">
+                                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                 </c:forEach>
+                              </c:if>
+                              <c:if test="${language == 'tc'}">
+                                 <c:forEach var="list" items="${natureOfBusinessCN}">
+                                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                 </c:forEach>
+                              </c:if>  
+                                    </select>
+                                 </div>
+                                 <span class="error-msg" id="natureOfBusinessMessage"></span>
                               </div>
                               <div class="clearfix form-group has-error employment-info-row et-emp-info-occupation-container">
                                  <label for="savieEmploymentBean.occupation"><fmt:message key="eliteTerms.selectPlan.Occupation" bundle="${msg}" /></label>
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
-                                       <select class="form-control gray-dropdown" id="savieEmploymentBeanOccupation" name="savieEmploymentBean.occupation" data-style="application-select">
+                                       <select class="form-control gray-dropdown" id="savieEmploymentBean.occupation" name="savieEmploymentBean.occupation" data-style="application-select">
                                            <option value="">-Please select-</option>
                                            <c:if test="${language == 'en'}">
                                                 <c:forEach var="list" items="${occupationEN}">
@@ -897,56 +917,45 @@ var language = "${language}";
                                                 <c:forEach var="list" items="${occupationCN}">
                                                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
                                                 </c:forEach>
-                                            </c:if>	
+                                            </c:if>   
                                         </select>
                                  </div>
                                  <span class="error-msg" id="occupationMessage"></span>
                               </div>
-                              <div class="clearfix form-group has-error employment-info-row et-emp-info-liq-assets-container hide-element ">
+
+                              <div class="clearfix form-group has-error employment-info-row et-emp-info-sourceOfIncome-container ">
+                                 <label for="savieEmploymentBean.sourceOfIncome">Amount of other source of income (HK$)</label>
+                                 <div class="selectEmployment">
+                                    <span class="icon-chevron-thin-down orange-caret"></span>
+                                    <select class="form-control gray-dropdown" id="savieEmploymentBean.sourceOfIncome" name="savieEmploymentBean.sourceOfIncome" data-style="application-select">
+                                       <option selected disabled value="">- Please select -</option>
+                                       <option value="asset1">Asset 1</option>
+                                       <option value="asset2">Asset 2</option>   
+                                    </select>
+                                 </div>
+                                 <span class="error-msg" id="sourceOfIncome"></span>
+                              </div>
+
+                              <div class="clearfix form-group has-error employment-info-row et-emp-info-liq-assets-container">
                                  <label for="savieEmploymentBean.liquidAssets"><fmt:message key="eliteTerms.selectPlan.Liquid.assets" bundle="${msg}" /></label>
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.liquidAssets" name="savieEmploymentBean.liquidAssets" data-style="application-select">
                                        <option selected disabled value="">- Please select -</option>
-                                       <option value="asset1-asset1">Asset 1</option>
-                                       <option value="asset2-asset1">Asset 2</option>	
+                                       <option value="asset1">Asset 1</option>
+                                       <option value="asset2">Asset 2</option>   
                                     </select>
                                  </div>
                                  <span class="error-msg" id="liquidAssets"></span>
                               </div>
-                              <div class="clearfix form-group has-error employment-info-row">
-                                 <label for="savieEmploymentBean.educationLevel"><fmt:message key="eliteTerms.selectPlan.Education.level" bundle="${msg}" /></label>
-                                 <div class="selectEmployment">
-                                    <span class="icon-chevron-thin-down orange-caret"></span>
-                                    <select class="form-control gray-dropdown" id="savieEmploymentBean.educationLevel" name="savieEmploymentBean.educationLevel" data-style="application-select">
-                                       <option selected disabled value="">- Please select -</option>
-                                       <option value="college-graduate">College Graduate</option>
-                                       <option value="master-degree-holder">Masters Degree Holder</option>	
-                                    </select>
-                                 </div>
-                                 <span class="error-msg" id="educationLevelMessage"></span>
-                              </div>
                            </div>
                            <div class="content-right">
-                              <div class="clearfix form-group has-error employment-info-row et-emp-info-nat-business-container">
-                                  <label for="savieEmploymentBean.natureOfBusiness"><fmt:message key="eliteTerms.selectPlan.Nature.of.business" bundle="${msg}" /></label>
+                              <div class="clearfix form-group has-error employment-info-row et-emp-info-employer-name-container">
+                                 <label for="savieEmploymentBean.monthlyPersonalIncome" class="monthly-income">Current Employers Name</label>
                                  <div class="selectEmployment">
-                                    <span class="icon-chevron-thin-down orange-caret"></span>
-                                    <select class="form-control gray-dropdown" id="savieEmploymentBean.natureOfBusiness" name="savieEmploymentBean.natureOfBusiness" data-style="application-select" onclick="getOccupation(this.value,'${language }');">
-                                       <option value="">-Please select-</option>
-                                       <c:if test="${language == 'en'}">
-											<c:forEach var="list" items="${natureOfBusinessEN}">
-											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
-											</c:forEach>
-										</c:if>
-										<c:if test="${language == 'tc'}">
-											<c:forEach var="list" items="${natureOfBusinessCN}">
-											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
-											</c:forEach>
-										</c:if>	
-                                    </select>
+                                    <input type="text" class="form-control gray-textbox" id="savieEmploymentBean.currentEmployerName" name="savieEmploymentBean.currentEmployerName">
                                  </div>
-                                 <span class="error-msg" id="natureOfBusinessMessage"></span>
+                                 <span class="error-msg" id="employerNameMessage"></span>
                               </div>
                               <div class="clearfix form-group has-error employment-info-row et-emp-info-mon-income-container">
                                  <label for="savieEmploymentBean.monthlyPersonalIncome" class="monthly-income"><fmt:message key="eliteTerms.selectPlan.Monthly.personal.income" bundle="${msg}" /></label>
@@ -955,25 +964,37 @@ var language = "${language}";
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.monthlyPersonalIncome" name="savieEmploymentBean.monthlyPersonalIncome" data-style="application-select">
                                        <option value="">-Please select-</option>
                                        <c:if test="${language == 'en'}">
-											<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
-											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
-											</c:forEach>
-										</c:if>
-										<c:if test="${language == 'tc'}">
-											<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
-											  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
-											</c:forEach>
-										</c:if>
+                                 <c:forEach var="list" items="${monthlyPersonalIncomeEN}">
+                                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                 </c:forEach>
+                              </c:if>
+                              <c:if test="${language == 'tc'}">
+                                 <c:forEach var="list" items="${monthlyPersonalIncomeCN}">
+                                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                 </c:forEach>
+                              </c:if>
                                     </select>
                                  </div>
                                  <span class="error-msg" id="monthlyIncomeMessage"></span>
+                              </div>
+                              <div class="clearfix form-group has-error employment-info-row">
+                                 <label for="savieEmploymentBean.educationLevel"><fmt:message key="eliteTerms.selectPlan.Education.level" bundle="${msg}" /></label>
+                                 <div class="selectEmployment">
+                                    <span class="icon-chevron-thin-down orange-caret"></span>
+                                    <select class="form-control gray-dropdown" id="savieEmploymentBean.educationLevel" name="savieEmploymentBean.educationLevel" data-style="application-select">
+                                       <option selected disabled value="">- Please select -</option>
+                                       <option value="college-graduate">College Graduate</option>
+                                       <option value="master-degree-holder">Masters Degree Holder</option>  
+                                    </select>
+                                 </div>
+                                 <span class="error-msg" id="educationLevelMessage"></span>
                               </div>
                            </div>
                            <div class="button-row text-center">
                                  <button id="et-employment-info-next" type="submit" class="next"><fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" /></button>
                            </div>
                         </form>
-                     </div>	
+                     </div>   
                   </div><!--END OF EMPLOYEMENT INFO SECTION-->
                   
                   <!--BENEFICIARIES INFO SECTION-->
