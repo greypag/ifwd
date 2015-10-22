@@ -1714,96 +1714,107 @@ var language = "${language}";
          </div>
          <!-- END OF GET PROMOTION CODE MODAL -->
          
+
+         
          <!--CANNOT APPLY MODAL-->
-			<div class="modal et-modal fade" role="dialog" aria-labelledby="cantapply" id="cannot-apply-modal">
-				<div class="container-fluid modal-dialog" role="document">
-					<div class="modal-content et-modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<h5><fmt:message key="eliteTerms.selectPlan.Sorry.you.cannot.apply" bundle="${msg}" /></h5>
-						</div>
-						<div class="modal-body">
-							<p><fmt:message key="eliteTerms.selectPlan.Please.call.our" bundle="${msg}" /> <a href="#" class="et-top-no"  title="Customer Service Hotline">3123 3123</a> <fmt:message key="eliteTerms.selectPlan.to.find.out.more" bundle="${msg}" /></p>
-							<form action="" id="et-cust-serv-form" method="post">
-								<div class="input-items clearfix">
-									<label for="name"><fmt:message key="eliteTerms.selectPlan.Name" bundle="${msg}" /></label>
-									<input type="text" class="form-control gray-textbox" placeholder="Name" id="name" name="name">
-								</div>
-								<div class="input-items clearfix">
-									<label for="email"><fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" /></label>
-									<input type="text" class="form-control gray-textbox" placeholder="Email Address" id="email" name="email">
-								</div>
-								<div class="input-items clearfix">
-									<label for="tel"><fmt:message key="eliteTerms.selectPlan.Telephone.no." bundle="${msg}" /></label>
-									<input type="text" class="form-control gray-textbox" placeholder="Telephone no" id="tel" name="tel">
-								</div>
-								<div class="input-items clearfix">
-									<label for="day"><fmt:message key="eliteTerms.selectPlan.Preffered.day" bundle="${msg}" /></label>
-									<div class="select-holder">
-										<select class="form-control gray-textbox" id="day" name="day">
-											<select class="form-control gray-textbox" id="day" name="day">
-											<option value="">-Please select-</option>
+         <div class="modal et-modal fade" role="dialog" aria-labelledby="cantapply" id="cannot-apply-modal">
+            <div class="container-fluid modal-dialog" role="document">
+               <div class="modal-content et-modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                     <h5><fmt:message key="eliteTerms.selectPlan.Sorry.you.cannot.apply" bundle="${msg}" /></h5>
+                  </div>
+                  <div class="modal-body">
+                     <p><fmt:message key="eliteTerms.selectPlan.Please.call.our" bundle="${msg}" /> <a href="#" class="et-top-no"  title="Customer Service Hotline">3123 3123</a> <fmt:message key="eliteTerms.selectPlan.to.find.out.more" bundle="${msg}" /></p>
+                     <form action="" id="et-cust-serv-form">
+                        <div class="input-items clearfix">
+                           <label for="name"><fmt:message key="eliteTerms.selectPlan.Name" bundle="${msg}" /></label>
+                           <input type="text" class="form-control gray-textbox" placeholder="Name" id="name" name="name">
+                           <span class="error-msg" id="cannotApplyNameMessage"></span>
+                        </div>
+                        <div class="input-items clearfix">
+                           <label for="email"><fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" /></label>
+                           <input type="text" class="form-control gray-textbox" placeholder="Email Address" id="email" name="email">
+                           <span class="error-msg" id="cannotApplyEmailMessage"></span>
+                        </div>
+                        <div class="input-items clearfix">
+                           <label for="tel"><fmt:message key="eliteTerms.selectPlan.Telephone.no." bundle="${msg}" /></label>
+                           <input type="text" class="form-control gray-textbox" placeholder="Telephone no" id="tel" name="tel">
+                           <span class="error-msg" id="cannotApplyTelMessage"></span>
+                        </div>
+                        <div class="input-items clearfix">
+                           <label for="day"><fmt:message key="eliteTerms.selectPlan.Preffered.day" bundle="${msg}" /></label>
+                           <div class="select-holder">
+                              <select class="form-control gray-textbox" id="day" name="day">
+                                 <select class="form-control gray-textbox" id="day" name="day">
+                                 <option value="">-Please select-</option>
                                             <c:if test="${language == 'en'}">
-											   <c:forEach var="list" items="${etCsContactPreferredDayEN}">
-											      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
-											   </c:forEach>
-											</c:if>
-											<c:if test="${language == 'tc'}">
-											   <c:forEach var="list" items="${etCsContactPreferredDayCN}">
-											      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
-											   </c:forEach>
-											</c:if>
-										</select>
-									</div>
-								</div>
-								<div class="input-items clearfix">
-									<label for="time"><fmt:message key="eliteTerms.selectPlan.Preffered.timeslot" bundle="${msg}" /></label>
-									<div class="select-holder">
-										<select class="form-control gray-textbox" id="time" name="time">
-											<option value="">-Please select-</option>
+                                    <c:forEach var="list" items="${etCsContactPreferredDayEN}">
+                                       <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                    </c:forEach>
+                                 </c:if>
+                                 <c:if test="${language == 'tc'}">
+                                    <c:forEach var="list" items="${etCsContactPreferredDayCN}">
+                                       <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                    </c:forEach>
+                                 </c:if>
+                              </select>
+                           </div>
+                           <span class="error-msg" id="cannotApplyDayMessage"></span>
+                        </div>
+                        <div class="input-items clearfix">
+                           <label for="time"><fmt:message key="eliteTerms.selectPlan.Preffered.timeslot" bundle="${msg}" /></label>
+                           <div class="select-holder">
+                              <select class="form-control gray-textbox" id="time" name="time">
+                                 <option value="">-Please select-</option>
                                             <c:if test="${language == 'en'}">
-											   <c:forEach var="list" items="${etCsContactPreferredTimeSlotEN}">
-											      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
-											   </c:forEach>
-											</c:if>
-											<c:if test="${language == 'tc'}">
-											   <c:forEach var="list" items="${etCsContactPreferredTimeSlotCN}">
-											      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
-											   </c:forEach>
-											</c:if>
-										</select>
-									</div>
-								</div>
-								<div class="input-items clearfix">
-									<label for="enquiry"><fmt:message key="eliteTerms.selectPlan.Enquire.type" bundle="${msg}" /></label>
-									<div class="select-holder">
-										<select class="form-control gray-textbox" id="enquiry" name="enquiry">
-											<option value="">-Please select-</option>
+                                    <c:forEach var="list" items="${etCsContactPreferredTimeSlotEN}">
+                                       <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                    </c:forEach>
+                                 </c:if>
+                                 <c:if test="${language == 'tc'}">
+                                    <c:forEach var="list" items="${etCsContactPreferredTimeSlotCN}">
+                                       <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                    </c:forEach>
+                                 </c:if>
+                              </select>
+                           </div>
+                           <span class="error-msg" id="cannotApplyTimeMessage"></span>
+                        </div>
+                        <div class="input-items clearfix">
+                           <label for="enquiry"><fmt:message key="eliteTerms.selectPlan.Enquire.type" bundle="${msg}" /></label>
+                           <div class="select-holder">
+                              <select class="form-control gray-textbox" id="enquiry" name="enquiry">
+                                 <option value="">-Please select-</option>
                                             <c:if test="${language == 'en'}">
-											   <c:forEach var="list" items="${etEnquiryTypeEN}">
-											      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
-											   </c:forEach>
-											</c:if>
-											<c:if test="${language == 'tc'}">
-											   <c:forEach var="list" items="${etEnquiryTypeCN}">
-											      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
-											   </c:forEach>
-											</c:if>
-										</select>
-									</div>
-								</div>
+                                    <c:forEach var="list" items="${etEnquiryTypeEN}">
+                                       <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                    </c:forEach>
+                                 </c:if>
+                                 <c:if test="${language == 'tc'}">
+                                    <c:forEach var="list" items="${etEnquiryTypeCN}">
+                                       <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                    </c:forEach>
+                                 </c:if>
+                              </select>
+                           </div>
+                           <span class="error-msg" id="cannotApplyEnquireMessage"></span>
+                        </div>
                         <div class="fwd-checkbox modal-checkbox">
                            <input type="checkbox" id="cannot-apply-checkbox">
                            <label for="cannot-apply-checkbox"></label>
                            <p class="notice"><fmt:message key="eliteTerms.selectPlan.I.have.read.and.I" bundle="${msg}" />
                            <a href="#"><fmt:message key="eliteTerms.selectPlan.Personal.Information" bundle="${msg}" /></a></p>
+                           <div class="clearfix">
+                              <span class="error-msg" id="cannotApplyCheckMessage"></span>
+                           </div>
                         </div>
-								<button type="submit" class="btn next" id="et-cannot-apply-btn"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
-							</form>
-						</div>
-					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->	
-			</div><!--END OF CANNOT APPLY MODAL-->
+                        <button type="submit" class="btn next"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
+                     </form>
+                  </div>
+               </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog --> 
+         </div><!--END OF CANNOT APPLY MODAL-->
          
          <!-- END OF BACK TO HOME -->
          <div id="back-to-home-modal" class="modal fade fwd-generic-modal back-to-home" role="dialog" data-keyboard="false" data-backdrop="static">
