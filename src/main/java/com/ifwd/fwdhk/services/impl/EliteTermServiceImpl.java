@@ -74,8 +74,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			String[] dob = request.getParameter("dob").toString().split("-");
 			applicant.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 			etPolicyApplication.getApplicant().setDob(applicant.getString("dob"));
-			//request.getParameter("savieApplicantBean.gender")
-			applicant.put("gender", "M");
+			applicant.put("gender", request.getParameter("savieApplicantBeanGender"));
 			etPolicyApplication.getApplicant().setGender(applicant.getString("gender"));
 			applicant.put("hkId", request.getParameter("savieApplicantBean.hkId"));
 			etPolicyApplication.getApplicant().setHkId(applicant.getString("hkId"));

@@ -157,7 +157,7 @@ var language = "${language}";
                               
                               <div class="clearfix et-smoke-wrapper">
                                  <div class="et-gender-div">
-                                    <input type="radio" id="et-smoker-yes" name="et-smoker" value="true" <c:if test="#etPolicyApplication.applicant.smoke == 'true'">checked="checked"</c:if>>
+                                    <input type="radio" id="et-smoker-yes" name="et-smoker" value="true">
                                     <label for="et-smoker-yes" class="et-smoker-label">
                                        <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-smoker.png" alt="et-male.png" />
                                     </label>
@@ -165,7 +165,7 @@ var language = "${language}";
                                  </div>
                                  
                                  <div class="et-gender-div">
-                                    <input type="radio" id="et-smoker-no" name="et-smoker" value="false" <c:if test="#etPolicyApplication.applicant.smoke == 'false'">checked="checked"</c:if>>
+                                    <input type="radio" id="et-smoker-no" name="et-smoker" value="false">
                                     <label for="et-smoker-no" class="et-smoker-label">
                                        <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-non-smoker.png" alt="et-male.png" />
                                     </label>
@@ -535,6 +535,8 @@ var language = "${language}";
                                        <label for="savieApplicantBean.gender" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Gender" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box et-date-info clearfix">
+                                       <input type="hidden" name="savieApplicantBeanSmoke" id="savieApplicantBeanSmoke" value="${etPolicyApplication.applicant.smoke }"  />
+                                       <input type="hidden" name="savieApplicantBeanGender" id="savieApplicantBeanGender" value="${etPolicyApplication.applicant.gender }"  />
                                        <input type="text" class="form-control gray-textbox pull-left et-80-width" name="savieApplicantBean.gender" id="savieApplicantBean.gender" placeholder="Gender" readonly value="${etPolicyApplication.applicant.gender == 'M' ? 'Male':'Female' }"  />
                                         <div class="et-app-edit-wrapper">
                                           <a href="#" title="Edit Gender" class="et-app-sum-edit et-app-edit" data-target="#et-about-yoursel-section">
