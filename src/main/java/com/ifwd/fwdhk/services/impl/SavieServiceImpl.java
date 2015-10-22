@@ -1350,9 +1350,9 @@ public class SavieServiceImpl implements SavieService {
 			CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
 			String customerName="";
 			if(etPolicyApplication.getApplicant() != null){
-				 customerName = etPolicyApplication.getApplicant().getChineseName();
-				 if(StringUtils.isEmpty(customerName)){
-					 customerName =  etPolicyApplication.getApplicant().getFirstName()+" "+etPolicyApplication.getApplicant().getLastName();
+				 customerName = etPolicyApplication.getApplicant().getFirstName()+" "+etPolicyApplication.getApplicant().getLastName();
+				 if(StringUtils.isEmpty(etPolicyApplication.getApplicant().getFirstName())){
+					 customerName =  etPolicyApplication.getApplicant().getChineseName();
 				 }
 			}		
 			url = url + "/"+language+"/term-life-insurance/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(policyNo.getBytes());

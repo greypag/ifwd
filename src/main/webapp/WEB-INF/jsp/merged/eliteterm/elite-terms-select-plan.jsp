@@ -1096,7 +1096,7 @@ var language = "${language}";
                                     </div>
                                     <div class="form-group has-error beneficiary-info-row entitle">
                                        <label for="savieBeneficiaryBean[0].entitlement"><fmt:message key="eliteTerms.selectPlan.Entitlement" bundle="${msg}" /></label>
-                                       <input type="number" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBean[0].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="" />
+                                       <input type="number" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBean[0].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="100" readonly />
                                        <span class="error-msg" id="entitlementMessage[0]"></span>
                                     </div>		                
                                  </div>
@@ -1981,4 +1981,126 @@ var language = "${language}";
 		    		  $("#et-smoker-no").click();
 		    	  }
 		      });
+
+            //cannot apply modal 
+            $('#et-cust-serv-form #tel').focus(function(){ 
+               if(!$('#et-cust-serv-form #cannotApplyEmailMessage').find('small').is(':visible')) {
+                  $('#et-cust-serv-form')
+                     .data('bootstrapValidator')
+                     .updateStatus('tel', 'VALID');
+               } else {
+                  $('#et-cust-serv-form')
+                     .data('bootstrapValidator')
+                     .updateStatus('tel', 'INVALID');
+               }
+            });
+            $('#et-cust-serv-form').bootstrapValidator({
+               fields: {
+                  "name": {
+                     container: '#cannotApplyNameMessage',
+                     validators: {
+                        notEmpty: {
+                           message: 'Please enter your name.'
+                        },
+                        regexp: {
+                           regexp: /^[-'a-z\u4e00-\u9eff]{1,20}$/i, /*chinese and english chars only*/
+                           message: 'Your name is invalid.'
+                        },
+                        callback: {
+                           message: 'Please enter your name.',
+                           callback: function(value, validator) {
+                              return value !== document.getElementById('name').getAttribute('placeholder');
+                           }
+                        }
+                     }
+                  },
+                  "email": {
+                     container: '#cannotApplyEmailMessage',
+                     validators: {
+                        notEmpty: {
+                           message: 'Please enter your email address.'
+                        },
+                        emailAddress: {
+                           message: 'Your email address is invalid.'
+                        }
+                     }
+                  },
+                  "tel": {
+                     container: '#cannotApplyTelMessage',
+                     validators: {
+                        regexp: {
+                           regexp: /[0-9]/, /*chinese and english chars only*/
+                           message: 'Your mobile no. is invalid.'
+                        },
+                        callback: {
+                           message: 'Please enter your mobile no. or email address.',
+                           callback: function(value, validator) {
+                              return isEmailEmpty(value);
+                           }
+                        }
+                     }
+                  },
+                  "day": {
+                     container: '#cannotApplyDayMessage',
+                     validators: {
+                        notEmpty: {
+                           message: 'Please choose a perferred day for our customer service representative to call you.'
+                        }
+                     }
+                  },
+                  "time": {
+                     container: '#cannotApplyTimeMessage',
+                     validators: {
+                        notEmpty: {
+                           message: 'Please choose a perferred timeslot for our customer service representative to call you.'
+                        }
+                     }
+                  }             
+               }
+            }).on('success.form.bv', function(e) {
+                  e.preventDefault();
+                  var $form = $(this);
+          
+                   $('.modal').modal('hide');
+                   $('#back-to-home-modal').modal('show');
+                  // modify code here for data manipulation
+
+                  buttonNext();
+            });
+
+            function isEmailEmpty(number) {
+               var isEmpty = false;
+               var pref = number.split("");
+               var isNotValid = 0;
+
+               if($('#et-cust-serv-form #email').val().length <= 0) {
+                  isEmpty = false;
+               }
+               else {
+                  if (number && (number.length > 0)) {
+                     if(pref.length <= 3) {
+                        for(var i=0; i<pref.length; i++) {
+                           if(pref[i]=="5" || pref[i]=="6" || pref[i]=="8" || pref[i]=="9") {
+                              console.log(pref[i]);
+                           }
+                           else {
+                              isNotValid++;
+                           }
+                        }
+
+                        if(isNotValid > 0) {
+                           isEmpty = false;
+                        }
+                        else {
+                           isEmpty = true;
+                        }
+                     }
+                  }
+                  else {
+                     isEmpty = true;
+                  }
+               }
+
+               return isEmpty;
+            }
       </script>
