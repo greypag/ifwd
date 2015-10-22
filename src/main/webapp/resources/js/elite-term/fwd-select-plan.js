@@ -67,6 +67,10 @@
          var $self = $(this);
          
          $self.removeAttr('style');
+         $self.css('color', '#000');
+         if(msieversion() > 0) {
+            $('#et-select-plan-date-input').css('font-family','Arial');
+         }
       }); 
    
    // Show disctric dropdown if selected country is Hong Kong
