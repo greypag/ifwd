@@ -80,7 +80,8 @@ public class EliteTermServiceImpl implements EliteTermService {
 			etPolicyApplication.getApplicant().setHkId(applicant.getString("hkId"));
 			applicant.put("passport", "");
 			etPolicyApplication.getApplicant().setPassport(applicant.getString("passport"));
-			applicant.put("maritalStatus", request.getParameter("savieApplicantBean.maritalStatus").split("-")[0]);
+			//request.getParameter("savieApplicantBean.maritalStatus").split("-")[0]
+			applicant.put("maritalStatus", "SINGLE");
 			applicant.put("placeOfBirth", request.getParameter("savieApplicantBean.placeOfBirth").split("-")[0]);
 			applicant.put("nationality", request.getParameter("savieApplicantBean.nationality").split("-")[0]);
 			applicant.put("residentialTelNoCountryCode", request.getParameter("savieApplicantBean.residentialTelNo"));
@@ -140,6 +141,11 @@ public class EliteTermServiceImpl implements EliteTermService {
 			applicant.put("employmentStatus", employmentStatus);
 			applicant.put("smoke", request.getParameter("savieApplicantBeanSmoke"));
 			parameters.put("applicant", applicant);
+			JSONObject insured = new JSONObject();
+			insured.put("name", applicant.getString("firstName")+" "+applicant.getString("lastName"));
+			insured.put("hkId", applicant.getString("hkId"));
+			insured.put("passport", applicant.getString("passport"));
+			insured.put("relationship", "SE");
 			JSONArray beneficiaries = new JSONArray();
 			JSONObject beneficiarie1 = new JSONObject();
 			if(request.getParameter("beneficiary-info") != null && request.getParameter("beneficiary-info") == "name-others-now"){
@@ -163,7 +169,8 @@ public class EliteTermServiceImpl implements EliteTermService {
 				beneficiarie1.put("entitlement", "100");
 			}
 			beneficiaries.add(beneficiarie1);
-			parameters.put("beneficiaries", beneficiaries);
+			insured.put("beneficiaries", beneficiaries);
+			parameters.put("insured", insured);
 			JSONObject payment = new JSONObject();
 			payment.put("amount", Double.valueOf(eliteTermPremium.getMonthlyDuePremium())*2.00);
 			payment.put("paymentMethod", "CreditCard");
