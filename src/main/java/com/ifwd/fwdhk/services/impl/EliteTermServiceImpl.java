@@ -80,10 +80,9 @@ public class EliteTermServiceImpl implements EliteTermService {
 			etPolicyApplication.getApplicant().setHkId(applicant.getString("hkId"));
 			applicant.put("passport", "");
 			etPolicyApplication.getApplicant().setPassport(applicant.getString("passport"));
-			//request.getParameter("savieApplicantBean.maritalStatus").split("-")[0]
-			applicant.put("maritalStatus", "SINGLE");
-			applicant.put("placeOfBirth", request.getParameter("savieApplicantBean.placeOfBirth").split("-")[0]);
-			applicant.put("nationality", request.getParameter("savieApplicantBean.nationality").split("-")[0]);
+			applicant.put("maritalStatus", request.getParameter("savieApplicantBean.maritalStatus").split("-")[1]);
+			applicant.put("placeOfBirth", request.getParameter("savieApplicantBean.placeOfBirth").split("-")[1]);
+			applicant.put("nationality", request.getParameter("savieApplicantBean.nationality").split("-")[1]);
 			applicant.put("residentialTelNoCountryCode", request.getParameter("savieApplicantBean.residentialTelNo"));
 			applicant.put("residentialTelNo", request.getParameter("savieApplicantBean.residentialTelNo"));
 			applicant.put("mobileNoCountryCode", request.getParameter("savieApplicantBean.mobileNo"));
@@ -97,7 +96,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			permanentAddress.put("line2", request.getParameter("savieApplicantBean.permanentAddress2"));
 			permanentAddress.put("line3", request.getParameter("savieApplicantBean.permanentAddress3"));
 			permanentAddress.put("line4", "C District");
-			permanentAddress.put("district", request.getParameter("savieApplicantBean.permanentAddressCountry").split("-")[0]);
+			permanentAddress.put("district", request.getParameter("savieApplicantBean.permanentAddressCountry").split("-")[1]);
 			applicant.put("permanentAddress", permanentAddress);
 			JSONObject residentialAddress = new JSONObject();
 			if(request.getParameter("savieApplicantBean.isResidential") != null && request.getParameter("savieApplicantBean.isResidential") == "true"){
@@ -105,7 +104,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 				residentialAddress.put("line2", request.getParameter("savieApplicantBean.residentialAdress2"));
 				residentialAddress.put("line3", request.getParameter("savieApplicantBean.residentialAdress3"));
 				residentialAddress.put("line4", "R District");
-				residentialAddress.put("district", request.getParameter("savieApplicantBean.residentialDistrict").split("-")[0]);
+				residentialAddress.put("district", request.getParameter("savieApplicantBean.residentialDistrict").split("-")[1]);
 			}
 			else{
 				residentialAddress.put("line1", permanentAddress.get("line1"));
@@ -121,7 +120,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 				correspondenceAddress.put("line2", request.getParameter("savieApplicantBean.correspondenceAdress2"));
 				correspondenceAddress.put("line3", request.getParameter("savieApplicantBean.correspondenceAdress3"));
 				correspondenceAddress.put("line4", "C District");
-				correspondenceAddress.put("district", request.getParameter("savieApplicantBean.correspondenceDistrict").split("-")[0]);
+				correspondenceAddress.put("district", request.getParameter("savieApplicantBean.correspondenceDistrict").split("-")[1]);
 			}
 			else{
 				correspondenceAddress.put("line1", residentialAddress.get("line1"));
@@ -132,11 +131,11 @@ public class EliteTermServiceImpl implements EliteTermService {
 			}
 			applicant.put("correspondenceAddress", correspondenceAddress);
 			JSONObject employmentStatus = new JSONObject();
-			employmentStatus.put("employmentStatus", request.getParameter("savieEmploymentBean.employmentStatus").split("-")[0]);
-			employmentStatus.put("occupation", request.getParameter("savieEmploymentBean.occupation").split("-")[0]);
-			employmentStatus.put("educationLevel", request.getParameter("savieEmploymentBean.educationLevel").split("-")[0]);
-			employmentStatus.put("natureOfBusiness", request.getParameter("savieEmploymentBean.natureOfBusiness").split("-")[0]);
-			employmentStatus.put("monthlyPersonalIncome", request.getParameter("savieEmploymentBean.monthlyPersonalIncome").split("-")[0]);
+			employmentStatus.put("employmentStatus", request.getParameter("savieEmploymentBean.employmentStatus").split("-")[1]);
+			employmentStatus.put("occupation", request.getParameter("savieEmploymentBean.occupation").split("-")[1]);
+			employmentStatus.put("educationLevel", request.getParameter("savieEmploymentBean.educationLevel").split("-")[1]);
+			employmentStatus.put("natureOfBusiness", request.getParameter("savieEmploymentBean.natureOfBusiness").split("-")[1]);
+			employmentStatus.put("monthlyPersonalIncome", request.getParameter("savieEmploymentBean.monthlyPersonalIncome").split("-")[1]);
 			employmentStatus.put("liquidAsset", "");
 			applicant.put("employmentStatus", employmentStatus);
 			applicant.put("smoke", request.getParameter("savieApplicantBeanSmoke"));
@@ -155,7 +154,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 				beneficiarie1.put("hkId", request.getParameter("savieBeneficiaryBean[0].hkId"));
 				beneficiarie1.put("passport", request.getParameter("savieBeneficiaryBean[0].passportNo"));
 				beneficiarie1.put("gender", request.getParameter("savieBeneficiaryBean[0].gender"));
-				beneficiarie1.put("relationship", request.getParameter("savieBeneficiaryBean[0].relationship").split("-")[0]);
+				beneficiarie1.put("relationship", request.getParameter("savieBeneficiaryBean[0].relationship").split("-")[1]);
 				beneficiarie1.put("entitlement", request.getParameter("savieBeneficiaryBean[0].entitlement"));
 			}
 			else{
