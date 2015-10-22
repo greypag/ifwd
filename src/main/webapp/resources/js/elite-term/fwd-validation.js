@@ -946,8 +946,16 @@ function isValidHKID(hkid){
    var isValid = false;
    
    if (hkid && (hkid.length > 7)) {
-      var message = hkid.slice(0, hkid.indexOf('('));
-      var checksum = hkid.slice((hkid.indexOf('(') + 1), hkid.lastIndexOf(')'));
+
+      if(hkid.indexOf('(') > -1) {
+         var message = hkid.slice(0, hkid.indexOf('('));
+         var checksum = hkid.slice((hkid.indexOf('(') + 1), hkid.lastIndexOf(')'));
+      }
+      else {
+         var message = hkid.slice(0, 7);
+         var checksum = hkid.slice(7, 8)
+      }
+
       checksum = isNaN(checksum) ? equivalentInteger(checksum) : parseInt(checksum, 10);
       var checkCtr = message.length + 1
       var checksumTotal = 0;

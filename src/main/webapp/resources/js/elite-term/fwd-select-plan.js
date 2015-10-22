@@ -67,6 +67,10 @@
          var $self = $(this);
          
          $self.removeAttr('style');
+         $self.css('color', '#000');
+         if(msieversion() > 0) {
+            $('#et-select-plan-date-input').css('font-family','Arial');
+         }
       }); 
    
    // Show disctric dropdown if selected country is Hong Kong
@@ -492,7 +496,7 @@
          if (!$("#signature").find('canvas').length) {
             // Initialize signature area
             $("#signature").jSignature({
-               height: '300px', 
+               height: '350px', 
                width: '100%',
                'decor-color': 'transparent',
             }).on('change', function(e) {
@@ -608,7 +612,7 @@
                      message: 'HKID is required.'
                   },
                   regexp: {
-                     regexp: /[A-Z0-9()]/,
+                     regexp: /(^[A-Z|1-9]){1}([A-Z|1-9]){6}\(?([A-Z|1-9]){1}\)?$/g,
                      message: 'Invalid HKID.'
                   },
                   callback: {
@@ -1097,16 +1101,21 @@
    $('#savieEmploymentBean\\.employmentStatus').on('change', function(e) {
       var $self = $(this);
       
-      if ($self.val() === 'unemployed') {
-         $('.et-emp-info-occupation-container').addClass('hide-element');
-         $('.et-emp-info-nat-business-container').addClass('hide-element');
-         $('.et-emp-info-mon-income-container').addClass('hide-element');
-         $('.et-emp-info-liq-assets-container').removeClass('hide-element');
-      } else {
-         $('.et-emp-info-occupation-container').removeClass('hide-element');
-         $('.et-emp-info-nat-business-container').removeClass('hide-element');
-         $('.et-emp-info-mon-income-container').removeClass('hide-element');
-         $('.et-emp-info-liq-assets-container').addClass('hide-element');
+      if ($self.val() === 'ES1-Full Time Employed' || $self.val() === 'ES2-Part Time Employed' || $self.val() === 'ES3-Self Employed') {
+         $('.et-emp-info-sourceOfIncome-container').addClass('hidden');
+         $('.et-emp-info-liq-assets-container').addClass('hidden');
+         $('.et-emp-info-nat-business-container').removeClass('hidden');
+         $('.et-emp-info-occupation-container').removeClass('hidden');
+         $('.et-emp-info-employer-name-container').removeClass('hidden');
+         $('.et-emp-info-mon-income-container').removeClass('hidden');
+      }
+      else {
+         $('.et-emp-info-nat-business-container').addClass('hidden');
+         $('.et-emp-info-occupation-container').addClass('hidden');
+         $('.et-emp-info-employer-name-container').addClass('hidden');
+         $('.et-emp-info-mon-income-container').addClass('hidden');
+         $('.et-emp-info-sourceOfIncome-container').removeClass('hidden');
+         $('.et-emp-info-liq-assets-container').removeClass('hidden');
       }
    });
    
