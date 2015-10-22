@@ -153,10 +153,12 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIE_SIGNATURE = "savie.signature";
 	
 	/* Page Flow Control For Elite */
-	public static final String URL_ELITE_TERMS_LANDING = "landing";
+	public static final String URL_ELITE_TERMS_LANDING = "term-life-insurance";
 	public static final String URL_ELITE_TERMS_SELECT_PLAN = "select-plan";
+	public static final String URL_ELITE_TERMS_APPLICATION = "application";
 	public static final String URL_ELITE_TERMS_PAYMENT = "payment";
 	public static final String URL_ELITE_TERMS_DOCUMENT_UPLOAD = "document-upload";
+	public static final String URL_ELITE_TERMS_DOCUMENT_UPLOAD_LATER = "document-upload-later";
 	public static final String URL_ELITE_TERMS_CONFIRMATION = "confirmation";
 	
 	public static final String PAGE_ELITE_TERMS_LANDING = "elite-terms-landing";

@@ -1355,7 +1355,7 @@ public class SavieServiceImpl implements SavieService {
 					 customerName =  etPolicyApplication.getApplicant().getChineseName();
 				 }
 			}		
-			url = url + "/"+language+"/elite-term/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(policyNo.getBytes());
+			url = url + "/"+language+"/term-life-insurance/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(policyNo.getBytes());
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
 			String subject = "FWD Elite Term – Pending["+policyNo+"]";

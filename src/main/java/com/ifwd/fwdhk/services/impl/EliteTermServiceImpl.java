@@ -80,8 +80,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			etPolicyApplication.getApplicant().setHkId(applicant.getString("hkId"));
 			applicant.put("passport", "");
 			etPolicyApplication.getApplicant().setPassport(applicant.getString("passport"));
-			//request.getParameter("savieApplicantBean.maritalStatus").split("-")[0]
-			applicant.put("maritalStatus", "SINGLE");
+			applicant.put("maritalStatus", request.getParameter("savieApplicantBean.maritalStatus").split("-")[0]);
 			applicant.put("placeOfBirth", request.getParameter("savieApplicantBean.placeOfBirth").split("-")[0]);
 			applicant.put("nationality", request.getParameter("savieApplicantBean.nationality").split("-")[0]);
 			applicant.put("residentialTelNoCountryCode", request.getParameter("savieApplicantBean.residentialTelNo"));

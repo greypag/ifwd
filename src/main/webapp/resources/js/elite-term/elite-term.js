@@ -73,7 +73,7 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 			    	    success:function(data){
 			    	    	if(data.errMsgs == null){
 			    	    		console.log("signature success");
-			    	    		window.location.href= contextPath+'/'+language+'/elite-term/'+selectPlanNextPageFlow;
+			    	    		window.location.href= contextPath+'/'+language+'/term-life-insurance/'+selectPlanNextPageFlow;
 			    			}
 			    			else{
 			    				console.log("data error");
@@ -133,7 +133,7 @@ function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
 					"uploadLaterFlage":uploadLaterFlage
 				},
 		        success:function(data){
-					window.location.href= contextPath+'/'+language+'/elite-term/'+documentUploadNextPageFlow;
+					window.location.href= contextPath+'/'+language+'/term-life-insurance/'+documentUploadNextPageFlow;
 				}
 		});
 }
@@ -381,5 +381,5 @@ function getOccupation(value,language) {
 	});
 }
 $('#et-select-plan-go-homepage').on('click', function(e) {
-	window.location.href= contextPath+'/'+language+'/elite-term/landing';
+	window.location.href= contextPath+'/'+language+'/term-life-insurance/landing';
 });

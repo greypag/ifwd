@@ -41,12 +41,12 @@ public class EliteTermController extends BaseController{
 	@Autowired
 	private CommonUtils commonUtils;
 	
-	@RequestMapping(value = {"/{lang}/elite-term/landing"})
+	@RequestMapping(value = {"/{lang}/term-life-insurance"})
 	public ModelAndView getLanding(Model model, HttpServletRequest request) {
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_LANDING);
 	}
 	
-	@RequestMapping(value = {"/{lang}/elite-term/select-plan"})
+	@RequestMapping(value = {"/{lang}/term-life-insurance/select-plan","/{lang}/term-life-insurance/application"})
 	public ModelAndView getSelectPlan(Model model, HttpServletRequest request) {
 		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
 		
@@ -78,7 +78,7 @@ public class EliteTermController extends BaseController{
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_SELECT_PLAN);
 	}
 
-	@RequestMapping(value = {"/{lang}/elite-term/payment"})
+	@RequestMapping(value = {"/{lang}/term-life-insurance/payment"})
 	public ModelAndView getPayment(Model model, HttpServletRequest request) {
 		String path = request.getRequestURL().toString();
 		model.addAttribute("successUrl", path.replace("payment", "document-upload"));
@@ -87,7 +87,7 @@ public class EliteTermController extends BaseController{
 	}
 	
 	@SuppressWarnings("restriction")
-	@RequestMapping(value = {"/{lang}/elite-term/document-upload"})
+	@RequestMapping(value = {"/{lang}/term-life-insurance/document-upload","/{lang}/term-life-insurance/document-upload-later"})
 	public ModelAndView getDocumentUpload(Model model, HttpServletRequest request) {
 		try {
 			String policyNumber = (String) request.getParameter("policyNo");
@@ -108,7 +108,7 @@ public class EliteTermController extends BaseController{
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_DOCUMENT_UPLOAD);
 	}
 	
-	@RequestMapping(value = {"/{lang}/elite-term/confirmation"})
+	@RequestMapping(value = {"/{lang}/term-life-insurance/confirmation"})
 	public ModelAndView getConfirmation(Model model, HttpServletRequest request) {
 		try {
 			savieService.uploadEliteTermDocuments(request);
