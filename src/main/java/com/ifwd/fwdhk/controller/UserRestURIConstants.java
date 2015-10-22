@@ -40,6 +40,8 @@ public class UserRestURIConstants {
 	public static final String GET_AGE_TYPE = SERVICE_URL + "/option/itemDesc";
 	public static final String GET_BENE_RELATIONSHIP_CODE = SERVICE_URL
 			+ "/option/itemDesc";
+	public static final String GET_POLICY= SERVICE_URL
+			+ "/policies/life";
 
 	// Travel URL
 	public static final String TRAVEL_GET_QUOTE = SERVICE_URL

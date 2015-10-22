@@ -342,6 +342,33 @@ var language = "${language}";
 			<!-- FOOTER -->
 			
 		</div>
+		      <div id="back-to-home-modal" class="modal fade fwd-generic-modal back-to-home" role="dialog" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content" align="center">
+                  <div class="modal-body" style="color:#fc6d08">
+                     <p><fmt:message key="eliteTerms.selectPlan.successfully.submitted" bundle="${msg}" /></p>	
+                  </div>
+                  <div>
+                     <button type="button" class="btn btn-orange et-next-btn et-pad-bot-50" id="et-select-plan-go-homepage" data-dismiss="modal"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button>
+                  </div>
+               </div>
+
+               
+               <!--<div class="modal-content">
+                  <div class="modal-header">
+                     <h4 class="modal-title">Your request has been successfully submitted.</h4>
+                  </div>
+                     
+                  <div class="modal-body"></div>
+                  
+                  <div class="modal-footer">
+                     <a href="/" title="Back to homepage" class="btn-block">Back to homepage</a>
+                     <button type="button" class="btn btn-orange et-next-btn et-pad-bot-50" id="et-select-plan-go-homepage" data-dismiss="modal"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button>
+                  </div>
+               </div>-->
+
+            </div>
+         </div>
 		<!-- JS INCLUDES -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-dropzone.js"></script>
@@ -445,9 +472,16 @@ var language = "${language}";
                 return isValid;
             }
             $(function() {
+            	var userName = "${username}";
+            	var policyUserName = "${policyUserName}";
 				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
 					$('#loginpopup').modal('show');
+				}else{
+					if(policyUserName != null && policyUserName != '' && policyUserName != userName){
+						$('#back-to-home-modal').modal('show');
+					}
 				}
+				
 			});
             
             function checkLogin() {

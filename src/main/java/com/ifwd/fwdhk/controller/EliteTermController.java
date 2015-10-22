@@ -90,14 +90,19 @@ public class EliteTermController extends BaseController{
 	@RequestMapping(value = {"/{lang}/elite-term/document-upload"})
 	public ModelAndView getDocumentUpload(Model model, HttpServletRequest request) {
 		try {
-			String policyNumber = (String) request.getParameter("policyNumber");
+			String policyNumber = (String) request.getParameter("policyNo");
 			if(StringUtils.isNotEmpty(policyNumber)){
 				policyNumber = new String(new sun.misc.BASE64Decoder().decodeBuffer(policyNumber));
+				String userName = savieService.getPolicyUserName(request,policyNumber);
+				request.getSession().setAttribute("policyUserName", userName);
+				if(StringUtils.isNotEmpty(userName)){
+					return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.URL_ELITE_TERMS_LANDING);
+				}
 				CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
 				eliteTermPolicy.setPolicyNo(policyNumber);
 				request.getSession().setAttribute("etPolicyApplication", eliteTermPolicy);
 			}		
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_DOCUMENT_UPLOAD);

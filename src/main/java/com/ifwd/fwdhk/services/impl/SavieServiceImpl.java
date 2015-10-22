@@ -1315,14 +1315,29 @@ public class SavieServiceImpl implements SavieService {
 	}
 	
 
-	@SuppressWarnings("unchecked")
+	public String getPolicyUserName(HttpServletRequest request,String policyNumber){
+		String userName="";
+		String relationshipCode = UserRestURIConstants.GET_POLICY
+				+ "?policyNo="+policyNumber;
+		Map<String,String> header = headerUtil.getHeader(request);
+		org.json.simple.JSONObject jsonRelationShipCode = restService.consumeApi(
+				HttpMethod.GET, relationshipCode, header, null);
+		if (jsonRelationShipCode.get("errMsgs") == null) {
+			org.json.simple.JSONObject policy = (org.json.simple.JSONObject) jsonRelationShipCode.get("policy");
+			 userName = (String) policy.get("userName");
+		}
+		return userName;
+	}
+	
+
+	@SuppressWarnings({ "unchecked", "deprecation", "unused", "restriction" })
 	public void uploadEliteTermDocuments(HttpServletRequest request)throws ECOMMAPIException{
 		String uploadLaterFlage = (String) request.getSession().getAttribute("uploadLaterFlage");
 		String passportFlage = (String) request.getSession().getAttribute("passportFlage");
-		String uploadDir = request.getRealPath("/")+"upload"+"/"+"123456/";
+		CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+		String policyNo = eliteTermPolicy.getPolicyNo();
+		String uploadDir = request.getRealPath("/")+"upload"+"/"+policyNo+"/";
 		File file = new File(uploadDir);
-		//CreateEliteTermPolicyResponse eliteTermPolicy= (CreateEliteTermPolicyResponse) request.getSession().getAttribute("etPolicyApplication");
-		String policyNumber = "123456";//eliteTermPolicy.getPolicyNo();
 		if("true".equals(uploadLaterFlage)){
 			String url = "http://" + request.getServerName() //服务器地址  
                     + ":"   
@@ -1332,18 +1347,18 @@ public class SavieServiceImpl implements SavieService {
 			if(StringUtils.isEmpty(language)){
 				language = "tc";
 			}
-			//CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
-			String customerName="CustomerName";
-//			if(etPolicyApplication.getApplicant() != null){
-//				 customerName = etPolicyApplication.getApplicant().getChineseName();
-//				 if(StringUtils.isEmpty(customerName)){
-//					 customerName =  etPolicyApplication.getApplicant().getFirstName()+" "+etPolicyApplication.getApplicant().getLastName();
-//				 }
-//			}		
-			url = url + "/"+language+"/elite-term/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(policyNumber.getBytes());
+			CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
+			String customerName="";
+			if(etPolicyApplication.getApplicant() != null){
+				 customerName = etPolicyApplication.getApplicant().getChineseName();
+				 if(StringUtils.isEmpty(customerName)){
+					 customerName =  etPolicyApplication.getApplicant().getFirstName()+" "+etPolicyApplication.getApplicant().getLastName();
+				 }
+			}		
+			url = url + "/"+language+"/elite-term/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(policyNo.getBytes());
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
-			String subject = "FWD Elite Term – Pending["+policyNumber+"]";
+			String subject = "FWD Elite Term – Pending["+policyNo+"]";
 			String attachment = "";
 			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
 			boolean isHTML = true;
@@ -1393,7 +1408,7 @@ public class SavieServiceImpl implements SavieService {
 		Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 		parameters.put("clientBrowserInfo", clientBrowserInfo);
-		parameters.put("policyNo", policyNumber);
+		parameters.put("policyNo", policyNo);
 		parameters.put("planCode", "ET");
 		try {
 			String fileToUpload = (String) request.getSession().getAttribute("fileToUploadProofAdd");
