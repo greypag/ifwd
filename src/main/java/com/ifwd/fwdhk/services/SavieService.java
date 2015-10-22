@@ -47,6 +47,7 @@ public interface SavieService {
 	public String upsertSignature(String userName, String token, String language,SavieFormSignatureBean signature);
 	public String upsertDeclarationAuthorization(String userName, String token, String language,SavieFormDeclarationAuthorizationBean authorization);
 	public String upsertDocument(String userName, String token, String language,SavieFormDocumentBean documents);
+	public String getPolicyUserName(HttpServletRequest request,String policyNumber);
 	
 	public List<OptionItemDesc> getMaritalStatus(String language);
 	public List<OptionItemDesc> getSavieDistrict(String language);
