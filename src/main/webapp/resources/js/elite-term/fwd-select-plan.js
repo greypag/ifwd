@@ -612,7 +612,7 @@
                      message: 'HKID is required.'
                   },
                   regexp: {
-                     regexp: /[A-Z0-9()]/,
+                     regexp: /(^[A-Z|1-9]){1}([A-Z|1-9]){6}\(?([A-Z|1-9]){1}\)?$/g,
                      message: 'Invalid HKID.'
                   },
                   callback: {
