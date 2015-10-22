@@ -48,9 +48,9 @@ function getEliteTermPremium() {
 $('#et-signature-proceed-btn').on('click', function(e) {
 	var formdata =  $('#eliteTermsInsuredInfoForm').serialize()+"&"+
 			    $('#etEmploymentInfoForm').serialize()+"&"+
-			    $('#beneficiaryInfoFormF').serialize()+"&"+
-			    $('#beneficiaryInfoFormS').serialize()+"&"+
-			    $('#beneficiaryInfoFormT').serialize();
+			    $('#beneficiaryInfoForm\\[0\\]').serialize()+"&"+
+			    $('#beneficiaryInfoForm\\[1\\]').serialize()+"&"+
+			    $('#beneficiaryInfoForm\\[2\\]').serialize();
 	$.ajax({
         type: "POST",
         url:contextPath+'/ajax/eliteTerm/createEliteTermPolicy',
