@@ -123,8 +123,19 @@ public class UserController {
 					userDetails.setToken(checkJsonObjNull(response, "token"));
 					userDetails.setFullName(checkJsonObjNull(customer, "name"));
 					if(userDetails.getFullName() != null && userDetails.getFullName().contains(" ")){
-						userDetails.setFirstName(userDetails.getFullName().split(" ")[0]);
-						userDetails.setLastName(userDetails.getFullName().split(" ")[1]);
+						String[] strArray = userDetails.getFullName().split(" ");
+						String firstName = "";
+						String lastName = "";
+						for(int i=0;i<strArray.length;i++){
+							if(i==0){
+								firstName = strArray[0];
+							}
+							else{
+								lastName += strArray[i]+" ";
+							}
+						}
+						userDetails.setFirstName(firstName);
+						userDetails.setLastName(lastName);
 					}
 					else{
 						userDetails.setFirstName(userDetails.getFullName());
