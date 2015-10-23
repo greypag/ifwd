@@ -247,57 +247,26 @@ var language = "${language}";
  		 var creditCaredNo = $('#card-num').val();
  		 var expiryDate = $('#month').val()+$('#year').val().substr(2, 2);
  		 var cardHolderName = $('#card-name').val(); 
- 		 var policyNo = "${eliteTermPolicy.policyNo}";
  		  if(enablePayment){
               enablePayment=false;
               $("#PaymentingDiv").show();
 	 		  if (payFormValid() && clicked === false) {
 		 		  clicked = true;
-		 		  console.log($("#paymentForm").serialize());
 		 		  $.ajax({
 		 			  type : "POST",
-		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/finalizeEliteTermPolicy",
+		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/putEtPaymentSession",
 		 			  data : {creditCaredNo : creditCaredNo,
 		 					  expiryDate: expiryDate,
-		 					  cardHolderName: cardHolderName,
-		 					  policyNo: policyNo},
+		 					  cardHolderName: cardHolderName},
 		 			  async : false,
 		 			  success : function(data) {
 			 			  clicked = false;
-						  if (data.errMsgs == null) {
-							  $.ajax({
-					 			  type : "POST",
-					 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/sendEliteTermMail",
-					 			  async : false,
-					 			  success : function(data) {
-									  if (data.errMsgs == null) {
-									   	  setTimeout(function(){
-									   		  console.log($("#gateway").val());
-						                      $("#paymentForm").attr('action', $("#gateway").val());
-						                      $("#paymentForm").submit();
-					                      }, 3000);
-					                  } 
-									  else {
-					                      console.log(data);
-					                      $("#PaymentingDiv").hide();
-					                      enablePayment=true;
-					                      $('#paymentErrorPopup').modal('show');
-					                      return false;
-					                  }
-					 			  }
-					 			  
-				 		      });
-							  
-		                  } 
-						  else {
-		                      console.log(data);
-		                      $("#PaymentingDiv").hide();
-		                      enablePayment=true;
-		                      $('#paymentErrorPopup').modal('show');
-		                      return false;
-		                  }
+			 			  setTimeout(function(){
+					   		  console.log($("#gateway").val());
+		                      $("#paymentForm").attr('action', $("#gateway").val());
+		                      $("#paymentForm").submit();
+	                      }, 3000);
 		 			  }
-		 			  
 	 		      });
 	 			  return true;
 	 		  }else{

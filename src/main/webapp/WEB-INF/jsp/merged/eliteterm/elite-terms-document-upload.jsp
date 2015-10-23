@@ -505,6 +505,45 @@ var language = "${language}";
                window.location.href = url;
             }
          });*/
-
-			
+         
+         $(document).ready(function() {
+        	 var creditCaredNo = "${creditCaredNo }";
+     		 var expiryDate = "${expiryDate }";
+     		 var cardHolderName = "${cardHolderName }";
+     		 var policyNo = "${eliteTermPolicy.policyNo }";
+     		 if(creditCaredNo != "" && expiryDate != "" && cardHolderName != "" && policyNo != ""){
+     			$.ajax({
+	  	 			  type : "POST",
+	  	 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/finalizeEliteTermPolicy",
+	  	 			  data : {creditCaredNo : creditCaredNo,
+	  	 					  expiryDate: expiryDate,
+	  	 					  cardHolderName: cardHolderName,
+	  	 					  policyNo: policyNo},
+	  	 			  async : false,
+	  	 			  success : function(data) {
+	  					  if (data.errMsgs == null) {
+	  						  $.ajax({
+	  				 			  type : "POST",
+	  				 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/sendEliteTermMail",
+	  				 			  async : false,
+	  				 			  success : function(data) {
+	  								  if (data.errMsgs == null) {
+	  									  console.log("success");
+	  				                  } 
+	  								  else {
+	  				                      console.log(data);
+	  				                  }
+	  				 			  }
+	  			 		      });
+	  	                  } 
+	  					  else {
+	  	                      console.log(data);
+	  	                  }
+	  	 			  }
+	  		      });
+     		 }
+     		 else{
+     			console.log("data error");
+     		 }
+	     });
 		</script>

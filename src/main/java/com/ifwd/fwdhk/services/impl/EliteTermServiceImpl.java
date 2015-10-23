@@ -438,4 +438,17 @@ public class EliteTermServiceImpl implements EliteTermService {
 			e.printStackTrace();
 		}
 	}
+	
+	@Override
+	public void putEtPaymentSession(HttpServletRequest request)throws ECOMMAPIException{
+		try {
+			request.getSession().setAttribute("creditCaredNo", request.getParameter("creditCaredNo"));
+			request.getSession().setAttribute("expiryDate", request.getParameter("expiryDate"));
+			request.getSession().setAttribute("cardHolderName", request.getParameter("cardHolderName"));
+		}catch(Exception e){
+			logger.info("EliteTermServiceImpl putEtPaymentSession occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }

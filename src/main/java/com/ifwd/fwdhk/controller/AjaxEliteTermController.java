@@ -192,4 +192,15 @@ public class AjaxEliteTermController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	@RequestMapping(value = {"/ajax/eliteTerm/putEtPaymentSession"})
+	public void putEtPaymentSession(HttpServletRequest request) {
+		if (Methods.isXssAjax(request))
+			return;
+		try {
+			eliteTermService.putEtPaymentSession(request);
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }
