@@ -442,9 +442,10 @@ public class EliteTermServiceImpl implements EliteTermService {
 	@Override
 	public void putEtPaymentSession(HttpServletRequest request)throws ECOMMAPIException{
 		try {
-			request.getSession().setAttribute("creditCaredNo", request.getParameter("creditCaredNo"));
+			request.getSession().setAttribute("creditCaredNo", request.getParameter("creditCaredNo").replaceAll(" ", ""));
 			request.getSession().setAttribute("expiryDate", request.getParameter("expiryDate"));
 			request.getSession().setAttribute("cardHolderName", request.getParameter("cardHolderName"));
+			logger.info("payment put session success");
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl putEtPaymentSession occurs an exception!");
 			logger.info(e.getMessage());

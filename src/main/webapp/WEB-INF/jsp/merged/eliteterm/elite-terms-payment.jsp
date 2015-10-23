@@ -258,7 +258,6 @@ var language = "${language}";
 		 			  data : {creditCaredNo : creditCaredNo,
 		 					  expiryDate: expiryDate,
 		 					  cardHolderName: cardHolderName},
-		 			  async : false,
 		 			  success : function(data) {
 			 			  clicked = false;
 			 			  setTimeout(function(){
@@ -266,7 +265,10 @@ var language = "${language}";
 		                      $("#paymentForm").attr('action', $("#gateway").val());
 		                      $("#paymentForm").submit();
 	                      }, 3000);
-		 			  }
+		 			  },
+		 			  error:function(){
+		 			      console.log('error');   
+		 		      }
 	 		      });
 	 			  return true;
 	 		  }else{

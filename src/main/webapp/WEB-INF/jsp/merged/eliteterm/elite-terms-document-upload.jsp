@@ -511,6 +511,10 @@ var language = "${language}";
      		 var expiryDate = "${expiryDate }";
      		 var cardHolderName = "${cardHolderName }";
      		 var policyNo = "${eliteTermPolicy.policyNo }";
+     		 console.log("creditCaredNo:"+creditCaredNo);
+     		 console.log("expiryDate:"+expiryDate);
+     		 console.log("cardHolderName:"+cardHolderName);
+     		 console.log("policyNo:"+policyNo);
      		 if(creditCaredNo != "" && expiryDate != "" && cardHolderName != "" && policyNo != ""){
      			$.ajax({
 	  	 			  type : "POST",
@@ -537,13 +541,13 @@ var language = "${language}";
 	  			 		      });
 	  	                  } 
 	  					  else {
-	  	                      console.log(data);
+	  	                      console.log("call sendEliteTermMail fail");
 	  	                  }
 	  	 			  }
 	  		      });
      		 }
      		 else{
-     			console.log("data error");
+     			console.log("call finalizeEliteTermPolicy fail");
      		 }
 	     });
 		</script>
