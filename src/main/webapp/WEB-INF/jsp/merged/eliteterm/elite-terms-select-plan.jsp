@@ -679,20 +679,16 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown et-app-info-country"  data-style="application-select selection" name="savieApplicantBean.permanentAddressCountry" id="savieApplicantBean.permanentAddressCountry">
-                                             <option value="">-Please select-</option>
-                                             <c:if test="${language == 'en'}">
-													   <c:forEach var="list" items="${savieDistrictEN}">
-													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
-													   </c:forEach>
-													</c:if>
-													<c:if test="${language == 'tc'}">
-													   <c:forEach var="list" items="${savieDistrictCN}">
-													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
-													   </c:forEach>
-													</c:if>   
+                                             <option selected disabled value="">Country</option>
+                                             <option value="Hong Kong">Hong Kong</option>
+                                             <option value="Australia">Australia</option>    
+                                             <option value="Canada">Canada</option>    
+                                             <option value="France">France</option>    
+                                             <option value="Germany">Germany</option>
                                           </select>
                                        </div>
                                        <span class="error-msg" id="permanentAddressCountryMessage"></span>
+                                       
                                        <div class="selectDiv et-district-wrapper hide-element">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown "  data-style="application-select selection" name="savieApplicantBean.permanentAddress" id="savieApplicantBean.permanentAddress">
@@ -746,7 +742,7 @@ var language = "${language}";
                                        <span class="error-msg" id="residentialAddressMessage">
                                           <small class="help-block hide-element">Must enter at least one line for address</small>
                                        </span>
-                                       <div class="selectDiv">
+                                       <!-- <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown et-app-info-country"  data-style="application-select selection" name="savieApplicantBean.residentialDistrictCountry" id="savieApplicantBean.residentialDistrictCountry">
                                              <option selected disabled value="">Country</option>
@@ -756,9 +752,9 @@ var language = "${language}";
                                              <option value="France">France</option>    
                                              <option value="Germany">Germany</option>    
                                           </select>
-                                       </div>
-                                       <span class="error-msg" id="residentialDistrictCountryMessage"></span>
-                                       <div class="selectDiv et-district-wrapper hide-element">
+                                       </div> 
+                                       <span class="error-msg" id="residentialDistrictCountryMessage"></span> -->
+                                       <div class="selectDiv et-district-wrapper">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.residentialDistrict" id="savieApplicantBean.residentialDistrict">
                                              <option value="">-Please select-</option>
@@ -811,7 +807,7 @@ var language = "${language}";
                                        <span class="error-msg" id="corrAddressMessage">
                                           <small  class="help-block hide-element">Must enter at least one line for address</small>
                                        </span>
-                                       <div class="selectDiv">
+                                       <!-- <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown et-app-info-country"  data-style="application-select selection" name="savieApplicantBean.correspondenceDistrictCountry" id="savieApplicantBean.correspondenceDistrictCountry">
                                              <option selected disabled value="">Country</option>
@@ -822,8 +818,8 @@ var language = "${language}";
                                              <option value="Germany">Germany</option>    
                                           </select>
                                        </div>
-                                       <span class="error-msg" id="correspondenceCountryMessage"></span>
-                                       <div class="selectDiv et-district-wrapper hide-element">
+                                       <span class="error-msg" id="correspondenceCountryMessage"></span> -->
+                                       <div class="selectDiv et-district-wrapper">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.correspondenceDistrict" id="savieApplicantBean.correspondenceDistrict">
                                              <option value="">-Please select-</option>
@@ -1117,7 +1113,7 @@ var language = "${language}";
                                     </div>
                                     <div class="form-group has-error beneficiary-info-row entitle">
                                        <label for="savieBeneficiaryBean[0].entitlement"><fmt:message key="eliteTerms.selectPlan.Entitlement" bundle="${msg}" /></label>
-                                       <input type="number" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBean[0].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="" />
+                                       <input type="number" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBean[0].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="100" />
                                        <span class="error-msg" id="entitlementMessage[0]"></span>
                                     </div>		                
                                  </div>
@@ -1173,7 +1169,7 @@ var language = "${language}";
                         <div class="left-desktop no">
                            <div class="clearfix">
                               <div class="pull-left policy-replace-check">
-                                 <input type="checkbox" value="cancellation" id="no-policy-replace-check" name="isCancel" />
+                                 <input type="checkbox" value="cancellation" id="no-policy-replace-check" name="isCancel" checked/>
                                  <label for="no-policy-replace-check"></label>
                               </div>
                               <div class="pull-left policy-replace-desc">
@@ -1201,7 +1197,7 @@ var language = "${language}";
                         <div class="left-desktop no">
                            <div class="clearfix">
                               <div class="pull-left policy-replace-check">
-                                 <input type="checkbox" value="cancellation" id="no-policy-replace-existing-check" name="isCancel" />
+                                 <input type="checkbox" value="cancellation" id="no-policy-replace-existing-check" name="isCancel" checked/>
                                  <label for="no-policy-replace-existing-check"></label>
                               </div>
                               <div class="pull-left policy-replace-desc">
@@ -1967,6 +1963,7 @@ var language = "${language}";
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-select-plan.js"></script>
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
       <script type="text/javascript">
+  
 		      // Move to Medical declaration section
 		      $('#et-brn-proceed-to-application').on('click', function(e) {
 		    	  $.ajax({
@@ -2135,4 +2132,6 @@ var language = "${language}";
 
                return isEmpty;
             }
+            
+           
       </script>

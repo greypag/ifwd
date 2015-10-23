@@ -381,5 +381,5 @@ function getOccupation(value,language) {
 	});
 }
 $('#et-select-plan-go-homepage').on('click', function(e) {
-	window.location.href= contextPath+'/'+language+'/term-life-insurance/landing';
+	window.location.href= contextPath+'/'+language+'/term-life-insurance';
 });

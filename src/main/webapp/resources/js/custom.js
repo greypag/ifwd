@@ -593,45 +593,51 @@ $(function() {
 		$("#add-beneficiary-button-2").click(function(){
 			$("#add-beneficiary-1 .add-beneficiary" ).addClass("hidden");
 			
-			if($('#beneficiaryInfoForm\\[1\\]').length == 0){
 				addFormBeneficiary ($("#add-beneficiary-button-2").attr("value"));
-			}else{
-				if($('#beneficiaryInfoForm\\[1\\]').hasClass('hidden')){
-					$('#beneficiaryInfoForm\\[1\\]').removeClass('hidden');
-				}else{
-					$('#beneficiary1').addClass('hidden');
-				}	
-			}
+
 			
 			$('#remove-beneficiary\\[1\\]').click(function(){
-				$('#beneficiaryInfoForm\\[1\\]').addClass('hidden');
-				if($('#beneficiary1').hasClass('hidden')){
-					$('#beneficiary1').removeClass('hidden');
-				}
+				$('#remove-beneficiary\\[1\\]').parents('form').remove();
+      			$('#beneficiary1').removeClass('hidden');
 			
+			});
+			
+			//BENEFICIARY DROP-DOWN PASSPORT/HKID
+			$('#beneficiaryHkidPassport\\[1\\]').on('change', function() {
+
+				if($(this).val()==="Passport") {
+					$('#savieBeneficiaryBean\\[1\\]\\.hkId').addClass('hidden');
+					$('#savieBeneficiaryBean\\[1\\]\\.passportNo').removeClass('hidden');	
+				}
+				else {
+					$('#savieBeneficiaryBean\\[1\\]\\.hkId').removeClass('hidden');
+					$('#savieBeneficiaryBean\\[1\\]\\.passportNo').addClass('hidden');
+				}
 			});
 		});
 		$("#add-beneficiary-button-3").click(function(){
 			$("#add-beneficiary-2 .add-beneficiary" ).addClass("hidden");
 
-			if($('#beneficiaryInfoForm\\[2\\]').length == 0){
 				addFormBeneficiary ($("#add-beneficiary-button-3").attr("value"));
-			}else{
-				if($('#beneficiaryInfoForm\\[2\\]').hasClass('hidden')){
-					$('#beneficiaryInfoForm\\[2\\]').removeClass('hidden');
-				}else{
-					$('#beneficiary2').addClass('hidden');
-				}	
-			}
 			
-			$('#remove-beneficiary\\[2\\]').click(function(){
-				$('#beneficiaryInfoForm\\[2\\]').addClass('hidden');
+				$('#remove-beneficiary\\[2\\]').click(function(){
+					$('#remove-beneficiary\\[2\\]').parents('form').remove();
+	      			$('#beneficiary2').removeClass('hidden');
 				
-				if($('#beneficiary2').hasClass('hidden')){
-					$('#beneficiary2').removeClass('hidden');
-				}
-			
-			});
+				});
+				
+				//BENEFICIARY DROP-DOWN PASSPORT/HKID
+				$('#beneficiaryHkidPassport\\[2\\]').on('change', function() {
+
+					if($(this).val()==="Passport") {
+						$('#savieBeneficiaryBean\\[2\\]\\.hkId').addClass('hidden');
+						$('#savieBeneficiaryBean\\[2\\]\\.passportNo').removeClass('hidden');	
+					}
+					else {
+						$('#savieBeneficiaryBean\\[2\\]\\.hkId').removeClass('hidden');
+						$('#savieBeneficiaryBean\\[2\\]\\.passportNo').addClass('hidden');
+					}
+				});
 		});
 	}
 
@@ -1296,7 +1302,7 @@ function addFormBeneficiary (counter) {
 	
 	var counterPlus = parseInt(counter)+1;
 	
-	$('<form class="content tabs-margin" id="beneficiaryInfoForm['+counter+']" method="post" action="application-richie.php" onsubmit="return false"></form>').appendTo("#add-beneficiary-"+counter).hide().fadeIn(500); //create form
+	$('<form class="content tabs-margin" id="beneficiaryInfoForm['+counter+']" method="post" onsubmit="return false"></form>').appendTo("#add-beneficiary-"+counter).hide().fadeIn(500); //create form
 
 	$('<div class="form-group beneficiary-info-row" >'
 		+'<h3 class="mobile-desc hidden-md hidden-lg">Beneficiary <span>(Person '+ counterPlus +')</span></h3>'
@@ -1311,7 +1317,7 @@ function addFormBeneficiary (counter) {
 		+ '</div>'
 
 		+ '<div class="form-group beneficiary-info-row">'
-		+ '<label for="savieBeneficiaryBean['+counter+'].chineseName">Name in Chinese</label>'
+		+ '<label for="savieBeneficiaryBean['+counter+'].chineseName">Name in Chinese <span class="optional">(optional)</span></label>'
 		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].chineseName" name="savieBeneficiaryBean['+counter+'].chineseName" class="form-control gray-textbox form-textbox" placeholder="Name in Chinese">'
 		+ '<span class="error-msg" id="beneficiaryChineseNameMessage['+counter+']"></span>'
 		+ '<span class="dup-error-msg hidden" id="duplicate-chinese-name['+counter+']">Duplicate Chinese Name</span>'
@@ -1373,7 +1379,7 @@ function addFormBeneficiary (counter) {
 		
 		+ '<div class="form-group beneficiary-info-row entitle">'
 		+ '<label for="savieBeneficiaryBean['+counter+'].entitlement">Entitlement (%)</label>'
-		+ '<input type="number" id="savieBeneficiaryBean['+counter+'].entitlement" name="savieBeneficiaryBean['+counter+'].entitlement" class="form-control gray-textbox percentage" placeholder="100%" value="">'
+		+ '<input type="number" id="savieBeneficiaryBean['+counter+'].entitlement" name="savieBeneficiaryBean['+counter+'].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="">'
 		+ '<span class="error-msg" id="entitlementMessage['+counter+']"></span>'
 		+ '<div class="clearfix hidden-md hidden-lg"><div class="pull-left"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>Remove Beneficiary</button></div></div>'
 		+ '</div>'
