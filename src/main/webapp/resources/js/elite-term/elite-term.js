@@ -369,10 +369,10 @@ function getOccupation(value,language) {
 		language : language
 	},
 	function(data) {
-		$("#savieEmploymentBeanOccupation").empty();
+		$("#savieEmploymentBean\\.occupation").empty();
 		if(data != null){
 			for(var i = 0; i < data.length; i++) {
-				$("#savieEmploymentBeanOccupation").append("<option value='"+data[i].itemCode+"-"+data[i].itemDesc+"'>"+data[i].itemDesc+"</option>");
+				$("#savieEmploymentBean\\.occupation").append("<option value='"+data[i].itemCode+"-"+data[i].itemDesc+"'>"+data[i].itemDesc+"</option>");
 			}
 		}
 	})
