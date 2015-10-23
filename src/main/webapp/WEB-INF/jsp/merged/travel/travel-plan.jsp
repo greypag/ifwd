@@ -96,15 +96,27 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
         $(".errDue").html('');
         var flag = true;		
         var the_club_member_check_box = document.getElementById("the-club-member-toggle").checked;
-        var the_club_membership_no = document.getElementById("theClubMembershipNo").value; 
+        var the_club_membership_no = document.getElementById("theClubMembershipNo").value;
         if (the_club_member_check_box) {
             if (the_club_membership_no == "<fmt:message key="club.membership.number" bundle="${msg}" />" || the_club_membership_no == "" || /^\s*$/.test(the_club_membership_no)) {
                 $("#errClubMemberID").html("<fmt:message key="club.member.empty" bundle="${msg}" />") ;
                 document.getElementById("theClubMembershipNo").focus();
-                $("#theClubMembershipNo").addClass("invalid-field");
-                
+                $("#theClubMembershipNo").addClass("invalid-field");                
                 flag = false;
-            }
+            }else if (the_club_membership_no != ""){
+            	if(/^8/.test(the_club_membership_no) == false){
+	                $("#errClubMemberID").html("<fmt:message key="club.member.firstdigit" bundle="${msg}" /><br/><fmt:message key="club.member.digitchk" bundle="${msg}" />") ;
+	                document.getElementById("theClubMembershipNo").focus();
+	                $("#theClubMembershipNo").addClass("invalid-field");
+	                flag = false;
+            	}else if(/^[0-9]{10}$/.test(the_club_membership_no) == false){
+            		console.log("hehe");
+                    $("#errClubMemberID").html("<fmt:message key="club.member.digitchk" bundle="${msg}" />") ;
+                    document.getElementById("theClubMembershipNo").focus();
+                    $("#theClubMembershipNo").addClass("invalid-field");
+                    flag = false;            		
+            	}
+            } 
         }
         return flag;
 	}
