@@ -391,14 +391,24 @@ public class EliteTermServiceImpl implements EliteTermService {
 			{
 				serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 			}
-			String message = "<p>Dear ["+customerName+"], <br/>Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your first 2 months premium payment has been accepted.  多謝閣下經網上購買富衛智理想定期保障計劃系列 。您的首2個月保費款項已被接納。</p>"
-					        + "<p>Your policy has not been officially in force, you will need upload your [ID card copy], [passport copy] and [address proof] through the following link, in order to complete your application process.  您的保單尚未正式生效，您需要通過以下的連結上載您的[身份證副本]，[護照複印件]和[住址證明]，以完成整個申請投保程序。 "
-					        + url
-					        + "For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com. 如有任何查詢，請致電富衛客戶服務熱線(852) 3123 3123或電郵至cs.hk@fwd.com。</p>"
-					        + "<p>We wish you a happy life! 祝閣下生活愉快！</p>"
-					        + "<p>Regards, FWD General Insurance Company Limited 富衛保險有限公司  謹啟 www.fwd.com.hk</p>"
-					        + "<p>Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail.  備註：中英文本如有歧異，概以英文本為準。</p>"
-					        + "<p>This is an automatically generated email, please do not reply. 此乃電腦發出之電子郵件，請不要回覆</p>";
+			String message =  "<p>Dear ["+customerName+"],</p>"
+					        + "<p>Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your first 2 months premium payment has been accepted.  </p>"
+					        + "<p>多謝閣下經網上購買富衛智理想定期保障計劃系列 。您的首2個月保費款項已被接納。</p>"
+					        + "<p>Your policy has not been officially in force, you will need upload your [ID card copy], [passport copy] and [address proof] through the following link, in order to complete your application process.  </p>"
+					        + "<p>您的保單尚未正式生效，您需要通過以下的連結上載您的[身份證副本]，[護照複印件]和[住址證明]，以完成整個申請投保程序。</p> "
+					        + "<p>"+url+"</p>"
+					        + "<p>For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com. </p>"
+					        + "<p>如有任何查詢，請致電富衛客戶服務熱線(852) 3123 3123或電郵至cs.hk@fwd.com。</p>"
+					        + "<p>We wish you a happy life! </p>"
+					        + "<p>祝閣下生活愉快！</p>"
+					        + "<p>Regards, FWD General Insurance Company Limited </p>"
+					        + "<p>富衛保險有限公司 </p>"
+					        + "<p>謹啟 </p>"
+					        + "<p>www.fwd.com.hk</p>"
+					        + "<p>Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail.  </p>"
+					        + "<p>備註：中英文本如有歧異，概以英文本為準。</p>"
+					        + "<p>This is an automatically generated email, please do not reply. </p>"
+					        + "<p>此乃電腦發出之電子郵件，請不要回覆</p>";
 			String subject = "FWD Elite Term – Pending ["+policyNo+"]";
 			String attachment = "";
 			String from = "FWD Elite Term <i-info.hk@fwd.com>";
