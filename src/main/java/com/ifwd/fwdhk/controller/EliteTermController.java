@@ -1,33 +1,23 @@
 package com.ifwd.fwdhk.controller;
 
-import java.util.Map;
-import java.io.File;
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
-import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
-import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.EliteTermsFlowControl;
-import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
-import com.ifwd.fwdhk.util.JsonUtils;
 
 @Controller
 public class EliteTermController extends BaseController{
@@ -90,7 +80,7 @@ public class EliteTermController extends BaseController{
 	@RequestMapping(value = {"/{lang}/term-life-insurance/document-upload","/{lang}/term-life-insurance/document-upload-later"})
 	public ModelAndView getDocumentUpload(Model model, HttpServletRequest request) {
 		try {
-			String policyNumber = (String) request.getParameter("policyNo");
+			String policyNumber = (String) request.getParameter("policyNumber");
 			if(StringUtils.isNotEmpty(policyNumber)){
 				policyNumber = new String(new sun.misc.BASE64Decoder().decodeBuffer(policyNumber));
 				String userName = savieService.getPolicyUserName(request,policyNumber);
@@ -100,7 +90,7 @@ public class EliteTermController extends BaseController{
 				}
 				CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
 				eliteTermPolicy.setPolicyNo(policyNumber);
-				request.getSession().setAttribute("etPolicyApplication", eliteTermPolicy);
+				request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
 			}		
 		} catch (Exception e) {
 			e.printStackTrace();

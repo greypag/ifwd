@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.services.EliteTermService;
 import com.ifwd.fwdhk.util.Methods;
@@ -34,7 +35,9 @@ public class AjaxEliteTermController extends BaseController{
 	            @RequestParam(value = "img", required = true) CommonsMultipartFile imageFile
 	            ) throws Exception {
 			try {
-				String uploadDir = request.getRealPath("/")+"upload"+"/"+"123456";  
+				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+				String policyNo = eliteTermPolicy.getPolicyNo();
+				String uploadDir = request.getRealPath("/")+"upload"+"/"+policyNo;  
 		        File dirPath = new File(uploadDir);  
 		        if (!dirPath.exists()) {   
 		            dirPath.mkdirs();  

@@ -1271,7 +1271,6 @@ public class SavieServiceImpl implements SavieService {
 			files.delete();
 			String signatureWidth = InitApplicationMessage.signatureWidth;
 			String signatureHeight = InitApplicationMessage.signatureHeight;
-
 			if(width > Integer.valueOf(signatureWidth) || height > Integer.valueOf(signatureHeight)){
 				return false;
 			}
@@ -1388,7 +1387,7 @@ public class SavieServiceImpl implements SavieService {
 							 " 此乃電腦發出之電子郵件，請不要回覆<br />"+
 							"</div>";
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
-			parameters.put("to", "Xiangyan_Chen@vandagroup.com");
+			parameters.put("to", etPolicyApplication.getApplicant().getEmail());
 			parameters.put("message", message);
 			parameters.put("subject", subject);
 			parameters.put("attachment", attachment);
