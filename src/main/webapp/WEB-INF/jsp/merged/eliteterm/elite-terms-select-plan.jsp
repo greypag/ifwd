@@ -95,7 +95,8 @@ var language = "${language}";
                      
                      <div class="clearfix">
                         <input type="radio" id="et-before-yes" name="et-before" value="et-before-yes">
-                        <label class="et-before-we-start-yes pull-left" for="et-before-yes" data-toggle="modal" data-target="#cannot-apply-modal">	
+                        <input type="hidden" id="channel">
+                        <label class="et-before-we-start-yes pull-left" for="et-before-yes" data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ET2M');">	
                            <span class="et-before-text"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></span>
                         </label>
                         
@@ -395,7 +396,7 @@ var language = "${language}";
                                           <div class="col-xs-12 col-md-4">
                                              <div class="row">
                                                 <div class="col-xs-6 et-pad-right-reduce-7">
-                                                   <a  href="#" class="btn et-btn-medic btn et-btn-medic-yes" data-current-target="et-medi-question-1" data-next-target="et-medi-question-2" title="Yes"  data-toggle="modal" data-target="#cannot-apply-modal"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
+                                                   <a  href="#" class="btn et-btn-medic btn et-btn-medic-yes" data-current-target="et-medi-question-1" data-next-target="et-medi-question-2" title="Yes"  data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ETMD1');"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
                                                 </div>
                                                 <div class="col-xs-6 et-pad-left-reduce-7">
                                                    <a href="#" class="btn et-btn-medic et-btn-medic-no" title="No" data-current-target="et-medi-question-1" data-next-target="et-medi-question-2" ><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
@@ -424,7 +425,7 @@ var language = "${language}";
                                           <div class="col-xs-12 col-md-4">
                                              <div class="row">
                                                 <div class="col-xs-6 et-pad-right-reduce-7">
-                                                   <a  href="#" class="btn et-btn-medic et-btn-medic-yes" data-current-target="et-medi-question-2" data-next-target="et-medi-question-3" title="Yes"  data-toggle="modal" data-target="#cannot-apply-modal"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
+                                                   <a  href="#" class="btn et-btn-medic et-btn-medic-yes" data-current-target="et-medi-question-2" data-next-target="et-medi-question-3" title="Yes"  data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ETMD2');"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
                                                 </div>
                                                 <div class="col-xs-6 et-pad-left-reduce-7">
                                                    <a href="#" class="btn et-btn-medic et-btn-medic-no" title="No" data-current-target="et-medi-question-2" data-next-target="et-medi-question-3"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
@@ -453,7 +454,7 @@ var language = "${language}";
                                           <div class="col-xs-12 col-md-4">
                                              <div class="row">
                                                 <div class="col-xs-6 et-pad-right-reduce-7">
-                                                   <a  href="#" class="btn et-btn-medic et-btn-medic-yes" data-current-target="et-medi-question-3" data-next-target="" title="Yes"  data-toggle="modal" data-target="#cannot-apply-modal"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
+                                                   <a  href="#" class="btn et-btn-medic et-btn-medic-yes" data-current-target="et-medi-question-3" data-next-target="" title="Yes"  data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ETMD3');"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></a>
                                                 </div>
                                                 <div class="col-xs-6 et-pad-left-reduce-7">
                                                    <a href="#" class="btn et-btn-medic et-btn-medic-no last" title="No" data-current-target="et-medi-question-3" data-next-target=""><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
@@ -1692,7 +1693,7 @@ var language = "${language}";
                         <span aria-hidden="true" style="font-size:30px;">?</span>
                       </a>
                    </div>
-                   <form>
+                   <form onSubmit="return false;">
                         <div class="form-container">
                            <h2><fmt:message key="eliteTerms.selectPlan.Don't.have.a.promotion" bundle="${msg}" /></h2>
                            <div class="alert alert-success hide proSuccess"></div>
@@ -1702,7 +1703,7 @@ var language = "${language}";
                                <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
                            </div>
                            <span id="errPromoEmail" class="text-red"></span>
-                           <button type="submit" onclick="return sendEmail()" class="btn next"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
+                           <button type="submit" onclick="getPromoteCode()" class="btn next"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
                            <p><fmt:message key="eliteTerms.selectPlan.By.submitting.my" bundle="${msg}" /></p>
                         </div>
                    </form>
@@ -1726,7 +1727,7 @@ var language = "${language}";
                   </div>
                   <div class="modal-body">
                      <p><fmt:message key="eliteTerms.selectPlan.Please.call.our" bundle="${msg}" /> <a href="#" class="et-top-no"  title="Customer Service Hotline">3123 3123</a> <fmt:message key="eliteTerms.selectPlan.to.find.out.more" bundle="${msg}" /></p>
-                     <form action="" id="et-cust-serv-form">
+                     <form action="" id="et-cust-serv-form" method="post">
                         <div class="input-items clearfix">
                            <label for="name"><fmt:message key="eliteTerms.selectPlan.Name" bundle="${msg}" /></label>
                            <input type="text" class="form-control gray-textbox" placeholder="Name" id="name" name="name">
@@ -1809,7 +1810,7 @@ var language = "${language}";
                               <span class="error-msg" id="cannotApplyCheckMessage"></span>
                            </div>
                         </div>
-                        <button type="submit" class="btn next"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
+                        <button type="submit" class="btn next" id="et-cannot-apply-btn"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
                      </form>
                   </div>
                </div><!-- /.modal-content -->
@@ -2135,4 +2136,31 @@ var language = "${language}";
 
                return isEmpty;
             }
+            
+            function getPromoteCode() {
+            	if($('#emailToSendPromoCode').val()!=''){
+            		$.ajax({
+  		 			  type : "POST",
+  		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/getPromoteCode",
+  		 			  data : {
+  		 				      email: $('#emailToSendPromoCode').val()
+  		 				     },
+  		 			  success : function(data) {
+  		 				if(data.errMsgs == null){
+  		 					$('#get-promotion-code').modal('hide');
+  		 				}
+  		 				else{
+  		 					console.log("data error");
+  		 				}
+  		 			  }
+  	 		      });
+            	}
+            	else{
+            		console.log("data error");
+            	}
+			}
+            
+            function getCsChannel(channel) {
+            	$("#channel").val(channel);
+			}
       </script>
