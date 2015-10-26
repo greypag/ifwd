@@ -400,7 +400,7 @@ var language = "${language}";
                 
                 if (isValid) {     
                     $self.removeAttr('disabled');
-                    window.location.href= contextPath+'/'+language+'/term-life-insurance/'+documentUploadNextPageFlow;
+                    //window.location.href= contextPath+'/'+language+'/term-life-insurance/'+documentUploadNextPageFlow;
                 } else {
                     $self.attr('disabled', 'disabled');
                 }
