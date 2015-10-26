@@ -70,12 +70,11 @@ function chkClubMember() {
             flag = false;
         }else if (the_club_membership_no != ""){
             if(/^8/.test(the_club_membership_no) == false){
-                $("#errClubMemberID").html("<fmt:message key="club.member.firstdigit" bundle="${msg}" /><br/><fmt:message key="club.member.digitchk" bundle="${msg}" />") ;
+                $("#errClubMemberID").html("<fmt:message key="club.member.firstdigit" bundle="${msg}" />") ;
                 document.getElementById("theClubMembershipNo").focus();
                 $("#theClubMembershipNo").addClass("invalid-field");
                 flag = false;
             }else if(/^[0-9]{10}$/.test(the_club_membership_no) == false){
-                console.log("hehe");
                 $("#errClubMemberID").html("<fmt:message key="club.member.digitchk" bundle="${msg}" />") ;
                 document.getElementById("theClubMembershipNo").focus();
                 $("#theClubMembershipNo").addClass("invalid-field");
