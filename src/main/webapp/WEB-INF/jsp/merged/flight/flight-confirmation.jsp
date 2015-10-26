@@ -260,7 +260,7 @@ class="image-order-status image-order-status-active  img-circle">
 		</div>
 		<h5>
 		    <!-- joe -->
-			<a href="#" class="bdr-curve btn btn-primary bck-btn" id="confirm-popup<%=i%>" data-target="#confirm-popup" data-toggle="modal" onclick="perventRedirect=false;setPriceAndColorNotSubmit('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%>')">
+			<a href="#" class="bdr-curve btn btn-primary bck-btn" id="confirm-popup<%=i%>" data-target="#confirm-popup" data-toggle="modal" onclick="perventRedirect=false;setPriceAndColorNotSubmit('box<%=i%>','<%=travelQuote.getPlanName()[i]%>','<%=String.format("%.2f",Double.parseDouble(travelQuote.getToalDue()[i]))%>','<%=String.format("%.2f",Double.parseDouble(travelQuote.getGrossPremium()[i]))%>')">
 			   <fmt:message key="flight.confirmation.upgrade.action" bundle="${msg}" />
 			</a>
 		</h5>

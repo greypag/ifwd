@@ -1639,11 +1639,13 @@ public class FlightController {
 			createFlightPolicy = (CreateFlightPolicy) session.getAttribute("upgradeCreateFlightPolicy");
 			selectPlanName = (String) session.getAttribute("upgradeSelectPlanName");
 			dueAmount = (String)session.getAttribute("upgradeDueAmount");
+			selectPlanPremium = (String)session.getAttribute("originalAmount");
 		} else {
 			session.setAttribute("upgradeCreateFlightPolicy", createFlightPolicy);
 			session.setAttribute("upgradeSelectPlanName", selectPlanName);
 			session.setAttribute("upgradeDueAmount", dueAmount);
 			session.setAttribute("dueAmount", dueAmount);
+			session.setAttribute("originalAmount", selectPlanPremium);
 		}
 		
 		JSONObject parameters = new JSONObject();
