@@ -81,6 +81,8 @@ public class EliteTermController extends BaseController{
 	public ModelAndView getDocumentUpload(Model model, HttpServletRequest request) {
 		try {
 			String policyNumber = (String) request.getParameter("policyNumber");
+			logger.info(policyNumber);
+			model.addAttribute("sendEmailOrNot", policyNumber);
 			if(StringUtils.isNotEmpty(policyNumber)){
 				policyNumber = new String(new sun.misc.BASE64Decoder().decodeBuffer(policyNumber));
 				String userName = savieService.getPolicyUserName(request,policyNumber);
