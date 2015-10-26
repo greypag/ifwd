@@ -171,7 +171,7 @@ $('#et-cannot-apply-btn').on('click', function(e) {
 	var preferredDay = "2015-09-10"//$('#day').val();
 	var preferredTimeSlot = "18:00-20:00"//$('#time').val();
 	var enquiryType = $('#enquiry').val();
-	var channel = "channel1";
+	var channel = $("#channel").val();
 	var product = "eliteterm";
 	
 	if(name ==null){

@@ -19,5 +19,6 @@ public interface EliteTermService {
 	public BaseResponse sendEliteTermMail(HttpServletRequest request)throws ECOMMAPIException;
 	public void putEtPlanOptionSession(HttpServletRequest request)throws ECOMMAPIException;
 	public void putEtPaymentSession(HttpServletRequest request)throws ECOMMAPIException;
+	public BaseResponse getPromoteCode(HttpServletRequest request)throws ECOMMAPIException;
 	
 }
