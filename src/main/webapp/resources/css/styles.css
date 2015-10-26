@@ -22638,3 +22638,15 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 .panel-group {
     margin-bottom: 20px;
 }
+
+/*october 22 fixes*/
+/* Checklist 1 */
+#cannot-apply-modal .modal-body form .input-items .error-msg, #customer-service-modal .modal-body form .input-items .error-msg {
+  float: right;
+  width: 60%;
+  margin-bottom: 0;
+}
+#cannot-apply-modal .modal-body form .input-items .error-msg .help-block, #customer-service-modal .modal-body form .input-items .error-msg .help-block {
+  font-size: 14px;
+  margin: 0;
+}
