@@ -283,9 +283,9 @@ public class EliteTermServiceImpl implements EliteTermService {
 			parameters.put("name", request.getParameter("name"));
 			parameters.put("email", request.getParameter("email"));
 			parameters.put("mobile", request.getParameter("mobile"));
-			parameters.put("preferredDay", request.getParameter("preferredDay"));
-			parameters.put("preferredTimeSlot", request.getParameter("preferredTimeSlot"));
-			parameters.put("enquiryType", request.getParameter("enquiryType"));
+			parameters.put("preferredDay", request.getParameter("preferredDay").split("-")[0]);
+			parameters.put("preferredTimeSlot", request.getParameter("preferredTimeSlot").split("-")[0]);
+			parameters.put("enquiryType", request.getParameter("enquiryType").split("-")[0]);
 			parameters.put("channel", request.getParameter("channel"));
 			parameters.put("product", request.getParameter("product"));
 			apiReturn = connector.contactCs(parameters, header);
