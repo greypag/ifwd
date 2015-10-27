@@ -195,7 +195,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 				beneficiarie1.put("hkId", applicant.getString("hkId"));
 				beneficiarie1.put("passport", applicant.getString("passport"));
 				beneficiarie1.put("gender", applicant.getString("gender"));
-				beneficiarie1.put("relationship", "own");
+				beneficiarie1.put("relationship", "SE");
 				beneficiarie1.put("entitlement", "100");
 			}
 			beneficiaries.add(beneficiarie1);
@@ -209,7 +209,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			payment.put("accountNo", "");
 			payment.put("expiryDate", "");
 			parameters.put("payment", payment);
-			parameters.put("insuredAmount", 400000);
+			parameters.put("insuredAmount", etPolicyApplication.getAmount());
 			parameters.put("referralCode", eliteTermPremium.getPromoCode());
 			logger.info(parameters.toString());
 			apiReturn = connector.createEliteTermPolicy(parameters, header);
