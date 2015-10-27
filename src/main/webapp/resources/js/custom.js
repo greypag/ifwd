@@ -1336,7 +1336,7 @@ function addFormBeneficiary (counter) {
 		+'</div>'
 		+'</div>'
 		+'<div class="pull-left input">'
-		+'<input class="form-control gray-textbox" type="text" placeholder="HKID/Passport No" id="savieBeneficiaryBean['+counter+'].hkId" name="savieBeneficiaryBean['+counter+'].hkId" value="">'
+		+'<input class="form-control gray-textbox capitalize" type="text" placeholder="HKID/Passport No" id="savieBeneficiaryBean['+counter+'].hkId" name="savieBeneficiaryBean['+counter+'].hkId" value="">'
 		+'<input class="form-control gray-textbox hidden" type="text" placeholder="HKID/Passport No" id="savieBeneficiaryBean['+counter+'].passportNo" name="savieBeneficiaryBean['+counter+'].passportNo" value="">'
 		+'</div>'
 		+'</div>'

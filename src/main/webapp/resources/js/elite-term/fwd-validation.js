@@ -396,10 +396,10 @@ $(function() {
 					notEmpty: {
 						message: 'Please enter Beneficiary HKID No. / Passport No.'
 					},
-               regexp: {
-                  regexp: /[A-Z0-9()]/,
-                  message: 'Please enter Beneficiary HKID No. / Passport No.'
-               },
+//               regexp: {
+//            	   regexp: /(^[a-z|A-Z|1-9]){1}([A-Z|1-9]){6}\(?([A-Z|1-9]){1}\)?$/g,
+//                  message: 'Please enter Beneficiary HKID No. / Passport No.'
+//               },
 					callback: {
                   message: 'Your HKID No. is invalid.',
                   callback: function(value, validator) {
@@ -525,10 +525,10 @@ $(function() {
 	                  notEmpty: {
 	                     message: 'Please enter Beneficiary HKID No. / Passport No.'
 	                  },
-	                  regexp: {
-	                     regexp: /[A-Z0-9()]/,
-	                     message: 'Please enter Beneficiary HKID No. / Passport No.'
-	                  },
+//	                  regexp: {
+//	                	  regexp: /(^[a-z|A-Z|1-9]){1}([A-Z|1-9]){6}\(?([A-Z|1-9]){1}\)?$/g,
+//	                     message: 'Please enter Beneficiary HKID No. / Passport No.'
+//	                  },
 	                  callback: {
 	                     message: 'Your HKID No. is invalid.',
 	                     callback: function(value, validator) {
@@ -566,6 +566,19 @@ $(function() {
 	            }
 	         }
 	      });
+		 
+		 //input hkid
+		 $('#savieBeneficiaryBean\\[1\\]\\.hkId').blur(function (e) {
+				var value = $(this).val();
+				value = value.replace(/[()]/g,'');
+				$(this).val(value);
+				if(isValidHKID($('#savieBeneficiaryBean\\[1\\]\\.hkId').val())) {
+					$('#beneficiaryInfoForm\\[1\\]')
+				    .data('bootstrapValidator')
+				    .updateStatus('savieBeneficiaryBean[1].hkId','VALID');
+				}
+			});
+		 $('#savieBeneficiaryBean\\[1\\]\\.hkId').css('text-transform','uppercase');
 	});
 	
 	//Beneficiary Info Form [2]
@@ -582,10 +595,10 @@ $(function() {
                         max: 25,
                         message: 'Given Name must be no more than 25 characters.'
                     },
-					regexp: {
-						regexp: /^[a-zA-Z\s]+$/ ,
-						message: 'Please enter Beneficiary Given Name in English.'
-					},
+//					regexp: {
+//						regexp: /(^[a-z|A-Z|1-9]){1}([A-Z|1-9]){6}\(?([A-Z|1-9]){1}\)?$/g,
+//						message: 'Please enter Beneficiary Given Name in English.'
+//					},
                callback: {
                   message: 'Invalid Given Name in English.',
                   callback: function (value, validator) {
@@ -696,7 +709,50 @@ $(function() {
 				}
 			}
 		});
+		
+		//input hkid
+		 $('#savieBeneficiaryBean\\[2\\]\\.hkId').blur(function (e) {
+				var value = $(this).val();
+				value = value.replace(/[()]/g,'');
+				$(this).val(value);
+				if(isValidHKID($('#savieBeneficiaryBean\\[2\\]\\.hkId').val())) {
+					$('#beneficiaryInfoForm\\[2\\]')
+				    .data('bootstrapValidator')
+				    .updateStatus('savieBeneficiaryBean[2].hkId','VALID');
+				}
+			});
+		 $('#savieBeneficiaryBean\\[2\\]\\.hkId').css('text-transform','uppercase');
 	});
+	
+	//hkid input
+	$('#savieApplicantBean\\.hkId').blur(function (e) {
+		var value = $(this).val();
+		value = value.replace(/[()]/g,'');
+		$(this).val(value);
+		if(isValidHKID($('#savieApplicantBean\\.hkId').val())) {
+			$('#eliteTermsInsuredInfoForm')
+		    .data('bootstrapValidator')
+		    .updateStatus('savieApplicantBean.hkId','VALID');
+		}
+	});
+	
+	$('#savieBeneficiaryBean\\[0\\]\\.hkId').blur(function (e) {
+		var value = $(this).val();
+		value = value.replace(/[()]/g,'');
+		$(this).val(value);
+		if(isValidHKID($('#savieBeneficiaryBean\\[0\\]\\.hkId').val())) {
+			$('#beneficiaryInfoForm\\[0\\]')
+		    .data('bootstrapValidator')
+		    .updateStatus('savieBeneficiaryBean[0].hkId','VALID');
+		}
+	});
+	
+	if(msieversion() > 0) {
+		$('#savieApplicantBean\\.hkId').css('text-transform','uppercase');
+		$('#savieBeneficiaryBean\\[0\\]\\.hkId').css('text-transform','uppercase');
+	}
+	//end
+	
 	
 	$('#employment-info-next').click(function(){
 		//Employment Info Form
@@ -941,7 +997,12 @@ function isValidHKID(hkid){
    var isValid = false;
    
    if (hkid && (hkid.length > 7)) {
-
+	   
+	  if( hkid.charCodeAt(0) >= 97 && hkid.charCodeAt(0) <= 122) { 
+		  var string = hkid.charCodeAt(0)-32;
+	  	  hkid = String.fromCharCode(string)+hkid.slice(1);
+	  }
+	  
       if(hkid.indexOf('(') > -1) {
          var message = hkid.slice(0, hkid.indexOf('('));
          var checksum = hkid.slice((hkid.indexOf('(') + 1), hkid.lastIndexOf(')'));
@@ -949,9 +1010,8 @@ function isValidHKID(hkid){
       else {
          var message = hkid.slice(0, 7);
          var checksum = hkid.slice(7, 8)
-      }
-
-      checksum = isNaN(checksum) ? equivalentInteger(checksum) : parseInt(checksum, 10);
+      }      
+      checksum = isNaN(checksum) ? 10 : parseInt(checksum, 10);
       var checkCtr = message.length + 1
       var checksumTotal = 0;
       

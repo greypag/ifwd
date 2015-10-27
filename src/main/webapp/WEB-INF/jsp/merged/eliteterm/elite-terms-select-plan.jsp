@@ -246,7 +246,7 @@ var language = "${language}";
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount">HK$ <span id="et-month-dis-amount">${eliteTermPremium.monthlyDuePremium }</span> <span>/per month</span></p>
+                                 <p class="et-amount">HK$ <span id="et-month-dis-amount">${eliteTermPremium.monthlyDuePremium }</span> /month</p>
                                  <p class="et-per et-month">(only HK$ <span id="et-day-dis-amount">${eliteTermPremium.dailyDuePremium }</span> per day)</p>
                               </div>
                               
@@ -259,7 +259,7 @@ var language = "${language}";
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount">HK$ <span id="et-month-amount">${eliteTermPremium.monthlyPremium }</span> <span>/per month</span></p>
+                                 <p class="et-amount">HK$ <span id="et-month-amount">${eliteTermPremium.monthlyPremium }</span> /month</p>
                                  <p class="et-per et-month">(only HK$ <span id="et-day-amount">${eliteTermPremium.dailyPremium }</span> per day)</p>
                               </div>
                               
@@ -520,15 +520,17 @@ var language = "${language}";
                                        <label for="sales-illu-dob" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Date.of.birth" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box et-date-info clearfix">
-                                       <input type="text" class="form-control gray-textbox pull-left et-80-width" name="dob" id="sales-illu-dob" placeholder="DD-MM-YYYY " onfocusin="fnSetStyle()" readonly value="${etPolicyApplication.applicant.dobD }"  />
-                                       <div class="et-app-edit-wrapper">
-                                          <a href="#" title="Edit Date of birth" class="et-app-sum-edit et-app-edit" data-target="#et-about-yoursel-section">
-                                             <span class="text-center">
-                                                Edit
-                                             </span>
-                                          </a>
-                                       </div>
-                                       <!-- <span class="error-msg" id="sales-illu-dob-msg"><small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Date.of.birth.is.required" bundle="${msg}" /></small></span> -->
+                                    	<div class="clearfix">
+	                                       <input type="text" class="form-control gray-textbox pull-left et-80-width" name="dob" id="sales-illu-dob" placeholder="DD-MM-YYYY " onfocusin="fnSetStyle()" readonly value="${etPolicyApplication.applicant.dobD }"  />
+	                                       <div class="et-app-edit-wrapper">
+	                                          <a href="#" title="Edit Date of birth" class="et-app-sum-edit et-app-edit" data-target="#et-about-yoursel-section">
+	                                             <span class="text-center">
+	                                                Edit
+	                                             </span>
+	                                          </a>
+	                                       </div>
+	                                    </div>
+                                       <span class="error-msg" id="sales-illu-dob-msg"></span>
                                     </div>
                                  </div>
                                  
@@ -555,7 +557,7 @@ var language = "${language}";
                                        <label for="savieApplicantBean.hkId" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.HKID" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box">
-                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.hkId" name="savieApplicantBean.hkId" type="text" placeholder="X123456(7)" >
+                                       <input class="form-control gray-textbox capitalize" autocomplete="off" id="savieApplicantBean.hkId" name="savieApplicantBean.hkId" type="text" placeholder="X123456(7)" >
                                        <span class="error-msg" id="hkidMessage"></span>
                                     </div>
                                  </div>
@@ -678,7 +680,7 @@ var language = "${language}";
                                        <span class="error-msg" id="permanentAddressMessage">
                                           <small class="help-block hide-element">Must enter at least one line for address</small>
                                        </span>
-                                       <div class="selectDiv">
+                                       <!--  <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown et-app-info-country"  data-style="application-select selection" name="savieApplicantBean.permanentAddressCountry" id="savieApplicantBean.permanentAddressCountry">
                                              <option selected disabled value="">Country</option>
@@ -690,7 +692,7 @@ var language = "${language}";
                                           </select>
                                        </div>
                                        <span class="error-msg" id="permanentAddressCountryMessage"></span>
-                                       
+									    -->
                                        <div class="selectDiv et-district-wrapper hide-element">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown "  data-style="application-select selection" name="savieApplicantBean.permanentAddress" id="savieApplicantBean.permanentAddress">
@@ -921,7 +923,7 @@ var language = "${language}";
                                  <span class="error-msg" id="occupationMessage"></span>
                               </div>
 
-                              <div class="clearfix form-group has-error employment-info-row et-emp-info-sourceOfIncome-container ">
+                              <div class="clearfix form-group has-error employment-info-row et-emp-info-sourceOfIncome-container hidden">
                                  <label for="savieEmploymentBean.sourceOfIncome">Amount of other source of income (HK$)</label>
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
@@ -942,7 +944,7 @@ var language = "${language}";
                                  <span class="error-msg" id="sourceOfIncome"></span>
                               </div>
 
-                              <div class="clearfix form-group has-error employment-info-row et-emp-info-liq-assets-container">
+                              <div class="clearfix form-group has-error employment-info-row et-emp-info-liq-assets-container hidden">
                                  <label for="savieEmploymentBean.liquidAssets"><fmt:message key="eliteTerms.selectPlan.Liquid.assets" bundle="${msg}" /></label>
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
@@ -1081,7 +1083,7 @@ var language = "${language}";
                                              </div>
                                           </div>
                                           <div class="pull-left input">
-                                             <input class="form-control gray-textbox" type="text" autocomplete="off" placeholder="HKID/Passport No" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBean[0].hkId" value="">
+                                             <input class="form-control gray-textbox capitalize" type="text" autocomplete="off" placeholder="HKID/Passport No" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBean[0].hkId" value="">
                                              <input class="form-control gray-textbox hidden" type="text" autocomplete="off" placeholder="HKID/Passport No" id="savieBeneficiaryBean[0].passportNo" name="savieBeneficiaryBean[0].passportNo" value="">
                                           </div>
                                        </div>
@@ -1467,7 +1469,7 @@ var language = "${language}";
                                  <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Residential.address" bundle="${msg}" /></h4>
                                  <p class="info" id="etaspi-res-add"></p>
                               </div>
-                              <div class="clearfix info-holder-below et-corr-add hide-element">
+                              <div class="clearfix info-holder-below et-corr-add">
                                  <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Correspondence.address" bundle="${msg}" /></h4>
                                  <p class="info" id="etaspi-corr-add"></p>
                               </div>
@@ -1980,6 +1982,14 @@ var language = "${language}";
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-select-plan.js"></script>
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
       <script type="text/javascript">
+  		//applicant dob
+  		$(document).on('click', '#et-personal-info-next', function(e) {
+  			if($('#eliteTermsInsuredInfoForm #sales-illu-dob').val()!="") {
+  				$('#eliteTermsInsuredInfoForm')
+  			    .data('bootstrapValidator')
+  			    .updateStatus('dob','VALID');
+  			}
+  		});
       $(document).ready(function() {
     	  if('${etPolicyApplication.applicant.gender}'=='M'){
     		  $("#et-gender-male").click();

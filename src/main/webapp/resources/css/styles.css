@@ -8400,6 +8400,7 @@ span.dup-error-msg {
   /* line 364, ../sass/partials/_page-application.scss */
   .et-app-edit span {
     text-align: left;
+    text-decoration: underline;
   }
 }
 /* line 374, ../sass/partials/_page-application.scss */
@@ -21151,37 +21152,37 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   }
 }
 
-/* line 4, ../sass/partials/_et-cannot-apply-modal.scss */
+/* line 3, ../sass/partials/_et-cannot-apply-modal.scss */
 .fwd-savie-wrapper .modal.et-modal .modal-checkbox {
   margin-top: 20px;
   padding-left: 40px;
   padding-bottom: 3px;
 }
-/* line 9, ../sass/partials/_et-cannot-apply-modal.scss */
+/* line 8, ../sass/partials/_et-cannot-apply-modal.scss */
 .fwd-savie-wrapper .modal.et-modal .modal-checkbox label {
   width: 20px;
   height: 20px;
 }
-/* line 13, ../sass/partials/_et-cannot-apply-modal.scss */
+/* line 12, ../sass/partials/_et-cannot-apply-modal.scss */
 .fwd-savie-wrapper .modal.et-modal .modal-checkbox label:after {
   width: 10px;
   height: 6px;
   top: 5px;
   left: 4px;
 }
-/* line 21, ../sass/partials/_et-cannot-apply-modal.scss */
+/* line 20, ../sass/partials/_et-cannot-apply-modal.scss */
 .fwd-savie-wrapper .modal.et-modal .modal-checkbox p.notice, .fwd-savie-wrapper .modal.et-modal .modal-checkbox #application-registration form p.notice-password, #application-registration form .fwd-savie-wrapper .modal.et-modal .modal-checkbox p.notice-password {
   padding-top: 6px;
 }
 
 @media (min-width: 992px) {
-  /* line 29, ../sass/partials/_et-cannot-apply-modal.scss */
-  #cannot-apply-modal .modal-dialog, #customer-service-modal .modal-dialog, #application-summary .modal-dialog {
+  /* line 28, ../sass/partials/_et-cannot-apply-modal.scss */
+  #cannot-apply-modal .modal-dialog, #customer-service-modal .modal-dialog {
     margin-top: 132px;
   }
 }
-/* line 34, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .et-modal-content, #customer-service-modal .et-modal-content, #application-summary .et-modal-content {
+/* line 33, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .et-modal-content, #customer-service-modal .et-modal-content {
   border-radius: 0;
   max-width: 377px;
   padding: 28px 20px 3px;
@@ -21189,100 +21190,100 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   margin: 0 auto;
 }
 @media (min-width: 992px) {
-  /* line 34, ../sass/partials/_et-cannot-apply-modal.scss */
-  #cannot-apply-modal .et-modal-content, #customer-service-modal .et-modal-content, #application-summary .et-modal-content {
+  /* line 33, ../sass/partials/_et-cannot-apply-modal.scss */
+  #cannot-apply-modal .et-modal-content, #customer-service-modal .et-modal-content {
     max-width: 505px;
     padding-left: 40px;
     padding-right: 35px;
   }
 }
-/* line 45, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .et-modal-content h5, #customer-service-modal .et-modal-content h5, #application-summary .et-modal-content h5 {
+/* line 44, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .et-modal-content h5, #customer-service-modal .et-modal-content h5 {
   font-family: 'Calibri-Bold';
   font-size: 18px;
   color: #2a2c29;
 }
-/* line 52, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-header, #customer-service-modal .modal-header, #application-summary .modal-header {
+/* line 51, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-header, #customer-service-modal .modal-header {
   position: relative;
 }
-/* line 55, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-header button, #customer-service-modal .modal-header button, #application-summary .modal-header button {
+/* line 54, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-header button, #customer-service-modal .modal-header button {
   position: absolute;
   top: -25px;
   right: 0;
 }
-/* line 63, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body, #customer-service-modal .modal-body, #application-summary .modal-body {
+/* line 62, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body, #customer-service-modal .modal-body {
   margin-top: 18px;
 }
-/* line 65, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body p, #customer-service-modal .modal-body p, #application-summary .modal-body p {
+/* line 64, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body p, #customer-service-modal .modal-body p {
   font-size: 18px;
   color: #2a2c29;
   font-family: 'Calibri';
   line-height: 18px;
 }
-/* line 71, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body p a, #customer-service-modal .modal-body p a, #application-summary .modal-body p a {
+/* line 70, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body p a, #customer-service-modal .modal-body p a {
   color: #ff8200;
   font-size: 14px;
   border-bottom: 1px solid #ff8200;
 }
 @media (min-width: 992px) {
-  /* line 71, ../sass/partials/_et-cannot-apply-modal.scss */
-  #cannot-apply-modal .modal-body p a, #customer-service-modal .modal-body p a, #application-summary .modal-body p a {
+  /* line 70, ../sass/partials/_et-cannot-apply-modal.scss */
+  #cannot-apply-modal .modal-body p a, #customer-service-modal .modal-body p a {
     display: inline-block;
   }
 }
-/* line 80, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body p .et-top-no, #customer-service-modal .modal-body p .et-top-no, #application-summary .modal-body p .et-top-no {
+/* line 79, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body p .et-top-no, #customer-service-modal .modal-body p .et-top-no {
   font-size: 18px;
   border: 0;
 }
-/* line 87, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body form, #customer-service-modal .modal-body form, #application-summary .modal-body form {
+/* line 86, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body form, #customer-service-modal .modal-body form {
   margin-top: 10px;
 }
 @media (min-width: 992px) {
-  /* line 87, ../sass/partials/_et-cannot-apply-modal.scss */
-  #cannot-apply-modal .modal-body form, #customer-service-modal .modal-body form, #application-summary .modal-body form {
+  /* line 86, ../sass/partials/_et-cannot-apply-modal.scss */
+  #cannot-apply-modal .modal-body form, #customer-service-modal .modal-body form {
     margin-top: 32px;
     padding: 0 20px;
   }
 }
-/* line 93, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body form .input-items, #customer-service-modal .modal-body form .input-items, #application-summary .modal-body form .input-items {
+/* line 92, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body form .input-items, #customer-service-modal .modal-body form .input-items {
   margin-top: 3px;
   margin-bottom: 7px;
 }
 @media (min-width: 992px) {
-  /* line 93, ../sass/partials/_et-cannot-apply-modal.scss */
-  #cannot-apply-modal .modal-body form .input-items, #customer-service-modal .modal-body form .input-items, #application-summary .modal-body form .input-items {
+  /* line 92, ../sass/partials/_et-cannot-apply-modal.scss */
+  #cannot-apply-modal .modal-body form .input-items, #customer-service-modal .modal-body form .input-items {
     margin-bottom: 10px;
   }
 }
-/* line 100, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body form .input-items label, #customer-service-modal .modal-body form .input-items label, #application-summary .modal-body form .input-items label {
+/* line 99, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body form .input-items label, #customer-service-modal .modal-body form .input-items label {
   font-family: 'Calibri-Bold';
   font-size: 18px;
   margin-bottom: 0;
   font-weight: normal;
 }
 @media (min-width: 992px) {
-  /* line 100, ../sass/partials/_et-cannot-apply-modal.scss */
-  #cannot-apply-modal .modal-body form .input-items label, #customer-service-modal .modal-body form .input-items label, #application-summary .modal-body form .input-items label {
+  /* line 99, ../sass/partials/_et-cannot-apply-modal.scss */
+  #cannot-apply-modal .modal-body form .input-items label, #customer-service-modal .modal-body form .input-items label {
     width: 40%;
     float: left;
     padding-top: 6px;
   }
 }
-/* line 112, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body form .input-items .select-holder, #customer-service-modal .modal-body form .input-items .select-holder, #application-summary .modal-body form .input-items .select-holder {
+/* line 111, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body form .input-items .select-holder, #customer-service-modal .modal-body form .input-items .select-holder {
   overflow: hidden;
 }
-/* line 116, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body form .input-items input[type="text"], #customer-service-modal .modal-body form .input-items input[type="text"], #application-summary .modal-body form .input-items input[type="text"], #cannot-apply-modal .modal-body form .input-items select, #customer-service-modal .modal-body form .input-items select, #application-summary .modal-body form .input-items select {
+/* line 115, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body form .input-items input[type="text"], #cannot-apply-modal .modal-body form .input-items select, #customer-service-modal .modal-body form .input-items input[type="text"], #customer-service-modal .modal-body form .input-items select {
   margin-top: -3px;
   background-color: #e8eaea;
   border: none;
@@ -21293,18 +21294,28 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   border-radius: 0;
 }
 @media (min-width: 992px) {
-  /* line 116, ../sass/partials/_et-cannot-apply-modal.scss */
-  #cannot-apply-modal .modal-body form .input-items input[type="text"], #customer-service-modal .modal-body form .input-items input[type="text"], #application-summary .modal-body form .input-items input[type="text"], #cannot-apply-modal .modal-body form .input-items select, #customer-service-modal .modal-body form .input-items select, #application-summary .modal-body form .input-items select {
+  /* line 115, ../sass/partials/_et-cannot-apply-modal.scss */
+  #cannot-apply-modal .modal-body form .input-items input[type="text"], #cannot-apply-modal .modal-body form .input-items select, #customer-service-modal .modal-body form .input-items input[type="text"], #customer-service-modal .modal-body form .input-items select {
     width: 60%;
     float: left;
   }
 }
-/* line 131, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body form .input-items input[type="text"] :-ms-input-placeholder, #customer-service-modal .modal-body form .input-items input[type="text"] :-ms-input-placeholder, #application-summary .modal-body form .input-items input[type="text"] :-ms-input-placeholder {
+/* line 130, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body form .input-items input[type="text"] :-ms-input-placeholder, #customer-service-modal .modal-body form .input-items input[type="text"] :-ms-input-placeholder {
   color: #9a9a9a;
 }
-/* line 134, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body form .input-items select, #customer-service-modal .modal-body form .input-items select, #application-summary .modal-body form .input-items select {
+/* line 133, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body form .input-items .error-msg, #customer-service-modal .modal-body form .input-items .error-msg {
+  float: right;
+  width: 60%;
+  margin-bottom: 0;
+}
+/* line 138, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body form .input-items .error-msg .help-block, #customer-service-modal .modal-body form .input-items .error-msg .help-block {
+  font-size: 14px;
+}
+/* line 142, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body form .input-items select, #customer-service-modal .modal-body form .input-items select {
   width: 128%;
   background: url("../images/orange-caret.png") no-repeat;
   background-position: 80% 50%;
@@ -21312,38 +21323,38 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   background-color: #e8eaea;
   padding-left: 16px;
 }
-/* line 142, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body form .input-items select.form-control, #customer-service-modal .modal-body form .input-items select.form-control, #application-summary .modal-body form .input-items select.form-control {
+/* line 150, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body form .input-items select.form-control, #customer-service-modal .modal-body form .input-items select.form-control {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
 }
-/* line 148, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body form button, #customer-service-modal .modal-body form button, #application-summary .modal-body form button {
+/* line 156, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body form button, #customer-service-modal .modal-body form button {
   margin-top: 12px;
   height: 50px;
 }
 @media (min-width: 992px) {
-  /* line 148, ../sass/partials/_et-cannot-apply-modal.scss */
-  #cannot-apply-modal .modal-body form button, #customer-service-modal .modal-body form button, #application-summary .modal-body form button {
+  /* line 156, ../sass/partials/_et-cannot-apply-modal.scss */
+  #cannot-apply-modal .modal-body form button, #customer-service-modal .modal-body form button {
     width: 100%;
     margin-top: 20px;
   }
 }
-/* line 158, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body form .asterisk-holder, #customer-service-modal .modal-body form .asterisk-holder, #application-summary .modal-body form .asterisk-holder {
+/* line 166, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body form .asterisk-holder, #customer-service-modal .modal-body form .asterisk-holder {
   width: 12px;
   float: left;
   height: 45px;
   margin-top: -6px;
 }
-/* line 163, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body form .asterisk-holder .asterisk, #customer-service-modal .modal-body form .asterisk-holder .asterisk, #application-summary .modal-body form .asterisk-holder .asterisk {
+/* line 171, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body form .asterisk-holder .asterisk, #customer-service-modal .modal-body form .asterisk-holder .asterisk {
   color: #ff8200;
   font-size: 14px;
 }
-/* line 169, ../sass/partials/_et-cannot-apply-modal.scss */
-#cannot-apply-modal .modal-body form p.notice, #customer-service-modal .modal-body form p.notice, #application-summary .modal-body form p.notice, #cannot-apply-modal .modal-body #application-registration form p.notice-password, #application-registration #cannot-apply-modal .modal-body form p.notice-password, #customer-service-modal .modal-body #application-registration form p.notice-password, #application-registration #customer-service-modal .modal-body form p.notice-password, #application-summary .modal-body #application-registration form p.notice-password, #application-registration #application-summary .modal-body form p.notice-password {
+/* line 177, ../sass/partials/_et-cannot-apply-modal.scss */
+#cannot-apply-modal .modal-body form p.notice, #cannot-apply-modal .modal-body #application-registration form p.notice-password, #application-registration #cannot-apply-modal .modal-body form p.notice-password, #customer-service-modal .modal-body form p.notice, #customer-service-modal .modal-body #application-registration form p.notice-password, #application-registration #customer-service-modal .modal-body form p.notice-password {
   font-size: 14px;
   margin-top: 6px;
   color: #000;
@@ -22256,179 +22267,171 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 }
 
 @media (min-width: 992px) {
-  /* line 5, ../sass/partials/_et-application-summary.scss */
+  /* line 3, ../sass/partials/_et-application-summary.scss */
   #application-summary .summary-header h4 {
     padding: 0 20px;
   }
 }
-/* line 12, ../sass/partials/_et-application-summary.scss */
+/* line 10, ../sass/partials/_et-application-summary.scss */
 #application-summary h4, #application-summary h3 {
   color: #ff8200;
 }
-/* line 15, ../sass/partials/_et-application-summary.scss */
+/* line 13, ../sass/partials/_et-application-summary.scss */
 #application-summary h4 span, #application-summary h3 span {
   color: #8a9496;
 }
-/* line 19, ../sass/partials/_et-application-summary.scss */
+/* line 17, ../sass/partials/_et-application-summary.scss */
 #application-summary h4 {
   font-size: 30px;
 }
 @media (min-width: 992px) {
-  /* line 19, ../sass/partials/_et-application-summary.scss */
+  /* line 17, ../sass/partials/_et-application-summary.scss */
   #application-summary h4 {
     text-align: left;
   }
 }
-/* line 25, ../sass/partials/_et-application-summary.scss */
+/* line 23, ../sass/partials/_et-application-summary.scss */
 #application-summary h3 {
   margin-top: 25px;
 }
-/* line 29, ../sass/partials/_et-application-summary.scss */
-#application-summary h3.plan-detail {
+/* line 27, ../sass/partials/_et-application-summary.scss */
+#application-summary .plan-detail {
   margin-bottom: 12px;
-  font-size: 24px;
 }
 @media (min-width: 992px) {
-  /* line 29, ../sass/partials/_et-application-summary.scss */
-  #application-summary h3.plan-detail {
+  /* line 27, ../sass/partials/_et-application-summary.scss */
+  #application-summary .plan-detail {
     margin-top: 0;
   }
 }
-/* line 36, ../sass/partials/_et-application-summary.scss */
-#application-summary h3.personal-info {
+/* line 34, ../sass/partials/_et-application-summary.scss */
+#application-summary .personal-info {
   margin-top: 18px;
-  font-size: 24px;
 }
 @media (min-width: 992px) {
-  /* line 36, ../sass/partials/_et-application-summary.scss */
-  #application-summary h3.personal-info {
+  /* line 34, ../sass/partials/_et-application-summary.scss */
+  #application-summary .personal-info {
     margin-bottom: 12px;
   }
 }
-/* line 43, ../sass/partials/_et-application-summary.scss */
-#application-summary h3.employment-info {
+/* line 41, ../sass/partials/_et-application-summary.scss */
+#application-summary .employment-info {
   margin-top: 32px;
   margin-bottom: 12px;
-  font-size: 24px;
 }
 @media (min-width: 992px) {
-  /* line 43, ../sass/partials/_et-application-summary.scss */
-  #application-summary h3.employment-info {
+  /* line 41, ../sass/partials/_et-application-summary.scss */
+  #application-summary .employment-info {
     margin-top: 22px;
   }
 }
-/* line 51, ../sass/partials/_et-application-summary.scss */
-#application-summary h3.beneficiary {
+/* line 49, ../sass/partials/_et-application-summary.scss */
+#application-summary .beneficiary {
   margin-top: 20px;
 }
 @media (min-width: 992px) {
-  /* line 51, ../sass/partials/_et-application-summary.scss */
-  #application-summary h3.beneficiary {
+  /* line 49, ../sass/partials/_et-application-summary.scss */
+  #application-summary .beneficiary {
     margin-top: 42px;
   }
 }
-/* line 58, ../sass/partials/_et-application-summary.scss */
-#application-summary h3.uwriting {
+/* line 56, ../sass/partials/_et-application-summary.scss */
+#application-summary .uwriting {
   margin-top: 24px;
-  font-size: 24px;
 }
 @media (min-width: 992px) {
-  /* line 58, ../sass/partials/_et-application-summary.scss */
-  #application-summary h3.uwriting {
+  /* line 56, ../sass/partials/_et-application-summary.scss */
+  #application-summary .uwriting {
     margin-top: 60px;
   }
 }
-/* line 71, ../sass/partials/_et-application-summary.scss */
-#application-summary h3.plan-detail a,
-#application-summary h3.personal-info a,
-#application-summary h3.employment-info a,
-#application-summary h3.beneficiary a,
-#application-summary h3.uwriting a {
+/* line 69, ../sass/partials/_et-application-summary.scss */
+#application-summary .plan-detail a,
+#application-summary .personal-info a,
+#application-summary .employment-info a,
+#application-summary .beneficiary a,
+#application-summary .uwriting a {
   color: #b7c3cd;
   font-size: 14px;
   text-decoration: underline;
   margin-left: 20px;
 }
-/* line 79, ../sass/partials/_et-application-summary.scss */
+/* line 77, ../sass/partials/_et-application-summary.scss */
 #application-summary .page-divider {
   height: 1px;
   background: url(../../assets/images/summary-page-divider.png);
   width: 100%;
   margin-top: 14px;
 }
-#application-summary .container-fluid.modal-dialog  {
-    margin-top: 30px;
-    z-index: 0; 
-}
 @media (min-width: 992px) {
-  /* line 85, ../sass/partials/_et-application-summary.scss */
-  #application-summary .container-fluid.modal-dialog {
+  /* line 83, ../sass/partials/_et-application-summary.scss */
+  #application-summary .container-fluid {
     margin-top: 30px;
     padding-left: 45px;
     padding-right: 45px;
     width: auto;
   }
 }
-/* line 93, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content {
+/* line 91, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content {
   padding-bottom: 16px;
 }
 @media (min-width: 992px) {
-  /* line 93, ../sass/partials/_et-application-summary.scss */
-  #application-summary .container-fluid.modal-dialog .summary-content {
+  /* line 91, ../sass/partials/_et-application-summary.scss */
+  #application-summary .container-fluid .summary-content {
     padding: 44px 95px 55px;
     border: 1px solid #b7c3cd;
   }
 }
-/* line 102, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body {
+/* line 99, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body {
   margin-top: 28px;
 }
 @media (min-width: 992px) {
-  /* line 102, ../sass/partials/_et-application-summary.scss */
-  #application-summary .container-fluid.modal-dialog .summary-content .summary-body {
+  /* line 99, ../sass/partials/_et-application-summary.scss */
+  #application-summary .container-fluid .summary-content .summary-body {
     margin-top: 15px;
     padding-left: 20px;
   }
 }
-/* line 108, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox {
+/* line 105, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .fwd-checkbox {
   margin-top: 16px;
 }
-/* line 111, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox label {
+/* line 108, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .fwd-checkbox label {
   height: 18px;
   width: 18px;
 }
 @media (min-width: 992px) {
-  /* line 111, ../sass/partials/_et-application-summary.scss */
-  #application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox label {
+  /* line 108, ../sass/partials/_et-application-summary.scss */
+  #application-summary .container-fluid .summary-content .summary-body .fwd-checkbox label {
     height: 18px;
     width: 18px;
   }
 }
-/* line 118, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox label:after {
+/* line 115, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .fwd-checkbox label:after {
   width: 9px;
   height: 5px;
   top: 5px;
   left: 3px;
 }
-/* line 125, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox .notice, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox #application-registration form .notice-password, #application-registration form #application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox .notice-password {
+/* line 122, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .fwd-checkbox .notice, #application-summary .container-fluid .summary-content .summary-body .fwd-checkbox #application-registration form .notice-password, #application-registration form #application-summary .container-fluid .summary-content .summary-body .fwd-checkbox .notice-password {
   margin-left: 40px;
   padding-top: 4px;
   line-height: 20px;
   padding-right: 5px;
   color: #000;
 }
-/* line 132, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox .second-format {
+/* line 129, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .fwd-checkbox .second-format {
   line-height: 22px;
   padding-top: 4px;
 }
-/* line 136, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox ul {
+/* line 133, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .fwd-checkbox ul {
   font-size: 18px;
   color: #2a2c29;
   font-family: 'Calibri';
@@ -22436,104 +22439,105 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   padding-left: 56px;
   list-style-type: none;
 }
-/* line 149, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox ul li {
+/* line 140, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .fwd-checkbox ul li {
   margin-top: 4px;
   line-height: 22px;
 }
-/* line 153, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox ul li span {
+/* line 144, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .fwd-checkbox ul li span {
   display: block;
   margin-left: -5px;
 }
-/* line 157, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox ul li img {
+/* line 148, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .fwd-checkbox ul li img {
   float: left;
   padding-right: 5px;
   padding-top: 8px;
   margin-left: -5px;
 }
-/* line 166, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox .et-apsum-disease-list {
+/* line 157, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .fwd-checkbox .et-apsum-disease-list {
   margin-top: 10px;
 }
-/* line 169, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox .et-apsum-disease-list ul {
+/* line 160, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .fwd-checkbox .et-apsum-disease-list ul {
   margin: 0;
   padding-left: 73px;
 }
 @media (min-width: 992px) {
-  /* line 173, ../sass/partials/_et-application-summary.scss */
-  #application-summary .container-fluid.modal-dialog .summary-content .summary-body .fwd-checkbox .et-apsum-disease-list ul + ul {
+  /* line 164, ../sass/partials/_et-application-summary.scss */
+  #application-summary .container-fluid .summary-content .summary-body .fwd-checkbox .et-apsum-disease-list ul + ul {
     padding-left: 45px;
   }
 }
-/* line 182, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .below {
+/* line 173, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .below {
   margin-top: 35px;
 }
 @media (min-width: 992px) {
-  /* line 182, ../sass/partials/_et-application-summary.scss */
-  #application-summary .container-fluid.modal-dialog .summary-content .summary-body .below {
+  /* line 173, ../sass/partials/_et-application-summary.scss */
+  #application-summary .container-fluid .summary-content .summary-body .below {
     margin-top: 23px;
   }
 }
-/* line 188, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body h4.info-holder-title {
+/* line 179, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body h4.info-holder-title {
   margin-bottom: 8px;
   color: #000;
   font-size: 18px;
 }
-/* line 194, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder h4.info-label, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder-below h4.info-label, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .plan-detail-holder h4.info-label {
+/* line 185, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .info-holder .info-label, #application-summary .container-fluid .summary-content .summary-body .info-holder-below .info-label, #application-summary .container-fluid .summary-content .summary-body .plan-detail-holder .info-label {
   margin-bottom: 8px;
   color: #000;
   font-size: 18px;
 }
-/* line 199, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder h4.info-label, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder-below h4.info-label, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .plan-detail-holder h4.info-label {
-  margin-top: 0;
-}
-/* line 202, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder h4.info-label.employment, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder-below h4.info-label.employment, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .plan-detail-holder h4.info-label.employment {
+/* line 190, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .info-holder .employment, #application-summary .container-fluid .summary-content .summary-body .info-holder-below .employment, #application-summary .container-fluid .summary-content .summary-body .plan-detail-holder .employment {
   margin-bottom: 12px;
 }
-/* line 205, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder h4.info-label, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder-below h4.info-label, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .plan-detail-holder h4.info-label, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder p.info, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder-below p.info, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .plan-detail-holder p.info {
+/* line 193, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .info-holder .info-label, #application-summary .container-fluid .summary-content .summary-body .info-holder-below .info-label, #application-summary .container-fluid .summary-content .summary-body .plan-detail-holder .info-label {
+  margin-top: 0;
   width: 50%;
   float: left;
 }
 @media (min-width: 992px) {
-  /* line 210, ../sass/partials/_et-application-summary.scss */
-  #application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder h4.info-label, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder-below h4.info-label, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .plan-detail-holder h4.info-label {
+  /* line 193, ../sass/partials/_et-application-summary.scss */
+  #application-summary .container-fluid .summary-content .summary-body .info-holder .info-label, #application-summary .container-fluid .summary-content .summary-body .info-holder-below .info-label, #application-summary .container-fluid .summary-content .summary-body .plan-detail-holder .info-label {
     width: 25%;
   }
-  /* line 213, ../sass/partials/_et-application-summary.scss */
-  #application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder p.info, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder-below p.info, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .plan-detail-holder p.info {
+}
+/* line 201, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .info-holder .info, #application-summary .container-fluid .summary-content .summary-body .info-holder-below .info, #application-summary .container-fluid .summary-content .summary-body .plan-detail-holder .info {
+  line-height: 21px;
+  color: #000;
+  width: 50%;
+  float: left;
+}
+@media (min-width: 992px) {
+  /* line 201, ../sass/partials/_et-application-summary.scss */
+  #application-summary .container-fluid .summary-content .summary-body .info-holder .info, #application-summary .container-fluid .summary-content .summary-body .info-holder-below .info, #application-summary .container-fluid .summary-content .summary-body .plan-detail-holder .info {
     width: 63%;
     margin-left: 12%;
   }
 }
-/* line 218, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder p.info, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder-below p.info, #application-summary .container-fluid.modal-dialog .summary-content .summary-body .plan-detail-holder p.info {
-  line-height: 21px;
-  color: #000;
-}
-/* line 223, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .info-holder-below {
+/* line 213, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .info-holder-below {
   margin-top: 9px;
 }
-/* line 229, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .summary-content .summary-body .plan-detail-holder h4.info-label {
+/* line 217, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .summary-content .summary-body .plan-detail-holder h4.info-label {
   margin-bottom: 12px;
 }
-/* line 242, ../sass/partials/_et-application-summary.scss */
-#application-summary .container-fluid.modal-dialog .confirm-and-sign-holder {
+/* line 225, ../sass/partials/_et-application-summary.scss */
+#application-summary .container-fluid .confirm-and-sign-holder {
   padding-bottom: 50px;
 }
 @media (min-width: 992px) {
-  /* line 244, ../sass/partials/_et-application-summary.scss */
-  #application-summary .container-fluid.modal-dialog .confirm-and-sign-holder button {
+  /* line 227, ../sass/partials/_et-application-summary.scss */
+  #application-summary .container-fluid .confirm-and-sign-holder button {
     margin-top: 40px;
   }
 }
@@ -22649,4 +22653,10 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 #cannot-apply-modal .modal-body form .input-items .error-msg .help-block, #customer-service-modal .modal-body form .input-items .error-msg .help-block {
   font-size: 14px;
   margin: 0;
+}
+
+/*october 26 fixes*/
+/*checklist 4*/
+.capitalize {
+	text-transform: uppercase;
 }
