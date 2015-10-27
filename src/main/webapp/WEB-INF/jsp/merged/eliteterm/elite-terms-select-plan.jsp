@@ -1743,7 +1743,6 @@ var language = "${language}";
                         <div class="input-items clearfix">
                            <label for="day"><fmt:message key="eliteTerms.selectPlan.Preffered.day" bundle="${msg}" /></label>
                            <div class="select-holder">
-                              <select class="form-control gray-textbox" id="day" name="day">
                                  <select class="form-control gray-textbox" id="day" name="day">
                                  <option value="">-Please select-</option>
                                             <c:if test="${language == 'en'}">

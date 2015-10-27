@@ -245,6 +245,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			final Map<String,String> header = headerUtil.getHeader(request);
 			
 			JSONObject parameters = new JSONObject();
+			parameters.put("planCode", "ET");
 			parameters.put("creditCaredNo", request.getParameter("creditCaredNo"));
 			parameters.put("expiryDate", request.getParameter("expiryDate"));
 			parameters.put("cardHolderName", request.getParameter("cardHolderName"));
