@@ -263,10 +263,10 @@
         
         if (isValid) {
             $disPromo.removeClass('hidden')
-            $disPromo.find('.bottom .et-amount')
-                     .html('HK$ 900 <span>/per month</span>');
-            $disPromo.find('.bottom .et-per et-month')
-                     .text('(only HK$ 100 per day)');
+            //$disPromo.find('.bottom .et-amount')
+            //         .html('HK$ 900 <span>/per month</span>');
+            //$disPromo.find('.bottom .et-per et-month')
+            //         .text('(only HK$ 100 per day)');
                      
             $actPromo.find('.top .et-po-amount-label')
                      .text('2nd - 20th policy year');

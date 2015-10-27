@@ -246,8 +246,8 @@ var language = "${language}";
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount">HK$ 900 <span>/per month</span></p>
-                                 <p class="et-per et-month">(only HK$ 100 per day)</p>
+                                 <p class="et-amount">HK$ <span id="et-month-dis-amount">${eliteTermPremium.monthlyDuePremium }</span> <span>/per month</span></p>
+                                 <p class="et-per et-month">(only HK$ <span id="et-day-dis-amount">${eliteTermPremium.dailyDuePremium }</span> per day)</p>
                               </div>
                               
                            </div>
@@ -259,8 +259,8 @@ var language = "${language}";
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount">HK$ <span id="et-amount">${eliteTermPremium.monthlyDuePremium }</span> <span>/per month</span></p>
-                                 <p class="et-per et-month">(only HK$ <span id="et-day-amount">${eliteTermPremium.dailyDuePremium }</span> per day)</p>
+                                 <p class="et-amount">HK$ <span id="et-month-amount">${eliteTermPremium.monthlyPremium }</span> <span>/per month</span></p>
+                                 <p class="et-per et-month">(only HK$ <span id="et-day-amount">${eliteTermPremium.dailyPremium }</span> per day)</p>
                               </div>
                               
                            </div>
@@ -1978,6 +1978,13 @@ var language = "${language}";
     	  else if('${etPolicyApplication.applicant.smoke}'=='false'){
     		  $("#et-smoker-no").click();
     	  }
+    	  if('${etPolicyApplication.promocode }'!=''){
+    		  $('#et-dis-promo-amount').removeClass('hidden')
+    	  }
+    	  else{
+    		  $('#et-dis-promo-amount').addClass('hidden');
+    	  }
+    	  
     	  if('${goApp}'!=null && '${goApp}'=='yes'){
   			  $('#et-btn-before-start').removeClass('et-pad-bot-50');
   			  $('#et-about-yoursel-section').removeClass('hide-element').css('margin-bottom', '125px');

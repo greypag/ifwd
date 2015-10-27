@@ -34,8 +34,10 @@ function getEliteTermPremium() {
 		},
 		function(data) {
 			if(data.errMsgs == null){
-				$("#et-amount").html(data.monthlyPremium);
-				$("#et-day-amount").html(data.dailyDuePremium);
+				$("#et-month-dis-amount").html(data.monthlyDuePremium);
+				$("#et-day-dis-amount").html(data.dailyDuePremium);
+				$("#et-month-amount").html(data.monthlyPremium);
+				$("#et-day-amount").html(data.dailyPremium);
 			}
 			else{
 				console.log("data error");
