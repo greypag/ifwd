@@ -38,6 +38,8 @@ function getEliteTermPremium() {
 				$("#et-day-dis-amount").html(data.dailyDuePremium);
 				$("#et-month-amount").html(data.monthlyPremium);
 				$("#et-day-amount").html(data.dailyPremium);
+				$("#etaspd-insured-amount").html('HK$ ' + insuredAmount);
+				$("#etaspd-monthly-premium").html('HK$ ' + data.monthlyPremium);
 			}
 			else{
 				console.log("data error");

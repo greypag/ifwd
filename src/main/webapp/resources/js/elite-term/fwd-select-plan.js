@@ -1285,7 +1285,7 @@
    * Populate the application summary with filled in data 
    */
    function populateAppSummPD() {
-      $('#etaspd-insured-amount').text('HK$ ' + planDetailData.insuranceAmount);
+      //$('#etaspd-insured-amount').text('HK$ ' + planDetailData.insuranceAmount);
    }
    function populateAppSummPI() {
       $('#etaspi-en-lname').text(appInfoData.enLName);
@@ -1465,11 +1465,11 @@
       appInfoData.chName = document.getElementById('savieApplicantBean.chineseName').value;
       appInfoData.dob = document.getElementById('sales-illu-dob').value;
       
-      /* if ($('#pi-male-now').prop('checked')) {
-         appInfoData.gender = 'Male';
-      } else if ($('#pi-male-now').prop('checked')) {
-         appInfoData.gender = 'Female';
-      } */
+      if ($('#et-gender-male').prop('checked')) {
+          planDetailData.gender = 'Male';
+       } else if ($('#et-gender-female').prop('checked')) {
+          planDetailData.gender = 'Female';
+       }
       
       appInfoData.gender = planDetailData.gender;
       appInfoData.hkid = document.getElementById('savieApplicantBean.hkId').value;

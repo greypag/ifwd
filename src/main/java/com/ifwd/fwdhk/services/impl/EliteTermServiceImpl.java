@@ -210,7 +210,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			payment.put("expiryDate", "");
 			parameters.put("payment", payment);
 			parameters.put("insuredAmount", etPolicyApplication.getAmount());
-			parameters.put("referralCode", eliteTermPremium.getPromoCode());
+			parameters.put("referralCode", eliteTermPremium.getPromoCode()!=null?eliteTermPremium.getPromoCode():"");
 			logger.info(parameters.toString());
 			apiReturn = connector.createEliteTermPolicy(parameters, header);
 			request.getSession().setAttribute("eliteTermPolicy", apiReturn);

@@ -1394,11 +1394,11 @@ var language = "${language}";
                                  </div>
                                  <div class="clearfix plan-detail-holder">
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Insured.amount" bundle="${msg}" /></h4>
-                                    <p class="info" id="etaspd-insured-amount"></p>
+                                    <p class="info" id="etaspd-insured-amount">HK$ ${etPolicyApplication.amount }</p>
                                  </div>
                                  <div class="clearfix plan-detail-holder">
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Monthly.premium" bundle="${msg}" /></h4>
-                                    <p class="info" id="etaspd-monthly-premium">HK$ 1000</p>
+                                    <p class="info" id="etaspd-monthly-premium">HK$ ${eliteTermPremium.monthlyPremium }</p>
                                  </div>
                               </div>
                            <!-- PLAN DETAIL END-->
