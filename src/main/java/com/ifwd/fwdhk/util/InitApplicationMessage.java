@@ -70,6 +70,12 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static List<OptionItemDesc> etEnquiryTypeEN;
 	public static List<OptionItemDesc> etEnquiryTypeCN;
 	
+	public static List<OptionItemDesc> etLiquidAssetEN;
+	public static List<OptionItemDesc> etLiquidAssetCN;
+	
+	public static List<OptionItemDesc> etAmountOtherSourceEN;
+	public static List<OptionItemDesc> etAmountOtherSourceCN;
+	
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
@@ -374,5 +380,45 @@ public class InitApplicationMessage implements ApplicationListener{
 			}
 		}
 		logger.info("etEnquiryTypeCN : " + etEnquiryTypeCN);
+		
+		try {
+			etLiquidAssetEN = commonUtils.getOptionItemDescList("liquidAsset","EN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("etLiquidAssetEN : " + etLiquidAssetEN);
+		
+		try {
+			etLiquidAssetCN = commonUtils.getOptionItemDescList("liquidAsset","CH",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("etLiquidAssetCN : " + etLiquidAssetCN);
+		
+		try {
+			etAmountOtherSourceEN = commonUtils.getOptionItemDescList("amountOtherSource","EN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("etAmountOtherSourceEN : " + etAmountOtherSourceEN);
+		
+		try {
+			etAmountOtherSourceCN = commonUtils.getOptionItemDescList("amountOtherSource","CH",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("etAmountOtherSourceCN : " + etAmountOtherSourceCN);
 	}
 }

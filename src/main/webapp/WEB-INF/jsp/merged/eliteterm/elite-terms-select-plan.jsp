@@ -926,9 +926,17 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.sourceOfIncome" name="savieEmploymentBean.sourceOfIncome" data-style="application-select">
-                                       <option selected disabled value="">- Please select -</option>
-                                       <option value="asset1">Asset 1</option>
-                                       <option value="asset2">Asset 2</option>   
+                                       <option value="">-Please select-</option>
+                                           <c:if test="${language == 'en'}">
+                                                <c:forEach var="list" items="${etAmountOtherSourceEN}">
+                                                  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                                </c:forEach>
+                                            </c:if>
+                                            <c:if test="${language == 'tc'}">
+                                                <c:forEach var="list" items="${etAmountOtherSourceCN}">
+                                                  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                                </c:forEach>
+                                            </c:if>     
                                     </select>
                                  </div>
                                  <span class="error-msg" id="sourceOfIncome"></span>
@@ -939,9 +947,17 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.liquidAssets" name="savieEmploymentBean.liquidAssets" data-style="application-select">
-                                       <option selected disabled value="">- Please select -</option>
-                                       <option value="asset1">Asset 1</option>
-                                       <option value="asset2">Asset 2</option>   
+                                       <option value="">-Please select-</option>
+                                           <c:if test="${language == 'en'}">
+                                                <c:forEach var="list" items="${etLiquidAssetEN}">
+                                                  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                                </c:forEach>
+                                            </c:if>
+                                            <c:if test="${language == 'tc'}">
+                                                <c:forEach var="list" items="${etLiquidAssetCN}">
+                                                  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                                </c:forEach>
+                                            </c:if> 
                                     </select>
                                  </div>
                                  <span class="error-msg" id="liquidAssets"></span>
