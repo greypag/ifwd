@@ -611,10 +611,10 @@
                   notEmpty: {
                      message: 'HKID is required.'
                   },
-                  regexp: {
-                     regexp: /(^[A-Z|1-9]){1}([A-Z|1-9]){6}\(?([A-Z|1-9]){1}\)?$/g,
-                     message: 'Invalid HKID.'
-                  },
+//                  regexp: {
+//                     regexp: /(^[A-Z|1-9]){1}([A-Z|1-9]){6}\(?([A-Z|1-9]){1}\)?$/g,
+//                     message: 'Invalid HKID.'
+//                  },
                   callback: {
                      message: 'Invalid HKID',
                      callback: function(value, validator) {
@@ -1482,16 +1482,16 @@
       appInfoData.perAddL1 = document.getElementById('savieApplicantBean.permanentAddress1').value;
       appInfoData.perAddL2 = document.getElementById('savieApplicantBean.permanentAddress2').value;
       appInfoData.perAddL3 = document.getElementById('savieApplicantBean.permanentAddress3').value;
-      appInfoData.perAdd = document.getElementById('savieApplicantBean.permanentAddress').value;
-      appInfoData.perAddCountry = document.getElementById('savieApplicantBean.permanentAddressCountry').value;
+      appInfoData.perAdd = $('option[value="' + document.getElementById('savieApplicantBean.permanentAddress').value + '"]', '#savieApplicantBean\\.permanentAddress').text();
+      //appInfoData.perAddCountry = document.getElementById('savieApplicantBean.permanentAddressCountry').value;
       
       // For the residential address
       if ($('#savieApplicantBean\\.isResidential').prop('checked')) {  
          appInfoData.resAddL1 = document.getElementById('savieApplicantBean.residentialAdress1').value;
          appInfoData.resAddL2 = document.getElementById('savieApplicantBean.residentialAdress2').value;
          appInfoData.resAddL3 = document.getElementById('savieApplicantBean.residentialAdress3').value;
-         appInfoData.resAdd = document.getElementById('savieApplicantBean.residentialDistrict').value;
-         appInfoData.resAddCountry = document.getElementById('savieApplicantBean.residentialDistrictCountry').value;
+         appInfoData.resAdd = $('option[value="' + document.getElementById('savieApplicantBean.residentialDistrict').value + '"]', '#savieApplicantBean\\.residentialDistrict').text();
+         //appInfoData.resAddCountry = document.getElementById('savieApplicantBean.residentialDistrictCountry').value;
       }
       
       // For the correspondence address
@@ -1499,8 +1499,8 @@
          appInfoData.corrAddL1 = document.getElementById('savieApplicantBean.correspondenceAdress1').value;
          appInfoData.corrAddL2 = document.getElementById('savieApplicantBean.correspondenceAdress2').value;
          appInfoData.corrAddL3 = document.getElementById('savieApplicantBean.correspondenceAdress3').value;
-         appInfoData.corrAddL = document.getElementById('savieApplicantBean.correspondenceDistrict').value;
-         appInfoData.corrAddCountry = document.getElementById('savieApplicantBean.correspondenceDistrictCountry').value;
+         appInfoData.corrAddL = $('option[value="' + document.getElementById('savieApplicantBean.correspondenceDistrict').value + '"]', '#savieApplicantBean\\.correspondenceDistrict').text();
+         //appInfoData.corrAddCountry = document.getElementById('savieApplicantBean.correspondenceDistrictCountry').value;
       }
    }
    function isPerLineValid() {
