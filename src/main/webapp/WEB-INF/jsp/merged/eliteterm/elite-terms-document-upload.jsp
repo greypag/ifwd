@@ -400,7 +400,7 @@ var language = "${language}";
                 
                 if (isValid) {     
                     $self.removeAttr('disabled');
-                    window.location.href= contextPath+'/'+language+'/term-life-insurance/'+documentUploadNextPageFlow;
+                    //window.location.href= contextPath+'/'+language+'/term-life-insurance/'+documentUploadNextPageFlow;
                 } else {
                     $self.attr('disabled', 'disabled');
                 }
@@ -507,47 +507,45 @@ var language = "${language}";
          });*/
          
          $(document).ready(function() {
-        	 var creditCaredNo = "${creditCaredNo }";
-     		 var expiryDate = "${expiryDate }";
-     		 var cardHolderName = "${cardHolderName }";
-     		 var policyNo = "${eliteTermPolicy.policyNo }";
-     		 console.log("creditCaredNo:"+creditCaredNo);
-     		 console.log("expiryDate:"+expiryDate);
-     		 console.log("cardHolderName:"+cardHolderName);
-     		 console.log("policyNo:"+policyNo);
-     		 if(creditCaredNo != "" && expiryDate != "" && cardHolderName != "" && policyNo != ""){
-     			$.ajax({
-	  	 			  type : "POST",
-	  	 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/finalizeEliteTermPolicy",
-	  	 			  data : {creditCaredNo : creditCaredNo,
-	  	 					  expiryDate: expiryDate,
-	  	 					  cardHolderName: cardHolderName,
-	  	 					  policyNo: policyNo},
-	  	 			  async : false,
-	  	 			  success : function(data) {
-	  					  if (data.errMsgs == null) {
-	  						  $.ajax({
-	  				 			  type : "POST",
-	  				 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/sendEliteTermMail",
-	  				 			  async : false,
-	  				 			  success : function(data) {
-	  								  if (data.errMsgs == null) {
-	  									  console.log("success");
-	  				                  } 
-	  								  else {
-	  				                      console.log(data);
-	  				                  }
-	  				 			  }
-	  			 		      });
-	  	                  } 
-	  					  else {
-	  	                      console.log("call sendEliteTermMail fail");
-	  	                  }
-	  	 			  }
-	  		      });
-     		 }
-     		 else{
-     			console.log("call finalizeEliteTermPolicy fail");
-     		 }
+        	 if('${sendEmailOrNot}' == null || '${sendEmailOrNot}' == ''){
+        		 var creditCaredNo = "${creditCaredNo }";
+         		 var expiryDate = "${expiryDate }";
+         		 var cardHolderName = "${cardHolderName }";
+         		 var policyNo = "${eliteTermPolicy.policyNo }";
+         		 if(creditCaredNo != "" && expiryDate != "" && cardHolderName != "" && policyNo != ""){
+         			$.ajax({
+    	  	 			  type : "POST",
+    	  	 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/finalizeEliteTermPolicy",
+    	  	 			  data : {creditCaredNo : creditCaredNo,
+    	  	 					  expiryDate: expiryDate,
+    	  	 					  cardHolderName: cardHolderName,
+    	  	 					  policyNo: policyNo},
+    	  	 			  async : false,
+    	  	 			  success : function(data) {
+    	  					  if (data.errMsgs == null) {
+    	  						  $.ajax({
+    	  				 			  type : "POST",
+    	  				 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/sendEliteTermMail",
+    	  				 			  async : false,
+    	  				 			  success : function(data) {
+    	  								  if (data.errMsgs == null) {
+    	  									  console.log("success");
+    	  				                  } 
+    	  								  else {
+    	  				                      console.log(data);
+    	  				                  }
+    	  				 			  }
+    	  			 		      });
+    	  	                  } 
+    	  					  else {
+    	  	                      console.log("call sendEliteTermMail fail");
+    	  	                  }
+    	  	 			  }
+    	  		      });
+         		 }
+         		 else{
+         			console.log("call finalizeEliteTermPolicy fail");
+         		 }
+        	 }
 	     });
 		</script>

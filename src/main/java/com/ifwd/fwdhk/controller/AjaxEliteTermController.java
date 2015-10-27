@@ -205,4 +205,16 @@ public class AjaxEliteTermController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = {"/ajax/eliteTerm/getPromoteCode"})
+	public void getPromoteCode(HttpServletRequest request,HttpServletResponse response) {
+		if (Methods.isXssAjax(request))
+			return;
+		try {
+			ajaxReturn(response, eliteTermService.getPromoteCode(request));
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }

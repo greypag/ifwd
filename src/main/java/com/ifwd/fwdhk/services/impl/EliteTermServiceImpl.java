@@ -15,6 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
@@ -391,14 +392,24 @@ public class EliteTermServiceImpl implements EliteTermService {
 			{
 				serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 			}
-			String message = "<p>Dear ["+customerName+"], <br/>Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your first 2 months premium payment has been accepted.  多謝閣下經網上購買富衛智理想定期保障計劃系列 。您的首2個月保費款項已被接納。</p>"
-					        + "<p>Your policy has not been officially in force, you will need upload your [ID card copy], [passport copy] and [address proof] through the following link, in order to complete your application process.  您的保單尚未正式生效，您需要通過以下的連結上載您的[身份證副本]，[護照複印件]和[住址證明]，以完成整個申請投保程序。 "
-					        + url
-					        + "For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com. 如有任何查詢，請致電富衛客戶服務熱線(852) 3123 3123或電郵至cs.hk@fwd.com。</p>"
-					        + "<p>We wish you a happy life! 祝閣下生活愉快！</p>"
-					        + "<p>Regards, FWD General Insurance Company Limited 富衛保險有限公司  謹啟 www.fwd.com.hk</p>"
-					        + "<p>Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail.  備註：中英文本如有歧異，概以英文本為準。</p>"
-					        + "<p>This is an automatically generated email, please do not reply. 此乃電腦發出之電子郵件，請不要回覆</p>";
+			String message =  "<p>Dear "+customerName+",</p>"
+					        + "<p>Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your first 2 months premium payment has been accepted.  </p>"
+					        + "<p>多謝閣下經網上購買富衛智理想定期保障計劃系列 。您的首2個月保費款項已被接納。</p>"
+					        + "<p>Your policy has not been officially in force, you will need upload your [ID card copy], [passport copy] and [address proof] through the following link, in order to complete your application process.  </p>"
+					        + "<p>您的保單尚未正式生效，您需要通過以下的連結上載您的[身份證副本]，[護照複印件]和[住址證明]，以完成整個申請投保程序。</p> "
+					        + "<p>"+url+"</p>"
+					        + "<p>For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com. </p>"
+					        + "<p>如有任何查詢，請致電富衛客戶服務熱線(852) 3123 3123或電郵至cs.hk@fwd.com。</p>"
+					        + "<p>We wish you a happy life! </p>"
+					        + "<p>祝閣下生活愉快！</p>"
+					        + "<p>Regards, FWD General Insurance Company Limited </p>"
+					        + "<p>富衛保險有限公司 </p>"
+					        + "<p>謹啟 </p>"
+					        + "<p>www.fwd.com.hk</p>"
+					        + "<p>Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail.  </p>"
+					        + "<p>備註：中英文本如有歧異，概以英文本為準。</p>"
+					        + "<p>This is an automatically generated email, please do not reply. </p>"
+					        + "<p>此乃電腦發出之電子郵件，請不要回覆</p>";
 			String subject = "FWD Elite Term – Pending ["+policyNo+"]";
 			String attachment = "";
 			String from = "FWD Elite Term <i-info.hk@fwd.com>";
@@ -456,5 +467,52 @@ public class EliteTermServiceImpl implements EliteTermService {
 			logger.info(e.getMessage());
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public BaseResponse getPromoteCode(HttpServletRequest request)throws ECOMMAPIException{
+		BaseResponse br = null;
+		try {
+			String promoteCode = "ET123";
+			
+			final Map<String,String> header = headerUtil.getHeader(request);
+			header.put("language", "ZH");
+			String to = request.getParameter("email");
+			logger.info("To Email:"+to);
+			String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
+			if (request.getServerPort() != 80 && request.getServerPort() != 443)
+			{
+				serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+			}
+			String message = "\u60A8\u597D,<p><p>\u591A\u8B1D\u60A8\u767B\u8A18\u8A02\u95B1\u5BCC\u885B\u7684\u63A8\u5EE3\u512A\u60E0\u3001"
+					       + "\u5347\u7D1A\u734E\u8CDE\u53CA\u516C\u53F8\u8CC7\u8A0A*\u3002\u60A8\u53EF\u4EE5\u4F7F\u7528\u63A8\u5EE3\u7DE8"
+					       + "\u865F " + promoteCode + " \u7372\u53D6\u7DB2\u4E0A\u6295\u4FDD\u512A\u60E0\u3002<p>"
+					       + "\u5BCC\u885B\u6642\u523B\u4EE5\u5BA2\u6236\u79C1\u96B1\u70BA\u5148\uFF0C\u4F60\u53EF\u4EE5\u53C3\u95B1"
+					       + "<a href='http://www.fwd.com.hk/zh-HK/home/pdo.html'>http://www.fwd.com.hk/zh-HK/home/pdo.html</a>\u4E86\u89E3"
+					       + "\u6211\u5011\u7684\u500B\u4EBA\u8CC7\u6599\u4FDD\u8B77\u653F\u7B56\u3002<p>*\u8A3B: \u60A8\u53EF\u4EE5\u96A8"
+					       + "\u6642\u81F4\u96FB3123-3123\u53D6\u6D88\u8A02\u95B1<p><p>Hi,<p><p>Thank you for registering to receive offers, "
+					       + "upgrades and information from FWD*. You can use the promotion code " + promoteCode + " to get discounts from online "
+					       + "purchases.<p>FWD respects your privacy. For more information, please read our Personal Data Protection Policy at "
+					       + "<a href='http://www.fwd.com.hk/en-US/home/pdo.html'>http://www.fwd.com.hk/en-US/home/pdo.html</a>.<p> "
+					       + "*Note: You may unsubscribe at any time.  To unsubscribe, please call us at 3123-3123.";
+			String subject = "FWD Promotion Code";
+			String attachment = "";
+			String from = "FWD Elite Term <i-noreply.hk@fwd.com>";
+			boolean isHTML = true;
+			
+			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+			parameters.put("from", from);
+			parameters.put("to", to);
+			parameters.put("message", message);
+			parameters.put("subject", subject);
+			parameters.put("attachment", attachment);
+			parameters.put("isHtml", isHTML);
+			br = connector.sendEmail(parameters,header);
+		}catch(Exception e){
+			logger.info("EliteTermServiceImpl getPromoteCode occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		return br;
 	}
 }
