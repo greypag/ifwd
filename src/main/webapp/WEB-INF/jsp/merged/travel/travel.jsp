@@ -34,6 +34,8 @@
 	}
 %>
 <script>
+	var contextPath = "${pageContext.request.contextPath}";
+
     $(function() {
         $("[data-toggle='tooltip']").tooltip();
     });
@@ -113,6 +115,8 @@
          $("#single_travel_feature").show();
          $("#annual_travel_provision_button").hide();
          $("#travel_provision_button").show();
+         $("#annual_benefit_club").hide();
+         $("#single_benefit_club").show();
 	 }else{
 		 //$('.personal_plan_selectArea').trigger('click');
 		 //$('.family_plan_selectArea').hide();
@@ -145,6 +149,8 @@
          $("#annual_travel_feature").show();
          $("#travel_provision_button").hide();
          $("#annual_travel_provision_button").show();
+         $("#single_benefit_club").hide();
+         $("#annual_benefit_club").show();
 	 }
  }
 </script>
@@ -821,7 +827,8 @@ function getParameterByUrl(name){
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc6.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.eshop.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc6.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc6.part3" bundle="${msg}" /></p>  
     </li>
     <li>
-      <p class="h4-5">Receive 50 <a href="https://www.theclub.com.hk/eng/" target="_blank">HKT The Club</a> reward points upon successful purchase of the policy, click here to <a href="https://www.theclub.com.hk/eng/CLUBPOINTS%20EARNING/fwd/fwd.jsp" target="_blank">find out more</a></p>  
+      <p id="single_benefit_club" class="h4-5"><fmt:message key="travel.main.other.benefit.desc8.part1" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc8.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc8.part3" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc8.part4" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc8.part5" bundle="${msg}" /></p>
+      <p id="annual_benefit_club" class="h4-5" style="display:none;"><fmt:message key="annual.main.other.benefit.desc8.part1" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="annual.main.other.benefit.desc8.part2" bundle="${msg}" /></a> <fmt:message key="annual.main.other.benefit.desc8.part3" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="annual.main.other.benefit.desc8.part4" bundle="${msg}" /></a> <fmt:message key="annual.main.other.benefit.desc8.part5" bundle="${msg}" /></p>
     </li>
     <li>
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc7.part1" bundle="${msg}" /> <a href="<fmt:message key="flight.landing.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc7.part2" bundle="${msg}" /></a><fmt:message key="travel.main.other.benefit.desc7.part3" bundle="${msg}" />

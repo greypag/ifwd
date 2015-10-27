@@ -131,6 +131,15 @@ public class AnnualTravelController {
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		
+		String theClubMembershipNo = WebServiceUtils.getParameterValue("theClubMembershipNo", session, request);
+		String placeholder = WebServiceUtils.getMessage("club.membership.number", UserRestURIConstants.getLanaguage(request));
+		String MembershipNo = "";
+		if(placeholder.equals(theClubMembershipNo)) {
+			MembershipNo = "";
+		}else {
+			MembershipNo = theClubMembershipNo;
+		}
+		session.setAttribute("theClubMembershipNo", MembershipNo);
 		String planName = WebServiceUtils.getParameterValue("planName", session, request);
 		String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
 		String selectPlanPremium = WebServiceUtils.getParameterValue("selectPlanPremium", session, request);
@@ -360,7 +369,9 @@ public class AnnualTravelController {
 		
 		UserDetails userDetails = new UserDetails();
 		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",session, request);
+		String originalAmount = WebServiceUtils.getParameterValue("finalOriginalAmount",session, request);
 		session.setAttribute("dueAmount", dueAmount);
+		session.setAttribute("originalAmount", originalAmount);
 		
 		String selectPlanName = planSelected;
 		String deaprtureDate = DateApi.pickDate1((String)session.getAttribute("departureDate"));
@@ -451,6 +462,7 @@ public class AnnualTravelController {
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);
 		model.addAttribute("dueAmount", dueAmount.replace(",", ""));
+		model.addAttribute("originalAmount", originalAmount.replace(",", ""));
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);

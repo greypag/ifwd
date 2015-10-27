@@ -220,13 +220,17 @@ $(document).ready(function(){
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="home.summary.plansummary.desc9.part1" bundle="${msg}" /><br><fmt:message key="home.summary.plansummary.desc9.part2" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper"><fmt:message key="home.summary.plansummary.from" bundle="${msg}" /> ${effectiveDate } <fmt:message key="home.summary.plansummary.to" bundle="${msg}" /> ${effectiveEndDate}</div>
                                         </div>
+                                        <%
+                                            HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request.getAttribute("homeCareDetails");
+                                        %>
+                                        <div class="row summary-row">
+	                                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.originalamount" bundle="${msg}" /></div>
+	                                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper"><fmt:message key="travel.dollar" bundle="${msg}" /> <%=String.format("%.2f",Double.parseDouble(homeCareDetails.getGrossPremium()))%></div>
+	                                    </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="home.summary.plansummary.desc10" bundle="${msg}" /></span></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
-                                            <%
-	                                            HomeCareDetailsBean homeCareDetails = (HomeCareDetailsBean) request.getAttribute("homeCareDetails");
-	                                        %>
-                                                <span class="h4-4-orange-b pad-none">HK$<%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%></span>
+                                                <span class="h4-4-orange-b pad-none"><fmt:message key="travel.dollar" bundle="${msg}" /> <%=String.format("%.2f",Double.parseDouble(homeCareDetails.getTotalDue()))%></span>
                                             </div>
                                         </div>
 	                                </div>

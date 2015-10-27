@@ -41,6 +41,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.PlanDetailsForm;
+import com.ifwd.fwdhk.model.PromoCodeDetail;
 import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.model.TravelQuoteBean;
 import com.ifwd.fwdhk.model.UserDetails;
@@ -479,6 +480,20 @@ public class TravelController {
 				quoteDetails.setTotalNetPremium(totalNetPremium);
 				quoteDetails.setToalDue(totalDue);
 				quoteDetails.setPlanName(planeName);
+				
+				JSONObject jsonPromoCodeDetail = new JSONObject();
+				jsonPromoCodeDetail = (JSONObject) responseJsonObj.get("promoCodeDetail");
+				if(jsonPromoCodeDetail != null) {
+					PromoCodeDetail promoCodeDetail = new PromoCodeDetail();
+					promoCodeDetail.setCode(jsonPromoCodeDetail.get("code").toString());
+					promoCodeDetail.setPromoCodeType(jsonPromoCodeDetail.get("promoCodeType").toString());
+					promoCodeDetail.setDescription(jsonPromoCodeDetail.get("description").toString());
+					promoCodeDetail.setPlanCode(jsonPromoCodeDetail.get("planCode").toString());
+					promoCodeDetail.setValue(jsonPromoCodeDetail.get("value").toString());
+					session.setAttribute("promoCodeDetail", promoCodeDetail); 
+				}else {
+					session.removeAttribute("promoCodeDetail");
+				}
 
 				request.setAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("quoteDetails", quoteDetails);
@@ -614,6 +629,21 @@ public class TravelController {
 				quoteDetails.setTotalNetPremium(totalNetPremium);
 				quoteDetails.setToalDue(totalDue);
 				quoteDetails.setPlanName(planeName);
+				
+				JSONObject jsonPromoCodeDetail = new JSONObject();
+				jsonPromoCodeDetail = (JSONObject) responseJsonObj.get("promoCodeDetail");
+				if(jsonPromoCodeDetail != null) {
+					PromoCodeDetail promoCodeDetail = new PromoCodeDetail();
+					promoCodeDetail.setCode(jsonPromoCodeDetail.get("code").toString());
+					promoCodeDetail.setPromoCodeType(jsonPromoCodeDetail.get("promoCodeType").toString());
+					promoCodeDetail.setDescription(jsonPromoCodeDetail.get("description").toString());
+					promoCodeDetail.setPlanCode(jsonPromoCodeDetail.get("planCode").toString());
+					promoCodeDetail.setValue(jsonPromoCodeDetail.get("value").toString());
+					session.setAttribute("promoCodeDetail", promoCodeDetail);
+				}else {
+					session.removeAttribute("promoCodeDetail");
+				}
+				
 				session.setAttribute("priceInfoA", jsonPriceInfoA);
 				session.setAttribute("priceInfoB", jsonPriceInfoB);
 				request.setAttribute("quoteDetails", quoteDetails);
@@ -652,6 +682,15 @@ public class TravelController {
 		UserRestURIConstants.setController("Travel");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		
+		String theClubMembershipNo = WebServiceUtils.getParameterValue("theClubMembershipNo", session, request);
+		String placeholder = WebServiceUtils.getMessage("club.membership.number", UserRestURIConstants.getLanaguage(request));
+		String MembershipNo = "";
+		if(placeholder.equals(theClubMembershipNo)) {
+			MembershipNo = "";
+		}else {
+			MembershipNo = theClubMembershipNo;
+		}
+		session.setAttribute("theClubMembershipNo", MembershipNo);
 		String planName = WebServiceUtils.getParameterValue("planName", session, request);
 		String planSummary = WebServiceUtils.getParameterValue(
 				"selectedAmountDue", session, request);
@@ -906,6 +945,8 @@ public class TravelController {
 		
 		TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("travelQuote");
 		String planSelected = (String) session.getAttribute("planSelected");
+		String planCode = (String)session.getAttribute("planSelected");
+		
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
 			return getTravelHomePage((String)session.getAttribute("referralCode"), request, model, "", "", "", "");	
@@ -919,7 +960,9 @@ public class TravelController {
 		
 		UserDetails userDetails = new UserDetails();
 		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",session, request);
+		String originalAmount = WebServiceUtils.getParameterValue("finalOriginalAmount",session, request);
 		session.setAttribute("dueAmount", dueAmount);
+		session.setAttribute("originalAmount", originalAmount);
 		
 		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
 		String deaprtureDate = DateApi.pickDate1((String)session.getAttribute("departureDate"));
@@ -1005,7 +1048,7 @@ public class TravelController {
 		}
 
 		JSONObject parameters = new JSONObject();
-		parameters.put("planCode", session.getAttribute("planSelected"));
+		parameters.put("planCode", planCode);
 		
 		//parameters.put("planCode", planDetailsForm.getPlanCode());
 		
@@ -1584,6 +1627,39 @@ public class TravelController {
 
 		JSONObject addressJsonObj = new JSONObject();
 		parameters.put("address", addressJsonObj);
+		
+		parameters.put("externalParty", "THE CLUB");
+		parameters.put("externalPartyCode", session.getAttribute("theClubMembershipNo"));
+		
+		PromoCodeDetail promoCodeDetail = (PromoCodeDetail)session.getAttribute("promoCodeDetail");
+		if(promoCodeDetail != null) {
+			JSONObject promoCodeDetailJsonObj = new JSONObject();
+			promoCodeDetailJsonObj.put("code", promoCodeDetail.getCode());
+			promoCodeDetailJsonObj.put("promoCodeType", promoCodeDetail.getPromoCodeType());
+			promoCodeDetailJsonObj.put("description", promoCodeDetail.getDescription());
+			promoCodeDetailJsonObj.put("planCode", promoCodeDetail.getPlanCode());
+			promoCodeDetailJsonObj.put("value", promoCodeDetail.getValue());
+			parameters.put("promoCodeDetail", promoCodeDetailJsonObj);
+			
+			JSONObject priceInfoJsonObj = new JSONObject();
+			QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
+			
+			if ("A".equals(planCode)) {
+				priceInfoJsonObj.put("grossPremium", quoteDetails.getGrossPremium()[0]);
+				priceInfoJsonObj.put("discountPercentage", quoteDetails.getDiscountPercentage()[0]);
+				priceInfoJsonObj.put("discountAmount", quoteDetails.getDiscountAmount()[0]);
+				priceInfoJsonObj.put("totalNetPremium", quoteDetails.getTotalNetPremium()[0]);
+				priceInfoJsonObj.put("totalDue", quoteDetails.getToalDue()[0]);
+			}else {
+				priceInfoJsonObj.put("grossPremium", quoteDetails.getGrossPremium()[1]);
+				priceInfoJsonObj.put("discountPercentage", quoteDetails.getDiscountPercentage()[1]);
+				priceInfoJsonObj.put("discountAmount", quoteDetails.getDiscountAmount()[1]);
+				priceInfoJsonObj.put("totalNetPremium", quoteDetails.getTotalNetPremium()[1]);
+				priceInfoJsonObj.put("totalDue", quoteDetails.getToalDue()[1]);
+			}
+			
+			parameters.put("priceInfo", priceInfoJsonObj);
+		}
 
 
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
@@ -1662,6 +1738,7 @@ public class TravelController {
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);
 		model.addAttribute("dueAmount", dueAmount.replace(",", ""));
+		model.addAttribute("originalAmount", originalAmount.replace(",", ""));
 		model.addAttribute("totalTravellingDays", totalTravellingDays);
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("travelBean", travelBean);
@@ -1680,6 +1757,7 @@ public class TravelController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		session.removeAttribute("creditCardNo");
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "/travel/travel-summary-payment");				
 	}
@@ -1763,22 +1841,24 @@ public class TravelController {
 			parameters.put("paymentFail", "0");
 			
 			String creditCardNo = (String)session.getAttribute("creditCardNo");
+			String dueAmount = (String)session.getAttribute("dueAmount");
 			
-			if (creditCardNo !=null) { 
-				parameters
-						.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
+			if("0.00".equals(dueAmount) && creditCardNo == null) {
+				creditCardNo = "0000000000000000";
+				parameters.put("expiryDate", "122030");
+			} else {
+				creditCardNo = Methods.decryptStr((String)session.getAttribute("creditCardNo")); 
+				parameters.put("expiryDate", session.getAttribute("expiryDate"));
+			}
+			
+			if (creditCardNo !=null) {
+				parameters.put("creditCardNo", creditCardNo); 
 			} else {
 				
 				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
-				
-				model.addAttribute("emailAddress",
-						session.getAttribute("emailAddress"));
-				
-				
+				model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
 				model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
-				
-				model.addAttribute("referralCode",
-						session.getAttribute("referralCode"));
+				model.addAttribute("referralCode", session.getAttribute("referralCode"));
 				String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
 				model.addAttribute("pageTitle", pageTitle);
@@ -1787,7 +1867,6 @@ public class TravelController {
 						+ "travel/travel-confirmation";
 			}
 				
-			parameters.put("expiryDate", session.getAttribute("expiryDate"));
 			
 			if(JsonUtils.hasEmpty(parameters)) {
 				return UserRestURIConstants.getSitePath(request) + "travel/travel";
@@ -2110,6 +2189,20 @@ public class TravelController {
 				quoteDetails.setTotalNetPremium(totalNetPremium);
 				quoteDetails.setToalDue(totalDue);
 				quoteDetails.setPlanName(planeName);
+				
+				JSONObject jsonPromoCodeDetail = new JSONObject();
+				jsonPromoCodeDetail = (JSONObject) responseJsonObj.get("promoCodeDetail");
+				if(jsonPromoCodeDetail != null) {
+					PromoCodeDetail promoCodeDetail = new PromoCodeDetail();
+					promoCodeDetail.setCode(jsonPromoCodeDetail.get("code").toString());
+					promoCodeDetail.setPromoCodeType(jsonPromoCodeDetail.get("promoCodeType").toString());
+					promoCodeDetail.setDescription(jsonPromoCodeDetail.get("description").toString());
+					promoCodeDetail.setPlanCode(jsonPromoCodeDetail.get("planCode").toString());
+					promoCodeDetail.setValue(jsonPromoCodeDetail.get("value").toString());
+					session.setAttribute("promoCodeDetail", promoCodeDetail); 
+				}else {
+					session.removeAttribute("promoCodeDetail");
+				}
 
 				request.setAttribute("quoteDetails", quoteDetails);
 				model.addAttribute("quoteDetails", quoteDetails);

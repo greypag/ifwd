@@ -377,7 +377,7 @@ function showFWDChart(rate, zoom, isDefault) {
 			}, { // age
 				id: "age-no",
 				label: {
-					text: "<img src=\"/"+contextPath+"/resources/images/savie/age-icon.png\" class=\"img-responsive fwd-chart-age-img\"><span class=\"fwd-chart-age\">Age 66</span>",
+					text: "<img src="+contextPath+"/resources/images/savie/age-icon.png\" class=\"img-responsive fwd-chart-age-img\"><span class=\"fwd-chart-age\">Age 66</span>",
 					align: "center",
 					rotation: 0,
 					verticalAlign: "bottom",

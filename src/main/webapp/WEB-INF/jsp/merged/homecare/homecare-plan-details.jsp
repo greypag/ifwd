@@ -1757,12 +1757,11 @@ function activateUserAccountJoinUs() {
 								<div style="width: 80%;margin-left: 10%;">
 									<h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="home.details.summary.amountDue" bundle="${msg}" /></h3>
 									<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><%=String.format("%.2f",Double.parseDouble(homeQuoteDetails.getTotalDue()))%></h3>
-								     <input type="hidden" name="totalDue"
-									value="${ homeQuoteDetails.totalDue}"> <input
-									type="hidden" name="planCode"
-									value="${ homeQuoteDetails.planCode}"> <input
-									type="hidden" name="answer1" value="${answer1}"> <input
-									type="hidden" name="answer2" value="${answer2}">
+								    <input type="hidden" name="totalDue" value="${ homeQuoteDetails.totalDue}">
+								    <input type="hidden" name="grossPremium" value="${ homeQuoteDetails.grossPremium}">
+									<input type="hidden" name="planCode" value="${ homeQuoteDetails.planCode}">
+									<input type="hidden" name="answer1" value="${answer1}">
+									<input type="hidden" name="answer2" value="${answer2}">
                                 </div>
 							<!--mob-->
 							     

@@ -729,6 +729,9 @@ public class WorkingHolidayController {
 		addressJsonObj.put("district", (planDetailsForm.getWhInsDistrict()+"").toUpperCase());
 		addressJsonObj.put("area", (planDetailsForm.getWhInsArea()+"").toUpperCase());
 		parameters.put("address", addressJsonObj);
+		
+		parameters.put("externalParty", "THE CLUB");
+		parameters.put("externalPartyCode", "");
 
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", (String) session.getAttribute("username"));
@@ -800,7 +803,9 @@ public class WorkingHolidayController {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount", session, request);
+		String originalAmount = WebServiceUtils.getParameterValue("finalOriginalAmount",session, request);
 		session.setAttribute("dueAmount", dueAmount.replace(",","").trim());
+		session.setAttribute("originalAmount", originalAmount.replace(",","").trim());
 		String selectPlanName = WebServiceUtils.getParameterValue("selectedPlanName", session, request);
 
 		WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) session.getAttribute("workingHolidayPlanDetailsForm");
@@ -827,6 +832,7 @@ public class WorkingHolidayController {
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);
 		model.addAttribute("dueAmount", dueAmount);
+		model.addAttribute("originalAmount", originalAmount);
 		model.addAttribute("userDetails", userDetails);
 		model.addAttribute("commencementDate", commencementDate);
 		model.addAttribute("expiryDate", expiryDate);
