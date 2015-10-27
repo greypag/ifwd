@@ -358,6 +358,7 @@ var language = "${language}";
                            <button type="button" class="btn btn-white et-customer-srvce left" id="cust-service" data-toggle="modal" data-target="#customer-service-modal" >Contact customer service</button>
                         </div> -->
                         <div class="col-xs-12 col-md-12 right text-center">
+                           <input type="hidden" id="goApp"/>
                            <button type="button" class="btn btn-white et-proceed-appl bottom active" id="et-brn-proceed-to-application"><fmt:message key="eliteTerms.selectPlan.Proceed.to.application" bundle="${msg}" /></button>
                         </div>
                      </div>
@@ -1964,6 +1965,34 @@ var language = "${language}";
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-select-plan.js"></script>
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
       <script type="text/javascript">
+      $(document).ready(function() {
+    	  if('${etPolicyApplication.applicant.gender}'=='M'){
+    		  $("#et-gender-male").click();
+    	  }
+    	  else if('${etPolicyApplication.applicant.gender}'=='F'){
+    		  $("#et-gender-female").click();
+    	  }
+    	  $('#et-select-plan-date-input').datepicker('setDate', '${etPolicyApplication.applicant.dobD }');
+    	  if('${etPolicyApplication.applicant.smoke}'=='true'){
+    		  $("#et-smoker-yes").click();
+    	  }
+    	  else if('${etPolicyApplication.applicant.smoke}'=='false'){
+    		  $("#et-smoker-no").click();
+    	  }
+    	  if('${goApp}'!=null && '${goApp}'=='yes'){
+  			  $('#et-btn-before-start').removeClass('et-pad-bot-50');
+  			  $('#et-about-yoursel-section').removeClass('hide-element').css('margin-bottom', '125px');
+  			  $('#et-btn-ay-self').removeClass('et-pad-bot-50');
+  	          $('#et-about-yoursel-section').removeAttr('style');
+  	          $('#et-plan-option-section').removeClass('hide-element');
+  	          $('#et-application-first-section').removeClass('hide-element').css('margin-bottom', '190px');
+  		      $('#' + currentSection).addClass('hide-element');
+  		      currentSection = 'et-application-first-section';
+	  		  $('body, html').animate({
+	  		      scrollTop: ($appInfo.offset().top - stickyHeight) + 'px'
+	          }, 500);
+    	  }
+      });
   
 		      // Move to Medical declaration section
 		      $('#et-brn-proceed-to-application').on('click', function(e) {
@@ -1992,26 +2021,11 @@ var language = "${language}";
 				 }
 				 else{
 					// Open login modal
+					$('#goApp').val('yes');
 					$('#loginpopup').modal('show');
 				 }
 		      });
 		      
-		      $(document).ready(function() {
-		    	  if('${etPolicyApplication.applicant.gender}'=='M'){
-		    		  $("#et-gender-male").click();
-		    	  }
-		    	  else if('${etPolicyApplication.applicant.gender}'=='F'){
-		    		  $("#et-gender-female").click();
-		    	  }
-		    	  $('#et-select-plan-date-input').datepicker('setDate', '${etPolicyApplication.applicant.dobD }');
-		    	  if('${etPolicyApplication.applicant.smoke}'=='true'){
-		    		  $("#et-smoker-yes").click();
-		    	  }
-		    	  else if('${etPolicyApplication.applicant.smoke}'=='false'){
-		    		  $("#et-smoker-no").click();
-		    	  }
-		      });
-
             //cannot apply modal 
             $('#et-cust-serv-form #tel').focus(function(){ 
                if(!$('#et-cust-serv-form #cannotApplyEmailMessage').find('small').is(':visible')) {

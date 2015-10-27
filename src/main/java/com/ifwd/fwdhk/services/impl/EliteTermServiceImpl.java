@@ -323,6 +323,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			JSONObject parameters = new JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
+			parameters.put("planCode", "ET");
 			parameters.put("fileType", "png");
 			parameters.put("documentType", "signature");
 			parameters.put("originalFilePath", "");

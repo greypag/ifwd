@@ -65,6 +65,8 @@ public class EliteTermController extends BaseController{
 		model.addAttribute("etCsContactPreferredTimeSlotCN", InitApplicationMessage.etCsContactPreferredTimeSlotCN);
 		model.addAttribute("etEnquiryTypeEN", InitApplicationMessage.etEnquiryTypeEN);
 		model.addAttribute("etEnquiryTypeCN", InitApplicationMessage.etEnquiryTypeCN);
+		
+		model.addAttribute("goApp", request.getParameter("goApp"));
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_SELECT_PLAN);
 	}
 

@@ -75,11 +75,14 @@ function submitLoginForm(formID) {
 							$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
 							$('#thankYouModal').modal('show');
 						}
+						else if(window.location.href.indexOf("term-life-insurance/select-plan")>0){
+							perventRedirect=false;
+							ga('send', 'event', 'Login', 'Click', 'Login success');
+							window.location.href= "<%=request.getContextPath()%>/${language}/term-life-insurance/select-plan?goApp="+$('#goApp').val();
+						}
 						else {
 							perventRedirect=false;
-							//window.location.href = "<%=request.getContextPath()%>/getAccByUsernaneAndPassword";
 							ga('send', 'event', 'Login', 'Click', 'Login success');
-							//location.reload();
 							window.location.href=window.location.href;
 						}
 					} else if (data == 'Provided User Account Details Does Not Exist') {
