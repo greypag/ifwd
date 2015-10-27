@@ -15,10 +15,11 @@ public interface EliteTermService {
 	public BaseResponse contactCs(HttpServletRequest request)throws ECOMMAPIException;
 	public BaseResponse setEliteTermPolicyAgentEmail(HttpServletRequest request)throws ECOMMAPIException;
 	public BaseResponse uploadSignature(HttpServletRequest request,String image,String policyNo)throws ECOMMAPIException;
-	public BaseResponse uploadDocuments(HttpServletRequest request,String file)throws ECOMMAPIException;
 	public BaseResponse sendEliteTermMail(HttpServletRequest request)throws ECOMMAPIException;
 	public void putEtPlanOptionSession(HttpServletRequest request)throws ECOMMAPIException;
 	public void putEtPaymentSession(HttpServletRequest request)throws ECOMMAPIException;
 	public BaseResponse getPromoteCode(HttpServletRequest request)throws ECOMMAPIException;
+	public void uploadEliteTermDocuments(HttpServletRequest request)throws ECOMMAPIException;
+	public String getPolicyUserName(HttpServletRequest request,String policyNumber);
 	
 }
