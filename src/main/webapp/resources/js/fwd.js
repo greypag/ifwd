@@ -4251,8 +4251,7 @@ function flightValidateDeskTravel(){
 function prepareTravelInsuranceQuote() {
 	var result = false;
 	var formId = '#frmTravelGetQuoteDesk';
-	var contextPath = window.location.pathname.split("/")[1];
-	var method = '/'+contextPath+'/ajax/annualTravel/prepareTravelInsuranceQuote';
+	var method = contextPath+'/ajax/annualTravel/prepareTravelInsuranceQuote';
 	console.log($(formId).serialize());
 	$.ajax({
 		type : "POST",

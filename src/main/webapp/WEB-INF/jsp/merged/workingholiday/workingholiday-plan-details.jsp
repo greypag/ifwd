@@ -25,17 +25,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
-<script type="text/javascript">
-$(function () {
-	$("#anchor-lang").on("click",function(){
-		var fullName = $("#inputFullName").val();
-		document.cookie = "fullName = " + fullName;
-
-	});
-});
-</script>
-
-
 <script>
 	this.rootUrl="<%=request.getContextPath()%>";
 	this.rootLang="/<%=session.getAttribute("language").toString()%>";
@@ -1213,8 +1202,8 @@ function activateUserAccountJoinUs() {
 								</h3>
 								<h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right"
 									style="padding-right: 0px; font-size: 18px;">${planSummary}</h3>
-								<input type="hidden" name="finalDueAmount"
-									value="${planSummary}">
+								<input type="hidden" name="finalDueAmount" value="${planSummary}">
+								<input type="hidden" name="finalOriginalAmount" value="${planPremium}">
 							</div>
 							<div style="width: 80%; margin-left: 10%;">
 								<div class="top35 pull-left pad-none" style="width: 47%">

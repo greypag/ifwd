@@ -1109,7 +1109,8 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		addressJsonObj.put("area", planDetailsForm.getApplicantArea());
 		
 		parameters.put("address", addressJsonObj);
-
+		parameters.put("externalParty", "THE CLUB");
+		parameters.put("externalPartyCode", session.getAttribute("theClubMembershipNo"));
 
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", username);

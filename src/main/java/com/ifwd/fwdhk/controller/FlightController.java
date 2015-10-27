@@ -115,7 +115,7 @@ public class FlightController {
 		
 		if(planDetails == null || planDetails.getPlanSelected() == null){
 			planDetails = new PlanDetails();
-			if(deparDate != null && retDate != null && (deparDate.compareTo(now) >= 0 || sf.format(now).equals(departureDate)) && 
+			if(deparDate != null && retDate != null && (deparDate.compareTo(now) >= 0 || sf.format(now).equals(departureDate)) &&
 					(retDate.compareTo(now) >= 0 || sf.format(now).equals(departureDate)) && endDate.compareTo(deparDate)>=0 && endDate.compareTo(retDate)>=0 &&
 					retDate.compareTo(deparDate) >=0){
 				planDetails.setDepartureDate(departureDate);
@@ -665,6 +665,17 @@ public class FlightController {
 			BindingResult result, Model model) {
 		UserRestURIConstants.setController("Flight");
 		HttpSession session = request.getSession();
+		
+		String theClubMembershipNo = WebServiceUtils.getParameterValue("theClubMembershipNo", session, request);
+		String placeholder = WebServiceUtils.getMessage("club.membership.number", UserRestURIConstants.getLanaguage(request));
+		String MembershipNo = "";
+		if(placeholder.equals(theClubMembershipNo)) {
+			MembershipNo = "";
+		}else {
+			MembershipNo = theClubMembershipNo;
+		}
+		session.setAttribute("theClubMembershipNo", MembershipNo);
+		
 		//FOLOWING IS TO HANDLE CHANGE LANGUAGE AS THE planDetails WILL BE NULL
 		if (planDetails.getReturnDate() == null) {
 			planDetails = (PlanDetails) session.getAttribute("flightPlanDetails");
@@ -839,14 +850,14 @@ public class FlightController {
 		request.setAttribute("controller", UserRestURIConstants.getController());
 
         final String BENE_RELATIONSHIP_SELF = "SE";
-        
+
         // applicant information
         String name = StringHelper.emptyIfNull(request.getParameter("fullName")).toUpperCase();
         String hkid = StringHelper.emptyIfNull(request.getParameter("hkid")).toUpperCase();
         String emailAddress = StringHelper.emptyIfNull(request.getParameter("emailAddress")).toUpperCase();
-        String mobileNo = request.getParameter("mobileNo");        
+        String mobileNo = request.getParameter("mobileNo");
 
-        
+
 		String emailId = request.getParameter("emailAddress");
 		request.setAttribute("email", emailId);
 		JSONObject parameters = new JSONObject();
@@ -883,7 +894,7 @@ public class FlightController {
 								planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
 								planDetailsForm.getPersonalBenificiaryHkid()[inx].toUpperCase())
 						 );
-						 
+						
 						beneficiary.put("passport", checkPasswortAndHkid("passport",
 								planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
 								planDetailsForm.getPersonalBenificiaryHkid()[inx].toUpperCase())
@@ -897,7 +908,7 @@ public class FlightController {
 						beneficiary.put("name",	StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
 						
 						beneficiary.put("hkId",	planDetailsForm.getPersonalHKID()[inx].toUpperCase());
-						 
+						
 						beneficiary.put("passport", "");
 						
 						
@@ -909,7 +920,7 @@ public class FlightController {
 					beneficiary
 							.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
 					beneficiary.put("hkId",	planDetailsForm.getPersonalHKID()[inx].toUpperCase());
-					 
+					
 					beneficiary.put("passport", "");
 					beneficiary.put("relationship",
 							planDetailsForm.getPersonalBeneficiary()[inx]); // input
@@ -921,7 +932,7 @@ public class FlightController {
 				}
 			} else {// This is for Myself - with & wothout the beneficiary
                 personal.put("relationship", ValidationUtils.getRelationshipById(hkid, personal.get("hkId").toString()));
-               
+
 				if (planDetailsForm.getPersonalBenificiaryFullName().length > 0) {
 					if (!planDetailsForm.getPersonalBenificiaryFullName()[inx]
 							.isEmpty()
@@ -937,19 +948,19 @@ public class FlightController {
 								planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
 								planDetailsForm.getPersonalBenificiaryHkid()[inx].toUpperCase())
 						 );
-						 
+						
 						beneficiary.put("passport", checkPasswortAndHkid("passport",
 								planDetailsForm.getSelectedPersonalBenefitiaryHkidPass()[inx],
 								planDetailsForm.getPersonalBenificiaryHkid()[inx].toUpperCase())
 						 );
-						beneficiary.put("relationship", StringHelper.emptyIfNull( 
+						beneficiary.put("relationship", StringHelper.emptyIfNull(
 								planDetailsForm.getPersonalBeneficiary()[inx] ).toUpperCase()); // input
 						personal.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary then
-						beneficiary.put("name", StringHelper.emptyIfNull( 
+						beneficiary.put("name", StringHelper.emptyIfNull(
 								planDetailsForm.getPersonalName()[inx] ).toUpperCase());
 						beneficiary.put("hkId",	planDetailsForm.getPersonalHKID()[inx].toUpperCase());
-						 
+						
 						beneficiary.put("passport", "");
 						beneficiary.put("relationship",
 								planDetailsForm.getPersonalBeneficiary()[inx]); // input
@@ -961,9 +972,9 @@ public class FlightController {
 					beneficiary
 							.put("name", StringHelper.emptyIfNull( planDetailsForm.getPersonalName()[inx] ).toUpperCase());
 					beneficiary.put("hkId",	planDetailsForm.getPersonalHKID()[inx].toUpperCase());
-					 
+					
 					beneficiary.put("passport", "");
-					beneficiary.put("relationship", StringHelper.emptyIfNull( 
+					beneficiary.put("relationship", StringHelper.emptyIfNull(
 							planDetailsForm.getPersonalBeneficiary()[inx] ).toUpperCase()); // input
 					personal.put("beneficiary", beneficiary);
 				}
@@ -1032,7 +1043,7 @@ public class FlightController {
 								planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
 								planDetailsForm.getAdultBenificiaryHkid()[inx].toUpperCase())
 						 );
-						 
+						
 						beneficiary.put("passport", checkPasswortAndHkid("passport",
 								planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
 								planDetailsForm.getAdultBenificiaryHkid()[inx].toUpperCase())
@@ -1043,7 +1054,7 @@ public class FlightController {
 					} else {// If don't have beneficiary then
 						beneficiary.put("name",	StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase());
 						beneficiary.put("hkId",	planDetailsForm.getAdultHKID()[inx].toUpperCase());
-						 
+						
 						beneficiary.put("passport", "");
 						beneficiary.put("relationship",	planDetailsForm.getAdultBeneficiary()[inx]); // input
 						adult.put("beneficiary", beneficiary);
@@ -1080,19 +1091,19 @@ public class FlightController {
 								planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
 								planDetailsForm.getAdultBenificiaryHkid()[inx].toUpperCase())
 						 );
-						 
+						
 						beneficiary.put("passport", checkPasswortAndHkid("passport",
 								planDetailsForm.getSelectedAdBenefitiaryHkidPass()[inx],
 								planDetailsForm.getAdultBenificiaryHkid()[inx].toUpperCase())
 						 );
-						beneficiary.put("relationship", StringHelper.emptyIfNull( 
+						beneficiary.put("relationship", StringHelper.emptyIfNull(
 								planDetailsForm.getAdultBeneficiary()[inx] ).toUpperCase()); // input
 						adult.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary then
-						beneficiary.put("name", StringHelper.emptyIfNull( 
+						beneficiary.put("name", StringHelper.emptyIfNull(
 								planDetailsForm.getAdultName()[inx] ).toUpperCase());
 						beneficiary.put("hkId",	planDetailsForm.getAdultHKID()[inx].toUpperCase());
-						 
+						
 						beneficiary.put("passport", "");
 						beneficiary.put("relationship",
 								planDetailsForm.getAdultBeneficiary()[inx]); // input
@@ -1106,9 +1117,9 @@ public class FlightController {
 					beneficiary
 							.put("name", StringHelper.emptyIfNull( planDetailsForm.getAdultName()[inx] ).toUpperCase());
 					beneficiary.put("hkId",	planDetailsForm.getAdultHKID()[inx].toUpperCase());
-					 
+					
 					beneficiary.put("passport", "");
-					beneficiary.put("relationship", StringHelper.emptyIfNull( 
+					beneficiary.put("relationship", StringHelper.emptyIfNull(
 							planDetailsForm.getAdultBeneficiary()[inx] ).toUpperCase()); // input
 					adult.put("beneficiary", beneficiary);
 				}
@@ -1168,10 +1179,10 @@ public class FlightController {
 						beneficiary.put("relationship",	planDetailsForm.getChildBeneficiary()[inx]); // input
 						child.put("beneficiary", beneficiary);
 					} else {// If don't have beneficiary
-						beneficiary.put("name", StringHelper.emptyIfNull( 
+						beneficiary.put("name", StringHelper.emptyIfNull(
 								planDetailsForm.getChildName()[inx] ).toUpperCase());
 						beneficiary.put("hkId",	planDetailsForm.getChildHKID()[inx].toUpperCase());
-						 
+						
 						beneficiary.put("passport", "");
 						beneficiary.put("relationship",
 								planDetailsForm.getChildBeneficiary()[inx]); // input
@@ -1242,7 +1253,7 @@ public class FlightController {
 								planDetailsForm.getSelectedOtherBenefitiaryHkidPass()[inx],
 								planDetailsForm.getOtherBenificiaryHkid()[inx].toUpperCase())
 						 );
-						 
+						
 						beneficiary.put("passport", checkPasswortAndHkid("passport",
 								planDetailsForm.getSelectedOtherBenefitiaryHkidPass()[inx],
 								planDetailsForm.getOtherBenificiaryHkid()[inx].toUpperCase())
@@ -1254,7 +1265,7 @@ public class FlightController {
 					} else {// If don't have beneficiary
 						beneficiary.put("name",	StringHelper.emptyIfNull( planDetailsForm.getOtherName()[inx] ).toUpperCase());
 						beneficiary.put("hkId",	 planDetailsForm.getOtherHKID()[inx].toUpperCase());
-						 
+						
 						beneficiary.put("passport", "");
 						beneficiary.put("relationship",	planDetailsForm.getOtherBeneficiary()[inx]); // input
 						other.put("beneficiary", beneficiary);
@@ -1328,6 +1339,9 @@ public class FlightController {
 		request.setAttribute("optIn1", optIn1);
 		request.setAttribute("optIn2", optIn2);
 		parameters.put("applicant", applicantJsonObj);
+		
+		parameters.put("externalParty", "THE CLUB");
+		parameters.put("externalPartyCode", session.getAttribute("theClubMembershipNo"));
 
 		JSONObject addressJsonObj = new JSONObject();
 
@@ -1590,6 +1604,15 @@ public class FlightController {
 				+ "flight/flight-confirmation");
 	}
 
+	private String[] getHkidOption(int count)
+	{
+		String[] selectedHkidOption = new String[count];
+		for (int i=0; i<selectedHkidOption.length; i++) {
+			selectedHkidOption[i] = "HKID";
+		}
+		return selectedHkidOption;
+	}
+	
 	@RequestMapping(value = "/{lang}/flight-upgrade-travel-summary")
 	public String flightToTravelUpgrade(Model model,
 			HttpServletRequest request,
@@ -1611,17 +1634,18 @@ public class FlightController {
 		session.setAttribute("selectPlanName", selectPlanName);
 		session.setAttribute("planName", selectPlanName);
 		session.setAttribute("planSelected", selectPlanName);
-				
-		
+						
 		if (createFlightPolicy.getDepartureDate() == null) {
 			createFlightPolicy = (CreateFlightPolicy) session.getAttribute("upgradeCreateFlightPolicy");
 			selectPlanName = (String) session.getAttribute("upgradeSelectPlanName");
 			dueAmount = (String)session.getAttribute("upgradeDueAmount");
+			selectPlanPremium = (String)session.getAttribute("originalAmount");
 		} else {
 			session.setAttribute("upgradeCreateFlightPolicy", createFlightPolicy);
 			session.setAttribute("upgradeSelectPlanName", selectPlanName);
 			session.setAttribute("upgradeDueAmount", dueAmount);
 			session.setAttribute("dueAmount", dueAmount);
+			session.setAttribute("originalAmount", selectPlanPremium);
 		}
 		
 		JSONObject parameters = new JSONObject();
@@ -1641,30 +1665,36 @@ public class FlightController {
 		plandetailsForm.setTotalOtherTraveller(createFlightPolicy.getTotalOtherTraveller());
 		plandetailsForm.setTotalPersonalTraveller(createFlightPolicy.getTotalPersonalTraveller());
 		
+		logger.info("add setSelectedAdHkidPass");
 		if (session.getAttribute("FlightObjectFrTrvl") != null) {
 			plandetailsForm = (PlanDetailsForm) session
 					.getAttribute("FlightObjectFrTrvl");
-			for (int inx = 0; inx < plandetailsForm.getTotalPersonalTraveller(); inx++) {
+			if (plandetailsForm.getTotalPersonalTraveller() > 0) {
 				plandetailsForm.setPersonalAgeRangeName(WebServiceUtils
 						.getAgeRangeNames(plandetailsForm.getPersonalAgeRange(),
 								UserRestURIConstants.getLanaguage(request)));
 			}
-			for (int inx = 0; inx < plandetailsForm.getTotalAdultTraveller(); inx++) {
+
+			if (plandetailsForm.getTotalAdultTraveller() > 0) {
+				plandetailsForm.setSelectedAdHkidPass(getHkidOption(plandetailsForm.getTotalAdultTraveller()));
 				plandetailsForm.setAdultAgeRangeName(WebServiceUtils
 						.getAgeRangeNames(plandetailsForm.getAdultAgeRange(),
 								UserRestURIConstants.getLanaguage(request)));
 			}
-			for (int inx = 0; inx < plandetailsForm.getTotalChildTraveller(); inx++) {
+
+			if (plandetailsForm.getTotalChildTraveller() > 0) {
+				plandetailsForm.setSelectedChldHkidPass(getHkidOption(plandetailsForm.getTotalChildTraveller()));
 				plandetailsForm.setChildAgeRangeName(WebServiceUtils
 						.getAgeRangeNames(plandetailsForm.getChildAgeRange(),
 								UserRestURIConstants.getLanaguage(request)));
 			}
-			for (int inx = 0; inx < plandetailsForm.getTotalOtherTraveller(); inx++) {
+
+			if (plandetailsForm.getTotalOtherTraveller() > 0) {
+				plandetailsForm.setSelectedOtHkidPass(getHkidOption(plandetailsForm.getTotalOtherTraveller()));
 				plandetailsForm.setOtherAgeRangeName(WebServiceUtils
 						.getAgeRangeNames(plandetailsForm.getOtherAgeRange(),
 								UserRestURIConstants.getLanaguage(request)));
 			}
-
 		}
 		plandetailsForm.setPlanSelected(travelQuote.getPlanSelected());
 		HashMap<String, String> header = new HashMap<String, String>(
@@ -1794,10 +1824,10 @@ public class FlightController {
 
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
         String errorMsg =request.getParameter("errorMsg");
-        if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){            
-            errorMsg = "Payment failure";     
-        }        
-        model.addAttribute("errormsg", errorMsg);  
+        if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){
+            errorMsg = "Payment failure";
+        }
+        model.addAttribute("errormsg", errorMsg);
 		
 		String pageTitle = WebServiceUtils.getPageTitle(
 				"page.travelPlanSummary",
@@ -1830,7 +1860,7 @@ public class FlightController {
 	private String checkPasswortAndHkid(String check, String selected,
 			String selectedHkidOrPassport) {
 		String response = "";
-		if (selected == null) 
+		if (selected == null)
 			selected = "hkId";
 		switch (check) {
 		case "hkId":

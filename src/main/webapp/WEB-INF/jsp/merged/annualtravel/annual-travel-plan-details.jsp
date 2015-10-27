@@ -24,6 +24,8 @@
 %>
 
 <script>
+    var contextPath = "${pageContext.request.contextPath}";
+    
     $(function() {
         $("[data-toggle='tooltip']").tooltip();
     });
@@ -1407,6 +1409,7 @@ function activateUserAccountJoinUs() {
                     <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="annual.quote.care.amountdue" bundle="${msg}" />  </h3>
                     <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">${planSummary}</h3>
                     <input type="hidden" name="finalDueAmount" value="${planSummary}">
+                    <input type="hidden" name="finalOriginalAmount" value="${planPremium}">
                     <div class="clearfix"></div>
                 </div>
                 

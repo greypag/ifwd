@@ -85,14 +85,40 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
 		
 		setTimeout(function(){
-			if(chkDueAmount()){
+			if(chkDueAmount() && chkClubMember()){
 				$("#frmTravelPlan").submit();
 			}else{
 				$('#loading-overlay').modal('hide');
 			}
 		}, 500);
 	}
-	
+	function chkClubMember() {
+        $(".errDue").html('');
+        var flag = true;		
+        var the_club_member_check_box = document.getElementById("the-club-member-toggle").checked;
+        var the_club_membership_no = document.getElementById("theClubMembershipNo").value;
+        if (the_club_member_check_box) {
+            if (the_club_membership_no == "<fmt:message key="club.membership.number" bundle="${msg}" />" || the_club_membership_no == "" || /^\s*$/.test(the_club_membership_no)) {
+                $("#errClubMemberID").html("<fmt:message key="club.member.empty" bundle="${msg}" />") ;
+                document.getElementById("theClubMembershipNo").focus();
+                $("#theClubMembershipNo").addClass("invalid-field");                
+                flag = false;
+            }else if (the_club_membership_no != ""){
+            	if(/^8/.test(the_club_membership_no) == false){
+	                $("#errClubMemberID").html("<fmt:message key="club.member.firstdigit" bundle="${msg}" />") ;
+	                document.getElementById("theClubMembershipNo").focus();
+	                $("#theClubMembershipNo").addClass("invalid-field");
+	                flag = false;
+            	}else if(/^[0-9]{10}$/.test(the_club_membership_no) == false){
+                    $("#errClubMemberID").html("<fmt:message key="club.member.digitchk" bundle="${msg}" />") ;
+                    document.getElementById("theClubMembershipNo").focus();
+                    $("#theClubMembershipNo").addClass("invalid-field");
+                    flag = false;            		
+            	}
+            } 
+        }
+        return flag;
+	}
 	function chkDueAmount() {		
 		$(".errDue").html('');
 		var flag = false;
@@ -1944,11 +1970,12 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 					            <a href="" class="sub-link" data-toggle="modal" data-target=".bs-promo-modal-lg"><i><fmt:message key="travel.sidebar.summary.promocode.help" bundle="${msg}" /></i></a>
 							</div>
 							<div class="checkbox" style="margin-top: 20px; font-size: 14px;">
-                              <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" /> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" /> Member?</a></label>
+                              <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo" /> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" height="12" /> <fmt:message key="club.membership.confirm" bundle="${msg}" /></a></label>
                             </div>
-                            <div class="form-group" style="margin-top: 20px; margin-bottom: 0; display: none;">
+                            <span class="text-red" id="errClubMemberID"></span>
+                            <div class="form-group" style="margin-top: 0; margin-bottom: 20; display: none;">
                                 <div class="input-group" style="display:inital; width:100%;">
-                                    <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder" style="display:inline-block;width:100%;" onfocus="placeholderOnFocus(this,'The Club Membership#');" onblur="placeholderOnBlur(this,'The Club Membership#');" value="The Club Membership#" />
+                                    <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder" style="display:inline-block;width:100%;" onfocus="placeholderOnFocus(this,'<fmt:message key="club.membership.number" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="club.membership.number" bundle="${msg}" />');" value="<fmt:message key="club.membership.number" bundle="${msg}" />" />
                                 </div>
                             </div>
 						  </div>
@@ -1992,7 +2019,7 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 
                             </div>
                             <div class="clearfix"></div>
-                            <div class="col-xs-12"><span class="text-red errDue"></span></div>
+                            <div class="col-xs-14"><span class="text-red errDue"></span></div>
                             <br>
                             <div class="clearfix"></div>
                             <span id="divPersonsDesk"></span>
@@ -2104,13 +2131,13 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                 </div>
                 <div class="form-container">
                     <div class="row">
-                        <div class="col-xs-12">
-                            <p>Enter HKT The Club membership number to receive 50 reward points. The reward points will be credited to your HKT membership account within 14 days upon successful purchase</p>
+                        <div class="col-xs-12">   
+                            <p><fmt:message key="travel.club.membership.pop.up" bundle="${msg}" /></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <p><a href="https://www.theclub.com.hk/register" target="_blank">Not The Club member? Click here to join now</a></p>                
+                            <p><a href="<fmt:message key="theclub.register.link" bundle="${msg}" />" target="_blank"><fmt:message key="club.membership.join" bundle="${msg}" /></a></p>             
                         </div>
                     </div>
                 </div>

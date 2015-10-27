@@ -202,10 +202,13 @@ var enablePayment=true;
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.days" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${totalTravellingDays}</div>
                                         </div>
-                                        <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head">Original Amount</div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper"><fmt:message key="travel.dollar" bundle="${msg}" /> XXX</div>
-                                        </div>
+                                        
+                                        <fmt:formatNumber var="totalA" value="${quoteDetails.toalDue[0]}" pattern="#"/>
+						                <fmt:formatNumber var="totalB" value="${quoteDetails.toalDue[1]}" pattern="#"/>
+	                                    <div class="row summary-row">
+	                                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="travel.summary.originalamount" bundle="${msg}" /></div>
+	                                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper"><fmt:message key="travel.dollar" bundle="${msg}" /> ${originalAmount }</div>
+	                                    </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.summary.amountDue" bundle="${msg}" /></span></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b pad-none"><fmt:message key="travel.dollar" bundle="${msg}" /> ${dueAmount} </span></div> 
@@ -691,26 +694,33 @@ var enablePayment=true;
                                     %>
                                 </tbody>
                             </table>
-                            <c:if test="${selectPlanName=='A' && quoteDetails.totalNetPremium[0]=='0.00'}">
-                                  <div align="center">
-	                                  <br/>
-	                                  <input class="bdr-curve btn btn-primary" type="button" value="下一页"/>
-                                  </div>
-                            </c:if>
-                            <c:if test="${selectPlanName=='B' && quoteDetails.totalNetPremium[1]=='0.00'}">
-                                  <div align="center">
-	                                  <br/>
-	                                  <input class="bdr-curve btn btn-primary" type="button" value="下一页"/>
-                                  </div>
-                            </c:if>
                           </div>
                         </div>
-                        
-                        
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                <div class="gray-bg1 product_payment_detail_form_container <c:if test="${selectPlanName=='A' && quoteDetails.totalNetPremium[0]=='0.00'}">hidden</c:if><c:if test="${selectPlanName=='B' && quoteDetails.totalNetPremium[1]=='0.00'}">hidden</c:if>">
+                
+                <c:if test="${(selectPlanName=='A' && totalA<=0) || (selectPlanName=='B' && totalB<=0)}">
+                    <div class="gray-bg1 product_payment_detail_form_container">
+                        <div style="width:80%;margin-left:10%;">
+		                    <div class="declaration-content" style="margin:0px !important;">
+		                        <div class="checkbox" style="padding-top: 24px;">
+		                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 pull-right">
+		                                <a id="button_confirm" href="<%=request.getContextPath()%>/${language}/travel-insurance/confirmation"
+                                        class="bdr-curve btn btn-primary nxt-btn" style="white-space: initial;"><fmt:message key="travel.action.next" bundle="${msg}" /></a>
+                                    </div>
+		                            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 pull-right">
+		                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
+		                            </div>
+		                            <div class="clearfix"></div>
+		                        </div>
+		                        <div class="clearfix"></div>
+		                    </div>
+	                    </div>
+                    </div>
+                </c:if>
+                
+                <div class="gray-bg1 product_payment_detail_form_container <c:if test="${selectPlanName=='A' && totalA<=0}">hidden</c:if><c:if test="${selectPlanName=='B' && totalB<=0}">hidden</c:if>">
                     <div style="width:80%;margin-left:10%;">
                     <!-- Payment Form -->
                     <div class="col-xs-12 pad-none">
