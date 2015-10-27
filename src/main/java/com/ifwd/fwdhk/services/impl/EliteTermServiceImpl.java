@@ -98,7 +98,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			permanentAddress.put("line1", request.getParameter("savieApplicantBean.permanentAddress1"));
 			permanentAddress.put("line2", request.getParameter("savieApplicantBean.permanentAddress2"));
 			permanentAddress.put("line3", request.getParameter("savieApplicantBean.permanentAddress3"));
-			permanentAddress.put("line4", "C District");
+			permanentAddress.put("line4", "");
 			permanentAddress.put("district", request.getParameter("savieApplicantBean.permanentAddressCountry").split("-")[0]);
 			applicant.put("permanentAddress", permanentAddress);
 			JSONObject residentialAddress = new JSONObject();
@@ -106,7 +106,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 				residentialAddress.put("line1", request.getParameter("savieApplicantBean.residentialAdress1"));
 				residentialAddress.put("line2", request.getParameter("savieApplicantBean.residentialAdress2"));
 				residentialAddress.put("line3", request.getParameter("savieApplicantBean.residentialAdress3"));
-				residentialAddress.put("line4", "R District");
+				residentialAddress.put("line4", "");
 				residentialAddress.put("district", request.getParameter("savieApplicantBean.residentialDistrict").split("-")[0]);
 			}
 			else{
@@ -122,7 +122,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 				correspondenceAddress.put("line1", request.getParameter("savieApplicantBean.correspondenceAdress1"));
 				correspondenceAddress.put("line2", request.getParameter("savieApplicantBean.correspondenceAdress2"));
 				correspondenceAddress.put("line3", request.getParameter("savieApplicantBean.correspondenceAdress3"));
-				correspondenceAddress.put("line4", "C District");
+				correspondenceAddress.put("line4", "");
 				correspondenceAddress.put("district", request.getParameter("savieApplicantBean.correspondenceDistrict").split("-")[0]);
 			}
 			else{
