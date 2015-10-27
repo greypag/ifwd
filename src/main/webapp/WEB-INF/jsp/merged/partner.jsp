@@ -170,7 +170,8 @@
                                                 <li><p class="h4-5"><fmt:message key="partner.the.club.desc1.point3" bundle="${msg}" /></p></li>
                                                 <li><p class="h4-5"><fmt:message key="partner.the.club.desc1.point4" bundle="${msg}" /></p></li>
                                             </ul>
-                                            <p class="h4-5" style="font-size: 14px; margin-left: 21px; margin-top: 12px;"><fmt:message key="partner.the.club.desc1.notice" bundle="${msg}" /></p>
+                                            <p class="h4-5" style="font-size: 14px; margin-left: 21px; margin-top: 12px;"><fmt:message key="partner.the.club.desc1.notice1" bundle="${msg}" /></p>
+                                            <p class="h4-5" style="font-size: 14px; margin-left: 21px; margin-top: 12px;"><fmt:message key="partner.the.club.desc1.notice2" bundle="${msg}" /></p>
                                         </li>
                                     </ul>
                                 </div>
@@ -178,7 +179,7 @@
                                 <div class="partner_tnc_list">
                                     <ul class="bullets">
                                         <li>
-                                           <p class="h4-5"><fmt:message key="partner.the.club.tnc1" bundle="${msg}" /></p>
+                                           <p class="h4-5"><fmt:message key="partner.the.club.tnc1.part1" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.the.club.tnc1.part2" bundle="${msg}" /></a> <fmt:message key="partner.the.club.tnc1.part3" bundle="${msg}" /></p>
                                         </li>
                                     </ul>
                                 </div>

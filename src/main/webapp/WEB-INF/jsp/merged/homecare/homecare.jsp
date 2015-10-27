@@ -374,7 +374,7 @@ $(document).ready(function() {
 				    	<p class="h4-5"><fmt:message key="home.main.other.benefit.desc3.part1" bundle="${msg}" /> <a href="<fmt:message key="boconcept.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc3.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc3.part3" bundle="${msg}" /></p>
 				    </li>
 				    <li>
-                        <p class="h4-5"><fmt:message key="home.main.other.benefit.desc4.part1" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part3" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part4" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part5" bundle="${msg}" /></p> 
+                        <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part1" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part3" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part4" bundle="${msg}" /></p> 
 				    </li>                    
                     
 				  </ul>
