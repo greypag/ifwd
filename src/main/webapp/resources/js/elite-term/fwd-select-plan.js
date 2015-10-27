@@ -1349,6 +1349,19 @@
          resAddArr.push(appInfoData.resAddCountry);
          $('#etaspi-res-add').text(resAddArr.join(', '));
       } else {
+    	  var resAddArr = [];
+    	  if (appInfoData.perAddL1) {
+        	  resAddArr.push(appInfoData.perAddL1);
+          }
+          if (appInfoData.perAddL2) {
+        	  resAddArr.push(appInfoData.perAddL2);
+          }
+          if (appInfoData.perAddL3) {
+        	  resAddArr.push(appInfoData.perAddL3);
+          }
+          (appInfoData.perAdd) ? resAddArr.push(appInfoData.perAdd) : '';
+          resAddArr.push(appInfoData.perAddCountry);
+          $('#etaspi-res-add').text(resAddArr.join(', '));
          //$('.et-res-add').addClass('hide-element');
       }
       
