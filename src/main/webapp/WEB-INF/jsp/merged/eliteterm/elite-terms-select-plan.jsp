@@ -260,7 +260,7 @@ var language = "${language}";
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
                                  <p class="et-amount">HK$ <span id="et-amount">${eliteTermPremium.monthlyDuePremium }</span> <span>/per month</span></p>
-                                 <p class="et-per et-month">(only HK$ 100 per day)</p>
+                                 <p class="et-per et-month">(only HK$ <span id="et-day-amount">${eliteTermPremium.dailyDuePremium }</span> per day)</p>
                               </div>
                               
                            </div>

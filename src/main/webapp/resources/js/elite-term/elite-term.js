@@ -35,6 +35,7 @@ function getEliteTermPremium() {
 		function(data) {
 			if(data.errMsgs == null){
 				$("#et-amount").html(data.monthlyPremium);
+				$("#et-day-amount").html(data.dailyDuePremium);
 			}
 			else{
 				console.log("data error");

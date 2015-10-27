@@ -8,6 +8,7 @@ public class GetEliteTermPremiumResponse extends BaseResponse {
 	private String monthlyPremium;
 	private String monthlyDiscountPremium;
 	private String monthlyDuePremium;
+	private String dailyDuePremium;
 	private String promoCode;
 	private String promoValue;
 	private String promoCodeType;
@@ -61,5 +62,11 @@ public class GetEliteTermPremiumResponse extends BaseResponse {
 	}
 	public void setPromoCodeType(String promoCodeType) {
 		this.promoCodeType = promoCodeType;
+	}
+	public String getDailyDuePremium() {
+		return dailyDuePremium;
+	}
+	public void setDailyDuePremium(String dailyDuePremium) {
+		this.dailyDuePremium = dailyDuePremium;
 	}
 }
