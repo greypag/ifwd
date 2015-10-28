@@ -226,7 +226,7 @@ var language = "${language}";
          $(document).on('click', '.et-header-info-btn', function(e) {
             e.preventDefault();
             
-            var url = 'elite-terms-select-plan.jsp';
+            var url = 'select-plan';
             var $self = $(this);
             
             if ($self.attr('id') === 'select-plan') {
