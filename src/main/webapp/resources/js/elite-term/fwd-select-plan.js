@@ -1495,7 +1495,7 @@
       appInfoData.perAddL1 = document.getElementById('savieApplicantBean.permanentAddress1').value;
       appInfoData.perAddL2 = document.getElementById('savieApplicantBean.permanentAddress2').value;
       appInfoData.perAddL3 = document.getElementById('savieApplicantBean.permanentAddress3').value;
-      appInfoData.perAdd = $('option[value="' + document.getElementById('savieApplicantBean.permanentAddress').value + '"]', '#savieApplicantBean\\.permanentAddress').text();
+      appInfoData.perAdd = "";//$('option[value="' + document.getElementById('savieApplicantBean.permanentAddress').value + '"]', '#savieApplicantBean\\.permanentAddress').text();
       //appInfoData.perAddCountry = document.getElementById('savieApplicantBean.permanentAddressCountry').value;
       
       // For the residential address
