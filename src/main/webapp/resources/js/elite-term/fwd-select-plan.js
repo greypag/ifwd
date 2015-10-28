@@ -1307,7 +1307,7 @@
          _tempTelSuffix = appInfoData.resTelNoSuffix;
       }
       $('#etaspi-tel-no').text('+' + appInfoData.resTelNoPrefix + ' ' + _tempTelSuffix);    */
-      $('#etaspi-tel-no').text('+' + appInfoData.resTelNo);   
+      $('#etaspi-tel-no').text(appInfoData.resTelNo);   
       
       /* var _tempMobSuffix = '';
       if (appInfoData.resTelNoSuffix.length > 4) {
@@ -1316,7 +1316,7 @@
          _tempMobSuffix = appInfoData.resTelNoSuffix;
       }
       $('#etaspi-mob-no').text('+' + appInfoData.mobNoPrefix + ' ' + _tempMobSuffix);   */ 
-      $('#etaspi-mob-no').text('+' + appInfoData.mobNo);   
+      $('#etaspi-mob-no').text(appInfoData.mobNo);   
       
       var perAddArr = [];
       if (appInfoData.perAddL1) {
