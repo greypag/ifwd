@@ -102,9 +102,9 @@
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
                                         <fmt:message key="faq.eliteterm.group1.a3" bundle="${msg}" />
                                         <ol class="">
-                                            <li><fmt:message key="faq.savie.group1.a1.li1" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.savie.group1.a1.li2" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.savie.group1.a1.li3" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.eliteterm.group1.a3.li1" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.eliteterm.group1.a3.li2" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.eliteterm.group1.a3.li3" bundle="${msg}" /></li>
                                         </ol>
                                     </div>
                                     <div class="clearfix"></div>
@@ -472,7 +472,7 @@
                                 </div>
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.eliteterm.group3.a21" bundle="${msg}" />
+                                        <fmt:message key="faq.eliteterm.group3.a21" bundle="${msg}" /><a class='faq_answer_url' href="<fmt:message key="faq.eliteterm.group3.a21.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="faq.eliteterm.group3.a21.link" bundle="${msg}" /></u></a>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
