@@ -34,12 +34,12 @@ function getEliteTermPremium() {
 		},
 		function(data) {
 			if(data.errMsgs == null){
-				$("#et-month-dis-amount").html(data.monthlyDuePremium);
-				$("#et-day-dis-amount").html(data.dailyDuePremium);
-				$("#et-month-amount").html(data.monthlyPremium);
-				$("#et-day-amount").html(data.dailyPremium);
-				$("#etaspd-insured-amount").html('HK$ ' + insuredAmount);
-				$("#etaspd-monthly-premium").html('HK$ ' + data.monthlyPremium);
+				$("#et-month-dis-amount").html(parseFloat(data.monthlyDuePremium).toFixed(2));
+				$("#et-day-dis-amount").html(parseFloat(data.dailyDuePremium).toFixed(2));
+				$("#et-month-amount").html(parseFloat(data.monthlyPremium).toFixed(2));
+				$("#et-day-amount").html(parseFloat(data.dailyPremium).toFixed(2));
+				$("#etaspd-insured-amount").html('HK$ ' + parseFloat(insuredAmount).toFixed(2));
+				$("#etaspd-monthly-premium").html('HK$ ' + parseFloat(data.monthlyPremium).toFixed(2));
 			}
 			else{
 				console.log("data error");

@@ -41,7 +41,13 @@
 // 								}, 3000);
  								if(window.top.document.referrer.indexOf("savings-insurance/plan-details")>0){
  									window.location.href = '<%=request.getContextPath()%>/${language}/savings-insurance/plan-details?thankyou=thankyou';
- 								} else {
+ 								}
+ 								else if(window.top.document.referrer.indexOf("term-life-insurance/select-plan")>0){
+ 									perventRedirect=false;
+ 									ga('send', 'event', 'Login', 'Click', 'Login success');
+ 									window.location.href= "<%=request.getContextPath()%>/${language}/term-life-insurance/select-plan?goApp="+$('#goApp').val();
+ 								}
+ 								else {
  									window.location.href = '<%=request.getContextPath()%>/${language}/account';
  								}
  								

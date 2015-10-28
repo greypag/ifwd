@@ -1,5 +1,8 @@
 package com.ifwd.fwdhk.util;
 
+import java.util.Map;
+import java.util.Random;
+
 import org.apache.commons.lang.StringUtils;
 
 
@@ -10,6 +13,21 @@ import org.apache.commons.lang.StringUtils;
  * 
  */
 public class PolicyNoUtil {
+	
+	public static String getRandomString(){
+		Random random=new Random();
+		StringBuffer sb =new StringBuffer();
+		for(int i = 0;i<6;i++){
+			int rd = random.nextInt(36);
+			if(rd<10){
+				sb = sb.append(rd);
+			}else{
+				sb = sb.append((char)(rd+55));
+			}
+		}
+		String str = sb.toString();
+		return str;
+	}
 
 	private static final int[] BASE = { 2, 2, 3, 3, 5, 5, 7, 7, 11 };
 

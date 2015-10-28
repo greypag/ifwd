@@ -47,7 +47,6 @@ public interface SavieService {
 	public String upsertSignature(String userName, String token, String language,SavieFormSignatureBean signature);
 	public String upsertDeclarationAuthorization(String userName, String token, String language,SavieFormDeclarationAuthorizationBean authorization);
 	public String upsertDocument(String userName, String token, String language,SavieFormDocumentBean documents);
-	public String getPolicyUserName(HttpServletRequest request,String policyNumber);
 	
 	public List<OptionItemDesc> getMaritalStatus(String language);
 	public List<OptionItemDesc> getSavieDistrict(String language);
@@ -68,8 +67,6 @@ public interface SavieService {
 	public BaseResponse signature(HttpServletRequest request,String image)throws ECOMMAPIException;
 	
 	public BaseResponse uploadDocuments(HttpServletRequest request,MultipartFile file)throws ECOMMAPIException;
-	
-	public void uploadEliteTermDocuments(HttpServletRequest request)throws ECOMMAPIException;
 	
 	public void getOccupation(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception;
 	

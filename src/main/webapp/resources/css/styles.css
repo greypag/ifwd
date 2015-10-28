@@ -20166,6 +20166,8 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
   /* line 305, ../sass/partials/_elite-terms-select-plan.scss */
   .fwd-savie-wrapper .container-fluid.fwd-container .et-next-btn-div {
     margin-left: 15px;
+    padding-top: 20px;
+    padding-bottom: 50px;
   }
 }
 /* line 314, ../sass/partials/_elite-terms-select-plan.scss */
@@ -20189,7 +20191,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 }
 /* line 330, ../sass/partials/_elite-terms-select-plan.scss */
 .fwd-savie-wrapper .container-fluid.fwd-container .et-next-btn-div .btn.btn-orange.et-next-btn.et-pad-bot-50 {
-  margin-bottom: 50px;
+  margin-bottom: 0;
 }
 /* line 337, ../sass/partials/_elite-terms-select-plan.scss */
 .fwd-savie-wrapper .container-fluid.fwd-container .et-gender-wrapper,
@@ -20448,7 +20450,6 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 /* line 645, ../sass/partials/_elite-terms-select-plan.scss */
 .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option-extra-info .et-extra-info p.et-amount span {
   display: block;
-  font-size: 14px;
 }
 @media (min-width: 480px) {
   /* line 645, ../sass/partials/_elite-terms-select-plan.scss */

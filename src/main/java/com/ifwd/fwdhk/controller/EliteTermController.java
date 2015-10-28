@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.services.EliteTermService;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.EliteTermsFlowControl;
@@ -28,6 +29,10 @@ public class EliteTermController extends BaseController{
 	private RestServiceDao restService;
 	@Autowired
 	private SavieService savieService;
+	
+	@Autowired
+	private EliteTermService eliteTermService;
+	
 	@Autowired
 	private CommonUtils commonUtils;
 	
@@ -91,7 +96,7 @@ public class EliteTermController extends BaseController{
 			model.addAttribute("sendEmailOrNot", policyNumber);
 			if(StringUtils.isNotEmpty(policyNumber)){
 				policyNumber = new String(new sun.misc.BASE64Decoder().decodeBuffer(policyNumber));
-				String userName = savieService.getPolicyUserName(request,policyNumber);
+				String userName = eliteTermService.getPolicyUserName(request,policyNumber);
 				request.getSession().setAttribute("policyUserName", userName);
 				if(StringUtils.isNotEmpty(userName)){
 					return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.URL_ELITE_TERMS_LANDING);
@@ -109,7 +114,7 @@ public class EliteTermController extends BaseController{
 	@RequestMapping(value = {"/{lang}/term-life-insurance/confirmation"})
 	public ModelAndView getConfirmation(Model model, HttpServletRequest request) {
 		try {
-			savieService.uploadEliteTermDocuments(request);
+			eliteTermService.uploadEliteTermDocuments(request);
 		} catch (ECOMMAPIException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

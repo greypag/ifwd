@@ -310,40 +310,40 @@
       });
       
       // Move to Plan option section
-      $('#et-btn-ay-self').on('click', function(e) {
-         var $self = $(this);
-         var $planOption = $('#et-plan-option-section');
+      // $('#et-btn-ay-self').on('click', function(e) {
+      //    var $self = $(this);
+      //    var $planOption = $('#et-plan-option-section');
          
-         $self.removeClass('et-pad-bot-50');
-         $('#et-about-yoursel-section').removeAttr('style');
-         $planOption.removeClass('hide-element');
+      //    $self.removeClass('et-pad-bot-50');
+      //    $('#et-about-yoursel-section').removeAttr('style');
+      //    $planOption.removeClass('hide-element');
          
-         if(getWidth()>=992){
-            $('.et-collapse-link[aria-expanded="true"]').parent()
-                                                   .next()
-                                                   .find('.et-panel-body')
-                                                   .jScrollPane({showArrows: true});
-         }
+      //    if(getWidth()>=992){
+      //       $('.et-collapse-link[aria-expanded="true"]').parent()
+      //                                              .next()
+      //                                              .find('.et-panel-body')
+      //                                              .jScrollPane({showArrows: true});
+      //    }
          
-         $('body, html').animate({
-            scrollTop: ($planOption.offset().top - stickyHeight) + 'px'
-         }, 500);
+      //    $('body, html').animate({
+      //       scrollTop: ($planOption.offset().top - stickyHeight) + 'px'
+      //    }, 500);
          
-         // Store plan detail data
-         if ($('#et-gender-male').prop('checked')) {
-            planDetailData.gender = 'Male';
-         } else if ($('#et-gender-female').prop('checked')) {
-            planDetailData.gender = 'Female';
-         }
+      //    // Store plan detail data
+      //    if ($('#et-gender-male').prop('checked')) {
+      //       planDetailData.gender = 'Male';
+      //    } else if ($('#et-gender-female').prop('checked')) {
+      //       planDetailData.gender = 'Female';
+      //    }
          
-         if ($('#et-smoker-yes').prop('checked')) {
-            planDetailData.isSmooker = true;
-         } else if ($('#et-smoker-no').prop('checked')) {
-            planDetailData.isSmooker = false;
-         }
+      //    if ($('#et-smoker-yes').prop('checked')) {
+      //       planDetailData.isSmooker = true;
+      //    } else if ($('#et-smoker-no').prop('checked')) {
+      //       planDetailData.isSmooker = false;
+      //    }
          
-         planDetailData.dob = $planDate.val();
-      });
+      //    planDetailData.dob = $planDate.val();
+      // });
    
       // Move to Medical declaration section
       $('#et-brn-proceed-to-application').on('click', function(e) {
@@ -1329,7 +1329,7 @@
          perAddArr.push(appInfoData.perAddL3);
       }
       (appInfoData.perAdd) ? perAddArr.push(appInfoData.perAdd) : '';
-      perAddArr.push(appInfoData.perAddCountry);
+      // perAddArr.push(appInfoData.perAddCountry);
       $('#etaspi-per-add').text(perAddArr.join(', '));
       
       if ($('#savieApplicantBean\\.isResidential').prop('checked')) {
@@ -1342,11 +1342,11 @@
          if (appInfoData.resAddL2) {
             resAddArr.push(appInfoData.resAddL2);
          }
-         if (appInfoData.resAddL2) {
-            resAddArr.push(appInfoData.resAddL2);
+         if (appInfoData.resAddL3) {
+            resAddArr.push(appInfoData.resAddL3);
          }
-         (appInfoData.resAddL) ? resAddArr.push(appInfoData.resAddL) : '';
-         resAddArr.push(appInfoData.resAddCountry);
+         (appInfoData.resAdd) ? resAddArr.push(appInfoData.resAdd) : '';
+         // resAddArr.push(appInfoData.resAddCountry);
          $('#etaspi-res-add').text(resAddArr.join(', '));
       } else {
     	  var resAddArr = [];
@@ -1375,13 +1375,26 @@
          if (appInfoData.corrAddL2) {
             corrAddArr.push(appInfoData.corrAddL2);
          }
-         if (appInfoData.corrAddL2) {
-            corrAddArr.push(appInfoData.corrAddL2);
+         if (appInfoData.corrAddL3) {
+            corrAddArr.push(appInfoData.corrAddL3);
          }
          (appInfoData.corrAddL) ? corrAddArr.push(appInfoData.corrAddL) : '';
-         corrAddArr.push(appInfoData.corrAddCountry);
+         // corrAddArr.push(appInfoData.corrAddCountry);
          $('#etaspi-corr-add').text(corrAddArr.join(', '));
       } else {
+    	  var corrAddArr = [];
+    	  if (appInfoData.perAddL1) {
+    		  corrAddArr.push(appInfoData.perAddL1);
+          }
+          if (appInfoData.perAddL2) {
+        	  corrAddArr.push(appInfoData.perAddL2);
+          }
+          if (appInfoData.perAddL3) {
+        	  corrAddArr.push(appInfoData.perAddL3);
+          }
+          (appInfoData.perAdd) ? corrAddArr.push(appInfoData.perAdd) : '';
+          corrAddArr.push(appInfoData.perAddCountry);
+          $('#etaspi-corr-add').text(corrAddArr.join(', '));
          //$('.et-corr-add').addClass('hide-element');
       }
       
@@ -1482,7 +1495,7 @@
       appInfoData.perAddL1 = document.getElementById('savieApplicantBean.permanentAddress1').value;
       appInfoData.perAddL2 = document.getElementById('savieApplicantBean.permanentAddress2').value;
       appInfoData.perAddL3 = document.getElementById('savieApplicantBean.permanentAddress3').value;
-      appInfoData.perAdd = $('option[value="' + document.getElementById('savieApplicantBean.permanentAddress').value + '"]', '#savieApplicantBean\\.permanentAddress').text();
+      appInfoData.perAdd = "";//$('option[value="' + document.getElementById('savieApplicantBean.permanentAddress').value + '"]', '#savieApplicantBean\\.permanentAddress').text();
       //appInfoData.perAddCountry = document.getElementById('savieApplicantBean.permanentAddressCountry').value;
       
       // For the residential address

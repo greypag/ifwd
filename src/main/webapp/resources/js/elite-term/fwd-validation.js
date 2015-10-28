@@ -1006,10 +1006,16 @@ function isValidHKID(hkid){
       if(hkid.indexOf('(') > -1) {
          var message = hkid.slice(0, hkid.indexOf('('));
          var checksum = hkid.slice((hkid.indexOf('(') + 1), hkid.lastIndexOf(')'));
+         if(hkid.length > 10) {
+             return false;
+         }
       }
       else {
          var message = hkid.slice(0, 7);
          var checksum = hkid.slice(7, 8)
+         if(hkid.length > 8) {
+             return false;
+         }
       }      
       checksum = isNaN(checksum) ? 10 : parseInt(checksum, 10);
       var checkCtr = message.length + 1
