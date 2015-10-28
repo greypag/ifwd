@@ -107,7 +107,7 @@ var language = "${language}";
                      </div>
                   </div>
                   <div class="et-next-btn-div">
-                     <button type="button" id="et-btn-before-start" class="btn btn-orange et-next-btn et-pad-bot-50" data-toggle=""><fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" /></button>
+                     <button type="button" id="et-btn-before-start" class="btn btn-orange hidden et-next-btn et-pad-bot-50" data-toggle=""><fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" /></button>
                   </div>
                </div>
                   
@@ -1987,6 +1987,11 @@ var language = "${language}";
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-select-plan.js"></script>
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
       <script type="text/javascript">
+      //select-plan
+      $(document).on('click', '#et-before-no', function(e) {
+         $('#et-btn-before-start').removeClass('hidden');
+      });
+
   		//applicant dob
   		$(document).on('click', '#et-personal-info-next', function(e) {
   			if($('#eliteTermsInsuredInfoForm #sales-illu-dob').val()!="") {
