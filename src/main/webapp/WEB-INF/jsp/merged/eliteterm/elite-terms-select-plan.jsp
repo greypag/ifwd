@@ -115,71 +115,76 @@ var language = "${language}";
                <div id="et-about-yoursel-section" class="hide-element">
                   <div class="et-broken-line et-full"></div>
                   <div class="container-fluid fwd-container">
-                     <div class="et-about-urself">
-                        <h2 class="et-about-urself-text"><fmt:message key="eliteTerms.selectPlan.About.yourself" bundle="${msg}" /></h2>
-                        
-                        <div class="et-broken-line et-padding"></div>
-                        
-                        <div class="row reset-margin et-gender-main-div">
-                           <div class="col-md-4 col-xs-12">
-                              <h4 class="et-gender-txt"><fmt:message key="eliteTerms.selectPlan.Your.gender" bundle="${msg}" /></h4>
-                              
-                              <div class="clearfix et-gender-wrapper">
-                                 <div class="et-gender-div">
-                                    <input type="radio" id="et-gender-male" name="et-gender" value="M" />
-                                    <label for="et-gender-male">
-                                       <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-male-icon.png" alt="et-male.png" />
-                                    </label>
-                                    <div class="et-gnder-txt text-center"><fmt:message key="eliteTerms.selectPlan.Male" bundle="${msg}" /></div>
-                                 </div>
-                                 
-                                 <div class="et-gender-div">
-                                    <input type="radio" id="et-gender-female" name="et-gender" value="F" />
-                                    <label for="et-gender-female">
-                                       <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-female-icon.png" alt="et-male.png" />
-                                    </label>
-                                    <div class="et-gnder-txt text-center"><fmt:message key="eliteTerms.selectPlan.Female" bundle="${msg}" /></div>
-                                 </div>
-                              </div>
-                              
-                              <div class="et-broken-line et-padding hidden-md hidden-lg"></div>
-                           </div>
+                     <form id="eliteTermsAboutYourselfForm" method="post" action="" onSubmit="return false;">
+                        <div class="et-about-urself">
+                           <h2 class="et-about-urself-text"><fmt:message key="eliteTerms.selectPlan.About.yourself" bundle="${msg}" /></h2>
                            
-                           <div class="col-md-4 col-xs-12">
-                              <h4 class="et-dob-txt"><fmt:message key="eliteTerms.selectPlan.Your.date.of.birth" bundle="${msg}" /></h4>
-                              <div id="et-select-plan-date" class="selectDiv et-select-plan-date">
-                                 <input type="text" class="date et-ays-datepicker" name="et-select-plan-date" id="et-select-plan-date-input" placeholder="DD-MM-YYYY" readonly="" >
-                                 <span class="err-msg" id="et-ays-datepicker-message"></span> 
-                              </div>
-                              <div class="et-broken-line et-padding hidden-md hidden-lg"></div>
-                           </div>
-                           <div class="col-md-4 col-xs-12">
-                              <h4 class="et-dob-txt smoker"><fmt:message key="eliteTerms.selectPlan.Are.you.a" bundle="${msg}" /></h4>
-                              
-                              <div class="clearfix et-smoke-wrapper">
-                                 <div class="et-gender-div">
-                                    <input type="radio" id="et-smoker-yes" name="et-smoker" value="true">
-                                    <label for="et-smoker-yes" class="et-smoker-label">
-                                       <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-smoker.png" alt="et-male.png" />
-                                    </label>
-                                    <div class="et-smoker-txt yes text-center"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></div>
-                                 </div>
+                           <div class="et-broken-line et-padding"></div>
+                           
+                           <div class="row reset-margin et-gender-main-div">
+                              <div class="col-md-4 col-xs-12">
+                                 <h4 class="et-gender-txt"><fmt:message key="eliteTerms.selectPlan.Your.gender" bundle="${msg}" /></h4>
                                  
-                                 <div class="et-gender-div">
-                                    <input type="radio" id="et-smoker-no" name="et-smoker" value="false">
-                                    <label for="et-smoker-no" class="et-smoker-label">
-                                       <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-non-smoker.png" alt="et-male.png" />
-                                    </label>
-                                    <div class="et-smoker-txt no text-center"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></div>
+                                 <div class="clearfix et-gender-wrapper">
+                                    <div class="et-gender-div">
+                                       <input type="radio" id="et-gender-male" name="et-gender" class="et-gender-radio" value="M" />
+                                       <label for="et-gender-male">
+                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-male-icon.png" alt="et-male.png" />
+                                       </label>
+                                       <div class="et-gnder-txt text-center"><fmt:message key="eliteTerms.selectPlan.Male" bundle="${msg}" /></div>
+                                    </div>
+                                    
+                                    <div class="et-gender-div">
+                                       <input type="radio" id="et-gender-female" class="et-gender-radio" name="et-gender" value="F" />
+                                       <label for="et-gender-female">
+                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-female-icon.png" alt="et-male.png" />
+                                       </label>
+                                       <div class="et-gnder-txt text-center"><fmt:message key="eliteTerms.selectPlan.Female" bundle="${msg}" /></div>
+                                    </div>
                                  </div>
+                                 <span class="err-msg" id="et-gender-message"></span>
+
+                                 <div class="et-broken-line et-padding hidden-md hidden-lg"></div>
+                              </div>
+                              
+                              <div class="col-md-4 col-xs-12">
+                                 <h4 class="et-dob-txt"><fmt:message key="eliteTerms.selectPlan.Your.date.of.birth" bundle="${msg}" /></h4>
+                                 <div id="et-select-plan-date" class="selectDiv et-select-plan-date">
+                                    <input type="text" class="date et-ays-datepicker" name="et-select-plan-date" id="et-select-plan-date-input" placeholder="DD-MM-YYYY" readonly="" >
+                                 </div>
+                                 <span class="err-msg" id="et-ays-datepicker-message"></span>
+                                 <div class="et-broken-line et-padding hidden-md hidden-lg"></div>
+                              </div>
+                              <div class="col-md-4 col-xs-12">
+                                 <h4 class="et-dob-txt smoker"><fmt:message key="eliteTerms.selectPlan.Are.you.a" bundle="${msg}" /></h4>
+                                 
+                                 <div class="clearfix et-smoke-wrapper">
+                                    <div class="et-gender-div">
+                                       <input type="radio" id="et-smoker-yes" name="et-smoker" value="true">
+                                       <label for="et-smoker-yes" class="et-smoker-label">
+                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-smoker.png" alt="et-male.png" />
+                                       </label>
+                                       <div class="et-smoker-txt yes text-center"><fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" /></div>
+                                    </div>
+                                    
+                                    <div class="et-gender-div">
+                                       <input type="radio" id="et-smoker-no" name="et-smoker" value="false">
+                                       <label for="et-smoker-no" class="et-smoker-label">
+                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-nb-non-smoker.png" alt="et-male.png" />
+                                       </label>
+                                       <div class="et-smoker-txt no text-center"><fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" /></div>
+                                    </div>
+                                 </div>
+                                 <span class="err-msg" id="et-smoke-message"></span>
                               </div>
                            </div>
                         </div>
-                     </div>
                      
-                     <div class="et-next-btn-div">
-                        <button type="button" id="et-btn-ay-self" class="btn btn-orange et-next-btn et-pad-bot-50"><fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" /></button>
-                     </div>
+                     
+                        <div class="et-next-btn-div">
+                           <button id="et-btn-ay-self" class="btn btn-orange et-next-btn et-pad-bot-50"><fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" /></button>
+                        </div>
+                     </form>
                   </div>
                </div><!--END OF ABOUT YOURSELF-->
                
@@ -1990,6 +1995,86 @@ var language = "${language}";
   			    .updateStatus('dob','VALID');
   			}
   		});
+
+      //about yourself dob
+      $(document).on('change', '#et-select-plan-date-input', function(e) {
+         if($('#et-select-plan-date-input').val()!="") {
+            $('#eliteTermsAboutYourselfForm')
+            .data('bootstrapValidator')
+            .updateStatus('et-select-plan-date','VALID');
+         }
+      });
+      //ABout yourself validation
+      $('#eliteTermsAboutYourselfForm').bootstrapValidator({
+         excluded: [],
+         fields: {
+            "et-select-plan-date": {
+               container: '#et-ays-datepicker-message',
+               validators: {
+                  notEmpty: {
+                     message: 'Please enter your Date of birth.'
+                  },
+                  callback: {
+                     message: 'Please enter your Date of birth.',
+                     callback: function(value, validator) {
+                        return value !== document.getElementById('et-select-plan-date-input').getAttribute('placeholder');
+                     }
+                  }
+               }
+            },
+            "et-gender": {
+               container: '#et-gender-message',
+               validators: {
+                  notEmpty: {
+                     message: 'Please select your gender.'
+                  }
+               }
+            },
+            "et-smoker": {
+               container: '#et-smoke-message',
+               validators: {
+                  notEmpty: {
+                     message: 'Are you a smoker?'
+                  }
+               }
+            }
+         }
+      }).on('success.form.bv', function(e) {
+         e.preventDefault();
+         var $form = $(this);
+ 
+         var $planOption = $('#et-plan-option-section');
+
+         $('#et-btn-ay-self').removeClass('et-pad-bot-50');
+         $('#et-about-yoursel-section').removeAttr('style');
+         $planOption.removeClass('hide-element');
+         
+         if(getWidth()>=992){
+            $('.et-collapse-link[aria-expanded="true"]').parent()
+               .next()
+               .find('.et-panel-body')
+               .jScrollPane({showArrows: true});
+         }
+         
+         $('body, html').animate({
+            scrollTop: ($planOption.offset().top - stickyHeight) + 'px'
+         }, 500);
+         
+         // Store plan detail data
+         if ($('#et-gender-male').prop('checked')) {
+            planDetailData.gender = 'Male';
+         } else if ($('#et-gender-female').prop('checked')) {
+            planDetailData.gender = 'Female';
+         }
+         
+         if ($('#et-smoker-yes').prop('checked')) {
+            planDetailData.isSmooker = true;
+         } else if ($('#et-smoker-no').prop('checked')) {
+            planDetailData.isSmooker = false;
+         }
+         
+         planDetailData.dob = $planDate.val();
+      });
       $(document).ready(function() {
     	  if('${etPolicyApplication.applicant.gender}'=='M'){
     		  $("#et-gender-male").click();
@@ -2070,6 +2155,7 @@ var language = "${language}";
                      .updateStatus('tel', 'INVALID');
                }
             });
+            // ^ bootstrap validation
             $('#et-cust-serv-form').bootstrapValidator({
                fields: {
                   "name": {

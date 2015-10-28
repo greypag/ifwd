@@ -310,40 +310,40 @@
       });
       
       // Move to Plan option section
-      $('#et-btn-ay-self').on('click', function(e) {
-         var $self = $(this);
-         var $planOption = $('#et-plan-option-section');
+      // $('#et-btn-ay-self').on('click', function(e) {
+      //    var $self = $(this);
+      //    var $planOption = $('#et-plan-option-section');
          
-         $self.removeClass('et-pad-bot-50');
-         $('#et-about-yoursel-section').removeAttr('style');
-         $planOption.removeClass('hide-element');
+      //    $self.removeClass('et-pad-bot-50');
+      //    $('#et-about-yoursel-section').removeAttr('style');
+      //    $planOption.removeClass('hide-element');
          
-         if(getWidth()>=992){
-            $('.et-collapse-link[aria-expanded="true"]').parent()
-                                                   .next()
-                                                   .find('.et-panel-body')
-                                                   .jScrollPane({showArrows: true});
-         }
+      //    if(getWidth()>=992){
+      //       $('.et-collapse-link[aria-expanded="true"]').parent()
+      //                                              .next()
+      //                                              .find('.et-panel-body')
+      //                                              .jScrollPane({showArrows: true});
+      //    }
          
-         $('body, html').animate({
-            scrollTop: ($planOption.offset().top - stickyHeight) + 'px'
-         }, 500);
+      //    $('body, html').animate({
+      //       scrollTop: ($planOption.offset().top - stickyHeight) + 'px'
+      //    }, 500);
          
-         // Store plan detail data
-         if ($('#et-gender-male').prop('checked')) {
-            planDetailData.gender = 'Male';
-         } else if ($('#et-gender-female').prop('checked')) {
-            planDetailData.gender = 'Female';
-         }
+      //    // Store plan detail data
+      //    if ($('#et-gender-male').prop('checked')) {
+      //       planDetailData.gender = 'Male';
+      //    } else if ($('#et-gender-female').prop('checked')) {
+      //       planDetailData.gender = 'Female';
+      //    }
          
-         if ($('#et-smoker-yes').prop('checked')) {
-            planDetailData.isSmooker = true;
-         } else if ($('#et-smoker-no').prop('checked')) {
-            planDetailData.isSmooker = false;
-         }
+      //    if ($('#et-smoker-yes').prop('checked')) {
+      //       planDetailData.isSmooker = true;
+      //    } else if ($('#et-smoker-no').prop('checked')) {
+      //       planDetailData.isSmooker = false;
+      //    }
          
-         planDetailData.dob = $planDate.val();
-      });
+      //    planDetailData.dob = $planDate.val();
+      // });
    
       // Move to Medical declaration section
       $('#et-brn-proceed-to-application').on('click', function(e) {
