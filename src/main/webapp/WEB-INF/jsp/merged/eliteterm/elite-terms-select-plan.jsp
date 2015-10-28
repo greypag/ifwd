@@ -1375,7 +1375,7 @@ var language = "${language}";
             <!-- APPLICATION SUMMARY SECTION -->
             <div id="et-application-third-section" class="hide-element">
                <div class="" id="application-summary">
-                  <div class="modal-dialog container-fluid fwd-container" role="document">
+                  <div class="container-fluid fwd-container" role="document">
                      <div class="summary-content">
                         <div class="summary-header">
                            <h4 class="text-center"><fmt:message key="eliteTerms.selectPlan.Application.summary" bundle="${msg}" /></h4>
