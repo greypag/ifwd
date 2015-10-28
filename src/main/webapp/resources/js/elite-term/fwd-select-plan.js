@@ -1329,7 +1329,7 @@
          perAddArr.push(appInfoData.perAddL3);
       }
       (appInfoData.perAdd) ? perAddArr.push(appInfoData.perAdd) : '';
-      perAddArr.push(appInfoData.perAddCountry);
+      // perAddArr.push(appInfoData.perAddCountry);
       $('#etaspi-per-add').text(perAddArr.join(', '));
       
       if ($('#savieApplicantBean\\.isResidential').prop('checked')) {
@@ -1342,11 +1342,11 @@
          if (appInfoData.resAddL2) {
             resAddArr.push(appInfoData.resAddL2);
          }
-         if (appInfoData.resAddL2) {
-            resAddArr.push(appInfoData.resAddL2);
+         if (appInfoData.resAddL3) {
+            resAddArr.push(appInfoData.resAddL3);
          }
-         (appInfoData.resAddL) ? resAddArr.push(appInfoData.resAddL) : '';
-         resAddArr.push(appInfoData.resAddCountry);
+         (appInfoData.resAdd) ? resAddArr.push(appInfoData.resAdd) : '';
+         // resAddArr.push(appInfoData.resAddCountry);
          $('#etaspi-res-add').text(resAddArr.join(', '));
       } else {
     	  var resAddArr = [];
@@ -1375,11 +1375,11 @@
          if (appInfoData.corrAddL2) {
             corrAddArr.push(appInfoData.corrAddL2);
          }
-         if (appInfoData.corrAddL2) {
-            corrAddArr.push(appInfoData.corrAddL2);
+         if (appInfoData.corrAddL3) {
+            corrAddArr.push(appInfoData.corrAddL3);
          }
          (appInfoData.corrAddL) ? corrAddArr.push(appInfoData.corrAddL) : '';
-         corrAddArr.push(appInfoData.corrAddCountry);
+         // corrAddArr.push(appInfoData.corrAddCountry);
          $('#etaspi-corr-add').text(corrAddArr.join(', '));
       } else {
     	  var corrAddArr = [];
