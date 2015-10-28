@@ -251,8 +251,8 @@ var language = "${language}";
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount">HK$ <span id="et-month-dis-amount"><fmt:formatNumber valule="${eliteTermPremium.monthlyDuePremium }" pattern="#.00"/></span> /month</p>
-                                 <p class="et-per et-month">(only HK$ <span id="et-day-dis-amount"><fmt:formatNumber valule="${eliteTermPremium.dailyDuePremium }" pattern="#.00"/></span> per day)</p>
+                                 <p class="et-amount">HK$ <span id="et-month-dis-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" pattern="#.00"/></span> /month</p>
+                                 <p class="et-per et-month">(only HK$ <span id="et-day-dis-amount"><fmt:formatNumber value="${eliteTermPremium.dailyDuePremium }" pattern="#.00"/></span> per day)</p>
                               </div>
                               
                            </div>
@@ -264,8 +264,8 @@ var language = "${language}";
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount">HK$ <span id="et-month-amount"><fmt:formatNumber valule="${eliteTermPremium.monthlyPremium }" pattern="#.00"/></span> /month</p>
-                                 <p class="et-per et-month">(only HK$ <span id="et-day-amount"><fmt:formatNumber valule="${eliteTermPremium.dailyPremium }" pattern="#.00"/></span> per day)</p>
+                                 <p class="et-amount">HK$ <span id="et-month-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/></span> /month</p>
+                                 <p class="et-per et-month">(only HK$ <span id="et-day-amount"><fmt:formatNumber value="${eliteTermPremium.dailyPremium }" pattern="#.00"/></span> per day)</p>
                               </div>
                               
                            </div>
@@ -1401,11 +1401,11 @@ var language = "${language}";
                                  </div>
                                  <div class="clearfix plan-detail-holder">
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Insured.amount" bundle="${msg}" /></h4>
-                                    <p class="info" id="etaspd-insured-amount">HK$ <fmt:formatNumber valule="${etPolicyApplication.amount }" pattern="#.00"/></p>
+                                    <p class="info" id="etaspd-insured-amount">HK$ <fmt:formatNumber value="${etPolicyApplication.amount }" pattern="#.00"/></p>
                                  </div>
                                  <div class="clearfix plan-detail-holder">
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Monthly.premium" bundle="${msg}" /></h4>
-                                    <p class="info" id="etaspd-monthly-premium">HK$ <fmt:formatNumber valule="${eliteTermPremium.monthlyPremium }" pattern="#.00"/></p>
+                                    <p class="info" id="etaspd-monthly-premium">HK$ <fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/></p>
                                  </div>
                               </div>
                            <!-- PLAN DETAIL END-->
