@@ -225,10 +225,10 @@
    
    // Apply promo code event
    $('#et-apply-promo-code').on('click', function(e) {
-        applyPromoReward();
+        //applyPromoReward();
    });
    $('#et-promocode').on('blur', function(e) {
-        applyPromoReward();
+        //applyPromoReward();
    });
    
    // Redirect back to home
@@ -252,16 +252,16 @@
     * Apply the promotion reward
     * Display the amount section
     */
-   function applyPromoReward() {
+   function applyPromoReward(effectivePeriod) {
         var $promoField = $('#et-promocode');
         var $disPromo = $('#et-dis-promo-amount');
         var $actPromo = $('#et-act-promo-amount');
         
         // Modify code to do the actual promotion
         // Do the actual calculation
-        var isValid = $promoField.val();
+        //var isValid = $promoField.val();
         
-        if (isValid) {
+        if(effectivePeriod != null && effectivePeriod == '12'){
             $disPromo.removeClass('hidden')
             //$disPromo.find('.bottom .et-amount')
             //         .html('HK$ 900 <span>/per month</span>');

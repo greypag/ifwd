@@ -33,17 +33,18 @@ function getEliteTermPremium() {
 			referralCode:referralCode
 		},
 		function(data) {
-			if(data.errMsgs == null){
+			//if(data.errMsgs == null){
 				$("#et-month-dis-amount").html(parseFloat(data.monthlyDuePremium).toFixed(2));
 				$("#et-day-dis-amount").html(parseFloat(data.dailyDuePremium).toFixed(2));
 				$("#et-month-amount").html(parseFloat(data.monthlyPremium).toFixed(2));
 				$("#et-day-amount").html(parseFloat(data.dailyPremium).toFixed(2));
 				$("#etaspd-insured-amount").html('HK$ ' + parseFloat(insuredAmount).toFixed(2));
 				$("#etaspd-monthly-premium").html('HK$ ' + parseFloat(data.monthlyPremium).toFixed(2));
-			}
-			else{
-				console.log("data error");
-			}
+				applyPromoReward(data.effectivePeriod);
+			//}
+			//else{
+			//	console.log("data error");
+			//}
 		})
 		.fail(function(data) {
 		});
