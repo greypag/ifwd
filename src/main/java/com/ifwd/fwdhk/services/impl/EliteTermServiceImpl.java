@@ -106,7 +106,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			permanentAddress.put("district", "");
 			applicant.put("permanentAddress", permanentAddress);
 			JSONObject residentialAddress = new JSONObject();
-			if(request.getParameter("savieApplicantBean.isResidential") != null && request.getParameter("savieApplicantBean.isResidential") == "true"){
+			if(request.getParameter("savieApplicantBean.isResidential") != null && request.getParameter("savieApplicantBean.isResidential").equals("true")){
 				residentialAddress.put("line1", request.getParameter("savieApplicantBean.residentialAdress1"));
 				residentialAddress.put("line2", request.getParameter("savieApplicantBean.residentialAdress2"));
 				residentialAddress.put("line3", request.getParameter("savieApplicantBean.residentialAdress3"));
@@ -122,7 +122,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			}
 			applicant.put("residentialAddress", residentialAddress);
 			JSONObject correspondenceAddress = new JSONObject();
-			if(request.getParameter("savieApplicantBean.addressIsSame") != null && request.getParameter("savieApplicantBean.addressIsSame") == "true"){
+			if(request.getParameter("savieApplicantBean.addressIsSame") != null && request.getParameter("savieApplicantBean.addressIsSame").equals("true")){
 				correspondenceAddress.put("line1", request.getParameter("savieApplicantBean.correspondenceAdress1"));
 				correspondenceAddress.put("line2", request.getParameter("savieApplicantBean.correspondenceAdress2"));
 				correspondenceAddress.put("line3", request.getParameter("savieApplicantBean.correspondenceAdress3"));
