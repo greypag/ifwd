@@ -36,6 +36,7 @@ import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
+import com.ifwd.fwdhk.util.PolicyNoUtil;
 @Service
 public class EliteTermServiceImpl implements EliteTermService {
 	private final static Logger logger = LoggerFactory.getLogger(EliteTermServiceImpl.class);
@@ -508,7 +509,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 		String policyNo = eliteTermPolicy.getPolicyNo();
 		FileInputStream is = null;
 		BaseResponse br = null;
-		if(!"true".equals(uploadLaterFlage)){
+		if(!"true".equals(uploadLaterFlage)){	
 			try {
 				String uploadDir = request.getRealPath("/")+"upload"+"/"+policyNo+"/";
 				File file = new File(uploadDir);
@@ -520,119 +521,120 @@ public class EliteTermServiceImpl implements EliteTermService {
 				parameters.put("clientBrowserInfo", clientBrowserInfo);
 				parameters.put("policyNo", policyNo);
 				parameters.put("planCode", "ET");
-					String fileToUpload = (String) request.getSession().getAttribute("fileToUploadProofAdd");
-					String hkidFileToUpload = (String) request.getSession().getAttribute("hkidFileToUpload");
-					File hkidFileToUploadImage = new File(uploadDir+hkidFileToUpload);
-					File fileToUploadImage = new File(uploadDir+fileToUpload);
-					is = new FileInputStream(fileToUploadImage);
+				String fileToUpload = (String) request.getSession().getAttribute("fileToUploadProofAdd");
+				String hkidFileToUpload = (String) request.getSession().getAttribute("hkidFileToUpload");
+				File hkidFileToUploadImage = new File(uploadDir+hkidFileToUpload);
+				File fileToUploadImage = new File(uploadDir+fileToUpload);
+				is = new FileInputStream(fileToUploadImage);
+				i = is.available(); // 得到文件大小  
+				data = new byte[i];  
+				is.read(data); // 读数据  
+				is.close();  
+				String fileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
+				String fileToUploadProofAddType = (String) request.getSession().getAttribute("fileToUploadProofAddType");
+				parameters.put("fileType", fileToUploadProofAddType);
+				parameters.put("documentType", "proof");
+				parameters.put("originalFilePath", "C:\\"+policyNo+PolicyNoUtil.getRandomString()+"."+fileToUploadProofAddType);
+				parameters.put("base64", fileToUploadImageBase64);
+				br = connector.uploadDocuments(parameters, header);
+				if("true".equals(passportFlage)){
+					String passportFileToUpload = (String) request.getSession().getAttribute("passportFileToUpload");
+					File passportFileToUploadImage = new File(uploadDir+passportFileToUpload);
+					is = new FileInputStream(passportFileToUploadImage);
 					i = is.available(); // 得到文件大小  
 					data = new byte[i];  
 					is.read(data); // 读数据  
 					is.close();  
-
-					String fileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
-					parameters.put("fileType", (String) request.getSession().getAttribute("fileToUploadProofAddType"));
-					parameters.put("documentType", "proof");
-					parameters.put("originalFilePath", "C:\\"+fileToUpload);
-					parameters.put("base64", fileToUploadImageBase64);
+					String passportFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
+					String passportFileToUploadType = (String) request.getSession().getAttribute("passportFileToUploadType");
+					parameters.put("fileType", passportFileToUploadType);
+					parameters.put("documentType", "passport");
+					parameters.put("originalFilePath", "C:\\"+policyNo+PolicyNoUtil.getRandomString()+"."+passportFileToUploadType);
+					parameters.put("base64", passportFileToUploadImage);
 					br = connector.uploadDocuments(parameters, header);
-					if("true".equals(passportFlage)){
-						String passportFileToUpload = (String) request.getSession().getAttribute("passportFileToUpload");
-						File passportFileToUploadImage = new File(uploadDir+passportFileToUpload);
-						is = new FileInputStream(passportFileToUploadImage);
-						i = is.available(); // 得到文件大小  
-						data = new byte[i];  
-						is.read(data); // 读数据  
-						is.close();  
-						String passportFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
-						parameters.put("fileType", (String) request.getSession().getAttribute("passportFileToUploadType"));
-						parameters.put("documentType", "passport");
-						parameters.put("originalFilePath", "C:\\"+passportFileToUpload);
-						parameters.put("base64", passportFileToUploadImage);
-						br = connector.uploadDocuments(parameters, header);
-					}
-					
-					is = new FileInputStream(hkidFileToUploadImage);
-					i = is.available(); // 得到文件大小  
-					data = new byte[i];  
-					is.read(data); // 读数据  
-					is.close();  
-					String hkidFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
-					parameters.put("fileType", (String) request.getSession().getAttribute("hkidFileToUploadType"));
-					parameters.put("documentType", "hkid");
-					parameters.put("originalFilePath", "C:\\"+hkidFileToUpload);
-					parameters.put("base64", hkidFileToUploadImageBase64);
-					br = connector.uploadDocuments(parameters, header);
-					file.delete();
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}finally{
-					try {
-						is.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}  
 				}
+					
+				is = new FileInputStream(hkidFileToUploadImage);
+				i = is.available(); // 得到文件大小  
+				data = new byte[i];  
+				is.read(data); // 读数据  
+				is.close();  
+				String hkidFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
+				String  hkidFileToUploadType = (String) request.getSession().getAttribute("hkidFileToUploadType");
+				parameters.put("fileType", hkidFileToUploadType);
+				parameters.put("documentType", "hkid");
+				parameters.put("originalFilePath", "C:\\"+policyNo+PolicyNoUtil.getRandomString()+"."+hkidFileToUploadType);
+				parameters.put("base64", hkidFileToUploadImageBase64);
+				br = connector.uploadDocuments(parameters, header);
+				file.delete();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally{
+				try {
+					is.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}  
 			}
+		}
 		
-			CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
-			String customerName="";
-			if(etPolicyApplication.getApplicant() != null){
-				 customerName = etPolicyApplication.getApplicant().getFirstName()+" "+etPolicyApplication.getApplicant().getLastName();
-				 if(StringUtils.isEmpty(etPolicyApplication.getApplicant().getFirstName())){
-					 customerName =  etPolicyApplication.getApplicant().getChineseName();
-				 }
-			}		
-			final Map<String,String> headerEmail = headerUtil.getHeader(request);
-			headerEmail.put("language", "ZH");
-			String subject = "FWD Elite Term – Complete[ ]";
-			String attachment = "";
-			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
-			boolean isHTML = true;
-			String  message = "<div> Dear "+customerName+",<br />"+
-							 "Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your documents are well received; your application has been processed. Your policy will be in force in x days. <br />"+
-							 " <br />"+
-							 " 多謝閣下經網上購買富衛智理想定期保障計劃系列 。我們已經收到您上載的檔案; 我們正在處理您的投保申請，您的保單於將X天內生效。<br />"+
-							 " <br />"+
-							 " Your policy has not been officially in force, you will need upload your [ID card copy], [passport copy] and [address proof] through the following link, in order to complete your application process. <br />"+
-							 " <br />"+
-							 " 您的保單尚未正式生效，您需要通過以下的連結上載您的[身份證副本]，[護照複印件]和[住址證明]，以完成整個申請投保程序。<br />"+
-							 " <br />"+
-							 " For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com.<br />"+
-							 " <br />"+
-							  "如有任何查詢，請致電富衛客戶服務熱線(852) 3123 3123或電郵至cs.hk@fwd.com。<br />"+
-							  "<br />"+
-							  "We wish you a happy life!<br />"+
-							  " <br />"+
-							  "祝閣下生活愉快！<br />"+
-							 "<br />"+
-							 " Regards,<br />"+
-							 " FWD General Insurance Company Limited<br />"+
-							 " <br />"+
-							 " 富衛保險有限公司 <br />"+
-							 " <br />"+
-							 " 謹啟<br />"+
-							 " <br />"+
-							 " www.fwd.com.hk<br />"+
-							  "<br />"+
-							"  Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail. <br />"+
-							" <br />"+
-							 " 備註：中英文本如有歧異，概以英文本為準。<br />"+
-							 " <br />"+
-							 " This is an automatically generated email, please do not reply.<br />"+
-							 " <br />"+
-							 " 此乃電腦發出之電子郵件，請不要回覆<br />"+
-							"</div>";
-			org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
-			parametersEmail.put("to", etPolicyApplication.getApplicant().getEmail());
-			parametersEmail.put("message", message);
-			parametersEmail.put("subject", subject);
-			parametersEmail.put("attachment", attachment);
-			parametersEmail.put("from", from);
-			parametersEmail.put("isHtml", isHTML);
-			connector.sendEmail(parametersEmail,headerEmail);
-	
+		CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
+		String customerName="";
+		if(etPolicyApplication.getApplicant() != null){
+			 customerName = etPolicyApplication.getApplicant().getFirstName()+" "+etPolicyApplication.getApplicant().getLastName();
+			 if(StringUtils.isEmpty(etPolicyApplication.getApplicant().getFirstName())){
+				 customerName =  etPolicyApplication.getApplicant().getChineseName();
+			 }
+		}		
+		final Map<String,String> headerEmail = headerUtil.getHeader(request);
+		headerEmail.put("language", "ZH");
+		String subject = "FWD Elite Term – Complete[ ]";
+		String attachment = "";
+		String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
+		boolean isHTML = true;
+		String  message = "<div> Dear "+customerName+",<br />"+
+						 " Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your documents are well received; your application has been processed. Your policy will be in force in x days. <br />"+
+						 " <br />"+
+						 " 多謝閣下經網上購買富衛智理想定期保障計劃系列 。我們已經收到您上載的檔案; 我們正在處理您的投保申請，您的保單於將X天內生效。<br />"+
+						 " <br />"+
+						 " Your policy has not been officially in force, you will need upload your [ID card copy], [passport copy] and [address proof] through the following link, in order to complete your application process. <br />"+
+						 " <br />"+
+						 " 您的保單尚未正式生效，您需要通過以下的連結上載您的[身份證副本]，[護照複印件]和[住址證明]，以完成整個申請投保程序。<br />"+
+						 " <br />"+
+						 " For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com.<br />"+
+						 " <br />"+
+						 " 如有任何查詢，請致電富衛客戶服務熱線(852) 3123 3123或電郵至cs.hk@fwd.com。<br />"+
+						 " <br />"+
+						 " We wish you a happy life!<br />"+
+						 " <br />"+
+						 " 祝閣下生活愉快！<br />"+
+						 " <br />"+
+						 " Regards,<br />"+
+						 " FWD General Insurance Company Limited<br />"+
+						 " <br />"+
+						 " 富衛保險有限公司 <br />"+
+						 " <br />"+
+						 " 謹啟<br />"+
+						 " <br />"+
+						 " www.fwd.com.hk<br />"+
+						 " <br />"+
+						 " Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail. <br />"+
+						 " <br />"+
+						 " 備註：中英文本如有歧異，概以英文本為準。<br />"+
+						 " <br />"+
+						 " This is an automatically generated email, please do not reply.<br />"+
+						 " <br />"+
+						 " 此乃電腦發出之電子郵件，請不要回覆<br />"+
+		    			 " </div>";
+		org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
+		parametersEmail.put("to", etPolicyApplication.getApplicant().getEmail());
+		parametersEmail.put("message", message);
+		parametersEmail.put("subject", subject);
+		parametersEmail.put("attachment", attachment);
+		parametersEmail.put("from", from);
+		parametersEmail.put("isHtml", isHTML);
+		connector.sendEmail(parametersEmail,headerEmail);
 	}
 	
 	public String getPolicyUserName(HttpServletRequest request,String policyNumber){
