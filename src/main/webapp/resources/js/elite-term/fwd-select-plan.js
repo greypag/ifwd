@@ -1100,8 +1100,8 @@
    // Update employment info fields, if employment status = unemployed
    $('#savieEmploymentBean\\.employmentStatus').on('change', function(e) {
       var $self = $(this);
-      
-      if ($self.val() === 'ES1-Full Time Employed' || $self.val() === 'ES2-Part Time Employed' || $self.val() === 'ES3-Self Employed') {
+      var value = $self.val().slice(0,3);
+      if (value === 'ES1' || value === 'ES2' || value === 'ES3') {
          $('.et-emp-info-sourceOfIncome-container').addClass('hidden');
          $('.et-emp-info-liq-assets-container').addClass('hidden');
          $('.et-emp-info-nat-business-container').removeClass('hidden');
