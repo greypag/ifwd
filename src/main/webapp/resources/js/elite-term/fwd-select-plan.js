@@ -955,7 +955,7 @@
                container: '#educationLevelMessage',
                validators: {
                   notEmpty: {
-                     message: 'Education level is required.'
+                     message: 'Please select your Education level.'
                   }
                }
             },
@@ -974,7 +974,15 @@
                      message: 'Please select your Monthly Personal Income ($HK).'
                   }
                }
-            }
+            },
+            "savieEmploymentBean.currentEmployerName": {
+                container: '#employerNameMessage',
+                validators: {
+                   notEmpty: {
+                      message: 'Please enter your Current Employer\'s Name.'
+                   }
+                }
+             }
          }
       }).on('success.form.bv', function(e) {
             e.preventDefault();
@@ -1418,6 +1426,7 @@
       
       $('#etasei-emp-status').text(formatToCapEachLetter(empEduInfoData.status));
       $('#etasei-edu-level').text(formatToCapEachLetter(empEduInfoData.eduLevel));
+      $('#etasei-employer-name').text(formatToCapEachLetter(empEduInfoData.empName));
    }
    function populateAppSummBI() {
       // ???
@@ -1565,6 +1574,7 @@
        empEduInfoData.natBusiness = document.getElementById('savieEmploymentBean.natureOfBusiness').value.split("-")[1];
        empEduInfoData.monIncome = document.getElementById('savieEmploymentBean.monthlyPersonalIncome').value.split("-")[1];
        empEduInfoData.liqAsset = document.getElementById('savieEmploymentBean.liquidAssets').value.split("-")[1];
+       empEduInfoData.empName = document.getElementById('savieEmploymentBean.currentEmployerName').value;
    }
    
    /**

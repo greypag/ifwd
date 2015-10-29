@@ -972,7 +972,7 @@ var language = "${language}";
                            </div>
                            <div class="content-right">
                               <div class="clearfix form-group has-error employment-info-row et-emp-info-employer-name-container">
-                                 <label for="savieEmploymentBean.monthlyPersonalIncome" class="monthly-income">Current Employers Name</label>
+                                 <label for="savieEmploymentBean.monthlyPersonalIncome" class="monthly-income">Current Employer's Name</label>
                                  <div class="selectEmployment">
                                     <input type="text" class="form-control gray-textbox" id="savieEmploymentBean.currentEmployerName" name="savieEmploymentBean.currentEmployerName">
                                  </div>
@@ -1506,6 +1506,10 @@ var language = "${language}";
                                  <div class="clearfix info-holder">
                                     <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Occupation" bundle="${msg}" /></h4>
                                     <p class="info" id="etasei-occupation"></p>
+                                 </div>
+                                 <div class="clearfix info-holder">
+                                    <h4 class="info-label employment">Current employer's name</h4>
+                                    <p class="info" id="etasei-employer-name"></p>
                                  </div>
                                  <div class="clearfix info-holder">
                                     <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Nature.of.business" bundle="${msg}" /></h4>
