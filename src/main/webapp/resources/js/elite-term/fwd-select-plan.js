@@ -28,12 +28,16 @@
    var _date = new Date();
    var _newdate = new Date(_date);
    _newdate.setYear(_newdate.getYear() - 18);
+   var sixty = new Date(_date);
+   sixty.setYear(sixty.getYear() - 60);
    
    var $planDate = $('#et-select-plan-date-input').datepicker({
       format: "dd-mm-yyyy",
       container: "#date",
       autoclose: true,
-      startView: "decade"
+      startView: "decade",
+      endDate: _newdate,
+      startDate: sixty
    }).datepicker('setDate', new Date(_newdate)).val('DD-MM-YYYY');
    $planDate.on('changeDate', function(e) {
       $('#sales-illu-dob').val(this.value);
