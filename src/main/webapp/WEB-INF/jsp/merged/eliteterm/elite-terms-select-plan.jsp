@@ -698,7 +698,7 @@ var language = "${language}";
                                        </div>
                                        <span class="error-msg" id="permanentAddressCountryMessage"></span>
 									    -->
-                                       <div class="selectDiv et-district-wrapper hide-element">
+                                       <div class="selectDiv et-district-wrapper">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown "  data-style="application-select selection" name="savieApplicantBean.permanentAddress" id="savieApplicantBean.permanentAddress">
                                              <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
