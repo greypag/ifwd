@@ -848,8 +848,8 @@ public class TravelController {
 			}
 
 			model.addAttribute("planName", planName);
-			model.addAttribute("planSummary", planSummary);
-//			model.addAttribute("planPremium", selectPlanPremium);
+			//model.addAttribute("planSummary", planSummary);
+			//model.addAttribute("planPremium", selectPlanPremium);
 			
 			session.setAttribute("travelQuote", travelQuote); // vincent - fix back btn from 3rd page to 2nd page
 			model.addAttribute("travelQuote", travelQuote);
