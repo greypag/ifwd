@@ -2178,7 +2178,7 @@ var language = "${language}";
                            message: 'Please enter your name.'
                         },
                         regexp: {
-                           regexp: /^[-'a-z\u4e00-\u9eff]{1,20}$/i, /*chinese and english chars only*/
+                           regexp: /[a-z A-Z \s \u4e00-\u9eff]/, /*chinese and english chars only*/
                            message: 'Your name is invalid.'
                         },
                         callback: {
