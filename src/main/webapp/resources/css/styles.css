@@ -2094,18 +2094,35 @@ label {
 }
 /* line 11, ../sass/partials/_image-banner.scss */
 .fwd-savie-wrapper .banner-widget {
-  background: url("../../assets/images/strawberry-mobile.jpg") center center no-repeat;
-  background-size: cover;
-  height: 490px;
   position: relative;
 }
-@media (min-width: 768px) {
-  /* line 11, ../sass/partials/_image-banner.scss */
-  .fwd-savie-wrapper .banner-widget {
-    background: url("../../assets/images/strawberry.jpg") center center no-repeat;
-    background-size: cover;
-  }
+.fwd-savie-wrapper .banner-widget .tagline-holder {
+    position: absolute;
+    top: 45px;
+    width: 100%;
 }
+@media (min-width: 992px) {
+	.fwd-savie-wrapper .banner-widget .tagline-holder {
+		top:14%;
+	}
+}
+.fwd-savie-wrapper .banner-widget .tagline-holder img {
+	margin: 0 auto;
+    max-height: 140px;
+}
+@media (min-width: 768px) {
+	.fwd-savie-wrapper .banner-widget .tagline-holder img {
+	    width: 340px;
+    	margin: 0;
+	}
+}
+@media (min-width: 992px) {
+	.fwd-savie-wrapper .banner-widget .tagline-holder img {
+	    width: 50%;
+    	max-width: 550px;
+	}
+}
+
 /* line 22, ../sass/partials/_image-banner.scss */
 .fwd-savie-wrapper .banner-widget .text-content {
   width: 100%;
