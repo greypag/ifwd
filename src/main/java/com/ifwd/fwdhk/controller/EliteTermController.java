@@ -37,7 +37,8 @@ public class EliteTermController extends BaseController{
 	private CommonUtils commonUtils;
 	
 	@RequestMapping(value = {"/{lang}/term-life-insurance"})
-	public ModelAndView getLanding(Model model, HttpServletRequest request) {
+	public ModelAndView getLanding(Model model, HttpServletRequest request) throws ECOMMAPIException {
+		eliteTermService.removeEtSession(request);
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_LANDING);
 	}
 	

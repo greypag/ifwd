@@ -9,6 +9,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -660,6 +661,25 @@ public class EliteTermServiceImpl implements EliteTermService {
 			request.getSession().setAttribute("etPolicyApplication",etPolicyApplication);
 		}
 		return userName;
+	}
+	
+	@Override
+	public void removeEtSession(HttpServletRequest request)throws ECOMMAPIException{
+		try {
+			HttpSession session = request.getSession();
+			session.removeAttribute("eliteTermPolicy");
+			session.removeAttribute("etPolicyApplication");
+			session.removeAttribute("eliteTermPremium");
+			session.removeAttribute("emailAddress");
+			session.removeAttribute("eliteTermEmail");
+			session.removeAttribute("creditCaredNo");
+			session.removeAttribute("expiryDate");
+			session.removeAttribute("cardHolderName");
+		}catch(Exception e){
+			logger.info("EliteTermServiceImpl removeEtSession occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 	
 }
