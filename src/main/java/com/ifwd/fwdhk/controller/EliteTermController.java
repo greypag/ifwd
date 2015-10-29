@@ -74,6 +74,8 @@ public class EliteTermController extends BaseController{
 		model.addAttribute("etLiquidAssetCN", InitApplicationMessage.etLiquidAssetCN);
 		model.addAttribute("etAmountOtherSourceEN", InitApplicationMessage.etAmountOtherSourceEN);
 		model.addAttribute("etAmountOtherSourceCN", InitApplicationMessage.etAmountOtherSourceCN);
+		model.addAttribute("etEducationLevelEN", InitApplicationMessage.etEducationLevelEN);
+		model.addAttribute("etEducationLevelCN", InitApplicationMessage.etEducationLevelCN);
 		
 		model.addAttribute("goApp", request.getParameter("goApp"));
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_SELECT_PLAN);

@@ -628,12 +628,12 @@ var language = "${language}";
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" id="savieApplicantBean.nationality" name="savieApplicantBean.nationality">
                                              <option selected disabled value="">- Please select -</option>
                                              <c:if test="${language == 'en'}">
-													   <c:forEach var="list" items="${placeOfBirthEN}">
+													   <c:forEach var="list" items="${nationalityEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 													   </c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
-													   <c:forEach var="list" items="${placeOfBirthCN}">
+													   <c:forEach var="list" items="${nationalityCN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 													   </c:forEach>
 													</c:if>	
@@ -1003,9 +1003,17 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.educationLevel" name="savieEmploymentBean.educationLevel" data-style="application-select">
-                                       <option selected disabled value="">- Please select -</option>
-                                       <option value="college-graduate">College Graduate</option>
-                                       <option value="master-degree-holder">Masters Degree Holder</option>  
+                                       <option value="">-Please select-</option>
+                                           <c:if test="${language == 'en'}">
+                                                <c:forEach var="list" items="${etEducationLevelEN}">
+                                                  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                                </c:forEach>
+                                            </c:if>
+                                            <c:if test="${language == 'tc'}">
+                                                <c:forEach var="list" items="${etEducationLevelCN}">
+                                                  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+                                                </c:forEach>
+                                            </c:if> 
                                     </select>
                                  </div>
                                  <span class="error-msg" id="educationLevelMessage"></span>

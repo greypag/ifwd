@@ -76,6 +76,9 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static List<OptionItemDesc> etAmountOtherSourceEN;
 	public static List<OptionItemDesc> etAmountOtherSourceCN;
 	
+	public static List<OptionItemDesc> etEducationLevelEN;
+	public static List<OptionItemDesc> etEducationLevelCN;
+	
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
@@ -420,5 +423,26 @@ public class InitApplicationMessage implements ApplicationListener{
 			}
 		}
 		logger.info("etAmountOtherSourceCN : " + etAmountOtherSourceCN);
+		
+		try {
+			etEducationLevelEN = commonUtils.getOptionItemDescList("educationLevel","EN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("etEducationLevelEN : " + etEducationLevelEN);
+		
+		try {
+			etEducationLevelCN = commonUtils.getOptionItemDescList("educationLevel","CH",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("etEducationLevelCN : " + etEducationLevelCN);
 	}
+	
 }
