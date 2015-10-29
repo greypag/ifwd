@@ -13,7 +13,7 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
@@ -32,7 +32,7 @@ public class AjaxEliteTermController extends BaseController{
 	@RequestMapping(value = {"/ajax/eliteTerm/getEliteTermImage"},method = RequestMethod.POST)
 	  public void doAddImageByGroupId(HttpServletRequest request, HttpServletResponse response,
 	            @RequestParam(value = "name", required = true) String name,
-	            @RequestParam(value = "img", required = true) CommonsMultipartFile imageFile
+	            @RequestParam(value = "img", required = true) MultipartFile imageFile
 	            ) throws Exception {
 			try {
 				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
@@ -42,10 +42,11 @@ public class AjaxEliteTermController extends BaseController{
 		        if (!dirPath.exists()) {   
 		            dirPath.mkdirs();  
 		        } 
-		        String[] str = imageFile.getContentType().split("/");
-		        String imageName = name+"."+str[str.length-1];
+		        String fileName = imageFile.getOriginalFilename();
+		        String type = fileName.substring(fileName.lastIndexOf(".")+1);
+		        String imageName = name+"."+type;
 				request.getSession().setAttribute(name, imageName);
-				request.getSession().setAttribute(name+"Type", str[str.length-1]);
+				request.getSession().setAttribute(name+"Type", type);
 		        byte[] bytes = imageFile.getBytes();
 		        String sep = System.getProperty("file.separator");  
 		        File uploadedFile = new File(uploadDir + sep  
