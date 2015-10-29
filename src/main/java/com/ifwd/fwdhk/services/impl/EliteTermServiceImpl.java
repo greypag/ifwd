@@ -90,9 +90,9 @@ public class EliteTermServiceImpl implements EliteTermService {
 			applicant.put("maritalStatus", request.getParameter("savieApplicantBean.maritalStatus").split("-")[0]);
 			applicant.put("placeOfBirth", request.getParameter("savieApplicantBean.placeOfBirth").split("-")[0]);
 			applicant.put("nationality", request.getParameter("savieApplicantBean.nationality").split("-")[0]);
-			applicant.put("residentialTelNoCountryCode", request.getParameter("savieApplicantBean.residentialTelNo"));
+			applicant.put("residentialTelNoCountryCode", "852");
 			applicant.put("residentialTelNo", request.getParameter("savieApplicantBean.residentialTelNo"));
-			applicant.put("mobileNoCountryCode", request.getParameter("savieApplicantBean.mobileNo"));
+			applicant.put("mobileNoCountryCode", "852");
 			applicant.put("mobileNo", request.getParameter("savieApplicantBean.mobileNo"));
 			etPolicyApplication.getApplicant().setMobileNo(applicant.getString("mobileNo"));
 			applicant.put("email", request.getParameter("savieApplicantBean.emailAddress"));
@@ -144,8 +144,8 @@ public class EliteTermServiceImpl implements EliteTermService {
 			employmentStatus.put("educationLevel", request.getParameter("savieEmploymentBean.educationLevel").split("-")[0]);
 			employmentStatus.put("natureOfBusiness", request.getParameter("savieEmploymentBean.natureOfBusiness").split("-")[0]);
 			employmentStatus.put("monthlyPersonalIncome", request.getParameter("savieEmploymentBean.monthlyPersonalIncome").split("-")[0]);
-			employmentStatus.put("liquidAsset", request.getParameter("savieEmploymentBean.liquidAssets"));
-			employmentStatus.put("amountOtherSource", request.getParameter("savieEmploymentBean.sourceOfIncome"));
+			employmentStatus.put("liquidAsset", request.getParameter("savieEmploymentBean.liquidAssets").split("-")[0]);
+			employmentStatus.put("amountOtherSource", request.getParameter("savieEmploymentBean.sourceOfIncome").split("-")[0]);
 			employmentStatus.put("employerName", request.getParameter("savieEmploymentBean.currentEmployerName"));
 			applicant.put("employmentStatus", employmentStatus);
 			applicant.put("smoke", request.getParameter("savieApplicantBeanSmoke"));
