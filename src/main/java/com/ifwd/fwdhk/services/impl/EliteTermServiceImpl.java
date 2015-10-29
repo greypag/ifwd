@@ -535,7 +535,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 				String fileToUploadProofAddType = (String) request.getSession().getAttribute("fileToUploadProofAddType");
 				parameters.put("fileType", fileToUploadProofAddType);
 				parameters.put("documentType", "proof");
-				parameters.put("originalFilePath", "C:\\"+policyNo+PolicyNoUtil.getRandomString()+"."+fileToUploadProofAddType);
+				parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+fileToUploadProofAddType);
 				parameters.put("base64", fileToUploadImageBase64);
 				br = connector.uploadDocuments(parameters, header);
 				if("true".equals(passportFlage)){
@@ -550,7 +550,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 					String passportFileToUploadType = (String) request.getSession().getAttribute("passportFileToUploadType");
 					parameters.put("fileType", passportFileToUploadType);
 					parameters.put("documentType", "passport");
-					parameters.put("originalFilePath", "C:\\"+policyNo+PolicyNoUtil.getRandomString()+"."+passportFileToUploadType);
+					parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+passportFileToUploadType);
 					parameters.put("base64", passportFileToUploadImage);
 					br = connector.uploadDocuments(parameters, header);
 				}
@@ -564,7 +564,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 				String  hkidFileToUploadType = (String) request.getSession().getAttribute("hkidFileToUploadType");
 				parameters.put("fileType", hkidFileToUploadType);
 				parameters.put("documentType", "hkid");
-				parameters.put("originalFilePath", "C:\\"+policyNo+PolicyNoUtil.getRandomString()+"."+hkidFileToUploadType);
+				parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+hkidFileToUploadType);
 				parameters.put("base64", hkidFileToUploadImageBase64);
 				br = connector.uploadDocuments(parameters, header);
 				file.delete();
