@@ -170,45 +170,45 @@ $('#et-confirmation-submit').on('click', function(e) {
 	}
 });
 
-$('#et-cannot-apply-btn').on('click', function(e) {
-	var name = $('#name').val();
-	var email = $('#email').val();
-	var mobile = $('#tel').val();
-	var preferredDay = $('#day').val();
-	var preferredTimeSlot = $('#time').val();
-	var enquiryType = $('#enquiry').val();
-	var channel = $("#channel").val();
-	var product = "eliteterm";
-	
-	if(name ==null){
-		console.log("data error");
-	}
-	else{
-		$.get(contextPath+'/ajax/eliteTerm/contactCs',
-		{ 
-			name : name,
-			email : email,
-			mobile : mobile,
-			preferredDay : preferredDay,
-			preferredTimeSlot : preferredTimeSlot,
-			enquiryType : enquiryType,
-			channel : channel,
-			product : product
-		},
-		function(data) {
-			if(data.errMsgs == null){
-				$('#cannot-apply-modal').modal('hide');
-				$('#goHomepageModal').modal('show');
-				console.log("data success");
-			}
-			else{
-				console.log("data error");
-			}
-		})
-		.fail(function(data) {
-		});
-	}
-});
+//$('#et-cannot-apply-btn').on('click', function(e) {
+//	var name = $('#name').val();
+//	var email = $('#email').val();
+//	var mobile = $('#tel').val();
+//	var preferredDay = $('#day').val();
+//	var preferredTimeSlot = $('#time').val();
+//	var enquiryType = $('#enquiry').val();
+//	var channel = $("#channel").val();
+//	var product = "eliteterm";
+//	
+//	if(name ==null){
+//		console.log("data error");
+//	}
+//	else{
+//		$.get(contextPath+'/ajax/eliteTerm/contactCs',
+//		{ 
+//			name : name,
+//			email : email,
+//			mobile : mobile,
+//			preferredDay : preferredDay,
+//			preferredTimeSlot : preferredTimeSlot,
+//			enquiryType : enquiryType,
+//			channel : channel,
+//			product : product
+//		},
+//		function(data) {
+//			if(data.errMsgs == null){
+//				$('#cannot-apply-modal').modal('hide');
+//				$('#goHomepageModal').modal('show');
+//				console.log("data success");
+//			}
+//			else{
+//				console.log("data error");
+//			}
+//		})
+//		.fail(function(data) {
+//		});
+//	}
+//});
 $('input[name="et-gender"]').on('click', function(e) {
 	$('#savieApplicantBeanGender').val(this.value);
 });

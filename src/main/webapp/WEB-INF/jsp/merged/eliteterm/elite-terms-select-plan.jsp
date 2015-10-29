@@ -1829,7 +1829,7 @@ var language = "${language}";
                            <span class="error-msg" id="cannotApplyEnquireMessage"></span>
                         </div>
                         <div class="fwd-checkbox modal-checkbox">
-                           <input type="checkbox" id="cannot-apply-checkbox">
+                           <input type="checkbox" id="cannot-apply-checkbox" name="cannot-apply-checkbox">
                            <label for="cannot-apply-checkbox"></label>
                            <p class="notice"><fmt:message key="eliteTerms.selectPlan.I.have.read.and.I" bundle="${msg}" />
                            <a href="#"><fmt:message key="eliteTerms.selectPlan.Personal.Information" bundle="${msg}" /></a></p>
@@ -2170,6 +2170,7 @@ var language = "${language}";
             });
             // ^ bootstrap validation
             $('#et-cust-serv-form').bootstrapValidator({
+               excluded:[],
                fields: {
                   "name": {
                      container: '#cannotApplyNameMessage',
@@ -2230,7 +2231,15 @@ var language = "${language}";
                            message: 'Please choose a perferred timeslot for our customer service representative to call you.'
                         }
                      }
-                  }             
+                  },
+                  "cannot-apply-checkbox": {
+                      container: '#cannotApplyCheckMessage',
+                      validators: {
+                         notEmpty: {
+                            message: 'This field is required.'
+                         }
+                      }
+                   }
                }
             }).on('success.form.bv', function(e) {
                   e.preventDefault();
@@ -2238,9 +2247,42 @@ var language = "${language}";
           
                    $('.modal').modal('hide');
                    $('#back-to-home-modal').modal('show');
-                  // modify code here for data manipulation
-
-                  buttonNext();
+                   
+                    var name = $('#name').val();
+	               	var email = $('#email').val();
+	               	var mobile = $('#tel').val();
+	               	var preferredDay = $('#day').val();
+	               	var preferredTimeSlot = $('#time').val();
+	               	var enquiryType = $('#enquiry').val();
+	               	var channel = $("#channel").val();
+	               	var product = "eliteterm";
+	               	
+	               	if(name ==null){
+	               		console.log("data error");
+	               	}
+	               	else{
+	               		$.get(contextPath+'/ajax/eliteTerm/contactCs',
+	               		{ 
+	               			name : name,
+	               			email : email,
+	               			mobile : mobile,
+	               			preferredDay : preferredDay,
+	               			preferredTimeSlot : preferredTimeSlot,
+	               			enquiryType : enquiryType,
+	               			channel : channel,
+	               			product : product
+	               		},
+	               		function(data) {
+	               			if(data.errMsgs == null){
+	               				console.log("data success");
+	               			}
+	               			else{
+	               				console.log("data error");
+	               			}
+	               		})
+	               		.fail(function(data) {
+	               		});
+	               	}
             });
 
             function isEmailEmpty(number) {
