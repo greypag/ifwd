@@ -257,6 +257,7 @@ label {
 /* line 201, ../sass/partials/_common.scss */
 ::-webkit-input-placeholder {
   color: #C4C3C3 !important;
+  font-size: 18px !important;
 }
 
 /* line 205, ../sass/partials/_common.scss */
@@ -22056,28 +22057,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .btn-fwd-fb {
 .et-payment .page-content .page-content-item .selectDiv:hover, .et-payment .page-content .page-content-item .selectDiv:focus {
   border: 1px solid #ff8200;
 }
-/* line 241, ../sass/partials/_elite-terms-payment.scss */
-.et-payment .page-content .page-content-item ::-webkit-input-placeholder {
-  /* WebKit, Blink, Edge */
-  color: #c4c3c3;
-}
-/* line 244, ../sass/partials/_elite-terms-payment.scss */
-.et-payment .page-content .page-content-item :-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 */
-  color: #c4c3c3;
-  opacity: 1;
-}
-/* line 248, ../sass/partials/_elite-terms-payment.scss */
-.et-payment .page-content .page-content-item ::-moz-placeholder {
-  /* Mozilla Firefox 19+ */
-  color: #c4c3c3;
-  opacity: 1;
-}
-/* line 252, ../sass/partials/_elite-terms-payment.scss */
-.et-payment .page-content .page-content-item :-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #c4c3c3;
-}
+
 /* line 257, ../sass/partials/_elite-terms-payment.scss */
 .et-payment .page-content .button-holder {
   padding-bottom: 30px;

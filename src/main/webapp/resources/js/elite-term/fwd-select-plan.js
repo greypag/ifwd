@@ -59,7 +59,7 @@
    
    // Override the default value color
    $('select.gray-dropdown', '#et-application-info-section')
-      .css('color', '#9ba5a7')
+      .css('color', '#C4C3C3')
       .on('change', function(e) {
          var $self = $(this);
          
