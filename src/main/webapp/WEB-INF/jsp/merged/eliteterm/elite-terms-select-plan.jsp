@@ -929,7 +929,7 @@ var language = "${language}";
                               </div>
 
                               <div class="clearfix form-group has-error employment-info-row et-emp-info-sourceOfIncome-container hidden">
-                                 <label for="savieEmploymentBean.sourceOfIncome">Amount of other source of income (HK$)</label>
+                                 <label for="savieEmploymentBean.sourceOfIncome"><fmt:message key="eliteTerms.selectPlan.other.income" bundle="${msg}" /></label>
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.sourceOfIncome" name="savieEmploymentBean.sourceOfIncome" data-style="application-select">
@@ -972,7 +972,7 @@ var language = "${language}";
                            </div>
                            <div class="content-right">
                               <div class="clearfix form-group has-error employment-info-row et-emp-info-employer-name-container">
-                                 <label for="savieEmploymentBean.monthlyPersonalIncome" class="monthly-income">Current Employer's Name</label>
+                                 <label for="savieEmploymentBean.monthlyPersonalIncome" class="monthly-income"><fmt:message key="eliteTerms.selectPlan.Current.Name" bundle="${msg}" /></label>
                                  <div class="selectEmployment">
                                     <input type="text" class="form-control gray-textbox" id="savieEmploymentBean.currentEmployerName" name="savieEmploymentBean.currentEmployerName">
                                  </div>
