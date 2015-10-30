@@ -226,8 +226,7 @@ var languageP = "${language}";
                                  <div id="promocode-hidden" class="hidden-sm hidden-xs">
                                     <div class="clearfix">
                                        <div class="pull-left et-promo-code-txtbox">
-                                          <input name="promocode" type="text" autocomplete="off" placeholder="e.g. SAVIE50" class="et-promocode" id="et-promocode" value="${etPolicyApplication.promocode }">
-                                          <span class="err-msg" id="et-ays-datepicker-message"></span> 
+                                          <input name="promocode" type="text" autocomplete="off" placeholder="IF APPLICABLE" class="et-promocode" id="et-promocode" value="${etPolicyApplication.promocode }">
                                        </div>
                                        <div class="pull-right et-apply-btn">
                                           <button type="button" class="btn btn-white et-apply"><fmt:message key="eliteTerms.selectPlan.Apply" bundle="${msg}" /></button>
