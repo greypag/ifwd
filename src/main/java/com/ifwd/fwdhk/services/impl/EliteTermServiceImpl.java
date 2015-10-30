@@ -103,8 +103,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			permanentAddress.put("line2", request.getParameter("savieApplicantBean.permanentAddress2"));
 			permanentAddress.put("line3", request.getParameter("savieApplicantBean.permanentAddress3"));
 			permanentAddress.put("line4", "");
-			//request.getParameter("savieApplicantBean.permanentAddressCountry").split("-")[0]
-			permanentAddress.put("district", "");
+			permanentAddress.put("district", request.getParameter("savieApplicantBean.permanentAddress").split("-")[0]);
 			applicant.put("permanentAddress", permanentAddress);
 			JSONObject residentialAddress = new JSONObject();
 			if(request.getParameter("savieApplicantBean.isResidential") != null && request.getParameter("savieApplicantBean.isResidential").equals("true")){
