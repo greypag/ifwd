@@ -2145,6 +2145,9 @@ var languageP = "${language}";
   	          $('#et-application-first-section').removeClass('hide-element').css('margin-bottom', '190px');
   		      $('#' + currentSection).addClass('hide-element');
   		      currentSection = 'et-application-first-section';
+  		      
+  		    $('.application-page-header #select-plan').removeClass('active');
+  		  	$('.application-page-header #application').addClass('active');
 	  		  $('body, html').animate({
 	  		      scrollTop: ($appInfo.offset().top - stickyHeight) + 'px'
 	          }, 500);
