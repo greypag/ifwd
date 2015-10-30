@@ -2161,7 +2161,7 @@ var languageP = "${language}";
 		      });
 		      
             //cannot apply modal 
-            $('#et-cust-serv-form #tel').focus(function(){ 
+            $(document).on('change', '#et-cust-serv-form #email', function(e) {
                if(!$('#et-cust-serv-form #cannotApplyEmailMessage').find('small').is(':visible')) {
                   $('#et-cust-serv-form')
                      .data('bootstrapValidator')
@@ -2169,7 +2169,7 @@ var languageP = "${language}";
                } else {
                   $('#et-cust-serv-form')
                      .data('bootstrapValidator')
-                     .updateStatus('tel', 'INVALID');
+                     .updateStatus('tel', 'INVALID','callback');
                }
             });
             // ^ bootstrap validation
@@ -2209,7 +2209,7 @@ var languageP = "${language}";
                      container: '#cannotApplyTelMessage',
                      validators: {
                         regexp: {
-                           regexp: /[0-9]/, /*chinese and english chars only*/
+                           regexp: /^[5689]{3}[0-9]+$/,
                            message: 'Your mobile no. is invalid.'
                         },
                         callback: {
@@ -2290,39 +2290,14 @@ var languageP = "${language}";
             });
 
             function isEmailEmpty(number) {
-               var isEmpty = false;
+               var isNotEmpty = false;
                var pref = number.split("");
                var isNotValid = 0;
 
-               if($('#et-cust-serv-form #email').val().length <= 0) {
-                  isEmpty = false;
+               if($('#et-cust-serv-form #email').val().length > 0 || number.length > 0) {
+                  isNotEmpty = true;
                }
-               else {
-                  if (number && (number.length > 0)) {
-                     if(pref.length <= 3) {
-                        for(var i=0; i<pref.length; i++) {
-                           if(pref[i]=="5" || pref[i]=="6" || pref[i]=="8" || pref[i]=="9") {
-                              console.log(pref[i]);
-                           }
-                           else {
-                              isNotValid++;
-                           }
-                        }
-
-                        if(isNotValid > 0) {
-                           isEmpty = false;
-                        }
-                        else {
-                           isEmpty = true;
-                        }
-                     }
-                  }
-                  else {
-                     isEmpty = true;
-                  }
-               }
-
-               return isEmpty;
+               return isNotEmpty;
             }
             
             function getPromoteCode() {
