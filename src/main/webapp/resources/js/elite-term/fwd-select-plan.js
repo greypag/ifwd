@@ -1,4 +1,4 @@
-   var language = "en";
+   //var language = "en";
    var stickyHeight = 130;
    var planDetailData = {};
    var appInfoData = {};

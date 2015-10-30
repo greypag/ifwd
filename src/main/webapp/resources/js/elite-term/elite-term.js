@@ -1,4 +1,5 @@
 var contextPath = context;
+var language = languageP;
 
 var getBundleLanguage = "";
 var lang = UILANGUAGE;

@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
-var language = "${language}";
+var languageP = "${language}";
 </script>
 		<%!
 			boolean isSaleActiveClass = false;

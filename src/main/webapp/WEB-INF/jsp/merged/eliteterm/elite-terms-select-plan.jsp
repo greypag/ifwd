@@ -16,7 +16,7 @@
 var context = "${pageContext.request.contextPath}";
 var signatureFileSize = "${signatureFileSize}";
 var selectPlanNextPageFlow = "${nextPageFlow}";
-var language = "${language}";
+var languageP = "${language}";
 </script>
 		<%!
 			boolean isSaleActiveClass = false;

@@ -12,7 +12,7 @@
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var documentUploadNextPageFlow = "${nextPageFlow}";
-var language = "${language}";
+var languageP = "${language}";
 </script>
 		<%!
 			boolean isSaleActiveClass = false;
