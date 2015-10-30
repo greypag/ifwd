@@ -226,8 +226,7 @@ var languageP = "${language}";
                                  <div id="promocode-hidden" class="hidden-sm hidden-xs">
                                     <div class="clearfix">
                                        <div class="pull-left et-promo-code-txtbox">
-                                          <input name="promocode" type="text" autocomplete="off" placeholder="e.g. SAVIE50" class="et-promocode" id="et-promocode" value="${etPolicyApplication.promocode }">
-                                          <span class="err-msg" id="et-ays-datepicker-message"></span> 
+                                          <input name="promocode" type="text" autocomplete="off" placeholder="IF APPLICABLE" class="et-promocode" id="et-promocode" value="${etPolicyApplication.promocode }">
                                        </div>
                                        <div class="pull-right et-apply-btn">
                                           <button type="button" class="btn btn-white et-apply"><fmt:message key="eliteTerms.selectPlan.Apply" bundle="${msg}" /></button>
@@ -271,7 +270,9 @@ var languageP = "${language}";
                            </div>
                         </div>
                      </div>
-                  
+                     <div class="mask hidden">
+                  		<img src="/fwdhk/resources/images/elite-terms/iFWD_O2O_payment-in-progress.gif" alt="Please wait.." class="">
+                  	 </div>
                   </div>
                
                   <!--Accordion Highlights-->
@@ -1294,13 +1295,28 @@ var languageP = "${language}";
                      </div>
                      <div class="clearfix declaration application-declaration">
                         <div class="pull-left cancellation-check">
+                        </div>
+                        <div class="pull-left cancellation-desc">
+                           <div class="clearfix">
+                              <div class="pull-left span">
+                                 <span class="order">ii</span>
+                              </div>
+                              <div class="pull-left text">
+                                 This Proposal Form is applied at HKSAR, in case of fraud or misrepresentation, the policy may be declared void;
+                              </div>
+                           </div>
+                              
+                        </div>
+                     </div>
+                     <div class="clearfix declaration application-declaration">
+                        <div class="pull-left cancellation-check">
                            <!--<input type="checkbox" value="cancellation" id="cancellation-check" name="isCancel" />
                            <label for="cancellation-check"></label>-->
                         </div>
                         <div class="pull-left cancellation-desc">
                            <div class="clearfix">
                               <div class="pull-left span">
-                                 <span class="order">ii</span>
+                                 <span class="order">iii</span>
                               </div>
                               <div class="pull-left text">
                                  <fmt:message key="eliteTerms.selectPlan.I.have.the.duty" bundle="${msg}" />
@@ -1314,7 +1330,7 @@ var languageP = "${language}";
                         <div class="pull-left cancellation-desc">
                            <div class="clearfix">
                               <div class="pull-left span">
-                                 <span class="order">iii</span>
+                                 <span class="order">iv</span>
                               </div>
                               <div class="pull-left text">
                                  <fmt:message key="eliteTerms.selectPlan.Any.payment.made" bundle="${msg}" />
@@ -1329,7 +1345,7 @@ var languageP = "${language}";
                         <div class="pull-left cancellation-desc">
                            <div class="clearfix">
                               <div class="pull-left span">
-                                 <span class="order">iv</span>
+                                 <span class="order">v</span>
                               </div>
                               <div class="pull-left text">
                                  <fmt:message key="eliteTerms.selectPlan.I/We.hereby.declare" bundle="${msg}" />
@@ -1999,6 +2015,13 @@ var languageP = "${language}";
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-select-plan.js"></script>
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
       <script type="text/javascript">
+      //loading mask
+       $(document).on('click', '#promocode-hidden-button button', function(e) {
+    	   $('#et-plan-option-section .mask').removeClass('hidden');
+    	   setTimeout(function(){
+    		   $('#et-plan-option-section .mask').addClass('hidden');
+           	}, 3000);
+       });
       //select-plan
       $(document).on('click', '#et-before-no', function(e) {
          $('#et-btn-before-start').removeClass('hidden');
@@ -2161,7 +2184,7 @@ var languageP = "${language}";
 		      });
 		      
             //cannot apply modal 
-            $('#et-cust-serv-form #tel').focus(function(){ 
+            $(document).on('change', '#et-cust-serv-form #email', function(e) {
                if(!$('#et-cust-serv-form #cannotApplyEmailMessage').find('small').is(':visible')) {
                   $('#et-cust-serv-form')
                      .data('bootstrapValidator')
@@ -2169,7 +2192,7 @@ var languageP = "${language}";
                } else {
                   $('#et-cust-serv-form')
                      .data('bootstrapValidator')
-                     .updateStatus('tel', 'INVALID');
+                     .updateStatus('tel', 'INVALID','callback');
                }
             });
             // ^ bootstrap validation
@@ -2209,7 +2232,7 @@ var languageP = "${language}";
                      container: '#cannotApplyTelMessage',
                      validators: {
                         regexp: {
-                           regexp: /[0-9]/, /*chinese and english chars only*/
+                           regexp: /^[5689]{3}[0-9]+$/,
                            message: 'Your mobile no. is invalid.'
                         },
                         callback: {
@@ -2290,39 +2313,14 @@ var languageP = "${language}";
             });
 
             function isEmailEmpty(number) {
-               var isEmpty = false;
+               var isNotEmpty = false;
                var pref = number.split("");
                var isNotValid = 0;
 
-               if($('#et-cust-serv-form #email').val().length <= 0) {
-                  isEmpty = false;
+               if($('#et-cust-serv-form #email').val().length > 0 || number.length > 0) {
+                  isNotEmpty = true;
                }
-               else {
-                  if (number && (number.length > 0)) {
-                     if(pref.length <= 3) {
-                        for(var i=0; i<pref.length; i++) {
-                           if(pref[i]=="5" || pref[i]=="6" || pref[i]=="8" || pref[i]=="9") {
-                              console.log(pref[i]);
-                           }
-                           else {
-                              isNotValid++;
-                           }
-                        }
-
-                        if(isNotValid > 0) {
-                           isEmpty = false;
-                        }
-                        else {
-                           isEmpty = true;
-                        }
-                     }
-                  }
-                  else {
-                     isEmpty = true;
-                  }
-               }
-
-               return isEmpty;
+               return isNotEmpty;
             }
             
             function getPromoteCode() {
