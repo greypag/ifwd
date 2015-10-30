@@ -1361,19 +1361,6 @@
          // resAddArr.push(appInfoData.resAddCountry);
          $('#etaspi-res-add').text(resAddArr.join(', '));
       } else {
-    	  var resAddArr = [];
-    	  if (appInfoData.perAddL1) {
-        	  resAddArr.push(appInfoData.perAddL1);
-          }
-          if (appInfoData.perAddL2) {
-        	  resAddArr.push(appInfoData.perAddL2);
-          }
-          if (appInfoData.perAddL3) {
-        	  resAddArr.push(appInfoData.perAddL3);
-          }
-          (appInfoData.perAdd) ? resAddArr.push(appInfoData.perAdd) : '';
-          resAddArr.push(appInfoData.perAddCountry);
-          $('#etaspi-res-add').text(resAddArr.join(', '));
          //$('.et-res-add').addClass('hide-element');
       }
       
@@ -1394,19 +1381,7 @@
          // corrAddArr.push(appInfoData.corrAddCountry);
          $('#etaspi-corr-add').text(corrAddArr.join(', '));
       } else {
-    	  var corrAddArr = [];
-    	  if (appInfoData.perAddL1) {
-    		  corrAddArr.push(appInfoData.perAddL1);
-          }
-          if (appInfoData.perAddL2) {
-        	  corrAddArr.push(appInfoData.perAddL2);
-          }
-          if (appInfoData.perAddL3) {
-        	  corrAddArr.push(appInfoData.perAddL3);
-          }
-          (appInfoData.perAdd) ? corrAddArr.push(appInfoData.perAdd) : '';
-          corrAddArr.push(appInfoData.perAddCountry);
-          $('#etaspi-corr-add').text(corrAddArr.join(', '));
+
          //$('.et-corr-add').addClass('hide-element');
       }
       
@@ -1507,7 +1482,7 @@
       appInfoData.perAddL1 = document.getElementById('savieApplicantBean.permanentAddress1').value;
       appInfoData.perAddL2 = document.getElementById('savieApplicantBean.permanentAddress2').value;
       appInfoData.perAddL3 = document.getElementById('savieApplicantBean.permanentAddress3').value;
-      appInfoData.perAdd = "";//$('option[value="' + document.getElementById('savieApplicantBean.permanentAddress').value + '"]', '#savieApplicantBean\\.permanentAddress').text();
+      appInfoData.perAdd = $('option[value="' + document.getElementById('savieApplicantBean.permanentAddress').value + '"]', '#savieApplicantBean\\.permanentAddress').text();
       //appInfoData.perAddCountry = document.getElementById('savieApplicantBean.permanentAddressCountry').value;
       
       // For the residential address
