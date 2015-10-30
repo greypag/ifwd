@@ -551,7 +551,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 					parameters.put("fileType", passportFileToUploadType);
 					parameters.put("documentType", "passport");
 					parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+passportFileToUploadType);
-					parameters.put("base64", passportFileToUploadImage);
+					parameters.put("base64", passportFileToUploadImageBase64);
 					br = connector.uploadDocuments(parameters, header);
 				}
 					
