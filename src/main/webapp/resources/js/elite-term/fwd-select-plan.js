@@ -1,4 +1,4 @@
-   var language = "en";
+   //var language = "en";
    var stickyHeight = 130;
    var planDetailData = {};
    var appInfoData = {};
@@ -28,12 +28,16 @@
    var _date = new Date();
    var _newdate = new Date(_date);
    _newdate.setYear(_newdate.getYear() - 18);
+   var sixty = new Date(_date);
+   sixty.setYear(sixty.getYear() - 60);
    
    var $planDate = $('#et-select-plan-date-input').datepicker({
       format: "dd-mm-yyyy",
       container: "#date",
       autoclose: true,
-      startView: "decade"
+      startView: "decade",
+      endDate: _newdate,
+      startDate: sixty
    }).datepicker('setDate', new Date(_newdate)).val('DD-MM-YYYY');
    $planDate.on('changeDate', function(e) {
       $('#sales-illu-dob').val(this.value);
@@ -951,7 +955,7 @@
                container: '#educationLevelMessage',
                validators: {
                   notEmpty: {
-                     message: 'Education level is required.'
+                     message: 'Please select your Education level.'
                   }
                }
             },
@@ -970,7 +974,15 @@
                      message: 'Please select your Monthly Personal Income ($HK).'
                   }
                }
-            }
+            },
+            "savieEmploymentBean.currentEmployerName": {
+                container: '#employerNameMessage',
+                validators: {
+                   notEmpty: {
+                      message: 'Please enter your Current Employer\'s Name.'
+                   }
+                }
+             }
          }
       }).on('success.form.bv', function(e) {
             e.preventDefault();
@@ -1100,8 +1112,8 @@
    // Update employment info fields, if employment status = unemployed
    $('#savieEmploymentBean\\.employmentStatus').on('change', function(e) {
       var $self = $(this);
-      
-      if ($self.val() === 'ES1-Full Time Employed' || $self.val() === 'ES2-Part Time Employed' || $self.val() === 'ES3-Self Employed') {
+      var value = $self.val().slice(0,3);
+      if (value === 'ES1' || value === 'ES2' || value === 'ES3') {
          $('.et-emp-info-sourceOfIncome-container').addClass('hidden');
          $('.et-emp-info-liq-assets-container').addClass('hidden');
          $('.et-emp-info-nat-business-container').removeClass('hidden');
@@ -1414,6 +1426,7 @@
       
       $('#etasei-emp-status').text(formatToCapEachLetter(empEduInfoData.status));
       $('#etasei-edu-level').text(formatToCapEachLetter(empEduInfoData.eduLevel));
+      $('#etasei-employer-name').text(formatToCapEachLetter(empEduInfoData.empName));
    }
    function populateAppSummBI() {
       // ???
@@ -1561,6 +1574,7 @@
        empEduInfoData.natBusiness = document.getElementById('savieEmploymentBean.natureOfBusiness').value.split("-")[1];
        empEduInfoData.monIncome = document.getElementById('savieEmploymentBean.monthlyPersonalIncome').value.split("-")[1];
        empEduInfoData.liqAsset = document.getElementById('savieEmploymentBean.liquidAssets').value.split("-")[1];
+       empEduInfoData.empName = document.getElementById('savieEmploymentBean.currentEmployerName').value;
    }
    
    /**

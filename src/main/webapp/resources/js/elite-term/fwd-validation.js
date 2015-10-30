@@ -199,10 +199,9 @@ $(function() {
 		
 	});
 	
-	
 	function totalBeneficiaryEntitlement(){
 		var doesExceed ='';
-		var beneficiaryEntitlement1 =  $('#savieBeneficiaryBean\\[0\\]\\.entitlement').val() != "" ? $('#savieBeneficiaryBean\\[0\\]\\.entitlement').val(): '0';
+		var beneficiaryEntitlement1 =  $('#savieBeneficiaryBean\\[0\\]\\.entitlement').val() != ""  ? $('#savieBeneficiaryBean\\[0\\]\\.entitlement').val(): '0';
 		var beneficiaryEntitlement2 =  (($('#savieBeneficiaryBean\\[1\\]\\.entitlement').val() != "") && 
 										(typeof $('#savieBeneficiaryBean\\[1\\]\\.entitlement').val()!='undefined')) ? $('#savieBeneficiaryBean\\[1\\]\\.entitlement').val(): '0';
 		var beneficiaryEntitlement3 =  (($('#savieBeneficiaryBean\\[2\\]\\.entitlement').val() != "") &&
@@ -210,7 +209,7 @@ $(function() {
 		
 		var beneficiaryEntitlementSum = parseInt(beneficiaryEntitlement1) + parseInt(beneficiaryEntitlement2) + parseInt(beneficiaryEntitlement3);
 		
-		if(beneficiaryEntitlementSum>100){
+		if(beneficiaryEntitlementSum>100 || beneficiaryEntitlementSum<100){
 			doesExceed = "Exceed";
 		}else{
 			doesExceed = "Does not exceed";
@@ -420,11 +419,11 @@ $(function() {
 				container: '#entitlementMessage\\[0\\]',
 				validators: {
 					regexp: {
-						regexp: /[0-9]*/, // /^(?:[1-9]\d?|100)$/,
+						regexp: /[0-9]/, // /^(?:[1-9]\d?|100)$/,
 						message: 'Please enter the Entitlement in integer.'
 					},
 					callback: {
-						message: 'Total Beneficiary Entitlement exceeds 100%.',
+						message: 'Total Beneficiary Entitlement must be 100%.',
 						callback: function (value, validator, $field) {
 							if(totalBeneficiaryEntitlement() == "Exceed"){
 								return false;
@@ -435,6 +434,32 @@ $(function() {
 					}
 				}
 			}
+		}
+	});
+	
+	$( "#savieBeneficiaryBean\\[0\\]\\.entitlement" ).on('change', function() {
+		if(totalBeneficiaryEntitlement()!="Exceed") {
+			if($('#savieBeneficiaryBean\\[1\\]\\.entitlement').length > 0){
+			 $('#beneficiaryInfoForm\\[1\\]')
+             .data('bootstrapValidator')
+             .updateStatus('savieBeneficiaryBean[1].entitlement', 'VALID');
+			}
+			 if($('#savieBeneficiaryBean\\[2\\]\\.entitlement').length > 0){
+				 $('#beneficiaryInfoForm\\[2\\]')
+	             .data('bootstrapValidator')
+	             .updateStatus('savieBeneficiaryBean[2].entitlement', 'VALID');
+			 }
+		} else {
+			if($('#savieBeneficiaryBean\\[1\\]\\.entitlement').length > 0){
+			$('#beneficiaryInfoForm\\[1\\]')
+             .data('bootstrapValidator')
+             .updateStatus('savieBeneficiaryBean[1].entitlement', 'INVALID','callback');
+			}
+			 if($('#savieBeneficiaryBean\\[2\\]\\.entitlement').length > 0){
+				 $('#beneficiaryInfoForm\\[2\\]')
+	             .data('bootstrapValidator')
+	             .updateStatus('savieBeneficiaryBean[2].entitlement', 'INVALID','callback');
+			 }
 		}
 	});
 	
@@ -549,11 +574,11 @@ $(function() {
 	               container: '#entitlementMessage\\[1\\]',
 	               validators: {
 	                  regexp: {
-	                     regexp: /[0-9]*/, // /^(?:[1-9]\d?|100)$/,
+	                     regexp: /[0-9]/, // /^(?:[1-9]\d?|100)$/,
 	                     message: 'Please enter the Entitlement in integer.'
 	                  },
 	                  callback: {
-	                     message: 'Total Beneficiary Entitlement exceeds 100%.',
+	                     message: 'Total Beneficiary Entitlement must be 100%.',
 	                     callback: function (value, validator, $field) {
 	                        if(totalBeneficiaryEntitlement() == "Exceed"){
 	                           return false;
@@ -579,6 +604,30 @@ $(function() {
 				}
 			});
 		 $('#savieBeneficiaryBean\\[1\\]\\.hkId').css('text-transform','uppercase');
+		 
+		 $( "#savieBeneficiaryBean\\[1\\]\\.entitlement" ).on('change', function() {
+			if(totalBeneficiaryEntitlement()!="Exceed") {
+				 $('#beneficiaryInfoForm\\[0\\]')
+	             .data('bootstrapValidator')
+	             .updateStatus('savieBeneficiaryBean[0].entitlement', 'VALID');
+				 
+				 if($('#savieBeneficiaryBean\\[2\\]\\.entitlement').length > 0){
+					 $('#beneficiaryInfoForm\\[2\\]')
+		             .data('bootstrapValidator')
+		             .updateStatus('savieBeneficiaryBean[2].entitlement', 'VALID');
+				 }
+			} else {
+				$('#beneficiaryInfoForm\\[0\\]')
+	             .data('bootstrapValidator')
+	             .updateStatus('savieBeneficiaryBean[0].entitlement', 'INVALID','callback');
+				
+				 if($('#savieBeneficiaryBean\\[2\\]\\.entitlement').length > 0){
+					 $('#beneficiaryInfoForm\\[2\\]')
+		             .data('bootstrapValidator')
+		             .updateStatus('savieBeneficiaryBean[2].entitlement', 'INVALID','callback');
+				 }
+			}
+		});
 	});
 	
 	//Beneficiary Info Form [2]
@@ -692,11 +741,11 @@ $(function() {
 					container: '#entitlementMessage\\[2\\]',
 					validators: {
                   regexp: {
-                     regexp: /[0-9]*/, // /^(?:[1-9]\d?|100)$/,
+                     regexp: /[0-9]/, // /^(?:[1-9]\d?|100)$/,
                      message: 'Please enter the Entitlement in integer.'
                   },
                   callback: {
-                     message: 'Total Beneficiary Entitlement exceeds 100%.',
+                     message: 'Total Beneficiary Entitlement must be 100%.',
                      callback: function (value, validator, $field) {
                         if(totalBeneficiaryEntitlement() == "Exceed"){
                            return false;
@@ -722,6 +771,30 @@ $(function() {
 				}
 			});
 		 $('#savieBeneficiaryBean\\[2\\]\\.hkId').css('text-transform','uppercase');
+		 
+		 $( "#savieBeneficiaryBean\\[2\\]\\.entitlement" ).on('change', function() {
+				if(totalBeneficiaryEntitlement()!="Exceed") {
+					 $('#beneficiaryInfoForm\\[0\\]')
+		             .data('bootstrapValidator')
+		             .updateStatus('savieBeneficiaryBean[0].entitlement', 'VALID');
+					 
+					 if($('#savieBeneficiaryBean\\[1\\]\\.entitlement').length > 0){
+						 $('#beneficiaryInfoForm\\[1\\]')
+			             .data('bootstrapValidator')
+			             .updateStatus('savieBeneficiaryBean[1].entitlement', 'VALID');
+					 }
+				} else {
+					$('#beneficiaryInfoForm\\[0\\]')
+		             .data('bootstrapValidator')
+		             .updateStatus('savieBeneficiaryBean[0].entitlement', 'INVALID','callback');
+					
+					 if($('#savieBeneficiaryBean\\[1\\]\\.entitlement').length > 0){
+						 $('#beneficiaryInfoForm\\[1\\]')
+			             .data('bootstrapValidator')
+			             .updateStatus('savieBeneficiaryBean[1].entitlement', 'INVALID','callback');
+					 }
+				}
+			});
 	});
 	
 	//hkid input

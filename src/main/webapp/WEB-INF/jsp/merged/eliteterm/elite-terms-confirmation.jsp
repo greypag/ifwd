@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
-var language = "${language}";
+var languageP = "${language}";
 </script>
 		<%!
 			boolean isSaleActiveClass = false;
@@ -79,7 +79,8 @@ var language = "${language}";
 					<div class="details-container">
                   <div class="detail">
                      <h3 class="acknowledge"><fmt:message key="eliteTerms.confirmation.Acknowledgement" bundle="${msg}" /></h3>
-                     <p><fmt:message key="eliteTerms.confirmation.Your.application.is" bundle="${msg}" /></p>
+                     <p><fmt:message key="eliteTerms.confirmation.Your.application.is1" bundle="${msg}" /> ${confirmationEmail } <fmt:message key="eliteTerms.confirmation.Your.application.is2" bundle="${msg}" />
+                     </p>
                   </div>
 							
                   <div class="detail">

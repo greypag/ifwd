@@ -14,7 +14,7 @@
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var paymentNextPageFlow = "${nextPageFlow}";
-var language = "${language}";
+var languageP = "${language}";
 </script>
 		<%!
 			boolean isSaleActiveClass = false;

@@ -16,7 +16,7 @@
 var context = "${pageContext.request.contextPath}";
 var signatureFileSize = "${signatureFileSize}";
 var selectPlanNextPageFlow = "${nextPageFlow}";
-var language = "${language}";
+var languageP = "${language}";
 </script>
 		<%!
 			boolean isSaleActiveClass = false;
@@ -226,8 +226,7 @@ var language = "${language}";
                                  <div id="promocode-hidden" class="hidden-sm hidden-xs">
                                     <div class="clearfix">
                                        <div class="pull-left et-promo-code-txtbox">
-                                          <input name="promocode" type="text" autocomplete="off" placeholder="e.g. SAVIE50" class="et-promocode" id="et-promocode" value="${etPolicyApplication.promocode }">
-                                          <span class="err-msg" id="et-ays-datepicker-message"></span> 
+                                          <input name="promocode" type="text" autocomplete="off" placeholder="IF APPLICABLE" class="et-promocode" id="et-promocode" value="${etPolicyApplication.promocode }">
                                        </div>
                                        <div class="pull-right et-apply-btn">
                                           <button type="button" class="btn btn-white et-apply"><fmt:message key="eliteTerms.selectPlan.Apply" bundle="${msg}" /></button>
@@ -246,32 +245,34 @@ var language = "${language}";
                         
                         <div class="et-plan-option-extra-info hidden" id="et-dis-promo-amount">
                            <div class="et-extra-info top">
-                              <span class="et-amount">Amount</span>
-                              <div class="et-po-amount-label">1st policy years</div>
+                              <span class="et-amount"><fmt:message key="eliteTerms.selectPlan.Amount" bundle="${msg}" /></span>
+                              <div class="et-po-amount-label"><fmt:message key="eliteTerms.selectPlan.1st.policy.years" bundle="${msg}" /></div>
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount">HK$ <span id="et-month-dis-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" pattern="#.00"/></span> /month</p>
-                                 <p class="et-per et-month">(only HK$ <span id="et-day-dis-amount"><fmt:formatNumber value="${eliteTermPremium.dailyDuePremium }" pattern="#.00"/></span> per day)</p>
+                                 <p class="et-amount"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /> <span id="et-month-dis-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.month" bundle="${msg}" /></p>
+                                 <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.(only.HK$" bundle="${msg}" /> <span id="et-day-dis-amount"><fmt:formatNumber value="${eliteTermPremium.dailyDuePremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.per.day)" bundle="${msg}" /></p>
                               </div>
                               
                            </div>
                         </div>
                         <div class="et-plan-option-extra-info hide-element" id="et-act-promo-amount">
                            <div class="et-extra-info top">
-                              <span class="et-amount">Amount</span>
-                              <div class="et-po-amount-label">first 20 policy years</div>
+                              <span class="et-amount"><fmt:message key="eliteTerms.selectPlan.Amount" bundle="${msg}" /></span>
+                              <div class="et-po-amount-label"><fmt:message key="eliteTerms.selectPlan.first.20.policy.years" bundle="${msg}" /></div>
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount">HK$ <span id="et-month-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/></span> /month</p>
-                                 <p class="et-per et-month">(only HK$ <span id="et-day-amount"><fmt:formatNumber value="${eliteTermPremium.dailyPremium }" pattern="#.00"/></span> per day)</p>
+                                 <p class="et-amount"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /> <span id="et-month-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.month" bundle="${msg}" /></p>
+                                 <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.(only.HK$" bundle="${msg}" /> <span id="et-day-amount"><fmt:formatNumber value="${eliteTermPremium.dailyPremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.per.day)" bundle="${msg}" /></p>
                               </div>
                               
                            </div>
                         </div>
                      </div>
-                  
+                     <div class="mask hidden">
+                  		<img src="/fwdhk/resources/images/elite-terms/iFWD_O2O_payment-in-progress.gif" alt="Please wait.." class="">
+                  	 </div>
                   </div>
                
                   <!--Accordion Highlights-->
@@ -530,7 +531,7 @@ var language = "${language}";
 	                                       <div class="et-app-edit-wrapper">
 	                                          <a href="#" title="Edit Date of birth" class="et-app-sum-edit et-app-edit" data-target="#et-about-yoursel-section">
 	                                             <span class="text-center">
-	                                                Edit
+	                                                <fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" />
 	                                             </span>
 	                                          </a>
 	                                       </div>
@@ -550,7 +551,7 @@ var language = "${language}";
                                         <div class="et-app-edit-wrapper">
                                           <a href="#" title="Edit Gender" class="et-app-sum-edit et-app-edit" data-target="#et-about-yoursel-section">
                                              <span class="text-center">
-                                                Edit
+                                                <fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" />
                                              </span>
                                           </a>
                                         </div>
@@ -576,7 +577,7 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" name="savieApplicantBean.maritalStatus"  id="savieApplicantBean.maritalStatus">
-                                             <option selected disabled value="">- Please select -</option>
+                                             <option selected disabled value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${maritalStatusesEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -601,7 +602,7 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" data-style="application-select selection" id="savieApplicantBean.placeOfBirth" name="savieApplicantBean.placeOfBirth">
-                                             <option selected disabled value="">- Please select -</option>
+                                             <option selected disabled value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${placeOfBirthEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -626,7 +627,7 @@ var language = "${language}";
                                        <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" id="savieApplicantBean.nationality" name="savieApplicantBean.nationality">
-                                             <option selected disabled value="">- Please select -</option>
+                                             <option selected disabled value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${nationalityEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -683,7 +684,7 @@ var language = "${language}";
                                        <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress2" name="savieApplicantBean.permanentAddress2" type="text" placeholder="Line 2">
                                        <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress3" name="savieApplicantBean.permanentAddress3" type="text" placeholder="Line 3">
                                        <span class="error-msg" id="permanentAddressMessage">
-                                          <small class="help-block hide-element">Must enter at least one line for address</small>
+                                          <small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
                                        </span>
                                        <!--  <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
@@ -698,10 +699,10 @@ var language = "${language}";
                                        </div>
                                        <span class="error-msg" id="permanentAddressCountryMessage"></span>
 									    -->
-                                       <div class="selectDiv et-district-wrapper hide-element">
+                                       <div class="selectDiv et-district-wrapper">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown "  data-style="application-select selection" name="savieApplicantBean.permanentAddress" id="savieApplicantBean.permanentAddress">
-                                             <option value="">-Please select-</option>
+                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -732,7 +733,7 @@ var language = "${language}";
                                                 <label for="savieApplicantBean.isResidential"></label>
                                              </div>
                                              <div class="pull-left right-checkbox">
-                                                <span class="checkbox-text">My residential address is different as my permanent address</span>
+                                                <span class="checkbox-text"><fmt:message key="eliteTerms.selectPlan.My.residential.address" bundle="${msg}" /></span>
                                              </div>
                                           </div>
                                        </div>
@@ -749,7 +750,7 @@ var language = "${language}";
                                        <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress2" name="savieApplicantBean.residentialAdress2" type="text" placeholder="Line 2">
                                        <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress3" name="savieApplicantBean.residentialAdress3" type="text" placeholder="Line 3">
                                        <span class="error-msg" id="residentialAddressMessage">
-                                          <small class="help-block hide-element">Must enter at least one line for address</small>
+                                          <small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
                                        </span>
                                        <!-- <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
@@ -766,7 +767,7 @@ var language = "${language}";
                                        <div class="selectDiv et-district-wrapper">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.residentialDistrict" id="savieApplicantBean.residentialDistrict">
-                                             <option value="">-Please select-</option>
+                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -814,7 +815,7 @@ var language = "${language}";
                                        <span class="error-msg" id="corrAddressMessage3"></span>
                                        <input class="form-control gray-textbox correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress3" name="savieApplicantBean.correspondenceAdress3" type="text" placeholder="Line 3">
                                        <span class="error-msg" id="corrAddressMessage">
-                                          <small  class="help-block hide-element">Must enter at least one line for address</small>
+                                          <small  class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
                                        </span>
                                        <!-- <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
@@ -831,7 +832,7 @@ var language = "${language}";
                                        <div class="selectDiv et-district-wrapper">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.correspondenceDistrict" id="savieApplicantBean.correspondenceDistrict">
-                                             <option value="">-Please select-</option>
+                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -872,7 +873,7 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.employmentStatus" name="savieEmploymentBean.employmentStatus" data-style="application-select">
-                                       <option value="">-Please select-</option>
+                                       <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                        <c:if test="${language == 'en'}">
                                  <c:forEach var="list" items="${employmentStatusEN}">
                                     <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -892,7 +893,7 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.natureOfBusiness" name="savieEmploymentBean.natureOfBusiness" data-style="application-select" onclick="getOccupation(this.value,'${language }');">
-                                       <option value="">-Please select-</option>
+                                       <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                        <c:if test="${language == 'en'}">
                                  <c:forEach var="list" items="${natureOfBusinessEN}">
                                    <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -912,7 +913,7 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                        <select class="form-control gray-dropdown" id="savieEmploymentBean.occupation" name="savieEmploymentBean.occupation" data-style="application-select">
-                                           <option value="">-Please select-</option>
+                                           <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                            <c:if test="${language == 'en'}">
                                                 <c:forEach var="list" items="${occupationEN}">
                                                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -929,11 +930,11 @@ var language = "${language}";
                               </div>
 
                               <div class="clearfix form-group has-error employment-info-row et-emp-info-sourceOfIncome-container hidden">
-                                 <label for="savieEmploymentBean.sourceOfIncome">Amount of other source of income (HK$)</label>
+                                 <label for="savieEmploymentBean.sourceOfIncome"><fmt:message key="eliteTerms.selectPlan.other.income" bundle="${msg}" /></label>
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.sourceOfIncome" name="savieEmploymentBean.sourceOfIncome" data-style="application-select">
-                                       <option value="">-Please select-</option>
+                                       <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                            <c:if test="${language == 'en'}">
                                                 <c:forEach var="list" items="${etAmountOtherSourceEN}">
                                                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -954,7 +955,7 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.liquidAssets" name="savieEmploymentBean.liquidAssets" data-style="application-select">
-                                       <option value="">-Please select-</option>
+                                       <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                            <c:if test="${language == 'en'}">
                                                 <c:forEach var="list" items="${etLiquidAssetEN}">
                                                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -972,7 +973,7 @@ var language = "${language}";
                            </div>
                            <div class="content-right">
                               <div class="clearfix form-group has-error employment-info-row et-emp-info-employer-name-container">
-                                 <label for="savieEmploymentBean.monthlyPersonalIncome" class="monthly-income">Current Employers Name</label>
+                                 <label for="savieEmploymentBean.monthlyPersonalIncome" class="monthly-income"><fmt:message key="eliteTerms.selectPlan.Current.Name" bundle="${msg}" /></label>
                                  <div class="selectEmployment">
                                     <input type="text" class="form-control gray-textbox" id="savieEmploymentBean.currentEmployerName" name="savieEmploymentBean.currentEmployerName">
                                  </div>
@@ -983,7 +984,7 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.monthlyPersonalIncome" name="savieEmploymentBean.monthlyPersonalIncome" data-style="application-select">
-                                       <option value="">-Please select-</option>
+                                       <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                        <c:if test="${language == 'en'}">
                                  <c:forEach var="list" items="${monthlyPersonalIncomeEN}">
                                    <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -1003,7 +1004,7 @@ var language = "${language}";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.educationLevel" name="savieEmploymentBean.educationLevel" data-style="application-select">
-                                       <option value="">-Please select-</option>
+                                       <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                            <c:if test="${language == 'en'}">
                                                 <c:forEach var="list" items="${etEducationLevelEN}">
                                                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -1129,7 +1130,7 @@ var language = "${language}";
                                        <div class="selectBeneficiary">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  id="savieBeneficiaryBean[0].relationship" name="savieBeneficiaryBean[0].relationship" data-style="application-select">
-                                             <option value="">-Please select-</option>
+                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
 													  <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -1146,7 +1147,7 @@ var language = "${language}";
                                     </div>
                                     <div class="form-group has-error beneficiary-info-row entitle">
                                        <label for="savieBeneficiaryBean[0].entitlement"><fmt:message key="eliteTerms.selectPlan.Entitlement" bundle="${msg}" /></label>
-                                       <input type="number" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBean[0].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="100" />
+                                       <input type="number" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBean[0].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="100" min="0" />
                                        <span class="error-msg" id="entitlementMessage[0]"></span>
                                     </div>		                
                                  </div>
@@ -1294,13 +1295,28 @@ var language = "${language}";
                      </div>
                      <div class="clearfix declaration application-declaration">
                         <div class="pull-left cancellation-check">
+                        </div>
+                        <div class="pull-left cancellation-desc">
+                           <div class="clearfix">
+                              <div class="pull-left span">
+                                 <span class="order">ii</span>
+                              </div>
+                              <div class="pull-left text">
+                                 This Proposal Form is applied at HKSAR, in case of fraud or misrepresentation, the policy may be declared void;
+                              </div>
+                           </div>
+                              
+                        </div>
+                     </div>
+                     <div class="clearfix declaration application-declaration">
+                        <div class="pull-left cancellation-check">
                            <!--<input type="checkbox" value="cancellation" id="cancellation-check" name="isCancel" />
                            <label for="cancellation-check"></label>-->
                         </div>
                         <div class="pull-left cancellation-desc">
                            <div class="clearfix">
                               <div class="pull-left span">
-                                 <span class="order">ii</span>
+                                 <span class="order">iii</span>
                               </div>
                               <div class="pull-left text">
                                  <fmt:message key="eliteTerms.selectPlan.I.have.the.duty" bundle="${msg}" />
@@ -1314,7 +1330,7 @@ var language = "${language}";
                         <div class="pull-left cancellation-desc">
                            <div class="clearfix">
                               <div class="pull-left span">
-                                 <span class="order">iii</span>
+                                 <span class="order">iv</span>
                               </div>
                               <div class="pull-left text">
                                  <fmt:message key="eliteTerms.selectPlan.Any.payment.made" bundle="${msg}" />
@@ -1329,7 +1345,7 @@ var language = "${language}";
                         <div class="pull-left cancellation-desc">
                            <div class="clearfix">
                               <div class="pull-left span">
-                                 <span class="order">iv</span>
+                                 <span class="order">v</span>
                               </div>
                               <div class="pull-left text">
                                  <fmt:message key="eliteTerms.selectPlan.I/We.hereby.declare" bundle="${msg}" />
@@ -1506,6 +1522,10 @@ var language = "${language}";
                                  <div class="clearfix info-holder">
                                     <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Occupation" bundle="${msg}" /></h4>
                                     <p class="info" id="etasei-occupation"></p>
+                                 </div>
+                                 <div class="clearfix info-holder">
+                                    <h4 class="info-label employment">Current employer's name</h4>
+                                    <p class="info" id="etasei-employer-name"></p>
                                  </div>
                                  <div class="clearfix info-holder">
                                     <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Nature.of.business" bundle="${msg}" /></h4>
@@ -1775,7 +1795,7 @@ var language = "${language}";
                            <label for="day"><fmt:message key="eliteTerms.selectPlan.Preffered.day" bundle="${msg}" /></label>
                            <div class="select-holder">
                                  <select class="form-control gray-textbox" id="day" name="day">
-                                 <option value="">-Please select-</option>
+                                 <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                             <c:if test="${language == 'en'}">
                                     <c:forEach var="list" items="${etCsContactPreferredDayEN}">
                                        <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -1794,7 +1814,7 @@ var language = "${language}";
                            <label for="time"><fmt:message key="eliteTerms.selectPlan.Preffered.timeslot" bundle="${msg}" /></label>
                            <div class="select-holder">
                               <select class="form-control gray-textbox" id="time" name="time">
-                                 <option value="">-Please select-</option>
+                                 <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                             <c:if test="${language == 'en'}">
                                     <c:forEach var="list" items="${etCsContactPreferredTimeSlotEN}">
                                        <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -1813,7 +1833,7 @@ var language = "${language}";
                            <label for="enquiry"><fmt:message key="eliteTerms.selectPlan.Enquire.type" bundle="${msg}" /></label>
                            <div class="select-holder">
                               <select class="form-control gray-textbox" id="enquiry" name="enquiry">
-                                 <option value="">-Please select-</option>
+                                 <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                             <c:if test="${language == 'en'}">
                                     <c:forEach var="list" items="${etEnquiryTypeEN}">
                                        <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -1829,7 +1849,7 @@ var language = "${language}";
                            <span class="error-msg" id="cannotApplyEnquireMessage"></span>
                         </div>
                         <div class="fwd-checkbox modal-checkbox">
-                           <input type="checkbox" id="cannot-apply-checkbox">
+                           <input type="checkbox" id="cannot-apply-checkbox" name="cannot-apply-checkbox">
                            <label for="cannot-apply-checkbox"></label>
                            <p class="notice"><fmt:message key="eliteTerms.selectPlan.I.have.read.and.I" bundle="${msg}" />
                            <a href="#"><fmt:message key="eliteTerms.selectPlan.Personal.Information" bundle="${msg}" /></a></p>
@@ -1995,6 +2015,13 @@ var language = "${language}";
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-select-plan.js"></script>
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
       <script type="text/javascript">
+      //loading mask
+       $(document).on('click', '#promocode-hidden-button button', function(e) {
+    	   $('#et-plan-option-section .mask').removeClass('hidden');
+    	   setTimeout(function(){
+    		   $('#et-plan-option-section .mask').addClass('hidden');
+           	}, 3000);
+       });
       //select-plan
       $(document).on('click', '#et-before-no', function(e) {
          $('#et-btn-before-start').removeClass('hidden');
@@ -2157,7 +2184,7 @@ var language = "${language}";
 		      });
 		      
             //cannot apply modal 
-            $('#et-cust-serv-form #tel').focus(function(){ 
+            $(document).on('change', '#et-cust-serv-form #email', function(e) {
                if(!$('#et-cust-serv-form #cannotApplyEmailMessage').find('small').is(':visible')) {
                   $('#et-cust-serv-form')
                      .data('bootstrapValidator')
@@ -2165,11 +2192,12 @@ var language = "${language}";
                } else {
                   $('#et-cust-serv-form')
                      .data('bootstrapValidator')
-                     .updateStatus('tel', 'INVALID');
+                     .updateStatus('tel', 'INVALID','callback');
                }
             });
             // ^ bootstrap validation
             $('#et-cust-serv-form').bootstrapValidator({
+               excluded:[],
                fields: {
                   "name": {
                      container: '#cannotApplyNameMessage',
@@ -2178,7 +2206,7 @@ var language = "${language}";
                            message: 'Please enter your name.'
                         },
                         regexp: {
-                           regexp: /^[-'a-z\u4e00-\u9eff]{1,20}$/i, /*chinese and english chars only*/
+                           regexp: /[a-z A-Z \s \u4e00-\u9eff]/, /*chinese and english chars only*/
                            message: 'Your name is invalid.'
                         },
                         callback: {
@@ -2204,7 +2232,7 @@ var language = "${language}";
                      container: '#cannotApplyTelMessage',
                      validators: {
                         regexp: {
-                           regexp: /[0-9]/, /*chinese and english chars only*/
+                           regexp: /^[5689]{3}[0-9]+$/,
                            message: 'Your mobile no. is invalid.'
                         },
                         callback: {
@@ -2230,7 +2258,15 @@ var language = "${language}";
                            message: 'Please choose a perferred timeslot for our customer service representative to call you.'
                         }
                      }
-                  }             
+                  },
+                  "cannot-apply-checkbox": {
+                      container: '#cannotApplyCheckMessage',
+                      validators: {
+                         notEmpty: {
+                            message: 'This field is required.'
+                         }
+                      }
+                   }
                }
             }).on('success.form.bv', function(e) {
                   e.preventDefault();
@@ -2238,45 +2274,53 @@ var language = "${language}";
           
                    $('.modal').modal('hide');
                    $('#back-to-home-modal').modal('show');
-                  // modify code here for data manipulation
-
-                  buttonNext();
+                   
+                    var name = $('#name').val();
+	               	var email = $('#email').val();
+	               	var mobile = $('#tel').val();
+	               	var preferredDay = $('#day').val();
+	               	var preferredTimeSlot = $('#time').val();
+	               	var enquiryType = $('#enquiry').val();
+	               	var channel = $("#channel").val();
+	               	var product = "eliteterm";
+	               	
+	               	if(name ==null){
+	               		console.log("data error");
+	               	}
+	               	else{
+	               		$.get(contextPath+'/ajax/eliteTerm/contactCs',
+	               		{ 
+	               			name : name,
+	               			email : email,
+	               			mobile : mobile,
+	               			preferredDay : preferredDay,
+	               			preferredTimeSlot : preferredTimeSlot,
+	               			enquiryType : enquiryType,
+	               			channel : channel,
+	               			product : product
+	               		},
+	               		function(data) {
+	               			if(data.errMsgs == null){
+	               				console.log("data success");
+	               			}
+	               			else{
+	               				console.log("data error");
+	               			}
+	               		})
+	               		.fail(function(data) {
+	               		});
+	               	}
             });
 
             function isEmailEmpty(number) {
-               var isEmpty = false;
+               var isNotEmpty = false;
                var pref = number.split("");
                var isNotValid = 0;
 
-               if($('#et-cust-serv-form #email').val().length <= 0) {
-                  isEmpty = false;
+               if($('#et-cust-serv-form #email').val().length > 0 || number.length > 0) {
+                  isNotEmpty = true;
                }
-               else {
-                  if (number && (number.length > 0)) {
-                     if(pref.length <= 3) {
-                        for(var i=0; i<pref.length; i++) {
-                           if(pref[i]=="5" || pref[i]=="6" || pref[i]=="8" || pref[i]=="9") {
-                              console.log(pref[i]);
-                           }
-                           else {
-                              isNotValid++;
-                           }
-                        }
-
-                        if(isNotValid > 0) {
-                           isEmpty = false;
-                        }
-                        else {
-                           isEmpty = true;
-                        }
-                     }
-                  }
-                  else {
-                     isEmpty = true;
-                  }
-               }
-
-               return isEmpty;
+               return isNotEmpty;
             }
             
             function getPromoteCode() {

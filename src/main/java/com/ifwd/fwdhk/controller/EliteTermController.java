@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.request.eliteterm.CreateEliteTermPolicyRequest;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.services.EliteTermService;
@@ -117,8 +118,14 @@ public class EliteTermController extends BaseController{
 	@RequestMapping(value = {"/{lang}/term-life-insurance/confirmation"})
 	public ModelAndView getConfirmation(Model model, HttpServletRequest request) {
 		try {
+			CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
+			String email = etPolicyApplication.getApplicant().getEmail();
+			model.addAttribute("confirmationEmail", email);
 			eliteTermService.uploadEliteTermDocuments(request);
 		} catch (ECOMMAPIException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
