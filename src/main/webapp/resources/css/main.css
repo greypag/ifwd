@@ -296,24 +296,21 @@ ul.maintabs {
 
 ul.maintabs li {
 	display: inline-block;
-	width: 20% !important;
+	/*width: 20% !important;*/
 }
 
-ul.maintabs li:hover {
+ul.maintabs.menutab-V2 li.dropdown:hover {
 	color: #fff;
 	background-color: #f68a1d;
 }
 
 ul.maintabs li:hover span, ul.maintabs li:hover a {
-	color: #fff !important;
+	/*color: #fff !important;*/
+	color: #fff;
 	-webkit-transition: color 300ms, background-color 300ms;
 	-moz-transition: color 300ms, background-color 300ms;
 	-o-transition: color 300ms, background-color 300ms;
 	transition: color 300ms, background-color 300ms;
-}
-
-.maintabs-hover {
-	
 }
 
 ul.maintabs li.active {
@@ -432,7 +429,7 @@ ul.maintabs li a span.special-offer:hover {
 	font-size: 18px;
 }
 
-.travel-and-home-tab {
+.travel-and-home-tab, .protect-save-enjoy-tab {
 	top: 47px;
 	position: relative;
 	margin-left: 30px;
@@ -10005,3 +10002,69 @@ tr.product-landing-error-wrap {
 }
 /******** ios chrome alert tc ********/
 /******** ios chrome alert ********/
+
+/******** Desktop header menutab v2 ********/
+.no-padding{
+	padding:0;
+}
+.protect-save-enjoy-tab{
+    font-size: 24px;	
+}
+ul.menutab-V2{
+	flaot:right;
+	font-size:24px;
+	margin:0;
+	padding:0;
+}
+ul.menutab-V2 li.dropdown:hover .dropdown-menu{
+    display: block;
+    margin-top: 0;
+    width:510%;
+    border-top:1px;
+    background-clip: border-box;
+    text-align:left;
+    padding: 20px 40px 20px 44px;
+}
+ul.menutab-V2 li.dropdown:hover .dropdown-menu.one-column{
+	width:201%;
+}
+.dropdown-menu.one-column.enjoy-tab{
+	left:-100%;
+}
+.dropdown-menu.protect-tab{
+    left:-209%;
+}
+.dropdown-menu li.menu-subtitle{
+    color: #373a36;
+    font-size: 22px;
+    font-weight: 700;
+}
+ul.maintabs li li.menu-link, li.menu-subtitle{
+	display:block;
+	line-height: 2;
+}
+ul.maintabs.menutab-V2 .dropdown-menu li.menu-link *{
+    color: #f6871e;
+    font-size: 18px;
+}
+ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
+	color: #9fb1b2;
+	font-size: 18px;
+}
+ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a{
+	font-size: 18px;
+	font-weight: 300;
+}
+ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
+	margin-right:7px;
+	font-size: 11px;
+}
+.middle-group{
+    border-left-style: solid;
+    border-width: 1px;
+    border-color: #9fb1b2;
+    border-right-style: solid;
+    margin-right: 5%;
+    padding-left: 5%;	
+}
+/******** End of desktop header menutab v2 ********/
