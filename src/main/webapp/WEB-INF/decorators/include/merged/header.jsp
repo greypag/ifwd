@@ -568,7 +568,7 @@ function submitLoginForm(formID) {
 			</div>-->
             <div class="col-lg-8 col-md-7 pull-right">
                 <ul class="col-lg-7 col-md-10 maintabs menutab-V2 pull-right">
-                    <li class="col-lg-4 col-md-4 pad-none main-tab dropdown <%if (actionName.equals("Savie")) {%> active <%}%>">
+                    <li class="col-lg-4 col-md-4 pad-none main-tab dropdown <%if (actionName.equals("WorkingHoliday") | actionName.equals("Flight") | actionName.equals("Travel") | actionName.equals("Homecare") | actionName.equals("Oversea") | actionName.equals("Eliteterm")) {%> active <%}%>">
                         <a class="protect-save-enjoy-tab"><fmt:message key="header.product.type1" bundle="${msg}" /></a>
 		                <ul class="col-lg-12 col-md-12 dropdown-menu protect-tab">
 			                  <li class="col-lg-3 col-md-3 no-padding">
@@ -605,7 +605,7 @@ function submitLoginForm(formID) {
                               <li class="menu-subtitle"><fmt:message key="header.product.type2.group1.title" bundle="${msg}" /></li>
                                   <li class="menu-link">
 	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-	                                  <a class="menu-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type2.group1.linkname1" bundle="${msg}" /></a>
+	                                  <a class="menu-link" href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2.group1.linkname1" bundle="${msg}" /></a>
                                   </li>
                              </ul>                            
                           </li>
@@ -619,11 +619,11 @@ function submitLoginForm(formID) {
                               <li class="menu-subtitle"><fmt:message key="header.product.type3.group1.title" bundle="${msg}" /></li>
                                   <li class="menu-link">
 	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-	                                  <a class="menu-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type3.group1.linkname1" bundle="${msg}" /></a>
+	                                  <a class="menu-link" href="<%=request.getContextPath()%>/${language}/"><fmt:message key="header.product.type3.group1.linkname1" bundle="${msg}" /></a>
                                   </li>
                                   <li class="menu-link">
                                       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                      <a class="menu-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a>
+                                      <a class="menu-link" href="<%=request.getContextPath()%>/${language}/"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a>
                                   </li>                                  
                              </ul>                            
                           </li>
