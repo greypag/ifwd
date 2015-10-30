@@ -158,7 +158,12 @@ public class EliteTermServiceImpl implements EliteTermService {
 			JSONObject beneficiarie1 = new JSONObject();
 			JSONObject beneficiarie2 = new JSONObject();
 			JSONObject beneficiarie3 = new JSONObject();
-			if(request.getParameter("beneficiary-info") != null && request.getParameter("beneficiary-info") == "name-others-now"){
+			logger.info(request.getParameter("beneficiary-info"));
+			logger.debug(request.getParameter("beneficiary-info").equals("name-others-now")+"");
+			logger.info(request.getParameter("savieBeneficiaryBean[0].firstName"));
+			logger.info(request.getParameter("savieBeneficiaryBean[1].firstName"));
+			logger.info(request.getParameter("savieBeneficiaryBean[2].firstName"));
+			if(request.getParameter("beneficiary-info") != null && request.getParameter("beneficiary-info").equals("name-others-now")){
 				if(request.getParameter("savieBeneficiaryBean[0].firstName")!=null && request.getParameter("savieBeneficiaryBean[0].firstName")!=""){
 					beneficiarie1.put("firstName", request.getParameter("savieBeneficiaryBean[0].firstName"));
 					beneficiarie1.put("lastName", request.getParameter("savieBeneficiaryBean[0].lastName"));
