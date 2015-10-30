@@ -2219,6 +2219,7 @@ var languageP = "${language}";
                   },
                   "email": {
                      container: '#cannotApplyEmailMessage',
+                     trigger: 'blur',
                      validators: {
                         notEmpty: {
                            message: 'Please enter your email address.'
@@ -2230,6 +2231,7 @@ var languageP = "${language}";
                   },
                   "tel": {
                      container: '#cannotApplyTelMessage',
+                     trigger: 'blur',
                      validators: {
                         regexp: {
                            regexp: /^[5689]{3}[0-9]+$/,

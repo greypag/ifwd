@@ -611,6 +611,7 @@
             },
             "savieApplicantBean.hkId": {
                container: '#hkidMessage',
+               trigger: 'blur',
                validators: {
                   notEmpty: {
                      message: 'HKID is required.'
