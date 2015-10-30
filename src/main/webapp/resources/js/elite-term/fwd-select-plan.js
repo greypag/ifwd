@@ -1304,7 +1304,6 @@
       $('#etaspi-en-lname').text(appInfoData.enLName);
       $('#etaspi-fname').text(appInfoData.enFName);
       $('#etaspi-chName').text(appInfoData.chName);
-      $('#etaspi-hkid').text(appInfoData.hkid);
       $('#etaspi-gender').text(appInfoData.gender);
       $('#etaspi-is-smooker').text(planDetailData.isSmooker ? 'Smooker' : 'Non-smooker');
       $('#etaspi-marital-status').text(capitalizeFirstLetter(appInfoData.maritalStat));
@@ -1499,7 +1498,6 @@
        }
       
       appInfoData.gender = planDetailData.gender;
-      appInfoData.hkid = document.getElementById('savieApplicantBean.hkId').value;
       appInfoData.maritalStat = $('option[value="' + document.getElementById('savieApplicantBean.maritalStatus').value + '"]', '#savieApplicantBean\\.maritalStatus').text();
       appInfoData.pob = $('option[value="' + document.getElementById('savieApplicantBean.placeOfBirth').value + '"]', '#savieApplicantBean\\.placeOfBirth').text();
       appInfoData.nationality = $('option[value="' + document.getElementById('savieApplicantBean.nationality').value + '"]', '#savieApplicantBean\\.nationality').text();

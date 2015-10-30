@@ -800,6 +800,9 @@ $(function() {
 	//hkid input
 	$('#savieApplicantBean\\.hkId').blur(function (e) {
 		var value = $(this).val();
+		hkidTemp = value.charAt(0).toUpperCase()+ value.slice(1);
+		
+		$('#etaspi-hkid').text(hkidTemp);
 		value = value.replace(/[()]/g,'');
 		$(this).val(value);
 		if(isValidHKID($('#savieApplicantBean\\.hkId').val())) {
