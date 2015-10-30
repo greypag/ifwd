@@ -1295,13 +1295,28 @@ var languageP = "${language}";
                      </div>
                      <div class="clearfix declaration application-declaration">
                         <div class="pull-left cancellation-check">
+                        </div>
+                        <div class="pull-left cancellation-desc">
+                           <div class="clearfix">
+                              <div class="pull-left span">
+                                 <span class="order">ii</span>
+                              </div>
+                              <div class="pull-left text">
+                                 This Proposal Form is applied at HKSAR, in case of fraud or misrepresentation, the policy may be declared void;
+                              </div>
+                           </div>
+                              
+                        </div>
+                     </div>
+                     <div class="clearfix declaration application-declaration">
+                        <div class="pull-left cancellation-check">
                            <!--<input type="checkbox" value="cancellation" id="cancellation-check" name="isCancel" />
                            <label for="cancellation-check"></label>-->
                         </div>
                         <div class="pull-left cancellation-desc">
                            <div class="clearfix">
                               <div class="pull-left span">
-                                 <span class="order">ii</span>
+                                 <span class="order">iii</span>
                               </div>
                               <div class="pull-left text">
                                  <fmt:message key="eliteTerms.selectPlan.I.have.the.duty" bundle="${msg}" />
@@ -1315,7 +1330,7 @@ var languageP = "${language}";
                         <div class="pull-left cancellation-desc">
                            <div class="clearfix">
                               <div class="pull-left span">
-                                 <span class="order">iii</span>
+                                 <span class="order">iv</span>
                               </div>
                               <div class="pull-left text">
                                  <fmt:message key="eliteTerms.selectPlan.Any.payment.made" bundle="${msg}" />
@@ -1330,7 +1345,7 @@ var languageP = "${language}";
                         <div class="pull-left cancellation-desc">
                            <div class="clearfix">
                               <div class="pull-left span">
-                                 <span class="order">iv</span>
+                                 <span class="order">v</span>
                               </div>
                               <div class="pull-left text">
                                  <fmt:message key="eliteTerms.selectPlan.I/We.hereby.declare" bundle="${msg}" />
