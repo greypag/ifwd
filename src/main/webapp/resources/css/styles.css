@@ -2916,6 +2916,7 @@ label {
     padding-top: 0;
     /* padding-bottom: 23px; */
     padding-bottom: 20px;
+    margin: 0 auto;
   }
 }
 /* line 138, ../sass/partials/_three-column-widget.scss */
