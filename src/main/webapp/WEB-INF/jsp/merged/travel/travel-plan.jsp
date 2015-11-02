@@ -1108,7 +1108,12 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
                                 <div class="row product_plan_panel_content_row">
                                     <div class="col-xs-12">
                                         <p>
-                                            <fmt:message key="annual.quote.agelimit.content1" bundle="${msg}" /><br/><br/><fmt:message key="annual.quote.agelimit.content2" bundle="${msg}" />
+                                            <fmt:message key="travel.quote.fullDetails.priceTable.remark.desc1" bundle="${msg}" /><br/>
+                                            <fmt:message key="travel.quote.fullDetails.priceTable.remark.desc2" bundle="${msg}" /><br/>
+                                            <fmt:message key="travel.quote.fullDetails.priceTable.remark.desc3" bundle="${msg}" /><br/>
+                                            <fmt:message key="travel.quote.fullDetails.priceTable.remark.desc4" bundle="${msg}" /><br/>
+                                            <br/>
+                                            <fmt:message key="annual.quote.agelimit.content2" bundle="${msg}" />
                                         </p>
                                     </div>
                                     <div class="clearfix"></div>
