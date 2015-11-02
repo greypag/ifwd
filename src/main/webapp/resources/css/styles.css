@@ -2124,6 +2124,12 @@ label {
 	}
 }
 
+@media (min-width: 992px) {
+	.fwd-savie-wrapper .banner-widget .desktop-cover {
+		width: 100%;
+	}
+}
+
 /* line 22, ../sass/partials/_image-banner.scss */
 .fwd-savie-wrapper .banner-widget .text-content {
   width: 100%;

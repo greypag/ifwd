@@ -20,10 +20,10 @@
 			<span id="language-holder" value="${language}"></span>
 			<div class="text-center banner-widget container-fluid">
 			<img src="/fwdhk/resources/images/elite-terms/iFWD_elite-term_hero-image_mobile.jpg" alt="Team Insurance" class="hidden-md hidden-lg img-responsive english-picture">
-            <img src="/fwdhk/resources/images/elite-terms/iFWD_elite-term_hero-image_desktop.jpg" alt="Team Insurance" class="hidden-sm hidden-xs img-responsive english-picture">
+            <img src="/fwdhk/resources/images/elite-terms/iFWD_elite-term_hero-image_desktop.jpg" alt="Team Insurance" class="hidden-sm hidden-xs img-responsive english-picture desktop-cover">
             
             <img src="/fwdhk/resources/images/elite-terms/iFWD_hero-image_mobile_cn.jpg" alt="Team Insurance" class="hidden-md hidden-lg img-responsive ch-picture">
-            <img src="/fwdhk/resources/images/elite-terms/iFWD_hero-image_desktop_cn.jpg" alt="Team Insurance" class="hidden-sm hidden-xs img-responsive ch-picture">
+            <img src="/fwdhk/resources/images/elite-terms/iFWD_hero-image_desktop_cn.jpg" alt="Team Insurance" class="hidden-sm hidden-xs img-responsive ch-picture desktop-cover">
             <div class="tagline-holder">
             	<img src="/fwdhk/resources/images/elite-terms/iFWD_elite-term_tagline_option-2.png" alt="Protection for your family's future" class="img-responsive elite-term-tagline english-picture">
             	<img src="/fwdhk/resources/images/elite-terms/iFWD_elite-term_tagline_cn.png" alt="Protection for your family's future" class="img-responsive elite-term-tagline ch-picture">
