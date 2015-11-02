@@ -1384,6 +1384,14 @@ function addFormBeneficiary (counter) {
 		+ '<div class="clearfix hidden-md hidden-lg"><div class="pull-left"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>Remove Beneficiary</button></div></div>'
 		+ '</div>'
 		).appendTo("#add-beneficiary-"+counter+" .content");
+	
+	$("#savieBeneficiaryBean\\["+counter+"\\]\\.relationship").empty();
+	$("#savieBeneficiaryBean\\[0\\]\\.relationship option").each(function () {
+        var txt = $(this).text();
+        var val = $(this).val();
+        $("#savieBeneficiaryBean\\["+counter+"\\]\\.relationship").append("<option value='"+val+"'>"+txt+"</option>");
+    });
+	
 	changeColorRadioButtonLabel (counter);
 }
 
