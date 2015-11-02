@@ -30,6 +30,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -1628,7 +1629,8 @@ public class TravelController {
 		JSONObject addressJsonObj = new JSONObject();
 		parameters.put("address", addressJsonObj);
 		
-		parameters.put("externalParty", "THE CLUB");
+		String theClubMembershipNo = (String)session.getAttribute("theClubMembershipNo");
+		parameters.put("externalParty", StringUtils.isEmpty(theClubMembershipNo) ? "" : "THE CLUB");
 		parameters.put("externalPartyCode", session.getAttribute("theClubMembershipNo"));
 		
 		PromoCodeDetail promoCodeDetail = (PromoCodeDetail)session.getAttribute("promoCodeDetail");

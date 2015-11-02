@@ -17,6 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
+import org.springframework.util.StringUtils;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.api.controller.RestServiceImpl;
@@ -480,7 +481,7 @@ public class HomeCareServiceImpl implements HomeCareService {
 		parameters.put("insuredAddress", insuredAddress);
 		parameters.put("referralCode", referralCode);
 		
-		parameters.put("externalParty", "THE CLUB");
+		parameters.put("externalParty", StringUtils.isEmpty(theClubMembershipNo) ? "" : "THE CLUB");
 		parameters.put("externalPartyCode", theClubMembershipNo);
 		
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
