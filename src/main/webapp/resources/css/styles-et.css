@@ -1,3 +1,15 @@
+/* ET landing H1 */
+.fwd-et-wrapper .wow{
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 20px;
+}
+
+/* ET landing USP */
+.fwd-et-wrapper #landing-three-column{
+	padding-top: 0;
+}
+
 /* ET landing Benefits */
 .et-benefit-item .hidden-content {
 	position: absolute;
