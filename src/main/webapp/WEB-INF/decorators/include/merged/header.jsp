@@ -761,7 +761,7 @@ function submitLoginForm(formID) {
                             .toString())) {
         %>
         <a href="#" class="dropdown-toggle color-wht log-to-acc"
-            id="fwd-login-mob" onclick="$('.bmg_mobile_login_mask').toggle();"><i
+            id="fwd-login-mob"><i
             class="fa fa-lock"></i> <fmt:message key="header.login.heading"
                 bundle="${msg}" /> </a>
         <!--<div class="dropdown-menu drop-width"

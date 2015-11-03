@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery-ui-1.11.4.custom/jquery-ui.theme.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery-ui-1.11.4.custom/jquery-ui.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mini-calcu/css/style.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-et.css">
 		<%!
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
@@ -130,29 +131,101 @@
                            <div class="col-xs-6 col-md-4 text-center et-benefit-item">
                               <img src="<%=request.getContextPath()%>/resources/images/elite-terms/protection-95.png" alt="protection-95.png" />
                               <h4><fmt:message key="eliteTerms.landing.Protection.till.age.95" bundle="${msg}" /></h4>
+                              <div class="hidden-content">
+                                 <div class="col-xs-12 hidden-md hidden-lg">
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/protection-95.png" alt="protection-95.png" />
+                                 </div>
+                                 <div class="col-xs-12 hidden-content-title"><fmt:message key="eliteTerms.landing.Protection.till.age.95" bundle="${msg}" /></div>
+                                 <div class="col-xs-12 hidden-content-p">
+                                    <p>
+                                       <fmt:message key="eliteTerms.landing.Protection.till.age.95.details" bundle="${msg}" />
+                                    </p>
+                                 </div>
+                                 <div class="clearfix"></div>
+                              </div>
                            </div>
                            <div class="col-xs-6 col-md-4 text-center et-benefit-item">
                               <img src="<%=request.getContextPath()%>/resources/images/elite-terms/pure-protection2.png" alt="pure-protection.png" />
                               <h4><fmt:message key="eliteTerms.landing.Pure.protection" bundle="${msg}" /></h4>
+                              <div class="hidden-content">
+                                 <div class="col-xs-12 hidden-md hidden-lg">
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/pure-protection2.png" alt="pure-protection.png" />
+                                 </div>
+                                 <div class="col-xs-12 hidden-content-title"><fmt:message key="eliteTerms.landing.Pure.protection" bundle="${msg}" /></div>
+                                 <div class="col-xs-12 hidden-content-p">
+                                    <p>
+                                       <fmt:message key="eliteTerms.landing.Pure.protection.details" bundle="${msg}" />
+                                    </p>
+                                 </div>
+                                 <div class="clearfix"></div>
+                              </div>
                            </div>
                            <div class="clearfix hidden-md hidden-lg"></div>
                            <div class="col-xs-6 col-md-4 text-center et-benefit-item">
                               <img src="<%=request.getContextPath()%>/resources/images/elite-terms/tailor-lifestyle.png" alt="tailor-lifestyle.png" />
                               <h4><fmt:message key="eliteTerms.landing.Tailored.to.your" bundle="${msg}" /></h4>
+                              <div class="hidden-content">
+                                 <div class="col-xs-12 hidden-md hidden-lg">
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/tailor-lifestyle.png" alt="tailor-lifestyle.png" />
+                                 </div>
+                                 <div class="col-xs-12 hidden-content-title"><fmt:message key="eliteTerms.landing.Tailored.to.your" bundle="${msg}" /></div>
+                                 <div class="col-xs-12 hidden-content-p">
+                                    <p>
+                                       <fmt:message key="eliteTerms.landing.Tailored.to.your.details" bundle="${msg}" />
+                                    </p>
+                                 </div>
+                                 <div class="clearfix"></div>
+                              </div>
                            </div>
                            <div class="clearfix hidden-xs hidden-sm"></div>
                            <div class="col-xs-6 col-md-4 text-center et-benefit-item">
                               <img src="<%=request.getContextPath()%>/resources/images/elite-terms/purchase-process.png" alt="purchase-process.png" />
                               <h4><fmt:message key="eliteTerms.landing.Simplified.purchase.process" bundle="${msg}" /></h4>
+                              <div class="hidden-content">
+                                 <div class="col-xs-12 hidden-md hidden-lg">
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/purchase-process.png" alt="purchase-process.png" />
+                                 </div>
+                                 <div class="col-xs-12 hidden-content-title"><fmt:message key="eliteTerms.landing.Simplified.purchase.process" bundle="${msg}" /></div>
+                                 <div class="col-xs-12 hidden-content-p">
+                                    <p>
+                                       <fmt:message key="eliteTerms.landing.Simplified.purchase.process.details" bundle="${msg}" />
+                                    </p>
+                                 </div>
+                                 <div class="clearfix"></div>
+                              </div>
                            </div>
                            <div class="clearfix hidden-md hidden-lg"></div>
                            <div class="col-xs-6 col-md-4 text-center et-benefit-item">
                               <img src="<%=request.getContextPath()%>/resources/images/elite-terms/peace-mind.png" alt="peace-mind.png" />
                               <h4><fmt:message key="eliteTerms.landing.Protection.peace.of.mind" bundle="${msg}" /></h4>
+                              <div class="hidden-content">
+                                 <div class="col-xs-12 hidden-md hidden-lg">
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/peace-mind.png" alt="peace-mind.png" />
+                                 </div>
+                                 <div class="col-xs-12 hidden-content-title"><fmt:message key="eliteTerms.landing.Protection.peace.of.mind" bundle="${msg}" /></div>
+                                 <div class="col-xs-12 hidden-content-p">
+                                    <p>
+                                       <fmt:message key="eliteTerms.landing.Protection.peace.of.mind.details" bundle="${msg}" />
+                                    </p>
+                                 </div>
+                                 <div class="clearfix"></div>
+                              </div>
                            </div>
                            <div class="col-xs-6 col-md-4 text-center et-benefit-item">
                               <img src="<%=request.getContextPath()%>/resources/images/elite-terms/claim-ambassador2.png" alt="claim-ambassador.png" />
                               <h4><fmt:message key="eliteTerms.landing.Claim.Ambassador" bundle="${msg}" /></h4>
+                              <div class="hidden-content">
+                                 <div class="col-xs-12 hidden-md hidden-lg">
+                                    <img src="<%=request.getContextPath()%>/resources/images/elite-terms/claim-ambassador2.png" alt="claim-ambassador.png" />
+                                 </div>
+                                 <div class="col-xs-12 hidden-content-title"><fmt:message key="eliteTerms.landing.Claim.Ambassador" bundle="${msg}" /></div>
+                                 <div class="col-xs-12 hidden-content-p">
+                                    <p>
+                                       <fmt:message key="eliteTerms.landing.Claim.Ambassador.details" bundle="${msg}" />
+                                    </p>
+                                 </div>
+                                 <div class="clearfix"></div>
+                              </div>
                            </div>
                            <div class="clearfix hidden-md hidden-lg"></div>
                            <div class="clearfix hidden-xs hidden-sm"></div>
@@ -383,7 +456,8 @@
 		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery.loadImages.1.1.0.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/index.js"></script>
       <script>
-         
+         var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+
          $(window).scroll(function (event) {
             var scroll = $(window).scrollTop();
             var $quoteElement = $('.et-get-qoute');
@@ -406,4 +480,28 @@
         	 $('.banner-widget').children('.ch-picture').remove();
         	 $('.tagline-holder').children('.ch-picture').remove();
          }
+
+         /* Lightbox for benefit items */
+         $(document).ready(function() {
+            if(isMobile){
+               $(".et-benefit-item").click(function(){
+                  var html=$(this).children('.hidden-content').children().clone();
+                  $("#modal_policy_container").html(html);
+                  $("#benefitsPopup").modal("show");
+               });
+            }
+         });
       </script>
+
+<!-- Modal Box -->
+<div class="modal fade bs-example-modal-lg  in" id="benefitsPopup" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content plan-modal">
+        <div class="modal-body">
+            <a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true" style="font-size:30px;">×</span></a>
+            <div id="modal_policy_container" style="padding-top: 10px;text-align: center;">
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
