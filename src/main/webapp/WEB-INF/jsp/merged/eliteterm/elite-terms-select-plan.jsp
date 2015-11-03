@@ -17,7 +17,6 @@ var context = "${pageContext.request.contextPath}";
 var signatureFileSize = "${signatureFileSize}";
 var selectPlanNextPageFlow = "${nextPageFlow}";
 var languageP = "${language}";
-var home_url = "<%=request.getContextPath()%>";
 </script>
 		<%!
 			boolean isSaleActiveClass = false;
@@ -2332,7 +2331,7 @@ var home_url = "<%=request.getContextPath()%>";
             }
             
             function getPromoteCode() {
-            	if(get_promo_val()){
+            	if(validate_promo_val()){
             		$.ajax({
   		 			  type : "POST",
   		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/getPromoteCode",
@@ -2355,21 +2354,33 @@ var home_url = "<%=request.getContextPath()%>";
 			}
             
             /*Promo popup*/
-            function get_promo_val(){
+            function validate_promo_val(){
+            	var getLanguage = "";
+                var lang = languageP;
+
+                if(lang === "EN"){
+                	getLanguage = "en";
+                }else 
+                if(lang === "tc"){
+                	getLanguage = "zh";
+                } 
+                else{
+                	getLanguage = "en";
+                }
             	var valid = true;
             	var emailId = document.getElementById("emailToSendPromoCode").value; 
             	document.getElementById("errPromoEmail").style.display = "none";
             	// Email Address Validation
             	if (emailId.trim() == "") {
             		document.getElementById("errPromoEmail").style.display = "block";
-            		document.getElementById("errPromoEmail").innerHTML = getBundle(getBundleLanguage, "promotion.email.notNull.message");//"Your E-mail Address is invalid.";
+            		document.getElementById("errPromoEmail").innerHTML = getBundle(getLanguage, "promotion.email.notNull.message");//"Your E-mail Address is invalid.";
             		valid = false;
 
             	} 
             	else {
             		if (emailreg.test(emailId) == false) {
             			document.getElementById("errPromoEmail").style.display = "block";
-            			document.getElementById("errPromoEmail").innerHTML = getBundle(getBundleLanguage, "promotion.email.notValid.message");//"Your E-mail Address is invalid.";
+            			document.getElementById("errPromoEmail").innerHTML = getBundle(getLanguage, "promotion.email.notValid.message");//"Your E-mail Address is invalid.";
             			valid = false;
             		}
             	}
