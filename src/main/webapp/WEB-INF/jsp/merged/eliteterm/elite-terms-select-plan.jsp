@@ -24,7 +24,7 @@ var home_url = "<%=request.getContextPath()%>";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
-		<div class="fwd-savie-wrapper">			          
+		<div class="fwd-savie-wrapper fwd-et-wrapper">			          
 			<div class="container-fluid fwd-full-container">
 				<div class="application-page-header et-header-browse">
 					<div class="row reset-margin hidden-xs hidden-sm">
@@ -2156,6 +2156,13 @@ var home_url = "<%=request.getContextPath()%>";
 	  		      scrollTop: ($appInfo.offset().top - stickyHeight) + 'px'
 	          }, 500);
     	  }
+
+        /* Reset calculated amount when on input value change */
+        $('input[name=et-gender]').on('change', resetCalculatedAmt);
+        $('input[name=et-smoker]').on('change', resetCalculatedAmt);
+        $('#et-select-plan-date-input').on('change', resetCalculatedAmt);
+        $('#R2').on('change', resetCalculatedAmt);
+
       });
   
 		      // Move to Medical declaration section
