@@ -10218,5 +10218,8 @@ tr.product-landing-error-wrap {
     #myDropdownMob div.drop-width>ul{
         background-color: #061d29;       
     }
+	body {
+	    padding-top: 20%;
+	}
 }
 /******** End of mobile header menu v2 ********/
