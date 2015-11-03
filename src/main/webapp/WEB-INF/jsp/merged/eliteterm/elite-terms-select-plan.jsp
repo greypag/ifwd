@@ -17,6 +17,7 @@ var context = "${pageContext.request.contextPath}";
 var signatureFileSize = "${signatureFileSize}";
 var selectPlanNextPageFlow = "${nextPageFlow}";
 var languageP = "${language}";
+var home_url = "<%=request.getContextPath()%>";
 </script>
 		<%!
 			boolean isSaleActiveClass = false;
@@ -1991,6 +1992,7 @@ var languageP = "${language}";
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.mousewheel.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.jscrollpane.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-validation.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/placeholders.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/date.format.js"></script>

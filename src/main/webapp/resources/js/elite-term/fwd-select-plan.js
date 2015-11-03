@@ -7,7 +7,7 @@
    var underwritingSummData = {};
    var currentSection = 'et-select-plan-section';
    var getBundleLanguage = "";
-   var lang = UILANGUAGE;
+   var lang = languageP;
 
    if(lang === "EN"){
    	getBundleLanguage = "en";
@@ -64,6 +64,7 @@
    _newdate.setYear(_newdate.getYear() - 18);
    var sixty = new Date(_date);
    sixty.setYear(sixty.getYear() - 60);
+   sixty.setDate(sixty.getDate()+1);
    
    var $planDate = $('#et-select-plan-date-input').datepicker({
       format: "dd-mm-yyyy",
