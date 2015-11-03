@@ -418,7 +418,7 @@ function loadBundles(lang, key, fn) {
    	$.i18n.properties({
         name: 'Messages',
         path: ''+home_url+'/resources/bundle/',
-        mode: 'both',
+        mode: 'map',
         language: lang,
         cache: true,
         callback: function() {
