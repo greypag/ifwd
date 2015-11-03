@@ -35,7 +35,20 @@ function getEliteTermPremium() {
 		},
 		function(data) {
 			//if(data.errMsgs == null){
-				modInsuredAmount = parseFloat(insuredAmount).toFixed(2);
+				
+			if( data == null ){
+				resetCalculatedAmt();
+			} else{
+				if( data.effectivePeriod!=null && data.effectivePeriod=='12'){
+					setCalculatedAmt(true, insuredAmount,
+						data.monthlyPremium, data.dailyPremium, data.monthlyDuePremium, data.dailyDuePremium);
+				}
+				else{
+					setCalculatedAmt(false, insuredAmount,
+						data.monthlyPremium, data.dailyPremium, 0, 0);
+				}
+			}
+				/*modInsuredAmount = parseFloat(insuredAmount).toFixed(2);
 				modMonthlyPremium = parseFloat(data.monthlyPremium).toFixed(2);
 				$("#et-month-dis-amount").html(parseFloat(data.monthlyDuePremium).toFixed(2));
 				$("#et-day-dis-amount").html(parseFloat(data.dailyDuePremium).toFixed(2));
@@ -44,6 +57,7 @@ function getEliteTermPremium() {
 				$("#etaspd-insured-amount").html('HK$ ' + modInsuredAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 				$("#etaspd-monthly-premium").html('HK$ ' + modMonthlyPremium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 				applyPromoReward(data.effectivePeriod);
+				*/
 			//}
 			//else{
 			//	console.log("data error");
@@ -392,3 +406,55 @@ function getOccupation(value,language) {
 $('#et-select-plan-go-homepage').on('click', function(e) {
 	window.location.href= contextPath+'/'+language+'/term-life-insurance';
 });
+
+/**
+* Reset calculated amount when the following input value changed:
+* Gender /DOB/ smoker/ insurer amt 
+* Author: Rex So
+*/
+function resetCalculatedAmt(){
+	var actPromo = $('#et-act-promo-amount');
+	var default_period_text = getBundle(getBundleLanguage, "et.selectPlan.default.period.text");
+  
+	$('#et-dis-promo-amount').addClass('hidden');
+	$("#etaspd-insured-amount").html('HK$ ');
+	$("#etaspd-monthly-premium").html('HK$ ');
+
+	$('#et-month-amount').html('');
+	$('#et-day-amount').html('');
+
+	$('#et-month-dis-amount').html('');
+ 	$('#et-day-dis-amount').html('');
+
+	actPromo.find('.top .et-po-amount-label').text(default_period_text);
+}
+
+/**
+* Generic function to display calculated amount 
+* e.g. setCalculatedAmt(true, 12000000, 630.12, 21.20, 540.70, 18.02);
+* Author: Rex So
+*/
+function setCalculatedAmt(bDiscount, insuredAmt, oriMonthlyAmt, oriDailyAmt, disMonthlyAmt, disDailyAmt){
+	var actPromo = $('#et-act-promo-amount');
+	var disPromo = $('#et-dis-promo-amount');
+	var default_period_text = getBundle(getBundleLanguage, "et.selectPlan.default.period.text");
+	var discount_period1_text = getBundle(getBundleLanguage, "et.selectPlan.discount.period1.text"); 
+	var discount_period2_text = getBundle(getBundleLanguage, "et.selectPlan.discount.period2.text"); 
+  
+	var modInsuredAmount = parseFloat(insuredAmt).toFixed(2);
+	$("#et-month-amount").html(parseFloat(oriMonthlyAmt).toFixed(2));
+	$("#et-day-amount").html(parseFloat(oriDailyAmt).toFixed(2));
+	$("#etaspd-insured-amount").html('HK$ ' + modInsuredAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+	$("#etaspd-monthly-premium").html('HK$ ' + parseFloat(oriMonthlyAmt).toFixed(2));
+  
+	if(bDiscount){
+		$("#et-month-dis-amount").html(parseFloat(disMonthlyAmt).toFixed(2));
+		$("#et-day-dis-amount").html(parseFloat(disDailyAmt).toFixed(2));
+		disPromo.find('.top .et-po-amount-label').text(discount_period1_text);
+		actPromo.find('.top .et-po-amount-label').text(discount_period2_text);
+		$('#et-dis-promo-amount').removeClass('hidden');
+ 	} else{
+ 		actPromo.find('.top .et-po-amount-label').text(default_period_text);
+ 		$('#et-dis-promo-amount').addClass('hidden');
+ 	}	
+}

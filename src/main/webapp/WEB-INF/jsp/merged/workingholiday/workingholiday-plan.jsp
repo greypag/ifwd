@@ -185,11 +185,6 @@ var promoCodeInsertFlag = true;
 	<div id="cn" class="container">
 		<div class="row">
 			<form:form name="frmWorkingHolidayPlan" id="frmWorkingHolidayPlan" method="post" modelAttribute="workingholidayQuote" onsubmit="return prepareWorkingHolidayUserDetails(this,'frmWorkingHolidayPlan');" >
-				<ol class="breadcrumb pad-none">
-					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item2" bundle="${msg}" /></a></li>
-					<li class="active "><i class="fa fa-caret-right"></i><fmt:message key="workingholiday.breadcrumb1.item3" bundle="${msg}" /></li>
-				</ol>
 				<div class="container ">
 					<div class="col-lg-12 col-md-12 shop-tracking-status">
 						<div class="center wow fadeInDown animated" style="visibility: visible;">
@@ -232,6 +227,11 @@ var promoCodeInsertFlag = true;
 						</div>
 					</div>
 				</div>
+                <ol class="breadcrumb pad-none">
+                    <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+                    <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item2" bundle="${msg}" /></a></li>
+                    <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="workingholiday.breadcrumb1.item3" bundle="${msg}" /></li>
+                </ol>				
 				<div class="container pad-none bdr gray-bg3">
 					<div class="col-lg-8 col-md-8 col-xs-12 col-sm-12 pad-none white-bg1">
 					   <div class="workingholiday-plan-margin form-wrap">

@@ -55,14 +55,6 @@
    <div id="cn" class="container">
     <div class="row">
       <form>
-        <ol class="breadcrumb pad-none">
-          <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-          <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item2" bundle="${msg}" /> </a > <i class="fa fa-caret-right"></i></li>
-          <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item3" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-          <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item4" bundle="${msg}" /> </a> <i class="fa fa-caret-right"></i></li>
-           <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item5" bundle="${msg}" /> </a> </li>
-          <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="workingholiday.breadcrumb1.item6" bundle="${msg}" /></li>
-        </ol>
         <div class="container ">
           <div class="col-md-12 shop-tracking-status">
             <div class="center wow fadeInDown animated" style="visibility: visible;">
@@ -93,7 +85,14 @@
 </div>
           </div>
         </div>
-
+        <ol class="breadcrumb pad-none">
+          <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+          <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item2" bundle="${msg}" /> </a > <i class="fa fa-caret-right"></i></li>
+          <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item3" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+          <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item4" bundle="${msg}" /> </a> <i class="fa fa-caret-right"></i></li>
+           <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item5" bundle="${msg}" /> </a> </li>
+          <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="workingholiday.breadcrumb1.item6" bundle="${msg}" /></li>
+        </ol>
         
       <c:if test="${not empty errormsg}"><br><div id="confirm-error-msg" class="alert alert-danger hide"
                         role="alert">${errormsg}</div><br></c:if>

@@ -178,11 +178,6 @@
 			
 
 
-			<ol class="breadcrumb pad-none">
-					<li><a href="#"><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#"><fmt:message key="flight.breadcrumb1.item2" bundle="${msg}" /> </a></li>
-					<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="flight.breadcrumb1.item3" bundle="${msg}" /></li>
-				</ol>
 				<div class="container ">
 					<div id="tr-steps" class="col-md-12 col-lg-12 col-sm-12 col-xs-12  shop-tracking-status">
 						<div class="center wow fadeInDown animated" style="visibility: visible;">
@@ -220,6 +215,11 @@
 						</div>
 					</div>
 				</div>
+            <ol class="breadcrumb pad-none">
+                    <li><a href="#"><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+                    <li><a href="#"><fmt:message key="flight.breadcrumb1.item2" bundle="${msg}" /> </a></li>
+                    <li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="flight.breadcrumb1.item3" bundle="${msg}" /></li>
+                </ol>				
 				<div class="container pad-none bdr ur-opt-content">
 					<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 pad-none">
 					   <div class="workingholiday-plan-margin form-wrap">
