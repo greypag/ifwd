@@ -12309,7 +12309,7 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
   font-family: 'fantasy', Calibri, sans-serif;
 }
 .fwd-savie-wrapper .banner-widget .text-content.hunger-img img {
-  margin-top: -60px;
+  margin-top: 40px;
   margin-bottom: 30px;
 }
 .fwd-savie-wrapper .banner-widget .buy-now.hunger-buy-now {
@@ -14340,11 +14340,11 @@ body.chin button#thank-you-continue {
 /*    margin: 0;
     padding: 0;*/
   }
-  .fwd-savie-wrapper .o2o-landing.banner-widget .text-content.hunger-img img {
+ /* .fwd-savie-wrapper .o2o-landing.banner-widget .text-content.hunger-img img {
     margin: 0;
     padding: 0;
     width: 340px;
-  }
+  } */
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.banner-widget .text-content {
@@ -14473,7 +14473,7 @@ body.chin button#thank-you-continue {
   }
 }
 .fwd-savie-wrapper .o2o-landing.teaser {
-  padding-top: 55px;
+  padding-top: 35px;
   padding-bottom: 8px;
 }
 @media (min-width: 992px) {
@@ -14796,34 +14796,44 @@ body.chin button#thank-you-continue {
 .fwd-savie-wrapper .hunger-text-section button.get-started,
 .fwd-savie-wrapper .sign-up-teaser button.get-started {
   font-family: 'Calibri-bold', sans-serif;
-  height: 48px;
-  width: 65%;
-  max-width: 245px;
-  font-size: 28px;
+  height: 60px;
+  width: 90%;
+  max-width: 450px;
+  font-size: 30px;
   border: 1px solid #ff8000;
 }
 body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
   font-family: 'Microsoft JhengHei', Calibri, sans-serif;;
 }
 .fwd-savie-wrapper .hunger-text-section button.get-started {
-  background-color: #fff;
-  color: #ff8200;
+  background-color: #fcb714;
+  color: #fff;
+  border: 1px solid #fcb714;
 }
 .fwd-savie-wrapper .sign-up-teaser button.get-started {
-  background-color: #ff8200;
+  background-color: #fcb714;
   color: white;
   margin: 20px 0;
 }
 
 @media (min-width: 992px) {
+ .fwd-savie-wrapper .hunger-text-section button.get-started,
+ .fwd-savie-wrapper .sign-up-teaser button.get-started {
+   font-family: 'Calibri-bold', sans-serif;
+   height: 80px;
+   width: 300px;
+   font-size: 60px;
+   border: 1px solid #fcb714;
+}
+		
   .fwd-savie-wrapper .sign-up-teaser {
     margin-top: 0;
     position: relative;
-    background: rgba(0, 0, 0, 0.5);
+    background: none;
     /* Here some time problem for Hover than you can use background color/image */
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000)";
+   /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000)";
     /* Below IE7 supported */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000);
+   /* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000); */
     right: 4%;
     max-width: 450px;
     width: 35%;
@@ -14848,7 +14858,7 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
     text-align: center;
     padding-top: 5px;
     margin-top: 27px;
-    margin-bottom: 20px;
+    margin-bottom: 240px;
     border: none;
     max-width: none;
   }
@@ -14892,7 +14902,7 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
 
 @media (min-width: 1200px) {
   .fwd-savie-wrapper .sign-up-teaser button.get-started {
-    font-size: 48px;
+    font-size: 50px;
     padding-top: 5px;
   }
 }

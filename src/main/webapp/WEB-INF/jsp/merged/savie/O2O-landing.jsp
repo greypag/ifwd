@@ -54,43 +54,45 @@ var home_url = "<%=request.getContextPath()%>";
 					<img src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.tagline.image.desktop" bundle="${msg}" />" title="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" alt="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" class="img-responsive">
 				</div>
 				
-				<div class="hunger-text-section hidden-md hidden-lg">
-					<p class="hunger-selling-text text-1"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p> 
+				<div class="hunger-text-section">
+					<!-- <p class="hunger-selling-text text-1"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>   -->
 					<div class="get-started-holder text-center">
 						<button id="hunger-selling-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
 					</div>
-					<p class="footnote below"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p>
+					<!--<p class="footnote below"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p> -->
 				</div>
 			</div>
+			
 			
 			<div class="fwd-full-container container-fluid o2o-landing teaser">
 				<div class="fwd-container-limit">
 					<div class="teaser-banner-text">
-						<div class="money-div">
+						<!-- <div class="money-div">
 							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/money-logo-large.png" class="money">
-						</div>
-						<p class="additional top"><fmt:message key="savie.o2o.landing.Act.now.to" bundle="${msg}" /></p>
+						</div> -->
+						<p class="additional top hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.Act.now.to" bundle="${msg}" /></p> 
+						<p class="additional top hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.Act.now.to2" bundle="${msg}" /></p>
 						<ul class="crediting-rate-list clearfix">
 							<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.First.year" bundle="${msg}" /></span></li>
 							<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Second.year" bundle="${msg}" /></span><div class="white right"></div></li>
 							<li><span class="percent gold">4% </span><span class="year gold"><fmt:message key="savie.o2o.landing.Third.year" bundle="${msg}" /></span></li>
 						</ul>
-						<p class="bottom-text"><fmt:message key="savie.o2o.landing.Lump.sum.info" bundle="${msg}" /></p>
+						<!--<p class="bottom-text"><fmt:message key="savie.o2o.landing.Lump.sum.info" bundle="${msg}" /></p> -->
 					</div>
 				</div>
 			</div>
 			
-			<div class="sign-up-teaser">
-				<p class="sign-up-header hidden-sm hidden-xs"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>
-				<div class="get-started-holder text-center hidden-sm hidden-xs">
+			<!-- <div class="sign-up-teaser">
+				<!--<p class="sign-up-header hidden-sm hidden-xs"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p> -->
+				<!-- <div class="get-started-holder text-center hidden-sm hidden-xs">
 					<button id="hunger-selling-buy-now-O2O" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
 				</div>
-				<p class="sign-up-header below">
+				<!--<p class="sign-up-header below">
 					<fmt:message key="savie.o2o.landing.Haven't.applied.part1" bundle="${msg}" /><button id="signup"><fmt:message key="savie.o2o.landing.Haven't.applied.link.text" bundle="${msg}" /></button><fmt:message key="savie.o2o.landing.Haven't.applied.part2" bundle="${msg}" />
-				</p>
-				<p class="footnote below hidden-sm hidden-xs"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p>
+				</p> 
+				<p class="footnote below hidden-sm hidden-xs"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p> -->
 			</div>
-			</div>
+			</div>  
 			
 	        <div class="teaser-three-column O2O-landing">
 					<div id="landing-three-column" class="fwd-container container-fluid three-column-widget O2O-landing">
