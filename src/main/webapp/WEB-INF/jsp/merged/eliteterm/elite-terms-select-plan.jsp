@@ -23,20 +23,7 @@ var home_url = "<%=request.getContextPath()%>";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
-		<div class="fwd-savie-wrapper">			
-			<!--Elite Terms Header Info Widget-->
-         <div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
-            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-               <li><a href="#"><fmt:message key="eliteTerms.selectPlan.Home" bundle="${msg}" /></a></li>
-               <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#"><fmt:message key="eliteTerms.selectPlan.Protection" bundle="${msg}" /> </a></li>
-               <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#"><fmt:message key="eliteTerms.selectPlan.Elite.term" bundle="${msg}" /> </a></li>
-               <li class="divider last"><i class="fa fa-play"></i></li>
-               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.selectPlan.Select.plan" bundle="${msg}" /></li>
-            </ol>
-         </div>
-            
+		<div class="fwd-savie-wrapper">			          
 			<div class="container-fluid fwd-full-container">
 				<div class="application-page-header et-header-browse">
 					<div class="row reset-margin hidden-xs hidden-sm">
@@ -72,7 +59,18 @@ var home_url = "<%=request.getContextPath()%>";
 			</div>
          
          <div class="application-flux">
-         
+            <!--Elite Terms Header Info Widget-->
+         <div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
+            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
+               <li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a></li>
+               <li class="divider"><i class="fa fa-play"></i></li>
+               <li><a href="#"><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /> </a></li>
+               <li class="divider"><i class="fa fa-play"></i></li>
+               <li><a href="#"><fmt:message key="home.breadcrumb1.term" bundle="${msg}" /> </a></li>
+               <li class="divider last"><i class="fa fa-play"></i></li>
+               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="home.breadcrumb2.term.item1" bundle="${msg}" /></li>
+            </ol>
+         </div>         
             <!--
                SELECT PLAN SECTION
             -->

@@ -23,7 +23,7 @@ var languageP = "${language}";
 		<div class="fwd-savie-wrapper">
 
 
-			<div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
+			<!--<div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
                <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
                   <li><a href="#"><fmt:message key="eliteTerms.payment.Home" bundle="${msg}" /></a></li>
                   <li class="divider"><i class="fa fa-play"></i></li>
@@ -33,7 +33,7 @@ var languageP = "${language}";
                   <li class="divider last"><i class="fa fa-play"></i></li>
                   <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.payment.Payment" bundle="${msg}" /></li>
                </ol>
-            </div>
+            </div>-->
 			
 			<!--Elite Terms Header Info Widget-->        
 			<div class="container-fluid fwd-full-container">
@@ -72,7 +72,18 @@ var languageP = "${language}";
 			</div>
 			
 
-			<div class="application-flux">        
+			<div class="application-flux">
+		         <div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
+		            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
+		               <li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a></li>
+		               <li class="divider"><i class="fa fa-play"></i></li>
+		               <li><a href="#"><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /> </a></li>
+		               <li class="divider"><i class="fa fa-play"></i></li>
+		               <li><a href="#"><fmt:message key="home.breadcrumb1.term" bundle="${msg}" /> </a></li>
+		               <li class="divider last"><i class="fa fa-play"></i></li>
+		               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="home.breadcrumb2.term.item2" bundle="${msg}" /></li>
+		            </ol>
+		         </div>			        
 				<div class="container-fluid fwd-container">
 					<div class="et-payment page-application">
 						<div class="page-header text-center">
