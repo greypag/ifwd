@@ -534,8 +534,8 @@
                         </div>
                         
                         
-                        <div class="notice" style="margin-top:60px;">
-                            <p class="notice-text" style="font-size:15px;">
+                        <div class="notice" style="margin-top:60px; text-align: center;">
+                            <p class="notice-text" style="font-size:15px; width: 300px; line-height: 1.3; margin-left: auto; margin-right: auto;">
                                     <span class="next-line">
                                         <span class="asterisk">* </span>Amount indicative only. 
                                     </span>
