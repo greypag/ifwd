@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.jscrollpane.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-slider.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-et.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var signatureFileSize = "${signatureFileSize}";
@@ -23,7 +24,24 @@ var home_url = "<%=request.getContextPath()%>";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
+<<<<<<< HEAD
 		<div class="fwd-savie-wrapper">			          
+=======
+		<div class="fwd-savie-wrapper fwd-et-wrapper">			
+			<!--Elite Terms Header Info Widget-->
+         <div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
+            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
+               <li><a href="#"><fmt:message key="eliteTerms.selectPlan.Home" bundle="${msg}" /></a></li>
+               <li class="divider"><i class="fa fa-play"></i></li>
+               <li><a href="#"><fmt:message key="eliteTerms.selectPlan.Protection" bundle="${msg}" /> </a></li>
+               <li class="divider"><i class="fa fa-play"></i></li>
+               <li><a href="#"><fmt:message key="eliteTerms.selectPlan.Elite.term" bundle="${msg}" /> </a></li>
+               <li class="divider last"><i class="fa fa-play"></i></li>
+               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.selectPlan.Select.plan" bundle="${msg}" /></li>
+            </ol>
+         </div>
+            
+>>>>>>> 2650d38f41cc7449bfee54c65b768cc9d2119af1
 			<div class="container-fluid fwd-full-container">
 				<div class="application-page-header et-header-browse">
 					<div class="row reset-margin hidden-xs hidden-sm">
@@ -224,14 +242,11 @@ var home_url = "<%=request.getContextPath()%>";
                                  </div>
                                  <div id="promocode-hidden" class="hidden-sm hidden-xs">
                                     <div class="clearfix">
-                                       <div class="pull-left et-promo-code-txtbox">
+                                       <div class="et-promo-code-txtbox">
                                           <input name="promocode" type="text" autocomplete="off" placeholder="<fmt:message key="eliteTerms.selectPlan.IF.APPLICABLE" bundle="${msg}" />" class="et-promocode" id="et-promocode" value="${etPolicyApplication.promocode }">
                                        </div>
-                                       <div class="pull-right et-apply-btn">
-                                          <button type="button" class="btn btn-white et-apply"><fmt:message key="eliteTerms.selectPlan.Apply" bundle="${msg}" /></button>
-                                       </div>
                                     </div>
-                                    <a href="#" title="Get your promotion code" class="et-promo-code-question" data-toggle="modal" data-target="#get-promotion-code"><i><fmt:message key="eliteTerms.selectPlan.How.do.I.get" bundle="${msg}" /></i></a>
+                                    <a href="#" title="Get your promotion code" class="et-promo-code-question" data-toggle="modal" data-target="#get-promotion-code-popup"><i><fmt:message key="eliteTerms.selectPlan.How.do.I.get" bundle="${msg}" /></i></a>
                                  </div>
                               </div>	
                            </div>
@@ -1513,12 +1528,16 @@ var home_url = "<%=request.getContextPath()%>";
                               </div>
                               <div class="et-stat-unemployed hide-element">
                                  <div class="clearfix info-holder">
-                                    <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Liquid.Assets" bundle="${msg}" /></h4>
+                                    <h4 class="info-label employment">Liquid assets</h4>
                                     <p class="info" id="etasei-liq-asset"></p>
+                                 </div>
+                                 <div class="clearfix info-holder">
+                                    <h4 class="info-label employment">Amount of other source of income (HK$)</h4>
+                                    <p class="info" id="etasei-source-income"></p>
                                  </div>
                               </div>
                               <div class="et-not-stat-unemployed hide-element">
-                                 <div class="clearfix info-holder">
+                              	<div class="clearfix info-holder">
                                     <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Occupation" bundle="${msg}" /></h4>
                                     <p class="info" id="etasei-occupation"></p>
                                  </div>
@@ -1732,12 +1751,12 @@ var home_url = "<%=request.getContextPath()%>";
             MODAL SECTION 
          -->
          <!-- GET PROMOTION CODE MODAL -->
-         <div id="get-promotion-code" class="modal fade login-modal"tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div id="get-promotion-code-popup" class="modal fade login-modal"tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                <div class="modal-content plan-modal">
                    <div class="login-form" id="sendmailofpromocode">
-                   <div style="overflow: hidden;"><a id="getPromotionClose" class="close" aria-label="Close" data-dismiss="modal">
-                        <span aria-hidden="true" style="font-size:30px;">?</span>
+                   <div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
+                        <span aria-hidden="true" style="font-size:30px;">x</span>
                       </a>
                    </div>
                    <form onSubmit="return false;">
@@ -1746,11 +1765,13 @@ var home_url = "<%=request.getContextPath()%>";
                            <div class="alert alert-success hide proSuccess"></div>
                            <h4><fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" /></h4>
                            <div class="form-group">
-                               <input type="email" class="form-control" placeholder="" name="emailToSendPromoCode" id="emailToSendPromoCode">
+                               <input type="text" class="form-control" placeholder="" name="emailToSendPromoCode" id="emailToSendPromoCode">
                                <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
                            </div>
                            <span id="errPromoEmail" class="text-red"></span>
-                           <button type="submit" onclick="getPromoteCode()" class="btn next"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
+                           <div>
+                              <button type="submit" onclick="getPromoteCode()" class="btn next"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
+                           </div>
                            <p><fmt:message key="eliteTerms.selectPlan.By.submitting.my" bundle="${msg}" /></p>
                         </div>
                    </form>
@@ -2329,7 +2350,7 @@ var home_url = "<%=request.getContextPath()%>";
             }
             
             function getPromoteCode() {
-            	if($('#emailToSendPromoCode').val()!=''){
+            	if(validate_promo_val()){
             		$.ajax({
   		 			  type : "POST",
   		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/getPromoteCode",
@@ -2337,19 +2358,53 @@ var home_url = "<%=request.getContextPath()%>";
   		 				      email: $('#emailToSendPromoCode').val()
   		 				     },
   		 			  success : function(data) {
-  		 				if(data.errMsgs == null){
-  		 					$('#get-promotion-code').modal('hide');
+  		 				if(data!=null && data.errMsgs == null){
+  		 					$('#get-promotion-code-popup').modal('hide');
   		 				}
   		 				else{
-  		 					console.log("data error");
+  		 					$('#errPromoEmail').html('<fmt:message key="system.promotion.error.message" bundle="${msg}" />');
   		 				}
   		 			  }
   	 		      });
             	}
             	else{
-            		console.log("data error");
+            		$('#errPromoEmail').html('<fmt:message key="promotion.empty.error.message" bundle="${msg}" />');
             	}
 			}
+            
+            /*Promo popup*/
+            function validate_promo_val(){
+            	var getLanguage = "";
+                var lang = languageP;
+
+                if(lang === "EN"){
+                	getLanguage = "en";
+                }else 
+                if(lang === "tc"){
+                	getLanguage = "zh";
+                } 
+                else{
+                	getLanguage = "en";
+                }
+            	var valid = true;
+            	var emailId = document.getElementById("emailToSendPromoCode").value; 
+            	document.getElementById("errPromoEmail").style.display = "none";
+            	// Email Address Validation
+            	if (emailId.trim() == "") {
+            		document.getElementById("errPromoEmail").style.display = "block";
+            		document.getElementById("errPromoEmail").innerHTML = getBundle(getLanguage, "promotion.email.notNull.message");//"Your E-mail Address is invalid.";
+            		valid = false;
+
+            	} 
+            	else {
+            		if (emailreg.test(emailId) == false) {
+            			document.getElementById("errPromoEmail").style.display = "block";
+            			document.getElementById("errPromoEmail").innerHTML = getBundle(getLanguage, "promotion.email.notValid.message");//"Your E-mail Address is invalid.";
+            			valid = false;
+            		}
+            	}
+            	return valid;
+            }
             
             function getCsChannel(channel) {
             	$("#channel").val(channel);

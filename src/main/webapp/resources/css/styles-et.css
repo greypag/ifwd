@@ -1,3 +1,15 @@
+/* ET landing H1 */
+.fwd-et-wrapper .wow{
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 20px;
+}
+
+/* ET landing USP */
+.fwd-et-wrapper #landing-three-column{
+	padding-top: 0;
+}
+
 /* ET landing Benefits */
 .et-benefit-item .hidden-content {
 	position: absolute;
@@ -24,6 +36,30 @@
 @media ( min-width : 992px) {
 	.et-benefit-item:hover .hidden-content {
 		display: block;
+	}
+}
+
+/* ET get promo code */
+.fwd-et-wrapper .modal.fade .modal-dialog .modal-content{
+	padding: 0;
+}
+
+.fwd-et-wrapper .modal.fade{
+	font-size: 16px;
+}
+
+.fwd-et-wrapper .modal.fade p{
+	margin-bottom: 20px;
+}
+
+.fwd-et-wrapper button.next,
+.fwd-et-wrapper a.next {
+	    margin: 20px 0;
+}
+
+@media (max-width: 991px){
+	.login-form {
+	    padding: 15px;
 	}
 }
 
