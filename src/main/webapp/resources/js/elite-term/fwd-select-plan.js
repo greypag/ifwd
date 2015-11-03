@@ -389,7 +389,8 @@
          var $self = $(this);
          
          // Store plan detail data
-         planDetailData.insuranceAmount = $('#et-slider-range').text();
+         var sliderVal = $('#et-slider-range').text();
+         $('#etaspd-insured-amount').html('HK$ '+ sliderVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
          
          if ($self.hasClass('back-to-app')) {
             // Go back to the application form
