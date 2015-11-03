@@ -7,7 +7,7 @@
    var underwritingSummData = {};
    var currentSection = 'et-select-plan-section';
    var getBundleLanguage = "";
-   var lang = UILANGUAGE;
+   var lang = languageP;
 
    if(lang === "EN"){
    	getBundleLanguage = "en";
