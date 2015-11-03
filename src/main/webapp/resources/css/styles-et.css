@@ -27,4 +27,28 @@
 	}
 }
 
+/* ET get promo code */
+.fwd-et-wrapper .modal.fade .modal-dialog .modal-content{
+	padding: 0;
+}
+
+.fwd-et-wrapper .modal.fade{
+	font-size: 16px;
+}
+
+.fwd-et-wrapper .modal.fade p{
+	margin-bottom: 20px;
+}
+
+.fwd-et-wrapper button.next,
+.fwd-et-wrapper a.next {
+	    margin: 20px 0;
+}
+
+@media (max-width: 991px){
+	.login-form {
+	    padding: 15px;
+	}
+}
+
 /* */

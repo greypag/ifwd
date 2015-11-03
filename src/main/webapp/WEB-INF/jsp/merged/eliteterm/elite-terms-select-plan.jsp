@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.jscrollpane.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-slider.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-et.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var signatureFileSize = "${signatureFileSize}";
@@ -22,7 +23,7 @@ var languageP = "${language}";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
-		<div class="fwd-savie-wrapper">			
+		<div class="fwd-savie-wrapper fwd-et-wrapper">			
 			<!--Elite Terms Header Info Widget-->
          <div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
             <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
@@ -232,7 +233,7 @@ var languageP = "${language}";
                                           <button type="button" class="btn btn-white et-apply"><fmt:message key="eliteTerms.selectPlan.Apply" bundle="${msg}" /></button>
                                        </div>
                                     </div>
-                                    <a href="#" title="Get your promotion code" class="et-promo-code-question" data-toggle="modal" data-target="#get-promotion-code"><i><fmt:message key="eliteTerms.selectPlan.How.do.I.get" bundle="${msg}" /></i></a>
+                                    <a href="#" title="Get your promotion code" class="et-promo-code-question" data-toggle="modal" data-target="#get-promotion-code-popup"><i><fmt:message key="eliteTerms.selectPlan.How.do.I.get" bundle="${msg}" /></i></a>
                                  </div>
                               </div>	
                            </div>
@@ -1733,12 +1734,12 @@ var languageP = "${language}";
             MODAL SECTION 
          -->
          <!-- GET PROMOTION CODE MODAL -->
-         <div id="get-promotion-code" class="modal fade login-modal"tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div id="get-promotion-code-popup" class="modal fade login-modal"tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                <div class="modal-content plan-modal">
                    <div class="login-form" id="sendmailofpromocode">
-                   <div style="overflow: hidden;"><a id="getPromotionClose" class="close" aria-label="Close" data-dismiss="modal">
-                        <span aria-hidden="true" style="font-size:30px;">?</span>
+                   <div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
+                        <span aria-hidden="true" style="font-size:30px;">x</span>
                       </a>
                    </div>
                    <form onSubmit="return false;">
@@ -1751,7 +1752,9 @@ var languageP = "${language}";
                                <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
                            </div>
                            <span id="errPromoEmail" class="text-red"></span>
-                           <button type="submit" onclick="getPromoteCode()" class="btn next"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
+                           <div>
+                              <button type="submit" onclick="getPromoteCode()" class="btn next"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
+                           </div>
                            <p><fmt:message key="eliteTerms.selectPlan.By.submitting.my" bundle="${msg}" /></p>
                         </div>
                    </form>
@@ -2338,17 +2341,17 @@ var languageP = "${language}";
   		 				      email: $('#emailToSendPromoCode').val()
   		 				     },
   		 			  success : function(data) {
-  		 				if(data.errMsgs == null){
-  		 					$('#get-promotion-code').modal('hide');
+  		 				if(data!=null && data.errMsgs == null){
+  		 					$('#get-promotion-code-popup').modal('hide');
   		 				}
   		 				else{
-  		 					console.log("data error");
+  		 					$('#errPromoEmail').html('<fmt:message key="system.promotion.error.message" bundle="${msg}" />');
   		 				}
   		 			  }
   	 		      });
             	}
             	else{
-            		console.log("data error");
+            		$('#errPromoEmail').html('<fmt:message key="promotion.empty.error.message" bundle="${msg}" />');
             	}
 			}
             
