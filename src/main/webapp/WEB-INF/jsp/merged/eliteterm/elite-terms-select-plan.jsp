@@ -204,7 +204,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     <h3 class="et-insured-amount"><fmt:message key="eliteTerms.selectPlan.Insured.amount" bundle="${msg}" /> </h3> 
                                     <button type="button" class="et-minimal et-insured-amount-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Our.online.application" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span></button>
                                  </div>
-                                 <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range">${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'800000' }</span></p>
+                                 <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range"></span></p>
                                  <div class="clearfix et-slider-info-div">
                                     <div class="pull-left">
                                        <p class="et-slider-info center"><fmt:message key="eliteTerms.selectPlan.Min" bundle="${msg}" /></p>
@@ -212,10 +212,10 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="pull-right">
                                        <p class="et-slider-info center"><fmt:message key="eliteTerms.selectPlan.Max" bundle="${msg}" /></p>
-                                       <p class="et-slider-info">2,000,000</p>
+                                       <p id="et-ins-amt-max-display" class="et-slider-info">2,000,000</p>
                                     </div>
                                  </div>
-                                 <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-value="${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'800000' }" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
+                                 <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
                                  <div class="et-broken-line et-padding hidden-md hidden-lg"></div>
                               </div>
                               <div class="col-xs-12 col-md-5">
@@ -2117,6 +2117,26 @@ var home_url = "<%=request.getContextPath()%>";
          } else if ($('#et-smoker-no').prop('checked')) {
             planDetailData.isSmooker = false;
          }
+
+         var age = getAge(parseInt($('#et-select-plan-date-input').val().substring(6,10)),
+                 parseInt($('#et-select-plan-date-input').val().substring(3,5)),
+                 parseInt($('#et-select-plan-date-input').val().substring(0,2)));
+         if (age < 51) {
+             $('#et-ins-amt-max-display').text('2,000,000');
+             $('#et-slider-range').html('800,000');
+             $('#R2').slider({max:2000000});
+             $('#R2').slider('setValue', 800000);
+         } else if (age < 56) {
+             $('#et-ins-amt-max-display').text('1,500,000');
+             $('#et-slider-range').html('800,000');
+             $('#R2').slider({max:1500000});
+             $('#R2').slider('setValue', 800000);
+         } else {
+             $('#et-ins-amt-max-display').text('500,000');
+             $('#et-slider-range').html('450,000');
+             $('#R2').slider({max:500000});
+             $('#R2').slider('setValue', 450000);
+         }         
          
          planDetailData.dob = $planDate.val();
       });
@@ -2330,6 +2350,28 @@ var home_url = "<%=request.getContextPath()%>";
 	               	}
             });
 
+            function getAge(year, month, day)
+            {
+                var now = new Date()    
+                var age = now.getFullYear() - year
+                var mdif = now.getMonth() - month + 1 //0=jan    
+                
+                if(mdif < 0)
+                {
+                    --age
+                }
+                else if(mdif == 0)
+                {
+                    var ddif = now.getDate() - day
+                    
+                    if(ddif < 0)
+                    {
+                        --age
+                    }
+                }
+                return age
+            }            
+                        
             function isEmailEmpty(number) {
                var isNotEmpty = false;
                var pref = number.split("");
