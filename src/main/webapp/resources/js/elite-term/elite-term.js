@@ -48,16 +48,15 @@ function getEliteTermPremium() {
 						data.monthlyPremium, data.dailyPremium, 0, 0);
 				}
 			}
-				/*modInsuredAmount = parseFloat(insuredAmount).toFixed(2);
-				modMonthlyPremium = parseFloat(data.monthlyPremium).toFixed(2);
-				$("#et-month-dis-amount").html(parseFloat(data.monthlyDuePremium).toFixed(2));
-				$("#et-day-dis-amount").html(parseFloat(data.dailyDuePremium).toFixed(2));
-				$("#et-month-amount").html(parseFloat(data.monthlyPremium).toFixed(2));
-				$("#et-day-amount").html(parseFloat(data.dailyPremium).toFixed(2));
-				$("#etaspd-insured-amount").html('HK$ ' + modInsuredAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-				$("#etaspd-monthly-premium").html('HK$ ' + modMonthlyPremium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-				applyPromoReward(data.effectivePeriod);
-				*/
+				//modInsuredAmount = parseFloat(insuredAmount).toFixed(2);
+				//modMonthlyPremium = parseFloat(data.monthlyPremium).toFixed(2);
+				//$("#et-month-dis-amount").html(parseFloat(data.monthlyDuePremium).toFixed(2));
+				//$("#et-day-dis-amount").html(parseFloat(data.dailyDuePremium).toFixed(2));
+				//$("#et-month-amount").html(parseFloat(data.monthlyPremium).toFixed(2));
+				//$("#et-day-amount").html(parseFloat(data.dailyPremium).toFixed(2));
+				//$("#etaspd-insured-amount").html('HK$ ' + modInsuredAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+				//$("#etaspd-monthly-premium").html('HK$ ' + modMonthlyPremium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+				//applyPromoReward(data.effectivePeriod);
 			//}
 			//else{
 			//	console.log("data error");
@@ -447,10 +446,11 @@ function setCalculatedAmt(bDiscount, insuredAmt, oriMonthlyAmt, oriDailyAmt, dis
 	var discount_period2_text = getBundle(getBundleLanguage, "et.selectPlan.discount.period2.text"); 
   
 	var modInsuredAmount = parseFloat(insuredAmt).toFixed(2);
+	var modMonthlyPremium = parseFloat(oriMonthlyAmt).toFixed(2);
 	$("#et-month-amount").html(parseFloat(oriMonthlyAmt).toFixed(2));
 	$("#et-day-amount").html(parseFloat(oriDailyAmt).toFixed(2));
 	$("#etaspd-insured-amount").html('HK$ ' + modInsuredAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-	$("#etaspd-monthly-premium").html('HK$ ' + parseFloat(oriMonthlyAmt).toFixed(2));
+	$("#etaspd-monthly-premium").html('HK$ ' + modMonthlyPremium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
   
 	if(bDiscount){
 		$("#et-month-dis-amount").html(parseFloat(disMonthlyAmt).toFixed(2));
