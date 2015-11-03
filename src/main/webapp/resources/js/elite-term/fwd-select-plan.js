@@ -492,6 +492,14 @@
                .removeClass('col-md-6')
                .addClass('et-selected')
          
+         //res address
+         if($('#etaspi-res-add').html().length <= 0) {
+        	 $('#etaspi-res-add').html($('#etaspi-per-add').html());
+         }
+         //corr address
+         if($('#etaspi-corr-add').html().length <= 0) {
+        	 $('#etaspi-corr-add').html($('#etaspi-res-add').html());
+         }
          $appSum.removeClass('hide-element');
          
          $('body, html').animate({
@@ -1519,7 +1527,7 @@
       appInfoData.perAddL3 = document.getElementById('savieApplicantBean.permanentAddress3').value;
       appInfoData.perAdd = $('option[value="' + document.getElementById('savieApplicantBean.permanentAddress').value + '"]', '#savieApplicantBean\\.permanentAddress').text();
       //appInfoData.perAddCountry = document.getElementById('savieApplicantBean.permanentAddressCountry').value;
-      
+
       // For the residential address
       if ($('#savieApplicantBean\\.isResidential').prop('checked')) {  
          appInfoData.resAddL1 = document.getElementById('savieApplicantBean.residentialAdress1').value;
