@@ -1775,7 +1775,8 @@ var home_url = "<%=request.getContextPath()%>";
                      <h5><fmt:message key="eliteTerms.selectPlan.Sorry.you.cannot.apply" bundle="${msg}" /></h5>
                   </div>
                   <div class="modal-body">
-                     <p><fmt:message key="eliteTerms.selectPlan.Please.call.our" bundle="${msg}" /> <a href="#" class="et-top-no"  title="Customer Service Hotline">3123 3123</a> <fmt:message key="eliteTerms.selectPlan.to.find.out.more" bundle="${msg}" /></p>
+                     <p><fmt:message key="eliteTerms.selectPlan.Please.call.our" bundle="${msg}" />
+                     3123 3123 <fmt:message key="eliteTerms.selectPlan.to.find.out.more" bundle="${msg}" /></p>
                      <form action="" id="et-cust-serv-form" method="post">
                         <div class="input-items clearfix">
                            <label for="name"><fmt:message key="eliteTerms.selectPlan.Name" bundle="${msg}" /></label>
@@ -2239,7 +2240,7 @@ var home_url = "<%=request.getContextPath()%>";
                      trigger: 'blur',
                      validators: {
                         regexp: {
-                           regexp: /^[5689]{3}[0-9]+$/,
+                           regexp: /^1[0-9]{10}$|^[5689][0-9]{7}$/, //^[5689]{3}[0-9]+$/,
                            message: 'Your mobile no. is invalid.'
                         },
                         callback: {
