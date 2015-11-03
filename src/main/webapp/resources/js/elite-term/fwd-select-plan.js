@@ -6,6 +6,40 @@
    var beneInfoData = {};
    var underwritingSummData = {};
    var currentSection = 'et-select-plan-section';
+   var getBundleLanguage = "";
+   var lang = UILANGUAGE;
+
+   if(lang === "EN"){
+   	getBundleLanguage = "en";
+   }else 
+   if(lang === "tc"){
+   	getBundleLanguage = "zh";
+   } 
+   else{
+   	getBundleLanguage = "en";
+   }
+   
+// get resource bundle
+   function getBundle(lang, key) {
+   	var rtn; 
+   	loadBundles(lang, key, function(value){
+   		rtn = value;
+   	});
+   	return rtn;
+   }
+   function loadBundles(lang, key, fn) {
+   	//var u = window.location.origin+''+home+'/resources/bundle/';
+      	$.i18n.properties({
+           name: 'Messages',
+           path: ''+home_url+'/resources/bundle/',
+           mode: 'both',
+           language: lang,
+           cache: true,
+           callback: function() {
+           	fn($.i18n.prop(key)); //msg_welcome;	//$.i18n.prop("msg_welcome")      
+           }
+       });
+   }
    
    // REDIRECT TO SPECIFIC SECTION
    var _selectedSection = window.location.hash;
@@ -548,18 +582,18 @@
                container: '#savieApplicantBeanFirstNameMsg',
                validators: {
                   notEmpty: {
-                     message: 'Please enter your Given Name in English.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Given.Name.in.English")
                   },
                   stringLength: {
                      max: 25,
-                     message: 'Given Name must be no more than 25 characters.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Given.Name.must.be.no.more.than.25.characters")
                   },
                   regexp: {
                      regexp: /^[a-zA-Z\s]*$/,
-                     message: 'Please enter your Given Name in English.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Given.Name.in.English")
                   },
                   callback: {
-                     message: 'Please enter your Given Name in English.',
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Given.Name.in.English"),
                      callback: function(value, validator) {
                         return value !== document.getElementById('savieApplicantBean.firstName').getAttribute('placeholder');
                      }
@@ -570,18 +604,18 @@
                container: '#savieApplicantBeanlastNameMsg',
                validators: {
                   notEmpty: {
-                     message: 'Please enter your Last Name in English.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Last.Name.in.English")
                   },
                   stringLength: {
                      max: 25,
-                     message: 'Given Name must be no more than 25 characters.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Given.Name.must.be.no.more.than.25.characters")
                   },
                   regexp: {
                      regexp: /^[a-zA-Z\s]*$/,
-                     message: 'Please enter your Last Name in English.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Last.Name.in.English")
                   },
                   callback: {
-                     message: 'Please enter your Last Name in English.',
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Last.Name.in.English"),
                      callback: function(value, validator) {
                         return value !== document.getElementById('savieApplicantBean.lastName').getAttribute('placeholder');
                      }
@@ -593,11 +627,11 @@
                validators: {
                   stringLength: {
                      max: 6,
-                     message: 'Given Name must be no more than 6 characters.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Given.Name.must.be.no.more.than.6.characters")
                   },
                   regexp: {
                      regexp: /[^\x00-\x7F\s]/,
-                     message: 'Please enter your Name in Chinese.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Name.in.Chinese")
                   }
                }
             },
@@ -605,7 +639,7 @@
                container: '#sales-illu-dob-msg',
                validators: {
                   notEmpty: {
-                     message: 'Please enter your Date of birth.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Date.of.birth")
                   }
                }
             },
@@ -614,7 +648,7 @@
                trigger: 'blur',
                validators: {
                   notEmpty: {
-                     message: 'HKID is required.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.HKID.is.required")
                   },
 //                  regexp: {
 //                     regexp: /(^[A-Z|1-9]){1}([A-Z|1-9]){6}\(?([A-Z|1-9]){1}\)?$/g,
@@ -632,7 +666,7 @@
                container: '#maritalStatusMessage',
                validators: {
                   notEmpty: {
-                     message: 'Marital status is required.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Marital.status.is.required")
                   }
                }
             },
@@ -640,7 +674,7 @@
                container: '#placeOfBirthMessage',
                validators: {
                   notEmpty: {
-                     message: 'Place of birth is required.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Place.of.birth.is.required")
                   }
                }
             },
@@ -648,7 +682,7 @@
                container: '#nationalityMessage',
                validators: {
                   notEmpty: {
-                     message: 'Nationality is required.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Nationality.is.required")
                   }
                }
             },
@@ -720,10 +754,10 @@
                container: '#resTelMessage',
                validators: {
                   notEmpty: {
-                     message: 'Telephone number is required.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Telephone.number.is.required")
                   },
                   digits: {
-                     message: 'Invalid Telephone number.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Invalid.Telephone.number")
                   }
                }
             },
@@ -731,10 +765,10 @@
                container: '#mobileMessage',
                validators: {
                   notEmpty: {
-                     message: 'Mobile number is required.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Mobile.number.is.required")
                   },
                   digits: {
-                     message: 'Invalid Mobile number.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Invalid.Mobile.number")
                   }
                }
             },
@@ -742,10 +776,10 @@
                container: '#emailMessage',
                validators: {
                   notEmpty: {
-                     message: 'Email address is required.' 
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Email.address.is.required")
                   },
                   emailAddress: {
-                     message: 'Provide a valid email address.'
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Provide.a.valid.email.address")
                   }
                }
             },
@@ -753,7 +787,7 @@
                container: '#resDistrictMessage',
                validators: {
                   notEmpty: {
-                     message: 'Please select a district.' 
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.select.a.district")
                   }
                }
             },
@@ -761,7 +795,7 @@
                container: '#residentialDistrictCountryMessage',
                validators: {
                   notEmpty: {
-                     message: 'Please select a country.' 
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.select.a.country")
                   }
                }
             },
@@ -769,7 +803,7 @@
                container: '#permanentAddressCountryMessage',
                validators: {
                   notEmpty: {
-                     message: 'Please select a country.' 
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.select.a.country")
                   }
                }
             },
@@ -777,7 +811,7 @@
                container: '#perAddressMessage',
                validators: {
                   notEmpty: {
-                     message: 'Please select a district.' 
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.select.a.district")
                   }
                }
             },
@@ -785,7 +819,7 @@
                container: '#correspondenceDistrictMessage',
                validators: {
                   notEmpty: {
-                     message: 'Please select a district.' 
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.select.a.district")
                   }
                }
             },
@@ -793,7 +827,7 @@
                container: '#correspondenceCountryMessage',
                validators: {
                   notEmpty: {
-                     message: 'Please select a country.' 
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.select.a.country")
                   }
                }
             },

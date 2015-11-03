@@ -202,7 +202,7 @@ var languageP = "${language}";
                               <div class="col-xs-12 col-md-6 et-insurance-amount">
                                  <div class="et-tooltip-wrapper">
                                     <h3 class="et-insured-amount"><fmt:message key="eliteTerms.selectPlan.Insured.amount" bundle="${msg}" /> </h3> 
-                                    <button type="button" class="et-minimal et-insured-amount-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="Our online application only accept up to <strong>HK$2,000,000</strong> insured amount, if you want to insure more than the above amount, please call our Customer Service on 3123 3123, to arrange an appointment at our Customer Service Center to complete a detail examination." data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span></button>
+                                    <button type="button" class="et-minimal et-insured-amount-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Our.online.application" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span></button>
                                  </div>
                                  <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range">${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'800000' }</span></p>
                                  <div class="clearfix et-slider-info-div">
@@ -221,12 +221,12 @@ var languageP = "${language}";
                               <div class="col-xs-12 col-md-5">
                                  <div class="et-tooltip-wrapper">
                                     <h3 id="promocode-hide-switch" class="et-promo-code-txt et-mbot-15"><fmt:message key="eliteTerms.selectPlan.Promo.code" bundle="${msg}" /> <img src="<%=request.getContextPath()%>/resources/images/elite-terms/orange-caret.png" class="reversed"></h3>
-                                    <button type="button" class="et-minimal et-promo-code-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="Our online application only accept up to <strong>HK$2,000,000</strong> insured amount, if you want to insure more than the above amount, please call our Customer Service on 3123 3123, to arrange an appointment at our Customer Service Center to complete a detail examination." data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-question-tooltip"></span></button>  
+                                    <button type="button" class="et-minimal et-promo-code-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Our.online.application" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-question-tooltip"></span></button>  
                                  </div>
                                  <div id="promocode-hidden" class="hidden-sm hidden-xs">
                                     <div class="clearfix">
                                        <div class="pull-left et-promo-code-txtbox">
-                                          <input name="promocode" type="text" autocomplete="off" placeholder="IF APPLICABLE" class="et-promocode" id="et-promocode" value="${etPolicyApplication.promocode }">
+                                          <input name="promocode" type="text" autocomplete="off" placeholder="<fmt:message key="eliteTerms.selectPlan.IF.APPLICABLE" bundle="${msg}" />" class="et-promocode" id="et-promocode" value="${etPolicyApplication.promocode }">
                                        </div>
                                        <div class="pull-right et-apply-btn">
                                           <button type="button" class="btn btn-white et-apply"><fmt:message key="eliteTerms.selectPlan.Apply" bundle="${msg}" /></button>
@@ -492,7 +492,7 @@ var languageP = "${language}";
                      <div id="personal-info" class="personal-info-widget page-application et-application-page">
                         <h2><fmt:message key="eliteTerms.selectPlan.person.info" bundle="${msg}" />
                            <!-- <button type="button" class="tooltip-button btn-app-info-tooltip"  data-container="body" data-toggle="tooltip" data-placement="top" title="Applicant and the insured must be the same person" data-template= 	'<div class="tooltip et-app-info-tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="info-tooltip"></span></button> -->
-                           <button type="button" class="tooltip-button btn-app-info-tooltip" title="Applicant and the insured must be the same person" ><span class="info-tooltip"></span></button>
+                           <button type="button" class="tooltip-button btn-app-info-tooltip" title="<fmt:message key="eliteTerms.selectPlan.Applicant.and.the.insured" bundle="${msg}" />" ><span class="info-tooltip"></span></button>
                         </h2>
                         
                         <form id="eliteTermsInsuredInfoForm" method="post" class="form-horizontal" action="" onSubmit="return false;">
@@ -504,9 +504,9 @@ var languageP = "${language}";
                                        <label for="give-last-name" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" /> <span class="hidden-xs hidden-sm"><fmt:message key="eliteTerms.selectPlan.Same.as.HKID" bundle="${msg}" /></span></label>
                                     </div>
                                     <div class="left-desktop text-box form-group">
-                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.firstName" name="savieApplicantBean.firstName" type="text" placeholder="Given Name " value="${userDetails.firstName }">
+                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.firstName" name="savieApplicantBean.firstName" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Given.Name" bundle="${msg}" />" value="${userDetails.firstName }">
                                        <span class="error-msg" id="savieApplicantBeanFirstNameMsg"><small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.English.first.name" bundle="${msg}" /></small></span>
-                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.lastName" name="savieApplicantBean.lastName" type="text" placeholder="Last Name " value="${userDetails.lastName }">
+                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.lastName" name="savieApplicantBean.lastName" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Last.Name" bundle="${msg}" />" value="${userDetails.lastName }">
                                        <span class="error-msg" id="savieApplicantBeanlastNameMsg"><small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.English.last.name" bundle="${msg}" /></small></span>
                                     </div>
                                  </div>
@@ -516,7 +516,7 @@ var languageP = "${language}";
                                        <label for="savieApplicantBean.chineseName" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" /> <span class="hidden-xs hidden-sm"><fmt:message key="eliteTerms.selectPlan.Same.as.HKID" bundle="${msg}" /></span></label>
                                     </div>
                                     <div class="left-desktop text-box">
-                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.chineseName" name="savieApplicantBean.chineseName" type="text" placeholder="Name in Chinese " value="" >
+                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.chineseName" name="savieApplicantBean.chineseName" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" />" value="" >
                                        <span class="error-msg" id="savieApplicantBeanchineseNameMsg"><small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Chinese.name" bundle="${msg}" /></small></span>
                                     </div>
                                  </div>
@@ -527,7 +527,7 @@ var languageP = "${language}";
                                     </div>
                                     <div class="left-desktop text-box et-date-info clearfix">
                                     	<div class="clearfix">
-	                                       <input type="text" class="form-control gray-textbox pull-left et-80-width" name="dob" id="sales-illu-dob" placeholder="DD-MM-YYYY " onfocusin="fnSetStyle()" readonly value="${etPolicyApplication.applicant.dobD }"  />
+	                                       <input type="text" class="form-control gray-textbox pull-left et-80-width" name="dob" id="sales-illu-dob" placeholder="<fmt:message key="eliteTerms.selectPlan.DD-MM-YYYY" bundle="${msg}" />" onfocusin="fnSetStyle()" readonly value="${etPolicyApplication.applicant.dobD }"  />
 	                                       <div class="et-app-edit-wrapper">
 	                                          <a href="#" title="Edit Date of birth" class="et-app-sum-edit et-app-edit" data-target="#et-about-yoursel-section">
 	                                             <span class="text-center">
@@ -547,7 +547,7 @@ var languageP = "${language}";
                                     <div class="left-desktop text-box et-date-info clearfix">
                                        <input type="hidden" name="savieApplicantBeanSmoke" id="savieApplicantBeanSmoke" value="${etPolicyApplication.applicant.smoke }"  />
                                        <input type="hidden" name="savieApplicantBeanGender" id="savieApplicantBeanGender" value="${etPolicyApplication.applicant.gender }"  />
-                                       <input type="text" class="form-control gray-textbox pull-left et-80-width" name="savieApplicantBean.gender" id="savieApplicantBean.gender" placeholder="Gender" readonly value="${etPolicyApplication.applicant.gender == 'M' ? 'Male':'Female' }"  />
+                                       <input type="text" class="form-control gray-textbox pull-left et-80-width" name="savieApplicantBean.gender" id="savieApplicantBean.gender" placeholder="<fmt:message key="eliteTerms.selectPlan.Gender" bundle="${msg}" />" readonly value="${etPolicyApplication.applicant.gender == 'M' ? 'Male':'Female' }"  />
                                         <div class="et-app-edit-wrapper">
                                           <a href="#" title="Edit Gender" class="et-app-sum-edit et-app-edit" data-target="#et-about-yoursel-section">
                                              <span class="text-center">
@@ -563,7 +563,7 @@ var languageP = "${language}";
                                        <label for="savieApplicantBean.hkId" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.HKID" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box">
-                                       <input class="form-control gray-textbox capitalize" autocomplete="off" id="savieApplicantBean.hkId" name="savieApplicantBean.hkId" type="text" placeholder="X123456(7)" >
+                                       <input class="form-control gray-textbox capitalize" autocomplete="off" id="savieApplicantBean.hkId" name="savieApplicantBean.hkId" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.X123456(7)" bundle="${msg}" />" >
                                        <span class="error-msg" id="hkidMessage"></span>
                                     </div>
                                  </div>
@@ -649,7 +649,7 @@ var languageP = "${language}";
                                        <label for="savieApplicantBean.residentialTelNo" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Residential.tel.no" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box clearfix">
-                                       <input type="text" class="form-control gray-textbox" name="savieApplicantBean.residentialTelNo" id="savieApplicantBean.residentialTelNo" placeholder="Telephone no."/>
+                                       <input type="text" class="form-control gray-textbox" name="savieApplicantBean.residentialTelNo" id="savieApplicantBean.residentialTelNo" placeholder="<fmt:message key="eliteTerms.selectPlan.Telephone.no." bundle="${msg}" />"/>
                                        <span class="error-msg" id="resTelMessage"></span>
                                     </div>
                                  </div>
@@ -659,7 +659,7 @@ var languageP = "${language}";
                                        <label for="savieApplicantBean.mobileNo" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box clearfix">
-                                       <input type="text" class="form-control gray-textbox" name="savieApplicantBean.mobileNo" id="savieApplicantBean.mobileNo" placeholder="Mobile no." value="${userDetails.mobileNo }" />
+                                       <input type="text" class="form-control gray-textbox" name="savieApplicantBean.mobileNo" id="savieApplicantBean.mobileNo" placeholder="<fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" />" value="${userDetails.mobileNo }" />
                                        <span class="error-msg" id="mobileMessage"></span>
                                     </div>
                                  </div>
@@ -669,7 +669,7 @@ var languageP = "${language}";
                                        <label for="savieApplicantBean.emailAddress" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box">
-                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.emailAddress" name="savieApplicantBean.emailAddress" type="text" placeholder="Email address" value="${userDetails.emailAddress }">
+                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.emailAddress" name="savieApplicantBean.emailAddress" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" />" value="${userDetails.emailAddress }">
                                        <span class="error-msg" id="emailMessage"></span>
                                     </div>
                                  </div>
@@ -680,9 +680,9 @@ var languageP = "${language}";
                                        <label for="inputdefault" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Permanent.address" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box">
-                                       <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress1" name="savieApplicantBean.permanentAddress1" type="text" placeholder="Line 1">
-                                       <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress2" name="savieApplicantBean.permanentAddress2" type="text" placeholder="Line 2">
-                                       <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress3" name="savieApplicantBean.permanentAddress3" type="text" placeholder="Line 3">
+                                       <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress1" name="savieApplicantBean.permanentAddress1" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Line1" bundle="${msg}" />">
+                                       <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress2" name="savieApplicantBean.permanentAddress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Line2" bundle="${msg}" />">
+                                       <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress3" name="savieApplicantBean.permanentAddress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Line3" bundle="${msg}" />">
                                        <span class="error-msg" id="permanentAddressMessage">
                                           <small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
                                        </span>
@@ -745,10 +745,10 @@ var languageP = "${language}";
                                        <label for="inputdefault" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Residential.address" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box">
-                                       <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress1" name="savieApplicantBean.residentialAdress1" type="text" placeholder="Line 1">
+                                       <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress1" name="savieApplicantBean.residentialAdress1" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Line1" bundle="${msg}" />">
                                        <span class="error-msg" id="residentialAddressMessage2"></span>
-                                       <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress2" name="savieApplicantBean.residentialAdress2" type="text" placeholder="Line 2">
-                                       <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress3" name="savieApplicantBean.residentialAdress3" type="text" placeholder="Line 3">
+                                       <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress2" name="savieApplicantBean.residentialAdress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Line2" bundle="${msg}" />">
+                                       <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress3" name="savieApplicantBean.residentialAdress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Line3" bundle="${msg}" />">
                                        <span class="error-msg" id="residentialAddressMessage">
                                           <small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
                                        </span>
@@ -809,11 +809,11 @@ var languageP = "${language}";
                                        <label for="inputdefault" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Correspondence.address" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box">
-                                       <input class="form-control gray-textbox  correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress1" name="savieApplicantBean.correspondenceAdress1" type="text" placeholder="Line 1">
+                                       <input class="form-control gray-textbox  correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress1" name="savieApplicantBean.correspondenceAdress1" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Line1" bundle="${msg}" />">
                                        <span class="error-msg" id="corrAddressMessage2"></span>
-                                       <input class="form-control gray-textbox correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress2" name="savieApplicantBean.correspondenceAdress2" type="text" placeholder="Line 2">
+                                       <input class="form-control gray-textbox correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress2" name="savieApplicantBean.correspondenceAdress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Line2" bundle="${msg}" />">
                                        <span class="error-msg" id="corrAddressMessage3"></span>
-                                       <input class="form-control gray-textbox correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress3" name="savieApplicantBean.correspondenceAdress3" type="text" placeholder="Line 3">
+                                       <input class="form-control gray-textbox correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress3" name="savieApplicantBean.correspondenceAdress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Line3" bundle="${msg}" />">
                                        <span class="error-msg" id="corrAddressMessage">
                                           <small  class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
                                        </span>
@@ -1034,7 +1034,7 @@ var languageP = "${language}";
                      <!--Beneficiary info Widget-->
                      <div id="beneficiary-info" class="page-application container-fluid fwd-container et-beneficiaries-section">
                         <div class="beneficiary-info-header">
-                           <h2 class="text-center"><fmt:message key="eliteTerms.selectPlan.Beneficiary.info" bundle="${msg}" /> <button type="button" class="tooltip-button btn-beneficiary-tooltip" title="Beneficiary Info"><span class="info-tooltip"></span></button></h2>
+                           <h2 class="text-center"><fmt:message key="eliteTerms.selectPlan.Beneficiary.info" bundle="${msg}" /> <button type="button" class="tooltip-button btn-beneficiary-tooltip" title="<fmt:message key="eliteTerms.selectPlan.Beneficiary.info" bundle="${msg}" />"><span class="info-tooltip"></span></button></h2>
                            <h4 class="text-center"><fmt:message key="eliteTerms.selectPlan.You.can.add.up" bundle="${msg}" /></h4>
                         </div>
                            <div class="row clearfix">
@@ -1072,15 +1072,15 @@ var languageP = "${language}";
                                     <div class="form-group has-error beneficiary-info-row">
                                        <label for="savieBeneficiaryBean[0].firstName"><fmt:message key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" /></label>
                                        <input type="text" autocomplete="off" id="savieBeneficiaryBean[0].fullName" hidden>
-                                       <input type="text" id="savieBeneficiaryBean[0].firstName" name="savieBeneficiaryBean[0].firstName" onchange="getBeneficiaryFullName0()" class="form-control gray-textbox form-textbox" placeholder="Given name" maxlength="25">
+                                       <input type="text" id="savieBeneficiaryBean[0].firstName" name="savieBeneficiaryBean[0].firstName" onchange="getBeneficiaryFullName0()" class="form-control gray-textbox form-textbox" placeholder="<fmt:message key="eliteTerms.selectPlan.Given.Name" bundle="${msg}" />" maxlength="25">
                                        <span class="error-msg" autocomplete="off"id="beneficiaryFnameMessage[0]"></span>
-                                       <input type="text" id="savieBeneficiaryBean[0].lastName" name="savieBeneficiaryBean[0].lastName" onchange="getBeneficiaryFullName0()" class="form-control gray-textbox" placeholder="Last name" maxlength="25">
+                                       <input type="text" id="savieBeneficiaryBean[0].lastName" name="savieBeneficiaryBean[0].lastName" onchange="getBeneficiaryFullName0()" class="form-control gray-textbox" placeholder="<fmt:message key="eliteTerms.selectPlan.Last.Name" bundle="${msg}" />" maxlength="25">
                                        <span class="error-msg" id="beneficiaryLnameMessage[0]"></span>
                                        <span class="dup-error-msg hidden" id="duplicate-english-name[0]"><fmt:message key="eliteTerms.selectPlan.Duplicate.English.Name" bundle="${msg}" /></span>
                                     </div>
                                     <div class="form-group has-error beneficiary-info-row">
                                        <label for="savieBeneficiaryBean[0].chineseName"><fmt:message key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" /> <span class="optional"><fmt:message key="eliteTerms.selectPlan.optional" bundle="${msg}" /></span></label>
-                                       <input type="text" autocomplete="off" id="savieBeneficiaryBean[0].chineseName" name="savieBeneficiaryBean[0].chineseName" class="form-control gray-textbox form-textbox" placeholder="Name in Chinese">
+                                       <input type="text" autocomplete="off" id="savieBeneficiaryBean[0].chineseName" name="savieBeneficiaryBean[0].chineseName" class="form-control gray-textbox form-textbox" placeholder="<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" />">
                                        <span class="error-msg" id="beneficiaryChineseNameMessage[0]"></span>
                                        <span class="dup-error-msg hidden" id="duplicate-chinese-name[0]"><fmt:message key="eliteTerms.selectPlan.Duplicate.Chinese.Name" bundle="${msg}" /></span>
                                     </div>
@@ -1097,7 +1097,7 @@ var languageP = "${language}";
                                              </div>
                                           </div>
                                           <div class="pull-left input">
-                                             <input class="form-control gray-textbox capitalize" type="text" autocomplete="off" placeholder="HKID/Passport No" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBean[0].hkId" value="">
+                                             <input class="form-control gray-textbox capitalize" type="text" autocomplete="off" placeholder="<fmt:message key="eliteTerms.selectPlan.HKID/Passport.No" bundle="${msg}" />" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBean[0].hkId" value="">
                                              <input class="form-control gray-textbox hidden" type="text" autocomplete="off" placeholder="HKID/Passport No" id="savieBeneficiaryBean[0].passportNo" name="savieBeneficiaryBean[0].passportNo" value="">
                                           </div>
                                        </div>
