@@ -25,6 +25,7 @@
 			</ol>
 			<h2 class="page-title"><fmt:message key="member.account.title" bundle="${msg}" /></h2>
 	     </div>
+	     
 	     <table>
 	       <tr>
 	          <td>

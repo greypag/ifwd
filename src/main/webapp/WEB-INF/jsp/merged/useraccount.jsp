@@ -26,6 +26,90 @@
 </script>
 <!--END-tooltip-->
 
+<style>
+
+    
+
+    @media screen and (min-width: 1200px) {
+	    .history_container_bg{
+	        background-color:#f1f3f5;
+	    }
+	    
+	    .notice{
+	        margin-left:20px;
+	    }
+    }
+
+    .notice{
+        margin-left:0px;
+    }
+
+    .purchase_history_table thead tr th{
+        background-color:#dbe1e6;
+        border:1px #dbe1e6 solid;
+        padding:13px;
+        width:135px;
+    }
+    
+    .purchase_history_table tbody tr td{
+        padding:13px;
+    }
+    
+    td a, .asterisk{
+        color:#ff8200;
+    }
+    
+    .odd{
+        background-color:white;
+    }
+    .even{
+        background-color:#f1f3f5;
+    }
+    
+    .first{
+        border-top: 2px solid #b7c3cd;
+        clear:both;
+    }
+    
+    
+    .plan-item .plan-item-cols h5{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    
+    .plan-item .plan-item-cols p{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+    .plan-item .plan-item-cols{
+        width: 50%;
+        float: left;
+        
+        margin-top:15px;
+        line-height:0.8;
+    }
+    
+    .plan-item{
+        margin-top:30px;
+        margin-bottom:20px;
+        
+        padding-left:15px;
+    }
+    
+    
+    .plan-item-cols-top{
+        margin-bottom:10px;
+    }
+    
+    .plan-item-cols-bottom{
+        margin-bottom:20px;
+    }
+    
+    .plan-item-empty{
+        margin-bottom:90px;
+    }
+</style>
 
 
 
@@ -189,9 +273,9 @@
 
 
 				</div>
-
+ 
 				<!-- tab content -->
-				<div class="tab-content col-md-8">
+				<div class="tab-content col-md-8 history_container_bg">
 					<div class="tab-pane text-style active padding3" id="tab1">
 						<form:form name="userAcccountForm" id="userAcccountForm" modelAttribute="userDetails">
 							<table class="table acc-form">
@@ -282,9 +366,185 @@
 						</form:form>
 					</div>
 
-
+                        
 					<div class="tab-pane text-style pad-none" id="tab2">
-
+                        <div class="clearfix hidden-xs hidden-sm">
+                             <h2 style="color:#ff8200; margin-left:20px; margin-top:20px; font-size:30px;">Purchase history</h2>
+                        </div>
+                        
+                        <div class="plan-item first hidden-md hidden-lg">
+                            <div class="plan-item-cols odd plan-item-cols-top">
+                                <h5 class="hidden-md hidden-lg">Plan name</h5>
+                                <p>TravelCare</p>
+                            </div>
+                            <div class="plan-item-cols odd plan-item-cols-top">
+                                <h5 class="hidden-md hidden-lg">Policy no.</h5>
+                                <p>3AW32DEO</p>
+                            </div>
+                            <div class="plan-item-cols odd plan-item-cols-bottom">
+                                <h5 class="hidden-md hidden-lg">Day start</h5>
+                                <p>21<sup>th</sup> April 15</p>
+                            </div>
+                            <div class="plan-item-cols odd plan-item-cols-bottom">
+                                <h5 class="hidden-md hidden-lg">Day end</h5>
+                                <p class="hidden-lg hidden-md">21<sup>th</sup> April 16</p>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-item first even hidden-md hidden-lg">
+                            <div class="plan-item-cols odd plan-item-cols-top">
+                                <h5 class="hidden-md hidden-lg">Plan name</h5>
+                                <p>Easy HomeCare</p>
+                            </div>
+                            <div class="plan-item-cols odd plan-item-cols-top">
+                                <h5 class="hidden-md hidden-lg">Policy no.</h5>
+                                <p>2QB93GT8</p>
+                            </div>
+                            <div class="plan-item-cols odd plan-item-cols-bottom">
+                                <h5 class="hidden-md hidden-lg">Day start</h5>
+                                <p>21<sup>th</sup> February 15</p>
+                            </div>
+                            <div class="plan-item-cols odd plan-item-cols-bottom">
+                                <h5 class="hidden-md hidden-lg">Day end</h5>
+                                <p class="hidden-lg hidden-md">21<sup>th</sup> February  16</p>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-item plan-item-empty first hidden-md hidden-lg">
+                        </div>
+                        
+                        
+                        <div class="plan-item first even hidden-md hidden-lg">
+                            <div class="plan-item-cols odd plan-item-cols-top">
+                                <h5 class="hidden-md hidden-lg">Plan name</h5>
+                                <p>Savie</p>
+                            </div>
+                            <div class="plan-item-cols odd plan-item-cols-top">
+                                <h5 class="hidden-md hidden-lg">Policy no.</h5>
+                                <p>5HG21FOP</p>
+                            </div>
+                            <div class="plan-item-cols odd plan-item-cols-bottom">
+                                <h5 class="hidden-md hidden-lg">Status</h5>
+                                <p>Active</p>
+                            </div>
+                            <div class="plan-item-cols odd plan-item-cols-bottom">
+                                <h5 class="hidden-md hidden-lg">Account balance <span class="asterisk">*</span></h5>
+                                <p class="hidden-lg hidden-md">HK$ 300,000</p>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-item plan-item-empty first hidden-md hidden-lg">
+                        </div>
+                        
+                        
+                        
+                        <div class="plan-item first even hidden-md hidden-lg">
+                            <div class="plan-item-cols odd plan-item-cols-top">
+                                <h5 class="hidden-md hidden-lg">Plan name</h5>
+                                <p>Elite term</p>
+                            </div>
+                            <div class="plan-item-cols odd plan-item-cols-top">
+                                <h5 class="hidden-md hidden-lg">Policy no.</h5>
+                                <p>5HG21FOP</p>
+                            </div>
+                            <div class="plan-item-cols odd plan-item-cols-bottom">
+                                <h5 class="hidden-md hidden-lg">Day Start</h5>
+                                <p>06-11-15</p>
+                            </div>
+                            <div class="plan-item-cols odd plan-item-cols-bottom">
+                                <h5 class="hidden-md hidden-lg"></h5>
+                                <p class="hidden-lg hidden-md"><a id="eservices-document-upload-link" href="#">Upload document</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="plan-item plan-item-empty first hidden-md hidden-lg">
+                        </div>
+                        
+                        
+                        <div class="clearfix hidden-xs hidden-sm" style="margin-top:20px;">
+                             <table class="purchase_history_table" style="margin-left:20px; width: 100%; text-align: left; border:1px #dbe1e6 solid;">
+	                             <thead>
+									  <tr>
+									     <th><fmt:message key="Member.Nav2.Purchase history.Table1.Column1.Header" bundle="${msg}" /></th>
+									     <th><fmt:message key="Member.Nav2.Purchase history.Table1.Column2.Header" bundle="${msg}" /></th>
+									     <th><fmt:message key="Member.Nav2.Purchase history.Table1.Column3.Header" bundle="${msg}" /></th>
+									     <th><fmt:message key="Member.Nav2.Purchase history.Table1.Column4.Header" bundle="${msg}" /></th>
+									  </tr>
+							     </thead>
+							     <tbody>
+		                             <tr class="odd">
+			                             <td><fmt:message key="Member.Nav2.Purchase history.Table1.Column1.SampleValue1" bundle="${msg}" /></td>
+			                             <td><fmt:message key="Member.Nav2.Purchase history.Table1.Column2.SampleValue1" bundle="${msg}" /></td>
+			                             <td><fmt:message key="Member.Nav2.Purchase history.Table1.Column3.SampleValue1" bundle="${msg}" /></td>
+			                             <td>3 years</td>
+		                             </tr>
+		                             <tr class="even">
+	                                     <td>Easy HomeCare</td>
+	                                     <td>2QB93GT8</td>
+	                                     <td>21th February 15</td>
+	                                     <td>One-off</td>
+	                                 </tr>
+                                 </tbody>
+                             </table>
+                        </div>
+                        
+                        
+                        
+                        <div class="clearfix hidden-xs hidden-sm" style="margin-top:20px;">
+                             <table class="purchase_history_table" style="margin-left:20px; width: 100%; text-align: left; border:1px #dbe1e6 solid;">
+                                 <thead>
+                                      <tr>
+                                         <th>Plan name</th>
+                                         <th>Reference no.</th>
+                                         <th>Status</th>
+                                         <th>Account value<span style="color:#ff8200; font-weight:normal;">*</span></th>
+                                      </tr>
+                                 </thead>
+                                 <tbody>
+                                     <tr class="odd">
+                                         <td>Savie</td>
+                                         <td>5HG21FOP</td>
+                                         <td>Active</td>
+                                         <td>HK$ 300,000</td>
+                                     </tr>
+                                 </tbody>
+                             </table>
+                        </div>
+                        
+                        
+                        <div class="clearfix hidden-xs hidden-sm" style="margin-top:20px;">
+                             <table class="purchase_history_table" style="margin-left:20px; width: 100%; text-align: left; border:1px #dbe1e6 solid;">
+                                 <thead>
+                                      <tr>
+                                         <th>Plan name</th>
+                                         <th>Reference no.</th>
+                                         <th>Day Start</th>
+                                         <th></th>
+                                      </tr>
+                                 </thead>
+                                 <tbody>
+                                     <tr class="odd">
+                                         <td>Elite term</td>
+                                         <td>123AB45CD</td>
+                                         <td>06-11-15</td>
+                                         <td><a id="eservices-document-upload-link" href="#">Upload document</a></td>
+                                     </tr>
+                                 </tbody>
+                             </table>
+                        </div>
+                        
+                        
+                        <div class="notice" style="margin-top:60px;">
+                            <p class="notice-text" style="font-size:15px;">
+                                    <span class="next-line">
+                                        <span class="asterisk">* </span>Amount indicative only. 
+                                    </span>
+                                    <span class="next-line">Please call our 24-hour hotline at 3123 3123 for</span>
+                                    <span class="next-line">up-to-date account value.</span>
+                            </p>
+                        </div>
+                        
+                        
 						<%
 							ArrayList al = (ArrayList) request.getAttribute("al");
 							Iterator itr = al.iterator();
@@ -348,6 +608,12 @@
 						%>
 
 					</div>
+					
+					
+					
+					
+					
+					
 					<div class="tab-pane text-style padding3 " id="tab3">
 						<table class="table purchase-history" style="width:100%;">
 							<tbody>
