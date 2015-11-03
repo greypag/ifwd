@@ -370,7 +370,8 @@ var home_url = "<%=request.getContextPath()%>";
                </div><!--PLAN OPTION-->
                
             </div><!--END OF SELECT PLAN SECTION-->
-            
+            <!--Application Wrapper -->
+            <div id="et-application-wrapper">
             <!--MEDICAL, APPLICATION INFO, EMPLOYMENT INFO, & BENEFICIARY INFO SECTION-->
             <div id="et-application-first-section" class="hide-element">
                <!--Medical Declaration Widget-->
@@ -1729,7 +1730,7 @@ var home_url = "<%=request.getContextPath()%>";
             </div><!-- END OF SIGNATURE SECTION -->
             
          </div>
-         
+         </div><!-- END Application Wrapper -->
          <!--
             MODAL SECTION 
          -->
@@ -2149,7 +2150,8 @@ var home_url = "<%=request.getContextPath()%>";
   	          $('#et-application-first-section').removeClass('hide-element').css('margin-bottom', '190px');
   		      $('#' + currentSection).addClass('hide-element');
   		      currentSection = 'et-application-first-section';
-  		      
+  		      var $appInfo = $('#et-application-first-section');
+
   		    $('.application-page-header #select-plan').removeClass('active');
   		  	$('.application-page-header #application').addClass('active');
 	  		  $('body, html').animate({

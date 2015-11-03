@@ -427,6 +427,11 @@ function resetCalculatedAmt(){
  	$('#et-day-dis-amount').html('');
 
 	actPromo.find('.top .et-po-amount-label').text(default_period_text);
+
+	//disable proceed button
+	toggleElement(false, 'et-brn-proceed-to-application');
+	//hide Application section
+	$('#et-application-wrapper').addClass('hide-element');
 }
 
 /**
@@ -456,5 +461,103 @@ function setCalculatedAmt(bDiscount, insuredAmt, oriMonthlyAmt, oriDailyAmt, dis
  	} else{
  		actPromo.find('.top .et-po-amount-label').text(default_period_text);
  		$('#et-dis-promo-amount').addClass('hidden');
- 	}	
+ 	}
+
+ 	//enable proceed button
+	toggleElement(true, 'et-brn-proceed-to-application');
+	//show Application section
+	$('#et-application-wrapper').removeClass('hide-element');
+}
+
+/**
+* Enable/Disable html input element
+* Author: Rex So
+*/
+function toggleElement(bEnable, id){
+	if( bEnable ){
+		$('#' + id ).removeAttr('disabled');
+	} else{
+		$('#' + id ).attr('disabled','disabled');
+	}
+}
+
+/**
+* Show/Hide html element
+* Author: Rex So
+*/
+function showElement(bShow, id){
+	if( bShow ){
+		$('#' + id ).removeClass('hide-element');
+	} else {
+		$('#' + id ).addClass('hide-element');
+	}
+}
+
+/**
+* Batch show/hide Elite term section
+* parameters: step
+* 0 = Before we start
+* 1 = About yourself
+* 2 = Plan option
+* 3 = Medical Declarations
+* 4 = Application Form
+* 5 = Employment Status
+* 6 = Beneficiary
+* 7 = Declarations	
+* 8 = Summary
+* 9 = Signature
+* Author: Rex So
+*/
+function backToStep(step){
+	switch(step){
+		case 0: showAppSection(1,0,0,0,0,0,0,0,0,0); break;
+		case 1: showAppSection(1,1,0,0,0,0,0,0,0,0); break;
+		case 2: showAppSection(1,1,1,0,0,0,0,0,0,0); break;
+		case 3: showAppSection(0,0,0,1,0,0,0,0,0,0); break;
+		case 4: showAppSection(0,0,0,1,1,0,0,0,0,0); break;
+		case 5: showAppSection(0,0,0,1,1,1,0,0,0,0); break;
+		case 6: showAppSection(0,0,0,1,1,1,1,0,0,0); break;
+		case 7: showAppSection(0,0,0,1,1,1,1,1,0,0); break;
+		case 8: showAppSection(0,0,0,1,1,1,1,1,1,0); break;
+		case 9: showAppSection(0,0,0,1,1,1,1,1,1,1); break;
+		default: showAppSection(1,0,0,0,0,0,0,0,0,0); break;
+	}
+}
+
+/**
+* Show/Hide Elite term section
+* parameters: Boolean to display sections
+* 0 = Before we start
+* 1 = About yourself
+* 2 = Plan option
+* 3 = Medical Declarations
+* 4 = Application Form
+* 5 = Employment Status
+* 6 = Beneficiary
+* 7 = Declarations	
+* 8 = Summary
+* 9 = Signature
+* Author: Rex So
+*/
+function showAppSection(b0,b1,b2,b3,b4,b5,b6,b7,b8,b9){
+	var sectionName = { 
+		0: 'et-select-plan-section'
+		,1: 'et-about-yoursel-section'
+		,2: 'et-plan-option-section'
+		,3: 'et-medical-declaration'
+		,4: 'et-application-info-section'
+		,5: 'et-employment-info-section'
+		,6: 'et-beneficiary-info-section'
+		,7: 'et-application-second-section'
+		,8: 'et-application-third-section'
+		,9: 'et-application-fourth-section'
+	}
+
+	for( var i=0; i<arguments.length; i++){
+		if(arguments[i]){
+			$('#' + sectionName[i]).removeClass('hide-element');
+		} else {
+			$('#' + sectionName[i]).addClass('hide-element');
+		}
+	}
 }
