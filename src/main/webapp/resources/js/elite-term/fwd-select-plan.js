@@ -1430,10 +1430,13 @@
       
    }
    function populateAppSummEI() {
-      if (empEduInfoData.status.toLowerCase().indexOf('unemployed') > -1) {
+	  var self = $('#savieEmploymentBean\\.employmentStatus');
+	  var value = self.val().slice(0,3);
+      if (value === 'ES4' || value === 'ES5' || value === 'ES6' || value === 'ES7') {
          $('.et-stat-unemployed').removeClass('hide-element');
          $('.et-not-stat-unemployed').addClass('hide-element');
-         $('#etasei-liq-asset').text(formatToCapEachLetter(empEduInfoData.liqAsset));
+         $('#etasei-liq-asset').text(empEduInfoData.liqAsset);
+         $('#etasei-source-income').text(empEduInfoData.sourceIncome);
       } else {
          $('.et-not-stat-unemployed').removeClass('hide-element');
          $('.et-stat-unemployed').addClass('hide-element');
@@ -1587,11 +1590,12 @@
 	   
 	   empEduInfoData.status = document.getElementById('savieEmploymentBean.employmentStatus').value.split("-")[1];
        empEduInfoData.occupation = document.getElementById('savieEmploymentBean.occupation').value.split("-")[1];
-       empEduInfoData.eduLevel = document.getElementById('savieEmploymentBean.educationLevel').value.split("-")[1];
+       empEduInfoData.eduLevel = document.getElementById('savieEmploymentBean.educationLevel').value;
        empEduInfoData.natBusiness = document.getElementById('savieEmploymentBean.natureOfBusiness').value.split("-")[1];
        empEduInfoData.monIncome = document.getElementById('savieEmploymentBean.monthlyPersonalIncome').value.split("-")[1];
-       empEduInfoData.liqAsset = document.getElementById('savieEmploymentBean.liquidAssets').value.split("-")[1];
+       empEduInfoData.liqAsset = $('option[value="' + document.getElementById('savieEmploymentBean.liquidAssets').value + '"]', '#savieEmploymentBean\\.liquidAssets').text();
        empEduInfoData.empName = document.getElementById('savieEmploymentBean.currentEmployerName').value;
+       empEduInfoData.sourceIncome = $('option[value="' + document.getElementById('savieEmploymentBean.sourceOfIncome').value + '"]', '#savieEmploymentBean\\.sourceOfIncome').text();
    }
    
    /**

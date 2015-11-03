@@ -1513,12 +1513,16 @@ var home_url = "<%=request.getContextPath()%>";
                               </div>
                               <div class="et-stat-unemployed hide-element">
                                  <div class="clearfix info-holder">
-                                    <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Liquid.Assets" bundle="${msg}" /></h4>
+                                    <h4 class="info-label employment">Liquid assets</h4>
                                     <p class="info" id="etasei-liq-asset"></p>
+                                 </div>
+                                 <div class="clearfix info-holder">
+                                    <h4 class="info-label employment">Amount of other source of income (HK$)</h4>
+                                    <p class="info" id="etasei-source-income"></p>
                                  </div>
                               </div>
                               <div class="et-not-stat-unemployed hide-element">
-                                 <div class="clearfix info-holder">
+                              	<div class="clearfix info-holder">
                                     <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Occupation" bundle="${msg}" /></h4>
                                     <p class="info" id="etasei-occupation"></p>
                                  </div>
