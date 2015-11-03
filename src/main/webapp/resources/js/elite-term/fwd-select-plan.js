@@ -487,10 +487,10 @@
          // Remove confirm and sign button
          // and align view summary button to center
          $confirmSign.parent()
-                     .remove();
+                     .addClass('hidden');
          $self.parent()
                .removeClass('col-md-6')
-               .addClass('et-selected')
+               .addClass('et-selected col-md-12')
          
          //res address
          if($('#etaspi-res-add').html().length <= 0) {
@@ -513,6 +513,12 @@
          e.preventDefault();
          var $self = $(this);
          var $target = $($self.data('target'));
+         
+         //hide summary
+         $('#et-application-third-section').addClass('hide-element');
+         $('#et-app-sum-proceed-btn').parent().removeClass('col-md-12').addClass('col-md-6');
+         $('#et-declaration-proceed-btn').parent().removeClass('hidden');
+         
          
          if (($self.data('target') === '#et-about-yoursel-section') || $self.data('target') === '#et-plan-option-section') {
             currentSection = 'et-select-plan-section';
