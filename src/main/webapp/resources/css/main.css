@@ -10187,6 +10187,13 @@ tr.product-landing-error-wrap {
     .mob-login-form-wrapper.open{
         display:block;
     }
+    .link-arrow{
+        margin-top:8px;
+        float:right;
+    }
+    .hidden-label{
+        display:none;
+    }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
 	.navbar-fixed-top div.logobox>div.navbar-collapse.mobile-menu-V2{
@@ -10201,10 +10208,7 @@ tr.product-landing-error-wrap {
     }
     .col-sm-12.nav.navbar-nav{
         padding: 0;
-        margin: 0;
-    transition-property: all;
-    transition-duration: .5s;
-    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);        
+        margin: 0;   
     }
     #myDropdownMob div.drop-width{
 	    width: 768px !important;

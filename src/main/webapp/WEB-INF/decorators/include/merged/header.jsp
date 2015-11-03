@@ -865,8 +865,8 @@ function submitLoginForm(formID) {
             }
         %>             
              </li>
-             <li class="pad-none col-sm-12 dropdown link-btn border-bottom">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1" bundle="${msg}" /></a>
+             <li class="pad-none col-sm-12 dropdown link-btn link-grp border-bottom">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
               <ul class="col-sm-12 dropdown-menu">
                 <li class="menu-link-grp-title">
                     <a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.title" bundle="${msg}" /></a>
@@ -886,10 +886,10 @@ function submitLoginForm(formID) {
               </ul>              
             </li>         
             <li class="pad-none col-sm-12 dropdown link-btn border-bottom">
-              <a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2" bundle="${msg}" /></a>
+              <a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
             </li>
             <li class="pad-none col-sm-12 dropdown link-btn">
-              <a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3" bundle="${msg}" /></a>
+              <a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -1177,6 +1177,9 @@ function submitLoginForm(formID) {
 	<%
     }
     %>
+    $( "li.link-btn.link-grp" ).click(function() {
+    	  $(this).find("img").toggle();
+    	});
     $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
         // Avoid following the href location when clicking
         event.preventDefault(); 
