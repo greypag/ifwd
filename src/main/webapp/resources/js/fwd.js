@@ -6212,7 +6212,7 @@ function loadBundles(lang, key, fn) {
 	//var u = window.location.origin+''+home+'/resources/bundle/';
    	$.i18n.properties({
         name: 'Messages',
-        path: ''+home_url+'/resources/bundle/',
+        path: '/resources/bundle/',
         mode: 'both',
         language: lang,
         cache: true,

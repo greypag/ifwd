@@ -1748,7 +1748,7 @@ var home_url = "<%=request.getContextPath()%>";
                            <div class="alert alert-success hide proSuccess"></div>
                            <h4><fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" /></h4>
                            <div class="form-group">
-                               <input type="email" class="form-control" placeholder="" name="emailToSendPromoCode" id="emailToSendPromoCode">
+                               <input type="text" class="form-control" placeholder="" name="emailToSendPromoCode" id="emailToSendPromoCode">
                                <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
                            </div>
                            <span id="errPromoEmail" class="text-red"></span>
@@ -2331,7 +2331,7 @@ var home_url = "<%=request.getContextPath()%>";
             }
             
             function getPromoteCode() {
-            	if($('#emailToSendPromoCode').val()!=''){
+            	if(get_promo_val()){
             		$.ajax({
   		 			  type : "POST",
   		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/getPromoteCode",
@@ -2352,6 +2352,28 @@ var home_url = "<%=request.getContextPath()%>";
             		console.log("data error");
             	}
 			}
+            
+            /*Promo popup*/
+            function get_promo_val(){
+            	var valid = true;
+            	var emailId = document.getElementById("emailToSendPromoCode").value; 
+            	document.getElementById("errPromoEmail").style.display = "none";
+            	// Email Address Validation
+            	if (emailId.trim() == "") {
+            		document.getElementById("errPromoEmail").style.display = "block";
+            		document.getElementById("errPromoEmail").innerHTML = getBundle(getBundleLanguage, "promotion.email.notNull.message");//"Your E-mail Address is invalid.";
+            		valid = false;
+
+            	} 
+            	else {
+            		if (emailreg.test(emailId) == false) {
+            			document.getElementById("errPromoEmail").style.display = "block";
+            			document.getElementById("errPromoEmail").innerHTML = getBundle(getBundleLanguage, "promotion.email.notValid.message");//"Your E-mail Address is invalid.";
+            			valid = false;
+            		}
+            	}
+            	return valid;
+            }
             
             function getCsChannel(channel) {
             	$("#channel").val(channel);
