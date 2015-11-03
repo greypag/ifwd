@@ -377,27 +377,6 @@
 		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery.loadImages.1.1.0.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/index.js"></script>
       <script>
-         $(function() {
-            $('#et-recent-works-mob').on('click', '.prev', function(e) {
-               e.preventDefault();
-               $('#et-recent-works-mob').carousel('prev');
-            });
-            
-            $('#et-recent-works-mob').on('click', '.next', function(e) {
-               e.preventDefault();
-               $('#et-recent-works-mob').carousel('next');
-            });
-            
-            $('#et-testimonials-mob').on('click', '.prev', function(e) {
-               e.preventDefault();
-               $('#et-testimonials-mob').carousel('prev');
-            });
-            
-            $('#et-testimonials-mob').on('click', '.next', function(e) {
-               e.preventDefault();
-               $('#et-testimonials-mob').carousel('next');
-            });
-         });
          
          $(window).scroll(function (event) {
             var scroll = $(window).scrollTop();
