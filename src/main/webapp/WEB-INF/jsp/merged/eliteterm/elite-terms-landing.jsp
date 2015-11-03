@@ -17,7 +17,7 @@
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
-		<div class="fwd-savie-wrapper">			
+		<div class="fwd-savie-wrapper fwd-et-wrapper">			
 			<span id="language-holder" value="${language}"></span>
 			<div class="text-center banner-widget container-fluid">
 			<img src="<%=request.getContextPath()%>/resources/images/elite-terms/iFWD_elite-term_hero-image_mobile.jpg" alt="Team Insurance" class="hidden-md hidden-lg img-responsive english-picture">
@@ -38,6 +38,16 @@
 			</div>
 			
          <div id="flux" class="et-page">
+            <div class="center wow fadeInDown"> 
+               <!--desktop-->
+               <p class="hidden-sm hidden-xs"><fmt:message key="eliteTerms.landing.h2" bundle="${msg}" /></p>
+               <!--end desktop--> 
+               <!--Mobile-->
+               <p class="hidden-lg hidden-md feature-ttl">
+                  <fmt:message key="eliteTerms.landing.h2" bundle="${msg}" />
+               </p>
+               <!--end Mobile-->
+            </div>
             <div class="et-three-columns-wrapper">
                <div id="landing-three-column" class="fwd-container container-fluid three-column-widget et-three-column-widget">
                   <div class="row row-top et-usp-section">
@@ -122,9 +132,6 @@
                   <div class="row">
                      <div class="col-xs-12 text-center et-benefit-title">
                         <h2><fmt:message key="eliteTerms.landing.Benefits" bundle="${msg}" /></h2>
-                        <p>
-                           <fmt:message key="eliteTerms.landing.Elite.Term.Plan" bundle="${msg}" />
-                        </p>
                      </div>	                    
                      <div class="col-xs-12 et-benefit-lists">
                         <div class="row">

@@ -32,7 +32,7 @@
       	$.i18n.properties({
            name: 'Messages',
            path: ''+home_url+'/resources/bundle/',
-           mode: 'both',
+           mode: 'map',
            language: lang,
            cache: true,
            callback: function() {
@@ -389,7 +389,8 @@
          var $self = $(this);
          
          // Store plan detail data
-         planDetailData.insuranceAmount = $('#et-slider-range').text();
+         var sliderVal = $('#et-slider-range').text();
+         $('#etaspd-insured-amount').html('HK$ '+ sliderVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
          
          if ($self.hasClass('back-to-app')) {
             // Go back to the application form
@@ -487,11 +488,19 @@
          // Remove confirm and sign button
          // and align view summary button to center
          $confirmSign.parent()
-                     .remove();
+                     .addClass('hidden');
          $self.parent()
                .removeClass('col-md-6')
-               .addClass('et-selected')
+               .addClass('et-selected col-md-12')
          
+         //res address
+         if($('#etaspi-res-add').html().length <= 0) {
+        	 $('#etaspi-res-add').html($('#etaspi-per-add').html());
+         }
+         //corr address
+         if($('#etaspi-corr-add').html().length <= 0) {
+        	 $('#etaspi-corr-add').html($('#etaspi-res-add').html());
+         }
          $appSum.removeClass('hide-element');
          
          $('body, html').animate({
@@ -505,6 +514,12 @@
          e.preventDefault();
          var $self = $(this);
          var $target = $($self.data('target'));
+         
+         //hide summary
+         $('#et-application-third-section').addClass('hide-element');
+         $('#et-app-sum-proceed-btn').parent().removeClass('col-md-12').addClass('col-md-6');
+         $('#et-declaration-proceed-btn').parent().removeClass('hidden');
+         
          
          if (($self.data('target') === '#et-about-yoursel-section') || $self.data('target') === '#et-plan-option-section') {
             currentSection = 'et-select-plan-section';
@@ -1422,10 +1437,13 @@
       
    }
    function populateAppSummEI() {
-      if (empEduInfoData.status.toLowerCase().indexOf('unemployed') > -1) {
+	  var self = $('#savieEmploymentBean\\.employmentStatus');
+	  var value = self.val().slice(0,3);
+      if (value === 'ES4' || value === 'ES5' || value === 'ES6' || value === 'ES7') {
          $('.et-stat-unemployed').removeClass('hide-element');
          $('.et-not-stat-unemployed').addClass('hide-element');
-         $('#etasei-liq-asset').text(formatToCapEachLetter(empEduInfoData.liqAsset));
+         $('#etasei-liq-asset').text(empEduInfoData.liqAsset);
+         $('#etasei-source-income').text(empEduInfoData.sourceIncome);
       } else {
          $('.et-not-stat-unemployed').removeClass('hide-element');
          $('.et-stat-unemployed').addClass('hide-element');
@@ -1519,7 +1537,7 @@
       appInfoData.perAddL3 = document.getElementById('savieApplicantBean.permanentAddress3').value;
       appInfoData.perAdd = $('option[value="' + document.getElementById('savieApplicantBean.permanentAddress').value + '"]', '#savieApplicantBean\\.permanentAddress').text();
       //appInfoData.perAddCountry = document.getElementById('savieApplicantBean.permanentAddressCountry').value;
-      
+
       // For the residential address
       if ($('#savieApplicantBean\\.isResidential').prop('checked')) {  
          appInfoData.resAddL1 = document.getElementById('savieApplicantBean.residentialAdress1').value;
@@ -1579,11 +1597,12 @@
 	   
 	   empEduInfoData.status = document.getElementById('savieEmploymentBean.employmentStatus').value.split("-")[1];
        empEduInfoData.occupation = document.getElementById('savieEmploymentBean.occupation').value.split("-")[1];
-       empEduInfoData.eduLevel = document.getElementById('savieEmploymentBean.educationLevel').value.split("-")[1];
+       empEduInfoData.eduLevel = document.getElementById('savieEmploymentBean.educationLevel').value;
        empEduInfoData.natBusiness = document.getElementById('savieEmploymentBean.natureOfBusiness').value.split("-")[1];
        empEduInfoData.monIncome = document.getElementById('savieEmploymentBean.monthlyPersonalIncome').value.split("-")[1];
-       empEduInfoData.liqAsset = document.getElementById('savieEmploymentBean.liquidAssets').value.split("-")[1];
+       empEduInfoData.liqAsset = $('option[value="' + document.getElementById('savieEmploymentBean.liquidAssets').value + '"]', '#savieEmploymentBean\\.liquidAssets').text();
        empEduInfoData.empName = document.getElementById('savieEmploymentBean.currentEmployerName').value;
+       empEduInfoData.sourceIncome = $('option[value="' + document.getElementById('savieEmploymentBean.sourceOfIncome').value + '"]', '#savieEmploymentBean\\.sourceOfIncome').text();
    }
    
    /**
