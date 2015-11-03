@@ -36,12 +36,13 @@ function getEliteTermPremium() {
 		function(data) {
 			//if(data.errMsgs == null){
 				modInsuredAmount = parseFloat(insuredAmount).toFixed(2);
+				modMonthlyPremium = parseFloat(data.monthlyPremium).toFixed(2);
 				$("#et-month-dis-amount").html(parseFloat(data.monthlyDuePremium).toFixed(2));
 				$("#et-day-dis-amount").html(parseFloat(data.dailyDuePremium).toFixed(2));
 				$("#et-month-amount").html(parseFloat(data.monthlyPremium).toFixed(2));
 				$("#et-day-amount").html(parseFloat(data.dailyPremium).toFixed(2));
 				$("#etaspd-insured-amount").html('HK$ ' + modInsuredAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-				$("#etaspd-monthly-premium").html('HK$ ' + parseFloat(data.monthlyPremium).toFixed(2));
+				$("#etaspd-monthly-premium").html('HK$ ' + modMonthlyPremium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 				applyPromoReward(data.effectivePeriod);
 			//}
 			//else{

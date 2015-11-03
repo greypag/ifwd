@@ -390,7 +390,10 @@
          
          // Store plan detail data
          var sliderVal = $('#et-slider-range').text();
+         var monthlyPrem = $('#et-month-dis-amount').text();
+         
          $('#etaspd-insured-amount').html('HK$ '+ sliderVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+         $('#etaspd-monthly-premium').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
          
          if ($self.hasClass('back-to-app')) {
             // Go back to the application form
