@@ -18,6 +18,7 @@ var context = "${pageContext.request.contextPath}";
 var signatureFileSize = "${signatureFileSize}";
 var selectPlanNextPageFlow = "${nextPageFlow}";
 var languageP = "${language}";
+var home_url = "<%=request.getContextPath()%>";
 </script>
 		<%!
 			boolean isSaleActiveClass = false;
