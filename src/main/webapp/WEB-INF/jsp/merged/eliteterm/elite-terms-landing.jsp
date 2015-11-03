@@ -43,13 +43,15 @@
                      <div class="col-xs-12 col-md-4 fwd-col">
                            <div class="col-content et-bordered-col-content">
                               <div class="clearfix">
-                                 <div class="mobile-image hidden-md hidden-lg et-img-col">
+                                 <div class="mobile-image hidden-md hidden-lg et-img-col pull-left">
                                     <img src="<%=request.getContextPath()%>/resources/images/elite-terms/protection.png" alt="protection.png" class="img-responsive">
                                  </div>
                                  <div class="right et-desc-col">
                                     <h2><fmt:message key="eliteTerms.landing.Fill.the.Protection" bundle="${msg}" /></h2>
                                     <div class="text-center">
-                                       <img src="<%=request.getContextPath()%>/resources/images/elite-terms/protection.png" alt="protection.png"  class="hidden-xs hidden-sm">
+                                       <div class="hidden-xs hidden-sm">
+                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/protection.png" alt="protection.png">
+                                       </div>
                                        <p><fmt:message key="eliteTerms.landing.Regardless.of.your" bundle="${msg}" /></p>
                                     </div>
                                  </div>
@@ -60,13 +62,15 @@
                      <div class="col-xs-12 col-md-4 fwd-col">
                            <div class="col-content et-bordered-col-content">
                               <div class="clearfix">
-                                 <div class="mobile-image hidden-md hidden-lg et-img-col">
+                                 <div class="mobile-image hidden-md hidden-lg et-img-col pull-left">
                                     <img src="<%=request.getContextPath()%>/resources/images/elite-terms/guarantee.png" alt="guarantee.png" class="img-responsive">
                                  </div>
                                  <div class="right et-desc-col">
                                     <h2><fmt:message key="eliteTerms.landing.Guaranteed.Level.premium" bundle="${msg}" /></h2>
                                     <div class="text-center">
-                                       <img src="<%=request.getContextPath()%>/resources/images/elite-terms/guarantee.png" alt="guarantee.png"  class="hidden-xs hidden-sm">
+                                       <div class="hidden-xs hidden-sm">
+                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/guarantee.png" alt="guarantee.png">
+                                       </div>
                                        <p><fmt:message key="eliteTerms.landing.The.premiums.payable" bundle="${msg}" /></p>
                                     </div>
                                  </div>
@@ -77,13 +81,15 @@
                      <div class="col-xs-12 col-md-4 fwd-col">
                            <div class="col-content et-bordered-col-content">
                               <div class="clearfix">
-                                 <div class="mobile-image hidden-md hidden-lg et-img-col">
+                                 <div class="mobile-image hidden-md hidden-lg et-img-col pull-left">
                                     <img src="<%=request.getContextPath()%>/resources/images/elite-terms/flexible.png" alt="flexible.png" class="img-responsive">
                                  </div>
                                  <div class="right et-desc-col">
                                     <h2><fmt:message key="eliteTerms.landing.Flexible.in.choosing" bundle="${msg}" /></h2>
                                     <div class="text-center">
-                                       <img src="<%=request.getContextPath()%>/resources/images/elite-terms/flexible.png" alt="flexible.png"  class="hidden-xs hidden-sm">
+                                       <div class="hidden-xs hidden-sm">
+                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/flexible.png" alt="flexible.png">
+                                       </div>
                                        <p><fmt:message key="eliteTerms.landing.It.is.flexible" bundle="${msg}" /></p>
                                     </div>
                                  </div>
@@ -377,27 +383,6 @@
 		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery.loadImages.1.1.0.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/index.js"></script>
       <script>
-         $(function() {
-            $('#et-recent-works-mob').on('click', '.prev', function(e) {
-               e.preventDefault();
-               $('#et-recent-works-mob').carousel('prev');
-            });
-            
-            $('#et-recent-works-mob').on('click', '.next', function(e) {
-               e.preventDefault();
-               $('#et-recent-works-mob').carousel('next');
-            });
-            
-            $('#et-testimonials-mob').on('click', '.prev', function(e) {
-               e.preventDefault();
-               $('#et-testimonials-mob').carousel('prev');
-            });
-            
-            $('#et-testimonials-mob').on('click', '.next', function(e) {
-               e.preventDefault();
-               $('#et-testimonials-mob').carousel('next');
-            });
-         });
          
          $(window).scroll(function (event) {
             var scroll = $(window).scrollTop();

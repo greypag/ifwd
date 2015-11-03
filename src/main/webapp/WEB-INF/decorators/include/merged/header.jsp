@@ -1173,6 +1173,7 @@ function submitLoginForm(formID) {
 			e.preventDefault();
 			e.stopPropagation();
 			$(".mob-login-form-wrapper").toggleClass('open');
+			$(".bmg_mobile_login_mask").toggle();
 		});
 	<%
     }

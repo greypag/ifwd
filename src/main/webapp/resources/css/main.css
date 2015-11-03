@@ -10077,6 +10077,9 @@ tr.product-landing-error-wrap {
 
 /******** End of desktop header menutab v2 ********/
 /******** Start of mobile header menu v2 ********/
+.mob-login-form-wrapper{
+	display: none;
+}
 @media screen and (max-width: 991px) {
     body {
        padding-top: 35%;
