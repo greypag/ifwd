@@ -21,13 +21,6 @@ perventRedirect=true;
 <div class="row">
 <form:form name="frmTravelPlan" id="frmTravelPlan" modelAttribute="travelQuote" method="post" action="${pageContext.request.contextPath}/${language}/flight-upgrade-travel-summary">
 
-<ol class="breadcrumb pad-none">
-<li><a href="#"><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-<li><a href="#"><fmt:message key="flight.breadcrumb1.item2" bundle="${msg}" /> </a> <i class="fa fa-caret-right"></i></li>
-<li><a href="#"><fmt:message key="flight.breadcrumb1.item3" bundle="${msg}" /> </a> <i class="fa fa-caret-right"></i></li>
-<li><a href="#"><fmt:message key="flight.breadcrumb1.item4" bundle="${msg}" /> </a></li>
-<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="flight.breadcrumb1.item5" bundle="${msg}" /></li>
-</ol>
 <div class="container ">
 <div id="tr-steps"
 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 shop-tracking-status">
@@ -62,6 +55,13 @@ class="image-order-status image-order-status-active  img-circle">
 </div>
 </div>
 </div>
+<ol class="breadcrumb pad-none">
+<li><a href="#"><fmt:message key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+<li><a href="#"><fmt:message key="flight.breadcrumb1.item2" bundle="${msg}" /> </a> <i class="fa fa-caret-right"></i></li>
+<li><a href="#"><fmt:message key="flight.breadcrumb1.item3" bundle="${msg}" /> </a> <i class="fa fa-caret-right"></i></li>
+<li><a href="#"><fmt:message key="flight.breadcrumb1.item4" bundle="${msg}" /> </a></li>
+<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="flight.breadcrumb1.item5" bundle="${msg}" /></li>
+</ol>
 <div class="container pad-none bdr">
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none" style="background-color: #f5f5f5;">
     <div style="width:80%;margin-left:10%">

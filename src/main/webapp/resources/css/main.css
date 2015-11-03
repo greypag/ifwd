@@ -10233,6 +10233,7 @@ div.breadcrumb-wrapper{
 }
 div.breadcrumb-wrapper>ol.breadcrumb{
 	position:relative;
+	text-align: left;
 }
 div.breadcrumb-wrapper>ol.breadcrumb a,
 div.breadcrumb-wrapper>ol.breadcrumb li{
