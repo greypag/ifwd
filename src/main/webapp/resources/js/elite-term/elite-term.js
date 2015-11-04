@@ -20,6 +20,8 @@ function getEliteTermPremium() {
 	var smoke = $('input[name="et-smoker"]:checked ').val();
 	var insuredAmount = $('#R2').val();
 	var referralCode = $('#et-promocode').val();
+	var referralCodePlaceholder = $('#et-promocode').attr('placeholder');
+	referralCode = (referralCode==referralCodePlaceholder)?'':referralCode;
 	
 	if(dob ==null || gender ==null || smoke ==null || insuredAmount ==null){
 		console.log("data error");
