@@ -801,7 +801,7 @@ function getParameterByUrl(name){
                     <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon6.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.bocomm.card.offer" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
-                    <div class="col-xs-12 hidden-content-a"><a href="#"><fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" /></a></div>
+                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
