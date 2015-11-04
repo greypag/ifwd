@@ -745,7 +745,7 @@ function getParameterByUrl(name){
                     <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon1.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.simple.and.easy" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
-                    <div class="col-xs-12 hidden-content-a"><a href="#"><fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" /></a></div>
+                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -756,7 +756,7 @@ function getParameterByUrl(name){
                     <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon2.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.19.to.70.issue.age" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
-                    <div class="col-xs-12 hidden-content-a"><a href="#"><fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" /></a></div>
+                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -767,7 +767,7 @@ function getParameterByUrl(name){
                     <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon3.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.withdrawal.without.charges" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
-                    <div class="col-xs-12 hidden-content-a"><a href="#"><fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" /></a></div>
+                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -778,7 +778,7 @@ function getParameterByUrl(name){
                     <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon4.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.earning.after.3.years" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
-                    <div class="col-xs-12 hidden-content-a"><a href="#"><fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" /></a></div>
+                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -789,7 +789,7 @@ function getParameterByUrl(name){
                     <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon5.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.24.hours.service.hotline" bundle="${msg}" /></div>
                     <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
-                    <div class="col-xs-12 hidden-content-a"><a href="#"><fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" /></a></div>
+                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
