@@ -49,11 +49,11 @@
          <div id="flux" class="et-page">
             <div class="center wow fadeInDown"> 
                <!--desktop-->
-               <p class="hidden-sm hidden-xs"><fmt:message key="eliteTerms.landing.h2" bundle="${msg}" /></p>
+               <p class="hidden-sm hidden-xs"><fmt:message key="eliteTerms.landing.Elite.Term.Plan" bundle="${msg}" /></p>
                <!--end desktop--> 
                <!--Mobile-->
                <p class="hidden-lg hidden-md feature-ttl">
-                  <fmt:message key="eliteTerms.landing.h2" bundle="${msg}" />
+                  <fmt:message key="eliteTerms.landing.Elite.Term.Plan" bundle="${msg}" />
                </p>
                <!--end Mobile-->
             </div>
