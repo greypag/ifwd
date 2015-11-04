@@ -91,8 +91,8 @@ var home_url = "<%=request.getContextPath()%>";
 					<fmt:message key="savie.o2o.landing.Haven't.applied.part1" bundle="${msg}" /><button id="signup"><fmt:message key="savie.o2o.landing.Haven't.applied.link.text" bundle="${msg}" /></button><fmt:message key="savie.o2o.landing.Haven't.applied.part2" bundle="${msg}" />
 				</p> 
 				<p class="footnote below hidden-sm hidden-xs"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p> -->
-			</div>
-			</div>  
+			<!--</div> 
+			</div>  -->
 			
 	        <div class="teaser-three-column O2O-landing">
 					<div id="landing-three-column" class="fwd-container container-fluid three-column-widget O2O-landing">
