@@ -11730,7 +11730,7 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
   }
 }
 .fwd-savie-wrapper p.additional.top {
-  padding: 32px 0 0 0;
+  padding: 0 0 0 0;
   font-size: 30px;
   font-family: 'Calibri-bold', sans-serif;
   color: #ff8200;
@@ -11740,7 +11740,7 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
   .fwd-savie-wrapper p.additional.top {
     padding: 42px 0 0 0;
     width: 46%;
-    font-size: 38px;
+    font-size: 48px;
     line-height: 40px;
   }
 }
@@ -14481,7 +14481,7 @@ body.chin button#thank-you-continue {
     width: 100%;
     max-width: 576px;
     margin: 0 auto;
-    padding-right: 40px;
+    padding-right: 0px;
   }
 }
 @media (min-width: 992px) {

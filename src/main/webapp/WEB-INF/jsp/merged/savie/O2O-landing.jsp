@@ -66,19 +66,26 @@ var home_url = "<%=request.getContextPath()%>";
 			
 			<div class="fwd-full-container container-fluid o2o-landing teaser">
 				<div class="fwd-container-limit">
-					<div class="teaser-banner-text">
+					<!--<div class="teaser-banner-text"> -->
 						<!-- <div class="money-div">
 							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/money-logo-large.png" class="money">
 						</div> -->
-						<p class="additional top hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.Act.now.to" bundle="${msg}" /></p> 
-						<p class="additional top hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.Act.now.to2" bundle="${msg}" /></p>
-						<ul class="crediting-rate-list clearfix">
-							<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.First.year" bundle="${msg}" /></span></li>
-							<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Second.year" bundle="${msg}" /></span><div class="white right"></div></li>
-							<li><span class="percent gold">4% </span><span class="year gold"><fmt:message key="savie.o2o.landing.Third.year" bundle="${msg}" /></span></li>
-						</ul>
+						<div class = "row">
+							<div class = "col-xs-12 col-md-6">
+								<p class="additional top hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.Act.now.to" bundle="${msg}" /></p> 
+								<p class="additional top hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.Act.now.to2" bundle="${msg}" /></p>
+							</div>
+							
+							<div class = "col-xs-12 col-md-6">
+								<ul class="crediting-rate-list clearfix">
+									<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.First.year" bundle="${msg}" /></span></li>
+									<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Second.year" bundle="${msg}" /></span><div class="white right"></div></li>
+									<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Third.year" bundle="${msg}" /></span></li>
+								</ul>
+							</div>
+						</div>
 						<!--<p class="bottom-text"><fmt:message key="savie.o2o.landing.Lump.sum.info" bundle="${msg}" /></p> -->
-					</div>
+					<!-- </div> -->
 				</div>
 			</div>
 			
