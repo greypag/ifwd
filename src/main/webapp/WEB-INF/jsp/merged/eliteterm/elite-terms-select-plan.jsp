@@ -1191,6 +1191,7 @@ var home_url = "<%=request.getContextPath()%>";
                            <fmt:message key="eliteTerms.selectPlan.I.have.read" bundle="${msg}" /> <a href="#" class="link"> <fmt:message key="eliteTerms.selectPlan.Personal.Information" bundle="${msg}" /></a>
                         </div>
                      </div>
+                     <span id="chk1" class="text-red"></span> <br />
                      
                      <h4 class="policy-replace"><fmt:message key="eliteTerms.selectPlan.Policy.replacement.declarations" bundle="${msg}" /></h4>
                      <div class="policy-desc bottom">
@@ -1262,7 +1263,7 @@ var home_url = "<%=request.getContextPath()%>";
                            <fmt:message key="eliteTerms.selectPlan.I.understand.that" bundle="${msg}" />
                         </div>
                      </div>
-
+                     <span id="chk2" class="text-red"></span> <br />
                      
                      <h4 class="application"><fmt:message key="eliteTerms.selectPlan.Application" bundle="${msg}" /></h4>
                      
@@ -1275,6 +1276,8 @@ var home_url = "<%=request.getContextPath()%>";
                            <h5 class="declare-agree"><fmt:message key="eliteTerms.selectPlan.I.hereby.DECLARE" bundle="${msg}" /></h5>
                         </div>
                      </div>
+                     <span id="chk3" class="text-red"></span> <br />
+                     
                      <div class="clearfix declaration application-declaration">
                         <div class="pull-left cancellation-check">
                            
