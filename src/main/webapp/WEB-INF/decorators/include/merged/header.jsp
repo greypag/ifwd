@@ -77,6 +77,11 @@ function submitLoginForm(formID) {
 							$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
 							$('#thankYouModal').modal('show');
 						}
+						else if(window.location.href.indexOf("savings-evergreen-insurance/plan-details")>0){
+							$('#loginpopup').modal('hide');
+							$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
+							$('#thankYouModal').modal('show');
+						}
 						else if(window.location.href.indexOf("term-life-insurance/select-plan")>0){
 							perventRedirect=false;
 							ga('send', 'event', 'Login', 'Click', 'Login success');

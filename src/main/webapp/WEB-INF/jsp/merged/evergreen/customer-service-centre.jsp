@@ -188,8 +188,6 @@ var language = "${language}";
 			</div><!-- /.modal -->
 	</form>
 </div>
-<%-- 
-<script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script> --%>
 <script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
 
 <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
@@ -263,7 +261,7 @@ var language = "${language}";
 			}
 			else{
 				$.ajax({     
-				    url:context+'/ajax/savie/savings-insurance/upsertAppointment',     
+				    url:context+'/ajax/savings-evergreen-insurance/upsertAppointment',     
 				    type:'post',     
 				    data:{    
 				    	"csCenter": csCenter,
@@ -276,7 +274,7 @@ var language = "${language}";
 				    	if(data.errMsgs == null){
 				    		//send email
 				    		$.ajax({     
-							    url:context+'/ajax/savie/service-center-confirm/email',     
+							    url:context+'/ajax/savings-evergreen-insurance/service-center-confirm/email',     
 							    type:'post',
 							    data:{    
 							    	"csCenter": csCenter,
@@ -286,7 +284,7 @@ var language = "${language}";
 							    success:function(data){
 							    	if(data.errMsgs == null){
 							    		console.log("send email success");
-							    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation");
+							    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-evergreen-insurance/confirmation");
 								    	$("#serviceCenterForm").submit();
 							    	}else{
 							    		console.log(data.errMsgs);
@@ -309,7 +307,7 @@ var language = "${language}";
 			}
 		});
 		$('#back-to-home-btn').click(function(){
-    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance");
+    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-evergreen-insurance");
 	    	$("#serviceCenterForm").submit();
 		});		
 	});
@@ -317,7 +315,7 @@ var language = "${language}";
 	function putTimeSession(){
 		var perTime = $("#preferred-time").val();
 		$.ajax({     
-		    url:context+'/ajax/savie/savings-insurance/putTimeSession',     
+		    url:context+'/ajax/savings-evergreen-insurance/putTimeSession',     
 		    type:'post',     
 		    data:{    
 		        "perferredTime":perTime

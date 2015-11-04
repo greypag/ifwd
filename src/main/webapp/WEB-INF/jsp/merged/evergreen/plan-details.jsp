@@ -404,11 +404,10 @@ var context = "${pageContext.request.contextPath}";
 		
 		
 		<!--For Sales Illustration page js-->
-		<!--  <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>-->
-		<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-slider.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/highcharts.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/fwd-chart.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/evergreen/bootstrap-slider.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/evergreen/highcharts.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/evergreen/fwd-chart.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/evergreen/evergreen.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 		<script type="text/javascript">	
 		        $(function() {
@@ -466,6 +465,6 @@ var context = "${pageContext.request.contextPath}";
 			});
 			
 			function goServiceCenter(){
-				window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-insurance/'+'${nextPageFlow2 }'; 
+				window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-evergreen-insurance/'+'${nextPageFlow2 }'; 
 			}
 		</script>

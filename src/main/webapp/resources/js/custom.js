@@ -782,10 +782,10 @@ $(function() {
 		//by: RMN
 		
         if(getWidth()>=992){
-         $('.et-collapse-link[aria-expanded="true"]').parent()
-                                                   .next()
-                                                   .find('.et-panel-body')
-                                                   .jScrollPane({showArrows: true});
+         //$('.et-collapse-link[aria-expanded="true"]').parent()
+         //                                          .next()
+         //                                          .find('.et-panel-body')
+         ///                                          .jScrollPane({showArrows: true});
    
          
 			$('.et-select-plan-panel').on('shown.bs.collapse', function (e) {

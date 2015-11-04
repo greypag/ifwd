@@ -56,7 +56,8 @@ public class EvergreenPageFlowControl {
 		}
 
 		if (current != null) {
-			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("landing")){
+			logger.info(current.substring(current.lastIndexOf("/") + 1));
+			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("savings-evergreen-insurance")){
 				current = UserRestURIConstants.PAGE_EVERGREEN_O2O_LANDING;
 			} else {
 				current = getEvergreenPage(current);
