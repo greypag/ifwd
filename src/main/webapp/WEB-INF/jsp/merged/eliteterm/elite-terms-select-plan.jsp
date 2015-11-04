@@ -2238,6 +2238,7 @@ var home_url = "<%=request.getContextPath()%>";
                fields: {
                   "name": {
                      container: '#cannotApplyNameMessage',
+                     trigger: 'blur',
                      validators: {
                         notEmpty: {
                            message: 'Please enter your name.'
