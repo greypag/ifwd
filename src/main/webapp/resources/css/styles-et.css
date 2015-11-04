@@ -63,4 +63,23 @@
 	}
 }
 
+/* Document Upload */
+.fwd-et-wrapper .document-upload .info.hkid {
+  left: 120px;
+}
+
+.fwd-et-wrapper .document-upload .info.passport {
+  left: 200px;
+}
+
+.fwd-et-wrapper .document-upload .info.addr {
+  left: 175px;
+}
+
+@media (min-width: 992px) {
+  .fwd-et-wrapper .document-upload .info {
+    top: 35px;
+  }
+}
+
 /* */

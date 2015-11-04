@@ -9,6 +9,7 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-et.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var documentUploadNextPageFlow = "${nextPageFlow}";
@@ -18,7 +19,7 @@ var languageP = "${language}";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
-		<div class="fwd-savie-wrapper">
+		<div class="fwd-savie-wrapper fwd-et-wrapper">
       
          	
          	<!--<div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
@@ -147,7 +148,11 @@ var languageP = "${language}";
                      
 								<div class="upload-buttons clearfix">
 									<div class="col-xs-12 col-md-4 hk-id-holder">
-										<h4><fmt:message key="eliteTerms.documentUpload.Your.HK.ID" bundle="${msg}" /></h4><button class="info hkid orange-tooltip hidden-xs hidden-sm" type="button" data-toggle="tooltip" data-placement="right" title="Lorem Ipsum"></button>
+										<h4><fmt:message key="eliteTerms.documentUpload.Your.HK.ID" bundle="${msg}" /></h4>
+
+										<button type="button" class="et-minimal info hkid orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Upload.your.HKID.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
+										</button>
+
 										<h5><fmt:message key="eliteTerms.documentUpload.Upload.your.HKID" bundle="${msg}" /></h5>
 										<form action="upload-documents" id="hkid-upload-form" class="upload-form">
 											<div class="finish-upload hidden" id="finish-upload-hkid">
@@ -210,7 +215,11 @@ var languageP = "${language}";
 									</div>
 
 									<div class="col-xs-12 col-md-4 passport-holder">
-										<h4><fmt:message key="eliteTerms.documentUpload.Your.passport.copy" bundle="${msg}" /></h4><button class="info passport orange-tooltip hidden-xs hidden-sm" type="button" data-toggle="tooltip" data-placement="right" title="Lorem Ipsum"></button>
+										<h4><fmt:message key="eliteTerms.documentUpload.Your.passport.copy" bundle="${msg}" /></h4>
+
+										<button type="button" class="et-minimal info passport orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Your.passport.copy.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
+										</button>
+
 										<h5><fmt:message key="eliteTerms.documentUpload.If.you.are" bundle="${msg}" /></h5>
 										<form action="upload-documents" id="passport-upload-form" class="upload-form">
 											<div class="finish-upload hidden" id="finish-upload-passport">
@@ -273,7 +282,11 @@ var languageP = "${language}";
 									</div>
 									
 									<div class="col-xs-12 col-md-4 proof-address-holder">
-										<h4><fmt:message key="eliteTerms.documentUpload.Proof.of.address" bundle="${msg}" /></h4><button class="info addr orange-tooltip hidden-xs hidden-sm" type="button" data-toggle="tooltip" data-placement="right" title="Lorem Ipsum"></button>
+										<h4><fmt:message key="eliteTerms.documentUpload.Proof.of.address" bundle="${msg}" /></h4>
+
+										<button type="button" class="et-minimal info passport orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Proof.of.address.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
+										</button>
+
 										<h5><fmt:message key="eliteTerms.documentUpload.Your.current.residential" bundle="${msg}" /></h5>
 										<form action="http://murielle.php-staging.smartdrop.com.hk/pms/product/uploadfile" id="js-upload-form" method="POST" class="upload-form">
 											<div class="finish-upload hidden" id="finish-upload-addr">
@@ -558,5 +571,10 @@ var languageP = "${language}";
          			console.log("call finalizeEliteTermPolicy fail");
          		 }
         	 }
+
+        	/* Initialize tooltip */
+			$(function () {
+				$('[data-toggle="tooltip"]').tooltip()
+			});
 	     });
 		</script>
