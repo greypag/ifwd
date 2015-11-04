@@ -54,31 +54,40 @@ var home_url = "<%=request.getContextPath()%>";
 					<img src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.tagline.image.desktop" bundle="${msg}" />" title="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" alt="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" class="img-responsive">
 				</div>
 				
-				<div class="hunger-text-section">
-					<!-- <p class="hunger-selling-text text-1"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>   -->
-					<div class="get-started-holder text-center">
-						<button id="hunger-selling-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
+				<form action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}" method="post">
+					<div class="hunger-text-section">
+						<!-- <p class="hunger-selling-text text-1"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>   -->
+						<div class="get-started-holder text-center">
+							<button id="hunger-selling-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
+						</div>
+						<!--<p class="footnote below"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p> -->
 					</div>
-					<!--<p class="footnote below"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p> -->
-				</div>
+				</form>
 			</div>
 			
 			
 			<div class="fwd-full-container container-fluid o2o-landing teaser">
 				<div class="fwd-container-limit">
-					<div class="teaser-banner-text">
+					<!--<div class="teaser-banner-text"> -->
 						<!-- <div class="money-div">
 							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/money-logo-large.png" class="money">
 						</div> -->
-						<p class="additional top hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.Act.now.to" bundle="${msg}" /></p> 
-						<p class="additional top hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.Act.now.to2" bundle="${msg}" /></p>
-						<ul class="crediting-rate-list clearfix">
-							<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.First.year" bundle="${msg}" /></span></li>
-							<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Second.year" bundle="${msg}" /></span><div class="white right"></div></li>
-							<li><span class="percent gold">4% </span><span class="year gold"><fmt:message key="savie.o2o.landing.Third.year" bundle="${msg}" /></span></li>
-						</ul>
+						<div class = "row">
+							<div class = "col-xs-12 col-md-6">
+								<p class="additional top hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.Act.now.to" bundle="${msg}" /></p> 
+								<p class="additional top hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.Act.now.to2" bundle="${msg}" /></p>
+							</div>
+							
+							<div class = "col-xs-12 col-md-6">
+								<ul class="crediting-rate-list clearfix">
+									<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.First.year" bundle="${msg}" /></span></li>
+									<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Second.year" bundle="${msg}" /></span><div class="white right"></div></li>
+									<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Third.year" bundle="${msg}" /></span></li>
+								</ul>
+							</div>
+						</div>
 						<!--<p class="bottom-text"><fmt:message key="savie.o2o.landing.Lump.sum.info" bundle="${msg}" /></p> -->
-					</div>
+					<!-- </div> -->
 				</div>
 			</div>
 			
@@ -348,7 +357,7 @@ var home_url = "<%=request.getContextPath()%>";
 			</div>
 			
 			<!--Access Code Modal-->
-			<div class="modal fade" role="dialog" aria-labelledby="accessCode" id="accessCodeO2O">
+		<!-- <div class="modal fade" role="dialog" aria-labelledby="accessCode" id="accessCodeO2O">
 				<div class=" hunger-selling-container container-fluid modal-dialog" role="document">
 					<div class="modal-content hunger-selling-content">
 						<div class="hunger-selling-header text-center">
@@ -368,8 +377,8 @@ var home_url = "<%=request.getContextPath()%>";
 							</div>
 						</div>
 					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->	
-			</div><!-- /.modal -->
+				<!-- </div><!-- /.modal-dialog -->	
+			<!-- </div><!-- /.modal -->
 			
 			<!--Signup Now Modal-->
 			<div class="modal fade" role="dialog" aria-labelledby="signupnow" id="signup-now-modal">
@@ -522,7 +531,7 @@ var home_url = "<%=request.getContextPath()%>";
 							}
 							else{
 								$('.validation-msg').addClass('hidden-error-msg');
-								var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
+								var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}'; 
 								$("#o2o-landing-form").attr("action", url);
 								$('#o2o-landing-form').submit();
 							}
