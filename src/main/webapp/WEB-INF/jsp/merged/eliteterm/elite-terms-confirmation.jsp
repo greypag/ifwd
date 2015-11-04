@@ -20,7 +20,7 @@ var languageP = "${language}";
 		<div class="fwd-savie-wrapper" id= "etConfirm">
 
 
-			<div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
+			<!--<div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
                <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
                   <li><a href="#"><fmt:message key="eliteTerms.confirmation.Home" bundle="${msg}" /></a></li>
                   <li class="divider"><i class="fa fa-play"></i></li>
@@ -30,7 +30,7 @@ var languageP = "${language}";
                   <li class="divider last"><i class="fa fa-play"></i></li>
                   <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.confirmation.Confirmation" bundle="${msg}" /></li>
                </ol>
-            </div>
+            </div>-->
 
 			<!--Elite Terms Header Info Widget-->
 
@@ -69,7 +69,18 @@ var languageP = "${language}";
 				</div>
 			</div>
 			
-			<div class="application-flux">        
+			<div class="application-flux">
+		         <div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
+		            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
+		               <li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a></li>
+		               <li class="divider"><i class="fa fa-play"></i></li>
+		               <li><a href="#"><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /> </a></li>
+		               <li class="divider"><i class="fa fa-play"></i></li>
+		               <li><a href="#"><fmt:message key="home.breadcrumb1.term" bundle="${msg}" /> </a></li>
+		               <li class="divider last"><i class="fa fa-play"></i></li>
+		               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="home.breadcrumb2.term.item4" bundle="${msg}" /></li>
+		            </ol>
+		         </div>			        
 				<div class="container-fluid fwd-container thank-you-container">
                
                <p class="et-confimation-du-note"><fmt:message key="eliteTerms.confirmation.Please.be.reminded" bundle="${msg}" /></p>

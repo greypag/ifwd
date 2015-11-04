@@ -45,13 +45,13 @@
 
 
 <!--   Main Content-->
-    <section id="main-slider" class="no-margin clearfix">
+    <section id="main-slider" class="no-margin clearfix">  
         <!--Mobile-logo-->
         <img src="<%=request.getContextPath()%>/<fmt:message key="index.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="index.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md" />
         <!--Mobile-logo-->
         <div class="carousel slide hidden-xs hidden-sm">
             <div class="carousel-inner">
-                <div class="item active item-border">
+                <div class="item active item-border">             
                     <div class="col-lg-12 col-md-12 hidden-xs pad-none homecare home-main homecare-hei center">
                        <!--  <h2></h2>
                         

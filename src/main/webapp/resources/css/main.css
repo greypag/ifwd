@@ -10226,3 +10226,25 @@ tr.product-landing-error-wrap {
 	}
 }
 /******** End of mobile header menu v2 ********/
+/******** Start of desktop breadcrumb ********/
+div.breadcrumb-wrapper{
+	position: absolute;
+	z-index: 10;
+}
+div.breadcrumb-wrapper>ol.breadcrumb{
+	position:relative;
+	text-align: left;
+}
+div.breadcrumb-wrapper>ol.breadcrumb a,
+div.breadcrumb-wrapper>ol.breadcrumb li{
+	font-size: 24px;
+}
+div.breadcrumb-wrapper>ol.breadcrumb .fa,
+div.breadcrumb-wrapper>ol.breadcrumb a:hover,
+div.breadcrumb-wrapper>ol.breadcrumb a:focus,
+div.breadcrumb-wrapper>ol.breadcrumb a{
+	color: #000000;
+}
+div.breadcrumb-wrapper>ol.breadcrumb .fa{
+	padding: 0 7px;
+}

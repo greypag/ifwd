@@ -324,18 +324,6 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
             <form:form name="freeFlightForm" id="freeFlightForm"
                 modelAttribute="createFlightPolicy" method="post"
                 onsubmit="return createFlightFnc(this);">
-                <ol class="breadcrumb pad-none">
-                    <li><a href="#"><fmt:message
-                                key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i
-                        class="fa fa-caret-right"></i></li>
-                    <li><a href="#"><fmt:message
-                                key="flight.breadcrumb1.item2" bundle="${msg}" /></a> <i
-                        class="fa fa-caret-right"></i></li>
-                    <li><a href="#"><fmt:message
-                                key="flight.breadcrumb1.item3" bundle="${msg}" /></a></li>
-                    <li class="active "><i class="fa fa-caret-right"></i>
-                    <fmt:message key="flight.breadcrumb1.item4" bundle="${msg}" /></li>
-                </ol>
                 <input type="hidden" name="planSelected"
                     value="${planDetailsForm.planSelected}">
                 <div class="container ">
@@ -376,6 +364,18 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                         </div>
                     </div>
                 </div>
+                 <ol class="breadcrumb pad-none">
+                    <li><a href="#"><fmt:message
+                                key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i
+                        class="fa fa-caret-right"></i></li>
+                    <li><a href="#"><fmt:message
+                                key="flight.breadcrumb1.item2" bundle="${msg}" /></a> <i
+                        class="fa fa-caret-right"></i></li>
+                    <li><a href="#"><fmt:message
+                                key="flight.breadcrumb1.item3" bundle="${msg}" /></a></li>
+                    <li class="active "><i class="fa fa-caret-right"></i>
+                    <fmt:message key="flight.breadcrumb1.item4" bundle="${msg}" /></li>
+                </ol>               
                 <%-- <div class="container pad-none bdr ur-opt-content gray-bg3">
 <c:if test="${ not empty errorMessage}">
 <div class="alert alert-danger" role="alert">

@@ -12,30 +12,19 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.jscrollpane.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-slider.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-et.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var signatureFileSize = "${signatureFileSize}";
 var selectPlanNextPageFlow = "${nextPageFlow}";
 var languageP = "${language}";
+var home_url = "<%=request.getContextPath()%>";
 </script>
 		<%!
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
-		<div class="fwd-savie-wrapper">			
-			<!--Elite Terms Header Info Widget-->
-         <div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
-            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-               <li><a href="#"><fmt:message key="eliteTerms.selectPlan.Home" bundle="${msg}" /></a></li>
-               <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#"><fmt:message key="eliteTerms.selectPlan.Protection" bundle="${msg}" /> </a></li>
-               <li class="divider"><i class="fa fa-play"></i></li>
-               <li><a href="#"><fmt:message key="eliteTerms.selectPlan.Elite.term" bundle="${msg}" /> </a></li>
-               <li class="divider last"><i class="fa fa-play"></i></li>
-               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.selectPlan.Select.plan" bundle="${msg}" /></li>
-            </ol>
-         </div>
-            
+		<div class="fwd-savie-wrapper fwd-et-wrapper">			          
 			<div class="container-fluid fwd-full-container">
 				<div class="application-page-header et-header-browse">
 					<div class="row reset-margin hidden-xs hidden-sm">
@@ -71,7 +60,18 @@ var languageP = "${language}";
 			</div>
          
          <div class="application-flux">
-         
+            <!--Elite Terms Header Info Widget-->
+         <div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
+            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
+               <li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a></li>
+               <li class="divider"><i class="fa fa-play"></i></li>
+               <li><a href="#"><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /> </a></li>
+               <li class="divider"><i class="fa fa-play"></i></li>
+               <li><a href="#"><fmt:message key="home.breadcrumb1.term" bundle="${msg}" /> </a></li>
+               <li class="divider last"><i class="fa fa-play"></i></li>
+               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="home.breadcrumb2.term.item1" bundle="${msg}" /></li>
+            </ol>
+         </div>         
             <!--
                SELECT PLAN SECTION
             -->
@@ -204,7 +204,7 @@ var languageP = "${language}";
                                     <h3 class="et-insured-amount"><fmt:message key="eliteTerms.selectPlan.Insured.amount" bundle="${msg}" /> </h3> 
                                     <button type="button" class="et-minimal et-insured-amount-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Our.online.application" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span></button>
                                  </div>
-                                 <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range">${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'800000' }</span></p>
+                                 <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range"></span></p>
                                  <div class="clearfix et-slider-info-div">
                                     <div class="pull-left">
                                        <p class="et-slider-info center"><fmt:message key="eliteTerms.selectPlan.Min" bundle="${msg}" /></p>
@@ -212,10 +212,10 @@ var languageP = "${language}";
                                     </div>
                                     <div class="pull-right">
                                        <p class="et-slider-info center"><fmt:message key="eliteTerms.selectPlan.Max" bundle="${msg}" /></p>
-                                       <p class="et-slider-info">2,000,000</p>
+                                       <p id="et-ins-amt-max-display" class="et-slider-info">2,000,000</p>
                                     </div>
                                  </div>
-                                 <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-value="${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'800000' }" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
+                                 <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
                                  <div class="et-broken-line et-padding hidden-md hidden-lg"></div>
                               </div>
                               <div class="col-xs-12 col-md-5">
@@ -225,14 +225,11 @@ var languageP = "${language}";
                                  </div>
                                  <div id="promocode-hidden" class="hidden-sm hidden-xs">
                                     <div class="clearfix">
-                                       <div class="pull-left et-promo-code-txtbox">
+                                       <div class="et-promo-code-txtbox">
                                           <input name="promocode" type="text" autocomplete="off" placeholder="<fmt:message key="eliteTerms.selectPlan.IF.APPLICABLE" bundle="${msg}" />" class="et-promocode" id="et-promocode" value="${etPolicyApplication.promocode }">
                                        </div>
-                                       <div class="pull-right et-apply-btn">
-                                          <button type="button" class="btn btn-white et-apply"><fmt:message key="eliteTerms.selectPlan.Apply" bundle="${msg}" /></button>
-                                       </div>
                                     </div>
-                                    <a href="#" title="Get your promotion code" class="et-promo-code-question" data-toggle="modal" data-target="#get-promotion-code"><i><fmt:message key="eliteTerms.selectPlan.How.do.I.get" bundle="${msg}" /></i></a>
+                                    <a href="#" title="Get your promotion code" class="et-promo-code-question" data-toggle="modal" data-target="#get-promotion-code-popup"><i><fmt:message key="eliteTerms.selectPlan.How.do.I.get" bundle="${msg}" /></i></a>
                                  </div>
                               </div>	
                            </div>
@@ -373,7 +370,8 @@ var languageP = "${language}";
                </div><!--PLAN OPTION-->
                
             </div><!--END OF SELECT PLAN SECTION-->
-            
+            <!--Application Wrapper -->
+            <div id="et-application-wrapper">
             <!--MEDICAL, APPLICATION INFO, EMPLOYMENT INFO, & BENEFICIARY INFO SECTION-->
             <div id="et-application-first-section" class="hide-element">
                <!--Medical Declaration Widget-->
@@ -1514,12 +1512,16 @@ var languageP = "${language}";
                               </div>
                               <div class="et-stat-unemployed hide-element">
                                  <div class="clearfix info-holder">
-                                    <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Liquid.Assets" bundle="${msg}" /></h4>
+                                    <h4 class="info-label employment">Liquid assets</h4>
                                     <p class="info" id="etasei-liq-asset"></p>
+                                 </div>
+                                 <div class="clearfix info-holder">
+                                    <h4 class="info-label employment">Amount of other source of income (HK$)</h4>
+                                    <p class="info" id="etasei-source-income"></p>
                                  </div>
                               </div>
                               <div class="et-not-stat-unemployed hide-element">
-                                 <div class="clearfix info-holder">
+                              	<div class="clearfix info-holder">
                                     <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Occupation" bundle="${msg}" /></h4>
                                     <p class="info" id="etasei-occupation"></p>
                                  </div>
@@ -1728,17 +1730,17 @@ var languageP = "${language}";
             </div><!-- END OF SIGNATURE SECTION -->
             
          </div>
-         
+         </div><!-- END Application Wrapper -->
          <!--
             MODAL SECTION 
          -->
          <!-- GET PROMOTION CODE MODAL -->
-         <div id="get-promotion-code" class="modal fade login-modal"tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div id="get-promotion-code-popup" class="modal fade login-modal"tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                <div class="modal-content plan-modal">
                    <div class="login-form" id="sendmailofpromocode">
-                   <div style="overflow: hidden;"><a id="getPromotionClose" class="close" aria-label="Close" data-dismiss="modal">
-                        <span aria-hidden="true" style="font-size:30px;">?</span>
+                   <div style="overflow: hidden;"><a class="close" aria-label="Close" data-dismiss="modal">
+                        <span aria-hidden="true" style="font-size:30px;">x</span>
                       </a>
                    </div>
                    <form onSubmit="return false;">
@@ -1751,7 +1753,9 @@ var languageP = "${language}";
                                <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
                            </div>
                            <span id="errPromoEmail" class="text-red"></span>
-                           <button type="submit" onclick="getPromoteCode()" class="btn next"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
+                           <div>
+                              <button type="submit" onclick="getPromoteCode()" class="btn next"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
+                           </div>
                            <p><fmt:message key="eliteTerms.selectPlan.By.submitting.my" bundle="${msg}" /></p>
                         </div>
                    </form>
@@ -2114,6 +2118,26 @@ var languageP = "${language}";
          } else if ($('#et-smoker-no').prop('checked')) {
             planDetailData.isSmooker = false;
          }
+
+         var age = getAge(parseInt($('#et-select-plan-date-input').val().substring(6,10)),
+                 parseInt($('#et-select-plan-date-input').val().substring(3,5)),
+                 parseInt($('#et-select-plan-date-input').val().substring(0,2)));
+         if (age < 51) {
+             $('#et-ins-amt-max-display').text('2,000,000');
+             $('#et-slider-range').html('800,000');
+             $('#R2').slider({max:2000000});
+             $('#R2').slider('setValue', 800000);
+         } else if (age < 56) {
+             $('#et-ins-amt-max-display').text('1,500,000');
+             $('#et-slider-range').html('800,000');
+             $('#R2').slider({max:1500000});
+             $('#R2').slider('setValue', 800000);
+         } else {
+             $('#et-ins-amt-max-display').text('500,000');
+             $('#et-slider-range').html('450,000');
+             $('#R2').slider({max:500000});
+             $('#R2').slider('setValue', 450000);
+         }         
          
          planDetailData.dob = $planDate.val();
       });
@@ -2147,13 +2171,21 @@ var languageP = "${language}";
   	          $('#et-application-first-section').removeClass('hide-element').css('margin-bottom', '190px');
   		      $('#' + currentSection).addClass('hide-element');
   		      currentSection = 'et-application-first-section';
-  		      
+  		      var $appInfo = $('#et-application-first-section');
+
   		    $('.application-page-header #select-plan').removeClass('active');
   		  	$('.application-page-header #application').addClass('active');
 	  		  $('body, html').animate({
 	  		      scrollTop: ($appInfo.offset().top - stickyHeight) + 'px'
 	          }, 500);
     	  }
+
+        /* Reset calculated amount when on input value change */
+        $('input[name=et-gender]').on('change', resetCalculatedAmt);
+        $('input[name=et-smoker]').on('change', resetCalculatedAmt);
+        $('#et-select-plan-date-input').on('change', resetCalculatedAmt);
+        $('#R2').on('change', resetCalculatedAmt);
+
       });
   
 		      // Move to Medical declaration section
@@ -2319,6 +2351,28 @@ var languageP = "${language}";
 	               	}
             });
 
+            function getAge(year, month, day)
+            {
+                var now = new Date()    
+                var age = now.getFullYear() - year
+                var mdif = now.getMonth() - month + 1 //0=jan    
+                
+                if(mdif < 0)
+                {
+                    --age
+                }
+                else if(mdif == 0)
+                {
+                    var ddif = now.getDate() - day
+                    
+                    if(ddif < 0)
+                    {
+                        --age
+                    }
+                }
+                return age
+            }            
+                        
             function isEmailEmpty(number) {
                var isNotEmpty = false;
                var pref = number.split("");
@@ -2339,17 +2393,17 @@ var languageP = "${language}";
   		 				      email: $('#emailToSendPromoCode').val()
   		 				     },
   		 			  success : function(data) {
-  		 				if(data.errMsgs == null){
-  		 					$('#get-promotion-code').modal('hide');
+  		 				if(data!=null && data.errMsgs == null){
+  		 					$('#get-promotion-code-popup').modal('hide');
   		 				}
   		 				else{
-  		 					console.log("data error");
+  		 					$('#errPromoEmail').html('<fmt:message key="system.promotion.error.message" bundle="${msg}" />');
   		 				}
   		 			  }
   	 		      });
             	}
             	else{
-            		console.log("data error");
+            		$('#errPromoEmail').html('<fmt:message key="promotion.empty.error.message" bundle="${msg}" />');
             	}
 			}
             

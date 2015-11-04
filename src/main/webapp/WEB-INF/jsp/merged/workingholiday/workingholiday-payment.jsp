@@ -74,14 +74,6 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 	<div id="cn" class="container">
 		<div class="row">
 			<form name="paymentForm" id="paymentForm" method="post">
-				<ol class="breadcrumb pad-none">
-					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#"><span class="clearfix"></span> <fmt:message key="workingholiday.breadcrumb1.item3" bundle="${msg}" /></a><i
-						class="fa fa-caret-right"></i></li>
-					<li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item4" bundle="${msg}" /></a></li>
-					<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="workingholiday.breadcrumb1.item5" bundle="${msg}" /></li>
-				</ol>
 				<div class="container ">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 shop-tracking-status">
 						<div class="center wow fadeInDown animated"
@@ -125,6 +117,14 @@ WorkingHolidayDetailsBean planDetailsForm = (WorkingHolidayDetailsBean) request.
 						</div>
 					</div>
 				</div>
+                <ol class="breadcrumb pad-none">
+                    <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+                    <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item2" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+                    <li><a href="#"><span class="clearfix"></span> <fmt:message key="workingholiday.breadcrumb1.item3" bundle="${msg}" /></a><i
+                        class="fa fa-caret-right"></i></li>
+                    <li><a href="#"><fmt:message key="workingholiday.breadcrumb1.item4" bundle="${msg}" /></a></li>
+                    <li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="workingholiday.breadcrumb1.item5" bundle="${msg}" /></li>
+                </ol>				
 				<div class="container pad-none bdr ur-opt-content gray-bg3">
 					<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1 summary-container">
 						<!-- <div class="col-xs-12 col-md-7  pad-none"> -->
