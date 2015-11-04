@@ -54,13 +54,15 @@ var home_url = "<%=request.getContextPath()%>";
 					<img src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.tagline.image.desktop" bundle="${msg}" />" title="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" alt="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" class="img-responsive">
 				</div>
 				
-				<div class="hunger-text-section">
-					<!-- <p class="hunger-selling-text text-1"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>   -->
-					<div class="get-started-holder text-center">
-						<button id="hunger-selling-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
+				<form action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}" method="post">
+					<div class="hunger-text-section">
+						<!-- <p class="hunger-selling-text text-1"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>   -->
+						<div class="get-started-holder text-center">
+							<button id="hunger-selling-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
+						</div>
+						<!--<p class="footnote below"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p> -->
 					</div>
-					<!--<p class="footnote below"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p> -->
-				</div>
+				</form>
 			</div>
 			
 			
@@ -355,7 +357,7 @@ var home_url = "<%=request.getContextPath()%>";
 			</div>
 			
 			<!--Access Code Modal-->
-			<div class="modal fade" role="dialog" aria-labelledby="accessCode" id="accessCodeO2O">
+		<!-- <div class="modal fade" role="dialog" aria-labelledby="accessCode" id="accessCodeO2O">
 				<div class=" hunger-selling-container container-fluid modal-dialog" role="document">
 					<div class="modal-content hunger-selling-content">
 						<div class="hunger-selling-header text-center">
@@ -375,8 +377,8 @@ var home_url = "<%=request.getContextPath()%>";
 							</div>
 						</div>
 					</div><!-- /.modal-content -->
-				</div><!-- /.modal-dialog -->	
-			</div><!-- /.modal -->
+				<!-- </div><!-- /.modal-dialog -->	
+			<!-- </div><!-- /.modal -->
 			
 			<!--Signup Now Modal-->
 			<div class="modal fade" role="dialog" aria-labelledby="signupnow" id="signup-now-modal">
@@ -529,7 +531,7 @@ var home_url = "<%=request.getContextPath()%>";
 							}
 							else{
 								$('.validation-msg').addClass('hidden-error-msg');
-								var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
+								var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}'; 
 								$("#o2o-landing-form").attr("action", url);
 								$('#o2o-landing-form').submit();
 							}
