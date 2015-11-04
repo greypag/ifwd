@@ -163,8 +163,23 @@ function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
 $('#et-confirmation-submit').on('click', function(e) {
 	var policyNo = $('#policy-number').html();
 	var agentEmail = $('#agent-email').val();
-	
-	if(agentEmail ==null){
+    var valid = true;
+    document.getElementById("errPromoEmail").style.display = "none";
+	// Email Address Validation
+	if(agentEmail.trim() == "") {
+		document.getElementById("errPromoEmail").style.display = "block";
+		document.getElementById("errPromoEmail").innerHTML = getBundle(getBundleLanguage, "promotion.email.notNull.message");//"Your E-mail Address is invalid.";
+		valid = false;
+
+	}
+	else{
+		if(emailreg.test(agentEmail) == false) {
+			document.getElementById("errPromoEmail").style.display = "block";
+			document.getElementById("errPromoEmail").innerHTML = getBundle(getBundleLanguage, "promotion.email.notValid.message");//"Your E-mail Address is invalid.";
+			valid = false;
+		}
+	}
+	if(!valid){
 		console.log("data error");
 	}
 	else{

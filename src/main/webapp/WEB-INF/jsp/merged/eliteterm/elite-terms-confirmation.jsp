@@ -112,6 +112,7 @@ var languageP = "${language}";
                            <button type="button" value="Submit" class="btn" id="et-confirmation-submit"><fmt:message key="eliteTerms.confirmation.Submit" bundle="${msg}" /></button>
                         </div> 
                      </div>
+                     <span id="errPromoEmail" class="text-red"></span>
                   </form>
                   
                   <p class="submitted-info hide-element"><fmt:message key="eliteTerms.confirmation.You.have.submitted" bundle="${msg}" /></p>
