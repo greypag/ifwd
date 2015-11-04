@@ -267,9 +267,6 @@ var home_url = "<%=request.getContextPath()%>";
                            </div>
                         </div>
                      </div>
-                     <div class="mask hidden">
-                  		<img src="/fwdhk/resources/images/elite-terms/iFWD_O2O_payment-in-progress.gif" alt="Please wait.." class="">
-                  	 </div>
                   </div>
                
                   <!--Accordion Highlights-->
@@ -2024,13 +2021,7 @@ var home_url = "<%=request.getContextPath()%>";
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-select-plan.js"></script>
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
       <script type="text/javascript">
-      //loading mask
-       $(document).on('click', '#promocode-hidden-button button', function(e) {
-    	   $('#et-plan-option-section .mask').removeClass('hidden');
-    	   setTimeout(function(){
-    		   $('#et-plan-option-section .mask').addClass('hidden');
-           	}, 3000);
-       });
+      
       //select-plan
       $(document).on('click', '#et-before-no', function(e) {
          $('#et-btn-before-start').removeClass('hidden');

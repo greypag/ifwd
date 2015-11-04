@@ -98,4 +98,11 @@
   }
 }
 
+/* ET mask */
+.modal-backdrop.in{
+	opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+
 /* */

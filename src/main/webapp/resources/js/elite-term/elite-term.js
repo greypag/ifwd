@@ -15,6 +15,12 @@ else{
 }
 
 function getEliteTermPremium() {
+
+	$('#loading-overlay').modal({
+       backdrop: 'static',
+       keyboard: false
+    });
+
 	var dob = $('#et-select-plan-date-input').val();
 	var gender = $('input[name="et-gender"]:checked ').val();
 	var smoke = $('input[name="et-smoker"]:checked ').val();
@@ -63,8 +69,10 @@ function getEliteTermPremium() {
 			//else{
 			//	console.log("data error");
 			//}
+			$('#loading-overlay').modal('hide');
 		})
 		.fail(function(data) {
+			$('#loading-overlay').modal('hide');
 		});
 	}
 }
