@@ -496,9 +496,7 @@
      	 }else {
      		 $("#chk3").html("");
      	 }
-     	 if(!result){
-     		 return false;
-     	 }
+     	 return result;
       }
       
       // Show Application Summary section
