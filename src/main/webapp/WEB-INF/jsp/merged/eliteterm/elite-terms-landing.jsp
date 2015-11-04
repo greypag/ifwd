@@ -446,8 +446,10 @@
                <div class="container">
                   <div class="row">
                      <div class="col-xs-12 et-advisory">
-                        <p><fmt:message key="eliteTerms.landing.The.features.above" bundle="${msg}" /></p>
-                        <p><fmt:message key="eliteTerms.landing.For.a.complete.explanation" bundle="${msg}" /></p>
+                        <p>
+                           <fmt:message key="eliteTerms.landing.The.features.above" bundle="${msg}" />
+                           <fmt:message key="eliteTerms.landing.For.a.complete.explanation" bundle="${msg}" />
+                        </p>
                      </div>
                   </div>
                </div>

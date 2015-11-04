@@ -101,7 +101,7 @@
          $self.removeAttr('style');
       }); 
    $('#et-select-plan-date-input')
-      .css('color', '#9ba5a7')
+      .css('color', '#ccc')
       .on('change', function(e) {
          var $self = $(this);
          
