@@ -2118,4 +2118,30 @@ public class EvergreenServiceImpl implements EvergreenService {
 		}
 		return num;
 	}
+	
+	@Override
+	public void getAppointmentAccessCode(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
+		response.setContentType("text/json;charset=utf-8");
+		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/accessCode";
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", "*DIRECTGI");
+		header.put("token", commonUtils.getToken("reload"));
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		if(responseJsonObj.get("errMsgs")==null){
+			request.getSession().setAttribute("accessCode", responseJsonObj.get("accessCode"));
+		}
+		response.setContentType("text/json;charset=utf-8");
+		try {
+			logger.info(responseJsonObj.toString());
+			response.getWriter().print(responseJsonObj.toString());
+		}catch(Exception e) {  
+			e.printStackTrace();
+		}
+	}
 }

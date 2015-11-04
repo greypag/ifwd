@@ -470,10 +470,12 @@ var home_url = "<%=request.getContextPath()%>";
 			// Access Code Cover
 			$('#hunger-selling-buy-now-O2O').click(function(e){
 				//$('.hunger-selling-container').removeClass('hidden');
-				$('#accessCodeO2O').modal('show');
+				//$('#accessCodeO2O').modal('show');
+				getAppointmentAccessCode();
 			});
 			$('#hunger-selling-buy-now-O2O-mobile').click(function(e){
-				$('#accessCodeO2O').modal('show');
+				//$('#accessCodeO2O').modal('show');
+				getAppointmentAccessCode();
 			});
             //
 			// Access Code Cover Close
@@ -482,53 +484,21 @@ var home_url = "<%=request.getContextPath()%>";
 			//});
 
 			// Access Code Confirmation
-			$('#hunger-btn').click(function(e){
-				e.preventDefault();				
-				
-				var errorMsg = false;
-				var accessCodeVal = $('#accessCodeConfirm').val();
-				accessCodeVal = accessCodeVal.replace(/\s+/g,"");
-				if (accessCodeVal == "") {
-					$('.validation-msg').removeClass('hidden-error-msg');
-					$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.validation.msg"));
-					errorMsg = true;
-				} 
-				else {
-					$.get(
-					    '${pageContext.request.contextPath}//ajax/savings-evergreen-insurance/verifyAccessCode',
-						{ accessCode : accessCodeVal },
-						function(data) {
-							if(data.errMsgs == "empty access code"){
-								$('.validation-msg').removeClass('hidden-error-msg');
-								$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.empty.access.code.validation.msg"));
-								errorMsg = true;
-							}
-							else if(data.errMsgs == "Access has been used"){
-								$('.validation-msg').removeClass('hidden-error-msg');
-								$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.used.access.code.validation.msg"));
-								errorMsg = true;
-							}
-							else if(data.errMsgs == "Access Code Invalid"){
-								$('.validation-msg').removeClass('hidden-error-msg');
-								$('.validation-msg').html(getBundle(getBundleLanguage, "savie.landing.used.access.code.invalid.msg"));
-								errorMsg = true;
-							}
-							else if(data.errMsgs){
-								$('.validation-msg').removeClass('hidden-error-msg');
-								$('.validation-msg').html(data.errMsgs);
-								errorMsg = true;
-							}
-							else{
-								$('.validation-msg').addClass('hidden-error-msg');
-								var url = '${pageContext.request.contextPath}/${language}/savings-evergreen-insurance/${nextPageFlow}';
-								$("#o2o-landing-form").attr("action", url);
-								$('#o2o-landing-form').submit();
-							}
-						})
-						.fail(function(data) {
-						});
-				}	
-			});
+			function getAppointmentAccessCode(){
+			$.get(
+			    '${pageContext.request.contextPath}//ajax/savings-evergreen-insurance/getAppointmentAccessCode',
+				function(data) {
+					if(data.errMsgs != null && data.errMsgs != ''){
+					}
+					else{
+						var url = '${pageContext.request.contextPath}/${language}/savings-evergreen-insurance/${nextPageFlow}';
+						$("#o2o-landing-form").attr("action", url);
+						$('#o2o-landing-form').submit();
+					}
+				})
+				.fail(function(data) {
+				});
+			};
 
 			// Sign up now validation
 			$('#teaserSignUpForm').submit(function(e){

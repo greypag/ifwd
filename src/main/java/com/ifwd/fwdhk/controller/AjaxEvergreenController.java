@@ -310,4 +310,14 @@ public class AjaxEvergreenController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = {"/ajax/savings-evergreen-insurance/getAppointmentAccessCode"})
+	public void getAppointmentAccessCode(Model model, HttpServletRequest request,HttpServletResponse response) {
+		try {
+			evergreenService.getAppointmentAccessCode(model, request, response);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }
