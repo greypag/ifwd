@@ -540,6 +540,15 @@ var languageP = "${language}";
          
          $(document).ready(function() {
         	 if('${sendEmailOrNot}' == null || '${sendEmailOrNot}' == ''){
+        		 ga('ecommerce:addItem', {
+        			 'id': '${eliteTermPolicy.transactionNumber }', // Transaction ID. 
+        			 'name': ' Elite Term ', // Product name. 
+        			 'category': 'Protect ', // Category or variation 
+        			 'price': '${eliteTermPremium.monthlyDuePremium*2}', // Unit price 
+        			 'currency': 'HKD',
+        			 'quantity': '2'
+        		 });
+        		 
         		 var creditCaredNo = "${creditCaredNo }";
          		 var expiryDate = "${expiryDate }";
          		 var cardHolderName = "${cardHolderName }";
