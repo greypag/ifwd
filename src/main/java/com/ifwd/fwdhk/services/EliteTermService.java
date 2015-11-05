@@ -21,6 +21,7 @@ public interface EliteTermService {
 	public BaseResponse getPromoteCode(HttpServletRequest request)throws ECOMMAPIException;
 	public void uploadEliteTermDocuments(HttpServletRequest request)throws ECOMMAPIException;
 	public String getPolicyUserName(HttpServletRequest request,String policyNumber);
+	public boolean checkIsDocumentUpload(HttpServletRequest request,String policyNumber);
 	public void removeEtSession(HttpServletRequest request)throws ECOMMAPIException;
 	
 }

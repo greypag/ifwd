@@ -42,7 +42,9 @@ public class UserRestURIConstants {
 			+ "/option/itemDesc";
 	public static final String GET_POLICY= SERVICE_URL
 			+ "/policies/life";
-
+	public static final String GET_IS_UPLOAD= SERVICE_URL
+			+ "/documents/uploaded";
+	
 	// Travel URL
 	public static final String TRAVEL_GET_QUOTE = SERVICE_URL
 			+ "/gi/travel/quote";

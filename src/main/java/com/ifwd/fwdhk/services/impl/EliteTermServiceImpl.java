@@ -35,6 +35,7 @@ import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.EliteTermService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
+import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
@@ -516,7 +517,9 @@ public class EliteTermServiceImpl implements EliteTermService {
 		BaseResponse br = null;
 		if(!"true".equals(uploadLaterFlage)){	
 			try {
-				String uploadDir = request.getRealPath("/")+"upload"+"/"+policyNo+"/";
+				//String uploadDir = request.getRealPath("/")+"upload"+"/"+policyNo+"/";
+				String documentPath = UserRestURIConstants.getProperties("documentPath");
+				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes())+"/"; 
 				File file = new File(uploadDir);
 				byte data[];
 				int i;
@@ -571,7 +574,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 				parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+hkidFileToUploadType);
 				parameters.put("base64", hkidFileToUploadImageBase64);
 				br = connector.uploadDocuments(parameters, header);
-				file.delete();
+		        FileUtil.deletFile(uploadDir);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -665,6 +668,21 @@ public class EliteTermServiceImpl implements EliteTermService {
 			request.getSession().setAttribute("etPolicyApplication",etPolicyApplication);
 		}
 		return userName;
+	}
+	
+
+	public boolean checkIsDocumentUpload(HttpServletRequest request,String policyNumber){
+		boolean flage=false;
+		String relationshipCode = UserRestURIConstants.GET_IS_UPLOAD
+				+ "?policyNo="+policyNumber;
+		Map<String,String> header = headerUtil.getHeader(request);
+		org.json.simple.JSONObject jsonRelationShipCode = restService.consumeApi(
+				HttpMethod.GET, relationshipCode, header, null);
+		org.json.simple.JSONArray policy = (org.json.simple.JSONArray) jsonRelationShipCode.get("uploadedDocuments");
+		if (policy.size() > 0) {
+			flage = true;
+		}
+		return flage;
 	}
 	
 	@Override

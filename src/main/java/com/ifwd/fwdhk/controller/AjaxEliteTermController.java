@@ -19,6 +19,7 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.services.EliteTermService;
+import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.Methods;
 @Controller
 public class AjaxEliteTermController extends BaseController{
@@ -28,7 +29,8 @@ public class AjaxEliteTermController extends BaseController{
 	private RestServiceDao restService;
 	@Autowired
 	private EliteTermService eliteTermService;
-	
+
+
 	@RequestMapping(value = {"/ajax/eliteTerm/getEliteTermImage"},method = RequestMethod.POST)
 	  public void doAddImageByGroupId(HttpServletRequest request, HttpServletResponse response,
 	            @RequestParam(value = "name", required = true) String name,
@@ -37,20 +39,21 @@ public class AjaxEliteTermController extends BaseController{
 			try {
 				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
 				String policyNo = eliteTermPolicy.getPolicyNo();
-				String uploadDir = request.getRealPath("/")+"upload"+"/"+policyNo;  
+				String documentPath = UserRestURIConstants.getProperties("documentPath");
+				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes()); 
 		        File dirPath = new File(uploadDir);  
 		        if (!dirPath.exists()) {   
 		            dirPath.mkdirs();  
 		        } 
 		        String fileName = imageFile.getOriginalFilename();
 		        String type = fileName.substring(fileName.lastIndexOf(".")+1);
-		        String imageName = name+"."+type;
-				request.getSession().setAttribute(name, imageName);
+		        //String imageName = name+"."+type;
+				request.getSession().setAttribute(name, fileName);
 				request.getSession().setAttribute(name+"Type", type);
 		        byte[] bytes = imageFile.getBytes();
 		        String sep = System.getProperty("file.separator");  
 		        File uploadedFile = new File(uploadDir + sep  
-		                + imageName);  
+		                + fileName);  
 		        FileCopyUtils.copy(bytes, uploadedFile);  
 		        response.getWriter().write("true");
 			} catch (Exception e) {

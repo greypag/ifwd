@@ -91,7 +91,7 @@ public class EliteTermController extends BaseController{
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_PAYMENT);
 	}
 	
-	@SuppressWarnings("restriction")
+	@SuppressWarnings({ "restriction", "unused" })
 	@RequestMapping(value = {"/{lang}/term-life-insurance/document-upload","/{lang}/term-life-insurance/document-upload-later"})
 	public ModelAndView getDocumentUpload(Model model, HttpServletRequest request) {
 		try {
@@ -100,10 +100,15 @@ public class EliteTermController extends BaseController{
 			model.addAttribute("sendEmailOrNot", policyNumber);
 			if(StringUtils.isNotEmpty(policyNumber)){
 				policyNumber = new String(new sun.misc.BASE64Decoder().decodeBuffer(policyNumber));
+				if(eliteTermService.checkIsDocumentUpload(request,policyNumber)){
+					return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+							+ "/"+UserRestURIConstants.URL_ELITE_TERMS_LANDING);
+				}
 				String userName = eliteTermService.getPolicyUserName(request,policyNumber);
 				request.getSession().setAttribute("policyUserName", userName);
-				if(StringUtils.isNotEmpty(userName)){
-					return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.URL_ELITE_TERMS_LANDING);
+				if(StringUtils.isEmpty(userName)){
+					return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+							+ "/"+UserRestURIConstants.URL_ELITE_TERMS_LANDING);
 				}
 				CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
 				eliteTermPolicy.setPolicyNo(policyNumber);
