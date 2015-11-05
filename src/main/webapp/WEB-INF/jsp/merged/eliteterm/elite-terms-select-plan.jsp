@@ -283,29 +283,25 @@ var home_url = "<%=request.getContextPath()%>";
                               </div>
                               <div id="collapseOne" class="panel-collapse collapse in et-select-plan-panel" role="tabpanel" aria-labelledby="headingOne">
                                  <div class="et-panel-body et-panel-body-first" id="panelOne">
-                                    <p class="et-accrdion-txt-bold"><fmt:message key="eliteTerms.selectPlan.Elite.Term.Plan.Series" bundle="${msg}" /> <a href="#" class="et-contact-link" title="Contact customer service" data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ETMD1');">3123-3123</a> <fmt:message key="eliteTerms.selectPlan.to.arrange.an.appointment" bundle="${msg}" /></p>
-                                    <p class="et-accrdion-txt-normal"><fmt:message key="eliteTerms.selectPlan.Additional.plan" bundle="${msg}" /></p>
-                                    <p class="et-accrdion-txt-normal bottom"><fmt:message key="eliteTerms.selectPlan.Preferred.Preferred.Plus" bundle="${msg}" /></p>
-                                    <p class="et-accrdion-txt-normal"><fmt:message key="eliteTerms.selectPlan.Rider.Lorem.ipsum" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-bold"><fmt:message key="eliteTerms.selectPlan.Product.highlights.line1" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-normal"><fmt:message key="eliteTerms.selectPlan.Product.highlights.line2.part1" bundle="${msg}" /> <a href="#" class="et-contact-link" title="Contact customer service" data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ETMD1');"><fmt:message key="eliteTerms.selectPlan.Product.highlights.line2.part2" bundle="${msg}" /></a> <fmt:message key="eliteTerms.selectPlan.Product.highlights.line2.part3" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-normal bottom"><fmt:message key="eliteTerms.selectPlan.Product.highlights.line3" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-normal"><fmt:message key="eliteTerms.selectPlan.Product.highlights.line4" bundle="${msg}" /></p>
                                  </div>
                               </div>
                            </div>
                            <div class="panel et-panel-accordion ">
                               <div class="panel-heading et-panel-heading" role="tab" id="headingTwo">
                                  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseOne" class="et-collapse-link clearfix" id="headingTwo">
-                                    <fmt:message key="eliteTerms.selectPlan.Additional.Premium" bundle="${msg}" />
+                                    <fmt:message key="eliteTerms.selectPlan.important.notes" bundle="${msg}" />
                                     <span class="fa fa-angle-up pull-right et-arrow-down" ></span>
                                     <span class="fa fa-angle-down pull-right et-arrow-down" ></span>
                                  </a>
                               </div>
                               <div id="collapseTwo" class="panel-collapse collapse et-select-plan-panel" role="tabpanel" aria-labelledby="headingTwo">
                               <div class="et-panel-body" id="panelTwo">
-                                    <p>
-                                       <fmt:message key="eliteTerms.selectPlan.Lorem.ipsum.dolor" bundle="${msg}" />
-                                    </p>
-                                    <p>
-                                       <fmt:message key="eliteTerms.selectPlan.Vestibulum.dictum.consectetur" bundle="${msg}" />
-                                    </p>
+                                    <p><fmt:message key="eliteTerms.selectPlan.important.notes.line1" bundle="${msg}" /></p>
+                                    <p><fmt:message key="eliteTerms.selectPlan.important.notes.line2" bundle="${msg}" /></p>
                               </div>
                               </div>
                            </div>
@@ -319,31 +315,12 @@ var home_url = "<%=request.getContextPath()%>";
                               </div>
                               <div id="collapseThree" class="panel-collapse collapse et-select-plan-panel" role="tabpanel" aria-labelledby="headingThree">
                               <div class="et-panel-body" id="panelThree">
-                                    <p>
-                                        <fmt:message key="eliteTerms.selectPlan.Lorem.ipsum.dolor" bundle="${msg}" />
-                                    </p>
-                                    <p>
-                                       <fmt:message key="eliteTerms.selectPlan.Vestibulum.dictum.consectetur" bundle="${msg}" />
-                                    </p>
-                              </div>
-                              </div>
-                           </div>
-                           <div class="panel et-panel-accordion ">
-                              <div class="panel-heading et-panel-heading" role="tab" id="headingFour">
-                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseOne" class="et-collapse-link clearfix" id="headingFour">
-                                    <fmt:message key="eliteTerms.selectPlan.Exclusions" bundle="${msg}" />
-                                    <span class="fa fa-angle-up pull-right et-arrow-down" ></span>
-                                    <span class="fa fa-angle-down pull-right et-arrow-down" ></span>
-                                 </a>
-                              </div>
-                              <div id="collapseFour" class="panel-collapse collapse et-select-plan-panel" role="tabpanel" aria-labelledby="headingTwo">
-                              <div class="et-panel-body" id="panelFour">
-                                    <p>
-                                       <fmt:message key="eliteTerms.selectPlan.Lorem.ipsum.dolor" bundle="${msg}" />
-                                    </p>
-                                    <p>
-                                       <fmt:message key="eliteTerms.selectPlan.Vestibulum.dictum.consectetur" bundle="${msg}" />
-                                    </p>
+                                    <p><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.line1" bundle="${msg}" /></p>
+                                    <p><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.line2" bundle="${msg}" /></p>
+                                    <p><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.line3" bundle="${msg}" /></p>
+                                    <p><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.line4" bundle="${msg}" /></p>
+                                    <p><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.line5" bundle="${msg}" /></p>
+                                    <p><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.line6" bundle="${msg}" /></p>
                               </div>
                               </div>
                            </div>
