@@ -1,0 +1,39 @@
+// Box Widget
+//.fwd-savie-wrapper {
+	.box-container {
+		.box {
+			text-align: center;
+			color: #061d2a;
+			
+			.contents {
+				border: 1px solid #b7c3cd;
+				padding: 8px 30px 30px 30px;
+				max-width: 330px;
+				
+				@media (min-width: $screen-md) {
+					padding: 8px 30px 30px 30px;
+					border: 1px solid #b7c3cd;
+				}
+			}
+			
+			img {
+				margin: 12px auto 17px auto;
+			}
+			
+			p {
+				margin-bottom: 15px;
+			}
+		}
+		
+		.btn {
+			font-family: 'Calibri-Bold';
+			font-size: 24px;
+			text-align: center;
+			width: 100%;
+			padding: 7px;
+			@media (min-width: $screen-md) {
+				text-transform: uppercase;
+			}
+		}
+	}
+//}

@@ -1,0 +1,999 @@
+/*
+* Teaser Page
+* by: RMN
+*/
+
+
+$blue-color: #061d29;
+$orange-color: #ff8200;
+
+.modal-backdrop.in{
+	opacity: 0;
+}
+
+//.fwd-savie-wrapper{
+	.teaser-three-column.O2O-landing{
+		background-color: #fff;
+	}
+	.teaser-three-column{
+		background-color: #f1f3f5;
+	}
+	.yellow-stick-btn{
+		color: #fffffe;
+		font-size: 24px;
+		font-family: 'Calibri-Bold';
+		background-color: #fdb714;
+		height: 80px;
+		width: 80px;
+		border-radius: 50%;
+		position: fixed;
+		z-index: 20;
+		right: 0;
+		bottom: 14px;
+		
+		.yellow-btn{
+			width: 80px;
+			height: 80px;
+			border: 0;
+			background-color: transparent;
+			position: relative;
+			
+			&:hover,
+			&:focus,
+			&:active{
+				outline: 0;
+			}
+		}
+		
+		h3{
+			margin: 0;
+			text-align: center;
+			
+		}
+		
+		h4{
+			margin: 0;
+			text-align: center;
+		}
+		
+		img{
+			&.caret-triangle{
+				position: absolute;
+			    bottom: -14px;
+			    left: 33px;
+			}
+		}
+	}
+	
+	
+	.teaser-banner.container-fluid{
+		padding: 0;
+		position: relative;
+		img{
+			&.max{
+				//min-height: 390px;
+				width: 100%;
+				height: auto;
+				position: relative;
+				right: 0;
+				left: 0;
+				bottom: 0;
+				top: 0;
+				z-index: -1;
+			}
+		}
+		
+		.img-responsive.desktop.teaser-banner-desktop{
+			display: none;
+			@media(min-width: $screen-md-min){
+				display: block;
+				position: absolute;
+				z-index: 2;
+				bottom: 25%;
+			}
+		}
+		
+		.img-responsive.mobile.teaser-banner-mobile{
+			z-index: 2;
+			display: block;
+			position: absolute;
+			bottom: 20%;
+			margin-left: auto;
+			margin-right: auto;
+			left: 0;
+			right: 0;
+			@media(min-width: $screen-sm-min){
+				bottom: 25%;
+				margin: 0;
+				
+			}
+			@media(min-width: $screen-md-min){
+				display: none;
+				
+			}
+		}
+		
+		
+	}
+	
+	.img-responsive.hidden-xs.hidden-sm.teaser-banner-desktop{
+		margin-left: 47px;
+		padding-top: 120px;
+		width: 388px;
+	}
+	
+	.img-responsive.hidden-md.hidden-lg.teaser-banner-mobile{
+		padding-top: 40px;
+	}
+	
+	.modal.fade{
+		.modal-dialog.teaserSurvey{
+			background-color: #fff;
+			width: 100%;
+			@media(min-width: $screen-md-min){
+				width: 665px;
+			}
+			
+			.modal-content.teaserSurvey{
+				background-color: #fff;
+				padding: 20px 23px 31px 23px;
+				
+				@media(min-width: $screen-md-min){
+					padding: 27px 54px 40px 54px;
+				}
+				
+				h2{
+					font-size: 30px;
+					color: $orange-color;
+					text-align: center;
+					margin: 0;
+					padding-top: 22px;
+					
+					@media(min-width: $screen-md-min){
+						padding-top: 0;
+					}
+				}
+				
+				.modal-header.teaserSurvey{
+					margin-bottom: 10px;
+				}
+				
+				.modal-body.teaserSurvey{
+					margin: 0;
+					p{
+						margin: 0;
+						&.registered{
+							font-size: 18px;
+							color: #061d2a;
+							font-family: 'Calibri';
+							text-align: center;
+							padding-top: 10px;
+							line-height: 21px;
+							
+							@media(min-width: $screen-md-min){
+								padding-top: 0;
+							}
+						}
+						
+						&.question{
+							font-size: 18px;
+							color: #061d2a;
+							text-align: center;
+							font-family: 'Calibri-Bold';
+							line-height: 20px;
+							
+							@media(min-width: $screen-md-min){
+								margin-bottom: 16px;
+							}
+						}
+					}
+					
+					.modal-divider{
+						border-bottom: solid 1px #9ba5a7;
+						margin-top: 21px;
+						margin-bottom: 21px;
+						
+						@media(min-width: $screen-md-min){
+							margin-top: 25px;
+							margin-bottom: 25px;
+						}
+					}
+					
+					.form-control.saveDropdown{
+						color: #9fb1b2;
+						font-size: 24px;
+						background-color: transparent;
+						width: 400px;
+						
+						border-radius: 0;
+						height: 40px;
+						border: 0;
+						font-family: 'Calibri';
+						padding-left: 18px;
+						box-shadow: inset 0 1px 1px rgba(0,0,0,0);
+						font-size: 18px;
+						cursor: pointer;
+						border: 0;      /* Good browsers universal rule */
+						outline: none;     /* safari and its variants  */
+						outline-offset: 0; /* IE and its variants  */
+						-webkit-appearance:none; /* Chrome and its variants  */
+						box-shadow: inset 0 1px 1px rgba(0,0,0,0);
+						-webkit-appearance: none;
+						-moz-appearance: none;
+						-ms-appearance: none;
+						-o-appearance: none;
+						appearance: none;
+						
+						.options{
+							color: #000;
+						}
+										
+					}
+					
+					.form-control.saveDropdown::-ms-expand {
+						display: none;
+					}  
+					
+					.amount-to-save{
+						text-align: center;
+						margin: 0 auto;
+						width: 100%;
+						
+						@media(min-width: $screen-md-min){
+							width: 350px;
+						}
+					}
+					
+					.btn.btn-white.btn-thank-you{
+						width: 100%;
+						margin-top: 20px;
+					}
+					
+					.teaser-select{
+						position: relative;
+						margin-top: 15px;
+						overflow: hidden;
+						background: url('../images/orange-caret.png') no-repeat 94% 50%;
+						background-color: #f1f3f5;
+						
+						@media(min-width: $screen-md-min){
+							margin-top: 0;
+						}
+						
+						.icon-chevron-thin-down.orange-caret{
+							height: 40px;
+							position: absolute;
+							font-size: 18px;
+							color: #ff8200;
+							padding-top: 11px;
+							right: 0;
+							padding-right: 17px;
+							background-color: #f1f3f5;
+							cursor: pointer;
+							bottom: 10px;
+							top: 0;
+						}
+					}
+					
+				}
+				
+			}
+		}
+		
+		.modal-dialog.willToSave{
+			background-color: #fff;
+			width: 665px;
+		}
+		.modal-content.willToSave{
+			background-color: #fff;
+			padding: 35px 0 25px 0;
+			
+			.modal-header.willToSave{
+				padding: 0 40px 25px 70px;
+				
+				h2{
+					font-size: 30px;
+					margin: 0;
+					font-family: 'Calibri-Bold';
+					color: $orange-color;
+					line-height: 30px;
+				}
+			}
+			
+			.modal-body.willToSave{
+				background-color: #f1f3f5;
+				margin: 0;
+				padding: 40px 90px 30px 90px;
+				
+				.slider.slider-horizontal{
+					margin-top: -22px;
+				}
+				
+				.slider.slider-horizontal .slider-track{
+					height: 9px;
+				}
+				
+				h3{
+					text-align: center;
+					color: #373a36;
+					font-family: 'foco_bold';
+					margin: 0;
+				}
+				
+				p{
+					margin: 0;
+					color: #061d2a;
+					font-family: 'foco_regular';
+					font-size: 15px;
+					line-height: 17px;
+				}
+				
+				span{
+					&.amount{
+						padding-top: 30px;
+						color: $orange-color;
+						font-size: 30px;
+						font-family: 'foco_regular';
+						text-align: center;
+						display: block;
+						line-height: 30px;
+					}
+					
+					&.figures{
+						color: $orange-color;
+						font-size: 30px;
+						font-family: 'foco_bold';
+					}
+				}
+			}
+			
+			.modal-footer.willToSave{
+				padding-top: 30px;
+				text-align: center;
+				
+				
+			}
+			
+			.btn.btn-white.submitToSave{
+				height: 50px;
+				width: 315px;
+			}
+		}
+	}
+	
+	
+	.sign-up-teaser{
+	    background-color: #fff;
+		width: 100%;
+		position: relative;
+		z-index: 10;
+		right: 0;
+		padding: 40px 20px 40px 20px;	
+		
+		@media(min-width: $screen-md-min){
+			position: absolute;
+			margin-top: -505px;
+			background-color: transparent;
+			text-align: center;
+		}
+		
+		button.get-started {
+			background-color: white;
+		    color: #ff8200;
+		    font-family: 'calibri-bold';
+		    height: 48px;
+		    width: 65%;
+		    max-width: 245px;
+		    font-size: 28px;
+		    border: 1px solid #ff8000;
+		}
+		@media(min-width: $screen-md-min){
+			margin-top: 0;
+			position: relative;
+			background: rgba(0,0,0,.5);
+			/* Here some time problem for Hover than you can use background color/image */
+			-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000)";
+			/* Below IE7 supported */
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000);
+			right: 4%;
+		    max-width: 450px;
+    		width: 35%;
+			top: 425px;
+			position: absolute;
+			padding-left: 65px;
+			padding-right: 65px;
+			padding-top: 35px;
+
+			button.get-started {
+			    background-color: #ff8200;
+			    color: white;
+			    font-family: 'calibri-bold';
+			    font-size: 32px;
+			    display: block;
+			    width: 94%;
+			    height: 80px;
+			    text-align: center;
+			    padding-top: 5px;
+			    margin-top: 27px;
+			    margin-bottom: 20px;
+			    border:none;
+			    max-width: none;
+			}
+		}
+		@media(min-width: 1200px){
+			button.get-started {
+				font-size: 48px;
+				padding-top: 5px;
+			}
+		}
+		
+		.sign-up-teaser-form{
+			padding-top: 15px;
+			
+			@media(min-width: $screen-md-min){
+				padding-top: 20px;
+			}
+
+			.form-group {
+				@media(min-width: $screen-md-min){
+					margin-bottom: 5px;
+				}				
+			}
+			
+			span{
+				&.error-msg{
+					color: #e4002b;
+					font-size: 14px;
+					margin-bottom: 5px;
+					
+					&.chk{
+						padding-top: 5px;
+						margin-bottom: 0;
+					}
+					
+					&.blank{
+						position: absolute;
+						top: 250px;
+						
+						@media(min-width: $screen-md-min){
+							top: 306px;
+						}
+					}
+				}
+				
+				
+				&.hideSpan{
+					visibility: hidden;
+				}
+				
+				&.display{
+					visibility: visible;
+				}
+			}
+			
+			#captchaBox {
+				transform:scale(0.8);
+				transform-origin:0 0;
+				
+				@media(min-width: $screen-md-min){
+					transform: scale(1);
+					transform-origin: initial;
+				}
+			}
+		}
+		
+		p{
+			margin: 0;
+			&.sign-up-header{
+				color: #ff8200;
+			    font-size: 24px;
+				font-family: 'Calibri-Bold';
+			    text-align: center;
+			    max-width: 300px;
+			    margin: 0 auto;
+				line-height: 28px;
+				padding-bottom: 2px;
+
+				#signup {
+					text-decoration: underline;
+				    background-color: transparent;
+				    border: none;
+				    padding: 0;
+				    outline: none;
+				    @media(min-width: $screen-md-min){
+				    	color: white;
+				    }
+
+				}
+				
+				@media(min-width: $screen-md-min){
+					text-shadow: none;
+					text-align: left;
+					color: #fff;
+					line-height: 29px;
+					padding-right: 20px;
+					padding-bottom: 13px;
+				}
+			}
+			&.below {
+				margin-top: 30px;
+				@media(min-width: $screen-md-min){
+					margin-top: 0;
+				}
+			}
+			
+			&.email-notification{
+				color: #061d2a;
+				font-size: 18px;
+				font-family: 'Calibri';
+				text-align: center;
+				line-height: 22px;
+				
+				@media(min-width: $screen-md-min){
+					text-align: left;
+					color: #fff;
+				}
+			}
+		}
+		
+		.btn.btn-white.btn-sign-up{
+			width: 100%;
+			height: 60px;
+			margin-top: 10px;
+			
+			@media(min-width: $screen-md-min){
+				margin-top: 10px;
+			}	
+		}
+		
+		.btn-orange-teaser{
+			margin-top: 10px;
+			width: 100%;
+			height: 60px;
+			border: solid 1px #ff8200;
+			color: #fff;
+			background-color: #ff8200;
+			font-size: 24px;
+			font-family: 'Calibri-Bold';
+			padding: 7px 40px;
+			&:hover,
+			&:focus,
+			&:active{
+				background-color: #ff8200;
+				color: #fff;
+				outline: 0;
+			}
+			
+			@media(min-width: $screen-md-min){
+				background-color: #ff8200;
+				color: #fff;
+				border: 0;
+			}
+		}
+		
+		.pull-left.checkbox{
+			width: 24px;
+			margin: 0;
+		}
+		
+		.clearfix.top{
+			padding-top: 15px;
+		}
+
+		.pull-left.checkbox{
+			label {
+				width: 16px;
+				border: solid 1px #f68a1d;
+				min-height: 16px;
+				padding: 0;
+				
+				@media(min-width: $screen-md-min){
+					border: solid 1px #fff;
+				}
+				
+				cursor: pointer;
+					&:after {
+						content: '';
+						width: 12px;
+						height: 6px;
+						position: absolute;
+						top: 5px;
+						left: 5px;
+						border: 2px solid $orange-color;
+						border-top: none;
+						border-right: none;
+						background: transparent;
+						opacity: 0;
+						transform: rotate(-45deg);
+						-moz-transform:rotate(-45deg);  
+						-webkit-transform:rotate(-45deg);  
+						-o-transform:rotate(-45deg);  
+						-ms-transform:rotate(-45deg);  
+					}
+				&:hover::after {
+					@media(min-width: $screen-md-min){
+						opacity: 0.5;
+					}
+					
+				}
+			}
+			
+			input[type=checkbox] {
+				visibility: hidden;
+				&:checked + label:after {
+					opacity: 1;
+				}    
+			}
+		}
+		
+		.pull-left.text{
+			width: 90%;
+			font-family: 'Calibri';
+			color: #061d2a;
+			font-size: 14px;
+			line-height: 15px;
+			padding-top: 1px;
+			cursor: pointer;
+			
+			@media(min-width: $screen-md-min){
+				color: #fff;
+			}
+			
+			a{
+				color: $orange-color;
+				border-bottom: solid 1px $orange-color;
+			}
+		}
+		
+		
+		::-webkit-input-placeholder {
+			color: #9fb1b2;
+		}
+		
+		:-moz-placeholder { /* Firefox 18- */
+			color: #9fb1b2;
+		}
+		
+		::-moz-placeholder {  /* Firefox 19+ */
+			color: #9fb1b2;
+		}
+		
+		:-ms-input-placeholder {  
+			color: #9fb1b2;
+		}
+		.form-control.email{
+			font-size: 24px;
+			color: #000;
+			background-color: #eaeced;
+			border: 0;
+			height: 50px;
+			width: 100%;
+			margin-bottom: 4px;
+			
+			@media(min-width: $screen-md-min){
+				font-size: 18px;
+				margin-bottom: 4px;
+			}
+			
+			
+			
+			&:focus,
+			&:hover{
+				box-shadow: inset 0 0px 0px rgba(0,0,0,0),0 0 0px rgba(0,0,0,0);
+			}
+		}
+		
+		.form-control.email-ch{
+			font-size: 22px;
+		}
+	}
+	.teaser{
+		position: relative;
+		background-color: $blue-color;
+		padding-top: 17px;
+		padding-bottom: 0;
+		color: #fff;
+		
+		@media(min-width: $screen-md-min){
+			padding-top: 30px;
+			padding-bottom: 70px;
+		}
+		
+		
+		.teaser-banner-text{
+			@media(min-width: $screen-md-min){
+				position: relative;
+				padding-left: 30px;
+			}
+			
+			
+			.product-downloads{
+				padding-top: 30px;
+				padding-bottom: 30px;
+				
+				@media(min-width: $screen-md-min){
+					padding-top: 23px;
+					padding-bottom: 0;
+				}
+				
+			}
+			a{
+				&.product{
+					font-size: 18px;
+					color: #ff8200;
+					font-family: 'Calibri-Bold';
+					display: block;
+					text-align: center;
+					
+					&.lower{
+						padding-left: 8px;
+						padding-top: 10px;
+						@media(min-width: $screen-md-min){
+							padding-left: 20px;
+						}
+					}
+					
+					@media(min-width: $screen-md-min){
+						display: inline-block;
+					}
+				}
+			}
+			
+			img{
+				&.dl-img{
+					padding-right: 12px;
+					position: relative;
+					top: -3px;
+					
+					&.lower{
+						padding-right: 11px;
+					}
+				}
+			}
+		}
+		
+		.money-div{
+			width: 100%;
+			margin-left: -15px;
+			position: absolute;
+			top: -28px;
+			
+			@media(min-width: $screen-md-min){
+				width: 0;
+				left: -50px;
+				margin-left: 0;
+				top: -36px;
+			}
+		}
+		
+		img{
+			&.money{
+				width: 62px;
+				margin: 0 auto;
+				display: block;
+				
+				@media(min-width: $screen-md-min){
+					width: 80px;
+				}
+			}
+		}
+		
+		ul.crediting-rate-list {
+			margin: 0 auto;
+			width: 100%;
+			padding: 15px 0;
+			font-size: 18px;
+			text-align: center;
+			list-style: none;
+			max-width: 500px;
+
+			li {
+				float: left;
+			    text-align: center;
+			    width: 33.33%;
+
+			    .percent {
+			    	font-size: 50px;
+			    	line-height: 45px;
+					display: block;
+					@media(min-width: $screen-md-min){
+						line-height: 55px;
+						font-size: 66px;
+					}
+			    }
+			    .gold {
+			    	color: #f6b209;
+			    }
+
+			    .year {
+			    	display: block;
+			    	font-size: 15px;
+			    	@media(min-width: $screen-md-min){
+			    		font-size: 18px;
+			    	}
+			    }
+
+			    .white {
+			    	width: 1px;
+				    height: 70%;
+				    background-color: #baccd6;
+				    position: absolute;
+				    top: 12px;
+			    }
+			    .right {
+			    	right: 0;
+			    }
+			}
+			.middle {
+				position: relative;
+			}
+			
+			@media(min-width: $screen-md-min){
+				font-size: 24px;
+				text-align: left;
+				width: 45%;
+				padding-top: 20px;
+				margin-left: -25px;
+				max-width: none;
+    			
+			}
+			
+			img {
+				display: inline-block;
+				padding-right: 15px;
+			}
+		}
+	}
+	
+	.disclaimer-policy {
+		&.teaser-policy {
+			padding-bottom: 17px;
+			
+			@media(min-width: $screen-md-min){
+				padding-bottom: 35px;
+			}
+		}
+	}
+	
+	p{
+		margin: 0;
+		
+		&.save-my-way{
+			font-size: 38px;
+			font-family: 'Calibri-Bold';
+			color: $orange-color;
+			text-align: center;
+			line-height: 30px;
+			
+			@media(min-width: $screen-md-min){
+				font-size: 53px;
+				width: 40%;
+			}
+		}
+		
+		&.guaranteed{
+			font-family: 'Calibri-Bold';
+			color: $orange-color;
+			font-size: 28px;
+			line-height: 34px;
+			text-align: center;
+			
+			@media(min-width: $screen-md-min){
+				text-align: left;
+				font-size: 36px;
+				width: 46%;
+				line-height: 40px;
+			}
+			
+			&.top{
+				padding: 10px 10% 0 10%;
+				
+				@media(min-width: $screen-md-min){
+					padding: 32px 0 0 0;
+				}
+			}
+		}
+		
+		&.top{
+			text-align: center;
+			line-height: 24px;
+			padding-bottom: 5px;
+			@media(min-width: $screen-md-min){
+				text-align: left;
+				padding-bottom: 0;
+			}
+		}
+		
+		&.additional{
+			font-size: 18px;
+			color: #fff;
+			font-family: 'Calibri';
+			line-height: 23px;
+			text-align: center;
+			
+			@media(min-width: $screen-md-min){
+				text-align: left;
+				font-size: 24px;
+			}
+			
+			&.top{
+				padding: 32px 0 0 0;
+				font-size: 30px;
+				font-family: 'Calibri-Bold';
+				color: #ff8200;
+				line-height: 28px;
+				@media(min-width: $screen-md-min){
+					padding: 42px 0 0 0;
+					width: 46%;
+					font-size: 38px;
+				    line-height: 40px;
+				}
+				
+				&.lower{
+					padding: 7px 0 17px 0;
+					@media(min-width: $screen-md-min){
+						padding: 7px 0 11px 0;	
+					}
+				}
+			}
+		}
+		
+		&.sign-up{
+			text-align: center;
+			font-family: 'Calibri-Bold';
+			color: #fff;
+			font-size: 18px;
+			padding: 10px 10% 0 10%;
+			
+			@media(min-width: $screen-md-min){
+				text-align: left;
+				padding: 23px 0 0 0;
+				font-size: 24px;
+				width: 46.5%;
+			}
+		}
+
+		&.bottom-text {
+			text-align: center;
+			margin: 0 auto;
+			@media(min-width: $screen-md-min){
+				width: 46%;
+				text-align: left;
+				margin-left: 0;
+				margin-right: 0;
+    		}
+		}
+		&.bottom-text.upper {
+			margin-top: 5px;
+			margin-bottom: 10px;
+			font-family: 'Calibri-Bold';
+			@media(min-width: $screen-md-min){
+    			margin: 10px 0 13px 0;
+    		}
+		}
+		
+		&.bottom-text.lower {
+			font-size: 14px;
+			line-height: 16px;
+			span{
+				&.asterisk{
+					color: #ff8200;
+				}
+			}
+		}
+	}
+	
+	span{
+		&.add{
+			color: $orange-color;
+			font-size: 18px;
+			font-family: 'Calibri-Bold';
+			
+			@media(min-width: $screen-md-min){
+				color: #fff;
+				font-size: 24px;
+				font-family: 'Calibri';
+			}
+		}
+	}
+//}

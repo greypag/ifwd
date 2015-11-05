@@ -8930,16 +8930,24 @@ tr.product-landing-error-wrap {
 .annualTravel_policy_item {
 	position: relative;
 	height: 180px;
+	margin-top: 30px;
+}
+
+@media ( min-width : 992px) {
+	.annualTravel_policy_item {
+		margin-bottom: 25px;
+	}
 }
 
 .annualTravel_policy_item .hidden-content {
 	position: absolute;
 	top: 0px;
 	z-index: 99;
-	background-color: #F2F3F5;
+	background-color: #FFFFFF;
 	opacity: 0.9;
 	display: none;
-	min-height: 180px;
+	min-height: 195px;
+	padding-top: 30px;
 }
 
 .annualTravel_policy_item .hidden-content .hidden-content-title {
@@ -8948,14 +8956,101 @@ tr.product-landing-error-wrap {
 
 .annualTravel_policy_item .hidden-content .hidden-content-p {
 	font-size: 14px;
+	margin-top: 5px;
+}
+
+.annualTravel_policy_item .hidden-content .hidden-content-p p {
+	margin-bottom: 3px;
+   line-height: 18px;
+}
+
+.annualTravel_policy_item .hidden-content .hidden-content-a {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.annualTravel_policy_item .hidden-content .hidden-content-a a {
+	text-decoration: underline;
 }
 
 .annualTravel_policy_item img {
 	width: 80px;
 }
 
+.annualTravel_policy_item img.eg-img {
+	width: 100px;
+}
+
+@media ( min-width : 992px) {
+	.annualTravel_policy_item img.eg-img {
+		width: 120px;
+	}
+}
+
+.pad-none h2 {
+	font-size: 32px;
+}
+
+@media ( min-width : 992px) {
+	.pad-none h2 {
+		font-size: 41px;
+	}
+}
+
 .annualTravel_policy_item h5 {
 	margin-top: 20px;
+}
+
+.annualTravel_policy_item h5.bold {
+	font-size: 18px;
+	margin-left: auto;
+   margin-right: auto;
+   max-width: 145px;
+   line-height: 1.4;
+}
+
+.eg-link {
+	border-bottom: #f6871e 2px solid;
+}
+
+.eg-link:hover {
+  border-bottom: #9fb1b2 2px solid;
+}
+
+.annualTravel_policy_item h5.eg-width-33 {
+   padding: 0 33px;
+}
+
+.annualTravel_policy_item h5.eg-width-22 {
+   padding: 0 22px;
+}
+
+.annualTravel_policy_item h5.eg-width-15 {
+   padding: 0 15px;
+}
+
+@media ( min-width : 325px) and (max-width: 385px) {
+	.annualTravel_policy_item h5.eg-width-33 {
+	   padding: 0;
+	}
+	
+	.annualTravel_policy_item h5.eg-width-22 {
+	   padding: 0;
+	}
+	
+	.annualTravel_policy_item h5.eg-width-15 {
+	   padding: 0;
+	}
+}
+
+.eg-benefits-col { 
+	margin-top: -10px;
+}
+
+@media ( min-width : 992px) {
+	.eg-benefits-col { 
+		margin-top: 5px;
+	}
 }
 
 .product_header_path_container {

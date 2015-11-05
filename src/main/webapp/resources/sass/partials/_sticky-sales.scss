@@ -1,0 +1,189 @@
+//.fwd-savie-wrapper{
+	.sales-sticky-filter {
+		position: relative;
+		width: 100%;
+		z-index: 11;
+		
+		.sticky-fix {
+			position: fixed;
+			width: 100%;
+			top: 130px;
+		}
+		
+		ul.nav-tabs {
+			position: absolute;
+			top: 0;
+			left: 0;
+			border: 0;
+			
+			> li {
+				float: none;
+				width: 70px;
+				height: 70px;
+				background: #ff8200;
+				
+				> a {
+					margin: 0;
+					border: 0;
+					border-radius: 0;
+					padding: 11px;
+					width: 70px;
+					height: 70px;
+					display: table-cell;
+					vertical-align: middle;
+					
+					&:hover {
+						background: transparent;
+					}
+					
+					> img {
+						width: 100%;
+						
+						&.birthday {
+							width: 44px;
+						}
+					}
+					
+					&.birthday {
+						padding-bottom: 8px;
+					}
+				}
+				
+				&.active,
+				&.first-load {
+					background: #061d29;
+					
+					> a {
+						border: 0;
+						background: transparent;
+					}
+				}
+				
+				&.first {
+					margin-bottom: 1px;
+				}
+				
+				&.last {
+					margin-top: 2px;
+				}
+			}
+		}
+		
+		.tab-content {
+			background: #061d29;
+			margin-left: 70px;
+			color: #fff;
+			/*padding: 0 20px 0;*/
+			overflow: auto;
+	
+			#illustration-filters {
+	
+				background-color: transparent;
+	
+	
+				#investment-amount {
+	
+					padding: 28px 30px 40px 20px;
+	
+					#left,#right {
+						margin-bottom: -2px;
+					}
+	
+					.slider.slider-horizontal {
+						margin-left: 1px;
+					}
+	
+					.total {
+						margin-top: 10px;
+						padding-left: 3px;
+					}
+	
+					#hkd {
+						margin-top: 4px;
+					}
+	
+					h4 {
+	
+						font-family: 'foco_bold';
+						font-size: 18px;				
+					}
+	
+					h3 {
+	
+						padding-bottom: 21px;
+					}
+	
+					.number {
+						margin-top: 8px;
+						padding-bottom: 0;
+					}
+	
+				}
+	
+				
+				#information {
+					padding: 35px 30px 35px 20px;
+					background-color: transparent;
+	
+					h3 {
+						font-family: 'foco_bold';
+						font-size: 23.9px;
+						padding-bottom: 1px;
+					}
+	
+					#birthday {
+	
+						.date {
+	
+							margin-top: 0;
+							margin-bottom: 9px;
+						}
+	
+						#age {
+							font-family: 'foco_regular';
+							font-size: 14px;
+	
+							p {
+								margin-bottom: 8px;
+							}
+						
+						}
+					}
+	
+					#promo {
+	
+						padding-top: 10px;
+					}
+	
+					.promocode {
+						margin-top: 0;
+						margin-bottom: 35px;
+					}
+				}
+				
+			}
+		}
+	}	
+//}
+
+
+.fadeMe {
+    background: rgba(0,0,0,.5); 
+    width:100%; 
+    height:100%; 
+    z-index:10;
+    top:0; 
+    left:0; 
+    position:fixed; 
+
+  }
+
+  @media (min-width: 992px) {
+      #sales-tab {
+        display: none;
+      }
+      
+      #sales-contents .tab-pane {
+        display: block;
+      }
+    }

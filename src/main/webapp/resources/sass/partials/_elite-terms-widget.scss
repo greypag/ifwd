@@ -1,0 +1,601 @@
+// Note: et = namespace for elite terms
+
+#flux {
+   
+   &.et-page {
+      background: #fff;
+   }
+}
+
+.et-get-qoute {
+   position: fixed;
+   right: 10px;
+   bottom: 80px;
+   z-index: 10;
+}
+
+.et-notice {
+   padding-left: 20px;
+   margin-bottom: 25px;
+   color: #373a36;
+   font-size: 14px;
+    
+   @media (min-width: $screen-md-min) {
+      padding-left: 0;
+   }
+   
+   li {
+      margin-top: 15px;
+   }
+   
+   .order {
+      padding-right: 5px;
+   }
+   
+   @media (min-width: $screen-md) {
+      margin-left: -5px;
+   }
+}
+
+.et-notice {
+   
+   &+.et-btn-download-item {
+      @media (min-width: $screen-md) {
+         margin-left: -5px;
+      }
+   }
+}
+
+.et-btn-download-item {
+   margin-top: 5px;
+   display: block;
+   text-align: center;
+   
+   @media (min-width: $screen-md) {
+      display: inline;
+      margin-right: 20px;
+   }
+   
+   img {
+      margin-right: 5px;
+   }
+}
+
+// Plan
+.et-plan-wrapper {
+   background: #071d2b;
+   
+   h1 {
+      font-size: 35px;
+      color: #fff;
+      line-height: 48px;
+   }
+}
+
+.et-pad-none {
+   padding: 0; 
+}
+
+.et-wrap {
+   height: 511px;
+}
+
+.et-recent-work-wrap {
+   position: relative;
+   background-color: #061d2a;
+   padding: 50px 0px 20px 0px;
+   
+   @media (min-width: $screen-md) {
+      padding-bottom: 70px;
+   }
+   
+   &.et-recent-work-wrap-mid {
+      background-color: #f68a1d;
+   }
+}
+
+.et-recent-work-inner {
+   top: 0;
+   background: transparent;
+   width: 100%;
+   border-radius: 0;
+   margin-bottom: 0;
+   padding-left: 85px;
+   padding-right: 85px;
+   min-height: 400px;
+   
+   @media (min-width: 369px) {
+      min-height: 330px;
+   }
+   
+   @media (min-width: 419px) {
+      min-height: 320px;
+   }
+   
+   @media (min-width: $screen-xs-min) {
+      min-height: 280px;
+   }
+   
+   @media (min-width: $screen-md) {
+      min-height: 0;
+      padding: 20px 40px;
+   }
+   
+   h2 {
+      color: #fff;
+      font-size: 24px;
+   }
+   
+   p {
+      color: #fff;
+      line-height: 25px;
+      font-size: 18px;
+      
+      @media (min-width) {
+         line-height: 30px;
+      }
+   }
+   
+   a {
+      color: #f6871e;
+      
+      &:hover {
+         color: #9fb1b2;
+      }
+   }
+}
+
+.et-recent-work-img {
+   min-height: 90px;
+}
+
+#et-recent-works-mob {
+   
+   .prev,
+   .next {
+      position: absolute;
+      top: 50%;
+      color: #495d66;
+      display: inline-block;
+      margin-top: -25px;
+      height: 40px;
+      line-height: 40px;
+      width: 40px;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 4px;
+      z-index: 5;
+      border: 0;
+      background-color: transparent;
+   }
+   
+   .prev {
+      left: 0;
+      margin-left: 5px;
+   }
+   
+   .next {
+      right: 0;
+      margin-right: 5px;
+   }
+   
+   .carousel-control.left, .carousel-control.right {
+       background-image: none
+   }
+   
+   a {
+      text-decoration: underline;
+      
+      &:hover {
+         text-decoration: underline;
+      }
+   }
+}
+
+// Testimonial 
+#et-testimonials,
+#et-testimonials-mob {
+   position: relative;
+   margin: 20px 0 50px;
+   
+   .et-testimonial-title { 
+      margin-bottom: 30px;
+      color: #f68a1d;
+      font-size: 24px;
+           
+      @media (min-width: $screen-md) {
+         font-size: 40px;
+      } 
+   }
+   
+   .prev,
+   .next {
+      position: absolute;
+      top: 50%;
+      color: #495d66;
+      display: inline-block;
+      margin-top: -25px;
+      height: 40px;
+      line-height: 40px;
+      width: auto;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 4px;
+      z-index: 5;
+      border: 0;
+      background-color: transparent;
+      font-size: 16px;
+   }
+   
+   .prev {
+      left: 0;
+      margin-left: 15px;
+   }
+   
+   .next {
+      right: 0;
+      margin-right: 15px;
+   }
+}
+
+#et-testimonials {
+   @media (min-width: $screen-md) {
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px 0 50px;
+   }
+}
+
+.et-testimonials-wrap {
+   position: relative;
+   padding: 10px 0px 0px 0px;
+}
+
+.et-testimonials-inner {
+   top: 0;
+   background: transparent;
+   opacity: .8;
+   width: 100%;
+   border-radius: 0;
+   margin-bottom: 0;
+}
+
+.et-testimonials-wrap {
+   position: relative;
+   padding: 10px 0px 0px 0px;
+}
+
+.et-testimonials-inner {
+   top: 0;
+   background: transparent;
+   opacity: .8;
+   width: 100%;
+   border-radius: 0;
+   margin-bottom: 0;
+   
+   p {
+      line-height: 23px;
+      font-size: 18px;
+      color: #3e4a4f;
+      font-size: 18px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      font-style: italic;
+      padding: 0 35px;
+      
+      @media (min-width: $screen-md) {
+         line-height: 1.2;
+      }
+   }
+   
+   .et-hr1 {
+      height: 1px;
+      width: 70%;
+      background-color: #f68a1d;
+      text-align: center;
+      margin: 0 auto;
+   }
+   
+   h2 {
+      color: #061d2a;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 0;
+   }
+   
+   h4 {
+      color: #061d2a;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 0;
+   }
+}
+
+.et-testimonial {
+   position: relative;
+   font-family: 'Foco_It';
+   font-size: 150px;
+   border: 0;
+   
+   &:before,
+   &:after {
+      font-family: 'Foco_It';
+      font-size: 150px;
+      position: absolute;
+      line-height: 1;
+      color: #f68a1d;
+      font-style: normal;
+      left: 45%;
+   }
+   
+   &:before {
+      content: url("../images/elite-terms/q-open.png");
+      height: 67px;
+      top: -85px;
+   }
+}
+
+.et-blog-item {
+   padding: 15px 30px 35px 20px; 
+   
+   p {
+      font-size: 15px;
+      color: #353b41;
+   }
+}
+
+.et-p1 {
+   font-size: 16px;
+   color: #353b41;
+}
+
+.et-advisory-wrapper { 
+   padding: 35px 30px 15px 20px;
+   
+   @media (min-width: $screen-md) {
+      padding-top: 40px;
+      padding-bottom: 35px;
+   }
+}
+
+.et-advisory {
+   
+   p {
+      font-size: 15px;
+      color: #373a36;
+   }
+  
+   p:first-child { 
+      margin-bottom: 20px;
+   }
+}
+
+
+.et-pad-left-reduce-7 {
+   padding-left: 7.5px;
+}
+
+.et-pad-right-reduce-7 {
+   padding-right: 7.5px;
+}
+
+// Medical Declaration Panel
+
+#et-medic-accordion {
+
+   .et-medic-panel {
+      border-radius: 0;
+      
+      + .et-medic-panel {
+         margin-top: 10px;
+      }
+   }
+}
+
+.et-medic-panel {
+   border-color: #a9b6c2;    
+   border-radius: 0;
+   
+   > .panel-heading {
+      padding: 20px;
+      background: none;
+      
+      @media (min-width: $screen-md) {
+         padding-left: 30px;
+         padding-right: 30px;
+      }
+      
+      a {
+         display: block;
+      }
+   }
+   
+   h4  {
+      font-size: 18px;
+   }
+   
+   .panel-collapse {
+      background-color: #f3f4f4;
+      font-family: 'Calibri';
+      
+      p {
+         margin-bottom: 20px;
+         font-size: 18px;
+         color: #3f4547;
+         
+         @media (min-width: $screen-md) {
+            margin-bottom: 0;
+         }
+      }
+      
+      &.in.et-collapse {
+         display: block;
+      }
+   }
+   
+   .panel-body {
+      
+      @media (min-width: $screen-md) {
+         padding-left: 30px;
+         padding-right: 30px;
+      }
+   }
+   
+}
+
+.et-btn-medic {
+   width: 100%;
+   border: solid 1px #ff8200;
+   background: #fff;
+   color: #ff8200;
+   font-size: 24px;
+   font-family: 'Calibri-bold';
+   
+   @media (min-width: $screen-md) {
+      max-width: 155px;
+   }
+   
+   &:focus {
+      color: #ff8200;
+   }
+   
+   &:hover {
+      -webkit-transition: background 0.1s ease-in;
+      -moz-transition: background 0.1s ease-in;
+      -ms-transition: background 0.1s ease-in;
+      -o-transition: background 0.1s ease-in;
+      transition: background 0.1s ease-in;
+      background: #ff8200;
+      color: white;
+   }
+   
+   &.btn-selected {
+      background: #ff8200;
+      color: white;
+      
+      &.et-btn-medic-yes { 
+         background: #b7c3cd;
+         color: #fff;
+      }
+   }
+   
+   &.et-btn-medic-yes {
+      color: #b7c3cd;
+      border: 1px solid #b7c3cd;
+      
+      &:hover {
+         background: #b7c3cd;
+         color: #fff;
+      }
+   }
+}
+
+.et-other-benefits-wrapper {
+   margin-top: 40px;
+   margin-bottom: 40px;
+   
+   .other-benefits {
+      padding-left: 5px;
+   }
+   
+   .bullets {
+      padding-left: 18px;
+      padding-right: 18px;
+      list-style-image: url('../images/bullet.png');
+      line-height: 42px;
+      
+      li {
+         margin-bottom: 10px;
+      }
+      
+      a {
+         color: #f6871e;
+         
+         &:hover {
+            text-decoration: none;
+            outline: none;
+            color: #9fb1b2;
+         }
+      }
+      
+      @media (min-width: $screen-md) {
+         line-height: 1.4;
+         margin-bottom: 20px;
+      }
+   }
+   
+   .h4-5 {
+      font-size: 16px;
+      line-height: 20px;
+      
+      @media (min-width: $screen-md) {
+         line-height: 1.4;
+      }
+   }
+      
+   .h4-6 {
+      font-size: 16px;
+      color: #061d2a;
+      margin-bottom: 0;
+   }
+   
+   .main-partner {
+      padding-left: 0;
+      margin-bottom: 15px;
+      
+      img {
+         margin-right: 15px;
+      }
+      
+      &.mob {
+         padding-left: 15px;
+         text-align: center;
+         
+         img {
+            margin-right: 0;
+            margin-bottom: 15px;
+         }
+      }
+   }
+}
+
+.et-clear-signature {
+   
+   @media (min-width: $screen-md) {
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+   }
+      
+   a {
+      color: #b7c3cd;
+      font-size: 14px;
+      text-decoration: underline;
+      
+      &:hover {
+         text-decoration: underline;
+      }
+   }
+}
+
+.back-to-home {
+    
+    &.modal {
+        
+        .modal-dialog .modal-content {
+            padding-top: 80px;
+            padding-bottom: 80px;
+            
+            .modal-header {
+                padding-bottom: 30px;
+                
+                h4.modal-title {
+                    font-size: 24px;
+                }
+            }
+            
+            
+            
+        }
+    }    
+}

@@ -1,0 +1,235 @@
+#application-summary {
+	.summary-header {
+		h4 {
+			@media (min-width: $screen-md) {
+				padding: 0 20px;
+			}
+		}
+	}
+
+	h4, h3 {
+		color: #ff8200;
+
+		span {
+			color: #8a9496;
+		}
+	}
+	h4 {
+		font-size: 30px;
+		@media (min-width: $screen-md) {
+			text-align:left;
+		}
+	}
+	h3 {
+		margin-top: 25px;
+	}
+
+	.plan-detail {
+		margin-bottom: 12px;
+		@media (min-width: $screen-md) {
+			margin-top: 0;
+		}
+	}
+
+	.personal-info {
+		margin-top: 18px;
+		@media (min-width: $screen-md) {
+			margin-bottom: 12px;
+		}
+	}
+
+	.employment-info {
+		margin-top: 32px;
+    	margin-bottom: 12px;
+    	@media (min-width: $screen-md) {
+    		margin-top: 22px;
+    	}
+	}
+
+	.beneficiary {
+	    margin-top: 20px;
+	    @media (min-width: $screen-md) {
+	    	margin-top: 42px;
+	    }
+	}
+
+	.uwriting {
+		margin-top: 24px;
+		@media (min-width: $screen-md) {
+			margin-top: 60px;
+		}
+	}
+
+   .plan-detail,
+   .personal-info,
+   .employment-info,
+   .beneficiary,
+   .uwriting {
+        
+      a {
+         color: #b7c3cd;
+         font-size: 14px;
+         text-decoration: underline;
+         margin-left: 20px;
+      }
+   }
+   
+	.page-divider {
+	    height: 1px;
+	    background: url(../../assets/images/summary-page-divider.png);
+	    width: 100%;
+	    margin-top: 14px;
+	}
+	.container-fluid {
+		@media (min-width: $screen-md) {
+	    	margin-top: 30px;
+         padding-left: 45px;
+         padding-right: 45px;
+         width: auto;
+      }
+      
+		.summary-content {
+			padding-bottom: 16px;
+			
+         @media (min-width: $screen-md) {
+				padding: 44px 95px 55px;
+			    border: 1px solid #b7c3cd;
+			}
+         
+			.summary-body {
+				margin-top: 28px;
+				@media (min-width: $screen-md) {
+					margin-top: 15px;
+					padding-left: 20px;
+				}
+				.fwd-checkbox {
+					margin-top: 16px;
+
+					label {
+						height: 18px;
+						width: 18px;
+						@media (min-width: $screen-md) {
+							height: 18px;
+							width: 18px;
+						}
+						&:after {
+						    width: 9px;
+						    height: 5px;
+						    top: 5px;
+						    left: 3px;
+						}
+					}
+					.notice {
+					    margin-left: 40px;
+					    padding-top: 4px;
+					    line-height: 20px;
+	    				padding-right: 5px;
+	    				color: #000;
+					}
+					.second-format {
+						line-height: 22px;
+	    				padding-top: 4px;
+					}
+					ul {
+					    font-size: 18px;
+					    color: #2a2c29;
+					    font-family: 'Calibri';
+					    margin-top: 10px;
+	    				padding-left: 56px;
+	    				list-style-type: none;
+	    				li {
+	    					margin-top: 4px;
+	    					line-height: 22px;
+
+	    					span {
+	    						display: block;
+	    						margin-left: -5px;
+	    					}
+	    					img {
+							    float: left;
+							    padding-right: 5px;
+							    padding-top: 8px;
+							    margin-left: -5px;
+	    					}
+	    				}
+					}
+               
+               .et-apsum-disease-list {
+                  margin-top: 10px;
+                  
+                  ul {
+                     margin: 0;
+                     padding-left: 73px;
+                     
+                     &+ul {
+                     
+                        @media (min-width: $screen-md) {
+                           padding-left: 45px;
+                        }
+                     }
+                  }
+               }
+				}
+				.below {
+					margin-top: 35px;
+					@media (min-width: $screen-md) {
+						margin-top: 23px;
+					}
+				}
+				h4.info-holder-title {
+					margin-bottom: 8px;
+					color: #000;
+					font-size: 18px;
+				}
+				.info-holder, .info-holder-below, .plan-detail-holder {
+					.info-label {
+						margin-bottom: 8px;
+						color: #000;
+						font-size: 18px;
+					}
+					.employment {
+					    margin-bottom: 12px;
+					}
+					.info-label {
+						margin-top: 0;
+						width: 50%;
+						float: left;
+						@media (min-width: $screen-md) {
+							width: 25%;
+						}
+					}
+					.info {
+					    line-height: 21px;
+					    color: #000;
+					    width: 50%;
+						float: left;
+					    @media (min-width: $screen-md) {
+					    	width: 63%;
+    						margin-left: 12%;
+					    }
+					}
+					
+				}
+				.info-holder-below {
+				    margin-top: 9px;
+				}
+				.plan-detail-holder {
+					h4.info-label {
+						margin-bottom: 12px;
+					}
+				}
+				
+			}
+		}
+
+		.confirm-and-sign-holder {
+			padding-bottom: 50px;
+		    button {
+		   		@media (min-width: $screen-md) {
+		   			margin-top: 40px;
+				}
+			}
+		}
+	}
+   
+}
