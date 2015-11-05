@@ -15939,3 +15939,11 @@ body.chin #btn-cstmr-srvc-cnter {
 		position: absolute;
 	}
 }
+
+a:hover {
+	color: #9fb1b2; 
+}
+
+a:focus {
+	color: #9fb1b2;
+}
