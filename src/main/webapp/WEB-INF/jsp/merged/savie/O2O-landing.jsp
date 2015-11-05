@@ -182,6 +182,83 @@ var home_url = "<%=request.getContextPath()%>";
 								</div>
 							</div>
 						</div>
+						<!--  6 benefit coverage -->
+						<div style="background-color:#FFFFFF;text-align:center;margin-top: 20px;padding-bottom: 20px;">
+						    <div class="container pad-none">
+						        <h2><fmt:message key="evergreen.travel.benefits" bundle="${msg}" /></h2>
+						        <h4><strong></strong></h4>
+						        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 eg-benefits-col">
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon1.png">
+						                <h5 class="bold eg-width-33"><fmt:message key="evergreen.travel.simple.and.easy" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon1.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.simple.and.easy" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon2.png">
+						                <h5 class="bold eg-width-33"><fmt:message key="evergreen.travel.19.to.70.issue.age" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon2.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.19.to.70.issue.age" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon3.png">
+						                <h5 class="bold"><fmt:message key="evergreen.travel.withdrawal.without.charges" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon3.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.withdrawal.without.charges" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon4.png">
+						                <h5 class="bold eg-width-22"><fmt:message key="evergreen.travel.earning.after.3.years" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon4.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.earning.after.3.years" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon5.png">
+						                <h5 class="bold eg-width-15"><fmt:message key="evergreen.travel.24.hours.service.hotline" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon5.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.24.hours.service.hotline" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon6.png">
+						                <h5 class="bold eg-width-33"><a class="eg-link" href="<fmt:message key="evergreen.travel.bocomm.link" bundle="${msg}" />"
+							              target="_blank"><fmt:message key="evergreen.travel.bocomm.card.offer" bundle="${msg}" /></a></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon6.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.bocomm.card.offer" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="clearfix"></div>
+						        </div>
+						    </div>
+						</div>
 						<!-- Disclaimer and Policy Provisions -->
 						<div class="disclaimer-policy-teaser teaser-policy">
 							<p class="h4-6"><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.provisions.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part4" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part5" bundle="${msg}" /></p>
