@@ -536,11 +536,11 @@
                .addClass('et-selected col-md-12')
          
          //res address
-         if($('#etaspi-res-add').html().length <= 0) {
+         if($('#etaspi-res-add').html().length <= 0 || !$('#savieApplicantBean\\.isResidential').prop('checked')) {
         	 $('#etaspi-res-add').html($('#etaspi-per-add').html());
          }
          //corr address
-         if($('#etaspi-corr-add').html().length <= 0) {
+         if($('#etaspi-corr-add').html().length <= 0 || !$('#savieApplicantBean\\.addressIsSame').prop('checked')) {
         	 $('#etaspi-corr-add').html($('#etaspi-res-add').html());
          }
          $appSum.removeClass('hide-element');
