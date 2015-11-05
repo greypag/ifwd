@@ -1470,7 +1470,6 @@
       $('#etaspi-fname').text(appInfoData.enFName);
       $('#etaspi-chName').text(appInfoData.chName);
       $('#etaspi-gender').text(appInfoData.gender);
-      $('#etaspi-is-smooker').text(planDetailData.isSmooker ? 'Smooker' : 'Non-smooker');
       $('#etaspi-marital-status').text(capitalizeFirstLetter(appInfoData.maritalStat));
       $('#etaspi-dob').text(appInfoData.dob);
       $('#etaspi-pob').text(appInfoData.pob);

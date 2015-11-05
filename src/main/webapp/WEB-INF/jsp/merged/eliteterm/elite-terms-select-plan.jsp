@@ -2136,9 +2136,9 @@ var home_url = "<%=request.getContextPath()%>";
          }
          
          if ($('#et-smoker-yes').prop('checked')) {
-            planDetailData.isSmooker = true;
+        	 $('#etaspi-is-smooker').text('Smooker');
          } else if ($('#et-smoker-no').prop('checked')) {
-            planDetailData.isSmooker = false;
+        	 $('#etaspi-is-smooker').text('Non-mooker');
          }
 
          var age = getAge(parseInt($('#et-select-plan-date-input').val().substring(6,10)),
