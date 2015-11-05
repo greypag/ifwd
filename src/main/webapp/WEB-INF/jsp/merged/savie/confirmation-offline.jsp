@@ -107,6 +107,12 @@ var affiliate = "${affiliate}";
 										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Operating.hours" bundle="${msg}" /></label>
 										<span class="pull-left">${centreDetails.operationHours }</span>
 									</div>-->
+									<div class="appointment-detail clearfix print">
+										<div class="print-image-holder">
+											<img src="<%=request.getContextPath()%>/resources/images/savie/print-logo.png" alt="Print" class="">
+											<p onclick="window.print()">Print this document</p>
+										</div>
+									</div>
 								</div>
 							</div>
 							<!--<div class="col-xs-12 print-document">

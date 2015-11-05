@@ -9481,6 +9481,24 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
     width: 40%;
   }
 }
+.fwd-savie-wrapper .thank-you-container .details-container .appointment-detail .print-image-holder { 
+	margin-top: 30px;
+    margin-bottom: 22px;
+    text-align: center;
+}
+@media (min-width: 992px) {
+	.fwd-savie-wrapper .thank-you-container .details-container .appointment-detail .print-image-holder { 
+		text-align: left;
+	}
+}
+.fwd-savie-wrapper .thank-you-container .details-container .appointment-detail .print-image-holder p { 
+    font-size: 14px;
+    color: #ff8200;
+    border-bottom: 1px solid #ff8200;
+    margin-left: 8px;
+    display: inline;
+    cursor: pointer;
+}
 .fwd-savie-wrapper .thank-you-container .details-container .appointment-detail span {
   width: 65%;
   padding-bottom: 10px;
