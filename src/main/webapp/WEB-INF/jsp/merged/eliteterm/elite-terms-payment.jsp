@@ -11,6 +11,7 @@
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-et.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var paymentNextPageFlow = "${nextPageFlow}";
@@ -20,7 +21,7 @@ var languageP = "${language}";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
-		<div class="fwd-savie-wrapper">
+		<div class="fwd-savie-wrapper fwd-et-wrapper">
 
 
 			<!--<div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
@@ -133,7 +134,7 @@ var languageP = "${language}";
 										<div class="clearfix desktop-half">
 											<div class="selectDiv month">
 												<select name="epMonth" id="month" class="form-control gray-dropdown">
-													<option value="0"><fmt:message key="home.summary.pmtdetail.desc3.month" bundle="${msg}" /></option>
+													<option value="0" selected disabled><fmt:message key="home.summary.pmtdetail.desc3.month" bundle="${msg}" /></option>
 			                                        <option value="01">01</option>
 			                                        <option value="02">02</option>
 			                                        <option value="03">03</option>
@@ -150,7 +151,7 @@ var languageP = "${language}";
 											</div>
 											<div class="selectDiv">
 												<select name="epYear" id="year" class="form-control gray-dropdown">
-													<option value="0"><fmt:message key="home.summary.pmtdetail.desc3.year" bundle="${msg}" /></option>
+													<option value="0" selected disabled><fmt:message key="home.summary.pmtdetail.desc3.year" bundle="${msg}" /></option>
 				                                    <c:forEach begin="0" end="10" varStatus="loop">
 				                                        <c:set var="currentYear" value="${year + loop.index}" />
 				                                        <option value="${currentYear}">${currentYear}</option>
@@ -234,6 +235,7 @@ var languageP = "${language}";
 		
 		<!-- <script src="assets/js/fwd-dropzone.js"></script> -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/placeholders.min.js"></script>
       <script type="text/javascript">
          $(document).on('click', '.et-header-info-btn', function(e) {
             e.preventDefault();

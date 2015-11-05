@@ -1,3 +1,10 @@
+/* ET Shared */
+.fwd-et-wrapper select,
+.et-payment .page-content .page-content-item .selectDiv select {
+	color: #ccc;
+}
+
+
 /* ET landing H1 */
 .fwd-et-wrapper .wow{
 	max-width: 1200px;

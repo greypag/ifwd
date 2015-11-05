@@ -101,14 +101,20 @@
          $self.removeAttr('style');
       }); 
    $('#et-select-plan-date-input')
-      .css('color', '#ccc')
       .on('change', function(e) {
          var $self = $(this);
          
          $self.removeAttr('style');
-         $self.css('color', '#000');
+         
          if(msieversion() > 0) {
             $('#et-select-plan-date-input').css('font-family','Arial');
+
+            //IE9 placeholder color fix
+            if( $self.val() == '' || $self.val()==$self.attr('placeholder') ){
+               $self.css('color', '#ccc');
+            } else {
+               $self.css('color', '#000');
+            }
          }
       }); 
    
