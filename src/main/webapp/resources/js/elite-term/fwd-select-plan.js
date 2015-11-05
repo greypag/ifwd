@@ -1632,7 +1632,7 @@
 	   
 	   empEduInfoData.status = document.getElementById('savieEmploymentBean.employmentStatus').value.split("-")[1];
        empEduInfoData.occupation = document.getElementById('savieEmploymentBean.occupation').value.split("-")[1];
-       empEduInfoData.eduLevel = document.getElementById('savieEmploymentBean.educationLevel').value;
+       empEduInfoData.eduLevel = document.getElementById('savieEmploymentBean.educationLevel').value.split("-")[1];
        empEduInfoData.natBusiness = document.getElementById('savieEmploymentBean.natureOfBusiness').value.split("-")[1];
        empEduInfoData.monIncome = document.getElementById('savieEmploymentBean.monthlyPersonalIncome').value.split("-")[1];
        empEduInfoData.liqAsset = $('option[value="' + document.getElementById('savieEmploymentBean.liquidAssets').value + '"]', '#savieEmploymentBean\\.liquidAssets').text();
