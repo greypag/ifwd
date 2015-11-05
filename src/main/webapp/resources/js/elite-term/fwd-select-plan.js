@@ -101,7 +101,7 @@
          $self.removeAttr('style');
       }); 
    $('#et-select-plan-date-input')
-      .css('color', '#9ba5a7')
+      .css('color', '#ccc')
       .on('change', function(e) {
          var $self = $(this);
          
@@ -476,8 +476,35 @@
          }
       });
       
+      function checkCheckBoxBySelectPay() {
+    	  var result = true;
+     	 if(!$('#pics-check').is(':checked')) {
+     		 $("#chk1").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+     		 result = false;
+     	 }else {
+     		 $("#chk1").html("");
+     	 }
+     	 if(!$('#cancellation-check').is(':checked')) {
+     		 $("#chk2").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+     		 result = false;
+     	 }else {
+     		 $("#chk2").html("");
+     	 }
+     	 if(!$('#application-declaration').is(':checked')) {
+     		 $("#chk3").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+     		 result = false;
+     	 }else {
+     		 $("#chk3").html("");
+     	 }
+     	 return result;
+      }
+      
       // Show Application Summary section
-      $('#et-app-sum-proceed-btn').on('click', function(e) {
+      $('#et-app-sum-proceed-btn').on('click', function(e) { 
+    	 if(!checkCheckBoxBySelectPay()){
+    		 return false;
+    	 }
+    	  
          var $self = $(this);
          var $appSum = $('#et-application-third-section');
          var $confirmSign = $('#et-declaration-proceed-btn');
@@ -545,6 +572,11 @@
       // Move to signature section
       $('#et-confirm-and-sign-btn, #et-declaration-proceed-btn').on('click', function(e) {
          e.preventDefault();
+         
+         if(!checkCheckBoxBySelectPay()){
+    		 return false;
+    	 }
+         
          var $self = $(this);
          var $sigSection = $('#et-application-fourth-section');
          

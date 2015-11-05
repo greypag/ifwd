@@ -267,9 +267,6 @@ var home_url = "<%=request.getContextPath()%>";
                            </div>
                         </div>
                      </div>
-                     <div class="mask hidden">
-                  		<img src="/fwdhk/resources/images/elite-terms/iFWD_O2O_payment-in-progress.gif" alt="Please wait.." class="">
-                  	 </div>
                   </div>
                
                   <!--Accordion Highlights-->
@@ -1191,6 +1188,7 @@ var home_url = "<%=request.getContextPath()%>";
                            <fmt:message key="eliteTerms.selectPlan.I.have.read" bundle="${msg}" /> <a href="#" class="link"> <fmt:message key="eliteTerms.selectPlan.Personal.Information" bundle="${msg}" /></a>
                         </div>
                      </div>
+                     <span id="chk1" class="text-red"></span> <br />
                      
                      <h4 class="policy-replace"><fmt:message key="eliteTerms.selectPlan.Policy.replacement.declarations" bundle="${msg}" /></h4>
                      <div class="policy-desc bottom">
@@ -1262,7 +1260,7 @@ var home_url = "<%=request.getContextPath()%>";
                            <fmt:message key="eliteTerms.selectPlan.I.understand.that" bundle="${msg}" />
                         </div>
                      </div>
-
+                     <span id="chk2" class="text-red"></span> <br />
                      
                      <h4 class="application"><fmt:message key="eliteTerms.selectPlan.Application" bundle="${msg}" /></h4>
                      
@@ -1275,6 +1273,8 @@ var home_url = "<%=request.getContextPath()%>";
                            <h5 class="declare-agree"><fmt:message key="eliteTerms.selectPlan.I.hereby.DECLARE" bundle="${msg}" /></h5>
                         </div>
                      </div>
+                     <span id="chk3" class="text-red"></span> <br />
+                     
                      <div class="clearfix declaration application-declaration">
                         <div class="pull-left cancellation-check">
                            
@@ -2021,13 +2021,7 @@ var home_url = "<%=request.getContextPath()%>";
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-select-plan.js"></script>
       <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
       <script type="text/javascript">
-      //loading mask
-       $(document).on('click', '#promocode-hidden-button button', function(e) {
-    	   $('#et-plan-option-section .mask').removeClass('hidden');
-    	   setTimeout(function(){
-    		   $('#et-plan-option-section .mask').addClass('hidden');
-           	}, 3000);
-       });
+      
       //select-plan
       $(document).on('click', '#et-before-no', function(e) {
          $('#et-btn-before-start').removeClass('hidden');

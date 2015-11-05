@@ -63,4 +63,46 @@
 	}
 }
 
+/* Document Upload */
+.fwd-et-wrapper .document-upload .info.hkid {
+  left: 120px;
+}
+
+.fwd-et-wrapper .document-upload .info.passport {
+  left: 200px;
+}
+
+.fwd-et-wrapper .document-upload .info.addr {
+  left: 175px;
+}
+
+.fwd-et-wrapper .document-upload .elite-home-btn {
+	text-align: center;
+}
+
+.chin .fwd-et-wrapper .document-upload .info.hkid {
+  left: 135px;
+}
+
+.chin .fwd-et-wrapper .document-upload .info.passport {
+  left: 60px;
+}
+
+.chin .fwd-et-wrapper .document-upload .info.addr {
+  left: 110px;
+}
+
+@media (min-width: 992px) {
+  .fwd-et-wrapper .document-upload .info {
+    top: 35px;
+  }
+}
+
+/* ET mask */
+.modal-backdrop.in{
+	opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+
 /* */

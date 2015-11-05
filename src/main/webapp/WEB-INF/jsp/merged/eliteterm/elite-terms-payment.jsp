@@ -181,6 +181,7 @@ var languageP = "${language}";
 										<span class="hidden-xs hidden-sm"><fmt:message key="eliteTerms.payment.I.as.Policy.owner" bundle="${msg}" /></span>
 										</p>
 									</div>
+									<span id="chk1" class="text-red"></span>
 								</div>
 
 								<div class="button-holder hidden-md hidden-lg clearfix">
@@ -255,6 +256,14 @@ var languageP = "${language}";
  	  var enablePayment=true;
       var clicked = false;
  	  function confirmHomeCarePayment() {
+ 		 
+ 		 if(!$('#personal-information-statement').is(':checked')) {
+    		 $("#chk1").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+    		 result = false;
+    	 }else {
+    		 $("#chk1").html("");
+    	 }
+ 		 
  		 var creditCaredNo = $('#card-num').val();
  		 var expiryDate = $('#month').val()+$('#year').val().substr(2, 2);
  		 var cardHolderName = $('#card-name').val(); 

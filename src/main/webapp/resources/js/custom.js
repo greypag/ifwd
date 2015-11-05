@@ -593,13 +593,16 @@ $(function() {
 		$("#add-beneficiary-button-2").click(function(){
 			$("#add-beneficiary-1 .add-beneficiary" ).addClass("hidden");
 			
-				addFormBeneficiary ($("#add-beneficiary-button-2").attr("value"));
-
+			addFormBeneficiary ($("#add-beneficiary-button-2").attr("value"));
 			
 			$('#remove-beneficiary\\[1\\]').click(function(){
 				$('#remove-beneficiary\\[1\\]').parents('form').remove();
       			$('#beneficiary1').removeClass('hidden');
-			
+
+    			$('#beneficiaryInfoForm\\[0\\]')
+                .data('bootstrapValidator')
+                .updateStatus('savieBeneficiaryBean[0].entitlement', 'NOT_VALIDATED')
+                .validateField('savieBeneficiaryBean[0].entitlement');
 			});
 			
 			//BENEFICIARY DROP-DOWN PASSPORT/HKID

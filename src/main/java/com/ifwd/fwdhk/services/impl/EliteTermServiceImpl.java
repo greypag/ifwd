@@ -463,7 +463,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 	public BaseResponse getPromoteCode(HttpServletRequest request)throws ECOMMAPIException{
 		BaseResponse br = null;
 		try {
-			String promoteCode = "ET123";
+			String promoteCode = "ELTERM";
 			
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");

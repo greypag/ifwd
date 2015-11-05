@@ -100,7 +100,7 @@ var languageP = "${language}";
 					</div>
 					
 					<div class="agent-container">
-						<h2 class= "agent"><fmt:message key="eliteTerms.confirmation.Please.enter.your" bundle="${msg}" /><span class="hidden-xs hidden-sm">:</span></h2>
+						<h2 class= "agent"><fmt:message key="eliteTerms.confirmation.Please.enter.your" bundle="${msg}" /></h2>
 						<p class="agent-desc et-agent-desc"><fmt:message key="eliteTerms.confirmation.If.you.already.have" bundle="${msg}" /></p>
 						
                   <form action="" method="POST" class="form-horizontal" id="et-confimation-email-form">
