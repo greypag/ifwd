@@ -606,13 +606,6 @@ function activateUserAccountJoinUs() {
 			<div class="row">
 				<form:form name="frmYourDetails" id="frmYourDetails"
 					action="${pageContext.request.contextPath}/${language}/home-insurance/home-summary" method="post" modelAttribute="frmYourDetails">
-					<ol class="breadcrumb pad-none">
-						<li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-						<li><a href="#"><fmt:message key="home.breadcrumb1.item2" bundle="${msg}" /></a> <i
-							class="fa fa-caret-right"></i></li>
-						<li><a href="#"><fmt:message key="home.breadcrumb1.item3" bundle="${msg}" /></a></li>
-						<li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="home.breadcrumb1.item4" bundle="${msg}" /></li>
-					</ol>
 					<div class="container ">
 						<div class="col-md-12 shop-tracking-status">
 							<div class="center" style="visibility: visible;">
@@ -652,6 +645,13 @@ function activateUserAccountJoinUs() {
 							</div>
 						</div>
 					</div>
+                    <ol class="breadcrumb pad-none">
+                        <li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+                        <li><a href="#"><fmt:message key="home.breadcrumb1.item2" bundle="${msg}" /></a> <i
+                            class="fa fa-caret-right"></i></li>
+                        <li><a href="#"><fmt:message key="home.breadcrumb1.item3" bundle="${msg}" /></a></li>
+                        <li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="home.breadcrumb1.item4" bundle="${msg}" /></li>
+                    </ol>					
 					<div id="quote-wrap" class="container pad-none bdr ur-opt-content gray-bg3">
 
 

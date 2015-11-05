@@ -199,14 +199,6 @@ function checkPromoCodePlaceholder(){
 				<form:form name="frmHomeCarePlan" id="frmHomeCarePlan"
 					action="${pageContext.request.contextPath}/${language}/home-insurance/user-details"
 					method="post" modelAttribute="planQuoteDetails">
-					<ol class="breadcrumb pad-none">
-						<li><a href="#"><fmt:message key="home.breadcrumb1.item1"
-									bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-						<li><a href="#"><fmt:message key="home.breadcrumb1.item2"
-									bundle="${msg}" /></a></li>
-						<li class="active "><i class="fa fa-caret-right"></i> <fmt:message
-								key="home.breadcrumb1.item3" bundle="${msg}" /></li>
-					</ol>
 					<div class="container ">
 						<div class="col-lg-12 col-md-12 shop-tracking-status">
 							<div class="center" style="visibility: visible;">
@@ -255,7 +247,14 @@ function checkPromoCodePlaceholder(){
 							</div>
 						</div>
 					</div>
-
+                    <ol class="breadcrumb pad-none">
+                        <li><a href="#"><fmt:message key="home.breadcrumb1.item1"
+                                    bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+                        <li><a href="#"><fmt:message key="home.breadcrumb1.item2"
+                                    bundle="${msg}" /></a></li>
+                        <li class="active "><i class="fa fa-caret-right"></i> <fmt:message
+                                key="home.breadcrumb1.item3" bundle="${msg}" /></li>
+                    </ol>
 					<%
 						HomeQuoteBean planQuote = (HomeQuoteBean) request
 									.getAttribute("planQuote");
