@@ -283,7 +283,7 @@ var home_url = "<%=request.getContextPath()%>";
                               </div>
                               <div id="collapseOne" class="panel-collapse collapse in et-select-plan-panel" role="tabpanel" aria-labelledby="headingOne">
                                  <div class="et-panel-body et-panel-body-first" id="panelOne">
-                                    <p class="et-accrdion-txt-bold"><fmt:message key="eliteTerms.selectPlan.Elite.Term.Plan.Series" bundle="${msg}" /> <a href="#" class="et-contact-link" title="Contact customer service" data-toggle="modal" data-target="#customer-service-modal">3123-3123</a> <fmt:message key="eliteTerms.selectPlan.to.arrange.an.appointment" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-bold"><fmt:message key="eliteTerms.selectPlan.Elite.Term.Plan.Series" bundle="${msg}" /> <a href="#" class="et-contact-link" title="Contact customer service" data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ETMD1');">3123-3123</a> <fmt:message key="eliteTerms.selectPlan.to.arrange.an.appointment" bundle="${msg}" /></p>
                                     <p class="et-accrdion-txt-normal"><fmt:message key="eliteTerms.selectPlan.Additional.plan" bundle="${msg}" /></p>
                                     <p class="et-accrdion-txt-normal bottom"><fmt:message key="eliteTerms.selectPlan.Preferred.Preferred.Plus" bundle="${msg}" /></p>
                                     <p class="et-accrdion-txt-normal"><fmt:message key="eliteTerms.selectPlan.Rider.Lorem.ipsum" bundle="${msg}" /></p>
@@ -354,9 +354,6 @@ var home_url = "<%=request.getContextPath()%>";
                   
                   <div class="container-fluid fwd-container">
                      <div class="row et-select-plan-btns">
-                        <!-- <div class="col-xs-12 col-md-6 left">
-                           <button type="button" class="btn btn-white et-customer-srvce left" id="cust-service" data-toggle="modal" data-target="#customer-service-modal" >Contact customer service</button>
-                        </div> -->
                         <div class="col-xs-12 col-md-12 right text-center">
                            <input type="hidden" id="goApp"/>
                            <button type="button" class="btn btn-white et-proceed-appl bottom active" id="et-brn-proceed-to-application"><fmt:message key="eliteTerms.selectPlan.Proceed.to.application" bundle="${msg}" /></button>
@@ -1783,17 +1780,17 @@ var home_url = "<%=request.getContextPath()%>";
                      <form action="" id="et-cust-serv-form" method="post">
                         <div class="input-items clearfix">
                            <label for="name"><fmt:message key="eliteTerms.selectPlan.Name" bundle="${msg}" /></label>
-                           <input type="text" class="form-control gray-textbox" placeholder="Name" id="name" name="name">
+                           <input type="text" class="form-control gray-textbox" placeholder="<fmt:message key="eliteTerms.selectPlan.Name" bundle="${msg}" />" id="name" name="name">
                            <span class="error-msg" id="cannotApplyNameMessage"></span>
                         </div>
                         <div class="input-items clearfix">
                            <label for="email"><fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" /></label>
-                           <input type="text" class="form-control gray-textbox" placeholder="Email Address" id="email" name="email">
+                           <input type="text" class="form-control gray-textbox" placeholder="<fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" />" id="email" name="email">
                            <span class="error-msg" id="cannotApplyEmailMessage"></span>
                         </div>
                         <div class="input-items clearfix">
                            <label for="tel"><fmt:message key="eliteTerms.selectPlan.Telephone.no." bundle="${msg}" /></label>
-                           <input type="text" class="form-control gray-textbox" placeholder="Telephone no" id="tel" name="tel">
+                           <input type="text" class="form-control gray-textbox" placeholder="<fmt:message key="eliteTerms.selectPlan.Telephone.no." bundle="${msg}" />" id="tel" name="tel">
                            <span class="error-msg" id="cannotApplyTelMessage"></span>
                         </div>
                         <div class="input-items clearfix">
@@ -1920,7 +1917,7 @@ var home_url = "<%=request.getContextPath()%>";
             </div>
          </div><!-- END OF DOB ATTENTION -->
          
-         <!--CUSTOMER SERVICE MODAL-->
+         <%-- <!--CUSTOMER SERVICE MODAL-->
 			<div class="modal et-modal fade" role="dialog" aria-labelledby="cantapply" id="customer-service-modal">
 				<div class="container-fluid modal-dialog" role="document">
 					<div class="modal-content et-modal-content">
@@ -1956,8 +1953,8 @@ var home_url = "<%=request.getContextPath()%>";
 									<label for="cs_time"><fmt:message key="eliteTerms.selectPlan.Preffered.timeslot" bundle="${msg}" /></label>
 									<div class="select-holder">
 										<select class="form-control gray-textbox" id="cs_time" name="cs_time">
-											<%-- <option><fmt:message key="eliteTerms.selectPlan.After.hour" bundle="${msg}" /></option>
-											<option><fmt:message key="eliteTerms.selectPlan.Lorem.Ipsum" bundle="${msg}" /></option> --%>
+											<option><fmt:message key="eliteTerms.selectPlan.After.hour" bundle="${msg}" /></option>
+											<option><fmt:message key="eliteTerms.selectPlan.Lorem.Ipsum" bundle="${msg}" /></option>
 										</select>
 									</div>
 								</div>
@@ -1965,8 +1962,8 @@ var home_url = "<%=request.getContextPath()%>";
 									<label for="cs_enquiry"><fmt:message key="eliteTerms.selectPlan.Enquire.type" bundle="${msg}" /></label>
 									<div class="select-holder">
 										<select class="form-control gray-textbox" id="cs_enquiry" name="cs_enquiry">
-											<%-- <option><fmt:message key="eliteTerms.selectPlan.Product.enquiry" bundle="${msg}" /></option>
-											<option><fmt:message key="eliteTerms.selectPlan.Lorem.Ipsum" bundle="${msg}" /></option> --%>
+											<option><fmt:message key="eliteTerms.selectPlan.Product.enquiry" bundle="${msg}" /></option>
+											<option><fmt:message key="eliteTerms.selectPlan.Lorem.Ipsum" bundle="${msg}" /></option>
 										</select>
 									</div>
 								</div>
@@ -1982,7 +1979,7 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->	
-			</div><!--END OF CUSTOMER SERVICE MODAL-->
+			</div><!--END OF CUSTOMER SERVICE MODAL--> --%>
          
          <!-- FOOTER -->	
 		</div>
