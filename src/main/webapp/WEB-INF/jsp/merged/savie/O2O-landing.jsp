@@ -55,6 +55,7 @@ var home_url = "<%=request.getContextPath()%>";
 				</div>
 				
 				<form action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}" method="post">
+					<input type="hidden" name="accessCodeConfirm" value="TEST123"/>
 					<div class="hunger-text-section">
 						<!-- <p class="hunger-selling-text text-1"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>   -->
 						<div class="get-started-holder text-center">
