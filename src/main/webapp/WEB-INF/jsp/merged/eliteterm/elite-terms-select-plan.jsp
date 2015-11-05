@@ -1986,8 +1986,8 @@ var home_url = "<%=request.getContextPath()%>";
 		
 		<!-- JS INCLUDES -->
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed 
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap.min.js"></script>-->
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrap-select.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.touchSwipe.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/bootstrapValidator.min.js"></script>
