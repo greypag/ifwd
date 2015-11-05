@@ -331,6 +331,7 @@ function activateUserAccountJoinUs() {
             <form:form name="frmYourDetails" id="frmYourDetails" onsubmit="return validateAnnualTravelDetails(this,'frmYourDetails','${language}');" modelAttribute="frmYourDetails" method="post" action="" >
                 <ol class="breadcrumb pad-none">
                     <li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="annual.title.home" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
+                    <li><a href="#"><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>                    
                     <li><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="annual.title.travelcare" bundle="${msg}" /></a></li>
                     <li class="active "><i class="fa fa-caret-right"></i><fmt:message key="annual.title.application" bundle="${msg}" /></li>
                 </ol>

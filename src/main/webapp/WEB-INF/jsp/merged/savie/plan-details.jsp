@@ -21,6 +21,8 @@ var context = "${pageContext.request.contextPath}";
 					<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
 						<li><a href="#"><fmt:message key="savie.planDetails.Save" bundle="${msg}" /></a></li>
 						<li class="divider"><i class="fa fa-play"></i></li>
+                        <li><a href="#"><fmt:message key="home.breadcrumb1.type2" bundle="${msg}" /></a></li>
+                        <li class="divider"><i class="fa fa-play"></i></li>						
 						<li><a href="#"><fmt:message key="savie.planDetails.Savie" bundle="${msg}" /></a></li>
 						<li class="divider last"><i class="fa fa-play"></i></li>
 						<li class="active-bc"><fmt:message key="savie.planDetails.plan.details" bundle="${msg}" /></li>
