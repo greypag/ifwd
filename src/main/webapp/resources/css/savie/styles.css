@@ -9441,13 +9441,16 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
 .fwd-savie-wrapper .thank-you-container .details-container h2 {
   font-size: 24px;
   font-family: 'Calibri-bold', sans-serif;
-  margin: 0;
   padding-bottom: 13px;
   color: #ff8200;
+  border-bottom: dashed #9ba5a7 1px;
+  margin: 0 0 30px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .thank-you-container .details-container h2 {
     padding-bottom: 14px;
+    border-bottom: none;
+    margin: 0;
   }
 }
 .fwd-savie-wrapper .thank-you-container .details-container whats-next {
