@@ -202,17 +202,17 @@ var home_url = "<%=request.getContextPath()%>";
                               <div class="col-xs-12 col-md-6 et-insurance-amount">
                                  <div class="et-tooltip-wrapper">
                                     <h3 class="et-insured-amount"><fmt:message key="eliteTerms.selectPlan.Insured.amount" bundle="${msg}" /> </h3> 
-                                    <button type="button" class="et-minimal et-insured-amount-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Our.online.application" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span></button>
+                                    <button type="button" class="et-minimal et-insured-amount-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Insured.amount.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span></button>
                                  </div>
                                  <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range"></span></p>
                                  <div class="clearfix et-slider-info-div">
                                     <div class="pull-left">
                                        <p class="et-slider-info center"><fmt:message key="eliteTerms.selectPlan.Min" bundle="${msg}" /></p>
-                                       <p class="et-slider-info">400,000</p>
+                                       <p class="et-slider-info"><fmt:message key="eliteTerms.selectPlan.Min.val" bundle="${msg}" /></p>
                                     </div>
                                     <div class="pull-right">
                                        <p class="et-slider-info center"><fmt:message key="eliteTerms.selectPlan.Max" bundle="${msg}" /></p>
-                                       <p id="et-ins-amt-max-display" class="et-slider-info">2,000,000</p>
+                                       <p id="et-ins-amt-max-display" class="et-slider-info"><fmt:message key="eliteTerms.selectPlan.Max.val" bundle="${msg}" />/p>
                                     </div>
                                  </div>
                                  <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
@@ -221,7 +221,7 @@ var home_url = "<%=request.getContextPath()%>";
                               <div class="col-xs-12 col-md-5">
                                  <div class="et-tooltip-wrapper">
                                     <h3 id="promocode-hide-switch" class="et-promo-code-txt et-mbot-15"><fmt:message key="eliteTerms.selectPlan.Promo.code" bundle="${msg}" /> <img src="<%=request.getContextPath()%>/resources/images/elite-terms/orange-caret.png" class="reversed"></h3>
-                                    <button type="button" class="et-minimal et-promo-code-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Our.online.application" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-question-tooltip"></span></button>  
+                                    <button type="button" class="et-minimal et-promo-code-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Promo.code.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-question-tooltip"></span></button>  
                                  </div>
                                  <div id="promocode-hidden" class="hidden-sm hidden-xs">
                                     <div class="clearfix">
@@ -243,12 +243,12 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="et-plan-option-extra-info hidden" id="et-dis-promo-amount">
                            <div class="et-extra-info top">
                               <span class="et-amount"><fmt:message key="eliteTerms.selectPlan.Amount" bundle="${msg}" /></span>
-                              <div class="et-po-amount-label"><fmt:message key="eliteTerms.selectPlan.1st.policy.years" bundle="${msg}" /></div>
+                              <div class="et-po-amount-label"><fmt:message key="eliteTerms.selectPlan.discount.period1" bundle="${msg}" /></div>
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /> <span id="et-month-dis-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.month" bundle="${msg}" /></p>
-                                 <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.(only.HK$" bundle="${msg}" /> <span id="et-day-dis-amount"><fmt:formatNumber value="${eliteTermPremium.dailyDuePremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.per.day)" bundle="${msg}" /></p>
+                                 <p class="et-amount"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /> <span id="et-month-dis-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.permonth" bundle="${msg}" /></p>
+                                 <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.perday1" bundle="${msg}" /> <span id="et-day-dis-amount"><fmt:formatNumber value="${eliteTermPremium.dailyDuePremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.perday2" bundle="${msg}" /></p>
                               </div>
                               
                            </div>
@@ -256,12 +256,12 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="et-plan-option-extra-info hide-element" id="et-act-promo-amount">
                            <div class="et-extra-info top">
                               <span class="et-amount"><fmt:message key="eliteTerms.selectPlan.Amount" bundle="${msg}" /></span>
-                              <div class="et-po-amount-label"><fmt:message key="eliteTerms.selectPlan.first.20.policy.years" bundle="${msg}" /></div>
+                              <div class="et-po-amount-label" data-et-default-period="<fmt:message key="eliteTerms.selectPlan.default.period" bundle="${msg}" />" data-et-discount-period="<fmt:message key="eliteTerms.selectPlan.discount.period2" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.default.period.text" bundle="${msg}" /></div>
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /> <span id="et-month-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.month" bundle="${msg}" /></p>
-                                 <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.(only.HK$" bundle="${msg}" /> <span id="et-day-amount"><fmt:formatNumber value="${eliteTermPremium.dailyPremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.per.day)" bundle="${msg}" /></p>
+                                 <p class="et-amount"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /> <span id="et-month-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.permonth" bundle="${msg}" /></p>
+                                 <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.perday1" bundle="${msg}" /> <span id="et-day-amount"><fmt:formatNumber value="${eliteTermPremium.dailyPremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.perday2" bundle="${msg}" /></p>
                               </div>
                               
                            </div>

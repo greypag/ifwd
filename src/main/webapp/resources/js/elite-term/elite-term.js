@@ -458,7 +458,7 @@ $('#et-select-plan-go-homepage').on('click', function(e) {
 */
 function resetCalculatedAmt(){
 	var actPromo = $('#et-act-promo-amount');
-	var default_period_text = getBundle(getBundleLanguage, "et.selectPlan.default.period.text");
+	var default_period_text = actPromo.find('.et-po-amount-label').data('et-default-period');
   
 	$('#et-dis-promo-amount').addClass('hidden');
 	$("#etaspd-insured-amount").html('HK$ ');
@@ -486,9 +486,8 @@ function resetCalculatedAmt(){
 function setCalculatedAmt(bDiscount, insuredAmt, oriMonthlyAmt, oriDailyAmt, disMonthlyAmt, disDailyAmt){
 	var actPromo = $('#et-act-promo-amount');
 	var disPromo = $('#et-dis-promo-amount');
-	var default_period_text = getBundle(getBundleLanguage, "et.selectPlan.default.period.text");
-	var discount_period1_text = getBundle(getBundleLanguage, "et.selectPlan.discount.period1.text"); 
-	var discount_period2_text = getBundle(getBundleLanguage, "et.selectPlan.discount.period2.text"); 
+	var default_period_text = actPromo.find('.et-po-amount-label').data('et-default-period');
+	var discount_period_text = actPromo.find('.et-po-amount-label').data('et-discount-period');
   
 	var modInsuredAmount = parseFloat(insuredAmt).toFixed(2);
 	var modMonthlyPremium = parseFloat(oriMonthlyAmt).toFixed(2);
@@ -500,8 +499,7 @@ function setCalculatedAmt(bDiscount, insuredAmt, oriMonthlyAmt, oriDailyAmt, dis
 	if(bDiscount){
 		$("#et-month-dis-amount").html(parseFloat(disMonthlyAmt).toFixed(2));
 		$("#et-day-dis-amount").html(parseFloat(disDailyAmt).toFixed(2));
-		disPromo.find('.top .et-po-amount-label').text(discount_period1_text);
-		actPromo.find('.top .et-po-amount-label').text(discount_period2_text);
+		actPromo.find('.top .et-po-amount-label').text(discount_period_text);
 		$('#et-dis-promo-amount').removeClass('hidden');
  	} else{
  		actPromo.find('.top .et-po-amount-label').text(default_period_text);
