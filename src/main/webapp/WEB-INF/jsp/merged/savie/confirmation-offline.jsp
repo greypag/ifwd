@@ -27,7 +27,7 @@ var affiliate = "${affiliate}";
 						<div class="col-xs-12 orange-section">
 							<div class="clearfix position">
 								<div class="description-desktop">
-									<span><fmt:message key="savie.confirmation.offline.We.are.done" bundle="${msg}" /></span>
+									<span><fmt:message key="evergreen.savie.confirmation.offline.confirmation" bundle="${msg}" /></span>
 								</div>
 							</div>
 						</div>
@@ -37,11 +37,13 @@ var affiliate = "${affiliate}";
 			
 			<div class="application-flux thank-you">
 				<div class="container-fluid fwd-container thank-you-container">
-					<h1><fmt:message key="savie.confirmation.offline.Thank.you" bundle="${msg}" /><!--<br class="visible-xs" /><fmt:message key="savie.confirmation.offline.signing.up" bundle="${msg}" />--></h1>				
+					<h1 class="visible-xs visible-sm"><fmt:message key="savie.confirmation.offline.Thank.you" bundle="${msg}" /></h1>
+					<h1 class="visible-md visible-lg"><fmt:message key="savie.confirmation.offline.Signing.up.with" bundle="${msg}" /></h1>				
 					<div class="details-container details-full" id="printable-area">
 						<div class="row">
 							<div class="col-xs-12">
-								<h2 class="bring-things"><fmt:message key="savie.confirmation.offline.Things.bring" bundle="${msg}" /></h2>
+								<h2 class="bring-things hidden-md hidden-lg"><fmt:message key="savie.confirmation.offline.Things.bring" bundle="${msg}" /></h2>
+								<h2 class="bring-things hidden-xs hidden-sm"><fmt:message key="savie.confirmation.offline.Offline.procedure" bundle="${msg}" /></h2>
 								<div class="row offline-procedure-row">
 									<div class="col-xs-12 col-md-4">
 										<div class="offline-procedure text-center">
@@ -54,7 +56,8 @@ var affiliate = "${affiliate}";
 									<div class="col-xs-12 col-md-4">
 										<div class="offline-procedure text-center">
 											<span class="step">2</span>
-											<p><fmt:message key="savie.confirmation.offline.A.address.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.confirmation.offline.A.address.link.text" bundle="${msg}" /></a><fmt:message key="savie.confirmation.offline.A.address.part2" bundle="${msg}" /></p>
+											<p class="hidden-xs hidden-sm"><fmt:message key="savie.confirmation.offline.A.address.desktop" bundle="${msg}" /></p>
+											<p class="hidden-md hidden-lg"><fmt:message key="savie.confirmation.offline.A.address.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.confirmation.offline.A.address.link.text" bundle="${msg}" /></a><fmt:message key="savie.confirmation.offline.A.address.part2" bundle="${msg}" /></p>
 											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-2.jpg" class="img-responsive" /></div>
 										</div>
 									</div>
@@ -62,7 +65,7 @@ var affiliate = "${affiliate}";
 										<div class="offline-procedure procedure-3 text-center">
 											<span class="step">3</span>
 											<p><fmt:message key="savie.confirmation.offline.Cheque.in" bundle="${msg}" /></p>
-											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-3.jpg" class="img-responsive" /></div>
+											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-3.png" class="img-responsive" /></div>
 										</div>
 									</div>
 								</div>
