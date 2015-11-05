@@ -20,15 +20,15 @@
 		<div class="fwd-savie-wrapper fwd-et-wrapper">			
 			<span id="language-holder" value="${language}"></span>
 			<div class="text-center banner-widget container-fluid">
-<div class="col-lg-12 col-md-12 breadcrumb-wrapper">
-     <ol class="breadcrumb container pad-none">
-         <li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a></li>
-        <i class="fa fa-chevron-right"></i>
-        <li><a href="#"><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /></a></li>
-        <i class="fa fa-chevron-right"></i>        
-        <li class="active"><fmt:message key="home.breadcrumb1.term" bundle="${msg}" /></li>
-     </ol>
-</div>			
+			<div class="col-lg-12 col-md-12 breadcrumb-wrapper">
+			     <ol class="breadcrumb container pad-none">
+			         <li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a></li>
+			        <i class="fa fa-chevron-right"></i>
+			        <li><a href="#"><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /></a></li>
+			        <i class="fa fa-chevron-right"></i>        
+			        <li class="active"><fmt:message key="home.breadcrumb1.term" bundle="${msg}" /></li>
+			     </ol>
+			</div>			
 			<img src="<%=request.getContextPath()%>/resources/images/elite-terms/iFWD_elite-term_hero-image_mobile.jpg" alt="Team Insurance" class="hidden-md hidden-lg img-responsive english-picture">
             <img src="<%=request.getContextPath()%>/resources/images/elite-terms/iFWD_elite-term_hero-image_desktop.jpg" alt="Team Insurance" class="hidden-sm hidden-xs img-responsive english-picture desktop-cover">
             

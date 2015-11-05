@@ -48,6 +48,8 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
                 <ol class="breadcrumb container pad-none">
                     <li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a></li>
                      <i class="fa fa-chevron-right"></i>
+                    <li><a href="#"><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /></a></li>
+                     <i class="fa fa-chevron-right"></i>                     
                     <li class="active"><fmt:message key="home.breadcrumb1.workingHoliday" bundle="${msg}" /></li>
                 </ol>
                 </div> 
