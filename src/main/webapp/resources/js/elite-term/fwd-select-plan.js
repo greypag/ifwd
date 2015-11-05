@@ -497,10 +497,16 @@
      		 $("#chk2").html("");
      	 }
      	 if(!$('#application-declaration').is(':checked')) {
-     		 $("#chk3").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+          $("#chk3").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+          result = false;
+       }else {
+          $("#chk3").html("");
+       }
+       if(!$('#is-resident-check').is(':checked')) {
+     		 $("#chk4").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
      		 result = false;
      	 }else {
-     		 $("#chk3").html("");
+     		 $("#chk4").html("");
      	 }
      	 return result;
       }

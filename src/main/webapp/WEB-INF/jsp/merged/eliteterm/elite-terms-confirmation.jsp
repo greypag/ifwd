@@ -83,14 +83,14 @@ var languageP = "${language}";
 		         </div>			        
 				<div class="container-fluid fwd-container thank-you-container">
                
-               <p class="et-confimation-du-note"><fmt:message key="eliteTerms.confirmation.Please.be.reminded" bundle="${msg}" /></p>
+               <p class="et-confimation-du-note"><fmt:message key="eliteTerms.confirmation.Thank.you" bundle="${msg}" /></p>
              
 					<h2><fmt:message key="eliteTerms.confirmation.Thank.you" bundle="${msg}" /> <span class="et-title-break" /> <fmt:message key="eliteTerms.confirmation.for.your.purchase" bundle="${msg}" /></span></h2>
 					
 					<div class="details-container">
                   <div class="detail">
                      <h3 class="acknowledge"><fmt:message key="eliteTerms.confirmation.Acknowledgement" bundle="${msg}" /></h3>
-                     <p><fmt:message key="eliteTerms.confirmation.Your.application.is1" bundle="${msg}" /> ${confirmationEmail } <fmt:message key="eliteTerms.confirmation.Your.application.is2" bundle="${msg}" />
+                     <p><fmt:message key="eliteTerms.confirmation.Your.application.is.part1" bundle="${msg}" /> ${confirmationEmail } <fmt:message key="eliteTerms.confirmation.Your.application.is.part2" bundle="${msg}" />
                      </p>
                   </div>
 							

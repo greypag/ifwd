@@ -70,6 +70,14 @@
 	}
 }
 
+/* Declarations */
+.fwd-et-wrapper .policy-replacement-remarks{
+	padding-top: 10px;
+	padding-bottom: 40px;
+    font-size: 14px;
+    line-height: 16px;
+}
+
 /* Document Upload */
 .fwd-et-wrapper .document-upload .info.hkid {
   left: 120px;
