@@ -464,8 +464,8 @@
       $('#et-beneficiary-info-next').on('click', function(e) {
          var $self = $(this);
          var $target = '';
-         
          if (isBeneficaryValid()) {
+        	 
             $target = $('#et-application-second-section');
             $target.removeClass('hide-element');
             
@@ -1344,7 +1344,8 @@
       
       // Person 1
       if ($('#beneficiaryInfoForm\\[0\\]').length) {
-         if (isBeneficiaryFormClear(0) || $('#beneficiaryInfoForm\\[0\\]').data('bootstrapValidator').isValid()) {
+    	  $('#beneficiaryInfoForm\\[0\\]').data('bootstrapValidator').validate();
+         if ($('#beneficiaryInfoForm\\[0\\]').data('bootstrapValidator').isValid()) {
             res1 = true;
          } else {
             res1 = false;
@@ -1354,6 +1355,7 @@
       
       // Person 2
       if ($('#beneficiaryInfoForm\\[1\\]').length) {
+    	  $('#beneficiaryInfoForm\\[1\\]').data('bootstrapValidator').validate();
          if (isBeneficiaryFormClear(1) || $('#beneficiaryInfoForm\\[1\\]').data('bootstrapValidator').isValid()) {
             res2 = true;
          } else {
@@ -1364,6 +1366,7 @@
       
       // Person 3
       if ($('#beneficiaryInfoForm\\[2\\]').length) {
+    	  $('#beneficiaryInfoForm\\[2\\]').data('bootstrapValidator').validate();
          if (isBeneficiaryFormClear(2) || $('#beneficiaryInfoForm\\[2\\]').data('bootstrapValidator').isValid()) {
             res3 = true;
          } else {
@@ -1381,7 +1384,7 @@
             && !document.getElementById('savieBeneficiaryBean[' + pos + '].lastName').value
             && !document.getElementById('savieBeneficiaryBean[' + pos +'].chineseName').value
             && (!document.getElementById('savieBeneficiaryBean[' + pos + '].hkId').value || !document.getElementById('savieBeneficiaryBean[' + pos + '].passportNo').value)
-            && !document.getElementById('savieBeneficiaryBean[' + pos + '].entitlement').value
+            && ((pos === 0) || !document.getElementById('savieBeneficiaryBean[' + pos + '].entitlement').value)
             && !document.getElementById('savieBeneficiaryBean[' + pos + '].relationship').value
          ) {
     	  $('#beneficiaryInfoForm\\[' + pos +'\\]').find('#remove-beneficiary\\[' + pos +'\\]').trigger('click');
