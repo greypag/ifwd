@@ -1,0 +1,112 @@
+// Core variables and mixins
+//@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "partials/variables";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+// Common
+@import "partials/fwd-mixins";
+@import "partials/fonts";
+@import "partials/common";
+@import "partials/header";
+@import "partials/header-mobile";
+@import "partials/footer";
+@import "partials/other-benefits";
+@import "partials/next-stop";
+@import "partials/features";
+@import "partials/image-banner";
+@import "partials/video-banner";
+@import "partials/box";
+@import "partials/mini-calcu";
+@import "partials/benefits";
+@import "partials/our-blog";
+@import "partials/breadcrumbs";
+@import "partials/three-column-widget";
+@import "partials/email";
+@import "partials/login";
+@import "partials/logout";
+@import "partials/fwd-action";
+@import "partials/date-picker";
+@import "partials/tooltip";
+@import "partials/loading-mask";
+
+// Landing Page
+@import "partials/page-landing";
+
+// O2O Landing Page
+@import "partials/o2o-landing";
+
+//Product Details
+@import "partials/page-product-details";
+@import "partials/product-info";
+
+//Sales Illustration
+@import "partials/page-sales-illustration";
+@import "partials/next-sales";
+@import "partials/sticky-sales";
+@import "partials/slider";
+@import "partials/back-to-top";
+@import "partials/investment";
+
+//Application Page
+@import "partials/application-orange-header";
+@import "partials/page-application";
+@import "partials/personal_info";
+@import "partials/employment-info";
+@import "partials/beneficiary-info";
+@import "partials/payment";
+@import "partials/declaration-authorization";
+@import "partials/signature";
+@import "partials/docu_upload";
+//@import "partials/thank-you";
+@import "partials/thank-you-update";
+
+//Order Summary Page
+@import "partials/illustration-review.scss";
+
+// FNA Page
+@import "partials/fna.scss";
+
+// FNA Review Sales
+@import "partials/fna-review.scss";
+
+//SET APPOINTMENT
+
+@import "partials/page-set-appointment.scss";
+
+//Overall Page
+@import "partials/overall.scss";
+
+
+@import "partials/strike";
+
+//Teaser Page
+@import "partials/teaser";
+@import "partials/teaser-confirmation";
+
+//Application Registration page
+@import "partials/application-registration";
+
+//Hunger Selling Page
+@import "partials/hunger-selling";
+
+//E SERVICES
+@import "partials/purchase-history";
+@import "partials/eservices-referral";
+@import "partials/eServices-sidebar";
+@import "partials/notifications-mobile";
+@import "partials/eservices-personal-info";
+
+// Chinese Fonts
+@import "partials/chinese";
+
+// Elite Terms widget
+@import "partials/elite-terms-widget";
+@import "partials/elite-terms-select-plan";
+@import "partials/et-cannot-apply-modal";
+@import "partials/et-birthday-dont-match-modal";
+@import "partials/elite-terms-document-upload";
+@import "partials/_et-confirmation.scss";
+@import "partials/elite-terms-payment";
+@import "partials/et-login-modal";
+@import "partials/et-application-summary";
+@import "partials/et-get-promotion-code-modal";
