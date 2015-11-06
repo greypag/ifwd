@@ -188,9 +188,9 @@ var languageP = "${language}";
 
 								<div class="button-holder hidden-md hidden-lg clearfix">
 									<button type="button" class="btn next et-payment-button-back hidden-xs hidden-sm"><fmt:message key="eliteTerms.payment.Back" bundle="${msg}" /></button>
-									<button type="button" class="btn next et-payment-button-confirm"><fmt:message key="eliteTerms.payment.Complete" bundle="${msg}" /></button>
+									<button type="button" class="btn next et-payment-button-confirm" onclick="confirmTermPayment();"><fmt:message key="eliteTerms.payment.Complete" bundle="${msg}" /></button>
 								</div>
-								<div class="line hidden-xs hidden-sm"></div>
+								<div class="payment-confirm-error line hidden-xs hidden-sm"></div>
 							</form>
 
 							<div class="line hidden-md hidden-lg"></div>
@@ -218,8 +218,9 @@ var languageP = "${language}";
 						</div>
 
 						<div class="text-center complete-holder hidden-sm hidden-xs">
-							<button type="button" class="btn next " id="et-payment-complete-btn" onclick="confirmHomeCarePayment();"><fmt:message key="eliteTerms.payment.Complete" bundle="${msg}" /></button>
-						</div>				
+							<button type="button" class="btn next et-payment-button-confirm" onclick="confirmTermPayment();"><fmt:message key="eliteTerms.payment.Complete" bundle="${msg}" /></button>
+							<div class="payment-confirm-error line"></div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -258,11 +259,12 @@ var languageP = "${language}";
 	  var pay = false;
  	  var enablePayment=true;
       var clicked = false;
- 	  function confirmHomeCarePayment() {
+ 	  function confirmTermPayment() {
  		 
  		 if(!$('#personal-information-statement').is(':checked')) {
     		 $("#chk1").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
     		 result = false;
+    		 return false;
     	 }else {
     		 $("#chk1").html("");
     	 }
