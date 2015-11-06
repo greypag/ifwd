@@ -414,6 +414,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			parameters.put("attachment", attachment);
 			parameters.put("isHtml", isHTML);
 			br = connector.sendEmail(parameters,header);
+			request.getSession().setAttribute("sendEmailOrNot", "yes");
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl sendEliteTermMail occurs an exception!");
 			logger.info(e.getMessage());

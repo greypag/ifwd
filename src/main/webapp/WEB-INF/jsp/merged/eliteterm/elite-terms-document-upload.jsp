@@ -540,7 +540,7 @@ var languageP = "${language}";
          });*/
          
          $(document).ready(function() {
-        	 if('${sendEmailOrNot}' == null || '${sendEmailOrNot}' == ''){
+        	 if('${sendEmailOrNot}' == null || '${sendEmailOrNot}' != 'yes'){
         		 ga('ecommerce:addItem', {
         			 'id': '${eliteTermPolicy.transactionNumber }', // Transaction ID. 
         			 'name': ' Elite Term ', // Product name. 
