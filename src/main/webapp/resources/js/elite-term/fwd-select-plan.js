@@ -894,6 +894,61 @@
                   }
                }
             },
+            "savieApplicantBean.permanentAddress1": {
+                container: '#permanentAddress1Message',
+                validators: {
+                   regexp: {
+                      regexp: /^[a-zA-Z0-9\s]*$/,
+                      message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                   }
+                }
+             },
+             "savieApplicantBean.permanentAddress2": {
+                 container: '#permanentAddress2Message',
+                 validators: {
+                    regexp: {
+                       regexp: /^[a-zA-Z0-9\s]*$/,
+                       message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                    }
+                 }
+              },
+              "savieApplicantBean.residentialAdress1": {
+                  container: '#residentialAddressMessage2',
+                  validators: {
+                     regexp: {
+                        regexp: /^[a-zA-Z0-9\s]*$/,
+                        message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                     }
+                  }
+               },
+               "savieApplicantBean.residentialAdress2": {
+                   container: '#residentialAddressMessage3',
+                   validators: {
+                      regexp: {
+                         regexp: /^[a-zA-Z0-9\s]*$/,
+                         message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                      }
+                   }
+                },
+                "savieApplicantBean.correspondenceAdress1": {
+                    container: '#corrAddressMessage2',
+                    validators: {
+                       regexp: {
+                          regexp: /^[a-zA-Z0-9\s]*$/,
+                          message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                       }
+                    }
+                 },
+                 "savieApplicantBean.correspondenceAdress2": {
+                     container: '#corrAddressMessage3',
+                     validators: {
+                        regexp: {
+                           regexp: /^[a-zA-Z0-9\s]*$/,
+                           message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                        }
+                     }
+                  }
+              
          }
       }).on('success.form.bv', function(e) {
          e.preventDefault();
