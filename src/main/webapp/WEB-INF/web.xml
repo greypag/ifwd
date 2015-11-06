@@ -33,9 +33,15 @@
     <filter-name>SessionFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <listener>
+   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+  <listener>
+    <listener-class>com.ifwd.fwdhk.util.SessionListener</listener-class>
+  </listener>
+<!--   <session-config>
+  <session-timeout>1</session-timeout>
+ </session-config> -->
   <listener>
     <listener-class>com.github.pukkaone.jsp.EscapeXmlELResolverListener</listener-class>
   </listener>
