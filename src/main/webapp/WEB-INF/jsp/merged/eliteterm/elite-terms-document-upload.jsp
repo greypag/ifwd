@@ -564,13 +564,13 @@ var languageP = "${language}";
     	  	 					  policyNo: policyNo},
     	  	 			  async : false,
     	  	 			  success : function(data) {
-    	  					  if (data.errMsgs == null) {
+    	  					  if (data!=null && data.errMsgs == null) {
     	  						  $.ajax({
     	  				 			  type : "POST",
     	  				 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/sendEliteTermMail",
     	  				 			  async : false,
     	  				 			  success : function(data) {
-    	  								  if (data.errMsgs == null) {
+    	  								  if (data!=null && data.errMsgs == null) {
     	  									  console.log("success");
     	  				                  } 
     	  								  else {
