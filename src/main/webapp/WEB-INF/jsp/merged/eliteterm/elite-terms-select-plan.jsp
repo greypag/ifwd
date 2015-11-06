@@ -2217,6 +2217,14 @@ var home_url = "<%=request.getContextPath()%>";
         $('#et-select-plan-date-input').on('change', resetCalculatedAmt);
         $('#R2').on('change', resetCalculatedAmt);
 
+
+        // Application Info tooltip
+         $('.btn-app-info-tooltip, .btn-beneficiary-tooltip').tooltip({
+            trigger: 'hover focus click',
+            container: 'body',
+            template:   '<div class="tooltip et-app-info-tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+            placement: tooltipPlacement
+         });
       });
   
 		      // Move to Medical declaration section

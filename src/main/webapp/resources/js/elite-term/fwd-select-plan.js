@@ -1371,13 +1371,6 @@
       
    }
    
-   // Application Info tooltip
-   $('.btn-app-info-tooltip, .btn-beneficiary-tooltip').tooltip({
-      trigger: 'hover focus click',
-      container: 'body',
-      template: 	'<div class="tooltip et-app-info-tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
-      placement: tooltipPlacement
-   });
    function tooltipPlacement(context, source) {
       var $source = $(source);
       var position = $source.position();
