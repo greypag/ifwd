@@ -2240,7 +2240,7 @@ var home_url = "<%=request.getContextPath()%>";
 		      });
 		      
             //cannot apply modal 
-            $(document).on('change', '#et-cust-serv-form #email', function(e) {
+           /*  $(document).on('change', '#et-cust-serv-form #email', function(e) {
                if(!$('#et-cust-serv-form #cannotApplyEmailMessage').find('small').is(':visible')) {
                   $('#et-cust-serv-form')
                      .data('bootstrapValidator')
@@ -2250,7 +2250,7 @@ var home_url = "<%=request.getContextPath()%>";
                      .data('bootstrapValidator')
                      .updateStatus('tel', 'INVALID','callback');
                }
-            });
+            }); */
             // ^ bootstrap validation
             $('#et-cust-serv-form').bootstrapValidator({
                excluded:[],
@@ -2290,16 +2290,19 @@ var home_url = "<%=request.getContextPath()%>";
                      container: '#cannotApplyTelMessage',
                      trigger: 'blur',
                      validators: {
-                        regexp: {
+                    	notEmpty: {
+                            message: 'Please enter your mobile no.'
+                        },
+                    	regexp: {
                            regexp: /^1[0-9]{10}$|^[5689][0-9]{7}$/, //^[5689]{3}[0-9]+$/,
                            message: 'Your mobile no. is invalid.'
-                        },
+                        }/* ,
                         callback: {
-                           message: 'Please enter your mobile no. or email address.',
+                           message: 'c',
                            callback: function(value, validator) {
                               return isEmailEmpty(value);
                            }
-                        }
+                        } */
                      }
                   },
                   "day": {
