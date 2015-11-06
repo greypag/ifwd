@@ -85,7 +85,7 @@ var languageP = "${language}";
                
                <p class="et-confimation-du-note"><fmt:message key="eliteTerms.confirmation.Thank.you" bundle="${msg}" /></p>
              
-					<h2><fmt:message key="eliteTerms.confirmation.Thank.you" bundle="${msg}" /> <span class="et-title-break" /> <fmt:message key="eliteTerms.confirmation.for.your.purchase" bundle="${msg}" /></span></h2>
+					<h2><fmt:message key="eliteTerms.confirmation.Thank.you" bundle="${msg}" /> <span class="et-title-break" /></span></h2>
 					
 					<div class="details-container">
                   <div class="detail">

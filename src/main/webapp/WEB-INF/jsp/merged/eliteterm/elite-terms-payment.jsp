@@ -180,7 +180,7 @@ var languageP = "${language}";
 										<input type="checkbox" id="personal-information-statement">
 										<label for="personal-information-statement"></label>
 										<p class="notice"><span class="hidden-md hidden-lg"><fmt:message key="eliteTerms.payment.I.hereby.authorize" bundle="${msg}" /></span>
-										<span class="hidden-xs hidden-sm"><fmt:message key="eliteTerms.payment.I.as.Policy.owner" bundle="${msg}" /></span>
+										<span class="hidden-xs hidden-sm"><fmt:message key="eliteTerms.payment.I.hereby.authorize" bundle="${msg}" /></span>
 										</p>
 									</div>
 									<span id="chk1" class="text-red"></span>

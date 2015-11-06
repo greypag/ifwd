@@ -109,7 +109,7 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 			    	    	"policyNo" : data.policyNo
 			       		},     
 			    	    success:function(data){
-			    	    	if(data.errMsgs == null){
+			    	    	if(data!=null && data.errMsgs == null){
 			    	    		console.log("signature success");
 			    	    		window.location.href= contextPath+'/'+language+'/term-life-insurance/'+selectPlanNextPageFlow;
 			    			}

@@ -1162,7 +1162,7 @@ var home_url = "<%=request.getContextPath()%>";
                            <label for="pics-check"></label>
                         </div>
                         <div class="pull-left pics-desc">
-                           <fmt:message key="eliteTerms.selectPlan.PICS.part1" bundle="${msg}" /> <a href="<fmt:message key="PICS.life.link" bundle="${msg}" />" class="link"><fmt:message key="eliteTerms.selectPlan.PICS.part2" bundle="${msg}" /></a><fmt:message key="eliteTerms.selectPlan.PICS.part3" bundle="${msg}" />
+                           <fmt:message key="eliteTerms.selectPlan.PICS.part1" bundle="${msg}" /> <a href="<fmt:message key="PICS.life.link" bundle="${msg}" />" class="link" target="_blank"><fmt:message key="eliteTerms.selectPlan.PICS.part2" bundle="${msg}" /></a><fmt:message key="eliteTerms.selectPlan.PICS.part3" bundle="${msg}" />
                         </div>
                      </div>
                      <span id="chk1" class="text-red"></span> <br />
@@ -1343,7 +1343,7 @@ var home_url = "<%=request.getContextPath()%>";
                                  <span class="order">ii</span>
                               </div>
                               <div class="pull-left text">
-                                 This Proposal Form is applied at HKSAR, in case of fraud or misrepresentation, the policy may be declared void;
+                                 <fmt:message key="eliteTerms.selectPlan.I.have.the.duty" bundle="${msg}" />
                               </div>
                            </div>
                               
@@ -1540,11 +1540,11 @@ var home_url = "<%=request.getContextPath()%>";
                               </div>
                               <div class="et-stat-unemployed hide-element">
                                  <div class="clearfix info-holder">
-                                    <h4 class="info-label employment">Liquid assets</h4>
+                                    <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Liquid.assets" bundle="${msg}" /></h4>
                                     <p class="info" id="etasei-liq-asset"></p>
                                  </div>
                                  <div class="clearfix info-holder">
-                                    <h4 class="info-label employment">Amount of other source of income (HK$)</h4>
+                                    <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Monthly.personal.income" bundle="${msg}" /></h4>
                                     <p class="info" id="etasei-source-income"></p>
                                  </div>
                               </div>
@@ -1894,7 +1894,7 @@ var home_url = "<%=request.getContextPath()%>";
                            <input type="checkbox" id="cannot-apply-checkbox" name="cannot-apply-checkbox">
                            <label for="cannot-apply-checkbox"></label>
                            <p class="notice"><fmt:message key="eliteTerms.selectPlan.I.have.read.and.I" bundle="${msg}" />
-                           <a href="<fmt:message key="PICS.life.link" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.Personal.Information" bundle="${msg}" /></a></p>
+                           <a href="<fmt:message key="PICS.life.link" bundle="${msg}" />" target="_blank"><fmt:message key="eliteTerms.selectPlan.Personal.Information" bundle="${msg}" /></a></p>
                            <div class="clearfix">
                               <span class="error-msg" id="cannotApplyCheckMessage"></span>
                            </div>

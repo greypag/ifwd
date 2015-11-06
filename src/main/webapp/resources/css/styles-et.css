@@ -82,6 +82,25 @@
 	}
 }
 
+/* Tooltips */
+
+.fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip{
+	left: 195px;
+}
+
+.fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip{
+	left: 180px;
+}
+
+.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip{
+	left: 135px;
+}
+
+.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip{
+	left: 120px;
+}
+
+
 /* Declarations */
 .fwd-et-wrapper .policy-replacement-remarks{
 	padding-top: 10px;
