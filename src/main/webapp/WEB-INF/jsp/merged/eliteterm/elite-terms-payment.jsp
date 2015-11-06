@@ -111,8 +111,8 @@ var languageP = "${language}";
 
 									<div class="page-content-item">
 										<label for="card-num"><fmt:message key="eliteTerms.payment.Credit.card.number" bundle="${msg}" /></label>
-										<input type="text" class="form-control gray-textbox desktop-half" placeholder="<fmt:message key="eliteTerms.payment.Credit.card.number.placeholder" bundle="${msg}" />" id="card-num" autocomplete="off" data-mask="9999 9999 9999 9999" onblur="copyCardNo();">
-										<input type="hidden" id="cardNo" name="cardNo">
+										<input id="card-num" type="tel" class="form-control gray-textbox desktop-half" placeholder="<fmt:message key="eliteTerms.payment.Credit.card.number.placeholder" bundle="${msg}" />"  autocomplete="off" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardNo').val());">
+										<input type="hidden" id="cardNo" name="cardNo" maxlength="16" data-min="16">
 					                    <input type="hidden" name="merchantId" value="${eliteTermPolicy.merchantId}">
 					                    <input type="hidden" name="secureHash" value="${eliteTermPolicy.secureHash }">
 					                    <input type="hidden" name="amount" value="<fmt:formatNumber value='${eliteTermPremium.monthlyDuePremium*2}' pattern="#.00"/>">
@@ -336,20 +336,29 @@ var languageP = "${language}";
  		return flag;
  	}
  	 
- 	function copyCardNo(){
- 		$('#cardNo').val($('#card-num').val().replace(/\s+/g,""));
- 		if($('#card-num').val().substring(0,1) == "5"){
- 			$('#pMethod').val("Master");
- 		}
- 		else if($('#card-num').val().substring(0,1) == "4"){
- 			$('#pMethod').val("VISA");
- 		}
- 		else{
- 			$('#pMethod').val("Master");
- 		}
- 	}
+ 	//function copyCardNo(){
+ 	//	$('#cardNo').val($('#card-num').val().replace(/\s+/g,""));
+ 	//	if($('#card-num').val().substring(0,1) == "5"){
+ 	//		$('#pMethod').val("Master");
+ 	//	}
+ 	//	else if($('#card-num').val().substring(0,1) == "4"){
+ 	//		$('#pMethod').val("VISA");
+ 	//	}
+ 	//	else{
+ 	//		$('#pMethod').val("Master");
+ 	//	}
+ 	//}
  	  
 	function BackMe() {
 		window.history.back();
 	}
+
+	$(document).ready(function(){
+        $('#card-num').payment('formatCardNumber');
+        $('#card-num').keyup(function() {
+            var replaceSpace = $(this).val(); 
+            var result = replaceSpace.replace(/\s/g,'');
+            $("#cardNo").val(result);
+        });
+    })
 </script>
