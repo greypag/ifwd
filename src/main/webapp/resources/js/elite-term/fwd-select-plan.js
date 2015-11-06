@@ -196,7 +196,7 @@
       if ($prevTarget) {
          $prevTarget = $('#' + $prevTarget);
          
-         if ($prevTarget.attr('data-is-answered') !== 'true') {
+         if (!$prevTarget.data('is-answered')) {
             e.preventDefault();
          }
       } 
@@ -210,7 +210,7 @@
       var $collapseSec = $self.closest('.et-collapse');
       var nextTarget = $self.data('next-target');
       
-      $collapseSec.attr('data-is-answered', true);
+      $collapseSec.data('is-answered', true);
       
       $self.addClass('btn-selected');
       
@@ -225,14 +225,14 @@
       var $self = $(this);
       var $collapseSec = $self.closest('.et-collapse');
       var nextTarget = $self.data('next-target');
-      
-      $collapseSec.attr('data-is-answered', true);
-      
+      var collapseMe = $self.data('current-target');
+
+      $collapseSec.data('is-answered', true);
+
       $self.addClass('btn-selected');
       
       $collapseSec.find('.et-btn-medic-yes')
                   .removeClass('btn-selected');
-      
       // Show the next button 
       // if all questions are answered with no
       if (isMedicAnsweredWithNo()) {
@@ -240,13 +240,13 @@
       }
       
       // Expand next question
-      if (nextTarget) {
-         setTimeout(function() {
-            $('a[href="#' + nextTarget + '"]').trigger('click');
+      if (nextTarget) {    	  
+    	  setTimeout(function() {
+			$('#' + collapseMe).collapse('hide');
+            $('#' + nextTarget).collapse('show');
          }, 50);
       }
    });
-   
    // Login submit event
    $('#et-login-form').on('submit', function(e) {
       e.preventDefault();
@@ -1234,7 +1234,7 @@
       var result = true;
       
       $('.et-collapse').each(function() {
-         if ($(this).attr('data-is-answered') !== 'true') {
+         if (!$(this).data('is-answered')) {
             result = false;
             
             return false;
