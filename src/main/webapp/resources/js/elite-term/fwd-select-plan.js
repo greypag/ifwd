@@ -821,7 +821,12 @@
                   },
                   digits: {
                      message: getBundle(getBundleLanguage, "et.selectPlan.Invalid.Telephone.number")
-                  }
+                  },
+                  stringLength: {
+                      min: 8,
+                      max: 8,
+                      message: getBundle(getBundleLanguage, "member.telNo.notValidLength.message")
+                   },
                }
             },
             "savieApplicantBean.mobileNo": {
@@ -832,7 +837,12 @@
                   },
                   digits: {
                      message: getBundle(getBundleLanguage, "et.selectPlan.Invalid.Mobile.number")
-                  }
+                  },
+                  stringLength: {
+                      min: 8,
+                      max: 8,
+                      message: getBundle(getBundleLanguage, "member.mobileNo.notValidLength.message")
+                   },
                }
             },
             "savieApplicantBean.emailAddress": {
