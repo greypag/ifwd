@@ -436,7 +436,7 @@ var languageP = "${language}";
             
 			// Back to home button
 			$('#et-upload-doc-home-btn').on('click', function(e) {
-				window.location.href= '<%=request.getContextPath()%>/${language}/term-life-insurance';
+				window.location.href= '<%=request.getContextPath()%>/${language}/term-life-insurance/confirmation';
 			})
 
             // Check if hkid is valid

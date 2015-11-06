@@ -576,6 +576,65 @@ public class EliteTermServiceImpl implements EliteTermService {
 				parameters.put("base64", hkidFileToUploadImageBase64);
 				br = connector.uploadDocuments(parameters, header);
 		        FileUtil.deletFile(uploadDir);
+		        
+		        
+
+				UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+				//CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
+				String customerName="";
+				customerName = userDetails.getFullName();
+				if(StringUtils.isEmpty(customerName)){
+					customerName =  userDetails.getFirstName()+" "+userDetails.getLastName();
+				}
+					
+				final Map<String,String> headerEmail = headerUtil.getHeader(request);
+				headerEmail.put("language", "ZH");
+				String subject = "FWD Elite Term – Complete[ ]";
+				String attachment = "";
+				String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
+				boolean isHTML = true;
+				String  message = "<div> Dear "+customerName+",<br />"+
+								 " Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your documents are well received; your application has been processed. Your policy will be in force in x days. <br />"+
+								 " <br />"+
+								 " 多謝閣下經網上購買富衛智理想定期保障計劃系列 。我們已經收到您上載的檔案; 我們正在處理您的投保申請，您的保單於將X天內生效。<br />"+
+								 " <br />"+
+								 " Your policy has not been officially in force, you will need upload your [ID card copy], [passport copy] and [address proof] through the following link, in order to complete your application process. <br />"+
+								 " <br />"+
+								 " 您的保單尚未正式生效，您需要通過以下的連結上載您的[身份證副本]，[護照複印件]和[住址證明]，以完成整個申請投保程序。<br />"+
+								 " <br />"+
+								 " For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com.<br />"+
+								 " <br />"+
+								 " 如有任何查詢，請致電富衛客戶服務熱線(852) 3123 3123或電郵至cs.hk@fwd.com。<br />"+
+								 " <br />"+
+								 " We wish you a happy life!<br />"+
+								 " <br />"+
+								 " 祝閣下生活愉快！<br />"+
+								 " <br />"+
+								 " Regards,<br />"+
+								 " FWD General Insurance Company Limited<br />"+
+								 " <br />"+
+								 " 富衛保險有限公司 <br />"+
+								 " <br />"+
+								 " 謹啟<br />"+
+								 " <br />"+
+								 " www.fwd.com.hk<br />"+
+								 " <br />"+
+								 " Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail. <br />"+
+								 " <br />"+
+								 " 備註：中英文本如有歧異，概以英文本為準。<br />"+
+								 " <br />"+
+								 " This is an automatically generated email, please do not reply.<br />"+
+								 " <br />"+
+								 " 此乃電腦發出之電子郵件，請不要回覆<br />"+
+				    			 " </div>";
+				org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
+				parametersEmail.put("to", userDetails.getEmailAddress());
+				parametersEmail.put("message", message);
+				parametersEmail.put("subject", subject);
+				parametersEmail.put("attachment", attachment);
+				parametersEmail.put("from", from);
+				parametersEmail.put("isHtml", isHTML);
+				connector.sendEmail(parametersEmail,headerEmail);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -587,62 +646,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 				}  
 			}
 		}
-		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
-		//CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
-		String customerName="";
-		customerName = userDetails.getFullName();
-		if(StringUtils.isEmpty(customerName)){
-			customerName =  userDetails.getFirstName()+" "+userDetails.getLastName();
-		}
-			
-		final Map<String,String> headerEmail = headerUtil.getHeader(request);
-		headerEmail.put("language", "ZH");
-		String subject = "FWD Elite Term – Complete[ ]";
-		String attachment = "";
-		String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
-		boolean isHTML = true;
-		String  message = "<div> Dear "+customerName+",<br />"+
-						 " Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your documents are well received; your application has been processed. Your policy will be in force in x days. <br />"+
-						 " <br />"+
-						 " 多謝閣下經網上購買富衛智理想定期保障計劃系列 。我們已經收到您上載的檔案; 我們正在處理您的投保申請，您的保單於將X天內生效。<br />"+
-						 " <br />"+
-						 " Your policy has not been officially in force, you will need upload your [ID card copy], [passport copy] and [address proof] through the following link, in order to complete your application process. <br />"+
-						 " <br />"+
-						 " 您的保單尚未正式生效，您需要通過以下的連結上載您的[身份證副本]，[護照複印件]和[住址證明]，以完成整個申請投保程序。<br />"+
-						 " <br />"+
-						 " For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com.<br />"+
-						 " <br />"+
-						 " 如有任何查詢，請致電富衛客戶服務熱線(852) 3123 3123或電郵至cs.hk@fwd.com。<br />"+
-						 " <br />"+
-						 " We wish you a happy life!<br />"+
-						 " <br />"+
-						 " 祝閣下生活愉快！<br />"+
-						 " <br />"+
-						 " Regards,<br />"+
-						 " FWD General Insurance Company Limited<br />"+
-						 " <br />"+
-						 " 富衛保險有限公司 <br />"+
-						 " <br />"+
-						 " 謹啟<br />"+
-						 " <br />"+
-						 " www.fwd.com.hk<br />"+
-						 " <br />"+
-						 " Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail. <br />"+
-						 " <br />"+
-						 " 備註：中英文本如有歧異，概以英文本為準。<br />"+
-						 " <br />"+
-						 " This is an automatically generated email, please do not reply.<br />"+
-						 " <br />"+
-						 " 此乃電腦發出之電子郵件，請不要回覆<br />"+
-		    			 " </div>";
-		org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
-		parametersEmail.put("to", userDetails.getEmailAddress());
-		parametersEmail.put("message", message);
-		parametersEmail.put("subject", subject);
-		parametersEmail.put("attachment", attachment);
-		parametersEmail.put("from", from);
-		parametersEmail.put("isHtml", isHTML);
-		connector.sendEmail(parametersEmail,headerEmail);
+
 	}
 	
 	public String getPolicyUserName(HttpServletRequest request,String policyNumber){
