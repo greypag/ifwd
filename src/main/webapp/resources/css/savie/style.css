@@ -1609,7 +1609,7 @@ body{
 /******** Start of mobile header menu v2 ********/
 @media screen and (max-width: 991px) {
     body {
-       padding-top: 35%;
+       padding-top: 163px;
     }
     div.mobile-menu-V2{
         width:100%;
@@ -1786,7 +1786,7 @@ body{
         background-color: #061d29;       
     }
     body {
-        padding-top: 20%;
+        padding-top: 163px;
     }
 }
 /******** End of mobile header menu v2 ********/

@@ -10082,7 +10082,7 @@ tr.product-landing-error-wrap {
 }
 @media screen and (max-width: 991px) {
     body {
-       padding-top: 35%;
+       padding-top: 163px;
     }
     div.mobile-menu-V2 div.wd2{
 	    margin:0;
@@ -10222,7 +10222,7 @@ tr.product-landing-error-wrap {
         background-color: #061d29;       
     }
 	body {
-	    padding-top: 20%;
+	    padding-top: 163px;
 	}
 }
 /******** End of mobile header menu v2 ********/
