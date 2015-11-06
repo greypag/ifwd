@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -30,6 +31,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.savie.AccountBalanceResponse;
+import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryPolicies;
 import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
 import com.ifwd.fwdhk.model.PurchaseHistory;
 import com.ifwd.fwdhk.model.UserDetails;
@@ -201,20 +203,33 @@ public class UserController {
 					header.put("token", tokenInSession);
 
 					PurchaseHistoryResponse purchaseHistory = connector.getPurchaseHistory(header);
+					List<PurchaseHistoryPolicies> policiesGI = new ArrayList<PurchaseHistoryPolicies>();
+					List<PurchaseHistoryPolicies> policiesLife = new ArrayList<PurchaseHistoryPolicies>();
 					if(purchaseHistory !=null && !purchaseHistory.hasError() && purchaseHistory.getPolicies().size()>0){
 						for(int i=0;i<purchaseHistory.getPolicies().size();i++){
 							SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+							if(purchaseHistory.getPolicies().get(i).getSubmissionDate() !=null){
+								purchaseHistory.getPolicies().get(i).setSubmissionDate(purchaseHistory.getPolicies().get(i).getSubmissionDate().substring(0, 10));
+							}
 							if(purchaseHistory.getPolicies().get(i).getCommencementDate() !=null && purchaseHistory.getPolicies().get(i).getCommencementDate().length() >9 ){
 								purchaseHistory.getPolicies().get(i).setCommencementDate(sdf.format(new Date(Long.valueOf(purchaseHistory.getPolicies().get(i).getCommencementDate()))));
 							}
 							if(purchaseHistory.getPolicies().get(i).getExpiryDate() !=null && purchaseHistory.getPolicies().get(i).getExpiryDate().length() >9 ){
 								purchaseHistory.getPolicies().get(i).setExpiryDate(sdf.format(new Date(Long.valueOf(purchaseHistory.getPolicies().get(i).getExpiryDate()))));
 							}
+							
+							if(purchaseHistory.getPolicies().get(i).getPolicyType() !=null && purchaseHistory.getPolicies().get(i).getPolicyType().equals("GI")){
+								policiesGI.add(purchaseHistory.getPolicies().get(i));
+							}
+							if(purchaseHistory.getPolicies().get(i).getPolicyType() !=null && purchaseHistory.getPolicies().get(i).getPolicyType().equals("Life")){
+								policiesLife.add(purchaseHistory.getPolicies().get(i));
+							}
 						}
 					}
-					model.addAttribute("purchaseHistory", purchaseHistory);
+					model.addAttribute("policiesGI", policiesGI);
+					model.addAttribute("policiesLife", policiesLife);
 				}
-				/* getAccountBalance */
+				/* getAccountBalance 
 				if (!tokenInSession.isEmpty() && !usernameInSession.isEmpty()) {
 					HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 					header.put("userName", usernameInSession);
@@ -222,9 +237,9 @@ public class UserController {
 
 					AccountBalanceResponse accountBalance = connector.getAccountBalance(header);
 					model.addAttribute("accountBalance", accountBalance);
-				}
+				}*/
 				
-				/* Purchase History */
+				/* Purchase History 
 				ArrayList al = new ArrayList();
 				if (!tokenInSession.isEmpty() && !usernameInSession.isEmpty()) {
 					HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
@@ -256,7 +271,7 @@ public class UserController {
 					}
 				}
 
-				request.setAttribute("al", al);
+				request.setAttribute("al", al);*/
 				return new ModelAndView(UserRestURIConstants.getSitePath(request)+ "useraccount");
 			} catch (Exception e) {
 				e.printStackTrace();

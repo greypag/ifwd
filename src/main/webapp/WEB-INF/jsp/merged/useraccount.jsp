@@ -472,25 +472,27 @@
 									  </tr>
 							     </thead>
 							     <tbody>
-		                             <tr class="odd">
+		                             <%-- <tr class="odd">
 			                             <td><fmt:message key="Member.Nav2.Purchase history.Table1.Column1.SampleValue1" bundle="${msg}" /></td>
 			                             <td><fmt:message key="Member.Nav2.Purchase history.Table1.Column2.SampleValue1" bundle="${msg}" /></td>
 			                             <td><fmt:message key="Member.Nav2.Purchase history.Table1.Column3.SampleValue1" bundle="${msg}" /></td>
 			                             <td>3 years</td>
-		                             </tr>
-		                             <tr class="even">
-	                                     <td>Easy HomeCare</td>
-	                                     <td>2QB93GT8</td>
-	                                     <td>21th February 15</td>
-	                                     <td>One-off</td>
-	                                 </tr>
+		                             </tr> --%>
+	                                 <c:forEach items="${policiesGI}" var="i" varStatus="obj">
+	                                    <tr <c:if test="${obj.count%2 == '0'}">class="odd"</c:if><c:if test="${obj.count%2 != '0'}">class="even"</c:if>>
+	                                        <td>${i.planCode}</td>
+	                                        <td>${i.policyNumber}</td>
+	                                        <td>${i.submissionDate}</td>
+	                                        <td>One-off</td>
+	                                    </tr>
+	                                 </c:forEach>
                                  </tbody>
                              </table>
                         </div>
                         
                         
                         
-                        <div class="clearfix hidden-xs hidden-sm" style="margin-top:20px;">
+                        <!-- <div class="clearfix hidden-xs hidden-sm" style="margin-top:20px;">
                              <table class="purchase_history_table" style="margin-left:20px; width: 100%; text-align: left; border:1px #dbe1e6 solid;">
                                  <thead>
                                       <tr>
@@ -509,7 +511,7 @@
                                      </tr>
                                  </tbody>
                              </table>
-                        </div>
+                        </div> -->
                         
                         
                         <div class="clearfix hidden-xs hidden-sm" style="margin-top:20px;">
@@ -523,12 +525,14 @@
                                       </tr>
                                  </thead>
                                  <tbody>
-                                     <tr class="odd">
-                                         <td>Elite term</td>
-                                         <td>123AB45CD</td>
-                                         <td>06-11-15</td>
-                                         <td><a id="eservices-document-upload-link" href="#">Upload document</a></td>
-                                     </tr>
+                                 <c:forEach items="${policiesLife}" var="i" varStatus="obj">
+                                    <tr <c:if test="${obj.count%2 == '0'}">class="odd"</c:if><c:if test="${obj.count%2 != '0'}">class="even"</c:if>>
+                                        <td>Elite term</td>
+                                        <td>${i.policyNumber}</td>
+                                        <td>${i.submissionDate}</td>
+                                        <td><a id="eservices-document-upload-link" href="#">Upload document</a></td>
+                                    </tr>
+                                 </c:forEach>
                                  </tbody>
                              </table>
                         </div>
@@ -545,7 +549,7 @@
                         </div>
                         
                         
-						<%
+						<%-- <%
 							ArrayList al = (ArrayList) request.getAttribute("al");
 							Iterator itr = al.iterator();
 							while (itr.hasNext()) {
@@ -596,16 +600,16 @@
 
 							</tbody>
 						</table>
-						<%-- <%
+						<%
 						out.print(purchaseHistory.getAmount());
 						out.print(purchaseHistory.getPlanCode());						
 						
-						%>	 --%>
+						%>	
 						
 
 						<%
 							}
-						%>
+						%> --%>
 
 					</div>
 					
