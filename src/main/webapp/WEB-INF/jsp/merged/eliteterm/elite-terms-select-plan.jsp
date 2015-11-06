@@ -650,7 +650,9 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="left-desktop text-box">
                                        <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress1" name="savieApplicantBean.permanentAddress1" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
+                                       <span class="error-msg" id="permanentAddress1Message"></span>
                                        <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress2" name="savieApplicantBean.permanentAddress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
+                                       <span class="error-msg" id="permanentAddress2Message"></span>
                                        <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress3" name="savieApplicantBean.permanentAddress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
                                        <span class="error-msg" id="permanentAddressMessage">
                                           <small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
@@ -717,6 +719,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress1" name="savieApplicantBean.residentialAdress1" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
                                        <span class="error-msg" id="residentialAddressMessage2"></span>
                                        <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress2" name="savieApplicantBean.residentialAdress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
+                                       <span class="error-msg" id="residentialAddressMessage3"></span>
                                        <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress3" name="savieApplicantBean.residentialAdress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
                                        <span class="error-msg" id="residentialAddressMessage">
                                           <small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>

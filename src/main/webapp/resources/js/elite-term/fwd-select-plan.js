@@ -196,7 +196,7 @@
       if ($prevTarget) {
          $prevTarget = $('#' + $prevTarget);
          
-         if ($prevTarget.attr('data-is-answered') !== 'true') {
+         if (!$prevTarget.data('is-answered')) {
             e.preventDefault();
          }
       } 
@@ -210,7 +210,7 @@
       var $collapseSec = $self.closest('.et-collapse');
       var nextTarget = $self.data('next-target');
       
-      $collapseSec.attr('data-is-answered', true);
+      $collapseSec.data('is-answered', true);
       
       $self.addClass('btn-selected');
       
@@ -225,14 +225,14 @@
       var $self = $(this);
       var $collapseSec = $self.closest('.et-collapse');
       var nextTarget = $self.data('next-target');
-      
-      $collapseSec.attr('data-is-answered', true);
-      
+      var collapseMe = $self.data('current-target');
+
+      $collapseSec.data('is-answered', true);
+
       $self.addClass('btn-selected');
       
       $collapseSec.find('.et-btn-medic-yes')
                   .removeClass('btn-selected');
-      
       // Show the next button 
       // if all questions are answered with no
       if (isMedicAnsweredWithNo()) {
@@ -240,13 +240,13 @@
       }
       
       // Expand next question
-      if (nextTarget) {
-         setTimeout(function() {
-            $('a[href="#' + nextTarget + '"]').trigger('click');
+      if (nextTarget) {    	  
+    	  setTimeout(function() {
+			$('#' + collapseMe).collapse('hide');
+            $('#' + nextTarget).collapse('show');
          }, 50);
       }
    });
-   
    // Login submit event
    $('#et-login-form').on('submit', function(e) {
       e.preventDefault();
@@ -464,8 +464,8 @@
       $('#et-beneficiary-info-next').on('click', function(e) {
          var $self = $(this);
          var $target = '';
-         
          if (isBeneficaryValid()) {
+        	 
             $target = $('#et-application-second-section');
             $target.removeClass('hide-element');
             
@@ -536,11 +536,11 @@
                .addClass('et-selected col-md-12')
          
          //res address
-         if($('#etaspi-res-add').html().length <= 0) {
+         if($('#etaspi-res-add').html().length <= 0 || !$('#savieApplicantBean\\.isResidential').prop('checked')) {
         	 $('#etaspi-res-add').html($('#etaspi-per-add').html());
          }
          //corr address
-         if($('#etaspi-corr-add').html().length <= 0) {
+         if($('#etaspi-corr-add').html().length <= 0 || !$('#savieApplicantBean\\.addressIsSame').prop('checked')) {
         	 $('#etaspi-corr-add').html($('#etaspi-res-add').html());
          }
          $appSum.removeClass('hide-element');
@@ -894,6 +894,61 @@
                   }
                }
             },
+            "savieApplicantBean.permanentAddress1": {
+                container: '#permanentAddress1Message',
+                validators: {
+                   regexp: {
+                      regexp: /^[a-zA-Z0-9\s]*$/,
+                      message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                   }
+                }
+             },
+             "savieApplicantBean.permanentAddress2": {
+                 container: '#permanentAddress2Message',
+                 validators: {
+                    regexp: {
+                       regexp: /^[a-zA-Z0-9\s]*$/,
+                       message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                    }
+                 }
+              },
+              "savieApplicantBean.residentialAdress1": {
+                  container: '#residentialAddressMessage2',
+                  validators: {
+                     regexp: {
+                        regexp: /^[a-zA-Z0-9\s]*$/,
+                        message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                     }
+                  }
+               },
+               "savieApplicantBean.residentialAdress2": {
+                   container: '#residentialAddressMessage3',
+                   validators: {
+                      regexp: {
+                         regexp: /^[a-zA-Z0-9\s]*$/,
+                         message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                      }
+                   }
+                },
+                "savieApplicantBean.correspondenceAdress1": {
+                    container: '#corrAddressMessage2',
+                    validators: {
+                       regexp: {
+                          regexp: /^[a-zA-Z0-9\s]*$/,
+                          message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                       }
+                    }
+                 },
+                 "savieApplicantBean.correspondenceAdress2": {
+                     container: '#corrAddressMessage3',
+                     validators: {
+                        regexp: {
+                           regexp: /^[a-zA-Z0-9\s]*$/,
+                           message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                        }
+                     }
+                  }
+              
          }
       }).on('success.form.bv', function(e) {
          e.preventDefault();
@@ -1234,7 +1289,7 @@
       var result = true;
       
       $('.et-collapse').each(function() {
-         if ($(this).attr('data-is-answered') !== 'true') {
+         if (!$(this).data('is-answered')) {
             result = false;
             
             return false;
@@ -1344,7 +1399,8 @@
       
       // Person 1
       if ($('#beneficiaryInfoForm\\[0\\]').length) {
-         if (isBeneficiaryFormClear(0) || $('#beneficiaryInfoForm\\[0\\]').data('bootstrapValidator').isValid()) {
+    	  $('#beneficiaryInfoForm\\[0\\]').data('bootstrapValidator').validate();
+         if ($('#beneficiaryInfoForm\\[0\\]').data('bootstrapValidator').isValid()) {
             res1 = true;
          } else {
             res1 = false;
@@ -1354,6 +1410,7 @@
       
       // Person 2
       if ($('#beneficiaryInfoForm\\[1\\]').length) {
+    	  $('#beneficiaryInfoForm\\[1\\]').data('bootstrapValidator').validate();
          if (isBeneficiaryFormClear(1) || $('#beneficiaryInfoForm\\[1\\]').data('bootstrapValidator').isValid()) {
             res2 = true;
          } else {
@@ -1364,6 +1421,7 @@
       
       // Person 3
       if ($('#beneficiaryInfoForm\\[2\\]').length) {
+    	  $('#beneficiaryInfoForm\\[2\\]').data('bootstrapValidator').validate();
          if (isBeneficiaryFormClear(2) || $('#beneficiaryInfoForm\\[2\\]').data('bootstrapValidator').isValid()) {
             res3 = true;
          } else {
@@ -1381,7 +1439,7 @@
             && !document.getElementById('savieBeneficiaryBean[' + pos + '].lastName').value
             && !document.getElementById('savieBeneficiaryBean[' + pos +'].chineseName').value
             && (!document.getElementById('savieBeneficiaryBean[' + pos + '].hkId').value || !document.getElementById('savieBeneficiaryBean[' + pos + '].passportNo').value)
-            && !document.getElementById('savieBeneficiaryBean[' + pos + '].entitlement').value
+            && ((pos === 0) || !document.getElementById('savieBeneficiaryBean[' + pos + '].entitlement').value)
             && !document.getElementById('savieBeneficiaryBean[' + pos + '].relationship').value
          ) {
     	  $('#beneficiaryInfoForm\\[' + pos +'\\]').find('#remove-beneficiary\\[' + pos +'\\]').trigger('click');
