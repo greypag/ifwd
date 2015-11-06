@@ -46,7 +46,11 @@ function getEliteTermPremium() {
 				
 			if( data == null ){
 				resetCalculatedAmt();
-			} else{
+			} 
+			else if( data.errMsgs != null ){
+				resetCalculatedAmt();
+			}
+			else{
 				if( data.effectivePeriod!=null && data.effectivePeriod=='12'){
 					setCalculatedAmt(true, insuredAmount,
 						data.monthlyPremium, data.dailyPremium, data.monthlyDuePremium, data.dailyDuePremium);
