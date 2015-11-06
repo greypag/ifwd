@@ -5,6 +5,18 @@
 }
 
 
+.fwd-et-wrapper .et-next-btn-div{
+	/* Next button */
+	padding-top: 10px;
+	padding-bottom: 40px;
+}
+
+.fwd-et-wrapper .et-calcu{
+	/* Calculate button */
+	padding-bottom: 0px;
+}
+
+
 /* ET landing H1 */
 .fwd-et-wrapper .wow{
 	max-width: 1200px;
