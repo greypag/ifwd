@@ -11,6 +11,7 @@
 <jsp:useBean id="now" class="java.util.Date" />
 <fmt:formatDate var="year" value="${now}" pattern="yyyy" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-et.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var paymentNextPageFlow = "${nextPageFlow}";
@@ -20,7 +21,7 @@ var languageP = "${language}";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
-		<div class="fwd-savie-wrapper">
+		<div class="fwd-savie-wrapper fwd-et-wrapper">
 
 
 			<!--<div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
@@ -91,8 +92,9 @@ var languageP = "${language}";
 							<p class="page-header-motto"><span><fmt:message key="eliteTerms.payment.We.will.now" bundle="${msg}" /></span> <span><fmt:message key="eliteTerms.payment.premium.as.deposit" bundle="${msg}" /></span></p>
 							<p class="page-header-motto"><fmt:message key="eliteTerms.payment.Your.1-month" bundle="${msg}" />${eliteTermPremium.monthlyDuePremium}</p>	
 							<p class="amount-holder">
-								<span class="total-amount"><fmt:message key="eliteTerms.payment.Total.amount" bundle="${msg}" /></span>
-								<span class="amount">HKD ${eliteTermPremium.monthlyDuePremium*2}</span>
+								<span class="total-amount"><fmt:message key="eliteTerms.payment.Total.amount.part1" bundle="${msg}" /></span>
+								<span class="amount">${eliteTermPremium.monthlyDuePremium*2}</span>
+								<span class=""><fmt:message key="eliteTerms.payment.Total.amount.part2" bundle="${msg}" /></span>
 							</p>
 						</div>	
 						<div class="page-content clearfix">
@@ -109,7 +111,7 @@ var languageP = "${language}";
 
 									<div class="page-content-item">
 										<label for="card-num"><fmt:message key="eliteTerms.payment.Credit.card.number" bundle="${msg}" /></label>
-										<input type="text" class="form-control gray-textbox desktop-half" placeholder="Credit card number" id="card-num" autocomplete="off" data-mask="9999 9999 9999 9999" onblur="copyCardNo();">
+										<input type="text" class="form-control gray-textbox desktop-half" placeholder="<fmt:message key="eliteTerms.payment.Credit.card.number.placeholder" bundle="${msg}" />" id="card-num" autocomplete="off" data-mask="9999 9999 9999 9999" onblur="copyCardNo();">
 										<input type="hidden" id="cardNo" name="cardNo">
 					                    <input type="hidden" name="merchantId" value="${eliteTermPolicy.merchantId}">
 					                    <input type="hidden" name="secureHash" value="${eliteTermPolicy.secureHash }">
@@ -133,7 +135,7 @@ var languageP = "${language}";
 										<div class="clearfix desktop-half">
 											<div class="selectDiv month">
 												<select name="epMonth" id="month" class="form-control gray-dropdown">
-													<option value="0"><fmt:message key="home.summary.pmtdetail.desc3.month" bundle="${msg}" /></option>
+													<option value="0" selected disabled><fmt:message key="home.summary.pmtdetail.desc3.month" bundle="${msg}" /></option>
 			                                        <option value="01">01</option>
 			                                        <option value="02">02</option>
 			                                        <option value="03">03</option>
@@ -150,7 +152,7 @@ var languageP = "${language}";
 											</div>
 											<div class="selectDiv">
 												<select name="epYear" id="year" class="form-control gray-dropdown">
-													<option value="0"><fmt:message key="home.summary.pmtdetail.desc3.year" bundle="${msg}" /></option>
+													<option value="0" selected disabled><fmt:message key="home.summary.pmtdetail.desc3.year" bundle="${msg}" /></option>
 				                                    <c:forEach begin="0" end="10" varStatus="loop">
 				                                        <c:set var="currentYear" value="${year + loop.index}" />
 				                                        <option value="${currentYear}">${currentYear}</option>
@@ -161,12 +163,12 @@ var languageP = "${language}";
 									</div>
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Name.on.credit.card" bundle="${msg}" /></label>
-										<input type="text" class="form-control gray-textbox desktop-half" placeholder="Name on credit card" value="" id="card-name" autocomplete="off" name="cardHolder">
+										<input type="text" class="form-control gray-textbox desktop-half" placeholder="<fmt:message key="eliteTerms.payment.Name.on.credit.card.placeholder" bundle="${msg}" />" value="" id="card-name" autocomplete="off" name="cardHolder">
 									</div>
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Security.code" bundle="${msg}" /></label>
 										<div class="clearfix desktop-half">
-											<input type="text" class="form-control gray-textbox card-cvv" placeholder="CVV" id="card-cvv" autocomplete="off" name="securityCode">
+											<input type="text" class="form-control gray-textbox card-cvv" placeholder="<fmt:message key="eliteTerms.payment.Security.code.placeholder" bundle="${msg}" />" id="card-cvv" autocomplete="off" name="securityCode">
 											<div class="cvv-image-holder">
 												<img src="<%=request.getContextPath()%>/resources/images/elite-terms/cvv-logo.png" class="cvv-image">
 											</div>
@@ -234,6 +236,7 @@ var languageP = "${language}";
 		
 		<!-- <script src="assets/js/fwd-dropzone.js"></script> -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/elite-term/placeholders.min.js"></script>
       <script type="text/javascript">
          $(document).on('click', '.et-header-info-btn', function(e) {
             e.preventDefault();

@@ -101,14 +101,20 @@
          $self.removeAttr('style');
       }); 
    $('#et-select-plan-date-input')
-      .css('color', '#ccc')
       .on('change', function(e) {
          var $self = $(this);
          
          $self.removeAttr('style');
-         $self.css('color', '#000');
+         
          if(msieversion() > 0) {
             $('#et-select-plan-date-input').css('font-family','Arial');
+
+            //IE9 placeholder color fix
+            if( $self.val() == '' || $self.val()==$self.attr('placeholder') ){
+               $self.css('color', '#ccc');
+            } else {
+               $self.css('color', '#000');
+            }
          }
       }); 
    
@@ -491,10 +497,16 @@
      		 $("#chk2").html("");
      	 }
      	 if(!$('#application-declaration').is(':checked')) {
-     		 $("#chk3").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+          $("#chk3").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+          result = false;
+       }else {
+          $("#chk3").html("");
+       }
+       if(!$('#is-resident-check').is(':checked')) {
+     		 $("#chk4").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
      		 result = false;
      	 }else {
-     		 $("#chk3").html("");
+     		 $("#chk4").html("");
      	 }
      	 return result;
       }

@@ -400,13 +400,33 @@ function removeFormFieldError(_element, _errorClassSelector, _removeAll) {
  * @return number
  */
 function msieversion() { 
-   var ua = window.navigator.userAgent
-   var msie = ua.indexOf ( "MSIE " )
+	var ua = window.navigator.userAgent;
+	var msie = ua.indexOf ( "MSIE " );
+	var trident = ua.indexOf('Trident/'); // IE11
+	var edge = ua.indexOf('Edge/'); // IE12
 
-   if ( msie > 0 )      // If Internet Explorer, return version number
-      return parseInt (ua.substring (msie+5, ua.indexOf (".", msie )))
-   else                 // If another browser, return 0
-      return 0
+   //if ( msie > 0 )      // If Internet Explorer, return version number
+   //   return parseInt (ua.substring (msie+5, ua.indexOf (".", msie )))
+   //else                 // If another browser, return 0
+   //   return 0
+
+	if (msie > 0) {
+        // IE 10 or older => return version number
+        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+    }
+
+    if (trident > 0) {
+        // IE 11 => return version number
+        var rv = ua.indexOf('rv:');
+        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+    }
+
+    if (edge > 0) {
+       // IE 12 => return version number
+       return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+    }
+
+    return 0;
 }
 
 function getOccupation(value,language) {
@@ -438,7 +458,7 @@ $('#et-select-plan-go-homepage').on('click', function(e) {
 */
 function resetCalculatedAmt(){
 	var actPromo = $('#et-act-promo-amount');
-	var default_period_text = getBundle(getBundleLanguage, "et.selectPlan.default.period.text");
+	var default_period_text = actPromo.find('.et-po-amount-label').data('et-default-period');
   
 	$('#et-dis-promo-amount').addClass('hidden');
 	$("#etaspd-insured-amount").html('HK$ ');
@@ -466,9 +486,8 @@ function resetCalculatedAmt(){
 function setCalculatedAmt(bDiscount, insuredAmt, oriMonthlyAmt, oriDailyAmt, disMonthlyAmt, disDailyAmt){
 	var actPromo = $('#et-act-promo-amount');
 	var disPromo = $('#et-dis-promo-amount');
-	var default_period_text = getBundle(getBundleLanguage, "et.selectPlan.default.period.text");
-	var discount_period1_text = getBundle(getBundleLanguage, "et.selectPlan.discount.period1.text"); 
-	var discount_period2_text = getBundle(getBundleLanguage, "et.selectPlan.discount.period2.text"); 
+	var default_period_text = actPromo.find('.et-po-amount-label').data('et-default-period');
+	var discount_period_text = actPromo.find('.et-po-amount-label').data('et-discount-period');
   
 	var modInsuredAmount = parseFloat(insuredAmt).toFixed(2);
 	var modMonthlyPremium = parseFloat(oriMonthlyAmt).toFixed(2);
@@ -480,8 +499,7 @@ function setCalculatedAmt(bDiscount, insuredAmt, oriMonthlyAmt, oriDailyAmt, dis
 	if(bDiscount){
 		$("#et-month-dis-amount").html(parseFloat(disMonthlyAmt).toFixed(2));
 		$("#et-day-dis-amount").html(parseFloat(disDailyAmt).toFixed(2));
-		disPromo.find('.top .et-po-amount-label').text(discount_period1_text);
-		actPromo.find('.top .et-po-amount-label').text(discount_period2_text);
+		actPromo.find('.top .et-po-amount-label').text(discount_period_text);
 		$('#et-dis-promo-amount').removeClass('hidden');
  	} else{
  		actPromo.find('.top .et-po-amount-label').text(default_period_text);
@@ -587,32 +605,24 @@ function showAppSection(b0,b1,b2,b3,b4,b5,b6,b7,b8,b9){
 	}
 }
 
-/** Detect IE Browser
-* Return true if it is IE.
+
+/**
+* On Document Ready
+* Apply generic scripts
+*
 */
 
-function detectIE() {
-    var ua = window.navigator.userAgent;
+$(document).ready(function(){
 
-    var msie = ua.indexOf('MSIE ');
-    if (msie > 0) {
-        // IE 10 or older => return version number
-        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
-    }
-
-    var trident = ua.indexOf('Trident/');
-    if (trident > 0) {
-        // IE 11 => return version number
-        var rv = ua.indexOf('rv:');
-        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
-    }
-
-    var edge = ua.indexOf('Edge/');
-    if (edge > 0) {
-       // IE 12 => return version number
-       return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
-    }
-
-    // other browser
-    return false;
-}
+	/**
+	*  Select List Default color
+	*  Assume the default option is disabled
+	*/
+	$('select').on('change', function(){
+		if( $(this).val() ){
+			$(this).css('color', '#000');
+		} else {
+			$(this).css('color', '#ccc');
+		}
+	})
+});

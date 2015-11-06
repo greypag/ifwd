@@ -121,8 +121,9 @@ var languageP = "${language}";
 						<div class="clearfix"></div>
 						<div class="upload-later-section hidden" id="upload-later-section">
 							<div class="description">
-								<p class="first-desc"><fmt:message key="eliteTerms.documentUpload.A.FWD.account" bundle="${msg}" /></p>
-								<p class="second-desc"><fmt:message key="eliteTerms.documentUpload.You.will.receive" bundle="${msg}" /></p>
+								<p class="first-desc"><fmt:message key="eliteTerms.documentUpload.later" bundle="${msg}" /></p>
+								<p class="second-desc"><fmt:message key="eliteTerms.documentUpload.later.desc1" bundle="${msg}" /></p>
+								<p class="second-desc"><fmt:message key="eliteTerms.documentUpload.later.desc2" bundle="${msg}" /></p>
 							</div>
 							
 						</div>
@@ -345,16 +346,16 @@ var languageP = "${language}";
 								</div>
                         
 								<div class="col-xs-12 col-md-12">
-									<p class="notice"><span class="asterisk">* </span><fmt:message key="eliteTerms.documentUpload.Policy.will.be" bundle="${msg}" /></p>
+									<p class="notice"><span class="asterisk">* </span><fmt:message key="eliteTerms.documentUpload.Policy.remarks" bundle="${msg}" /></p>
 								</div>
 							</div>					
 						</div>
                   	</div> <!-- PAGE CONTENT -->
 					<div class="submit-btn" id="submit-btn">
-						<button id="et-upload-doc-submit-btn" type="button" class="btn next"><fmt:message key="eliteTerms.documentUpload.Next" bundle="${msg}" /></button>
+						<button id="et-upload-doc-submit-btn" type="button" class="btn next"><fmt:message key="eliteTerms.button.complete" bundle="${msg}" /></button>
 					</div>
 					<div class="elite-home-btn hidden" id="elite-home-btn">
-						<button id="et-upload-doc-home-btn" type="button" class="btn next"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button>
+						<button id="et-upload-doc-home-btn" type="button" class="btn next"><fmt:message key="eliteTerms.button.complete" bundle="${msg}" /></button>
 					</div>
 					<div class="link-button hidden" id="upload-link-btn">
 						<button type="button" class="btn next"><fmt:message key="eliteTerms.documentUpload.Send.me.the.link" bundle="${msg}" /></button>
