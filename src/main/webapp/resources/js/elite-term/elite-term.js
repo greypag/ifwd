@@ -94,6 +94,8 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 				var obj = datapair[1];
 				if(datapair[1].length > signatureFileSize*1024 ){
 			    	console.log("Image size exceeds limit.");
+				}else if($('.correct-signature').hasClass('hide-element')){
+					console.log("Need to sign");
 				}else{
 					$.ajax({     
 			    	    url:contextPath+'/ajax/eliteTerm/uploadSignature',     

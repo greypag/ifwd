@@ -187,7 +187,7 @@ function isFileValid(file, $fileObj, errorMsgCon) {
     // Check file extension and type validity
     // Accepted file format: application/pdf, image/jpg, image/jpeg, image/gif and image/png
     if ($.inArray(file.type, $fileObj.attr('accept').split(',')) < 0) {
-        addFormFieldError(errorMsgCon, 'File format must be a pdf, jpg, gif or png.');
+        addFormFieldError(errorMsgCon, 'File format must be a gif or png.');
         isValid = false;
     }
     
