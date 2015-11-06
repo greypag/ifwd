@@ -2144,12 +2144,12 @@ var home_url = "<%=request.getContextPath()%>";
          var age = getAge(parseInt($('#et-select-plan-date-input').val().substring(6,10)),
                  parseInt($('#et-select-plan-date-input').val().substring(3,5)),
                  parseInt($('#et-select-plan-date-input').val().substring(0,2)));
-         if (age < 51) {
+         if (age < 50) {
              $('#et-ins-amt-max-display').text('2,000,000');
              $('#et-slider-range').html('800,000');
              $('#R2').slider({max:2000000});
              $('#R2').slider('setValue', 800000);
-         } else if (age < 56) {
+         } else if (age < 55) {
              $('#et-ins-amt-max-display').text('1,500,000');
              $('#et-slider-range').html('800,000');
              $('#R2').slider({max:1500000});
