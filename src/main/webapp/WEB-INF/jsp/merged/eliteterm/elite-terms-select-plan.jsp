@@ -1575,6 +1575,15 @@ var home_url = "<%=request.getContextPath()%>";
 
                            <!-- BENEFICIARY -->
                            <div class="summary-body-item">
+                           <div class="et-own-estate hide-element">
+                                 <h3 class="beneficiary"><fmt:message key="eliteTerms.selectPlan.Beneficiary" bundle="${msg}" /> <span><fmt:message key="eliteTerms.selectPlan.Person1" bundle="${msg}" /></span> <a href="#" title="Edit" class="et-app-sum-edit" data-target="#et-beneficiary-info-section"><fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a></h3>
+                                 <h4 class="clearfix info-holder-title"><fmt:message key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" /></h4>
+                                 <div class="clearfix info-holder">
+                                    <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Last.Name" bundle="${msg}" /></h4>
+                                    <p class="info" id="etasbi-en-fname-1"></p>
+                                 </div>
+                                 
+                              </div>
                               <div class="et-person-1 hide-element">
                                  <h3 class="beneficiary"><fmt:message key="eliteTerms.selectPlan.Beneficiary" bundle="${msg}" /> <span><fmt:message key="eliteTerms.selectPlan.Person1" bundle="${msg}" /></span> <a href="#" title="Edit" class="et-app-sum-edit" data-target="#et-beneficiary-info-section"><fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a></h3>
                                  <h4 class="clearfix info-holder-title"><fmt:message key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" /></h4>
@@ -2138,7 +2147,7 @@ var home_url = "<%=request.getContextPath()%>";
          if ($('#et-smoker-yes').prop('checked')) {
         	 $('#etaspi-is-smooker').text('Smooker');
          } else if ($('#et-smoker-no').prop('checked')) {
-        	 $('#etaspi-is-smooker').text('Non-mooker');
+        	 $('#etaspi-is-smooker').text('Non-smooker');
          }
 
          var age = getAge(parseInt($('#et-select-plan-date-input').val().substring(6,10)),
