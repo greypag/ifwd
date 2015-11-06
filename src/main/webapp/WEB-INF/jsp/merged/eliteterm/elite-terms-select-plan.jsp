@@ -817,7 +817,7 @@ var home_url = "<%=request.getContextPath()%>";
 													</c:if>	
                                           </select>
                                        </div>
-                                       <span class="error-msg" id="correspondenceDistricttMessage"></span>
+                                       <span class="error-msg" id="correspondenceDistrictMessage"></span>
                                        <span class="warning-note"><span class="orange">*</span> <fmt:message key="eliteTerms.selectPlan.No.P.O.Box.address.allowed" bundle="${msg}" /></span>
                                     </div>
                                  </div>
