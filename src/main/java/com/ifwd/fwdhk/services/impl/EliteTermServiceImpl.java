@@ -586,15 +586,14 @@ public class EliteTermServiceImpl implements EliteTermService {
 				}  
 			}
 		}
-		
-		CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
+		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+		//CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
 		String customerName="";
-		if(etPolicyApplication.getApplicant() != null){
-			 customerName = etPolicyApplication.getApplicant().getFirstName()+" "+etPolicyApplication.getApplicant().getLastName();
-			 if(StringUtils.isEmpty(etPolicyApplication.getApplicant().getFirstName())){
-				 customerName =  etPolicyApplication.getApplicant().getChineseName();
-			 }
-		}		
+		customerName = userDetails.getFullName();
+		if(StringUtils.isEmpty(customerName)){
+			customerName =  userDetails.getFirstName()+" "+userDetails.getLastName();
+		}
+			
 		final Map<String,String> headerEmail = headerUtil.getHeader(request);
 		headerEmail.put("language", "ZH");
 		String subject = "FWD Elite Term – Complete[ ]";
@@ -636,7 +635,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 						 " 此乃電腦發出之電子郵件，請不要回覆<br />"+
 		    			 " </div>";
 		org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
-		parametersEmail.put("to", etPolicyApplication.getApplicant().getEmail());
+		parametersEmail.put("to", userDetails.getEmailAddress());
 		parametersEmail.put("message", message);
 		parametersEmail.put("subject", subject);
 		parametersEmail.put("attachment", attachment);
@@ -655,17 +654,6 @@ public class EliteTermServiceImpl implements EliteTermService {
 		if (jsonRelationShipCode.get("errMsgs") == null) {
 			org.json.simple.JSONObject policy = (org.json.simple.JSONObject) jsonRelationShipCode.get("policy");
 			 userName = (String) policy.get("userName");
-			 String email = (String) policy.get("email");
-			 org.json.simple.JSONObject client =(org.json.simple.JSONObject) policy.get("client");
-			 String firstName = (String) client.get("firstName");
-			 String lastName = (String) client.get("lastName");
-			 String chineseName = (String) client.get("chineseName");
-			 CreateEliteTermPolicyRequest etPolicyApplication = new CreateEliteTermPolicyRequest();
-			 etPolicyApplication.getApplicant().setFirstName(firstName);
-			 etPolicyApplication.getApplicant().setLastName(lastName);
-			 etPolicyApplication.getApplicant().setChineseName(chineseName);
-			 etPolicyApplication.getApplicant().setEmail(email);
-			request.getSession().setAttribute("etPolicyApplication",etPolicyApplication);
 		}
 		return userName;
 	}
