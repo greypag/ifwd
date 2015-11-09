@@ -213,7 +213,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="pull-right">
                                        <p class="et-slider-info center"><fmt:message key="eliteTerms.selectPlan.Max" bundle="${msg}" /></p>
-                                       <p id="et-ins-amt-max-display" class="et-slider-info"><fmt:message key="eliteTerms.selectPlan.Max.val" bundle="${msg}" />/p>
+                                       <p id="et-ins-amt-max-display" class="et-slider-info"><fmt:message key="eliteTerms.selectPlan.Max.val" bundle="${msg}" /></p>
                                     </div>
                                  </div>
                                  <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
