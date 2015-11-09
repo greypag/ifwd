@@ -113,22 +113,46 @@
 }
 
 /* Tooltips */
-
-.fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip{
-	left: 195px;
-}
-
+.fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip,
 .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip{
-	left: 180px;
+	position: absolute;
+	top: 7px;
+	left: 10px;
 }
 
-.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip{
-	left: 135px;
+.fwd-et-wrapper .container-fluid.fwd-container .et-plan-option span{
+	position: relative;
 }
 
-.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip{
-	left: 120px;
+.fwd-et-wrapper .container-fluid.fwd-container .et-plan-option h3.et-promo-code-txt img{
+	margin-top: 0;
+	margin-left: 35px;
 }
+
+body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip,
+body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip{
+	position: absolute;
+	top: 7px;
+	left: 10px;
+}
+
+@media ( min-width : 992px) {
+	.fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip,
+	.fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip{
+		position: absolute;
+		top: 7px;
+		left: 10px;
+	}
+
+	body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip,
+	body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip{
+		position: absolute;
+		top: 7px;
+		left: 10px;
+	}
+}
+
+
 
 
 /* Declarations */
@@ -180,5 +204,21 @@
     filter: alpha(opacity=50);
 }
 
+/* ET Customer Service Form */
+#cannot-apply-modal .modal-body form p.notice{
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+
+#et-cust-serv-form .btn {
+    border: solid 1px #ff8200;
+    background: #ff8200;
+    color: white;
+    font-size: 24px; 
+}
+
+#cannot-apply-modal .modal-header button{
+	top:; -10px;
+}
 
 /* */

@@ -202,8 +202,12 @@ var home_url = "<%=request.getContextPath()%>";
                            <div class="row reset-margin">
                               <div class="col-xs-12 col-md-6 et-insurance-amount">
                                  <div class="et-tooltip-wrapper">
-                                    <h3 class="et-insured-amount"><fmt:message key="eliteTerms.selectPlan.Insured.amount" bundle="${msg}" /> </h3> 
-                                    <button type="button" class="et-minimal et-insured-amount-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Insured.amount.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span></button>
+                                    <h3 class="et-insured-amount">
+                                       <span><fmt:message key="eliteTerms.selectPlan.Insured.amount" bundle="${msg}" /></span>
+                                       <span>
+                                          <button type="button" class="et-minimal et-insured-amount-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Insured.amount.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span></button>
+                                       </span>
+                                    </h3> 
                                  </div>
                                  <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range"></span></p>
                                  <div class="clearfix et-slider-info-div">
@@ -221,8 +225,15 @@ var home_url = "<%=request.getContextPath()%>";
                               </div>
                               <div class="col-xs-12 col-md-5">
                                  <div class="et-tooltip-wrapper">
-                                    <h3 id="promocode-hide-switch" class="et-promo-code-txt et-mbot-15"><fmt:message key="eliteTerms.selectPlan.Promo.code" bundle="${msg}" /> <img src="<%=request.getContextPath()%>/resources/images/elite-terms/orange-caret.png" class="reversed"></h3>
-                                    <button type="button" class="et-minimal et-promo-code-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Promo.code.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-question-tooltip"></span></button>  
+                                    <h3 id="promocode-hide-switch" class="et-promo-code-txt et-mbot-15">
+                                       <span>
+                                          <fmt:message key="eliteTerms.selectPlan.Promo.code" bundle="${msg}" />
+                                       </span>
+                                       <span>
+                                          <button type="button" class="et-minimal et-promo-code-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Promo.code.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-question-tooltip"></span></button>
+                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/orange-caret.png" class="reversed">
+                                       </span>
+                                    </h3>
                                  </div>
                                  <div id="promocode-hidden" class="hidden-sm hidden-xs">
                                     <div class="clearfix">
@@ -368,7 +379,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     <div class="panel-body">
                                        <div class="row">
                                           <div class="col-xs-12 col-md-8">
-                                             <p><fmt:message key="eliteTerms.selectPlan.Has.your.proposal" bundle="${msg}" /></p>
+                                             <p><fmt:message key="eliteTerms.selectPlan.Question1.copy" bundle="${msg}" /></p>
                                           </div>
                                           <div class="col-xs-12 col-md-4">
                                              <div class="row">
@@ -397,7 +408,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     <div class="panel-body">
                                        <div class="row">
                                           <div class="col-xs-12 col-md-8">
-                                             <p><fmt:message key="eliteTerms.selectPlan.Has.your.proposal" bundle="${msg}" /></p>
+                                             <p><fmt:message key="eliteTerms.selectPlan.Question2.copy" bundle="${msg}" /></p>
                                           </div>
                                           <div class="col-xs-12 col-md-4">
                                              <div class="row">
@@ -426,7 +437,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     <div class="panel-body">
                                        <div class="row">
                                           <div class="col-xs-12 col-md-8">
-                                             <p><fmt:message key="eliteTerms.selectPlan.Has.your.proposal" bundle="${msg}" /></p>
+                                             <p><fmt:message key="eliteTerms.selectPlan.Question3.copy" bundle="${msg}" /></p>
                                           </div>
                                           <div class="col-xs-12 col-md-4">
                                              <div class="row">
@@ -1088,14 +1099,14 @@ var home_url = "<%=request.getContextPath()%>";
                                              <span class="hidden-lg hidden-md"><fmt:message key="eliteTerms.selectPlan.Male" bundle="${msg}" /></span>
                                              <span class="orange-hover hidden-xs hidden-sm pull-left"></span>
                                           </label>
-                                          <span id="male-label-0" class="pull-left second-label"><fmt:message key="eliteTerms.selectPlan.Male" bundle="${msg}" /></span>
+                                          <span id="male-label-0" class="pull-left second-label hidden-xs hidden-sm"><fmt:message key="eliteTerms.selectPlan.Male" bundle="${msg}" /></span>
 
                                           <input type="radio" name="savieBeneficiaryBean[0].gender" value="F" id="female-0">
                                           <label for="female-0" class="female">
                                              <span class="hidden-lg hidden-md"><fmt:message key="eliteTerms.selectPlan.Female" bundle="${msg}" /></span>
                                              <span class="orange-hover hidden-xs hidden-sm pull-left"></span>
                                           </label>
-                                          <span id="female-label-0" class="pull-left second-label-female"><fmt:message key="eliteTerms.selectPlan.Female" bundle="${msg}" /></span>
+                                          <span id="female-label-0" class="pull-left second-label-female hidden-xs hidden-sm"><fmt:message key="eliteTerms.selectPlan.Female" bundle="${msg}" /></span>
                                        </div>
                                     </div>
                                     <div class="form-group has-error beneficiary-info-row relationship">
@@ -1892,14 +1903,10 @@ var home_url = "<%=request.getContextPath()%>";
                            </div>
                            <span class="error-msg" id="cannotApplyEnquireMessage"></span>
                         </div>
-                        <div class="fwd-checkbox modal-checkbox">
-                           <input type="checkbox" id="cannot-apply-checkbox" name="cannot-apply-checkbox">
-                           <label for="cannot-apply-checkbox"></label>
-                           <p class="notice"><fmt:message key="eliteTerms.selectPlan.I.have.read.and.I" bundle="${msg}" />
-                           <a href="<fmt:message key="PICS.life.link" bundle="${msg}" />" target="_blank"><fmt:message key="eliteTerms.selectPlan.Personal.Information" bundle="${msg}" /></a></p>
-                           <div class="clearfix">
-                              <span class="error-msg" id="cannotApplyCheckMessage"></span>
-                           </div>
+                        <div class="">
+                           <p class="notice">
+                              <fmt:message key="eliteTerms.selectPlan.not.direct.marketing" bundle="${msg}" />
+                           </p>
                         </div>
                         <button type="submit" class="btn next" id="et-cannot-apply-btn"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
                      </form>
@@ -2349,15 +2356,7 @@ var home_url = "<%=request.getContextPath()%>";
                             message: '<fmt:message key="eliteTerms.selectPlan.Please.choose.a.perferred.enquiry.type" bundle="${msg}" />'
                          }
                       }
-                  },
-                  "cannot-apply-checkbox": {
-                      container: '#cannotApplyCheckMessage',
-                      validators: {
-                         notEmpty: {
-                            message: '<fmt:message key="eliteTerms.selectPlan.This.field.is.required" bundle="${msg}" />'
-                         }
-                      }
-                   }
+                  }
                }
             }).on('success.form.bv', function(e) {
                   e.preventDefault();
