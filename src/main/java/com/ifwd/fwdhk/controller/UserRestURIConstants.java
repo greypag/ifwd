@@ -152,6 +152,13 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIE_PDF = "pdf-show";
 	public static final String PAGE_PROPERTIES_SAVIE_SIGNATURE = "savie.signature";
 	
+	/* Page Flow Control For OverSea */
+	public static final String URL_OVERSEA_LANDING = "oversea-insurance";
+	
+	public static final String PAGE_OVERSEA_LANDING = "oversea-landing";
+	
+	public static final String PAGE_PROPERTIES_OVERSEA_LANDING = "oversea.landing";
+	
     /* Page Flow Control For Evergreen */
 	
 	public static final String PAGE_EVERGREEN_PLAN_DETAILS = "plan-details";	
