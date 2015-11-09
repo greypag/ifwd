@@ -39,9 +39,6 @@
             	<img src="<%=request.getContextPath()%>/resources/images/elite-terms/iFWD_elite-term_tagline_cn.png" alt="Protection for your family's future" class="img-responsive elite-term-tagline ch-picture">
             </div>
             <div class="et-banner-label">
-               <div class="text-content et-text-content">
-                  <fmt:message key="eliteTerms.landing.A.Safe.Haven" bundle="${msg}" />
-               </div>
                <a href="<%=request.getContextPath()%>/${language}/term-life-insurance/${nextPageFlow}" class="buy-now et-quote" ><fmt:message key="eliteTerms.landing.Get.Quote" bundle="${msg}" /></a>
 				</div>
 			</div>

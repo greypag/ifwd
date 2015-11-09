@@ -17,6 +17,36 @@
 }
 
 
+/* ET landing tagline */
+.fwd-et-wrapper .banner-widget .tagline-holder{
+	position: absolute;
+	top: auto;
+	bottom: 130px;
+}
+
+.fwd-et-wrapper .banner-widget .tagline-holder img{
+	padding: 0 5%;
+	margin: 0 auto;
+}
+
+@media (min-width: 768px){
+	.fwd-et-wrapper .banner-widget .tagline-holder img {
+		width: 100%;
+	}
+}
+
+@media ( min-width : 992px) {
+	.fwd-et-wrapper .banner-widget .tagline-holder{
+		top: 28%;
+	}
+
+	.fwd-et-wrapper .banner-widget .tagline-holder img{
+		width: 100%;
+		padding: 0;
+		margin: 0;
+	}
+}
+
 /* ET landing H1 */
 .fwd-et-wrapper .wow{
 	max-width: 1200px;

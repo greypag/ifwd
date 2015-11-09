@@ -168,7 +168,7 @@ var languageP = "${language}";
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Security.code" bundle="${msg}" /></label>
 										<div class="clearfix desktop-half">
-											<input type="text" class="form-control gray-textbox card-cvv" placeholder="<fmt:message key="eliteTerms.payment.Security.code.placeholder" bundle="${msg}" />" id="card-cvv" autocomplete="off" name="securityCode">
+											<input type="text" class="form-control gray-textbox card-cvv" placeholder="<fmt:message key="eliteTerms.payment.Security.code.placeholder" bundle="${msg}" />" id="card-cvv" autocomplete="off" maxlength="3"  name="securityCode">
 											<div class="cvv-image-holder">
 												<img src="<%=request.getContextPath()%>/resources/images/elite-terms/cvv-logo.png" class="cvv-image">
 											</div>

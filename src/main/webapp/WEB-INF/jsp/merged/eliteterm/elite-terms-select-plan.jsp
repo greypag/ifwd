@@ -213,7 +213,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="pull-right">
                                        <p class="et-slider-info center"><fmt:message key="eliteTerms.selectPlan.Max" bundle="${msg}" /></p>
-                                       <p id="et-ins-amt-max-display" class="et-slider-info"><fmt:message key="eliteTerms.selectPlan.Max.val" bundle="${msg}" />/p>
+                                       <p id="et-ins-amt-max-display" class="et-slider-info"><fmt:message key="eliteTerms.selectPlan.Max.val" bundle="${msg}" /></p>
                                     </div>
                                  </div>
                                  <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
@@ -257,7 +257,7 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="et-plan-option-extra-info hide-element" id="et-act-promo-amount">
                            <div class="et-extra-info top">
                               <span class="et-amount"><fmt:message key="eliteTerms.selectPlan.Amount" bundle="${msg}" /></span>
-                              <div class="et-po-amount-label" data-et-default-period="<fmt:message key="eliteTerms.selectPlan.default.period" bundle="${msg}" />" data-et-discount-period="<fmt:message key="eliteTerms.selectPlan.discount.period2" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.default.period.text" bundle="${msg}" /></div>
+                              <div class="et-po-amount-label" data-et-default-period="<fmt:message key="eliteTerms.selectPlan.default.period" bundle="${msg}" />" data-et-discount-period="<fmt:message key="eliteTerms.selectPlan.discount.period2" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.default.period" bundle="${msg}" /></div>
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
@@ -655,7 +655,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress2" name="savieApplicantBean.permanentAddress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
                                        <span class="error-msg" id="permanentAddress2Message"></span>
                                        <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress3" name="savieApplicantBean.permanentAddress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
-                                       <span class="error-msg" id="permanentAddressMessage">
+                                       <span class="error-msg" id="permanentAddress3Message">
                                           <small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
                                        </span>
                                        <!--  <div class="selectDiv">
@@ -718,11 +718,11 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="left-desktop text-box">
                                        <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress1" name="savieApplicantBean.residentialAdress1" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
-                                       <span class="error-msg" id="residentialAddressMessage2"></span>
+                                       <span class="error-msg" id="residentialAddressMessage1"></span>
                                        <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress2" name="savieApplicantBean.residentialAdress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
-                                       <span class="error-msg" id="residentialAddressMessage3"></span>
+                                       <span class="error-msg" id="residentialAddressMessage2"></span>
                                        <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress3" name="savieApplicantBean.residentialAdress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
-                                       <span class="error-msg" id="residentialAddressMessage">
+                                       <span class="error-msg" id="residentialAddressMessage3">
                                           <small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
                                        </span>
                                        <!-- <div class="selectDiv">
@@ -783,11 +783,11 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="left-desktop text-box">
                                        <input class="form-control gray-textbox  correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress1" name="savieApplicantBean.correspondenceAdress1" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
-                                       <span class="error-msg" id="corrAddressMessage2"></span>
+                                       <span class="error-msg" id="corrAddressMessage1"></span>
                                        <input class="form-control gray-textbox correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress2" name="savieApplicantBean.correspondenceAdress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
-                                       <span class="error-msg" id="corrAddressMessage3"></span>
+                                       <span class="error-msg" id="corrAddressMessage2"></span>
                                        <input class="form-control gray-textbox correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress3" name="savieApplicantBean.correspondenceAdress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
-                                       <span class="error-msg" id="corrAddressMessage">
+                                       <span class="error-msg" id="corrAddressMessage3">
                                           <small  class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
                                        </span>
                                        <!-- <div class="selectDiv">
@@ -2091,10 +2091,10 @@ var home_url = "<%=request.getContextPath()%>";
                container: '#et-ays-datepicker-message',
                validators: {
                   notEmpty: {
-                     message: 'Please enter your Date of birth.'
+                     message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.Date.of.birth" bundle="${msg}" />'
                   },
                   callback: {
-                     message: 'Please enter your Date of birth.',
+                     message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.Date.of.birth" bundle="${msg}" />',
                      callback: function(value, validator) {
                         return value !== document.getElementById('et-select-plan-date-input').getAttribute('placeholder');
                      }
@@ -2105,7 +2105,7 @@ var home_url = "<%=request.getContextPath()%>";
                container: '#et-gender-message',
                validators: {
                   notEmpty: {
-                     message: 'Please select your gender.'
+                     message: '<fmt:message key="eliteTerms.selectPlan.Please.select.your.gender" bundle="${msg}" />'
                   }
                }
             },
@@ -2113,7 +2113,7 @@ var home_url = "<%=request.getContextPath()%>";
                container: '#et-smoke-message',
                validators: {
                   notEmpty: {
-                     message: 'Are you a smoker?'
+                     message: '<fmt:message key="eliteTerms.selectPlan.Are.you.a.smoker" bundle="${msg}" />'
                   }
                }
             }
@@ -2281,14 +2281,14 @@ var home_url = "<%=request.getContextPath()%>";
                      trigger: 'blur',
                      validators: {
                         notEmpty: {
-                           message: 'Please enter your name.'
+                           message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.name" bundle="${msg}" />'
                         },
                         regexp: {
                            regexp: /[a-z A-Z \s \u4e00-\u9eff]/, /*chinese and english chars only*/
-                           message: 'Your name is invalid.'
+                           message: '<fmt:message key="eliteTerms.selectPlan.Your.name.is.invalid" bundle="${msg}" />'
                         },
                         callback: {
-                           message: 'Please enter your name.',
+                           message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.name" bundle="${msg}" />',
                            callback: function(value, validator) {
                               return value !== document.getElementById('name').getAttribute('placeholder');
                            }
@@ -2300,10 +2300,10 @@ var home_url = "<%=request.getContextPath()%>";
                      trigger: 'blur',
                      validators: {
                         notEmpty: {
-                           message: 'Please enter your email address.'
+                           message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.email.address" bundle="${msg}" />'
                         },
                         emailAddress: {
-                           message: 'Your email address is invalid.'
+                           message: '<fmt:message key="eliteTerms.selectPlan.Your.email.address.is.invalid" bundle="${msg}" />'
                         }
                      }
                   },
@@ -2312,11 +2312,11 @@ var home_url = "<%=request.getContextPath()%>";
                      trigger: 'blur',
                      validators: {
                     	notEmpty: {
-                            message: 'Please enter your mobile no.'
+                            message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.mobile.no" bundle="${msg}" />'
                         },
                     	regexp: {
                            regexp: /^1[0-9]{10}$|^[5689][0-9]{7}$/, //^[5689]{3}[0-9]+$/,
-                           message: 'Your mobile no. is invalid.'
+                           message: '<fmt:message key="eliteTerms.selectPlan.Your.mobile.no.is.invalid" bundle="${msg}" />'
                         }/* ,
                         callback: {
                            message: 'c',
@@ -2330,7 +2330,7 @@ var home_url = "<%=request.getContextPath()%>";
                      container: '#cannotApplyDayMessage',
                      validators: {
                         notEmpty: {
-                           message: 'Please choose a perferred day for our customer service representative to call you.'
+                           message: '<fmt:message key="eliteTerms.selectPlan.Please.choose.a.perferred.day" bundle="${msg}" />'
                         }
                      }
                   },
@@ -2338,15 +2338,23 @@ var home_url = "<%=request.getContextPath()%>";
                      container: '#cannotApplyTimeMessage',
                      validators: {
                         notEmpty: {
-                           message: 'Please choose a perferred timeslot for our customer service representative to call you.'
+                           message: '<fmt:message key="eliteTerms.selectPlan.Please.choose.a.perferred.timeslot" bundle="${msg}" />'
                         }
                      }
+                  },
+                  "enquiry": {
+                      container: '#cannotApplyEnquireMessage',
+                      validators: {
+                         notEmpty: {
+                            message: '<fmt:message key="eliteTerms.selectPlan.Please.choose.a.perferred.enquiry.type" bundle="${msg}" />'
+                         }
+                      }
                   },
                   "cannot-apply-checkbox": {
                       container: '#cannotApplyCheckMessage',
                       validators: {
                          notEmpty: {
-                            message: 'This field is required.'
+                            message: '<fmt:message key="eliteTerms.selectPlan.This.field.is.required" bundle="${msg}" />'
                          }
                       }
                    }

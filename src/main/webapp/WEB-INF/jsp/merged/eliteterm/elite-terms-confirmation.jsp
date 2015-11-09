@@ -99,7 +99,7 @@ var languageP = "${language}";
                   </div>
 					</div>
 					
-					<div class="agent-container">
+					<div class="agent-container <c:if test="${eliteTermPolicy.promoCodeType == 'ET-AGENT'}">hidden</c:if>">
 						<h2 class= "agent"><fmt:message key="eliteTerms.confirmation.Please.enter.your" bundle="${msg}" /></h2>
 						<p class="agent-desc et-agent-desc"><fmt:message key="eliteTerms.confirmation.If.you.already.have" bundle="${msg}" /></p>
 						

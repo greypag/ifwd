@@ -79,7 +79,10 @@ public class EliteTermController extends BaseController{
 		model.addAttribute("etEducationLevelEN", InitApplicationMessage.etEducationLevelEN);
 		model.addAttribute("etEducationLevelCN", InitApplicationMessage.etEducationLevelCN);
 		
-		model.addAttribute("goApp", request.getParameter("goApp"));
+		String goApp = request.getParameter("goApp");
+		if(goApp!=null && goApp!="" && !goApp.equals("")){
+			request.getSession().setAttribute("goApp", goApp);
+		}
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_SELECT_PLAN);
 	}
 
