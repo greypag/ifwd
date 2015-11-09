@@ -1567,9 +1567,9 @@
    function populateAppSummBI() {
       // ???
       if ($('#own-estate-now').prop('checked')){
-          $('.own-estate').removeClass('hide-element');
+    	   $('.et-own-estate').removeClass('hide-element');
       } else {
-          $('.own-estate').addClass('hide-element');
+    	   $('.et-own-estate').addClass('hide-element');
       }
       
       if ($('#name-others-now').prop('checked')) {
