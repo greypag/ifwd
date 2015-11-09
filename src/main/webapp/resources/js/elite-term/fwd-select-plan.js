@@ -302,6 +302,10 @@
         var $disPromo = $('#et-dis-promo-amount');
         var $actPromo = $('#et-act-promo-amount');
         
+        // For the Application Summary
+        var $disMonthPre = $('#etaspd-monthly-premium');
+        var $actMonthPre = $('#etaspd-monthly-premium-extra-years');
+        
         // Modify code to do the actual promotion
         // Do the actual calculation
         //var isValid = $promoField.val();
@@ -315,10 +319,16 @@
                      
             $actPromo.find('.top .et-po-amount-label')
                      .text('2nd - 20th policy year');
+            
+            $disMonthPre.removeClass('hidden');
+            $actMonthPre.find('span.extra-years-remarks').text('(2nd - 20th policy year)');
         } else {
             $disPromo.addClass('hidden');
             $actPromo.find('.top .et-po-amount-label')
                      .text('first 20 policy years');
+            
+            $disMonthPre.addClass('hidden');
+            $actMonthPre.find('span.extra-years-remarks').text('(first 20 policy years)');
         }
    }
    
@@ -399,7 +409,7 @@
          var monthlyPrem = $('#et-month-dis-amount').text();
          
          $('#etaspd-insured-amount').html('HK$ '+ sliderVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-         $('#etaspd-monthly-premium').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+         $('#etaspd-monthly-premium').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' (for the 1st year)');
          
          if ($self.hasClass('back-to-app')) {
             // Go back to the application form

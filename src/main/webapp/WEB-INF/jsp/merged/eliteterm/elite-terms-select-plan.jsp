@@ -1456,7 +1456,8 @@ var home_url = "<%=request.getContextPath()%>";
                                  </div>
                                  <div class="clearfix plan-detail-holder">
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Monthly.premium" bundle="${msg}" /></h4>
-                                    <p class="info" id="etaspd-monthly-premium">HK$ <fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/></p>
+                                    <p class="info" id="etaspd-monthly-premium" class="hidden">HK$ <fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/> <span class="extra-years-remarks"> (for the 1st year)</span></p>
+                                    <p class="info" id="etaspd-monthly-premium-extra-years">HK$ <fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" pattern="#.00"/> <span class="extra-years-remarks"> (first 20 policy years)</span></p>
                                  </div>
                               </div>
                            <!-- PLAN DETAIL END-->
@@ -2188,10 +2189,14 @@ var home_url = "<%=request.getContextPath()%>";
     		  $("#et-smoker-no").click();
     	  }
     	  if('${etPolicyApplication.promocode }'!=''){
-    		  $('#et-dis-promo-amount').removeClass('hidden')
+    		  $('#et-dis-promo-amount').removeClass('hidden');
+    		  
+    		  $('#etaspd-monthly-premium').removeClass('hidden');
     	  }
     	  else{
     		  $('#et-dis-promo-amount').addClass('hidden');
+    		  
+    		  $('#etaspd-monthly-premium').addClass('hidden');
     	  }
     	  
     	  if('${goApp}'!=null && '${goApp}'=='yes'){
