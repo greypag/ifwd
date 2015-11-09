@@ -82,16 +82,29 @@ function getEliteTermPremium() {
 }
 
 $('#et-signature-proceed-btn').on('click', function(e) {
-	var formdata =  $('#eliteTermsInsuredInfoForm').serialize()+"&"+
-			    $('#etEmploymentInfoForm').serialize()+"&"+
-			    $('#beneficiaryInfoForm\\[0\\]').serialize()+"&"+
-			    $('#beneficiaryInfoForm\\[1\\]').serialize()+"&"+
-			    $('#beneficiaryInfoForm\\[2\\]').serialize();
-	$.ajax({
-        type: "POST",
-        url:contextPath+'/ajax/eliteTerm/createEliteTermPolicy',
-        data: formdata,
-        success:function(data){
+	if(!$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').isValid()){
+		console.log('Applicant Form validation failure');
+		$('#et-medical-dec-next').click();
+	}
+	else if(!$('#etEmploymentInfoForm').data('bootstrapValidator').isValid()){
+		console.log('Employment Form validation failure');
+		$('#et-personal-info-next').click();
+	}
+	else if(!isBeneficaryValid()){
+		console.log('Beneficiary Form validation failure');
+		$('#et-employment-info-next').click();
+	}
+	else{
+		var formdata =  $('#eliteTermsInsuredInfoForm').serialize()+"&"+
+	    $('#etEmploymentInfoForm').serialize()+"&"+
+	    $('#beneficiaryInfoForm\\[0\\]').serialize()+"&"+
+	    $('#beneficiaryInfoForm\\[1\\]').serialize()+"&"+
+	    $('#beneficiaryInfoForm\\[2\\]').serialize();
+		$.ajax({
+		        type: "POST",
+		        url:contextPath+'/ajax/eliteTerm/createEliteTermPolicy',
+		        data: formdata,
+		        success:function(data){
 			if(data.errMsgs == null){
 				var $sigdiv = $("#signature");
 				var datapair = $sigdiv.jSignature("getData", "image");
@@ -126,11 +139,12 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 			else{
 				console.log("data error");
 			}
-        },
+		},
 		error:function(){
 		    console.log('error');     
-	    }
-    });
+		}
+		});
+	}
 });
 
 $('#et-upload-doc-submit-btn').on('click', function(e) {
