@@ -110,6 +110,7 @@ var home_url = "<%=request.getContextPath()%>";
                      <button type="button" id="et-btn-before-start" class="btn btn-orange hidden et-next-btn et-pad-bot-50" data-toggle=""><fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" /></button>
                   </div>
                </div>
+               </div>
                   
                <!--ABOUT YOURSELF-->
                <div id="et-about-yoursel-section" class="hide-element">
@@ -156,7 +157,7 @@ var home_url = "<%=request.getContextPath()%>";
                                  <div class="et-broken-line et-padding hidden-md hidden-lg"></div>
                               </div>
                               <div class="col-md-4 col-xs-12">
-                                 <h4 class="et-dob-txt smoker"><fmt:message key="eliteTerms.selectPlan.Are.you.a" bundle="${msg}" /></h4>
+                                 <h4 class="et-dob-txt smoker"><fmt:message key="eliteTerms.selectPlan.Are.you.a" bundle="${msg}" /></h4>    
                                  
                                  <div class="clearfix et-smoke-wrapper">
                                     <div class="et-gender-div">
@@ -1540,30 +1541,30 @@ var home_url = "<%=request.getContextPath()%>";
                               </div>
                               <div class="et-stat-unemployed hide-element">
                                  <div class="clearfix info-holder">
-                                    <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Liquid.assets" bundle="${msg}" /></h4>
-                                    <p class="info" id="etasei-liq-asset"></p>
-                                 </div>
-                                 <div class="clearfix info-holder">
                                     <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Monthly.personal.income" bundle="${msg}" /></h4>
                                     <p class="info" id="etasei-source-income"></p>
                                  </div>
+                                 <div class="clearfix info-holder">
+                                    <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Liquid.assets" bundle="${msg}" /></h4>
+                                    <p class="info" id="etasei-liq-asset"></p>
+                                 </div>
                               </div>
                               <div class="et-not-stat-unemployed hide-element">
+                                <div class="clearfix info-holder">
+                                    <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Nature.of.business" bundle="${msg}" /></h4>
+                                    <p class="info" id="etasei-nat-business"></p>
+                                </div>
                               	<div class="clearfix info-holder">
                                     <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Occupation" bundle="${msg}" /></h4>
                                     <p class="info" id="etasei-occupation"></p>
                                  </div>
                                  <div class="clearfix info-holder">
-                                    <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Current.Employer.Name" bundle="${msg}" /></h4>
-                                    <p class="info" id="etasei-employer-name"></p>
-                                 </div>
-                                 <div class="clearfix info-holder">
-                                    <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Nature.of.business" bundle="${msg}" /></h4>
-                                    <p class="info" id="etasei-nat-business"></p>
-                                 </div>
-                                 <div class="clearfix info-holder">
                                     <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Monthly.personal.income" bundle="${msg}" /></h4>
                                     <p class="info" id="etasei-mon-income"></p>
+                                 </div>
+                                 <div class="clearfix info-holder">
+                                    <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Current.Employer.Name" bundle="${msg}" /></h4>
+                                    <p class="info" id="etasei-employer-name"></p>
                                  </div>
                               </div>
                               <div class="clearfix info-holder">

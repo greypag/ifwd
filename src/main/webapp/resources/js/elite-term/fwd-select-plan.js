@@ -1566,6 +1566,11 @@
    }
    function populateAppSummBI() {
       // ???
+      if ($('#own-estate-now').prop('checked')){
+          $('.own-estate').removeClass('hide-element');
+      } else {
+          $('.own-estate').addClass('hide-element');
+      }
       
       if ($('#name-others-now').prop('checked')) {
          // person 1
@@ -1717,6 +1722,9 @@
    * Save all data from beneficiaries fields
    */
    function storeBeneficiaryInfo() {
+      if ($('#own-estate-now').prop('checked')) {
+         
+      }
       if ($('#name-others-now').prop('checked')) {
          // Person 1
          beneInfoData.first = {};
