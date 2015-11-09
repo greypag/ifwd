@@ -29,6 +29,10 @@ function getEliteTermPremium() {
 	var referralCodePlaceholder = $('#et-promocode').attr('placeholder');
 	referralCode = (referralCode==referralCodePlaceholder)?'':referralCode;
 	
+	// For the Application Summary
+    var $disMonthPre = $('#etaspd-monthly-premium');
+    var $actMonthPre = $('#etaspd-monthly-premium-extra-years');
+	
 	if(dob ==null || gender ==null || smoke ==null || insuredAmount ==null){
 		console.log("data error");
 	}
@@ -78,6 +82,15 @@ function getEliteTermPremium() {
 		.fail(function(data) {
 			$('#loading-overlay').modal('hide');
 		});
+	}
+	
+	// For the Application Summary
+	if(referralCode != null) {
+		$disMonthPre.removeClass('hidden');
+        $actMonthPre.find('span.extra-years-remarks').text('(2nd - 20th policy year)');
+	} else {
+		$disMonthPre.addClass('hidden');
+        $actMonthPre.find('span.extra-years-remarks').text('(first 20 policy years)');
 	}
 }
 

@@ -2188,9 +2188,10 @@ var home_url = "<%=request.getContextPath()%>";
     	  else if('${etPolicyApplication.applicant.smoke}'=='false'){
     		  $("#et-smoker-no").click();
     	  }
+    	  
     	  if('${etPolicyApplication.promocode }'!=''){
     		  $('#et-dis-promo-amount').removeClass('hidden');
-    		  
+    		// Application PromoCode
     		  $('#etaspd-monthly-premium').removeClass('hidden');
     	  }
     	  else{

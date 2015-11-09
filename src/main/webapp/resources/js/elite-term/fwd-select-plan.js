@@ -303,8 +303,8 @@
         var $actPromo = $('#et-act-promo-amount');
         
         // For the Application Summary
-        var $disMonthPre = $('#etaspd-monthly-premium');
-        var $actMonthPre = $('#etaspd-monthly-premium-extra-years');
+        //var $disMonthPre = $('#etaspd-monthly-premium');
+        //var $actMonthPre = $('#etaspd-monthly-premium-extra-years');
         
         // Modify code to do the actual promotion
         // Do the actual calculation
@@ -320,15 +320,15 @@
             $actPromo.find('.top .et-po-amount-label')
                      .text('2nd - 20th policy year');
             
-            $disMonthPre.removeClass('hidden');
-            $actMonthPre.find('span.extra-years-remarks').text('(2nd - 20th policy year)');
+            //$disMonthPre.removeClass('hidden');
+            //$actMonthPre.find('span.extra-years-remarks').text('(2nd - 20th policy year)');
         } else {
             $disPromo.addClass('hidden');
             $actPromo.find('.top .et-po-amount-label')
                      .text('first 20 policy years');
             
-            $disMonthPre.addClass('hidden');
-            $actMonthPre.find('span.extra-years-remarks').text('(first 20 policy years)');
+            //$disMonthPre.addClass('hidden');
+            //$actMonthPre.find('span.extra-years-remarks').text('(first 20 policy years)');
         }
    }
    
