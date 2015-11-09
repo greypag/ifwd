@@ -85,7 +85,7 @@ function getEliteTermPremium() {
 	}
 	
 	// For the Application Summary
-	if(referralCode != null) {
+	if(referralCode != '') {
 		$disMonthPre.removeClass('hidden');
         $actMonthPre.find('span.extra-years-remarks').text('(2nd - 20th policy year)');
 	} else {
