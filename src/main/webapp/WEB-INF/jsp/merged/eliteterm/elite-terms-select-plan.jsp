@@ -257,7 +257,7 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="et-plan-option-extra-info hide-element" id="et-act-promo-amount">
                            <div class="et-extra-info top">
                               <span class="et-amount"><fmt:message key="eliteTerms.selectPlan.Amount" bundle="${msg}" /></span>
-                              <div class="et-po-amount-label" data-et-default-period="<fmt:message key="eliteTerms.selectPlan.default.period" bundle="${msg}" />" data-et-discount-period="<fmt:message key="eliteTerms.selectPlan.discount.period2" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.default.period.text" bundle="${msg}" /></div>
+                              <div class="et-po-amount-label" data-et-default-period="<fmt:message key="eliteTerms.selectPlan.default.period" bundle="${msg}" />" data-et-discount-period="<fmt:message key="eliteTerms.selectPlan.discount.period2" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.default.period" bundle="${msg}" /></div>
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
@@ -655,7 +655,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress2" name="savieApplicantBean.permanentAddress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
                                        <span class="error-msg" id="permanentAddress2Message"></span>
                                        <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress3" name="savieApplicantBean.permanentAddress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
-                                       <span class="error-msg" id="permanentAddressMessage">
+                                       <span class="error-msg" id="permanentAddress3Message">
                                           <small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
                                        </span>
                                        <!--  <div class="selectDiv">
@@ -718,11 +718,11 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="left-desktop text-box">
                                        <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress1" name="savieApplicantBean.residentialAdress1" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
-                                       <span class="error-msg" id="residentialAddressMessage2"></span>
+                                       <span class="error-msg" id="residentialAddressMessage1"></span>
                                        <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress2" name="savieApplicantBean.residentialAdress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
-                                       <span class="error-msg" id="residentialAddressMessage3"></span>
+                                       <span class="error-msg" id="residentialAddressMessage2"></span>
                                        <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress3" name="savieApplicantBean.residentialAdress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
-                                       <span class="error-msg" id="residentialAddressMessage">
+                                       <span class="error-msg" id="residentialAddressMessage3">
                                           <small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
                                        </span>
                                        <!-- <div class="selectDiv">
@@ -783,11 +783,11 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="left-desktop text-box">
                                        <input class="form-control gray-textbox  correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress1" name="savieApplicantBean.correspondenceAdress1" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
-                                       <span class="error-msg" id="corrAddressMessage2"></span>
+                                       <span class="error-msg" id="corrAddressMessage1"></span>
                                        <input class="form-control gray-textbox correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress2" name="savieApplicantBean.correspondenceAdress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
-                                       <span class="error-msg" id="corrAddressMessage3"></span>
+                                       <span class="error-msg" id="corrAddressMessage2"></span>
                                        <input class="form-control gray-textbox correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress3" name="savieApplicantBean.correspondenceAdress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
-                                       <span class="error-msg" id="corrAddressMessage">
+                                       <span class="error-msg" id="corrAddressMessage3">
                                           <small  class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
                                        </span>
                                        <!-- <div class="selectDiv">
