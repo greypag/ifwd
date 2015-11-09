@@ -2146,12 +2146,6 @@ var home_url = "<%=request.getContextPath()%>";
             planDetailData.gender = 'Female';
          }
          
-         if ($('#et-smoker-yes').prop('checked')) {
-        	 $('#etaspi-is-smooker').text('Smoker');
-         } else if ($('#et-smoker-no').prop('checked')) {
-        	 $('#etaspi-is-smooker').text('Non-smoker');
-         }
-
          var age = getAge(parseInt($('#et-select-plan-date-input').val().substring(6,10)),
                  parseInt($('#et-select-plan-date-input').val().substring(3,5)),
                  parseInt($('#et-select-plan-date-input').val().substring(0,2)));

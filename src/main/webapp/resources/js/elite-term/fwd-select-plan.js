@@ -531,6 +531,13 @@
          var $appSum = $('#et-application-third-section');
          var $confirmSign = $('#et-declaration-proceed-btn');
          
+         //smoker non-smoker
+         if ($('#et-smoker-yes').prop('checked')) {
+            planDetailData.isSmooker = true;
+         } else if ($('#et-smoker-no').prop('checked')) {
+            planDetailData.isSmooker = false;
+         }
+ 
          // Populate information in application summary
          populateAppSummPD();
          populateAppSummPI();
