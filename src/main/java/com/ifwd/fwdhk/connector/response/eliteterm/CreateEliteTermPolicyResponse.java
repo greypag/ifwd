@@ -11,6 +11,7 @@ public class CreateEliteTermPolicyResponse extends BaseResponse {
 	private String paymentGateway;
 	private String merchantId;
 	private String policyNo;
+	private String promoCodeType;
 	public String getTransactionNumber() {
 		return transactionNumber;
 	}
@@ -47,4 +48,11 @@ public class CreateEliteTermPolicyResponse extends BaseResponse {
 	public void setPolicyNo(String policyNo) {
 		this.policyNo = policyNo;
 	}
+	public String getPromoCodeType() {
+		return promoCodeType;
+	}
+	public void setPromoCodeType(String promoCodeType) {
+		this.promoCodeType = promoCodeType;
+	}
+	
 }
