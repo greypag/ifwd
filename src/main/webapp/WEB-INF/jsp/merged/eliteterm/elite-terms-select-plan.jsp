@@ -312,8 +312,12 @@ var home_url = "<%=request.getContextPath()%>";
                               </div>
                               <div id="collapseTwo" class="panel-collapse collapse et-select-plan-panel" role="tabpanel" aria-labelledby="headingTwo">
                               <div class="et-panel-body" id="panelTwo">
-                                    <p><fmt:message key="eliteTerms.selectPlan.important.notes.line1" bundle="${msg}" /></p>
-                                    <p><fmt:message key="eliteTerms.selectPlan.important.notes.line2" bundle="${msg}" /></p>
+                                    <p>
+                                       <ol>
+                                          <li><fmt:message key="eliteTerms.selectPlan.important.notes.line1" bundle="${msg}" /></li>
+                                          <li><fmt:message key="eliteTerms.selectPlan.important.notes.line2" bundle="${msg}" /></li>
+                                       </ol>
+                                    </p>
                               </div>
                               </div>
                            </div>
