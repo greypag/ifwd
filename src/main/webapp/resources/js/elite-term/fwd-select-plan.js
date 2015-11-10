@@ -1791,3 +1791,23 @@
          }
       }
    }
+
+   // Policy fake radio button scripts
+   $(document).on('change', '.yes-policy-replace-check input[type="checkbox"]', function(e) {
+	   e.preventDefault();
+	   if($(this).prop('checked')) {
+		   $(this).parent().parent().find('.yes-policy-replace-desc .note').show();
+		   $(this).closest('.policy-replace-wrap').find('.policy-replace-check input[type="checkbox"]').prop('checked', false);
+	   } else {
+		   $(this).prop('checked', true);
+	   }
+   });
+   $(document).on('change', '.policy-replace-check input[type="checkbox"]', function(e) {
+	   e.preventDefault();
+	   if($(this).prop('checked')) {
+		   $(this).closest('.policy-replace-wrap').find('.yes-policy-replace-desc .note').hide();
+		   $(this).closest('.policy-replace-wrap').find('.yes-policy-replace-check input[type="checkbox"]').prop('checked', false);
+	   } else {
+		   $(this).prop('checked', true);
+	   }
+   });

@@ -1217,11 +1217,11 @@ var home_url = "<%=request.getContextPath()%>";
                         <fmt:message key="eliteTerms.selectPlan.Have.you" bundle="${msg}" />
                      </div>
                      
-                     <div class="clearfix">
+                     <div class="policy-replace-wrap clearfix">
                         <div class="left-desktop no">
                            <div class="clearfix">
                               <div class="pull-left policy-replace-check">
-                                 <input type="checkbox" value="cancellation" id="no-policy-replace-check" name="isCancel" checked/>
+                                 <input type="checkbox" value="cancellation" id="no-policy-replace-check" name="isCancel"/>
                                  <label for="no-policy-replace-check"></label>
                               </div>
                               <div class="pull-left policy-replace-desc">
@@ -1232,11 +1232,12 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="left-desktop yes">
                            <div class="clearfix yes-policy">
                               <div class="pull-left yes-policy-replace-check">
-                                 <input type="checkbox" value="cancellation" id="yes-policy-replace-check" name="isCancel" disabled/>
+                                 <input type="checkbox" value="cancellation" id="yes-policy-replace-check" name="isCancel"/>
                                  <label for="yes-policy-replace-check"></label>
                               </div>
                               <div class="pull-left yes-policy-replace-desc">
-                                 <fmt:message key="eliteTerms.selectPlan.Yes.(Please)" bundle="${msg}" />
+                                 <fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" />
+                                 <span class="note"><fmt:message key="eliteTerms.selectPlan.Yes.(Please)" bundle="${msg}" /></span>
                               </div>
                            </div>
                         </div>
@@ -1245,11 +1246,11 @@ var home_url = "<%=request.getContextPath()%>";
                         <fmt:message key="eliteTerms.selectPlan.Do.you" bundle="${msg}" />
                      </div>
                      
-                     <div class="clearfix">
+                     <div class="policy-replace-wrap clearfix">
                         <div class="left-desktop no">
                            <div class="clearfix">
                               <div class="pull-left policy-replace-check">
-                                 <input type="checkbox" value="cancellation" id="no-policy-replace-existing-check" name="isCancel" checked/>
+                                 <input type="checkbox" value="cancellation" id="no-policy-replace-existing-check" name="isCancel"/>
                                  <label for="no-policy-replace-existing-check"></label>
                               </div>
                               <div class="pull-left policy-replace-desc">
@@ -1260,11 +1261,12 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="left-desktop yes">
                            <div class="clearfix yes-policy">
                               <div class="pull-left yes-policy-replace-check">
-                                 <input type="checkbox" value="cancellation" id="yes-policy-replace-existing-check" name="isCancel" disabled/>
+                                 <input type="checkbox" value="cancellation" id="yes-policy-replace-existing-check" name="isCancel"/>
                                  <label for="yes-policy-replace-existing-check"></label>
                               </div>
                               <div class="pull-left yes-policy-replace-desc">
-                                 <fmt:message key="eliteTerms.selectPlan.Yes.(Please)" bundle="${msg}" />
+                                 <fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" />
+                                 <span class="note"><fmt:message key="eliteTerms.selectPlan.Yes.(Please)" bundle="${msg}" /></span>
                               </div>
                            </div>
                         </div>
@@ -1318,7 +1320,7 @@ var home_url = "<%=request.getContextPath()%>";
                      </div>
                      <span id="chk2" class="text-red"></span> <br />
                      
-                     <div class="residency-declaration">
+                     <div class="policy-replace-wrap residency-declaration">
                         <h4 class="policy-replace"><fmt:message key="eliteTerms.selectPlan.Residency.declarations" bundle="${msg}" /></h4>
                         <div class="policy-desc bottom">
                            <fmt:message key="eliteTerms.selectPlan.Residency.declarations.desc" bundle="${msg}" />
@@ -1326,7 +1328,7 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="left-desktop no">
                            <div class="clearfix">
                               <div class="pull-left policy-replace-check">
-                                 <input type="checkbox" value="no" id="is-resident-check" name="isResident" checked/>
+                                 <input type="checkbox" value="no" id="is-resident-check" name="isResident"/>
                                  <label for="is-resident-check"></label>
                               </div>
                               <div class="pull-left policy-replace-desc">
@@ -1337,11 +1339,12 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="left-desktop yes">
                            <div class="clearfix yes-policy">
                               <div class="pull-left yes-policy-replace-check">
-                                 <input type="checkbox" value="yes" id="non-resident-check" name="nonResident" disabled/>
+                                 <input type="checkbox" value="yes" id="non-resident-check" name="nonResident"/>
                                  <label for="non-resident-check"></label>
                               </div>
                               <div class="pull-left yes-policy-replace-desc">
-                                 <fmt:message key="eliteTerms.selectPlan.Yes.(Please)" bundle="${msg}" />
+                                 <fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" />
+                                 <span class="note"><fmt:message key="eliteTerms.selectPlan.Yes.(Please)" bundle="${msg}" /></span>
                               </div>
                            </div>
                         </div>

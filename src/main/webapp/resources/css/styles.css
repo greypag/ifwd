@@ -12570,8 +12570,9 @@ span.dup-error-msg {
 	width: 93%;
 }
 /* line 163, ../sass/partials/_declaration-authorization.scss */
-.fwd-savie-wrapper .declare-authorize .agreement-description .yes-policy-replace-desc
+.fwd-savie-wrapper .declare-authorize .agreement-description .yes-policy-replace-desc span.note
 	{
+	display: none;
 	font-family: 'Calibri';
 	font-size: 14px;
 	color: #9ba5a7;
@@ -12587,6 +12588,11 @@ span.dup-error-msg {
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.yes-policy-replace-desc
 	{
 	width: 85%;
+	font-size: 14px;
+    font-family: 'Calibri-Bold';
+    color: #061d2a;
+    line-height: 15px;
+    padding-top: 3px;
 }
 
 @media ( min-width : 992px) {
@@ -12756,12 +12762,11 @@ span.dup-error-msg {
 	{
 	width: 18px;
 	height: 18px;
-	cursor: not-allowed;
+	cursor: pointer;
 	position: absolute;
 	left: 0;
 	bottom: 65px;
 	border: solid 1px #c5cfd7;
-	background-color: #c5cfd7;
 	border-radius: 50%;
 }
 /* line 299, ../sass/partials/_declaration-authorization.scss */
@@ -12781,7 +12786,7 @@ span.dup-error-msg {
 /* line 311, ../sass/partials/_declaration-authorization.scss */
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.yes-policy-replace-check label:hover::after
 	{
-	opacity: 0;
+	opacity: 0.5;
 }
 /* line 316, ../sass/partials/_declaration-authorization.scss */
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.yes-policy-replace-check input[type=checkbox]
@@ -12791,7 +12796,7 @@ span.dup-error-msg {
 /* line 318, ../sass/partials/_declaration-authorization.scss */
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.yes-policy-replace-check input[type=checkbox]:checked+label:after
 	{
-	opacity: 0;
+	opacity: 1;
 }
 /* line 324, ../sass/partials/_declaration-authorization.scss */
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.policy-replace-check
