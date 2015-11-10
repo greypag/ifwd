@@ -372,7 +372,8 @@ public class EliteTermServiceImpl implements EliteTermService {
 				 if(StringUtils.isEmpty(etPolicyApplication.getApplicant().getFirstName())){
 					 customerName =  etPolicyApplication.getApplicant().getChineseName();
 				 }
-			}		
+			}
+			String imgUrl = url+"/resources/images/elite-terms/ifwd_hero-banner_edm.jpg";
 			url = url + "/"+language+"/term-life-insurance/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(policyNo.getBytes());
 			
 			final Map<String,String> header = headerUtil.getHeader(request);
@@ -384,24 +385,59 @@ public class EliteTermServiceImpl implements EliteTermService {
 			{
 				serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 			}
-			String message =  "<p>Dear "+customerName+",</p>"
-					        + "<p>Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your first 2 months premium payment has been accepted.  </p>"
-					        + "<p>多謝閣下經網上購買富衛智理想定期保障計劃系列 。您的首2個月保費款項已被接納。</p>"
-					        + "<p>Your policy has not been officially in force, you will need upload your [ID card copy], [passport copy] and [address proof] through the following link, in order to complete your application process.  </p>"
-					        + "<p>您的保單尚未正式生效，您需要通過以下的連結上載您的[身份證副本]，[護照複印件]和[住址證明]，以完成整個申請投保程序。</p> "
-					        + "<p>"+url+"</p>"
-					        + "<p>For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com. </p>"
-					        + "<p>如有任何查詢，請致電富衛客戶服務熱線(852) 3123 3123或電郵至cs.hk@fwd.com。</p>"
-					        + "<p>We wish you a happy life! </p>"
-					        + "<p>祝閣下生活愉快！</p>"
-					        + "<p>Regards, FWD General Insurance Company Limited </p>"
-					        + "<p>富衛保險有限公司 </p>"
-					        + "<p>謹啟 </p>"
-					        + "<p>www.fwd.com.hk</p>"
-					        + "<p>Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail.  </p>"
-					        + "<p>備註：中英文本如有歧異，概以英文本為準。</p>"
-					        + "<p>This is an automatically generated email, please do not reply. </p>"
-					        + "<p>此乃電腦發出之電子郵件，請不要回覆</p>";
+			String message = "<html><head><meta charset='UTF-8'><title>FWD Elite Term – Pending ["+policyNo+"]</title></head>"
+					       + "<body><div marginwidth='0' marginheight='0' style='margin:0;padding:0;background-color:#f2f2f2;min-height:100%!important;width:100%!important'><center>"
+					       + "<table align='center' border='0' cellpadding='0' cellspacing='0' height='100%' width='100%' style='border-collapse:collapse;margin:0;padding:0;background-color:#f2f2f2;height:100%!important;width:100%!important'>"
+					       + "<tbody><tr><td align='center' valign='top' style='margin:0;padding:20px;border-top:0;height:100%!important;width:100%!important'>"
+					       + "<table border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse:collapse;border:0'>"
+					       + "<tbody><tr><td align='center' valign='top'><table border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse:collapse;background-color:#ffffff;border-top:0;border-bottom:0'>"
+					       + "<tbody><tr><td valign='top' style='padding-top:9px'><table border='0' cellpadding='0' cellspacing='0' width='100%' style='border-collapse:collapse'>"
+					       + "<tbody><tr><td valign='top'><table align='left' border='0' cellpadding='0' cellspacing='0' width='266' style='border-collapse:collapse'>"
+					       + "<tbody><tr><td valign='top' style='padding-top:9px;padding-left:18px;padding-bottom:9px;padding-right:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left'><a href='https://i.fwd.com.hk/tc/?utm_source=edm&amp;utm_medium=cpc&amp;utm_campaign=EDM%7CSA%7CP2%7CO2O+Appointment+Confirmation&amp;utm_content=logo' style='word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline' target='_blank'><img align='none' src='https://ci5.googleusercontent.com/proxy/pUUalkIKCfYBNDy3jLrAXaOG3fZKkCgfdmngGJRLq2z16WSbVoolnNEzM6URl0ebkOdGIJZbBsntZA4qwhNGC7iNAiEv_joIenDGsE-Lrv9ddo_wUPLfDJ7x0DolmiB-0r9la_aL9DT2iWAecsFUrfJn1VZqvuVgHQ1NeLw=s0-d-e1-ft#https://gallery.mailchimp.com/e03376087b8f7b09d66ad1fd2/images/c9050e8a-40a3-451c-ad15-4fcd44856132.jpg' style='margin:0px;border:0;outline:none;text-decoration:none;min-height:auto!important' class='CToWUd'></a></td></tr></tbody></table>"
+					       + "<table align='right' border='0' cellpadding='0' cellspacing='0' width='297' style='border-collapse:collapse'><tbody><tr><td valign='top' style='padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left'><div style='text-align:right'><br></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr>"
+					       + "<tr><td align='center' valign='top'><table border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse:collapse;background-color:#ffffff;border-top:0;border-bottom:0'>"
+					       + "<tbody><tr><td valign='top'><table border='0' cellpadding='0' cellspacing='0' width='100%' style='border-collapse:collapse'>"
+					       + "<tbody><tr><td valign='top' style='padding:0px'><table align='left' width='100%' border='0' cellpadding='0' cellspacing='0' style='border-collapse:collapse'>"
+					       + "<tbody><tr><td valign='top' style='padding-right:0px;padding-left:0px;padding-top:0;padding-bottom:0;text-align:center'><img align='center' alt='' "
+					       + "src='"+imgUrl+"' "
+					       + "width='600' style='max-width:600px;padding-bottom:0;display:inline!important;vertical-align:bottom;border:0;outline:none;text-decoration:none' class='CToWUd a6T' tabindex='0'>"
+					       + "<div class='a6S' dir='ltr' style='opacity: 0.01; left: 572px; top: 311px;'><div id=':sw' class='T-I J-J5-Ji aQv T-I-ax7 L3 a5q' role='button' tabindex='0' aria-label='Download attachment ' data-tooltip-class='a1V' data-tooltip='Download'>"
+					       + "<div class='aSK J-J5-Ji aYr'></div></div></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr>"
+					       + "<tr><td align='center' valign='top'><table border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse:collapse;background-color:#ffffff;border-top:0;border-bottom:0'>"
+					       + "<tbody><tr><td valign='top'><table border='0' cellpadding='0' cellspacing='0' width='100%' style='border-collapse:collapse'>"
+					       + "<tbody><tr><td valign='top'><table align='left' border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse:collapse'>"
+					       + "<tbody><tr><td valign='top' style='padding:9px 18px;line-height:125%;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px;text-align:left'><div style='text-align:center'>"
+					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>"
+					       + "Dear "+customerName+"，</span></span></p>"
+					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>Thank you for purchasing FWD Elite Term Insurance Plan via our website. Your first 2 months’ premium payment has been accepted. </p>"
+					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>多謝閣下經我們的網站投保富衛智理想定期保障計劃 。您的首2個月保費款項已被接納。</p>"
+					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>Your policy is not yet in force. To complete your application process, please upload your [HKID card copy], [passport copy] and [address proof] through the following link. </p>"
+					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>您的保單尚未正式生效，您需要通過以下的連結上載您的[身份證副本]，[護照複印件]和[住址證明]。</p>"
+					       + "<a style='color:#ff8c00' href='"+url+"'><span style='background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap;text-decoration:underline;'>Document Upload 上載檔案</span></a>&nbsp;</p>"
+					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>Please ensure you complete the application process within 30 days, otherwise your application will be void.  For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com.</p>"
+					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>請確保於30天內完成申請投保程序，否則您的投保申請會被作廢。如有任何查詢，請致電富衛客戶服務熱線(852) 3123 3123或電郵至cs.hk@fwd.com。</p>"
+					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>We wish you a happy life!</p>"
+					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>祝閣下生活愉快！</p>&nbsp;"
+					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>Regards,<br>FWD Life Insurance Company (Bermuda) Limited (“FWD”)<br>富衛人壽保險(百慕達)有限公司（「富衛」）謹啟</span></span></p></div></td></tr></tbody></table></td></tr></tbody></table>"
+					       + "<table border='0' cellpadding='0' cellspacing='0' width='100%' style='border-collapse:collapse'><tbody><tr><td style='padding:18px'>"
+					       + "<table border='0' cellpadding='0' cellspacing='0' width='100%' style='border-top-width:1px;border-top-style:dotted;border-top-color:#999999;border-collapse:collapse'>"
+					       + "<tbody><tr><td><span></span></td></tr></tbody></table></td></tr></tbody></table>"
+					       + "<table border='0' cellpadding='0' cellspacing='0' width='100%' style='border-collapse:collapse'><tbody><tr><td valign='top'>"
+					       + "<table align='left' border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse:collapse'>"
+					       + "<tbody><tr><td valign='top' style='padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px;line-height:150%;text-align:left'>"
+					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail. </p>"
+					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>備註：中英文本如有歧異，概以英文本為準。</p></td></tr></tbody></table></td></tr></tbody></table>"
+					       + "<table border='0' cellpadding='0' cellspacing='0' width='100%' style='border-collapse:collapse'><tbody><tr><td valign='top'>"
+					       + "<table align='left' border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse:collapse'>"
+					       + "<tbody><tr><td valign='top' style='padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px;line-height:150%;text-align:left'><div style='text-align:center'>備註：此乃電腦發出之電子郵件，請不要回覆。<br>Note: This is an automatically generated email, please do not reply.</div></td></tr></tbody></table></td></tr></tbody></table>"
+					       + "<table border='0' cellpadding='0' cellspacing='0' width='100%' style='border-collapse:collapse'><tbody><tr><td style='padding:18px'>"
+					       + "<table border='0' cellpadding='0' cellspacing='0' width='100%' style='border-top-width:1px;border-top-style:dotted;border-top-color:#999999;border-collapse:collapse'><tbody><tr><td><span></span></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr>"
+					       + "<tr><td align='center' valign='top'><table border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse:collapse;background-color:#ffffff;border-top:0;border-bottom:0'>"
+					       + "<tbody><tr><td valign='top' style='padding-bottom:9px'><table border='0' cellpadding='0' cellspacing='0' width='100%' style='border-collapse:collapse'>"
+					       + "<tbody><tr><td valign='top'><table align='left' border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse:collapse'><tbody>"
+					       + "<tr><td valign='top' style='padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left'><div style='text-align:center'>"
+					       + "<p dir='ltr' style='line-height:1.2;margin-top:0pt;margin-bottom:10pt;text-align:center;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>富衛人壽保險(百慕達)有限公司</span></span></p>"
+					       + "<p dir='ltr' style='line-height:1.2;margin-top:0pt;margin-bottom:10pt;text-align:center;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px'><a href='http://www.fwd.com/hk/?utm_source=edm&amp;utm_medium=cpc&amp;utm_campaign=EDM%7CSA%7CP2%7CO2O+Access+Code&amp;utm_content=copy' style='word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline' target='_blank'><span style='color:#ff8c00'><span style='font-family:microsoft jhenghei,calibri,sans-serif'><span><span style='background-color:transparent;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>www.fwd.com.hk</span></span></span></span></a></p></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></center></div></body></html>";
 			String subject = "FWD Elite Term – Pending ["+policyNo+"]";
 			String attachment = "";
 			String from = "FWD Elite Term <i-info.hk@fwd.com>";
