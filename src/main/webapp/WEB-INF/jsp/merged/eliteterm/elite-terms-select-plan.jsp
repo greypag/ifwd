@@ -331,12 +331,18 @@ var home_url = "<%=request.getContextPath()%>";
                               </div>
                               <div id="collapseThree" class="panel-collapse collapse et-select-plan-panel" role="tabpanel" aria-labelledby="headingThree">
                               <div class="et-panel-body" id="panelThree">
-                                    <p><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.line1" bundle="${msg}" /></p>
-                                    <p><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.line2" bundle="${msg}" /></p>
-                                    <p><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.line3" bundle="${msg}" /></p>
-                                    <p><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.line4" bundle="${msg}" /></p>
-                                    <p><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.line5" bundle="${msg}" /></p>
-                                    <p><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.line6" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-bold accordion-title"><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.t1" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-normal accordion-copy"><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.t1.copy" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-bold accordion-title"><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.t2" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-normal accordion-copy"><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.t2.copy" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-bold accordion-title"><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.t3" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-normal accordion-copy"><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.t3.copy" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-bold accordion-title"><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.t4" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-normal accordion-copy"><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.t4.copy" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-bold accordion-title"><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.t5" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-normal accordion-copy"><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.t5.copy" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-bold accordion-title"><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.t6" bundle="${msg}" /></p>
+                                    <p class="et-accrdion-txt-normal accordion-copy"><fmt:message key="eliteTerms.selectPlan.Key.Product.Risks.t6.copy" bundle="${msg}" /></p>
                               </div>
                               </div>
                            </div>
@@ -412,7 +418,30 @@ var home_url = "<%=request.getContextPath()%>";
                                     <div class="panel-body">
                                        <div class="row">
                                           <div class="col-xs-12 col-md-8">
-                                             <p><fmt:message key="eliteTerms.selectPlan.Question2.copy" bundle="${msg}" /></p>
+                                             <p>
+                                                <fmt:message key="eliteTerms.selectPlan.Question2.copy" bundle="${msg}" />
+                                                <div class="row et-disease-list"> 
+                                                   <ul class="col-xs-12 col-md-6">
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span1" bundle="${msg}" /></span></li>
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span2" bundle="${msg}" /></span></li>
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span3" bundle="${msg}" /></span></li>
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span4" bundle="${msg}" /></span></li>
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span5" bundle="${msg}" /></span></li>
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span6" bundle="${msg}" /></span></li>
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span7" bundle="${msg}" /></span></li>
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span8" bundle="${msg}" /></span></li>
+                                                      </ul>
+                                                   <ul class="col-xs-12 col-md-6">
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span9" bundle="${msg}" /></span></li>
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span10" bundle="${msg}" /></span></li>
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span11" bundle="${msg}" /></span></li>
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span12" bundle="${msg}" /></span></li>
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span13" bundle="${msg}" /></span></li>
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span14" bundle="${msg}" /></span></li>
+                                                      <li><span><fmt:message key="eliteTerms.selectPlan.span15" bundle="${msg}" /></span></li>
+                                                   </ul>
+                                                </div>
+                                             </p>
                                           </div>
                                           <div class="col-xs-12 col-md-4">
                                              <div class="row">
@@ -1721,14 +1750,16 @@ var home_url = "<%=request.getContextPath()%>";
                                        <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span5" bundle="${msg}" /></span></li>
                                        <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span6" bundle="${msg}" /></span></li>
                                        <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span7" bundle="${msg}" /></span></li>
-                                    </ul>
-                                    <ul class="col-xs-12 col-md-6">
                                        <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span8" bundle="${msg}" /></span></li>
+                                       </ul>
+                                    <ul class="col-xs-12 col-md-6">
                                        <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span9" bundle="${msg}" /></span></li>
                                        <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span10" bundle="${msg}" /></span></li>
                                        <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span11" bundle="${msg}" /></span></li>
                                        <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span12" bundle="${msg}" /></span></li>
                                        <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span13" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span14" bundle="${msg}" /></span></li>
+                                       <li><img src="<%=request.getContextPath()%>/resources/images/elite-terms/et-bullet.png"><span><fmt:message key="eliteTerms.selectPlan.span15" bundle="${msg}" /></span></li>
                                     </ul>
                                  </div>
                               </div>

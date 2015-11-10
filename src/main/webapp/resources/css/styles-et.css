@@ -16,6 +16,25 @@
 	padding-bottom: 0px;
 }
 
+.fwd-et-wrapper .et-panel-accordion li{
+	margin-bottom: 15px;
+}
+
+#et-medi-question-2 .et-disease-list ul li img{
+	float: left;
+    padding-right: 5px;
+    padding-top: 8px;
+    margin-left: -5px;
+}
+
+#et-medi-question-2 .et-disease-list ul {
+    margin: 0;
+    padding: 20px 0 20px 35px;
+}
+
+.et-panel-accordion .panel-collapse .accordion-copy{
+	margin-bottom: 20px;
+}
 
 /* ET landing tagline */
 .fwd-et-wrapper .banner-widget .tagline-holder{
