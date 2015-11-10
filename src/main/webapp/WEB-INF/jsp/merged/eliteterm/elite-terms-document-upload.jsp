@@ -161,7 +161,7 @@ var languageP = "${language}";
 													<span class="finish-upload-check"></span>
 												</div>
 											</div>
-											<input type="file" id="fileToUpload-hkid-dragAndDrop" class="hidden" accept="image/jpg,image/png" >
+											<input type="file" id="fileToUpload-hkid-dragAndDrop" class="hidden" accept="image/jpeg,image/jpg,image/png" >
 											<div class="select-file-hkid" id="hkid-drop-zone" for="fileToUpload-hkid-dragAndDrop">
 												<div class="finish-upload hidden" id="finish-upload-hkid">
 													<div class="center-align">
@@ -185,7 +185,7 @@ var languageP = "${language}";
 													</div>
 													<div class="mob-desk">
 														<label for="hkidFileToUpload" class="orange-select-file">
-															<input type="file" id="hkidFileToUpload" accept="image/jpg,image/png" onchange="fileSelected('hkid-copy-progress','hkidFileToUpload','hkid-docu-filename','hkid-docu-fileSize','finish-upload-hkid','hkid-upload-percent-text','hkid-upload-progress-bar','', '#et-hkid-file-message');">
+															<input type="file" id="hkidFileToUpload" accept="image/jpeg,image/jpg,image/png" onchange="fileSelected('hkid-copy-progress','hkidFileToUpload','hkid-docu-filename','hkid-docu-fileSize','finish-upload-hkid','hkid-upload-percent-text','hkid-upload-progress-bar','', '#et-hkid-file-message');">
 															<span class="input-file-text"><fmt:message key="eliteTerms.documentUpload.Select.files" bundle="${msg}" /></span>
 														</label>
 													</div>
@@ -228,7 +228,7 @@ var languageP = "${language}";
 													<span class="finish-upload-check"></span>
 												</div>
 											</div>
-											<input type="file" id="fileToUpload-passport-dragAndDrop" class="hidden" accept="image/jpg,image/png" >
+											<input type="file" id="fileToUpload-passport-dragAndDrop" class="hidden" accept="image/jpeg,image/jpg,image/png" >
 											<div class="select-file-passport" id="passport-drop-zone" for="fileToUpload-passport-dragAndDrop">
 												<div class="finish-upload hidden" id="finish-upload-passport">
 													<div class="center-align">
@@ -252,7 +252,7 @@ var languageP = "${language}";
 													</div>
 													<div class="mob-desk">
 														<label for="passportFileToUpload" class="orange-select-file">
-															<input type="file" id="passportFileToUpload" accept="image/jpg,image/png" onchange="fileSelected('passport-copy-progress','passportFileToUpload','passport-docu-filename','passport-docu-fileSize','finish-upload-passport','passport-upload-percent-text','passport-upload-progress-bar','', '#et-passport-file-message');">
+															<input type="file" id="passportFileToUpload" accept="image/jpeg,image/jpg,image/png" onchange="fileSelected('passport-copy-progress','passportFileToUpload','passport-docu-filename','passport-docu-fileSize','finish-upload-passport','passport-upload-percent-text','passport-upload-progress-bar','', '#et-passport-file-message');">
 															<span class="input-file-text"><fmt:message key="eliteTerms.documentUpload.Select.files" bundle="${msg}" /></span>
 														</label>
 													</div>
@@ -295,7 +295,7 @@ var languageP = "${language}";
 													<span class="finish-upload-check"></span>
 												</div>
 											</div>
-											<input type="file" id="fileToUpload-addr-dragAndDrop" class="hidden" accept="image/jpg,image/png">
+											<input type="file" id="fileToUpload-addr-dragAndDrop" class="hidden" accept="image/jpeg,image/jpg,image/png">
 											<div class="select-file" id="drop-zone" for="fileToUpload-addr-dragAndDrop">	
 												<div class="select-file-section" id="select-file-section-address">
 													<div class="mob hidden-md hidden-lg">
@@ -314,7 +314,7 @@ var languageP = "${language}";
 													</div>
 													<div class="mob-desk">
 														<label for="fileToUploadProofAdd" class="orange-select-file">
-															<input type="file" id="fileToUploadProofAdd" accept="image/jpg,image/png" onchange="fileSelected('proof-of-address-progress','fileToUploadProofAdd','address-docu-filename','address-docu-fileSize','finish-upload-addr','docu-upload-percent-text','document-upload-progress-bar','', '#et-address-file-message');">
+															<input type="file" id="fileToUploadProofAdd" accept="image/jpeg,image/jpg,image/png" onchange="fileSelected('proof-of-address-progress','fileToUploadProofAdd','address-docu-filename','address-docu-fileSize','finish-upload-addr','docu-upload-percent-text','document-upload-progress-bar','', '#et-address-file-message');">
 															<span class="input-file-text"><fmt:message key="eliteTerms.documentUpload.Select.files" bundle="${msg}" /></span>
 														</label>
 													</div>

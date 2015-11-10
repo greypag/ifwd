@@ -314,18 +314,18 @@ $(function() {
 				container: '#beneficiaryFnameMessage\\[0\\]',
 				validators: {
 					notEmpty: {
-						message: 'Please enter Beneficiary Given Name in English.'
+						message: getBundle(getBundleLanguage, "form.beneficiary.firstname.empty")
                     },
 					stringLength: {
                         max: 25,
-                        message: 'Given Name must be no more than 25 characters.'
+                        message: getBundle(getBundleLanguage, "form.beneficiary.firstname.length")
                     },
 					regexp: {
 						regexp: /^[a-zA-Z\s]+$/ ,
-						message: 'Please enter Beneficiary Given Name in English.'
+						message: getBundle(getBundleLanguage, "form.beneficiary.firstname.english")
 					},
                callback: {
-                  message: 'Invalid Given Name in English.',
+                  message: getBundle(getBundleLanguage, "form.beneficiary.firstname.invalid"),
                   callback: function (value, validator) {
                      return value !== document.getElementById('savieBeneficiaryBean[0].firstName').getAttribute('placeholder');
                   }
@@ -336,19 +336,19 @@ $(function() {
 				container: '#beneficiaryLnameMessage\\[0\\]',
 				validators: {
 					notEmpty: {
-						message: 'Please enter Beneficiary Last Name in English..'
+						message: getBundle(getBundleLanguage, "form.beneficiary.lastname.empty")
                     },
 					stringLength: {
                         min: 1,
                         max: 25,
-                        message: 'Last Name must be no more than 25 characters.'
+                        message: getBundle(getBundleLanguage, "form.beneficiary.lastname.length")
                     },
 					regexp: {
 						regexp: /^[a-zA-Z\s]+$/ ,
-						message: 'Please enter Beneficiary Last Name in English.'
+						message: getBundle(getBundleLanguage, "form.beneficiary.lastname.english")
 					},
                callback: {
-                  message: 'Invalid Last Name in English.',
+                  message: getBundle(getBundleLanguage, "form.beneficiary.lastname.invalid"),
                   callback: function (value, validator) {
                      return value !== document.getElementById('savieBeneficiaryBean[0].lastName').getAttribute('placeholder');
                   }
@@ -361,57 +361,56 @@ $(function() {
 					stringLength: {
                         min: 1,
                         max: 6,
-                        message: 'Chinese Name must be no more than 6 characters.'
+                        message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
                     },
 					regexp: {
 						regexp: /[^\x00-\x7F]/,
-						message: 'Please enter Beneficiary Chinese Name.'
+						message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
 					},
-               callback: {
-                  message: 'Invalid Beneficiary Chinese Name.',
-                  callback: function (value, validator) {
-                     return value !== document.getElementById('savieBeneficiaryBean[0].chineseName').getAttribute('placeholder');
-                  }
-               }
+	               callback: {
+	                  message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid"),
+	                  callback: function (value, validator) {
+	                     return value !== document.getElementById('savieBeneficiaryBean[0].chineseName').getAttribute('placeholder');
+	                  }
+	               }
 				}
 			},
 			'savieBeneficiaryBean[0].passportNo':{
 				container: '#bnfPassportMessage\\[0\\]',
-			//	enabled: true,
 				validators: {
+					stringLength: {
+                        min: 5,
+                        max: 15,
+                        message: getBundle(getBundleLanguage, "form.beneficiary.passport.length")
+                    },
 					notEmpty: {
-						message: 'Please enter Beneficiary HKID No. / Passport No.'
-               },
-               regexp: {
-                  regexp: /[a-zA-Z0-9]/,
-                  message: 'Please enter Beneficiary HKID No. / Passport No.'
-               }
+						message: getBundle(getBundleLanguage, "form.beneficiary.passport.empty")
+	               },
+	               regexp: {
+	                  regexp: /[a-zA-Z0-9]/,
+	                  message: getBundle(getBundleLanguage, "form.beneficiary.passport.invalid")
+	               }
 				}
 			},
 			'savieBeneficiaryBean[0].hkId':{
 				container: '#hkidOrPassportMessage\\[0\\]',
-			//	enabled: true,
 				validators: {
 					notEmpty: {
-						message: 'Please enter Beneficiary HKID No. / Passport No.'
+						message: getBundle(getBundleLanguage, "form.beneficiary.hkid.empty")
 					},
-//               regexp: {
-//            	   regexp: /(^[a-z|A-Z|1-9]){1}([A-Z|1-9]){6}\(?([A-Z|1-9]){1}\)?$/g,
-//                  message: 'Please enter Beneficiary HKID No. / Passport No.'
-//               },
 					callback: {
-                  message: 'Your HKID No. is invalid.',
-                  callback: function(value, validator) {
-                     return isValidHKID(value);
-                  }
-               }
+	                  message: getBundle(getBundleLanguage, "form.beneficiary.hkid.invalid"),
+	                  callback: function(value, validator) {
+	                     return isValidHKID(value);
+	                  }
+	               }
 				}
 			},
 			'savieBeneficiaryBean[0].relationship':{
 				container: '#relationshipMessage\\[0\\]',
 				validators: {
 					notEmpty: {
-						message: 'Please select the Beneficiary Relationship with You..'
+						message: getBundle(getBundleLanguage, "form.beneficiary.relationship.empty")
 					}
 				}
 			},
@@ -420,10 +419,10 @@ $(function() {
 				validators: {
 					regexp: {
 						regexp: /[0-9]/, // /^(?:[1-9]\d?|100)$/,
-						message: 'Please enter the Entitlement in integer.'
+						message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
 					},
 					callback: {
-						message: 'Total Beneficiary Entitlement must be 100%.',
+						message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
 						callback: function (value, validator, $field) {
 							if(totalBeneficiaryEntitlement() == "Exceed"){
 								return false;
@@ -471,18 +470,18 @@ $(function() {
 	               container: '#beneficiaryFnameMessage\\[1\\]',
 	               validators: {
 	               notEmpty: {
-	                  message: 'Please enter Beneficiary Given Name in English.'
+	                  message: getBundle(getBundleLanguage, "form.beneficiary.firstname.empty")
 	                    },
 	               stringLength: {
 	                        max: 25,
-	                        message: 'Given Name must be no more than 25 characters.'
+	                        message: getBundle(getBundleLanguage, "form.beneficiary.firstname.length")
 	                    },
 	               regexp: {
 	                  regexp: /^[a-zA-Z\s]+$/ ,
-	                  message: 'Please enter Beneficiary Given Name in English.'
+	                  message: getBundle(getBundleLanguage, "form.beneficiary.firstname.english")
 	               },
 	               callback: {
-	                  message: 'Invalid Given Name in English.',
+	                  message: getBundle(getBundleLanguage, "form.beneficiary.firstname.invalid"),
 	                  callback: function (value, validator) {
 	                     return value !== document.getElementById('savieBeneficiaryBean[1].firstName').getAttribute('placeholder');
 	                  }
@@ -493,19 +492,19 @@ $(function() {
 	               container: '#beneficiaryLnameMessage\\[1\\]',
 	               validators: {
 	               notEmpty: {
-	                  message: 'Please enter Beneficiary Last Name in English..'
+	                  message: getBundle(getBundleLanguage, "form.beneficiary.lastname.empty")
 	                    },
 	               stringLength: {
 	                        min: 1,
 	                        max: 25,
-	                        message: 'Last Name must be no more than 25 characters.'
+	                        message: getBundle(getBundleLanguage, "form.beneficiary.lastname.length")
 	                    },
 	               regexp: {
 	                  regexp: /^[a-zA-Z\s]+$/ ,
-	                  message: 'Please enter Beneficiary Last Name in English.'
+	                  message: getBundle(getBundleLanguage, "form.beneficiary.lastname.english")
 	               },
 	               callback: {
-	                  message: 'Invalid Last Name in English.',
+	                  message: getBundle(getBundleLanguage, "form.beneficiary.lastname.invalid"),
 	                  callback: function (value, validator) {
 	                     return value !== document.getElementById('savieBeneficiaryBean[1].lastName').getAttribute('placeholder');
 	                  }
@@ -518,14 +517,14 @@ $(function() {
 	                  stringLength: {
 	                           min: 1,
 	                           max: 6,
-	                           message: 'Chinese Name must be no more than 6 characters.'
+	                           message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
 	                       },
 	                  regexp: {
 	                     regexp: /[^\x00-\x7F]/,
-	                     message: 'Please enter Beneficiary Chinese Name.'
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
 	                  },
 	                  callback: {
-	                     message: 'Invalid Beneficiary Chinese Name.',
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid"),
 	                     callback: function (value, validator) {
 	                        return value !== document.getElementById('savieBeneficiaryBean[1].chineseName').getAttribute('placeholder');
 	                     }
@@ -535,12 +534,17 @@ $(function() {
 	            'savieBeneficiaryBean[1].passportNo':{
 	               container: '#bnfPassportMessage\\[1\\]',
 	               validators: {
+	                  stringLength: {
+                           min: 1,
+                           max: 6,
+                           message: getBundle(getBundleLanguage, "form.beneficiary.passport.length")
+                       },
 	                  notEmpty: {
-	                     message: 'Please enter Beneficiary HKID No. / Passport No.'
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.passport.empty")
 	                  },
 	                  regexp: {
 	                     regexp: /[a-zA-Z0-9]/,
-	                     message: 'Please enter Beneficiary HKID No. / Passport No.'
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.passport.invalid")
 	                  }
 	               }
 	            },
@@ -548,14 +552,10 @@ $(function() {
 	               container: '#hkidOrPassportMessage\\[1\\]',
 	               validators: {
 	                  notEmpty: {
-	                     message: 'Please enter Beneficiary HKID No. / Passport No.'
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.hkid.empty")
 	                  },
-//	                  regexp: {
-//	                	  regexp: /(^[a-z|A-Z|1-9]){1}([A-Z|1-9]){6}\(?([A-Z|1-9]){1}\)?$/g,
-//	                     message: 'Please enter Beneficiary HKID No. / Passport No.'
-//	                  },
 	                  callback: {
-	                     message: 'Your HKID No. is invalid.',
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.hkid.invalid"),
 	                     callback: function(value, validator) {
 	                        return isValidHKID(value);
 	                     }
@@ -566,7 +566,7 @@ $(function() {
 	               container: '#relationshipMessage\\[1\\]',
 	               validators: {
 	                  notEmpty: {
-	                     message: 'Please select the Beneficiary Relationship with You..'
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.relationship.empty")
 	                  }
 	               }
 	            },
@@ -575,10 +575,10 @@ $(function() {
 	               validators: {
 	                  regexp: {
 	                     regexp: /[0-9]/, // /^(?:[1-9]\d?|100)$/,
-	                     message: 'Please enter the Entitlement in integer.'
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
 	                  },
 	                  callback: {
-	                     message: 'Total Beneficiary Entitlement must be 100%.',
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
 	                     callback: function (value, validator, $field) {
 	                        if(totalBeneficiaryEntitlement() == "Exceed"){
 	                           return false;
@@ -638,18 +638,18 @@ $(function() {
 					container: '#beneficiaryFnameMessage\\[2\\]',
 					validators: {
 					notEmpty: {
-						message: 'Please enter Beneficiary Given Name in English.'
+						message: getBundle(getBundleLanguage, "form.beneficiary.firstname.empty")
                     },
 					stringLength: {
                         max: 25,
-                        message: 'Given Name must be no more than 25 characters.'
+                        message: getBundle(getBundleLanguage, "form.beneficiary.firstname.length")
                     },
-//					regexp: {
-//						regexp: /(^[a-z|A-Z|1-9]){1}([A-Z|1-9]){6}\(?([A-Z|1-9]){1}\)?$/g,
-//						message: 'Please enter Beneficiary Given Name in English.'
-//					},
+                  regexp: {
+	                     regexp: /^[a-zA-Z\s]+$/ ,
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.firstname.english")
+	                  },
                callback: {
-                  message: 'Invalid Given Name in English.',
+                  message: getBundle(getBundleLanguage, "form.beneficiary.firstname.invalid"),
                   callback: function (value, validator) {
                      return value !== document.getElementById('savieBeneficiaryBean[2].firstName').getAttribute('placeholder');
                   }
@@ -659,20 +659,20 @@ $(function() {
 				'savieBeneficiaryBean[2].lastName':{
 					container: '#beneficiaryLnameMessage\\[2\\]',
 					validators: {
-                  notEmpty: {
-                     message: 'Please enter Beneficiary Last Name in English..'
-                       },
-                  stringLength: {
-                           min: 1,
-                           max: 25,
-                           message: 'Last Name must be no more than 25 characters.'
-                       },
-                  regexp: {
-                     regexp: /^[a-zA-Z\s]+$/ ,
-                     message: 'Please enter Beneficiary Last Name in English.'
-                  },
+	                  notEmpty: {
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.lastname.empty")
+	                       },
+	                  stringLength: {
+	                           min: 1,
+	                           max: 25,
+	                           message: getBundle(getBundleLanguage, "form.beneficiary.lastname.length")
+	                       },
+	                  regexp: {
+	                     regexp: /^[a-zA-Z\s]+$/ ,
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.lastname.english")
+	                  },
                   callback: {
-                     message: 'Invalid Last Name in English.',
+                     message: getBundle(getBundleLanguage, "form.beneficiary.lastame.invalid"),
                      callback: function (value, validator) {
                         return value !== document.getElementById('savieBeneficiaryBean[2].lastName').getAttribute('placeholder');
                      }
@@ -685,14 +685,14 @@ $(function() {
                   stringLength: {
                            min: 1,
                            max: 6,
-                           message: 'Chinese Name must be no more than 6 characters.'
+                           message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
                        },
                   regexp: {
                      regexp: /[^\x00-\x7F]/,
-                     message: 'Please enter Beneficiary Chinese Name.'
+                     message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
                   },
                   callback: {
-                     message: 'Invalid Beneficiary Chinese Name.',
+                     message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid"),
                      callback: function (value, validator) {
                         return value !== document.getElementById('savieBeneficiaryBean[2].chineseName').getAttribute('placeholder');
                      }
@@ -702,12 +702,17 @@ $(function() {
 				'savieBeneficiaryBean[2].passportNo':{
 					container: '#bnfPassportMessage\\[2\\]',
 					validators: {
+                  stringLength: {
+                       min: 5,
+                       max: 15,
+                       message: getBundle(getBundleLanguage, "form.beneficiary.passport.length")
+                   },
                   notEmpty: {
-                     message: 'Please enter Beneficiary HKID No. / Passport No.'
-                  },
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.passport.empty")
+	                  },
                   regexp: {
                      regexp: /[a-zA-Z0-9]/,
-                     message: 'Please enter Beneficiary HKID No. / Passport No.'
+                     message: getBundle(getBundleLanguage, "form.beneficiary.passport.invalid")
                   }
                }
 				},
@@ -715,14 +720,10 @@ $(function() {
 					container: '#hkidOrPassportMessage\\[2\\]',
 					validators: {
                   notEmpty: {
-                     message: 'Please enter Beneficiary HKID No. / Passport No.'
-                  },
-                  regexp: {
-                     regexp: /[A-Z0-9()]/,
-                     message: 'Please enter Beneficiary HKID No. / Passport No.'
+                     message: getBundle(getBundleLanguage, "form.beneficiary.hkid.empty")
                   },
                   callback: {
-                     message: 'Your HKID No. is invalid.',
+                     message: getBundle(getBundleLanguage, "form.beneficiary.invalid.invalid"),
                      callback: function(value, validator) {
                         return isValidHKID(value);
                      }
@@ -733,7 +734,7 @@ $(function() {
 					container: '#relationshipMessage\\[2\\]',
 					validators: {
                   notEmpty: {
-                     message: 'Please select the Beneficiary Relationship with You..'
+                     message: getBundle(getBundleLanguage, "form.beneficiary.relationship.empty")
                   }
                }
 				},
@@ -742,10 +743,10 @@ $(function() {
 					validators: {
                   regexp: {
                      regexp: /[0-9]/, // /^(?:[1-9]\d?|100)$/,
-                     message: 'Please enter the Entitlement in integer.'
+                     message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
                   },
                   callback: {
-                     message: 'Total Beneficiary Entitlement must be 100%.',
+                     message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
                      callback: function (value, validator, $field) {
                         if(totalBeneficiaryEntitlement() == "Exceed"){
                            return false;
@@ -839,7 +840,7 @@ $(function() {
 					container: '#employmentStatusMessage',
 					validators: {
 						notEmpty: {
-							message: 'Please select your Employment Status.'
+							message: getBundle(getBundleLanguage, "form.employment.status.empty")
 						}
 					}
 				},
@@ -847,7 +848,7 @@ $(function() {
 					container: '#occupationMessage',
 					validators: {
 						notEmpty: {
-							message: 'Please select an Occupation.'
+							message: getBundle(getBundleLanguage, "form.employment.occupation.empty")
 						}
 					}
 				},
@@ -855,7 +856,7 @@ $(function() {
 					container: '#natureOfBusinessMessage',
 					validators: {
 						notEmpty: {
-							message: 'Please select a Nature of Business.'
+							message: getBundle(getBundleLanguage, "form.employment.nature.empty")
 						}
 					}
 				},
@@ -863,7 +864,7 @@ $(function() {
 					container: '#monthlyIncomeMessage',
 					validators: {
 						notEmpty: {
-							message: 'Please select your Monthly Personal Income (HK$).'
+							message: getBundle(getBundleLanguage, "form.employment.income.empty")
 						}
 					}
 				}
@@ -897,12 +898,12 @@ $(function() {
 					container: '#resLine1Message',
 					validators: {
 						notEmpty: {
-							message: 'Please enter your Address.'
+							message: getBundle(getBundleLanguage, "form.address.empty")
 						},
 						stringLength: {
 							min: 4,
 							max: 100,
-							message: 'Please enter your Address.'
+							message: getBundle(getBundleLanguage, "form.address.length")
 						}
 					}
 				},
@@ -911,7 +912,7 @@ $(function() {
 					container: '#resDistrictMessage',
 					validators: {
 						notEmpty: {
-							message: 'Please select a district.'
+							message: getBundle(getBundleLanguage, "form.address.distict.empty")
 						}
 					}
 				},
@@ -921,7 +922,7 @@ $(function() {
 						stringLength: {
 							min: 11,
 							max: 11,
-							message: 'Mobile No. should be in 8 digit.'
+							message: getBundle(getBundleLanguage, "form.mobile.empty")
 						}
 					}
 				},
@@ -929,14 +930,14 @@ $(function() {
 					container: '#hkidMessage',
 					validators: {
 						notEmpty: {
-							message: 'Please enter your HKID No.'
+							message: getBundle(getBundleLanguage, "form.hkid.empty")
 						},
 						regexp: {
 							regexp: /^[A-Z0-9]*$/,
-							message: 'Your HKID No. is invalid.'
+							message: getBundle(getBundleLanguage, "form.hkid.invalid")
 						},
 						callback: {
-                     message: 'Your HKID No. is invalid.',
+                     message: getBundle(getBundleLanguage, "form.hkid.invalid"),
                      callback: function(value, validator) {
                                     return isValidHKID(value);
                                 }
@@ -947,7 +948,7 @@ $(function() {
 					container: '#maritalStatusMessage',
 					validators: {
 						notEmpty: {
-							message: 'Please select your Marital Status.'
+							message: getBundle(getBundleLanguage, "form.marital.empty")
 						}
 					}
 				},
@@ -955,11 +956,11 @@ $(function() {
 					container: '#emailMessage',
 					validators: {
 						notEmpty: {
-							message: 'Please enter your Email Address.'
+							message: getBundle(getBundleLanguage, "form.email.empty")
 						},
 						regexp:{
 							regexp:/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-							message: 'Your Email Address is invalid.'
+							message: getBundle(getBundleLanguage, "form.email.invalid")
 						}
 					}
 				},
@@ -968,7 +969,7 @@ $(function() {
 					validators: {
 						regexp:{
 							regexp: /^[5689][0-9]{2}$/,
-							message: 'Your Mobile No. is invalid.'
+							message: getBundle(getBundleLanguage, "form.mobile.invalid")
 						}
 					}
 				},
@@ -977,7 +978,7 @@ $(function() {
 					validators: {
 						regexp:{
 							regexp: /^[0-9]{4}$/,
-							message: 'Mobile No. should be in 8 digit.'
+							message: getBundle(getBundleLanguage, "form.mobile.length")
 						}
 					}
 				},
@@ -986,7 +987,7 @@ $(function() {
 					validators: {
 						regexp:{
 							regexp: /^[0-9]{4}$/,
-							message: 'Mobile No. should be in 8 digit.'
+							message: getBundle(getBundleLanguage, "form.mobile.length")
 						}
 					}
 				},
@@ -995,7 +996,7 @@ $(function() {
 					validators: {
 						regexp:{
 							regexp: /^[0-9]{4}$/,
-							message: 'Your Telephone No. is invalid.'
+							message: getBundle(getBundleLanguage, "form.tel.invalid")
 						}
 					}
 				},
@@ -1004,7 +1005,7 @@ $(function() {
 					validators: {
 						regexp:{
 							regexp: /^[0-9]{4}$/,
-							message: 'Your Telephone No. is invalid.'
+							message: getBundle(getBundleLanguage, "form.tel.invalid")
 						}
 					}
 				},
@@ -1013,7 +1014,7 @@ $(function() {
 					validators: {
 						regexp:{
 							regexp: /^[0-9]{4}$/,
-							message: 'Your Telephone No. is invalid.'
+							message: getBundle(getBundleLanguage, "form.tel.invalid")
 						}
 					}
 				},
@@ -1021,7 +1022,7 @@ $(function() {
 					container: '#placeOfBirthMessage',
 					validators: {
 						notEmpty: {
-							message: 'Must select place of birth.'
+							message: getBundle(getBundleLanguage, "form.birthPlace.empty")
 						}
 					}
 				},
@@ -1029,7 +1030,7 @@ $(function() {
 					container: '#nationalityMessage',
 					validators: {
 						notEmpty: {
-							message: 'Please select your Nationality.'
+							message: getBundle(getBundleLanguage, "form.nationality.empty")
 						}
 					}
 				},
@@ -1037,7 +1038,7 @@ $(function() {
 					container: '#dobMessage',
 					validators: {
 						notEmpty: {
-							message: 'Please enter date of birth.'
+							message: getBundle(getBundleLanguage, "form.dob.empty")
 						}
 					}
 				}

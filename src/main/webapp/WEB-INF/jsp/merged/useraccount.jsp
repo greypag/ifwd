@@ -180,38 +180,38 @@
 						<table class="table acc-form">
 							<tbody>
 								<tr>
-									<td colspan="2" class=""><h2 class="black-bold pad-none">Member Details</h2></td>
+									<td colspan="2" class=""><h2 class="black-bold pad-none"><fmt:message key="member.registration.tab.details" bundle="${msg}" /></h2></td>
 								</tr>
 								<tr>
 									<td valign="middle" class="col-sm-4 "><label
-										for="fullName" class="control-label">Full name</label></td>
+										for="fullName" class="control-label"><fmt:message key="member.registration.details.label.fullName" bundle="${msg}" /></label></td>
 									<td class=""><input type="text"
 										class="form-control" id="fullName" name="fullName"
-										value="${userDetails.getFullName() }" placeholder="Full name" />"></td>
+										value="${userDetails.getFullName() }" placeholder="<fmt:message key="member.registration.details.label.fullName" bundle="${msg}" />" />"></td>
 								</tr>
 								<tr>
 									<td valign="middle" class=""><label for="mobileNo"
-										class="control-label">Mobile no</label></td>
+										class="control-label"><fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" /></label></td>
 									<td class=""><input type="text"
 										class="form-control" id="mobileNo" name="mobileNo"
 										value="${userDetails.getMobileNo() }"
-										placeholder="Mobile number"></td>
+										placeholder="<fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" />"></td>
 								</tr>
 								<tr>
 									<td valign="middle" class=""><label
-										for="emailAddress" class="control-label">Email address</label></td>
+										for="emailAddress" class="control-label"><fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" /></label></td>
 									<td class=""><input type="email"
 										class="form-control" id="emailAdderss" name="emailAddress"
 										value="${userDetails.getEmailAddress() }"
-										placeholder="Email address"></td>
+										placeholder="<fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" />"></td>
 								</tr>
 								<tr>
 									<td valign="middle" class=""><label for="userName"
-										class="control-label">Username</label></td>
+										class="control-label"><fmt:message key="member.registration.details.label.userName" bundle="${msg}" /></label></td>
 									<td class=""><input type="text"
 										value="${userDetails.getUserName() }" class="form-control"
 										onkeypress="return validationUsername(event);"
-										id="userName" placeholder="Username" name="userName"></td>
+										id="userName" placeholder="<fmt:message key="member.registration.details.label.userName" bundle="${msg}" />" name="userName"></td>
 									<td class="width1"><a href="#" data-toggle="tooltip"
 										data-placement="bottom"
 										title="Username must be between 6 and 50 characters. ">
@@ -220,42 +220,40 @@
 								</tr>
 								<tr>
 									<td valign="middle" class=""><label for="password"
-										class="control-label">Password</label></td>
+										class="control-label"><fmt:message key="member.registration.details.label.password" bundle="${msg}" /></label></td>
 									<td class=""><input type="password" autocomplete="off"
 										name="password" id="password" class="form-control"
-										id="inputEmail3" placeholder="Password"></td>
+										id="inputEmail3" placeholder="<fmt:message key="member.registration.details.label.password" bundle="${msg}" />"></td>
 									<td class="width1"><a href="#" data-toggle="tooltip"
 										data-placement="bottom"
-										title="Password must be at least 8 characters and alphanumeric (both upper AND lower cases). ">
+										title="<fmt:message key="member.registration.Password.must.be.at.least.8" bundle="${msg}" />">
 											<img src="<%=request.getContextPath()%>/resources/images/ic.png">
 									</a></td>
 								</tr>
 								<tr>
 									<td valign="middle" class=""><label
-										for="confirmPassword" class="control-label">Confirm
-											password</label></td>
+										for="confirmPassword" class="control-label"><fmt:message key="member.registration.details.label.confirmPassword" bundle="${msg}" /></label></td>
 									<td class=""><input type="password"
 										class="form-control" id="confirmPassword" autocomplete="off"
-										name="confirmPassword" placeholder="Confirm Password"></td>
+										name="confirmPassword" placeholder="<fmt:message key="member.registration.details.label.confirmPassword" bundle="${msg}" />"></td>
 								</tr>
 							</tbody>
 						</table>
 
 
-						<h4 class="h4-2 padding5">Declaration</h4>
+						<h4 class="h4-2 padding5"><fmt:message key="member.registration.Declaration" bundle="${msg}" /></h4>
 						<br>
 						<div class="declaration-content1">
 							<div class="checkbox">
 								<input id="checkbox1" type="checkbox"> <label
-									for="checkbox1">I have read and understood the above <a
-									href="#" class="sub-link-underline">Terms and Conditions</a>
-									and "Personal Information Collection Statement" and agree to be
-									bound by the same.
+									for="checkbox1"><fmt:message key="member.registration.I.have.read.and.understood" bundle="${msg}" /> <a
+									href="#" class="sub-link-underline"><fmt:message key="member.registration.Terms.and.Conditions" bundle="${msg}" /></a>
+									<fmt:message key="member.registration.and.Personal.Information" bundle="${msg}" />
 								</label>
 							</div>
 							<div class="checkbox">
 								<input id="checkbox2" type="checkbox"> <label
-									for="checkbox2"> If you do NOT wish The Company to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below to exercise </label>
+									for="checkbox2"> <fmt:message key="member.registration.If.you.do.NOT.wish" bundle="${msg}" /> </label>
 							</div>
 
 
@@ -369,58 +367,60 @@
                         
 					<div class="tab-pane text-style pad-none" id="tab2">
                         <div class="clearfix hidden-xs hidden-sm">
-                             <h2 style="color:#ff8200; margin-left:20px; margin-top:20px; font-size:30px;">Purchase history</h2>
+                             <h2 style="color:#ff8200; margin-left:20px; margin-top:20px; font-size:30px;"><fmt:message key="member.registration.tab.purchaseHistory" bundle="${msg}" /></h2>
                         </div>
                         
-                        <div class="plan-item first hidden-md hidden-lg">
+                        <%-- <div class="plan-item first hidden-md hidden-lg">
                             <div class="plan-item-cols odd plan-item-cols-top">
-                                <h5 class="hidden-md hidden-lg">Plan name</h5>
+                                <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Plan.name" bundle="${msg}" /></h5>
                                 <p>TravelCare</p>
                             </div>
                             <div class="plan-item-cols odd plan-item-cols-top">
-                                <h5 class="hidden-md hidden-lg">Policy no.</h5>
+                                <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Policy.no" bundle="${msg}" /></h5>
                                 <p>3AW32DEO</p>
                             </div>
                             <div class="plan-item-cols odd plan-item-cols-bottom">
-                                <h5 class="hidden-md hidden-lg">Day start</h5>
+                                <h5 class="hidden-md hidden-lg"><fmt:message key="member.registration.Day.start" bundle="${msg}" /></h5>
                                 <p>21<sup>th</sup> April 15</p>
                             </div>
                             <div class="plan-item-cols odd plan-item-cols-bottom">
-                                <h5 class="hidden-md hidden-lg">Day end</h5>
+                                <h5 class="hidden-md hidden-lg"><fmt:message key="member.registration.Day.end" bundle="${msg}" /></h5>
                                 <p class="hidden-lg hidden-md">21<sup>th</sup> April 16</p>
                             </div>
-                        </div>
+                        </div> --%>
                         
-                        <div class="plan-item first even hidden-md hidden-lg">
-                            <div class="plan-item-cols odd plan-item-cols-top">
-                                <h5 class="hidden-md hidden-lg">Plan name</h5>
-                                <p>Easy HomeCare</p>
-                            </div>
-                            <div class="plan-item-cols odd plan-item-cols-top">
-                                <h5 class="hidden-md hidden-lg">Policy no.</h5>
-                                <p>2QB93GT8</p>
-                            </div>
-                            <div class="plan-item-cols odd plan-item-cols-bottom">
-                                <h5 class="hidden-md hidden-lg">Day start</h5>
-                                <p>21<sup>th</sup> February 15</p>
-                            </div>
-                            <div class="plan-item-cols odd plan-item-cols-bottom">
-                                <h5 class="hidden-md hidden-lg">Day end</h5>
-                                <p class="hidden-lg hidden-md">21<sup>th</sup> February  16</p>
-                            </div>
-                        </div>
+                        <c:forEach items="${policiesGI}" var="i" varStatus="obj">
+	                        <div class="plan-item first even hidden-md hidden-lg">
+	                            <div class="plan-item-cols odd plan-item-cols-top">
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Plan.name" bundle="${msg}" /></h5>
+	                                <p>${i.planCode}</p>
+	                            </div>
+	                            <div class="plan-item-cols odd plan-item-cols-top">
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Policy.no" bundle="${msg}" /></h5>
+	                                <p>${i.policyNumber}</p>
+	                            </div>
+	                            <div class="plan-item-cols odd plan-item-cols-bottom">
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="member.registration.Day.start" bundle="${msg}" /></h5>
+	                                <p>${i.submissionDate}</p>
+	                            </div>
+	                            <div class="plan-item-cols odd plan-item-cols-bottom">
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="member.registration.Day.end" bundle="${msg}" /></h5>
+	                                <p class="hidden-lg hidden-md">${i.commencementDate}</p>
+	                            </div>
+	                        </div>
+                        </c:forEach>
                         
                         <div class="plan-item plan-item-empty first hidden-md hidden-lg">
                         </div>
                         
                         
-                        <div class="plan-item first even hidden-md hidden-lg">
+                        <!-- <div class="plan-item first even hidden-md hidden-lg">
                             <div class="plan-item-cols odd plan-item-cols-top">
-                                <h5 class="hidden-md hidden-lg">Plan name</h5>
+                                <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Plan.name" bundle="${msg}" /></h5>
                                 <p>Savie</p>
                             </div>
                             <div class="plan-item-cols odd plan-item-cols-top">
-                                <h5 class="hidden-md hidden-lg">Policy no.</h5>
+                                <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Policy.no" bundle="${msg}" /></h5>
                                 <p>5HG21FOP</p>
                             </div>
                             <div class="plan-item-cols odd plan-item-cols-bottom">
@@ -431,35 +431,33 @@
                                 <h5 class="hidden-md hidden-lg">Account balance <span class="asterisk">*</span></h5>
                                 <p class="hidden-lg hidden-md">HK$ 300,000</p>
                             </div>
-                        </div>
+                        </div> -->
                         
-                        <div class="plan-item plan-item-empty first hidden-md hidden-lg">
-                        </div>
+                        <!-- <div class="plan-item plan-item-empty first hidden-md hidden-lg">
+                        </div> -->
+	                                 
+                        <c:forEach items="${policiesLife}" var="i" varStatus="obj">
+	                        <div class="plan-item first even hidden-md hidden-lg">
+	                            <div class="plan-item-cols odd plan-item-cols-top">
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Plan.name" bundle="${msg}" /></h5>
+	                                <p>Elite term</p>
+	                            </div>
+	                            <div class="plan-item-cols odd plan-item-cols-top">
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Policy.no" bundle="${msg}" /></h5>
+	                                <p>${i.policyNumber}</p>
+	                            </div>
+	                            <div class="plan-item-cols odd plan-item-cols-bottom">
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="member.registration.Day.start" bundle="${msg}" /></h5>
+	                                <p>${i.submissionDate}</p>
+	                            </div>
+	                            <div class="plan-item-cols odd plan-item-cols-bottom">
+	                                <h5 class="hidden-md hidden-lg"></h5>
+	                                <p class="hidden-lg hidden-md"><a id="eservices-document-upload-link" href="#"><fmt:message key="member.registration.Upload.document" bundle="${msg}" /></a></p>
+	                            </div>
+	                        </div>
+                        </c:forEach>
                         
-                        
-                        
-                        <div class="plan-item first even hidden-md hidden-lg">
-                            <div class="plan-item-cols odd plan-item-cols-top">
-                                <h5 class="hidden-md hidden-lg">Plan name</h5>
-                                <p>Elite term</p>
-                            </div>
-                            <div class="plan-item-cols odd plan-item-cols-top">
-                                <h5 class="hidden-md hidden-lg">Policy no.</h5>
-                                <p>5HG21FOP</p>
-                            </div>
-                            <div class="plan-item-cols odd plan-item-cols-bottom">
-                                <h5 class="hidden-md hidden-lg">Day Start</h5>
-                                <p>06-11-15</p>
-                            </div>
-                            <div class="plan-item-cols odd plan-item-cols-bottom">
-                                <h5 class="hidden-md hidden-lg"></h5>
-                                <p class="hidden-lg hidden-md"><a id="eservices-document-upload-link" href="#">Upload document</a></p>
-                            </div>
-                        </div>
-                        
-                        <div class="plan-item plan-item-empty first hidden-md hidden-lg">
-                        </div>
-                        
+                        <div class="plan-item plan-item-empty first hidden-md hidden-lg"></div>
                         
                         <div class="clearfix hidden-xs hidden-sm" style="margin-top:20px;">
                              <table class="purchase_history_table" style="margin-left:20px; width: 100%; text-align: left; border:1px #dbe1e6 solid;">
@@ -483,7 +481,7 @@
 	                                        <td>${i.planCode}</td>
 	                                        <td>${i.policyNumber}</td>
 	                                        <td>${i.submissionDate}</td>
-	                                        <td>One-off</td>
+	                                        <td><fmt:message key="member.registration.One-off" bundle="${msg}" /></td>
 	                                    </tr>
 	                                 </c:forEach>
                                  </tbody>
@@ -496,8 +494,8 @@
                              <table class="purchase_history_table" style="margin-left:20px; width: 100%; text-align: left; border:1px #dbe1e6 solid;">
                                  <thead>
                                       <tr>
-                                         <th>Plan name</th>
-                                         <th>Reference no.</th>
+                                         <th><fmt:message key="userAccount.Plan.name" bundle="${msg}" /></th>
+                                         <th><fmt:message key="userAccount.Reference.no" bundle="${msg}" /></th>
                                          <th>Status</th>
                                          <th>Account value<span style="color:#ff8200; font-weight:normal;">*</span></th>
                                       </tr>
@@ -518,9 +516,9 @@
                              <table class="purchase_history_table" style="margin-left:20px; width: 100%; text-align: left; border:1px #dbe1e6 solid;">
                                  <thead>
                                       <tr>
-                                         <th>Plan name</th>
-                                         <th>Reference no.</th>
-                                         <th>Day Start</th>
+                                         <th><fmt:message key="userAccount.Plan.name" bundle="${msg}" /></th>
+                                         <th><fmt:message key="userAccount.Reference.no" bundle="${msg}" /></th>
+                                         <th><fmt:message key="member.registration.Day.start" bundle="${msg}" /></th>
                                          <th></th>
                                       </tr>
                                  </thead>
@@ -530,7 +528,7 @@
                                         <td>Elite term</td>
                                         <td>${i.policyNumber}</td>
                                         <td>${i.submissionDate}</td>
-                                        <td><a id="eservices-document-upload-link" href="#">Upload document</a></td>
+                                        <td><a id="eservices-document-upload-link" href="#"><fmt:message key="member.registration.Upload.document" bundle="${msg}" /></a></td>
                                     </tr>
                                  </c:forEach>
                                  </tbody>
@@ -541,10 +539,10 @@
                         <div class="notice" style="margin-top:60px; text-align: center;">
                             <p class="notice-text" style="font-size:15px; width: 300px; line-height: 1.3; margin-left: auto; margin-right: auto;">
                                     <span class="next-line">
-                                        <span class="asterisk">* </span>Amount indicative only. 
+                                        <span class="asterisk">* </span><fmt:message key="member.registration.Amount.indicative.only" bundle="${msg}" />
                                     </span>
-                                    <span class="next-line">Please call our 24-hour hotline at 3123 3123 for</span>
-                                    <span class="next-line">up-to-date account value.</span>
+                                    <span class="next-line"><fmt:message key="member.registration.Please.call.our.24-hour" bundle="${msg}" /></span>
+                                    <span class="next-line"><fmt:message key="member.registration.up-to-date.account.value" bundle="${msg}" /></span>
                             </p>
                         </div>
                         

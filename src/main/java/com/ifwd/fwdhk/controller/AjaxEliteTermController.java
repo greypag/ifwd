@@ -5,6 +5,7 @@ import java.io.File;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,9 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.services.EliteTermService;
+import com.ifwd.fwdhk.util.ErrorMessageUtils;
 import com.ifwd.fwdhk.util.FileUtil;
+import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.Methods;
 @Controller
 public class AjaxEliteTermController extends BaseController{
@@ -47,18 +50,28 @@ public class AjaxEliteTermController extends BaseController{
 		        } 
 		        String fileName = imageFile.getOriginalFilename();
 		        String type = fileName.substring(fileName.lastIndexOf(".")+1);
-		        //String imageName = name+"."+type;
+		        String realName = fileName.substring(0,fileName.lastIndexOf("."))+".jpg";
 				request.getSession().setAttribute(name, fileName);
-				request.getSession().setAttribute(name+"Type", type);
+				request.getSession().setAttribute(name+"Type", "JPG");
 		        byte[] bytes = imageFile.getBytes();
 		        String sep = System.getProperty("file.separator");  
 		        File uploadedFile = new File(uploadDir + sep  
 		                + fileName);  
-		        FileCopyUtils.copy(bytes, uploadedFile);  
+		        FileCopyUtils.copy(bytes, uploadedFile); 
+		        if(StringUtils.isEmpty(FileUtil.getFileType(uploadDir + sep  
+		                + fileName))){
+		        	throw new ECOMMAPIException("Illegal file");
+		        }
+		        File toFile = new File(uploadDir + sep  
+				                + realName);
+				ImgUtil.changeImageToJPG(uploadedFile, toFile);
 		        response.getWriter().write("true");
-			} catch (Exception e) {
+			} catch (ECOMMAPIException e) {
+				response.getWriter().write(e.getMessage());
+			}catch (Exception e) {
 				logger.info(e.getMessage());
 				e.printStackTrace();
+				response.getWriter().write("system error");
 			}
 	}
 	

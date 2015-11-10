@@ -198,6 +198,12 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
   }
 }
 
+/* ET Summary */
+.summary-body-item .info{
+	word-break: break-all;
+}
+
+
 /* ET mask */
 .modal-backdrop.in{
 	opacity: 0.5;
