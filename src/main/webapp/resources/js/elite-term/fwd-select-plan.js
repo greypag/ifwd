@@ -325,6 +325,13 @@
    /**
    * Groups the scrolling to each section functions
    */
+   
+   // Move to Before We Start section from Underwriting Summary section(EDIT)
+   $('#underwriting-summary-edit').on('click', function(e) {
+       var $beforeWeStart = $('#et-select-plan-section');       
+       $beforeWeStart.removeClass('hide-element');
+    });
+   
    function scrollingToSections() {
       // Move to before we start section
       //$('#select-plan').on('click', function(e) {
@@ -382,9 +389,9 @@
       //    }
          
       //    if ($('#et-smoker-yes').prop('checked')) {
-      //       planDetailData.isSmooker = true;
+      //       planDetailData.isSmoker = true;
       //    } else if ($('#et-smoker-no').prop('checked')) {
-      //       planDetailData.isSmooker = false;
+      //       planDetailData.isSmoker = false;
       //    }
          
       //    planDetailData.dob = $planDate.val();

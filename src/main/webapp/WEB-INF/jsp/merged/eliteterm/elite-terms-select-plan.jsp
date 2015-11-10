@@ -78,7 +78,7 @@ var home_url = "<%=request.getContextPath()%>";
             <div id="et-select-plan-section" class="et-element-section-wrapper">
                
                <!--Elite Terms Before We Start Widget-->
-               <div class="container-fluid fwd-container" id="underwriting-edit">
+               <div class="container-fluid fwd-container">
                   <!--Before we start-->
                   <p class="et-bfr-start-txt">
                     <fmt:message key="eliteTerms.selectPlan.If.you.want.to.fill" bundle="${msg}" />
@@ -1698,7 +1698,7 @@ var home_url = "<%=request.getContextPath()%>";
 
                            <!-- UNDERWRITING SUMMARY -->
                            <div class="summary-body-item">
-                              <h3 class="uwriting"><fmt:message key="eliteTerms.selectPlan.Underwriting.Summary" bundle="${msg}" /> <a href="#" title="Edit" class="et-app-sum-edit" data-target="#underwriting-edit"><fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a></h3>
+                              <h3 class="uwriting"><fmt:message key="eliteTerms.selectPlan.Underwriting.Summary" bundle="${msg}" /> <a href="#" id="underwriting-summary-edit" title="Edit" class="et-app-sum-edit" data-target="#et-select-plan-section"><fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a></h3>
                               <div class="fwd-checkbox">
                                  <input type="checkbox" id="summary-one" checked disabled>
                                  <label for="summary-one"></label>
