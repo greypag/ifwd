@@ -6677,6 +6677,13 @@ function hkidOnkeypress(evt) {
 	
 //no chinese method
 $(':text').keyup(function(e) {
+	
+	/* if support chinese, skip */
+	if( $(this).hasClass('chinese-input') ){
+		e.stopPropagation();
+		return false;
+	}
+
     var inputVal = $(this).val();
     var newVal = inputVal.replace(/[^ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789() @.,-_]/g,'');
     if(inputVal != newVal){

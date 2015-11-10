@@ -1868,7 +1868,7 @@ var home_url = "<%=request.getContextPath()%>";
                      <form action="" id="et-cust-serv-form" method="post">
                         <div class="input-items clearfix">
                            <label for="name"><fmt:message key="eliteTerms.selectPlan.Name" bundle="${msg}" /></label>
-                           <input type="text" class="form-control gray-textbox" placeholder="<fmt:message key="eliteTerms.selectPlan.Name" bundle="${msg}" />" id="name" name="name">
+                           <input type="text" class="form-control gray-textbox chinese-input" placeholder="<fmt:message key="eliteTerms.selectPlan.Name" bundle="${msg}" />" id="name" name="name">
                            <span class="error-msg" id="cannotApplyNameMessage"></span>
                         </div>
                         <div class="input-items clearfix">
@@ -2326,7 +2326,7 @@ var home_url = "<%=request.getContextPath()%>";
                            message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.name" bundle="${msg}" />'
                         },
                         regexp: {
-                           regexp: /[a-z A-Z \s \u4e00-\u9eff]/, /*chinese and english chars only*/
+                           regexp: /^[a-z A-Z \s \u4e00-\u9eff]*$/, /*chinese and english chars only*/
                            message: '<fmt:message key="eliteTerms.selectPlan.Your.name.is.invalid" bundle="${msg}" />'
                         },
                         callback: {
