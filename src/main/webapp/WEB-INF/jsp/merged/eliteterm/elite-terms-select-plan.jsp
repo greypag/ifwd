@@ -209,7 +209,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        </span>
                                     </h3> 
                                  </div>
-                                 <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range"></span></p>
+                                 <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range">${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'800000' }</span></p>
                                  <div class="clearfix et-slider-info-div">
                                     <div class="pull-left">
                                        <p class="et-slider-info center"><fmt:message key="eliteTerms.selectPlan.Min" bundle="${msg}" /></p>
@@ -220,7 +220,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <p id="et-ins-amt-max-display" class="et-slider-info"><fmt:message key="eliteTerms.selectPlan.Max.val" bundle="${msg}" /></p>
                                     </div>
                                  </div>
-                                 <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
+                                 <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-value="${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'800000' }" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
                                  <div class="et-broken-line et-padding hidden-md hidden-lg"></div>
                               </div>
                               <div class="col-xs-12 col-md-5">
