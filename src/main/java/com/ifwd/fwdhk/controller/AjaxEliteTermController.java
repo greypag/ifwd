@@ -19,7 +19,7 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.services.EliteTermService;
-import com.ifwd.fwdhk.util.FileUtil;
+import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.Methods;
 @Controller
 public class AjaxEliteTermController extends BaseController{
@@ -47,18 +47,25 @@ public class AjaxEliteTermController extends BaseController{
 		        } 
 		        String fileName = imageFile.getOriginalFilename();
 		        String type = fileName.substring(fileName.lastIndexOf(".")+1);
-		        //String imageName = name+"."+type;
+		        String realName = fileName.substring(0,fileName.lastIndexOf("."))+".jpg";
 				request.getSession().setAttribute(name, fileName);
-				request.getSession().setAttribute(name+"Type", type);
+				request.getSession().setAttribute(name+"Type", "JPG");
 		        byte[] bytes = imageFile.getBytes();
 		        String sep = System.getProperty("file.separator");  
 		        File uploadedFile = new File(uploadDir + sep  
 		                + fileName);  
-		        FileCopyUtils.copy(bytes, uploadedFile);  
+		        FileCopyUtils.copy(bytes, uploadedFile); 
+		        
+		        File toFile = new File(uploadDir + sep  
+				                + realName);
+				ImgUtil.changeImageToJPG(uploadedFile, toFile);
 		        response.getWriter().write("true");
-			} catch (Exception e) {
+			} catch (ECOMMAPIException e) {
+				response.getWriter().write(e.getMessage());
+			}catch (Exception e) {
 				logger.info(e.getMessage());
 				e.printStackTrace();
+				response.getWriter().write("system error");
 			}
 	}
 	

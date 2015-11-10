@@ -163,9 +163,19 @@ function fileSelected(progressDivBarID, inputId, docuFileNameID, docuFileSizeId,
         
         $('#et-upload-doc-submit-btn').removeAttr('disabled');
         displayProgressBar(progressDivBarID);
+        
+        errorMsgCons = errorMsgCon;
+        deleteProgressDivBarID = progressDivBarID;
+        deleteUploadCompleteId = uploadCompleteId;
+        deleteProgressBarId = progressBarId;
         uploadFile(inputId,forDragAndDrop);
     }
 }
+
+var deleteProgressDivBarID = null;
+var deleteUploadCompleteId = null;
+var deleteProgressBarId = null;
+
 
 function isFileValid(file, $fileObj, errorMsgCon) {
     var isValid = true;
@@ -187,7 +197,7 @@ function isFileValid(file, $fileObj, errorMsgCon) {
     // Check file extension and type validity
     // Accepted file format: application/pdf, image/jpg, image/jpeg, image/gif and image/png
     if ($.inArray(file.type, $fileObj.attr('accept').split(',')) < 0) {
-        addFormFieldError(errorMsgCon, 'File format must be a gif or png.');
+        addFormFieldError(errorMsgCon, 'File format must be a jpg or png.');
         isValid = false;
     }
     
@@ -211,6 +221,7 @@ function cancelUpload(progressBarID,doneID,progressBarReset){
 	$('#'+progressBarReset.toString()).css("width",'0%');
 }
 
+var errorMsgCons ;
 function uploadFile(inputID,forDragAndDrop) {
 
 	var fd = new FormData();	
@@ -224,9 +235,21 @@ function uploadFile(inputID,forDragAndDrop) {
 	xhr.addEventListener("load", uploadComplete, false);
 	xhr.addEventListener("error", uploadFailed, false);
 	xhr.addEventListener("abort", uploadCanceled, false);
+	xhr.onreadystatechange = xhrReturn;
 	xhr.open("POST", context+"/ajax/eliteTerm/getEliteTermImage");
 	xhr.send(fd);
 }
+
+//回调函数    
+function xhrReturn(){    
+    if(xhr.readyState == 4 && xhr.status == 200){    
+        var b = xhr.responseText;
+        if(b != "true"){  
+        	addFormFieldError(errorMsgCons, b);
+        	cancelUpload(deleteProgressDivBarID,deleteUploadCompleteId,deleteProgressBarId);
+        }          
+    }    
+}  
 
 function uploadProgress(evt) {
 	if (evt.lengthComputable) {

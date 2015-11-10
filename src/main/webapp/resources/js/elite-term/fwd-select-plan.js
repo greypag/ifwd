@@ -302,10 +302,6 @@
         var $disPromo = $('#et-dis-promo-amount');
         var $actPromo = $('#et-act-promo-amount');
         
-        // For the Application Summary
-        //var $disMonthPre = $('#etaspd-monthly-premium');
-        //var $actMonthPre = $('#etaspd-monthly-premium-extra-years');
-        
         // Modify code to do the actual promotion
         // Do the actual calculation
         //var isValid = $promoField.val();
@@ -319,16 +315,10 @@
                      
             $actPromo.find('.top .et-po-amount-label')
                      .text('2nd - 20th policy year');
-            
-            //$disMonthPre.removeClass('hidden');
-            //$actMonthPre.find('span.extra-years-remarks').text('(2nd - 20th policy year)');
         } else {
             $disPromo.addClass('hidden');
             $actPromo.find('.top .et-po-amount-label')
                      .text('first 20 policy years');
-            
-            //$disMonthPre.addClass('hidden');
-            //$actMonthPre.find('span.extra-years-remarks').text('(first 20 policy years)');
         }
    }
    
@@ -530,14 +520,14 @@
          var $self = $(this);
          var $appSum = $('#et-application-third-section');
          var $confirmSign = $('#et-declaration-proceed-btn');
-         
+
          //smoker non-smoker
          if ($('#et-smoker-yes').prop('checked')) {
             planDetailData.isSmooker = true;
          } else if ($('#et-smoker-no').prop('checked')) {
             planDetailData.isSmooker = false;
          }
- 
+         
          // Populate information in application summary
          populateAppSummPD();
          populateAppSummPI();
@@ -730,12 +720,8 @@
                   notEmpty: {
                      message: getBundle(getBundleLanguage, "et.selectPlan.HKID.is.required")
                   },
-//                  regexp: {
-//                     regexp: /(^[A-Z|1-9]){1}([A-Z|1-9]){6}\(?([A-Z|1-9]){1}\)?$/g,
-//                     message: 'Invalid HKID.'
-//                  },
                   callback: {
-                     message: 'Invalid HKID',
+                     message: getBundle(getBundleLanguage, "form.hkid.invalid"),
                      callback: function(value, validator) {
                         return isValidHKID(value);
                      }
@@ -766,70 +752,6 @@
                   }
                }
             },
-            /* "savieApplicantBean[0].residentialTelNo": {
-               container: '#resPrefixMessage',
-               validators: {
-                  notEmpty: {
-                     message: 'Telephone prefix is required.'
-                  },
-                  stringLength: {
-                     min: 3,
-                     max: 3,
-                     message: 'Your Residential Tel No. is invalid.'
-                  }
-               }
-            },
-            "savieApplicantBean[1].residentialTelNo": {
-               container: '#resSuffixMessage',
-               validators: {
-                  notEmpty: {
-                     message: 'Telephone suffix is required.'
-                  },
-                  stringLength: {
-                     min: 8,
-                     max: 8,
-                     message: 'Your Residential Tel No. is invalid..'
-                  },
-                  callback: {
-                     message: 'Your Residential Tel No. is invalid.',
-                     callback: function(value, validator) {
-                        return value !== document.getElementById('residential-second').getAttribute('placeholder');
-                     }
-                  }
-               }
-            }, */
-            /* "savieApplicantBean[0].mobileNo": {
-               container: '#mobilePrefixMessage',
-               validators: {
-                  notEmpty: {
-                     message: 'Mobile prefix is required.'
-                  },
-                  stringLength: {
-                     min: 3,
-                     max: 3,
-                     message: 'Your Residential Tel No. is invalid..'
-                  }
-               }
-            },
-            "savieApplicantBean[1].mobileNo": {
-               container: '#mobileSuffixMessage',
-               validators: {
-                  notEmpty: {
-                     message: 'Mobile suffix is required.'
-                  },
-                  stringLength: {
-                     min: 8,
-                     max: 8,
-                     message: 'Your Residential Tel No. is invalid..'
-                  },
-                  callback: {
-                     message: 'Your Residential Tel No. is invalid.',
-                     callback: function(value, validator) {
-                        return value !== document.getElementById('mobile-second').getAttribute('placeholder');
-                     }
-                  }
-               }
-            }, */
             "savieApplicantBean.residentialTelNo": {
                container: '#resTelMessage',
                validators: {
@@ -1135,7 +1057,7 @@
                container: '#employmentStatusMessage',
                validators: {
                   notEmpty: {
-                     message: 'Please select your Employment Status.'
+                     message: getBundle(getBundleLanguage, "form.employment.status.empty")
                   }
                }
             },
@@ -1143,7 +1065,7 @@
                container: '#occupationMessage',
                validators: {
                   notEmpty: {
-                     message: 'Please select your Occupation.'
+                     message: getBundle(getBundleLanguage, "form.employment.occupation.empty")
                   }
                }
             },
@@ -1151,7 +1073,7 @@
                container: '#liquidAssets',
                validators: {
                   notEmpty: {
-                     message: 'Liquid asset is required.'
+                     message: getBundle(getBundleLanguage, "form.liquidAssets.empty")
                   }
                }
             },
@@ -1159,7 +1081,7 @@
                container: '#educationLevelMessage',
                validators: {
                   notEmpty: {
-                     message: 'Please select your Education level.'
+                     message: getBundle(getBundleLanguage, "form.education.empty")
                   }
                }
             },
@@ -1167,7 +1089,7 @@
                container: '#natureOfBusinessMessage',
                validators: {
                   notEmpty: {
-                     message: 'Please select your Nature of Business.'
+                     message: getBundle(getBundleLanguage, "form.employment.nature.empty")
                   }
                }
             },
@@ -1175,15 +1097,21 @@
                container: '#monthlyIncomeMessage',
                validators: {
                   notEmpty: {
-                     message: 'Please select your Monthly Personal Income ($HK).'
+                     message: getBundle(getBundleLanguage, "form.employment.income.empty")
                   }
                }
             },
             "savieEmploymentBean.currentEmployerName": {
                 container: '#employerNameMessage',
                 validators: {
+                  stringLength: {
+                      min: 1,
+                      max: 255,
+                      message: getBundle(getBundleLanguage, "form.employer.name.length")
+                  },
+                	
                    notEmpty: {
-                      message: 'Please enter your Current Employer\'s Name.'
+                      message: getBundle(getBundleLanguage, "form.employer.name.empty")
                    }
                 }
              }
