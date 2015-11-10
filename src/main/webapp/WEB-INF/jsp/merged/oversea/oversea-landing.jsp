@@ -10,19 +10,16 @@
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
 });
-function prepareWorkingHolidayPlan(form, paymentFormId){
+function prepareOverseaPlan(form){
 	var result = false;
-	var paymentFormId = '#' + paymentFormId;
-	var method = "<%=request.getContextPath()%>/prepareWorkingHolidayPlan";
-	console.log($(paymentFormId).serialize());
+	var method = "<%=request.getContextPath()%>/ajax/oversea/prepareOverseaPlan";
 	$.ajax({
 		type : "POST",
 		url : method,
-		data : $(paymentFormId).serialize(),
 		async : false,
 		success : function(data) {
 			if (data == 'success') {
-				form.action = "<%=request.getContextPath()%>/${language}/working-holiday-insurance/quote";
+				//form.action = "<%=request.getContextPath()%>/${language}/working-holiday-insurance/quote";
 				result = true;
 			} else {
 				console.log(data);
@@ -60,7 +57,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   <!--/.carousel--> 
 	<section id="middle" class="banner-overlay-wrapper">
 		<div class="oversea-middle" style="background:none;">
-			<form name="frmOverSeaGetQuote" id="frmOverSeaGetQuote" commandname="frmOverSeaGetQuote" method="post" onsubmit="return prepareOverSeaPlan(this,'frmOverSeaGetQuote');">
+			<form name="frmOverseaGetQuote" id="frmOverseaGetQuote" commandname="frmOverseaGetQuote" method="post" onsubmit="return prepareOverseaPlan(this);">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-12 col-md-12 slide-form workingholiday-text-align-center">
