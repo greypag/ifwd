@@ -17,19 +17,8 @@
 }
 
 .fwd-et-wrapper .et-panel-accordion li{
+	/* Accordion Copy*/
 	margin-bottom: 15px;
-}
-
-#et-medi-question-2 .et-disease-list ul li img{
-	float: left;
-    padding-right: 5px;
-    padding-top: 8px;
-    margin-left: -5px;
-}
-
-#et-medi-question-2 .et-disease-list ul {
-    margin: 0;
-    padding: 20px 0 20px 35px;
 }
 
 .et-panel-accordion .panel-collapse .accordion-copy{
@@ -172,6 +161,22 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
 }
 
 
+/* Diseasea List */
+#et-medi-question-2 .et-disease-list ul {
+	/* Disease unordered list*/
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 35px;
+}
+
+@media ( min-width : 992px) {
+	#et-medi-question-2 .et-disease-list ul {
+		/* Disease unordered list*/
+	    padding-top: 20px;
+    	padding-bottom: 20px;
+	}
+}
 
 
 /* Declarations */
