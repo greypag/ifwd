@@ -880,10 +880,10 @@ function submitLoginForm(formID) {
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/oversea-study-insurance"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /></a></li>
                     </ul>
                 </li>
-                <li class="menu-link-grp-title">
-                    <a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.type1.group3.title" bundle="${msg}" /></a>
-                </li>               
-              </ul>              
+						<li class="menu-link-grp-title"><a
+							href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message
+									key="header.product.type1.group3.title" bundle="${msg}" /></a></li>
+					</ul>              
             </li>         
             <li class="pad-none col-sm-12 dropdown link-btn border-bottom">
               <a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>

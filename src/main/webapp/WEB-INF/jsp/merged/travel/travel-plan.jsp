@@ -333,9 +333,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		<div class="row">
 			<form:form name="frmTravelPlan" id="frmTravelPlan" action="${pageContext.request.contextPath}/${language}/travel-insurance/user-details" method="post" modelAttribute="travelQuote" onsubmit="return chkDueAmount();" >
 				<ol class="breadcrumb pad-none">
-					<li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#"><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a></li>
+					<li><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /> <i class="fa fa-caret-right"></i></li>
+					<li><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /> <i class="fa fa-caret-right"></i></li>
+					<li><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></li>
 					<li class="active "><i class="fa fa-caret-right"></i><fmt:message key="travel.breadcrumb1.item3" bundle="${msg}" /></li>
 				</ol>
 				<div id="quote-wrap" class="container pad-none bdr gray-bg3">

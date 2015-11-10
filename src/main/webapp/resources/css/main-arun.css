@@ -2533,7 +2533,7 @@ shortcodes page css
 	font-family: 'Foco-Regular';
 }
 .chatnow-btn {
-	background-color: #f68a1d;
+	background-color: #FF8200;
 	font-weight: bold;
 }
 .login-btn {
@@ -3612,7 +3612,7 @@ border-bottom:1px solid #fccaa9;
 }
 .mob-topbar .chat {
 	padding-bottom: 0px;
-	background-color: #f68a1d;
+	background-color: #FF8200;
 	font-weight: bold;
 	padding: 0 16px;
 }

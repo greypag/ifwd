@@ -88,7 +88,7 @@
 			<div class="row">
 				<form:form modelAttribute="userDetails" class="form-horizontal" name="joinus_form" role="form">
 					<ol class="breadcrumb pad-none">
-						<li><a href="#"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+						<li><fmt:message key="header.menu.home" bundle="${msg}" /></li>
 						<li class="active"><i class="fa fa-caret-right"></i> <fmt:message key="header.menu.activate.heading" bundle="${msg}" />
 						</li>
 					</ol>

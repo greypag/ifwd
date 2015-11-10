@@ -57,7 +57,7 @@ $(document).ready(function() {
 		<div class="carousel slide hidden-xs hidden-sm">
 		     <div class="col-lg-12 col-md-12 breadcrumb-wrapper">
 		         <ol class="breadcrumb container pad-none">
-		             <li><a href="#"><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></a></li>
+		             <li><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></li>
 		             <i class="fa fa-chevron-right"></i>
 		             <li class="active"><fmt:message key="home.breadcrumb1.care" bundle="${msg}" /></li>
 		         </ol>

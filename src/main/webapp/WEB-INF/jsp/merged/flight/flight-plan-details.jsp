@@ -365,14 +365,14 @@ action="flight-confirmation" onsubmit="return fPlanValid();"> --%>
                     </div>
                 </div>
                  <ol class="breadcrumb pad-none">
-                    <li><a href="#"><fmt:message
-                                key="flight.breadcrumb1.item1" bundle="${msg}" /></a> <i
+                    <li><fmt:message
+                                key="flight.breadcrumb1.item1" bundle="${msg}" /> <i
                         class="fa fa-caret-right"></i></li>
-                    <li><a href="#"><fmt:message
-                                key="flight.breadcrumb1.item2" bundle="${msg}" /></a> <i
+                    <li><fmt:message
+                                key="flight.breadcrumb1.item2" bundle="${msg}" /> <i
                         class="fa fa-caret-right"></i></li>
-                    <li><a href="#"><fmt:message
-                                key="flight.breadcrumb1.item3" bundle="${msg}" /></a></li>
+                    <li><fmt:message
+                                key="flight.breadcrumb1.item3" bundle="${msg}" /></li>
                     <li class="active "><i class="fa fa-caret-right"></i>
                     <fmt:message key="flight.breadcrumb1.item4" bundle="${msg}" /></li>
                 </ol>               

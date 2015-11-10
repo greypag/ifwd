@@ -20,7 +20,7 @@
 	<div class="container ">
 		<div class="row">
 			<ol class="breadcrumb pad-none">
-				<li><a href="#"><fmt:message key="menu.home" bundle="${msg}" /></a></li>
+				<li><fmt:message key="menu.home" bundle="${msg}" /></li>
 				<li class="active"><i class="fa fa-caret-right"></i> <fmt:message key="menu.member.account" bundle="${msg}" /></li>
 			</ol>
 			<h2 class="page-title"><fmt:message key="member.account.title" bundle="${msg}" /></h2>

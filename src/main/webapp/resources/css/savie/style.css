@@ -1745,7 +1745,7 @@ body{
 	    background-color: #000;
 	}
 	.mob-topbar .chat {
-	    background-color: #f68a1d;
+	    background-color: #FF8200;
 	    font-weight: bold;
 	    color: #fff;
 	    display: block;
@@ -1762,7 +1762,19 @@ body{
 	   width: 50px;
 	}
 }
+
+
+
 @media screen and (min-width: 768px) and (max-width: 991px) {
+	.navbar-nav .open .dropdown-menu {
+	    position: static;
+	    float: none;
+	    width: auto;
+	    margin-top: 0;
+	    background-color: transparent;
+	    border: 0;
+	    box-shadow: none
+	}	
     .navbar-fixed-top div.logobox>div.navbar-collapse.mobile-menu-V2{
         display:none !important;
         max-height: 340px;

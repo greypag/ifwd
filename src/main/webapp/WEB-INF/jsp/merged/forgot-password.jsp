@@ -50,7 +50,7 @@
 		<div id="cn" class="container mob-pad">
 			<div class="row">
 				<ol class="breadcrumb pad-none">
-					<li><a href="#"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+					<li><fmt:message key="header.menu.home" bundle="${msg}" /></li>
 					<li class="active"><i class="fa fa-caret-right"></i> <fmt:message key="header.login.password.forget.part1" bundle="${msg}" /></li>
 				</ol>
 				<h2 class="page-title"><fmt:message key="header.login.password.forget.part1" bundle="${msg}" /></h2>

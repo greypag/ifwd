@@ -14,7 +14,7 @@
 		<div class="container">
 			<div class="row">
 				<ol class="breadcrumb pad-none">
-					<li><a class='faq_answer_url' href="<%=request.getContextPath()%>"><fmt:message key="header.menu.home" bundle="${msg}" /></a></li>
+					<li><fmt:message key="header.menu.home" bundle="${msg}" /></li>
 					<li class="active"><i class="fa fa-caret-right"></i><fmt:message key="header.menu.faq" bundle="${msg}" /></li>
 				</ol>
 				

@@ -204,10 +204,10 @@ input.search-form:hover {
 }
 .mob-topbar .chat {
     padding-bottom: 0px;
-    background-color: #f68a1d;
+    background-color: #FF8200;
     font-weight: bold;
-    padding: 0 16px;
-    color:#fff;
+	padding: 0 16px;
+	color:#fff;
 }
 .mob-topbar .callus {
     font-weight: bold;
@@ -501,7 +501,7 @@ ul.maintabs li a:hover {
   margin: 0 auto;
 }
 .chatnow-btn {
-  background-color: #f68a1d;
+  background-color: #FF8200;
   font-weight: bold;
 }
 .modal-content {

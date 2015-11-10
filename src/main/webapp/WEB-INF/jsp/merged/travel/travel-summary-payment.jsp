@@ -89,9 +89,9 @@ var enablePayment=true;
         <div class="row">
             <form name="paymentForm" id="paymentForm" method="post">
                 <ol class="breadcrumb pad-none">
-                    <li><a href="#"><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-                    <li><a href="#"><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-                    <li><a href="#"><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></a></li>
+                    <li><fmt:message key="travel.breadcrumb1.item1" bundle="${msg}" /><i class="fa fa-caret-right"></i></li>
+                    <li><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /><i class="fa fa-caret-right"></i></li>
+                    <li><fmt:message key="travel.breadcrumb1.item2" bundle="${msg}" /></li>
                     <li class="active "><i class="fa fa-caret-right"></i> <fmt:message key="travel.breadcrumb1.item5" bundle="${msg}" /></li>
                 </ol>
                 <!-- <div class="container ">

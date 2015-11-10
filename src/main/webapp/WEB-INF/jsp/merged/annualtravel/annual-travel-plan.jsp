@@ -348,9 +348,9 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		<div class="row">
 			<form:form name="frmTravelPlan" id="frmTravelPlan" action='' method="post" modelAttribute="annualTravelQuote" onsubmit="return chkDueAmount(this,'frmTravelPlan');" >
 				<ol class="breadcrumb pad-none">
-					<li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="annual.title.home" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-                    <li><a href="#"><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-					<li><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="annual.title.travelcare" bundle="${msg}" /></a></li>
+					<li><fmt:message key="annual.title.home" bundle="${msg}" /> <i class="fa fa-caret-right"></i></li>
+                    <li><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /> <i class="fa fa-caret-right"></i></li>
+					<li><fmt:message key="annual.title.travelcare" bundle="${msg}" /></li>
 					<li class="active "><i class="fa fa-caret-right"></i><fmt:message key="annual.title.youroptions" bundle="${msg}" /></li>
 				</ol>
 				<div id="quote-wrap" class="container pad-none bdr gray-bg3">

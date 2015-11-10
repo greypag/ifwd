@@ -90,9 +90,9 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
         <div class="row">
             <form name="paymentForm" id="paymentForm" method="post">
                 <ol class="breadcrumb pad-none">
-                    <li><a href="<%=request.getContextPath()%>/${language}/home"><fmt:message key="annual.title.home" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-                                        <li><a href="#"><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /></a> <i class="fa fa-caret-right"></i></li>
-                    <li><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="annual.title.travelcare" bundle="${msg}" /></a></li>
+                    <li><fmt:message key="annual.title.home" bundle="${msg}" /> <i class="fa fa-caret-right"></i></li>
+                                        <li><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /> <i class="fa fa-caret-right"></i></li>
+                    <li><fmt:message key="annual.title.travelcare" bundle="${msg}" /></li>
                     <li class="active"><i class="fa fa-caret-right"></i> <fmt:message key="annual.title.summarypayment" bundle="${msg}" /></li>
                 </ol>
                 <div class="container pad-none bdr ur-opt-content gray-bg3">
