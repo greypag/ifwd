@@ -30,6 +30,7 @@ public class FileUtil {
 	private static Map<String,String> head2FileType = new HashMap<String,String>();
 	static{
 		head2FileType.put("FFD8FFE1", "jpg");
+		head2FileType.put("FFD8FFE0", "jpg");
 		head2FileType.put("25504446", "pdf");
 		head2FileType.put("255044462D312E", "pdf");	
 		head2FileType.put("89504E47", "png");
@@ -93,8 +94,12 @@ public class FileUtil {
 		return head2FileType.get(head);
 	}
 	
-	public static void main(String[] args) throws IOException {
-		System.out.println(getFileType("C:\\upload\\java.jpg"));
+	public static boolean checkImageFile(String fileName) throws IOException{
+		String head = bytesToHexString(fileName);
+		head = head2FileType.get(head);
+		if("jpg".equals(head) || "png".equals(head) || "gif".equals(head)){
+			return true;
+		}
+		return false;
 	}
-	
 }

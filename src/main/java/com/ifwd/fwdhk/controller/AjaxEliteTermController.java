@@ -58,10 +58,10 @@ public class AjaxEliteTermController extends BaseController{
 		        File uploadedFile = new File(uploadDir + sep  
 		                + fileName);  
 		        FileCopyUtils.copy(bytes, uploadedFile); 
-		        if(StringUtils.isEmpty(FileUtil.getFileType(uploadDir + sep  
-		                + fileName))){
-		        	throw new ECOMMAPIException("Illegal file");
-		        }
+//		        if(!FileUtil.checkImageFile(uploadDir + sep  
+//		                + fileName)){
+//		        	throw new ECOMMAPIException("Illegal file");
+//		        }
 		        File toFile = new File(uploadDir + sep  
 				                + realName);
 				ImgUtil.changeImageToJPG(uploadedFile, toFile);
