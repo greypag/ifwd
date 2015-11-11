@@ -110,6 +110,13 @@ public class UserRestURIConstants {
 	/*API For Oversea*/
 	public static final String OVERSEA_GET_QUOTE = SERVICE_URL
 			+ "/gi/overseasStudy/quote";
+	public static final String OVERSEA_CREATE_POLICY = SERVICE_URL
+			+ "gi/overseasStudy/policies";
+	public static final String OVERSEA_CONFIRM_POLICY = SERVICE_URL
+			+ "/gi/annualTravel/payments/make";
+	public static final String OVERSEA_FINALIZE_POLICY = SERVICE_URL
+			+ "gi/overseasStudy/policies";
+	
 	
 	/*API For eliteTerm*/
 	public static final String CREATE_ELITE_TERM_POLICY = "/eliteterm/policies";
@@ -159,9 +166,9 @@ public class UserRestURIConstants {
 	/* Page Flow Control For OverSea */
 	public static final String URL_OVERSEA_LANDING = "oversea-insurance";
 	public static final String URL_OVERSEA_QUOTE = "quote";
-	public static final String URL_OVERSEA_DETAILS = "user-details";
-	public static final String URL_OVERSEA_SUMMARY = "oversea-summary";
-	public static final String URL_OVERSEA_CONFIRMATION = "oversea-confirmation";
+	public static final String URL_OVERSEA_DETAILS = "details";
+	public static final String URL_OVERSEA_SUMMARY = "summary";
+	public static final String URL_OVERSEA_CONFIRMATION = "confirmation";
 	
 	public static final String PAGE_OVERSEA_LANDING = "oversea-landing";
 	public static final String PAGE_OVERSEA_QUOTE = "oversea-plan-quote";

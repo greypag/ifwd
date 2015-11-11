@@ -1116,7 +1116,6 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 		header.put("userName", username);
 		header.put("token", token);
 		header.put("language", language);
-		//TO ENFORCE THE POLICY IS CREATED AND MAKE SURE THE TRANSACTION NUMBER IS NOT REUSED
 		
 		CreatePolicy createPolicy = (CreatePolicy)session.getAttribute("travelCreatePolicy");
 		
@@ -1125,7 +1124,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 
  			logger.info("TRAVEL_CREATE_POLICY Request " + JsonUtils.jsonPrint(parameters));
 			responsObject = restService.consumeApi(HttpMethod.PUT,
-					UserRestURIConstants.ANNUAL_TRAVEL_CREATE_POLICY, header,
+					UserRestURIConstants.OVERSEA_CREATE_POLICY, header,
 					parameters);
 			logger.info("TRAVEL_CREATE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
 			createPolicy = new CreatePolicy();
@@ -1149,7 +1148,7 @@ public class AnnualTravelServiceImpl implements AnnualTravelService {
 				logger.info("Request From Confirm Travel Policy " + confirmPolicyParameter);
 				JSONObject jsonResponse = restService.consumeApi(
 						HttpMethod.POST,
-						UserRestURIConstants.ANNUAL_TRAVEL_CONFIRM_POLICY, header,
+						UserRestURIConstants.OVERSEA_CONFIRM_POLICY, header,
 						confirmPolicyParameter);
 				logger.info("Response From Confirm Travel Policy " + JsonUtils.jsonPrint(jsonResponse));
 

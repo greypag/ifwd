@@ -5,13 +5,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
-
-
+import com.ifwd.fwdhk.model.OverseaDetailsForm;
 
 public interface OverseaService {
-	
-	public void getPlanDetails(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws ECOMMAPIException;
-	
+
+	public void preparePlanDetails(Model model, HttpServletRequest request,
+			HttpServletResponse response, HttpSession httpSession)
+			throws ECOMMAPIException;
+
+	public String prepareOverseaSummary(
+			OverseaDetailsForm planDetailsForm, BindingResult result,
+			Model model, HttpServletRequest request) throws Exception;
 }

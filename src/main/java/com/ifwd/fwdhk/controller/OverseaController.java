@@ -1,12 +1,6 @@
 package com.ifwd.fwdhk.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +14,6 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.OverseaPageFlowControl;
-import com.ifwd.fwdhk.util.SaviePageFlowControl;
 
 @Controller
 public class OverseaController extends BaseController{
@@ -42,15 +35,15 @@ public class OverseaController extends BaseController{
 	public ModelAndView getOverseaQuote(Model model, HttpServletRequest request) {
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_QUOTE);
 	}
-	@RequestMapping(value = {"/{lang}/oversea-insurance/user-details"})
+	@RequestMapping(value = {"/{lang}/oversea-insurance/details"})
 	public ModelAndView getOverseaDetails(Model model, HttpServletRequest request) {
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_DETAILS);
 	}
-	@RequestMapping(value = {"/{lang}/oversea-insurance/oversea-summary"})
+	@RequestMapping(value = {"/{lang}/oversea-insurance/summary"})
 	public ModelAndView getOverseaSummary(Model model, HttpServletRequest request) {
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_SUMMARY);
 	}
-	@RequestMapping(value = {"/{lang}/oversea-insurance/oversea-confirmation"})
+	@RequestMapping(value = {"/{lang}/oversea-insurance/confirmation"})
 	public ModelAndView getOverseaConfirmation(Model model, HttpServletRequest request) {
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_CONFIRMATION);
 	}
