@@ -504,17 +504,23 @@
      		 $("#chk2").html("");
      	 }
      	 if(!$('#application-declaration').is(':checked')) {
-          $("#chk3").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
-          result = false;
-       }else {
-          $("#chk3").html("");
-       }
-       if(!$('#is-resident-check').is(':checked')) {
-     		 $("#chk4").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+     		 $("#chk3").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
      		 result = false;
-     	 }else {
-     		 $("#chk4").html("");
-     	 }
+	     }else {
+	         $("#chk3").html("");
+	     }
+		 if(!$('#is-resident-check').is(':checked')) {
+			 $("#chk4").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+		 	 result = false;
+		 }else {
+		     $("#chk4").html("");
+		 }
+         if(!$('#is-new-declaration-check').is(':checked')) {
+        	 $("#chk5").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+        	 result = false;
+         }else {
+        	 $("#chk5").html("");
+         }
      	 return result;
       }
       

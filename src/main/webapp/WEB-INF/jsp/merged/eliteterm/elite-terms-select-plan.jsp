@@ -1309,6 +1309,39 @@ var home_url = "<%=request.getContextPath()%>";
                      <div class="clearfix"></div>
 
                      <h4><fmt:message key="eliteTerms.selectPlan.Declaration.Cancellation" bundle="${msg}" />  </h4>
+                     
+                     <div class="policy-replace-wrap new-declaration">
+                        <div class="policy-desc bottom">
+                           <fmt:message key="eliteTerms.selectPlan.Residency.declarations.desc" bundle="${msg}" />
+                        </div>
+                        <div class="left-desktop no">
+                           <div class="clearfix">
+                              <div class="pull-left policy-replace-check">
+                                 <input type="checkbox" value="no" id="is-new-declaration-check" name="isnNewDeclaration"/>
+                                 <label for="is-new-declaration-check"></label>
+                              </div>
+                              <div class="pull-left policy-replace-desc">
+                                 <fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="left-desktop yes">
+                           <div class="clearfix yes-policy">
+                              <div class="pull-left yes-policy-replace-check">
+                                 <input type="checkbox" value="yes" id="non-new-declaration-check" name="nonNewDeclaration"/>
+                                 <label for="non-new-declaration-check"></label>
+                              </div>
+                              <div class="pull-left yes-policy-replace-desc">
+                                 <fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" />
+                                 <span class="note"><fmt:message key="eliteTerms.selectPlan.Yes.(Please)" bundle="${msg}" /></span>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <span id="chk5" class="text-red"></span> <br/>
+                     
+                     <div class="clearfix"></div>
+                     
                      <div class="clearfix declaration">
                         <div class="pull-left cancellation-check">
                            <input type="checkbox" value="cancellation" id="cancellation-check" name="isCancel" />
