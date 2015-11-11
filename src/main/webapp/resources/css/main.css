@@ -10306,6 +10306,10 @@ background-color
 		color: #000000 !important;
 		background-color: #f0f3f5 !important;
 	}
+    .mobile-menu-V2 {
+        -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    }
 	.mobile-menu-V2 li.menu-link {
 		border-bottom: 1px solid #f2f5f6;
 		background-color: #fff;
