@@ -49,10 +49,10 @@ public class AjaxEliteTermController extends BaseController{
 		            dirPath.mkdirs();  
 		        } 
 		        String fileName = imageFile.getOriginalFilename();
-		        String type = fileName.substring(fileName.lastIndexOf(".")+1);
-		        String realName = fileName.substring(0,fileName.lastIndexOf("."))+".jpg";
-				request.getSession().setAttribute(name, fileName);
-				request.getSession().setAttribute(name+"Type", "JPG");
+		       // String type = fileName.substring(fileName.lastIndexOf(".")+1);
+		        String realName = name+".jpg";//fileName.substring(0,fileName.lastIndexOf("."))
+				request.getSession().setAttribute(name, realName);
+				request.getSession().setAttribute(name+"Type", "jpg");
 		        byte[] bytes = imageFile.getBytes();
 		        String sep = System.getProperty("file.separator");  
 		        File uploadedFile = new File(uploadDir + sep  
