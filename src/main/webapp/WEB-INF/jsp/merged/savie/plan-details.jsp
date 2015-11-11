@@ -15,6 +15,7 @@ var context = "${pageContext.request.contextPath}";
 
 
 	<div class="page-sales-illustration">
+			<span id="username" data-userid="<%=session.getAttribute("username")%>"></span>
 			<!--Sales Illustration Block-->
 			<div class="fwd-container container-fluid hidden-xs hidden-sm clearfix">
 				<div class="breadcrumbs pull-left">
@@ -354,9 +355,14 @@ var context = "${pageContext.request.contextPath}";
 			
 			<!-- Login, create account, Proceed buttons -->
 			<div class="fwd-container container-fluid proceed-block text-center">
-				<h2><fmt:message key="savie.planDetails.login.create" bundle="${msg}" /></h2>
-				<button id="made-decision-next-btn" type="button" class="btn btn-orange proceed-btn"><fmt:message key="savie.planDetails.proceed" bundle="${msg}" /></button>
-			</div>
+				<!--	<h2><fmt:message key="savie.planDetails.login.create" bundle="${msg}" /></h2> -->
+				<button id="create-account" type="button" class="btn btn-orange proceed-btn">Create account</button>
+				<div class="login-holder">
+					<p>Or, </p>
+					<button id="made-decision-next-btn" type="button" class="login-button">Login</button>
+					<p> to proceed</p>
+				</div>	
+ 			</div>
 			
 			<!--Explanation Block-->
 			<div class="fwd-container container-fluid reset-padding explanation-block">
@@ -428,6 +434,11 @@ var context = "${pageContext.request.contextPath}";
 					$('#rate-table-2').addClass('hidden');
 					$('#rate-table-3').removeClass('hidden');
 					$('#rate-table-4').addClass('hidden');
+				});
+				
+				//Create account
+				$("#create-account").on('click', function(){
+					window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/joinus';
 				});
 			
 				//login
