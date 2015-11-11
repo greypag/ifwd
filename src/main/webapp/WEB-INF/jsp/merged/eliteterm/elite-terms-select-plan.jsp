@@ -157,7 +157,14 @@ var home_url = "<%=request.getContextPath()%>";
                                  <div class="et-broken-line et-padding hidden-md hidden-lg"></div>
                               </div>
                               <div class="col-md-4 col-xs-12">
-                                 <h4 class="et-dob-txt smoker"><fmt:message key="eliteTerms.selectPlan.Are.you.a" bundle="${msg}" /></h4>    
+                                 <div class="et-tooltip-wrapper">
+                                    <h4 class="et-dob-txt smoker">
+                                       <span><fmt:message key="eliteTerms.selectPlan.Are.you.a" bundle="${msg}" /></span>
+                                       <span>
+                                          <button type="button" class="et-minimal et-smoker-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Insured.amount.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span></button>
+                                       </span>
+                                    </h4> 
+                                 </div>
                                  
                                  <div class="clearfix et-smoke-wrapper">
                                     <div class="et-gender-div">
@@ -1108,14 +1115,14 @@ var home_url = "<%=request.getContextPath()%>";
                                              <div class="selectDiv">
                                                 <span class="icon-chevron-thin-down orange-caret"></span>
                                                 <select class="form-control gray-dropdown" id="beneficiaryHkidPassport[0]">
-                                                   <option selected value="HKID"><fmt:message key="eliteTerms.selectPlan.HKID" bundle="${msg}" /></option>
+                                                   <option selected value="HKID"><fmt:message key="eliteTerms.selectPlan.HKID.short" bundle="${msg}" /></option>
                                                    <option value="Passport"><fmt:message key="eliteTerms.selectPlan.Passport.No" bundle="${msg}" /></option>	
                                                 </select>
                                              </div>
                                           </div>
                                           <div class="pull-left input">
                                              <input class="form-control gray-textbox capitalize" type="text" autocomplete="off" placeholder="<fmt:message key="eliteTerms.selectPlan.HKID/Passport.No" bundle="${msg}" />" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBean[0].hkId" value="">
-                                             <input class="form-control gray-textbox hidden" type="text" autocomplete="off" placeholder="HKID/Passport No" id="savieBeneficiaryBean[0].passportNo" name="savieBeneficiaryBean[0].passportNo" value="">
+                                             <input class="form-control gray-textbox hidden" type="text" autocomplete="off" placeholder="<fmt:message key="eliteTerms.selectPlan.HKID.Passport.No" bundle="${msg}" />" id="savieBeneficiaryBean[0].passportNo" name="savieBeneficiaryBean[0].passportNo" value="">
                                           </div>
                                        </div>
                                        <span class="error-msg" id="bnfPassportMessage[0]"></span>
@@ -1224,7 +1231,7 @@ var home_url = "<%=request.getContextPath()%>";
                                  <label for="no-policy-replace-check"></label>
                               </div>
                               <div class="pull-left policy-replace-desc">
-                                 <fmt:message key="eliteTerms.selectPlan.No" bundle="${msg}" />
+                                 <fmt:message key="eliteTerms.selectPlan.None" bundle="${msg}" />
                               </div>
                            </div>
                         </div>
@@ -1359,7 +1366,7 @@ var home_url = "<%=request.getContextPath()%>";
 
                      <div class="clearfix"></div>
 
-                     <h4 class="application"><fmt:message key="eliteTerms.selectPlan.Application" bundle="${msg}" /></h4>
+                     <h4 class="application"><fmt:message key="eliteTerms.selectPlan.Personal.data" bundle="${msg}" /></h4>
                      
                      <div class="clearfix declaration application-declaration sub-header">
                         <div class="pull-left cancellation-check">
@@ -1414,7 +1421,7 @@ var home_url = "<%=request.getContextPath()%>";
                                  <span class="order">iii</span>
                               </div>
                               <div class="pull-left text">
-                                 <fmt:message key="eliteTerms.selectPlan.I.have.the.duty" bundle="${msg}" />
+                                 <fmt:message key="eliteTerms.selectPlan.Any.payment.made" bundle="${msg}" />
                               </div>
                            </div>		
                         </div>
@@ -1428,7 +1435,7 @@ var home_url = "<%=request.getContextPath()%>";
                                  <span class="order">iv</span>
                               </div>
                               <div class="pull-left text">
-                                 <fmt:message key="eliteTerms.selectPlan.Any.payment.made" bundle="${msg}" />
+                                 <fmt:message key="eliteTerms.selectPlan.I/We.hereby.declare" bundle="${msg}" />
                               </div>
                            </div>
                               
@@ -1629,7 +1636,7 @@ var home_url = "<%=request.getContextPath()%>";
                            <div class="summary-body-item">
 	                           <div class="et-own-estate hide-element">
 	                                 <h3 class="beneficiary"><fmt:message key="eliteTerms.selectPlan.Beneficiary" bundle="${msg}" /> <span><fmt:message key="eliteTerms.selectPlan.Person1" bundle="${msg}" /></span> <a href="#" title="Edit" class="et-app-sum-edit" data-target="#et-beneficiary-info-section"><fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a></h3>
-	                                 <p">Own Estate </p>
+	                                 <p><fmt:message key="eliteTerms.selectPlan.Own.Estate" bundle="${msg}" /></p>
 	                                 <%-- <h4 class="clearfix info-holder-title"><fmt:message key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" /></h4>
 	                                 <div class="clearfix info-holder">
 	                                    <h4 class="info-label employment"><fmt:message key="eliteTerms.selectPlan.Last.Name" bundle="${msg}" /></h4>
@@ -2031,7 +2038,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<input type="text" class="form-control gray-textbox" placeholder="Email Address" id="cs_email" name="cs_email">
 								</div>
 								<div class="input-items clearfix">
-									<label for="cs_tel"><fmt:message key="eliteTerms.selectPlan.Telephone.no." bundle="${msg}" /></label>
+									<label for="cs_tel"><fmt:message key="eliteTerms.selectPlan.Mobile.no." bundle="${msg}" /></label>
 									<input type="text" class="form-control gray-textbox" placeholder="Telephone no" id="cs_tel" name="cs_tel">
 								</div>
 								<div class="input-items clearfix">
@@ -2304,6 +2311,10 @@ var home_url = "<%=request.getContextPath()%>";
 			         $('body, html').animate({
 			            scrollTop: ($appInfo.offset().top - stickyHeight) + 'px'
 			         }, 500);
+
+                  //Update breadcrumb
+                  //var breadcrumb_new = '<fmt:message key="home.breadcrumb2.term.item2" bundle="${msg}" />';
+                  //updateBreadCrumb('et-active-bc-menu', breadcrumb_new);
 				 }
 				 else{
 					// Open login modal

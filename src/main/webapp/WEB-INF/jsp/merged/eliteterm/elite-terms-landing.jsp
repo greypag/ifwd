@@ -248,6 +248,22 @@
                </div>
             </div>
             
+            <!-- PRODUCT REMARKS -->
+            <section class="et-remarks-wrapper">
+               <div class="container">
+                  <fmt:message key="eliteTerms.landing.product.remarks.t1" bundle="${msg}" />
+                  <div>
+                     <ul>
+                        <li><fmt:message key="eliteTerms.landing.product.remarks.copy1" bundle="${msg}" /></li>
+                        <li><fmt:message key="eliteTerms.landing.product.remarks.copy2" bundle="${msg}" /></li>
+                        <li><fmt:message key="eliteTerms.landing.product.remarks.copy3" bundle="${msg}" /></li>
+                        <li><fmt:message key="eliteTerms.landing.product.remarks.copy4" bundle="${msg}" /></li>
+                     </ul>
+                  </div>
+               </div>
+            </section>
+            <!-- PRODUCT REMARKS -->
+            
             <!-- FEATURES PLAN AND TESTIMONIALS -->
             <section class="et-plan-wrapper hidden-xs hidden-sm">
                <div class="container">
@@ -286,7 +302,7 @@
                   </div>
                </div>
             </section>
-            
+
             <!-- 
                FEATURES PLAN MOBILE VERSION 
             -->

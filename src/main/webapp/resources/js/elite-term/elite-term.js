@@ -638,6 +638,13 @@ function showAppSection(b0,b1,b2,b3,b4,b5,b6,b7,b8,b9){
 	}
 }
 
+/**
+* Update breadcrumb
+*
+*/
+function updateBreadCrumb(id, val){
+	$('#' + id).html(val);
+}
 
 /**
 * On Document Ready
