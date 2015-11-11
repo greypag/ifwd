@@ -538,7 +538,8 @@
     	  
          var $self = $(this);
          var $appSum = $('#et-application-third-section');
-         var $confirmSign = $('#et-declaration-proceed-btn');
+         var $confirmSign = $('#et-confirm-and-sign-btn');
+         var $confirmSignWait = $('#et-confirm-and-sign-wait-btn');
 
          //smoker non-smoker
          if ($('#et-smoker-yes').prop('checked')) {
@@ -553,13 +554,23 @@
          populateAppSummEI();
          populateAppSummBI();
          
-         // Remove confirm and sign button
-         // and align view summary button to center
-         $confirmSign.parent()
-                     .addClass('hidden');
-         $self.parent()
-               .removeClass('col-md-6')
-               .addClass('et-selected col-md-12')
+         $self.parent().addClass('et-selected');
+         
+         // Set timer for confirm and sign button
+         var waitSecond = 0;
+         if (waitSecond <= 0) {
+	         waitSecond = parseInt($confirmSignWait.data('wait'), 10);
+	         $confirmSignWait.text('(' + waitSecond + ')');
+	         var waitInterval = setInterval(function(){
+	        	 waitSecond--;
+	        	 $confirmSignWait.text('(' + waitSecond + ')');
+	        	 if (waitSecond <= 0) {
+	        		 $confirmSignWait.addClass('hide');
+	        		 $confirmSign.removeClass('hide');
+	        		 clearInterval(waitInterval);
+	        	 };
+	         }, 1000);
+      	}
          
          //res address
          if($('#etaspi-res-add').html().length <= 0 || !$('#savieApplicantBean\\.isResidential').prop('checked')) {

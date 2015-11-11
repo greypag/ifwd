@@ -1469,11 +1469,8 @@ var home_url = "<%=request.getContextPath()%>";
                      </div>
                      
                      <div class="row et-proceed-btn-wrapper">
-                        <div class="col-xs-12 col-md-6 proceed-btn text-center">
+                        <div class="col-xs-12 col-md-12 proceed-btn text-center">
                            <button id="et-app-sum-proceed-btn" type="button" class="btn next et-btn-view-summary"><fmt:message key="eliteTerms.selectPlan.View.summary" bundle="${msg}" /></button> <!--Bind a click event temporarily to show the hidden Application Summary section-->
-                        </div>
-                        <div class="col-xs-12 col-md-6 proceed-btn text-center">
-                           <button id="et-declaration-proceed-btn" type="button" class="btn next et-btn-confirm-sign"><fmt:message key="eliteTerms.selectPlan.Confirm.and.sign" bundle="${msg}" /></button> <!--Bind a click event temporarily to show the hidden Application Summary section-->
                         </div>
                      </div>
                      
@@ -1790,7 +1787,8 @@ var home_url = "<%=request.getContextPath()%>";
                      </div> <!-- END OF SUMMARY CONTENT -->
 
                      <div class="text-center confirm-and-sign-holder">
-                        <button id="et-confirm-and-sign-btn" type="button" class="btn next"><fmt:message key="eliteTerms.selectPlan.Confirm" bundle="${msg}" /></button><!--Bind a click event temporarily to show the hidden Signature section-->
+                        <button id="et-confirm-and-sign-wait-btn" type="button" class="btn next" data-wait="10" disabled></button>
+                        <button id="et-confirm-and-sign-btn" type="button" class="btn next hide"><fmt:message key="eliteTerms.selectPlan.Confirm" bundle="${msg}" /></button><!--Bind a click event temporarily to show the hidden Signature section-->
                      </div>
 
                   </div>
