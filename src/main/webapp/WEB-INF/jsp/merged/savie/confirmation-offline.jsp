@@ -22,13 +22,32 @@ var affiliate = "${affiliate}";
 		<div class="fwd-savie-wrapper">			
 			
 			<div class="container-fluid fwd-full-container">
-				<div class="application-page-header thank-you">
-					<div class="row">
-						<div class="col-xs-12 orange-section">
-							<div class="clearfix position">
-								<div class="description-desktop">
-									<span><fmt:message key="evergreen.savie.confirmation.offline.confirmation" bundle="${msg}" /></span>
-								</div>
+				<div class="application-page-header et-header-browse">
+					<div class="et-back-arrow hidden-xs hidden-sm">
+						<a href="#" class="et-back-arrow-link">
+							<span class="icon-arrow-left2 arrow-left"></span>
+						</a>
+				    </div>
+					<div class="row reset-margin hidden-xs hidden-sm">
+		                  <div class="col-md-4 reset-padding">
+		                      <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="plan-detail" data-et-section-target="et-select-plan-section">Plan details</button>
+		                  </div>
+		                  <div class="col-md-4 reset-padding">
+		                      <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="make-appointment" data-et-section-target="et-application-section">Make appointment</button>
+		                  </div>
+		                  <div class="col-md-4 reset-padding">
+		                      <button type="button" class="et-header-info-btn et-bind-btn-header active" id="confirmation" data-et-section-target="et-dec-sign-section">Confirmation</button>
+		                  </div>
+              		</div>
+					<div class="et-mobile-header-info hidden-md hidden-lg">
+						<div class="clearfix">
+							<div class="et-back-arrow">
+								<a href="#" class="et-back-arrow-link">
+									<span class="icon-arrow-left2 arrow-left"></span>
+								</a>
+							</div>
+							<div class="et-header-tex">
+								<h3 id="et-active-section-label">Confirmation</h3>
 							</div>
 						</div>
 					</div>
