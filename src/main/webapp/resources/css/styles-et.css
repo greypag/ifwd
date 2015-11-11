@@ -149,6 +149,8 @@
 }
 
 .et-tooltip-wrapper button{
+	width: 18px;
+	height: 18px;
 	border: none;
 	background-color: transparent;
 }
