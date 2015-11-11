@@ -1268,6 +1268,15 @@
          $('.et-emp-info-sourceOfIncome-container').removeClass('hidden');
          $('.et-emp-info-liq-assets-container').removeClass('hidden');
       }
+      
+      $('#savieEmploymentBean\\.natureOfBusiness').prop('selectedIndex', 0).css('color', 'rgb(196, 195, 195)');
+      $('#savieEmploymentBean\\.occupation').prop('selectedIndex', 0).css('color', 'rgb(196, 195, 195)');
+      $('#savieEmploymentBean\\.liquidAssets').prop('selectedIndex', 0).css('color', 'rgb(196, 195, 195)');
+      $('#savieEmploymentBean\\.currentEmployerName').val('');
+      $('#savieEmploymentBean\\.monthlyPersonalIncome').prop('selectedIndex', 0).css('color', 'rgb(196, 195, 195)');
+      $('#savieEmploymentBean\\.sourceOfIncome').prop('selectedIndex', 0).css('color', 'rgb(196, 195, 195)');
+      $('#savieEmploymentBean\\.educationLevel').prop('selectedIndex', 0).css('color', 'rgb(196, 195, 195)');
+      $('#etEmploymentInfoForm').find('.error-msg .help-block').css('display', 'none');
    });
    
    // Determine if the previous question was answered
