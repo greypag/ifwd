@@ -62,20 +62,20 @@ public class OverseaPageFlowControl {
 
 		switch (current) {
 		case UserRestURIConstants.PAGE_OVERSEA_LANDING:
-			to = UserRestURIConstants.PAGE_OVERSEA_LANDING;
+			to = UserRestURIConstants.URL_OVERSEA_QUOTE;
 			break;
-		/*case UserRestURIConstants.PAGE_ELITE_TERMS_SELECT_PLAN:
-			to = UserRestURIConstants.URL_ELITE_TERMS_PAYMENT;
+		case UserRestURIConstants.PAGE_OVERSEA_QUOTE:
+			to = UserRestURIConstants.URL_OVERSEA_DETAILS;
 			break;
-		case UserRestURIConstants.PAGE_ELITE_TERMS_PAYMENT:
-			to = UserRestURIConstants.URL_ELITE_TERMS_DOCUMENT_UPLOAD;
+		case UserRestURIConstants.PAGE_OVERSEA_DETAILS:
+			to = UserRestURIConstants.URL_OVERSEA_SUMMARY;
 			break;
-		case UserRestURIConstants.PAGE_ELITE_TERMS_DOCUMENT_UPLOAD:
-			to = UserRestURIConstants.URL_ELITE_TERMS_CONFIRMATION;
+		case UserRestURIConstants.PAGE_OVERSEA_SUMMARY:
+			to = UserRestURIConstants.URL_OVERSEA_CONFIRMATION;
 			break;
-		case UserRestURIConstants.PAGE_ELITE_TERMS_CONFIRMATION: 
+		case UserRestURIConstants.PAGE_OVERSEA_CONFIRMATION: 
 			to = UserRestURIConstants.URL_ELITE_TERMS_LANDING;
-			break;*/
+			break;
 		default:
 			to = UserRestURIConstants.URL_ELITE_TERMS_LANDING;
 		}
@@ -93,24 +93,18 @@ public class OverseaPageFlowControl {
 		if(url.endsWith(UserRestURIConstants.URL_OVERSEA_LANDING)) {
 			return UserRestURIConstants.PAGE_OVERSEA_LANDING;
 		}
-		/*if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_SELECT_PLAN)) {
-			return UserRestURIConstants.PAGE_ELITE_TERMS_SELECT_PLAN;
+		if(url.endsWith(UserRestURIConstants.URL_OVERSEA_QUOTE)) {
+			return UserRestURIConstants.PAGE_OVERSEA_QUOTE;
 		}
-		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_APPLICATION)) {
-			return UserRestURIConstants.PAGE_ELITE_TERMS_SELECT_PLAN;
+		if(url.endsWith(UserRestURIConstants.URL_OVERSEA_DETAILS)) {
+			return UserRestURIConstants.PAGE_OVERSEA_DETAILS;
 		}
-		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_PAYMENT)) {
-			return UserRestURIConstants.PAGE_ELITE_TERMS_PAYMENT;
+		if(url.endsWith(UserRestURIConstants.URL_OVERSEA_SUMMARY)) {
+			return UserRestURIConstants.PAGE_OVERSEA_SUMMARY;
 		}		
-		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_DOCUMENT_UPLOAD)) {
-			return UserRestURIConstants.PAGE_ELITE_TERMS_DOCUMENT_UPLOAD;
+		if(url.endsWith(UserRestURIConstants.URL_OVERSEA_CONFIRMATION)) {
+			return UserRestURIConstants.PAGE_OVERSEA_CONFIRMATION;
 		}	
-		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_DOCUMENT_UPLOAD_LATER)) {
-			return UserRestURIConstants.PAGE_ELITE_TERMS_DOCUMENT_UPLOAD;
-		}	
-		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_CONFIRMATION)) {
-			return UserRestURIConstants.PAGE_ELITE_TERMS_CONFIRMATION;
-		}		*/
 		return "";
 	}
 }

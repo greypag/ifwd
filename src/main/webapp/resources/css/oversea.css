@@ -229,6 +229,7 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 }
 .floor-block-pad-right-none{
 	padding-right: 0;
+<<<<<<< HEAD
 }
 /********** Oversea plan-selection page *********/
 .plan-coverage-box-l{
@@ -523,4 +524,6 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 	-o-transition: none;
 	-ms-transition: none;
 	transition: none;
+=======
+>>>>>>> 4d82ae493430055f43028ed919a80703a61211c0
 }

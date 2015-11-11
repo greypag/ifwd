@@ -107,6 +107,10 @@ public class UserRestURIConstants {
 	public static final String SEND_DOCUMENTS = "/documents/applications";
 	public static final String GENERATE_SALES_ILLUSTRATION = "/savie/salesIllustration";
 	
+	/*API For Oversea*/
+	public static final String OVERSEA_GET_QUOTE = SERVICE_URL
+			+ "/gi/overseasStudy/quote";
+	
 	/*API For eliteTerm*/
 	public static final String CREATE_ELITE_TERM_POLICY = "/eliteterm/policies";
 	public static final String GET_ELITE_TERM_PREMIUM = "/eliteterm/premium";
@@ -154,10 +158,22 @@ public class UserRestURIConstants {
 	
 	/* Page Flow Control For OverSea */
 	public static final String URL_OVERSEA_LANDING = "oversea-insurance";
+	public static final String URL_OVERSEA_QUOTE = "quote";
+	public static final String URL_OVERSEA_DETAILS = "user-details";
+	public static final String URL_OVERSEA_SUMMARY = "oversea-summary";
+	public static final String URL_OVERSEA_CONFIRMATION = "oversea-confirmation";
 	
 	public static final String PAGE_OVERSEA_LANDING = "oversea-landing";
+	public static final String PAGE_OVERSEA_QUOTE = "oversea-plan-quote";
+	public static final String PAGE_OVERSEA_DETAILS = "oversea-plan-details";
+	public static final String PAGE_OVERSEA_SUMMARY = "oversea-plan-summary";
+	public static final String PAGE_OVERSEA_CONFIRMATION = "oversea-plan-confirmation";
 	
 	public static final String PAGE_PROPERTIES_OVERSEA_LANDING = "oversea.landing";
+	public static final String PAGE_PROPERTIES_OVERSEA_QUOTE = "oversea.quote";
+	public static final String PAGE_PROPERTIES_OVERSEA_DETAILS = "oversea.details";
+	public static final String PAGE_PROPERTIES_OVERSEA_SUMMARY = "oversea.summary";
+	public static final String PAGE_PROPERTIES_OVERSEA_CONFIRMATION = "oversea.confirmation";
 	
     /* Page Flow Control For Evergreen */
 	

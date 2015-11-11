@@ -251,7 +251,11 @@ $(function () {
 			
 			
 			
+<<<<<<< HEAD
 			//è¦æµè¿”D è®Šæ•¸post è¿”
+=======
+			//Òª“‹·µD ×ƒ”µpost ·µ
+>>>>>>> 4d82ae493430055f43028ed919a80703a61211c0
 					
 //			$.ajax({
 //				  type: "POST",
@@ -319,7 +323,11 @@ $(function () {
 		
 		
 		
+<<<<<<< HEAD
 		//è¦æµè¿”D è®Šæ•¸post è¿”
+=======
+		//Òª“‹·µD ×ƒ”µpost ·µ
+>>>>>>> 4d82ae493430055f43028ed919a80703a61211c0
 				
 //		$.ajax({
 //			  type: "POST",
@@ -6048,9 +6056,15 @@ function chkValidApplicantHkId(element, errElementId, typeId){
 		var e = document.getElementById(typeId);  
 		var type = e.options[e.selectedIndex].text;
 	}
+<<<<<<< HEAD
 	if(type == "" || type == "é¦™æ¸¯èº«ä»½è­‰"){
 		type="HKID";
 	}else if(type == "è­·ç…§è™Ÿç¢¼"){
+=======
+	if(type == "" || type == "Ïã¸ÛÉí·Ý×C"){
+		type="HKID";
+	}else if(type == "×oÕÕÌ–´a"){
+>>>>>>> 4d82ae493430055f43028ed919a80703a61211c0
 		type="Passport";
 	}
 	element.value = element.value.toUpperCase();
@@ -6615,7 +6629,11 @@ function checkMembership(field){
 }
 
 /**
+<<<<<<< HEAD
  * éªŒè¯åŒ…å«çš„"@"å’Œ".",å„è‡ªåªèƒ½æœ‰ä¸€ä¸ªä¸”ä¸èƒ½ä¸ºå¼€å¤´å’Œç»“å°¾
+=======
+ * ÑéÖ¤°üº¬µÄ"@"ºÍ".",¸÷×ÔÖ»ÄÜÓÐÒ»¸öÇÒ²»ÄÜÎª¿ªÍ·ºÍ½áÎ²
+>>>>>>> 4d82ae493430055f43028ed919a80703a61211c0
  */
 function checkUsername(el){
 	if(el.split('@').length-1 > 1){
@@ -7176,15 +7194,23 @@ $( document ).ready(function() {
 });
 
 
+<<<<<<< HEAD
 // å¯¹Dateçš„æ‰©å±•ï¼Œå°† Date è½¬åŒ–ä¸ºæŒ‡å®šæ ¼å¼çš„String   
 // æœˆ(M)ã€æ—¥(d)ã€å°æ—¶(h)ã€åˆ†(m)ã€ç§’(s)ã€å­£åº¦(q) å¯ä»¥ç”¨ 1-2 ä¸ªå ä½ç¬¦ï¼Œ   
 // å¹´(y)å¯ä»¥ç”¨ 1-4 ä¸ªå ä½ç¬¦ï¼Œæ¯«ç§’(S)åªèƒ½ç”¨ 1 ä¸ªå ä½ç¬¦(æ˜¯ 1-3 ä½çš„æ•°å­—)   
 // ä¾‹å­ï¼š   
+=======
+// ¶ÔDateµÄÀ©Õ¹£¬½« Date ×ª»¯ÎªÖ¸¶¨¸ñÊ½µÄString   
+// ÔÂ(M)¡¢ÈÕ(d)¡¢Ð¡Ê±(h)¡¢·Ö(m)¡¢Ãë(s)¡¢¼¾¶È(q) ¿ÉÒÔÓÃ 1-2 ¸öÕ¼Î»·û£¬   
+// Äê(y)¿ÉÒÔÓÃ 1-4 ¸öÕ¼Î»·û£¬ºÁÃë(S)Ö»ÄÜÓÃ 1 ¸öÕ¼Î»·û(ÊÇ 1-3 Î»µÄÊý×Ö)   
+// Àý×Ó£º   
+>>>>>>> 4d82ae493430055f43028ed919a80703a61211c0
 // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423   
 // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18   
 Date.prototype.Format = function(fmt)   
 { //author: meizz   
   var o = {   
+<<<<<<< HEAD
     "M+" : this.getMonth()+1,                 //æœˆä»½   
     "d+" : this.getDate(),                    //æ—¥   
     "h+" : this.getHours(),                   //å°æ—¶   
@@ -7192,6 +7218,15 @@ Date.prototype.Format = function(fmt)
     "s+" : this.getSeconds(),                 //ç§’   
     "q+" : Math.floor((this.getMonth()+3)/3), //å­£åº¦   
     "S"  : this.getMilliseconds()             //æ¯«ç§’   
+=======
+    "M+" : this.getMonth()+1,                 //ÔÂ·Ý   
+    "d+" : this.getDate(),                    //ÈÕ   
+    "h+" : this.getHours(),                   //Ð¡Ê±   
+    "m+" : this.getMinutes(),                 //·Ö   
+    "s+" : this.getSeconds(),                 //Ãë   
+    "q+" : Math.floor((this.getMonth()+3)/3), //¼¾¶È   
+    "S"  : this.getMilliseconds()             //ºÁÃë   
+>>>>>>> 4d82ae493430055f43028ed919a80703a61211c0
   };   
   if(/(y+)/.test(fmt))   
     fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
@@ -7200,6 +7235,7 @@ Date.prototype.Format = function(fmt)
   fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));   
   return fmt;   
 }  
+<<<<<<< HEAD
 $(document).ready(function() {                     
 	$('[data-toggle="tooltip"]').tooltip();
 	changeColorAndPrice('box2','2','Plan A Comprehensive','0.0','8000.0')
@@ -7241,5 +7277,9 @@ function coverageToogle(){
 	$("#summary-of-coverage").mCustomScrollbar();
 	$('#summary-of-coverage').css("display","block");
 }
+=======
+
+
+>>>>>>> 4d82ae493430055f43028ed919a80703a61211c0
 
 		
