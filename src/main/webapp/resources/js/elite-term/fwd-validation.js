@@ -76,6 +76,11 @@ $(function() {
 			if($('#personal-info-next').hasClass('correspondence')){
 				$('#personal-info-next').removeClass('correspondence');
 			}
+			
+			$('#savieApplicantBean\\.correspondenceAdress1').val('');
+			$('#savieApplicantBean\\.correspondenceAdress2').val('');
+			$('#savieApplicantBean\\.correspondenceAdress3').val('');
+			$('#savieApplicantBean\\.correspondenceDistrict').val('');
 		}
 	});
 	
@@ -94,6 +99,11 @@ $(function() {
 			if($('#personal-info-next').hasClass('residential')){
 				$('#personal-info-next').removeClass('residential');
 			}
+			
+			$('#savieApplicantBean\\.residentialAdress1').val('');
+			$('#savieApplicantBean\\.residentialAdress2').val('');
+			$('#savieApplicantBean\\.residentialAdress3').val('');
+			$('#savieApplicantBean\\.residentialDistrict').val('');
 		}
 	});
     
