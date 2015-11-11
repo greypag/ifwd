@@ -1,4 +1,9 @@
 /* ET Shared */
+.hide,
+.hide-element {
+	display: none !important;
+}
+
 .fwd-et-wrapper select,
 .et-payment .page-content .page-content-item .selectDiv select {
 	color: #ccc;
