@@ -393,4 +393,4 @@ function prepareOverseaPlan(form){
   <a class="prev" href="#recent-works-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#recent-works-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a> </section>
 
   <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
-  <script type="text/javascript" src="resources/js/oversea.js"></script>
+  <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>
