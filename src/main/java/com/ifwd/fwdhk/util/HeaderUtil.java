@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -42,7 +43,7 @@ public class HeaderUtil{
 		}
 		Map<String,String> header = Maps.newHashMap();
 		//header.put("country", "HK");
-		header.put("language", lang);
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		header.put("token", token);
 		header.put("username", username);
 		return header;
