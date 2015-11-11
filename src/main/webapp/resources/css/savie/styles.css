@@ -3790,6 +3790,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   text-align: left;
   margin: 0 0 5px;
   position: relative;
+  top: 3px;
 }
 #illustration-filters #investment-amount h3.saving {
   padding-left: 3px;
@@ -3806,7 +3807,7 @@ body.chin .fwd-savie-wrapper .btn-orange {
   color: white;
   font-family: 'foco_regular', Calibri, sans-serif;
   font-size: 24px;
-  margin: 9px 5px 0;
+  margin: 12px 5px 0;
 }
 body.chin #illustration-filters #investment-amount #hkd {
   font-family: 'Microsoft Yahei', Calibri, sans-serif;
