@@ -527,7 +527,7 @@
          }else {
         	 $("#chk7").html("");
          }
-     	 return result;
+         return result;
       }
       
       // Show Application Summary section
