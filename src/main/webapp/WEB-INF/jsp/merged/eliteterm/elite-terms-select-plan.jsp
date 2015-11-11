@@ -1216,7 +1216,6 @@ var home_url = "<%=request.getContextPath()%>";
                      <div class="policy-desc bottom">
                         <fmt:message key="eliteTerms.selectPlan.Have.you" bundle="${msg}" />
                      </div>
-                     
                      <div class="policy-replace-wrap clearfix">
                         <div class="left-desktop no">
                            <div class="clearfix">
@@ -1242,10 +1241,13 @@ var home_url = "<%=request.getContextPath()%>";
                            </div>
                         </div>
                      </div>
+                     <span id="chk6" class="text-red"></span> <br/>
+                     
+                     <div class="clearfix"></div>
+                     
                      <div class="policy-desc bottom">
                         <fmt:message key="eliteTerms.selectPlan.Do.you" bundle="${msg}" />
                      </div>
-                     
                      <div class="policy-replace-wrap clearfix">
                         <div class="left-desktop no">
                            <div class="clearfix">
@@ -1271,6 +1273,10 @@ var home_url = "<%=request.getContextPath()%>";
                            </div>
                         </div>
                      </div>
+                     <span id="chk7" class="text-red"></span> <br/>
+                     
+                     <div class="clearfix"></div>
+                     
                      <div class="policy-replacement-remarks">
                         <div class>
                            <p class="policy-desc bottom">
@@ -1353,7 +1359,7 @@ var home_url = "<%=request.getContextPath()%>";
                      </div>
                      <span id="chk2" class="text-red"></span> <br />
                      
-                     <div class="policy-replace-wrap residency-declaration">
+                     <div class="policy-replace-wrap residency-declaration clearfix">
                         <h4 class="policy-replace"><fmt:message key="eliteTerms.selectPlan.Residency.declarations" bundle="${msg}" /></h4>
                         <div class="policy-desc bottom">
                            <fmt:message key="eliteTerms.selectPlan.Residency.declarations.desc" bundle="${msg}" />

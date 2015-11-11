@@ -515,11 +515,17 @@
 		 }else {
 		     $("#chk4").html("");
 		 }
-         if(!$('#is-new-declaration-check').is(':checked')) {
-        	 $("#chk5").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+		 if(!$('#no-policy-replace-check').is(':checked')) {
+			 $("#chk6").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+		 	 result = false;
+		 }else {
+		     $("#chk6").html("");
+		 }
+         if(!$('#no-policy-replace-existing-check').is(':checked')) {
+        	 $("#chk7").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
         	 result = false;
          }else {
-        	 $("#chk5").html("");
+        	 $("#chk7").html("");
          }
      	 return result;
       }
