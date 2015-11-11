@@ -31,6 +31,17 @@ var language = "${language}";
 				
 				<div class="application-flux customer-service">
 					<div id="service-centre" class="container-fluid fwd-container page-application">
+						<div class="fwd-container hidden-xs hidden-sm clearfix">
+								<div class="breadcrumbs pull-left">
+									<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
+										<li><a href="#"><fmt:message key="savie.planDetails.Save" bundle="${msg}" /></a></li>
+										<li class="divider"><i class="fa fa-play"></i></li>
+										<li><a href="#">Evergreen</a></li>
+										<li class="divider last"><i class="fa fa-play"></i></li>
+										<li class="active-bc">Make appointment</li>
+									</ol>
+								</div>
+							</div>
 						<h2><fmt:message key="savie.customerServiceCentre.headerText1" bundle="${msg}" /></h2>
 						<form>
 							<div class="row">

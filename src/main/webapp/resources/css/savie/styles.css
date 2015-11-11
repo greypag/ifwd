@@ -13961,6 +13961,7 @@ input[type=number] {
 
 .fwd-savie-wrapper .investment .after-3-years-btn {
   text-align: center;
+  padding-bottom:30px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .investment .after-3-years-btn {
@@ -14012,6 +14013,33 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
     margin-bottom: 21px;
   }
 }
+
+.fwd-savie-wrapper .container-fluid.proceed-block.text-center .login-button {
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: #f28000;
+  text-decoration: underline;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .container-fluid.proceed-block.text-center .login-holder {
+    display: inline;
+  }
+}
+
+.fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn {
+	width: auto;
+    margin-right: 15px;
+}
+.fwd-savie-wrapper .container-fluid.proceed-block.text-center p {
+	display: inline;
+	font-size: 22px;
+	color: #000;
+}
+
 
 button#thank-you-continue {
   font-family: Calibri, sans-serif;
