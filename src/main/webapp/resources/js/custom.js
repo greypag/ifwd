@@ -223,6 +223,43 @@ $(function() {
 		$('#beneficiary-contents').addClass('hidden');
 		$('#add-beneficiary-1').addClass('hidden');
 		$('#add-beneficiary-2').addClass('hidden');
+		
+		$('#savieBeneficiaryBean\\[0\\]\\.firstName').val('');
+		$('#savieBeneficiaryBean\\[0\\]\\.lastName').val('');
+		$('#savieBeneficiaryBean\\[0\\]\\.chineseName').val('');
+		$('#beneficiaryHkidPassport\\[0\\]').prop('selectedIndex',0);
+		$('#savieBeneficiaryBean\\[0\\]\\.hkId').val('');
+		$('#savieBeneficiaryBean\\[0\\]\\.passportNo').val('');
+		$('input[name="savieBeneficiaryBean\\[0\\]\\.gender"]#male-0').prop('checked', true);
+		$('#savieBeneficiaryBean\\[0\\]\\.relationship').val('');
+		$('#savieBeneficiaryBean\\[0\\]\\.entitlement').val(100);
+		$('#beneficiaryInfoForm\\[0\\]').find('.error-msg .help-block').css('display', 'none');
+
+		if ($('#beneficiaryInfoForm\\[1\\]').length) {
+			$('#savieBeneficiaryBean\\[1\\]\\.firstName').val('');
+			$('#savieBeneficiaryBean\\[1\\]\\.lastName').val('');
+			$('#savieBeneficiaryBean\\[1\\]\\.chineseName').val('');
+			$('#beneficiaryHkidPassport\\[1\\]').prop('selectedIndex',0);
+			$('#savieBeneficiaryBean\\[1\\]\\.hkId').val('');
+			$('#savieBeneficiaryBean\\[1\\]\\.passportNo').val('');
+			$('input[name="savieBeneficiaryBean\\[1\\]\\.gender"]#male-1').prop('checked', true);
+			$('#savieBeneficiaryBean\\[1\\]\\.relationship').val('');
+			$('#savieBeneficiaryBean\\[1\\]\\.entitlement').val('');
+			$('#beneficiaryInfoForm\\[1\\]').find('.error-msg .help-block').css('display', 'none');
+		}
+
+		if ($('#beneficiaryInfoForm\\[2\\]').length) {
+			$('#savieBeneficiaryBean\\[2\\]\\.firstName').val('');
+			$('#savieBeneficiaryBean\\[2\\]\\.lastName').val('');
+			$('#savieBeneficiaryBean\\[2\\]\\.chineseName').val('');
+			$('#beneficiaryHkidPassport\\[2\\]').prop('selectedIndex',0);
+			$('#savieBeneficiaryBean\\[2\\]\\.hkId').val('');
+			$('#savieBeneficiaryBean\\[2\\]\\.passportNo').val('');
+			$('input[name="savieBeneficiaryBean\\[2\\]\\.gender"]#male-2').prop('checked', true);
+			$('#savieBeneficiaryBean\\[2\\]\\.relationship').val('');
+			$('#savieBeneficiaryBean\\[2\\]\\.entitlement').val('');
+			$('#beneficiaryInfoForm\\[2\\]').find('.error-msg .help-block').css('display', 'none');
+		}
 	});
 	
 	$("#name-others-now").click(function() {
