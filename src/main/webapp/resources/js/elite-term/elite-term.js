@@ -493,7 +493,7 @@ function resetCalculatedAmt(){
 	var actPromo = $('#et-act-promo-amount');
 	var default_period_text = actPromo.find('.et-po-amount-label').data('et-default-period');
   
-	$('#et-dis-promo-amount').addClass('hidden');
+	$('#et-dis-promo-amount').addClass('hide-element');
 	$("#etaspd-insured-amount").html('HK$ ');
 	$("#etaspd-monthly-premium").html('HK$ ');
 
@@ -533,10 +533,10 @@ function setCalculatedAmt(bDiscount, insuredAmt, oriMonthlyAmt, oriDailyAmt, dis
 		$("#et-month-dis-amount").html(parseFloat(disMonthlyAmt).toFixed(2));
 		$("#et-day-dis-amount").html(parseFloat(disDailyAmt).toFixed(2));
 		actPromo.find('.top .et-po-amount-label').text(discount_period_text);
-		$('#et-dis-promo-amount').removeClass('hidden');
+		$('#et-dis-promo-amount').removeClass('hide-element');
  	} else{
  		actPromo.find('.top .et-po-amount-label').text(default_period_text);
- 		$('#et-dis-promo-amount').addClass('hidden');
+ 		$('#et-dis-promo-amount').addClass('hide-element');
  	}
 
  	//enable proceed button
