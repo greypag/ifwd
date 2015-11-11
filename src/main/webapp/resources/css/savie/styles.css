@@ -3820,6 +3820,8 @@ body.chin #illustration-filters #investment-amount #hkd {
   text-align: center;
   font-family: 'foco_regular', Calibri, sans-serif;
   font-size: 15px;
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
 #illustration-filters #investment-amount #left p, #illustration-filters #investment-amount #right p {
   margin: 0;
