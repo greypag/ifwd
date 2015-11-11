@@ -13676,7 +13676,7 @@ body.chin .fwd-savie-wrapper h1, body.chin .fwd-savie-wrapper h2, body.chin .fwd
 body.chin .fwd-savie-wrapper p,
 body.chin .fwd-savie-wrapper a,
 body.chin .fwd-savie-wrapper li,
-body.chin .fwd-savie-wrapper span:not(.icon):not(.glyphicon):not(.orange-caret) {
+body.chin .fwd-savie-wrapper span:not(.icon):not(.glyphicon):not(.orange-caret):not([class^=icon-]) {
   font-family: 'Microsoft JhengHei', Calibri, sans-serif !important;
 }
 body.chin .fwd-savie-wrapper footer .menu-footer .footer-hotline-max-width .footer-orange-menu li a {
