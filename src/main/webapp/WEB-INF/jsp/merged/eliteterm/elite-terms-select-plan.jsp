@@ -252,7 +252,7 @@ var home_url = "<%=request.getContextPath()%>";
                         
                         <!-- <div class="et-broken-line et-padding hidden-md hidden-lg"></div> -->
                         
-                        <div class="et-plan-option-extra-info hidden" id="et-dis-promo-amount">
+                        <div class="et-plan-option-extra-info hide-element" id="et-dis-promo-amount">
                            <div class="et-extra-info top">
                               <span class="et-amount"><fmt:message key="eliteTerms.selectPlan.Amount" bundle="${msg}" /></span>
                               <div class="et-po-amount-label"><fmt:message key="eliteTerms.selectPlan.discount.period1" bundle="${msg}" /></div>
@@ -265,7 +265,7 @@ var home_url = "<%=request.getContextPath()%>";
                               
                            </div>
                         </div>
-                        <div class="et-plan-option-extra-info hide-element" id="et-act-promo-amount">
+                        <div class="et-plan-option-extra-info" id="et-act-promo-amount">
                            <div class="et-extra-info top">
                               <span class="et-amount"><fmt:message key="eliteTerms.selectPlan.Amount" bundle="${msg}" /></span>
                               <div class="et-po-amount-label" data-et-default-period="<fmt:message key="eliteTerms.selectPlan.default.period" bundle="${msg}" />" data-et-discount-period="<fmt:message key="eliteTerms.selectPlan.discount.period2" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.default.period" bundle="${msg}" /></div>
