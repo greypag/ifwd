@@ -337,7 +337,7 @@ function submitLoginForm(formID) {
 											</div>
 											<div id="login-err-msg" class="alert alert-danger"
 												role="alert" style="display: none;"></div>
-											<div class="form-container">
+											<div class="form-container" >
 												<h2>
 													<fmt:message key="header.login.heading" bundle="${msg}" />
 												</h2>
@@ -747,8 +747,7 @@ function submitLoginForm(formID) {
 		        style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
 		        class="bmg_mobile_login_mask"
 		        onclick="$('#fwd-login-mob').trigger('click');"></div>
-
-    <div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
+    <div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob" onclick="$('body').addClass('modal-open');">
 
         <%
             if (session.getAttribute("authenticate") == null
