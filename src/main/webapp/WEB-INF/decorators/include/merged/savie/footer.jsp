@@ -92,4 +92,17 @@
 		<!-- End of LiveChat code -->
 	</c:otherwise>
 </c:choose>
+<script>
+$(function() {
+    function navbarLogoSticky(){
+        if(window.pageYOffset<58){
+            $('.navbar-fixed-top').css("top", -window.pageYOffset);
+        }
+        if(window.pageYOffset>=58){
+            $('.navbar-fixed-top').css("top", -58);
+        }
+    }
+    $(window).scroll(navbarLogoSticky);
+});
+</script>
 <div class="overlay hidden hidden-xs hidden-sm" id="overlay"></div>
