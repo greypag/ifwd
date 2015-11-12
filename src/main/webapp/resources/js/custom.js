@@ -988,7 +988,7 @@ $(function() {
 		}
 		
 		// modals
-		var top = $('header .navbar-fixed-top').height();
+		//var top = $('header .navbar-fixed-top').height();
 		$('.modal.in').css('margin-top', top + 'px');
 		
 		// orange bar
@@ -1214,18 +1214,26 @@ function stickApplicationOrangeBar() {
 		var $application = $('.application-flux');
 		var $bar = $('.application-page-header');
 		var $navbar = $('.navbar-menu').length ? $('.navbar-menu') : ((getWidth() >= 992) ? $('.navbar-inverse:first') : $('.logobox'));
-        var $fixedTop = $('.navbar-fixed-top').length ? $('.navbar-fixed-top') : ((getWidth() >= 992) ? $('.top-bar:first') : $('.mob-topbar:first'));
+        //var $fixedTop = $('.navbar-fixed-top').length ? $('.navbar-fixed-top') : ((getWidth() >= 992) ? $('.top-bar:first') : $('.mob-topbar:first'));
         var $mobBar = $('.mob-topbar');
+        var $topBar = $('.top-bar');
+        var $mobNavbar = $('.navbar.navbar-default.pad-none');
         
 		if ($(window).scrollTop() >= $navbar.height()) {
 			$bar.addClass('sticky-bar');
-			$bar.css('top', $fixedTop.height() + 'px');
+			//$bar.css('top', $fixedTop.height() + 'px');
+			$bar.css('top', $topBar.height() + 'px');
             if (getWidth() < 992) {
+            	//$bar.removeClass('sticky-bar');
                 $mobBar.css({
                    'position' : 'fixed',
                    'width' : '100%',
                    'z-index': 10
                 });
+                $bar.css('top', $mobBar.height() + 'px');
+                //$mobNavbar.removeClass('navbar-fixed-top');
+                //$mobBar.addClass('navbar-fixed-top');
+                $mobBar.css('top', '0px');
             }
 		} else {
 			$bar.removeClass('sticky-bar');
@@ -1241,7 +1249,7 @@ function stickeServicesOrangeBar() {
 		
 		if ($(window).scrollTop() >= $('.navbar-menu').height()) {
 			$bar.addClass('sticky-bar');
-			$bar.css('top', $('.navbar-fixed-top').height() + 'px');
+			//$bar.css('top', $('.navbar-fixed-top').height() + 'px');
 		} else {
 			$bar.removeClass('sticky-bar');
 			$bar.removeAttr('style');
