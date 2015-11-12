@@ -68,7 +68,7 @@ public class TravelController {
 	private MessageSource messageSource;
 	
 	@RequestMapping(value = {"/{lang}/travel", "/{lang}/travel-insurance", "/{lang}/travel-insurance/sharing/"})
-	public ModelAndView getTravelHomePage(@RequestParam(required = false) final String promo, HttpServletRequest request, Model model,
+	public ModelAndView getTravelHomePage(@RequestParam(required = false) final String promoCode, HttpServletRequest request, Model model,
 			@RequestParam(required = false) final String utm_source,
 			@RequestParam(required = false) final String utm_medium,
 			@RequestParam(required = false) final String utm_campaign,
@@ -94,12 +94,12 @@ public class TravelController {
 		
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
-		if (promo != null) {
-			if (!promo.equals("")) {
-				session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
+		if (promoCode != null) {
+			if (!promoCode.equals("")) {
+				session.setAttribute("referralCode", StringHelper.emptyIfNull(promoCode));
 			}	
 		}
-		session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
+		session.setAttribute("referralCode", StringHelper.emptyIfNull(promoCode));
 		TravelQuoteBean travelQuote = (TravelQuoteBean) session.getAttribute("corrTravelQuote");
 		
 		/**
@@ -147,7 +147,7 @@ public class TravelController {
 			}else {
 				result = false;
 			}
-		}else if("".equals(promo)) {
+		}else if("".equals(promoCode)) {
 			result = false;
 		}
 		
@@ -169,7 +169,7 @@ public class TravelController {
 			model.addAttribute("travelQuote", travelQuote);
 			ModelAndView date = getTravelPlan(travelQuote, model, request);
 			if(!date.getViewName().endsWith("travel-insurance") && !date.getViewName().endsWith("travel/travel")) {
-				model.addAttribute("promo", promo);
+				model.addAttribute("promo", promoCode);
 				model.addAttribute("departureDate", departureDate);
 				model.addAttribute("returnDate", returnDate);
 				model.addAttribute("plan", plan);
@@ -225,8 +225,8 @@ public class TravelController {
 			ogType = WebServiceUtils.getPageTitle("travel.sharing.og.type", UserRestURIConstants.getLanaguage(request));
 			
 			ogUrl = WebServiceUtils.getPageTitle("travel.sharing.og.url", UserRestURIConstants.getLanaguage(request));
-			if (promo != null) {
-				ogUrl = ogUrl + "?promo=" + promo;	
+			if (promoCode != null) {
+				ogUrl = ogUrl + "?promo=" + promoCode;	
 			}
 			ogImage = WebServiceUtils.getPageTitle("travel.sharing.og.image", UserRestURIConstants.getLanaguage(request));
 			ogDescription = WebServiceUtils.getPageTitle("travel.sharing.og.description", UserRestURIConstants.getLanaguage(request));

@@ -2192,6 +2192,11 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
             	$('#theClubMembershipNo').closest('.form-group').hide();
             }
         }).change();
+        
+        if('${referralCode}'!=null && '${referralCode}'!=''){
+        	$('#promoCode').val('${referralCode}');
+        	applyTravelPromoCode();
+        }
 	});
 	
 //	function enterKeyPress(e){
