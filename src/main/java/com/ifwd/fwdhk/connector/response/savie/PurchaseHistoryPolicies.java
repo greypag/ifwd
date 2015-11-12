@@ -4,6 +4,7 @@ public class PurchaseHistoryPolicies{
 	private String planCode;
 	private String submissionDate;
 	private String policyNumber;
+	private String policyNumberBase64;
 	private String amount;
 	private String totalDue;
 	private String discount;
@@ -106,6 +107,12 @@ public class PurchaseHistoryPolicies{
 	}
 	public void setDocumentUploaded(String documentUploaded) {
 		this.documentUploaded = documentUploaded;
+	}
+	public String getPolicyNumberBase64() {
+		return policyNumberBase64;
+	}
+	public void setPolicyNumberBase64(String policyNumberBase64) {
+		this.policyNumberBase64 = policyNumberBase64;
 	}
 	
 	

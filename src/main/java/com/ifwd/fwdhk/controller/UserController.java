@@ -224,6 +224,7 @@ public class UserController {
 							if(purchaseHistory.getPolicies().get(i).getPolicyType() !=null && purchaseHistory.getPolicies().get(i).getPolicyType().equals("Life")){
 								policiesLife.add(purchaseHistory.getPolicies().get(i));
 							}
+							purchaseHistory.getPolicies().get(i).setPolicyNumberBase64(new sun.misc.BASE64Encoder().encode(purchaseHistory.getPolicies().get(i).getPolicyNumber().getBytes()));
 						}
 					}
 					model.addAttribute("policiesGI", policiesGI);
