@@ -539,6 +539,7 @@ function setCalculatedAmt(bDiscount, insuredAmt, oriMonthlyAmt, oriDailyAmt, dis
 		$("#et-day-dis-amount").html(parseFloat(disDailyAmt).toFixed(2));
 		actPromo.find('.top .et-po-amount-label').text(discount_period_text);
 		$('#et-dis-promo-amount').removeClass('hide-element');
+		$('#et-dis-promo-amount').removeClass('hidden');
  	} else{
  		actPromo.find('.top .et-po-amount-label').text(default_period_text);
  		$('#et-dis-promo-amount').addClass('hide-element');
