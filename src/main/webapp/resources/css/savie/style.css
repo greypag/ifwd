@@ -1609,7 +1609,7 @@ body{
 /******** Start of mobile header menu v2 ********/
 @media screen and (max-width: 991px) {
     body {
-       padding-top: 163px;
+       padding-top: 95px;
     }
     div.mobile-menu-V2{
         width:100%;
@@ -1668,7 +1668,7 @@ body{
         background-color: transparent;
         border-color: transparent;
         outline-color: transparent;
-        margin: 30px 30px 0 0;
+        margin: 7px 30px 0 0;
     }
     li.menu-link-grp-title>a,li.menu-link-grp-title>a:hover{
         font-size: 18px;
@@ -1707,11 +1707,11 @@ body{
         padding: 0;
     }
     .login-form{
-        top: 30%;
+        top: 10;
         z-index: 2000;
     }
     a.navbar-brand>img{
-        padding: 25px 0;
+        padding: 7px 0;
         margin-left: 30px;
     }
     .mob-login-form-wrapper{
@@ -1727,31 +1727,42 @@ body{
     .hidden-label{
         display:none;
     }
-	.mob-topbar .callus {
-	    font-weight: bold;
-	    float: left;
-	    font-size: 18px;
-	    padding: 20px 0 20px 20px !important;
-	    line-height: 1;
-	    color: #fff;
-	}
-	.mob-topbar {
-	    background-color: #061d29;
-	    line-height: 2.1;
-	}
-	.mob-topbar .lang {
-	    line-height: 1;
-	    padding: 21px 20px;
-	    background-color: #000;
-	}
-	.mob-topbar .chat {
-	    background-color: #FF8200;
-	    font-weight: bold;
-	    color: #fff;
-	    display: block;
-	    padding: 21px 20px;
-	    line-height: 1;
-	}
+.mob-header {
+    position: relative;
+}
+
+.mob-topbar {
+    background-color: #061d29;
+    line-height: 35px;
+    height: 35px;
+}
+
+.mob-topbar a {
+    color: #f5f5f5;
+}
+.mob-topbar .chat {
+    background-color: #FF8200;
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    padding: 0 20px;
+}
+
+.mob-topbar .callus {
+    font-weight: bold;
+    float: left;
+    font-size: 18px;
+    padding: 0 0 0 20px !important;
+    line-height: 35px;
+    color: #fff;
+}
+
+.mob-topbar .lang {
+    line-height: 35px;
+    padding: 0 20px;
+    background-color: #000;
+}
+
 	.logobox {
 	    border-bottom: 1px solid #f68a1d;
 	}
@@ -1763,7 +1774,9 @@ body{
 	}
 }
 
-
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+    max-height: 440px;
+}
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
 	.navbar-nav .open .dropdown-menu {
@@ -1798,7 +1811,7 @@ body{
         background-color: #061d29;       
     }
     body {
-        padding-top: 163px;
+        padding-top: 95px;
     }
 }
 /******** End of mobile header menu v2 ********/
