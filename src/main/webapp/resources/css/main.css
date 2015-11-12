@@ -2136,7 +2136,7 @@ h4.margin-shift {
 }
 
 .form-container {
-	padding: 2px 20px;
+	padding: 2px 20px 20px;
 }
 /*********end*login form*******/
 .skill h2 {
@@ -4645,7 +4645,8 @@ del {
 
 .mob-topbar {
 	background-color: #061d29;
-	line-height: 2.1;
+    line-height: 35px;
+    height: 35px;
 }
 
 .mob-topbar a {
@@ -4657,22 +4658,21 @@ del {
 	font-weight: bold;
 	color: #fff;
 	display: block;
-	padding: 21px 20px;
-	line-height: 1;
+	padding: 0 20px;
 }
 
 .mob-topbar .callus {
 	font-weight: bold;
 	float: left;
 	font-size: 18px;
-	padding: 20px 0 20px 20px !important;
-	line-height: 1;
+	padding: 0 0 0 20px !important;
+	line-height: 35px;
 	color: #fff;
 }
 
 .mob-topbar .lang {
-	line-height: 1;
-	padding: 21px 20px;
+	line-height: 35px;
+	padding: 0 20px;
 	background-color: #000;
 }
 
@@ -10240,7 +10240,7 @@ background-color
 
 @media screen and (max-width: 991px) {
 	body {
-		padding-top: 163px;
+		padding-top: 95px;
 	}
 	div.mobile-menu-V2 div.wd2 {
 		margin: 0;
@@ -10298,7 +10298,7 @@ background-color
 		background-color: transparent;
 		border-color: transparent;
 		outline-color: transparent;
-		margin: 30px 30px 0 0;
+		margin: 7px 30px 0 0;
 	}
 	li.menu-link-grp-title>a, li.menu-link-grp-title>a:hover {
 		font-size: 18px;
@@ -10345,7 +10345,7 @@ background-color
 		z-index: 2000;
 	}
 	a.navbar-brand>img {
-		padding: 25px 0;
+		padding: 3px 0;
 		margin-left: 30px;
 	}
 	.mob-login-form-wrapper {
@@ -10425,6 +10425,9 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa, div.breadcrumb-wrapper>ol.breadcrumb a
 div.breadcrumb-wrapper>ol.breadcrumb .fa {
 	padding: 0 7px;
 }
+.navbar-collapse{
+    max-height: 440px;	
+}
 /******** Mobile header fix ********/
 @media screen and (max-width: 767px){
 	.mob-topbar .chat,.mob-topbar .lang{
@@ -10434,13 +10437,13 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa {
 	   font-size: 16px;
 	}
 	.mob-topbar .chat{
-	   padding: 21px 18px;
+	   padding: 0 18px;
 	}
 }
 @media screen and (max-width: 320px){
 	 .mob-topbar .callus{
 	   font-size: 12px;
-	   padding: 20px 10px 20px 10px !important;
+	   padding: 0 10px 0 10px !important;
 	 }
 	 
 }

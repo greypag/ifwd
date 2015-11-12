@@ -111,11 +111,11 @@
 $(function() {
     $('input, textarea').placeholder();
     function navbarLogoSticky(){
-        if(window.pageYOffset<58){
+        if(window.pageYOffset<35){
             $('.navbar-fixed-top').css("top", -window.pageYOffset);
         }
-        if(window.pageYOffset>=58){
-            $('.navbar-fixed-top').css("top", -58);
+        if(window.pageYOffset>=35){
+            $('.navbar-fixed-top').css("top", -35);
         }
     }
     $(window).scroll(navbarLogoSticky);
