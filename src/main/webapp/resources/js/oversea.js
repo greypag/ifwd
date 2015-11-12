@@ -6576,10 +6576,7 @@ $(document).ready(function() {
 	// });
 });
 
-// ��Date����չ���� Date ת��Ϊָ����ʽ��String
-// ��(M)����(d)��Сʱ(h)����(m)����(s)������(q) ������ 1-2 ��ռλ����
-// ��(y)������ 1-4 ��ռλ��������(S)ֻ���� 1 ��ռλ��(�� 1-3 λ������)
-// ���ӣ�
+
 // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
 // (new Date()).Format("yyyy-M-d h:m:s.S") ==> 2006-7-2 8:9:4.18
 Date.prototype.Format = function(fmt) { // author: meizz
@@ -6603,6 +6600,48 @@ Date.prototype.Format = function(fmt) { // author: meizz
 	return fmt;
 }
 
+$(document).ready(function() {                     
+	$('[data-toggle="tooltip"]').tooltip();
+	changeColorAndPrice('box2','2','Plan A Comprehensive','0.0','8000.0')
+});
+
+function changeRegion(region){
+//console.log(region);
+
+	$('#amountdue').html('0');
+	$('#subtotal').html('0');
+	$('#plansummary').html('0');
+	$('#discountAmt').html('0');
+	
+	
+	if(region=='region0'){
+	
+		$('#region0').css("display","block");
+		$('#region1').css("display","none");
+		
+		$('#region-btn-0').addClass("region-box-active");
+		$('#region-btn-0').removeClass("region-box-inactive");
+		$('#region-btn-1').addClass("region-box-inactive");
+		$('#region-btn-1').removeClass("region-box-active");
+		changeColorAndPrice('box2','2','Plan A Comprehensive','0.0','8000.0')
+	}
+	if(region=='region1'){
+		$('#region0').css("display","none");
+		$('#region1').css("display","block");
+		
+		$('#region-btn-0').addClass("region-box-inactive");
+		$('#region-btn-0').removeClass("region-box-active");
+		$('#region-btn-1').addClass("region-box-active");
+		$('#region-btn-1').removeClass("region-box-inactive");
+		changeColorAndPrice('box6','6','Plan A Comprehensive','0.0','5500.0');
+	}
+}
+
+function coverageToogle(){
+	$("#summary-of-coverage").mCustomScrollbar();
+	$('#summary-of-coverage').css("display","block");
+}
+
 var oversea_click = false;//XXX
 function validateOverseaDetails(form, formId, language) {
 	if ($("#inputFullName").val().trim() == namePlaceholder.trim()) {
@@ -6611,11 +6650,6 @@ function validateOverseaDetails(form, formId, language) {
 	if ($("#inputTxtAppHkid").val().trim() == hkidPlaceholder.trim()) {
 		$("#inputTxtAppHkid").val('');
 	}
-<<<<<<< HEAD
-$(document).ready(function() {                     
-	$('[data-toggle="tooltip"]').tooltip();
-	changeColorAndPrice('box2','2','Plan A Comprehensive','0.0','8000.0')
-});
 
 	var flag = true;
 	document.getElementById("fullnameinvalid").innerHTML = "";
