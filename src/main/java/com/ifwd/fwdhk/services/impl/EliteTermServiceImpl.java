@@ -454,7 +454,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			JSONObject parameters = new JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
 			parameters.put("planCode", "ET");
-			parameters.put("fileType", "png");
+			parameters.put("fileType", "jpg");
 			parameters.put("documentType", "signature");
 			parameters.put("originalFilePath", "");
 			parameters.put("base64", image);
