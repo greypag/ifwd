@@ -4279,40 +4279,95 @@ span.explanation {
   }
 }
 
+@media (max-width: 768px){
+  .fwd-savie-wrapper #thankYouModal .modal-dialog {
+      max-width: 444px;
+  }
+}
+
 @media (max-width: 750px){
   .fwd-savie-wrapper #thankYouModal .modal-dialog {
-      height: 100%;
+      height: auto;
   }
 
   .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content{
       max-height: 980%;
       height: 90%;
-      overflow-y: auto;
+     // overflow-y: auto;
   }
 }
 
 
 .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content {
-  padding: 0;
+  	padding: 0;
+  	background-color: #f1f3f5;
+  	padding-bottom: 10px;
 }
+
+@media (min-width: 320px) and (max-width: 350px) {
+.fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content {
+ 	 padding-bottom: 15px;
+	}
+}
+
 .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content img {
   width: 100%;
 }
 .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
   display: block;
   margin: 20px auto;
-  width: 90%;
+  width: 82%;
+  height: 40px;
+  position: absolute;
+  bottom: -1%;
+  left: 15%;
+  padding-top: 2px;
 }
 
 body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn-orange.proceed-btn{
   font-family: 'Microsoft JhengHei', Calibri, sans-serif;;
 }
 
-@media (min-width: 992px) {
-  .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
-    width: 45%;
+
+@media (min-width: 320px) and (max-width: 350px) {
+.fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
+    height: 35px;
+    padding-top: 0px;
+    bottom: -1%; 
   }
 }
+
+@media (min-width: 351px) and (max-width: 430px) {
+.fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
+    bottom: -1%;
+    
+  }
+}
+
+@media (min-width: 431px) and (max-width: 767px) {
+.fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
+    bottom: 0%;
+    
+  }
+}
+
+@media (min-width: 768px) and (max-width: 769px){
+  .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
+    bottom: -4%;
+    width: 45%;
+    left: 27.5%;
+  }
+}
+
+@media (min-width: 770px) {
+  .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
+    width: 45%;
+    position: absolute;
+    bottom: 0%;
+    left: 27.5%;
+  }
+}
+
 
 .fwd-savie-wrapper .next-sales-block {
   background: #ff8200;
@@ -14054,16 +14109,17 @@ body.chin button#thank-you-continue {
   button#thank-you-continue {
     background: #ff8200;
     color: white;
-    height: 50px;
+    height: 40px;
+    padding-top: 2px;
     //font-family: Calibri, sans-serif;
   }
 }
 
 
-.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
-    max-height: 400px;
-    overflow: scroll;
-}
+//.fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
+   // max-height: 400px;
+//    overflow: scroll;
+//}
 
 @media (min-width: 768px){
   .fwd-savie-wrapper .modal.fade.thank-you-modal .modal-content.thank-you-content {
