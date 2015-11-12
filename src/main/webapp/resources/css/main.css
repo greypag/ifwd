@@ -10425,3 +10425,22 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa, div.breadcrumb-wrapper>ol.breadcrumb a
 div.breadcrumb-wrapper>ol.breadcrumb .fa {
 	padding: 0 7px;
 }
+/******** Mobile header fix ********/
+@media screen and (max-width: 767px){
+	.mob-topbar .chat,.mob-topbar .lang{
+	   font-size: 14px;
+	}
+	.mob-topbar .callus{
+	   font-size: 16px;
+	}
+	.mob-topbar .chat{
+	   padding: 21px 18px;
+	}
+}
+@media screen and (max-width: 320px){
+	 .mob-topbar .callus{
+	   font-size: 12px;
+	   padding: 20px 10px 20px 10px !important;
+	 }
+	 
+}

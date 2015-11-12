@@ -30,6 +30,10 @@
 	margin-bottom: 20px;
 }
 
+.et-remarks-wrapper{
+	padding: 35px 30px;
+}
+
 /* ET landing tagline */
 .fwd-et-wrapper .banner-widget .tagline-holder{
 	position: absolute;
@@ -126,6 +130,31 @@
 }
 
 /* Tooltips */
+
+.et-tooltip-wrapper span.et-info-tooltip{
+	background: url("../images/et-sprite.png") no-repeat center center;
+    background-position: -523px -41px;
+    width: 18px;
+    height: 18px;
+    border: 0;
+    display: block;
+
+    position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.et-tooltip-wrapper span{
+	position: relative;
+}
+
+.et-tooltip-wrapper button{
+	width: 18px;
+	height: 18px;
+	border: none;
+	background-color: transparent;
+}
+
 .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip,
 .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip{
 	position: absolute;
