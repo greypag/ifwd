@@ -694,6 +694,7 @@ function stickApplicationOrangeBar() {
 		if ($(window).scrollTop() >= $navbar.height()) {
 			$bar.addClass('sticky-bar');
 			$bar.css('top', $topBar.height() + 'px');
+			$mobBar.addClass('et-docu');
             if (getWidth() < 992) {
                 $mobBar.css({
                    'position' : 'fixed',
@@ -702,11 +703,29 @@ function stickApplicationOrangeBar() {
                 });
                 $bar.css('top', $mobBar.height() + 'px');
                 $mobBar.css('top', '0px');
+                
+                if ($('.et-document-upload').length > 0 ) {
+                	if ($mobBar.hasClass('et-docu')) {
+                		$mobNavbar.css('top', '-' + $mobBar.height() + 'px');
+                	}
+                	
+                }
+                
+                /*if ($('.et-document-upload').length > 0 ) { // For Document Page alone
+    				$mobNavbar.css('top', '-' + $mobBar.height() + 'px');
+    			} else {
+    				$mobNavbar.removeClass('style');
+    			}*/
             }
 		} else {
 			$bar.removeClass('sticky-bar');
 			$bar.removeAttr('style');
             $mobBar.removeAttr('style');
+            $mobBar.removeClass('et-docu');
+            
+            if ($('.et-document-upload').length > 0 ) {
+            	$mobNavbar.removeAttr('style');
+            }
 		}
 	}
 }
