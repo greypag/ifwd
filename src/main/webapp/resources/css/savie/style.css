@@ -1809,3 +1809,22 @@ body{
     margin-left: 30px;
     margin-right: 30px;
 }
+/******** Mobile header fix ********/
+@media screen and (max-width: 767px){
+    .mob-topbar .chat,.mob-topbar .lang{
+       font-size: 14px;
+    }
+    .mob-topbar .callus{
+       font-size: 16px;
+    }
+    .mob-topbar .chat{
+       padding: 0 18px;
+    }
+}
+@media screen and (max-width: 320px){
+     .mob-topbar .callus{
+       font-size: 12px;
+       padding: 0 10px 0 10px !important;
+     }
+     
+}
