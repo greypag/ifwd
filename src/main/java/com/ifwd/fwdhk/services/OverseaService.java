@@ -12,11 +12,14 @@ import com.ifwd.fwdhk.model.OverseaDetailsForm;
 
 public interface OverseaService {
 
-	public void preparePlanDetails(Model model, HttpServletRequest request,
-			HttpServletResponse response, HttpSession httpSession)
-			throws ECOMMAPIException;
+	public void prepareOverseaQuote(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+			throws Exception;
 
-	public String prepareOverseaSummary(
-			OverseaDetailsForm planDetailsForm, BindingResult result,
-			Model model, HttpServletRequest request) throws Exception;
+	public void preparePlanDetails(Model model, HttpServletRequest request, HttpServletResponse response,
+			HttpSession httpSession) throws ECOMMAPIException;
+
+	public String processOverseaPayment(HttpServletRequest request, HttpServletResponse response);
+
+	public String prepareOverseaSummary(OverseaDetailsForm planDetailsForm, BindingResult result, Model model,
+			HttpServletRequest request) throws Exception;
 }

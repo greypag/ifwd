@@ -28,17 +28,20 @@ public class AjaxOverseaController extends BaseController{
 	@Autowired
 	private OverseaService overseaService;
 	
-
-	@RequestMapping(value = {"/ajax/oversea/prepareOverseaPlan"})
-	public void preparePlanDetails(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) {
+	@RequestMapping(value = {"/ajax/oversea/prepareOverseaQuote"})
+	public void prepareOverseaQuote(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) {
 		if (Methods.isXssAjax(request))
 			return;
 		try {
-			overseaService.preparePlanDetails(model, request, response, httpSession);
-		} catch (ECOMMAPIException e) {
+			overseaService.prepareOverseaQuote(request, response, httpSession);
+		} catch (Exception e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
 		}
+	}
+
+	@RequestMapping(value = {"/ajax/oversea/prepareOverseaDetails"})
+	public void prepareOverseaDetails(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) {
 	}
 	
 	@RequestMapping(value = "/ajax/oversea/prepareOverseaSummary")
@@ -48,6 +51,18 @@ public class AjaxOverseaController extends BaseController{
 			BindingResult result, Model model, HttpServletRequest request) throws Exception {
 		try {
 			return overseaService.prepareOverseaSummary(planDetailsForm, result, model, request);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+			return "fail";
+		}
+	}
+	
+	@RequestMapping(value = "/ajax/oversea/processOverseaPayment")
+	@ResponseBody
+	public String processOverseaPayment(HttpServletRequest request,HttpServletResponse response){
+		try {
+			return overseaService.processOverseaPayment(request, response);
 		} catch (Exception e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();

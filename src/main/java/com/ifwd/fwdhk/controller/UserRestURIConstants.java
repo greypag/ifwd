@@ -116,6 +116,8 @@ public class UserRestURIConstants {
 			+ "/gi/annualTravel/payments/make";
 	public static final String OVERSEA_FINALIZE_POLICY = SERVICE_URL
 			+ "gi/overseasStudy/policies";
+	public static final String OVERSEA_SUBMIT_POLICY = SERVICE_URL
+			+ "/gi/homeCare/payments/submit";
 	
 	
 	/*API For eliteTerm*/

@@ -1,16 +1,20 @@
 package com.ifwd.fwdhk.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.model.AnnualTravelQuoteBean;
+import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.OverseaPageFlowControl;
@@ -29,11 +33,33 @@ public class OverseaController extends BaseController{
 
 	@RequestMapping(value = {"/{lang}/oversea-insurance"})
 	public ModelAndView getOverseaLanding(Model model, HttpServletRequest request) {
+		UserRestURIConstants.setController("Oversea");
+		request.setAttribute("controller", UserRestURIConstants.getController());
+		
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_LANDING);
 	}
 	@RequestMapping(value = {"/{lang}/oversea-insurance/quote"})
 	public ModelAndView getOverseaQuote(Model model, HttpServletRequest request) {
-		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_QUOTE);
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		UserRestURIConstants.setController("Oversea");
+		request.setAttribute("controller", UserRestURIConstants.getController());
+
+		HttpSession session = request.getSession();
+		session.removeAttribute("createPolicy");
+		session.removeAttribute("policyNo");
+		
+		QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
+		if (quoteDetails != null) {
+			request.setAttribute("quoteDetails", quoteDetails);
+			model.addAttribute("quoteDetails", quoteDetails);
+		} else {
+			model.addAttribute("errMsgs", session.getAttribute("errMsgs"));
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+					+ "/oversea-insurance");
+		}
+
+		return OverseaPageFlowControl.pageFlow(model, request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_QUOTE);
 	}
 	@RequestMapping(value = {"/{lang}/oversea-insurance/details"})
 	public ModelAndView getOverseaDetails(Model model, HttpServletRequest request) {

@@ -6852,3 +6852,26 @@ function validateOverseaDetails(form, formId, language) {
 
 	}
 }
+
+function prepareOverseaQuote() {
+	var result = false;
+	var formId = '#frmTravelGetQuoteDesk';
+	var method = contextPath+'/ajax/oversea/prepareOverseaQuote';
+	console.log($(formId).serialize());
+	$.ajax({
+		type : "POST",
+		url : method,
+		data : $(formId).serialize(),
+		async : false,
+		success : function(data) {
+			if (data == 'success') {
+				result = true;
+			} else {
+				console.log(data);
+				$('#startDateDeskIn').html(data.errMsgs);
+				result = false;
+			}
+		}
+	});
+	return result;
+}

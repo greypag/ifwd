@@ -21,31 +21,28 @@ import org.springframework.validation.BindingResult;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
-import com.ifwd.fwdhk.model.AnnualDetailsForm;
 import com.ifwd.fwdhk.model.CreatePolicy;
 import com.ifwd.fwdhk.model.OverseaDetailsForm;
+import com.ifwd.fwdhk.model.QuoteDetails;
 import com.ifwd.fwdhk.services.OverseaService;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
-import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Service
 public class OverseaServiceImpl implements OverseaService {
 	private final static Logger logger = LoggerFactory.getLogger(OverseaServiceImpl.class);
-	
+
 	@Autowired
 	private RestServiceDao restService;
-	
+
 	@Override
-	public void preparePlanDetails(Model model, HttpServletRequest request,
-			HttpServletResponse response, HttpSession session)
-			throws ECOMMAPIException {
-		String token = null, username = null;
-		if ((session.getAttribute("token") != null)
-				&& (session.getAttribute("username") != null)) {
+	public void prepareOverseaQuote(HttpServletRequest request, HttpServletResponse response,
+			HttpSession session) throws Exception {
+		String token = null, username = null, result = "fail";
+		if ((session.getAttribute("token") != null) && (session.getAttribute("username") != null)) {
 			token = session.getAttribute("token").toString();
 			username = session.getAttribute("username").toString();
 		} else {
@@ -55,56 +52,44 @@ public class OverseaServiceImpl implements OverseaService {
 				username = session.getAttribute("username").toString();
 			}
 		}
-		
-		String Url = UserRestURIConstants.OVERSEA_GET_QUOTE + "?planCode=Overseas"
-				+ "&referralCode=";// + (String) session.getAttribute("referralCode");
 
-		HashMap<String, String> header = new HashMap<String, String>(
-				COMMON_HEADERS);
+		String referralCode = (String) session.getAttribute("referralCode");
+		String Url = UserRestURIConstants.OVERSEA_GET_QUOTE + "?planCode=Overseas" + "&referralCode="
+				+ (referralCode != null ? referralCode : "");
+
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		if (request.getSession().getAttribute("username") != null) {
 			header.put("userName", username);
 			header.put("token", token);
 		}
-		
+
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
-		
+
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
-		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
-				Url, header, null);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
 		logger.info("OVERSEA_GET_QUOTE Response " + responseJsonObj);
-		
+
 		if (responseJsonObj.get("errMsgs") == null) {
-			/*QuoteDetails quoteDetails = new QuoteDetails();
-			responseJsonObj.get("referralCode");
-			responseJsonObj.get("referralName");
-			responseJsonObj.get("priceInfoA");
-			responseJsonObj.get("priceInfoB");
-			JSONObject jsonPriceInfoA = new JSONObject();
-			jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
-			JSONObject jsonPriceInfoB = new JSONObject();
-			jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
-			String planeName[] = { "A", "B" };
-			String grossPrem[] = {
-					jsonPriceInfoA.get("grossPremium").toString(),
-					jsonPriceInfoB.get("grossPremium").toString() };
-
-			String discountPercentage[] = {
-					jsonPriceInfoA.get("discountPercentage").toString(),
-					jsonPriceInfoB.get("discountPercentage").toString() };
-
-			String discountAmount[] = {
-					jsonPriceInfoA.get("discountAmount").toString(),
-					jsonPriceInfoB.get("discountAmount").toString() };
-
-			String totalNetPremium[] = {
-					jsonPriceInfoA.get("totalNetPremium").toString(),
-					jsonPriceInfoB.get("totalNetPremium").toString() };
-
-			String totalDue[] = {
-					jsonPriceInfoA.get("totalDue").toString(),
-					jsonPriceInfoB.get("totalDue").toString() };
+			
+			QuoteDetails quoteDetails = new QuoteDetails();
+			
+			String planeName[] = { "basicA", "basicB", "medicalAsiaA", "medicalAsiaB", "medicalWorldwideA", "medicalWorldwideB" };
+			String grossPrem[] = new String[6];
+			String discountPercentage[] = new String[6];
+			String discountAmount[] = new String[6];
+			String totalNetPremium[] = new String[6];
+			String totalDue[] = new String[6];
+			JSONObject obj;
+			for(int i = 0; i < planeName.length; i++) {
+				obj = (JSONObject) responseJsonObj.get(planeName[i]);
+				grossPrem[i] = obj.get("grossPremium").toString();
+				discountPercentage[i] = obj.get("discountPercentage").toString();
+				discountAmount[i] = obj.get("discountAmount").toString();
+				totalNetPremium[i] = obj.get("totalNetPremium").toString();
+				totalDue[i] = obj.get("totalDue").toString();
+			}
 
 			quoteDetails.setGrossPremium(grossPrem);
 			quoteDetails.setDiscountPercentage(discountPercentage);
@@ -112,40 +97,40 @@ public class OverseaServiceImpl implements OverseaService {
 			quoteDetails.setTotalNetPremium(totalNetPremium);
 			quoteDetails.setToalDue(totalDue);
 			quoteDetails.setPlanName(planeName);
-			session.setAttribute("quoteDetails", quoteDetails);*/
-			responseJsonObj.put("result", "success");
-		}else{
-			responseJsonObj.put("result", "fail");
+			session.setAttribute("quoteDetails", quoteDetails);
+
+			result = "success";
 		}
-		
 		try {
-			logger.info(responseJsonObj.toString());
-			response.getWriter().print(responseJsonObj.toString());
-		}catch(Exception e) {
+			response.getWriter().print(result);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	public void preparePlanDetails(Model model, HttpServletRequest request, HttpServletResponse response,
+			HttpSession session) throws ECOMMAPIException {
 		
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public String prepareOverseaSummary(OverseaDetailsForm planDetailsForm,
-			BindingResult result, Model model, HttpServletRequest request)
-			throws Exception {
+	public String prepareOverseaSummary(OverseaDetailsForm planDetailsForm, BindingResult result, Model model,
+			HttpServletRequest request) throws Exception {
 		HttpSession session = request.getSession();
 		String username = session.getAttribute("username").toString();
 		String token = session.getAttribute("token").toString();
-		String language =  WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request));
-		
+		String language = WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request));
+
 		if (planDetailsForm.getDepartureDate() != null) {
 			session.removeAttribute("travelCreatePolicy");
 		} else {
 			JSONObject parameters = new JSONObject();
 			JSONObject responsObject = new JSONObject();
-			String creditCardNo = (String)session.getAttribute("creditCardNo");
-			
-			HashMap<String, String> header = new HashMap<String, String>(
-					COMMON_HEADERS);
+			String creditCardNo = (String) session.getAttribute("creditCardNo");
+
+			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 			header.put("userName", username);
 			header.put("token", token);
 			header.put("language", language);
@@ -153,61 +138,62 @@ public class OverseaServiceImpl implements OverseaService {
 			parameters.put("transactionNumber", session.getAttribute("transNo"));
 			parameters.put("transactionDate", session.getAttribute("transactionDate"));
 			parameters.put("paymentFail", "1");
-			
-			if (creditCardNo !=null) { 
+
+			if (creditCardNo != null) {
 				try {
-					parameters.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo")));
+					parameters.put("creditCardNo", Methods.decryptStr((String) session.getAttribute("creditCardNo")));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 			parameters.put("expiryDate", session.getAttribute("expiryDate"));
 			logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
-			responsObject = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.ANNUAL_TRAVEL_FINALIZE_POLICY, header, parameters);
+			responsObject = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.ANNUAL_TRAVEL_FINALIZE_POLICY,
+					header, parameters);
 			logger.info("TRAVEL_FINALIZE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
-			
+
 		}
-		
+
 		String hkId = "hkId", passId = "passport";
-		String deaprtureDate = DateApi.pickDate1((String)session.getAttribute("departureDate"));
+		String deaprtureDate = DateApi.pickDate1((String) session.getAttribute("departureDate"));
 		String returnDate = DateApi.pickDate1((String) session.getAttribute("returnDate"));
 		String applicantFullName = WebServiceUtils.getParameterValue("fullName", session, request);
 		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
 		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
-		String emailAddress = WebServiceUtils.getParameterValue("emailAddress",	session, request);
-		String dob = WebServiceUtils.getParameterValue("applicantDob",	session, request);
+		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
+		String dob = WebServiceUtils.getParameterValue("applicantDob", session, request);
 		dob = DateApi.pickDate1(dob);
-		
+
 		if (planDetailsForm.getDepartureDate() != null) {
 			session.setAttribute("travelPlanDetailsForm", planDetailsForm);
 		} else {
 			planDetailsForm = (OverseaDetailsForm) session.getAttribute("travelPlanDetailsForm");
 		}
-		
-        final String BENE_RELATIONSHIP_SELF = "SE";
-        String relationOfChildTraveller = "", relationOfOtherTraveller = "";
+
+		final String BENE_RELATIONSHIP_SELF = "SE";
+		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
 
 		if (planDetailsForm.getPlanSelected().equals("personal")) {
 		} else if (planDetailsForm.getPlanSelected().equals("family")) {
 			relationOfChildTraveller = "CH";
 			relationOfOtherTraveller = "OT";
 		}
-		
+
 		JSONObject parameters = new JSONObject();
 		parameters.put("planCode", session.getAttribute("planSelected"));
 		parameters.put("commencementDate", deaprtureDate);
 		parameters.put("expiryDate", returnDate);
 		JSONArray insured = new JSONArray();
-		
+
 		String HKID = "HKID";
- 		
+
 		parameters.put("insured", insured);
 		parameters.put("referralCode", session.getAttribute("referralCode"));
 
-		String name     = StringHelper.emptyIfNull( applicantFullName ).toUpperCase();
-		emailAddress 	= StringHelper.emptyIfNull( emailAddress ).toUpperCase();
-		applicantHKID   = StringHelper.emptyIfNull( applicantHKID ).toUpperCase();
-		
+		String name = StringHelper.emptyIfNull(applicantFullName).toUpperCase();
+		emailAddress = StringHelper.emptyIfNull(emailAddress).toUpperCase();
+		applicantHKID = StringHelper.emptyIfNull(applicantHKID).toUpperCase();
+
 		JSONObject applicantJsonObj = new JSONObject();
 		applicantJsonObj.put("name", name);
 		applicantJsonObj.put("hkId", applicantHKID);
@@ -229,7 +215,7 @@ public class OverseaServiceImpl implements OverseaService {
 		addressJsonObj.put("district", planDetailsForm.getDistrictSelected());
 		addressJsonObj.put("area", planDetailsForm.getApplicantDistrict());
 		parameters.put("address", addressJsonObj);
-		
+
 		parameters.put("externalParty", "THE CLUB");
 		parameters.put("externalPartyCode", session.getAttribute("theClubMembershipNo"));
 
@@ -237,16 +223,16 @@ public class OverseaServiceImpl implements OverseaService {
 		header.put("userName", username);
 		header.put("token", token);
 		header.put("language", language);
-		//TO ENFORCE THE POLICY IS CREATED AND MAKE SURE THE TRANSACTION NUMBER IS NOT REUSED
-		CreatePolicy createPolicy = (CreatePolicy)session.getAttribute("travelCreatePolicy");
-		
-		JSONObject responsObject = new JSONObject();
- 		if (createPolicy == null) {
+		// TO ENFORCE THE POLICY IS CREATED AND MAKE SURE THE TRANSACTION NUMBER
+		// IS NOT REUSED
+		CreatePolicy createPolicy = (CreatePolicy) session.getAttribute("travelCreatePolicy");
 
- 			logger.info("TRAVEL_CREATE_POLICY Request " + JsonUtils.jsonPrint(parameters));
-			responsObject = restService.consumeApi(HttpMethod.PUT,
-					UserRestURIConstants.ANNUAL_TRAVEL_CREATE_POLICY, header,
-					parameters);
+		JSONObject responsObject = new JSONObject();
+		if (createPolicy == null) {
+
+			logger.info("TRAVEL_CREATE_POLICY Request " + JsonUtils.jsonPrint(parameters));
+			responsObject = restService.consumeApi(HttpMethod.PUT, UserRestURIConstants.ANNUAL_TRAVEL_CREATE_POLICY,
+					header, parameters);
 			logger.info("TRAVEL_CREATE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
 			createPolicy = new CreatePolicy();
 			String finalizeReferenceNo = "";
@@ -264,10 +250,8 @@ public class OverseaServiceImpl implements OverseaService {
 				confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
 				session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
 				logger.info("Request From Confirm Travel Policy " + confirmPolicyParameter);
-				JSONObject jsonResponse = restService.consumeApi(
-						HttpMethod.POST,
-						UserRestURIConstants.ANNUAL_TRAVEL_CONFIRM_POLICY, header,
-						confirmPolicyParameter);
+				JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
+						UserRestURIConstants.ANNUAL_TRAVEL_CONFIRM_POLICY, header, confirmPolicyParameter);
 				logger.info("Response From Confirm Travel Policy " + JsonUtils.jsonPrint(jsonResponse));
 
 				createPolicy.setSecureHash(checkJsonObjNull(jsonResponse, "secureHash"));
@@ -280,14 +264,57 @@ public class OverseaServiceImpl implements OverseaService {
 				return responsObject.get("errMsgs").toString();
 			}
 		}
- 		
+
 		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
 		session.setAttribute("transactionDate", createPolicy.getTransactionDate());
 		session.setAttribute("transNo", createPolicy.getTransactionNo());
 		session.setAttribute("travelPlanDetailsFormBySummary", planDetailsForm);
 		return "success";
 	}
-	
+
+	@SuppressWarnings("unchecked")
+	public String processOverseaPayment(HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		String referenceNo = request.getParameter("referenceNo");
+		JSONObject submitPolicy = new JSONObject();
+		submitPolicy.put("referenceNo", referenceNo);
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", (String) session.getAttribute("username"));
+		header.put("token", (String) session.getAttribute("token"));
+		header.put("language", WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
+
+		logger.info("OVERSEA_SUBMIT_POLICY Request" + submitPolicy);
+		JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.OVERSEA_SUBMIT_POLICY,
+				header, submitPolicy);
+		logger.info("OVERSEA_SUBMIT_POLICY Response" + jsonResponse);
+		if (checkJsonObjNull(jsonResponse, "errMsgs").equals("")) {
+			if (checkJsonObjNull(jsonResponse, "policyNo").equals("")) {
+				String month = request.getParameter("epMonth");
+				session.setAttribute("transactionNo", request.getParameter("transNo"));
+				String encryptedCreditCard = request.getParameter("cardNo");
+
+				try {
+					encryptedCreditCard = Methods.encryptStr(request.getParameter("cardNo"));
+					session.setAttribute("creditCardNo", encryptedCreditCard);
+				} catch (Exception e) {
+					session.setAttribute("creditCardNo", "");
+					e.printStackTrace();
+				}
+				session.setAttribute(
+						"expiryDate",
+						String.format("%02d", Integer.parseInt(request.getParameter("epMonth")))
+								+ request.getParameter("epYear"));
+				session.setAttribute("emailAddress", request.getParameter("emailAddress"));
+				return "success";
+			} else {
+				return checkJsonObjNull(jsonResponse, "policyNo");
+			}
+		} else {
+			checkJsonObjNull(jsonResponse, "errMsgs");
+		}
+		return "fail";
+	}
+
 	private String checkJsonObjNull(JSONObject obj, String checkByStr) {
 		if (obj.get(checkByStr) != null) {
 			return obj.get(checkByStr).toString();
@@ -295,9 +322,8 @@ public class OverseaServiceImpl implements OverseaService {
 			return "";
 		}
 	}
-	
-	private String checkPasswortAndHkid(String check, String selected,
-			String selectedHkidOrPassport) {
+
+	private String checkPasswortAndHkid(String check, String selected, String selectedHkidOrPassport) {
 		String response = "";
 		switch (check) {
 		case "hkId":
@@ -316,4 +342,5 @@ public class OverseaServiceImpl implements OverseaService {
 
 		return response;
 	}
+
 }

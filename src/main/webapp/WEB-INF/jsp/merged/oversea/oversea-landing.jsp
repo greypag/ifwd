@@ -1,4 +1,3 @@
-<%@page import="com.ifwd.fwdhk.model.WorkingHolidayQuoteBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -12,14 +11,14 @@ $(document).ready(function() {
 });
 function prepareOverseaPlan(form){
 	var result = false;
-	var method = "<%=request.getContextPath()%>/ajax/oversea/prepareOverseaPlan";
+	var method = "<%=request.getContextPath()%>/ajax/oversea/prepareOverseaQuote";
 	$.ajax({
 		type : "POST",
 		url : method,
 		async : false,
 		success : function(data) {
-			if (data == 'success') {
-				//form.action = "<%=request.getContextPath()%>/${language}/working-holiday-insurance/quote";
+			if (data == "success") {
+				form.action = "<%=request.getContextPath()%>/${language}/oversea-insurance/quote";
 				result = true;
 			} else {
 				console.log(data);
