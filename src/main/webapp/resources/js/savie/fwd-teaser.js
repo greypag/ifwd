@@ -407,11 +407,14 @@ function sendleadbyo2o(email,mobileNo,answer1,step,captcha) {
 
 // get resource bundle
 function getBundle(lang, key) {
-	var rtn; 
-	loadBundles(lang, key, function(value){
-		rtn = value;
-	});
-	return rtn;
+	
+	return fwdGetBundle(lang, key); // New Shared Error Message Bundle
+	
+	//var rtn; 
+	//loadBundles(lang, key, function(value){
+	//	rtn = value;
+	//});
+	//return rtn;
 }
 function loadBundles(lang, key, fn) {
 	//var u = window.location.origin+''+home+'/resources/bundle/';

@@ -13,6 +13,7 @@
 	href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 <!-- <a href="javascript:void(0)" id="testajax" >Press</a> -->
 
+<script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
 <script>
 
 var getBundleLanguage = "";
@@ -27,6 +28,7 @@ if(lang === "EN") {
 	    getBundleLanguage = "en";
 	}
 }
+
 $(window).bind("pageshow", function(event) {
     if (event.originalEvent.persisted) {
         //window.location.reload();
@@ -51,6 +53,31 @@ $( "#testajax" ).click(function() {
 
 
 var home_url = "<%=request.getContextPath()%>";
+console.log(home_url);
+console.log(getBundleLanguage);
+/* New GetBundle */
+var _fwdErrMsg;
+
+$.i18n.properties({
+   name: 'Messages',
+   path: ''+home_url+'/resources/bundle/',
+   mode: 'map',
+   language: getBundleLanguage,
+   cache: false,
+   callback: function() {
+   	_fwdErrMsg = $.extend(true, {}, $.i18n);
+   }
+});
+
+
+function fwdGetBundle(lang, key){ 
+	return (_fwdErrMsg && _fwdErrMsg.map[key])?(_fwdErrMsg.map[key]):'';
+}
+
+function getBundle(lang, key){
+	return fwdGetBundle(lang,key);
+}
+
 function submitLoginForm(formID) {
 	$('.login-ajax-loading').css({
 		"left":"0px",
