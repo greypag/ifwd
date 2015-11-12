@@ -10341,7 +10341,7 @@ background-color
 		padding: 0;
 	}
 	.login-form {
-		top: 30%;
+		top: 10;
 		z-index: 2000;
 	}
 	a.navbar-brand>img {
