@@ -4949,17 +4949,25 @@ function validatecardnumber(cardnumber) {
 				// Display the card type for that group
 //				document.getElementById('errcardno').innerHTML = types[i - 1];
 				if (i == 1) {
-					document.getElementById("chkVisa").checked=true;
+					if( document.getElementById("chkVisa") ){
+						document.getElementById("chkVisa").checked=true;
+					}
 				} else {
-					document.getElementById("chkMaster").checked=true;
+					if( document.getElementById("chkMaster") ){
+						document.getElementById("chkMaster").checked=true;
+					}
 					
 				}
-				document.getElementById('errcardno').innerHTML = '';
+				if( document.getElementById('errcardno') ){
+					document.getElementById('errcardno').innerHTML = '';
+				}
 				break;
 			}
 		}
 	} else {
-		document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notValid.message");//'(invalid card number)';
+		if( document.getElementById('errcardno') ){
+			document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notValid.message");//'(invalid card number)';
+		}
 		$(".cardnumber").addClass("invalid-field");
 		return false;
 	}
@@ -4971,22 +4979,22 @@ function payValid()
 {
 
 	var flag=true;
-	var cardno=document.getElementById("cardnumber").value;
+	var cardno=(document.getElementById("cardnumber"))?document.getElementById("cardnumber").value:'';
 
-	var month=document.getElementById("month").value;
+	var month=(document.getElementById("month"))?document.getElementById("month").value:'';
 
 
-	var year=document.getElementById("year").value;
-	var seccode=document.getElementById("seccode").value;
-	var holdername=document.getElementById("holdername").value;
+	var year=(document.getElementById("year"))?document.getElementById("year").value:'';
+	var seccode=(document.getElementById("seccode"))?document.getElementById("seccode").value:'';
+	var holdername=(document.getElementById("holdername"))?document.getElementById("holdername").value:'';
 
-	document.getElementById('errcardno').innerHTML="";
-	document.getElementById('errmonth').innerHTML="";
-	document.getElementById('erryear').innerHTML="";
-	document.getElementById('errname').innerHTML="";	
-	document.getElementById('errcode').innerHTML="";
+	if( document.getElementById('errcardno') ) document.getElementById('errcardno').innerHTML="";
+	if( document.getElementById('errmonth') ) document.getElementById('errmonth').innerHTML="";
+	if( document.getElementById('erryear') ) document.getElementById('erryear').innerHTML="";
+	if( document.getElementById('errname') ) document.getElementById('errname').innerHTML="";
+	if( document.getElementById('errcode') ) document.getElementById('errcode').innerHTML="";
 	$("#seccode").removeClass("invalid-field");
-	document.getElementById('errchk1').innerHTML="";
+	if( document.getElementById('errchk1') ) document.getElementById('errchk1').innerHTML="";
 	/*document.getElementById('errchk2').innerHTML="";*/
 
 	
