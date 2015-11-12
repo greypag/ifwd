@@ -149,12 +149,14 @@ var languageP = "${language}";
                      
 								<div class="upload-buttons clearfix">
 									<div class="col-xs-12 col-md-4 hk-id-holder">
-										<h4><fmt:message key="eliteTerms.documentUpload.Your.HK.ID" bundle="${msg}" /></h4>
+										<div class="upload-copy-title">
+											<h4><fmt:message key="eliteTerms.documentUpload.Your.HK.ID" bundle="${msg}" /></h4>
 
-										<button type="button" class="et-minimal info hkid orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Upload.your.HKID.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
-										</button>
+											<button type="button" class="et-minimal info hkid orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Upload.your.HKID.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
+											</button>
 
-										<h5><fmt:message key="eliteTerms.documentUpload.Upload.your.HKID" bundle="${msg}" /></h5>
+											<h5><fmt:message key="eliteTerms.documentUpload.Upload.your.HKID" bundle="${msg}" /></h5>
+										</div>
 										<form action="upload-documents" id="hkid-upload-form" class="upload-form">
 											<div class="finish-upload hidden" id="finish-upload-hkid">
 												<div class="center-align">
@@ -216,12 +218,14 @@ var languageP = "${language}";
 									</div>
 
 									<div class="col-xs-12 col-md-4 passport-holder">
-										<h4><fmt:message key="eliteTerms.documentUpload.Your.passport.copy" bundle="${msg}" /></h4>
+										<div class="upload-copy-title">
+											<h4><fmt:message key="eliteTerms.documentUpload.Your.passport.copy" bundle="${msg}" /></h4>
 
-										<button type="button" class="et-minimal info passport orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Your.passport.copy.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
-										</button>
+											<button type="button" class="et-minimal info passport orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Your.passport.copy.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
+											</button>
 
-										<h5><fmt:message key="eliteTerms.documentUpload.If.you.are" bundle="${msg}" /></h5>
+											<h5><fmt:message key="eliteTerms.documentUpload.If.you.are" bundle="${msg}" /></h5>
+										</div>
 										<form action="upload-documents" id="passport-upload-form" class="upload-form">
 											<div class="finish-upload hidden" id="finish-upload-passport">
 												<div class="center-align">
@@ -283,17 +287,19 @@ var languageP = "${language}";
 									</div>
 									
 									<div class="col-xs-12 col-md-4 proof-address-holder">
-										<h4><fmt:message key="eliteTerms.documentUpload.Proof.of.address" bundle="${msg}" /></h4>
+										<div class="upload-copy-title">
+											<h4><fmt:message key="eliteTerms.documentUpload.Proof.of.address" bundle="${msg}" /></h4>
 
-										<button type="button" class="et-minimal info addr orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Proof.of.address.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
-										</button>
+											<button type="button" class="et-minimal info addr orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Proof.of.address.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
+											</button>
 
-										<h5>
-											<fmt:message key="eliteTerms.documentUpload.Your.current.residential" bundle="${msg}" />
-											<a href="<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank">
-												<fmt:message key="eliteTerms.documentUpload.Your.current.residential.validProof" bundle="${msg}" />
-											</a>
-										</h5>
+											<h5>
+												<fmt:message key="eliteTerms.documentUpload.Your.current.residential" bundle="${msg}" />
+												<a href="<%=request.getContextPath()%>/<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank">
+													<fmt:message key="eliteTerms.documentUpload.Your.current.residential.validProof" bundle="${msg}" />
+												</a>
+											</h5>
+										</div>
 										<form action="http://murielle.php-staging.smartdrop.com.hk/pms/product/uploadfile" id="js-upload-form" method="POST" class="upload-form">
 											<div class="finish-upload hidden" id="finish-upload-addr">
 												<div class="center-align">

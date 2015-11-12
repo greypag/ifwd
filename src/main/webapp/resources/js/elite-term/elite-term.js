@@ -87,10 +87,10 @@ function getEliteTermPremium() {
 	// For the Application Summary
 	if(referralCode != '') {
 		$disMonthPre.removeClass('hidden');
-        $actMonthPre.find('span.extra-years-remarks').text('(2nd - 20th policy year)');
+        $actMonthPre.find('span.extra-years-remarks').text(getBundle(getBundleLanguage, "et.selectPlan.Monthly.premium.2ndto20thyear"));
 	} else {
 		$disMonthPre.addClass('hidden');
-        $actMonthPre.find('span.extra-years-remarks').text('(first 20 policy years)');
+        $actMonthPre.find('span.extra-years-remarks').text(getBundle(getBundleLanguage, "et.selectPlan.Monthly.premium.1styear"));
 	}
 }
 

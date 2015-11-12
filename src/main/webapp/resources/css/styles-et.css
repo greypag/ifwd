@@ -34,6 +34,11 @@
 	padding: 35px 30px;
 }
 
+/* Product Landing Download section */
+.btn-download-section{
+	padding: 30px 0 0 0;
+}
+
 /* ET landing tagline */
 .fwd-et-wrapper .banner-widget .tagline-holder{
 	position: absolute;
@@ -221,7 +226,15 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
     line-height: 16px;
 }
 
+.fwd-et-wrapper .declare-authorize .agreement-description .pull-left.policy-replace-desc{
+	width: 40%;
+}
+
 /* Document Upload */
+.upload-copy-title{
+	height: 80px;
+}
+
 .fwd-et-wrapper .document-upload .info.hkid {
   left: 120px;
 }
@@ -238,16 +251,20 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
 	text-align: center;
 }
 
+.chin .upload-copy-title{
+	height: 70px;
+}
+
 .chin .fwd-et-wrapper .document-upload .info.hkid {
-  left: 135px;
+  	left: 135px;
 }
 
 .chin .fwd-et-wrapper .document-upload .info.passport {
-  left: 60px;
+  	left: 60px;
 }
 
 .chin .fwd-et-wrapper .document-upload .info.addr {
-  left: 110px;
+  	left: 110px;
 }
 
 @media (min-width: 992px) {

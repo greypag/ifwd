@@ -53,8 +53,7 @@ $( "#testajax" ).click(function() {
 
 
 var home_url = "<%=request.getContextPath()%>";
-console.log(home_url);
-console.log(getBundleLanguage);
+
 /* New GetBundle */
 var _fwdErrMsg;
 
@@ -71,7 +70,7 @@ $.i18n.properties({
 
 
 function fwdGetBundle(lang, key){ 
-	return (_fwdErrMsg && _fwdErrMsg.map[key])?(_fwdErrMsg.map[key]):'';
+	return (_fwdErrMsg && _fwdErrMsg.map[key])?(_fwdErrMsg.map[key]):'['+key+']';
 }
 
 function getBundle(lang, key){
