@@ -1,4 +1,11 @@
+function msieversion() {
+	var ua = window.navigator.userAgent;
+	var msie = ua.indexOf("MSIE ");
 
+	if (msie > 0) { // If Internet Explorer, return version number
+		return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)));
+	} else { // If another browser, return 0
+		return 0;
 	}
 }
 $(function() {
@@ -281,7 +288,6 @@ $(function() {
 		end = path.indexOf('travel-insurance');
 		fullPath = path.substring(0, end) + "travel-insurance/quote";
 
-		// Ҫ����D ׃��post ��
 
 		// $.ajax({
 		// type: "POST",
@@ -340,159 +346,78 @@ $(function() {
 				end = path.indexOf('travel-insurance');
 				fullPath = path.substring(0, end) + "travel-insurance/quote";
 
-				// Ҫ����D ׃��post ��
 
-				// $.ajax({
-				// type: "POST",
-				// url: fullPath,
-				// data: { 'trLeavingDate': dateFormate(startDate),
-				// 'trBackDate': dateFormate(endDate),
-				// 'totalAdultTraveller':'',
-				// 'totalChildTraveller':'',
-				// 'days':'',
-				// 'travellerCount':'',
-				// 'ToalDue':'1',
-				// 'planSelected':''
-				// },
-				// success: function(){
-				// }
-				//		
-				// });
 
-				// document.getElementById("divPersonsDesk").style.visibility =
-				// "visible";
-				// document.getElementById("lblDaysDesk").innerHTML =
-				// isNaN(dateDiffInDays(startDate, endDate)) ? 0 :
-				// dateDiffInDays(startDate, endDate);
+	var checkinFightDetail = $('#dp1-detail-page').datepicker({
+		beforeShowDay: function (date) {
+			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from;
+		},
+		//startDate:nowTemp,
+		//endDate:  tillDate_from,
+		autoclose: true,
+		todayHighlight: true,
+		format: "dd-mm-yyyy",
 
-			});
 
-	// ================================================================================================================================
-	// ================================================================================================================================flight
-	// detail page datepicker
-	// ================================================================================================================================
-
-<<<<<<< .mine
-				
-	
-			end = path.indexOf('travel-insurance');
-			fullPath = path.substring(0, end) + "travel-insurance/quote";			
+	}).on('changeDate', function (ev) {
+		//if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() || !checkout.datepicker("getDate").valueOf()) {
 		
-		
-		
-<<<<<<< HEAD
-		//瑕佹惖杩擠 璁婃暩post 杩?
-=======
-		//要搵返D 變數post 返
->>>>>>> 4d82ae493430055f43028ed919a80703a61211c0
-				
-//		$.ajax({
-//			  type: "POST",
-//			  url: fullPath,
-//			  data: { 'trLeavingDate': dateFormate(startDate),
-//				  	  'trBackDate': dateFormate(endDate),
-//				  	  'totalAdultTraveller':'',
-//				  	  'totalChildTraveller':'',					  	  
-//				  	  'days':'',
-//				  	  'travellerCount':'',
-//				  	  'ToalDue':'1',
-//				  	  'planSelected':''					  	 
-//			  },					  				  							  
-//			  success: function(){					 					 
-//			  }
-//		
-//		});
+			var newDate = new Date(ev.date);
+			newDate.setDate(newDate.getDate());
 								
-		
-		
-		
-	//	document.getElementById("divPersonsDesk").style.visibility = "visible";
-	//	document.getElementById("lblDaysDesk").innerHTML = isNaN(dateDiffInDays(startDate, endDate)) ? 0 : dateDiffInDays(startDate, endDate);
-=======
-	var checkinFightDetail = $('#dp1-detail-page').datepicker(
-			{
-				beforeShowDay : function(date) {
-					return date.valueOf() >= now.valueOf()
-							&& date.valueOf() < tillDate_from;
-				},
-				// startDate:nowTemp,
-				// endDate: tillDate_from,
-				autoclose : true,
-				todayHighlight : true,
-				format : "dd-mm-yyyy",
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> .theirs
-
-			}).on('changeDate', function(ev) {
-		// if (ev.date.valueOf() > checkout.datepicker("getDate").valueOf() ||
-		// !checkout.datepicker("getDate").valueOf()) {
-
-		var newDate = new Date(ev.date);
-		newDate.setDate(newDate.getDate());
-
-		var startDate = $("#dp1-detail-page").datepicker("getDate");
-		var endDate = $("#dp2-detail-page").datepicker("getDate");
-
-		if (startDate > endDate) {
-			$('#dp2-detail-page').datepicker('update', newDate);
-		}
-
-		// -------------------------------------------------------------------------------ajax
-
-		var path = window.location.href;
-
-		var end = path.indexOf('flight-insurance');
-		var fullPath = "";
-
-		if (end > 0) {
-			fullPath = path.substring(0, end) + "flight-insurance/quote";
-		} else {
-			path.indexOf('travel-insurance');
-			fullPath = path.substring(0, end) + "travel-insurance/quote";
-		}
-
-		// $.ajax({
-		// type: "POST",
-		// url: fullPath,
-		// data: { 'departureDate': dateFormate(startDate),
-		// 'returnDate': dateFormate(endDate),
-		// 'totalAdultTraveller':'',
-		// 'totalChildTraveller':'',
-		// 'days':'',
-		// 'travellerCount':'',
-		// 'ToalDue':'1',
-		// 'planSelected':''
-		// },
-		// success: function(){
-		// }
-		//			
-		// });
-
-		// -------------------------------------------------------------------------------ajax
-
+			
+			var startDate = $("#dp1-detail-page").datepicker("getDate");
+			var endDate = $("#dp2-detail-page").datepicker("getDate");
+			
+			
+						
+			
+			if(startDate>endDate){					
+				$('#dp2-detail-page').datepicker('update', newDate);								
+			}
+			
+			
+			
+					                 
+			//-------------------------------------------------------------------------------ajax
+			
+			var path = window.location.href;		
+			
+			var end = path.indexOf('flight-insurance');
+			var fullPath = "";				
+			
+			if(end>0){
+				fullPath = path.substring(0, end) + "flight-insurance/quote";					
+			}
+			else{
+				path.indexOf('travel-insurance');
+				fullPath = path.substring(0, end) + "travel-insurance/quote";			
+			}
+			
+			
+			
+					
+//			$.ajax({
+//				  type: "POST",
+//				  url: fullPath,
+//				  data: { 'departureDate': dateFormate(startDate),
+//					  	  'returnDate': dateFormate(endDate),
+//					  	  'totalAdultTraveller':'',
+//					  	  'totalChildTraveller':'',					  	  
+//					  	  'days':'',
+//					  	  'travellerCount':'',
+//					  	  'ToalDue':'1',
+//					  	  'planSelected':''					  	 
+//				  },					  				  							  
+//				  success: function(){					 					 
+//				  }
+//			
+//			});
+							
+			//-------------------------------------------------------------------------------ajax		
+						
+			
+	    
 	});
 
 	function dateFormate(thisDate) {
