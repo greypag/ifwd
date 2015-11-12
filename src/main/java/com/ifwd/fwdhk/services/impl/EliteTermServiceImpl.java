@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
@@ -37,6 +38,7 @@ import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.HeaderUtil;
+import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
 @Service
@@ -233,6 +235,102 @@ public class EliteTermServiceImpl implements EliteTermService {
 		return apiReturn;
 	}
 	
+	@SuppressWarnings({ "restriction", "unchecked", "unused"})
+	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException{
+		BaseResponse apiReturn = new BaseResponse();
+		FileInputStream is = null;
+		BaseResponse br = null;
+		try {
+			CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+			String policyNo = eliteTermPolicy.getPolicyNo();
+			String documentPath = UserRestURIConstants.getProperties("documentPath");
+			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes())+"/"; 
+			File file = new File(uploadDir);
+			byte data[];
+			int i;
+			final Map<String, String> header = headerUtil.getHeader(request);
+			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
+			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+			parameters.put("clientBrowserInfo", clientBrowserInfo);
+			parameters.put("policyNo", policyNo);
+			parameters.put("planCode", "ET");
+			String fileToUpload = (String) request.getSession().getAttribute("fileToUploadProofAdd");
+			String hkidFileToUpload = (String) request.getSession().getAttribute("hkidFileToUpload");
+			File hkidFileToUploadImage = new File(uploadDir+hkidFileToUpload);
+			File fileToUploadImage = new File(uploadDir+fileToUpload);
+			is = new FileInputStream(fileToUploadImage);
+			i = is.available(); // 得到文件大小  
+			data = new byte[i];  
+			is.read(data); // 读数据  
+			is.close();  
+			String fileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
+			String fileToUploadProofAddType = (String) request.getSession().getAttribute("fileToUploadProofAddType");
+			parameters.put("fileType", fileToUploadProofAddType);
+			parameters.put("documentType", "proof");
+			parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+fileToUploadProofAddType);
+			parameters.put("base64", fileToUploadImageBase64);
+			br = connector.uploadDocuments(parameters, header);
+			if(br.getErrMsgs()!=null){
+				throw new ECOMMAPIException("system error");
+			}
+			if("true".equals(passportFlage)){
+				String passportFileToUpload = (String) request.getSession().getAttribute("passportFileToUpload");
+				File passportFileToUploadImage = new File(uploadDir+passportFileToUpload);
+				is = new FileInputStream(passportFileToUploadImage);
+				i = is.available(); // 得到文件大小  
+				data = new byte[i];  
+				is.read(data); // 读数据  
+				is.close();  
+				String passportFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
+				String passportFileToUploadType = (String) request.getSession().getAttribute("passportFileToUploadType");
+				parameters.put("fileType", passportFileToUploadType);
+				parameters.put("documentType", "passport");
+				parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+passportFileToUploadType);
+				parameters.put("base64", passportFileToUploadImageBase64);
+				br = connector.uploadDocuments(parameters, header);
+				if(br.getErrMsgs()!=null){
+					throw new ECOMMAPIException("system error");
+				}
+			}
+				
+			is = new FileInputStream(hkidFileToUploadImage);
+			i = is.available(); // 得到文件大小  
+			data = new byte[i];  
+			is.read(data); // 读数据  
+			is.close();  
+			String hkidFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
+			String  hkidFileToUploadType = (String) request.getSession().getAttribute("hkidFileToUploadType");
+			parameters.put("fileType", hkidFileToUploadType);
+			parameters.put("documentType", "hkid");
+			parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+hkidFileToUploadType);
+			parameters.put("base64", hkidFileToUploadImageBase64);
+			br = connector.uploadDocuments(parameters, header);
+			if(br.getErrMsgs()!=null){
+				throw new ECOMMAPIException("system error");
+			}
+	        FileUtil.deletFile(uploadDir);
+		}catch(ECOMMAPIException e){
+			logger.info("EliteTermServiceImpl sendImage occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+			apiReturn.setErrMsg(e.getMessage());
+			return apiReturn;
+		}catch(Exception e){
+			logger.info("EliteTermServiceImpl sendImage occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+			apiReturn.setErrMsg("system error");
+			return apiReturn;
+		}finally{
+			try {
+				is.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}  
+		}
+		return apiReturn;
+	}
+	
 	@Override
 	public GetEliteTermPremiumResponse getEliteTermPremium(HttpServletRequest request)throws ECOMMAPIException{
 		GetEliteTermPremiumResponse apiReturn = null;
@@ -326,12 +424,32 @@ public class EliteTermServiceImpl implements EliteTermService {
 		return apiReturn;
 	}
 	
+	@SuppressWarnings("restriction")
 	@Override
 	public BaseResponse uploadSignature(HttpServletRequest request,String image,String policyNo)throws ECOMMAPIException{		
 		BaseResponse br = null;
 		try {
-			final Map<String,String> header = headerUtil.getHeader(request);
+			String documentPath = UserRestURIConstants.getProperties("documentPath");
+			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes()); 
+	        File dirPath = new File(uploadDir);  
+	        if (!dirPath.exists()) {   
+	            dirPath.mkdirs();  
+	        } 
+	        String sep = System.getProperty("file.separator"); 
+	        File uploadedFile = new File(uploadDir + sep  
+	                + "JSignature.png");
+	        byte[] bytes = new sun.misc.BASE64Decoder().decodeBuffer(image);
+	        FileCopyUtils.copy(bytes, uploadedFile);
+	        File toFile = new File(uploadDir + sep  
+	                + "JSignature.jpg");
+	        ImgUtil.changeImageToJPG(uploadedFile, toFile,request);
+	        
+	        byte[] toFileBytes= FileCopyUtils.copyToByteArray(toFile);
+	        image = new sun.misc.BASE64Encoder().encode(toFileBytes);
 
+	        FileUtil.deletFile(uploadDir);
+	        
+			final Map<String,String> header = headerUtil.getHeader(request);
 			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 			JSONObject parameters = new JSONObject();
 			parameters.put("clientBrowserInfo", clientBrowserInfo);
@@ -343,6 +461,10 @@ public class EliteTermServiceImpl implements EliteTermService {
 			parameters.put("policyNo", policyNo);
 			br = connector.uploadSignature(parameters, header);
 		} catch (ECOMMAPIException e) {
+			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		} catch (Exception e) {
 			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");
 			logger.info(e.getMessage());
 			e.printStackTrace();
@@ -545,77 +667,11 @@ public class EliteTermServiceImpl implements EliteTermService {
 		return br;
 	}
 	
-	@SuppressWarnings({ "unchecked", "deprecation", "unused", "restriction" })
+	@SuppressWarnings({ "unchecked"})
 	public void uploadEliteTermDocuments(HttpServletRequest request)throws ECOMMAPIException{
 		String uploadLaterFlage = (String) request.getSession().getAttribute("uploadLaterFlage");
-		String passportFlage = (String) request.getSession().getAttribute("passportFlage");
-		CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
-		String policyNo = eliteTermPolicy.getPolicyNo();
-		FileInputStream is = null;
-		BaseResponse br = null;
 		if(!"true".equals(uploadLaterFlage)){	
 			try {
-				//String uploadDir = request.getRealPath("/")+"upload"+"/"+policyNo+"/";
-				String documentPath = UserRestURIConstants.getProperties("documentPath");
-				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes())+"/"; 
-				File file = new File(uploadDir);
-				byte data[];
-				int i;
-				final Map<String, String> header = headerUtil.getHeader(request);
-				Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
-				org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
-				parameters.put("clientBrowserInfo", clientBrowserInfo);
-				parameters.put("policyNo", policyNo);
-				parameters.put("planCode", "ET");
-				String fileToUpload = (String) request.getSession().getAttribute("fileToUploadProofAdd");
-				String hkidFileToUpload = (String) request.getSession().getAttribute("hkidFileToUpload");
-				File hkidFileToUploadImage = new File(uploadDir+hkidFileToUpload);
-				File fileToUploadImage = new File(uploadDir+fileToUpload);
-				is = new FileInputStream(fileToUploadImage);
-				i = is.available(); // 得到文件大小  
-				data = new byte[i];  
-				is.read(data); // 读数据  
-				is.close();  
-				String fileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
-				String fileToUploadProofAddType = (String) request.getSession().getAttribute("fileToUploadProofAddType");
-				parameters.put("fileType", fileToUploadProofAddType);
-				parameters.put("documentType", "proof");
-				parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+fileToUploadProofAddType);
-				parameters.put("base64", fileToUploadImageBase64);
-				br = connector.uploadDocuments(parameters, header);
-				if("true".equals(passportFlage)){
-					String passportFileToUpload = (String) request.getSession().getAttribute("passportFileToUpload");
-					File passportFileToUploadImage = new File(uploadDir+passportFileToUpload);
-					is = new FileInputStream(passportFileToUploadImage);
-					i = is.available(); // 得到文件大小  
-					data = new byte[i];  
-					is.read(data); // 读数据  
-					is.close();  
-					String passportFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
-					String passportFileToUploadType = (String) request.getSession().getAttribute("passportFileToUploadType");
-					parameters.put("fileType", passportFileToUploadType);
-					parameters.put("documentType", "passport");
-					parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+passportFileToUploadType);
-					parameters.put("base64", passportFileToUploadImageBase64);
-					br = connector.uploadDocuments(parameters, header);
-				}
-					
-				is = new FileInputStream(hkidFileToUploadImage);
-				i = is.available(); // 得到文件大小  
-				data = new byte[i];  
-				is.read(data); // 读数据  
-				is.close();  
-				String hkidFileToUploadImageBase64 =new sun.misc.BASE64Encoder().encode(data);
-				String  hkidFileToUploadType = (String) request.getSession().getAttribute("hkidFileToUploadType");
-				parameters.put("fileType", hkidFileToUploadType);
-				parameters.put("documentType", "hkid");
-				parameters.put("originalFilePath", policyNo+PolicyNoUtil.getRandomString()+"."+hkidFileToUploadType);
-				parameters.put("base64", hkidFileToUploadImageBase64);
-				br = connector.uploadDocuments(parameters, header);
-		        FileUtil.deletFile(uploadDir);
-		        
-		        
-
 				UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 				CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
 				String customerName="";
@@ -878,12 +934,6 @@ public class EliteTermServiceImpl implements EliteTermService {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}finally{
-				try {
-					is.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}  
 			}
 		}
 

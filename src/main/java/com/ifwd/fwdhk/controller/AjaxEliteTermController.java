@@ -34,12 +34,19 @@ public class AjaxEliteTermController extends BaseController{
 	private EliteTermService eliteTermService;
 
 
+	@SuppressWarnings({ "restriction" })
 	@RequestMapping(value = {"/ajax/eliteTerm/getEliteTermImage"},method = RequestMethod.POST)
 	  public void doAddImageByGroupId(HttpServletRequest request, HttpServletResponse response,
 	            @RequestParam(value = "name", required = true) String name,
 	            @RequestParam(value = "img", required = true) MultipartFile imageFile
 	            ) throws Exception {
 			try {
+				String imgMaxSize = UserRestURIConstants.getProperties("imgMaxSize");
+				long size = imageFile.getSize();
+				if(size/(1024*1024) > Integer.valueOf(imgMaxSize)){
+					throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.greater.than",request)+" "+imgMaxSize+"MB");
+				}
+				
 				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
 				String policyNo = eliteTermPolicy.getPolicyNo();
 				String documentPath = UserRestURIConstants.getProperties("documentPath");
@@ -49,8 +56,7 @@ public class AjaxEliteTermController extends BaseController{
 		            dirPath.mkdirs();  
 		        } 
 		        String fileName = imageFile.getOriginalFilename();
-		       // String type = fileName.substring(fileName.lastIndexOf(".")+1);
-		        String realName = name+".jpg";//fileName.substring(0,fileName.lastIndexOf("."))
+		        String realName = name+".jpg";
 				request.getSession().setAttribute(name, realName);
 				request.getSession().setAttribute(name+"Type", "jpg");
 		        byte[] bytes = imageFile.getBytes();
@@ -64,7 +70,7 @@ public class AjaxEliteTermController extends BaseController{
 //		        }
 		        File toFile = new File(uploadDir + sep  
 				                + realName);
-				ImgUtil.changeImageToJPG(uploadedFile, toFile);
+				ImgUtil.changeImageToJPG(uploadedFile,toFile,request);
 		        response.getWriter().write("true");
 			} catch (ECOMMAPIException e) {
 				response.getWriter().write(e.getMessage());
@@ -81,8 +87,8 @@ public class AjaxEliteTermController extends BaseController{
 	            @RequestParam String uploadLaterFlage
 	            ) throws Exception {
 			try {
-				request.getSession().setAttribute("passportFlage", passportFlage);
 				request.getSession().setAttribute("uploadLaterFlage", uploadLaterFlage);
+				ajaxReturn(response, eliteTermService.sendImage(request,passportFlage));
 			} catch (Exception e) {
 				logger.info(e.getMessage());
 				e.printStackTrace();

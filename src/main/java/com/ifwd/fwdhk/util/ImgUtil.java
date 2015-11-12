@@ -6,24 +6,30 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
 
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 
 public class ImgUtil {
 
-	public static void changeImageToJPG(File fromFile,File toFile)throws ECOMMAPIException,Exception{
+	public static void changeImageToJPG(File fromFile,File toFile,HttpServletRequest request)throws ECOMMAPIException,Exception{
 		
 			BufferedImage bufferedImage = ImageIO.read(fromFile);
 			String imgMaxWidth = UserRestURIConstants.getProperties("imgMaxWidth");
 			String imgMaxHeight = UserRestURIConstants.getProperties("imgMaxHeight");
+			String imgMaxRatio = UserRestURIConstants.getProperties("imgMaxRatio");
 			int width = bufferedImage.getWidth();   
 		    int height = bufferedImage.getHeight(); 
+		    double ratio = width/height;
+		    if(ratio > Integer.valueOf(imgMaxRatio) || ratio < 1.0/Integer.valueOf(imgMaxRatio)){
+		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.length.width",request));
+		    }
 		    if(width > Integer.valueOf(imgMaxWidth)){
-		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.wider.than")+" "+imgMaxWidth);
+		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.wider.than",request)+" "+imgMaxWidth);
 		    }
 		    if(height > Integer.valueOf(imgMaxHeight)){
-		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.higher.than")+" "+imgMaxHeight);
+		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.higher.than",request)+" "+imgMaxHeight);
 		    }
 			      // create a blank, RGB, same width and height, and a white background
 			BufferedImage newBufferedImage = new BufferedImage(bufferedImage.getWidth(),
