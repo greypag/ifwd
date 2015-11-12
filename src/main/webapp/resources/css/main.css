@@ -10375,7 +10375,7 @@ background-color
 	}
 	.navbar-fixed-top div.logobox>div.navbar-collapse.mobile-menu-V2 {
 		display: none !important;
-		max-height: 340px;
+		max-height: 475px;
 		overflow-x: visible;
 		border-top: 1px solid transparent;
 		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
