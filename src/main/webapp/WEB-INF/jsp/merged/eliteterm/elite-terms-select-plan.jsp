@@ -2204,25 +2204,26 @@ var home_url = "<%=request.getContextPath()%>";
          } else if ($('#et-gender-female').prop('checked')) {
             planDetailData.gender = 'Female';
          }
-         
+
+         // Set default value and maximum value of insured amount
          var age = getAge(parseInt($('#et-select-plan-date-input').val().substring(6,10)),
                  parseInt($('#et-select-plan-date-input').val().substring(3,5)),
                  parseInt($('#et-select-plan-date-input').val().substring(0,2)));
          if (age < 50) {
              $('#et-ins-amt-max-display').text('2,000,000');
-             $('#et-slider-range').html('800,000');
+             $('#et-slider-range').html('1,000,000');
              $('#R2').slider({max:2000000});
-             $('#R2').slider('setValue', 800000);
+             $('#R2').slider('setValue', 1000000);
          } else if (age < 55) {
              $('#et-ins-amt-max-display').text('1,500,000');
-             $('#et-slider-range').html('800,000');
+             $('#et-slider-range').html('1,000,000');
              $('#R2').slider({max:1500000});
-             $('#R2').slider('setValue', 800000);
+             $('#R2').slider('setValue', 1000000);
          } else {
              $('#et-ins-amt-max-display').text('500,000');
-             $('#et-slider-range').html('450,000');
+             $('#et-slider-range').html('500,000');
              $('#R2').slider({max:500000});
-             $('#R2').slider('setValue', 450000);
+             $('#R2').slider('setValue', 500000);
          }         
          
          planDetailData.dob = $planDate.val();
