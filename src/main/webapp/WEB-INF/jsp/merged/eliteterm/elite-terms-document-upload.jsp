@@ -514,6 +514,10 @@ var languageP = "${language}";
             $(function() {
             	var userName = "${username}";
             	var policyUserName = "${policyUserName}";
+            	if(policyUserName != null && policyUserName != ''){
+    				$('#et-upload-now').hide();
+    				$('#et-upload-later').hide();
+				}
 				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
 					$('#loginpopup').modal('show');
 				}else{
