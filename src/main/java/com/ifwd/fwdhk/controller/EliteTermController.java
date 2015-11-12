@@ -131,7 +131,7 @@ public class EliteTermController extends BaseController{
 		} catch (ECOMMAPIException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}catch (Exception e) {
+		} catch (Exception e) {	
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

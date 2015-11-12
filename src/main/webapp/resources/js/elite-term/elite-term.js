@@ -198,7 +198,9 @@ function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
 					"uploadLaterFlage":uploadLaterFlage
 				},
 		        success:function(data){
-					window.location.href= contextPath+'/'+language+'/term-life-insurance/'+documentUploadNextPageFlow;
+					if(data.errMsgs == null){
+						window.location.href= contextPath+'/'+language+'/term-life-insurance/'+documentUploadNextPageFlow;
+					}
 				}
 		});
 }
