@@ -14,6 +14,8 @@ public class PurchaseHistoryPolicies{
 	private String promotionType;
 	private String status;
 	private String policyType;
+	private String claimFormUrl;
+	private String documentUploaded;
 	
 	public String getPlanCode() {
 		return planCode;
@@ -92,6 +94,18 @@ public class PurchaseHistoryPolicies{
 	}
 	public void setPolicyType(String policyType) {
 		this.policyType = policyType;
+	}
+	public String getClaimFormUrl() {
+		return claimFormUrl;
+	}
+	public void setClaimFormUrl(String claimFormUrl) {
+		this.claimFormUrl = claimFormUrl;
+	}
+	public String getDocumentUploaded() {
+		return documentUploaded;
+	}
+	public void setDocumentUploaded(String documentUploaded) {
+		this.documentUploaded = documentUploaded;
 	}
 	
 	
