@@ -708,6 +708,7 @@
             },
             "savieApplicantBean.lastName": {
                container: '#savieApplicantBeanlastNameMsg',
+               trigger: 'blur',
                validators: {
                   notEmpty: {
                      message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Last.Name.in.English")
@@ -730,6 +731,7 @@
             },
             "savieApplicantBean.chineseName": {
                container: '#savieApplicantBeanchineseNameMsg',
+               trigger: 'blur',
                validators: {
                   stringLength: {
                      max: 6,
@@ -884,7 +886,7 @@
                   },
                   regexp: {
                       regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                      message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                      message: getBundle(getBundleLanguage, "form.address.invalid")
                    }
                 }
              },
@@ -893,7 +895,7 @@
                  validators: {
                     regexp: {
                        regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                       message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                       message: getBundle(getBundleLanguage, "form.address.invalid")
                     }
                  }
               },
@@ -902,7 +904,7 @@
                  validators: {
                     regexp: {
                        regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                       message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                       message: getBundle(getBundleLanguage, "form.address.invalid")
                     }
                  }
               },
@@ -914,7 +916,7 @@
                      },
                      regexp: {
                         regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                        message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                        message: getBundle(getBundleLanguage, "form.address.invalid")
                      }
                   }
                },
@@ -923,7 +925,7 @@
                    validators: {
                       regexp: {
                          regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                         message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                         message: getBundle(getBundleLanguage, "form.address.invalid")
                       }
                    }
                 },
@@ -932,7 +934,7 @@
                    validators: {
                       regexp: {
                          regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                         message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                         message: getBundle(getBundleLanguage, "form.address.invalid")
                       }
                    }
                 },
@@ -944,7 +946,7 @@
                         },
                         regexp: {
                           regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                          message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                          message: getBundle(getBundleLanguage, "form.address.invalid")
                        }
                     }
                  },
@@ -953,7 +955,7 @@
                      validators: {
                         regexp: {
                            regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                           message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                           message: getBundle(getBundleLanguage, "form.address.invalid")
                         }
                      }
                   },
@@ -962,7 +964,7 @@
                      validators: {
                         regexp: {
                            regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                           message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                           message: getBundle(getBundleLanguage, "form.address.invalid")
                         }
                      }
                   }
