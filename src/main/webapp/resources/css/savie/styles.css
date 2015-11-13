@@ -14841,12 +14841,13 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
 
   .fwd-savie-wrapper .sign-up-teaser button.get-started {
     font-family: 'Calibri-bold', sans-serif;
-    font-size: 32px;
+    font-size: 30px;
     display: block;
     width: 94%;
-    height: 80px;
+    /*height: 80px;*/
+    height: 70px;
     text-align: center;
-    padding-top: 5px;
+    /*padding-top: 5px;*/
     margin-top: 27px;
     margin-bottom: 20px;
     border: none;
@@ -14892,8 +14893,8 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
 
 @media (min-width: 1200px) {
   .fwd-savie-wrapper .sign-up-teaser button.get-started {
-    font-size: 48px;
-    padding-top: 5px;
+    /*font-size: 48px;
+    padding-top: 5px;*/
   }
 }
 
