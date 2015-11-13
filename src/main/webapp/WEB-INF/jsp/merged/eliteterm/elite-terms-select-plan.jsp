@@ -1463,7 +1463,7 @@ var home_url = "<%=request.getContextPath()%>";
                      
                      <div class="row et-proceed-btn-wrapper">
                         <div class="col-xs-12 col-md-12 proceed-btn text-center">
-                           <button id="et-app-sum-proceed-btn" type="button" class="btn next et-btn-view-summary"><fmt:message key="eliteTerms.selectPlan.View.summary" bundle="${msg}" /></button> <!--Bind a click event temporarily to show the hidden Application Summary section-->
+                           <button id="et-app-sum-proceed-btn" type="button" class="btn next et-btn-view-summary" data-back-text="<fmt:message key="eliteTerms.selectPlan.back.to.summary" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.View.summary" bundle="${msg}" /></button> <!--Bind a click event temporarily to show the hidden Application Summary section-->
                         </div>
                      </div>
                      

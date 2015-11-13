@@ -404,6 +404,7 @@
    
       // Move to Medical declaration section
       $('#et-brn-proceed-to-application').on('click', function(e) {
+    	 e.preventDefault();
          var $self = $(this);
          
          // Store plan detail data
@@ -413,7 +414,12 @@
          $('#etaspd-insured-amount').html('HK$ '+ sliderVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
          $('#etaspd-monthly-premium').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' (for the 1st year)');
          
-         if ($self.hasClass('back-to-app')) {
+         if ($self.hasClass('back-to-summary')) {
+        	 $('#et-application-third-section').removeClass('hide-element');
+             $('body, html').animate({
+          	  scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
+             }, 0);
+         } else if ($self.hasClass('back-to-app')) {
             // Go back to the application form
             $('#et-select-plan-section').addClass('hide-element');
             currentSection = 'et-application-first-section';
@@ -433,11 +439,6 @@
             var $target = null;
             
             if (isMedicAnswered()) {
-               $target = $('#et-application-info-section');
-               $target.removeClass('hide-element');
-               
-               $('#et-application-first-section').removeAttr('style');
-               
                // Remve datepicker
                $infoDOB.datepicker('remove');
    
@@ -454,13 +455,24 @@
                   var gender_display = (planDetailData.gender=='Male')?getBundle(getBundleLanguage, "option.male"):getBundle(getBundleLanguage, "option.female");
                   $('#savieApplicantBean\\.gender').val(gender_display);
                }
+
                
-               // Disable scrolling to the select plan section
-               // Update current section flag
-               if (currentSection === 'et-select-plan-section') {
-                  $('#' + currentSection).addClass('hide-element');
+               if ($self.hasClass('back-to-summary')) {
+            	   $('#et-application-third-section').removeClass('hide-element');
+            	   $target = $('#et-application-third-section');
+               } else {
+                   $target = $('#et-application-info-section');
+                   $target.removeClass('hide-element');
+                   
+                   $('#et-application-first-section').removeAttr('style');
+                   
+                   // Disable scrolling to the select plan section
+                   // Update current section flag
+                   if (currentSection === 'et-select-plan-section') {
+                      $('#' + currentSection).addClass('hide-element');
+                   }
+                   currentSection = 'et-application-first-section';
                }
-               currentSection = 'et-application-first-section';
             } else {
                $target = $('#et-application-first-section');
                
@@ -478,13 +490,18 @@
          var $self = $(this);
          var $target = '';
          if (isBeneficaryValid()) {
-        	 
-            $target = $('#et-application-second-section');
-            $target.removeClass('hide-element');
-            
-            $('body, html').animate({
+            if ($self.hasClass('back-to-summary')) {
+            $('#et-application-third-section').removeClass('hide-element');
+               $('body, html').animate({
+            	  scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
+               }, 0);
+            } else {
+               $target = $('#et-application-second-section');
+               $target.removeClass('hide-element');
+               $('body, html').animate({
                   scrollTop: ($target.offset().top - stickyHeight) + 'px'
-            }, 500);
+               }, 500);
+            }
             
             // Store beneficiaries data
             storeBeneficiaryInfo();
@@ -601,17 +618,38 @@
          var $target = $($self.data('target'));
          
          //hide summary
-         $('#et-application-third-section').addClass('hide-element');
-         $('#et-app-sum-proceed-btn').parent().removeClass('col-md-12').addClass('col-md-6');
-         $('#et-declaration-proceed-btn').parent().removeClass('hidden');
+	     $('#et-application-third-section').addClass('hide-element');
+	     $('#et-declaration-proceed-btn').parent().removeClass('hidden');
          
+         //hide parts
+         $('#et-plan-option-section').addClass('hide-element');
+         $('#et-application-info-section').addClass('hide-element');
+         $('#et-employment-info-section').addClass('hide-element');
+         $('#et-beneficiary-info-section').addClass('hide-element');
+         $('#et-select-plan-section').addClass('hide-element');
+         $('#et-application-second-section').addClass('hide-element');
+         
+         //update button text
+         var backText = $('#et-app-sum-proceed-btn').data('back-text');
+         $('#et-brn-proceed-to-application').addClass('back-to-summary').text(backText);
+         $('#et-medical-dec-next').addClass('back-to-summary').text(backText);
+         $('#et-personal-info-next').addClass('back-to-summary').text(backText);
+         $('#et-employment-info-next').addClass('back-to-summary').text(backText);
+         $('#et-beneficiary-info-next').addClass('back-to-summary').text(backText);
+         $('#et-app-sum-proceed-btn').removeClass('et-btn-view-summary').addClass('back-to-summary').text(backText);
+         
+         //show target
+         if (($self.data('target') === '#et-employment-info-section') || $self.data('target') === '#et-beneficiary-info-section') {
+        	 $('#et-application-info-section').removeClass('hide-element');
+         }
+         $target.removeClass('hide-element');
+
          
          if (($self.data('target') === '#et-about-yoursel-section') || $self.data('target') === '#et-plan-option-section') {
             currentSection = 'et-select-plan-section';
             $('#' + currentSection).removeClass('hide-element');
             
-            $('#et-brn-proceed-to-application').addClass('back-to-app')
-                                               .text('Back to application');
+            //$('#et-brn-proceed-to-application').addClass('back-to-app').text('Back to application');
             
             
             $('body, html').animate({
@@ -1013,17 +1051,24 @@
          }
          
          //isAppDobValid();
-         
          $('#et-personal-info-next').removeAttr('disabled');
-         var $ben = $('#et-employment-info-section');
          
-         $ben.removeClass('hide-element')
-               .css('margin-bottom', '280px');
+         if ($('#et-personal-info-next').hasClass('back-to-summary')) {
+        	$('#et-application-third-section').removeClass('hide-element');
+            $('body, html').animate({
+          	   scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
+            }, 0);
+         } else {
+            var $ben = $('#et-employment-info-section');
+             
+            $ben.removeClass('hide-element')
+                   .css('margin-bottom', '280px');
+             
+            $('body, html').animate({
+               scrollTop: ($ben.offset().top - stickyHeight) + 'px'
+            }, 500);
+         }
          
-         $('body, html').animate({
-            scrollTop: ($ben.offset().top - stickyHeight) + 'px'
-         }, 500);
-      
          //Store application info data
          storeAppInfo();
       }).on('error.form.bv', function(e) {
@@ -1168,22 +1213,28 @@
             var $form = $(this);
    
             if ($form.data('bootstrapValidator').isValid()) {
-                  var $ben = $('#et-beneficiary-info-section');
-                  
-                  $ben.removeClass('hide-element');
-                  
-                  $('#et-employment-info-next').removeAttr('disabled');
-                  $('#et-employment-info-section').removeAttr('style');
-                  
+               $('#et-employment-info-next').removeAttr('disabled');
+               $('#et-employment-info-section').removeAttr('style');
+               
+               if ($('#et-employment-info-next').hasClass('back-to-summary')) {
+            	  $('#et-application-third-section').removeClass('hide-element');
                   $('body, html').animate({
-                     scrollTop: ($ben.offset().top - stickyHeight) + 'px'
+                 	 scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
+                  }, 0);
+               } else {
+                  var $ben = $('#et-beneficiary-info-section');
+                   
+                  $ben.removeClass('hide-element');
+                  $('body, html').animate({
+                      scrollTop: ($ben.offset().top - stickyHeight) + 'px'
                   }, 500);
+               }
+               
+               // Modify the codes below 
+               // to manipulate the form data
                   
-                  // Modify the codes below 
-                  // to manipulate the form data
-                  
-                  // Store employment info data
-                  storeEmpInfo(); 
+               // Store employment info data
+               storeEmpInfo(); 
             } else {   
                $('body, html').animate({
                   scrollTop: ($('#et-employment-info-section').offset().top - stickyHeight) + 'px'
