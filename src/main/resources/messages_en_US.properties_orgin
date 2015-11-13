@@ -4,60 +4,6 @@
 
 
 
-
-# new properties Y5Buddy (2015-11-12)
-# JoinUs
-reason.item1.title = Why create a member account?
-reason.item1.copy = To enjoy year-round promotions and referral benefits, instantly receive year-round 8% discount on all Agoda products upon successful registration of FWD online membership.
-reason.item1.image = alt="Agoda"
-
-
-
-# Partners & Offers
-the.club.copy8.1 = This offer is subject to its terms and conditions and FWD General Insurance Company Limited and Club HKT Limited reserve the right to vary the terms and conditions of the offer. 
-y5buddy.image = alt="Y5Buddy"
-y5buddy.headline = Y5Buddy
-y5buddy.copy1 = Enjoy 3-day free pocket wifi rental<sup>#</sup> (value up to HK$210) with Y5Buddy upon registration of FWD FlightCare Plan or purchase of TravelCare Plan (single trip) or TravelCare Plan (annual cover) via i.fwd.com.hk.
-y5buddy.copy1.1 = <sup>#</sup>Offer not applicable to the following countries: Europe Zone A-C, USA/ Canada, Vietnam and Russia. <sup>#</sup>Please refer to 
-y5buddy.copy1.2 = <sup>#</sup>Please refer to 
-y5buddy.copy1.2.1 = rental instructions
-y5buddy.copy1.2.2 = for detailed instructions.
-y5buddy.copy1.2.1.url = http://www.y5buddy.com/index.php?lang=1
-y5buddy.copy1.3 = This offer is subject to its terms and conditions and FWD General Insurance Company Limited and Y5Buddy reserve the right to vary the terms and conditions of the offer.
-y5buddy.copy2 = Visit Website
-y5buddy.copy2.url = http://www.y5buddy.com/index.php?lang=1
-
-
-# Single Travel Landing and Annual Travel Landing
-special.promotion.headline = Special Promotion:
-special.promotion.copy1 = Enjoy 3-day free pocket wifi rental<sup>#</sup> (value up to HK$210) with Y5Buddy upon registration of FWD Flightcare Insurance via i.fwd.com.hk.
-special.promotion.copy1.1 = <sup>#</sup>Offer not applicable to the following countries: Europe Zone A-C, USA/ Canada, Vietnam and Russia. <sup>#</sup>Please refer to 
-special.promotion.copy1.2 = <sup>#</sup>Please refer to 
-special.promotion.copy1.2.1 = rental instructions
-special.promotion.copy1.2.2 = for detailed instructions.
-special.promotion.copy1.2.1.url = http://www.y5buddy.com/index.php?lang=1
-special.promotion.copy1.3 = This offer is subject to its terms and conditions and FWD General Insurance Company Limited and Y5Buddy reserve the right to vary the terms and conditions of the offer.
-special.promotion.copy2.1 = Enjoy 8% 
-special.promotion.copy2.2 = Agoda
-special.promotion.copy2.3 =  discount on all travel products upon successful registration of FWD online membership.
-special.promotion.copy2.2.url = http://www.agoda.com/fwdpromo
-special.promotion.copy3.1 = HK$ 50 e-coupon from 	
-special.promotion.copy3.2 = Pricerite	
-special.promotion.copy3.3 = for every successful referral.	
-special.promotion.copy3.2.url = http://hongkong.pricerite.com.hk/
-
-#########
-
-
-
-
-
-
-
-
-
-
-
 browser.not.support.title = Opps...Your browser is currently not supported.
 browser.not.support.desc = Please switch to suggested browsers below:
 browser.not.support.close = Close

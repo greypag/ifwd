@@ -10005,3 +10005,9 @@ tr.product-landing-error-wrap {
 }
 /******** ios chrome alert tc ********/
 /******** ios chrome alert ********/
+ul.bullets.travel-promo-tnc{
+	padding:0px;
+	color: #B3C3CD;
+	list-style-type: disc;
+    list-style-image: none;
+}
