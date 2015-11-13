@@ -429,6 +429,6 @@ var languageP = "${language}";
             var replaceSpace = $(this).val(); 
             var result = replaceSpace.replace(/\s/g,'');
             $("#cardNo").val(result);
-        });
+        }); 
     })
 </script>

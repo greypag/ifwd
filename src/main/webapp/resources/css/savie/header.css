@@ -222,7 +222,8 @@ input.search-form:hover {
   padding: 0px !important;
 }
 .navbar-brand img {
-  padding: 21px 0px;
+  /*padding: 21px 0px;*/
+  padding: 10px 0;
 }
 .wd2 {
   width: 80%;
@@ -442,7 +443,8 @@ ul.maintabs li.main-tab:hover {
   font-weight: bold;
   position: relative;
   text-align: center;
-  height: 130px;
+  /*height: 130px;*/
+  height: 74px;
   display: inline-block;
 }
 ul.maintabs li a {
