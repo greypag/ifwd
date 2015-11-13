@@ -212,62 +212,62 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
 		}else{
 			$("#errPromoCode").html("");
 			$('#inputPromo').removeClass('invalid-field');
-			
-			if (selValue == "B") {
-				//var totalDue = parseInt(result["priceInfoA"].totalDue);
-				
-				//$("#subtotal").html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
-				$("#subtotal").html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
-				/*$("#discountAmt").html(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
-                $('#selectedDiscountAmt').val(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
-                $('#txtDiscountAmount').val(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));*/
-                $("#discountAmt").html(numeral(result["priceInfoB"].discountAmount).format('0,0.00'));
-                $('#selectedDiscountAmt').val(numeral(result["priceInfoB"].discountAmount).format('0,0.00'));
-                $('#txtDiscountAmount').val(numeral(result["priceInfoB"].discountAmount).format('0,0.00'));
-				//$("#amountdue").html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
-				$("#amountdue").html(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
-				/*$('#selectedAmountDue').val(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
-				$('#selectPlanPremium').val(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));*/
-				$('#selectedAmountDue').val(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
-                $('#selectPlanPremium').val(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
-                $("#plansummary").html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
-				
-			} else if (selValue == "A") {
-				//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
-				//$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
-				$("#subtotal").html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
-				/*
-				$("#discountAmt").html(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
-				$('#selectedDiscountAmt').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
-				$('#txtDiscountAmount').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));*/
-				$("#discountAmt").html(numeral(result["priceInfoA"].discountAmount).format('0,0.00'));
-                $('#selectedDiscountAmt').val(numeral(result["priceInfoA"].discountAmount).format('0,0.00'));
-                $('#txtDiscountAmount').val(numeral(result["priceInfoA"].discountAmount).format('0,0.00'));
-				//$("#amountdue").html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
-				$("#amountdue").html(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
-				/*$('#selectedAmountDue').val(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
-				$('#selectPlanPremium').val(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));*/
-				$('#selectedAmountDue').val(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
-                $('#selectPlanPremium').val(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
-                $("#plansummary").html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
-
-			}
-			if(result["priceInfoA"].totalDue!=result["priceInfoA"].grossPremium){
-				//$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
-				$('.actualPriceA').removeClass('hide');
-				$('.actualPriceA del').html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
-			}
-			/*$('.totalPriceA').html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));*/
-			$('.totalPriceA').html(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
-			
-			if(result["priceInfoB"].totalDue!=result["priceInfoB"].grossPremium){
-                //$('.actualPriceB del').html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
-                $('.actualPriceB').removeClass('hide');
-				$('.actualPriceB del').html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
-            }
-			//$('.totalPriceB').html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
-			$('.totalPriceB').html(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
 		}
+		
+		if (selValue == "B") {
+			//var totalDue = parseInt(result["priceInfoA"].totalDue);
+			
+			//$("#subtotal").html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
+			$("#subtotal").html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
+			/*$("#discountAmt").html(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
+            $('#selectedDiscountAmt').val(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
+            $('#txtDiscountAmount').val(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));*/
+            $("#discountAmt").html(numeral(result["priceInfoB"].discountAmount).format('0,0.00'));
+            $('#selectedDiscountAmt').val(numeral(result["priceInfoB"].discountAmount).format('0,0.00'));
+            $('#txtDiscountAmount').val(numeral(result["priceInfoB"].discountAmount).format('0,0.00'));
+			//$("#amountdue").html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+			$("#amountdue").html(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
+			/*$('#selectedAmountDue').val(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+			$('#selectPlanPremium').val(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));*/
+			$('#selectedAmountDue').val(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
+            $('#selectPlanPremium').val(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
+            $("#plansummary").html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
+			
+		} else if (selValue == "A") {
+			//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
+			//$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+			$("#subtotal").html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
+			/*
+			$("#discountAmt").html(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
+			$('#selectedDiscountAmt').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
+			$('#txtDiscountAmount').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));*/
+			$("#discountAmt").html(numeral(result["priceInfoA"].discountAmount).format('0,0.00'));
+            $('#selectedDiscountAmt').val(numeral(result["priceInfoA"].discountAmount).format('0,0.00'));
+            $('#txtDiscountAmount').val(numeral(result["priceInfoA"].discountAmount).format('0,0.00'));
+			//$("#amountdue").html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+			$("#amountdue").html(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
+			/*$('#selectedAmountDue').val(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+			$('#selectPlanPremium').val(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));*/
+			$('#selectedAmountDue').val(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
+            $('#selectPlanPremium').val(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
+            $("#plansummary").html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
+
+		}
+		if(result["priceInfoA"].totalDue!=result["priceInfoA"].grossPremium){
+			//$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+			$('.actualPriceA').removeClass('hide');
+			$('.actualPriceA del').html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
+		}
+		/*$('.totalPriceA').html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));*/
+		$('.totalPriceA').html(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
+		
+		if(result["priceInfoB"].totalDue!=result["priceInfoB"].grossPremium){
+            //$('.actualPriceB del').html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
+            $('.actualPriceB').removeClass('hide');
+			$('.actualPriceB del').html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
+        }
+		//$('.totalPriceB').html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+		$('.totalPriceB').html(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
 	}
 	$(document).ready(function() {
 	   // update quote area to show headcounts
