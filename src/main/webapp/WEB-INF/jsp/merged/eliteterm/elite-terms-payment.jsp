@@ -112,6 +112,7 @@ var languageP = "${language}";
 									<div class="page-content-item">
 										<label for="card-num"><fmt:message key="eliteTerms.payment.Credit.card.number" bundle="${msg}" /></label>
 										<input id="card-num" type="tel" class="form-control gray-textbox desktop-half" placeholder="<fmt:message key="eliteTerms.payment.Credit.card.number.placeholder" bundle="${msg}" />"  autocomplete="off" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardNo').val());">
+										<span id="errcardno" class="error-msg"></span>
 										<input type="hidden" id="cardNo" name="cardNo" maxlength="16" data-min="16">
 					                    <input type="hidden" name="merchantId" value="${eliteTermPolicy.merchantId}">
 					                    <input type="hidden" name="secureHash" value="${eliteTermPolicy.secureHash }">
@@ -160,10 +161,13 @@ var languageP = "${language}";
 												</select>
 											</div>
 										</div>
+										<span id="errmonth" class="error-msg"></span>
+										<span id="erryear" class="error-msg"></span>
 									</div>
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Name.on.credit.card" bundle="${msg}" /></label>
 										<input type="text" class="form-control gray-textbox desktop-half" placeholder="<fmt:message key="eliteTerms.payment.Name.on.credit.card.placeholder" bundle="${msg}" />" value="" id="card-name" autocomplete="off" name="cardHolder">
+									    <span id="errname" class="error-msg"></span>
 									</div>
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Security.code" bundle="${msg}" /></label>
@@ -173,6 +177,7 @@ var languageP = "${language}";
 												<img src="<%=request.getContextPath()%>/resources/images/elite-terms/cvv-logo.png" class="cvv-image">
 											</div>
 										</div>
+										<span id="errcode" class="error-msg"></span>
 									</div>
 								</div>
 								<div class="page-content-item">
@@ -183,7 +188,7 @@ var languageP = "${language}";
 										<span class="hidden-xs hidden-sm"><fmt:message key="eliteTerms.payment.I.hereby.authorize" bundle="${msg}" /></span>
 										</p>
 									</div>
-									<span id="chk1" class="text-red"></span>
+									<span id="errchk1" class="error-msg"></span>
 								</div>
 
 								<div class="button-holder hidden-md hidden-lg clearfix">
@@ -260,22 +265,13 @@ var languageP = "${language}";
  	  var enablePayment=true;
       var clicked = false;
  	  function confirmTermPayment() {
- 		 
- 		 if(!$('#personal-information-statement').is(':checked')) {
-    		 $("#chk1").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
-    		 result = false;
-    		 return false;
-    	 }else {
-    		 $("#chk1").html("");
-    	 }
- 		 
- 		 var creditCaredNo = $('#card-num').val();
- 		 var expiryDate = $('#month').val()+$('#year').val().substr(2, 2);
- 		 var cardHolderName = $('#card-name').val(); 
- 		  if(enablePayment){
+ 		  if(payFormValid() && enablePayment){
               enablePayment=false;
               $("#PaymentingDiv").show();
-	 		  if (payFormValid() && clicked === false) {
+	 		  if (clicked === false) {
+	 			 var creditCaredNo = $('#card-num').val();
+	 	 		 var expiryDate = $('#month').val()+$('#year').val().substr(2, 2);
+	 	 		 var cardHolderName = $('#card-name').val();
 		 		  clicked = true;
 		 		  $.ajax({
 		 			  type : "POST",
@@ -310,32 +306,106 @@ var languageP = "${language}";
  		var month = $('#month').val();
  		var year = $('#year').val();
 		var cardName = $('#card-name').val(); 
+		var cardCvv = $('#card-cvv').val(); 
 		var gateway = $("#gateway").val();
+		
+		if( document.getElementById('errcardno') ) document.getElementById('errcardno').innerHTML="";
+ 		if( document.getElementById('errmonth') ) document.getElementById('errmonth').innerHTML="";
+ 		if( document.getElementById('erryear') ) document.getElementById('erryear').innerHTML="";
+ 		if( document.getElementById('errname') ) document.getElementById('errname').innerHTML="";
+ 		if( document.getElementById('errcode') ) document.getElementById('errcode').innerHTML="";
+ 		if( document.getElementById('errchk1') ) document.getElementById('errchk1').innerHTML="";
+ 		
+ 		var firstErrorElementId="";
+		
  		if(cardNum.length<16){
  			flag=false;
+ 			$('#errcardno').html(getBundle(getBundleLanguage, "payment.creditCard.number.notValid.message"));
+ 			$("#card-num").addClass("invalid-field");
+ 			if(firstErrorElementId==""){
+ 				firstErrorElementId="card-num";
+ 			}
  		}
- 		if(!isCreditCard(cardNum.replace(/\s+/g,""))){
+ 		else if(!isCreditCard(cardNum.replace(/\s+/g,""))){
  			flag=false;
+ 			$('#errcardno').html(getBundle(getBundleLanguage, "applicant.creditcard.notValid.message"));
+ 			$("#card-num").addClass("invalid-field");
+ 			if(firstErrorElementId==""){
+ 				firstErrorElementId="card-num";
+ 			}
  		}
- 		if(month=="" || month== 0){
- 			flag=false;
+ 		else{
+ 			$("#card-num").removeClass("invalid-field");
  		}
- 		if(year=="" || year == 0){
+ 		if(month==null || month=="" || month== 0){
  			flag=false;
+ 			$('#errmonth').html(getBundle(getBundleLanguage, "payment.creditCard.expiryDate.month.notValid.message"));
+ 			$("#month").addClass("invalid-field");
+ 			if(firstErrorElementId==""){
+ 				firstErrorElementId="month";
+ 			}
+ 		}
+ 		else{
+ 			$("#month").removeClass("invalid-field");
+ 		}
+ 		if(year==null || year=="" || year == 0){
+ 			flag=false;
+ 			$('#erryear').html(getBundle(getBundleLanguage, "payment.creditCard.expiryDate.year.notValid.message"));
+ 			$("#year").addClass("invalid-field");
+ 			if(firstErrorElementId==""){
+ 				firstErrorElementId="year";
+ 			}
+ 		}
+ 		else{
+ 			$("#year").removeClass("invalid-field");
  		}
  		if(cardName.trim()==""){
  			flag=false;
+ 			$('#errname').html(getBundle(getBundleLanguage, "payment.creditCard.name.notValid.message"));
+ 			$("#card-name").addClass("invalid-field");
+ 			if(firstErrorElementId==""){
+ 				firstErrorElementId="card-name";
+ 			}
+ 		}
+ 		else{
+ 			$("#card-name").removeClass("invalid-field");
+ 		}
+ 		if(cardCvv.trim()==""){
+ 			flag=false;
+ 			$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull.message"));
+ 			$("#card-cvv").addClass("invalid-field");
+ 			if(firstErrorElementId==""){
+ 				firstErrorElementId="card-cvv";
+ 			}
+ 		}
+ 		else if(cardCvv.trim() != "" && cardCvv.length <3){
+ 			flag=false;
+ 			$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message"));
+ 			$("#card-cvv").addClass("invalid-field");
+ 			if(firstErrorElementId==""){
+ 				firstErrorElementId="card-cvv";
+ 			}
+ 		}
+ 		else{
+ 			$("#card-cvv").removeClass("invalid-field");
  		}
  		if(gateway.trim()==""){
  			flag=false;
+ 			console.log("gateway error");
  		}
- 		if ($("#personal-information-statement").checked == false){
+ 		if (!$('#personal-information-statement').is(':checked')){
  			flag = false;
+ 			$('#errchk1').html(getBundle(getBundleLanguage, "payment.tnc.notChecked.message"));
+ 			if(firstErrorElementId==""){
+ 				firstErrorElementId="personal-information-statement";
+ 			}
+ 		}
+ 		if(firstErrorElementId!=""){
+ 			scrollToElement(firstErrorElementId);
  		}
  		console.log(flag);
  		return flag;
  	}
- 	 
  	//function copyCardNo(){
  	//	$('#cardNo').val($('#card-num').val().replace(/\s+/g,""));
  	//	if($('#card-num').val().substring(0,1) == "5"){
