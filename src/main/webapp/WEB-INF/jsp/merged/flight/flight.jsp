@@ -547,9 +547,9 @@ $(document).ready(function() {
 	    <li>
 	      <p class="h4-5"><fmt:message key="workingholiday.main.other.benefit.desc6.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.main.other.benefit.desc6.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.other.benefit.desc6.part3" bundle="${msg}" /></p>
 	    </li>
-        <li>
+        <!--<li>
           <p class="h4-5"><a href="<fmt:message key="special.promotion.copy5.1.url" bundle="${msg}" />" target="_blank"><fmt:message key="special.promotion.copy5.1" bundle="${msg}" /></a><fmt:message key="special.promotion.copy5.2" bundle="${msg}" /><a href="<fmt:message key="special.promotion.copy5.3.url" bundle="${msg}" />" target="_blank"><fmt:message key="special.promotion.copy5.3" bundle="${msg}" /></a><fmt:message key="special.promotion.copy5.4" bundle="${msg}" /></p>
-        </li>	    
+        </li>-->    
 	  </ul>
 	  
 	  <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
