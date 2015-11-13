@@ -672,3 +672,67 @@ $(document).ready(function(){
 		}
 	})
 });
+
+function getWidth() {
+    if (self.innerWidth) {
+        return self.innerWidth;
+    }
+    else if (document.documentElement && document.documentElement.clientHeight){
+        return document.documentElement.clientWidth;
+    }
+    else if (document.body) {
+        return document.body.clientWidth;
+    }
+    return 0;
+}
+
+function stickApplicationOrangeBar() {
+	if ($('.application-flux').length > 0 ) { // check if flux div exists
+		var $bar = $('.application-page-header');
+        var $mobBar = $('.mob-topbar');
+        var $topBar = $('.top-bar');
+        var $mobNavbar = $('.navbar.navbar-default.pad-none');
+        var $navbar = $('.navbar-menu').length ? $('.navbar-menu') : ((getWidth() >= 992) ? $('.navbar-inverse:first') : $('.logobox'));
+        
+		if ($(window).scrollTop() >= $navbar.height()) {
+			$bar.addClass('sticky-bar');
+			$bar.css('top', $topBar.height() + 'px');
+			$mobBar.addClass('et-docu');
+            if (getWidth() < 992) {
+                $mobBar.css({
+                   'position' : 'fixed',
+                   'width' : '100%',
+                   'z-index': 10
+                });
+                $bar.css('top', $mobBar.height() + 'px');
+                $mobBar.css('top', '0px');
+                
+                if ($('.et-document-upload').length > 0 ) {
+                	if ($mobBar.hasClass('et-docu')) {
+                		$mobNavbar.css('top', '-' + $mobBar.height() + 'px');
+                	}
+                	
+                }
+                
+                /*if ($('.et-document-upload').length > 0 ) { // For Document Page alone
+    				$mobNavbar.css('top', '-' + $mobBar.height() + 'px');
+    			} else {
+    				$mobNavbar.removeClass('style');
+    			}*/
+            }
+		} else {
+			$bar.removeClass('sticky-bar');
+			$bar.removeAttr('style');
+            $mobBar.removeAttr('style');
+            $mobBar.removeClass('et-docu');
+            
+            if ($('.et-document-upload').length > 0 ) {
+            	$mobNavbar.removeAttr('style');
+            }
+		}
+	}
+}
+
+$(window).bind('scroll', function() {
+	stickApplicationOrangeBar();
+});
