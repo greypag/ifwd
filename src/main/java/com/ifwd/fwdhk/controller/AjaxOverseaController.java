@@ -42,6 +42,12 @@ public class AjaxOverseaController extends BaseController{
 
 	@RequestMapping(value = {"/ajax/oversea/prepareOverseaDetails"})
 	public void prepareOverseaDetails(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) {
+		try {
+			overseaService.prepareOverseaDetails(model, request, response, httpSession);
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 	
 	@RequestMapping(value = "/ajax/oversea/prepareOverseaSummary")

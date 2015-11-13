@@ -1,5 +1,7 @@
 package com.ifwd.fwdhk.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,10 +16,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.model.AnnualTravelQuoteBean;
+import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.QuoteDetails;
+import com.ifwd.fwdhk.services.HomeCareService;
+import com.ifwd.fwdhk.services.HomeCareServiceImpl;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.OverseaPageFlowControl;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
 public class OverseaController extends BaseController{
@@ -63,6 +69,38 @@ public class OverseaController extends BaseController{
 	}
 	@RequestMapping(value = {"/{lang}/oversea-insurance/details"})
 	public ModelAndView getOverseaDetails(Model model, HttpServletRequest request) {
+		UserRestURIConstants.setController("Oversea");
+		HttpSession session = request.getSession();
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		if (session.getAttribute("token") == null) {
+			model.addAttribute("errMsgs", "Session Expired");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+					+ "/oversea-insurance");
+		}
+		String planName = WebServiceUtils.getParameterValue("planName", session, request);
+		String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
+		String selectPlanPremium = WebServiceUtils.getParameterValue("selectPlanPremium", session, request);
+		String selectPlanName = WebServiceUtils.getParameterValue("selectPlanName", session, request);
+		
+		model.addAttribute("planName", planName);
+		model.addAttribute("selectPlanName", selectPlanName);
+		QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
+		if(quoteDetails == null) {
+			model.addAttribute("errMsgs", session.getAttribute("errMsgs"));
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+					+ "/oversea-insurance");
+		}
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+		String token = session.getAttribute("token").toString();
+		String userName = session.getAttribute("username").toString();
+		HomeCareService homecareService = new HomeCareServiceImpl();
+		List<DistrictBean> districtList = homecareService.getDistrict(userName, token, lang);
+		request.setAttribute("districtList", districtList);
+		model.addAttribute("districtList", districtList);
+		
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_DETAILS);
 	}
 	@RequestMapping(value = {"/{lang}/oversea-insurance/summary"})

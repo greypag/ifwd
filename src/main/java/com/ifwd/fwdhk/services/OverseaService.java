@@ -15,7 +15,7 @@ public interface OverseaService {
 	public void prepareOverseaQuote(HttpServletRequest request, HttpServletResponse response, HttpSession session)
 			throws Exception;
 
-	public void preparePlanDetails(Model model, HttpServletRequest request, HttpServletResponse response,
+	public void prepareOverseaDetails(Model model, HttpServletRequest request, HttpServletResponse response,
 			HttpSession httpSession) throws ECOMMAPIException;
 
 	public String processOverseaPayment(HttpServletRequest request, HttpServletResponse response);

@@ -552,6 +552,31 @@ $(function () {
 	});
 	$('#input_dob').datepicker('setDate', dob_end_date);
 	
+	$('#input_oversea_dob').datepicker({
+		startView: "decade",
+		autoclose: true,
+		format: "dd-mm-yyyy",
+		startDate: dob_start_date,
+		endDate: dob_end_date
+	}).on('changeDate', function (ev) {
+		$('#oversea_insure_dob').datepicker('setDate', $("#applicantDob").val());
+		$("#dobInvalid").html("");
+		$("#errtxtInsuDob").html("");
+		$("#errtxtAdDob1").html("");
+		$("#input_oversea_dob").removeClass("invalid-field");
+	});
+	
+	$('#oversea_insure_dob').datepicker({
+		startView: "decade",
+		autoclose: true,
+		format: "dd-mm-yyyy",
+		startDate: dob_start_date,
+		endDate: dob_end_date
+	}).on('changeDate', function (ev) {
+		$(this).next().html("");
+		$(this).removeClass("invalid-field");
+	});
+	
 	$('#input_annual_dob').datepicker({
 		startView: "decade",
 		autoclose: true,

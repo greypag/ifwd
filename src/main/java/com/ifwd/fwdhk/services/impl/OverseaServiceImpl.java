@@ -2,6 +2,8 @@ package com.ifwd.fwdhk.services.impl;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -75,7 +77,7 @@ public class OverseaServiceImpl implements OverseaService {
 			
 			QuoteDetails quoteDetails = new QuoteDetails();
 			
-			String planeName[] = { "basicA", "basicB", "medicalAsiaA", "medicalAsiaB", "medicalWorldwideA", "medicalWorldwideB" };
+			String planeName[] = { "basicA", "basicB", "medicalWorldwideA", "medicalWorldwideB", "medicalAsiaA", "medicalAsiaB" };
 			String grossPrem[] = new String[6];
 			String discountPercentage[] = new String[6];
 			String discountAmount[] = new String[6];
@@ -109,9 +111,55 @@ public class OverseaServiceImpl implements OverseaService {
 	}
 	
 	@Override
-	public void preparePlanDetails(Model model, HttpServletRequest request, HttpServletResponse response,
+	public void prepareOverseaDetails(Model model, HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) throws ECOMMAPIException {
+		String result = "fail";
+		String Url = UserRestURIConstants.GET_AGE_TYPE + "?itemTable=AgeType";
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		String planName = WebServiceUtils.getParameterValue("planName", session, request);
+		String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
+		String selectPlanPremium = WebServiceUtils.getParameterValue("selectPlanPremium", session, request);
+		String selectPlanName = WebServiceUtils.getParameterValue("selectPlanName", session, request);
+		selectPlanName = planName;
+		model.addAttribute("planName", planName);
+		model.addAttribute("selectPlanName", selectPlanName);
+		model.addAttribute("planSummary", planSummary);
+		session.setAttribute("planSelected", selectPlanName);
 		
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		if (request.getSession().getAttribute("username") != null) {
+			header.put("userName", session.getAttribute("username").toString());
+			header.put("token", session.getAttribute("token").toString());
+		}
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
+
+		if (responseJsonObj.get("errMsgs") == null) {
+			JSONArray jsonAgeTypeArray = (JSONArray) responseJsonObj.get("optionItemDesc");
+			logger.info("GET_AGE_TYPE Response" + jsonAgeTypeArray);
+			String relationshipCode = UserRestURIConstants.GET_BENE_RELATIONSHIP_CODE
+					+ "?itemTable=BeneRelationshipCode";
+
+			JSONObject jsonRelationShipCode = restService.consumeApi(HttpMethod.GET, relationshipCode, header, null);
+
+			if (responseJsonObj.get("errMsgs") == null) {
+				JSONArray jsonRelationshipCode = (JSONArray) jsonRelationShipCode.get("optionItemDesc");
+				logger.info("jsonRelationShipArray ====>>>>>>" + jsonRelationshipCode);
+				result = "success";
+			} else {
+				model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
+			}
+		} else {
+			model.addAttribute("errMsgs", responseJsonObj.get("errMsgs"));
+		}
+		try {
+			response.getWriter().print(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@SuppressWarnings("unchecked")
@@ -124,7 +172,7 @@ public class OverseaServiceImpl implements OverseaService {
 		String language = WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request));
 
 		if (planDetailsForm.getDepartureDate() != null) {
-			session.removeAttribute("travelCreatePolicy");
+			session.removeAttribute("overseaCreatePolicy");
 		} else {
 			JSONObject parameters = new JSONObject();
 			JSONObject responsObject = new JSONObject();
@@ -148,15 +196,19 @@ public class OverseaServiceImpl implements OverseaService {
 			}
 			parameters.put("expiryDate", session.getAttribute("expiryDate"));
 			logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
-			responsObject = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.ANNUAL_TRAVEL_FINALIZE_POLICY,
+			responsObject = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.OVERSEA_FINALIZE_POLICY,
 					header, parameters);
 			logger.info("TRAVEL_FINALIZE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
 
 		}
 
 		String hkId = "hkId", passId = "passport";
-		String deaprtureDate = DateApi.pickDate1((String) session.getAttribute("departureDate"));
-		String returnDate = DateApi.pickDate1((String) session.getAttribute("returnDate"));
+		String deaprtureDate = DateApi.formatString1(new Date());
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(new Date());
+		calendar.add(Calendar.DATE, -1);
+		calendar.add(Calendar.YEAR, 1);
+		String returnDate = DateApi.formatString1(calendar.getTime());
 		String applicantFullName = WebServiceUtils.getParameterValue("fullName", session, request);
 		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
 		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
@@ -164,60 +216,72 @@ public class OverseaServiceImpl implements OverseaService {
 		String dob = WebServiceUtils.getParameterValue("applicantDob", session, request);
 		dob = DateApi.pickDate1(dob);
 
-		if (planDetailsForm.getDepartureDate() != null) {
-			session.setAttribute("travelPlanDetailsForm", planDetailsForm);
+		if (planDetailsForm.getHkid() != null) {
+			session.setAttribute("overseaPlanDetailsForm", planDetailsForm);
 		} else {
-			planDetailsForm = (OverseaDetailsForm) session.getAttribute("travelPlanDetailsForm");
-		}
-
-		final String BENE_RELATIONSHIP_SELF = "SE";
-		String relationOfChildTraveller = "", relationOfOtherTraveller = "";
-
-		if (planDetailsForm.getPlanSelected().equals("personal")) {
-		} else if (planDetailsForm.getPlanSelected().equals("family")) {
-			relationOfChildTraveller = "CH";
-			relationOfOtherTraveller = "OT";
+			planDetailsForm = (OverseaDetailsForm) session.getAttribute("overseaPlanDetailsForm");
 		}
 
 		JSONObject parameters = new JSONObject();
 		parameters.put("planCode", session.getAttribute("planSelected"));
 		parameters.put("commencementDate", deaprtureDate);
 		parameters.put("expiryDate", returnDate);
+		
+		JSONObject overseas = new JSONObject();
+		overseas.put("country", planDetailsForm.getCountryOfInstitution());
+		overseas.put("institutionName", planDetailsForm.getNameOfInstitution());
+		overseas.put("institutionAddress1", planDetailsForm.getAddressofInstitutionLine1());
+		overseas.put("institutionAddress2", planDetailsForm.getAddressofInstitutionLine2());
+		overseas.put("institutionAddress3", planDetailsForm.getAddressofInstitutionLine3());
+		parameters.put("overseas", overseas);
+		
 		JSONArray insured = new JSONArray();
-
-		String HKID = "HKID";
-
+		JSONObject insuredOjb = new JSONObject();
+		insuredOjb.put("name", planDetailsForm.getPersonalName());
+		insuredOjb.put("ageRange", "2");
+		insuredOjb.put("dob", dob);
+		insuredOjb.put("hkId", planDetailsForm.getPersonalHKID());
+		insuredOjb.put("passport", "");
+		insuredOjb.put("relationship", planDetailsForm.getPersonalBeneficiary());
+		JSONObject beneficiary = new JSONObject();
+		beneficiary.put("name", "");
+		beneficiary.put("hkId", "");
+		beneficiary.put("passport", "");
+		beneficiary.put("relationship", "");
+		insuredOjb.put("beneficiary", beneficiary);
+		insured.add(insuredOjb);
 		parameters.put("insured", insured);
+		
 		parameters.put("referralCode", session.getAttribute("referralCode"));
 
 		String name = StringHelper.emptyIfNull(applicantFullName).toUpperCase();
 		emailAddress = StringHelper.emptyIfNull(emailAddress).toUpperCase();
 		applicantHKID = StringHelper.emptyIfNull(applicantHKID).toUpperCase();
 
-		JSONObject applicantJsonObj = new JSONObject();
-		applicantJsonObj.put("name", name);
-		applicantJsonObj.put("hkId", applicantHKID);
-		applicantJsonObj.put("mobileNo", applicantMobNo);
-		applicantJsonObj.put("email", emailAddress);
-		applicantJsonObj.put("dob", dob);
-		applicantJsonObj.put("optIn1", planDetailsForm.getCheckbox3());
-		applicantJsonObj.put("optIn2", planDetailsForm.getCheckbox4());
-		parameters.put("applicant", applicantJsonObj);
+		JSONObject applicant = new JSONObject();
+		applicant.put("name", name);
+		applicant.put("hkId", applicantHKID);
+		applicant.put("mobileNo", applicantMobNo);
+		applicant.put("email", emailAddress);
+		applicant.put("dob", dob);
+		/*applicant.put("optIn1", planDetailsForm.getCheckbox3());
+		applicant.put("optIn2", planDetailsForm.getCheckbox4());*/
+		parameters.put("applicant", applicant);
 
-		JSONObject addressJsonObj = new JSONObject();
-		addressJsonObj.put("room", planDetailsForm.getCorrespondenceAddressRoom());
-		addressJsonObj.put("floor", planDetailsForm.getCorrespondenceAddressFloor());
-		addressJsonObj.put("block", planDetailsForm.getCorrespondenceAddressBlock());
-		addressJsonObj.put("building", planDetailsForm.getCorrespondenceAddressBuilding());
-		addressJsonObj.put("estate", planDetailsForm.getCorrespondenceAddressEstate());
-		addressJsonObj.put("streetNo", planDetailsForm.getCorrespondenceAddressStreetNo());
-		addressJsonObj.put("streetName", planDetailsForm.getCorrespondenceAddressStreetName());
-		addressJsonObj.put("district", planDetailsForm.getDistrictSelected());
-		addressJsonObj.put("area", planDetailsForm.getApplicantDistrict());
-		parameters.put("address", addressJsonObj);
+		JSONObject correspondenceAddress = new JSONObject();
+		correspondenceAddress.put("room", planDetailsForm.getCorrespondenceAddressRoom());
+		correspondenceAddress.put("floor", planDetailsForm.getCorrespondenceAddressFloor());
+		correspondenceAddress.put("block", planDetailsForm.getCorrespondenceAddressBlock());
+		correspondenceAddress.put("building", planDetailsForm.getCorrespondenceAddressBuilding());
+		correspondenceAddress.put("estate", planDetailsForm.getCorrespondenceAddressEstate());
+		correspondenceAddress.put("streetNo", planDetailsForm.getCorrespondenceAddressStreetNo());
+		correspondenceAddress.put("streetName", planDetailsForm.getCorrespondenceAddressStreetName());
+		correspondenceAddress.put("district", planDetailsForm.getDistrictSelected());
+		correspondenceAddress.put("area", planDetailsForm.getApplicantDistrict());
+		parameters.put("correspondenceAddress", correspondenceAddress);
 
-		parameters.put("externalParty", "THE CLUB");
-		parameters.put("externalPartyCode", session.getAttribute("theClubMembershipNo"));
+		parameters.put("externalParty", "");
+		parameters.put("externalPartyCode", "");
 
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		header.put("userName", username);
@@ -225,15 +289,15 @@ public class OverseaServiceImpl implements OverseaService {
 		header.put("language", language);
 		// TO ENFORCE THE POLICY IS CREATED AND MAKE SURE THE TRANSACTION NUMBER
 		// IS NOT REUSED
-		CreatePolicy createPolicy = (CreatePolicy) session.getAttribute("travelCreatePolicy");
+		CreatePolicy createPolicy = (CreatePolicy) session.getAttribute("overseaCreatePolicy");
 
 		JSONObject responsObject = new JSONObject();
 		if (createPolicy == null) {
 
-			logger.info("TRAVEL_CREATE_POLICY Request " + JsonUtils.jsonPrint(parameters));
-			responsObject = restService.consumeApi(HttpMethod.PUT, UserRestURIConstants.ANNUAL_TRAVEL_CREATE_POLICY,
+			logger.info("OVERSEA_CREATE_POLICY Request " + JsonUtils.jsonPrint(parameters));
+			responsObject = restService.consumeApi(HttpMethod.PUT, UserRestURIConstants.OVERSEA_CREATE_POLICY,
 					header, parameters);
-			logger.info("TRAVEL_CREATE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
+			logger.info("OVERSEA_CREATE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
 			createPolicy = new CreatePolicy();
 			String finalizeReferenceNo = "";
 			if (responsObject.get("errMsgs") == null) {
@@ -249,15 +313,15 @@ public class OverseaServiceImpl implements OverseaService {
 				JSONObject confirmPolicyParameter = new JSONObject();
 				confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
 				session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
-				logger.info("Request From Confirm Travel Policy " + confirmPolicyParameter);
+				logger.info("Request From Confirm Oversea Policy " + confirmPolicyParameter);
 				JSONObject jsonResponse = restService.consumeApi(HttpMethod.POST,
-						UserRestURIConstants.ANNUAL_TRAVEL_CONFIRM_POLICY, header, confirmPolicyParameter);
-				logger.info("Response From Confirm Travel Policy " + JsonUtils.jsonPrint(jsonResponse));
+						UserRestURIConstants.OVERSEA_CONFIRM_POLICY, header, confirmPolicyParameter);
+				logger.info("Response From Confirm Oversea Policy " + JsonUtils.jsonPrint(jsonResponse));
 
 				createPolicy.setSecureHash(checkJsonObjNull(jsonResponse, "secureHash"));
 				createPolicy.setTransactionNo(checkJsonObjNull(jsonResponse, "transactionNumber"));
 				createPolicy.setTransactionDate(checkJsonObjNull(jsonResponse, "transactionDate"));
-				session.setAttribute("travelCreatePolicy", createPolicy);
+				session.setAttribute("overseaCreatePolicy", createPolicy);
 				session.setAttribute("createPolicy", createPolicy);
 			} else {
 				model.addAttribute("errMsgs", responsObject.get("errMsgs"));
