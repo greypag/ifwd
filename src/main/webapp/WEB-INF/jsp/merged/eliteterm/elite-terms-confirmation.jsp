@@ -22,13 +22,13 @@ var languageP = "${language}";
 
 			<!--<div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
                <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-                  <li><a href="#"><fmt:message key="eliteTerms.confirmation.Home" bundle="${msg}" /></a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.breadcrumb.home" bundle="${msg}" /></a></li>
                   <li class="divider"><i class="fa fa-play"></i></li>
-                  <li><a href="#"><fmt:message key="eliteTerms.confirmation.Protection" bundle="${msg}" /> </a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.breadcrumb.category" bundle="${msg}" /> </a></li>
                   <li class="divider"><i class="fa fa-play"></i></li>
-                  <li><a href="#"><fmt:message key="eliteTerms.confirmation.Elite.term" bundle="${msg}" /> </a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.breadcrumb.product" bundle="${msg}" /> </a></li>
                   <li class="divider last"><i class="fa fa-play"></i></li>
-                  <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.confirmation.Confirmation" bundle="${msg}" /></li>
+                  <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.breadcrumb.confirmation" bundle="${msg}" /></li>
                </ol>
             </div>-->
 

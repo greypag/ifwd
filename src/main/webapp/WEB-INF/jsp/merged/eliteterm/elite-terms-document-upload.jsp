@@ -24,13 +24,13 @@ var languageP = "${language}";
          	
          	<!--<div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
                <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-                  <li><a href="#"><fmt:message key="eliteTerms.documentUpload.Home" bundle="${msg}" /></a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.breadcrumb.home" bundle="${msg}" /></a></li>
                   <li class="divider"><i class="fa fa-play"></i></li>
-                  <li><a href="#"><fmt:message key="eliteTerms.documentUpload.Protection" bundle="${msg}" /> </a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.breadcrumb.category" bundle="${msg}" /> </a></li>
                   <li class="divider"><i class="fa fa-play"></i></li>
-                  <li><a href="#"><fmt:message key="eliteTerms.documentUpload.Elite.term" bundle="${msg}" /> </a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.breadcrumb.product" bundle="${msg}" /> </a></li>
                   <li class="divider last"><i class="fa fa-play"></i></li>
-                  <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.documentUpload.Upload.document" bundle="${msg}" /></li>
+                  <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.breadcrumb.upload" bundle="${msg}" /></li>
                </ol>
             </div>-->
 
