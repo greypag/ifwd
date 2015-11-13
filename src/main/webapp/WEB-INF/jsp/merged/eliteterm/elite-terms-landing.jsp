@@ -115,11 +115,11 @@
                      </div>
                   </div>
                   <div class="btn-download-section" style="text-align:left;">
-                     <a href="#" title="Download product brochure" class="et-btn-download-item">
+                     <a href="<%=request.getContextPath()%>/<fmt:message key="eliteterms.brochure.link" bundle="${msg}" />" title="Download product brochure" class="et-btn-download-item" target="_blank">
                         <img src="<%=request.getContextPath()%>/resources/images/elite-terms/download-icon.png" alt="download-icon.png" />
                         <fmt:message key="eliteTerms.landing.Product.brochure" bundle="${msg}" />
                      </a>
-                     <a href="#" title="Download policy provisions" class="et-btn-download-item">
+                     <a href="<%=request.getContextPath()%>/<fmt:message key="eliteterms.provision.link" bundle="${msg}" />" title="Download policy provisions" class="et-btn-download-item" target="_blank">
                         <img src="<%=request.getContextPath()%>/resources/images/elite-terms/download-icon.png" alt="download-icon.png" />
                         <fmt:message key="eliteTerms.landing.Policy.provisions" bundle="${msg}" />
                      </a>
