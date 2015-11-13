@@ -10011,3 +10011,10 @@ ul.bullets.travel-promo-tnc{
 	list-style-type: disc;
     list-style-image: none;
 }
+.special-offer-img-margin{
+	margin-right: 30px;
+}
+.strike-text{
+	text-decoration: line-through;
+	color: #00B0F0;
+}

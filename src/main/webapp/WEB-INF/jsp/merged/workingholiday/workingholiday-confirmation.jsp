@@ -129,7 +129,7 @@
                 <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
                 <!--Partnership Logo-->
                 <!--END Partnership Logo-->
-
+                <div class="h4-2"><fmt:message key="confirmation.promotion.offer.message" bundle="${msg}" /></div>
                 <div class="h4-2"><fmt:message key="workingholiday.confirmation.sharenow" bundle="${msg}" /></div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-20">
                   <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
