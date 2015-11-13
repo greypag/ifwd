@@ -25150,11 +25150,28 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 	{
 	margin-top: 16px;
 }
+#application-summary .container-fluid .summary-content .summary-body .fwd-checkbox.part
+    {
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+#application-summary .container-fluid .summary-content .summary-body .fwd-ol
+    {
+    margin-top: 8px;
+    position: relative;
+}
 /* line 108, ../sass/partials/_et-application-summary.scss */
 #application-summary .container-fluid .summary-content .summary-body .fwd-checkbox label
 	{
 	height: 18px;
 	width: 18px;
+}
+#application-summary .container-fluid .summary-content .summary-body .fwd-ol label
+    {
+    width: 18px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
 }
 
 @media ( min-width : 992px) {
@@ -25175,6 +25192,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 }
 /* line 122, ../sass/partials/_et-application-summary.scss */
 #application-summary .container-fluid .summary-content .summary-body .fwd-checkbox .notice,
+    #application-summary .container-fluid .summary-content .summary-body .fwd-ol .notice,
 	#application-summary .container-fluid .summary-content .summary-body .fwd-checkbox #application-registration form .notice-password,
 	#application-registration form #application-summary .container-fluid .summary-content .summary-body .fwd-checkbox .notice-password
 	{

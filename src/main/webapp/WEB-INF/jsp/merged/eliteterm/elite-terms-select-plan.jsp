@@ -1776,6 +1776,98 @@ var home_url = "<%=request.getContextPath()%>";
                               </div>
                            </div>
                            <!-- UNDERWRITING SUMMARY -->
+                           
+                           <!-- DECLARATION & AUTHORIZATION -->
+                           <div class="summary-body-item">
+                              <h3 class="uwriting"><fmt:message key="eliteTerms.selectPlan.Declaration.authorization" bundle="${msg}" /> <a href="#" id="underwriting-summary-edit" title="Edit" class="et-app-sum-edit" data-target="#et-application-second-section"><fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a></h3>
+	                          <div class="clearfix info-holder-below">
+	                             <h4 class="info-holder-title"><fmt:message key="eliteTerms.selectPlan.Declaration.Personal.Information" bundle="${msg}" /></h4>
+	                          </div>
+	                          <div class="fwd-checkbox part">
+	                             <input type="checkbox" id="declare-one" checked disabled>
+	                             <label for="declare-one"></label>
+	                             <p class="notice"><fmt:message key="eliteTerms.selectPlan.PICS.part1" bundle="${msg}" /> <a href="<fmt:message key="PICS.life.link" bundle="${msg}" />" class="link" target="_blank"><fmt:message key="eliteTerms.selectPlan.PICS.part2" bundle="${msg}" /></a><fmt:message key="eliteTerms.selectPlan.PICS.part3" bundle="${msg}" /></p>
+	                          </div>
+	                  
+	                          <div class="clearfix info-holder-below">
+	                             <h4 class="info-holder-title"><fmt:message key="eliteTerms.selectPlan.Policy.replacement.declarations" bundle="${msg}" /></h4>
+	                          </div>
+	                          
+	                          <p><fmt:message key="eliteTerms.selectPlan.Have.you" bundle="${msg}" /></p>
+	                          <div class="fwd-checkbox part">
+                                 <input type="checkbox" id="declare-two" checked disabled>
+                                 <label for="declare-two"></label>
+                                 <p class="notice"><fmt:message key="eliteTerms.selectPlan.None" bundle="${msg}" /></p>
+                              </div>
+                              <p><fmt:message key="eliteTerms.selectPlan.Do.you" bundle="${msg}" /></p>
+	                          <div class="fwd-checkbox part">
+                                 <input type="checkbox" id="declare-three" checked disabled>
+                                 <label for="declare-three"></label>
+                                 <p class="notice"><fmt:message key="eliteTerms.selectPlan.None" bundle="${msg}" /></p>
+                              </div>
+	                  
+			                  <div class="policy-replacement-remarks">
+			                     <p class=""><fmt:message key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks1" bundle="${msg}" /></p>
+			                     <div class="fwd-ol">
+                                    <label>i</label>
+                                    <p class="notice"><fmt:message key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks1.part1" bundle="${msg}" /></p>
+                                 </div>
+			                     <div class="fwd-ol">
+	                                <label>ii</label>
+	                                <p class="notice"><fmt:message key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks1.part2" bundle="${msg}" /></p>
+	                             </div>
+	                             <br/>
+			                     <p class=""><fmt:message key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks2" bundle="${msg}" /></p>
+			                  </div>
+	
+	                          <div class="clearfix info-holder-below">
+	                             <h4 class="info-holder-title"><fmt:message key="eliteTerms.selectPlan.Declaration.Cancellation" bundle="${msg}" /></h4>
+	                          </div>
+	                          <div class="fwd-checkbox part">
+	                             <input type="checkbox" id="declare-four" checked disabled>
+	                             <label for="declare-four"></label>
+	                             <p class="notice"><fmt:message key="eliteTerms.selectPlan.I.understand.that" bundle="${msg}" /></p>
+	                          </div>
+	                  
+			                  <div class="clearfix info-holder-below">
+			                     <h4 class="info-holder-title"><fmt:message key="eliteTerms.selectPlan.Residency.declarations" bundle="${msg}" /></h4>
+			                  </div>
+			                  <p><fmt:message key="eliteTerms.selectPlan.Residency.declarations.desc" bundle="${msg}" /></p>
+			                  <div class="fwd-checkbox part">
+                                 <input type="checkbox" id="declare-five" checked disabled>
+                                 <label for="declare-five"></label>
+                                 <p class="notice"><fmt:message key="eliteTerms.selectPlan.None" bundle="${msg}" /></p>
+                              </div>
+	
+	                          <div class="clearfix info-holder-below">
+	                             <h4 class="info-holder-title"><fmt:message key="eliteTerms.selectPlan.Personal.data" bundle="${msg}" /></h4>
+	                          </div>
+	                          <div class="fwd-checkbox part">
+	                             <input type="checkbox" id="declare-six" checked disabled>
+	                             <label for="declare-six"></label>
+	                             <p class="notice"><fmt:message key="eliteTerms.selectPlan.I.hereby.DECLARE" bundle="${msg}" /></p>
+	                          </div>
+	                          <div class="policy-replacement-remarks">
+		                         <div class="fwd-ol">
+		                            <label>i</label>
+		                            <p class="notice"><fmt:message key="eliteTerms.selectPlan.The.answers.to.all" bundle="${msg}" /></p>
+		                         </div>
+		                         <div class="fwd-ol">
+		                            <label>ii</label>
+		                            <p class="notice"><fmt:message key="eliteTerms.selectPlan.I.have.the.duty" bundle="${msg}" /></p>
+		                         </div>
+		                         <div class="fwd-ol">
+		                            <label>iii</label>
+		                            <p class="notice"><fmt:message key="eliteTerms.selectPlan.Any.payment.made" bundle="${msg}" /></p>
+		                         </div>
+		                         <div class="fwd-ol">
+		                            <label>iv</label>
+		                            <p class="notice"><fmt:message key="eliteTerms.selectPlan.I/We.hereby.declare" bundle="${msg}" /></p>
+		                         </div>
+		                      </div>
+                           </div>
+                           <!-- DECLARATION & AUTHORIZATION -->
+                           
                         </div> <!-- END OF SUMMARY BODY   -->
                      </div> <!-- END OF SUMMARY CONTENT -->
 
