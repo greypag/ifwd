@@ -127,6 +127,8 @@ var languageP = "${language}";
 					                    <input type="hidden" name="remark" value="">
 					                    <input type="hidden" name="pMethod" id="pMethod" value="Master">
 					                    <input type="hidden" id="emailAddress" name="emailAddress" value="${eliteTermEmail}"> 
+					                    <input type="hidden" name="firstName" value="${etPolicyApplication.applicant.firstName}"> 
+					                    <input type="hidden" name="lastName" value="${etPolicyApplication.applicant.lastName}"> 
 					                    
 									    <input type="hidden" name="referenceNo" value="${eliteTermPolicy.policyNo}">
 									    <input type="hidden" id="gateway" name="gateway" value="${eliteTermPolicy.paymentGateway}"/>
