@@ -723,7 +723,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <div class="selectDiv et-district-wrapper">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown "  data-style="application-select selection" name="savieApplicantBean.permanentAddress" id="savieApplicantBean.permanentAddress">
-                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.District" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -787,7 +787,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <div class="selectDiv et-district-wrapper">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.residentialDistrict" id="savieApplicantBean.residentialDistrict">
-                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.District" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -851,7 +851,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <div class="selectDiv et-district-wrapper">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.correspondenceDistrict" id="savieApplicantBean.correspondenceDistrict">
-                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.District" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
