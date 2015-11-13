@@ -127,8 +127,8 @@ var languageP = "${language}";
 					                    <input type="hidden" name="remark" value="">
 					                    <input type="hidden" name="pMethod" id="pMethod" value="Master">
 					                    <input type="hidden" id="emailAddress" name="emailAddress" value="${eliteTermEmail}"> 
-					                    <input type="hidden" name="firstName" value="${etPolicyApplication.applicant.firstName}"> 
-					                    <input type="hidden" name="lastName" value="${etPolicyApplication.applicant.lastName}"> 
+					                    <input type="hidden" id="appFirstName" value="${etPolicyApplication.applicant.firstName}"> 
+					                    <input type="hidden" id="appLastName" value="${etPolicyApplication.applicant.lastName}"> 
 					                    
 									    <input type="hidden" name="referenceNo" value="${eliteTermPolicy.policyNo}">
 									    <input type="hidden" id="gateway" name="gateway" value="${eliteTermPolicy.paymentGateway}"/>
@@ -369,6 +369,14 @@ var languageP = "${language}";
  				firstErrorElementId="card-name";
  			}
  		}
+ 		else if(!validateCardHolder()){
+ 			flag=false;
+ 			$('#errname').html(getBundle(getBundleLanguage, "form.payment.cardholder.name.unmatch"));
+ 			$("#card-name").addClass("invalid-field");
+ 			if(firstErrorElementId==""){
+ 				firstErrorElementId="card-name";
+ 			}
+ 		}
  		else{
  			$("#card-name").removeClass("invalid-field");
  		}
@@ -425,6 +433,32 @@ var languageP = "${language}";
 		window.history.back();
 	}
 
+	function validateCardHolder(){
+		
+		var firstName= $('#paymentForm #appFirstName').val().trim().split(',')[0].toUpperCase();
+		var lastName= $('#paymentForm #appLastName').val().trim().toUpperCase();
+		var shortName = firstName.split(' ').map(function(name){ return name.substring(0,1).trim() + '.';}).join(' ');
+
+		if ( firstName.trim() == '' || lastName.trim() == '' ) {
+			return false;
+		}
+
+		var whiteList = {
+			0: lastName + ' ' + firstName,
+			1: lastName + ' ' + shortName,
+			2: firstName + ' ' + lastName,
+			3: shortName + ' ' + lastName
+		};
+
+		var cardHolderName = $('#paymentForm input[name="cardHolder"]').val().trim().toUpperCase();
+		for (var key in whiteList) {
+		   if (whiteList.hasOwnProperty(key) && cardHolderName.indexOf(whiteList[key]) > -1 ){
+		   		return true;
+		   }
+		}
+		return false;
+	}
+
 	$(document).ready(function(){
         $('#card-num').payment('formatCardNumber');
         $('#card-num').keyup(function() {
@@ -432,5 +466,6 @@ var languageP = "${language}";
             var result = replaceSpace.replace(/\s/g,'');
             $("#cardNo").val(result);
         }); 
+
     })
 </script>
