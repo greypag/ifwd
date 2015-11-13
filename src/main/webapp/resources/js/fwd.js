@@ -4969,9 +4969,11 @@ function validatecardnumber(cardnumber) {
 			document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notValid.message");//'(invalid card number)';
 		}
 		$(".cardnumber").addClass("invalid-field");
+		$("#card-num").addClass("invalid-field");
 		return false;
 	}
 	$(".cardnumber").removeClass("invalid-field");
+	$("#card-num").removeClass("invalid-field");
 	return true;
 }
 
@@ -6036,15 +6038,18 @@ function chkValidCreditCardExpDate(element, errElementId, monthId, errMonthEleme
 			var msg = getBundle(getBundleLanguage, "applicant.creditcard.month.notNull.message");
 			document.getElementById(errMonthElementId).innerHTML = msg;
 			$("#inputMonth").addClass("invalid-field");
+			$("#"+monthId).addClass("invalid-field");
 			return false;
 		}else if (month < 1){
 			var msg = getBundle(getBundleLanguage, "applicant.creditcard.month.notValid.message");
 			document.getElementById(errMonthElementId).innerHTML = msg;
 			$("#inputMonth").addClass("invalid-field");
+			$("#"+monthId).addClass("invalid-field");
 			return false;
 		}else{
 			resetErrElement(errMonthElementId);
 			$("#inputMonth").removeClass("invalid-field");
+			$("#"+monthId).removeClass("invalid-field");
 			return true;
 		}
 			
@@ -6055,6 +6060,7 @@ function chkValidCreditCardExpDate(element, errElementId, monthId, errMonthEleme
 		var msg = getBundle(getBundleLanguage, "applicant.creditcard.year.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
 		$("#inputYear").addClass("invalid-field");
+		$("#year").addClass("invalid-field");
 		return false;
 	}else{	
 		year = element.value;
@@ -6063,6 +6069,7 @@ function chkValidCreditCardExpDate(element, errElementId, monthId, errMonthEleme
 			var msg = getBundle(getBundleLanguage, "applicant.creditcard.year.notValid.message");
 			document.getElementById(errElementId).innerHTML = msg;
 			$("#inputYear").addClass("invalid-field");
+			$("#year").addClass("invalid-field");
 			return false;
 		} else {
 			year = parseInt(year);
@@ -6076,6 +6083,7 @@ function chkValidCreditCardExpDate(element, errElementId, monthId, errMonthEleme
 				var msg = getBundle(getBundleLanguage, "applicant.creditcard.year.notValid.message");
 				document.getElementById(errElementId).innerHTML = msg;
 				$("#inputYear").addClass("invalid-field");
+				$("#year").addClass("invalid-field");
 				return false;
 				
 			} else if(year <= nowYear && month <= nowMonth){
@@ -6083,17 +6091,20 @@ function chkValidCreditCardExpDate(element, errElementId, monthId, errMonthEleme
 				var msg = getBundle(getBundleLanguage, "applicant.creditcard.month.notValid.message");
 				document.getElementById(errMonthElementId).innerHTML = msg;
 				$("#inputMonth").addClass("invalid-field");
-				
+				$("#month").addClass("invalid-field");
 				var msg = getBundle(getBundleLanguage, "applicant.creditcard.year.notValid.message");
 				document.getElementById(errElementId).innerHTML = msg;
 				$("#inputYear").addClass("invalid-field");
+				$("#year").addClass("invalid-field");
 				return false;
 				
 			} else{
 				resetErrElement(errElementId);
 				resetErrElement(errMonthElementId);
 				$("#inputYear").removeClass("invalid-field");
+				$("#year").removeClass("invalid-field");
 				$("#inputMonth").removeClass("invalid-field");
+				$("#month").removeClass("invalid-field");
 				return true;
 			}			
 		}
@@ -6102,22 +6113,42 @@ function chkValidCreditCardExpDate(element, errElementId, monthId, errMonthEleme
 }
 function chkNotNullCreditCareName(element, errElementId)
 {
-	
 	if(isNull(element)){
 		var msg = getBundle(getBundleLanguage, "applicant.creditcard.name.notNull.message");
 		document.getElementById(errElementId).innerHTML = msg;
 		$("#holdername").addClass("invalid-field");
+		$("#card-name").addClass("invalid-field");
 		return false;
 	}
 	else if (element.value.length < 7 && element.value.trim().indexOf(" ") > 0) {
 		var msg = getBundle(getBundleLanguage, "applicant.creditcard.noSpaces.message");
 		document.getElementById(errElementId).innerHTML = msg;
 		$("#holdername").addClass("invalid-field");
+		$("#card-name").addClass("invalid-field");
 		return false;
 	}
 	else{
 		resetErrElement(errElementId);
 		$("#holdername").removeClass("invalid-field");
+		$("#card-name").removeClass("invalid-field");
+		return true;
+	}
+}
+function chkNotNullCardCvv(element, errElementId)
+{
+	if(isNull(element)){
+		$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notNull.message"));
+		$("#card-cvv").addClass("invalid-field");
+		return false;
+	}
+	else if (element.value != "" && element.value.length <3) {
+		$('#errcode').html(getBundle(getBundleLanguage, "payment.creditCard.securityCode.notValid.message"));
+		$("#card-cvv").addClass("invalid-field");
+		return false;
+	}
+	else{
+		resetErrElement(errElementId);
+		$("#card-cvv").removeClass("invalid-field");
 		return true;
 	}
 }
@@ -6964,22 +6995,22 @@ $( document ).ready(function() {
 });
 
 
-// 对Date的扩展，将 Date 转化为指定格式的String   
-// 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，   
-// 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)   
-// 例子：   
+// Extend Date prototype to a specific String format
+// Month(M), Day(d), Hour(h), Minute(m), Second(s), Quater(q) support 1-2 padding characters，   
+// Year(y) support 1-4 padding characters, Millisecond(S) only support 1 padding character   
+// Example:   
 // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423   
 // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18   
 Date.prototype.Format = function(fmt)   
 { //author: meizz   
   var o = {   
-    "M+" : this.getMonth()+1,                 //月份   
-    "d+" : this.getDate(),                    //日   
-    "h+" : this.getHours(),                   //小时   
-    "m+" : this.getMinutes(),                 //分   
-    "s+" : this.getSeconds(),                 //秒   
-    "q+" : Math.floor((this.getMonth()+3)/3), //季度   
-    "S"  : this.getMilliseconds()             //毫秒   
+    "M+" : this.getMonth()+1,                 //Month  
+    "d+" : this.getDate(),                    //Day
+    "h+" : this.getHours(),                   //Hour   
+    "m+" : this.getMinutes(),                 //Minute 
+    "s+" : this.getSeconds(),                 //Second   
+    "q+" : Math.floor((this.getMonth()+3)/3), //Quarter 
+    "S"  : this.getMilliseconds()             //Millisecond   
   };   
   if(/(y+)/.test(fmt))   
     fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));   
@@ -6989,5 +7020,8 @@ Date.prototype.Format = function(fmt)
   return fmt;   
 }  
 
-
-
+/* Format amount with comma */
+function formatNumberComma(n) {
+    var parts=n.toString().split(".");
+    return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+}

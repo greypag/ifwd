@@ -63,13 +63,13 @@ var home_url = "<%=request.getContextPath()%>";
             <!--Elite Terms Header Info Widget-->
          <div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
             <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-               <li><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></li>
+               <li><fmt:message key="eliteTerms.breadcrumb.home" bundle="${msg}" /></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /></li>
+               <li><fmt:message key="eliteTerms.breadcrumb.category" bundle="${msg}" /></li>
                <li class="divider"><i class="fa fa-play"></i></li>
-               <li><fmt:message key="home.breadcrumb1.term" bundle="${msg}" /></li>
+               <li><fmt:message key="eliteTerms.breadcrumb.product" bundle="${msg}" /></li>
                <li class="divider last"><i class="fa fa-play"></i></li>
-               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="home.breadcrumb2.term.item1" bundle="${msg}" /></li>
+               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.breadcrumb.about" bundle="${msg}" /></li>
             </ol>
          </div>         
             <!--
@@ -2441,11 +2441,23 @@ var home_url = "<%=request.getContextPath()%>";
                      container: '#cannotApplyEmailMessage',
                      trigger: 'blur',
                      validators: {
-                        notEmpty: {
-                           message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.email.address" bundle="${msg}" />'
-                        },
-                        emailAddress: {
+                        vailAddress: {
                            message: '<fmt:message key="eliteTerms.selectPlan.Your.email.address.is.invalid" bundle="${msg}" />'
+                        },
+                        callback: {
+                           callback: function(value, validator) {
+                               // Check if both email and mobile is blank
+                               if ( value == '' && $('#et-cust-serv-form #tel').val() == '') {
+                                   return {
+                                       valid: false,
+                                       message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
+                                   }
+                              }
+
+                              // Remove Tel Error message as well
+                              $('#cannotApplyTelMessage').find('.help-block[data-bv-validator="callback"][data-bv-for="tel"]').html('');
+                              return true;
+                           }
                         }
                      }
                   },
@@ -2453,19 +2465,25 @@ var home_url = "<%=request.getContextPath()%>";
                      container: '#cannotApplyTelMessage',
                      trigger: 'blur',
                      validators: {
-                    	notEmpty: {
-                            message: '<fmt:message key="eliteTerms.selectPlan.Please.enter.your.mobile.no" bundle="${msg}" />'
+                       	regexp: {
+                              regexp: /^1[0-9]{10}$|^[5689][0-9]{7}$/, //^[5689]{3}[0-9]+$/,
+                              message: '<fmt:message key="eliteTerms.selectPlan.Your.mobile.no.is.invalid" bundle="${msg}" />'
                         },
-                    	regexp: {
-                           regexp: /^1[0-9]{10}$|^[5689][0-9]{7}$/, //^[5689]{3}[0-9]+$/,
-                           message: '<fmt:message key="eliteTerms.selectPlan.Your.mobile.no.is.invalid" bundle="${msg}" />'
-                        }/* ,
                         callback: {
-                           message: 'c',
                            callback: function(value, validator) {
-                              return isEmailEmpty(value);
+                               // Check if both email and mobile is blank
+                               if ( value == '' && $('#et-cust-serv-form #email').val() == '') {
+                                   return {
+                                       valid: false,
+                                       message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
+                                   }
+                              }
+
+                              // Remove Email Error message as well
+                              $('#cannotApplyEmailMessage').find('.help-block[data-bv-validator="callback"][data-bv-for="email"]').html('');
+                              return true;
                            }
-                        } */
+                        }
                      }
                   },
                   "day": {
@@ -2579,9 +2597,6 @@ var home_url = "<%=request.getContextPath()%>";
   		 				}
   		 			  }
   	 		      });
-            	}
-            	else{
-            		$('#errPromoEmail').html('<fmt:message key="promotion.empty.error.message" bundle="${msg}" />');
             	}
 			}
             

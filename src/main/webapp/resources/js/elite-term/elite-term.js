@@ -529,8 +529,8 @@ function setCalculatedAmt(bDiscount, insuredAmt, oriMonthlyAmt, oriDailyAmt, dis
   
 	var modInsuredAmount = parseFloat(insuredAmt).toFixed(2);
 	var modMonthlyPremium = parseFloat(oriMonthlyAmt).toFixed(2);
-	$("#et-month-amount").html(parseFloat(oriMonthlyAmt).toFixed(2));
-	$("#et-day-amount").html(parseFloat(oriDailyAmt).toFixed(2));
+	$("#et-month-amount").html(parseFloat(oriMonthlyAmt).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+	$("#et-day-amount").html(parseFloat(oriDailyAmt).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 	$("#etaspd-insured-amount").html('HK$ ' + modInsuredAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 	$("#etaspd-monthly-premium").html('HK$ ' + modMonthlyPremium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
   

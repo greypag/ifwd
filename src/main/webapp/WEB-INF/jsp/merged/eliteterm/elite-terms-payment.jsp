@@ -26,13 +26,13 @@ var languageP = "${language}";
 
 			<!--<div class="fwd-container container-fluid breadcrumbs hidden-xs hidden-sm">
                <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
-                  <li><a href="#"><fmt:message key="eliteTerms.payment.Home" bundle="${msg}" /></a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.breadcrumb.home" bundle="${msg}" /></a></li>
                   <li class="divider"><i class="fa fa-play"></i></li>
-                  <li><a href="#"><fmt:message key="eliteTerms.payment.Protection" bundle="${msg}" /> </a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.breadcrumb.category" bundle="${msg}" /> </a></li>
                   <li class="divider"><i class="fa fa-play"></i></li>
-                  <li><a href="#"><fmt:message key="eliteTerms.payment.Elite.term" bundle="${msg}" /> </a></li>
+                  <li><a href="#"><fmt:message key="eliteTerms.breadcrumb.product" bundle="${msg}" /> </a></li>
                   <li class="divider last"><i class="fa fa-play"></i></li>
-                  <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.payment.Payment" bundle="${msg}" /></li>
+                  <li class="active-bc" id="et-active-bc-menu"><fmt:message key="eliteTerms.breadcrumb.payment" bundle="${msg}" /></li>
                </ol>
             </div>-->
 			
@@ -127,6 +127,8 @@ var languageP = "${language}";
 					                    <input type="hidden" name="remark" value="">
 					                    <input type="hidden" name="pMethod" id="pMethod" value="Master">
 					                    <input type="hidden" id="emailAddress" name="emailAddress" value="${eliteTermEmail}"> 
+					                    <input type="hidden" name="firstName" value="${etPolicyApplication.applicant.firstName}"> 
+					                    <input type="hidden" name="lastName" value="${etPolicyApplication.applicant.lastName}"> 
 					                    
 									    <input type="hidden" name="referenceNo" value="${eliteTermPolicy.policyNo}">
 									    <input type="hidden" id="gateway" name="gateway" value="${eliteTermPolicy.paymentGateway}"/>
@@ -135,7 +137,7 @@ var languageP = "${language}";
 										<label for="card-num"><fmt:message key="eliteTerms.payment.Expiry.date" bundle="${msg}" /></label>
 										<div class="clearfix desktop-half">
 											<div class="selectDiv month">
-												<select name="epMonth" id="month" class="form-control gray-dropdown">
+												<select name="epMonth" id="month" class="form-control gray-dropdown" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
 													<option value="0" selected disabled><fmt:message key="home.summary.pmtdetail.desc3.month" bundle="${msg}" /></option>
 			                                        <option value="01">01</option>
 			                                        <option value="02">02</option>
@@ -152,7 +154,7 @@ var languageP = "${language}";
 												</select>
 											</div>
 											<div class="selectDiv">
-												<select name="epYear" id="year" class="form-control gray-dropdown">
+												<select name="epYear" id="year" class="form-control gray-dropdown" onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
 													<option value="0" selected disabled><fmt:message key="home.summary.pmtdetail.desc3.year" bundle="${msg}" /></option>
 				                                    <c:forEach begin="0" end="10" varStatus="loop">
 				                                        <c:set var="currentYear" value="${year + loop.index}" />
@@ -166,13 +168,13 @@ var languageP = "${language}";
 									</div>
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Name.on.credit.card" bundle="${msg}" /></label>
-										<input type="text" class="form-control gray-textbox desktop-half" placeholder="<fmt:message key="eliteTerms.payment.Name.on.credit.card.placeholder" bundle="${msg}" />" value="" id="card-name" autocomplete="off" name="cardHolder">
+										<input type="text" class="form-control gray-textbox desktop-half" placeholder="<fmt:message key="eliteTerms.payment.Name.on.credit.card.placeholder" bundle="${msg}" />" value="" id="card-name" autocomplete="off" name="cardHolder" onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');">
 									    <span id="errname" class="error-msg"></span>
 									</div>
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Security.code" bundle="${msg}" /></label>
 										<div class="clearfix desktop-half">
-											<input type="text" class="form-control gray-textbox card-cvv" placeholder="<fmt:message key="eliteTerms.payment.Security.code.placeholder" bundle="${msg}" />" id="card-cvv" autocomplete="off" maxlength="3"  name="securityCode">
+											<input type="text" class="form-control gray-textbox card-cvv" placeholder="<fmt:message key="eliteTerms.payment.Security.code.placeholder" bundle="${msg}" />" id="card-cvv" autocomplete="off" maxlength="3"  name="securityCode" onblur="chkNotNullCardCvv(this, 'errcode');">
 											<div class="cvv-image-holder">
 												<img src="<%=request.getContextPath()%>/resources/images/elite-terms/cvv-logo.png" class="cvv-image">
 											</div>
