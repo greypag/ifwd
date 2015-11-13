@@ -515,37 +515,37 @@
       function checkCheckBoxBySelectPay() {
     	  var result = true;
      	 if(!$('#pics-check').is(':checked')) {
-     		 $("#chk1").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+     		 $("#chk1").html(getBundle(getBundleLanguage, "et.PICS.notChecked"));
      		 result = false;
      	 }else {
      		 $("#chk1").html("");
      	 }
      	 if(!$('#cancellation-check').is(':checked')) {
-     		 $("#chk2").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+     		 $("#chk2").html(getBundle(getBundleLanguage, "et.cancellation.notChecked"));
      		 result = false;
      	 }else {
      		 $("#chk2").html("");
      	 }
      	 if(!$('#application-declaration').is(':checked')) {
-     		 $("#chk3").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+     		 $("#chk3").html(getBundle(getBundleLanguage, "et.option.notSelected"));
      		 result = false;
 	     }else {
 	         $("#chk3").html("");
 	     }
 		 if(!$('#is-resident-check').is(':checked')) {
-			 $("#chk4").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+			 $("#chk4").html(getBundle(getBundleLanguage, "et.option.notSelected"));
 		 	 result = false;
 		 }else {
 		     $("#chk4").html("");
 		 }
 		 if(!$('#no-policy-replace-check').is(':checked')) {
-			 $("#chk6").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+			 $("#chk6").html(getBundle(getBundleLanguage, "et.option.notSelected"));
 		 	 result = false;
 		 }else {
 		     $("#chk6").html("");
 		 }
          if(!$('#no-policy-replace-existing-check').is(':checked')) {
-        	 $("#chk7").html(getBundle(getBundleLanguage, "et.selectPlan.Please.check"));
+        	 $("#chk7").html(getBundle(getBundleLanguage, "et.option.notSelected"));
         	 result = false;
          }else {
         	 $("#chk7").html("");
