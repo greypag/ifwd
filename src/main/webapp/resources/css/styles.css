@@ -22219,7 +22219,8 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 	/* line 30, ../sass/partials/_elite-terms-select-plan.scss */
 	.fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse
 		{
-		height: 100px;
+		/*height: 100px;*/
+		height: 80px;
 	}
 }
 /* line 42, ../sass/partials/_elite-terms-select-plan.scss */
@@ -22299,7 +22300,8 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 	{
 	width: 100%;
 	border: 0;
-	height: 100px;
+	/*height: 100px;*/
+	height: 80px;
 	background-color: #ff8200;
 	color: #fff;
 	font-size: 24px;
@@ -25482,4 +25484,17 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 
 #et-plan-option-section .mask img {
 	margin-top: 25%;
+}
+@media screen and ( max-width : 991px) {
+    .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-back-arrow .et-back-arrow-link,
+    .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-header-tex h3{
+        font-size: 18px;
+    }
+    .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-header-tex h3{
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+    .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-back-arrow .et-back-arrow-link{
+        padding-top: 5px;
+    }
 }

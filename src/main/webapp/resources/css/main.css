@@ -200,7 +200,8 @@ hr {
 
 /*Topbar*/
 .navbar-brand img {
-	padding: 21px 0px;
+	/*padding: 21px 0px;*/
+	padding: 10px 0;
 }
 
 .form-control {
@@ -9625,14 +9626,15 @@ background-color
 	width: 20%;
 	float: left;
 	text-align: center;
-	padding-top: 40px;
-	padding-bottom: 40px;
+	/*padding-top: 40px;
+	padding-bottom: 40px;*/
+	padding: 29px 0;
 	position: relative;
-	font-size: 23px;
+	font-size: 24px;
 }
 
 .product_header_path_item.back {
-	font-size: 22px;
+	font-size: 24px;
 	cursor: pointer;
 }
 
@@ -9643,10 +9645,11 @@ background-color
 .product_header_path_item.active {
 	color: #f68a1d;
 	background-color: #fff;
-	border-top: solid 2px #f68a1d;
+	border-top: solid 3px #f68a1d;
 	border-bottom: solid 2px #f68a1d;
-	padding-top: 38px;
-	padding-bottom: 38px;
+	/*padding-top: 38px;
+	padding-bottom: 38px;*/
+	padding:27px 0;
 }
 
 .product_header_path_item .partition {
@@ -9889,10 +9892,14 @@ background-color
 	}
 	.product_header_path_item, .product_header_path_item.active {
 		width: auto;
-		padding: 20px 10px;
+		padding: 19px 10px;
 		border: 0px;
 		color: #fff;
 		background-color: #f68a1d;
+		font-size: 18px;
+	}
+	.product_header_path_item.back{
+	   font-size: 18px;
 	}
 	.annual_travelproductbox .partition {
 		position: initial;
@@ -10231,7 +10238,12 @@ background-color
 		padding-left: 5%;
 	}
 }
-
+.menutab-V2 .main-tab{
+	height: 76px;
+}
+.menutab-V2 .main-tab a.protect-save-enjoy-tab{
+	top: 30px;
+}
 /******** End of desktop header menutab v2 ********/
 /******** Start of mobile header menu v2 ********/
 .mob-login-form-wrapper {
@@ -10239,9 +10251,10 @@ background-color
 }
 
 @media screen and (max-width: 991px) {
-	body {
-		padding-top: 95px;
-	}
+    body {
+        /*padding-top: 95px;*/
+        padding-top: 84px;
+    }
 	div.mobile-menu-V2 div.wd2 {
 		margin: 0;
 		width: 100%;
@@ -10345,7 +10358,7 @@ background-color
 		z-index: 2000;
 	}
 	a.navbar-brand>img {
-		padding: 3px 0;
+		padding: 10px 0;
 		margin-left: 30px;
 	}
 	.mob-login-form-wrapper {
@@ -10396,7 +10409,7 @@ background-color
 		background-color: #061d29;
 	}
 	body {
-		padding-top: 95px;
+		padding-top: 98px;
 	}
 }
 /******** End of mobile header menu v2 ********/

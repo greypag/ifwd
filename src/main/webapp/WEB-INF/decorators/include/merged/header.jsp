@@ -556,7 +556,7 @@ function submitLoginForm(formID) {
 			<div class="navbar-header">
 				<a class="navbar-brand"
 					href="<%=request.getContextPath()%>/${language}"><img
-					src="<%=request.getContextPath()%>/resources/images/logo.jpg"
+					src="<%=request.getContextPath()%>/resources/images/iFWD_logo_200px.jpg"
 					alt="<fmt:message key="logo.alt" bundle="${msg}" />"></a>
 			</div>
 			<!--<div class="col-lg-8 col-md-7 pull-right">
@@ -759,7 +759,7 @@ function submitLoginForm(formID) {
 			</button>
 			<a class="navbar-brand pull-left col-xs-8 col-sm-8"
 				href="<%=request.getContextPath()%>/${language}"><img
-				src="<%=request.getContextPath()%>/resources/images/logo.png"
+				src="<%=request.getContextPath()%>/resources/images/iFWD_logo_150px.jpg"
 				alt="<fmt:message key="logo.alt" bundle="${msg}" />"
 				class="img-responsive"></a>
 			<div class="clearfix"></div>
