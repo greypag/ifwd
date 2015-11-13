@@ -449,7 +449,7 @@
 	                            <div class="plan-item-cols odd plan-item-cols-bottom">
 	                                <h5 class="hidden-md hidden-lg"><fmt:message key="member.registration.Day.start" bundle="${msg}" /></h5>
 	                                <p>
-	                                  <c:if test="${i.documentUploaded == 'true'}">${i.submissionDate}</c:if>
+	                                  <c:if test="${i.documentUploaded == 'true'}">${i.submissionDate}<br/>${i.status}</c:if>
 	                                  <c:if test="${i.documentUploaded == 'false'}"><fmt:message key="user.acount.Not.complete" bundle="${msg}" /><br/><a id="eservices-document-upload-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload?policyNumber=${i.policyNumberBase64 }"><fmt:message key="member.registration.Upload.document" bundle="${msg}" /></a></c:if>
 	                                </p>
 	                            </div>
@@ -531,7 +531,7 @@
                                         <td>Elite term</td>
                                         <td>${i.policyNumber}</td>
                                         <td>
-	                                        <c:if test="${i.documentUploaded == 'true'}">${i.submissionDate}</c:if>
+	                                        <c:if test="${i.documentUploaded == 'true'}">${i.submissionDate}<br/>${i.status}</c:if>
 	                                        <c:if test="${i.documentUploaded == 'false'}"><fmt:message key="user.acount.Not.complete" bundle="${msg}" /><br/><a id="eservices-document-upload-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload?policyNumber=${i.policyNumberBase64 }"><fmt:message key="member.registration.Upload.document" bundle="${msg}" /></a></c:if>
                                         </td>
                                         <td><fmt:message key="annual.common.dollar" bundle="${msg}" />${i.amount}</td>

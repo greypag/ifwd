@@ -45,7 +45,7 @@
  								else if(window.top.document.referrer.indexOf("term-life-insurance/select-plan")>0){
  									perventRedirect=false;
  									ga('send', 'event', 'Login', 'Click', 'Login success');
- 									window.location.href= "<%=request.getContextPath()%>/${language}/term-life-insurance/select-plan?goApp="+$('#goApp').val();
+ 									window.location.href= "<%=request.getContextPath()%>/${language}/term-life-insurance/select-plan?goApp=yes";
  								}
  								else {
  									window.location.href = '<%=request.getContextPath()%>/${language}/account';

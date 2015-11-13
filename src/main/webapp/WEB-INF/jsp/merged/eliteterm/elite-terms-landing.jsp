@@ -114,21 +114,16 @@
                            </div>
                      </div>
                   </div>
-                  
-                  <ul class="list-unstyled et-notice">
-                     <li><span class="order">1.</span> <fmt:message key="eliteTerms.landing.Eligibility.of.preferential" bundle="${msg}" /></li>
-                     <li><span class="order">2.</span> <fmt:message key="eliteTerms.landing.Starting.from.the" bundle="${msg}" /></li>
-                  </ul>
-                  
-                  <a href="#" title="Download product brochure" class="et-btn-download-item">
-                     <img src="<%=request.getContextPath()%>/resources/images/elite-terms/download-icon.png" alt="download-icon.png" />
-                     <fmt:message key="eliteTerms.landing.Product.brochure" bundle="${msg}" />
-                  </a>
-                  <a href="#" title="Download policy provisions" class="et-btn-download-item">
-                     <img src="<%=request.getContextPath()%>/resources/images/elite-terms/download-icon.png" alt="download-icon.png" />
-                     <fmt:message key="eliteTerms.landing.Policy.provisions" bundle="${msg}" />
-                  </a>
-
+                  <div class="btn-download-section" style="text-align:left;">
+                     <a href="<%=request.getContextPath()%>/<fmt:message key="eliteterms.brochure.link" bundle="${msg}" />" title="Download product brochure" class="et-btn-download-item" target="_blank">
+                        <img src="<%=request.getContextPath()%>/resources/images/elite-terms/download-icon.png" alt="download-icon.png" />
+                        <fmt:message key="eliteTerms.landing.Product.brochure" bundle="${msg}" />
+                     </a>
+                     <a href="<%=request.getContextPath()%>/<fmt:message key="eliteterms.provision.link" bundle="${msg}" />" title="Download policy provisions" class="et-btn-download-item" target="_blank">
+                        <img src="<%=request.getContextPath()%>/resources/images/elite-terms/download-icon.png" alt="download-icon.png" />
+                        <fmt:message key="eliteTerms.landing.Policy.provisions" bundle="${msg}" />
+                     </a>
+                  </div>
                </div>
             </div>
                
@@ -460,7 +455,6 @@
                   <div class="row">
                      <div class="col-xs-12 et-advisory">
                         <p>
-                           <fmt:message key="eliteTerms.landing.The.features.above" bundle="${msg}" />
                            <fmt:message key="eliteTerms.landing.For.a.complete.explanation" bundle="${msg}" />
                         </p>
                      </div>

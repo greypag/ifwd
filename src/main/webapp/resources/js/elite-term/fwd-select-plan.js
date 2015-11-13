@@ -89,7 +89,7 @@
    // Bind event to Gender
    $('#et-gender-male, #et-gender-female').on('change', function(e){
       if (this.checked) {
-         document.getElementById('savieApplicantBean.gender').value = (this.value === 'M') ? 'Male' : 'Female';
+         document.getElementById('savieApplicantBean.gender').value = (this.value === 'M') ? getBundle(getBundleLanguage, "option.male") : getBundle(getBundleLanguage, "option.female");
       } else {
          document.getElementById('savieApplicantBean.gender').value = '';
       }
@@ -451,7 +451,8 @@
                
                // Update app info gender
                if (planDetailData.gender) {
-                  $('#savieApplicantBean\\.gender').val(planDetailData.gender);
+                  var gender_display = (planDetailData.gender=='Male')?getBundle(getBundleLanguage, "option.male"):getBundle(getBundleLanguage, "option.female");
+                  $('#savieApplicantBean\\.gender').val(gender_display);
                }
                
                // Disable scrolling to the select plan section
@@ -707,6 +708,7 @@
             },
             "savieApplicantBean.lastName": {
                container: '#savieApplicantBeanlastNameMsg',
+               trigger: 'blur',
                validators: {
                   notEmpty: {
                      message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Last.Name.in.English")
@@ -729,6 +731,7 @@
             },
             "savieApplicantBean.chineseName": {
                container: '#savieApplicantBeanchineseNameMsg',
+               trigger: 'blur',
                validators: {
                   stringLength: {
                      max: 6,
@@ -876,38 +879,44 @@
                }
             },
             "savieApplicantBean.permanentAddress1": {
-                container: '#permanentAddress1Message',
+                container: '#permanentAddressMessage1',
                 validators: {
-                   regexp: {
+                  notEmpty: {
+                     message: getBundle(getBundleLanguage, "form.address.empty")
+                  },
+                  regexp: {
                       regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                      message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                      message: getBundle(getBundleLanguage, "form.address.invalid")
                    }
                 }
              },
              "savieApplicantBean.permanentAddress2": {
-                 container: '#permanentAddress2Message',
+                 container: '#permanentAddressMessage2',
                  validators: {
                     regexp: {
                        regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                       message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                       message: getBundle(getBundleLanguage, "form.address.invalid")
                     }
                  }
               },
               "savieApplicantBean.permanentAddress3": {
-                 container: '#permanentAddress3Message',
+                 container: '#permanentAddressMessage3',
                  validators: {
                     regexp: {
                        regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                       message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                       message: getBundle(getBundleLanguage, "form.address.invalid")
                     }
                  }
               },
               "savieApplicantBean.residentialAdress1": {
                   container: '#residentialAddressMessage1',
                   validators: {
+                     notEmpty: {
+                        message: getBundle(getBundleLanguage, "form.address.empty")
+                     },
                      regexp: {
                         regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                        message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                        message: getBundle(getBundleLanguage, "form.address.invalid")
                      }
                   }
                },
@@ -916,7 +925,7 @@
                    validators: {
                       regexp: {
                          regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                         message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                         message: getBundle(getBundleLanguage, "form.address.invalid")
                       }
                    }
                 },
@@ -925,16 +934,19 @@
                    validators: {
                       regexp: {
                          regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                         message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                         message: getBundle(getBundleLanguage, "form.address.invalid")
                       }
                    }
                 },
                 "savieApplicantBean.correspondenceAdress1": {
                     container: '#corrAddressMessage1',
                     validators: {
-                       regexp: {
+                        notEmpty: {
+                           message: getBundle(getBundleLanguage, "form.address.empty")
+                        },
+                        regexp: {
                           regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                          message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                          message: getBundle(getBundleLanguage, "form.address.invalid")
                        }
                     }
                  },
@@ -943,7 +955,7 @@
                      validators: {
                         regexp: {
                            regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                           message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                           message: getBundle(getBundleLanguage, "form.address.invalid")
                         }
                      }
                   },
@@ -952,7 +964,7 @@
                      validators: {
                         regexp: {
                            regexp: /^[a-zA-Z0-9\s,-\/]*$/,
-                           message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.letters")
+                           message: getBundle(getBundleLanguage, "form.address.invalid")
                         }
                      }
                   }
@@ -965,31 +977,31 @@
          
          // Check if permanent address lines
          if (!isPerLineValid()) {
-            $('#permanentAddressMessage').find('.help-block')
+            $('#permanentAddressMessage1').find('.help-block')
                .removeClass('hide-element');
             isValidAddLine = false;
          } else {
-            $('#permanentAddressMessage').find('.help-block')
+            $('#permanentAddressMessage1').find('.help-block')
                .addClass('hide-element');
          }
          
          // Check if res address lines
          if (!isResLineValid()) {
-            $('#residentialAddressMessage').find('.help-block')
+            $('#residentialAddressMessage1').find('.help-block')
                .removeClass('hide-element');
             isValidAddLine = false;
          } else {
-            $('#residentialAddressMessage').find('.help-block')
+            $('#residentialAddressMessage1').find('.help-block')
                .addClass('hide-element');
          }
          
          // Check if corr address lines
          if (!isCorrLineValid()) {
-            $('#corrAddressMessage').find('.help-block')
+            $('#corrAddressMessage1').find('.help-block')
                .removeClass('hide-element');
             isValidAddLine = false;
          } else {
-            $('#corrAddressMessage').find('.help-block')
+            $('#corrAddressMessage1').find('.help-block')
                .addClass('hide-element');
          }
          
@@ -1476,7 +1488,7 @@
       $('#etaspi-fname').text(appInfoData.enFName);
       $('#etaspi-chName').text(appInfoData.chName);
       $('#etaspi-gender').text(appInfoData.gender);
-      $('#etaspi-is-smooker').text(planDetailData.isSmooker ? 'Smoker' : 'Non-smoker');
+      $('#etaspi-is-smooker').text(planDetailData.isSmooker ? getBundle(getBundleLanguage, "option.yes") : getBundle(getBundleLanguage, "option.no"));
       $('#etaspi-marital-status').text(capitalizeFirstLetter(appInfoData.maritalStat));
       $('#etaspi-dob').text(appInfoData.dob);
       $('#etaspi-pob').text(appInfoData.pob);
@@ -1646,9 +1658,9 @@
       appInfoData.dob = document.getElementById('sales-illu-dob').value;
       
       if ($('#et-gender-male').prop('checked')) {
-          planDetailData.gender = 'Male';
+          planDetailData.gender = getBundle(getBundleLanguage, "option.male");
        } else if ($('#et-gender-female').prop('checked')) {
-          planDetailData.gender = 'Female';
+          planDetailData.gender = getBundle(getBundleLanguage, "option.female");
        }
       
       appInfoData.gender = planDetailData.gender;
@@ -1755,9 +1767,9 @@
          }
          
          if ($('#male-0').prop('checked')) {
-            beneInfoData.first.gender = 'Male';
+            beneInfoData.first.gender = getBundle(getBundleLanguage, "option.male");
          } else if ($('#female-0').prop('checked')) {
-            beneInfoData.first.gender = 'Female';
+            beneInfoData.first.gender = getBundle(getBundleLanguage, "option.female");
          }
          
          beneInfoData.first.relationship = $('option[value="' + document.getElementById('savieBeneficiaryBean[0].relationship').value + '"]', '#savieBeneficiaryBean\\[0\\]\\.relationship').text();
@@ -1784,9 +1796,9 @@
             }
             
             if ($('#male-1').prop('checked')) {
-               beneInfoData.second.gender = 'Male';
+               beneInfoData.second.gender = getBundle(getBundleLanguage, "option.male");
             } else if ($('#female-1').prop('checked')) {
-               beneInfoData.second.gender = 'Female';
+               beneInfoData.second.gender = getBundle(getBundleLanguage, "option.female");
             }
             
             beneInfoData.second.relationship = $('option[value="' + document.getElementById('savieBeneficiaryBean[1].relationship').value + '"]', '#savieBeneficiaryBean\\[1\\]\\.relationship').text();
@@ -1814,9 +1826,9 @@
             }
             
             if ($('#male-2').prop('checked')) {
-               beneInfoData.third.gender = 'Male';
+               beneInfoData.third.gender = getBundle(getBundleLanguage, "option.male");
             } else if ($('#female-2').prop('checked')) {
-               beneInfoData.third.gender = 'Female';
+               beneInfoData.third.gender = getBundle(getBundleLanguage, "option.female");
             }
             
             beneInfoData.third.relationship = $('option[value="' + document.getElementById('savieBeneficiaryBean[2].relationship').value + '"]', '#savieBeneficiaryBean\\[2\\]\\.relationship').text();

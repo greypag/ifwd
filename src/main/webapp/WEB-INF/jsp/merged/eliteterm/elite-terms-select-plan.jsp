@@ -161,7 +161,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     <h4 class="et-dob-txt smoker">
                                        <span><fmt:message key="eliteTerms.selectPlan.Are.you.a" bundle="${msg}" /></span>
                                        <span>
-                                          <button type="button" class="et-minimal et-smoker-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Insured.amount.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span></button>
+                                          <button type="button" class="et-minimal et-smoker-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.smoker.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span></button>
                                        </span>
                                     </h4> 
                                  </div>
@@ -538,7 +538,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="left-desktop text-box">
                                        <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.chineseName" name="savieApplicantBean.chineseName" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" />" value="" >
-                                       <span class="error-msg" id="savieApplicantBeanchineseNameMsg"><small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Chinese.name" bundle="${msg}" /></small></span>
+                                       <span class="error-msg" id="savieApplicantBeanchineseNameMsg"></span>
                                     </div>
                                  </div>
                                  
@@ -670,7 +670,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <label for="savieApplicantBean.residentialTelNo" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Residential.tel.no" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box clearfix">
-                                       <input type="text" class="form-control gray-textbox" name="savieApplicantBean.residentialTelNo" id="savieApplicantBean.residentialTelNo" placeholder="<fmt:message key="eliteTerms.selectPlan.Telephone.no." bundle="${msg}" />"/>
+                                       <input type="text" class="form-control gray-textbox" name="savieApplicantBean.residentialTelNo" id="savieApplicantBean.residentialTelNo" placeholder="<fmt:message key="eliteTerms.selectPlan.Telephone.no" bundle="${msg}" />"/>
                                        <span class="error-msg" id="resTelMessage"></span>
                                     </div>
                                  </div>
@@ -702,13 +702,11 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="left-desktop text-box">
                                        <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress1" name="savieApplicantBean.permanentAddress1" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
-                                       <span class="error-msg" id="permanentAddress1Message"></span>
+                                       <span class="error-msg" id="permanentAddressMessage1"></span>
                                        <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress2" name="savieApplicantBean.permanentAddress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
-                                       <span class="error-msg" id="permanentAddress2Message"></span>
+                                       <span class="error-msg" id="permanentAddressMessage2"></span>
                                        <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress3" name="savieApplicantBean.permanentAddress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
-                                       <span class="error-msg" id="permanentAddress3Message">
-                                          <small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
-                                       </span>
+                                       <span class="error-msg" id="permanentAddressMessage3"></span>
                                        <!--  <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown et-app-info-country"  data-style="application-select selection" name="savieApplicantBean.permanentAddressCountry" id="savieApplicantBean.permanentAddressCountry">
@@ -725,7 +723,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <div class="selectDiv et-district-wrapper">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown "  data-style="application-select selection" name="savieApplicantBean.permanentAddress" id="savieApplicantBean.permanentAddress">
-                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.District" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -773,9 +771,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress2" name="savieApplicantBean.residentialAdress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
                                        <span class="error-msg" id="residentialAddressMessage2"></span>
                                        <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress3" name="savieApplicantBean.residentialAdress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
-                                       <span class="error-msg" id="residentialAddressMessage3">
-                                          <small class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
-                                       </span>
+                                       <span class="error-msg" id="residentialAddressMessage3"></span>
                                        <!-- <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown et-app-info-country"  data-style="application-select selection" name="savieApplicantBean.residentialDistrictCountry" id="savieApplicantBean.residentialDistrictCountry">
@@ -791,7 +787,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <div class="selectDiv et-district-wrapper">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.residentialDistrict" id="savieApplicantBean.residentialDistrict">
-                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.District" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -838,8 +834,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <input class="form-control gray-textbox correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress2" name="savieApplicantBean.correspondenceAdress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
                                        <span class="error-msg" id="corrAddressMessage2"></span>
                                        <input class="form-control gray-textbox correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress3" name="savieApplicantBean.correspondenceAdress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
-                                       <span class="error-msg" id="corrAddressMessage3">
-                                          <small  class="help-block hide-element"><fmt:message key="eliteTerms.selectPlan.Must.enter" bundle="${msg}" /></small>
+                                       <span class="error-msg" id="corrAddressMessage3"></small>
                                        </span>
                                        <!-- <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
@@ -856,7 +851,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <div class="selectDiv et-district-wrapper">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown"  data-style="application-select selection" name="savieApplicantBean.correspondenceDistrict" id="savieApplicantBean.correspondenceDistrict">
-                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+                                             <option value=""><fmt:message key="eliteTerms.selectPlan.Please.District" bundle="${msg}" /></option>
                                              <c:if test="${language == 'en'}">
 													   <c:forEach var="list" items="${savieDistrictEN}">
 													      <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -1121,7 +1116,7 @@ var home_url = "<%=request.getContextPath()%>";
                                              </div>
                                           </div>
                                           <div class="pull-left input">
-                                             <input class="form-control gray-textbox capitalize" type="text" autocomplete="off" placeholder="<fmt:message key="eliteTerms.selectPlan.HKID/Passport.No" bundle="${msg}" />" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBean[0].hkId" value="">
+                                             <input class="form-control gray-textbox capitalize" type="text" autocomplete="off" placeholder="<fmt:message key="eliteTerms.selectPlan.HKID.Passport.No" bundle="${msg}" />" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBean[0].hkId" value="">
                                              <input class="form-control gray-textbox hidden" type="text" autocomplete="off" placeholder="<fmt:message key="eliteTerms.selectPlan.HKID.Passport.No" bundle="${msg}" />" id="savieBeneficiaryBean[0].passportNo" name="savieBeneficiaryBean[0].passportNo" value="">
                                           </div>
                                        </div>
@@ -1242,7 +1237,7 @@ var home_url = "<%=request.getContextPath()%>";
                                  <label for="yes-policy-replace-check"></label>
                               </div>
                               <div class="pull-left yes-policy-replace-desc">
-                                 <fmt:message key="eliteTerms.selectPlan.Yes" bundle="${msg}" />
+                                 <fmt:message key="eliteTerms.selectPlan.have" bundle="${msg}" />
                                  <span class="note"><fmt:message key="eliteTerms.selectPlan.Yes.(Please)" bundle="${msg}" /></span>
                               </div>
                            </div>
@@ -1441,15 +1436,6 @@ var home_url = "<%=request.getContextPath()%>";
                               
                         </div>
                      </div>
-                     <div class="clearfix hidden-md hidden-lg">
-                        <div class="pull-left cancellation-check">
-                           <input type="checkbox" value="cancellation" id="hereby-declare" name="isCancel" />
-                           <label for="hereby-declare"></label>
-                        </div>
-                        <div class="pull-left cancellation-desc">
-                           <fmt:message key="eliteTerms.selectPlan.I/We.hereby.declare.and" bundle="${msg}" />
-                        </div>
-                     </div>
                      
                      <div class="page-divider"></div>
                      
@@ -1513,8 +1499,8 @@ var home_url = "<%=request.getContextPath()%>";
                                  </div>
                                  <div class="clearfix plan-detail-holder">
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Monthly.premium" bundle="${msg}" /></h4>
-                                    <p class="info" id="etaspd-monthly-premium" class="hidden">HK$ <fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/> <span class="extra-years-remarks"> (for the 1st year)</span></p>
-                                    <p class="info" id="etaspd-monthly-premium-extra-years">HK$ <fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" pattern="#.00"/> <span class="extra-years-remarks"> (first 20 policy years)</span></p>
+                                    <p class="info" id="etaspd-monthly-premium" class="hidden">HK$ <fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.1styear" bundle="${msg}" /></span></p>
+                                    <p class="info" id="etaspd-monthly-premium-extra-years">HK$ <fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" pattern="#.00"/> <span class="extra-years-remarks"></span></p>
                                  </div>
                               </div>
                            <!-- PLAN DETAIL END-->
@@ -1885,7 +1871,7 @@ var home_url = "<%=request.getContextPath()%>";
                      <form action="" id="et-cust-serv-form" method="post">
                         <div class="input-items clearfix">
                            <label for="name"><fmt:message key="eliteTerms.selectPlan.Name" bundle="${msg}" /></label>
-                           <input type="text" class="form-control gray-textbox chinese-input" placeholder="<fmt:message key="eliteTerms.selectPlan.Name" bundle="${msg}" />" id="name" name="name">
+                           <input type="text" class="form-control gray-textbox chinese-input" placeholder="<fmt:message key="eliteTerms.selectPlan.Name.placeholder" bundle="${msg}" />" id="name" name="name">
                            <span class="error-msg" id="cannotApplyNameMessage"></span>
                         </div>
                         <div class="input-items clearfix">
@@ -1894,8 +1880,8 @@ var home_url = "<%=request.getContextPath()%>";
                            <span class="error-msg" id="cannotApplyEmailMessage"></span>
                         </div>
                         <div class="input-items clearfix">
-                           <label for="tel"><fmt:message key="eliteTerms.selectPlan.Telephone.no." bundle="${msg}" /></label>
-                           <input type="text" class="form-control gray-textbox" placeholder="<fmt:message key="eliteTerms.selectPlan.Telephone.no." bundle="${msg}" />" id="tel" name="tel">
+                           <label for="tel"><fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" /></label>
+                           <input type="text" class="form-control gray-textbox" placeholder="<fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" />" id="tel" name="tel">
                            <span class="error-msg" id="cannotApplyTelMessage"></span>
                         </div>
                         <div class="input-items clearfix">
@@ -2405,14 +2391,6 @@ var home_url = "<%=request.getContextPath()%>";
                            message: '<fmt:message key="eliteTerms.selectPlan.Please.choose.a.perferred.timeslot" bundle="${msg}" />'
                         }
                      }
-                  },
-                  "enquiry": {
-                      container: '#cannotApplyEnquireMessage',
-                      validators: {
-                         notEmpty: {
-                            message: '<fmt:message key="eliteTerms.selectPlan.Please.choose.a.perferred.enquiry.type" bundle="${msg}" />'
-                         }
-                      }
                   }
                }
             }).on('success.form.bv', function(e) {
