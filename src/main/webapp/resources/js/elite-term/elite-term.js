@@ -33,10 +33,23 @@ function getEliteTermPremium() {
     var $disMonthPre = $('#etaspd-monthly-premium');
     var $actMonthPre = $('#etaspd-monthly-premium-extra-years');
 	
-	if(dob ==null || gender ==null || smoke ==null || insuredAmount ==null){
-		console.log("data error");
+	if(gender =='' || dob =='' || smoke =='' || insuredAmount ==''){
+		if( gender == '' ){
+			$('#et-promocode-message .help-block').css('display', 'block').text(getBundle(getBundleLanguage,'error.gender.empty')); 
+		} else if( dob=='' ){ 
+			$('#et-promocode-message .help-block').css('display', 'block').text(getBundle(getBundleLanguage,'error.dob.empty')); 
+		} else if( smoke == '' ){
+			$('#et-promocode-message .help-block').css('display', 'block').text(getBundle(getBundleLanguage,'error.smoker.empty')); 
+		} else if( insuredAmount == '' ){
+			$('#et-promocode-message .help-block').css('display', 'block').text(getBundle(getBundleLanguage,'error.insured.amt.empty')); 
+		}
+
+		resetCalculatedAmt();
+		$('#loading-overlay').modal('hide');
 	}
 	else{
+		$('#et-promocode-message .help-block').css('display', 'none').text('');
+
 		$.get(contextPath+'/ajax/eliteTerm/getEliteTermPremium',
 		{ 
 			dob : dob,
@@ -52,6 +65,7 @@ function getEliteTermPremium() {
 				resetCalculatedAmt();
 			} 
 			else if( data.errMsgs != null ){
+				$('#et-promocode-message .help-block').css('display', 'block').text(data.errMsgs);
 				resetCalculatedAmt();
 			}
 			else{

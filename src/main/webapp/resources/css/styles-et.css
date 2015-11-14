@@ -9,6 +9,10 @@
 	color: #ccc;
 }
 
+.fwd-error-red,
+.fwd-error-red .help-block{
+	color: #e4002b !important;
+}
 
 .fwd-et-wrapper .et-next-btn-div{
 	/* Next button */

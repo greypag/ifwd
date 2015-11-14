@@ -249,6 +249,10 @@ var home_url = "<%=request.getContextPath()%>";
                                        </div>
                                     </div>
                                     <a href="#" title="Get your promotion code" class="et-promo-code-question" data-toggle="modal" data-target="#get-promotion-code-popup"><i><fmt:message key="eliteTerms.selectPlan.How.do.I.get" bundle="${msg}" /></i></a>
+                                    <div class="clearfix"></div>
+                                    <span class="err-msg fwd-error-red" id="et-promocode-message">
+                                       <small class="help-block" data-bv-validator="notEmpty"></small>
+                                    </span>
                                  </div>
                               </div>	
                            </div>
