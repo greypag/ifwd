@@ -919,13 +919,18 @@
             "savieApplicantBean.permanentAddress1": {
                 container: '#permanentAddressMessage1',
                 validators: {
-                  notEmpty: {
-                     message: getBundle(getBundleLanguage, "form.address.empty")
-                  },
-                  regexp: {
+                    regexp: {
                       regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                       message: getBundle(getBundleLanguage, "form.address.invalid")
-                   }
+                    },
+                    callback: {
+                        callback: function(value, validator) {
+                          return {
+                            valid: isPerLineValid(),
+                            message: getBundle(getBundleLanguage, "form.address.empty")
+                          }
+                        }
+                    }
                 }
              },
              "savieApplicantBean.permanentAddress2": {
@@ -949,13 +954,18 @@
               "savieApplicantBean.residentialAdress1": {
                   container: '#residentialAddressMessage1',
                   validators: {
-                     notEmpty: {
-                        message: getBundle(getBundleLanguage, "form.address.empty")
-                     },
-                     regexp: {
+                      regexp: {
                         regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                         message: getBundle(getBundleLanguage, "form.address.invalid")
-                     }
+                      },
+                      callback: {
+                          callback: function(value, validator) {
+                            return {
+                              valid: isResLineValid(),
+                              message: getBundle(getBundleLanguage, "form.address.empty")
+                            }
+                          }
+                      }
                   }
                },
                "savieApplicantBean.residentialAdress2": {
@@ -979,13 +989,18 @@
                 "savieApplicantBean.correspondenceAdress1": {
                     container: '#corrAddressMessage1',
                     validators: {
-                        notEmpty: {
-                           message: getBundle(getBundleLanguage, "form.address.empty")
-                        },
-                        regexp: {
+                      regexp: {
                           regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                           message: getBundle(getBundleLanguage, "form.address.invalid")
-                       }
+                      },
+                      callback: {
+                          callback: function(value, validator) {
+                            return {
+                              valid: isCorrLineValid(),
+                              message: getBundle(getBundleLanguage, "form.address.empty")
+                            }
+                          }
+                      }
                     }
                  },
                  "savieApplicantBean.correspondenceAdress2": {
@@ -1013,33 +1028,34 @@
          var $form = $(this);
          var isValidAddLine = true;
          
+         
          // Check if permanent address lines
          if (!isPerLineValid()) {
-            $('#permanentAddressMessage1').find('.help-block')
+            $('#permanentAddressMessage1').find('.help-block[data-bv-validator="callback"]')
                .removeClass('hide-element');
             isValidAddLine = false;
          } else {
-            $('#permanentAddressMessage1').find('.help-block')
+            $('#permanentAddressMessage1').find('.help-block[data-bv-validator="callback"]')
                .addClass('hide-element');
          }
          
          // Check if res address lines
          if (!isResLineValid()) {
-            $('#residentialAddressMessage1').find('.help-block')
+            $('#residentialAddressMessage1').find('.help-block[data-bv-validator="callback"]')
                .removeClass('hide-element');
             isValidAddLine = false;
          } else {
-            $('#residentialAddressMessage1').find('.help-block')
+            $('#residentialAddressMessage1').find('.help-block[data-bv-validator="callback"]')
                .addClass('hide-element');
          }
          
          // Check if corr address lines
          if (!isCorrLineValid()) {
-            $('#corrAddressMessage1').find('.help-block')
+            $('#corrAddressMessage1').find('.help-block[data-bv-validator="callback"]')
                .removeClass('hide-element');
             isValidAddLine = false;
          } else {
-            $('#corrAddressMessage1').find('.help-block')
+            $('#corrAddressMessage1').find('.help-block[data-bv-validator="callback"]')
                .addClass('hide-element');
          }
          
@@ -1076,33 +1092,34 @@
          var isValid = false;
          var isValidAddLine = true;
          
+         
          // Check if permanent address lines
          if (!isPerLineValid()) {
-            $('#permanentAddressMessage').find('.help-block')
+            $('#permanentAddressMessage1').find('.help-block[data-bv-validator="callback"]')
                .removeClass('hide-element');
             isValidAddLine = false;
          } else {
-            $('#permanentAddressMessage').find('.help-block')
+            $('#permanentAddressMessage1').find('.help-block[data-bv-validator="callback"]')
                .addClass('hide-element');
          }
          
          // Check if res address lines
          if (!isResLineValid()) {
-            $('#residentialAddressMessage').find('.help-block')
+            $('#residentialAddressMessage1').find('.help-block[data-bv-validator="callback"]')
                .removeClass('hide-element');
             isValidAddLine = false;
          } else {
-            $('#residentialAddressMessage').find('.help-block')
+            $('#residentialAddressMessage1').find('.help-block[data-bv-validator="callback"]')
                .addClass('hide-element');
          }
          
          // Check if corr address lines
          if (!isCorrLineValid()) {
-            $('#corrAddressMessage').find('.help-block')
+            $('#corrAddressMessage1').find('.help-block[data-bv-validator="callback"]')
                .removeClass('hide-element');
             isValidAddLine = false;
          } else {
-            $('#corrAddressMessage').find('.help-block')
+            $('#corrAddressMessage1').find('.help-block[data-bv-validator="callback"]')
                .addClass('hide-element');
          }
          
@@ -1750,7 +1767,7 @@
       var l2 = document.getElementById('savieApplicantBean.permanentAddress2').value;
       var l3 = document.getElementById('savieApplicantBean.permanentAddress3').value;
       
-      return l1 || l2 || l3;
+      return (l1 || l2 || l3)!='';
    }
    function isResLineValid() {
       if ($('#savieApplicantBean\\.isResidential').prop('checked')) {
@@ -1758,7 +1775,7 @@
          var l2 = document.getElementById('savieApplicantBean.residentialAdress2').value;
          var l3 = document.getElementById('savieApplicantBean.residentialAdress3').value;
       
-         return l1 || l2 || l3;
+         return (l1 || l2 || l3)!='';
       }
       return true;
    }
@@ -1769,7 +1786,7 @@
          var l2 = document.getElementById('savieApplicantBean.correspondenceAdress2').value;
          var l3 = document.getElementById('savieApplicantBean.correspondenceAdress3').value;
          
-         return l1 || l2 || l3;
+         return (l1 || l2 || l3)!='';
       }
       
       return true;
