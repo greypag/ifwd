@@ -746,7 +746,6 @@
             },
             "savieApplicantBean.lastName": {
                container: '#savieApplicantBeanlastNameMsg',
-               trigger: 'blur',
                validators: {
                   notEmpty: {
                      message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Last.Name.in.English")
@@ -769,14 +768,13 @@
             },
             "savieApplicantBean.chineseName": {
                container: '#savieApplicantBeanchineseNameMsg',
-               trigger: 'blur',
                validators: {
                   stringLength: {
                      max: 6,
-                     message: getBundle(getBundleLanguage, "et.selectPlan.Given.Name.must.be.no.more.than.6.characters")
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Chinese.Name.must.be.no.more.than.6.characters")
                   },
                   regexp: {
-                     regexp: /[^\x00-\x7F\s]/,
+                     regexp: /^[\s\u4e00-\u9eff]*$/,
                      message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Name.in.Chinese")
                   }
                }
@@ -1350,7 +1348,7 @@
       if ($self.val()) {
          $self.next('.error-msg')
                .find('.help-block')
-               .addClass('hide-element');
+               .css('display', 'none');
                
          $('#et-personal-info-next').removeAttr('disabled');
       }
