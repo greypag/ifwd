@@ -737,7 +737,7 @@ $(function() {
                      message: getBundle(getBundleLanguage, "form.beneficiary.hkid.empty")
                   },
                   callback: {
-                     message: getBundle(getBundleLanguage, "form.beneficiary.invalid.invalid"),
+                     message: getBundle(getBundleLanguage, "form.beneficiary.hkid.invalid"),
                      callback: function(value, validator) {
                         return isValidHKID(value);
                      }

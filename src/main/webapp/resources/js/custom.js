@@ -1344,8 +1344,39 @@ function ifSelected(id,idRemove) {
 
 }
 
+/** Form Translation **/
+function fmTranslation(key){
+	return getBundle(getBundleLanguage, key);
+}
+
 function addFormBeneficiary (counter) {
-	
+
+	var fm_label_eng_name	= fmTranslation('beneficiary.lable.eng.name');
+	var fm_label_given_name	= fmTranslation('beneficiary.lable.given.name');
+	var fm_label_last_name	= fmTranslation('beneficiary.lable.last.name');
+	var fm_label_chi_name	= fmTranslation('beneficiary.lable.chi.name');
+	var fm_label_hkid_passport = fmTranslation('beneficiary.lable.hkid.and.passport');
+	var fm_label_gender	= fmTranslation('beneficiary.label.gender');
+	var fm_label_relationship	= fmTranslation('beneficiary.label.relationship');
+	var fm_label_entitlement	= fmTranslation('beneficiary.label.entitlement');
+	var fm_label_optional	= fmTranslation('beneficiary.label.optional');
+	var fm_placeholder_eng_name	= fmTranslation('beneficiary.placeholder.eng.name');
+	var fm_placeholder_given_name	= fmTranslation('beneficiary.placeholder.given.name');
+	var fm_placeholder_last_name	= fmTranslation('beneficiary.placeholder.last.name');
+	var fm_placeholder_chi_name	= fmTranslation('beneficiary.placeholder.chi.name');
+	var fm_placeholder_hkid	= fmTranslation('beneficiary.placeholder.hkid');
+	var fm_placeholder_passport	= fmTranslation('beneficiary.placeholder.passport');
+	var fm_option_hkid = fmTranslation('beneficiary.option.hkid');
+	var fm_option_passport = fmTranslation('beneficiary.option.passport');
+	var fm_option_male	= fmTranslation('beneficiary.option.male');
+	var fm_option_female	= fmTranslation('beneficiary.option.female');
+	var fm_option_select	= fmTranslation('beneficiary.option.select');
+	var fm_action_remove	= fmTranslation('beneficiary.action.remove');
+	var fm_error_dup_eng_name	= fmTranslation('beneficiary.error.duplicate.english.name');
+	var fm_error_dup_chi_name	= fmTranslation('beneficiary.error.duplicate.chinese.name');
+	var fm_error_dup_hkid	= fmTranslation('beneficiary.error.duplicate.hkid');
+	var fm_error_dup_passport	= fmTranslation('beneficiary.error.duplicate.passport');
+
 	//$('<div class="page-divider page-divider-margin hidden-md hidden-lg"></div>').appendTo("#add-beneficiary-"+counter);
 	
 	var counterPlus = parseInt(counter)+1;
@@ -1354,66 +1385,66 @@ function addFormBeneficiary (counter) {
 
 	$('<div class="form-group beneficiary-info-row" >'
 		+'<h3 class="mobile-desc hidden-md hidden-lg">Beneficiary <span>(Person '+ counterPlus +')</span></h3>'
-		+ '<div class="clearfix hidden-xs hidden-sm"><div class="pull-right"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>Remove Beneficiary</button></div></div>'
-		+ '<label for="savieBeneficiaryBean['+counter+'].firstName">Name in English</label>'
+		+ '<div class="clearfix hidden-xs hidden-sm"><div class="pull-right"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>' + fm_action_remove + '</button></div></div>'
+		+ '<label for="savieBeneficiaryBean['+counter+'].firstName">' + fm_label_eng_name + '</label>'
 		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].fullName" hidden>'
-		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].firstName" name="savieBeneficiaryBean['+counter+'].firstName" onchange="getBeneficiaryFullName'+counter+'()" class="form-control gray-textbox form-textbox" placeholder="Given name" maxlength="25">'
+		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].firstName" name="savieBeneficiaryBean['+counter+'].firstName" onchange="getBeneficiaryFullName'+counter+'()" class="form-control gray-textbox form-textbox" placeholder="' + fm_label_given_name + '" maxlength="25">'
 		+ '<span class="error-msg" id="beneficiaryFnameMessage['+counter+']"></span>'
-		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].lastName" name="savieBeneficiaryBean['+counter+'].lastName" onchange="getBeneficiaryFullName'+counter+'()" class="form-control gray-textbox form-textbox" placeholder="Last name" maxlength="25">'
+		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].lastName" name="savieBeneficiaryBean['+counter+'].lastName" onchange="getBeneficiaryFullName'+counter+'()" class="form-control gray-textbox form-textbox" placeholder="' + fm_label_last_name + '" maxlength="25">'
 		+ '<span class="error-msg" id="beneficiaryLnameMessage['+counter+']"></span>'
-		+ '<span class="dup-error-msg hidden" id="duplicate-english-name['+counter+']">Duplicate English Name</span>'
+		+ '<span class="dup-error-msg hidden" id="duplicate-english-name['+counter+']">' + fm_error_dup_eng_name + '</span>'
 		+ '</div>'
 
 		+ '<div class="form-group beneficiary-info-row">'
-		+ '<label for="savieBeneficiaryBean['+counter+'].chineseName">Name in Chinese <span class="optional">(optional)</span></label>'
-		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].chineseName" name="savieBeneficiaryBean['+counter+'].chineseName" class="form-control gray-textbox form-textbox" placeholder="Name in Chinese">'
+		+ '<label for="savieBeneficiaryBean['+counter+'].chineseName">' + fm_label_chi_name + '<span class="optional">' + fm_label_optional + '</span></label>'
+		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].chineseName" name="savieBeneficiaryBean['+counter+'].chineseName" class="form-control gray-textbox form-textbox" placeholder="' + fm_placeholder_chi_name + '">'
 		+ '<span class="error-msg" id="beneficiaryChineseNameMessage['+counter+']"></span>'
-		+ '<span class="dup-error-msg hidden" id="duplicate-chinese-name['+counter+']">Duplicate Chinese Name</span>'
+		+ '<span class="dup-error-msg hidden" id="duplicate-chinese-name['+counter+']">' + fm_error_dup_chi_name + '</span>'
 		+ '</div>'
 
 		+'<div class="form-group beneficiary-info-row">'
-		+'<label for="savieBeneficiaryBean['+counter+'].hkId">HKID / Passport No</label>'
+		+'<label for="savieBeneficiaryBean['+counter+'].hkId">' + fm_label_hkid_passport + '</label>'
 		+'<div class="clearfix et-hkid-pass">'
 		+'<div class="pull-left select">'
 		+'<div class="selectDiv">'
 		+'<span class="icon-chevron-thin-down orange-caret"></span>'
 		+'<select class="form-control gray-dropdown" id="beneficiaryHkidPassport['+counter+']">'
-		+'<option selected value="HKID">HKID</option>'
-		+'<option value="Passport">Passport No</option>'	
+		+'<option selected value="HKID">' + fm_option_hkid + '</option>'
+		+'<option value="Passport">' + fm_option_passport + '</option>'	
 		+'</select>'
 		+'</div>'
 		+'</div>'
 		+'<div class="pull-left input">'
-		+'<input class="form-control gray-textbox capitalize" type="text" placeholder="HKID/Passport No" id="savieBeneficiaryBean['+counter+'].hkId" name="savieBeneficiaryBean['+counter+'].hkId" value="">'
-		+'<input class="form-control gray-textbox hidden" type="text" placeholder="HKID/Passport No" id="savieBeneficiaryBean['+counter+'].passportNo" name="savieBeneficiaryBean['+counter+'].passportNo" value="">'
+		+'<input class="form-control gray-textbox capitalize" type="text" placeholder="' + fm_placeholder_hkid + '" id="savieBeneficiaryBean['+counter+'].hkId" name="savieBeneficiaryBean['+counter+'].hkId" value="">'
+		+'<input class="form-control gray-textbox hidden" type="text" placeholder="' + fm_placeholder_passport + '" id="savieBeneficiaryBean['+counter+'].passportNo" name="savieBeneficiaryBean['+counter+'].passportNo" value="">'
 		+'</div>'
 		+'</div>'
 		+'<span class="error-msg" id="bnfPassportMessage['+counter+']"></span>'
 		+'<span class="error-msg" id="hkidOrPassportMessage['+counter+']"></span>'
-		+'<span class="dup-error-msg hidden" id="duplicate-beneficiaries['+counter+']">Duplicate Beneficiaries HKID</span>'
-		+'<span class="dup-error-msg hidden" id="duplicate-beneficiariesPAssport['+counter+']">Duplicate Beneficiaries Passport</span>'
+		+'<span class="dup-error-msg hidden" id="duplicate-beneficiaries['+counter+']">' + fm_error_dup_hkid + '</span>'
+		+'<span class="dup-error-msg hidden" id="duplicate-beneficiariesPAssport['+counter+']">' + fm_error_dup_passport + '</span>'
 		+'</div>'
 		
 		+ '<div class="beneficiary-info-row">'
-		+ '<label for="savieBeneficiaryBean['+counter+'].gender">Gender</label>'
+		+ '<label for="savieBeneficiaryBean['+counter+'].gender">' + fm_label_gender + '</label>'
 		+ '<div id="gender-'+counter+'" class="clearfix radio-buttons">'
 		+ '<input type="radio" name="savieBeneficiaryBean['+counter+'].gender" value="male" id="male-'+counter+'" checked>'
 		+ '<label for="male-'+counter+'" class="male" >'
-		+ '<span class="hidden-lg hidden-md">Male</span>'
+		+ '<span class="hidden-lg hidden-md">' + fm_option_male + '</span>'
 		+ '<span class="orange-hover hidden-xs hidden-sm pull-left"></span>'
 		+ '</label>'
-		+ '<span id="male-label-'+counter+'" class="pull-left second-label hidden-xs hidden-sm">Male</span>'
+		+ '<span id="male-label-'+counter+'" class="pull-left second-label hidden-xs hidden-sm">' + fm_option_male + '</span>'
 		+ '<input type="radio" name="savieBeneficiaryBean['+counter+'].gender" value="female" id="female-'+counter+'">'
 		+ '<label for="female-'+counter+'" class="female">'
-		+ '<span class="hidden-lg hidden-md">Female</span>'
+		+ '<span class="hidden-lg hidden-md">' + fm_option_female + '</span>'
 		+ '<span class="orange-hover hidden-xs hidden-sm pull-left"></span>'
 		+ '</label>'
-		+ '<span id="female-label-'+counter+'" class="pull-left second-label-female hidden-xs hidden-sm">Female</span>'
+		+ '<span id="female-label-'+counter+'" class="pull-left second-label-female hidden-xs hidden-sm">' + fm_option_female + '</span>'
 		+ '</div>'
 		+ '</div>'
 		
 		+ '<div class="form-group beneficiary-info-row relationship">'
-		+ '<label for="savieBeneficiaryBean['+counter+'].relationship">Relationship with you</label>'
+		+ '<label for="savieBeneficiaryBean['+counter+'].relationship">' + fm_label_relationship + '</label>'
 		+ '<div class="selectBeneficiary">'
 		+ '<span class="icon-chevron-thin-down orange-caret"></span>'
 		+ '<select class="form-control gray-dropdown"  id="savieBeneficiaryBean['+counter+'].relationship" name="savieBeneficiaryBean['+counter+'].relationship" data-style="application-select">'
@@ -1426,10 +1457,10 @@ function addFormBeneficiary (counter) {
 		+ '</div>'
 		
 		+ '<div class="form-group beneficiary-info-row entitle">'
-		+ '<label for="savieBeneficiaryBean['+counter+'].entitlement">Entitlement (%)</label>'
+		+ '<label for="savieBeneficiaryBean['+counter+'].entitlement">' + fm_label_entitlement + '</label>'
 		+ '<input type="number" id="savieBeneficiaryBean['+counter+'].entitlement" name="savieBeneficiaryBean['+counter+'].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="" min="0">'
 		+ '<span class="error-msg" id="entitlementMessage['+counter+']"></span>'
-		+ '<div class="clearfix hidden-md hidden-lg"><div class="pull-left"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>Remove Beneficiary</button></div></div>'
+		+ '<div class="clearfix hidden-md hidden-lg"><div class="pull-left"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>' + fm_action_remove + '</button></div></div>'
 		+ '</div>'
 		).appendTo("#add-beneficiary-"+counter+" .content");
 	
