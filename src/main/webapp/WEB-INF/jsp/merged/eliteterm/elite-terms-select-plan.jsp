@@ -1053,7 +1053,9 @@ var home_url = "<%=request.getContextPath()%>";
                      <!--Beneficiary info Widget-->
                      <div id="beneficiary-info" class="page-application container-fluid fwd-container et-beneficiaries-section">
                         <div class="beneficiary-info-header">
-                           <h2 class="text-center"><fmt:message key="eliteTerms.selectPlan.Beneficiary.info" bundle="${msg}" /> <button type="button" class="tooltip-button btn-beneficiary-tooltip" title="<fmt:message key="eliteTerms.selectPlan.Beneficiary.info" bundle="${msg}" />"><span class="info-tooltip"></span></button></h2>
+                           <h2 class="text-center">
+                              <fmt:message key="eliteTerms.selectPlan.Beneficiary.info" bundle="${msg}" /> 
+                              <!-- Beneficiary tooltip Disabled-- <button type="button" class="tooltip-button btn-beneficiary-tooltip" title="<fmt:message key="eliteTerms.selectPlan.Beneficiary.info" bundle="${msg}" />"><span class="info-tooltip"></span></button></h2>-->
                            <h4 class="text-center"><fmt:message key="eliteTerms.selectPlan.You.can.add.up" bundle="${msg}" /></h4>
                         </div>
                            <div class="row clearfix">
@@ -1933,10 +1935,15 @@ var home_url = "<%=request.getContextPath()%>";
                                <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
                            </div>
                            <span id="errPromoEmail" class="text-red"></span>
-                           <div>
-                              <button type="submit" onclick="getPromoteCode()" class="btn next"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
+                           <br>
+                           <div class="row">
+                              <div class="col-lg-6 col-md-6">
+                                 <button type="submit" onclick="getPromoteCode()" class="btn next bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="eliteTerms.selectPlan.Submit" bundle="${msg}" /></button>
+                              </div>
+                              <div class="col-lg-12 col-md-12">
+                                 <p><fmt:message key="eliteTerms.selectPlan.By.submitting.my" bundle="${msg}" /></p>
+                              </div>
                            </div>
-                           <p><fmt:message key="eliteTerms.selectPlan.By.submitting.my" bundle="${msg}" /></p>
                         </div>
                    </form>
                    </div>
