@@ -56,6 +56,38 @@
 	/* Legacy iOS */
 }
 
+/**
+**  Generic Font Family
+**/
+body {
+	font-family: Calibri, sans-serif !important;
+}
+
+body .bold{
+	font-family: 'Calibri-bold', Calibri, sans-serif !important;
+}
+
+body.chin, 
+body.chin .bold{
+	font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+}
+
+::-webkit-input-placeholder {
+	font-family: Calibri, sans-serif !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+	font-family: Calibri, sans-serif !important;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+	font-family: Calibri, sans-serif !important;
+}
+
+:-ms-input-placeholder {
+	font-family: Calibri, sans-serif !important;
+}
+
 /*ET fix*/
 .container-fluid {
 	margin-right: auto;
@@ -72,7 +104,6 @@
 /* line 1, ../sass/partials/_common.scss */
 body {
 	font-size: 18px;
-	font-family: 'Calibri', Arial;
 	position: relative;
 }
 /* line 9, ../sass/partials/_common.scss */
@@ -3022,7 +3053,7 @@ body.chin .fwd-savie-wrapper .banner-widget .buy-now {
 .fwd-savie-wrapper .breadcrumbs {
 	display: none;
 	text-align: left;
-	font-family: 'foco_bold';
+	//font-family: 'foco_bold';
 	font-size: 18px;
 }
 

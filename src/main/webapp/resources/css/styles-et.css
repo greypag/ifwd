@@ -1,3 +1,110 @@
+/**
+**  Generic Font Family
+**/
+body {
+	font-family: Calibri, sans-serif !important;
+}
+
+body .bold{
+	font-family: 'Calibri-bold', Calibri, sans-serif !important;
+}
+
+body.chin, 
+body.chin .bold{
+	font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+}
+
+::-webkit-input-placeholder {
+	font-family: Calibri, sans-serif !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+	font-family: Calibri, sans-serif !important;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+	font-family: Calibri, sans-serif !important;
+}
+
+:-ms-input-placeholder {
+	font-family: Calibri, sans-serif !important;
+}
+
+/* ET Chinese Font */
+body.chin .fwd-savie-wrapper .three-column-widget a,
+body.chin .fwd-savie-wrapper .three-column-widget a:focus,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-before-we-start label.et-before-we-start-yes,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-about-urself label.et-before-we-start-yes,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option label.et-before-we-start-yes,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-before-we-start label.et-before-we-start-no,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-about-urself label.et-before-we-start-no,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option label.et-before-we-start-no,
+body.chin .fwd-savie-wrapper .btn-orange,
+body.chin .fwd-savie-wrapper .btn-white,
+body.chin .fwd-savie-wrapper button.next,
+body.chin .fwd-savie-wrapper a.next,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option .et-promocode,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option-extra-info .et-extra-info span.et-amount,
+body.chin .et-po-amount-label,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option-extra-info .et-extra-info p.et-amount,
+body.chin .fwd-savie-wrapper .container-fluid.fwd-container .et-plan-option-extra-info .et-extra-info p.et-per,
+body.chin .fwd-savie-wrapper .et-accrdn-list .panel-group .panel.et-panel-accordion .et-panel-heading a.et-collapse-link,
+body.chin .fwd-savie-wrapper .et-accrdn-list .jspPane p.et-accrdion-txt-normal,
+body.chin .fwd-savie-wrapper .et-accrdn-list .jspPane p.et-accrdion-txt-bold,
+body.chin .et-medic-panel .panel-collapse,
+body.chin .et-btn-medic,
+body.chin .fwd-savie-wrapper .personal-info-widget,
+body.chin .fwd-savie-wrapper .page-application .page-application-page-input-text.et-input-label span,
+body.chin .fwd-savie-wrapper .personal-info-widget .left-desktop.text-box span.warning-note,
+body.chin .fwd-savie-wrapper .personal-info-widget .checkbox-section .pull-left.right-checkbox span.checkbox-text,
+body.chin .fwd-savie-wrapper .page-application .form-control.gray-textbox,
+body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown,
+body.chin .et-app-edit,
+body.chin .bv-form .help-block,
+body.chin .fwd-savie-wrapper .personal-info-widget .has-error .help-block,
+body.chin .fwd-savie-wrapper #employment-info .content .employment-info-row label,
+body.chin .fwd-savie-wrapper #beneficiary-info .content .beneficiary-info-row .second-label,
+body.chin .fwd-savie-wrapper #beneficiary-info .content .beneficiary-info-row .second-label-female,
+body.chin .fwd-savie-wrapper #beneficiary-info .content .beneficiary-info-row .second-label-estate,
+body.chin .fwd-savie-wrapper #beneficiary-info .content .beneficiary-info-row .second-label-estate-others,
+body.chin .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.fatca-desc,
+body.chin .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.pics-desc,
+body.chin .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.cancellation-desc,
+body.chin .fwd-savie-wrapper .declare-authorize .agreement-description .policy-desc,
+body.chin .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.yes-policy-replace-desc,
+body.chin .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.marketing-info-desk,
+body.chin .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.personal-data-desc,
+body.chin #application-summary .container-fluid .summary-content .summary-body .fwd-checkbox ul,
+body.chin .fwd-savie-wrapper .signature span.span-text-img,
+body.chin .et-payment .page-header p.amount-holder,
+body.chin .et-payment .page-content .page-content-item label,
+body.chin .et-payment .page-content .page-content-item .fwd-checkbox p.notice,
+body.chin .et-payment .page-content .page-content-item .fwd-checkbox #application-registration form p.notice-password,
+body.chin #application-registration form .et-payment .page-content .page-content-item .fwd-checkbox p.notice-password,
+body.chin .et-ud-payment-note-head,
+body.chin .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.upload-now span.desktop-text,
+body.chin .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.upload-later span.desktop-text,
+body.chin .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.give-at-store span.desktop-text,
+body.chin .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.upload-now p,
+body.chin .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.upload-later p,
+body.chin .fwd-savie-wrapper .document-upload .clearfix.document-upload-rd-btn .pull-left.give-at-store p,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .pull-left.residence-text,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file .select-file-section .desk,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file-passport .select-file-section .desk,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file-hkid .select-file-section .desk,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file span.OR,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file-passport span.OR,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file-hkid span.OR,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file label span.input-file-text,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file-passport label span.input-file-text,
+body.chin .fwd-savie-wrapper .document-upload .upload-now-section .select-file-hkid label span.input-file-text,
+body.chin .et-document-upload p.notice, .et-document-upload #application-registration form p.notice-password,
+body.chin #application-registration form .et-document-upload p.notice-password,
+body.chin #etConfirm .et-submit button
+{
+	font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+}
+
 /* ET Shared */
 .hide,
 .hide-element {
