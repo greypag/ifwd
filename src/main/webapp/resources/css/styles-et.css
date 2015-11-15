@@ -25,6 +25,15 @@
 	padding-bottom: 0px;
 }
 
+/* FWD Buttons DIV wrapper*/
+.fwd-orange-btn-center-wrapper{
+	margin: 20px auto 0;
+	text-align: center;
+	display: inline-block;
+	float: none;
+
+}
+
 .fwd-et-wrapper .et-panel-accordion li{
 	/* Accordion Copy*/
 	margin-bottom: 15px;

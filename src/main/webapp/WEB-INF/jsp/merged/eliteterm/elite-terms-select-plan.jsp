@@ -2060,11 +2060,15 @@ var home_url = "<%=request.getContextPath()%>";
          <div id="back-to-home-modal" class="modal fade fwd-generic-modal back-to-home" role="dialog" data-keyboard="false" data-backdrop="static">
             <div class="modal-dialog">
                 <div class="modal-content" align="center">
-                  <div class="modal-body" style="color:#fc6d08">
-                     <p><fmt:message key="eliteTerms.selectPlan.successfully.submitted" bundle="${msg}" /></p>	
-                  </div>
-                  <div>
-                     <button type="button" class="btn btn-orange et-next-btn et-pad-bot-50" id="et-select-plan-go-homepage" data-dismiss="modal"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button>
+                  <div class="modal-body form-container" style="color:#fc6d08">
+                     <div class="row">
+                        <h2><fmt:message key="eliteTerms.selectPlan.successfully.submitted" bundle="${msg}" /></h2>	
+                     </div>
+                     <div class="row">
+                        <div class="col-lg-6 col-md-6 fwd-orange-btn-center-wrapper">
+                           <button type="button" class="btn next bdr-curve btn btn-primary btn-lg wd5" id="et-select-plan-go-homepage" data-dismiss="modal"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button>
+                        </div>
+                     </div>
                   </div>
                </div>
 
