@@ -168,7 +168,7 @@ var languageP = "${language}";
 									</div>
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Name.on.credit.card" bundle="${msg}" /></label>
-										<input type="text" class="form-control gray-textbox desktop-half" placeholder="<fmt:message key="eliteTerms.payment.Name.on.credit.card.placeholder" bundle="${msg}" />" value="" id="card-name" autocomplete="off" name="cardHolder" onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');">
+										<input type="text" class="form-control gray-textbox desktop-half" placeholder="<fmt:message key="eliteTerms.payment.Name.on.credit.card.placeholder" bundle="${msg}" />" value="" id="card-name" autocomplete="off" name="cardHolder" onblur="replaceAlphaEx2(this); chkNotNullCreditCareName(this, 'errname');">
 									    <span id="errname" class="error-msg"></span>
 									</div>
 									<div class="page-content-item">

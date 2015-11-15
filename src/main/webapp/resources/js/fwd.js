@@ -4100,6 +4100,14 @@ function replaceAlpha(id) {
 	id.value = string;
 }
 
+/* ReplaceAplha version 2.
+*  Customed for credit card name field to accept '.'
+*/
+function replaceAlphaEx2(id) {
+	var string = id.value;
+	string = string.replace(/[^\sa-zA-Z.]/g, '');
+	id.value = string;
+}
 /* flight page apply for no button validation */
 
 
