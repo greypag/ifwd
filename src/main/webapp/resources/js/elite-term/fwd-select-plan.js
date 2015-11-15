@@ -1688,7 +1688,7 @@
             beneInfoData.second.enLName ? $('#etasbi-en-lname-2').text(beneInfoData.second.enLName) : '';
             beneInfoData.second.chName ? $('#etasbi-ch-name-2').text(beneInfoData.second.chName) : '';
             var hkidPassValue = beneInfoData.second.hkid ? beneInfoData.second.hkid : beneInfoData.second.passNo;
-            (beneInfoData.second.hkid || beneInfoData.first.passNo) ? $('#etasbi-hkid-pass-2').text(hkidPassValue) : '';
+            (beneInfoData.second.hkid || beneInfoData.second.passNo) ? $('#etasbi-hkid-pass-2').text(hkidPassValue) : '';
             beneInfoData.second.relationship ? $('#etasbi-relationship-2').text(capitalizeFirstLetter(beneInfoData.second.relationship)) : '';
             beneInfoData.second.gender ? $('#etasbi-gender-2').text(beneInfoData.second.gender) : '';
             beneInfoData.second.entitlement ? $('#etasbi-entitlement-2').text('Person 2: ' + beneInfoData.second.entitlement + '%') : '';

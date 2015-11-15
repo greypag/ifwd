@@ -549,8 +549,8 @@ $(function() {
 	               container: '#bnfPassportMessage\\[1\\]',
 	               validators: {
 	                  stringLength: {
-                           min: 1,
-                           max: 6,
+                           min: 5,
+                           max: 15,
                            message: getBundle(getBundleLanguage, "form.beneficiary.passport.length")
                        },
 	                  notEmpty: {
