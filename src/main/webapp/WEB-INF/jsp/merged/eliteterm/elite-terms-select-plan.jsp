@@ -689,7 +689,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                  </div>
                                  
-                                 <div class="clearfix form-group has-error hidden-xs hidden-sm">
+                                 <div class="clearfix form-group has-error">
                                     <div class="left-desktop right-description">
                                        <label for="savieApplicantBean.emailAddress" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" /></label>
                                     </div>
