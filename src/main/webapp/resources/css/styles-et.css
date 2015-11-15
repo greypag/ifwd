@@ -337,6 +337,11 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
 	}
 }
 
+/* Beneficiary Form */
+.fwd-savie-wrapper #beneficiary-info.et-beneficiaries-section .selectDiv select{
+	color: #000;
+}
+
 
 /* Declarations */
 .fwd-et-wrapper .policy-replacement-remarks{

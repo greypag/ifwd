@@ -654,6 +654,14 @@ $(function() {
 					$('#savieBeneficiaryBean\\[1\\]\\.passportNo').addClass('hidden');
 				}
 			});
+			// Select list color
+			$('#beneficiaryInfoForm\\[1\\] select').on('change', function(){
+				if( $(this).val() ){
+					$(this).css('color', '#000');
+				} else {
+					$(this).css('color', '#ccc');
+				}
+			});
 		});
 		$("#add-beneficiary-button-3").click(function(){
 			$("#add-beneficiary-2 .add-beneficiary" ).addClass("hidden");
@@ -676,6 +684,15 @@ $(function() {
 					else {
 						$('#savieBeneficiaryBean\\[2\\]\\.hkId').removeClass('hidden');
 						$('#savieBeneficiaryBean\\[2\\]\\.passportNo').addClass('hidden');
+					}
+				});
+
+				// Select list color
+				$('#beneficiaryInfoForm\\[2\\] select').on('change', function(){
+					if( $(this).val() ){
+						$(this).css('color', '#000');
+					} else {
+						$(this).css('color', '#ccc');
 					}
 				});
 		});
@@ -1409,6 +1426,7 @@ function addFormBeneficiary (counter) {
 		+'<div class="selectDiv">'
 		+'<span class="icon-chevron-thin-down orange-caret"></span>'
 		+'<select class="form-control gray-dropdown" id="beneficiaryHkidPassport['+counter+']">'
+		+'<option disabled value="">' + fm_option_select + '</option>'
 		+'<option selected value="HKID">' + fm_option_hkid + '</option>'
 		+'<option value="Passport">' + fm_option_passport + '</option>'	
 		+'</select>'

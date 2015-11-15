@@ -1116,6 +1116,7 @@ var home_url = "<%=request.getContextPath()%>";
                                              <div class="selectDiv">
                                                 <span class="icon-chevron-thin-down orange-caret"></span>
                                                 <select class="form-control gray-dropdown" id="beneficiaryHkidPassport[0]">
+                                                   <option disabled value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                                    <option selected value="HKID"><fmt:message key="eliteTerms.selectPlan.HKID.short" bundle="${msg}" /></option>
                                                    <option value="Passport"><fmt:message key="eliteTerms.selectPlan.Passport.No" bundle="${msg}" /></option>	
                                                 </select>
