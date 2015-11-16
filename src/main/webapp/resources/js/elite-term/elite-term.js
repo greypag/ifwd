@@ -708,18 +708,18 @@ function stickApplicationOrangeBar() {
         var $topBar = $('.top-bar');
         var $mobNavbar = $('.navbar.navbar-default.pad-none');
         var $navbar = $('.navbar-menu').length ? $('.navbar-menu') : ((getWidth() >= 992) ? $('.navbar-inverse:first') : $('.logobox'));
-        
 		if ($(window).scrollTop() >= $navbar.height()) {
 			$bar.addClass('sticky-bar');
 			$bar.css('top', $topBar.height() + 'px');
 			$mobBar.addClass('et-docu');
             if (getWidth() < 992) {
                 $mobBar.css({
-                   'position' : 'fixed',
+                   //'position' : 'fixed',
                    'width' : '100%',
                    'z-index': 10
                 });
-                $bar.css('top', $mobBar.height() + 'px');
+                //$bar.css('top', $mobBar.height() + 'px');
+                $bar.css('top', $navbar.height() + 'px');
                 $mobBar.css('top', '0px');
                 
                 if ($('.et-document-upload').length > 0 ) {

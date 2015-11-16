@@ -1243,11 +1243,12 @@ function stickApplicationOrangeBar() {
             if (getWidth() < 992) {
             	//$bar.removeClass('sticky-bar');
                 $mobBar.css({
-                   'position' : 'fixed',
+                   //'position' : 'fixed',
                    'width' : '100%',
                    'z-index': 10
                 });
-                $bar.css('top', $mobBar.height() + 'px');
+                //$bar.css('top', $mobBar.height() + 'px');
+                $bar.css('top', $navbar.height() + 'px');
                 //$mobNavbar.removeClass('navbar-fixed-top');
                 //$mobBar.addClass('navbar-fixed-top');
                 $mobBar.css('top', '0px');
