@@ -21,7 +21,7 @@ public class ImgUtil {
 			String imgMaxRatio = UserRestURIConstants.getProperties("imgMaxRatio");
 			int width = bufferedImage.getWidth();   
 		    int height = bufferedImage.getHeight(); 
-		    double ratio = width/height;
+		    double ratio = width*1.0/height;
 		    if(ratio > Integer.valueOf(imgMaxRatio) || ratio < 1.0/Integer.valueOf(imgMaxRatio)){
 		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.length.width",request));
 		    }
