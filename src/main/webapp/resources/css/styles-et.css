@@ -1,3 +1,4 @@
+
 /**
 **  Generic Font Family
 **/
@@ -106,6 +107,38 @@ body.chin #etConfirm .et-submit button
 	font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
 }
 
+/* Take leaves from bootstrap */
+.visible-xs-inline, .visible-xs-inline-block,
+.visible-sm-inline, .visible-sm-inline-block{
+	display: none !important;
+}
+
+.visible-md-inline,
+.visible-lg-inline{
+	display: inline !important;
+}
+
+.visible-md-inline-block,
+.visible-lg-inline-block{
+	display: inline-block !important;
+}
+
+@media(max-width:767px){
+	.visible-xs-inline,
+	.visible-sm-inline{
+		display: inline !important;
+	}
+	.visible-xs-inline-block,
+	.visible-sm-inline-block{
+		display: inline-block !important;
+	}
+
+	.visible-md-inline, .visible-md-inline-block,
+	.visible-lg-inline, .visible-lg-inline-block{
+		display: none !important;
+	}
+}
+
 /* ET Shared */
 .hide,
 .hide-element {
@@ -149,6 +182,10 @@ body.chin #etConfirm .et-submit button
 
 .et-panel-accordion .panel-collapse .accordion-copy{
 	margin-bottom: 20px;
+}
+
+.et-panel-accordion .et-panel-body ol li{
+	padding-right: 60px;
 }
 
 .et-remarks-wrapper{
@@ -338,11 +375,25 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
 	}
 }
 
+/* Application Form */
+.fwd-et-wrapper .personal-info-widget .checkbox-section .pull-left.left-checkbox{
+	/* Residency Address Checkbox position*/
+	top: 64px;
+}
+
+/* Employment Status */
+#etEmploymentInfoForm .help-block{
+	margin-bottom: 0;
+}
+
 /* Beneficiary Form */
-.fwd-savie-wrapper #beneficiary-info.et-beneficiaries-section .selectDiv select{
+.fwd-et-wrapper #beneficiary-info.et-beneficiaries-section .selectDiv select{
 	color: #000;
 }
 
+.fwd-et-wrapper #beneficiary-info .content h3.mobile-desc{
+	margin: 20px 0 10px;
+}
 
 /* Declarations */
 .fwd-et-wrapper .policy-replacement-remarks{
@@ -352,8 +403,21 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
     line-height: 16px;
 }
 
+#et-application-second-section .text-red{
+	display: block;
+	font-size: 14px;
+}
+
 .fwd-et-wrapper .declare-authorize .agreement-description .pull-left.policy-replace-desc{
 	width: 40%;
+}
+
+
+/* Signature */
+#signature-section .error-signature{
+	width: 60%;
+	margin: 0 auto;
+	text-align: center;
 }
 
 /* Document Upload */
@@ -426,6 +490,15 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
 
 #cannot-apply-modal .modal-header button{
 	top: -10px;
+}
+
+@media(max-width: 767px){
+	#cannot-apply-modal .modal-body form .input-items .error-msg,
+	#customer-service-modal .modal-body form .input-items .error-msg {
+		float: left;
+		width: 100%;
+		margin-bottom: 0;
+	}
 }
 
 /* */

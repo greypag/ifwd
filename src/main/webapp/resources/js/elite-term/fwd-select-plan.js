@@ -687,6 +687,9 @@
                if ($("#signature").jSignature('getData', 'native').length) {
                   $self.siblings('.correct-signature')
                         .removeClass('hide-element');
+
+                  $('#signature-section .fwd-error-red .help-block').html('').css('display', 'none');
+
                } else {
                   $self.siblings('.correct-signature')
                         .addClass('hide-element');
@@ -726,14 +729,14 @@
                container: '#savieApplicantBeanFirstNameMsg',
                validators: {
                   notEmpty: {
-                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Given.Name.in.English")
+                     message: getBundle(getBundleLanguage, "error.given.name.empty")
                   },
                   stringLength: {
                      max: 25,
                      message: getBundle(getBundleLanguage, "et.selectPlan.Given.Name.must.be.no.more.than.25.characters")
                   },
                   regexp: {
-                     regexp: /^[a-zA-Z\s]*$/,
+                     regexp: /^[a-zA-Z\s,]*$/,
                      message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Given.Name.in.English")
                   },
                   callback: {
@@ -748,11 +751,11 @@
                container: '#savieApplicantBeanlastNameMsg',
                validators: {
                   notEmpty: {
-                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Last.Name.in.English")
+                     message: getBundle(getBundleLanguage, "error.last.name.empty")
                   },
                   stringLength: {
                      max: 25,
-                     message: getBundle(getBundleLanguage, "et.selectPlan.Given.Name.must.be.no.more.than.25.characters")
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Last.Name.must.be.no.more.than.25.characters")
                   },
                   regexp: {
                      regexp: /^[a-zA-Z\s]*$/,
@@ -775,7 +778,7 @@
                   },
                   regexp: {
                      regexp: /^[\s\u4e00-\u9eff]*$/,
-                     message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Name.in.Chinese")
+                     message: getBundle(getBundleLanguage, "error.chinese.name.invalid")
                   }
                }
             },
@@ -837,6 +840,10 @@
                       max: 8,
                       message: getBundle(getBundleLanguage, "member.telNo.notValidLength.message")
                    },
+                   regexp: {
+                      regexp: /^1[0-9]{10}$|^[235689][0-9]{7}$/,
+                      message: getBundle(getBundleLanguage, "et.selectPlan.Invalid.Mobile.number")
+                   }
                }
             },
             "savieApplicantBean.mobileNo": {
@@ -853,6 +860,10 @@
                       max: 8,
                       message: getBundle(getBundleLanguage, "member.mobileNo.notValidLength.message")
                    },
+                   regexp: {
+                      regexp: /^1[0-9]{10}$|^[5689][0-9]{7}$/,
+                      message: getBundle(getBundleLanguage, "et.selectPlan.Invalid.Mobile.number")
+                   }
                }
             },
             "savieApplicantBean.emailAddress": {
@@ -1159,7 +1170,7 @@
       
       // Employment Info
       $('#etEmploymentInfoForm').bootstrapValidator({
-         fields: {
+          fields: {
             "savieEmploymentBean.employmentStatus": {
                container: '#employmentStatusMessage',
                validators: {
@@ -1173,6 +1184,14 @@
                validators: {
                   notEmpty: {
                      message: getBundle(getBundleLanguage, "form.employment.occupation.empty")
+                  }
+               }
+            },
+            "savieEmploymentBean.sourceOfIncome": {
+               container: '#sourceOfIncome',
+               validators: {
+                  notEmpty: {
+                     message: getBundle(getBundleLanguage, "form.sourceOfIncome.empty")
                   }
                }
             },
@@ -1365,6 +1384,13 @@
          $('.et-emp-info-occupation-container').removeClass('hidden');
          $('.et-emp-info-employer-name-container').removeClass('hidden');
          $('.et-emp-info-mon-income-container').removeClass('hidden');
+
+         //Reset fields
+         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.natureOfBusiness', true)
+         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.occupation', true)
+         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.currentEmployerName', true)
+         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.monthlyPersonalIncome', true)
+         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.educationLevel', true)
       }
       else {
          $('.et-emp-info-nat-business-container').addClass('hidden');
@@ -1373,6 +1399,10 @@
          $('.et-emp-info-mon-income-container').addClass('hidden');
          $('.et-emp-info-sourceOfIncome-container').removeClass('hidden');
          $('.et-emp-info-liq-assets-container').removeClass('hidden');
+
+         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.sourceOfIncome', true)
+         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.liquidAssets', true)
+         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.educationLevel', true)
       }
       
       $('#savieEmploymentBean\\.natureOfBusiness').prop('selectedIndex', 0).css('color', 'rgb(196, 195, 195)');
@@ -1382,7 +1412,7 @@
       $('#savieEmploymentBean\\.monthlyPersonalIncome').prop('selectedIndex', 0).css('color', 'rgb(196, 195, 195)');
       $('#savieEmploymentBean\\.sourceOfIncome').prop('selectedIndex', 0).css('color', 'rgb(196, 195, 195)');
       $('#savieEmploymentBean\\.educationLevel').prop('selectedIndex', 0).css('color', 'rgb(196, 195, 195)');
-      $('#etEmploymentInfoForm').find('.error-msg .help-block').css('display', 'none');
+      //$('#etEmploymentInfoForm').find('.error-msg .help-block').css('display', 'none');
    });
    
    // Determine if the previous question was answered

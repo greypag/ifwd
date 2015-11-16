@@ -238,7 +238,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        </span>
                                        <span>
                                           <button type="button" class="et-minimal et-promo-code-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Promo.code.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-question-tooltip"></span></button>
-                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/orange-caret.png" class="reversed">
+                                          <img src="<%=request.getContextPath()%>/resources/images/elite-terms/orange-caret.png" class="reversed visible-xs-inline visible-sm-inline">
                                        </span>
                                     </h3>
                                  </div>
@@ -957,7 +957,7 @@ var home_url = "<%=request.getContextPath()%>";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.sourceOfIncome" name="savieEmploymentBean.sourceOfIncome" data-style="application-select">
-                                       <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+                                       <option selected disabled value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                            <c:if test="${language == 'en'}">
                                                 <c:forEach var="list" items="${etAmountOtherSourceEN}">
                                                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -978,7 +978,7 @@ var home_url = "<%=request.getContextPath()%>";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.liquidAssets" name="savieEmploymentBean.liquidAssets" data-style="application-select">
-                                       <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+                                       <option selected disabled value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                            <c:if test="${language == 'en'}">
                                                 <c:forEach var="list" items="${etLiquidAssetEN}">
                                                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -1027,7 +1027,7 @@ var home_url = "<%=request.getContextPath()%>";
                                  <div class="selectEmployment">
                                     <span class="icon-chevron-thin-down orange-caret"></span>
                                     <select class="form-control gray-dropdown" id="savieEmploymentBean.educationLevel" name="savieEmploymentBean.educationLevel" data-style="application-select">
-                                       <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+                                       <option selected disabled value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
                                            <c:if test="${language == 'en'}">
                                                 <c:forEach var="list" items="${etEducationLevelEN}">
                                                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
@@ -1907,6 +1907,11 @@ var home_url = "<%=request.getContextPath()%>";
                         <div class="correct-signature hide-element">
                            <img src="<%=request.getContextPath()%>/resources/images/elite-terms/correct-signature.png" class="correct-sign-image"/><span class="span-text-img"><fmt:message key="eliteTerms.selectPlan.Correct.Signature" bundle="${msg}" /></span>
                         </div>
+                        <div class="error-signature">
+                           <span class="err-msg fwd-error-red" id="et-signature-message">
+                              <small class="help-block"></small>
+                           </span>
+                        </div>
                      </div>
                      
                      <div class="proceed-btn">
@@ -2458,7 +2463,7 @@ var home_url = "<%=request.getContextPath()%>";
                      container: '#cannotApplyEmailMessage',
                      trigger: 'blur',
                      validators: {
-                        vailAddress: {
+                        emailAddress: {
                            message: '<fmt:message key="eliteTerms.selectPlan.Your.email.address.is.invalid" bundle="${msg}" />'
                         },
                         callback: {

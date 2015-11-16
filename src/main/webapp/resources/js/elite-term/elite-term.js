@@ -109,7 +109,10 @@ function getEliteTermPremium() {
 }
 
 $('#et-signature-proceed-btn').on('click', function(e) {
-	if(!$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').isValid()){
+	if (!$("#signature").jSignature('getData', 'native').length) {
+    	$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.empty")).css('display', 'block');
+	}
+	else if(!$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').isValid()){
 		console.log('Applicant Form validation failure');
 		$('#et-medical-dec-next').click();
 	}
@@ -550,8 +553,8 @@ function setCalculatedAmt(bDiscount, insuredAmt, oriMonthlyAmt, oriDailyAmt, dis
 	$("#etaspd-monthly-premium").html('HK$ ' + modMonthlyPremium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
   
 	if(bDiscount){
-		$("#et-month-dis-amount").html(parseFloat(disMonthlyAmt).toFixed(2));
-		$("#et-day-dis-amount").html(parseFloat(disDailyAmt).toFixed(2));
+		$("#et-month-dis-amount").html(parseFloat(disMonthlyAmt).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+		$("#et-day-dis-amount").html(parseFloat(disDailyAmt).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 		actPromo.find('.top .et-po-amount-label').text(discount_period_text);
 		$('#et-dis-promo-amount').removeClass('hide-element');
 		$('#et-dis-promo-amount').removeClass('hidden');
@@ -708,7 +711,7 @@ function stickApplicationOrangeBar() {
         var $topBar = $('.top-bar');
         var $mobNavbar = $('.navbar.navbar-default.pad-none');
         var $navbarMenu = $('.logobox > .navbar-header');
-        console.log($navbarMenu.height());
+        
         var $navbar = $('.navbar-menu').length ? $('.navbar-menu') : ((getWidth() >= 992) ? $('.navbar-inverse:first') : $('.logobox'));
 		if ($(window).scrollTop() >= $navbar.height()) {
 			$bar.addClass('sticky-bar');

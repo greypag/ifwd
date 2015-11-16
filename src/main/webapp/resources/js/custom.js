@@ -647,11 +647,19 @@ $(function() {
 
 				if($(this).val()==="Passport") {
 					$('#savieBeneficiaryBean\\[1\\]\\.hkId').addClass('hidden');
-					$('#savieBeneficiaryBean\\[1\\]\\.passportNo').removeClass('hidden');	
+					$('#savieBeneficiaryBean\\[1\\]\\.passportNo').removeClass('hidden');
+					
+					$('#bnfPassportMessage\\[1\\]').removeClass('hidden');
+					$('#hkidOrPassportMessage\\[1\\]').addClass('hidden');
+					$('#duplicate-beneficiaries\\[1\\]').addClass('hidden');
 				}
 				else {
 					$('#savieBeneficiaryBean\\[1\\]\\.hkId').removeClass('hidden');
 					$('#savieBeneficiaryBean\\[1\\]\\.passportNo').addClass('hidden');
+
+					$('#hkidOrPassportMessage\\[1\\]').removeClass('hidden');
+					$('#bnfPassportMessage\\[1\\]').addClass('hidden');
+					$('#duplicate-beneficiariesPAssport\\[1\\]').addClass('hidden');
 				}
 			});
 			// Select list color
@@ -679,11 +687,19 @@ $(function() {
 
 					if($(this).val()==="Passport") {
 						$('#savieBeneficiaryBean\\[2\\]\\.hkId').addClass('hidden');
-						$('#savieBeneficiaryBean\\[2\\]\\.passportNo').removeClass('hidden');	
+						$('#savieBeneficiaryBean\\[2\\]\\.passportNo').removeClass('hidden');
+
+						$('#bnfPassportMessage\\[2\\]').removeClass('hidden');
+						$('#hkidOrPassportMessage\\[2\\]').addClass('hidden');
+						$('#duplicate-beneficiaries\\[2\\]').addClass('hidden');
 					}
 					else {
 						$('#savieBeneficiaryBean\\[2\\]\\.hkId').removeClass('hidden');
 						$('#savieBeneficiaryBean\\[2\\]\\.passportNo').addClass('hidden');
+
+						$('#hkidOrPassportMessage\\[2\\]').removeClass('hidden');
+						$('#bnfPassportMessage\\[2\\]').addClass('hidden');
+						$('#duplicate-beneficiariesPAssport\\[2\\]').addClass('hidden');
 					}
 				});
 
@@ -1370,6 +1386,9 @@ function fmTranslation(key){
 
 function addFormBeneficiary (counter) {
 
+	var fm_label_beneficiary	= fmTranslation('beneficiary.lable.beneficiary');
+	var fm_label_beneficiary_p2	= fmTranslation('beneficiary.lable.beneficiary.p2');
+	var fm_label_beneficiary_p3	= fmTranslation('beneficiary.lable.beneficiary.p3');
 	var fm_label_eng_name	= fmTranslation('beneficiary.lable.eng.name');
 	var fm_label_given_name	= fmTranslation('beneficiary.lable.given.name');
 	var fm_label_last_name	= fmTranslation('beneficiary.lable.last.name');
@@ -1399,11 +1418,12 @@ function addFormBeneficiary (counter) {
 	//$('<div class="page-divider page-divider-margin hidden-md hidden-lg"></div>').appendTo("#add-beneficiary-"+counter);
 	
 	var counterPlus = parseInt(counter)+1;
-	
+	var fm_counter_label = (counterPlus==2)?fm_label_beneficiary_p2:fm_label_beneficiary_p3;
+
 	$('<form class="content tabs-margin" id="beneficiaryInfoForm['+counter+']" method="post" onsubmit="return false"></form>').appendTo("#add-beneficiary-"+counter).hide().fadeIn(500); //create form
 
 	$('<div class="form-group beneficiary-info-row" >'
-		+'<h3 class="mobile-desc hidden-md hidden-lg">Beneficiary <span>(Person '+ counterPlus +')</span></h3>'
+		+'<h3 class="mobile-desc hidden-md hidden-lg">' + fm_label_beneficiary + ' <span>' + fm_counter_label + '</span></h3>'
 		+ '<div class="clearfix hidden-xs hidden-sm"><div class="pull-right"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>' + fm_action_remove + '</button></div></div>'
 		+ '<label for="savieBeneficiaryBean['+counter+'].firstName">' + fm_label_eng_name + '</label>'
 		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].fullName" hidden>'

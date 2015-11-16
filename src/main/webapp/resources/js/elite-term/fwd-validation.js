@@ -117,7 +117,7 @@ $(function() {
 		var str = "";
 		$( "#beneficiaryHkidPassport\\[0\\] option:selected" ).each(function() {
 			
-			str = $( this ).text();
+			str = $( this ).val();
 			if(str == 'HKID'){
 				//textbox
 				$('#savieBeneficiaryBean\\[0\\]\\.passportNo').addClass('hidden');

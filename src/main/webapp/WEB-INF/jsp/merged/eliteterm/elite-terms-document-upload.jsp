@@ -471,7 +471,7 @@ var languageP = "${language}";
                     // Process hkid file here
                 } else {
                     removeFormFieldError('#et-hkid-file-message', 'required-hkid');
-                    addFormFieldError('#et-hkid-file-message', 'HKID is required.', 'required-hkid');
+                    addFormFieldError('#et-hkid-file-message', getBundle(getBundleLanguage, 'error.hkid.document.empty'), 'required-hkid');
                     isValid = false;
                 }
                 
@@ -491,7 +491,7 @@ var languageP = "${language}";
                     // Process passport file here
                 } else {
                     removeFormFieldError('#et-passport-file-message', 'required-hkid');
-                    addFormFieldError('#et-passport-file-message', 'Passport is required.', 'required-hkid');
+                    addFormFieldError('#et-passport-file-message', getBundle(getBundleLanguage, 'error.passport.document.empty'), 'required-hkid');
 
                     isValid = false;
                 }
@@ -516,7 +516,7 @@ var languageP = "${language}";
                     // Process proof of address file here
                 } else {
                     removeFormFieldError('#et-address-file-message', 'required-hkid');
-                    addFormFieldError('#et-address-file-message', 'Proof of address is required.', 'required-hkid');
+                    addFormFieldError('#et-address-file-message', getBundle(getBundleLanguage, 'error.address.proof.empty'), 'required-hkid');
 
                     isValid = false;
                 }
