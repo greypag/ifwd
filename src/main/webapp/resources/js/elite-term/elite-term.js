@@ -711,6 +711,7 @@ function stickApplicationOrangeBar() {
         var $topBar = $('.top-bar');
         var $mobNavbar = $('.navbar.navbar-default.pad-none');
         var $navbarMenu = $('.logobox > .navbar-header');
+        var $etContainer = $('.fwd-savie-wrapper.fwd-et-wrapper');
         
         var $navbar = $('.navbar-menu').length ? $('.navbar-menu') : ((getWidth() >= 992) ? $('.navbar-inverse:first') : $('.logobox'));
 		if ($(window).scrollTop() >= $navbar.height()) {
@@ -726,28 +727,26 @@ function stickApplicationOrangeBar() {
                 //$bar.css('top', $mobBar.height() + 'px');
                 $bar.css('top', $navbarMenu.height() + 'px');
                 $mobBar.css('top', '0px');
+                $etContainer.css('margin-top', '0px');
                 
                 if ($('.et-document-upload').length > 0 ) {
                 	if ($mobBar.hasClass('et-docu')) {
                 		$mobNavbar.css('top', '-' + $mobBar.height() + 'px');
                 	}
-                	
                 }
-                
-                /*if ($('.et-document-upload').length > 0 ) { // For Document Page alone
-    				$mobNavbar.css('top', '-' + $mobBar.height() + 'px');
-    			} else {
-    				$mobNavbar.removeClass('style');
-    			}*/
-            }
+            }            
 		} else {
 			$bar.removeClass('sticky-bar');
 			$bar.removeAttr('style');
             $mobBar.removeAttr('style');
-            $mobBar.removeClass('et-docu');
+            $mobBar.removeClass('et-docu');            
             
             if ($('.et-document-upload').length > 0 ) {
             	$mobNavbar.removeAttr('style');
+            }
+            
+            if (getWidth() < 768) {
+            	$etContainer.css('margin-top', '13px');
             }
 		}
 	}

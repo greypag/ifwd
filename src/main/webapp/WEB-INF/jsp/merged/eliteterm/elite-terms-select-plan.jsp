@@ -2406,8 +2406,12 @@ var home_url = "<%=request.getContextPath()%>";
 		    	  
 	    	     if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
 	    	    	 var $appInfo = $('#et-application-first-section');
+	    	    	 var $aboutYourselfSec = $('#et-about-yoursel-section');
+	    	    	 var $etPlanOptionSec = $('#et-plan-option-section');
 			         $appInfo.removeClass('hide-element')
 			                  .css('margin-bottom', '190px');
+			         $aboutYourselfSec.addClass('hide-element');
+			         $etPlanOptionSec.addClass('hide-element');
 			         
 			         $('body, html').animate({
 			            scrollTop: ($appInfo.offset().top - stickyHeight) + 'px'
@@ -2423,6 +2427,36 @@ var home_url = "<%=request.getContextPath()%>";
 					$('#loginpopup').modal('show');
 				 }
 		      });
+		      
+		      $('#et-medical-dec-next').on('click', function(e) {
+		    	  var $hideMedicalDec = $('#et-medical-declaration');
+		    	  var $etAppInfoSec = $('#et-application-info-section');
+
+		    	  $hideMedicalDec.addClass('hide-element');
+		    	  $('body, html').animate({
+		            scrollTop: ($etAppInfoSec.offset().top - stickyHeight) + 'px'
+		         }, 500);
+		      });
+		      
+		      // Hiding Plan Option		      
+		      $('.et-gender-main-div input[type=radio]').change(function(){
+		    	  var $etPlanOption = $('.et-plan-option');
+		    	  $etPlanOption.addClass('hide-element');
+		    	  
+		    	  $('#et-btn-ay-self').on('click', function(e) {
+		    		  $etPlanOption.removeClass('hide-element');
+			      });
+		      });
+		      
+		      // Datepicker
+		      $('#et-select-plan-date-input').datepicker().on("input change", function (e) {
+		    	  var $etPlanOption = $('.et-plan-option');
+		    	  $etPlanOption.addClass('hide-element');
+		    	  
+		    	  $('#et-btn-ay-self').on('click', function(e) {
+		    		  $etPlanOption.removeClass('hide-element');
+			      });
+				});
 		      
             //cannot apply modal 
            /*  $(document).on('change', '#et-cust-serv-form #email', function(e) {
