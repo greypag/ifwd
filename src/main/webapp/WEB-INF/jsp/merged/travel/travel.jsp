@@ -821,6 +821,12 @@ function getParameterByUrl(name){
           <p class="h4-5"><fmt:message key="special.promotion.copy1.1" bundle="${msg}" /> <fmt:message key="special.promotion.copy1.2" bundle="${msg}" /> <a href="<fmt:message key="special.promotion.copy1.2.1.url" bundle="${msg}" />"><fmt:message key="special.promotion.copy1.2.1" bundle="${msg}" /></a> <fmt:message key="special.promotion.copy1.2.2" bundle="${msg}" /></p>
        </li>
        <li>
+           <p class="h4-5"><fmt:message key="y5buddy.copy1.2" bundle="${msg}" />
+            <a href="<fmt:message key="y5buddy.copy1.2.1.url" bundle="${msg}" />" target="_blank"><u><fmt:message key="y5buddy.copy1.2.1" bundle="${msg}" /></u></a>
+            <fmt:message key="y5buddy.copy1.2.2" bundle="${msg}" />
+           </p>       
+       </li>
+       <li>
           <p class="h4-5"><fmt:message key="special.promotion.copy1.3" bundle="${msg}" /></p>
        </li> 
    </ul>    
