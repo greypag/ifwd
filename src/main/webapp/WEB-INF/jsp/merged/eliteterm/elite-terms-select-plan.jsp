@@ -674,7 +674,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <label for="savieApplicantBean.residentialTelNo" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Residential.tel.no" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box clearfix">
-                                       <input type="text" class="form-control gray-textbox" name="savieApplicantBean.residentialTelNo" id="savieApplicantBean.residentialTelNo" placeholder="<fmt:message key="eliteTerms.selectPlan.Telephone.no" bundle="${msg}" />"/>
+                                       <input type="text" class="form-control gray-textbox" name="savieApplicantBean.residentialTelNo" id="savieApplicantBean.residentialTelNo" placeholder="<fmt:message key="eliteTerms.selectPlan.Telephone.no" bundle="${msg}" />" maxlength="8"/>
                                        <span class="error-msg" id="resTelMessage"></span>
                                     </div>
                                  </div>
@@ -684,7 +684,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <label for="savieApplicantBean.mobileNo" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box clearfix">
-                                       <input type="text" class="form-control gray-textbox" name="savieApplicantBean.mobileNo" id="savieApplicantBean.mobileNo" placeholder="<fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" />" value="${userDetails.mobileNo }" />
+                                       <input type="text" class="form-control gray-textbox" name="savieApplicantBean.mobileNo" id="savieApplicantBean.mobileNo" placeholder="<fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" />" value="${userDetails.mobileNo }" maxlength="8" />
                                        <span class="error-msg" id="mobileMessage"></span>
                                     </div>
                                  </div>
