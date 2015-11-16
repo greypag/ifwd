@@ -190,14 +190,14 @@ function isFileValid(file, $fileObj, errorMsgCon) {
                     .trigger('click');
         }
             
-        addFormFieldError(errorMsgCon, 'File must not be greater than 2MB.');
+        addFormFieldError(errorMsgCon, getBundle(getBundleLanguage,file.not.greate.than));
         isValid = false;
     }
     
     // Check file extension and type validity
     // Accepted file format: application/pdf, image/jpg, image/jpeg, image/gif and image/png
     if ($.inArray(file.type, $fileObj.attr('accept').split(',')) < 0) {
-        addFormFieldError(errorMsgCon, 'File format must be a jpg or png.');
+        addFormFieldError(errorMsgCon, getBundle(getBundleLanguage,'file.must.format'));
         isValid = false;
     }
     
@@ -313,7 +313,7 @@ function addFormFieldError(_element, _errorMsg, _errorClassSelector) {
    
    var errorMsg = _errorMsg || '';
    var errorClassSelector = _errorClassSelector || '';
-   
+   $element.children('small').remove(); 
    $element.append('<small class="help-block dynamic-err-msg ' + errorClassSelector + '">' + errorMsg + '</small>');
 };
 
