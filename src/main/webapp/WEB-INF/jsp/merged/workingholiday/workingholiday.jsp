@@ -166,7 +166,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 </div>
 
 <div id="other-benefits" class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
-  <h2><fmt:message key="workingholiday.main.other.benefit" bundle="${msg}" /></h2>
+  <h2><fmt:message key="other.coverage.headline" bundle="${msg}" /></h2>
   <ul class="bullets">
     <li>
       <p class="h4-5 "><fmt:message key="workingholiday.main.other.benefit.desc1" bundle="${msg}" /></p>
@@ -181,24 +181,61 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
       <p class="h4-5 "><fmt:message key="workingholiday.main.other.benefit.desc4" bundle="${msg}" /></p>
     </li>
     <li>
-      <p class="h4-5 "><fmt:message key="workingholiday.main.other.benefit.desc5" bundle="${msg}" /></p>
+      <p class="h4-5 "><fmt:message key="other.coverage5" bundle="${msg}" /></p>
     </li>
-    <li>
+    <!--<li>
       <p class="h4-5"><fmt:message key="workingholiday.main.other.benefit.desc6.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.main.other.benefit.desc6.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.other.benefit.desc6.part3" bundle="${msg}" /></p>
-    </li>
+    </li>-->
   </ul>
   
-  <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
+  <!--<div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
       <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="">
-  </div>
+  </div>-->
 
   <div class="spacer3"></div>
   <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" />
   </p>
 </div>
 
+<div id="other-offers-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
+  <h2 style="text-align: center;"><fmt:message key="special.promotion.headline" bundle="${msg}" /></h2>
+  <div class="carousel slide">
+    <div class="carousel-inner">
+      <div class="item active">
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                    <p style="font-size: 21px;"><fmt:message key="special.promotion.copy1" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--/.item-->
+      <div class="item" >
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                <p style="font-size: 21px;"><fmt:message key="workingholiday.main.other.benefit.desc6.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.main.other.benefit.desc6.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.other.benefit.desc6.part3" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!--/.carousel-inner--> 
+    <a class="prev" href="#other-offers-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
+    <a class="next" href="#other-offers-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+  </div>
+  <!--/.carousel-->
+  <div class="clearfix"></div>
+  <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center;">
+    <div class="col-lg-12 col-md-12 col-xs-12">
+      <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
+      <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
+    </div>
+  </div>  
+</div>  
 <div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
-  <h2 style="text-align: center;"><fmt:message key="workingholiday.main.other.benefit" bundle="${msg}" /></h2>
+  <h2 style="text-align: center;"><fmt:message key="other.coverage.headline" bundle="${msg}" /></h2>
   <div class="carousel slide">
     <div class="carousel-inner">
       <div class="item active">
@@ -250,8 +287,17 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
             </div>
           </div>
       </div>
-      <!--/.item-->
       <div class="item" >
+          <div class="slide-margin">
+            <div class="other-benefits-wrap text-center">
+              <div class="other-benefits-inner">
+                <p style="font-size: 21px;"><fmt:message key="other.coverage5" bundle="${msg}" /></p>
+              </div>
+            </div>
+          </div>
+      </div>      
+      <!--/.item-->
+      <!--<div class="item" >
           <div class="slide-margin">
             <div class="other-benefits-wrap text-center">
               <div class="other-benefits-inner">
@@ -261,7 +307,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
               </div>
             </div>
           </div>
-      </div>
+      </div>-->
       <!--/.item-->
     </div>
     <!--/.carousel-inner--> 
@@ -271,11 +317,11 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   <!--/.carousel-->
   <div class="clearfix"></div>
   
-  <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center;">
+  <!--<div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center;">
     <div class="col-lg-12 col-md-12 col-xs-12">
       <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
     </div>
-  </div>
+  </div>-->
   
   <div class="spacer3"></div>
   <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" />
@@ -406,6 +452,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   <!--/.container--> 
 </section>
 <!--/#recent-works-->
+
 
 <section id="recent-works-mob" class="hidden-lg hidden-md" style="margin: 0px;">
   <div class="carousel slide">
