@@ -820,12 +820,12 @@ function getParameterByUrl(name){
        <li>
           <p class="h4-5"><fmt:message key="special.promotion.copy1.1" bundle="${msg}" /> <fmt:message key="special.promotion.copy1.2" bundle="${msg}" /> <a href="<fmt:message key="special.promotion.copy1.2.1.url" bundle="${msg}" />"><fmt:message key="special.promotion.copy1.2.1" bundle="${msg}" /></a> <fmt:message key="special.promotion.copy1.2.2" bundle="${msg}" /></p>
        </li>
-       <li>
+       <!--<li>
            <p class="h4-5"><fmt:message key="y5buddy.copy1.2" bundle="${msg}" />
             <a href="<fmt:message key="y5buddy.copy1.2.1.url" bundle="${msg}" />" target="_blank"><u><fmt:message key="y5buddy.copy1.2.1" bundle="${msg}" /></u></a>
             <fmt:message key="y5buddy.copy1.2.2" bundle="${msg}" />
            </p>       
-       </li>
+       </li>-->
        <li>
           <p class="h4-5"><fmt:message key="special.promotion.copy1.3" bundle="${msg}" /></p>
        </li> 
@@ -849,20 +849,20 @@ function getParameterByUrl(name){
   </ul>
   
   <div class="col-lg-12 col-md-12 hidden-xs hidden-sm main-partner pad-none" style="">
+    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-right:15px;">
   	<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-right:15px;">
     <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class="" style="margin-right:15px;">
-    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-right:15px;">
     <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-right:15px;">
   </div>
   <div class="hidden-lg hidden-md col-xs-12 col-sm-12 main-partner mob" style="text-align:center">
+    <div class="col-md-12 col-xs-12">
+        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
+    </div>  
     <div class="col-md-12 col-xs-12">
         <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
     </div>
     <div class="col-md-12 col-xs-12">
         <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class="" style="margin-bottom:15px;">
-    </div>
-    <div class="col-md-12 col-xs-12">
-        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
     </div>
     <div class="col-md-12 col-xs-12">
         <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-bottom:15px;">

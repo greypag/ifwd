@@ -88,13 +88,17 @@
                                     <ul class="bullets">
                                         <li>
                                            <p class="h4-5"><fmt:message key="y5buddy.copy1.1" bundle="${msg}" /></p>
+                                             <p class="h4-5"><fmt:message key="y5buddy.copy1.2.linktext1" bundle="${msg}" />
+                                            <a href="<fmt:message key="y5buddy.copy1.2.1.url" bundle="${msg}" />" target="_blank"><u><fmt:message key="y5buddy.copy1.2.linktext2" bundle="${msg}" /></u></a>
+                                            <fmt:message key="y5buddy.copy1.2.linktext3" bundle="${msg}" />
+                                           </p>                                         
                                         </li>                                       
-                                        <li>
+                                        <!--<li>
                                            <p class="h4-5"><fmt:message key="y5buddy.copy1.2" bundle="${msg}" />
                                             <a href="<fmt:message key="y5buddy.copy1.2.1.url" bundle="${msg}" />" target="_blank"><u><fmt:message key="y5buddy.copy1.2.1" bundle="${msg}" /></u></a>
                                             <fmt:message key="y5buddy.copy1.2.2" bundle="${msg}" />
                                            </p>
-                                        </li>  
+                                        </li>-->  
                                         <li>
                                            <p class="h4-5"><fmt:message key="y5buddy.copy1.3" bundle="${msg}" /></p>
                                         </li> 
