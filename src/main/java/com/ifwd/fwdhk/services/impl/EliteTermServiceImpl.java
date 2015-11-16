@@ -977,6 +977,8 @@ public class EliteTermServiceImpl implements EliteTermService {
 			session.removeAttribute("creditCaredNo");
 			session.removeAttribute("expiryDate");
 			session.removeAttribute("cardHolderName");
+			session.removeAttribute("goApp");
+			session.removeAttribute("sendEmailOrNot");
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl removeEtSession occurs an exception!");
 			logger.info(e.getMessage());
