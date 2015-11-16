@@ -1342,7 +1342,7 @@
    }
    
    // Dob change event
-   $('#sales-illu-dob, #savieApplicantBean\\.firstName, #savieApplicantBean\\.lastName, #savieApplicantBean\\.chineseName').on('change', function(e){
+   $('#sales-illu-dob').on('change', function(e){
       var $self = $(this);
       
       if ($self.val()) {
