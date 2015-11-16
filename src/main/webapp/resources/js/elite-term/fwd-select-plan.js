@@ -693,6 +693,13 @@
                }
             });
             
+            var $jSignatureCan = $('.jSignature');
+            if (getWidth() < 992) {
+            	$jSignatureCan.css('height', '260px');
+            } else {
+            	$jSignatureCan.css('height', '350px');
+            }
+            
             // Signature clear
             $(document).on('click', '#et-clear-signature', function(e) {
                e.preventDefault();
