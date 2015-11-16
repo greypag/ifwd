@@ -2400,8 +2400,12 @@ var home_url = "<%=request.getContextPath()%>";
 		    	  
 	    	     if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
 	    	    	 var $appInfo = $('#et-application-first-section');
+	    	    	 var $aboutYourselfSec = $('#et-about-yoursel-section');
+	    	    	 var $etPlanOptionSec = $('#et-plan-option-section');
 			         $appInfo.removeClass('hide-element')
 			                  .css('margin-bottom', '190px');
+			         $aboutYourselfSec.addClass('hide-element');
+			         $etPlanOptionSec.addClass('hide-element');
 			         
 			         $('body, html').animate({
 			            scrollTop: ($appInfo.offset().top - stickyHeight) + 'px'
@@ -2416,6 +2420,16 @@ var home_url = "<%=request.getContextPath()%>";
 					$('#goApp').val('yes');
 					$('#loginpopup').modal('show');
 				 }
+		      });
+		      
+		      $('#et-medical-dec-next').on('click', function(e) {
+		    	  var $hideMedicalDec = $('#et-medical-declaration');
+		    	  var $etAppInfoSec = $('#et-application-info-section');
+
+		    	  $hideMedicalDec.addClass('hide-element');
+		    	  $('body, html').animate({
+		            scrollTop: ($etAppInfoSec.offset().top - stickyHeight) + 'px'
+		         }, 500);
 		      });
 		      
             //cannot apply modal 
