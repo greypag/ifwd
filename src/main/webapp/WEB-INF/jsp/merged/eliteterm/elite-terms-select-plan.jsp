@@ -2432,6 +2432,26 @@ var home_url = "<%=request.getContextPath()%>";
 		         }, 500);
 		      });
 		      
+		      // Hiding Plan Option		      
+		      $('.et-gender-main-div input[type=radio]').change(function(){
+		    	  var $etPlanOption = $('.et-plan-option');
+		    	  $etPlanOption.addClass('hide-element');
+		    	  
+		    	  $('#et-btn-ay-self').on('click', function(e) {
+		    		  $etPlanOption.removeClass('hide-element');
+			      });
+		      });
+		      
+		      // Datepicker
+		      $('#et-select-plan-date-input').datepicker().on("input change", function (e) {
+		    	  var $etPlanOption = $('.et-plan-option');
+		    	  $etPlanOption.addClass('hide-element');
+		    	  
+		    	  $('#et-btn-ay-self').on('click', function(e) {
+		    		  $etPlanOption.removeClass('hide-element');
+			      });
+				});
+		      
             //cannot apply modal 
            /*  $(document).on('change', '#et-cust-serv-form #email', function(e) {
                if(!$('#et-cust-serv-form #cannotApplyEmailMessage').find('small').is(':visible')) {
