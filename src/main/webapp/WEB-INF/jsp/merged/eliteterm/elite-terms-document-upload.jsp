@@ -529,6 +529,11 @@ var languageP = "${language}";
             	if(policyUserName != null && policyUserName != ''){
     				$('#et-upload-now').hide();
     				$('#et-upload-later').hide();
+    				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
+        				$('#loginpopup').modal({backdrop: 'static', keyboard: false});
+        				$('#loginpopup').find(".close").hide(); 
+        				$('#loginpopup').find(".text-left").hide(); 
+    				}
 				}
 				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
 					$('#loginpopup').modal('show');
