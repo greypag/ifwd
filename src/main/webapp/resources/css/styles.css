@@ -13055,6 +13055,15 @@ span.dup-error-msg {
 	background: #fff;
 	color: #ff8200;
 }
+
+@media ( max-width : 992px) {
+	.fwd-savie-wrapper .declare-authorize.et-declaration-section .agreement-description .et-btn-view-summary
+	{
+	 margin-bottom: 60px;
+	}
+}
+
+
 /* line 482, ../sass/partials/_declaration-authorization.scss */
 .fwd-savie-wrapper .declare-authorize.et-declaration-section .agreement-description .et-btn-view-summary:hover
 	{

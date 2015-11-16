@@ -2693,4 +2693,16 @@ var home_url = "<%=request.getContextPath()%>";
             function getCsChannel(channel) {
             	$("#channel").val(channel);
 			}
+            
+            function goodbye(e) {
+                if(!e) e = window.event;
+                e.cancelBubble = true;
+                e.returnValue = 'Some inputs or changes may not have been saved yet'; 
+
+                if (e.stopPropagation) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                }	
+            }
+            window.onbeforeunload=goodbye; 
       </script>
