@@ -172,6 +172,7 @@ body.modal-open footer {
 	-o-transition: background 0.1s ease-in;
 	transition: background 0.1s ease-in;
 }
+
 /* line 78, ../sass/partials/_common.scss */
 .fwd-savie-wrapper .btn-white {
 	background-color: #fff;
@@ -25560,4 +25561,23 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
     .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-back-arrow .et-back-arrow-link{
         padding-top: 5px;
     }
+
+#et-select-plan-go-homepage {
+	color: #fff;
+	background: #ff8200;
+	font-size: 24px;
+	font-family: 'Calibri-Bold';
+	padding: 7px 40px;
+	margin-bottom: 50px;
+}
+#et-select-plan-go-homepage:hover, #et-select-plan-go-homepage:focus
+	{
+	background: #fff;
+	color: #ff8200;
+	border: 1px solid #ff8200;
+	-webkit-transition: background 0.1s ease-in;
+	-moz-transition: background 0.1s ease-in;
+	-ms-transition: background 0.1s ease-in;
+	-o-transition: background 0.1s ease-in;
+	transition: background 0.1s ease-in;
 }

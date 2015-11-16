@@ -1124,7 +1124,7 @@ var home_url = "<%=request.getContextPath()%>";
                                           </div>
                                           <div class="pull-left input">
                                              <input class="form-control gray-textbox capitalize" type="text" autocomplete="off" placeholder="<fmt:message key="eliteTerms.selectPlan.HKID.Passport.No" bundle="${msg}" />" id="savieBeneficiaryBean[0].hkId" name="savieBeneficiaryBean[0].hkId" value="">
-                                             <input class="form-control gray-textbox hidden" type="text" autocomplete="off" placeholder="<fmt:message key="eliteTerms.selectPlan.HKID.Passport.No" bundle="${msg}" />" id="savieBeneficiaryBean[0].passportNo" name="savieBeneficiaryBean[0].passportNo" value="">
+                                             <input class="form-control gray-textbox capitalize hidden" type="text" autocomplete="off" placeholder="<fmt:message key="eliteTerms.selectPlan.HKID.Passport.No" bundle="${msg}" />" id="savieBeneficiaryBean[0].passportNo" name="savieBeneficiaryBean[0].passportNo" value="">
                                           </div>
                                        </div>
                                        <span class="error-msg" id="bnfPassportMessage[0]"></span>
