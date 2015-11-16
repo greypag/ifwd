@@ -1447,26 +1447,27 @@ var home_url = "<%=request.getContextPath()%>";
                      <div class="page-divider"></div>
                      
                      <h5><fmt:message key="eliteTerms.selectPlan.If.you.do.NOT.wish.FWD" bundle="${msg}" /></h5>
-                     
-                     <div class="clearfix authorization">
-                        <div class="pull-left marketing-info-check">
-                           <input type="checkbox" value="marketing-info" id="marketing-info-check" name="isMarketingInfo"  />
-                           <label for="marketing-info-check"></label>
-                        </div>
-                        <div class="pull-left marketing-info-desk">
-                           <fmt:message key="eliteTerms.selectPlan.Please.do.not.send" bundle="${msg}" />
-                        </div>
-                     </div>
-                     
-                     <div class="clearfix authorization">
-                        <div class="pull-left personal-data-check">
-                           <input type="checkbox" value="personal-data" id="personal-data-check" name="isPersonalData" />
-                           <label for="personal-data-check"></label>
-                        </div>
-                        <div class="pull-left personal-data-desc">
-                           <fmt:message key="eliteTerms.selectPlan.Please.do.not.provide" bundle="${msg}" />
-                        </div>
-                     </div>
+                     <form id="etLicenseInfoForm" method="post" action="" onsubmit="return false">
+	                     <div class="clearfix authorization">
+	                        <div class="pull-left marketing-info-check">
+	                           <input type="checkbox" value="true" id="marketing-info-check" name="isMarketingInfo"  />
+	                           <label for="marketing-info-check"></label>
+	                        </div>
+	                        <div class="pull-left marketing-info-desk">
+	                           <fmt:message key="eliteTerms.selectPlan.Please.do.not.send" bundle="${msg}" />
+	                        </div>
+	                     </div>
+	                     
+	                     <div class="clearfix authorization">
+	                        <div class="pull-left personal-data-check">
+	                           <input type="checkbox" value="true" id="personal-data-check" name="isPersonalData" />
+	                           <label for="personal-data-check"></label>
+	                        </div>
+	                        <div class="pull-left personal-data-desc">
+	                           <fmt:message key="eliteTerms.selectPlan.Please.do.not.provide" bundle="${msg}" />
+	                        </div>
+	                     </div>
+                     </form>
                      
                      <div class="row et-proceed-btn-wrapper">
                         <div class="col-xs-12 col-md-12 proceed-btn text-center">
