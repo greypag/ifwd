@@ -667,7 +667,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 	@SuppressWarnings({ "unchecked"})
 	public void uploadEliteTermDocuments(HttpServletRequest request)throws ECOMMAPIException{
 		String uploadLaterFlage = (String) request.getSession().getAttribute("uploadLaterFlage");
-		if(!"true".equals(uploadLaterFlage)){	
+		if("false".equals(uploadLaterFlage)){	
 			try {
 				UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 				CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
