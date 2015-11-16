@@ -768,10 +768,15 @@ function submitLoginForm(formID) {
     <div class="navbar-collapse collapse mobile-menu-V2">
           <ul class="col-sm-12 nav navbar-nav">
              <li class="pad-none col-sm-12 dropdown border-bottom">
-            <div
+            <!-- <div
 		        style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
 		        class="bmg_mobile_login_mask"
 		        onclick="$('#fwd-login-mob').trigger('click');"></div>
+		        -->
+		         <div
+                style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+                class="bmg_mobile_login_mask"
+                onclick="$('body').removeClass('modal-open');"></div>
     <div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob" onclick="$('body').addClass('modal-open');">
 
         <%
@@ -1061,10 +1066,16 @@ function submitLoginForm(formID) {
 	</ul>-->
 </div>
 <div class="mob-login-form-wrapper">
+<!-- 
 <div
         style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1500"
         class="bmg_mobile_login_mask"
-        onclick="$('#fwd-login-mob').trigger('click');"></div>
+        onclick="$('body').removeClass('modal-open');$('#fwd-login-mob').trigger('click');"></div>
+         -->
+         <div
+        style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1500"
+        class="bmg_mobile_login_mask"
+        onclick="$('body').removeClass('modal-open');"></div>
     <div id="myDropdownMob">
         <form name="loginform" id="loginform2">
             <div class="login-form" style="position: absolute;">
