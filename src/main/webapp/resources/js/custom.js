@@ -1231,11 +1231,12 @@ function stickApplicationOrangeBar() {
 		var $application = $('.application-flux');
 		var $bar = $('.application-page-header');
 		var $navbar = $('.navbar-menu').length ? $('.navbar-menu') : ((getWidth() >= 992) ? $('.navbar-inverse:first') : $('.logobox'));
+		var $navbarMenu = $('.logobox > .navbar-header');
         //var $fixedTop = $('.navbar-fixed-top').length ? $('.navbar-fixed-top') : ((getWidth() >= 992) ? $('.top-bar:first') : $('.mob-topbar:first'));
         var $mobBar = $('.mob-topbar');
         var $topBar = $('.top-bar');
         var $mobNavbar = $('.navbar.navbar-default.pad-none');
-        
+        console.log($navbarMenu.height());
 		if ($(window).scrollTop() >= $navbar.height()) {
 			$bar.addClass('sticky-bar');
 			//$bar.css('top', $fixedTop.height() + 'px');
@@ -1248,7 +1249,7 @@ function stickApplicationOrangeBar() {
                    'z-index': 10
                 });
                 //$bar.css('top', $mobBar.height() + 'px');
-                $bar.css('top', $navbar.height() + 'px');
+                $bar.css('top', $navbarMenu.height() + 'px');
                 //$mobNavbar.removeClass('navbar-fixed-top');
                 //$mobBar.addClass('navbar-fixed-top');
                 $mobBar.css('top', '0px');

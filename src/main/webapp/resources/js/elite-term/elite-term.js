@@ -707,6 +707,8 @@ function stickApplicationOrangeBar() {
         var $mobBar = $('.mob-topbar');
         var $topBar = $('.top-bar');
         var $mobNavbar = $('.navbar.navbar-default.pad-none');
+        var $navbarMenu = $('.logobox > .navbar-header');
+        console.log($navbarMenu.height());
         var $navbar = $('.navbar-menu').length ? $('.navbar-menu') : ((getWidth() >= 992) ? $('.navbar-inverse:first') : $('.logobox'));
 		if ($(window).scrollTop() >= $navbar.height()) {
 			$bar.addClass('sticky-bar');
@@ -719,7 +721,7 @@ function stickApplicationOrangeBar() {
                    'z-index': 10
                 });
                 //$bar.css('top', $mobBar.height() + 'px');
-                $bar.css('top', $navbar.height() + 'px');
+                $bar.css('top', $navbarMenu.height() + 'px');
                 $mobBar.css('top', '0px');
                 
                 if ($('.et-document-upload').length > 0 ) {
