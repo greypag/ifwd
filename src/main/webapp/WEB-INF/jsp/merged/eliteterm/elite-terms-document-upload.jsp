@@ -185,12 +185,14 @@ var languageP = "${language}";
 															<span class="mobile-camera"></span>
 														</label>
 													</div>
+													<!--[if gt IE 9]>
 													<div class="desk hidden-xs hidden-sm">
 														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
 													<div class="mob-desk">
 														<span class="OR"><fmt:message key="eliteTerms.documentUpload.or" bundle="${msg}" /></span>
 													</div>
+													<![endif]-->
 													<div class="mob-desk">
 														<label for="hkidFileToUpload" class="orange-select-file">
 															<input type="file" id="hkidFileToUpload" accept="image/jpeg,image/jpg,image/png" onchange="fileSelected('hkid-copy-progress','hkidFileToUpload','hkid-docu-filename','hkid-docu-fileSize','finish-upload-hkid','hkid-upload-percent-text','hkid-upload-progress-bar','', '#et-hkid-file-message');">
