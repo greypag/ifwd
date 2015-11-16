@@ -418,17 +418,18 @@ var languageP = "${language}";
 				$('.passport-holder').toggle();
 			})
 
-			function goodbye(e) {
-                if(!e) e = window.event;
-                e.cancelBubble = true;
-                e.returnValue = 'Some changes may not have been saved yet'; 
+			// function goodbye(e) {
+            //    if(!e) e = window.event;
+            //    e.cancelBubble = true;
+            //    e.returnValue = 'Some changes may not have been saved yet'; 
 
-                if (e.stopPropagation) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                }	
-            }
-            window.onbeforeunload=goodbye; 
+            //    if (e.stopPropagation) {
+            //        e.stopPropagation();
+            //        e.preventDefault();
+            //    }	
+            //}
+           // window.onbeforeunload=goodbye; 
+           
 
             // Form file validation
             $('#et-upload-doc-submit-btn').on('click', function(e) {
