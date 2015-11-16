@@ -124,6 +124,7 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 	else{
 		var formdata =  $('#eliteTermsInsuredInfoForm').serialize()+"&"+
 	    $('#etEmploymentInfoForm').serialize()+"&"+
+	    $('#etLicenseInfoForm').serialize()+"&"+
 	    $('#beneficiaryInfoForm\\[0\\]').serialize()+"&"+
 	    $('#beneficiaryInfoForm\\[1\\]').serialize()+"&"+
 	    $('#beneficiaryInfoForm\\[2\\]').serialize();
