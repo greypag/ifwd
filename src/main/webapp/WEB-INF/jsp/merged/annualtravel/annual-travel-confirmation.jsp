@@ -374,8 +374,10 @@
             
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none gray-bg1" style="padding-bottom:10px;">
                 <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
+                <!-- 
                 <div><fmt:message key="annual.confirmation.partnerDesc.part1" bundle="${msg}" /> <strong><fmt:message key="annual.confirmation.partnerDesc.part2" bundle="${msg}" /></strong> <fmt:message key="annual.confirmation.partnerDesc.part3" bundle="${msg}" /></div>
-                
+                -->
+                <div><fmt:message key="travel.confirmation.main.content.copy10" bundle="${msg}" /> <strong><fmt:message key="travel.confirmation.main.content.copy11" bundle="${msg}" /></strong> <fmt:message key="travel.confirmation.main.content.copy12" bundle="${msg}" /></div>
                 <div class="fwd_partner_title"><fmt:message key="fwd.partners" bundle="${msg}" /></div>
                 <div class="hidden-xs hidden-sm">
                     <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-right:15px;">
