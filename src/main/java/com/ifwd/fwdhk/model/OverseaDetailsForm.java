@@ -6,7 +6,6 @@ public class OverseaDetailsForm {
 	private String returnDate;
 	private String departureDate;
 	private String planSelected;
-	private String hkid;
 	private String totalDue;
 	private boolean checkbox1;
 	private boolean checkbox2;
@@ -37,6 +36,44 @@ public class OverseaDetailsForm {
 	private String addressofInstitutionLine2;
 	private String addressofInstitutionLine3;
 	
+	private String fullName;
+	private String hkid;
+	private String mobileNo;
+	private String emailAddress;
+	private String applicantDob;
+	
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public String getMobileNo() {
+		return mobileNo;
+	}
+
+	public void setMobileNo(String mobileNo) {
+		this.mobileNo = mobileNo;
+	}
+
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+
+	public String getApplicantDob() {
+		return applicantDob;
+	}
+
+	public void setApplicantDob(String applicantDob) {
+		this.applicantDob = applicantDob;
+	}
+
 	public String getPlanCode() {
 		return planCode;
 	}

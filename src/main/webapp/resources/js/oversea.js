@@ -5493,7 +5493,9 @@ function coverageToogle(){
 	$('#summary-of-coverage').css("display","block");
 }
 
-var oversea_click = false;//XXX
+
+//XXX new 
+var oversea_click = false;
 function validateOverseaDetails(form, formId, language) {
 	if ($("#inputFullName").val().trim() == namePlaceholder.trim()) {
 		$("#inputFullName").val('');
@@ -5662,7 +5664,6 @@ function validateOverseaDetails(form, formId, language) {
 	if (firstErrorElementId != "") {
 		scrollToElement(firstErrorElementId);
 	}
-
 	if (oversea_click) {
 		return false;
 	} else {
@@ -5683,11 +5684,10 @@ function validateOverseaDetails(form, formId, language) {
 								+ '/oversea-insurance/summary';
 						result = true;
 					} else {
+						oversea_click = false;
 						console.log(data);
 						$("#errorMsg").html(data);
 						scrollToElement("errorMsg");
-						result = false;
-						oversea_click = false;
 					}
 				}
 			});

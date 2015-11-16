@@ -73,7 +73,7 @@ public class OverseaServiceImpl implements OverseaService {
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
 		logger.info("OVERSEA_GET_QUOTE Response " + responseJsonObj);
 
-		if (responseJsonObj.get("errMsgs") == null) {
+		if (responseJsonObj != null && responseJsonObj.get("errMsgs") == null) {
 			
 			QuoteDetails quoteDetails = new QuoteDetails();
 			
@@ -100,7 +100,6 @@ public class OverseaServiceImpl implements OverseaService {
 			quoteDetails.setToalDue(totalDue);
 			quoteDetails.setPlanName(planeName);
 			session.setAttribute("quoteDetails", quoteDetails);
-
 			result = "success";
 		}
 		try {
@@ -209,12 +208,15 @@ public class OverseaServiceImpl implements OverseaService {
 		calendar.add(Calendar.DATE, -1);
 		calendar.add(Calendar.YEAR, 1);
 		String returnDate = DateApi.formatString1(calendar.getTime());
-		String applicantFullName = WebServiceUtils.getParameterValue("fullName", session, request);
-		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
-		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
-		String emailAddress = WebServiceUtils.getParameterValue("emailAddress", session, request);
-		String dob = WebServiceUtils.getParameterValue("applicantDob", session, request);
+		String applicantFullName = planDetailsForm.getFullName();
+		String applicantHKID = planDetailsForm.getHkid();
+		String applicantMobNo = planDetailsForm.getMobileNo();
+		String emailAddress = planDetailsForm.getEmailAddress();
+		String dob = planDetailsForm.getApplicantDob();
 		dob = DateApi.pickDate1(dob);
+		
+		planDetailsForm.setDepartureDate(DateApi.pickDate1(deaprtureDate));
+		planDetailsForm.setReturnDate(DateApi.pickDate1(returnDate));
 
 		if (planDetailsForm.getHkid() != null) {
 			session.setAttribute("overseaPlanDetailsForm", planDetailsForm);
@@ -332,7 +334,7 @@ public class OverseaServiceImpl implements OverseaService {
 		session.setAttribute("finalizeReferenceNo", createPolicy.getReferenceNo());
 		session.setAttribute("transactionDate", createPolicy.getTransactionDate());
 		session.setAttribute("transNo", createPolicy.getTransactionNo());
-		session.setAttribute("travelPlanDetailsFormBySummary", planDetailsForm);
+		session.setAttribute("overseaPlanDetailsFormBySummary", planDetailsForm);
 		return "success";
 	}
 

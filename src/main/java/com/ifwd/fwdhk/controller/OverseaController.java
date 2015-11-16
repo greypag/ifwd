@@ -1,13 +1,19 @@
 package com.ifwd.fwdhk.controller;
 
+import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,14 +21,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.model.AnnualTravelQuoteBean;
 import com.ifwd.fwdhk.model.DistrictBean;
+import com.ifwd.fwdhk.model.OverseaDetailsForm;
 import com.ifwd.fwdhk.model.QuoteDetails;
+import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.services.HomeCareService;
 import com.ifwd.fwdhk.services.HomeCareServiceImpl;
 import com.ifwd.fwdhk.services.SavieService;
 import com.ifwd.fwdhk.util.CommonUtils;
+import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.JsonUtils;
+import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.OverseaPageFlowControl;
+import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
@@ -104,383 +115,210 @@ public class OverseaController extends BaseController{
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_DETAILS);
 	}
 	@RequestMapping(value = {"/{lang}/oversea-insurance/summary"})
-	public ModelAndView getOverseaSummary(Model model, HttpServletRequest request) {
-		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_SUMMARY);
-	}
-	@RequestMapping(value = {"/{lang}/oversea-insurance/confirmation"})
-	public ModelAndView getOverseaConfirmation(Model model, HttpServletRequest request) {
-		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_CONFIRMATION);
-	}
-	/*
-	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details"})
-	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request,HttpSession httpSession) {	
+	public ModelAndView getOverseaSummary(Model model, HttpServletRequest request,
+			@ModelAttribute("frmYourDetails") OverseaDetailsForm planDetailsForm) {
 		HttpSession session = request.getSession();
-		String accessCode = (String)request.getParameter("accessCodeConfirm");
-		if(org.apache.commons.lang.StringUtils.isBlank(accessCode)){
-			accessCode = (String) httpSession.getAttribute("accessCode");
-			logger.info(accessCode);
-		}
-		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))
-				|| org.apache.commons.lang.StringUtils.isNotBlank(accessCode)) {
-			httpSession.setAttribute("accessCode", accessCode);
-			if("thankyou".equals(request.getParameter("thankyou"))){
-				model.addAttribute("thankyou", request.getParameter("thankyou"));
-			}
-			SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-			Date date = new Date();
-			Calendar startDOB = new GregorianCalendar();
-			startDOB.setTime(date); 
-			startDOB.add(startDOB.YEAR, -70);
-			startDOB.add(startDOB.DATE, 1);
-			model.addAttribute("startDOB", format.format(startDOB.getTime()));
-			
-			Calendar defaultDOB = new GregorianCalendar();
-			defaultDOB.setTime(date); 
-			defaultDOB.add(defaultDOB.YEAR, -18);
-			model.addAttribute("defaultDOB", format.format(defaultDOB.getTime()));
-			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
-		}else {
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		
+		String planSelected = (String) session.getAttribute("planSelected");
+		if(session.getAttribute("token") == null || planSelected == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/savings-insurance");
+					+ "/oversea-insurance");	
 		}
-	}	
-	
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/financial-needs-analysis"})
-	public ModelAndView getSavieFNA(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_FNA);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/sales-illustration"})
-	public ModelAndView getSavieSalesIllustration(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_SALES_ILLUSTRATION);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/application"})
-	public ModelAndView getSaviePersonalinfo(Model model, HttpServletRequest request) {
-		model.addAttribute("maritalStatusesEN", InitApplicationMessage.maritalStatusesEN);
-		model.addAttribute("maritalStatusesCN", InitApplicationMessage.maritalStatusesCN);
-		model.addAttribute("placeOfBirthEN", InitApplicationMessage.placeOfBirthEN);
-		model.addAttribute("placeOfBirthCN", InitApplicationMessage.placeOfBirthCN);
-		model.addAttribute("nationalityEN", InitApplicationMessage.nationalityEN);
-		model.addAttribute("nationalityCN", InitApplicationMessage.nationalityCN);
-		model.addAttribute("savieDistrictEN", InitApplicationMessage.savieDistrictEN);
-		model.addAttribute("savieDistrictCN", InitApplicationMessage.savieDistrictCN);
-		model.addAttribute("employmentStatusEN", InitApplicationMessage.employmentStatusEN);
-		model.addAttribute("employmentStatusCN", InitApplicationMessage.employmentStatusCN);
-		model.addAttribute("occupationEN", InitApplicationMessage.occupationEN);
-		model.addAttribute("occupationCN", InitApplicationMessage.occupationCN);
-		model.addAttribute("natureOfBusinessEN", InitApplicationMessage.natureOfBusinessEN);
-		model.addAttribute("natureOfBusinessCN", InitApplicationMessage.natureOfBusinessCN);
-		model.addAttribute("monthlyPersonalIncomeEN", InitApplicationMessage.monthlyPersonalIncomeEN);
-		model.addAttribute("monthlyPersonalIncomeCN", InitApplicationMessage.monthlyPersonalIncomeCN);
-		model.addAttribute("savieBeneficiaryRelationshipEN", InitApplicationMessage.savieBeneficiaryRelationshipEN);
-		model.addAttribute("savieBeneficiaryRelationshipCN", InitApplicationMessage.savieBeneficiaryRelationshipCN);
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_APPLICATION);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/application-summary"}, method = RequestMethod.POST)
-	public ModelAndView getSavieOrderSummary(Model model, HttpServletRequest request,HttpSession httpSession,
-			@ModelAttribute("detailInfo")SavieFormApplicationBean savieDetail,
-			@RequestParam String appGender,
-			@RequestParam String maritalStatus,
-			@RequestParam String beneficiaryBeansGenders1) throws ParseException {
-		//@RequestParam String birthday
+		UserRestURIConstants.setController("Oversea");
+		request.setAttribute("controller", UserRestURIConstants.getController());
+		 
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");                
-		String birthOfDay = (String) httpSession.getAttribute("birthOfDay");
-		//05/28/1995
-		if(null != birthOfDay){
-			String[] date= birthOfDay.split("/");
-			birthOfDay = date[2]+"-"+date[0]+"-"+date[1];
-			logger.info(birthOfDay);
-			savieDetail.getSavieApplicantBean().setBirthday(sdf.parse(birthOfDay));
-		}
-		if("F".equals(appGender)){
-			savieDetail.getSavieApplicantBean().setGender(GenderEnum.FEMALE);
-		}
-		else{
-			savieDetail.getSavieApplicantBean().setGender(GenderEnum.MALE);
-		}
+		UserDetails userDetails = new UserDetails();
+		String dueAmount = WebServiceUtils.getParameterValue("finalDueAmount",session, request);
+		String originalAmount = WebServiceUtils.getParameterValue("finalOriginalAmount",session, request);
+		session.setAttribute("dueAmount", dueAmount);
+		session.setAttribute("originalAmount", originalAmount);
 		
-		savieDetail.getSavieApplicantBean().setResidentialDistrictDesc(savieDetail.getSavieApplicantBean().getResidentialDistrict().split("-")[1]);
-		savieDetail.getSavieApplicantBean().setResidentialDistrict(savieDetail.getSavieApplicantBean().getResidentialDistrict().split("-")[0]);
-		savieDetail.getSavieApplicantBean().setMaritalStatusDesc(maritalStatus.split("-")[1]);
-		savieDetail.getSavieApplicantBean().setMaritalStatus(maritalStatus.split("-")[0]);
-		savieDetail.getSavieApplicantBean().setPlaceOfBirthDesc(savieDetail.getSavieApplicantBean().getPlaceOfBirth().split("-")[1]);
-		savieDetail.getSavieApplicantBean().setPlaceOfBirth(savieDetail.getSavieApplicantBean().getPlaceOfBirth().split("-")[0]);
-		savieDetail.getSavieApplicantBean().setNationalityDesc(savieDetail.getSavieApplicantBean().getNationality().split("-")[1]);
-		savieDetail.getSavieApplicantBean().setNationality(savieDetail.getSavieApplicantBean().getNationality().split("-")[0]);
+		String selectPlanName = planSelected;
+		//String deaprtureDate = DateApi.pickDate1((String)session.getAttribute("departureDate"));
+		//String returnDate = DateApi.pickDate1((String) session.getAttribute("returnDate"));
+		String applicantFullName = planDetailsForm.getFullName();
+		String applicantHKID = planDetailsForm.getHkid();
+		String applicantMobNo = planDetailsForm.getMobileNo();
+		String emailAddress = planDetailsForm.getEmailAddress();
+		String dob = planDetailsForm.getApplicantDob();
+		dob = DateApi.pickDate1(dob);
 		
-		savieDetail.getSavieEmploymentBean().setEmploymentStatusDesc(savieDetail.getSavieEmploymentBean().getEmploymentStatus().split("-")[1]);
-		savieDetail.getSavieEmploymentBean().setEmploymentStatus(savieDetail.getSavieEmploymentBean().getEmploymentStatus().split("-")[0]);
-		savieDetail.getSavieEmploymentBean().setOccupationDesc(savieDetail.getSavieEmploymentBean().getOccupation().split("-")[1]);
-		savieDetail.getSavieEmploymentBean().setOccupation(savieDetail.getSavieEmploymentBean().getOccupation().split("-")[0]);
-		savieDetail.getSavieEmploymentBean().setNatureOfBusinessDesc(savieDetail.getSavieEmploymentBean().getNatureOfBusiness().split("-")[1]);
-		savieDetail.getSavieEmploymentBean().setNatureOfBusiness(savieDetail.getSavieEmploymentBean().getNatureOfBusiness().split("-")[0]);
-		savieDetail.getSavieEmploymentBean().setMonthlyPersonalIncomeDesc(savieDetail.getSavieEmploymentBean().getMonthlyPersonalIncome().split("-")[1]);
-		savieDetail.getSavieEmploymentBean().setMonthlyPersonalIncome(savieDetail.getSavieEmploymentBean().getMonthlyPersonalIncome().split("-")[0]);
+		planDetailsForm = (OverseaDetailsForm) session.getAttribute("overseaPlanDetailsFormBySummary");
 		
-		if("male".equals(beneficiaryBeansGenders1)){
-			savieDetail.getSavieBeneficiaryBeans().get(0).setGender(GenderEnum.MALE);
-		}
-		else{
-			savieDetail.getSavieBeneficiaryBeans().get(0).setGender(GenderEnum.FEMALE);
-		}
-		
-		if(savieDetail.getSavieBeneficiaryBeans() !=null && savieDetail.getSavieBeneficiaryBeans().size()>0){
-			for(int a=0;a<savieDetail.getSavieBeneficiaryBeans().size();a++){
-				savieDetail.getSavieBeneficiaryBeans().get(a).setRelationshipDesc(savieDetail.getSavieBeneficiaryBeans().get(a).getRelationship().split("-")[1]);
-				savieDetail.getSavieBeneficiaryBeans().get(a).setRelationship(savieDetail.getSavieBeneficiaryBeans().get(a).getRelationship().split("-")[0]);
-			}
-		}
-		request.getSession().setAttribute("savieDetail", savieDetail);
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_SUMMARY);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/document-upload"})
-	public ModelAndView getSavieDocumentUpload(Model model, HttpServletRequest request) {
-		model.addAttribute("signatureWidth", InitApplicationMessage.signatureWidth);
-		model.addAttribute("signatureHeight", InitApplicationMessage.signatureHeight);
-		model.addAttribute("applicationFileSize", InitApplicationMessage.applicationFileSize);
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_DOCUMENT_UPLOAD);
-	}
-	
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
-	public ModelAndView getSavieThankyou(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/declarations"})
-	public ModelAndView getSavieDeclarationAuthorization(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_DECLARATION);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/signature"})
-	public ModelAndView getSavieSignature(Model model, HttpServletRequest request) {
-		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_SIGNATURE);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/interest-gathering"})
-	public ModelAndView getSavieEmailConfirmed(Model model, HttpServletRequest request) {
-
-		String affiliate = (String) request.getParameter("affiliate");
-		if(affiliate == null){
-			affiliate = "";
-		}
-		
-		String lang = UserRestURIConstants.getLanaguage(request);
-		List<OptionItemDesc> savieAns;
-		if(lang.equals("tc")){
-			lang = "CN";
-			savieAns=InitApplicationMessage.savieAnsCN;
-		}else{
-			savieAns=InitApplicationMessage.savieAnsEN;
-		}
-		
-		model.addAttribute("savieAns", savieAns);
-		model.addAttribute("affiliate", affiliate);
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/o2o-landing/{affiliate}"})
-	public void getSavieEmailConfirmedId(Model model, HttpServletRequest request,HttpServletResponse response,@PathVariable int affiliate) {
-		try {
-			request.setAttribute("affiliate", affiliate+"");
-			String url =  request.getServletPath();
-			url = url.substring(0,url.lastIndexOf("/"));
-			request.getRequestDispatcher(url).forward(request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/email-submitted","/{lang}/savings-insurance/o2o-landing/email-submitted"})
-	public ModelAndView getSavieEmailSubmitted(Model model, HttpServletRequest request) {
-		String referer = request.getHeader("referer");
-		if(referer != null && (referer.endsWith("/savings-insurance/email-submitted") || referer.endsWith("/savings-insurance/o2o-landing/email-submitted")
-				|| referer.endsWith("/savings-insurance/o2o-landing") || referer.endsWith("/savings-insurance/")
-				|| referer.endsWith("/savings-insurance") || referer.indexOf("savings-insurance?affiliate") > 1
-				|| referer.indexOf("/savings-insurance/o2o-landing?affiliate") > 1)) {
-			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED);
-		}else {
-			return getSavieEmailConfirmed(model, request);
-		//}
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/pdf-show"})
- 	public ModelAndView showPdf(Model model, HttpServletRequest request,@RequestParam String pdfName,@RequestParam String requestNo) {
-		request.getSession().setAttribute("pdfName", pdfName);
-		request.getSession().setAttribute("requestNo", requestNo);
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF);
- 	}
-	
-	
-	
-	*//**
-	 * 
-	 * @param model
-	 * @param request
-	 * @return download page
-	 *//*
-	@RequestMapping(value = {"/{lang}/downloadPage"})
-	public ModelAndView goDownloadPage(Model model, HttpServletRequest request){
-		logger.info("go to download page");
+		HomeCareService homecareService = new HomeCareServiceImpl();
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
-		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "downloadTest");
+		List<DistrictBean> districts = homecareService.getDistrict(session.getAttribute("username").toString(), session.getAttribute("token").toString(), lang);
+		Map<String, String> areas = homecareService.getArea(session.getAttribute("username").toString(), session.getAttribute("token").toString(), lang);
+		//planDetailsForm.setApplicantAreaDesc(WebServiceUtils.getAreaDesc(areas, planDetailsForm.getc));
+		planDetailsForm.setApplicantDistrictDesc(WebServiceUtils.getDistrictDesc(districts, planDetailsForm.getApplicantDistrict()));
+
+		String langSelected = UserRestURIConstants.getLanaguage(request);
+		String[] relationships;
+		String[] beneRelationships;
+		/*for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
+			relationships = planDetailsForm.getPersonalRelationDesc();
+			if(relationships == null){
+				relationships = new String[planDetailsForm.getTotalPersonalTraveller()];
+			}
+			beneRelationships = planDetailsForm.getPersonalBeneRelationDesc();
+			if(beneRelationships == null){
+				beneRelationships = new String[planDetailsForm.getTotalPersonalTraveller()];
+			}
+			planDetailsForm.setPersonalRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, planDetailsForm.getPersonalBeneficiary()[inx], inx));
+			planDetailsForm.setPersonalBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, planDetailsForm.getPersonalBeneficiary()[inx], inx));		
+		}*/
+		
+		userDetails.setFullName(applicantFullName);
+		userDetails.setHkid(applicantHKID);
+		userDetails.setMobileNo(applicantMobNo);
+		userDetails.setEmailAddress(emailAddress);
+		userDetails.setDob(dob);
+        final String BENE_RELATIONSHIP_SELF = "SE";
+
+		//TravelQuoteBean travelBean = new TravelQuoteBean();
+		//travelBean.setTrLeavingDate(deaprtureDate);
+		//travelBean.setTrBackDate(returnDate);
+		
+		String path = request.getRequestURL().toString();
+		model.addAttribute("selectPlanName", selectPlanName);
+		model.addAttribute("dueAmount", dueAmount.replace(",", ""));
+		model.addAttribute("originalAmount", originalAmount.replace(",", ""));
+		model.addAttribute("userDetails", userDetails);
+		//model.addAttribute("travelBean", travelBean);
+		model.addAttribute("planDetailsForm", planDetailsForm);
+		model.addAttribute("path", path.replace("summary", "confirmation?utm_nooverride=1"));
+		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
+        String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
+        String errorMsg =request.getParameter("errorMsg");
+        if(paymentGatewayFlag != null && paymentGatewayFlag.compareToIgnoreCase("true") == 0 && errorMsg == null){            
+            errorMsg = "Payment failure";     
+        }        
+        model.addAttribute("errormsg", errorMsg);        
+        model.addAttribute("referralCode", session.getAttribute("referralCode"));
+        model.addAttribute(session.getAttribute("createPolicy"));
+        
+        String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_SUMMARY);
 	}
-	
-	*//**
-	 * 
-	 * @param request download target file
-	 * @param response
-	 *//*
-	@RequestMapping(value = {"/{lang}/fileDownload"})
-	public void fileDownload(HttpServletRequest request,HttpServletResponse response) throws Exception {
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc")){
-			lang = "CN";
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = {"/{lang}/oversea-insurance/confirmation"})
+	public ModelAndView getOverseaConfirmation(Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		if (session.getAttribute("token") == null) {
+			model.addAttribute("errormsg", "Session Expired");
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+					+ "/oversea-insurance");
 		}
-		
-		//String path = servletContext.getRealPath("/"); 
-		logger.info(request.getServletPath());
-		logger.info(request.getSession().getServletContext().getRealPath("\\"));
-		
-		response.setContentType("multipart/form-data");  
-		
-		response.setHeader("Content-Disposition", "attachment;fileName="+"a.pdf");  
-		ServletOutputStream out;  
-		out = response.getOutputStream();  
-		List<PdfAttribute> attributeList=new ArrayList<PdfAttribute>();		
-		attributeList.add(new PdfAttribute("chineseName","吳錦美"));
-		attributeList.add(new PdfAttribute("age","http://i2.sinaimg.cn/dy/deco/2012/0613/yocc20120613img01/news_logo.png","Image"));
-		attributeList.add(new PdfAttribute("Premium","http://www.fwd.com.hk/img/logo.jpg","Image"));
-		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"pdf/"+"SavieProposalTemplateChi3.pdf";
-		InputStream is = new FileInputStream(pdfTemplatePath);
-		PDFGeneration.generatePdf(is, out, attributeList);
-		out.close();  
-		out.flush();
-		
+		UserRestURIConstants urc = new UserRestURIConstants();
+		urc.updateLanguage(request);
+		UserRestURIConstants.setController("Oversea");
+		request.setAttribute("controller", UserRestURIConstants.getController());
 		
 
-	}
-	
-	*//**
-	 * @param request reload init message
-	 * @param response
-	 *//*
-	@RequestMapping(value = {"/{lang}/reloadInitAppMsg"},method=RequestMethod.GET)
-	public ModelAndView reloadInitMsg(HttpServletRequest request,HttpServletResponse response){
-		InitApplicationMessage.init(commonUtils, "reload");
-		
-		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "downloadTest");
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/customer-service-centre"})
-	public ModelAndView chooseServiceCenter(Model model, HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		//savingAmount为空时返回首页
-		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount")) && org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("username")) && org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("accessCode"))) {
-			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc")) {
-				model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreCN);
-			}else {
-				model.addAttribute("serviceCentre", InitApplicationMessage.serviceCentreEN);
+		JSONObject responsObject = new JSONObject();
+
+		try {
+			JSONObject parameters = new JSONObject();
+			String requestNo = (String) session.getAttribute("transNo");
+			String email = (String) session.getAttribute("emailAddress");
+			parameters.put("referenceNo", session.getAttribute("finalizeReferenceNo"));
+			parameters.put("transactionNumber", session.getAttribute("transNo"));
+			parameters.put("transactionDate", session.getAttribute("transactionDate"));
+			parameters.put("paymentFail", "0");
+			
+			String creditCardNo = (String)session.getAttribute("creditCardNo");
+			
+			if (creditCardNo !=null) { 
+				parameters.put("creditCardNo", Methods.decryptStr((String)session.getAttribute("creditCardNo"))); 
+			} else {
+				model.addAttribute("policyNo", StringHelper.emptyIfNull((String)session.getAttribute("policyNo")));
+				model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
+				model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
+				model.addAttribute("referralCode", session.getAttribute("referralCode"));
+				String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				model.addAttribute("pageTitle", pageTitle);
+				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+				return new ModelAndView(UserRestURIConstants.getSitePath(request)
+						+ "/oversea/oversea-plan-confirmation");				
+			}
+				
+			parameters.put("expiryDate", session.getAttribute("expiryDate"));
+
+			if(JsonUtils.hasEmpty(parameters)) {
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+						+ "/oversea-insurance");
 			}
 			
-			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all";
-			if (lang.equals("tc")) {
-				lang = "CN";
-			}
-			Map<String,String> header = new HashMap<String, String>(COMMON_HEADERS);
-			if(session.getAttribute("authenticate") !=null && session.getAttribute("authenticate").equals("true")){
-				HeaderUtil hu = new HeaderUtil();
-				header = hu.getHeader(request);
-			}
-			else{
-				header.put("userName", "*DIRECTGI");
-				header.put("token", commonUtils.getToken("reload"));
-			}
-			header.put("language", WebServiceUtils.transformLanaguage(lang));
-			org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-			if(responseJsonObj.get("serviceCentres") == null || responseJsonObj.get("serviceCentres") == ""){
-				logger.info(responseJsonObj.toString());
-			}
-			org.json.simple.JSONArray serviceCentresArr = (JSONArray) responseJsonObj.get("serviceCentres");
-			org.json.simple.JSONObject serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
-			org.json.simple.JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
-			org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
-			if(session.getAttribute("csCenter") == null || session.getAttribute("csCenter") == ""){
-				session.setAttribute("csCenter", serviceCentreObj.get("serviceCentreCode"));
-			}
-			if(session.getAttribute("perferredDate") == null || session.getAttribute("perferredDate") == ""){
-		        Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
-		        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
-		        logger.info(formatter.format(date));
-				session.setAttribute("perferredDate", formatter.format(date));
-			}
-			logger.info(session.getAttribute("perferredDate").toString());
+			HashMap<String, String> header = new HashMap<String, String>(
+					COMMON_HEADERS);
+			header.put("userName", session.getAttribute("username").toString());
+			header.put("token", session.getAttribute("token").toString());
+			header.put("language", WebServiceUtils
+					.transformLanaguage(UserRestURIConstants
+							.getLanaguage(request)));
+			logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
+			responsObject = restService.consumeApi(HttpMethod.POST,
+					UserRestURIConstants.OVERSEA_FINALIZE_POLICY, header,
+					parameters);
+			logger.info("TRAVEL_FINALIZE_POLICY Response " + responsObject);
 			
-			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER);
-		} else {
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/savings-insurance");
+			if (responsObject.get("errMsgs") == null) {
+				session.removeAttribute("creditCardNo");
+				session.removeAttribute("expiryDate");
+				session.removeAttribute("upgradeTotalTravallingDays");
+				session.removeAttribute("upgradeTotalTravallingDays");
+				session.removeAttribute("upgradeUserDetails");
+				session.removeAttribute("upgradePlandetailsForm");
+				session.removeAttribute("upgradeCreateFlightPolicy");
+				session.removeAttribute("upgradeSelectPlanName");
+				session.removeAttribute("upgradeDueAmount");
+				session.removeAttribute("annualTravelQuote");
+				session.removeAttribute("travelCreatePolicy");
+				session.removeAttribute("travel-temp-save");
+				session.setAttribute("policyNo", responsObject.get("policyNo"));
+				model.addAttribute("policyNo", responsObject.get("policyNo"));
+				model.addAttribute("emailAddress",
+						session.getAttribute("emailAddress"));
+				model.addAttribute("referralCode",
+						session.getAttribute("referralCode"));
+				String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				session.removeAttribute("referralCode");  // vincent - remove session attribute "referral code" if success
+				model.addAttribute("utm_nooverride", 1);
+				model.addAttribute("pageTitle", pageTitle);
+				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+				return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_CONFIRMATION);
+			} else {
+				if (responsObject.get("errMsgs").toString().contains("invalid payment amount")) {
+					model.addAttribute("errorHeader1", "Invalid Payment Amount");
+					model.addAttribute("errorDescription1", "There is a mismatch of the payment amount with the policy");
+					model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
+					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
+				} else {
+					model.addAttribute("errorHeader1", UserRestURIConstants.ERROR_HEADER1_1 + email + UserRestURIConstants.ERROR_HEADER1_2);
+					model.addAttribute("errorDescription1", UserRestURIConstants.ERROR_DESCRIPTION1 + " " + requestNo);
+					model.addAttribute("errorHeader2", UserRestURIConstants.ERROR_HEADER2_1 + " " + email + UserRestURIConstants.ERROR_HEADER2_2);
+					model.addAttribute("errorDescription2", UserRestURIConstants.ERROR_DESCRIPTION2 + " " + requestNo);
+				}		
+				return new ModelAndView(UserRestURIConstants.getSitePath(request)
+						+ "error");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+			model.addAttribute("errMsgs", e.toString());
+			return new ModelAndView(UserRestURIConstants.getSitePath(request)
+					+ "oversea/oversea-plan-summary");
 		}
 	}
-	
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/appointment-success"})
-	public ModelAndView appointmentSuccess(Model model, HttpServletRequest request) {
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_APPOINTMENT_SUCCESS);
-	}
-	
-	*//**
-	 * 预约成功跳转页面
-	 * @param model
-	 * @param request
-	 * @return
-	 *//*
-	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
-	public ModelAndView confirmationOffline(Model model, HttpServletRequest request) {
-		
-		HttpSession session = request.getSession();
-		//savingAmount为空时返回首页
-		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))) {
-			savieService.confirmationOffline(model, request);
-			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE);
-		}else {
-			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/savings-insurance");
-		}
-		
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance","/{lang}/savings-insurance/"})
-	public ModelAndView o2OLanding(Model model, HttpServletRequest request) {
-		String affiliate = (String) request.getParameter("affiliate");
-		if(affiliate == null){
-			affiliate = "";
-		}
-		
-		String lang = UserRestURIConstants.getLanaguage(request);
-		List<OptionItemDesc> savieAns;
-		if(lang.equals("tc")){
-			lang = "CN";
-			savieAns=InitApplicationMessage.savieAnsCN;
-		}else{
-			savieAns=InitApplicationMessage.savieAnsEN;
-		}
-		model.addAttribute("savieAns", savieAns);
-		model.addAttribute("affiliate", affiliate);
-		
-		
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
-	}*/
 }
