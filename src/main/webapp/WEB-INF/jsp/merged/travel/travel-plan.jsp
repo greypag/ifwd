@@ -253,6 +253,8 @@ var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.pla
             $("#plansummary").html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
 
 		}
+
+		$("del").html("");
 		if(result["priceInfoA"].totalDue!=result["priceInfoA"].grossPremium){
 			//$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
 			$('.actualPriceA').removeClass('hide');
