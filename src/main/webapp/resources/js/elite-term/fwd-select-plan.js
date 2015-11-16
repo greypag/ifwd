@@ -415,6 +415,7 @@
          $('#etaspd-monthly-premium').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' (for the 1st year)');
          
          if ($self.hasClass('back-to-summary')) {
+            populateAppSummPD();
         	 $('#et-application-third-section').removeClass('hide-element');
              $('body, html').animate({
           	  scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
@@ -458,6 +459,7 @@
 
                
                if ($self.hasClass('back-to-summary')) {
+                  populateAppSummPD();
             	   $('#et-application-third-section').removeClass('hide-element');
             	   $target = $('#et-application-third-section');
                } else {
@@ -491,6 +493,7 @@
          var $target = '';
          if (isBeneficaryValid()) {
             if ($self.hasClass('back-to-summary')) {
+               populateAppSummBI();
             $('#et-application-third-section').removeClass('hide-element');
                $('body, html').animate({
             	  scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
@@ -1086,6 +1089,7 @@
          $('#et-personal-info-next').removeAttr('disabled');
          
          if ($('#et-personal-info-next').hasClass('back-to-summary')) {
+            populateAppSummPI();
         	$('#et-application-third-section').removeClass('hide-element');
             $('body, html').animate({
           	   scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
@@ -1258,6 +1262,7 @@
                $('#et-employment-info-section').removeAttr('style');
                
                if ($('#et-employment-info-next').hasClass('back-to-summary')) {
+                populateAppSummEI();
             	  $('#et-application-third-section').removeClass('hide-element');
                   $('body, html').animate({
                  	 scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
