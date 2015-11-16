@@ -542,7 +542,7 @@ $(document).ready(function() {
 	  <h2><fmt:message key="special.promotion.headline" bundle="${msg}" /></h2>
 	  <ul class="bullets">
 	    <li>
-	      <p class="h4-5 "><fmt:message key="special.promotion.copy1" bundle="${msg}" /></p>     
+	      <p class="h4-5 "><fmt:message key="working.special.promotion.copy1" bundle="${msg}" /></p>     
 	    </li>
 	    <li>
 	      <p class="h4-5"><fmt:message key="workingholiday.main.other.benefit.desc6.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.main.other.benefit.desc6.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.other.benefit.desc6.part3" bundle="${msg}" /></p>
@@ -610,7 +610,7 @@ $(document).ready(function() {
           <div class="slide-margin">
             <div class="other-benefits-wrap text-center">
               <div class="other-benefits-inner">
-	           <p style="font-size: 21px;"><fmt:message key="special.promotion.copy1" bundle="${msg}" /></p>
+	           <p style="font-size: 21px;"><fmt:message key="working.special.promotion.copy1" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
@@ -642,13 +642,13 @@ $(document).ready(function() {
   <!--/.carousel-->
   <div class="clearfix"></div>
           <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center">
-                <div class="col-lg-12 col-md-12 col-xs-12">
+                <div class="col-sm-12 col-xs-12">
               <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
             </div>
-            <div class="col-lg-12 col-md-12 col-xs-12">
+            <div class="col-sm-12 col-xs-12">
               <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
             </div>
-            <div class="col-lg-12 col-md-12 col-xs-12">
+            <div class="col-sm-12 col-xs-12">
               <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-bottom:15px;">
             </div>
           </div>  

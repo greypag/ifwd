@@ -150,7 +150,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   <h2><fmt:message key="special.promotion.headline" bundle="${msg}" /></h2>
   <ul class="bullets">
     <li>
-      <p class="h4-5 "><fmt:message key="special.promotion.copy1" bundle="${msg}" />
+      <p class="h4-5 "><fmt:message key="working.special.promotion.copy1" bundle="${msg}" />
       <!--<br/><span class="strike-text"><fmt:message key="special.promotion.copy2" bundle="${msg}" /></span>-->
       </p>
     </li>
@@ -205,7 +205,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
           <div class="slide-margin">
             <div class="other-benefits-wrap text-center">
               <div class="other-benefits-inner">
-                    <p style="font-size: 21px;"><fmt:message key="special.promotion.copy1" bundle="${msg}" /></p>
+                    <p style="font-size: 21px;"><fmt:message key="working.special.promotion.copy1" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
@@ -229,8 +229,12 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   <div class="clearfix"></div>
   <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center;">
     <div class="col-lg-12 col-md-12 col-xs-12">
-      <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
-      <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
+      <div class="col-sm-12 col-xs-12">
+        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
+      </div>
+      <div class="col-sm-12 col-xs-12">
+        <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
+      </div>
     </div>
   </div>  
 </div>  
