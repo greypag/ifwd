@@ -392,9 +392,6 @@
             
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none gray-bg1" style="padding-bottom:10px;">
                 <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
-                <!-- 
-                <div><fmt:message key="travel.confirmation.partnerDesc.part1" bundle="${msg}" /> <strong><fmt:message key="travel.confirmation.partnerDesc.part2" bundle="${msg}" /></strong> <fmt:message key="travel.confirmation.partnerDesc.part3" bundle="${msg}" /></div>
-                 -->
                 <div><fmt:message key="travel.confirmation.main.content.copy13" bundle="${msg}" /> <strong><fmt:message key="travel.confirmation.main.content.copy14" bundle="${msg}" /></strong> <fmt:message key="travel.confirmation.main.content.copy15" bundle="${msg}" /></div>
                 <div class="fwd_partner_title"><fmt:message key="fwd.partners" bundle="${msg}" /></div>
                 <div class="hidden-xs hidden-sm">
