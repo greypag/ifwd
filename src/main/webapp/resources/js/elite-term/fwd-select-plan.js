@@ -468,6 +468,8 @@
                    
                    $('#et-application-first-section').removeAttr('style');
                    
+                   $('#savieApplicantBean\\.chineseName').val('').trigger('change');
+                   
                    // Disable scrolling to the select plan section
                    // Update current section flag
                    if (currentSection === 'et-select-plan-section') {
@@ -620,31 +622,37 @@
          var $self = $(this);
          var $target = $($self.data('target'));
          
-         //hide summary
-	     $('#et-application-third-section').addClass('hide-element');
-	     $('#et-declaration-proceed-btn').parent().removeClass('hidden');
+         if ($self.hasClass('et-app-edit')) {
+	         var backText = $('#et-brn-proceed-to-application').data('back-text');
+	         $('#et-brn-proceed-to-application').text(backText);
+         } else {
+	         //hide summary
+		     $('#et-application-third-section').addClass('hide-element');
+		     $('#et-declaration-proceed-btn').parent().removeClass('hidden');
+	         
+	         //hide parts
+	         $('#et-plan-option-section').addClass('hide-element');
+	         $('#et-application-info-section').addClass('hide-element');
+	         $('#et-employment-info-section').addClass('hide-element');
+	         $('#et-beneficiary-info-section').addClass('hide-element');
+	         $('#et-select-plan-section').addClass('hide-element');
+	         $('#et-application-second-section').addClass('hide-element');
+	         
+	         //update button text
+	         var backText = $('#et-app-sum-proceed-btn').data('back-text');
+	         $('#et-brn-proceed-to-application').addClass('back-to-summary').text(backText);
+	         $('#et-medical-dec-next').addClass('back-to-summary').text(backText);
+	         $('#et-personal-info-next').addClass('back-to-summary').text(backText);
+	         $('#et-employment-info-next').addClass('back-to-summary').text(backText);
+	         $('#et-beneficiary-info-next').addClass('back-to-summary').text(backText);
+	         $('#et-app-sum-proceed-btn').removeClass('et-btn-view-summary').addClass('back-to-summary').text(backText);
+	         
+	         //show target
+	         if (($self.data('target') === '#et-employment-info-section') || $self.data('target') === '#et-beneficiary-info-section') {
+	        	 $('#et-application-info-section').removeClass('hide-element');
+	         }
+      	 }
          
-         //hide parts
-         $('#et-plan-option-section').addClass('hide-element');
-         $('#et-application-info-section').addClass('hide-element');
-         $('#et-employment-info-section').addClass('hide-element');
-         $('#et-beneficiary-info-section').addClass('hide-element');
-         $('#et-select-plan-section').addClass('hide-element');
-         $('#et-application-second-section').addClass('hide-element');
-         
-         //update button text
-         var backText = $('#et-app-sum-proceed-btn').data('back-text');
-         $('#et-brn-proceed-to-application').addClass('back-to-summary').text(backText);
-         $('#et-medical-dec-next').addClass('back-to-summary').text(backText);
-         $('#et-personal-info-next').addClass('back-to-summary').text(backText);
-         $('#et-employment-info-next').addClass('back-to-summary').text(backText);
-         $('#et-beneficiary-info-next').addClass('back-to-summary').text(backText);
-         $('#et-app-sum-proceed-btn').removeClass('et-btn-view-summary').addClass('back-to-summary').text(backText);
-         
-         //show target
-         if (($self.data('target') === '#et-employment-info-section') || $self.data('target') === '#et-beneficiary-info-section') {
-        	 $('#et-application-info-section').removeClass('hide-element');
-         }
          $target.removeClass('hide-element');
 
          
