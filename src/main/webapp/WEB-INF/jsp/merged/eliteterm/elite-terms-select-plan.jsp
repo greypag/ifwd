@@ -2705,4 +2705,29 @@ var home_url = "<%=request.getContextPath()%>";
                 }	
             }
             window.onbeforeunload=goodbye; 
+            
+            function getOccupation(value,language) {
+            	var code = value.replace(/[^0-9]/ig,"");
+            	//language tc/en
+            	console.log(code=='');
+            	console.log(code=='1');
+            	console.log()
+            	/*$.get(contextPath+'/ajax/savie/application/getOccupation',
+            	{ 
+            		value : value,
+            		language : language
+            	},
+            	function(data) {
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		if(data != null){
+            			for(var i = 0; i < data.length; i++) {
+            				$("#savieEmploymentBean\\.occupation").append("<option value='"+data[i].itemCode+"-"+data[i].itemDesc+"'>"+data[i].itemDesc+"</option>");
+            			}
+            		}
+            	})
+            	.fail(function(data) {
+            		console.log("data error:"+data.length);
+            	});*/
+            	
+            }
       </script>
