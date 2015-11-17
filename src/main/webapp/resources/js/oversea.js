@@ -5474,7 +5474,7 @@ function changeRegion(region){
 		$('#region-btn-0').removeClass("region-box-inactive");
 		$('#region-btn-1').addClass("region-box-inactive");
 		$('#region-btn-1').removeClass("region-box-active");
-		changeColorAndPrice('box2','2','Plan A Comprehensive','0.0','8000.0')
+		changeColorAndPrice('box2','2','medicalWorldwideA','0.0','8000.0')
 	}
 	if(region=='region1'){
 		$('#region0').css("display","none");
@@ -5484,7 +5484,7 @@ function changeRegion(region){
 		$('#region-btn-0').removeClass("region-box-active");
 		$('#region-btn-1').addClass("region-box-active");
 		$('#region-btn-1').removeClass("region-box-inactive");
-		changeColorAndPrice('box6','6','Plan A Comprehensive','0.0','5500.0');
+		changeColorAndPrice('box6','6','medicalAsiaA','0.0','5500.0');
 	}
 }
 

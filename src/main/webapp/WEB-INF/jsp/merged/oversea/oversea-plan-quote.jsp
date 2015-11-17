@@ -278,7 +278,7 @@ function chkDueAmount() {
 
 $(document).ready(function() {                     
 	$('[data-toggle="tooltip"]').tooltip();
-	changeColorAndPrice('box2','2','Plan A Comprehensive','0.0','8000.0')
+	changeColorAndPrice('box2','2','medicalWorldwideA','0.0','8000.0')
 });
 </script>
 
