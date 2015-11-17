@@ -476,9 +476,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 		try {
 			CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
 			String policyNo = eliteTermPolicy.getPolicyNo();
-			String url = request.getProtocol() 
-					+ request.getServerName()
-                    + request.getContextPath();
+			String url = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
 			String language = (String) request.getSession().getAttribute("language");
 			if(StringUtils.isEmpty(language)){
 				language = "tc";
@@ -493,7 +491,6 @@ public class EliteTermServiceImpl implements EliteTermService {
 			}
 			String imgUrl = url+"/resources/images/elite-terms/ifwd_hero-banner_edm.jpg";
 			url = url + "/"+language+"/term-life-insurance/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(policyNo.getBytes());
-			
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
 			String to = (String) request.getSession().getAttribute("eliteTermEmail");
