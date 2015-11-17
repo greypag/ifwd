@@ -1839,6 +1839,15 @@ body{
      .mob-topbar .callus{
        font-size: 12px;
        padding: 0 10px 0 10px !important;
-     }
-     
+     }     
+}
+@media screen and (max-width: 991px){
+    #myDropdownMob.modal-dialog{
+       margin-top: 35%;
+    }
+    .modal-open {
+        position: fixed;
+        width: 100%;
+        overflow: hidden;
+    }   
 }

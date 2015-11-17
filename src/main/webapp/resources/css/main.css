@@ -10460,3 +10460,13 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa {
 	 }
 	 
 }
+@media screen and (max-width: 991px){
+	#myDropdownMob.modal-dialog{
+	   margin-top: 35%;
+	}
+	.modal-open {
+	    position: fixed;
+	    width: 100%;
+	    overflow: hidden;
+	}	
+}

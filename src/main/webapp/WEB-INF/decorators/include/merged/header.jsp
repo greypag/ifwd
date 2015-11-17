@@ -773,17 +773,16 @@ function submitLoginForm(formID) {
 		        class="bmg_mobile_login_mask"
 		        onclick="$('#fwd-login-mob').trigger('click');"></div>
 		        -->
-		         <div
+		         <!--<div
                 style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
                 class="bmg_mobile_login_mask"
-                onclick="$('body').removeClass('modal-open');"></div>
-    <div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob" onclick="$('body').addClass('modal-open');">
-
+                onclick="$('body').removeClass('modal-open');"></div>-->    
         <%
             if (session.getAttribute("authenticate") == null
                     || !"true".equals(session.getAttribute("authenticate")
                             .toString())) {
         %>
+        <div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob" data-toggle="modal" data-target="#myModal">       
         <a href="#" class="dropdown-toggle color-wht log-to-acc"
             id="fwd-login-mob"><i
             class="fa fa-lock"></i> <fmt:message key="header.login.heading"
@@ -861,7 +860,7 @@ function submitLoginForm(formID) {
         %>
 
 
-
+        <div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
         <a href="#" class="dropdown-toggle" id="fwd-login"
             data-toggle="dropdown"><fmt:message key="header.login.welcome"
                 bundle="${msg}" />&nbsp;&nbsp;&nbsp;<%=session.getAttribute("username")%>
@@ -1065,27 +1064,28 @@ function submitLoginForm(formID) {
 					key="header.product.home" bundle="${msg}" /></a></li>
 	</ul>-->
 </div>
-<div class="mob-login-form-wrapper">
+
+<div id="myModal" class="mob-login-form-wrapper modal fade" role="dialog">
+<div
+    style="display: none; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 2001"
+    class="login-ajax-loading">
+    <img
+        style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px;"
+        src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+</div>
 <!-- 
 <div
         style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1500"
         class="bmg_mobile_login_mask"
         onclick="$('body').removeClass('modal-open');$('#fwd-login-mob').trigger('click');"></div>
          -->
-         <div
-        style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1500"
+         <!--<div
+        style="display: none; background: #000; left: 0; top: 0; bottom: -100px; right: 0; opacity: 0.8; z-index: 1500"
         class="bmg_mobile_login_mask"
-        onclick="$('body').removeClass('modal-open');"></div>
-    <div id="myDropdownMob">
+        onclick="$('#fwd-login-mob').trigger('click');$('body').removeClass('modal-open');"></div>-->
+    <div id="myDropdownMob" class="modal-dialog">
         <form name="loginform" id="loginform2">
             <div class="login-form" style="position: absolute;">
-                <div
-                    style="display: none; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1500"
-                    class="login-ajax-loading">
-                    <img
-                        style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px;"
-                        src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
-                </div>
                 <div id="login-err-msg"
                     class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert"
                     style="display: none;"></div>
@@ -1166,7 +1166,7 @@ function submitLoginForm(formID) {
     iosChromeAlertMsg[1] = '請選用以下其它建議的瀏覽器：';
     iosChromeAlertMsg[2] = '關閉';
     
-	$(document).ready(function() {
+	$(document).ready(function() {	
 		//$("#loginform2").appendTo("body");
 		//console.log(navigator.userAgent.match('CriOS'));
 		if(navigator.userAgent.match('CriOS')){
@@ -1198,12 +1198,12 @@ function submitLoginForm(formID) {
             || !"true".equals(session.getAttribute("authenticate")
                     .toString())) {
     %>
-		$('#myDropdownMob').click(function(e) {
+		/*$('#myDropdownMob').click(function(e) {
 			e.preventDefault();
 			e.stopPropagation();
 			$(".mob-login-form-wrapper").toggleClass('open');
 			$(".bmg_mobile_login_mask").toggle();
-		});
+		});*/
 	<%
     }
     %>
