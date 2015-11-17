@@ -114,8 +114,8 @@ function subForm(form, formId) {
 	$('#loading-overlay').modal('hide');
 	return result;
 }
-
-function applyTravelPromoCode() {
+var promoCodeInsertFlag = true;
+function applyOverseaPromoCode() {
 	if(promoCodeInsertFlag){
 		promoCodeInsertFlag = false;
 		$("#errPromoCode").html("");
@@ -135,7 +135,8 @@ function applyTravelPromoCode() {
                     
                     var json = JSON.parse(data);
                     promoData = json;
-                    setValue(json);
+                   
+                    //setValue(ccc);
                 }
 
             });
@@ -215,7 +216,6 @@ function setValue(result) {
 function chkPromoCode() {
 	var flag = false;
 	var promoCode = document.getElementById("promoCode").value;
-
 	if (promoCode.trim() == "" || promoCode==promoCodePlaceholder) {
 		$("#loadingPromo").hide();
 		promoCodeInsertFlag = true;
@@ -2092,8 +2092,8 @@ Vietnam
 							<span class="text-red" id="errPromoCode"></span>
 							<div id="promo-wrap" class="form-group">
 								<div class="input-group" id="inputPromo" style="display:inital;width:100%;padding-left: 20px;padding-right: 20px;">
-									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'eg: FWD789');" onBlur="placeholderOnBlur(this,'eg: FWD789');" value="eg: FWD789">
-									<a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:30%;padding: 0px;float: right;margin-top: 15px;" onClick="applyTravelPromoCode()">APPLY</a>
+									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onBlur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+									<a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:30%;padding: 0px;float: right;margin-top: 15px;" onClick="applyOverseaPromoCode()">APPLY</a>
 								</div>
 							</div>
 							<div class="travel-italic workingholiday-getpromocode" style="font-size:14px;">

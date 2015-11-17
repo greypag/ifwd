@@ -2,6 +2,7 @@ package com.ifwd.fwdhk.services.impl;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -112,7 +113,7 @@ public class OverseaServiceImpl implements OverseaService {
 
 	@Override
 	public String applyPromotionCode(HttpServletRequest request, HttpServletResponse response,
-			HttpSession session) {
+			HttpSession session) throws Exception {
 		String token = null, username = null;
 		if ((session.getAttribute("token") != null) && (session.getAttribute("username") != null)) {
 			token = session.getAttribute("token").toString();
@@ -125,9 +126,10 @@ public class OverseaServiceImpl implements OverseaService {
 			}
 		}
 
-		String referralCode = (String) session.getAttribute("referralCode");
+		String promoCode = request.getParameter("promoCode");
+		promoCode = java.net.URLEncoder.encode(promoCode, "UTF-8").replace("+", "%20");
 		String Url = UserRestURIConstants.OVERSEA_GET_QUOTE + "?planCode=Overseas" + "&referralCode="
-				+ (referralCode != null ? referralCode : "");
+				+ (promoCode != null ? promoCode : "");
 
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		if (request.getSession().getAttribute("username") != null) {
