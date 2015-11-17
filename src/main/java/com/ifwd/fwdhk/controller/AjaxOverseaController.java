@@ -41,7 +41,7 @@ public class AjaxOverseaController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = "/ajax/oversea/applyTravelPromoCode", method = RequestMethod.POST)
+	@RequestMapping(value = "/ajax/oversea/applyOverseaPromoCode", method = RequestMethod.POST)
 	@ResponseBody
 	public String applyPromotionCode(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) {
 		String str = null;

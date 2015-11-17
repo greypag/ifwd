@@ -114,8 +114,8 @@ function subForm(form, formId) {
 	$('#loading-overlay').modal('hide');
 	return result;
 }
-
-function applyTravelPromoCode() {
+var promoCodeInsertFlag = true;
+function applyOverseaPromoCode() {
 	if(promoCodeInsertFlag){
 		promoCodeInsertFlag = false;
 		$("#errPromoCode").html("");
@@ -135,7 +135,8 @@ function applyTravelPromoCode() {
                     
                     var json = JSON.parse(data);
                     promoData = json;
-                    setValue(json);
+                   
+                    //setValue(ccc);
                 }
 
             });
@@ -215,7 +216,6 @@ function setValue(result) {
 function chkPromoCode() {
 	var flag = false;
 	var promoCode = document.getElementById("promoCode").value;
-
 	if (promoCode.trim() == "" || promoCode==promoCodePlaceholder) {
 		$("#loadingPromo").hide();
 		promoCodeInsertFlag = true;
@@ -248,38 +248,34 @@ function chkDueAmount() {
 	return flag;
 }
 
-/* function chkClubMember() {
-    $(".errDue").html('');
-    var flag = true;		
-    var the_club_member_check_box = document.getElementById("the-club-member-toggle").checked;
-    var the_club_membership_no = document.getElementById("theClubMembershipNo").value;
-    if (the_club_member_check_box) {
-        if (the_club_membership_no == "The Club Membership Number" || the_club_membership_no == "" || /^\s*$/.test(the_club_membership_no)) {
-            $("#errClubMemberID").html("Please enter your The Club membership number.") ;
-            document.getElementById("theClubMembershipNo").focus();
-            $("#theClubMembershipNo").addClass("invalid-field");                
-            flag = false;
-        }else if (the_club_membership_no != ""){
-        	if(/^8/.test(the_club_membership_no) == false){
-                $("#errClubMemberID").html("The Club membership number must be started with number 8.") ;
-                document.getElementById("theClubMembershipNo").focus();
-                $("#theClubMembershipNo").addClass("invalid-field");
-                flag = false;
-        	}else if(/^[0-9]{10}$/.test(the_club_membership_no) == false){
-                $("#errClubMemberID").html("The Club membership number must be 10 digit length.") ;
-                document.getElementById("theClubMembershipNo").focus();
-                $("#theClubMembershipNo").addClass("invalid-field");
-                flag = false;            		
-        	}
-        } 
-    }
-    return flag;
-} */
-
 $(document).ready(function() {                     
 	$('[data-toggle="tooltip"]').tooltip();
-	changeColorAndPrice('box2','2','Plan A Comprehensive','0.0','8000.0')
+	changeColorAndPrice('box2','2','medicalWorldwideA','0.0','8000.0')
 });
+
+function sendEmail() {
+	$('.proSuccess').addClass('hide');
+	if (get_promo_val()) {
+		console.log($("#sendmailofpromocode form").serialize());
+		$.ajax({
+			type : "POST",
+			url : "<%=request.getContextPath()%>/sendEmail",
+			data : $("#sendmailofpromocode form").serialize(),
+			async : false,
+			success : function(data) {
+				if (data == 'success') {
+					$('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
+				} else {
+					console.log(data);
+					$('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
+				}
+			},
+			error : function() {
+			}
+		});
+	}
+	return false;
+}
 </script>
 
 <section class="product_header_path_container ">
@@ -2073,11 +2069,16 @@ Vietnam
 							<span class="text-red" id="errPromoCode"></span>
 							<div id="promo-wrap" class="form-group">
 								<div class="input-group" id="inputPromo" style="display:inital;width:100%;padding-left: 20px;padding-right: 20px;">
+<<<<<<< HEAD
 									<!--
 									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'eg: FWD789');" onBlur="placeholderOnBlur(this,'eg: FWD789');" value="eg: FWD789">
 									-->
                                     <input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'<key id='Overseas.PlanOptions.Promo.eg'>If applicable</key>');" onBlur="placeholderOnBlur(this,'<key id='Overseas.PlanOptions.Promo.eg'>If applicable</key>');" value="If applicable">
 									<a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:30%;padding: 0px;float: right;margin-top: 15px;" onClick="applyTravelPromoCode()">APPLY</a>
+=======
+									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onBlur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
+									<a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:30%;padding: 0px;float: right;margin-top: 15px;" onClick="applyOverseaPromoCode()">APPLY</a>
+>>>>>>> da5b1efebd6db962cf9a34d18d849b573178190c
 								</div>
 							</div>
 							<div class="travel-italic workingholiday-getpromocode" style="font-size:14px;">
@@ -2183,5 +2184,51 @@ Vietnam
 	<!--/.container-->
 </section>
 
-  <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
-  <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>
+<!--Get promotion code popup-->
+<div class="modal fade bs-promo-modal-lg " tabindex="-1" role="dialog"  aria-hidden="true" style="display: none;" >
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content plan-modal">
+            <div class="login-form" id="sendmailofpromocode">
+	            <div style="overflow: hidden;">
+	            	<a id="getPromotionClose" class="close" aria-label="Close" data-dismiss="modal">
+	                	<span aria-hidden="true" style="font-size:30px;">×</span>
+	                </a>
+	            </div>
+	            <form>
+	                <div class="form-container">
+	                    <h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
+	                    <div class="alert alert-success hide proSuccess"></div>
+	                    <h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
+	                    <div class="form-group">
+	                        <input type="email" class="form-control" placeholder=""
+	                            name="emailToSendPromoCode" id="emailToSendPromoCode">
+	                        <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
+	                    </div>
+	                    <span id="errPromoEmail" class="text-red"></span> <br>
+	                    <div class="row">
+	                        <div class="col-lg-6 col-md-6">
+	                            <button type="submit" onclick="return sendEmail()"
+	                                class="bdr-curve btn btn-primary btn-lg wd5">
+	                            	<fmt:message key="promotion.get.code.action" bundle="${msg}" />
+	                            </button>
+	                        </div>
+	                        <div class="col-md-2">
+	                            <br>
+	                        </div>
+	                        <div class="col-lg-4 col-md-4">
+	                        </div>
+	                        <br> <br>
+	                        <div class="col-lg-12 col-md-12">
+	                            <p><fmt:message key="promotion.get.code.disclaimer" bundle="${msg}" /></p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ Get promotion code popup-->
+
+<link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>
