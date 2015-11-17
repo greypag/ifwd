@@ -86,7 +86,6 @@ var home_url = "<%=request.getContextPath()%>";
                   
                   <div class="et-before-we-start">
                      <h2 class="et-bfr-txt"><fmt:message key="eliteTerms.selectPlan.Before.we.start" bundle="${msg}" /></h2>
-                     
                      <div class="et-broken-line et-padding"></div>
                      
                      <p class="et-bfr-start-txt bottom">
@@ -237,7 +236,7 @@ var home_url = "<%=request.getContextPath()%>";
                                           <fmt:message key="eliteTerms.selectPlan.Promo.code" bundle="${msg}" />
                                        </span>
                                        <span>
-                                          <button type="button" class="et-minimal et-promo-code-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Promo.code.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-question-tooltip"></span></button>
+                                          <button type="button" class="et-minimal et-promo-code-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Promo.code.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper long" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-question-tooltip"></span></button>
                                           <img src="<%=request.getContextPath()%>/resources/images/elite-terms/orange-caret.png" class="reversed visible-xs-inline visible-sm-inline">
                                        </span>
                                     </h3>
@@ -951,6 +950,333 @@ var home_url = "<%=request.getContextPath()%>";
                                  </div>
                                  <span class="error-msg" id="occupationMessage"></span>
                               </div>
+                              <div class="hidden">
+							         <select id="occupation">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEN}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCN}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation1">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB1}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB1}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation2">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB2}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB2}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation3">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB3}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB3}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation4">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB4}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB4}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation5">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB5}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB5}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation6">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB6}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB6}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation7">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB7}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB7}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation8">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB8}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB8}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation9">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB9}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB9}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation10">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB10}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB10}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation11">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB11}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB11}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation12">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB12}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB12}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation13">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB13}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB13}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation14">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB14}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB14}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation15">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB15}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB15}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation16">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB16}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB16}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation17">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB17}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB17}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation18">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB18}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB18}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation19">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB19}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB19}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation20">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB20}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB20}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation21">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB21}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB21}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation22">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB22}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB22}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation23">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB23}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB23}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+							         <select id="occupation24">
+							            <option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+							            <c:if test="${language == 'en'}">
+							                 <c:forEach var="list" items="${occupationEnNoB24}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>
+							             <c:if test="${language == 'tc'}">
+							                 <c:forEach var="list" items="${occupationCnNoB24}">
+							                   <option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
+							                 </c:forEach>
+							             </c:if>   
+							         </select>
+						      </div>
 
                               <div class="clearfix form-group has-error employment-info-row et-emp-info-sourceOfIncome-container hidden">
                                  <label for="savieEmploymentBean.sourceOfIncome"><fmt:message key="eliteTerms.selectPlan.Other.Source.Of.Income" bundle="${msg}" /></label>
@@ -2705,4 +3031,225 @@ var home_url = "<%=request.getContextPath()%>";
                 }	
             }
             window.onbeforeunload=goodbye; 
+            
+            function getOccupation(value,language) {
+            	var code = value.replace(/[^0-9]/ig,"");
+            	console.log(code);
+            	if(code==''){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='1'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation1 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='2'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation2 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='3'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation3 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='4'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation4 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='5'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation5 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='6'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation6 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='7'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation7 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='8'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation8 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='9'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation9 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='10'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation10 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='11'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation11 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='12'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation12 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='13'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation13 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='14'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation14 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='15'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation15 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='16'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation16 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='17'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation17 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='18'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation18 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='19'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation19 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='20'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation20 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='21'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation21 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='22'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation22 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='23'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation23 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	else if(code=='24'){
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		$("#occupation24 option").each(function () {
+            	        var txt = $(this).text();
+            	        var val = $(this).val();
+            	        $("#savieEmploymentBean\\.occupation").append("<option value='"+val+"'>"+txt+"</option>");
+            	    });
+            	}
+            	/*$.get(contextPath+'/ajax/savie/application/getOccupation',
+            	{ 
+            		value : value,
+            		language : language
+            	},
+            	function(data) {
+            		$("#savieEmploymentBean\\.occupation").empty();
+            		if(data != null){
+            			for(var i = 0; i < data.length; i++) {
+            				$("#savieEmploymentBean\\.occupation").append("<option value='"+data[i].itemCode+"-"+data[i].itemDesc+"'>"+data[i].itemDesc+"</option>");
+            			}
+            		}
+            	})
+            	.fail(function(data) {
+            		console.log("data error:"+data.length);
+            	});*/
+            }
       </script>
