@@ -476,10 +476,9 @@ public class EliteTermServiceImpl implements EliteTermService {
 		try {
 			CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
 			String policyNo = eliteTermPolicy.getPolicyNo();
-			String url = "http://" + request.getServerName() //服务器地址  
-                    + ":"   
-                    + request.getServerPort()           //端口号  
-                    + request.getContextPath();      //项目名称 
+			String url = request.getProtocol() 
+					+ request.getServerName()
+                    + request.getContextPath();
 			String language = (String) request.getSession().getAttribute("language");
 			if(StringUtils.isEmpty(language)){
 				language = "tc";
