@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
@@ -38,6 +39,19 @@ public class AjaxOverseaController extends BaseController{
 			logger.info(e.getMessage());
 			e.printStackTrace();
 		}
+	}
+	
+	@RequestMapping(value = "/ajax/oversea/applyTravelPromoCode", method = RequestMethod.POST)
+	@ResponseBody
+	public String applyPromotionCode(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) {
+		String str = null;
+		try {
+			str = overseaService.applyPromotionCode(request, response, httpSession);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		return str;
 	}
 
 	@RequestMapping(value = {"/ajax/oversea/prepareOverseaDetails"})

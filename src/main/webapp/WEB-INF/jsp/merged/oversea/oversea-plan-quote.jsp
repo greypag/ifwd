@@ -115,6 +115,121 @@ function subForm(form, formId) {
 	return result;
 }
 
+function applyTravelPromoCode() {
+	if(promoCodeInsertFlag){
+		promoCodeInsertFlag = false;
+		$("#errPromoCode").html("");
+        if(chkPromoCode()){
+        	$('#loading-overlay').modal({
+                backdrop: 'static',
+                keyboard: false
+            })
+            console.log($('#frmTravelPlan input').serialize());
+        	$.ajax({
+                type : 'POST',
+                url : '<%=request.getContextPath()%>/ajax/oversea/applyOverseaPromoCode',
+                data : $('#frmTravelPlan input').serialize(),
+                success : function(data) {
+                	$('#loading-overlay').modal('hide');
+                    promoCodeInsertFlag = true;
+                    
+                    var json = JSON.parse(data);
+                    promoData = json;
+                    setValue(json);
+                }
+
+            });
+        }else{
+        	promoCodeInsertFlag = true;
+        }
+	}
+}
+
+function setValue(result) {
+
+	var selValue = document.getElementById("inputseletedplanname").value;
+	if(result['errMsgs'] !== null){
+		$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
+		$('#inputPromo').addClass('invalid-field');
+	}else{
+		$("#errPromoCode").html("");
+		$('#inputPromo').removeClass('invalid-field');
+		
+		if (selValue == "B") {
+			//var totalDue = parseInt(result["priceInfoA"].totalDue);
+			
+			//$("#subtotal").html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
+			$("#subtotal").html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
+			/*$("#discountAmt").html(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
+            $('#selectedDiscountAmt').val(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
+            $('#txtDiscountAmount').val(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));*/
+            $("#discountAmt").html(numeral(result["priceInfoB"].discountAmount).format('0,0.00'));
+            $('#selectedDiscountAmt').val(numeral(result["priceInfoB"].discountAmount).format('0,0.00'));
+            $('#txtDiscountAmount').val(numeral(result["priceInfoB"].discountAmount).format('0,0.00'));
+			//$("#amountdue").html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+			$("#amountdue").html(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
+			/*$('#selectedAmountDue').val(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+			$('#selectPlanPremium').val(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));*/
+			$('#selectedAmountDue').val(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
+            $('#selectPlanPremium').val(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
+            $("#plansummary").html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
+			
+		} else if (selValue == "A") {
+			//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
+			//$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+			$("#subtotal").html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
+			/*
+			$("#discountAmt").html(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
+			$('#selectedDiscountAmt').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
+			$('#txtDiscountAmount').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));*/
+			$("#discountAmt").html(numeral(result["priceInfoA"].discountAmount).format('0,0.00'));
+            $('#selectedDiscountAmt').val(numeral(result["priceInfoA"].discountAmount).format('0,0.00'));
+            $('#txtDiscountAmount').val(numeral(result["priceInfoA"].discountAmount).format('0,0.00'));
+			//$("#amountdue").html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+			$("#amountdue").html(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
+			/*$('#selectedAmountDue').val(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
+			$('#selectPlanPremium').val(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));*/
+			$('#selectedAmountDue').val(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
+            $('#selectPlanPremium').val(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
+            $("#plansummary").html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
+
+		}
+		if(result["priceInfoA"].totalDue!=result["priceInfoA"].grossPremium){
+			//$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
+			$('.actualPriceA').removeClass('hide');
+			$('.actualPriceA del').html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
+		}
+		/*$('.totalPriceA').html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));*/
+		$('.totalPriceA').html(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
+		
+		if(result["priceInfoB"].totalDue!=result["priceInfoB"].grossPremium){
+            //$('.actualPriceB del').html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
+            $('.actualPriceB').removeClass('hide');
+			$('.actualPriceB del').html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
+        }
+		//$('.totalPriceB').html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
+		$('.totalPriceB').html(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
+	}
+}
+
+function chkPromoCode() {
+	var flag = false;
+	var promoCode = document.getElementById("promoCode").value;
+
+	if (promoCode.trim() == "" || promoCode==promoCodePlaceholder) {
+		$("#loadingPromo").hide();
+		promoCodeInsertFlag = true;
+		$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notNull.message"));
+		$('#inputPromo').addClass('invalid-field');
+		flag = false;
+	} else {
+		$('#inputPromo').removeClass('invalid-field');
+		flag = true;
+	}
+
+	return flag;
+}
+
 function chkDueAmount() {		
 	$(".errDue").html('');
 	var flag = false;
@@ -1988,8 +2103,8 @@ Vietnam
 							<div class="checkbox" style="margin-top: 20px; font-size: 14px;">
                               <input type="checkbox" id="the-club-member-toggle" name="hasTheClubMembershipNo"> <label for="the-club-member-toggle"><a class="sub-link" href="" data-toggle="modal" data-target=".bs-theclub-modal-lg"><img src="resources/images/partner_theclub.png" height="12"> member.</a></label>
                             </div>
-							-->
-                            <span class="text-red" id="errClubMemberID"></span>
+							
+                            <span class="text-red" id="errClubMemberID"></span>-->
                             <div class="form-group" style="margin-top: 0; margin-bottom: 20; display: none;">
                                 <div class="input-group" style="display:inital; width:100%;">
                                     <input type="text" id="theClubMembershipNo" name="theClubMembershipNo" class="form-control bmg_custom_placeholder" style="display:inline-block;width:100%;" onFocus="placeholderOnFocus(this,'The Club Membership Number');" onBlur="placeholderOnBlur(this,'The Club Membership Number');" value="The Club Membership Number">

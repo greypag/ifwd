@@ -18,6 +18,8 @@ public interface OverseaService {
 	public void prepareOverseaDetails(Model model, HttpServletRequest request, HttpServletResponse response,
 			HttpSession httpSession) throws ECOMMAPIException;
 
+	public String applyPromotionCode(HttpServletRequest request, HttpServletResponse response, HttpSession session);
+
 	public String processOverseaPayment(HttpServletRequest request, HttpServletResponse response);
 
 	public String prepareOverseaSummary(OverseaDetailsForm planDetailsForm, BindingResult result, Model model,

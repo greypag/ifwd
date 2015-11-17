@@ -109,6 +109,76 @@ public class OverseaServiceImpl implements OverseaService {
 		}
 	}
 	
+
+	@Override
+	public String applyPromotionCode(HttpServletRequest request, HttpServletResponse response,
+			HttpSession session) {
+		String token = null, username = null;
+		if ((session.getAttribute("token") != null) && (session.getAttribute("username") != null)) {
+			token = session.getAttribute("token").toString();
+			username = session.getAttribute("username").toString();
+		} else {
+			restService.consumeLoginApi(request);
+			if ((session.getAttribute("token") != null)) {
+				token = session.getAttribute("token").toString();
+				username = session.getAttribute("username").toString();
+			}
+		}
+
+		String referralCode = (String) session.getAttribute("referralCode");
+		String Url = UserRestURIConstants.OVERSEA_GET_QUOTE + "?planCode=Overseas" + "&referralCode="
+				+ (referralCode != null ? referralCode : "");
+
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		if (request.getSession().getAttribute("username") != null) {
+			header.put("userName", username);
+			header.put("token", token);
+		}
+
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc"))
+			lang = "CN";
+
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
+		logger.info("OVERSEA_GET_QUOTE Response " + responseJsonObj);
+		if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
+			session.setAttribute("referralCode", "");
+		} else {
+			session.setAttribute("referralCode", StringHelper.emptyIfNull(request.getParameter("promoCode")));
+		}
+		if (responseJsonObj.get("errMsgs") == null) {
+			QuoteDetails quoteDetails = new QuoteDetails();
+			
+			String planeName[] = { "basicA", "basicB", "medicalWorldwideA", "medicalWorldwideB", "medicalAsiaA", "medicalAsiaB" };
+			String grossPrem[] = new String[6];
+			String discountPercentage[] = new String[6];
+			String discountAmount[] = new String[6];
+			String totalNetPremium[] = new String[6];
+			String totalDue[] = new String[6];
+			JSONObject obj;
+			for(int i = 0; i < planeName.length; i++) {
+				obj = (JSONObject) responseJsonObj.get(planeName[i]);
+				grossPrem[i] = obj.get("grossPremium").toString();
+				discountPercentage[i] = obj.get("discountPercentage").toString();
+				discountAmount[i] = obj.get("discountAmount").toString();
+				totalNetPremium[i] = obj.get("totalNetPremium").toString();
+				totalDue[i] = obj.get("totalDue").toString();
+			}
+
+			quoteDetails.setGrossPremium(grossPrem);
+			quoteDetails.setDiscountPercentage(discountPercentage);
+			quoteDetails.setDiscountAmount(discountAmount);
+			quoteDetails.setTotalNetPremium(totalNetPremium);
+			quoteDetails.setToalDue(totalDue);
+			quoteDetails.setPlanName(planeName);
+			session.setAttribute("quoteDetails", quoteDetails);
+			return responseJsonObj.toString();
+		} else {
+			return responseJsonObj.get("errMsgs").toString();
+		}
+	}
+	
 	@Override
 	public void prepareOverseaDetails(Model model, HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) throws ECOMMAPIException {
