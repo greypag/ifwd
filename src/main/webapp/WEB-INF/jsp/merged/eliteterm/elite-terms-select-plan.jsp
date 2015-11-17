@@ -365,7 +365,16 @@ var home_url = "<%=request.getContextPath()%>";
                      <div class="row et-select-plan-btns">
                         <div class="col-xs-12 col-md-12 right text-center">
                            <input type="hidden" id="goApp"/>
-                           <button type="button" class="btn btn-white et-proceed-appl bottom active" id="et-brn-proceed-to-application" data-back-text="<fmt:message key="eliteTerms.selectPlan.back.to.application" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.Proceed.to.application" bundle="${msg}" /></button>
+                           <c:choose>
+                              <c:when test="${not empty userDetails.emailAddress}">
+                                 <button type="button" class="btn btn-white et-proceed-appl bottom active hide-element" id="et-brn-proceed-to-application" data-back-text="<fmt:message key="eliteTerms.selectPlan.back.to.application" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.Proceed.to.application" bundle="${msg}" /></button>
+                                 <div class="et-broken-line et-full"></div>
+                              </c:when>    
+							  <c:otherwise>
+                                 <button type="button" class="btn btn-white et-proceed-appl bottom active" id="et-brn-proceed-to-application" data-back-text="<fmt:message key="eliteTerms.selectPlan.back.to.application" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.Proceed.to.application" bundle="${msg}" /></button>
+                                 <div class="et-broken-line et-full hide-element"></div>
+							  </c:otherwise>
+						   </c:choose>
                         </div>
                      </div>
                   </div>
@@ -499,8 +508,20 @@ var home_url = "<%=request.getContextPath()%>";
                               
                            </div>
                            
+                           <div class="checkbox-section">
+                              <div class="clearfix">
+                                 <div class="pull-left left-checkbox">
+                                    <input type="checkbox" value="true" id="et-medi-question-4" name="et-medi-question-4">
+                                    <label for="et-medi-question-4"></label>
+                                 </div>
+                                 <div class="pull-left right-checkbox">
+                                    <span class="checkbox-text"><fmt:message key="eliteTerms.selectPlan.acknowledgement.copy" bundle="${msg}" /></span>
+                                 </div>
+                              </div>
+                           </div>
+                           
                            <div class="et-medical-next-brn next-btn">
-                              <button id="et-medical-dec-next" type="submit" class="btn next pi et-medic-next hide-element"><fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" /></button>
+                              <button id="et-medical-dec-next" type="submit" class="btn next pi et-medic-next" disabled><fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" /></button>
                            </div>
                         
                         </div>
@@ -2064,7 +2085,7 @@ var home_url = "<%=request.getContextPath()%>";
 
                            <!-- UNDERWRITING SUMMARY -->
                            <div class="summary-body-item">
-                              <h3 class="uwriting"><fmt:message key="eliteTerms.selectPlan.Underwriting.Summary" bundle="${msg}" /> <a href="#" id="underwriting-summary-edit" title="Edit" class="et-app-sum-edit" data-target="#et-select-plan-section"><fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a></h3>
+                              <h3 class="uwriting"><fmt:message key="eliteTerms.selectPlan.Underwriting.Summary" bundle="${msg}" /> <!--<a href="#" id="underwriting-summary-edit" title="Edit" class="et-app-sum-edit" data-target="#et-select-plan-section"><fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a>--></h3>
                               <div class="fwd-checkbox">
                                  <input type="checkbox" id="summary-one" checked disabled>
                                  <label for="summary-one"></label>

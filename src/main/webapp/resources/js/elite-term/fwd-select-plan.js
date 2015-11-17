@@ -219,6 +219,8 @@
       
       $collapseSec.find('.et-btn-medic-no')
                   .removeClass('btn-selected');
+      
+      $('#et-medical-dec-next').prop('disabled', true);
    });
    
    // Medical declaration button no event
@@ -239,7 +241,7 @@
       // Show the next button 
       // if all questions are answered with no
       if (isMedicAnsweredWithNo()) {
-         $('#et-medical-dec-next').removeClass('hide-element');
+         $('#et-medical-dec-next').prop('disabled', false);
       }
       
       // Expand next question
@@ -250,6 +252,15 @@
          }, 50);
       }
    });
+   // Medical declaration check event
+   $(document).on('change', '#et-medi-question-4', function(e) {
+      if (isMedicAnsweredWithNo()) {
+         $('#et-medical-dec-next').prop('disabled', false);
+      } else {
+    	 $('#et-medical-dec-next').prop('disabled', true);
+      }
+   });
+   
    // Login submit event
    $('#et-login-form').on('submit', function(e) {
       e.preventDefault();
@@ -348,15 +359,23 @@
       // Move to About your self section
       $('#et-btn-before-start').on('click', function(e) {
          var $self = $(this);
-         var $aboutYourSelf = $('#et-about-yoursel-section');
          
-         $self.removeClass('et-pad-bot-50');
-         $aboutYourSelf.removeClass('hide-element')
-                        .css('margin-bottom', '125px');
-         
-         $('body, html').animate({
-            scrollTop: ($aboutYourSelf.offset().top - stickyHeight) + 'px'
-         }, 500);
+         if ($self.hasClass('back-to-summary')) {
+             $('#et-application-third-section').removeClass('hide-element');
+			 $('body, html').animate({
+				 scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
+			 }, 0);
+         } else {
+	         var $aboutYourSelf = $('#et-about-yoursel-section');
+	         
+	         $self.removeClass('et-pad-bot-50');
+	         $aboutYourSelf.removeClass('hide-element')
+	                        .css('margin-bottom', '125px');
+	         
+	         $('body, html').animate({
+	            scrollTop: ($aboutYourSelf.offset().top - stickyHeight) + 'px'
+	         }, 500);
+      	 }
          
          // Store plan detail data 
          if ($('#et-before-yes').prop('checked')) {
@@ -414,11 +433,13 @@
          $('#etaspd-insured-amount').html('HK$ '+ sliderVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
          $('#etaspd-monthly-premium').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' (for the 1st year)');
          
+         populateAppSummPD();
+
          if ($self.hasClass('back-to-summary')) {
-            populateAppSummPD();
+        	 $('#et-application-first-section').addClass('hide-element');
         	 $('#et-application-third-section').removeClass('hide-element');
              $('body, html').animate({
-          	  scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
+            	 scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
              }, 0);
          } else if ($self.hasClass('back-to-app')) {
             // Go back to the application form
@@ -625,6 +646,9 @@
          if ($self.hasClass('et-app-edit')) {
 	         var backText = $('#et-brn-proceed-to-application').data('back-text');
 	         $('#et-brn-proceed-to-application').text(backText);
+	         $('#et-brn-proceed-to-application').removeClass('hide-element');
+	         $('#et-brn-proceed-to-application').removeClass('back-to-summary');
+	         $('#et-brn-proceed-to-application').addClass('back-to-app');
          } else {
 	         //hide summary
 		     $('#et-application-third-section').addClass('hide-element');
@@ -640,7 +664,8 @@
 	         
 	         //update button text
 	         var backText = $('#et-app-sum-proceed-btn').data('back-text');
-	         $('#et-brn-proceed-to-application').addClass('back-to-summary').text(backText);
+	         //('#et-btn-before-start').addClass('back-to-summary').text(backText);
+	         $('#et-brn-proceed-to-application').removeClass('hide-element').addClass('back-to-summary').text(backText);
 	         $('#et-medical-dec-next').addClass('back-to-summary').text(backText);
 	         $('#et-personal-info-next').addClass('back-to-summary').text(backText);
 	         $('#et-employment-info-next').addClass('back-to-summary').text(backText);
@@ -1461,6 +1486,10 @@
             return false;
          }
       });
+      
+      if (!$('#et-medi-question-4').prop('checked')) {
+    	  return false;
+      }
       
       return result;
    }

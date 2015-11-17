@@ -10555,6 +10555,10 @@ span.dup-error-msg {
 	.fwd-savie-wrapper .personal-info-widget .checkbox-section {
 		padding-left: 34%;
 	}
+	
+	.fwd-savie-wrapper .personal-info-widget#et-medical-declaration .checkbox-section {
+        padding-left: 0;
+    }
 }
 /* line 621, ../sass/partials/_personal_info.scss */
 .fwd-savie-wrapper .personal-info-widget .checkbox-section .pull-left.left-checkbox
@@ -10564,6 +10568,9 @@ span.dup-error-msg {
 	margin: 0;
 	height: 18px;
 	top: 72px;
+}
+.fwd-et-wrapper .personal-info-widget#et-medical-declaration .checkbox-section .pull-left.left-checkbox {
+    top: 82px;
 }
 /* line 627, ../sass/partials/_personal_info.scss */
 .fwd-savie-wrapper .personal-info-widget .checkbox-section .pull-left.left-checkbox label
@@ -10616,6 +10623,11 @@ span.dup-error-msg {
 	{
 	width: 85%;
 	line-height: 18px;
+}
+.fwd-savie-wrapper .personal-info-widget#et-medical-declaration .checkbox-section .pull-left.right-checkbox {
+	width: 100%;
+    padding-left: 30px;
+    padding-right: 5px;
 }
 /* line 672, ../sass/partials/_personal_info.scss */
 .fwd-savie-wrapper .personal-info-widget .checkbox-section .pull-left.right-checkbox span.checkbox-text
