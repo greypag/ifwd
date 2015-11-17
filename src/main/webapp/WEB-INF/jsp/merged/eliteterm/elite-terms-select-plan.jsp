@@ -365,7 +365,7 @@ var home_url = "<%=request.getContextPath()%>";
                      <div class="row et-select-plan-btns">
                         <div class="col-xs-12 col-md-12 right text-center">
                            <input type="hidden" id="goApp"/>
-                           <button type="button" class="btn btn-white et-proceed-appl bottom active" id="et-brn-proceed-to-application"><fmt:message key="eliteTerms.selectPlan.Proceed.to.application" bundle="${msg}" /></button>
+                           <button type="button" class="btn btn-white et-proceed-appl bottom active" id="et-brn-proceed-to-application" data-back-text="<fmt:message key="eliteTerms.selectPlan.back.to.application" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.Proceed.to.application" bundle="${msg}" /></button>
                         </div>
                      </div>
                   </div>
