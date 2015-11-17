@@ -635,7 +635,7 @@ function submitLoginForm(formID) {
                           </li>
                          </ul>                      
                     </li>
-                    <li class="col-lg-4 col-md-4 pad-none main-tab dropdown<%if (actionName.equals("Savie")) {%> active <%}%>">
+                    <li class="col-lg-4 col-md-4 pad-none main-tab dropdown enjoy<%if (actionName.equals("offers")) {%> active <%}%>">
                         <a class="protect-save-enjoy-tab"><fmt:message key="header.product.type3" bundle="${msg}" /></a>
                         <ul class="col-lg-12 col-md-12 dropdown-menu one-column enjoy-tab">
                           <li>
@@ -1166,7 +1166,16 @@ function submitLoginForm(formID) {
     iosChromeAlertMsg[1] = '請選用以下其它建議的瀏覽器：';
     iosChromeAlertMsg[2] = '關閉';
     
-	$(document).ready(function() {	
+    function offerMenuActive(){
+    	var site_uri = window.location.pathname;
+    	var uri_array = site_uri.split("/");
+    	if(uri_array[uri_array.length-1]=='offers'){
+    		$( ".enjoy" ).addClass( "active" );
+    	}
+    }
+	$(document).ready(function() {
+		offerMenuActive();
+		//console.log(window.location.pathname.substring(-5));
 		//$("#loginform2").appendTo("body");
 		//console.log(navigator.userAgent.match('CriOS'));
 		if(navigator.userAgent.match('CriOS')){
