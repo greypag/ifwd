@@ -378,7 +378,7 @@ $(function() {
                         message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
                     },
 					regexp: {
-						regexp: /[^\x00-\x7F]/,
+						regexp: /^[\s\u4e00-\u9eff]*$/,
 						message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
 					},
 	               callback: {
@@ -401,7 +401,7 @@ $(function() {
 						message: getBundle(getBundleLanguage, "form.beneficiary.passport.empty")
 	               },
 	               regexp: {
-	                  regexp: /[a-zA-Z0-9]/,
+	                  regexp: /^[a-zA-Z0-9]*$/,
 	                  message: getBundle(getBundleLanguage, "form.beneficiary.passport.invalid")
 	               }
 				}
@@ -534,7 +534,7 @@ $(function() {
 	                           message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
 	                       },
 	                  regexp: {
-	                     regexp: /[^\x00-\x7F]/,
+	                     regexp: /^[\s\u4e00-\u9eff]*$/,
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
 	                  },
 	                  callback: {
@@ -557,7 +557,7 @@ $(function() {
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.passport.empty")
 	                  },
 	                  regexp: {
-	                     regexp: /[a-zA-Z0-9]/,
+	                     regexp: /^[a-zA-Z0-9]*$/,
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.passport.invalid")
 	                  }
 	               }
@@ -702,7 +702,7 @@ $(function() {
                            message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
                        },
                   regexp: {
-                     regexp: /[^\x00-\x7F]/,
+                     regexp: /^[\s\u4e00-\u9eff]*$/,
                      message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
                   },
                   callback: {
@@ -725,7 +725,7 @@ $(function() {
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.passport.empty")
 	                  },
                   regexp: {
-                     regexp: /[a-zA-Z0-9]/,
+                     regexp: /^[a-zA-Z0-9]*$/,
                      message: getBundle(getBundleLanguage, "form.beneficiary.passport.invalid")
                   }
                }
