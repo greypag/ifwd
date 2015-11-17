@@ -146,7 +146,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			employmentStatus.put("educationLevel", request.getParameter("savieEmploymentBean.educationLevel").split("-")[0]);
 			employmentStatus.put("natureOfBusiness", request.getParameter("savieEmploymentBean.natureOfBusiness").split("-")[0]);
 			employmentStatus.put("monthlyPersonalIncome", request.getParameter("savieEmploymentBean.monthlyPersonalIncome").split("-")[0]);
-			employmentStatus.put("liquidAsset", request.getParameter("savieEmploymentBean.liquidAssets").split("-")[0]);
+			employmentStatus.put("liquidAsset", request.getParameter("savieEmploymentBean.liquidAssets")!=null?request.getParameter("savieEmploymentBean.liquidAssets").split("-")[0]:"");
 			employmentStatus.put("amountOtherSource", request.getParameter("savieEmploymentBean.sourceOfIncome").split("-")[0]);
 			employmentStatus.put("employerName", request.getParameter("savieEmploymentBean.currentEmployerName"));
 			applicant.put("employmentStatus", employmentStatus);

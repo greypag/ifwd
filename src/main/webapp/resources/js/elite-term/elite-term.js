@@ -485,24 +485,6 @@ function msieversion() {
     return 0;
 }
 
-function getOccupation(value,language) {
-	$.get(contextPath+'/ajax/savie/application/getOccupation',
-	{ 
-		value : value,
-		language : language
-	},
-	function(data) {
-		$("#savieEmploymentBean\\.occupation").empty();
-		if(data != null){
-			for(var i = 0; i < data.length; i++) {
-				$("#savieEmploymentBean\\.occupation").append("<option value='"+data[i].itemCode+"-"+data[i].itemDesc+"'>"+data[i].itemDesc+"</option>");
-			}
-		}
-	})
-	.fail(function(data) {
-		console.log("data error:"+data.length);
-	});
-}
 $('#et-select-plan-go-homepage').on('click', function(e) {
 	window.location.href= contextPath+'/'+language+'/term-life-insurance';
 });
