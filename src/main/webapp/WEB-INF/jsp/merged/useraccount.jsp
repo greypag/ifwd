@@ -416,11 +416,11 @@
                         
                         <!-- <div class="plan-item first even hidden-md hidden-lg">
                             <div class="plan-item-cols odd plan-item-cols-top">
-                                <h5 class="hidden-md hidden-lg"><fmt:message key="savie.summary.plan_name" bundle="${msg}" /></h5>
+                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.acount.plan.name" bundle="${msg}" /></h5>
                                 <p>Savie</p>
                             </div>
                             <div class="plan-item-cols odd plan-item-cols-top">
-                                <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Policy.no" bundle="${msg}" /></h5>
+                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.acount.policy.no" bundle="${msg}" /></h5>
                                 <p>5HG21FOP</p>
                             </div>
                             <div class="plan-item-cols odd plan-item-cols-bottom">
@@ -439,11 +439,11 @@
                         <c:forEach items="${policiesLife}" var="i" varStatus="obj">
 	                        <div class="plan-item first even hidden-md hidden-lg">
 	                            <div class="plan-item-cols odd plan-item-cols-top">
-	                                <h5 class="hidden-md hidden-lg"><fmt:message key="savie.summary.plan_name" bundle="${msg}" /></h5>
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.acount.plan.name" bundle="${msg}" /></h5>
 	                                <p>Elite term</p>
 	                            </div>
 	                            <div class="plan-item-cols odd plan-item-cols-top">
-	                                <h5 class="hidden-md hidden-lg"><fmt:message key="userAccount.Policy.no" bundle="${msg}" /></h5>
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.acount.policy.no" bundle="${msg}" /></h5>
 	                                <p>${i.policyNumber}</p>
 	                            </div>
 	                            <div class="plan-item-cols odd plan-item-cols-bottom">

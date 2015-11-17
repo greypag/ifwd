@@ -431,7 +431,7 @@
          var monthlyPrem = $('#et-month-dis-amount').text();
          
          $('#etaspd-insured-amount').html('HK$ '+ sliderVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-         $('#etaspd-monthly-premium').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' (for the 1st year)');
+         $('#etaspd-monthly-premium').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + getBundle(getBundleLanguage,'et.selectPlan.Monthly.premium.1styear'));
          
          populateAppSummPD();
 
@@ -885,7 +885,7 @@
                    },
                    regexp: {
                       regexp: /^1[0-9]{10}$|^[235689][0-9]{7}$/,
-                      message: getBundle(getBundleLanguage, "et.selectPlan.Invalid.Mobile.number")
+                      message: getBundle(getBundleLanguage, "et.selectPlan.Invalid.Telephone.number")
                    }
                }
             },
@@ -1754,7 +1754,7 @@
             (beneInfoData.first.hkid || beneInfoData.first.passNo) ? $('#etasbi-hkid-pass-1').text(hkidPassValue) : '';
             beneInfoData.first.relationship ? $('#etasbi-relationship-1').text(capitalizeFirstLetter(beneInfoData.first.relationship)) : '';
             beneInfoData.first.gender ? $('#etasbi-gender-1').text(beneInfoData.first.gender) : '';
-            beneInfoData.first.entitlement ? $('#etasbi-entitlement-1').text('Person 1: ' + beneInfoData.first.entitlement + '%') : '';
+            beneInfoData.first.entitlement ? $('#etasbi-entitlement-1').text(beneInfoData.first.entitlement + '%') : '';
          } else {
             $('.et-person-1').addClass('hide-element');
          }
@@ -1770,7 +1770,7 @@
             (beneInfoData.second.hkid || beneInfoData.second.passNo) ? $('#etasbi-hkid-pass-2').text(hkidPassValue) : '';
             beneInfoData.second.relationship ? $('#etasbi-relationship-2').text(capitalizeFirstLetter(beneInfoData.second.relationship)) : '';
             beneInfoData.second.gender ? $('#etasbi-gender-2').text(beneInfoData.second.gender) : '';
-            beneInfoData.second.entitlement ? $('#etasbi-entitlement-2').text('Person 2: ' + beneInfoData.second.entitlement + '%') : '';
+            beneInfoData.second.entitlement ? $('#etasbi-entitlement-2').text(beneInfoData.second.entitlement + '%') : '';
          } else {
             $('.et-person-2').addClass('hide-element');
          }
@@ -1786,7 +1786,7 @@
             (beneInfoData.third.hkid || beneInfoData.third.passNo) ? $('#etasbi-hkid-pass-3').text(hkidPassValue) : '';
             beneInfoData.third.relationship ? $('#etasbi-relationship-3').text(capitalizeFirstLetter(beneInfoData.third.relationship)) : '';
             beneInfoData.third.gender ? $('#etasbi-gender-3').text(beneInfoData.third.gender) : '';
-            beneInfoData.third.entitlement ? $('#etasbi-entitlement-3').text('Person 3: ' + beneInfoData.third.entitlement + '%') : '';
+            beneInfoData.third.entitlement ? $('#etasbi-entitlement-3').text(beneInfoData.third.entitlement + '%') : '';
          } else {
             $('.et-person-3').addClass('hide-element');
          }
