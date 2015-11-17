@@ -1078,37 +1078,33 @@
       }).on('success.form.bv', function(e) {
          e.preventDefault();
          var $form = $(this);
+         var _form = $('#eliteTermsInsuredInfoForm');
          var isValidAddLine = true;
          
          
          // Check if permanent address lines
          if (!isPerLineValid()) {
-            $('#permanentAddressMessage1').find('.help-block[data-bv-validator="callback"]')
-               .removeClass('hide-element');
+            _form.bootstrapValidator('updateStatus', 'savieApplicantBean.permanentAddress1', 'INVALID', 'callback');
+
             isValidAddLine = false;
          } else {
-            $('#permanentAddressMessage1').find('.help-block[data-bv-validator="callback"]')
-               .addClass('hide-element');
+            _form.bootstrapValidator('updateStatus', 'savieApplicantBean.permanentAddress1', 'VALID', 'callback');
          }
          
          // Check if res address lines
          if (!isResLineValid()) {
-            $('#residentialAddressMessage1').find('.help-block[data-bv-validator="callback"]')
-               .removeClass('hide-element');
+            _form.bootstrapValidator('updateStatus', 'savieApplicantBean.residentialAdress1', 'INVALID', 'callback');
             isValidAddLine = false;
          } else {
-            $('#residentialAddressMessage1').find('.help-block[data-bv-validator="callback"]')
-               .addClass('hide-element');
+            _form.bootstrapValidator('updateStatus', 'savieApplicantBean.residentialAdress1', 'VALID', 'callback');
          }
          
          // Check if corr address lines
          if (!isCorrLineValid()) {
-            $('#corrAddressMessage1').find('.help-block[data-bv-validator="callback"]')
-               .removeClass('hide-element');
+            _form.bootstrapValidator('updateStatus', 'savieApplicantBean.correspondenceAdress1', 'INVALID', 'callback');
             isValidAddLine = false;
          } else {
-            $('#corrAddressMessage1').find('.help-block[data-bv-validator="callback"]')
-               .addClass('hide-element');
+            _form.bootstrapValidator('updateStatus', 'savieApplicantBean.correspondenceAdress1', 'VALID', 'callback');
          }
          
          if (!isValidAddLine) {
@@ -1142,38 +1138,33 @@
          storeAppInfo();
       }).on('error.form.bv', function(e) {
          var $bv = $(this).data('bootstrapValidator');
+         var _form = $('#eliteTermsInsuredInfoForm');
          var isValid = false;
          var isValidAddLine = true;
          
          
          // Check if permanent address lines
          if (!isPerLineValid()) {
-            $('#permanentAddressMessage1').find('.help-block[data-bv-validator="callback"]')
-               .removeClass('hide-element');
+            _form.bootstrapValidator('updateStatus', 'savieApplicantBean.permanentAddress1', 'INVALID', 'callback');
             isValidAddLine = false;
          } else {
-            $('#permanentAddressMessage1').find('.help-block[data-bv-validator="callback"]')
-               .addClass('hide-element');
+            _form.bootstrapValidator('updateStatus', 'savieApplicantBean.permanentAddress1', 'VALID', 'callback');
          }
          
          // Check if res address lines
          if (!isResLineValid()) {
-            $('#residentialAddressMessage1').find('.help-block[data-bv-validator="callback"]')
-               .removeClass('hide-element');
+            _form.bootstrapValidator('updateStatus', 'savieApplicantBean.residentialAdress1', 'INVALID', 'callback');
             isValidAddLine = false;
          } else {
-            $('#residentialAddressMessage1').find('.help-block[data-bv-validator="callback"]')
-               .addClass('hide-element');
+            _form.bootstrapValidator('updateStatus', 'savieApplicantBean.residentialAdress1', 'VALID', 'callback');
          }
          
          // Check if corr address lines
          if (!isCorrLineValid()) {
-            $('#corrAddressMessage1').find('.help-block[data-bv-validator="callback"]')
-               .removeClass('hide-element');
+            _form.bootstrapValidator('updateStatus', 'savieApplicantBean.correspondenceAdress1', 'INVALID', 'callback');
             isValidAddLine = false;
          } else {
-            $('#corrAddressMessage1').find('.help-block[data-bv-validator="callback"]')
-               .addClass('hide-element');
+            _form.bootstrapValidator('updateStatus', 'savieApplicantBean.correspondenceAdress1', 'VALID', 'callback');
          }
          
          if (!isValidAddLine) {
@@ -1192,6 +1183,10 @@
             }
          }
          
+         if ($bv.$invalidFields.length == 0) {
+            isValid = true;
+         }
+
          if (isValid) {
             $('#et-personal-info-next').removeAttr('disabled');
             var $ben = $('#et-employment-info-section');
