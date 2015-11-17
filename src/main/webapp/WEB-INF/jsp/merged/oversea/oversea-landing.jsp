@@ -337,7 +337,9 @@ function prepareOverseaPlan(form){
       </div>
     </div>
     <!--End Desktop Support--> 
-    <!--/.row--> 
+    <!--/.row-->
+    <p><key id='Overseas.Landing.Disclaimer'>For a complete explanation of the terms and conditions, feel free to contact our 24-hour hotline at 3123 3123.</key></p>
+    <div class="clearfix"></div>
   </div>
   <!--/.container--> 
 </section>

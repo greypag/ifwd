@@ -5457,19 +5457,9 @@ Date.prototype.Format = function(fmt) { // author: meizz
 }
 
 function changeRegion(region){
-//console.log(region);
-
-	$('#amountdue').html('0');
-	$('#subtotal').html('0');
-	$('#plansummary').html('0');
-	$('#discountAmt').html('0');
-	
-	
 	if(region=='region0'){
-	
 		$('#region0').css("display","block");
 		$('#region1').css("display","none");
-		
 		$('#region-btn-0').addClass("region-box-active");
 		$('#region-btn-0').removeClass("region-box-inactive");
 		$('#region-btn-1').addClass("region-box-inactive");
@@ -5479,12 +5469,10 @@ function changeRegion(region){
 	if(region=='region1'){
 		$('#region0').css("display","none");
 		$('#region1').css("display","block");
-		
 		$('#region-btn-0').addClass("region-box-inactive");
 		$('#region-btn-0').removeClass("region-box-active");
 		$('#region-btn-1').addClass("region-box-active");
 		$('#region-btn-1').removeClass("region-box-inactive");
-		changeColorAndPrice('box6','6','Plan A Comprehensive','0.0','5500.0');
 	}
 }
 
