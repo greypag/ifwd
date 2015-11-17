@@ -468,6 +468,8 @@
                    
                    $('#et-application-first-section').removeAttr('style');
                    
+                   $('#savieApplicantBean\\.chineseName').val('').trigger('change');
+                   
                    // Disable scrolling to the select plan section
                    // Update current section flag
                    if (currentSection === 'et-select-plan-section') {
