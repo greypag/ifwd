@@ -6142,6 +6142,24 @@ function chkNotNullCreditCareName(element, errElementId)
 		return true;
 	}
 }
+
+function chkNotNullCreditCareNameEx2(element, errElementId)
+{
+	if(isNull(element)){
+		var msg = getBundle(getBundleLanguage, "applicant.creditcard.name.notNull.message");
+		document.getElementById(errElementId).innerHTML = msg;
+		$("#holdername").addClass("invalid-field");
+		$("#card-name").addClass("invalid-field");
+		return false;
+	}
+	else{
+		resetErrElement(errElementId);
+		$("#holdername").removeClass("invalid-field");
+		$("#card-name").removeClass("invalid-field");
+		return true;
+	}
+}
+
 function chkNotNullCardCvv(element, errElementId)
 {
 	if(isNull(element)){

@@ -174,7 +174,7 @@ var languageP = "${language}";
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Security.code" bundle="${msg}" /></label>
 										<div class="clearfix desktop-half">
-											<input type="text" class="form-control gray-textbox card-cvv" placeholder="<fmt:message key="eliteTerms.payment.Security.code.placeholder" bundle="${msg}" />" id="card-cvv" autocomplete="off" maxlength="3"  name="securityCode" onblur="chkNotNullCardCvv(this, 'errcode');">
+											<input type="password" class="form-control gray-textbox card-cvv" placeholder="<fmt:message key="eliteTerms.payment.Security.code.placeholder" bundle="${msg}" />" id="card-cvv" autocomplete="off" maxlength="3"  name="securityCode" onblur="chkNotNullCardCvv(this, 'errcode');">
 											<div class="cvv-image-holder">
 												<img src="<%=request.getContextPath()%>/resources/images/elite-terms/cvv-logo.png" class="cvv-image">
 											</div>
@@ -437,24 +437,37 @@ var languageP = "${language}";
 		
 		var firstName= $('#paymentForm #appFirstName').val().trim().split(',')[0].toUpperCase();
 		var lastName= $('#paymentForm #appLastName').val().trim().toUpperCase();
-		var shortName = firstName.split(' ').map(function(name){ return name.substring(0,1).trim() + '.';}).join(' ');
+		var firstNameSub = firstName.split(' ');
+		var shortNameSub = firstName.split(' ').map(function(name){ return name.substring(0,1).trim() + '.';});
 
 		if ( firstName.trim() == '' || lastName.trim() == '' ) {
-			return false;
+		 return false;
 		}
 
-		var whiteList = {
-			0: lastName + ' ' + firstName,
-			1: lastName + ' ' + shortName,
-			2: firstName + ' ' + lastName,
-			3: shortName + ' ' + lastName
-		};
+		/* Build List */
+		var whiteList = [];
+		var ignoreList = [];
+		var minWords = (firstNameSub.length==1)?1:2;
+		for( var i=minWords; i<=firstNameSub.length; i++ ){
+			var a1 = firstNameSub.slice(0, i).reduce(function(pV, cV, i){ return pV + ' ' + cV; }, []).trim();
+			var a2 = firstNameSub.slice(0, i).reduce(function(pV, cV, i){ return pV + cV; }, []).trim();
+		 	var b1 = shortNameSub.slice(0, i).reduce(function(pV, cV, i){ return pV + ' ' + cV; }, []).trim();
+		 	var b2 = shortNameSub.slice(0, i).reduce(function(pV, cV, i){ return pV + cV; }, []).trim();
+		 	whiteList.push(lastName + ' ' + a1);
+		 	whiteList.push(lastName + ' ' + a2);
+		 	whiteList.push(lastName + ' ' + b1);
+		 	whiteList.push(lastName + ' ' + b2);
+		 	whiteList.push(a1 + ' ' + lastName);
+		 	whiteList.push(a2 + ' ' + lastName);
+		 	whiteList.push(b1 + ' ' + lastName);
+		 	whiteList.push(b2 + ' ' + lastName);
+		}
 
 		var cardHolderName = $('#paymentForm input[name="cardHolder"]').val().trim().toUpperCase();
-		for (var key in whiteList) {
-		   if (whiteList.hasOwnProperty(key) && cardHolderName.indexOf(whiteList[key]) > -1 ){
-		   		return true;
-		   }
+		for( var i=0; i< whiteList.length; i++ ){
+			if( cardHolderName.indexOf(whiteList[i])>-1 ) {
+				return true; 
+			}
 		}
 		return false;
 	}

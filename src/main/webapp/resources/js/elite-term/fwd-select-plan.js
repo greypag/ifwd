@@ -779,7 +779,7 @@
                      message: getBundle(getBundleLanguage, "et.selectPlan.Given.Name.must.be.no.more.than.25.characters")
                   },
                   regexp: {
-                     regexp: /^[a-zA-Z\s,]*$/,
+                     regexp: /^[a-zA-Z\s]*$/,
                      message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Given.Name.in.English")
                   },
                   callback: {
