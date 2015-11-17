@@ -2,6 +2,8 @@ package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -90,8 +92,8 @@ public class OverseaController extends BaseController{
 					+ "/oversea-insurance");
 		}
 		String planName = WebServiceUtils.getParameterValue("planName", session, request);
-		String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
-		String selectPlanPremium = WebServiceUtils.getParameterValue("selectPlanPremium", session, request);
+		/*String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
+		String selectPlanPremium = WebServiceUtils.getParameterValue("selectPlanPremium", session, request);*/
 		String selectPlanName = WebServiceUtils.getParameterValue("selectPlanName", session, request);
 		
 		model.addAttribute("planName", planName);
@@ -102,6 +104,26 @@ public class OverseaController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
 					+ "/oversea-insurance");
 		}
+		for(int i = 0; i < quoteDetails.getPlanName().length; i++) {
+			if (quoteDetails.getPlanName()[i].equals(planName)) {
+				session.setAttribute("planSelected", planName);
+				model.addAttribute("planDiscount", quoteDetails.getDiscountAmount()[i]);
+				NumberFormat formatter = new DecimalFormat("#0.00");  
+				
+				String splanSummary = quoteDetails.getToalDue()[i];
+				float fplanSummary = Float.parseFloat(splanSummary);
+				quoteDetails.getToalDue()[i] = formatter.format(fplanSummary);
+				model.addAttribute("planSummary", quoteDetails.getToalDue()[i]);
+				
+				String sgrossPremium = quoteDetails.getGrossPremium()[i];
+				float grossPremium = Float.parseFloat(sgrossPremium);
+				quoteDetails.getGrossPremium()[i] = formatter.format(grossPremium);
+				
+				model.addAttribute("planPremium", quoteDetails.getGrossPremium()[i]);
+				break;
+			}
+		}
+		
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";

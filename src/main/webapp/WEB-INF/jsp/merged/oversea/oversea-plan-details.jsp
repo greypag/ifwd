@@ -800,146 +800,67 @@ function activateUserAccountJoinUs() {
                         </div>  
                         </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12  gray-bg pad-none wht-bg3 floatingbox" style="top: 0px;">
-
                         <div class="hidden-sm hidden-xs">
-
-                            <div class="wd2">
-                                <div class="pull-left" style="width:145px;">
-                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;">TravelCare</h2>
-                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;">Single Trip</h2>
-                                    <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;">Plan A</h4>
-                                    <input type="hidden" name="selectedPlanName" value="A">
-                                </div>
-                                
-                                <div class="pull-right" style="padding-top: 80px;">
-                                    <div class="text-right h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
-                                        <div class="hk" style="font-size: 18px;">
-                                            HK$
-                                            <div class="flightcare-hk" style="font-weight: bold;font-size: 28px;">305.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="orange-bdr"></div>
-                            <div class="form-container" style="padding: 0px !important;">
-                                <div style="width: 80%;margin-left: 10%;">
-                                <h3 class="txt-bold">
-                                    Departure Date <a href="en/travel-insurance"></a>
-                                </h3>
-                                <h4> 
-                                <div class="input-group date"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                         <input name="trLeavingDate" type="text" class="datepicker form-control border-radius" id="txtStartDateDesk" value="11-11-2015" readonly="">
-                                </div>
-                             </h4>
-                                <input type="hidden" name="departureDate" id="departureDate" value="01-01-2015">
-
-                                <h3 class="txt-bold">
-                                    Return Date <a href="en/travel-insurance"></a>
-                                </h3>
-                                <h4>
-                                                    <div class="input-group date"> <span class="input-group-addon in border-radius"><span><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span></span>
-                      <input name="trBackDate" type="text" class="datepicker form-control border-radius" id="txtEndDateDesk" value="19-11-2015" readonly="">
-                    </div>
-                                
-                                </h4>
-                                <input type="hidden" name="backDate" id="backDate" value="19-11-2015">
-
-                                <div>
-                                    <div class="numOfDays col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
-	                                    <h3>
-	                                    	No. of day(s)
-	                                    </h3>
+	                        <div class="wd2">
+	                            <div class="pull-left" style="">
+	                                <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;">Overseas StudentCare Worldwide</h2>
+	                                <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;"></h2>
+	                                <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;">${planName }</h4>
+	                                <input type="hidden" name="selectedPlanName" value="${planName }">
+	                            </div>
+	                            <div class="pull-right" style="">
+	                                <div class="text-left h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
+	                                    <div class="hk" style="font-size: 18px;">
+	                                        HK$
+	                                        <div class="flightcare-hk" style="font-weight: bold;font-size: 28px;">${planPremium}</div>
+	                                    </div>
 	                                </div>
-	                                <div class="numOfDays col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
-                                        <h3 style="text-align: right;font-weight: normal;">
-                                        	9 
-	                                    	
-                                        </h3>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-
-                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
-                                        <h3>Number of traveller(s)</h3>
-                                    </div>
-                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pad-none">
-                                        <h3 style="text-align: right;font-weight: normal;">
-                                            
-                                                    
-                                                        1 Traveller
-                                                    
-                                                    <!-- vincent, values was stored in adult print adult values though the personal plan is selected!! -->
-                                                    
-            
-                                            
-                                        </h3>
-                                    </div>
-
-                                    <div class="clearfix"></div>
-
-                                </div>
-
-                                <h3 class="txt-bold" style="display:none;">
-                                    Traveller(s)<a href="en/travel-insurance"></a>
-                                </h3>
-                                
-                                
-                                <input type="hidden" name="planSelected" value="personal">
-                                <h3 class="txt-bold" style="display:none;">
-                                    No. of day(s) <span>9</span>
-                                </h3>
-                                <input type="hidden" name="totalTravellingDays" value="9">
-                                
-                               </div>
-            </div>
-            <div class="orange-bdr"></div>
-                <div style="width: 80%;margin-left: 10%;">
-                    
-                    <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;">Subtotal </h3>
-                    <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">305.00</h3>
-                    <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;">Discount </h3>
-                    <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">0.0 </h3>
-                </div>
-                <div class="clearfix"></div>
-                <div class="orange-bdr"></div>
-                <div style="width: 80%;margin-left: 10%;">
-                    <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;">Amount due  </h3>
-                    <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">305.00</h3>
-                    <input type="hidden" name="finalDueAmount" value="305.00">
-                    <input type="hidden" name="finalOriginalAmount" value="305.00">
-                </div>
-                
-                <div style="width: 80%;margin-left: 10%;">
-                    <div class="top35 pull-left pad-none" style="width:47%">
-                         <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();">Back </a>
-                    </div>
-                    <div class="top35 pull-right pad-none" style="width:47%"> 
-                        
-
-           <!-- <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','305.00','','Regis_Travel_Step2 EN','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" Next"> -->
-           <c:choose>
-               <c:when test="${language=='en'}">
-                   <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Oversea_Step2 EN','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="annual.button.next" bundle="${msg}" />" />
-               </c:when>
-               <c:otherwise>
-                   <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Oversea_Step2 ZH','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="annual.button.next" bundle="${msg}" />" />
-               </c:otherwise>
-           </c:choose>
-       
-       
-
-
-						                        
-                    </div>
-                </div>
-<div class="clearfix"></div>
-<br>
-</div>
-</div>
-<div class="clearfix"></div>
-</div>
+	                            </div>
+	                            <div class="clearfix"></div>
+	                        </div>
+                        	<div class="clearfix"></div>
+                        	<div class="orange-bdr"></div>
+			                <div style="width: 80%;margin-left: 10%;">
+			                    <c:if test="${referralCode!=null && referralCode!=''}">
+			                        <h3 style="margin-bottom:0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h3>
+			                        <h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;">${referralCode}</h4>
+			                    </c:if>
+			                    <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;">Subtotal </h3>
+			                    <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">${planPremium} </h3>
+			                    <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;">Discount </h3>
+			                    <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">${planDiscount} </h3>
+			                </div>
+				            <div class="clearfix"></div>
+				            <div class="orange-bdr"></div>
+			                <div style="width: 80%;margin-left: 10%;">
+			                    <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;">Amount due  </h3>
+			                    <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">${planSummary}</h3>
+			                    <input type="hidden" name="finalDueAmount" value="${planSummary}">
+	                   			<input type="hidden" name="finalOriginalAmount" value="${planPremium}">
+			                </div>
+	                		<div style="width: 80%;margin-left: 10%;">
+			                    <div class="top35 pull-left pad-none" style="width:47%">
+			                         <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="annual.button.back" bundle="${msg}" /> </a>
+			                    </div>
+	                            <div class="top35 pull-right pad-none" style="width:47%"> 
+						            <!-- <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','305.00','','Regis_Travel_Step2 EN','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" Next"> -->
+						            <c:choose>
+						                <c:when test="${language=='en'}">
+						                    <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Oversea_Step2 EN','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="annual.button.next" bundle="${msg}" />" />
+						                </c:when>
+						                <c:otherwise>
+						                    <input type="button" onclick="javascript:kenshoo_conv('Registration_Step2','${planSummary}','','Regis_Oversea_Step2 ZH','USD');return activateUserAccountJoinUs();" class="bdr-curve btn btn-primary nxt-btn" value=" <fmt:message key="annual.button.next" bundle="${msg}" />" />
+						                </c:otherwise>
+						            </c:choose>
+				                </div>
+				            </div>
+							<div class="clearfix"></div>
+							<br>
+						</div>
+					</div>
+			
+			<div class="clearfix"></div>
+			</div>
 
 <div class="col-xs-12 hidden-md hidden-lg pad-none">
      <div style="width: 80%;margin-left: 10%;">
