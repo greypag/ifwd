@@ -23795,6 +23795,10 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 	max-width: 200px;
 }
 
+.et-sp-tooltip-wrapper.long .tooltip-inner {
+	max-width: 320px;
+}
+
 @media ( min-width : 992px) {
 	/* line 1309, ../sass/partials/_elite-terms-select-plan.scss */
 	.et-sp-tooltip-wrapper .tooltip-inner {

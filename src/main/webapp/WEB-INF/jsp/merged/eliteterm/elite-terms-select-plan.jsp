@@ -237,7 +237,7 @@ var home_url = "<%=request.getContextPath()%>";
                                           <fmt:message key="eliteTerms.selectPlan.Promo.code" bundle="${msg}" />
                                        </span>
                                        <span>
-                                          <button type="button" class="et-minimal et-promo-code-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Promo.code.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-question-tooltip"></span></button>
+                                          <button type="button" class="et-minimal et-promo-code-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.selectPlan.Promo.code.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper long" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-question-tooltip"></span></button>
                                           <img src="<%=request.getContextPath()%>/resources/images/elite-terms/orange-caret.png" class="reversed visible-xs-inline visible-sm-inline">
                                        </span>
                                     </h3>
