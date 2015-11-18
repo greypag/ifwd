@@ -174,7 +174,16 @@ $(document).ready(function(){
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Region'>Region</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">Worldwide</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
+	                                            <c:choose>
+													<c:when test="${planSelected == 'medicalAsiaA' || planSelected == 'medicalAsiaB'}">
+													ASIA ONLY
+													</c:when>
+													<c:otherwise>
+													WORLDWIDE
+													</c:otherwise>
+												</c:choose>
+                                            </div>
                                         </div>	
                                     <div class="clearfix"></div>
                                 </div>
