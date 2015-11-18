@@ -248,38 +248,34 @@ function chkDueAmount() {
 	return flag;
 }
 
-/* function chkClubMember() {
-    $(".errDue").html('');
-    var flag = true;		
-    var the_club_member_check_box = document.getElementById("the-club-member-toggle").checked;
-    var the_club_membership_no = document.getElementById("theClubMembershipNo").value;
-    if (the_club_member_check_box) {
-        if (the_club_membership_no == "The Club Membership Number" || the_club_membership_no == "" || /^\s*$/.test(the_club_membership_no)) {
-            $("#errClubMemberID").html("Please enter your The Club membership number.") ;
-            document.getElementById("theClubMembershipNo").focus();
-            $("#theClubMembershipNo").addClass("invalid-field");                
-            flag = false;
-        }else if (the_club_membership_no != ""){
-        	if(/^8/.test(the_club_membership_no) == false){
-                $("#errClubMemberID").html("The Club membership number must be started with number 8.") ;
-                document.getElementById("theClubMembershipNo").focus();
-                $("#theClubMembershipNo").addClass("invalid-field");
-                flag = false;
-        	}else if(/^[0-9]{10}$/.test(the_club_membership_no) == false){
-                $("#errClubMemberID").html("The Club membership number must be 10 digit length.") ;
-                document.getElementById("theClubMembershipNo").focus();
-                $("#theClubMembershipNo").addClass("invalid-field");
-                flag = false;            		
-        	}
-        } 
-    }
-    return flag;
-} */
-
 $(document).ready(function() {                     
 	$('[data-toggle="tooltip"]').tooltip();
 	changeColorAndPrice('box2','2','medicalWorldwideA','0.0','8000.0')
 });
+
+function sendEmail() {
+	$('.proSuccess').addClass('hide');
+	if (get_promo_val()) {
+		console.log($("#sendmailofpromocode form").serialize());
+		$.ajax({
+			type : "POST",
+			url : "<%=request.getContextPath()%>/sendEmail",
+			data : $("#sendmailofpromocode form").serialize(),
+			async : false,
+			success : function(data) {
+				if (data == 'success') {
+					$('.proSuccess').removeClass('hide').html(getBundle(getBundleLanguage, "system.promotion.success.message"));
+				} else {
+					console.log(data);
+					$('.proSuccess').addClass('hide').html(getBundle(getBundleLanguage, "system.promotion.error.message"))
+				}
+			},
+			error : function() {
+			}
+		});
+	}
+	return false;
+}
 </script>
 
 <section class="product_header_path_container ">
@@ -303,7 +299,7 @@ $(document).ready(function() {
 					<li class="active "><i class="fa fa-caret-right"></i><key id='Overseas.Landing.Breadcrumb.step1'>Plan Options</key></li>
 				</ol>
 				<div id="quote-wrap" class="container pad-none bdr gray-bg3">
-					<div class="col-lg-8 col-xs-12 col-sm-12 col-md-8 pad-none white-bg1">
+					<div class="col-lg-8 col-xs-12 col-sm-12 col-md-8 pad-none white-bg1" id="oversea-plan-quote-select-region-container">
 					   <div class="workingholiday-plan-margin form-wrap">
 						<h2 class="h2-3-choose"><key id='Overseas.PlanOptions.Region'>Select a region</key></h2>
 						<div style="margin-bottom: 40px;">
@@ -329,7 +325,7 @@ $(document).ready(function() {
       </div>
       <div class="modal-body">
         <div class="row plan-display-desktop-only">
-          <div class="col-lg-3 col-md-3">
+          <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3">
 Abu Dhabi<br>
 Dubai<br>
 India<br>
@@ -339,7 +335,7 @@ Japan<br>
 Korea<br>
 Lao, P.D.R.
 </div>
-          <div class="col-lg-5 col-md-5">
+          <div class="col-lg-5 col-xs-5 col-sm-5 col-md-5">
 Macau<br>
 Malaysia<br>
 Myanmar<br>
@@ -348,7 +344,7 @@ North Korea<br>
 Pakistan<br>
 People Republic of China
 </div>
-          <div class="col-lg-3 col-md-3">
+          <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3">
 Philippines<br>
 Singapore<br>
 Sri Lanka<br>
@@ -360,7 +356,7 @@ Vietnam
         </div>
 
         <div class="row plan-display-mobile-only">
-          <div class="col-xs-6">
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6">
 Abu Dhabi<br>
 Dubai<br>
 India<br>
@@ -373,7 +369,7 @@ Macau<br>
 Malaysia<br>
 Myanmar<br>
 </div>
-          <div class="col-xs-6">
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6">
 Nepal<br>
 North Korea<br>
 Pakistan<br>
@@ -416,7 +412,7 @@ Vietnam
 									</div>
 									<div class="clearfix"></div>
 								</div>
-								<div class="plan-box-s plan-box-title oversea_productbox_title plan-display-desktop-only">
+								<div class="plan-box-s plan-box-title oversea_productbox_title plan-display-desktop-only plan-flow-r-mobile-only">
 									<div class="" style="margin-bottom: 20px;">                           
 										<h2><key id='Overseas.PlanOptions.Plans.table1.col3.header'>Plan B</key></h2>
 									</div>
@@ -1356,34 +1352,15 @@ Vietnam
                                 </div>
                             </div>
                         </div>
-                        <div style="margin-bottom:20px;">
+                        <div style="margin-bottom:20px;" id="oversea-plan-quote-download-container">
                               <h4 class="h4-4 product_landing_download_button pull-left plan-mobile-center">
-                                    <i class="fa fa-download"></i> <a href="http://www.fwd.com.hk/upload/en-US/travel_care_insurance.pdf" target="_blank">Product Brochure   </a>
+                                    <i class="fa fa-download"></i> <a href="/resources/policy-provisions-pdf/Overseas_StudyCare_Brochure.pdf" target="_blank"><key id='Overseas.PlanOptions.Brochure'>Product Brochure</key></a>
                                 </h4>
                                 <h4 class="h4-4 product_landing_download_button pull-left plan-mobile-center">
-                                    <i class="fa fa-download"></i> <a href="resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf" target="_blank">Policy Provisions   </a>
+                                    <i class="fa fa-download"></i> <a href="/resources/policy-provisions-pdf/Overseas_StudyCare_Provisions.pdf" target="_blank"><key id='Overseas.PlanOptions.Provisions'>Policy Provisions</key></a>
                                 </h4>
                                 <div class="clearfix"></div>
                         </div>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-						
 						<!-- <div class="fwdpanel">
 							<div class="fwdpanel-heading">
 								<h4 class="fwdpanel-title h4-4-full">
@@ -2061,7 +2038,7 @@ Vietnam
 						</div>
 					</div>
 
-					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gray-bg pad-none">
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 gray-bg pad-none" id="oversea-plan-quote-promotion-code-container">
 						<div class="hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left" style="">
@@ -2087,17 +2064,25 @@ Vietnam
 						</div>
 						<div id="promo-code-body" class="hide-html col-xs-12 pad-none">
 						  <div style="width: 80%;margin-left: 10%;">
-							<h3 style="font-size:18px;">Promotion code</h3>
+							<h3 style="font-size:18px;"><key id='Overseas.PlanOptions.Promo'>Promotion Code</key></h3>
 							<span class="text-grey" id="loadingPromo" style="display:none;">Updating...</span>
 							<span class="text-red" id="errPromoCode"></span>
 							<div id="promo-wrap" class="form-group">
 								<div class="input-group" id="inputPromo" style="display:inital;width:100%;padding-left: 20px;padding-right: 20px;">
+<<<<<<< HEAD
+									<!--
+									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'eg: FWD789');" onBlur="placeholderOnBlur(this,'eg: FWD789');" value="eg: FWD789">
+									-->
+                                    <input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'<key id='Overseas.PlanOptions.Promo.eg'>If applicable</key>');" onBlur="placeholderOnBlur(this,'<key id='Overseas.PlanOptions.Promo.eg'>If applicable</key>');" value="If applicable">
+									<a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:30%;padding: 0px;float: right;margin-top: 15px;" onClick="applyTravelPromoCode()">APPLY</a>
+=======
 									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onBlur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
 									<a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:30%;padding: 0px;float: right;margin-top: 15px;" onClick="applyOverseaPromoCode()">APPLY</a>
+>>>>>>> da5b1efebd6db962cf9a34d18d849b573178190c
 								</div>
 							</div>
 							<div class="travel-italic workingholiday-getpromocode" style="font-size:14px;">
-					            <a href="" class="sub-link" data-toggle="modal" data-target=".bs-promo-modal-lg"><i>How do I get a promotion code?</i></a>
+					            <a href="" class="sub-link" data-toggle="modal" data-target=".bs-promo-modal-lg"><i><key id='Overseas.PlanOptions.Promo.How'>How do I get a promotion code?</key></i></a>
 							</div>
 							<!--
 							<div class="checkbox" style="margin-top: 20px; font-size: 14px;">
@@ -2114,17 +2099,17 @@ Vietnam
 						</div>
 						<div class="col-md-12 col-sm-12 col-xs-12 pad-none">
                           <div style="width: 80%;margin-left: 10%;">
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;margin-bottom:0;font-size: 18px;">Subtotal</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;margin-bottom:0;font-size: 18px;"><key id='Overseas.PlanOptions.Subtotal'>Subtotal</key></h3>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="subtotal" style="padding-right: 0px;font-size: 18px;">0</h3>
 							<input type="hidden" name="subTotal" id="subTotal" value="540">
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;margin-bottom:0;margin-top:0;font-size: 18px;">Discount</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;margin-bottom:0;margin-top:0;font-size: 18px;"><key id='Overseas.PlanOptions.Discount'>Discount</key></h3>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="discountAmt" style="padding-right: 0px;margin-top:0;font-size: 18px;">0</h3>
 							<input type="hidden" name="selectedDiscountAmt" id="selectedDiscountAmt" value="0.00">
 							<div class="clearfix"></div>
 						</div>
 						<div class="orange-bdr"></div>
 						<div style="width:80%;margin-left:10%">
-							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;">Amount due</h3>
+							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><key id='Overseas.PlanOptions.Amountdue'>Amount Due</key></h3>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="amountdue" style="padding-right: 0px;font-size: 18px;">0</h3>
 							<input type="hidden" name="selectedAmountDue" id="selectedAmountDue" value="435.00">
 							<input type="hidden" name="selectPlanPremium" id="selectPlanPremium" value="435.00">
@@ -2133,7 +2118,7 @@ Vietnam
 						<div class="col-xs-12 hidden-sm hidden-xs pad-none">
                           <div style="width: 80%;margin-left: 10%;">
                             <div class="top35 pull-left pad-none" style="width:47%">
-                                <a class="bdr-curve btn btn-primary bck-btn" onClick="perventRedirect=false;BackMe();">Back </a>
+                                <a class="bdr-curve btn btn-primary bck-btn" onClick="perventRedirect=false;BackMe();"><key id='Overseas.PlanOptions.Back'>Back</key></a>
                             </div>
                             <div class="top35 pull-right pad-none" style="width:47%">
 	                            
@@ -2199,5 +2184,51 @@ Vietnam
 	<!--/.container-->
 </section>
 
-  <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
-  <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>
+<!--Get promotion code popup-->
+<div class="modal fade bs-promo-modal-lg " tabindex="-1" role="dialog"  aria-hidden="true" style="display: none;" >
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content plan-modal">
+            <div class="login-form" id="sendmailofpromocode">
+	            <div style="overflow: hidden;">
+	            	<a id="getPromotionClose" class="close" aria-label="Close" data-dismiss="modal">
+	                	<span aria-hidden="true" style="font-size:30px;">×</span>
+	                </a>
+	            </div>
+	            <form>
+	                <div class="form-container">
+	                    <h2><fmt:message key="promotion.get.code" bundle="${msg}" /></h2>
+	                    <div class="alert alert-success hide proSuccess"></div>
+	                    <h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
+	                    <div class="form-group">
+	                        <input type="email" class="form-control" placeholder=""
+	                            name="emailToSendPromoCode" id="emailToSendPromoCode">
+	                        <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
+	                    </div>
+	                    <span id="errPromoEmail" class="text-red"></span> <br>
+	                    <div class="row">
+	                        <div class="col-lg-6 col-md-6">
+	                            <button type="submit" onclick="return sendEmail()"
+	                                class="bdr-curve btn btn-primary btn-lg wd5">
+	                            	<fmt:message key="promotion.get.code.action" bundle="${msg}" />
+	                            </button>
+	                        </div>
+	                        <div class="col-md-2">
+	                            <br>
+	                        </div>
+	                        <div class="col-lg-4 col-md-4">
+	                        </div>
+	                        <br> <br>
+	                        <div class="col-lg-12 col-md-12">
+	                            <p><fmt:message key="promotion.get.code.disclaimer" bundle="${msg}" /></p>
+	                        </div>
+	                    </div>
+	                </div>
+	            </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ Get promotion code popup-->
+
+<link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>
