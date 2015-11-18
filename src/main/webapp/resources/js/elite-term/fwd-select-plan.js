@@ -436,10 +436,13 @@
          
          $('#etaspd-insured-amount').html('HK$ '+ sliderVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
          $('#etaspd-monthly-premium').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + getBundle(getBundleLanguage,'et.selectPlan.Monthly.premium.1styear'));
+     	
          
          populateAppSummPD();
 
          if ($self.hasClass('back-to-summary')) {
+        	 storeAppInfo();
+             populateAppSummPI();
         	 $('#et-application-first-section').addClass('hide-element');
         	 $('#et-application-third-section').removeClass('hide-element');
              $('body, html').animate({
@@ -521,6 +524,7 @@
          var $target = '';
          if (isBeneficaryValid()) {
             if ($self.hasClass('back-to-summary')) {
+            	storeBeneficiaryInfo();
                populateAppSummBI();
             $('#et-application-third-section').removeClass('hide-element');
                $('body, html').animate({
@@ -1087,6 +1091,7 @@
          var isValidAddLine = true;
          
          
+         
          // Check if permanent address lines
          if (!isPerLineValid()) {
             _form.bootstrapValidator('updateStatus', 'savieApplicantBean.permanentAddress1', 'INVALID', 'callback');
@@ -1123,6 +1128,7 @@
          $('#et-personal-info-next').removeAttr('disabled');
          
          if ($('#et-personal-info-next').hasClass('back-to-summary')) {
+        	 storeAppInfo();
             populateAppSummPI();
         	$('#et-application-third-section').removeClass('hide-element');
             $('body, html').animate({
@@ -1295,7 +1301,8 @@
                $('#et-employment-info-section').removeAttr('style');
                
                if ($('#et-employment-info-next').hasClass('back-to-summary')) {
-                populateAppSummEI();
+            	   storeEmpInfo(); 
+            	   populateAppSummEI();
             	  $('#et-application-third-section').removeClass('hide-element');
                   $('body, html').animate({
                  	 scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
@@ -1673,7 +1680,7 @@
       $('#etaspi-per-add').text(perAddArr.join(', '));
       
       if ($('#savieApplicantBean\\.isResidential').prop('checked')) {
-         //$('.et-res-add').removeClass('hide-element');
+         $('#etaspi-res-add').removeClass('hide-element');
             
          var resAddArr = [];
          if (appInfoData.resAddL1) {
@@ -1689,11 +1696,11 @@
          // resAddArr.push(appInfoData.resAddCountry);
          $('#etaspi-res-add').text(resAddArr.join(', '));
       } else {
-         //$('.et-res-add').addClass('hide-element');
+         $('#etaspi-res-add').addClass('hide-element');
       }
       
       if ($('#savieApplicantBean\\.addressIsSame').prop('checked')) {
-         //$('.et-corr-add').removeClass('hide-element');
+         $('#etaspi-corr-add').removeClass('hide-element');
             
          var corrAddArr = [];
          if (appInfoData.corrAddL1) {
@@ -1709,8 +1716,7 @@
          // corrAddArr.push(appInfoData.corrAddCountry);
          $('#etaspi-corr-add').text(corrAddArr.join(', '));
       } else {
-
-         //$('.et-corr-add').addClass('hide-element');
+         $('#etaspi-corr-add').addClass('hide-element');
       }
       
    }
@@ -1790,6 +1796,10 @@
          } else {
             $('.et-person-3').addClass('hide-element');
          }
+      } else {
+    	  $('.et-person-1').addClass('hide-element');
+    	  $('.et-person-2').addClass('hide-element');
+    	  $('.et-person-3').addClass('hide-element');
       }
    }
    
@@ -1807,6 +1817,13 @@
        } else if ($('#et-gender-female').prop('checked')) {
           planDetailData.gender = getBundle(getBundleLanguage, "option.female");
        }
+      
+      //smoker non-smoker
+      if ($('#et-smoker-yes').prop('checked')) {
+         planDetailData.isSmooker = true;
+      } else if ($('#et-smoker-no').prop('checked')) {
+         planDetailData.isSmooker = false;
+      }
       
       appInfoData.gender = planDetailData.gender;
       appInfoData.maritalStat = $('option[value="' + document.getElementById('savieApplicantBean.maritalStatus').value + '"]', '#savieApplicantBean\\.maritalStatus').text();
@@ -1952,6 +1969,8 @@
             if (beneInfoData.second.enFName) {
                beneInfoData.second.saved = true;
             }
+         } else {
+        	 beneInfoData.second = null;
          }
          
          // Person 3
@@ -1982,6 +2001,8 @@
             if (beneInfoData.third.enFName) {
                beneInfoData.third.saved = true;
             }
+         } else {
+        	 beneInfoData.third = null;
          }
       }
    }
