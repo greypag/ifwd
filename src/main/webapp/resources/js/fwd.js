@@ -6143,6 +6143,7 @@ function chkNotNullCreditCareName(element, errElementId)
 	}
 }
 
+/* Skip space checking */
 function chkNotNullCreditCareNameEx2(element, errElementId)
 {
 	if(isNull(element)){
