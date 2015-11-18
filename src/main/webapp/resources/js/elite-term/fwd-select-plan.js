@@ -497,6 +497,15 @@
                    $('#et-application-first-section').removeAttr('style');
                    
                    $('#savieApplicantBean\\.chineseName').val('').trigger('change');
+                   $('#savieApplicantBean\\.permanentAddress1').val('').trigger('change');
+                   $('#savieApplicantBean\\.permanentAddress2').val('').trigger('change');
+                   $('#savieApplicantBean\\.permanentAddress3').val('').trigger('change');
+                   $('#savieApplicantBean\\.residentialAdress1').val('').trigger('change');
+                   $('#savieApplicantBean\\.residentialAdress2').val('').trigger('change');
+                   $('#savieApplicantBean\\.residentialAdress3').val('').trigger('change');
+                   $('#savieApplicantBean\\.correspondenceAdress1').val('').trigger('change');
+                   $('#savieApplicantBean\\.correspondenceAdress2').val('').trigger('change');
+                   $('#savieApplicantBean\\.correspondenceAdress3').val('').trigger('change');
                    
                    // Disable scrolling to the select plan section
                    // Update current section flag
@@ -1305,6 +1314,14 @@
                   }, 0);
                } else {
                   var $ben = $('#et-beneficiary-info-section');
+                  
+                  $('#savieBeneficiaryBean\\[0\\]\\.chineseName').val('').trigger('change');
+                  if ($('#beneficiaryInfoForm\\[1\\]').length) {
+                	  $('#savieBeneficiaryBean\\[1\\]\\.chineseName').val('').trigger('change');
+                  }
+                  if ($('#beneficiaryInfoForm\\[1\\]').length) {
+                	  $('#savieBeneficiaryBean\\[2\\]\\.chineseName').val('').trigger('change');
+                  }
                    
                   $ben.removeClass('hide-element');
                   $('body, html').animate({
