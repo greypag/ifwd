@@ -131,7 +131,38 @@ $(document).ready(function(){
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Correspondence'>Correspondence address</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper"></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
+                                                <c:if test="${planDetailsForm.correspondenceAddressRoom != ''}">
+	                                                Room/Flat ${planDetailsForm.correspondenceAddressRoom}, 
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.correspondenceAddressFloor != ''}">
+	                                                Floor ${planDetailsForm.correspondenceAddressFloor}, 
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.correspondenceAddressBlock != ''}">
+	                                                Block ${planDetailsForm.correspondenceAddressBlock}, 
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${planDetailsForm.correspondenceAddressBuilding != ''}">
+	                                                ${planDetailsForm.correspondenceAddressBuilding},
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${planDetailsForm.correspondenceAddressEstate != ''}">
+	                                                ${planDetailsForm.correspondenceAddressEstate},
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.correspondenceAddressStreetNo != ''}">
+	                                                ${planDetailsForm.correspondenceAddressStreetNo} 
+	                                            </c:if>
+	                                             <c:if test="${planDetailsForm.correspondenceAddressStreetName != ''}">
+	                                                ${planDetailsForm.correspondenceAddressStreetName},
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${planDetailsForm.applicantDistrictDesc != ''}">
+	                                                ${planDetailsForm.applicantDistrictDesc},
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.districtSelectedDesc != ''}">
+	                                                ${planDetailsForm.districtSelectedDesc}
+	                                            </c:if>
+                                            </div>
                                         </div>											
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.RequestNo'>Request no.</key></div>
@@ -218,7 +249,7 @@ $(document).ready(function(){
                                         </div>	
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Institution.Address'>Educational institution address</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper"></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${AddressofInstitutionLine }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.StudentVisaHolder'>Student visa holder</key></div>
