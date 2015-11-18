@@ -988,10 +988,14 @@
             "savieApplicantBean.permanentAddress1": {
                 container: '#permanentAddressMessage1',
                 validators: {
+                    notEmpty: {
+                      message: getBundle(getBundleLanguage, "form.address.empty")  
+                    },
                     regexp: {
                       regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                       message: getBundle(getBundleLanguage, "form.address.invalid")
-                    },
+                    }
+                    /*,
                     callback: {
                         callback: function(value, validator) {
                           return {
@@ -999,7 +1003,7 @@
                             message: getBundle(getBundleLanguage, "form.address.empty")
                           }
                         }
-                    }
+                    }*/
                 }
              },
              "savieApplicantBean.permanentAddress2": {
@@ -1023,10 +1027,14 @@
               "savieApplicantBean.residentialAdress1": {
                   container: '#residentialAddressMessage1',
                   validators: {
-                      regexp: {
+                     notEmpty: {
+                        message: getBundle(getBundleLanguage, "form.address.empty")  
+                     },
+                     regexp: {
                         regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                         message: getBundle(getBundleLanguage, "form.address.invalid")
-                      },
+                     }
+                      /*,
                       callback: {
                           callback: function(value, validator) {
                             return {
@@ -1034,7 +1042,7 @@
                               message: getBundle(getBundleLanguage, "form.address.empty")
                             }
                           }
-                      }
+                      }*/
                   }
                },
                "savieApplicantBean.residentialAdress2": {
@@ -1058,10 +1066,14 @@
                 "savieApplicantBean.correspondenceAdress1": {
                     container: '#corrAddressMessage1',
                     validators: {
-                      regexp: {
+                     notEmpty: {
+                        message: getBundle(getBundleLanguage, "form.address.empty")  
+                     },
+                     regexp: {
                           regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                           message: getBundle(getBundleLanguage, "form.address.invalid")
-                      },
+                      }
+                      /*,
                       callback: {
                           callback: function(value, validator) {
                             return {
@@ -1069,7 +1081,7 @@
                               message: getBundle(getBundleLanguage, "form.address.empty")
                             }
                           }
-                      }
+                      }*/
                     }
                  },
                  "savieApplicantBean.correspondenceAdress2": {
@@ -1100,7 +1112,7 @@
          
          
          // Check if permanent address lines
-         if (!isPerLineValid()) {
+         /*if (!isPerLineValid()) {
             _form.bootstrapValidator('updateStatus', 'savieApplicantBean.permanentAddress1', 'INVALID', 'callback');
 
             isValidAddLine = false;
@@ -1129,7 +1141,7 @@
                scrollTop: ($('#et-application-info-section').offset().top - stickyHeight) + 'px'
             }, 0);
             return false;
-         }
+         }*/
          
          //isAppDobValid();
          $('#et-personal-info-next').removeAttr('disabled');
@@ -1161,7 +1173,7 @@
          
          
          // Check if permanent address lines
-         if (!isPerLineValid()) {
+         /*if (!isPerLineValid()) {
             _form.bootstrapValidator('updateStatus', 'savieApplicantBean.permanentAddress1', 'INVALID', 'callback');
             isValidAddLine = false;
          } else {
@@ -1189,7 +1201,7 @@
                scrollTop: ($('#et-application-info-section').offset().top - stickyHeight) + 'px'
             }, 0);
             return false;
-         }
+         }*/
          
          if ($bv.$invalidFields.length == 1) {
             for (var i=0; i<$bv.$invalidFields.length; i++) {

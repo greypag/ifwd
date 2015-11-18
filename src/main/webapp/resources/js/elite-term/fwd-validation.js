@@ -83,7 +83,7 @@ $(function() {
 			$('#savieApplicantBean\\.correspondenceDistrict').val('');
 		}
 
-		$('#correspondence-address').find('.error-msg .help-block').css('display', 'none');
+		//$('#correspondence-address').find('.error-msg .help-block').css('display', 'none');
 	});
 	
     $("#savieApplicantBean\\.isResidential").change(function() {
@@ -108,7 +108,7 @@ $(function() {
 			$('#savieApplicantBean\\.residentialDistrict').val('');
 		}
 
-		$('#residential-address').find('.error-msg .help-block').css('display', 'none');
+		//$('#residential-address').find('.error-msg .help-block').css('display', 'none');
 	});
     
 	//hide or show HKID / Passport text box on dropdown change for Form 1
