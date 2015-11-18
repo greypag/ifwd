@@ -100,12 +100,17 @@ function getEliteTermPremium() {
 	
 	// For the Application Summary
 	if(referralCode != '') {
-		$disMonthPre.removeClass('hidden');
-        $actMonthPre.find('span.extra-years-remarks').text(getBundle(getBundleLanguage, "et.selectPlan.Monthly.premium.2ndto20thyear"));
+		$actMonthPre.removeClass('hidden');
+		$disMonthPre.find('span.extra-years-remarks').removeClass('hidden');
+		$actMonthPre.find('span.extra-years-remarks').removeClass('hidden');
 	} else {
-		$disMonthPre.addClass('hidden');
-        $actMonthPre.find('span.extra-years-remarks').text(getBundle(getBundleLanguage, "et.selectPlan.Monthly.premium.1styear"));
+		$actMonthPre.addClass('hidden');
+		$disMonthPre.find('span.extra-years-remarks').addClass('hidden');
+		$actMonthPre.find('span.extra-years-remarks').addClass('hidden');
 	}
+	
+	$disMonthPre.removeClass('hidden');
+	
 }
 
 $('#et-signature-proceed-btn').on('click', function(e) {
@@ -502,7 +507,8 @@ function resetCalculatedAmt(){
   
 	$('#et-dis-promo-amount').addClass('hide-element');
 	$("#etaspd-insured-amount").html('HK$ ');
-	$("#etaspd-monthly-premium").html('HK$ ');
+	$("#etaspd-monthly-premium .value").text('');
+	$("#etaspd-monthly-premium-extra-years .value").text('');
 
 	$('#et-month-amount').html('');
 	$('#et-day-amount').html('');
@@ -530,11 +536,9 @@ function setCalculatedAmt(bDiscount, insuredAmt, oriMonthlyAmt, oriDailyAmt, dis
 	var discount_period_text = actPromo.find('.et-po-amount-label').data('et-discount-period');
   
 	var modInsuredAmount = parseFloat(insuredAmt).toFixed(2);
-	var modMonthlyPremium = parseFloat(oriMonthlyAmt).toFixed(2);
 	$("#et-month-amount").html(parseFloat(oriMonthlyAmt).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 	$("#et-day-amount").html(parseFloat(oriDailyAmt).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
 	$("#etaspd-insured-amount").html('HK$ ' + modInsuredAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-	$("#etaspd-monthly-premium").html('HK$ ' + modMonthlyPremium.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
   
 	if(bDiscount){
 		$("#et-month-dis-amount").html(parseFloat(disMonthlyAmt).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
@@ -542,9 +546,14 @@ function setCalculatedAmt(bDiscount, insuredAmt, oriMonthlyAmt, oriDailyAmt, dis
 		actPromo.find('.top .et-po-amount-label').text(discount_period_text);
 		$('#et-dis-promo-amount').removeClass('hide-element');
 		$('#et-dis-promo-amount').removeClass('hidden');
+		
+		$("#etaspd-monthly-premium .value").text(parseFloat(disMonthlyAmt).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+		$("#etaspd-monthly-premium-extra-years .value").text(parseFloat(oriMonthlyAmt).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
  	} else{
  		actPromo.find('.top .et-po-amount-label').text(default_period_text);
  		$('#et-dis-promo-amount').addClass('hide-element');
+ 		
+ 		$("#etaspd-monthly-premium .value").text(parseFloat(oriMonthlyAmt).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
  	}
 
  	//enable proceed button

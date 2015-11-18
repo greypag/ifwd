@@ -433,9 +433,11 @@
          // Store plan detail data
          var sliderVal = $('#et-slider-range').text();
          var monthlyPrem = $('#et-month-dis-amount').text();
+         var monthlyPremExtra = $('#et-month-amount').text();
          
          $('#etaspd-insured-amount').html('HK$ '+ sliderVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-         $('#etaspd-monthly-premium').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + getBundle(getBundleLanguage,'et.selectPlan.Monthly.premium.1styear'));
+         $('#etaspd-monthly-premium .value').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+         $('#etaspd-monthly-premium-extra-years .value').html('HK$ '+ monthlyPremExtra.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
          
          populateAppSummPD();
 
@@ -520,9 +522,11 @@
          var $self = $(this);
          var $target = '';
          if (isBeneficaryValid()) {
+            // Store beneficiaries data
+            storeBeneficiaryInfo();
+        	populateAppSummBI();
             if ($self.hasClass('back-to-summary')) {
-               populateAppSummBI();
-            $('#et-application-third-section').removeClass('hide-element');
+               $('#et-application-third-section').removeClass('hide-element');
                $('body, html').animate({
             	  scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
                }, 0);
@@ -533,9 +537,6 @@
                   scrollTop: ($target.offset().top - stickyHeight) + 'px'
                }, 500);
             }
-            
-            // Store beneficiaries data
-            storeBeneficiaryInfo();
          } else {
             $('body, html').animate({
                   scrollTop: ($('#et-beneficiary-info-section').offset().top - stickyHeight) + 'px'
@@ -660,8 +661,10 @@
 		     $('#et-declaration-proceed-btn').parent().removeClass('hidden');
 	         
 	         //hide parts
+		     $('#et-about-yoursel-section').addClass('hide-element');
 	         $('#et-plan-option-section').addClass('hide-element');
 	         $('#et-application-info-section').addClass('hide-element');
+	         $('#personal-info').addClass('hide-element');
 	         $('#et-employment-info-section').addClass('hide-element');
 	         $('#et-beneficiary-info-section').addClass('hide-element');
 	         $('#et-select-plan-section').addClass('hide-element');
@@ -678,7 +681,7 @@
 	         $('#et-app-sum-proceed-btn').removeClass('et-btn-view-summary').addClass('back-to-summary').text(backText);
 	         
 	         //show target
-	         if (($self.data('target') === '#et-employment-info-section') || $self.data('target') === '#et-beneficiary-info-section') {
+	         if (($self.data('target') === '#personal-info') || ($self.data('target') === '#et-employment-info-section') || $self.data('target') === '#et-beneficiary-info-section') {
 	        	 $('#et-application-info-section').removeClass('hide-element');
 	         }
       	 }

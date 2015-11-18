@@ -367,11 +367,11 @@ var home_url = "<%=request.getContextPath()%>";
                            <input type="hidden" id="goApp"/>
                            <c:choose>
                               <c:when test="${not empty userDetails.emailAddress}">
-                                 <button type="button" class="btn btn-white et-proceed-appl bottom active hide-element" id="et-brn-proceed-to-application" data-back-text="<fmt:message key="eliteTerms.selectPlan.back.to.application" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.Proceed.to.application" bundle="${msg}" /></button>
+                                 <button type="button" class="btn btn-white et-proceed-appl bottom active hide-element" id="et-brn-proceed-to-application" data-back-text="<fmt:message key="eliteTerms.selectPlan.Back.to.application" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.Proceed.to.application" bundle="${msg}" /></button>
                                  <div class="et-broken-line et-full"></div>
                               </c:when>    
 							  <c:otherwise>
-                                 <button type="button" class="btn btn-white et-proceed-appl bottom active" id="et-brn-proceed-to-application" data-back-text="<fmt:message key="eliteTerms.selectPlan.back.to.application" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.Proceed.to.application" bundle="${msg}" /></button>
+                                 <button type="button" class="btn btn-white et-proceed-appl bottom active" id="et-brn-proceed-to-application" data-back-text="<fmt:message key="eliteTerms.selectPlan.Back.to.application" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.Proceed.to.application" bundle="${msg}" /></button>
                                  <div class="et-broken-line et-full hide-element"></div>
 							  </c:otherwise>
 						   </c:choose>
@@ -1854,15 +1854,15 @@ var home_url = "<%=request.getContextPath()%>";
                                  </div>
                                  <div class="clearfix plan-detail-holder">
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Monthly.premium" bundle="${msg}" /></h4>
-                                    <p class="info" id="etaspd-monthly-premium" class="hidden">HK$ <fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.1styear" bundle="${msg}" /></span></p>
-                                    <p class="info" id="etaspd-monthly-premium-extra-years">HK$ <fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" pattern="#.00"/> <span class="extra-years-remarks"></span></p>
+                                    <p class="info" id="etaspd-monthly-premium" class="hidden">HK$ <span class="value"><fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/></span> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.1styear" bundle="${msg}" /></span></p>
+                                    <p class="info" id="etaspd-monthly-premium-extra-years">HK$ <span class="value"><fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" pattern="#.00"/></span> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.2ndto20thyear" bundle="${msg}" /></span></p>
                                  </div>
                               </div>
                            <!-- PLAN DETAIL END-->
 
                            <!-- PERSONAL INFO -->
                            <div class="summary-body-item">
-                              <h3 class="personal-info"><fmt:message key="eliteTerms.selectPlan.Personal.Info" bundle="${msg}" /> <a href="#" title="Edit" class="et-app-sum-edit" data-target="#et-application-info-section"><fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a></h3>
+                              <h3 class="personal-info"><fmt:message key="eliteTerms.selectPlan.Personal.Info" bundle="${msg}" /> <a href="#" title="Edit" class="et-app-sum-edit" data-target="#personal-info"><fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a></h3>
                               <h4 class="clearfix info-holder-title"><fmt:message key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" /></h4>
                               <div class="clearfix info-holder">
                                  <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Last.Name" bundle="${msg}" /></h4>
@@ -2693,12 +2693,13 @@ var home_url = "<%=request.getContextPath()%>";
     	  if('${etPolicyApplication.promocode }'!=''){
     		  $('#et-dis-promo-amount').removeClass('hidden');
     		// Application PromoCode
-    		  $('#etaspd-monthly-premium').removeClass('hidden');
+    		  $('#etaspd-monthly-premium-extra-years').removeClass('hidden');
     	  }
     	  else{
     		  $('#et-dis-promo-amount').addClass('hidden');
     		  
-    		  $('#etaspd-monthly-premium').addClass('hidden');
+    		  $('#etaspd-monthly-premium').find('span.extra-years-remarks').addClass('hidden');
+    		  $('#etaspd-monthly-premium-extra-years').addClass('hidden');
     	  }
     	  
     	  if('${goApp}'!=null && '${goApp}'=='yes'){
