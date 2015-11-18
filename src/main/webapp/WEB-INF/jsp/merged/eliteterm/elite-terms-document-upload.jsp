@@ -544,7 +544,7 @@ var languageP = "${language}";
 					$('#loginpopup').modal('show');
 				}else{
 					if(policyUserName != null && policyUserName != '' && policyUserName != userName){
-						$('#back-to-home-modal').modal('show');
+						window.location.href= '<%=request.getContextPath()%>/${language}/term-life-insurance';
 					}
 				}
 				
