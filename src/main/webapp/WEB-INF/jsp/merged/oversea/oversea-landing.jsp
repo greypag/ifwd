@@ -270,7 +270,7 @@ function prepareOverseaPlan(form){
 </div>
 
 <section style="margin-top:40px;margin-bottom:40px;">
-  <div class="container pad-none">
+  <div class="container">
 <div class="other-benefits col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none">
   <h2 class="oversea-sponsor-header"><key id='Overseas.Landing.Other'>Other benefits</key></h2>
   <ul class="bullets oversea-bullets pad-none">
@@ -300,6 +300,7 @@ function prepareOverseaPlan(form){
     </div>
   </div>
   <div class="spacer3"></div>
+        <p class="h4-6"><key id='Overseas.Landing.Disclaimer'>For a complete explanation of the terms and conditions, feel free to contact our 24-hour hotline at 3123 3123.</key></p>
 </div>
 
 
@@ -313,13 +314,13 @@ function prepareOverseaPlan(form){
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none">
         <div class="recent-work-wrap wrap text-center">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="">
-            <h1><key id='Overseas.Landing.Platformpillar1.headline'>Here when you<br/>need us</key></h1>
+            <h1><key id='Overseas.Landing.Platformpillar1.headline'>Here when you need us</key></h1>
               <p><key id='Overseas.Landing.Platformpillar1.copy'>Our 24x7 call centre support, 5 drop-in locations across Hong Kong and our <a href="http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank"><u>eServices App</u></a> ensures you get the support you need, when you need it.</key></p>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
-        <div class="recent-work-wrap wrap text-center">
+        <div class="recent-work-wrap wrap text-center claim-pillar-wrapper">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim.png" alt="">
             <h1><key id='Overseas.Landing.Platformpillar2.headline'>Claims<br/>Procedure</key></h1>
             <p><key id='Overseas.Landing.Platformpillar2.copy'>Notice of any claim must be given to the company within 31 days of the expiry of this policy. In any event not later than 14 days after the incident giving rise to such a claim.</key></p>
