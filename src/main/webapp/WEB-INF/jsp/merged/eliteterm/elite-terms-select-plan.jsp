@@ -1520,7 +1520,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="form-group has-error beneficiary-info-row entitle">
                                        <label for="savieBeneficiaryBean[0].entitlement"><fmt:message key="eliteTerms.selectPlan.Entitlement" bundle="${msg}" /></label>
-                                       <input type="number" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBean[0].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="100" min="0" />
+                                       <input type="number" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBean[0].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="100"/>
                                        <span class="error-msg" id="entitlementMessage[0]"></span>
                                     </div>		                
                                  </div>
@@ -1850,7 +1850,7 @@ var home_url = "<%=request.getContextPath()%>";
                                  </div>
                                  <div class="clearfix plan-detail-holder">
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Insured.amount" bundle="${msg}" /></h4>
-                                    <p class="info" id="etaspd-insured-amount">HK$ <fmt:formatNumber value="${etPolicyApplication.amount }" pattern="#.00"/></p>
+                                    <p class="info" id="etaspd-insured-amount">HK$ <fmt:formatNumber value="${etPolicyApplication.amount }" maxFractionDigits="2" /></p>
                                  </div>
                                  <div class="clearfix plan-detail-holder">
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Monthly.premium" bundle="${msg}" /></h4>

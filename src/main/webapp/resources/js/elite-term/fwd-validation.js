@@ -401,7 +401,7 @@ $(function() {
 						message: getBundle(getBundleLanguage, "form.beneficiary.passport.empty")
 	               },
 	               regexp: {
-	                  regexp: /^[a-zA-Z0-9]*$/,
+	                  regexp: /^[a-zA-Z0-9\-]*$/,
 	                  message: getBundle(getBundleLanguage, "form.beneficiary.passport.invalid")
 	               }
 				}
@@ -431,10 +431,13 @@ $(function() {
 			'savieBeneficiaryBean[0].entitlement':{
 				container: '#entitlementMessage\\[0\\]',
 				validators: {
-					regexp: {
+					/*regexp: {
 						regexp: /[0-9]/, // /^(?:[1-9]\d?|100)$/,
 						message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
-					},
+					},*/
+					integer:{
+	                	message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
+	                },
 					callback: {
 						message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
 						callback: function (value, validator, $field) {
@@ -557,7 +560,7 @@ $(function() {
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.passport.empty")
 	                  },
 	                  regexp: {
-	                     regexp: /^[a-zA-Z0-9]*$/,
+	                     regexp: /^[a-zA-Z0-9\-]*$/,
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.passport.invalid")
 	                  }
 	               }
@@ -587,9 +590,12 @@ $(function() {
 	            'savieBeneficiaryBean[1].entitlement':{
 	               container: '#entitlementMessage\\[1\\]',
 	               validators: {
-	                  regexp: {
+	                  /*regexp: {
 	                     regexp: /[0-9]/, // /^(?:[1-9]\d?|100)$/,
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
+	                  },*/
+	                  integer:{
+	                  	 message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
 	                  },
 	                  callback: {
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
@@ -725,7 +731,7 @@ $(function() {
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.passport.empty")
 	                  },
                   regexp: {
-                     regexp: /^[a-zA-Z0-9]*$/,
+                     regexp: /^[a-zA-Z0-9\-]*$/,
                      message: getBundle(getBundleLanguage, "form.beneficiary.passport.invalid")
                   }
                }
@@ -755,21 +761,24 @@ $(function() {
 				'savieBeneficiaryBean[2].entitlement':{
 					container: '#entitlementMessage\\[2\\]',
 					validators: {
-                  regexp: {
+                  /*regexp: {
                      regexp: /[0-9]/, // /^(?:[1-9]\d?|100)$/,
                      message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
-                  },
-                  callback: {
-                     message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
-                     callback: function (value, validator, $field) {
-                        if(totalBeneficiaryEntitlement() == "Exceed"){
-                           return false;
-                        }else{
-                           return true;
-                        }
-                     }
-                  }
-               }
+                  },*/
+                  		integer:{
+	                  		message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
+	              		},
+                  		callback: {
+                     		message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
+                     		callback: function (value, validator, $field) {
+                        	if(totalBeneficiaryEntitlement() == "Exceed"){
+                          		return false;
+                        	}else{
+                           		return true;
+                        	}
+                     	}
+                  	}
+               	}
 				}
 			}
 		});

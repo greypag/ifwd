@@ -846,6 +846,7 @@
                container: '#sales-illu-dob-msg',
                validators: {
                   notEmpty: {
+
                      message: getBundle(getBundleLanguage, "et.selectPlan.Please.enter.your.Date.of.birth")
                   }
                }
@@ -892,8 +893,8 @@
             "savieApplicantBean.residentialTelNo": {
                container: '#resTelMessage',
                validators: {
-                  digits: {
-                     message: getBundle(getBundleLanguage, "et.selectPlan.Invalid.Telephone.number")
+                  notEmpty: {
+                     message: getBundle(getBundleLanguage, "et.selectPlan.Mobile.number.is.required")
                   },
                   stringLength: {
                       min: 8,
@@ -911,9 +912,6 @@
                validators: {
                   notEmpty: {
                      message: getBundle(getBundleLanguage, "et.selectPlan.Mobile.number.is.required")
-                  },
-                  digits: {
-                     message: getBundle(getBundleLanguage, "et.selectPlan.Invalid.Mobile.number")
                   },
                   stringLength: {
                       min: 8,
@@ -1313,7 +1311,7 @@
       }).on('success.form.bv', function(e) {
             e.preventDefault();
             var $form = $(this);
-   
+            
             if ($form.data('bootstrapValidator').isValid()) {
                $('#et-employment-info-next').removeAttr('disabled');
                $('#et-employment-info-section').removeAttr('style');
@@ -1352,6 +1350,7 @@
                }, 0);
             }
       }).on('error.form.bv', function(e) {
+         $('#et-employment-info-next').removeAttr('disabled');
          $('body, html').animate({
             scrollTop: ($('#et-employment-info-section').offset().top - stickyHeight) + 'px'
          }, 0);
@@ -1454,6 +1453,11 @@
    $('#savieEmploymentBean\\.employmentStatus').on('change', function(e) {
       var $self = $(this);
       var value = $self.val().slice(0,3);
+
+      var status = $(this).val();
+      $('#etEmploymentInfoForm').bootstrapValidator('resetForm',true);
+      $(this).val(status);
+
       if (value === 'ES1' || value === 'ES2' || value === 'ES3') {
          $('.et-emp-info-sourceOfIncome-container').addClass('hidden');
          $('.et-emp-info-liq-assets-container').addClass('hidden');
@@ -1461,13 +1465,6 @@
          $('.et-emp-info-occupation-container').removeClass('hidden');
          $('.et-emp-info-employer-name-container').removeClass('hidden');
          $('.et-emp-info-mon-income-container').removeClass('hidden');
-
-         //Reset fields
-         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.natureOfBusiness', true)
-         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.occupation', true)
-         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.currentEmployerName', true)
-         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.monthlyPersonalIncome', true)
-         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.educationLevel', true)
       }
       else {
          $('.et-emp-info-nat-business-container').addClass('hidden');
@@ -1476,12 +1473,8 @@
          $('.et-emp-info-mon-income-container').addClass('hidden');
          $('.et-emp-info-sourceOfIncome-container').removeClass('hidden');
          $('.et-emp-info-liq-assets-container').removeClass('hidden');
-
-         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.sourceOfIncome', true)
-         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.liquidAssets', true)
-         $('#etEmploymentInfoForm').bootstrapValidator('resetField', 'savieEmploymentBean.educationLevel', true)
       }
-      
+
       $('#savieEmploymentBean\\.natureOfBusiness').prop('selectedIndex', 0).css('color', 'rgb(196, 195, 195)');
       $('#savieEmploymentBean\\.occupation').prop('selectedIndex', 0).css('color', 'rgb(196, 195, 195)');
       $('#savieEmploymentBean\\.liquidAssets').prop('selectedIndex', 0).css('color', 'rgb(196, 195, 195)');
