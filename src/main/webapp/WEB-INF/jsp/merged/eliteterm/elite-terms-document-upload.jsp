@@ -425,20 +425,20 @@ var languageP = "${language}";
 			$('#residence-check').click(function(){
 				$('.passport-holder').toggle();
 			})
+			
+			function goodbye(e) {
+            	if(!e) e = window.event;
+                e.cancelBubble = true;
+              	e.returnValue = 'Some inputs or changes may not have been saved yet.'; 
 
-			// function goodbye(e) {
-            //    if(!e) e = window.event;
-            //    e.cancelBubble = true;
-            //    e.returnValue = 'Some changes may not have been saved yet'; 
+              	if (e.stopPropagation) {
+                    e.stopPropagation();
+                    e.preventDefault();
+               }	
+            }
+            window.onbeforeunload=goodbye; 
 
-            //    if (e.stopPropagation) {
-            //        e.stopPropagation();
-            //        e.preventDefault();
-            //    }	
-            //}
-           // window.onbeforeunload=goodbye; 
-           
-
+			
             // Form file validation
             $('#et-upload-doc-submit-btn').on('click', function(e) {
                 var $self = $(this);
@@ -449,8 +449,10 @@ var languageP = "${language}";
                 if (isValid) {     
                     $self.removeAttr('disabled');
                     //window.location.href= contextPath+'/'+language+'/term-life-insurance/'+documentUploadNextPageFlow;
+                    
                 } else {
                     $self.attr('disabled', 'disabled');
+                    alert('You might have uploaded an invalid file. Please try again!');
                 }
             });
             
@@ -634,6 +636,7 @@ var languageP = "${language}";
 					$('#upload-later-section').removeClass('hidden');
 					$('#submit-btn').addClass('hidden');
 					$('#elite-home-btn').removeClass('hidden');
+					window.onbeforeunload = null;
 				} else {
 					$('#upload-now-section').removeClass('hidden');
 					$('#upload-later-section').addClass('hidden');
