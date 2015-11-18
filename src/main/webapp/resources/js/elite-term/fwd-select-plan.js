@@ -261,6 +261,10 @@
       }
    });
    
+   // Close Login Modal event
+   $("#loginModal").on('hide', function(event){
+	   window.onbeforeunload=goodbye;
+   });
    // Login submit event
    $('#et-login-form').on('submit', function(e) {
       e.preventDefault();
@@ -450,6 +454,7 @@
                 scrollTop: ($('#et-application-info-section').offset().top - stickyHeight) + 'px'
             }, 500); 
          } else {
+        	window.onbeforeunload=null;
             // Open login modal
             $('#loginModal').modal('show');
          }

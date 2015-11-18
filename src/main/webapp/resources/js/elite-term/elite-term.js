@@ -155,6 +155,7 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 			    	    success:function(data){
 			    	    	if(data!=null && data.errMsgs == null){
 			    	    		console.log("signature success");
+			    	    		window.onbeforeunload=null;
 			    	    		window.location.href= contextPath+'/'+language+'/term-life-insurance/'+selectPlanNextPageFlow;
 			    			}
 			    			else{
@@ -217,6 +218,7 @@ function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
 				},
 		        success:function(data){
 					if(data.errMsgs == null){
+						window.onbeforeunload=null;
 						window.location.href= contextPath+'/'+language+'/term-life-insurance/'+documentUploadNextPageFlow;
 					}
 				}
