@@ -642,8 +642,8 @@ function activeDeactive(selectedValue, id) {
 											<label for="inputOverseasInsuredDob" class="field-label bold-500"><key id='Overseas.userdetails.Insured.DOB'>Date of birth</key></label>
 										</div>
 										<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-											<div class="input-group date" id="input_dob3"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-												<input name="inputOverseasInsuredDob" type="text" class="pointer datepicker form-control border-radius" id="inputOverseasInsuredDob" value="" readonly="">
+											<div class="input-group date" id="oversea_educational_insured_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+												<input name="inputOverseasInsuredDob" type="text" class="pointer datepicker form-control border-radius" id="inputOverseasInsuredDob" value="" readonly>
 											</div>
 											<span id="dobOverseasInsuredInvalid" class="text-red"></span>
 										</div>
