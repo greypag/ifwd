@@ -854,33 +854,35 @@ $(function() {
 		//Eservices Page
 		//by: RMN
 		
-        if(getWidth()>=992){
-         $('.et-collapse-link[aria-expanded="true"]').parent()
-                                                   .next()
-                                                   .find('.et-panel-body')
-                                                   .jScrollPane({showArrows: true});
-   
-         
-			$('.et-select-plan-panel').on('shown.bs.collapse', function (e) {
-				var $target = $(e.currentTarget);
-				var $innerPanel = $target.find('.et-panel-body');
-				
-            if(getWidth()>=992){
-               $innerPanel.jScrollPane({showArrows: true});
-            }
-			});
-         
-		}else{
-         // Remove the jScrollpane
-         $('.et-panel-body').each(function() {
-            var $self = $(this);
-            
-            if ($self.data().jsp) {  
-               $self.data().jsp.destroy();
-            }
-         });
+		if ($('.et-collapse-link').length) {
+	        if(getWidth()>=992){
+	         $('.et-collapse-link[aria-expanded="true"]').parent()
+	                                                   .next()
+	                                                   .find('.et-panel-body')
+	                                                   .jScrollPane({showArrows: true});
+	   
+	         
+				$('.et-select-plan-panel').on('shown.bs.collapse', function (e) {
+					var $target = $(e.currentTarget);
+					var $innerPanel = $target.find('.et-panel-body');
+					
+	            if(getWidth()>=992){
+	               $innerPanel.jScrollPane({showArrows: true});
+	            }
+				});
+	         
+			}else{
+	         // Remove the jScrollpane
+	         $('.et-panel-body').each(function() {
+	            var $self = $(this);
+	            
+	            if ($self.data().jsp) {  
+	               $self.data().jsp.destroy();
+	            }
+	         });
+			}
 		}//END OF ET Select Plan Page
-        
+	
 		if(getWidth()>=992){
 			//Promo and Referrals Page
 			$('#copy-link').removeClass('invisible');
