@@ -2573,12 +2573,16 @@ var home_url = "<%=request.getContextPath()%>";
       });
 
   		//applicant dob
-  		$(document).on('click', '#et-personal-info-next', function(e) {
+  		$(document).on('click', '#et-personal-info-next', function(e) {  			
   			if($('#eliteTermsInsuredInfoForm #sales-illu-dob').val()!="") {
   				$('#eliteTermsInsuredInfoForm')
   			    .data('bootstrapValidator')
   			    .updateStatus('dob','VALID');
   			}
+  		});
+  		
+  		$('.et-app-sum-edit').on('click', function(e) {
+  			$('#et-plan-option-section').removeClass('hide-element');
   		});
 
       //about yourself dob
@@ -2779,8 +2783,11 @@ var home_url = "<%=request.getContextPath()%>";
 		      $('#et-medical-dec-next').on('click', function(e) {
 		    	  var $hideMedicalDec = $('#et-medical-declaration');
 		    	  var $etAppInfoSec = $('#et-application-info-section');
+		    	  var $etAppPageDiv = $('#et-application-info-section .page-divider');
 
 		    	  $hideMedicalDec.addClass('hide-element');
+		    	  $etAppPageDiv.addClass('hide-element');
+		    	  
 		    	  $('body, html').animate({
 		            scrollTop: ($etAppInfoSec.offset().top - stickyHeight) + 'px'
 		         }, 500);
