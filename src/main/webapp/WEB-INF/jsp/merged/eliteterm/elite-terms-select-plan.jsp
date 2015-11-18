@@ -2704,14 +2704,15 @@ var home_url = "<%=request.getContextPath()%>";
     	  
     	  if('${goApp}'!=null && '${goApp}'=='yes'){
   			  $('#et-btn-before-start').removeClass('et-pad-bot-50');
-  			  $('#et-about-yoursel-section').removeClass('hide-element').css('margin-bottom', '125px');
+  			  //$('#et-about-yoursel-section').removeClass('hide-element').css('margin-bottom', '125px');
+  			  $('#et-about-yoursel-section').addClass('hide-element');
   			  $('#et-btn-ay-self').removeClass('et-pad-bot-50');
-  	          $('#et-about-yoursel-section').removeAttr('style');
-  	          $('#et-plan-option-section').removeClass('hide-element');
-  	          $('#et-application-first-section').removeClass('hide-element').css('margin-bottom', '190px');
-  		      $('#' + currentSection).addClass('hide-element');
-  		      currentSection = 'et-application-first-section';
-  		      var $appInfo = $('#et-application-first-section');
+  	        $('#et-about-yoursel-section').removeAttr('style');
+  	        $('#et-plan-option-section').addClass('hide-element');
+  	        $('#et-application-first-section').removeClass('hide-element').css('margin-bottom', '190px');
+  		     $('#' + currentSection).addClass('hide-element');
+  		     currentSection = 'et-application-first-section';
+  		     var $appInfo = $('#et-application-first-section');
 
   		    $('.application-page-header #select-plan').removeClass('active');
   		  	$('.application-page-header #application').addClass('active');
