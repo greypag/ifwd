@@ -10,6 +10,10 @@
   /* Show Different Referral Benefits for Visitor & Member */
   String currUser = session.getAttribute("username").toString().trim();
   Boolean isMember = !(currUser == null || currUser.equals(Constants.DEFAULT_USERNAME));
+
+  /* Temporarily disable the member description since no referral code is currently displayed for annual travel*/
+  isMember = false;
+
   String userType = (isMember)?"member":"visitor";
 
   String key_promocodeLabel = "annual.confirmation." + userType + ".promocodeLabel";
