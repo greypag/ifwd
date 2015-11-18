@@ -115,14 +115,11 @@ function addDistrictList(value) {
 }
 
 function changeRegion(region){
-<<<<<<< HEAD
-=======
 	$('#amountdue').html('0');
 	$('#subtotal').html('0');
 	$('#plansummary').html('0');
 	$('#discountAmt').html('0');
 	
->>>>>>> da5b1efebd6db962cf9a34d18d849b573178190c
 	if(region=='region0'){
 		$('#region0').css("display","block");
 		$('#region1').css("display","none");
@@ -139,10 +136,7 @@ function changeRegion(region){
 		$('#region-btn-0').removeClass("region-box-active");
 		$('#region-btn-1').addClass("region-box-active");
 		$('#region-btn-1').removeClass("region-box-inactive");
-<<<<<<< HEAD
-=======
 		changeColorAndPrice('box6','6','medicalAsiaA','0.0','5500.0');
->>>>>>> da5b1efebd6db962cf9a34d18d849b573178190c
 	}
 }
 

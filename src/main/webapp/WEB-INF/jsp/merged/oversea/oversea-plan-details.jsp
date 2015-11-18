@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -36,7 +37,7 @@ var namePlaceholder="SAME AS ID DOCUMENT";
 var hkidPlaceholder="EG: X1234567 WITHOUT ()";
 var insureNamePlaceholder="";
 var insureHkidPlaceholder="HKID/PASSPORT NO.";
-var benNamePlaceholder="";
+var benNamePlaceholder="SAME AS ID DOCUMENT";
 var benHkidPlaceholder="EG: X1234567 WITHOUT ()";
 
 <% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
@@ -231,6 +232,25 @@ function activateUserAccountJoinUs() {
 	}, 500);
 }
 <% } %> 
+
+/* For Benefitiary Div active and Inactive */
+function activeDiv(id, selected) {
+    var selectedValue = $('#' + selected).val();
+    activeDeactive(selectedValue, id);
+}
+
+function activeDeactive(selectedValue, id) {
+    if (selectedValue == "" || selectedValue == "SE") {
+        $('#' + id).addClass('hide');
+        $('#' + id + 'b').addClass('hide');
+        $('#' + id + 'c').addClass('hide');
+    } else {
+        $('#' + id).removeClass('hide');
+        $('#' + id + 'b').removeClass('hide');
+        $('#' + id + 'c').removeClass('hide');
+    }
+}
+/* END- For Benefitiary Dive active and Inactive */
 </script>
 
 <section class="product_header_path_container ">
@@ -521,7 +541,7 @@ function activateUserAccountJoinUs() {
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
-                                                     <select name="personalBeneficiary" id="personalselectBenificiary1" onchange="activeDiv('personalbenificiaryId1','personalselectBenificiary1', 'personalBenefitiaryId1', 'personalBenefitiaryHKId1')" class="form-control soflow select-label">
+                                                     <!-- <select name="personalBeneficiary" id="personalselectBenificiary1" onchange="activeDiv('personalbenificiary','personalselectBenificiary1', 'personalBenefitiaryId1', 'personalBenefitiaryHKId1')" class="form-control soflow select-label">
                                                             <option value="SE"><key id='Overseas.userdetails.Bene.Option1'>Own estate</key></option>
                                                             <option value="CH"><key id='Overseas.userdetails.Bene.Option2'>Child</key></option>
                                                             <option value="FM"><key id='Overseas.userdetails.Bene.Option3'>Fiance</key></option>
@@ -530,14 +550,25 @@ function activateUserAccountJoinUs() {
                                                             <option value="PA"><key id='Overseas.userdetails.Bene.Option6'>Parent</key></option>
                                                             <option value="SL"><key id='Overseas.userdetails.Bene.Option7'>Sibling</key></option>
                                                             <option value="SP"><key id='Overseas.userdetails.Bene.Option8'>Spouse</key></option>
-                                                    </select>
-                                                    </div>
-                                                    <span id="errpersonalselectBenificiary1" class="text-red"></span>
+                                                    </select> -->
+                                                   <select name="personalBeneficiary" id="personalselectBenificiary"
+														onChange="activeDiv('personalbenificiary','personalselectBenificiary')"
+														class="form-control soflow select-label">
+				                                        <c:forEach var="relationshipList" items="${mapRelationshipCode}">
+				                                        	<enhance:out escapeXml="false">
+					                                            <option value="${relationshipList.key}">
+					                                                <c:out value="${relationshipList.value}" />
+					                                            </option>
+				                                            </enhance:out>
+				                                        </c:forEach>
+													</select> 
+                                               </div>
+                                               <span id="errpersonalselectBenificiary" class="text-red"></span>
                                            </div>
                                        </div>
                                        <!-- beneficiary end -->
                                        <!-- personalbenificiaryId start -->
-                                       <div class="form-group float hide" id="personalbenificiaryId1">
+                                       <div class="form-group float hide" id="personalbenificiary">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                                <label class="field-label bold-500"></label>
                                            </div>
@@ -548,37 +579,37 @@ function activateUserAccountJoinUs() {
                                                     </label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-                                                   <input type="text" name="personalBenificiaryFullName" id="personalBenefitiaryId1" class="form-control full-control textUpper bmg_custom_placeholder" value="SAME AS ID DOCUMENT" onfocus="placeholderOnFocus(this,'');" onblur="placeholderOnBlur(this,''); validateName('personalBenefitiaryId1','errpersonalBenefitiaryId1',false,'beneficiary');" onkeypress="    return alphaOnly(event);" maxlength="100"></input> <!-- <key id='Overseas.userdetails.Bene.Fullname.Same'>SAME AS ID DOCUMENT</key> -->
-                                                    <span id="errpersonalBenefitiaryId1" class="text-red"> </span>
+                                                   <input type="text" name="beneficiaryFullName" id="beneficiaryFullName" class="form-control full-control textUpper bmg_custom_placeholder" value="SAME AS ID DOCUMENT" onfocus="placeholderOnFocus(this,'SAME AS ID DOCUMENT');" onblur="placeholderOnBlur(this,'SAME AS ID DOCUMENT'); validateName('beneficiaryFullName','errBeneficiaryFullName',false,'beneficiary');" onkeypress="    return alphaOnly(event);" maxlength="100"></input>
+                                                    <span id="errBeneficiaryFullName" class="text-red"> </span>
                                                </div>
                                                <div class="clearfix"></div>
                                            </div>
-                                       </div>
-                                       <!-- personalbenificiaryId end -->
-                                       <!-- personalbenificiaryId b start -->
-                                       <div class="form-group float hide" id="personalbenificiaryId1b">
+                                       <!-- </div>
+                                       personalbenificiaryId end
+                                       personalbenificiaryId b start
+                                       <div class="form-group float hide" id="personalbenificiaryId1b"> -->
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                               <label class="field-label form-label bold-500"></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                               <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
                                                   <label class="field-label form-label bold-500">
-														<key id='Overseas.userdetails.Bene.HKID'>HKID / Passport No</key>
+														<key id='Overseas.userdetails.Bene.HKID'>ID Type</key>
                                                     </label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <div class="styled-select">
-                                                    <select id="selectPersonalBenefitiaryHkidPass1" class="form-control soflow select-label" name="selectedPersonalBenefitiaryHkidPass" onchange="togglePlaceholder(this,'personalBenefitiaryHKId1','EG: X1234567 WITHOUT ()');">
+                                                    <select id="beneficiaryIDType" class="form-control soflow select-label" name="beneficiaryIDType" onchange="togglePlaceholder(this,'beneficiaryID','EG: X1234567 WITHOUT ()');">
 															<option value="HKID" selected="selected"><key id='Overseas.userdetails.Bene.HKID'>HKID</key></option>
 															<option value="passport"><key id='Overseas.userdetails.Bene.Passport'>Passport no</key></option>
                                                     </select>
                                                     </div>
                                                </div>
                                            </div>
-                                       </div>
-                                       <!-- personalbenificiaryId b end -->
-                                       <!-- personalbenificiaryId c start -->
-                                       <div class="form-group float hide" id="personalbenificiaryId1c">
+                                       <!-- </div>
+                                       personalbenificiaryId b end
+                                       personalbenificiaryId c start
+                                       <div class="form-group float hide" id="personalbenificiaryId1c"> -->
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                               <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
                                            </div>
@@ -587,7 +618,8 @@ function activateUserAccountJoinUs() {
                                                   <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-                                                  <input id="personalBenefitiaryHKId1" name="personalBenificiaryHkid" class="form-control textUpper full-control bmg_custom_placeholder" value="EG: X1234567 WITHOUT ()" onkeypress=" return hkidOnkeypress(event);" onfocus="placeholderOnFocus(this,'EG: X1234567 WITHOUT ()');" onblur="placeholderOnBlur(this,'EG: X1234567 WITHOUT ()'); validateHkid('personalBenefitiaryHKId1','selectPersonalBenefitiaryHkidPass1','errpersonalBenefitiaryHKId1',false,'beneficiary');"></input> <span id="errpersonalBenefitiaryHKId1" class="text-red"> </span><span id="errInvalidpersonalBenefitiaryHKId1" class="text-red"> </span>
+                                                  <input id="beneficiaryID" name="beneficiaryID" class="form-control textUpper full-control bmg_custom_placeholder" value="EG: X1234567 WITHOUT ()" onkeypress=" return hkidOnkeypress(event);" onfocus="placeholderOnFocus(this,'EG: X1234567 WITHOUT ()');" onblur="placeholderOnBlur(this,'EG: X1234567 WITHOUT ()'); validateHkid('beneficiaryID','beneficiaryIDType','errBeneficiaryID',false,'beneficiary');"></input>
+                                                  <span id="errBeneficiaryID" class="text-red"> </span>
                                                </div>
                                            </div>
                                        </div>
