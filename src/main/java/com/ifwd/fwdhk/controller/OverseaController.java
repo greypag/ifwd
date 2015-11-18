@@ -5,12 +5,14 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -124,9 +126,41 @@ public class OverseaController extends BaseController{
 			}
 		}
 		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
+
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+
+		if (request.getSession().getAttribute("username") != null) {
+			header.put("userName", session.getAttribute("username").toString());
+			header.put("token", session.getAttribute("token").toString());
+		}
+		String relationshipUrl = UserRestURIConstants.GET_BENE_RELATIONSHIP_CODE
+				+ "?itemTable=BeneRelationshipCode";
+
+		JSONObject relationShipJson = restService.consumeApi(
+				HttpMethod.GET, relationshipUrl, header, null);
+
+		if (relationShipJson.get("errMsgs") == null) {
+			JSONArray relationshipJsonArray = (JSONArray) relationShipJson
+					.get("optionItemDesc");
+			logger.info("jsonRelationShipArray ====>>>>>>" + relationshipJsonArray);
+
+			Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
+			for (int i = 0; i < relationshipJsonArray.size(); i++) {
+				JSONObject obj = (JSONObject) relationshipJsonArray
+						.get(i);
+				mapRelationshipCode.put(
+						JsonUtils.checkJsonObjNull(obj, "itemCode"),
+						JsonUtils.checkJsonObjNull(obj, "itemDesc"));
+			}
+			model.addAttribute("mapRelationshipCode",
+					mapRelationshipCode);
+
+		}
+		
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
 		HomeCareService homecareService = new HomeCareServiceImpl();
@@ -213,6 +247,7 @@ public class OverseaController extends BaseController{
 		model.addAttribute("userDetails", userDetails);
 		//model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);
+		model.addAttribute("overseaBeneficaryDesc", WebServiceUtils.getBeneRelationshipDesc(planDetailsForm.getPersonalBeneficiary(), WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request))));
 		model.addAttribute("path", path.replace("summary", "confirmation?utm_nooverride=1"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
@@ -222,7 +257,7 @@ public class OverseaController extends BaseController{
         }        
         model.addAttribute("errormsg", errorMsg);        
         model.addAttribute("referralCode", session.getAttribute("referralCode"));
-        model.addAttribute(session.getAttribute("createPolicy"));
+        //model.addAttribute(session.getAttribute("createPolicy"));
         
         String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
