@@ -143,7 +143,7 @@ public class EliteTermController extends BaseController{
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_PAYMENT);
 	}
 	
-	@SuppressWarnings({ "restriction", "unused" })
+	@SuppressWarnings({ "restriction" })
 	@RequestMapping(value = {"/{lang}/term-life-insurance/document-upload","/{lang}/term-life-insurance/document-upload-later"})
 	public ModelAndView getDocumentUpload(Model model, HttpServletRequest request) {
 		try {
@@ -163,6 +163,17 @@ public class EliteTermController extends BaseController{
 				CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
 				eliteTermPolicy.setPolicyNo(policyNumber);
 				request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
+			}else{
+				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+				if(eliteTermPolicy == null){
+					return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+							+ "/"+UserRestURIConstants.URL_ELITE_TERMS_LANDING);
+				}
+				policyNumber = eliteTermPolicy.getPolicyNo();
+				if(eliteTermService.checkIsDocumentUpload(request,policyNumber)){
+					return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+							+ "/"+UserRestURIConstants.URL_ELITE_TERMS_LANDING);
+				}
 			}		
 		} catch (Exception e) {
 			e.printStackTrace();

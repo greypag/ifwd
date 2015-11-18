@@ -1,11 +1,13 @@
 package com.ifwd.fwdhk.controller;
 
 import java.io.File;
+import java.lang.reflect.Method;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,6 @@ import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.services.EliteTermService;
 import com.ifwd.fwdhk.util.ErrorMessageUtils;
-import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.Methods;
 @Controller
@@ -68,9 +69,11 @@ public class AjaxEliteTermController extends BaseController{
 //		                + fileName)){
 //		        	throw new ECOMMAPIException("Illegal file");
 //		        }
+		        
 		        File toFile = new File(uploadDir + sep  
 				                + realName);
-				ImgUtil.changeImageToJPG(uploadedFile,toFile,request);
+		        ImgUtil.ImageToPdfToJPG(uploadDir + sep+ fileName, uploadDir + sep + name + ".pdf", toFile , request);
+//				ImgUtil.changeImageToJPG(uploadedFile,toFile,request);
 		        response.getWriter().write("true");
 			} catch (ECOMMAPIException e) {
 				response.getWriter().write(e.getMessage());
@@ -80,6 +83,7 @@ public class AjaxEliteTermController extends BaseController{
 				response.getWriter().write("system error");
 			}
 	}
+
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/getEliteTermSendImageFlage"},method = RequestMethod.POST)
 	  public void getEliteTermSendImageFlage(HttpServletRequest request, HttpServletResponse response,
