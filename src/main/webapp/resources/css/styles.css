@@ -24068,6 +24068,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 	border-right: 25px solid transparent;
 	background-color: #e8eaea;
 	padding-left: 16px;
+	width: 131% \9;
 }
 /* line 150, ../sass/partials/_et-cannot-apply-modal.scss */
 #cannot-apply-modal .modal-body form .input-items select.form-control,
