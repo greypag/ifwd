@@ -1852,10 +1852,10 @@ var home_url = "<%=request.getContextPath()%>";
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Insured.amount" bundle="${msg}" /></h4>
                                     <p class="info" id="etaspd-insured-amount">HK$ <fmt:formatNumber value="${etPolicyApplication.amount }" maxFractionDigits="2" /></p>
                                  </div>
-                                 <div class="clearfix plan-detail-holder">
+                                 <div class="clearfix plan-detail-holder monthly-premium">
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Monthly.premium" bundle="${msg}" /></h4>
-                                    <p class="info" id="etaspd-monthly-premium" class="hidden">HK$ <span class="value"><fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/></span> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.1styear" bundle="${msg}" /></span></p>
-                                    <p class="info" id="etaspd-monthly-premium-extra-years">HK$ <span class="value"><fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" pattern="#.00"/></span> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.2ndto20thyear" bundle="${msg}" /></span></p>
+                                    <p class="info" id="etaspd-monthly-premium" class="hidden">HK$ <span class="value"><fmt:formatNumber value="${ eliteTermPremium.monthlyDuePremium }" maxFractionDigits="2"/></span> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.1styear" bundle="${msg}" /></span></p>
+                                    <p class="info" id="etaspd-monthly-premium-extra-years">HK$ <span class="value"><fmt:formatNumber value="${ eliteTermPremium.monthlyPremium }" maxFractionDigits="2"/></span> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.2ndto20thyear" bundle="${msg}" /></span></p>
                                  </div>
                               </div>
                            <!-- PLAN DETAIL END-->

@@ -468,6 +468,16 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
 	word-break: break-all;
 }
 
+#application-summary .container-fluid .summary-content .summary-body .monthly-premium h4.info-label{
+	margin-bottom: 25px;
+}
+
+@media(max-width: 767px){
+	#application-summary .container-fluid .summary-content .summary-body .monthly-premium h4.info-label{
+		margin-bottom: 40px;
+	}
+}
+
 
 /* ET mask */
 .modal-backdrop.in{
