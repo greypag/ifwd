@@ -181,6 +181,13 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/fwdpdfgenerator-0.0.4-SNAPSHOT.jar</systemPath>
          </dependency>
+          <dependency>
+            <groupId>pdfrenderer</groupId>
+            <artifactId>pdfrenderer</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/PDFRenderer.jar</systemPath>
+         </dependency>
 		<dependency>
 			<groupId>com.github.pukkaone</groupId>
 			<artifactId>webappenhance</artifactId>
