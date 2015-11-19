@@ -14076,7 +14076,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 }
 
 .fwd-savie-wrapper .container-fluid.proceed-block.text-center .login-button {
-  font-size: 22px;
+  font-size: 24px;
   background: none;
   border: none;
   color: #f28000;
@@ -14086,6 +14086,11 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 }
 
 @media (min-width: 992px) {
+
+  .fwd-savie-wrapper .container-fluid.proceed-block.text-center .login-button {
+  	font-size: 36px;
+  }
+	
   .fwd-savie-wrapper .container-fluid.proceed-block.text-center .login-holder {
     display: inline;
   }
@@ -14095,12 +14100,25 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 	width: auto;
     margin-right: 15px;
 }
-.fwd-savie-wrapper .container-fluid.proceed-block.text-center p {
-	display: inline;
-	font-size: 22px;
-	color: #000;
+
+@media (min-width: 992px) {
+	.fwd-savie-wrapper .container-fluid.proceed-block.text-center #create-account {
+		margin-top: -15px;
+	}
 }
 
+.fwd-savie-wrapper .container-fluid.proceed-block.text-center p {
+	display: inline;
+	font-size: 24px;
+	color: #000;
+}
+@media (min-width: 992px) {
+	.fwd-savie-wrapper .container-fluid.proceed-block.text-center p {
+		display: inline-block;
+		margin-top: 30px;
+		font-size: 36px;
+	}
+}
 
 button#thank-you-continue {
   font-family: Calibri, sans-serif;
