@@ -572,7 +572,7 @@
      		 $("#chk2").html("");
      	 }
      	 if(!$('#application-declaration').is(':checked')) {
-     		 $("#chk3").html(getBundle(getBundleLanguage, "et.option.notSelected"));
+     		 $("#chk3").html(getBundle(getBundleLanguage, "et.tnc.notChecked"));
      		 result = false;
 	     }else {
 	         $("#chk3").html("");
