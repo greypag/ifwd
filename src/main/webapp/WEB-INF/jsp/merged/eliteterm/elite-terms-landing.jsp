@@ -269,7 +269,7 @@
                               <div class="et-recent-work-img"><img src="<%=request.getContextPath()%>/resources/images/elite-terms/feature-time.png" alt="feature-time.png" /></div>
                               <h1><fmt:message key="eliteTerms.landing.Here.when.you.need.us" bundle="${msg}" /></h1>
                               <p>
-                                 <fmt:message key="eliteTerms.landing.Our.24x7.call" bundle="${msg}" /> <a href="http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank"><fmt:message key="eliteTerms.landing.eServices.App" bundle="${msg}" /></a> <fmt:message key="eliteTerms.landing.ensures.you.get" bundle="${msg}" />
+                                 <fmt:message key="eliteTerms.landing.Our.24x7.call" bundle="${msg}" /> <a href="<fmt:message key="app.download.link" bundle="${msg}" />" target="_blank"><fmt:message key="eliteTerms.landing.eServices.App" bundle="${msg}" /></a> <fmt:message key="eliteTerms.landing.ensures.you.get" bundle="${msg}" />
                               </p>
                            </div>
                         </div>
