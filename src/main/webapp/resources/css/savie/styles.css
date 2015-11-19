@@ -16180,3 +16180,12 @@ a:focus {
     color: #ff8200;
   }
 }
+
+.page-sales-illustration .sales-head {
+	margin-top: 100px;
+}
+@media (min-width: 992px) {
+	.page-sales-illustration .sales-head {
+		margin-top: 125px;
+	}
+}

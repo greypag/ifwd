@@ -72,7 +72,7 @@ var context = "${pageContext.request.contextPath}";
 			
 
 			<div class="fwd-full-container container-fluid text-center sales-head">
-				<h1><fmt:message key="savie.planDetails.plan.details" bundle="${msg}" /></h1>
+				
 			</div>
 			
 			<div id="illustration-filters" class="fwd-full-container container-fluid">
