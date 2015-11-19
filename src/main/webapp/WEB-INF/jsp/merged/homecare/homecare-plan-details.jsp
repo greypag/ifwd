@@ -1094,7 +1094,8 @@ function activateUserAccountJoinUs() {
                                                 <%
                                                     }
                                                 %>
-                                        </select></div>
+                                                </select>
+                                                </div>
                                             <div class="hidden">
                                                 <select name="applicantDistrictHid"
                                                     class="form-control soflow full-control" id="selectCADistHid">

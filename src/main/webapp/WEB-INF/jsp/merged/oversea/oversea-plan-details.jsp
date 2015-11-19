@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
 
 <c:set var="language"
 	value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
@@ -38,7 +39,7 @@ var namePlaceholder="SAME AS ID DOCUMENT";
 var hkidPlaceholder="EG: X1234567 WITHOUT ()";
 var insureNamePlaceholder="";
 var insureHkidPlaceholder="HKID/PASSPORT NO.";
-var benNamePlaceholder="";
+var benNamePlaceholder="SAME AS ID DOCUMENT";
 var benHkidPlaceholder="EG: X1234567 WITHOUT ()";
 
 <%if (authenticate.equals("false") || authenticate.equals("direct")) {%>
@@ -305,7 +306,43 @@ function activateUserAccountJoinUs() {
 	        $("#"+'applicantDistrictSelect').removeClass("invalid-field");
 	        $("#"+"errorEmptycorrespondenceAddressDistrict").html(''); 
 	    }
+<<<<<<< HEAD
 	}
+=======
+	    
+	    return;
+    }, 500);
+}
+<% }else{ %>
+function activateUserAccountJoinUs() {
+	perventRedirect=false;
+    $('#loading-overlay').modal({backdrop: 'static',keyboard: false});
+    
+    setTimeout(function(){
+		$('#frmYourDetails').submit();
+	}, 500);
+}
+<% } %> 
+
+/* For Benefitiary Div active and Inactive */
+function activeDiv(id, selected) {
+    var selectedValue = $('#' + selected).val();
+    activeDeactive(selectedValue, id);
+}
+
+function activeDeactive(selectedValue, id) {
+    if (selectedValue == "" || selectedValue == "SE") {
+        $('#' + id).addClass('hide');
+        $('#' + id + 'b').addClass('hide');
+        $('#' + id + 'c').addClass('hide');
+    } else {
+        $('#' + id).removeClass('hide');
+        $('#' + id + 'b').removeClass('hide');
+        $('#' + id + 'c').removeClass('hide');
+    }
+}
+/* END- For Benefitiary Dive active and Inactive */
+>>>>>>> cf2c641a34cba07ed886d7c19c9f05511c40b7b5
 </script>
 
 <section class="product_header_path_container ">
@@ -718,6 +755,7 @@ function activateUserAccountJoinUs() {
                                         1
                                         (Same as Applicant)
                                     </h4>-->
+<<<<<<< HEAD
 							<!--<div>-->
 							<!-- english name start -->
 							<div class="form-group float">
@@ -774,11 +812,153 @@ function activateUserAccountJoinUs() {
 											alt=""></span> <input name="insuredDob" type="text"
 											class="pointer datepicker form-control border-radius"
 											id="insuredDob" value="" readonly>
+=======
+                                    <!--<div>-->
+                                        <!-- english name start -->
+                                       <div class="form-group float">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+												<label class="field-label bold-500"><key id='Overseas.userdetails.Insured.Fullname'>Full name</key></label>
+                                               <label class="field-label bold-500">Full name</label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                                  <input type="text" id="txtInsuFullName1" name="personalName" class="form-control full-control textUpper bmg_custom_placeholder" value="" onfocus="placeholderOnFocus(this,'');" onblur="placeholderOnBlur(this,''); validateName('txtInsuFullName1','errtxtPersonalFullName1',false,'insured');" onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly">
+                                                 <span id="errtxtPersonalFullName1" class="text-red"></span>
+                                           </div>
+                                       </div>
+                                       <!-- english name end -->
+                                       <!-- id card start -->
+                                       <div class="form-group float">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                                   <label class="field-label bold-500"><key id='Overseas.userdetails.Insured.HKID'>HKID</key></label>
+                                                   <input id="selectedPersonalHkidPass1" name="selectedPersonalHkidPass" value="HKID" type="hidden">
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <input id="txtInsuHkid1" name="personalHKID" class="form-control textUpper full-control bmg_custom_placeholder" value="HKID/PASSPORT NO." onkeypress=" return hkidOnkeypress(event);" onfocus="placeholderOnFocus(this,'HKID/PASSPORT NO.');" onblur="placeholderOnBlur(this,'HKID/PASSPORT NO.'); validateHkid('txtInsuHkid1','selectedPersonalHkidPass1','errtxtInsuHkid1',false,'insured');" readonly="readonly">  <!-- <key id='Overseas.userdetails.Insured.HKID.eg'>EG: X1234567 WITHOUT ()</key> --> 
+                                                    <span id="errtxtInsuHkid1" class="text-red"> </span>
+                                           </div>
+                                       </div>
+                                       <!-- id card end -->
+									   <!-- birthday starts -->
+									   <div class="form-group float">
+										   <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+											   <label for="inputApplicantDob" class="field-label bold-500"><key id='Overseas.userdetails.Insured.DOB'>Date of birth</key></label>
+										   </div>
+										   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+												<div class="input-group date" id="oversea_insure_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+													<input name="insuredDob" type="text" class="pointer datepicker form-control border-radius" id="insuredDob" value="" readonly>
+												</div>
+												<div style="cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)">&nbsp;</div>
+												<span id="dobInsuredInvalid" class="text-red"></span>
+										   </div>
+									   </div>
+									   <!-- birthday ends -->
+                                       <!-- beneficiary start -->
+                                       <div class="form-group float">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                               <label class="field-label bold-500">Beneficiary</label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <div class="styled-select">
+                                                     <!-- <select name="personalBeneficiary" id="personalselectBenificiary1" onchange="activeDiv('personalbenificiary','personalselectBenificiary1', 'personalBenefitiaryId1', 'personalBenefitiaryHKId1')" class="form-control soflow select-label">
+                                                            <option value="SE"><key id='Overseas.userdetails.Bene.Option1'>Own estate</key></option>
+                                                            <option value="CH"><key id='Overseas.userdetails.Bene.Option2'>Child</key></option>
+                                                            <option value="FM"><key id='Overseas.userdetails.Bene.Option3'>Fiance</key></option>
+                                                            <option value="FF"><key id='Overseas.userdetails.Bene.Option4'>Fiancee</key></option>
+                                                            <option value="GC"><key id='Overseas.userdetails.Bene.Option5'>Grand Parent &amp; Grand Child</key></option>
+                                                            <option value="PA"><key id='Overseas.userdetails.Bene.Option6'>Parent</key></option>
+                                                            <option value="SL"><key id='Overseas.userdetails.Bene.Option7'>Sibling</key></option>
+                                                            <option value="SP"><key id='Overseas.userdetails.Bene.Option8'>Spouse</key></option>
+                                                    </select> -->
+                                                   <select name="personalBeneficiary" id="personalselectBenificiary"
+														onChange="activeDiv('personalbenificiary','personalselectBenificiary')"
+														class="form-control soflow select-label">
+				                                        <c:forEach var="relationshipList" items="${mapRelationshipCode}">
+				                                        	<enhance:out escapeXml="false">
+					                                            <option value="${relationshipList.key}">
+					                                                <c:out value="${relationshipList.value}" />
+					                                            </option>
+				                                            </enhance:out>
+				                                        </c:forEach>
+													</select> 
+                                               </div>
+                                               <span id="errpersonalselectBenificiary" class="text-red"></span>
+                                           </div>
+                                       </div>
+                                       <!-- beneficiary end -->
+                                       <!-- personalbenificiaryId start -->
+                                       <div class="form-group float hide" id="personalbenificiary">
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                               <label class="field-label bold-500"></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                               <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">                                                    
+                                                    <label class="field-label bold-500">
+                                                      Full name
+                                                    </label>
+                                               </div>
+                                               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+                                                   <input type="text" name="beneficiaryFullName" id="beneficiaryFullName" class="form-control full-control textUpper bmg_custom_placeholder" value="SAME AS ID DOCUMENT" onfocus="placeholderOnFocus(this,'SAME AS ID DOCUMENT');" onblur="placeholderOnBlur(this,'SAME AS ID DOCUMENT'); validateName('beneficiaryFullName','errBeneficiaryFullName',false,'beneficiary');" onkeypress="    return alphaOnly(event);" maxlength="100"></input>
+                                                    <span id="errBeneficiaryFullName" class="text-red"> </span>
+                                               </div>
+                                               <div class="clearfix"></div>
+                                           </div>
+                                       <!-- </div>
+                                       personalbenificiaryId end
+                                       personalbenificiaryId b start
+                                       <div class="form-group float hide" id="personalbenificiaryId1b"> -->
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                              <label class="field-label form-label bold-500"></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                              <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
+                                                  <label class="field-label form-label bold-500">
+														<key id='Overseas.userdetails.Bene.HKID'>ID Type</key>
+                                                    </label>
+                                               </div>
+                                               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+                                                  <div class="styled-select">
+                                                    <select id="beneficiaryIDType" class="form-control soflow select-label" name="beneficiaryIDType" onchange="togglePlaceholder(this,'beneficiaryID','EG: X1234567 WITHOUT ()');">
+															<option value="HKID" selected="selected"><key id='Overseas.userdetails.Bene.HKID'>HKID</key></option>
+															<option value="passport"><key id='Overseas.userdetails.Bene.Passport'>Passport no</key></option>
+                                                    </select>
+                                                    </div>
+                                               </div>
+                                           </div>
+                                       <!-- </div>
+                                       personalbenificiaryId b end
+                                       personalbenificiaryId c start
+                                       <div class="form-group float hide" id="personalbenificiaryId1c"> -->
+                                           <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                              <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
+                                           </div>
+                                           <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                              <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
+                                                  <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
+                                               </div>
+                                               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
+                                                  <input id="beneficiaryID" name="beneficiaryID" class="form-control textUpper full-control bmg_custom_placeholder" value="EG: X1234567 WITHOUT ()" onkeypress=" return hkidOnkeypress(event);" onfocus="placeholderOnFocus(this,'EG: X1234567 WITHOUT ()');" onblur="placeholderOnBlur(this,'EG: X1234567 WITHOUT ()'); validateHkid('beneficiaryID','beneficiaryIDType','errBeneficiaryID',false,'beneficiary');"></input>
+                                                  <span id="errBeneficiaryID" class="text-red"> </span>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <!-- personalbenificiaryId c end -->
+                                    <!--</div>-->
+									<div class="clearfix"></div>
+                                    
+                                <!--</div>-->
+								<!-- End of traveler-->	
+                                </div>
+								<!-- Oversea student information-->
+								<div class="form-wrap">
+									<div class="big-title black-bold" style="padding-left:0px !important;">
+										Overseas Educational Institution Info
+>>>>>>> cf2c641a34cba07ed886d7c19c9f05511c40b7b5
 									</div>
 									<div id="lock_datepicker"
 										style="cursor: not-allowed; background-color: #eee; position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; background: #fff; opacity: 0; filter: alpha(opacity = 0)">&nbsp;</div>
 									<span id="dobInsuredInvalid" class="text-red"></span>
 								</div>
+<<<<<<< HEAD
 							</div>
 							<!-- birthday ends -->
 							<!-- beneficiary start -->
@@ -811,6 +991,19 @@ function activateUserAccountJoinUs() {
 											<option value="SP"><key
 													id='Overseas.userdetails.Bene.Option8'>Spouse</key></option>
 										</select>
+=======
+								<div class="form-wrap">
+									<div class="form-group float">
+										<div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+											<label for="inputOverseasInsuredDob" class="field-label bold-500"><key id='Overseas.userdetails.Insured.DOB'>Date of birth</key></label>
+										</div>
+										<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+											<div class="input-group date" id="oversea_educational_insured_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+												<input name="inputOverseasInsuredDob" type="text" class="pointer datepicker form-control border-radius" id="inputOverseasInsuredDob" value="" readonly>
+											</div>
+											<span id="dobOverseasInsuredInvalid" class="text-red"></span>
+										</div>
+>>>>>>> cf2c641a34cba07ed886d7c19c9f05511c40b7b5
 									</div>
 									<span id="errpersonalselectBenificiary1" class="text-red"></span>
 								</div>

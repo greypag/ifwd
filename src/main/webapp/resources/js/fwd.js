@@ -614,6 +614,17 @@ $(function () {
 	
 
 	
+	$('#oversea_educational_insured_dob').datepicker({
+		startView: "decade",
+		autoclose: true,
+		format: "dd-mm-yyyy",
+		startDate: dob_start_date,
+		endDate: dob_end_date
+	}).on('changeDate', function (ev) {
+		$(this).next().html("");
+		$(this).removeClass("invalid-field");
+	});
+	
 	$('#input_annual_dob').datepicker({
 		startView: "decade",
 		autoclose: true,

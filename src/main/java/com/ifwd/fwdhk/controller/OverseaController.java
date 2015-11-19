@@ -5,12 +5,14 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -124,13 +127,47 @@ public class OverseaController extends BaseController{
 			}
 		}
 		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc"))
 			lang = "CN";
+
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+
+		if (request.getSession().getAttribute("username") != null) {
+			header.put("userName", session.getAttribute("username").toString());
+			header.put("token", session.getAttribute("token").toString());
+		}
+		String relationshipUrl = UserRestURIConstants.GET_BENE_RELATIONSHIP_CODE
+				+ "?itemTable=BeneRelationshipCode";
+
+		JSONObject relationShipJson = restService.consumeApi(
+				HttpMethod.GET, relationshipUrl, header, null);
+
+		if (relationShipJson.get("errMsgs") == null) {
+			JSONArray relationshipJsonArray = (JSONArray) relationShipJson
+					.get("optionItemDesc");
+			logger.info("jsonRelationShipArray ====>>>>>>" + relationshipJsonArray);
+
+			Map<String, String> mapRelationshipCode = new LinkedHashMap<String, String>();
+			for (int i = 0; i < relationshipJsonArray.size(); i++) {
+				JSONObject obj = (JSONObject) relationshipJsonArray
+						.get(i);
+				mapRelationshipCode.put(
+						JsonUtils.checkJsonObjNull(obj, "itemCode"),
+						JsonUtils.checkJsonObjNull(obj, "itemDesc"));
+			}
+			model.addAttribute("mapRelationshipCode",
+					mapRelationshipCode);
+
+		}
+		
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
 		HomeCareService homecareService = new HomeCareServiceImpl();
+		
 		List<DistrictBean> districtList = homecareService.getDistrict(userName, token, lang);
+		
 		request.setAttribute("districtList", districtList);
 		model.addAttribute("districtList", districtList);
 		
@@ -213,6 +250,20 @@ public class OverseaController extends BaseController{
 		model.addAttribute("userDetails", userDetails);
 		//model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);
+		StringBuffer sb = new StringBuffer();
+		sb.append(planDetailsForm.getAddressofInstitutionLine1());
+		if(!StringUtils.isEmpty(planDetailsForm.getAddressofInstitutionLine1())) {
+			sb.append(", ").append(planDetailsForm.getAddressofInstitutionLine2());
+		}else {
+			sb.append(planDetailsForm.getAddressofInstitutionLine2());
+		}
+		if(!StringUtils.isEmpty(planDetailsForm.getAddressofInstitutionLine2())) {
+			sb.append(", ").append(planDetailsForm.getAddressofInstitutionLine3());
+		}else {
+			sb.append(planDetailsForm.getAddressofInstitutionLine3());
+		}
+		model.addAttribute("AddressofInstitutionLine", sb.toString());
+		model.addAttribute("overseaBeneficaryDesc", WebServiceUtils.getBeneRelationshipDesc(planDetailsForm.getPersonalBeneficiary(), WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request))));
 		model.addAttribute("path", path.replace("summary", "confirmation?utm_nooverride=1"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
@@ -222,7 +273,7 @@ public class OverseaController extends BaseController{
         }        
         model.addAttribute("errormsg", errorMsg);        
         model.addAttribute("referralCode", session.getAttribute("referralCode"));
-        model.addAttribute(session.getAttribute("createPolicy"));
+        //model.addAttribute(session.getAttribute("createPolicy"));
         
         String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));

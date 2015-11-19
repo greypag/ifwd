@@ -153,8 +153,11 @@ function addDistrictList(value) {
 }
 
 function changeRegion(region){
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> cf2c641a34cba07ed886d7c19c9f05511c40b7b5
 	$('#amountdue').html('0');
 	$('#subtotal').html('0');
 	$('#plansummary').html('0');
@@ -176,7 +179,10 @@ function changeRegion(region){
 		$('#region-btn-0').removeClass("region-box-active");
 		$('#region-btn-1').addClass("region-box-active");
 		$('#region-btn-1').removeClass("region-box-inactive");
+<<<<<<< HEAD
 
+=======
+>>>>>>> cf2c641a34cba07ed886d7c19c9f05511c40b7b5
 		changeColorAndPrice('box6','6','medicalAsiaA','0.0','5500.0');
 	}
 }
@@ -217,6 +223,7 @@ function validateOverseaDetails(form, formId, language) {
 	var applicantBuilding = document.getElementById("correspondenceAddressBuildingId").value;
 	var applicantEstate = document.getElementById("correspondenceAddressEstateId").value;
 	var applicantDistrict = document.getElementById("applicantDistrict").value;
+<<<<<<< HEAD
 	var InsuFullName = document.getElementById("txtInsuFullName1").value;
 	var InsuHkid = document.getElementById("txtInsuHkid1").value;
 	var InsuDob = document.getElementById("insuredDob").value;
@@ -233,6 +240,14 @@ function validateOverseaDetails(form, formId, language) {
 	var visacheckbox = document.getElementById("visacheckbox").checked;		
 	var inputOverseasInsuredDob = document.getElementById("inputOverseasInsuredDob").value;
 	
+=======
+	
+	var building = $("#correspondenceAddressBuildingId").val();
+	var estate = $("#correspondenceAddressEstateId").val();
+	var addressline1 = $("#addressofInstitutionLine1").val();
+	var addressline2 = $("#addressofInstitutionLine2").val();
+	var addressline3 = $("#addressofInstitutionLine3").val();
+>>>>>>> cf2c641a34cba07ed886d7c19c9f05511c40b7b5
 	
 	/*if (applicantBuilding.trim() == buildingPlaceholder.trim()) {
 		applicantBuilding = '';
@@ -277,9 +292,9 @@ function validateOverseaDetails(form, formId, language) {
 	if (applicantDob.trim() == "") {
 		$('#dobInvalid').html(
 				getBundle(getBundleLanguage, "applicant.dob.notNull.message"));
-		$('#input_annual_dob').addClass('invalid-field');
+		$('#input_oversea_dob').addClass('invalid-field');
 		if (firstErrorElementId == "") {
-			firstErrorElementId = "input_annual_dob";
+			firstErrorElementId = "input_oversea_dob";
 		}
 		flag = false;
 	} else {
@@ -329,6 +344,7 @@ function validateOverseaDetails(form, formId, language) {
 		}
 	}
 	
+<<<<<<< HEAD
 	
 	if (correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstateId.trim() == ""){
 	
@@ -440,6 +456,34 @@ function validateOverseaDetails(form, formId, language) {
 	}
 	
 	
+=======
+	if (building.trim() == "" && estate.trim() == "") {
+		$("#correspondenceAddressBuildingId").addClass("invalid-field");
+		$("#correspondenceAddressEstateId").addClass("invalid-field");
+		$("#errorEmptyCorrespondenceAddressEstate").html(
+				getBundle(getBundleLanguage,
+						"Either Building or Estate must be filled in"));
+		if (firstErrorElementId == "") {
+			firstErrorElementId = "correspondenceAddressBuildingId";
+		}
+		flag = false;
+	}
+	
+
+	if (addressline1.trim() == "" && addressline2.trim() == ""
+			&& addressline3.trim() == "") {
+		$("#addressofInstitutionLine1").addClass("invalid-field");
+		$("#addressofInstitutionLine2").addClass("invalid-field");
+		$("#addressofInstitutionLine3").addClass("invalid-field");
+		$("#addressofInstitutionInvalid").html(
+				getBundle(getBundleLanguage, "Please enter your address."));
+		if (firstErrorElementId == "") {
+			firstErrorElementId = "addressofInstitutionLine1";
+		}
+		flag = false;
+	}
+
+>>>>>>> cf2c641a34cba07ed886d7c19c9f05511c40b7b5
 	/*if (applicantEstate.trim() == "" && applicantBuilding.trim() == "") {
 		$("#errCABuilding")
 				.html(

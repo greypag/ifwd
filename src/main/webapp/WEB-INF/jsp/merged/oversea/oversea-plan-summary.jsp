@@ -119,7 +119,7 @@ $(document).ready(function(){
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.DOB'>Date of birth</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">September 27, 1961</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.applicantDob }</div>
                                         </div>										
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Email'>Email address</key></div>
@@ -131,19 +131,59 @@ $(document).ready(function(){
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Correspondence'>Correspondence address</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.districtSelectedDesc }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
+                                                <c:if test="${planDetailsForm.correspondenceAddressRoom != ''}">
+	                                                Room/Flat ${planDetailsForm.correspondenceAddressRoom}, 
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.correspondenceAddressFloor != ''}">
+	                                                Floor ${planDetailsForm.correspondenceAddressFloor}, 
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.correspondenceAddressBlock != ''}">
+	                                                Block ${planDetailsForm.correspondenceAddressBlock}, 
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${planDetailsForm.correspondenceAddressBuilding != ''}">
+	                                                ${planDetailsForm.correspondenceAddressBuilding},
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${planDetailsForm.correspondenceAddressEstate != ''}">
+	                                                ${planDetailsForm.correspondenceAddressEstate},
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.correspondenceAddressStreetNo != ''}">
+	                                                ${planDetailsForm.correspondenceAddressStreetNo} 
+	                                            </c:if>
+	                                             <c:if test="${planDetailsForm.correspondenceAddressStreetName != ''}">
+	                                                ${planDetailsForm.correspondenceAddressStreetName},
+	                                            </c:if>
+	                                            
+	                                            <c:if test="${planDetailsForm.applicantDistrictDesc != ''}">
+	                                                ${planDetailsForm.applicantDistrictDesc},
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.districtSelectedDesc != ''}">
+	                                                ${planDetailsForm.districtSelectedDesc}
+	                                            </c:if>
+                                            </div>
                                         </div>											
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.RequestNo'>Request no.</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">RQZZ38478</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${createPolicy.referenceNo }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Plan'>Plan</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${planDetailsForm.planCode }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${planSelected }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Region'>Region</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">Worldwide</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
+	                                            <c:choose>
+													<c:when test="${planSelected == 'medicalAsiaA' || planSelected == 'medicalAsiaB'}">
+													ASIA ONLY
+													</c:when>
+													<c:otherwise>
+													WORLDWIDE
+													</c:otherwise>
+												</c:choose>
+                                            </div>
                                         </div>	
                                     <div class="clearfix"></div>
                                 </div>
@@ -170,24 +210,26 @@ $(document).ready(function(){
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Insured.DOB'>DOB</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">September 27, 1990</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.insuredDob }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Insured.Email'>Email address</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">SIUMAN@GMAIL.COM</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.emailAddress }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Beneficiary'>Beneficiary</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">Parent</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${overseaBeneficaryDesc} </div>
                                         </div>
-                                        <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Beneficiary.Fullname'>Full name(Beneficiary)</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">Chan Siu Man</div>
-                                        </div>
-                                        <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Beneficiary.hkid'>HKID(Beneficiary)</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">A0123456</div>
-                                        </div>										
+                                        <c:if test="${planDetailsForm != null && planDetailsForm.personalBeneficiary != 'SE'}" >
+	                                        <div class="row summary-row">
+	                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Beneficiary.Fullname'>Full name(Beneficiary)</key></div>
+	                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.beneficiaryFullName }</div>
+	                                        </div>
+	                                        <div class="row summary-row">
+	                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Beneficiary.hkid'>HKID(Beneficiary)</key></div>
+	                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.beneficiaryID }</div>
+	                                        </div>
+                                        </c:if>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -216,7 +258,7 @@ $(document).ready(function(){
                                         </div>	
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Institution.Address'>Educational institution address</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">12 Three Road, Area 4, 12345, Canada</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${AddressofInstitutionLine }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.StudentVisaHolder'>Student visa holder</key></div>
@@ -224,7 +266,7 @@ $(document).ready(function(){
 										</div>																					
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><key id='Overseas.Payment.Summary.AmountDue'>Amount due</key></span></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b pad-none">HK$ 305.00 </span></div> 
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b pad-none">HK$ ${dueAmount} </span></div> 
                                         </div>
 										<div class="row summary-row">
 											<h4 class="h4-4 product_landing_download_button pull-left">

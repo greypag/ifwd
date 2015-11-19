@@ -28,6 +28,9 @@ public class OverseaDetailsForm {
 	private String personalHKID;
 	private String insuredDob;
 	private String personalBeneficiary;
+	private String beneficiaryFullName;
+	private String beneficiaryIDType;
+	private String beneficiaryID;
 	
 	private String inputOverseasInsuredDob;
 	private String countryOfInstitution;
@@ -42,6 +45,30 @@ public class OverseaDetailsForm {
 	private String emailAddress;
 	private String applicantDob;
 	
+	public String getBeneficiaryFullName() {
+		return beneficiaryFullName;
+	}
+
+	public void setBeneficiaryFullName(String beneficiaryFullName) {
+		this.beneficiaryFullName = beneficiaryFullName;
+	}
+
+	public String getBeneficiaryIDType() {
+		return beneficiaryIDType;
+	}
+
+	public void setBeneficiaryIDType(String beneficiaryIDType) {
+		this.beneficiaryIDType = beneficiaryIDType;
+	}
+
+	public String getBeneficiaryID() {
+		return beneficiaryID;
+	}
+
+	public void setBeneficiaryID(String beneficiaryID) {
+		this.beneficiaryID = beneficiaryID;
+	}
+
 	public String getFullName() {
 		return fullName;
 	}
