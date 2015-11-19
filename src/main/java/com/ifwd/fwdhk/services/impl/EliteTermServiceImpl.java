@@ -666,16 +666,17 @@ public class EliteTermServiceImpl implements EliteTermService {
 		if("false".equals(uploadLaterFlage)){	
 			try {
 				UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
-				CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
+//				CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
 				String customerName="";
 				customerName = userDetails.getFullName();
 				if(StringUtils.isEmpty(customerName)){
 					customerName =  userDetails.getFirstName()+" "+userDetails.getLastName();
 				}
-					
+				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+				String policyNo = eliteTermPolicy.getPolicyNo();	
 				final Map<String,String> headerEmail = headerUtil.getHeader(request);
 				headerEmail.put("language", "ZH");
-				String subject = "FWD Elite Term – Complete[ ]";
+				String subject = "FWD Elite Term – Complete["+policyNo+"]";
 				String attachment = "";
 				String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
 				String imageUrl  = "http://" + request.getServerName() 
