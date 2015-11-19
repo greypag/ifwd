@@ -514,6 +514,24 @@ $(function () {
 	// 18 year ago date
 	var dob_end_date = new Date();
 	dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
+
+	
+	// this year
+	var dob_end_date_this_year = new Date();
+	dob_end_date_this_year.setFullYear(dob_end_date_this_year.getFullYear());	
+	dob_end_date_this_year.setDate(dob_end_date_this_year.getDate());
+	
+	// 65 year ago date
+	var dob_65_date = new Date();
+	dob_65_date.setFullYear(dob_end_date_this_year.getFullYear() - 65);		
+	dob_65_date.setDate(dob_65_date.getDate() + 1);
+	
+	// 12 year ago date
+	var dob_12_date = new Date();
+	dob_12_date.setFullYear(dob_12_date.getFullYear() - 12);		
+	dob_12_date.setDate(dob_12_date.getDate() + 1);
+	
+	
 	
 	// 86 year ago date
 	var dob_start_date = new Date();
@@ -559,14 +577,44 @@ $(function () {
 		startDate: dob_start_date,
 		endDate: dob_end_date
 	}).on('changeDate', function (ev) {
-		$('#oversea_insure_dob').datepicker('setDate', $("#applicantDob").val());
+		if (document.getElementById("applicantRelationship").value == 'SE'){
+			$('#oversea_insure_dob').datepicker('setDate', $("#applicantDob").val());
+		}
 		$("#dobInvalid").html("");
 		$("#errtxtInsuDob").html("");
 		$("#errtxtAdDob1").html("");
+		$("#dobInsuredInvalid").html("");
 		$("#input_oversea_dob").removeClass("invalid-field");
 	});
 	
+	
 	$('#oversea_insure_dob').datepicker({
+		startView: "decade",
+		autoclose: true,
+		format: "dd-mm-yyyy",
+		startDate: dob_65_date,
+		endDate: dob_12_date
+		/*language: getBundleLanguage*/
+	}).on('changeDate', function (ev) {
+		$("#dobInsuredInvalid").html("");
+	});	
+		
+	
+	$('#input_dob3').datepicker({
+		startView: "decade",
+		autoclose: true,
+		format: "dd-mm-yyyy",
+		startDate: dob_start_date,
+		endDate: dob_end_date_this_year
+		/*language: getBundleLanguage*/
+	}).on('changeDate', function (ev) {
+		$("#dobOverseasInsuredInvalid").html("");
+	});		
+	
+	
+
+	
+	$('#oversea_educational_insured_dob').datepicker({
 		startView: "decade",
 		autoclose: true,
 		format: "dd-mm-yyyy",
@@ -2935,6 +2983,11 @@ function tPlanValid()
 	var applicantDob = document.getElementById("applicantDob").value;
 	
 
+	
+
+	
+	
+	
 	//first error element
 	var firstErrorElementId="";
 	
@@ -3102,8 +3155,19 @@ function tPlanValid()
 	
 	
 
+	if (inputOverseasInsuredDob.trim() == '')
+	{
+		$("#input_dob3").addClass("invalid-field");
+		$("#dobOverseasInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.Empty"));
+		flag = false;		
+	}
+	else
+	{
+		$("#input_dob3").removeClass("invalid-field");
+		$("#dobOverseasInsuredInvalid").html('');	
+	}
 
-	
+
 
 	 
 

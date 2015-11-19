@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -164,7 +165,9 @@ public class OverseaController extends BaseController{
 		String token = session.getAttribute("token").toString();
 		String userName = session.getAttribute("username").toString();
 		HomeCareService homecareService = new HomeCareServiceImpl();
+		
 		List<DistrictBean> districtList = homecareService.getDistrict(userName, token, lang);
+		
 		request.setAttribute("districtList", districtList);
 		model.addAttribute("districtList", districtList);
 		
@@ -247,6 +250,19 @@ public class OverseaController extends BaseController{
 		model.addAttribute("userDetails", userDetails);
 		//model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);
+		StringBuffer sb = new StringBuffer();
+		sb.append(planDetailsForm.getAddressofInstitutionLine1());
+		if(!StringUtils.isEmpty(planDetailsForm.getAddressofInstitutionLine1())) {
+			sb.append(", ").append(planDetailsForm.getAddressofInstitutionLine2());
+		}else {
+			sb.append(planDetailsForm.getAddressofInstitutionLine2());
+		}
+		if(!StringUtils.isEmpty(planDetailsForm.getAddressofInstitutionLine2())) {
+			sb.append(", ").append(planDetailsForm.getAddressofInstitutionLine3());
+		}else {
+			sb.append(planDetailsForm.getAddressofInstitutionLine3());
+		}
+		model.addAttribute("AddressofInstitutionLine", sb.toString());
 		model.addAttribute("overseaBeneficaryDesc", WebServiceUtils.getBeneRelationshipDesc(planDetailsForm.getPersonalBeneficiary(), WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request))));
 		model.addAttribute("path", path.replace("summary", "confirmation?utm_nooverride=1"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
