@@ -261,6 +261,8 @@ $('#et-confirmation-submit').on('click', function(e) {
 		function(data) {
 			if(data.errMsgs == null){
 				console.log("data success");
+				document.getElementById("errPromoEmail").style.display = "block";
+				document.getElementById("errPromoEmail").innerHTML = getBundle(getBundleLanguage, "eliteTerms.confirmation.You.have.submitted");//"You have submitted your agent email.";
 			}
 			else{
 				console.log("data error");
