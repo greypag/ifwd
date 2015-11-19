@@ -392,20 +392,20 @@
                         <c:forEach items="${policiesGI}" var="i" varStatus="obj">
 	                        <div class="plan-item first even hidden-md hidden-lg">
 	                            <div class="plan-item-cols odd plan-item-cols-top">
-	                                <h5 class="hidden-md hidden-lg"><fmt:message key="savie.summary.plan_name" bundle="${msg}" /></h5>
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.plan.name" bundle="${msg}" /></h5>
 	                                <p>${i.planCode}</p>
 	                            </div>
 	                            <div class="plan-item-cols odd plan-item-cols-top">
-	                                <h5 class="hidden-md hidden-lg"><fmt:message key="savie.confirmation.offline.Reference.no" bundle="${msg}" /></h5>
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.no" bundle="${msg}" /></h5>
 	                                <p>${i.policyNumber}</p>
 	                            </div>
 	                            <div class="plan-item-cols odd plan-item-cols-bottom">
-	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.acount.Cover.period" bundle="${msg}" /></h5>
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.cover.period" bundle="${msg}" /></h5>
 	                                <p>${i.commencementDate}~<br/>${i.expiryDate}</p>
 	                            </div>
 	                            <div class="plan-item-cols odd plan-item-cols-bottom">
-	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.acount.Resources" bundle="${msg}" /></h5>
-	                                <p class="hidden-lg hidden-md"><a id="eservices-document-upload-link" href="${i.claimFormUrl}" target="_blank"><fmt:message key="user.acount.Claim.form" bundle="${msg}" /></a></p>
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.resources" bundle="${msg}" /></h5>
+	                                <p class="hidden-lg hidden-md"><a id="eservices-document-upload-link" href="${i.claimFormUrl}" target="_blank"><fmt:message key="user.policy.claim.form" bundle="${msg}" /></a></p>
 	                            </div>
 	                        </div>
                         </c:forEach>
@@ -416,11 +416,11 @@
                         
                         <!-- <div class="plan-item first even hidden-md hidden-lg">
                             <div class="plan-item-cols odd plan-item-cols-top">
-                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.acount.plan.name" bundle="${msg}" /></h5>
+                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.plan.name" bundle="${msg}" /></h5>
                                 <p>Savie</p>
                             </div>
                             <div class="plan-item-cols odd plan-item-cols-top">
-                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.acount.policy.no" bundle="${msg}" /></h5>
+                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.no" bundle="${msg}" /></h5>
                                 <p>5HG21FOP</p>
                             </div>
                             <div class="plan-item-cols odd plan-item-cols-bottom">
@@ -439,23 +439,23 @@
                         <c:forEach items="${policiesLife}" var="i" varStatus="obj">
 	                        <div class="plan-item first even hidden-md hidden-lg">
 	                            <div class="plan-item-cols odd plan-item-cols-top">
-	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.acount.plan.name" bundle="${msg}" /></h5>
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.plan.name" bundle="${msg}" /></h5>
 	                                <p>Elite term</p>
 	                            </div>
 	                            <div class="plan-item-cols odd plan-item-cols-top">
-	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.acount.policy.no" bundle="${msg}" /></h5>
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.no" bundle="${msg}" /></h5>
 	                                <p>${i.policyNumber}</p>
 	                            </div>
 	                            <div class="plan-item-cols odd plan-item-cols-bottom">
-	                                <h5 class="hidden-md hidden-lg"><fmt:message key="member.registration.Day.start" bundle="${msg}" /></h5>
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.commencement.date" bundle="${msg}" /></h5>
 	                                <p>
 	                                  <c:if test="${i.documentUploaded == 'true'}">${i.submissionDate}<br/>${i.status}</c:if>
-	                                  <c:if test="${i.documentUploaded == 'false'}"><fmt:message key="user.acount.Not.complete" bundle="${msg}" /><br/><a id="eservices-document-upload-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload?policyNumber=${i.policyNumberBase64 }"><fmt:message key="member.registration.Upload.document" bundle="${msg}" /></a></c:if>
+	                                  <c:if test="${i.documentUploaded == 'false'}"><fmt:message key="user.policy.status.incomplete" bundle="${msg}" /><br/><a id="eservices-document-upload-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload?policyNumber=${i.policyNumberBase64 }"><fmt:message key="user.policy.status.pending_upload" bundle="${msg}" /></a></c:if>
 	                                </p>
 	                            </div>
 	                            <div class="plan-item-cols odd plan-item-cols-bottom">
-	                                <h5 class="hidden-md hidden-lg"><fmt:message key="eliteTerms.selectPlan.Insured.amount" bundle="${msg}" /></h5>
-	                                <p class="hidden-lg hidden-md"><fmt:message key="annual.common.dollar" bundle="${msg}" />${i.amount}</p>
+	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.insured.amount" bundle="${msg}" /></h5>
+	                                <p class="hidden-lg hidden-md"><fmt:message key="currency.hkd" bundle="${msg}" />${i.amount}</p>
 	                            </div>
 	                        </div>
                         </c:forEach>
@@ -466,10 +466,10 @@
                              <table class="purchase_history_table" style="margin-left:20px; width: 100%; text-align: left; border:1px #dbe1e6 solid;">
 	                             <thead>
 									  <tr>
-									     <th><fmt:message key="savie.summary.plan_name" bundle="${msg}" /></th>
-									     <th><fmt:message key="savie.confirmation.offline.Reference.no" bundle="${msg}" /></th>
-									     <th><fmt:message key="user.acount.Cover.period" bundle="${msg}" /></th>
-									     <th><fmt:message key="user.acount.Resources" bundle="${msg}" /></th>
+									     <th><fmt:message key="user.policy.plan.name" bundle="${msg}" /></th>
+									     <th><fmt:message key="user.policy.no" bundle="${msg}" /></th>
+									     <th><fmt:message key="user.policy.cover.period" bundle="${msg}" /></th>
+									     <th><fmt:message key="user.policy.resources" bundle="${msg}" /></th>
 									  </tr>
 							     </thead>
 							     <tbody>
@@ -484,7 +484,7 @@
 	                                        <td>${i.planCode}</td>
 	                                        <td>${i.policyNumber}</td>
 	                                        <td>${i.commencementDate}~<br/>${i.expiryDate}</td>
-	                                        <td><a id="eservices-document-upload-link" href="${i.claimFormUrl}" target="_blank"><fmt:message key="user.acount.Claim.form" bundle="${msg}" /></a></td>
+	                                        <td><a id="eservices-document-upload-link" href="${i.claimFormUrl}" target="_blank"><fmt:message key="user.policy.claim.form" bundle="${msg}" /></a></td>
 	                                    </tr>
 	                                 </c:forEach>
                                  </tbody>
@@ -519,10 +519,10 @@
                              <table class="purchase_history_table" style="margin-left:20px; width: 100%; text-align: left; border:1px #dbe1e6 solid;">
                                  <thead>
                                       <tr>
-                                         <th><fmt:message key="savie.summary.plan_name" bundle="${msg}" /></th>
-                                         <th><fmt:message key="userAccount.Reference.no" bundle="${msg}" /></th>
-                                         <th><fmt:message key="member.registration.Day.start" bundle="${msg}" /></th>
-                                         <th><fmt:message key="eliteTerms.selectPlan.Insured.amount" bundle="${msg}" /></th>
+                                         <th><fmt:message key="user.policy.plan.name" bundle="${msg}" /></th>
+                                         <th><fmt:message key="user.policy.no" bundle="${msg}" /></th>
+                                         <th><fmt:message key="user.policy.commencement.date" bundle="${msg}" /></th>
+                                         <th><fmt:message key="user.policy.insured.amount" bundle="${msg}" /></th>
                                       </tr>
                                  </thead>
                                  <tbody>
@@ -532,9 +532,11 @@
                                         <td>${i.policyNumber}</td>
                                         <td>
 	                                        <c:if test="${i.documentUploaded == 'true'}">${i.submissionDate}<br/>${i.status}</c:if>
-	                                        <c:if test="${i.documentUploaded == 'false'}"><fmt:message key="user.acount.Not.complete" bundle="${msg}" /><br/><a id="eservices-document-upload-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload?policyNumber=${i.policyNumberBase64 }"><fmt:message key="member.registration.Upload.document" bundle="${msg}" /></a></c:if>
+	                                        <c:if test="${i.documentUploaded == 'false'}"><fmt:message key="user.policy.status.incomplete" bundle="${msg}" /><br/><a id="eservices-document-upload-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload?policyNumber=${i.policyNumberBase64 }"><fmt:message key="user.policy.status.pending_upload" bundle="${msg}" /></a></c:if>
                                         </td>
-                                        <td><fmt:message key="annual.common.dollar" bundle="${msg}" />${i.amount}</td>
+                                        <td><fmt:message key="currency.hkd" bundle="${msg}" />
+                                        	<fmt:formatNumber value="${ i.amount }" maxFractionDigits="2"/>
+                                        </td>
                                     </tr>
                                  </c:forEach>
                                  </tbody>
@@ -545,10 +547,8 @@
                         <div class="notice" style="margin-top:60px; text-align: center;">
                             <p class="notice-text" style="font-size:15px; width: 300px; line-height: 1.3; margin-left: auto; margin-right: auto;">
                                     <span class="next-line">
-                                        <span class="asterisk">* </span><fmt:message key="member.registration.Amount.indicative.only" bundle="${msg}" />
+                                        <span class="asterisk">* </span><fmt:message key="user.policy.disclaimer" bundle="${msg}" />
                                     </span>
-                                    <span class="next-line"><fmt:message key="member.registration.Please.call.our.24-hour" bundle="${msg}" /></span>
-                                    <span class="next-line"><fmt:message key="member.registration.up-to-date.account.value" bundle="${msg}" /></span>
                             </p>
                         </div>
                         
