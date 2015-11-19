@@ -114,35 +114,9 @@ function addDistrictList(value) {
 	}
 }
 
-function changeRegion(region){
-	$('#amountdue').html('0');
-	$('#subtotal').html('0');
-	$('#plansummary').html('0');
-	$('#discountAmt').html('0');
-	
-	if(region=='region0'){
-		$('#region0').css("display","block");
-		$('#region1').css("display","none");
-		$('#region-btn-0').addClass("region-box-active");
-		$('#region-btn-0').removeClass("region-box-inactive");
-		$('#region-btn-1').addClass("region-box-inactive");
-		$('#region-btn-1').removeClass("region-box-active");
-		changeColorAndPrice('box2','2','medicalWorldwideA','0.0','8000.0')
-	}
-	if(region=='region1'){
-		$('#region0').css("display","none");
-		$('#region1').css("display","block");
-		$('#region-btn-0').addClass("region-box-inactive");
-		$('#region-btn-0').removeClass("region-box-active");
-		$('#region-btn-1').addClass("region-box-active");
-		$('#region-btn-1').removeClass("region-box-inactive");
-		changeColorAndPrice('box6','6','medicalAsiaA','0.0','5500.0');
-	}
-}
-
-function coverageToogle(){
-	$("#summary-of-coverage").mCustomScrollbar();
-	$('#summary-of-coverage').css("display","block");
+function coverageToogle(id){
+	$('#'+id).mCustomScrollbar();
+	$('#'+id).css("display","block");
 }
 
 var oversea_click = false;
