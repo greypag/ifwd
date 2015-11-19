@@ -455,7 +455,7 @@
 	                            </div>
 	                            <div class="plan-item-cols odd plan-item-cols-bottom">
 	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.insured.amount" bundle="${msg}" /></h5>
-	                                <p class="hidden-lg hidden-md"><fmt:message key="currency.hkd" bundle="${msg}" />${i.amount}</p>
+	                                <p class="hidden-lg hidden-md"><fmt:message key="currency.hkd" bundle="${msg}" /><fmt:formatNumber value='${i.amount }' pattern="0,000.00"/></p>
 	                            </div>
 	                        </div>
                         </c:forEach>
@@ -535,7 +535,7 @@
 	                                        <c:if test="${i.documentUploaded == 'false'}"><fmt:message key="user.policy.status.incomplete" bundle="${msg}" /><br/><a id="eservices-document-upload-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload?policyNumber=${i.policyNumberBase64 }"><fmt:message key="user.policy.status.pending_upload" bundle="${msg}" /></a></c:if>
                                         </td>
                                         <td><fmt:message key="currency.hkd" bundle="${msg}" />
-                                        	<fmt:formatNumber value="${ i.amount }" maxFractionDigits="2"/>
+                                            <fmt:formatNumber value='${i.amount }' pattern="0,000.00"/>
                                         </td>
                                     </tr>
                                  </c:forEach>
