@@ -267,10 +267,10 @@ function activeDeactive(selectedValue, id) {
         <div class="row">
             <form:form id="frmYourDetails" name="frmYourDetails" onsubmit="return validateOverseaDetails(this,'frmYourDetails','${language}');" modelAttribute="frmYourDetails" method="post" action="">
                 <ol class="breadcrumb pad-none">
-                    <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer1'>Home</key></a> <i class="fa fa-caret-right"></i></li>
+                  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer1'>Home</key></a> <i class="fa fa-caret-right"></i></li>
 				  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer2'>Protect</key></a></li> <i class="fa fa-caret-right"></i></li>
-				  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer3'>Overseas StudentCare Insurance</key></a></li>
-				  <li class="active "><i class="fa fa-caret-right"></i><key id='Overseas.Landing.Breadcrumb.step3'>Your details</key></li>
+				  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer3'>Overseas StudyCare Insurance</key></a></li>
+				  <li class="active "><i class="fa fa-caret-right"></i><key id='Overseas.Landing.Breadcrumb.step3'>Application</key></li>
                 </ol>
                 
                 <%
@@ -303,7 +303,7 @@ function activeDeactive(selectedValue, id) {
                         <!-- <div class="gray-bdr"></div> -->
                         <!-- updated responsive design start -->
                         <div class="form-wrap">
-                            <div class="big-title black-bold pad-none bmg-big-title">
+                            <div class="big-title black-bold pad-none section-title">
 								<key id='Overseas.userdetails.info'>Applicant info</key>
                             </div>
                             <div class="form-group float">
@@ -341,7 +341,7 @@ function activeDeactive(selectedValue, id) {
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <div class="input-group date" id="input_oversea_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                        <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" id="applicantDob" value="" readonly>
+                                        <input name="applicantDob" type="text" class="pointer datepicker form-control border-radius" placeholder="DD-MM-YYYY" id="applicantDob" value="" readonly>
                                     </div>
                                     <span id="dobInvalid" class="text-red"></span>
                                </div>
@@ -374,7 +374,7 @@ function activeDeactive(selectedValue, id) {
                          <div class="clearfix"></div>
 						<div class="form-wrap">
 						<!-- correspondence address -->
-							<div class="big-title black-bold pad-none bmg-big-title">
+							<div class="big-title black-bold pad-none ">
 								<key id='Overseas.userdetails.applicant.Correspondence'>Correspondence address</key>
 							</div>
 							<div class="form-group float">
@@ -387,13 +387,13 @@ function activeDeactive(selectedValue, id) {
 								</div>
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 									<div class="col-sm-6 col-xs-6 col-lg-6 col-md-6 pad-none">
-										<input class="col-lg-12 col-md-12 col-xs-12 col-sm-12 floor-block-grp full-control textLower" name="correspondenceAddressRoom" size=10 type="" value="" id="correspondenceAddressRoomId" maxlength="50" onblur=""><span id="" class="text-red"></span>
+										<input class="col-lg-12 col-md-12 col-xs-12 col-sm-12 floor-block-grp full-control textUpper bmg_custom_placeholder" name="correspondenceAddressRoom" size=10 type="" value="" placeholder="ROOM" id="correspondenceAddressRoomId" maxlength="50" placeholder="ROOM" onfocus="placeholderOnFocus(this,'ROOM');" onblur="placeholderOnBlur(this,'Room');" onkeypress="return isAlphaNumeric(event);" ><span id="" class="text-red"></span>
 									</div>
 									<div class="col-sm-3 col-xs-3 col-lg-3 col-md-3 floor-block-pad-right-none">
-										<input class="col-lg-12 col-md-12 col-xs-12 col-sm-12 floor-block-grp full-control textLower" name="correspondenceAddressFloor" size=1 type="" value="" id="correspondenceAddressFloorId" maxlength="50" onblur=""><span id="" class="text-red"></span>
+										<input class="col-lg-12 col-md-12 col-xs-12 col-sm-12 floor-block-grp full-control textUpper bmg_custom_placeholder" name="correspondenceAddressFloor" size=1 type="" value="" placeholder="FLOOR" id="correspondenceAddressFloorId" maxlength="50" placeholder="FLOOR" onfocus="placeholderOnFocus(this,'FLOOR');" onblur="placeholderOnBlur(this,'Floor');" onkeypress="return isAlphaNumeric(event);" ><span id="" class="text-red"></span>
 									</div>
 									<div class="col-sm-3 col-xs-3 col-lg-3 col-md-3 floor-block-pad-right-none">
-										<input class="col-lg-12 col-md-12 col-xs-12 col-sm-12 floor-block-grp full-control textLower" name="correspondenceAddressBlock" size=1 type="" value="" id="correspondenceAddressBlockId" maxlength="50" onblur=""><span id="" class="text-red"></span>
+										<input class="col-lg-12 col-md-12 col-xs-12 col-sm-12 floor-block-grp full-control textUpper bmg_custom_placeholder" name="correspondenceAddressBlock" size=1 type="" value="" placeholder="BLOCK" id="correspondenceAddressBlockId" maxlength="50" placeholder="BLOCK" onfocus="placeholderOnFocus(this,'BLOCK');" onblur="placeholderOnBlur(this,'Block');" onkeypress="return isAlphaNumeric(event);" ><span id="" class="text-red"></span>
 									</div>
 								</div>
 							</div>
@@ -402,7 +402,7 @@ function activeDeactive(selectedValue, id) {
 									<label for="inputBuildingId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.BUILDING'>BUILDING</key></label>
 								</div>
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-									<input class="form-control full-control textLower" name="correspondenceAddressBuilding" type="" value="" id="correspondenceAddressBuildingId" maxlength="50" onblur="validateCorrespondenceBorE();"><span id="" class="text-red"></span>
+									<input class="form-control full-control textUpper" name="correspondenceAddressBuilding" type="" value="" id="correspondenceAddressBuildingId" maxlength="50" placeholder="BUILDING"  onfocus="placeholderOnFocus(this,'BUILDING');" onblur="placeholderOnBlur(this,'BUILDING');validateCorrespondenceBorE();"><span id="" class="text-red"></span>
 								</div>
 							</div>
 							<div class="form-group float">
@@ -410,7 +410,7 @@ function activeDeactive(selectedValue, id) {
 									<label for="inputEstateId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.ESTATE'>ESTATE</key></label>
 								</div>
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-									<input class="form-control full-control textLower" name="correspondenceAddressEstate" type="" value="" id="correspondenceAddressEstateId" maxlength="50" onblur="validateCorrespondenceBorE();"><span id="errorEmptyCorrespondenceAddressEstate" class="text-red"></span>
+									<input class="form-control full-control textUpper" name="correspondenceAddressEstate" type="" value="" id="correspondenceAddressEstateId" maxlength="50" placeholder="ESTATE" onfocus="placeholderOnFocus(this,'ESTATE');" onblur="placeholderOnBlur(this,'ESTATE');validateCorrespondenceBorE();"><span id="errorEmptyCorrespondenceAddressEstate" class="text-red"></span>
 								</div>
 							</div>
 							<div class="form-group float">
@@ -418,7 +418,7 @@ function activeDeactive(selectedValue, id) {
 									<label for="inputStreetNoId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.STREETNO'>Street No.</key></label>
 								</div>
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-									<input class="form-control full-control textLower" name="correspondenceAddressStreetNo" type="" value="" id="correspondenceAddressStreetNoId" maxlength="50" onblur=""><span id="" class="text-red"></span>
+									<input class="form-control full-control textUpper" name="correspondenceAddressStreetNo" type="" value="" id="correspondenceAddressStreetNoId" maxlength="50" placeholder="STREET NO." onfocus="placeholderOnFocus(this,'STREET NO.');" onblur="placeholderOnBlur(this,'STREET NO.');"><span id="" class="text-red"></span>
 								</div>
 							</div>
 							<div class="form-group float">
@@ -426,7 +426,7 @@ function activeDeactive(selectedValue, id) {
 									<label for="inputStreetNameId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.STREETNAME'>STREET NAME</key></label>
 								</div>
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-									<input class="form-control full-control textLower" name="correspondenceAddressStreetName" type="" value="" id="correspondenceAddressStreetNameId" maxlength="50" onblur=""><span id="" class="text-red"></span>
+									<input class="form-control full-control textUpper" name="correspondenceAddressStreetName" type="" value="" id="correspondenceAddressStreetNameId" maxlength="50" placeholder="STREET NAME" onfocus="placeholderOnFocus(this,'STREET NAME');" onblur="placeholderOnBlur(this,'STREET NAME');"><span id="" class="text-red"></span>
 								</div>
 							</div>
 							<div class="form-group float">
@@ -481,7 +481,7 @@ function activeDeactive(selectedValue, id) {
                         
                         <div class="clearfix"></div>
                         <div class="form-wrap">
-                            <div class="big-title black-bold" style="padding-left:0px !important;">
+                            <div class="big-title black-bold section-title" style="padding-left:0px !important;">
 								<key id='Overseas.userdetails.Insured'>Insured person info</key>
                             </div>
                         </div>
@@ -515,7 +515,7 @@ function activeDeactive(selectedValue, id) {
                                                    <input id="selectedPersonalHkidPass1" name="selectedPersonalHkidPass" value="HKID" type="hidden">
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtInsuHkid1" name="personalHKID" class="form-control textUpper full-control bmg_custom_placeholder" value="HKID/PASSPORT NO." onkeypress=" return hkidOnkeypress(event);" onfocus="placeholderOnFocus(this,'HKID/PASSPORT NO.');" onblur="placeholderOnBlur(this,'HKID/PASSPORT NO.'); validateHkid('txtInsuHkid1','selectedPersonalHkidPass1','errtxtInsuHkid1',false,'insured');" readonly="readonly">  <!-- <key id='Overseas.userdetails.Insured.HKID.eg'>EG: X1234567 WITHOUT ()</key> --> 
+                                               <input id="txtInsuHkid1" name="personalHKID" class="form-control textUpper full-control bmg_custom_placeholder" value="EG: X1234567 WITHOUT ()" placholder="EG: X1234567 WITHOUT ()" onkeypress=" return hkidOnkeypress(event);" onfocus="placeholderOnFocus(this,'EG: X1234567 WITHOUT ()');" onblur="placeholderOnBlur(this,'EG: X1234567 WITHOUT ()'); validateHkid('txtInsuHkid1','selectedPersonalHkidPass1','errtxtInsuHkid1',false,'insured');" readonly="readonly">  <!-- <key id='Overseas.userdetails.Insured.HKID.eg'>EG: X1234567 WITHOUT ()</key> --> 
                                                     <span id="errtxtInsuHkid1" class="text-red"> </span>
                                            </div>
                                        </div>
@@ -527,7 +527,7 @@ function activeDeactive(selectedValue, id) {
 										   </div>
 										   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 												<div class="input-group date" id="oversea_insure_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-													<input name="insuredDob" type="text" class="pointer datepicker form-control border-radius" id="insuredDob" value="" readonly>
+													<input name="insuredDob" type="text" class="pointer datepicker form-control border-radius" id="insuredDob" onfocus="placeholderOnFocus(this,'DD-MM-YYYY');" onblur="placeholderOnBlur(this,'DD-MM-YYYY');" placeholder="DD-MM-YYYY" value="" readonly>
 												</div>
 												<div style="cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)">&nbsp;</div>
 												<span id="dobInsuredInvalid" class="text-red"></span>
@@ -579,7 +579,7 @@ function activeDeactive(selectedValue, id) {
                                                     </label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-                                                   <input type="text" name="beneficiaryFullName" id="beneficiaryFullName" class="form-control full-control textUpper bmg_custom_placeholder" value="SAME AS ID DOCUMENT" onfocus="placeholderOnFocus(this,'SAME AS ID DOCUMENT');" onblur="placeholderOnBlur(this,'SAME AS ID DOCUMENT'); validateName('beneficiaryFullName','errBeneficiaryFullName',false,'beneficiary');" onkeypress="    return alphaOnly(event);" maxlength="100"></input>
+                                                   <input type="text" name="beneficiaryFullName" id="beneficiaryFullName" class="form-control full-control textUpper bmg_custom_placeholder" value="SAME AS ID DOCUMENT" onblur="validateName('beneficiaryFullName','errBeneficiaryFullName',false,'beneficiary');" onkeypress="    return alphaOnly(event);" maxlength="100"></input>
                                                     <span id="errBeneficiaryFullName" class="text-red"> </span>
                                                </div>
                                                <div class="clearfix"></div>
@@ -632,18 +632,18 @@ function activeDeactive(selectedValue, id) {
                                 </div>
 								<!-- Oversea student information-->
 								<div class="form-wrap">
-									<div class="big-title black-bold" style="padding-left:0px !important;">
+									<div class="big-title black-bold section-title" style="padding-left:0px !important;">
 										Overseas Educational Institution Info
 									</div>
 								</div>
 								<div class="form-wrap">
 									<div class="form-group float">
 										<div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-											<label for="inputOverseasInsuredDob" class="field-label bold-500"><key id='Overseas.userdetails.Insured.DOB'>Date of birth</key></label>
+											<label for="inputOverseasInsuredDob" class="field-label bold-500"><key id='Overseas.userdetails.institution.departure'>Departure Date</key></label>
 										</div>
 										<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 											<div class="input-group date" id="input_dob3"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-												<input name="inputOverseasInsuredDob" type="text" class="pointer datepicker form-control border-radius" id="inputOverseasInsuredDob" value="" readonly="">
+												<input name="inputOverseasInsuredDob" type="text" class="pointer datepicker form-control border-radius" id="inputOverseasInsuredDob" placeholder="DD-MM-YYYY" onfocus="placeholderOnFocus(this,'DD-MM-YYYY');" onblur="placeholderOnBlur(this,'DD-MM-YYYY');" value="" readonly="">
 											</div>
 											<span id="dobOverseasInsuredInvalid" class="text-red"></span>
 										</div>
@@ -654,7 +654,7 @@ function activeDeactive(selectedValue, id) {
 											<label for="countryOfInstitution" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Country'>Country of Institution</key></label>
 										</div>
 										<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-											<input name="countryOfInstitution" type="" class="form-control full-control" value="" id="countryOfInstitution" onkeypress="" onblur="" maxlength="50"> 												
+											<input name="countryOfInstitution" type="" class="form-control full-control" placeholder="Country of Institution" value="" id="countryOfInstitution" onkeypress="" onfocus="placeholderOnFocus(this,'Country of Institution');" onblur="placeholderOnBlur(this,'Country of Institution');" maxlength="50"> 												
 											<br>												
 											<span id="countryOfInstitutionInvalid" class="text-red"></span>
 										</div>
@@ -665,7 +665,7 @@ function activeDeactive(selectedValue, id) {
 											<label for="nameOfInstitution" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Name'>Name of Institution</key></label>
 										</div>
 										<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-											<input name="nameOfInstitution" type="" class="form-control full-control" value="" id="nameOfInstitution" onkeypress="" onblur="" maxlength="50"> 
+											<input name="nameOfInstitution" type="" class="form-control full-control" placeholder="Name of Institution" value="" id="nameOfInstitution" onkeypress="" onfocus="placeholderOnFocus(this,'Name of Institution');" onblur="placeholderOnBlur(this,'Name of Institution');" maxlength="50"> 
 											<span id="nameOfInstitutionInvalid" class="text-red"></span>
 										</div>
 									</div>
@@ -675,21 +675,21 @@ function activeDeactive(selectedValue, id) {
 											<label for="addressofInstitutionLine1" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Address'>Address</key></label>
 										</div>
 										<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-											<input name="addressofInstitutionLine1" type="" class="form-control full-control" value="" id="addressofInstitutionLine1" onkeypress="" onblur="validateaddressofInstitutionLine()" maxlength="50"> 
+											<input name="addressofInstitutionLine1" type="text" class="form-control full-control" placeholder="Line 1" value="" id="addressofInstitutionLine1" onkeypress=""  onfocus="placeholderOnFocus(this,'Line 1');" onblur="placeholderOnBlur(this,'Line 1');validateaddressofInstitutionLine()" maxlength="50"> 
 										</div>
 									</div>
 									<div class="form-group float">
 										<div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
 										</div>
 										<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-											<input name="addressofInstitutionLine2" type="" class="form-control full-control" value="" id="addressofInstitutionLine2" onkeypress="" onblur="validateaddressofInstitutionLine()" maxlength="50"> 
+											<input name="addressofInstitutionLine2" type="text" class="form-control full-control" placeholder="Line 2" value="" id="addressofInstitutionLine2" onkeypress="" onfocus="placeholderOnFocus(this,'Line 2');" onblur="placeholderOnBlur(this,'Line 2');validateaddressofInstitutionLine()" maxlength="50"> 
 										</div>
 									</div>
 									<div class="form-group float">
 										<div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
 										</div>
 										<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-											<input name="addressofInstitutionLine3" type="" class="form-control full-control" value="" id="addressofInstitutionLine3" onkeypress="" onblur="validateaddressofInstitutionLine()" maxlength="50"> 
+											<input name="addressofInstitutionLine3" type="text" class="form-control full-control" placeholder="Line 3" value="" id="addressofInstitutionLine3" onkeypress="" onfocus="placeholderOnFocus(this,'Line 3');" onblur="placeholderOnBlur(this,'Line 3');validateaddressofInstitutionLine()" maxlength="50"> 
 											<span id="addressofInstitutionInvalid" class="text-red"></span>	
 										</div>
 									</div>
@@ -853,10 +853,15 @@ function activeDeactive(selectedValue, id) {
                         	<div class="clearfix"></div>
                         	<div class="orange-bdr"></div>
 			                <div style="width: 80%;margin-left: 10%;">
-			                    <c:if test="${referralCode!=null && referralCode!=''}">
+			                     <h3 style="margin-bottom:0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h3>
+			                     <c:choose>
+                                 <c:when test="${referralCode!=null && referralCode!=''}"><h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h4></c:when>
+                                 <c:otherwise><h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;">No Code used</h4></c:otherwise>
+			                     </c:choose>
+			                    <!--<c:if test="${referralCode!=null && referralCode!=''}">
 			                        <h3 style="margin-bottom:0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h3>
 			                        <h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;">${referralCode}</h4>
-			                    </c:if>
+			                    </c:if>-->
 			                    <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;">Subtotal </h3>
 			                    <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">${planPremium} </h3>
 			                    <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;">Discount </h3>

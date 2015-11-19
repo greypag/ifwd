@@ -19,9 +19,10 @@ $(function() {
 // <key id='Overseas.userdetails.Instituation.Error.Empty'>Please enter your
 // address.</key>
 function validateaddressofInstitutionLine() {
-	addressline1 = $("#addressofInstitutionLine1").val();
-	addressline2 = $("#addressofInstitutionLine2").val();
-	addressline3 = $("#addressofInstitutionLine3").val();
+	addressline1 = $("#addressofInstitutionLine1").attr('value');
+	addressline2 = $("#addressofInstitutionLine2").attr('value');
+	addressline3 = $("#addressofInstitutionLine3").attr('value');
+	console.log(addressline1);
 	if (addressline1.trim() == "" && addressline2.trim() == ""
 			&& addressline3.trim() == "") {
 
