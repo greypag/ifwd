@@ -328,6 +328,7 @@ function sendEmail() {
 				<div id="quote-wrap" class="container pad-none bdr gray-bg3">
 					<div class="col-lg-8 col-xs-12 col-sm-12 col-md-8 pad-none white-bg1" id="oversea-plan-quote-select-region-container">
 					   <div class="workingholiday-plan-margin form-wrap">
+						<h2 class="h2-3-choose"><key id='Overseas.PlanOptions.Region'>Select a region</key></h2>
 						<h2 class="h2-3-choose">
 						<key id='Overseas.PlanOptions.Region'>Region</key>
 						</h2>
