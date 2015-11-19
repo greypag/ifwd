@@ -59,7 +59,6 @@ var home_url = "<%=request.getContextPath()%>";
 					<div class="get-started-holder text-center">
 						<button id="hunger-selling-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
 					</div>
-					<p class="footnote below"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p>
 				</div>
 			</div>
 			

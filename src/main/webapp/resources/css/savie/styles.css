@@ -14828,7 +14828,7 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
     max-width: 450px;
     width: 35%;
     //top: 285px;
-    bottom: 85px;
+    bottom: 200px;
     position: absolute;
     padding-left: 65px;
     padding-right: 65px;
@@ -14836,7 +14836,7 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
   }
 
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 70px;
+    bottom: 135px;
   }
 
   .fwd-savie-wrapper .sign-up-teaser button.get-started {
@@ -14856,37 +14856,31 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
 
 @media (min-width: 1023px){
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 75px;
-  }
-}
-
-@media (min-width: 1029px){
-  .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 85px;
+    bottom: 165px;
   }
 }
 
 @media (min-width: 1040px){
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 100px;
+    bottom: 165px;
   }
 }
 
 @media (min-width: 1076px){
   .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 110px;
+    bottom: 195px;
   }
 }
 
 @media (min-width: 1115px){
   .fwd-savie-wrapper .sign-up-teaser {
-    //bottom: 135px;
+    bottom: 225px;
   }
 }
 
 @media (min-width: 1195px){
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 120px;
+    bottom: 165px;
   }
 }
 
@@ -14899,13 +14893,13 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
 
 @media (min-width: 1213px){
   .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 115px;
+    bottom: 225px;
   }
 }
 
 @media (min-width: 1230px){
   .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 135px;
+    bottom: 225px;
   }
 }
 
