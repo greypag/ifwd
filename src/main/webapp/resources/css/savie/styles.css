@@ -5719,7 +5719,7 @@ body.chin .fwd-savie-wrapper .investment .tab-content.credits table thead {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .application-flux {
-    margin-top: 100px;
+    margin-top: 80px;
   }
 }
 
@@ -16044,7 +16044,7 @@ a:focus {
 @media (min-width: 992px) {
   /* line 30, ../sass/partials/_elite-terms-select-plan.scss */
   .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse {
-    height: 100px;
+    height: 80px;
   }
 }
 /* line 42, ../sass/partials/_elite-terms-select-plan.scss */
@@ -16083,24 +16083,25 @@ a:focus {
 }
 @media (min-width: 992px) {
 	.application-page-header.et-header-browse .et-back-arrow {
-	    height: 100px;
+	    height: 80px;
 	    float: left;
 	    width: 15%;
 	}
 }
 /* line 71, ../sass/partials/_elite-terms-select-plan.scss */
 .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-back-arrow .et-back-arrow-link, .application-page-header.et-header-browse .et-back-arrow .et-back-arrow-link {
-  font-size: 35px;
+  font-size: 24px;
   color: #fff;
   text-align: center;
   display: block;
   padding-left: 15px;
   padding-right: 15px;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 @media (min-width: 992px) {
 	.application-page-header.et-header-browse .et-back-arrow .et-back-arrow-link {
-	    padding-top: 32px;
+	    padding-top: 24px;
+	    font-size: 35px;
 	}
 }
 /* line 82, ../sass/partials/_elite-terms-select-plan.scss */
@@ -16110,13 +16111,13 @@ a:focus {
 }
 /* line 86, ../sass/partials/_elite-terms-select-plan.scss */
 .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-header-tex h3 {
-  font-size: 28px;
+  font-size: 18px;
   color: #fff;
   margin: 0;
   display: table-cell;
   vertical-align: middle;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-top: 21px;
+  padding-bottom: 20px;
   padding-left: 20px;
   padding-right: 30px;
 }
@@ -16124,7 +16125,7 @@ a:focus {
 .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-header-info-btn {
   width: 100%;
   border: 0;
-  height: 100px;
+  height: 80px;
   background-color: #ff8200;
   color: #fff;
   font-size: 24px;
