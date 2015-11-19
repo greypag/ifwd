@@ -329,9 +329,6 @@ function sendEmail() {
 					<div class="col-lg-8 col-xs-12 col-sm-12 col-md-8 pad-none white-bg1" id="oversea-plan-quote-select-region-container">
 					   <div class="workingholiday-plan-margin form-wrap">
 						<h2 class="h2-3-choose"><key id='Overseas.PlanOptions.Region'>Select a region</key></h2>
-						<h2 class="h2-3-choose">
-						<key id='Overseas.PlanOptions.Region'>Region</key>
-						</h2>
 						<div style="margin-bottom: 40px;">
                             <div class="pull-left pad-none region-box col-lg-6 col-xs-6 col-sm-6 col-md-6" >
 	                                <div id="region-btn-0" type="button" class="btn-block bdr-curve btn region-box-btn region-box-active" onClick="changeRegion('region0')">
