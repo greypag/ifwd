@@ -696,13 +696,13 @@ function setDropArea(id) {
 								<div class="form-wrap">
 									<div class="form-group float">
 										<div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-											<label for="inputOverseasInsuredDob" class="field-label bold-500"><key id='Overseas.userdetails.institution.departure'>Departure Date</key></label>
+											<label for="overseaDepartureDate" class="field-label bold-500"><key id='Overseas.userdetails.institution.departure'>Departure Date</key></label>
 										</div>
 										<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-											<div class="input-group date" id="input_dob3"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-												<input name="inputOverseasInsuredDob" type="text" class="pointer datepicker form-control border-radius" id="inputOverseasInsuredDob" placeholder="DD-MM-YYYY" onfocus="placeholderOnFocus(this,'DD-MM-YYYY');" onblur="placeholderOnBlur(this,'DD-MM-YYYY');" value="" readonly="">
+											<div class="input-group date" id="oversea_departure_date"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
+												<input name="overseaDepartureDate" type="text" class="pointer datepicker form-control border-radius" placeholder="DD-MM-YYYY"id="overseaDepartureDate" value="" readonly>
 											</div>
-											<span id="dobOverseasInsuredInvalid" class="text-red"></span>
+											<span id="overseaDepartureDateInvalid" class="text-red"></span>
 										</div>
 									</div>
 									
@@ -711,8 +711,7 @@ function setDropArea(id) {
 											<label for="countryOfInstitution" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Country'>Country of Institution</key></label>
 										</div>
 										<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-											<input name="countryOfInstitution" type="" class="form-control full-control" placeholder="Country of Institution" value="" id="countryOfInstitution" onkeypress="" onfocus="placeholderOnFocus(this,'Country of Institution');" onblur="placeholderOnBlur(this,'Country of Institution');" maxlength="50"> 												
-											<br>												
+											<input name="countryOfInstitution" type="" class="form-control full-control" placeholder="Country of Institution" value="" id="countryOfInstitution" onkeypress="" onfocus="placeholderOnFocus(this,'Country of Institution');" onblur="placeholderOnBlur(this,'Country of Institution');validateValue('countryOfInstitution', 'countryOfInstitutionInvalid', 'Country of Institution', '<fmt:message key="oversea.country.ins.notNull.message" bundle="${msg}" />');" maxlength="50"> 												
 											<span id="countryOfInstitutionInvalid" class="text-red"></span>
 										</div>
 									</div>
@@ -722,7 +721,7 @@ function setDropArea(id) {
 											<label for="nameOfInstitution" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Name'>Name of Institution</key></label>
 										</div>
 										<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-											<input name="nameOfInstitution" type="" class="form-control full-control" placeholder="Name of Institution" value="" id="nameOfInstitution" onkeypress="" onfocus="placeholderOnFocus(this,'Name of Institution');" onblur="placeholderOnBlur(this,'Name of Institution');" maxlength="50"> 
+											<input name="nameOfInstitution" type="" class="form-control full-control" placeholder="Name of Institution" value="" id="nameOfInstitution" onkeypress="" onfocus="placeholderOnFocus(this,'Name of Institution');" onblur="placeholderOnBlur(this,'Name of Institution');validateValue('nameOfInstitution', 'nameOfInstitutionInvalid', 'Name of Institution', '<fmt:message key="oversea.name.ins.notNull.message" bundle="${msg}" />');" maxlength="50"> 
 											<span id="nameOfInstitutionInvalid" class="text-red"></span>
 										</div>
 									</div>

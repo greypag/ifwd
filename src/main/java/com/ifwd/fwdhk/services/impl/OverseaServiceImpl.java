@@ -274,7 +274,7 @@ public class OverseaServiceImpl implements OverseaService {
 		}
 
 		String hkId = "hkId", passId = "passport";
-		String deaprtureDate = DateApi.formatString1(new Date());
+		String deaprtureDate = DateApi.pickDate1(planDetailsForm.getOverseaDepartureDate());
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(new Date());
 		calendar.add(Calendar.DATE, -1);
@@ -287,7 +287,7 @@ public class OverseaServiceImpl implements OverseaService {
 		String dob = planDetailsForm.getApplicantDob();
 		dob = DateApi.pickDate1(dob);
 		
-		planDetailsForm.setDepartureDate(DateApi.pickDate1(deaprtureDate));
+		planDetailsForm.setDepartureDate(deaprtureDate);
 		planDetailsForm.setReturnDate(DateApi.pickDate1(returnDate));
 
 		if (planDetailsForm.getHkid() != null) {

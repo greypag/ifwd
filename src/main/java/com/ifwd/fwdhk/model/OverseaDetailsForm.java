@@ -32,7 +32,7 @@ public class OverseaDetailsForm {
 	private String beneficiaryIDType;
 	private String beneficiaryID;
 	
-	private String inputOverseasInsuredDob;
+	private String overseaDepartureDate;
 	private String countryOfInstitution;
 	private String nameOfInstitution;
 	private String addressofInstitutionLine1;
@@ -312,12 +312,12 @@ public class OverseaDetailsForm {
 		this.personalBeneficiary = personalBeneficiary;
 	}
 
-	public String getInputOverseasInsuredDob() {
-		return inputOverseasInsuredDob;
+	public String getOverseaDepartureDate() {
+		return overseaDepartureDate;
 	}
 
-	public void setInputOverseasInsuredDob(String inputOverseasInsuredDob) {
-		this.inputOverseasInsuredDob = inputOverseasInsuredDob;
+	public void setOverseaDepartureDate(String overseaDepartureDate) {
+		this.overseaDepartureDate = overseaDepartureDate;
 	}
 
 	public String getCountryOfInstitution() {
