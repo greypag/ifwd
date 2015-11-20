@@ -367,14 +367,14 @@ var home_url = "<%=request.getContextPath()%>";
                            <input type="hidden" id="goApp"/>
                            <c:choose>
                               <c:when test="${not empty userDetails.emailAddress}">
-                                 <button type="button" class="btn btn-white et-proceed-appl bottom active hide-element" id="et-brn-proceed-to-application" data-back-text="<fmt:message key="eliteTerms.selectPlan.Back.to.application" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.Proceed.to.application" bundle="${msg}" /></button>
-                                 <div class="et-broken-line et-full"></div>
-                              </c:when>    
-							  <c:otherwise>
                                  <button type="button" class="btn btn-white et-proceed-appl bottom active" id="et-brn-proceed-to-application" data-back-text="<fmt:message key="eliteTerms.selectPlan.Back.to.application" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.Proceed.to.application" bundle="${msg}" /></button>
                                  <div class="et-broken-line et-full hide-element"></div>
-							  </c:otherwise>
-						   </c:choose>
+                              </c:when>    
+                              <c:otherwise>
+                                 <button type="button" class="btn btn-white et-proceed-appl bottom active" id="et-brn-proceed-to-application" data-back-text="<fmt:message key="eliteTerms.selectPlan.Back.to.application" bundle="${msg}" />"><fmt:message key="eliteTerms.selectPlan.Login.to.apply" bundle="${msg}" /></button>
+                                 <div class="et-broken-line et-full hide-element"></div>
+                              </c:otherwise>
+                           </c:choose>
                         </div>
                      </div>
                   </div>
