@@ -971,6 +971,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			request.getSession().setAttribute("errorMessageType", "UrlExpired");
 			return true;
 		}
+		request.getSession().setAttribute("errorMessageType", null);
 		return false;
 	}
 	
