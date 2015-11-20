@@ -39,21 +39,49 @@ function validateaddressofInstitutionLine() {
 	}
 }
 
+function validatenameOfInstitution(){
+	nameOfInstitution = $("#nameOfInstitution").val();
+	if (nameOfInstitution.trim() == "") {
+		$("#nameOfInstitution").addClass("invalid-field");
+		$("#nameOfInstitutionInvalid").html(
+				getBundle(getBundleLanguage, "Please enter name of Institution."));
+	} else {
+		$("#" + 'nameOfInstitutionInvalid').html('');
+		$("#" + 'nameOfInstitution').removeClass("invalid-field");
+	}	
+}
+
+function validatecountryOfInstitution(){
+	countryOfInstitution = $("#countryOfInstitution").val();
+	if (countryOfInstitution.trim() == "") {
+		$("#countryOfInstitution").addClass("invalid-field");
+		$("#countryOfInstitutionInvalid").html(
+				getBundle(getBundleLanguage, "Please enter the country of Institution."));
+	} else {
+		$("#" + 'countryOfInstitutionInvalid').html('');
+		$("#" + 'countryOfInstitution').removeClass("invalid-field");
+	}	
+}
 var options = {
-	/*
-	 * url: "resources/countries.json",
-	 * 
-	 * getValue: "name",
-	 * 
-	 * list: { match: { enabled: true } },
-	 * 
-	 * theme: "square"
-	 */
-	data : [ "blue", "green", "pink", "red", "yellow" ]
+	
+	  data : [ "Abu Dhabi", "Australia", "Austria", "Belgium",
+				"Brunei", "Canada", "Cuba", "Cyprus", "Denmark", "Dubai", "France",
+				"Germany", "Guam", "Holland", "India", "Indonesia", "Iran",
+				"Ireland", "Italy", "Japan", "Korea", "Lao P.D.R.", "Macau",
+				"Malaysia", "Monaco", "Myanmar", "Nepal", "New Zealand",
+				"North Korea", "Norway", "Pakistan", "People Republic of China",
+				"Philippines", "Poland", "Portugal", "Russia", "Singapore",
+				"South Africa", "Spain", "Sri Lanka", "Sudan", "Sweden",
+				"Switzerland", "Syria", "Taiwan", "Thailand", "Turkey",
+				"United Kingdom", "Vietnam" ],
+	  
+	  
+	  list: { match: { enabled: true } }
+
 };
 
-// $("#countryOfInstitution").easyAutocomplete(options);
-
+$("#countryOfInstitution").easyAutocomplete(options);
+/*
 $(function() {
 	var availableTags = [ "Abu Dhabi", "Australia", "Austria", "Belgium",
 			"Brunei", "Canada", "Cuba", "Cyprus", "Denmark", "Dubai", "France",
@@ -65,13 +93,18 @@ $(function() {
 			"South Africa", "Spain", "Sri Lanka", "Sudan", "Sweden",
 			"Switzerland", "Syria", "Taiwan", "Thailand", "Turkey",
 			"United Kingdom", "Vietnam" ];
-	/*$("#countryOfInstitution").autocomplete({
+	$("#countryOfInstitution").autocomplete({
 		source : availableTags
-	});*/
+	});
 });
-
+*/
 // <key id='Overseas.userdetails.applicant.Correspondence.Error.BorE'>Either
 // Building or Estate must be filled in.</key>
+function coverageToogle(id){
+	$('#'+id).mCustomScrollbar();
+	$('#'+id).css("display","block");
+}
+
 function validateCorrespondenceBorE() {
 	building = $("#correspondenceAddressBuildingId").val();
 	estate = $("#correspondenceAddressEstateId").val();
@@ -95,6 +128,16 @@ function validateCorrespondenceDistrict() {
 
 }
 
+function checkVisaCheckBox(value){
+	if (!value){
+		$("#visacheckbox").addClass("invalid-field");
+		$("#visacheckboxInvalid").html("Please tick the checkbox first.");
+	}
+	else {
+		$("#visacheckbox").removeClass("invalid-field");
+		$("#visacheckboxInvalid").html("");		
+	}
+}
 function addDistrictList(value) {
 	var district = [];
 	if (value == "NT") {
@@ -173,7 +216,29 @@ function validateOverseaDetails(form, formId, language) {
 	var applicantBuilding = document.getElementById("correspondenceAddressBuildingId").value;
 	var applicantEstate = document.getElementById("correspondenceAddressEstateId").value;
 	var applicantDistrict = document.getElementById("applicantDistrict").value;
+	var InsuFullName = document.getElementById("txtInsuFullName1").value;
+	var InsuHkid = document.getElementById("txtInsuHkid1").value;
+	var InsuDob = document.getElementById("insuredDob").value;
+	var correspondenceAddressBuildingId = document.getElementById("correspondenceAddressBuildingId").value;
+	var correspondenceAddressEstateId = document.getElementById("correspondenceAddressEstateId").value;	
+	var addressofInstitutionLine1 = document.getElementById("addressofInstitutionLine1").value;	
+	var addressofInstitutionLine2 = document.getElementById("addressofInstitutionLine2").value;
+	var addressofInstitutionLine3 = document.getElementById("addressofInstitutionLine3").value;
+	var countryOfInstitution = document.getElementById("countryOfInstitution").value;
+	var correspondenceAddressDistrictId1 = document.getElementById("inlineCARadio3").checked;
+	var correspondenceAddressDistrictId2 = document.getElementById("inlineCARadio4").checked;
+	var correspondenceAddressDistrictId3 = document.getElementById("inlineCARadio5").checked;
+	var nameOfInstitution = document.getElementById("nameOfInstitution").value;
+	var visacheckbox = document.getElementById("visacheckbox").checked;		
+	var inputOverseasInsuredDob = document.getElementById("inputOverseasInsuredDob").value;
+	
 
+	
+	var building = $("#correspondenceAddressBuildingId").val();
+	var estate = $("#correspondenceAddressEstateId").val();
+	var addressline1 = $("#addressofInstitutionLine1").val();
+	var addressline2 = $("#addressofInstitutionLine2").val();
+	var addressline3 = $("#addressofInstitutionLine3").val();
 	/*if (applicantBuilding.trim() == buildingPlaceholder.trim()) {
 		applicantBuilding = '';
 	}
@@ -267,6 +332,144 @@ function validateOverseaDetails(form, formId, language) {
 			}
 			flag = false;
 		}
+	}
+if (correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstateId.trim() == ""){
+	
+		$("#correspondenceAddressBuildingId").addClass("invalid-field");	
+		$("#correspondenceAddressEstateId").addClass("invalid-field");
+		$("#errorEmptyCorrespondenceAddressEstate").html( getBundle(getBundleLanguage, "Either Building or Estate must be filled in."));
+		flag = false;
+	}
+	else {
+		$("#"+'errorEmptyCorrespondenceAddressEstate').html('');
+		$("#"+'correspondenceAddressBuildingId').removeClass("invalid-field");
+		$("#"+'correspondenceAddressEstateId').removeClass("invalid-field");
+	}
+
+	//<key id='Overseas.userdetails.applicant.Correspondence.Error.District'>Please select a district.</key>
+	if(applicantDistrict.trim() == "")
+	{
+		$("#"+'applicantDistrictSelect').addClass("invalid-field");
+		$("#"+"errorEmptycorrespondenceAddressDistrict").html( getBundle(getBundleLanguage, 'Please select a district.')); 
+		flag = false;
+	}
+
+	if (InsuFullName.trim() == "" || InsuFullName.trim() == "SAME AS ID DOCUMENT"){
+		$("#txtInsuFullName1").addClass("invalid-field");	
+		$("#errtxtPersonalFullName1").html( getBundle(getBundleLanguage, "Please enter insured person's full name in English."));
+		flag = false;
+	}
+	
+	if (InsuHkid.trim() == "" || InsuHkid.trim() == "EG: X1234567 WITHOUT ()"){
+		$("#txtInsuHkid1").addClass("invalid-field");	
+		$("#errtxtInsuHkid1").html( getBundle(getBundleLanguage, "Please enter insured person's HKID no."));
+		flag = false;
+	}
+	else {
+		var tr = IsHKID(InsuHkid.trim());
+		if (tr == false) {
+			$("#txtInsuHkid1").addClass("invalid-field");	
+			$("#errtxtInsuHkid1").html( getBundle(getBundleLanguage, "Your HKID no. is invalid."));
+			flag = false;			
+		}
+	}
+
+	if (InsuDob.trim() == ""){
+		//$("#insuredDob").addClass("invalid-field");	
+		$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Please select insured person's date of birth."));
+		flag = false;
+	}
+	
+	
+	if (inputOverseasInsuredDob.trim() == "") {
+		$("#dobOverseasInsuredInvalid").html( getBundle(getBundleLanguage, "Please select a departure date."));
+	}
+
+	if (nameOfInstitution.trim() == "") {
+	
+		$("#nameOfInstitution").addClass("invalid-field");	
+		$("#nameOfInstitutionInvalid").html( getBundle(getBundleLanguage, "Please enter the name of Instituation."));
+		flag = false;
+	}
+	else {
+		$("#"+'nameOfInstitutionInvalid').html('');
+		$("#"+'nameOfInstitution').removeClass("invalid-field");
+	}
+	
+	if (addressofInstitutionLine1.trim() == "" && addressofInstitutionLine2.trim() == "" && addressofInstitutionLine3.trim() == "") {
+	
+		$("#addressofInstitutionLine1").addClass("invalid-field");	
+		$("#addressofInstitutionLine2").addClass("invalid-field");
+		$("#addressofInstitutionLine3").addClass("invalid-field");
+		$("#addressofInstitutionInvalid").html( getBundle(getBundleLanguage, "Please enter your address."));
+		flag = false;
+	}
+	else {
+		$("#"+'addressofInstitutionInvalid').html('');
+		$("#"+'addressofInstitutionLine1').removeClass("invalid-field");
+		$("#"+'addressofInstitutionLine2').removeClass("invalid-field");
+		$("#"+'addressofInstitutionLine3').removeClass("invalid-field");
+	}
+
+//Overseas.userdetails.Instituation.Country.NotCoveredAsia
+//Overseas.userdetails.Instituation.Country.NotCoveredAsia.url
+	plan = document.getElementById("selectedPlanName").value;
+	asis_country_list =["Abu Dhabi","Dubai","India","Indonesia","Iran","Japan","Korea","Lao, P.D.R.","Macau","Malaysia","Myanmar","Nepal","North Korea","Pakistan","People Republic of China","Philippines","Singapore","Sri Lanka","Sudan","Taiwan","Thailand","Vietnam"]
+	//alert(countryOfInstitution);
+	if (countryOfInstitution.trim() == '')
+	{
+		$("#"+'countryOfInstitution').addClass("invalid-field");
+		$("#countryOfInstitutionInvalid").html( getBundle(getBundleLanguage, 'Please enter the Country of Institution'));
+		flag = false;
+	}
+	else
+	{
+		if(plan == "medicalWorldwideA" && asis_country_list.indexOf(countryOfInstitution) < 0)
+		{
+			$("#"+'countryOfInstitution').addClass("invalid-field");
+			$("#countryOfInstitutionInvalid").html( getBundle(getBundleLanguage, 'Selected plan does not cover this country. Please consider "Worldwide Plans".'));
+			flag = false;
+		}
+	}
+
+	
+	if (!visacheckbox)
+	{
+		$("#"+'visacheckbox').addClass("invalid-field");
+		$("#visacheckboxInvalid").html( getBundle(getBundleLanguage, 'Please tick the checkbox first.')); 
+		flag = false;
+	}
+	else
+	{
+		$("#"+'visacheckbox').removeClass("invalid-field");
+		$("#visacheckboxInvalid").html( ''); 	
+	}
+	
+	
+	if (building.trim() == "" && estate.trim() == "") {
+		$("#correspondenceAddressBuildingId").addClass("invalid-field");
+		$("#correspondenceAddressEstateId").addClass("invalid-field");
+		$("#errorEmptyCorrespondenceAddressEstate").html(
+				getBundle(getBundleLanguage,
+						"Either Building or Estate must be filled in"));
+		if (firstErrorElementId == "") {
+			firstErrorElementId = "correspondenceAddressBuildingId";
+		}
+		flag = false;
+	}
+	
+
+	if (addressline1.trim() == "" && addressline2.trim() == ""
+			&& addressline3.trim() == "") {
+		$("#addressofInstitutionLine1").addClass("invalid-field");
+		$("#addressofInstitutionLine2").addClass("invalid-field");
+		$("#addressofInstitutionLine3").addClass("invalid-field");
+		$("#addressofInstitutionInvalid").html(
+				getBundle(getBundleLanguage, "Please enter your address."));
+		if (firstErrorElementId == "") {
+			firstErrorElementId = "addressofInstitutionLine1";
+		}
+		flag = false;
 	}
 	/*if (applicantEstate.trim() == "" && applicantBuilding.trim() == "") {
 		$("#errCABuilding")
@@ -377,3 +580,50 @@ function prepareOverseaQuote() {
 	});
 	return result;
 }
+
+function setDropArea(id) {
+		console.log('setDropArea');
+		$('#selectCADistHid').find('option[value="' + id + '"]').attr(
+				'selected', 'selected');
+
+		if ($("#selectCADistHid option[value='" + id + "']").text() == "HK")
+			document.getElementById("inlineCARadio3").checked = true;
+		else if ($("#selectCADistHid option[value='" + id + "']").text() == "KL")
+			document.getElementById("inlineCARadio4").checked = true;
+		else
+			document.getElementById("inlineCARadio5").checked = true;
+		if (id != '') {
+			$("#errCADist").html('');
+			$('#inputCADistrict').removeClass('invalid-field');
+		}
+	}
+
+	function checkInsuredPerson(value) {
+		if (value != "SE") {
+			document.getElementById("lock_datepicker").removeAttribute("style");
+			$("#txtInsuFullName1,#txtInsuHkid1,#insuredDob").prop('readonly',
+					false);
+			document.getElementById("txtInsuFullName1").value = '';
+			document.getElementById("txtInsuHkid1").value = '';
+			document.getElementById("insuredDob").value = '';			
+		} else {
+
+			document.getElementById("txtInsuFullName1").value = document
+					.getElementById("inputFullName").value;
+			document.getElementById("txtInsuHkid1").value = document
+					.getElementById("inputTxtAppHkid").value;
+			document.getElementById("insuredDob").value = document
+					.getElementById("applicantDob").value;
+			modStyle = 'cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)'
+			document.getElementById("lock_datepicker").setAttribute('style',
+					modStyle);
+
+			$("#txtInsuFullName1,txtInsuHkid1").prop('readonly', true);
+		}
+	    if(value.trim() != "")
+	    {
+	        $("#"+'applicantDistrictSelect').removeClass("invalid-field");
+	        $("#"+"errorEmptycorrespondenceAddressDistrict").html(''); 
+	    }
+
+	}
