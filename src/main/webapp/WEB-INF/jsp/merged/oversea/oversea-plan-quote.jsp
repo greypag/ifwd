@@ -33,7 +33,31 @@ function prepareOverseaPlan(form){
 	});
 	return result;
 }
-
+function changeRegion(region){
+    /*
+    $('#amountdue').html('0');
+    $('#subtotal').html('0');
+    $('#plansummary').html('0');
+    $('#discountAmt').html('0');
+    */
+    if(region=='region0'){
+        $('#region0').css("display","block");
+        $('#region1').css("display","none");
+        $('#region-btn-0').addClass("region-box-active");
+        $('#region-btn-0').removeClass("region-box-inactive");
+        $('#region-btn-1').addClass("region-box-inactive");
+        $('#region-btn-1').removeClass("region-box-active");
+        changeColorAndPrice('box2','2','medicalWorldwideA','0.0','8000.0')
+    }
+    if(region=='region1'){
+        $('#region0').css("display","none");
+        $('#region1').css("display","block");
+        $('#region-btn-0').addClass("region-box-inactive");
+        $('#region-btn-0').removeClass("region-box-active");
+        $('#region-btn-1').addClass("region-box-active");
+        $('#region-btn-1').removeClass("region-box-inactive");
+    }
+}
 function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 	var txtPlanName = $("#"+planName).val()
 	var txtDiscountAmt = $("#"+discountAmt).val()
@@ -189,6 +213,7 @@ $(document).ready(function() {
 	changeColorAndPrice('box2','2','txtPlanName2','txtDiscountAmount2','txtTotalDue2')
 });
 
+
 function sendEmail() {
 	$('.proSuccess').addClass('hide');
 	if (get_promo_val()) {
@@ -243,7 +268,7 @@ function sendEmail() {
 	                                <div id="region-btn-0" type="button" class="btn-block bdr-curve btn region-box-btn region-box-active" onClick="changeRegion('region0')" style="padding-right:10px" ><key id='Overseas.PlanOptions.Region.Worldwide'>Worldwide</key></div>
 							</div>
                             <div class="pull-right pad-none region-box col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-left-des" >
-	                                <div id="region-btn-1" type="button" class="btn-block bdr-curve btn region-box-btn" data-toggle="modal" data-target="#myModal" onClick="changeRegion('region1')" style="padding-left:10px" ><key id='Overseas.PlanOptions.Region.Asiaonly'>Asia only</key></div>
+	                                <div id="region-btn-1" type="button" class="btn-block bdr-curve btn region-box-btn" onClick="changeRegion('region1')" style="padding-left:10px" ><key id='Overseas.PlanOptions.Region.Asiaonly'>Asia only</key></div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -442,14 +467,11 @@ Vietnam
 								<key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit1.Amount'>HK$1,000,000</key>
                             </div>
                             <div class="plan-coverage-box-l">
-								<key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2'>Top up inpatient medical expenses</key>
+								<key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2'>Top up inpatient medical expenses<a data-toggle="tooltip" title="Worldwide Comprehensive medical plan A Benefit 2"><img src="/fwdhk/resources/images/annual_travel/i-icon.png" style="display:inline"></a></key>
                             </div>
                             <div class="plan-coverage-box-r">
 								<key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2.Amount'>Up to HK$2,000,000</key>
                             </div>
-                            <div class="sub-link"  onclick="coverageToogle()">
-                                <a data-toggle="tooltip" title="Worldwide Comprehensive medical plan A Benefit 2"><img src="/fwdhk/resources/images/annual_travel/i-icon.png" style="display:inline"></a>
-							</div>
                         </div>
                         
                         

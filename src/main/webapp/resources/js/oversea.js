@@ -79,7 +79,7 @@ var options = {
 
 };
 
-$("#countryOfInstitution").easyAutocomplete(options);
+//$("#countryOfInstitution").easyAutocomplete(options);
 /*
 $(function() {
 	var availableTags = [ "Abu Dhabi", "Australia", "Austria", "Belgium",
