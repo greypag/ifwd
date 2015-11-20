@@ -996,7 +996,13 @@
                     regexp: {
                       regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                       message: getBundle(getBundleLanguage, "form.address.invalid")
-                    }
+                    },
+                    callback: {
+                        message: getBundle(getBundleLanguage, "form.address.empty"),
+                        callback: function(value, validator) {
+                           return value !== document.getElementById('savieApplicantBean.permanentAddress1').getAttribute('placeholder');
+                        }
+                     }
                     /*,
                     callback: {
                         callback: function(value, validator) {
@@ -1035,7 +1041,13 @@
                      regexp: {
                         regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                         message: getBundle(getBundleLanguage, "form.address.invalid")
-                     }
+                     },
+                     callback: {
+                         message: getBundle(getBundleLanguage, "form.address.empty"),
+                         callback: function(value, validator) {
+                            return value !== document.getElementById('savieApplicantBean.residentialAdress1').getAttribute('placeholder');
+                         }
+                      }
                       /*,
                       callback: {
                           callback: function(value, validator) {
@@ -1074,7 +1086,13 @@
                      regexp: {
                           regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                           message: getBundle(getBundleLanguage, "form.address.invalid")
-                      }
+                      },
+                      callback: {
+                          message: getBundle(getBundleLanguage, "form.address.empty"),
+                          callback: function(value, validator) {
+                             return value !== document.getElementById('savieApplicantBean.correspondenceAdress1').getAttribute('placeholder');
+                          }
+                       }
                       /*,
                       callback: {
                           callback: function(value, validator) {

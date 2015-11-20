@@ -727,9 +727,9 @@ var home_url = "<%=request.getContextPath()%>";
                                     <div class="left-desktop text-box">
                                        <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress1" name="savieApplicantBean.permanentAddress1" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
                                        <span class="error-msg" id="permanentAddressMessage1"></span>
-                                       <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress2" name="savieApplicantBean.permanentAddress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
+                                       <input class="form-control gray-textbox permanent-address optional-field" autocomplete="off" id="savieApplicantBean.permanentAddress2" name="savieApplicantBean.permanentAddress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
                                        <span class="error-msg" id="permanentAddressMessage2"></span>
-                                       <input class="form-control gray-textbox permanent-address" autocomplete="off" id="savieApplicantBean.permanentAddress3" name="savieApplicantBean.permanentAddress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
+                                       <input class="form-control gray-textbox permanent-address optional-field" autocomplete="off" id="savieApplicantBean.permanentAddress3" name="savieApplicantBean.permanentAddress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
                                        <span class="error-msg" id="permanentAddressMessage3"></span>
                                        <!--  <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
@@ -792,9 +792,9 @@ var home_url = "<%=request.getContextPath()%>";
                                     <div class="left-desktop text-box">
                                        <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress1" name="savieApplicantBean.residentialAdress1" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
                                        <span class="error-msg" id="residentialAddressMessage1"></span>
-                                       <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress2" name="savieApplicantBean.residentialAdress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
+                                       <input class="form-control gray-textbox residential residential-address optional-field" autocomplete="off" id="savieApplicantBean.residentialAdress2" name="savieApplicantBean.residentialAdress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
                                        <span class="error-msg" id="residentialAddressMessage2"></span>
-                                       <input class="form-control gray-textbox residential residential-address" autocomplete="off" id="savieApplicantBean.residentialAdress3" name="savieApplicantBean.residentialAdress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
+                                       <input class="form-control gray-textbox residential residential-address optional-field" autocomplete="off" id="savieApplicantBean.residentialAdress3" name="savieApplicantBean.residentialAdress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
                                        <span class="error-msg" id="residentialAddressMessage3"></span>
                                        <!-- <div class="selectDiv">
                                           <span class="icon-chevron-thin-down orange-caret"></span>
@@ -855,9 +855,9 @@ var home_url = "<%=request.getContextPath()%>";
                                     <div class="left-desktop text-box">
                                        <input class="form-control gray-textbox  correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress1" name="savieApplicantBean.correspondenceAdress1" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
                                        <span class="error-msg" id="corrAddressMessage1"></span>
-                                       <input class="form-control gray-textbox correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress2" name="savieApplicantBean.correspondenceAdress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
+                                       <input class="form-control gray-textbox correspondence-address optional-field" autocomplete="off" id="savieApplicantBean.correspondenceAdress2" name="savieApplicantBean.correspondenceAdress2" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
                                        <span class="error-msg" id="corrAddressMessage2"></span>
-                                       <input class="form-control gray-textbox correspondence-address" autocomplete="off" id="savieApplicantBean.correspondenceAdress3" name="savieApplicantBean.correspondenceAdress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
+                                       <input class="form-control gray-textbox correspondence-address optional-field" autocomplete="off" id="savieApplicantBean.correspondenceAdress3" name="savieApplicantBean.correspondenceAdress3" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
                                        <span class="error-msg" id="corrAddressMessage3"></small>
                                        </span>
                                        <!-- <div class="selectDiv">
@@ -2826,6 +2826,74 @@ var home_url = "<%=request.getContextPath()%>";
                      .updateStatus('tel', 'INVALID','callback');
                }
             }); */
+            //addresses fix
+            $(document).on('change', '#eliteTermsInsuredInfoForm .permanent-address.optional-field', function(e) {
+            	setTimeout(function(){
+	            	if(($('#savieApplicantBean\\.permanentAddress2').val()!='' || $('#savieApplicantBean\\.permanentAddress3').val()!='') && ($('#savieApplicantBean\\.permanentAddress2').val()!=$('#savieApplicantBean\\.permanentAddress2').attr('placeholder') || $('#savieApplicantBean\\.permanentAddress3').val()!=$('#savieApplicantBean\\.permanentAddress3').attr('placeholder'))) {
+	            		$('#eliteTermsInsuredInfoForm')
+	                    .data('bootstrapValidator')
+	                    .updateStatus('savieApplicantBean.permanentAddress1','VALID');
+	            	}
+	            	else {
+	            		$('#eliteTermsInsuredInfoForm')
+	                    .data('bootstrapValidator')
+	                    .updateStatus('savieApplicantBean.permanentAddress1','INVALID','notEmpty');
+	            	}
+            	}, 100);
+            });
+            
+            $(document).on('change', '#eliteTermsInsuredInfoForm .residential-address.optional-field', function(e) {
+            	setTimeout(function(){
+	            	if(($('#savieApplicantBean\\.residentialAdress2').val()!='' || $('#savieApplicantBean\\.residentialAdress3').val()!='') && ($('#savieApplicantBean\\.residentialAdress2').val()!=$('#savieApplicantBean\\.residentialAdress2').attr('placeholder') || $('#savieApplicantBean\\.residentialAdress3').val()!=$('#savieApplicantBean\\.residentialAdress3').attr('placeholder'))) {
+	            		$('#eliteTermsInsuredInfoForm')
+	                    .data('bootstrapValidator')
+	                    .updateStatus('savieApplicantBean.residentialAdress1','VALID');
+	            	}
+	            	else {
+	            		$('#eliteTermsInsuredInfoForm')
+	                    .data('bootstrapValidator')
+	                    .updateStatus('savieApplicantBean.residentialAdress1','INVALID','notEmpty');
+	            	}
+            	}, 100);
+            });
+            
+            $(document).on('change', '#eliteTermsInsuredInfoForm .correspondence-address.optional-field', function(e) {
+            	setTimeout(function(){
+	            	if(($('#savieApplicantBean\\.correspondenceAdress2').val()!='' || $('#savieApplicantBean\\.correspondenceAdress3').val()!='') && ($('#savieApplicantBean\\.correspondenceAdress2').val()!=$('#savieApplicantBean\\.correspondenceAdress2').attr('placeholder') || $('#savieApplicantBean\\.correspondenceAdress3').val()!=$('#savieApplicantBean\\.correspondenceAdress3').attr('placeholder'))) {
+	            		$('#eliteTermsInsuredInfoForm')
+	                    .data('bootstrapValidator')
+	                    .updateStatus('savieApplicantBean.correspondenceAdress1','VALID');
+	            	}
+	            	else {
+	            		$('#eliteTermsInsuredInfoForm')
+	                    .data('bootstrapValidator')
+	                    .updateStatus('savieApplicantBean.correspondenceAdress1','INVALID','notEmpty');
+	            	}
+            	}, 100);
+            });
+            
+            //ie fixes
+            if(msieversion() > 0) {
+            	$(document).on('change', '#et-cust-serv-form #email', function(e) {
+           			setTimeout(function(){
+	            		if($(this).parent().find('small.help-block:visible').length <= 0 && $('#et-cust-serv-form #tel').attr('placeholder')==$('#et-cust-serv-form #tel').val()) {
+	            			$('#et-cust-serv-form')
+                            .data('bootstrapValidator')
+                            .updateStatus('tel','VALID');
+	            		}
+           			}, 100);
+            	});
+            	
+            	$(document).on('change', '#et-cust-serv-form #tel', function(e) {
+           			setTimeout(function(){
+	            		if($(this).parent().find('small.help-block:visible').length <= 0 && $('#et-cust-serv-form #email').attr('placeholder')==$('#et-cust-serv-form #email').val()) {
+	            			$('#et-cust-serv-form')
+                            .data('bootstrapValidator')
+                            .updateStatus('email','VALID');
+	            		}
+           			}, 100);
+            	});
+            }
             // ^ bootstrap validation
             $('#et-cust-serv-form').bootstrapValidator({
                excluded:[],
@@ -2865,7 +2933,17 @@ var home_url = "<%=request.getContextPath()%>";
                                        message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
                                    }
                               }
-
+                               if($('#et-cust-serv-form #email').attr('placeholder')==value && $('#et-cust-serv-form #tel').attr('placeholder')==$('#et-cust-serv-form #tel').val() && msieversion() > 0) {
+                            	   return {
+                                       valid: false,
+                                       message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
+                                   }
+                               }
+                               if($('#et-cust-serv-form #tel').parent().find('small.help-block:visible').length <= 0 && $('#et-cust-serv-form #email').attr('placeholder')==value) {
+      	            				$('#et-cust-serv-form')
+                                  .data('bootstrapValidator')
+                                  .updateStatus('email','VALID');
+      	            			}	
                               // Remove Tel Error message as well
                               $('#cannotApplyTelMessage').find('.help-block[data-bv-validator="callback"][data-bv-for="tel"]').html('');
                               return true;
@@ -2888,9 +2966,19 @@ var home_url = "<%=request.getContextPath()%>";
                                    return {
                                        valid: false,
                                        message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
+                                   }                          
+                               }
+                               if($('#et-cust-serv-form #tel').attr('placeholder')==value && $('#et-cust-serv-form #email').attr('placeholder')==$('#et-cust-serv-form #email').val() && msieversion() > 0) {
+                            	   return {
+                                       valid: false,
+                                       message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
                                    }
-                              }
-
+                               }
+                               if($('#et-cust-serv-form #email').parent().find('small.help-block:visible').length <= 0 && $('#et-cust-serv-form #tel').attr('placeholder')==value) {
+       	            				$('#et-cust-serv-form')
+                                   .data('bootstrapValidator')
+                                   .updateStatus('tel','VALID');
+       	            			}	
                               // Remove Email Error message as well
                               $('#cannotApplyEmailMessage').find('.help-block[data-bv-validator="callback"][data-bv-for="email"]').html('');
                               return true;
