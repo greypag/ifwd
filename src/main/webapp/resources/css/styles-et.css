@@ -511,4 +511,35 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
 	}
 }
 
-/* */
+/* Modal Box Tel/Mobile field*/
+
+#cannot-apply-modal .modal-body form input[type="tel"],
+#cannot-apply-modal .modal-body form input[type="email"],
+#customer-service-modal .modal-body form input[type="tel"],
+#customer-service-modal .modal-body form input[type="email"]{
+	margin-top: -3px;
+	background-color: #e8eaea;
+	border: none;
+	box-shadow: none;
+	height: 40px;
+	font-size: 18px;
+	padding: 6px 20px;
+	border-radius: 0;
+}
+
+@media ( min-width : 992px) {
+	#cannot-apply-modal .modal-body form input[type="tel"],
+	#cannot-apply-modal .modal-body form input[type="email"],
+	#customer-service-modal .modal-body form input[type="tel"],
+	#customer-service-modal .modal-body form input[type="email"]{
+		width: 60%;
+		float: left;
+	}
+}
+
+#cannot-apply-modal .modal-body form input[type="tel"] :-ms-input-placeholder,
+#cannot-apply-modal .modal-body form input[type="email"] :-ms-input-placeholder,
+#customer-service-modal .modal-body form input[type="tel"] :-ms-input-placeholder,
+#customer-service-modal .modal-body form input[type="email"] :-ms-input-placeholder{
+	color: #9a9a9a;
+}

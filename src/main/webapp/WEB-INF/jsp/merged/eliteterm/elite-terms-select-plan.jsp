@@ -2339,12 +2339,12 @@ var home_url = "<%=request.getContextPath()%>";
                         </div>
                         <div class="input-items clearfix">
                            <label for="email"><fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" /></label>
-                           <input type="text" class="form-control gray-textbox" placeholder="<fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" />" id="email" name="email">
+                           <input type="email" class="form-control gray-textbox" placeholder="<fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" />" id="email" name="email">
                            <span class="error-msg" id="cannotApplyEmailMessage"></span>
                         </div>
                         <div class="input-items clearfix">
                            <label for="tel"><fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" /></label>
-                           <input type="text" class="form-control gray-textbox" placeholder="<fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" />" id="tel" name="tel">
+                           <input type="tel" class="form-control gray-textbox" placeholder="<fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" />" id="tel" name="tel" maxlength="8">
                            <span class="error-msg" id="cannotApplyTelMessage"></span>
                         </div>
                         <div class="input-items clearfix">
@@ -2883,6 +2883,11 @@ var home_url = "<%=request.getContextPath()%>";
                      container: '#cannotApplyTelMessage',
                      trigger: 'blur',
                      validators: {
+                        stringLength: {
+                           min: 8,
+                           max: 8,
+                           message: getBundle(getBundleLanguage, "member.mobileNo.notValidLength.message")
+                        },
                        	regexp: {
                               regexp: /^1[0-9]{10}$|^[5689][0-9]{7}$/, //^[5689]{3}[0-9]+$/,
                               message: '<fmt:message key="eliteTerms.selectPlan.Your.mobile.no.is.invalid" bundle="${msg}" />'
