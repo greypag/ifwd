@@ -21,6 +21,13 @@ function getEliteTermPremium() {
        keyboard: false
     });
 
+	if(getWidth()<992) {
+		setTimeout(function(){	
+			$('html, body').animate({
+				scrollTop: $('#et-plan-option-section').offset().top - 100
+			}, 1000);
+		}, 1600);
+	}
 	var dob = $('#et-select-plan-date-input').val();
 	var gender = $('input[name="et-gender"]:checked ').val();
 	var smoke = $('input[name="et-smoker"]:checked ').val();
