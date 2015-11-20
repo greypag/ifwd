@@ -557,10 +557,18 @@ function setDropArea(id) {
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
 												<label class="field-label bold-500"><key id='Overseas.userdetails.Insured.Fullname'>Full name</key></label>
-                                               <label class="field-label bold-500">Full name</label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                                  <input type="text" id="txtInsuFullName1" name="personalName" class="form-control full-control textUpper bmg_custom_placeholder" value="" onfocus="placeholderOnFocus(this,'');" onblur="placeholderOnBlur(this,''); validateName('txtInsuFullName1','errtxtPersonalFullName1',false,'insured');" onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly">
+                                                  <input type="text" id="txtInsuFullName1" name="personalName" class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
+                                                      <c:choose>
+               									          <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
+               									          value="${userDetails.fullName }" readonly="readonly"
+               									          </c:when>
+               									          <c:otherwise>
+                                                          value=""
+                                                          </c:otherwise>
+               								          </c:choose>
+                                                      onfocus="placeholderOnFocus(this,'');" onblur="placeholderOnBlur(this,''); validateName('txtInsuFullName1','errtxtPersonalFullName1',false,'insured');" onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly">
                                                  <span id="errtxtPersonalFullName1" class="text-red"></span>
                                            </div>
                                        </div>
