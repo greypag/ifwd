@@ -19,8 +19,8 @@ public class OverseaDetailsForm {
 	private String correspondenceAddressEstate;
 	private String correspondenceAddressStreetNo;
 	private String correspondenceAddressStreetName;
-	private String districtSelected;
-	private String districtSelectedDesc;
+	private String correspondenceAddressDistrict;
+	private String correspondenceAddressDistrictDesc;
 	private String applicantDistrict;
 	private String applicantDistrictDesc;
 	
@@ -32,7 +32,7 @@ public class OverseaDetailsForm {
 	private String beneficiaryIDType;
 	private String beneficiaryID;
 	
-	private String inputOverseasInsuredDob;
+	private String overseaDepartureDate;
 	private String countryOfInstitution;
 	private String nameOfInstitution;
 	private String addressofInstitutionLine1;
@@ -45,6 +45,22 @@ public class OverseaDetailsForm {
 	private String emailAddress;
 	private String applicantDob;
 	
+	public String getCorrespondenceAddressDistrict() {
+		return correspondenceAddressDistrict;
+	}
+
+	public void setCorrespondenceAddressDistrict(String correspondenceAddressDistrict) {
+		this.correspondenceAddressDistrict = correspondenceAddressDistrict;
+	}
+
+	public String getCorrespondenceAddressDistrictDesc() {
+		return correspondenceAddressDistrictDesc;
+	}
+
+	public void setCorrespondenceAddressDistrictDesc(String correspondenceAddressDistrictDesc) {
+		this.correspondenceAddressDistrictDesc = correspondenceAddressDistrictDesc;
+	}
+
 	public String getBeneficiaryFullName() {
 		return beneficiaryFullName;
 	}
@@ -248,22 +264,6 @@ public class OverseaDetailsForm {
 		this.correspondenceAddressStreetName = correspondenceAddressStreetName;
 	}
 
-	public String getDistrictSelected() {
-		return districtSelected;
-	}
-
-	public void setDistrictSelected(String districtSelected) {
-		this.districtSelected = districtSelected;
-	}
-
-	public String getDistrictSelectedDesc() {
-		return districtSelectedDesc;
-	}
-
-	public void setDistrictSelectedDesc(String districtSelectedDesc) {
-		this.districtSelectedDesc = districtSelectedDesc;
-	}
-
 	public String getApplicantDistrict() {
 		return applicantDistrict;
 	}
@@ -312,12 +312,12 @@ public class OverseaDetailsForm {
 		this.personalBeneficiary = personalBeneficiary;
 	}
 
-	public String getInputOverseasInsuredDob() {
-		return inputOverseasInsuredDob;
+	public String getOverseaDepartureDate() {
+		return overseaDepartureDate;
 	}
 
-	public void setInputOverseasInsuredDob(String inputOverseasInsuredDob) {
-		this.inputOverseasInsuredDob = inputOverseasInsuredDob;
+	public void setOverseaDepartureDate(String overseaDepartureDate) {
+		this.overseaDepartureDate = overseaDepartureDate;
 	}
 
 	public String getCountryOfInstitution() {

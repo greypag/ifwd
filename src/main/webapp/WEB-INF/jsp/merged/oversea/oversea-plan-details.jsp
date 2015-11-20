@@ -251,6 +251,22 @@ function activeDeactive(selectedValue, id) {
     }
 }
 /* END- For Benefitiary Dive active and Inactive */
+
+function setDropArea(id) {
+    $('#selectCADistHid').find('option[value="' + id + '"]').attr('selected', 'selected');
+    
+    if ($("#selectCADistHid option[value='"+id+"']").text() == "HK")
+        document.getElementById("correspondenceAddressDistrictId1").checked = true;
+    else if ($("#selectCADistHid option[value='"+id+"']").text() == "KL")
+        document.getElementById("correspondenceAddressDistrictId2").checked = true;
+    else
+        document.getElementById("correspondenceAddressDistrictId3").checked = true;
+    /* if(id != '') {
+        $("#errCADist").html('');
+        $('#applicantDistrict').removeClass('invalid-field');
+    } */
+}
+
 </script>
 
 <section class="product_header_path_container ">
@@ -315,8 +331,17 @@ function activeDeactive(selectedValue, id) {
                                    <label for="inputFullName" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Fullname'>Full name</key></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input type="text" name="fullName" class="form-control full-control textUpper bmg_custom_placeholder" id="inputFullName" value="SAME AS ID DOCUMENT" onfocus="placeholderOnFocus(this,'SAME AS ID DOCUMENT');" onblur="placeholderOnBlur(this,'SAME AS ID DOCUMENT'); validateName('inputFullName','fullnameinvalid',true,'applicant');" onkeypress="return alphaOnly(event);" maxlength="50"> <!-- <key id='Overseas.userdetails.applicant.Fullname.Same'>SAME AS ID DOCUMENT</key> -->
-                                    <span id="fullnameinvalid" class="text-red"></span>
+                                   <input type="text" name="fullName" class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" id="inputFullName" 
+                                   <c:choose>
+                                       <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
+                                       value="${userDetails.fullName }" readonly="readonly"
+                                       </c:when>
+                                       <c:otherwise>
+                                       value="SAME AS ID DOCUMENT"
+                                       </c:otherwise>
+                                   </c:choose>
+                                   onfocus="placeholderOnFocus(this,'SAME AS ID DOCUMENT');" onblur="placeholderOnBlur(this,'SAME AS ID DOCUMENT'); validateName('inputFullName','fullnameinvalid',true,'applicant');" onkeypress="return alphaOnly(event);" maxlength="50">
+                                   <span id="fullnameinvalid" class="text-red"></span>
                                </div>
                            </div>
                            <!-- english name end -->
@@ -353,7 +378,14 @@ function activeDeactive(selectedValue, id) {
                                    <label for="inputMobileNo" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Mobile'>Mobile no.</key></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <input name="mobileNo" type="tel" class="form-control full-control" value="" id="inputMobileNo" onkeypress="return isNumeric(event)" onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8">  <!-- <key id='Overseas.userdetails.applicant.Mobile.number'>Mobile no.</key> -->
+                                    <input name="mobileNo" type="tel" class="form-control full-control"
+                                        value="${userDetails.mobileNo.trim()}"
+                                       <c:choose>
+                                           <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+                                            readonly="readonly"
+                                           </c:when>
+                                       </c:choose>
+                                        id="inputMobileNo" onkeypress="return isNumeric(event)" onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8">  <!-- <key id='Overseas.userdetails.applicant.Mobile.number'>Mobile no.</key> -->
                                     <span id="errMobileNo" class="text-red">
                                     </span>
                                </div>
@@ -365,36 +397,44 @@ function activeDeactive(selectedValue, id) {
                                    <label for="inputEmailId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Email'>Email address</key></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input class="form-control full-control textLower" name="emailAddress" type="email" value="" id="inputEmailId" maxlength="50" onblur="validateEmail('inputEmailId','emailid');"> <span id="emailid" class="text-red"></span> <!-- <key id='Overseas.userdetails.applicant.Email.Error.Empty'>Please enter your email address.</key> -->
+                                   <input class="form-control full-control textLower" name="emailAddress" type="email" 
+                                       value="${userDetails.emailAddress.trim()}"
+                                       <c:choose>
+                                           <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+                                            readonly="readonly"
+                                           </c:when>
+                                       </c:choose>
+                                       id="inputEmailId" maxlength="50" onblur="validateEmail('inputEmailId','emailid');">
+                                   <span id="emailid" class="text-red"></span>
                                </div>
                            </div>
                            <!-- email address ends -->
                            <!-- relationship start -->
-		                      <div class="form-group float">
-		                          <div
-		                              class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-		                              <label class="field-label bold-500"><key
-		                                      id='Overseas.userdetails.applicant.Relationship'>Relationship<br/>
-		                                  with insured person</key></label>
-		                          </div>
-		                          <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-		                              <div class="styled-select">
-		                                  <select name="applicantRelationship" id="applicantRelationship"
-		                                      onchange="checkInsuredPerson(this.value)"
-		                                      class="form-control soflow select-label">
-		                                      <option value="SE"><key
-		                                              id='Overseas.userdetails.applicant.Relationship.Option1'>Self</key></option>
-		                                      <option value="CH"><key
-		                                              id='Overseas.userdetails.applicant.Relationship.Option2'>Children</key></option>
-		                                      <option value="LG"><key
-		                                              id='Overseas.userdetails.applicant.Relationship.Option3'>Legal
-		                                          guardian</key></option>
-		                                  </select>
-		                              </div>
-		                              <span id="errapplicantRelationship" class="text-red"></span>
-		                          </div>
-		                      </div>
-		                  <!-- relationship end -->                               
+                              <div class="form-group float">
+                                  <div
+                                      class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
+                                      <label class="field-label bold-500"><key
+                                              id='Overseas.userdetails.applicant.Relationship'>Relationship<br/>
+                                          with insured person</key></label>
+                                  </div>
+                                  <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                      <div class="styled-select">
+                                          <select name="applicantRelationship" id="applicantRelationship"
+                                              onchange="checkInsuredPerson(this.value)"
+                                              class="form-control soflow select-label">
+                                              <option value="SE"><key
+                                                      id='Overseas.userdetails.applicant.Relationship.Option1'>Self</key></option>
+                                              <option value="CH"><key
+                                                      id='Overseas.userdetails.applicant.Relationship.Option2'>Children</key></option>
+                                              <option value="LG"><key
+                                                      id='Overseas.userdetails.applicant.Relationship.Option3'>Legal
+                                                  guardian</key></option>
+                                          </select>
+                                      </div>
+                                      <span id="errapplicantRelationship" class="text-red"></span>
+                                  </div>
+                              </div>
+                          <!-- relationship end -->                               
                          </div>
                          <!-- updated responsive design end -->
                          <div class="clearfix"></div>
@@ -530,6 +570,8 @@ function activeDeactive(selectedValue, id) {
                             <!-- correspondence address ends -->
                             </div>
                         </div>
+
+
                 
                         
                         <div class="clearfix"></div>
@@ -555,7 +597,16 @@ function activeDeactive(selectedValue, id) {
                                                 <label class="field-label bold-500"><key id='Overseas.userdetails.Insured.Fullname'>Full name</key></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                                  <input type="text" id="txtInsuFullName1" name="personalName" class="form-control full-control textUpper bmg_custom_placeholder" value="" onfocus="placeholderOnFocus(this,'');" onblur="placeholderOnBlur(this,''); validateName('txtInsuFullName1','errtxtPersonalFullName1',false,'insured');" onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly">
+                                                  <input type="text" id="txtInsuFullName1" name="personalName" class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
+                                                      <c:choose>
+                                                          <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
+                                                          value="${userDetails.fullName }" readonly="readonly"
+                                                          </c:when>
+                                                          <c:otherwise>
+                                                          value=""
+                                                          </c:otherwise>
+                                                      </c:choose>
+                                                      onfocus="placeholderOnFocus(this,'');" onblur="placeholderOnBlur(this,''); validateName('txtInsuFullName1','errtxtPersonalFullName1',false,'insured');" onkeypress="return alphaOnly(event);" maxlength="100" readonly="readonly">
                                                  <span id="errtxtPersonalFullName1" class="text-red"></span>
                                            </div>
                                        </div>
@@ -682,6 +733,7 @@ function activeDeactive(selectedValue, id) {
                                 <!--</div>-->
                                 <!-- End of traveler--> 
                                 </div>
+
                                 <!-- Oversea student information-->
                                 <div class="form-wrap">
                                     <div class="big-title black-bold section-title" style="padding-left:0px !important;">
@@ -701,7 +753,7 @@ function activeDeactive(selectedValue, id) {
                                         </div>
                                     </div>
                                     
-                                    <div class="form-group">
+                                    <div class="form-group float">
                                         <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                             <label for="countryOfInstitution" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Country'>Country of Institution</key></label>
                                         </div>
@@ -720,6 +772,7 @@ function activeDeactive(selectedValue, id) {
                                             <span id="nameOfInstitutionInvalid" class="text-red"></span>
                                         </div>
                                     </div>
+
 
                                     <div class="form-group float">
                                         <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">

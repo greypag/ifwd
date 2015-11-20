@@ -57,7 +57,8 @@ public class OverseaController extends BaseController{
 	public ModelAndView getOverseaLanding(Model model, HttpServletRequest request) {
 		UserRestURIConstants.setController("Oversea");
 		request.setAttribute("controller", UserRestURIConstants.getController());
-		
+		HttpSession session = request.getSession();
+		session.removeAttribute("referralCode");
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_LANDING);
 	}
 	@RequestMapping(value = {"/{lang}/oversea-insurance/quote"})
@@ -80,7 +81,6 @@ public class OverseaController extends BaseController{
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
 					+ "/oversea-insurance");
 		}
-
 		return OverseaPageFlowControl.pageFlow(model, request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_QUOTE);
 	}
 	@RequestMapping(value = {"/{lang}/oversea-insurance/details"})
@@ -273,13 +273,8 @@ public class OverseaController extends BaseController{
         }        
         model.addAttribute("errormsg", errorMsg);        
         model.addAttribute("referralCode", session.getAttribute("referralCode"));
-        //model.addAttribute(session.getAttribute("createPolicy"));
+        model.addAttribute(session.getAttribute("createPolicy"));
         
-        String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
-		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanSummary", UserRestURIConstants.getLanaguage(request));
-		model.addAttribute("pageTitle", pageTitle);
-		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
-		
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_SUMMARY);
 	}
 	@SuppressWarnings("unchecked")
@@ -317,8 +312,8 @@ public class OverseaController extends BaseController{
 				model.addAttribute("emailAddress", session.getAttribute("emailAddress"));
 				model.addAttribute("dueAmount", session.getAttribute("dueAmount"));
 				model.addAttribute("referralCode", session.getAttribute("referralCode"));
-				String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
-				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
+				String pageTitle = WebServiceUtils.getPageTitle("page.oversea.confirmation", UserRestURIConstants.getLanaguage(request));
+				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.oversea.confirmation", UserRestURIConstants.getLanaguage(request));
 				model.addAttribute("pageTitle", pageTitle);
 				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 				return new ModelAndView(UserRestURIConstants.getSitePath(request)
@@ -355,8 +350,8 @@ public class OverseaController extends BaseController{
 				session.removeAttribute("upgradeCreateFlightPolicy");
 				session.removeAttribute("upgradeSelectPlanName");
 				session.removeAttribute("upgradeDueAmount");
-				session.removeAttribute("annualTravelQuote");
-				session.removeAttribute("travelCreatePolicy");
+				//session.removeAttribute("annualTravelQuote");
+				session.removeAttribute("overseaCreatePolicy");
 				session.removeAttribute("travel-temp-save");
 				session.setAttribute("policyNo", responsObject.get("policyNo"));
 				model.addAttribute("policyNo", responsObject.get("policyNo"));
@@ -364,12 +359,8 @@ public class OverseaController extends BaseController{
 						session.getAttribute("emailAddress"));
 				model.addAttribute("referralCode",
 						session.getAttribute("referralCode"));
-				String pageTitle = WebServiceUtils.getPageTitle("page.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
-				String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.travelPlanConfirmation", UserRestURIConstants.getLanaguage(request));
-				session.removeAttribute("referralCode");  // vincent - remove session attribute "referral code" if success
+				session.removeAttribute("referralCode");
 				model.addAttribute("utm_nooverride", 1);
-				model.addAttribute("pageTitle", pageTitle);
-				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 				return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_CONFIRMATION);
 			} else {
 				if (responsObject.get("errMsgs").toString().contains("invalid payment amount")) {

@@ -622,6 +622,18 @@ $(function () {
 		$(this).removeClass("invalid-field");
 	});
 	
+	$('#oversea_departure_date').datepicker({
+		beforeShowDay: function (date) {
+			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from_travel;
+		},
+		autoclose: true,
+		todayHighlight: true,
+		format: "dd-mm-yyyy",
+	}).on('changeDate', function (ev) {
+		$(this).next().html("");
+		$(this).removeClass("invalid-field");
+	});
+	
 	$('#input_annual_dob').datepicker({
 		startView: "decade",
 		autoclose: true,

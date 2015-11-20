@@ -2015,12 +2015,15 @@ public class TravelController {
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
 		if (planCode == null)
 			planCode = "TRAVELCARE";
-		if (planCode.toUpperCase().equals("HOMECARE"))
+		if (planCode.toUpperCase().equals("HOMECARE")) {
 		
 		// String referalCOde = session.getAttribute("referralCode").toString();
 			mailed = sendEmail.sendEmail(emailToSendPromoCode, "ECHOME", header);
-		else
+		}else if(planCode.toUpperCase().equals("OVERSEACARE")) {
+			mailed = sendEmail.sendEmail(emailToSendPromoCode, "ABCDE", header);
+		}else {
 			mailed = sendEmail.sendEmail(emailToSendPromoCode, "TRA123", header);
+		}
 		if (mailed) {
 			return "success";
 		} else {
