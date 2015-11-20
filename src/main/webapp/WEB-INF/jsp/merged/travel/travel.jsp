@@ -818,7 +818,7 @@ function getParameterByUrl(name){
     </li>
    <ul class="travel-promo-tnc bullets">
        <li>
-          <p class="h4-5"><fmt:message key="special.promotion.copy1.1" bundle="${msg}" /> <fmt:message key="special.promotion.copy1.2" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="special.promotion.copy1.2.1.url" bundle="${msg}" />"><fmt:message key="special.promotion.copy1.2.1" bundle="${msg}" /></a> <fmt:message key="special.promotion.copy1.2.2" bundle="${msg}" /></p>
+          <p class="h4-5"><fmt:message key="special.promotion.copy1.1" bundle="${msg}" /> <fmt:message key="special.promotion.copy1.2" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="special.promotion.copy1.2.1.url" bundle="${msg}" />" target="_blank"><fmt:message key="special.promotion.copy1.2.1" bundle="${msg}" /></a> <fmt:message key="special.promotion.copy1.2.2" bundle="${msg}" /></p>
        </li>
        <!--<li>
            <p class="h4-5"><fmt:message key="y5buddy.copy1.2" bundle="${msg}" />
