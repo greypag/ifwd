@@ -80,6 +80,7 @@
     .plan-item .plan-item-cols p{
         font-size: 18px;
         font-weight: bold;
+        line-height: 1.2;
     }
     
     .plan-item .plan-item-cols{
@@ -528,7 +529,7 @@
                                  <tbody>
                                  <c:forEach items="${policiesLife}" var="i" varStatus="obj">
                                     <tr <c:if test="${obj.count%2 == '0'}">class="odd"</c:if><c:if test="${obj.count%2 != '0'}">class="even"</c:if>>
-                                        <td>Elite term</td>
+                                        <td>${i.planCode}</td>
                                         <td>${i.policyNumber}</td>
                                         <td>
 	                                        <c:if test="${i.documentUploaded == 'true'}">${i.submissionDate}<br/>${i.status}</c:if>
