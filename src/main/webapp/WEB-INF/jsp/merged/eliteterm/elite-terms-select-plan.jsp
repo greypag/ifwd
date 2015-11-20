@@ -2129,6 +2129,12 @@ var home_url = "<%=request.getContextPath()%>";
                                  <p class="notice"><fmt:message key="eliteTerms.selectPlan.I.DO.NOT.have.an" bundle="${msg}" />
                                  </p>
                               </div>
+                              <div class="fwd-checkbox below">
+                                 <input type="checkbox" id="summary-five" checked disabled>
+                                 <label for="summary-five"></label>
+                                 <p class="notice"><fmt:message key="eliteTerms.selectPlan.summary.acknowledgement.copy" bundle="${msg}" />
+                                 </p>
+                              </div>
                            </div>
                            <!-- UNDERWRITING SUMMARY -->
                            
