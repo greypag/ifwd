@@ -26,7 +26,7 @@ function getEliteTermPremium() {
 			$('html, body').animate({
 				scrollTop: $('#et-plan-option-section').offset().top - 100
 			}, 1000);
-		}, 1600);
+		}, 2000);
 	}
 	var dob = $('#et-select-plan-date-input').val();
 	var gender = $('input[name="et-gender"]:checked ').val();
