@@ -163,6 +163,7 @@ public class EliteTermController extends BaseController{
 				eliteTermPolicy.setPolicyNo(policyNumber);
 				request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
 			}else{
+				request.getSession().setAttribute("policyUserName", null);
 				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
 				if(eliteTermPolicy == null){
 					return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)

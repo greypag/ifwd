@@ -582,7 +582,9 @@ var languageP = "${language}";
     					$('#loginpopup').modal('show');
     				}else{
     					if(policyUserName != null && policyUserName != '' && policyUserName != userName){
-    						window.location.href= '<%=request.getContextPath()%>/${language}/term-life-insurance';
+    						 $("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.not.valid.user'));
+    						$('#error-to-home-modal').modal('show'); 
+    				         
     					}
     				}
             	}
@@ -610,7 +612,6 @@ var languageP = "${language}";
                window.location.href = url;
             }
          });*/
-         
          $(document).ready(function() {
         	 if('${sendEmailOrNot}' == null || '${sendEmailOrNot}' != 'yes'){
         		 ga('ecommerce:addItem', {
