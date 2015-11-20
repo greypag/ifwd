@@ -243,7 +243,8 @@ function validateOverseaDetails(form, formId, language) {
 	
 	var building = $("#correspondenceAddressBuildingId").val();
 	var estate = $("#correspondenceAddressEstateId").val();
-	var insuredDob = $("#overseaDepartureDate").val();
+	//var insuredDob = $("#overseaDepartureDate").val();
+	var insuredDob = $("#inputOverseasInsuredDob").val();
 	var countryOfInstitution = $("#countryOfInstitution").val();
 	var nameOfInstitution = $("#nameOfInstitution").val();
 	var addressline1 = $("#addressofInstitutionLine1").val();
@@ -629,7 +630,6 @@ function prepareOverseaQuote() {
 
 
 function setDropArea(id) {
-		console.log('setDropArea');
 		$('#selectCADistHid').find('option[value="' + id + '"]').attr(
 				'selected', 'selected');
 

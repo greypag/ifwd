@@ -519,22 +519,6 @@ function setDropArea(id) {
                                         <label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.NT'>N.T.</key></label>
                                     </div>
                                 </div>                                                          
-                                <div class="hidden">
-                                    <select name="applicantDistrictHid"
-                                        class="form-control soflow full-control" id="selectCADistHid">
-                                        <option value=""></option>
-                                        <%
-                                            List lst1 = (List) request.getAttribute("districtList");
-                                                Iterator itr1 = lst1.iterator();
-                                                while (itr1.hasNext()) {
-                                                    DistrictBean districtList = (DistrictBean) itr1.next();
-                                        %>
-                                        <option value="<%=districtList.getCode()%>"><%=districtList.getArea()%></option>
-                                        <%
-                                            }
-                                        %>
-                                    </select>
-                                </div>
                                 <span id="errCADist" class="text-red"> </span>
                             </div>
                             <div class="form-group float">
@@ -559,6 +543,22 @@ function setDropArea(id) {
                                         </select>
                                         
                                     </div>
+                                 <div class="hidden">
+                                    <select name="applicantDistrictHid"
+                                        class="form-control soflow full-control" id="selectCADistHid">
+                                        <option value=""></option>
+                                        <%
+                                            List lst1 = (List) request.getAttribute("districtList");
+                                                Iterator itr1 = lst1.iterator();
+                                                while (itr1.hasNext()) {
+                                                    DistrictBean districtList = (DistrictBean) itr1.next();
+                                        %>
+                                        <option value="<%=districtList.getCode()%>"><%=districtList.getArea()%></option>
+                                        <%
+                                            }
+                                        %>
+                                    </select>
+                                </div>                                   
                                     <span id="errpersonalselectBenificiary1" class="text-red"></span>
                                 </div>                          
                             </div>
