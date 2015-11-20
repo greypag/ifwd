@@ -185,12 +185,14 @@ var languageP = "${language}";
 															<span class="mobile-camera"></span>
 														</label>
 													</div>
+													<!--[if lte IE 9]>
 													<div class="desk hidden-xs hidden-sm">
 														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
 													<div class="mob-desk">
 														<span class="OR"><fmt:message key="eliteTerms.documentUpload.or" bundle="${msg}" /></span>
 													</div>
+													<![endif]-->
 													<div class="mob-desk">
 														<label for="hkidFileToUpload" class="orange-select-file">
 															<input type="file" id="hkidFileToUpload" accept="image/jpeg,image/jpg,image/png" onchange="fileSelected('hkid-copy-progress','hkidFileToUpload','hkid-docu-filename','hkid-docu-fileSize','finish-upload-hkid','hkid-upload-percent-text','hkid-upload-progress-bar','', '#et-hkid-file-message');">
@@ -254,12 +256,14 @@ var languageP = "${language}";
 															<span class="mobile-camera"></span>
 														</label>
 													</div>
+													<!--[if lte IE 9]>
 													<div class="desk hidden-xs hidden-sm">
 														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
 													<div class="mob-desk">
 														<span class="OR"><fmt:message key="eliteTerms.documentUpload.or" bundle="${msg}" /></span>
 													</div>
+													<![endif]-->
 													<div class="mob-desk">
 														<label for="passportFileToUpload" class="orange-select-file">
 															<input type="file" id="passportFileToUpload" accept="image/jpeg,image/jpg,image/png" onchange="fileSelected('passport-copy-progress','passportFileToUpload','passport-docu-filename','passport-docu-fileSize','finish-upload-passport','passport-upload-percent-text','passport-upload-progress-bar','', '#et-passport-file-message');">
@@ -323,12 +327,14 @@ var languageP = "${language}";
 															<span class="mobile-camera"></span>
 														</label>
 													</div>
+													<!--[if lte IE 9]>
 													<div class="desk hidden-xs hidden-sm">
 														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
 													<div class="mob-desk">
 														<span class="OR"><fmt:message key="eliteTerms.documentUpload.or" bundle="${msg}" /></span>
 													</div>
+													<![endif]-->
 													<div class="mob-desk">
 														<label for="fileToUploadProofAdd" class="orange-select-file">
 															<input type="file" id="fileToUploadProofAdd" accept="image/jpeg,image/jpg,image/png" onchange="fileSelected('proof-of-address-progress','fileToUploadProofAdd','address-docu-filename','address-docu-fileSize','finish-upload-addr','docu-upload-percent-text','document-upload-progress-bar','', '#et-address-file-message');">
