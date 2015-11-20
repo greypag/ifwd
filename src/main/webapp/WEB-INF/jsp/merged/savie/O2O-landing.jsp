@@ -83,7 +83,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<ul class="crediting-rate-list clearfix">
 									<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.First.year" bundle="${msg}" /></span></li>
 									<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Second.year" bundle="${msg}" /></span><div class="white right"></div></li>
-									<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Third.year" bundle="${msg}" /></span></li>
+									<li><span class="percent gold">3.3% </span><span class="year gold"><fmt:message key="savie.o2o.landing.Third.year" bundle="${msg}" /></span></li>
 								</ul>
 							</div>
 						</div>
