@@ -336,20 +336,20 @@ Vietnam
 						<c:forEach begin="0" end="4" var="h" step="4">
 							<div id="region${h==4?1:0}" <c:if test="${h==4}">class="region-box-hidden"</c:if>>
 								<div class="plan-box-l plan-box-title oversea_productbox_title plan-display-desktop-only">
-									<div class="" style="margin-bottom: 20px;">                           
+									<div class="" style="">                           
 										<h2>Plans</h2>
 									</div>
 									<div class="clearfix"></div>
 								</div>
 	
 								<div class="plan-box-s plan-box-title oversea_productbox_title plan-display-desktop-only">
-									<div class="" style="margin-bottom: 20px;">                           
+									<div class="" style="">                           
 										<h2><key id='Overseas.PlanOptions.Plans.table1.col2.header'>Plan A</key></h2>
 									</div>
 									<div class="clearfix"></div>
 								</div>
 								<div class="plan-box-s plan-box-title oversea_productbox_title plan-display-desktop-only plan-flow-r-mobile-only">
-									<div class="" style="margin-bottom: 20px;">                           
+									<div class="" style="">                           
 										<h2><key id='Overseas.PlanOptions.Plans.table1.col3.header'>Plan B</key></h2>
 									</div>
 									<div class="clearfix"></div>
@@ -359,13 +359,13 @@ Vietnam
 								<c:forEach begin="${h }" end="${h+2 }" var="i" step="2">
 									<c:set var="j" value="${h==4 ? (i==4 ? 0 : 4) : i}" />
 									<div class="plan-box-l oversea_productbox_subtitle<c:if test="${h == 0}"> plan-flow-l-mobile-only</c:if>">
-										<div class="" style="margin-bottom: 20px;">                           
+										<div class="" style="">                           
 											<h2><key id='Overseas.PlanOptions.Plans.table1.col1row2<c:if test="${h == 4}">.ver2</c:if>'><fmt:message key="oversea.quote.coverage${i }" bundle="${msg}" /></key></h2>
 										</div>
 										<div class="clearfix"></div>
 									</div>
 									<div class="plan-box-s travelproductbox oversea_productbox<c:if test="${h == 0}"> plan-flow-l-mobile-only pad-right-des</c:if>" id="box${i}" onClick="changeColorAndPrice('box${i}','${i}','txtPlanName${i}','txtDiscountAmount${i}','txtTotalDue${i}')">
-										<div class="" style="margin-bottom: 20px;">
+										<div class="" style="">
 											<h3 class="plan-display-mobile-only"><key id='Overseas.PlanOptions.Plans.table1.col2.header'>Plan A</key></h3>
 											<h2>HK$ <span id="total${i}">${quoteDetails.totalNetPremium[j] }0</span></h2>
 										</div>
@@ -377,7 +377,7 @@ Vietnam
 		                            <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount${i}" value="${quoteDetails.discountAmount[j] }">
 								
 									<div class="plan-box-s travelproductbox oversea_productbox plan-flow-r-mobile-only pad-left-des" id="box${i+1}" onClick="changeColorAndPrice('box${i+1}','${i+1}','txtPlanName${i+1}','txtDiscountAmount${i+1}','txtTotalDue${i+1}')">
-										<div class="" style="margin-bottom: 20px;">
+										<div class="" style="">
 											<h3 class="plan-display-mobile-only"><key id='Overseas.PlanOptions.Plans.table1.col2.header'>Plan B</key></h3>
 											<h2>HK$ <span id="total${i+1}">${quoteDetails.totalNetPremium[j+1] }0</span></h2>
 										</div>
@@ -448,7 +448,7 @@ Vietnam
 								<key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2.Amount'>Up to HK$2,000,000</key>
                             </div>
                             <div class="sub-link"  onclick="coverageToogle()">
-								<key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit.tooltip'>Worldwide Comprehensive medical plan A Benefit 2 Tool tip</key>
+                                <a data-toggle="tooltip" title="Worldwide Comprehensive medical plan A Benefit 2"><img src="/fwdhk/resources/images/annual_travel/i-icon.png" style="display:inline"></a>
 							</div>
                         </div>
                         
