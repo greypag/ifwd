@@ -10,7 +10,7 @@
 	/* Legacy iOS */
 }
 
-@font-face {
+@font-face { 
 	font-family: 'foco_bold';
 	src: url("../fonts/Foco-Bold_gdi.eot");
 	/* IE9 Compat Modes */
@@ -74,18 +74,22 @@ body.chin .bold{
 
 ::-webkit-input-placeholder {
 	font-family: Calibri, sans-serif !important;
+	font-size: 18px !important;
 }
 
 :-moz-placeholder { /* Firefox 18- */
 	font-family: Calibri, sans-serif !important;
+	font-size: 18px !important;
 }
 
 ::-moz-placeholder { /* Firefox 19+ */
 	font-family: Calibri, sans-serif !important;
+	font-size: 18px !important;
 }
 
 :-ms-input-placeholder {
 	font-family: Calibri, sans-serif !important;
+	font-size: 18px !important;
 }
 
 /*ET fix*/
@@ -314,17 +318,20 @@ label {
 :-moz-placeholder {
 	/* Firefox 18- */
 	color: #C4C3C3 !important;
+	font-size: 18px !important;
 }
 
 /* line 209, ../sass/partials/_common.scss */
 ::-moz-placeholder {
 	/* Firefox 19+ */
 	color: #C4C3C3 !important;
+	font-size: 18px !important;
 }
 
 /* line 213, ../sass/partials/_common.scss */
 :-ms-input-placeholder {
 	color: #C4C3C3 !important;
+	font-size: 18px !important;
 }
 
 /* line 18, ../sass/partials/_header.scss */
