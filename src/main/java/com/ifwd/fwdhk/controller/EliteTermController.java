@@ -150,18 +150,13 @@ public class EliteTermController extends BaseController{
 			String policyNumber = (String) request.getParameter("policyNumber");
 			if(StringUtils.isNotEmpty(policyNumber)){
 				policyNumber = new String(new sun.misc.BASE64Decoder().decodeBuffer(policyNumber));
-				if(eliteTermService.checkIsDocumentUpload(request,policyNumber)){
-					return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_DOCUMENT_UPLOAD);
+				if(!eliteTermService.checkIsDocumentUpload(request,policyNumber)){
+					String userName = eliteTermService.getPolicyUserName(request,policyNumber);
+					request.getSession().setAttribute("policyUserName", userName);
+					CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
+					eliteTermPolicy.setPolicyNo(policyNumber);
+					request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
 				}
-				String userName = eliteTermService.getPolicyUserName(request,policyNumber);
-				request.getSession().setAttribute("policyUserName", userName);
-				if(StringUtils.isEmpty(userName)){
-					return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-							+ "/"+UserRestURIConstants.URL_ELITE_TERMS_LANDING);
-				}
-				CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
-				eliteTermPolicy.setPolicyNo(policyNumber);
-				request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
 			}else{
 				request.getSession().setAttribute("policyUserName", null);
 				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
@@ -170,10 +165,7 @@ public class EliteTermController extends BaseController{
 							+ "/"+UserRestURIConstants.URL_ELITE_TERMS_LANDING);
 				}
 				policyNumber = eliteTermPolicy.getPolicyNo();
-				if(eliteTermService.checkIsDocumentUpload(request,policyNumber)){
-					return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-							+ "/"+UserRestURIConstants.URL_ELITE_TERMS_LANDING);
-				}
+				eliteTermService.checkIsDocumentUpload(request,policyNumber);
 			}		
 		} catch (Exception e) {
 			e.printStackTrace();
