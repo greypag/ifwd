@@ -949,17 +949,29 @@ public class EliteTermServiceImpl implements EliteTermService {
 	
 
 	public boolean checkIsDocumentUpload(HttpServletRequest request,String policyNumber){
-		boolean flage=false;
 		String relationshipCode = UserRestURIConstants.GET_IS_UPLOAD
 				+ "?policyNo="+policyNumber;
 		Map<String,String> header = headerUtil.getHeader(request);
 		org.json.simple.JSONObject jsonRelationShipCode = restService.consumeApi(
 				HttpMethod.GET, relationshipCode, header, null);
+		String errMsgs = (String) jsonRelationShipCode.get("errMsgs");
+		if(StringUtils.isNotEmpty(errMsgs)){
+			request.getSession().setAttribute("errorMessageType", errMsgs);
+			return true;
+		}
 		org.json.simple.JSONArray policy = (org.json.simple.JSONArray) jsonRelationShipCode.get("uploadedDocuments");
 		if (policy.size() > 0) {
-			flage = true;
+			request.getSession().setAttribute("errorMessageType", "alreadyUploaded");
+			return true;
 		}
-		return flage;
+		long commencementDate = (long) jsonRelationShipCode.get("commencementDate");
+		Date date = new Date();
+		long days = (date.getTime()-commencementDate) / (1000 * 60 * 60 * 24);
+		if(days > 30){
+			request.getSession().setAttribute("errorMessageType", "UrlExpired");
+			return true;
+		}
+		return false;
 	}
 	
 	@Override

@@ -414,6 +414,35 @@ var languageP = "${language}";
 
             </div>
          </div>
+         
+         <div id="error-to-home-modal" class="modal fade fwd-generic-modal back-to-home" role="dialog" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog">
+           <%--      <div class="modal-content" align="center">
+                  <div class="modal-body" style="color:#fc6d08">
+                     <p><fmt:message key="eliteTerms.selectPlan.successfully.submitted" bundle="${msg}" /></p>	
+                  </div>
+                  <div>
+                     <button type="button" class="btn btn-orange et-next-btn et-pad-bot-50" id="et-select-plan-go-homepage" data-dismiss="modal"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button>
+                  </div>
+               </div> --%>
+
+               
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h4 class="modal-title" id="error-to-home-modal-errorMessage">system error.</h4>
+                  </div>
+                     
+                  <div class="modal-body"></div>
+                  
+                  <div class="modal-footer">
+                     <a href="<%=request.getContextPath()%>/${language}/term-life-insurance" title="Back to homepage" class="btn-block"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></a> 
+                     <%-- <button type="button" class="btn btn-orange et-next-btn et-pad-bot-50" id="et-select-plan-go-homepage" data-dismiss="modal"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button> --%>
+                  </div>
+                  <br/>
+               </div>
+
+            </div>
+         </div>
 		<!-- JS INCLUDES -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-dropzone.js"></script>
@@ -527,25 +556,36 @@ var languageP = "${language}";
                 return isValid;
             }
             $(function() {
-            	var userName = "${username}";
-            	var policyUserName = "${policyUserName}";
-            	if(policyUserName != null && policyUserName != ''){
-    				$('#et-upload-now').hide();
-    				$('#et-upload-later').hide();
-    				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
-        				$('#loginpopup').modal({backdrop: 'static', keyboard: false});
-        				$('#loginpopup').find(".close").hide(); 
-        				$('#loginpopup').find(".text-left").hide(); 
+            	var errorMessageType = "${errorMessageType}";
+            	if(errorMessageType != null && errorMessageType != '' && errorMessageType != 'null' ){
+            		if(errorMessageType == 'alreadyUploaded'){
+            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.alreadyUploaded'));
+            		}else if(errorMessageType == 'UrlExpired' ){
+            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,'et.document.upload.UrlExpired'));
+            		}else{
+            			$("#error-to-home-modal-errorMessage").html(getBundle(getBundleLanguage,errorMessageType));
+            		}
+                	$('#error-to-home-modal').modal('show');
+            	}else{
+            		var userName = "${username}";
+                	var policyUserName = "${policyUserName}";
+                	if(policyUserName != null && policyUserName != ''){
+        				$('#et-upload-now').hide();
+        				$('#et-upload-later').hide();
+        				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
+            				$('#loginpopup').modal({backdrop: 'static', keyboard: false});
+            				$('#loginpopup').find(".close").hide(); 
+            				$('#loginpopup').find(".text-left").hide(); 
+        				}
     				}
-				}
-				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
-					$('#loginpopup').modal('show');
-				}else{
-					if(policyUserName != null && policyUserName != '' && policyUserName != userName){
-						window.location.href= '<%=request.getContextPath()%>/${language}/term-life-insurance';
-					}
-				}
-				
+    				if(!("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI")){
+    					$('#loginpopup').modal('show');
+    				}else{
+    					if(policyUserName != null && policyUserName != '' && policyUserName != userName){
+    						window.location.href= '<%=request.getContextPath()%>/${language}/term-life-insurance';
+    					}
+    				}
+            	}
 			});
             
             function checkLogin() {

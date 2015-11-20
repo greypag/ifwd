@@ -151,8 +151,7 @@ public class EliteTermController extends BaseController{
 			if(StringUtils.isNotEmpty(policyNumber)){
 				policyNumber = new String(new sun.misc.BASE64Decoder().decodeBuffer(policyNumber));
 				if(eliteTermService.checkIsDocumentUpload(request,policyNumber)){
-					return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-							+ "/"+UserRestURIConstants.URL_ELITE_TERMS_LANDING);
+					return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_DOCUMENT_UPLOAD);
 				}
 				String userName = eliteTermService.getPolicyUserName(request,policyNumber);
 				request.getSession().setAttribute("policyUserName", userName);
