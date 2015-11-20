@@ -19,8 +19,8 @@ public class OverseaDetailsForm {
 	private String correspondenceAddressEstate;
 	private String correspondenceAddressStreetNo;
 	private String correspondenceAddressStreetName;
-	private String districtSelected;
-	private String districtSelectedDesc;
+	private String correspondenceAddressDistrict;
+	private String correspondenceAddressDistrictDesc;
 	private String applicantDistrict;
 	private String applicantDistrictDesc;
 	
@@ -45,6 +45,22 @@ public class OverseaDetailsForm {
 	private String emailAddress;
 	private String applicantDob;
 	
+	public String getCorrespondenceAddressDistrict() {
+		return correspondenceAddressDistrict;
+	}
+
+	public void setCorrespondenceAddressDistrict(String correspondenceAddressDistrict) {
+		this.correspondenceAddressDistrict = correspondenceAddressDistrict;
+	}
+
+	public String getCorrespondenceAddressDistrictDesc() {
+		return correspondenceAddressDistrictDesc;
+	}
+
+	public void setCorrespondenceAddressDistrictDesc(String correspondenceAddressDistrictDesc) {
+		this.correspondenceAddressDistrictDesc = correspondenceAddressDistrictDesc;
+	}
+
 	public String getBeneficiaryFullName() {
 		return beneficiaryFullName;
 	}
@@ -246,22 +262,6 @@ public class OverseaDetailsForm {
 	public void setCorrespondenceAddressStreetName(
 			String correspondenceAddressStreetName) {
 		this.correspondenceAddressStreetName = correspondenceAddressStreetName;
-	}
-
-	public String getDistrictSelected() {
-		return districtSelected;
-	}
-
-	public void setDistrictSelected(String districtSelected) {
-		this.districtSelected = districtSelected;
-	}
-
-	public String getDistrictSelectedDesc() {
-		return districtSelectedDesc;
-	}
-
-	public void setDistrictSelectedDesc(String districtSelectedDesc) {
-		this.districtSelectedDesc = districtSelectedDesc;
 	}
 
 	public String getApplicantDistrict() {

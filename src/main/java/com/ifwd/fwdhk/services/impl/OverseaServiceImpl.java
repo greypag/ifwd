@@ -350,8 +350,8 @@ public class OverseaServiceImpl implements OverseaService {
 		correspondenceAddress.put("estate", planDetailsForm.getCorrespondenceAddressEstate());
 		correspondenceAddress.put("streetNo", planDetailsForm.getCorrespondenceAddressStreetNo());
 		correspondenceAddress.put("streetName", planDetailsForm.getCorrespondenceAddressStreetName());
-		correspondenceAddress.put("district", planDetailsForm.getDistrictSelected());
-		correspondenceAddress.put("area", planDetailsForm.getApplicantDistrict());
+		correspondenceAddress.put("district", planDetailsForm.getApplicantDistrict());
+		correspondenceAddress.put("area", planDetailsForm.getCorrespondenceAddressDistrict());
 		parameters.put("correspondenceAddress", correspondenceAddress);
 
 		parameters.put("externalParty", "");

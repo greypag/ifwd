@@ -251,6 +251,22 @@ function activeDeactive(selectedValue, id) {
     }
 }
 /* END- For Benefitiary Dive active and Inactive */
+
+function setDropArea(id) {
+	$('#selectCADistHid').find('option[value="' + id + '"]').attr('selected', 'selected');
+	
+	if ($("#selectCADistHid option[value='"+id+"']").text() == "HK")
+        document.getElementById("correspondenceAddressDistrictId1").checked = true;
+    else if ($("#selectCADistHid option[value='"+id+"']").text() == "KL")
+        document.getElementById("correspondenceAddressDistrictId2").checked = true;
+    else
+        document.getElementById("correspondenceAddressDistrictId3").checked = true;
+	/* if(id != '') {
+		$("#errCADist").html('');
+		$('#applicantDistrict').removeClass('invalid-field');
+	} */
+}
+
 </script>
 
 <section class="product_header_path_container ">
@@ -315,8 +331,17 @@ function activeDeactive(selectedValue, id) {
                                    <label for="inputFullName" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Fullname'>Full name</key></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input type="text" name="fullName" class="form-control full-control textUpper bmg_custom_placeholder" id="inputFullName" value="SAME AS ID DOCUMENT" onfocus="placeholderOnFocus(this,'SAME AS ID DOCUMENT');" onblur="placeholderOnBlur(this,'SAME AS ID DOCUMENT'); validateName('inputFullName','fullnameinvalid',true,'applicant');" onkeypress="return alphaOnly(event);" maxlength="50"> <!-- <key id='Overseas.userdetails.applicant.Fullname.Same'>SAME AS ID DOCUMENT</key> -->
-                                    <span id="fullnameinvalid" class="text-red"></span>
+                                   <input type="text" name="fullName" class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" id="inputFullName" 
+                                   <c:choose>
+									   <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
+									   value="${userDetails.fullName }" readonly="readonly"
+									   </c:when>
+									   <c:otherwise>
+                                       value="SAME AS ID DOCUMENT"
+                                       </c:otherwise>
+								   </c:choose>
+                                   onfocus="placeholderOnFocus(this,'SAME AS ID DOCUMENT');" onblur="placeholderOnBlur(this,'SAME AS ID DOCUMENT'); validateName('inputFullName','fullnameinvalid',true,'applicant');" onkeypress="return alphaOnly(event);" maxlength="50">
+                                   <span id="fullnameinvalid" class="text-red"></span>
                                </div>
                            </div>
                            <!-- english name end -->
@@ -353,7 +378,14 @@ function activeDeactive(selectedValue, id) {
                                    <label for="inputMobileNo" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Mobile'>Mobile no.</key></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <input name="mobileNo" type="tel" class="form-control full-control" value="" id="inputMobileNo" onkeypress="return isNumeric(event)" onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8">  <!-- <key id='Overseas.userdetails.applicant.Mobile.number'>Mobile no.</key> -->
+                                    <input name="mobileNo" type="tel" class="form-control full-control"
+                                        value="${userDetails.mobileNo.trim()}"
+                                       <c:choose>
+										   <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+										    readonly="readonly"
+										   </c:when>
+									   </c:choose>
+                                        id="inputMobileNo" onkeypress="return isNumeric(event)" onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8">  <!-- <key id='Overseas.userdetails.applicant.Mobile.number'>Mobile no.</key> -->
                                     <span id="errMobileNo" class="text-red">
                                     </span>
                                </div>
@@ -365,7 +397,15 @@ function activeDeactive(selectedValue, id) {
                                    <label for="inputEmailId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Email'>Email address</key></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input class="form-control full-control textLower" name="emailAddress" type="email" value="" id="inputEmailId" maxlength="50" onblur="validateEmail('inputEmailId','emailid');"> <span id="emailid" class="text-red"></span> <!-- <key id='Overseas.userdetails.applicant.Email.Error.Empty'>Please enter your email address.</key> -->
+                                   <input class="form-control full-control textLower" name="emailAddress" type="email" 
+                                       value="${userDetails.emailAddress.trim()}"
+                                       <c:choose>
+										   <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
+										    readonly="readonly"
+										   </c:when>
+									   </c:choose>
+                                       id="inputEmailId" maxlength="50" onblur="validateEmail('inputEmailId','emailid');">
+                                   <span id="emailid" class="text-red"></span>
                                </div>
                            </div>
                            <!-- email address ends -->
@@ -434,24 +474,8 @@ function activeDeactive(selectedValue, id) {
 									<label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.District'>District</key></label>
 								</div>
 								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none district-btn-grp">
-									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-										<input type="radio" name="districtSelected" name="correspondenceAddressDistrict" type="" value="HK" id="correspondenceAddressDistrictId1" onclick="addDistrictList('HK')" maxlength="50" onblur=""><span id="" class="text-red"></span>
-										<label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.HongKong'>HK</key></label>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-										<input type="radio" name="districtSelected" name="correspondenceAddressDistrict" type="" value="KLN" id="correspondenceAddressDistrictId2" onclick="addDistrictList('KLN')" maxlength="50" onblur=""><span id="" class="text-red"></span>
-										<label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Kowloon'>KLN</key></label>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-										<input type="radio" name="districtSelected" name="correspondenceAddressDistrict" type="" value="NT" onclick="addDistrictList('NT')" id="correspondenceAddressDistrictId3" maxlength="50" onblur=""><span id="" class="text-red"></span>
-										<label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.NT'>N.T.</key></label>
-									</div>
-								</div>															
-							</div>
-							<div class="form-group float">
-								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none pull-right">
 									<div class="styled-select">
-										<select name="applicantDistrict" id="applicantDistrict" onchange="activeDiv('personalbenificiaryId1','personalselectBenificiary1', 'personalBenefitiaryId1', 'personalBenefitiaryHKId1')" class="form-control soflow select-label">
+										<select name="applicantDistrict" id="applicantDistrict" onchange="setDropArea(this.value)" class="form-control soflow select-label">
 										    <option value=""><fmt:message key="annual.details.address.district" bundle="${msg}" /></option>
 										    <%
 												List lst = (List) request.getAttribute("districtList");
@@ -466,8 +490,41 @@ function activeDeactive(selectedValue, id) {
 											%>
 										</select>
 									</div>
-									<span id="errpersonalselectBenificiary1" class="text-red"></span>
+									<div class="hidden">
+										<select name="applicantDistrictHid"
+											class="form-control soflow full-control" id="selectCADistHid">
+											<option value="">District</option>
+											<%
+												List lst1 = (List) request.getAttribute("districtList");
+													Iterator itr1 = lst1.iterator();
+													while (itr1.hasNext()) {
+														DistrictBean districtList = (DistrictBean) itr1.next();
+											%>
+											<option value="<%=districtList.getCode()%>"><%=districtList.getArea()%></option>
+											<%
+												}
+											%>
+										</select>
+									</div>
+									<span id="errApplicantDistrict" class="text-red"></span>
 								</div>							
+							</div>
+							<div class="form-group float">
+								
+								<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none pull-right">
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
+										<input type="radio" name="correspondenceAddressDistrict" type="" value="HK" id="correspondenceAddressDistrictId1" maxlength="50" onblur=""><span id="" class="text-red"></span>
+										<label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.HongKong'>HK</key></label>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
+										<input type="radio" name="correspondenceAddressDistrict" type="" value="KLN" id="correspondenceAddressDistrictId2" maxlength="50" onblur=""><span id="" class="text-red"></span>
+										<label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Kowloon'>KLN</key></label>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
+										<input type="radio" name="correspondenceAddressDistrict" type="" value="NT" id="correspondenceAddressDistrictId3" maxlength="50" onblur=""><span id="" class="text-red"></span>
+										<label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.NT'>N.T.</key></label>
+									</div>
+								</div>															
 							</div>
 								<div class="form-group float">
 									<div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none"></div>

@@ -35,6 +35,9 @@ function prepareOverseaPlan(form){
 }
 
 function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
+	var txtPlanName = $("#"+planName).val()
+	var txtDiscountAmt = $("#"+discountAmt).val()
+	var txtTotalDue = $("#"+totalDue).val()
 	$("#promo-code-body").fadeIn();
 	var selected_div;
 	var idArray = [];
@@ -56,24 +59,24 @@ function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 	var selected_price = $("#txtGrossPremium"+index).val();//$('#' + id).find('h6').text();
 	selected_price = parseFloat(selected_price).toFixed(2);
 	
-	$('#amountdue').html(numeral(totalDue).format('0,0.00'));
+	$('#amountdue').html(numeral(txtTotalDue).format('0,0.00'));
 	
 	
 	$('#subtotal').html(numeral(selected_price).format('0,0.00'));
 	$('#plansummary').html(numeral(selected_price).format('0,0.00'));
-	$('#seletedplanname').html(planName);
-	$('#inputseletedplanname').val(planName);
+	$('#seletedplanname').html(txtPlanName);
+	$('#inputseletedplanname').val(txtPlanName);
 	$('#selectPlanPremium').val(parseFloat(selected_price).toFixed(2));
 	
 	$('#' + id).addClass("plan-box-active");
     
     $('#plan-coverage-' + id).css("display","block");
 
-	$('#discountAmt').html(numeral(discountAmt).format('0,0.00'));
+	$('#discountAmt').html(numeral(txtDiscountAmt).format('0,0.00'));
 	
-	document.getElementById("selectedAmountDue").value = parseFloat(totalDue.trim()).toFixed(2);
-	document.getElementById("selectedDiscountAmt").value = parseFloat(discountAmt.trim()).toFixed(2);
-	$('#txtDiscountAmount').val(numeral(discountAmt.trim()).format('0,0.00'));
+	document.getElementById("selectedAmountDue").value = parseFloat(txtTotalDue.trim()).toFixed(2);
+	document.getElementById("selectedDiscountAmt").value = parseFloat(txtDiscountAmt.trim()).toFixed(2);
+	$('#txtDiscountAmount').val(numeral(txtDiscountAmt.trim()).format('0,0.00'));
 	document.getElementById("txtgrossPremiumAmt").value = parseFloat(selected_price.trim()).toFixed(2);
 	
 	if(promoData != '')
@@ -135,8 +138,7 @@ function applyOverseaPromoCode() {
                     
                     var json = JSON.parse(data);
                     promoData = json;
-                   
-                    //setValue(ccc);
+                    setValue(json);
                 }
 
             });
@@ -146,72 +148,6 @@ function applyOverseaPromoCode() {
 	}
 }
 
-function setValue(result) {
-
-	var selValue = document.getElementById("inputseletedplanname").value;
-	if(result['errMsgs'] !== null){
-		$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
-		$('#inputPromo').addClass('invalid-field');
-	}else{
-		$("#errPromoCode").html("");
-		$('#inputPromo').removeClass('invalid-field');
-		
-		if (selValue == "B") {
-			//var totalDue = parseInt(result["priceInfoA"].totalDue);
-			
-			//$("#subtotal").html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
-			$("#subtotal").html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
-			/*$("#discountAmt").html(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
-            $('#selectedDiscountAmt').val(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));
-            $('#txtDiscountAmount').val(parseFloat(result["priceInfoB"].discountAmount).toFixed(2));*/
-            $("#discountAmt").html(numeral(result["priceInfoB"].discountAmount).format('0,0.00'));
-            $('#selectedDiscountAmt').val(numeral(result["priceInfoB"].discountAmount).format('0,0.00'));
-            $('#txtDiscountAmount').val(numeral(result["priceInfoB"].discountAmount).format('0,0.00'));
-			//$("#amountdue").html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
-			$("#amountdue").html(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
-			/*$('#selectedAmountDue').val(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
-			$('#selectPlanPremium').val(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));*/
-			$('#selectedAmountDue').val(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
-            $('#selectPlanPremium').val(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
-            $("#plansummary").html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
-			
-		} else if (selValue == "A") {
-			//var totalDue = parseFloat(result["priceInfoB"].totalDue).toFixed(2);
-			//$("#subtotal").html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
-			$("#subtotal").html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
-			/*
-			$("#discountAmt").html(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
-			$('#selectedDiscountAmt').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));
-			$('#txtDiscountAmount').val(parseFloat(result["priceInfoA"].discountAmount).toFixed(2));*/
-			$("#discountAmt").html(numeral(result["priceInfoA"].discountAmount).format('0,0.00'));
-            $('#selectedDiscountAmt').val(numeral(result["priceInfoA"].discountAmount).format('0,0.00'));
-            $('#txtDiscountAmount').val(numeral(result["priceInfoA"].discountAmount).format('0,0.00'));
-			//$("#amountdue").html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
-			$("#amountdue").html(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
-			/*$('#selectedAmountDue').val(parseFloat(result["priceInfoA"].totalDue).toFixed(2));
-			$('#selectPlanPremium').val(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));*/
-			$('#selectedAmountDue').val(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
-            $('#selectPlanPremium').val(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
-            $("#plansummary").html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
-
-		}
-		if(result["priceInfoA"].totalDue!=result["priceInfoA"].grossPremium){
-			//$('.actualPriceA del').html(parseFloat(result["priceInfoA"].grossPremium).toFixed(2));
-			$('.actualPriceA').removeClass('hide');
-			$('.actualPriceA del').html(numeral(result["priceInfoA"].grossPremium).format('0,0.00'));
-		}
-		/*$('.totalPriceA').html(parseFloat(result["priceInfoA"].totalDue).toFixed(2));*/
-		$('.totalPriceA').html(numeral(result["priceInfoA"].totalDue).format('0,0.00'));
-		
-		if(result["priceInfoB"].totalDue!=result["priceInfoB"].grossPremium){
-            //$('.actualPriceB del').html(parseFloat(result["priceInfoB"].grossPremium).toFixed(2));
-            $('.actualPriceB').removeClass('hide');
-			$('.actualPriceB del').html(numeral(result["priceInfoB"].grossPremium).format('0,0.00'));
-        }
-		//$('.totalPriceB').html(parseFloat(result["priceInfoB"].totalDue).toFixed(2));
-		$('.totalPriceB').html(numeral(result["priceInfoB"].totalDue).format('0,0.00'));
-	}
-}
 
 function chkPromoCode() {
 	var flag = false;
@@ -250,7 +186,7 @@ function chkDueAmount() {
 
 $(document).ready(function() {                     
 	$('[data-toggle="tooltip"]').tooltip();
-	changeColorAndPrice('box2','2','medicalWorldwideA','0.0','8000.0')
+	changeColorAndPrice('box2','2','txtPlanName2','txtDiscountAmount2','txtTotalDue2')
 });
 
 function sendEmail() {
@@ -428,141 +364,33 @@ Vietnam
 										</div>
 										<div class="clearfix"></div>
 									</div>
-									<div class="plan-box-s travelproductbox oversea_productbox<c:if test="${h == 0}"> plan-flow-l-mobile-only pad-right-des</c:if>" id="box${i}" onClick="changeColorAndPrice('box${i}','${i}','${quoteDetails.planName[j] }','${quoteDetails.discountAmount[j] }','${quoteDetails.toalDue[j] }')">
+									<div class="plan-box-s travelproductbox oversea_productbox<c:if test="${h == 0}"> plan-flow-l-mobile-only pad-right-des</c:if>" id="box${i}" onClick="changeColorAndPrice('box${i}','${i}','txtPlanName${i}','txtDiscountAmount${i}','txtTotalDue${i}')">
 										<div class="" style="margin-bottom: 20px;">
-											<h3 class="plan-display-mobile-only"><key id='Overseas.PlanOptions.Plans.table1.col2.header'>Plan A${i}</key></h3>
-											<h2><key id='Overseas.PlanOptions.Plans.table1.col2row2'>HK$ ${quoteDetails.totalNetPremium[j] }</key></h2>
+											<h3 class="plan-display-mobile-only"><key id='Overseas.PlanOptions.Plans.table1.col2.header'>Plan A</key></h3>
+											<h2>HK$ <span id="total${i}">${quoteDetails.totalNetPremium[j] }0</span></h2>
 										</div>
 										<div class="clearfix"></div>
 									</div>
+		                            <input type="hidden" name="txtTotalDue" id="txtPlanName${i}" value="${quoteDetails.planName[j] }">
 		                            <input type="hidden" name="txtTotalDue" id="txtTotalDue${i}" value="${quoteDetails.toalDue[j] }">
 		                            <input type="hidden" name="txtGrossPremium" id="txtGrossPremium${i}" value="${quoteDetails.grossPremium[j] }">
 		                            <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount${i}" value="${quoteDetails.discountAmount[j] }">
 								
-									<div class="plan-box-s travelproductbox oversea_productbox plan-flow-r-mobile-only pad-left-des" id="box${i+1}" onClick="changeColorAndPrice('box${i+1}','${i+1}','${quoteDetails.planName[j+1] }','${quoteDetails.discountAmount[j+1] }','${quoteDetails.toalDue[j+1] }')">
+									<div class="plan-box-s travelproductbox oversea_productbox plan-flow-r-mobile-only pad-left-des" id="box${i+1}" onClick="changeColorAndPrice('box${i+1}','${i+1}','txtPlanName${i+1}','txtDiscountAmount${i+1}','txtTotalDue${i+1}')">
 										<div class="" style="margin-bottom: 20px;">
 											<h3 class="plan-display-mobile-only"><key id='Overseas.PlanOptions.Plans.table1.col2.header'>Plan B</key></h3>
-											<h2><key id='Overseas.PlanOptions.Plans.table1.col3row2'>HK$ ${quoteDetails.totalNetPremium[j+1] }</key></h2>
+											<h2>HK$ <span id="total${i+1}">${quoteDetails.totalNetPremium[j+1] }0</span></h2>
 										</div>
 										<div class="clearfix"></div>
 									</div>
+		                            <input type="hidden" name="txtTotalDue" id="txtPlanName${i+1}" value="${quoteDetails.planName[j+1] }">
 		                            <input type="hidden" name="txtTotalDue" id="txtTotalDue${i+1}" value="${quoteDetails.toalDue[j+1] }">
 		                            <input type="hidden" name="txtGrossPremium" id="txtGrossPremium${i+1}" value="${quoteDetails.grossPremium[j+1] }">
 		                            <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount${i+1}" value="${quoteDetails.discountAmount[j+1] }">
 								</c:forEach>
-								<!-- <div class="plan-box-l oversea_productbox_subtitle plan-flow-r-mobile-only">
-									<div class="" style="margin-bottom: 20px;">                           
-										<h2><key id='Overseas.PlanOptions.Plans.table1.col1row3'>Comprehensive medical plan</key></h2>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								<div class="plan-box-s travelproductbox oversea_productbox plan-flow-l-mobile-only" id="box2" onClick="changeColorAndPrice('box2','2','Plan A Comprehensive','0.0','8000.0')">
-									<div class="" style="margin-bottom: 20px;">       
-										<h3 class="plan-display-mobile-only"><key id='Overseas.PlanOptions.Plans.table1.col2.header'>Plan A</key></h3>
-										<h2><key id='Overseas.PlanOptions.Plans.table1.col2row3'>HK$ 8,000</key></h2>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-	                            <input type="hidden" name="txtTotalDue" id="txtTotalDue2" value="8000.0"> <input type="hidden" name="txtGrossPremium" id="txtGrossPremium2" value="8000.0"> <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount2" value="0.0"> <input type="hidden" name="referralCode" id="referralCode2" value=""> <input type="hidden" name="referralName" id="referralName2" value="">
-							
-								<div class="plan-box-s travelproductbox oversea_productbox plan-flow-r-mobile-only" id="box3" onClick="changeColorAndPrice('box3','3','Plan B Comprehensive','0.0','5000.0')">
-									<div class="" style="margin-bottom: 20px;">             
-										<h3 class="plan-display-mobile-only"><key id='Overseas.PlanOptions.Plans.table1.col2.header'>Plan B</key></h3>
-										<h2><key id='Overseas.PlanOptions.Plans.table1.col3row3'>HK$ 5,000</key></h2>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-	                            <input type="hidden" name="txtTotalDue" id="txtTotalDue3" value="5000.0"> <input type="hidden" name="txtGrossPremium" id="txtGrossPremium3" value="5000.0"> <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount3" value="0.0"> <input type="hidden" name="referralCode" id="referralCode3" value=""> <input type="hidden" name="referralName" id="referralName3" value=""> -->
 							</div>
 						</c:forEach>
 						<!-- /Region -->
-						
-						<!-- Region -->
-						<%-- <div id="region1" class="region-box-hidden">
-							<div class="plan-box-l plan-box-title oversea_productbox_title plan-display-desktop-only">
-								<div class="" style="margin-bottom: 20px;">                           
-									<h2>Plans</h2>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="plan-box-s plan-box-title oversea_productbox_title plan-display-desktop-only">
-								<div class="" style="margin-bottom: 20px;">                           
-									<h2><key id='Overseas.PlanOptions.Plans.table1.col2.header'>Plan A</key></h2>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="plan-box-s plan-box-title oversea_productbox_title plan-display-desktop-only">
-								<div class="" style="margin-bottom: 20px;">                           
-									<h2><key id='Overseas.PlanOptions.Plans.table1.col3.header'>Plan B</key></h2>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							
-							<c:forEach begin="4" end="7" var="i" step="2">
-								<c:set var="j" value="${i==4?0:4}" />
-								<div class="plan-box-l oversea_productbox_subtitle">
-									<div class="" style="margin-bottom: 20px;">                           
-										<h2><key id='Overseas.PlanOptions.Plans.table1.col1row2.ver2'>Standard plan (Worldwide)</key></h2>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								<div class="plan-box-s travelproductbox oversea_productbox" id="box${i}" onClick="changeColorAndPrice('box${i}','${i}','${quoteDetails.planName[j] }','${quoteDetails.discountAmount[j] }','${quoteDetails.toalDue[j] }')">
-									<div class="" style="margin-bottom: 20px;">
-										<h3 class="plan-display-mobile-only"><key id='Overseas.PlanOptions.Plans.table1.col2.header'>Plan A</key></h3>
-										<h2><key id='Overseas.PlanOptions.Plans.table1.col2row2'>HK$ ${quoteDetails.totalNetPremium[j] }</key></h2>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								<input type="hidden" name="txtTotalDue" id="txtTotalDue${i}" value="${quoteDetails.toalDue[j] }">
-	                            <input type="hidden" name="txtGrossPremium" id="txtGrossPremium${i}" value="${quoteDetails.grossPremium[j] }">
-	                            <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount${i}" value="${quoteDetails.discountAmount[j] }">
-						
-								<div class="plan-box-s travelproductbox oversea_productbox plan-flow-r-mobile-only pad-left-des" id="box${i+1}" onClick="changeColorAndPrice('box${i+1}','${i+1}','${quoteDetails.planName[j+1] }','${quoteDetails.discountAmount[j+1] }','${quoteDetails.toalDue[j+1] }')">
-									<div class="" style="margin-bottom: 20px;">
-										<h3 class="plan-display-mobile-only"><key id='Overseas.PlanOptions.Plans.table1.col3.header'>Plan B</key></h3>
-		
-										<h2><key id='Overseas.PlanOptions.Plans.table1.col3row2'>HK$ ${quoteDetails.totalNetPremium[j+1] }</key></h2>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								<input type="hidden" name="txtTotalDue" id="txtTotalDue${i+1}" value="${quoteDetails.toalDue[j+1] }">
-	                            <input type="hidden" name="txtGrossPremium" id="txtGrossPremium${i+1}" value="${quoteDetails.grossPremium[j+1] }">
-	                            <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount${i+1}" value="${quoteDetails.discountAmount[j+1] }">
-							</c:forEach> --%>
-		
-						
-							<!-- <div class="plan-box-l oversea_productbox_subtitle">
-								<div class="" style="margin-bottom: 20px;">                           
-									<h2><key id='Overseas.PlanOptions.Plans.table1.col1row3'>Comprehensive medical plan</key></h2>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="plan-box-s travelproductbox oversea_productbox" id="box6" onClick="changeColorAndPrice('box6','6','Plan A Comprehensive','0.0','5500.0')">
-								<div class="" style="margin-bottom: 20px;">
-									<h3 class="plan-display-mobile-only"><key id='Overseas.PlanOptions.Plans.table1.col2.header'>Plan A</key></h3>
-									<h2><key id='Overseas.PlanOptions.Plans.table1.col2row3'>HK$ 5,500</key></h2>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-
-                        <input type="hidden" name="txtTotalDue" id="txtTotalDue2" value="5500.0"> <input type="hidden" name="txtGrossPremium" id="txtGrossPremium6" value="5500.0"> <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount6" value="0.0"> <input type="hidden" name="referralCode" id="referralCode6" value=""> <input type="hidden" name="referralName" id="referralName6" value="">
-						
-
-							<div class="plan-box-s travelproductbox oversea_productbox plan-flow-r-mobile-only pad-left-des" id="box7" onClick="changeColorAndPrice('box7','7','Plan B Basic','0.0','3500.0')">
-
-							<div class="" style="margin-bottom: 20px;">
-									<h3 class="plan-display-mobile-only"><key id='Overseas.PlanOptions.Plans.table1.col3.header'>Plan B</key></h3>
-									<h2><key id='Overseas.PlanOptions.Plans.table1.col3row3'>HK$ 3,500</key></h2>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-
-                        <input type="hidden" name="txtTotalDue" id="txtTotalDue7" value="3500.0"> <input type="hidden" name="txtGrossPremium" id="txtGrossPremium7" value="3500.0"> <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount7" value="0.0"> <input type="hidden" name="referralCode" id="referralCode7" value=""> <input type="hidden" name="referralName" id="referralName7" value=""> -->
-						
-						<!-- </div> -->
-						
-						<!-- /Region -->
-						
 						
 						<div class="clearfix"></div>
 						<!--Full Coverage-->
@@ -2072,10 +1900,17 @@ Vietnam
 									<!--
 									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'eg: FWD789');" onBlur="placeholderOnBlur(this,'eg: FWD789');" value="eg: FWD789">
 									-->
-                                    <input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'<key id='Overseas.PlanOptions.Promo.eg'>If applicable</key>');" onBlur="placeholderOnBlur(this,'<key id='Overseas.PlanOptions.Promo.eg'>If applicable</key>');" value="If applicable">
-									<a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:30%;padding: 0px;float: right;margin-top: 15px;" onClick="applyTravelPromoCode()">APPLY</a>
-									<%-- <input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onBlur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" value="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />">
-									<a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:30%;padding: 0px;float: right;margin-top: 15px;" onClick="applyOverseaPromoCode()">APPLY</a> --%>
+									<input type="text" id="promoCode" name="promoCode" class="form-control <c:if test="${!(referralCode != null && referralCode != '')}">bmg_custom_placeholder</c:if>" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onBlur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');"
+									    <c:choose>
+										   <c:when test="${referralCode != null && referralCode != ''}">
+										   value="${referralCode }"
+										   </c:when>
+										   <c:otherwise>
+	                                       value="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />"
+	                                       </c:otherwise>
+									   </c:choose>
+									/>
+									<a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:30%;padding: 0px;float: right;margin-top: 15px;" onClick="applyOverseaPromoCode()">APPLY</a>
 								</div>
 							</div>
 							<div class="travel-italic workingholiday-getpromocode" style="font-size:14px;">
@@ -2199,7 +2034,7 @@ Vietnam
 	                    <div class="form-group">
 	                        <input type="email" class="form-control" placeholder=""
 	                            name="emailToSendPromoCode" id="emailToSendPromoCode">
-	                        <input type="hidden" name="planCode" id="planCode" value="TRAVELCARE">                         
+	                        <input type="hidden" name="planCode" id="planCode" value="OVERSEACARE">                         
 	                    </div>
 	                    <span id="errPromoEmail" class="text-red"></span> <br>
 	                    <div class="row">

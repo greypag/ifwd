@@ -128,7 +128,7 @@ function changeRegion(region){
 		$('#region-btn-0').removeClass("region-box-inactive");
 		$('#region-btn-1').addClass("region-box-inactive");
 		$('#region-btn-1').removeClass("region-box-active");
-		changeColorAndPrice('box2','2','medicalWorldwideA','0.0','8000.0')
+		changeColorAndPrice('box2','2','txtPlanName2','txtDiscountAmount2','txtTotalDue2')
 	}
 	if(region=='region1'){
 		$('#region0').css("display","none");
@@ -137,7 +137,7 @@ function changeRegion(region){
 		$('#region-btn-0').removeClass("region-box-active");
 		$('#region-btn-1').addClass("region-box-active");
 		$('#region-btn-1').removeClass("region-box-inactive");
-		changeColorAndPrice('box6','6','medicalAsiaA','0.0','5500.0');
+		changeColorAndPrice('box6','6','txtPlanName6','txtDiscountAmount6','txtTotalDue6');
 	}
 }
 
@@ -376,4 +376,42 @@ function prepareOverseaQuote() {
 		}
 	});
 	return result;
+}
+
+
+function setValue(result) {
+	var selValue = document.getElementById("inputseletedplanname").value;
+	if(result['errMsgs'] !== null){
+		$("#errPromoCode").html(getBundle(getBundleLanguage, "system.promotion.error.notValid.message"));
+		$('#inputPromo').addClass('invalid-field');
+	}else{
+		$("#errPromoCode").html("");
+		$('#inputPromo').removeClass('invalid-field');
+			
+		$("#subtotal").html(numeral(result[selValue].grossPremium).format('0,0.00'));
+		$("#plansummary").html(numeral(result[selValue].grossPremium).format('0,0.00'));
+		
+		$('#selectPlanPremium').val(numeral(result[selValue].grossPremium).format('0,0.00'));
+		$("#discountAmt").html(numeral(result[selValue].discountAmount).format('0,0.00'));
+		$('#selectedAmountDue').val(numeral(result[selValue].totalDue).format('0,0.00'));
+		$('#selectedDiscountAmt').val(numeral(result[selValue].discountAmount).format('0,0.00'));
+        
+        $('#txtDiscountAmount').val(numeral(result[selValue].discountAmount).format('0,0.00'));
+		$("#amountdue").html(numeral(result[selValue].totalDue).format('0,0.00'));
+        
+		var map={
+				0:'basicA',
+				1:'basicB',
+				2:'medicalWorldwideA',
+				3:'medicalWorldwideB',
+				4:'basicA',
+				5:'basicB',
+				6:'medicalAsiaA',
+			    7:'medicalAsiaB'
+			};
+		
+		for(var i = 0; i < 8; i++) {
+			$("#total"+i).html(numeral(result[map[i]].totalDue).format('0,0.00'));
+		}
+	}
 }

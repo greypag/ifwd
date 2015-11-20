@@ -3,7 +3,6 @@
 <%@page import="com.ifwd.fwdhk.model.UserDetails"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 <c:set var="language"
 	value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
 	scope="session" />
@@ -14,6 +13,7 @@
 	href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 <!-- <a href="javascript:void(0)" id="testajax" >Press</a> -->
 
+<script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
 <script>
 
 var getBundleLanguage = "";
@@ -28,6 +28,7 @@ if(lang === "EN") {
 	    getBundleLanguage = "en";
 	}
 }
+
 $(window).bind("pageshow", function(event) {
     if (event.originalEvent.persisted) {
         //window.location.reload();
@@ -52,6 +53,30 @@ $( "#testajax" ).click(function() {
 
 
 var home_url = "<%=request.getContextPath()%>";
+
+/* New GetBundle */
+var _fwdErrMsg;
+
+$.i18n.properties({
+   name: 'Messages',
+   path: ''+home_url+'/resources/bundle/',
+   mode: 'map',
+   language: getBundleLanguage,
+   cache: false,
+   callback: function() {
+   	_fwdErrMsg = $.extend(true, {}, $.i18n);
+   }
+});
+
+
+function fwdGetBundle(lang, key){ 
+	return (_fwdErrMsg && _fwdErrMsg.map[key])?(_fwdErrMsg.map[key]):'['+key+']';
+}
+
+function getBundle(lang, key){
+	return fwdGetBundle(lang,key);
+}
+
 function submitLoginForm(formID) {
 	$('.login-ajax-loading').css({
 		"left":"0px",
@@ -73,11 +98,6 @@ function submitLoginForm(formID) {
 						//var Backlen = history.length;
 						//history.go(-Backlen);
 						if(window.location.href.indexOf("savings-insurance/plan-details")>0){
-							$('#loginpopup').modal('hide');
-							$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
-							$('#thankYouModal').modal('show');
-						}
-						else if(window.location.href.indexOf("savings-evergreen-insurance/plan-details")>0){
 							$('#loginpopup').modal('hide');
 							$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
 							$('#thankYouModal').modal('show');
@@ -255,10 +275,7 @@ function submitLoginForm(formID) {
 					</div>
 				</div>
 				<div class="col-lg-7 col-md-7">
-					<div
-						class="collapse navbar-collapse navbar-right top-menu pad-none"
-						id="headerLoginForm">
-
+					<div class="collapse navbar-collapse navbar-right top-menu pad-none" id="headerLoginForm">
 						<ul class="nav navbar-nav">
 							<li class="active"><a
 								href="<%=request.getContextPath()%>/${language}"><fmt:message
@@ -346,7 +363,7 @@ function submitLoginForm(formID) {
 											</div>
 											<div id="login-err-msg" class="alert alert-danger"
 												role="alert" style="display: none;"></div>
-											<div class="form-container">
+											<div class="form-container" >
 												<h2>
 													<fmt:message key="header.login.heading" bundle="${msg}" />
 												</h2>
@@ -515,7 +532,7 @@ function submitLoginForm(formID) {
 							%>
 
 							<li class="chatnow-btn"><a
-								href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />"><fmt:message
+								href="<fmt:message key="fwd.homepage.link" bundle="${msg}" />" target="_blank"><fmt:message
 										key="header.menu.chatnow" bundle="${msg}" /></a></li>
 						</ul>
 					</div>
@@ -538,10 +555,10 @@ function submitLoginForm(formID) {
 			<div class="navbar-header">
 				<a class="navbar-brand"
 					href="<%=request.getContextPath()%>/${language}"><img
-					src="<%=request.getContextPath()%>/resources/images/logo.jpg"
+					src="<%=request.getContextPath()%>/resources/images/iFWD_logo_200px.jpg"
 					alt="<fmt:message key="logo.alt" bundle="${msg}" />"></a>
 			</div>
-			<div class="col-lg-8 col-md-7 pull-right">
+			<!--<div class="col-lg-8 col-md-7 pull-right">
 				<ul class="maintabs">
 					<li
 						class="col-lg-3 col-md-3 pad-none main-tab <%if (actionName.equals("Savie")) {%> active"<%}%>"><a
@@ -573,7 +590,67 @@ function submitLoginForm(formID) {
 								key="header.product.home" bundle="${msg}" /></a></li>
 				</ul>
 
-			</div>
+			</div>-->
+            <div class="col-lg-8 col-md-7 pull-right">
+                <ul class="col-lg-7 col-md-10 maintabs menutab-V2 pull-right">
+                    <li class="col-lg-4 col-md-4 pad-none main-tab dropdown <%if (actionName.equals("WorkingHoliday") | actionName.equals("Flight") | actionName.equals("Travel") | actionName.equals("Homecare") | actionName.equals("Oversea") | actionName.equals("Eliteterm")) {%> active <%}%>">
+                        <a class="protect-save-enjoy-tab"><fmt:message key="header.product.type1" bundle="${msg}" /></a>
+		                <ul class="col-lg-12 col-md-12 dropdown-menu protect-tab">
+			                  <li class="col-lg-3 col-md-3 no-padding">
+		                          <ul class="col-lg-12 col-md-12 no-padding">
+		                          <li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title" bundle="${msg}" /></li>
+			                          <li class="menu-link">
+			                          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			                          <a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.linkname1" bundle="${msg}" /></a>
+			                          </li>
+		                         </ul> 		                      
+			                  </li>
+	                          <li class="col-lg-5 col-md-5 no-padding middle-group">
+	                              <ul class="col-lg-12 col-md-12">
+	                              <li class="menu-subtitle"><fmt:message key="header.product.type1.group2.title" bundle="${msg}" /></li>
+	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.type1.group2.linkname1" bundle="${msg}" /></a></li>
+	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="header.product.type1.group2.linkname3" bundle="${msg}" /></a></li>
+	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /></a></li>
+	                             </ul>                            
+	                          </li>
+	                          <li class="col-lg-3 col-md-3 no-padding">
+	                              <ul class="col-lg-12 col-md-12 no-padding">
+	                              <li class="menu-subtitle"><fmt:message key="header.product.type1.group3.title" bundle="${msg}" /></li>
+	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
+	                             </ul>                            
+	                          </li>                         		                  
+		                 </ul>                      
+                    </li>
+                    <li class="col-lg-4 col-md-4 pad-none main-tab dropdown<%if (actionName.equals("Savie")) {%> active <%}%>">
+                        <a class="protect-save-enjoy-tab"><fmt:message key="header.product.type2" bundle="${msg}" /></a>
+                        <ul class="col-lg-12 col-md-12 dropdown-menu one-column save-tab">
+                          <li>
+                              <ul class="col-lg-12 col-md-12 no-padding">
+                              <li class="menu-subtitle"><fmt:message key="header.product.type2.group1.title" bundle="${msg}" /></li>
+                                  <li class="menu-link">
+	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	                                  <a class="menu-link" href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2.group1.linkname1" bundle="${msg}" /></a>
+                                  </li>
+                             </ul>                            
+                          </li>
+                         </ul>                      
+                    </li>
+                    <li class="col-lg-4 col-md-4 pad-none main-tab dropdown enjoy<%if (actionName.equals("offers")) {%> active <%}%>">
+                        <a class="protect-save-enjoy-tab"><fmt:message key="header.product.type3" bundle="${msg}" /></a>
+                        <ul class="col-lg-12 col-md-12 dropdown-menu one-column enjoy-tab">
+                          <li>
+                              <ul class="col-lg-12 col-md-12 no-padding">
+                                  <li class="menu-link">
+	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	                                  <a class="menu-link" href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3.group1.linkname1" bundle="${msg}" /></a>
+                                  </li>
+                             </ul>                            
+                          </li>
+                         </ul>                      
+                    </li>                   
+                </ul>
+
+            </div>
 		</div>
 		<!--/.container-->
 	</nav>
@@ -617,7 +694,8 @@ function submitLoginForm(formID) {
 	style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; z-index: 998; display: none"
 	id="test"></div>
 <!--Mobile-header-->
-<div class="mob-header hidden-lg hidden-md pad-none">
+<div class="navbar navbar-default navbar-fixed-top hidden-lg hidden-md pad-none" role="navigation">
+<!--<div class="mob-header hidden-lg hidden-md pad-none">-->
 	<div class="mob-topbar">
 		<!-- 
 		<span id="toplefthotline" class="callus top-number"><fmt:message key="header.hotlineSmall" bundle="${msg}" /></span> <a href="#"
@@ -639,12 +717,12 @@ function submitLoginForm(formID) {
 			if (request.getServletPath().equals("/en")) {
 		%>
 		<a class="lang pull-right" id="anchor-lang"
-			href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/">中文</a>
+			href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/">ÖÐÎÄ</a>
 		<%
 			} else {
 		%>
 		<a class="lang pull-right" id="anchor-lang"
-			href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>
+			href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">ÖÐÎÄ</a>
 
 		<%
 			}
@@ -672,25 +750,175 @@ function submitLoginForm(formID) {
 	<div class="logobox">
 		<div class="navbar-header" style="overflow: hidden;">
 			<button type="button"
-				class="navbar-toggle pull-right col-xs-1 col-sm-1"
-				data-toggle="offcanvas" data-target=".navmenu" data-canvas="body">
-				<span class="sr-only">Toggle navigation</span> <span
-					class="icon-bar"></span> <span class="icon-bar"></span> <span
-					class="icon-bar"></span>
+				class="navbar-toggle mob-menu-btn col-xs-1 col-sm-1" data-toggle="collapse" data-target=".navbar-collapse">
+				<!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">-->
+				<span class="sr-only">Toggle navigation</span> 
+				<span class="icon-bar"></span> <span class="icon-bar"></span>
+				<span class="icon-bar"></span>
 			</button>
 			<a class="navbar-brand pull-left col-xs-8 col-sm-8"
 				href="<%=request.getContextPath()%>/${language}"><img
-				src="<%=request.getContextPath()%>/resources/images/logo.jpg"
+				src="<%=request.getContextPath()%>/resources/images/iFWD_logo_150px.jpg"
 				alt="<fmt:message key="logo.alt" bundle="${msg}" />"
 				class="img-responsive"></a>
 			<div class="clearfix"></div>
 		</div>
-	</div>
+	    
+	
+    <div class="navbar-collapse collapse mobile-menu-V2">
+          <ul class="col-sm-12 nav navbar-nav">
+             <li class="pad-none col-sm-12 dropdown border-bottom">
+            <!-- <div
+		        style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+		        class="bmg_mobile_login_mask"
+		        onclick="$('#fwd-login-mob').trigger('click');"></div>
+		        -->
+		         <!--<div
+                style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+                class="bmg_mobile_login_mask"
+                onclick="$('body').removeClass('modal-open');"></div>-->    
+        <%
+            if (session.getAttribute("authenticate") == null
+                    || !"true".equals(session.getAttribute("authenticate")
+                            .toString())) {
+        %>
+        <div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob" data-toggle="modal" data-target="#myModal">       
+        <a href="#" class="dropdown-toggle color-wht log-to-acc"
+            id="fwd-login-mob"><i
+            class="fa fa-lock"></i> <fmt:message key="header.login.heading"
+                bundle="${msg}" /> </a>
+        <!--<div class="dropdown-menu drop-width"
+            style="left: -32px; top: 105px; max-width: 300px;">-->
+            <!--<div class="dropdown-menu drop-width">
+            <form name="loginform" id="loginform2">
+                <div class="login-form" style="position: absolute;">
+                    <div
+                        style="display: none; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+                        class="login-ajax-loading">
+                        <img
+                            style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px;"
+                            src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+                    </div>
+                    <div id="login-err-msg"
+                        class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert"
+                        style="display: none;"></div>
+                    <div class="form-container">
+                        <h2>
+                            <fmt:message key="header.login.heading" bundle="${msg}" />
+                        </h2>
+                        <h4 class="margin-shift">
+                            <fmt:message key="header.login.username" bundle="${msg}" />
+                            <a
+                                href="${pageContext.request.contextPath}/${language}/forgotUserName"
+                                class="pull-right sub-link"><fmt:message
+                                    key="header.login.username.forget" bundle="${msg}" /></a>
+                        </h4>
+
+                        <div class="form-group">
+                            <input type="text" name="userName" class="form-control"
+                                placeholder="" id="headerUserName">
+                        </div>
+                        <span id="errUserName" style="color: red"></span>
+                        <h4 class="margin-shift">
+                            <fmt:message key="header.login.password" bundle="${msg}" />
+                            <a
+                                href="${pageContext.request.contextPath}/${language}/forgotPassword"
+                                class="pull-right sub-link"><fmt:message
+                                    key="header.login.password.forget" bundle="${msg}" /></a>
+                        </h4>
+                        <div class="form-group">
+                            <input type="password" name="password" class="form-control"
+                                autocomplete="off" id="headerPassword">
+                        </div>
+                        <span id="errPass" style="color: red"></span> <br>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-xs-6">
+                                <button type="button" onclick="submitLoginForm('loginform2');"
+                                    class="bdr-curve btn btn-primary btn-lg wd5">
+                                    <fmt:message key="header.login.action" bundle="${msg}" />
+                                </button>
+                            </div>
+                            <h3
+                                class="text-left col-lg-6 col-md-6  col-xs-6 pad-none margin-none">
+                                <span> <fmt:message
+                                        key="header.login.registration.heading" bundle="${msg}" /></span><br>
+                                <a href="${pageContext.request.contextPath}/${language}/joinus">
+                                    <fmt:message key="header.login.registration.action"
+                                        bundle="${msg}" />
+                                </a>
+                            </h3>
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>-->
+
+        <%
+            } else {
+        %>
+
+
+        <div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
+        <a href="#" class="dropdown-toggle" id="fwd-login"
+            data-toggle="dropdown"><fmt:message key="header.login.welcome"
+                bundle="${msg}" />&nbsp;&nbsp;&nbsp;<%=session.getAttribute("username")%>
+            <i class="fa fa-caret-right"> </i> </a>
+        <div class="dropdown-menu drop-width">
+            <ul>
+                <%
+                    if (!"direct".equalsIgnoreCase(request.getSession()
+                                .getAttribute("authenticate").toString())) {
+                %>
+                <li><a href="<%=request.getContextPath()%>/${language}/account"
+                    class="color1"> <fmt:message key="header.menu.member"
+                            bundle="${msg}" /></a></li>
+                <%
+                    }
+                %>
+                <li><a href="<%=request.getContextPath()%>/userLogout"
+                    class="color1"><fmt:message key="header.menu.logout"
+                            bundle="${msg}" /></a></li>
+            </ul>
+        </div>
+
+
+        <%
+            }
+        %>             
+             </li>
+             <li class="pad-none col-sm-12 dropdown link-btn link-grp border-bottom">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
+              <ul class="col-sm-12 dropdown-menu">
+                <li class="menu-link-grp-title">
+                    <a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.title" bundle="${msg}" /></a>
+                </li>
+                <li class="menu-link-grp-title">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group2.title" bundle="${msg}" /></a>
+                    <ul class="col-sm-12 dropdown-menu">
+                         <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.type1.group2.linkname1" bundle="${msg}" /></a></li>
+                         <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="header.product.type1.group2.linkname3" bundle="${msg}" /></a></li>
+                         <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /></a></li>
+                    </ul>
+                </li>
+						<li class="menu-link-grp-title"><a
+							href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message
+									key="header.product.type1.group3.title" bundle="${msg}" /></a></li>
+					</ul>              
+            </li>         
+            <li class="pad-none col-sm-12 dropdown link-btn border-bottom">
+              <a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
+            </li>
+            <li class="pad-none col-sm-12 dropdown link-btn">
+              <a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
 </div>
-
-
+    
 <!--Mobile side-menu-->
-<div class="navmenu navmenu-default navmenu-fixed-right offcanvas"
+<!--<div class="navmenu navmenu-default navmenu-fixed-right offcanvas"
 	style="">
 
 	<div
@@ -834,7 +1062,85 @@ function submitLoginForm(formID) {
 		<li class="<%if (actionName.equals("Homecare")) {%>active<%}%>"><a
 			href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message
 					key="header.product.home" bundle="${msg}" /></a></li>
-	</ul>
+	</ul>-->
+</div>
+
+<div id="myModal" class="mob-login-form-wrapper modal fade" role="dialog">
+<div
+    style="display: none; position: fixed; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 2001"
+    class="login-ajax-loading">
+    <img
+        style="width: 100px; height: 100px; position: absolute; top: 50%; left: 50%; margin-top: -50px; margin-left: -50px;"
+        src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+</div>
+<!-- 
+<div
+        style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1500"
+        class="bmg_mobile_login_mask"
+        onclick="$('body').removeClass('modal-open');$('#fwd-login-mob').trigger('click');"></div>
+         -->
+         <!--<div
+        style="display: none; background: #000; left: 0; top: 0; bottom: -100px; right: 0; opacity: 0.8; z-index: 1500"
+        class="bmg_mobile_login_mask"
+        onclick="$('#fwd-login-mob').trigger('click');$('body').removeClass('modal-open');"></div>-->
+    <div id="myDropdownMob" class="modal-dialog">
+        <form name="loginform" id="loginform2">
+            <div class="login-form" style="position: absolute;">
+                <div id="login-err-msg"
+                    class="alert alert-danger col-xs-10 col-xs-offset-1 " role="alert"
+                    style="display: none;"></div>
+                <div class="form-container">
+                    <h2>
+                        <fmt:message key="header.login.heading" bundle="${msg}" />
+                    </h2>
+                    <h4 class="margin-shift">
+                        <fmt:message key="header.login.username" bundle="${msg}" />
+                        <a
+                            href="${pageContext.request.contextPath}/${language}/forgotUserName"
+                            class="pull-right sub-link"><fmt:message
+                                key="header.login.username.forget" bundle="${msg}" /></a>
+                    </h4>
+
+                    <div class="form-group">
+                        <input type="text" name="userName" class="form-control"
+                            placeholder="" id="headerUserName">
+                    </div>
+                    <span id="errUserName" style="color: red"></span>
+                    <h4 class="margin-shift">
+                        <fmt:message key="header.login.password" bundle="${msg}" />
+                        <a
+                            href="${pageContext.request.contextPath}/${language}/forgotPassword"
+                            class="pull-right sub-link"><fmt:message
+                                key="header.login.password.forget" bundle="${msg}" /></a>
+                    </h4>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control"
+                            autocomplete="off" id="headerPassword">
+                    </div>
+                    <span id="errPass" style="color: red"></span> <br>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-xs-6">
+                            <button type="button" onclick="submitLoginForm('loginform2');"
+                                class="bdr-curve btn btn-primary btn-lg wd5">
+                                <fmt:message key="header.login.action" bundle="${msg}" />
+                            </button>
+                        </div>
+                        <h3
+                            class="text-left col-lg-6 col-md-6  col-xs-6 pad-none margin-none">
+                            <span> <fmt:message
+                                    key="header.login.registration.heading" bundle="${msg}" /></span><br>
+                            <a href="${pageContext.request.contextPath}/${language}/joinus">
+                                <fmt:message key="header.login.registration.action"
+                                    bundle="${msg}" />
+                            </a>
+                        </h3>
+                        <div class="clearfix"></div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 <!--End Mobile header-->
 <!--/header-->
@@ -856,11 +1162,21 @@ function submitLoginForm(formID) {
 	  }
 	
 	var iosChromeAlertMsg = [];
-    iosChromeAlertMsg[0] = '抱歉，你的瀏覽器現時未受支援。';
-    iosChromeAlertMsg[1] = '請選用以下其它建議的瀏覽器：';
-    iosChromeAlertMsg[2] = '關閉';
+    iosChromeAlertMsg[0] = '±§Ç¸£¬ÄãµÄžgÓ[Æ÷¬F•rÎ´ÊÜÖ§Ô®¡£';
+    iosChromeAlertMsg[1] = 'ÕˆßxÓÃÒÔÏÂÆäËü½¨×hµÄžgÓ[Æ÷£º';
+    iosChromeAlertMsg[2] = 'êPé]';
     
+    function offerMenuActive(){
+    	var site_uri = window.location.pathname;
+    	var uri_array = site_uri.split("/");
+    	if(uri_array[uri_array.length-1]=='offers'){
+    		$( ".enjoy" ).addClass( "active" );
+    	}
+    }
 	$(document).ready(function() {
+		offerMenuActive();
+		//console.log(window.location.pathname.substring(-5));
+		//$("#loginform2").appendTo("body");
 		//console.log(navigator.userAgent.match('CriOS'));
 		if(navigator.userAgent.match('CriOS')){
 			if(lang === "tc") {
@@ -886,11 +1202,33 @@ function submitLoginForm(formID) {
 	$('#test').click(function() {
 		$('.navmenu').offcanvas('hide');
 	});
-	$('#myDropdownMob').click(function(e) {
-		e.preventDefault();
-		e.stopPropagation();
-		$(this).toggleClass('open');
-	});
+	<%
+    if (session.getAttribute("authenticate") == null
+            || !"true".equals(session.getAttribute("authenticate")
+                    .toString())) {
+    %>
+		/*$('#myDropdownMob').click(function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			$(".mob-login-form-wrapper").toggleClass('open');
+			$(".bmg_mobile_login_mask").toggle();
+		});*/
+	<%
+    }
+    %>
+    $( "li.link-btn.link-grp" ).click(function() {
+    	  $(this).find("img").toggle();
+    	});
+    $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {
+        // Avoid following the href location when clicking
+        event.preventDefault(); 
+        // Avoid having the menu to close when clicking
+        event.stopPropagation(); 
+        // Re-add .open to parent sub-menu item
+        $(this).parent().addClass('open');
+        $(this).parent().siblings("li").removeClass('open');
+        $(this).parent().find("ul").parent().find("li.dropdown").addClass('open');
+    }); 
 </script>
 <jsp:include page="/WEB-INF/jsp/merged/iosChromeAlert.jsp" />
 <jsp:include page="/WEB-INF/jsp/merged/login.jsp" />
