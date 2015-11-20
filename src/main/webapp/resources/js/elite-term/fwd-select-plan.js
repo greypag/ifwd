@@ -1559,7 +1559,7 @@
          return '';
       }
       
-      var arr = string.split('-');
+      var arr = string.split(' ');
       
       if (arr.length > 1) {
             
