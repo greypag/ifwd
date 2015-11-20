@@ -954,9 +954,10 @@ public class EliteTermServiceImpl implements EliteTermService {
 		Map<String,String> header = headerUtil.getHeader(request);
 		org.json.simple.JSONObject jsonRelationShipCode = restService.consumeApi(
 				HttpMethod.GET, relationshipCode, header, null);
-		String errMsgs = (String) jsonRelationShipCode.get("errMsgs");
-		if(StringUtils.isNotEmpty(errMsgs)){
-			request.getSession().setAttribute("errorMessageType", errMsgs);
+		org.json.simple.JSONArray errMsgs = (org.json.simple.JSONArray) jsonRelationShipCode.get("errMsgs");
+		if(errMsgs != null){
+			String errMessage = errMsgs.get(0).toString().replace("[", "").replace("]", "");
+			request.getSession().setAttribute("errorMessageType",errMessage);
 			return true;
 		}
 		org.json.simple.JSONArray policy = (org.json.simple.JSONArray) jsonRelationShipCode.get("uploadedDocuments");
