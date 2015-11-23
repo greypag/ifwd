@@ -41,12 +41,12 @@
 				<div class="summary-border">
 					<h3 class="bmg-confirmation-h3">
 						<key id='Overseas.Confirmation.Confirmation.Success1'>You have successfully completed your purchase of Overseas StudentCare insurance with FWD.</br>An email will be sent to</key>
-						<span class="email-addr-confirm"><key id='Overseas.Confirmation.Confirmation.Success2'>xxx@xxx.com</key></span>
+						<span class="email-addr-confirm"><key id='Overseas.Confirmation.Confirmation.Success2'>${emailAddress}</key></span>
 						<key id='Overseas.Confirmation.Confirmation.Success3'>with the details of your policy.</key>
 						
 					</h3>
 					
-					<h4 class="oversea-policy-no bmg-confirmation-h4"><strong><key id='Overseas.Confirmation.Confirmation.PolicyNo'>Policy Number:</key></strong><span> 74ZZ17772</span></h4>
+					<h4 class="oversea-policy-no bmg-confirmation-h4"><strong><key id='Overseas.Confirmation.Confirmation.PolicyNo'>Policy Number:</key></strong><span> ${policyNo}</span></h4>
 				</div>
                 <div class="h4-2"><key id='Overseas.Confirmation.Share'>Share this product with your friends now.</key></div>
                 <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
