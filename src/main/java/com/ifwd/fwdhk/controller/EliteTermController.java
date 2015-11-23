@@ -176,8 +176,7 @@ public class EliteTermController extends BaseController{
 	@RequestMapping(value = {"/{lang}/term-life-insurance/confirmation"})
 	public ModelAndView getConfirmation(Model model, HttpServletRequest request) {
 		try {
-			UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
-			String email = userDetails.getEmailAddress();
+			String email = request.getSession().getAttribute("eliteTermEmail").toString();
 			model.addAttribute("confirmationEmail", email);
 			eliteTermService.uploadEliteTermDocuments(request);
 		} catch (ECOMMAPIException e) {
