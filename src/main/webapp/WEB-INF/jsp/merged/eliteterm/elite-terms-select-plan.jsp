@@ -2852,8 +2852,52 @@ var home_url = "<%=request.getContextPath()%>";
                      .updateStatus('tel', 'INVALID','callback');
                }
             }); */
-       
+            //addresses fix
+            $(document).on('change', '#eliteTermsInsuredInfoForm .permanent-address.optional-field', function(e) {
+            	setTimeout(function(){
+	            	if(($('#savieApplicantBean\\.permanentAddress2').val()!='' || $('#savieApplicantBean\\.permanentAddress3').val()!='') && ($('#savieApplicantBean\\.permanentAddress2').val()!=$('#savieApplicantBean\\.permanentAddress2').attr('placeholder') || $('#savieApplicantBean\\.permanentAddress3').val()!=$('#savieApplicantBean\\.permanentAddress3').attr('placeholder'))) {
+	            		$('#eliteTermsInsuredInfoForm')
+	                    .data('bootstrapValidator')
+	                    .updateStatus('savieApplicantBean.permanentAddress1','VALID');
+	            	}
+	            	else {
+	            		$('#eliteTermsInsuredInfoForm')
+	                    .data('bootstrapValidator')
+	                    .updateStatus('savieApplicantBean.permanentAddress1','INVALID','notEmpty');
+	            	}
+            	}, 100);
+            });
             
+            $(document).on('change', '#eliteTermsInsuredInfoForm .residential-address.optional-field', function(e) {
+            	setTimeout(function(){
+	            	if(($('#savieApplicantBean\\.residentialAdress2').val()!='' || $('#savieApplicantBean\\.residentialAdress3').val()!='') && ($('#savieApplicantBean\\.residentialAdress2').val()!=$('#savieApplicantBean\\.residentialAdress2').attr('placeholder') || $('#savieApplicantBean\\.residentialAdress3').val()!=$('#savieApplicantBean\\.residentialAdress3').attr('placeholder'))) {
+	            		$('#eliteTermsInsuredInfoForm')
+	                    .data('bootstrapValidator')
+	                    .updateStatus('savieApplicantBean.residentialAdress1','VALID');
+	            	}
+	            	else {
+	            		$('#eliteTermsInsuredInfoForm')
+	                    .data('bootstrapValidator')
+	                    .updateStatus('savieApplicantBean.residentialAdress1','INVALID','notEmpty');
+	            	}
+            	}, 100);
+            });
+            
+            $(document).on('change', '#eliteTermsInsuredInfoForm .correspondence-address.optional-field', function(e) {
+            	setTimeout(function(){
+	            	if(($('#savieApplicantBean\\.correspondenceAdress2').val()!='' || $('#savieApplicantBean\\.correspondenceAdress3').val()!='') && ($('#savieApplicantBean\\.correspondenceAdress2').val()!=$('#savieApplicantBean\\.correspondenceAdress2').attr('placeholder') || $('#savieApplicantBean\\.correspondenceAdress3').val()!=$('#savieApplicantBean\\.correspondenceAdress3').attr('placeholder'))) {
+	            		$('#eliteTermsInsuredInfoForm')
+	                    .data('bootstrapValidator')
+	                    .updateStatus('savieApplicantBean.correspondenceAdress1','VALID');
+	            	}
+	            	else {
+	            		$('#eliteTermsInsuredInfoForm')
+	                    .data('bootstrapValidator')
+	                    .updateStatus('savieApplicantBean.correspondenceAdress1','INVALID','notEmpty');
+	            	}
+            	}, 100);
+            });
+
             //ie fixes
             if(msieversion() > 0) {
             	$(document).on('change', '#et-cust-serv-form #email', function(e) {
@@ -3027,7 +3071,6 @@ var home_url = "<%=request.getContextPath()%>";
                   var $form = $(this);
           
                    $('.modal').modal('hide');
-                   $('#back-to-home-modal').modal('show');
                    
                     var name = $('#name').val();
 	               	var email = $('#email').val();
@@ -3056,6 +3099,7 @@ var home_url = "<%=request.getContextPath()%>";
 	               		function(data) {
 	               			if(data.errMsgs == null){
 	               				console.log("data success");
+                              $('#back-to-home-modal').modal('show');
 	               			}
 	               			else{
 	               				console.log("data error");
