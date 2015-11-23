@@ -651,7 +651,7 @@ function setDropArea(id) {
 			document.getElementById("lock_datepicker").setAttribute('style',
 					modStyle);
 
-			$("#txtInsuFullName1,txtInsuHkid1").prop('readonly', true);
+			$("#txtInsuFullName1,#txtInsuHkid1").prop('readonly', true);
 		}
 	    if(value.trim() != "")
 	    {
