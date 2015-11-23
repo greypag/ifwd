@@ -61,6 +61,7 @@
 **/
 body {
 	font-family: Calibri, sans-serif !important;
+  -webkit-overflow-scrolling: touch;
 }
 
 body .bold{

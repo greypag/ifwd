@@ -1040,10 +1040,12 @@ $(function() {
                 
 				$application.css('top', $stickyElement.height() + 'px'); */
                 if (getWidth() < 992) {
-                    $mobBar.css({
+                    $('body').css({
+                       
                        'position' : 'fixed',
                        'width' : '100%',
                        'z-index': 10
+                       
                     });
                     $application.css('top', $mobBar.height() + 'px');
                 }
