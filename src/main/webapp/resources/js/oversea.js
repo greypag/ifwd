@@ -197,7 +197,7 @@ function coverageToggle(){
 }
 */
 var oversea_click = false;
-function validateOverseaDetails(form, formId, language) {
+function validateOverseaDetails() {
 	if ($("#inputFullName").val().trim() == namePlaceholder.trim()) {
 		$("#inputFullName").val('');
 	}
@@ -238,7 +238,7 @@ function validateOverseaDetails(form, formId, language) {
 	var correspondenceAddressDistrictId3 = document.getElementById("inlineCARadio5").checked;
 	var nameOfInstitution = document.getElementById("nameOfInstitution").value;
 	var visacheckbox = document.getElementById("visacheckbox").checked;		
-	var inputOverseasInsuredDob = document.getElementById("inputOverseasInsuredDob").value;
+	var overseaDepartureDate = document.getElementById("overseaDepartureDate").value;
 	
 
 	
@@ -252,7 +252,7 @@ function validateOverseaDetails(form, formId, language) {
 	var building = $("#correspondenceAddressBuildingId").val();
 	var estate = $("#correspondenceAddressEstateId").val();
 	//var insuredDob = $("#overseaDepartureDate").val();
-	var insuredDob = $("#inputOverseasInsuredDob").val();
+	var insuredDob = $("#overseaDepartureDate").val();
 	var countryOfInstitution = $("#countryOfInstitution").val();
 	var nameOfInstitution = $("#nameOfInstitution").val();
 	var addressline1 = $("#addressofInstitutionLine1").val();
@@ -403,8 +403,9 @@ if (correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstateI
 	}
 	
 	
-	if (inputOverseasInsuredDob.trim() == "") {
-		$("#dobOverseasInsuredInvalid").html( getBundle(getBundleLanguage, "Please select a departure date."));
+	if (overseaDepartureDate.trim() == "") {
+		$('#oversea_departure_date').addClass('invalid-field');
+		$("#overseaDepartureDateInvalid").html( getBundle(getBundleLanguage, "Please select a departure date."));
 	}
 
 	if (nameOfInstitution.trim() == "") {
@@ -513,10 +514,6 @@ if (correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstateI
 		flag = false;
 	}
 	
-
-
-
-
 	if (addressline1.trim() == "" && addressline2.trim() == ""
 			&& addressline3.trim() == "") {
 		$("#addressofInstitutionLine1").addClass("invalid-field");
@@ -529,33 +526,6 @@ if (correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstateI
 		}
 		flag = false;
 	}
-
-	/*if (applicantEstate.trim() == "" && applicantBuilding.trim() == "") {
-		$("#errCABuilding")
-				.html(
-						getBundle(getBundleLanguage,
-								"workinghoilday.building.message"));
-		$("#errCAEstate").html(
-				getBundle(getBundleLanguage, "workinghoilday.estate.message"));
-		$("#inputCABuilding").addClass("invalid-field");
-		$("#inputCAEstate").addClass("invalid-field");
-		if (firstErrorElementId == "") {
-			firstErrorElementId = "inputCABuilding";
-		}
-		flag = false;
-	}
-
-	if (applicantDistrict.trim() == "") {
-		$("#errCADist")
-				.html(
-						getBundle(getBundleLanguage,
-								"workinghoilday.district.message"));
-		$("#inputCADistrict").addClass("invalid-field");
-		if (firstErrorElementId == "") {
-			firstErrorElementId = "inputCADistrict";
-		}
-		flag = false;
-	}*/
 
 	if (document.getElementById("checkbox1").checked == false) {
 		document.getElementById("chk1").innerHTML = getBundle(
@@ -579,41 +549,46 @@ if (correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstateI
 	if (oversea_click) {
 		return false;
 	} else {
-		if (flag) {
-			oversea_click = true;
-			var result = false;
-			var formId = '#' + formId;
-			var method = contextPath + '/ajax/oversea/prepareOverseaSummary';
-			console.log($(formId).serialize());
-			$.ajax({
-				type : "POST",
-				url : method,
-				data : $(formId).serialize(),
-				async : false,
-				success : function(data) {
-					if (data == 'success') {
-						form.action = contextPath + '/' + language
-								+ '/oversea-insurance/summary';
-						result = true;
-					} else {
-						oversea_click = false;
-						console.log(data);
-						$("#errorMsg").html(data);
-						scrollToElement("errorMsg");
-					}
-				}
-			});
-			if (!result) {
-				$('#loading-overlay').modal('hide');
-			}
-			return result;
-		} else {
+		
+		if(flag) {
+			return flag;
+		}else {
 			$('#loading-overlay').modal('hide');
 			oversea_click = false;
 			return flag
 		}
 
 	}
+}
+
+function confirmDetails(form, formId, language) {
+	oversea_click = true;
+	var result = false;
+	var formId = '#' + formId;
+	var method = contextPath + '/ajax/oversea/prepareOverseaSummary';
+	console.log($(formId).serialize());
+	$.ajax({
+		type : "POST",
+		url : method,
+		data : $(formId).serialize(),
+		async : false,
+		success : function(data) {
+			if (data == 'success') {
+				form.action = contextPath + '/' + language
+						+ '/oversea-insurance/summary';
+				result = true;
+			} else {
+				oversea_click = false;
+				console.log(data);
+				$("#errorMsg").html(data);
+				scrollToElement("errorMsg");
+			}
+		}
+	});
+	if (!result) {
+		$('#loading-overlay').modal('hide');
+	}
+	return result;
 }
 
 function prepareOverseaQuote() {

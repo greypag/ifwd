@@ -596,21 +596,6 @@ $(function () {
 		$("#dobInsuredInvalid").html("");
 	});	
 		
-	
-	$('#input_dob3').datepicker({
-		startView: "decade",
-		autoclose: true,
-		format: "dd-mm-yyyy",
-		startDate: dob_end_date_this_year,
-		endDate: dob_end_date_this_year_plus_90
-		/*language: getBundleLanguage*/
-	}).on('changeDate', function (ev) {
-		$("#dobOverseasInsuredInvalid").html("");
-	});		
-	
-	
-
-	
 	$('#oversea_educational_insured_dob').datepicker({
 		startView: "decade",
 		autoclose: true,
@@ -623,12 +608,11 @@ $(function () {
 	});
 	
 	$('#oversea_departure_date').datepicker({
-		beforeShowDay: function (date) {
-			return date.valueOf() >= now.valueOf() && date.valueOf() < tillDate_from_travel;
-		},
+		startView: "decade",
 		autoclose: true,
-		todayHighlight: true,
 		format: "dd-mm-yyyy",
+		startDate: dob_end_date_this_year,
+		endDate: dob_end_date_this_year_plus_90
 	}).on('changeDate', function (ev) {
 		$(this).next().html("");
 		$(this).removeClass("invalid-field");
@@ -3181,30 +3165,6 @@ function tPlanValid()
 		}
 	}
 	
-	
-	
-
-	if (inputOverseasInsuredDob.trim() == '')
-	{
-		$("#input_dob3").addClass("invalid-field");
-		$("#dobOverseasInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.Empty"));
-		flag = false;		
-	}
-	else
-	{
-		$("#input_dob3").removeClass("invalid-field");
-		$("#dobOverseasInsuredInvalid").html('');	
-	}
-
-	
-
-	 
-
-	 
-	 
-
-	
-
 	var rowCountAdult=document.getElementById("totalAdultTraveler").value;
 	var rowCountChild=document.getElementById("totalCountOfChild").value;
 	var rowCountOther=document.getElementById("totalCountOther").value;
