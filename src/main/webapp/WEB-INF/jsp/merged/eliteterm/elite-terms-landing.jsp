@@ -248,12 +248,12 @@
                <div class="container">
                   <fmt:message key="eliteTerms.landing.product.remarks.t1" bundle="${msg}" />
                   <div>
-                     <ul>
+                     <ol>
                         <li><fmt:message key="eliteTerms.landing.product.remarks.copy1" bundle="${msg}" /></li>
                         <li><fmt:message key="eliteTerms.landing.product.remarks.copy2" bundle="${msg}" /></li>
                         <li><fmt:message key="eliteTerms.landing.product.remarks.copy3" bundle="${msg}" /></li>
                         <li><fmt:message key="eliteTerms.landing.product.remarks.copy4" bundle="${msg}" /></li>
-                     </ul>
+                     </ol>
                   </div>
                </div>
             </section>
