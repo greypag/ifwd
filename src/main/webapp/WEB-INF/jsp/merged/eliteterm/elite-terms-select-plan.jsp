@@ -2877,7 +2877,7 @@ var home_url = "<%=request.getContextPath()%>";
 	            	}
             	}, 100);
             });
-            
+
             //ie fixes
             if(msieversion() > 0) {
             	$(document).on('change', '#et-cust-serv-form #email', function(e) {
@@ -3019,7 +3019,6 @@ var home_url = "<%=request.getContextPath()%>";
                   var $form = $(this);
           
                    $('.modal').modal('hide');
-                   $('#back-to-home-modal').modal('show');
                    
                     var name = $('#name').val();
 	               	var email = $('#email').val();
@@ -3048,6 +3047,7 @@ var home_url = "<%=request.getContextPath()%>";
 	               		function(data) {
 	               			if(data.errMsgs == null){
 	               				console.log("data success");
+                              $('#back-to-home-modal').modal('show');
 	               			}
 	               			else{
 	               				console.log("data error");
