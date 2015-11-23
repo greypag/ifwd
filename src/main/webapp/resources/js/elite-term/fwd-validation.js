@@ -382,14 +382,11 @@ $(function() {
 						message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
 					},
                     callback: {
-                        callback: function(value, validator) {
-                            if(document.getElementById('savieBeneficiaryBean[0].chineseName').getAttribute('placeholder')==value) {
-                            	$('#beneficiaryInfoForm\\[0\\]')
-                                .data('bootstrapValidator')
-                                .updateStatus('savieBeneficiaryBean[0].chineseName','VALID');
-                            	}
-                            }
-                     }
+	                    message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid"),
+	                    callback: function (value, validator) {
+	                    	return value !== document.getElementById('savieBeneficiaryBean[0].chineseName').getAttribute('placeholder');
+	                	}
+	            	}
 				}
 			},
 			'savieBeneficiaryBean[0].passportNo':{
@@ -549,14 +546,11 @@ $(function() {
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
 	                  },
 	                  callback: {
-	                        callback: function(value, validator) {
-	                            if(document.getElementById('savieBeneficiaryBean[1].chineseName').getAttribute('placeholder')==value) {
-	                            	$('#beneficiaryInfoForm\\[1\\]')
-	                                .data('bootstrapValidator')
-	                                .updateStatus('savieBeneficiaryBean[1].chineseName','VALID');
-	                            	}
-	                            }
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid"),
+	                     callback: function (value, validator) {
+	                        return value !== document.getElementById('savieBeneficiaryBean[1].chineseName').getAttribute('placeholder');
 	                     }
+	                  }
 	               }
 	            },
 	            'savieBeneficiaryBean[1].passportNo':{
@@ -718,25 +712,22 @@ $(function() {
 				'savieBeneficiaryBean[2].chineseName':{
 					container: '#beneficiaryChineseNameMessage\\[2\\]',
 					validators: {
-                  stringLength: {
-                           min: 1,
-                           max: 6,
-                           message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
-                       },
-                  regexp: {
-                     regexp: /^[\s\u4e00-\u9eff]*$/,
-                     message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
-                  },
-                  callback: {
-                      callback: function(value, validator) {
-                          if(document.getElementById('savieBeneficiaryBean[2].chineseName').getAttribute('placeholder')==value) {
-                          	$('#beneficiaryInfoForm\\[2\\]')
-                              .data('bootstrapValidator')
-                              .updateStatus('savieBeneficiaryBean[2].chineseName','VALID');
-                          	}
-                          }
-                   }
-               }
+	                  	stringLength: {
+							min: 1,
+							max: 6,
+							message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
+						},
+						regexp: {
+							regexp: /^[\s\u4e00-\u9eff]*$/,
+							message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
+						},
+						callback: {
+							message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid"),
+							callback: function (value, validator) {
+								return value !== document.getElementById('savieBeneficiaryBean[2].chineseName').getAttribute('placeholder');
+							}
+						}
+					}
 				},
 				'savieBeneficiaryBean[2].passportNo':{
 					container: '#bnfPassportMessage\\[2\\]',
