@@ -628,7 +628,7 @@ $(function() {
 	                  }
 	               }
 	            }
-	         }
+	         
 	      });
 		 
 		 //input hkid
