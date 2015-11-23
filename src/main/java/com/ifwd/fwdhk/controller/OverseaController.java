@@ -219,36 +219,18 @@ public class OverseaController extends BaseController{
 		String langSelected = UserRestURIConstants.getLanaguage(request);
 		String[] relationships;
 		String[] beneRelationships;
-		/*for (int inx = 0; inx < planDetailsForm.getTotalPersonalTraveller(); inx++) {
-			relationships = planDetailsForm.getPersonalRelationDesc();
-			if(relationships == null){
-				relationships = new String[planDetailsForm.getTotalPersonalTraveller()];
-			}
-			beneRelationships = planDetailsForm.getPersonalBeneRelationDesc();
-			if(beneRelationships == null){
-				beneRelationships = new String[planDetailsForm.getTotalPersonalTraveller()];
-			}
-			planDetailsForm.setPersonalRelationDesc(WebServiceUtils.getInsuredRelationshipDesc(relationships, langSelected, planDetailsForm.getPersonalBeneficiary()[inx], inx));
-			planDetailsForm.setPersonalBeneRelationDesc(WebServiceUtils.getBeneRelationshipDesc(beneRelationships, langSelected, planDetailsForm.getPersonalBeneficiary()[inx], inx));		
-		}*/
 		
 		userDetails.setFullName(applicantFullName);
 		userDetails.setHkid(applicantHKID);
 		userDetails.setMobileNo(applicantMobNo);
 		userDetails.setEmailAddress(emailAddress);
 		userDetails.setDob(dob);
-        final String BENE_RELATIONSHIP_SELF = "SE";
-
-		//TravelQuoteBean travelBean = new TravelQuoteBean();
-		//travelBean.setTrLeavingDate(deaprtureDate);
-		//travelBean.setTrBackDate(returnDate);
 		
 		String path = request.getRequestURL().toString();
 		model.addAttribute("selectPlanName", selectPlanName);
 		model.addAttribute("dueAmount", dueAmount.replace(",", ""));
 		model.addAttribute("originalAmount", originalAmount.replace(",", ""));
 		model.addAttribute("userDetails", userDetails);
-		//model.addAttribute("travelBean", travelBean);
 		model.addAttribute("planDetailsForm", planDetailsForm);
 		StringBuffer sb = new StringBuffer();
 		sb.append(planDetailsForm.getAddressofInstitutionLine1());
@@ -334,11 +316,11 @@ public class OverseaController extends BaseController{
 			header.put("language", WebServiceUtils
 					.transformLanaguage(UserRestURIConstants
 							.getLanaguage(request)));
-			logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
+			logger.info("OVERSEA_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
 			responsObject = restService.consumeApi(HttpMethod.POST,
 					UserRestURIConstants.OVERSEA_FINALIZE_POLICY, header,
 					parameters);
-			logger.info("TRAVEL_FINALIZE_POLICY Response " + responsObject);
+			logger.info("OVERSEA_FINALIZE_POLICY Response " + responsObject);
 			
 			if (responsObject.get("errMsgs") == null) {
 				session.removeAttribute("creditCardNo");

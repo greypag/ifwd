@@ -2,7 +2,6 @@ package com.ifwd.fwdhk.services.impl;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -266,10 +265,10 @@ public class OverseaServiceImpl implements OverseaService {
 				}
 			}
 			parameters.put("expiryDate", session.getAttribute("expiryDate"));
-			logger.info("TRAVEL_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
+			logger.info("OVERSEA_FINALIZE_POLICY Request " + JsonUtils.jsonPrint(parameters));
 			responsObject = restService.consumeApi(HttpMethod.POST, UserRestURIConstants.OVERSEA_FINALIZE_POLICY,
 					header, parameters);
-			logger.info("TRAVEL_FINALIZE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
+			logger.info("OVERSEA_FINALIZE_POLICY Response " + JsonUtils.jsonPrint(responsObject));
 
 		}
 
@@ -383,7 +382,6 @@ public class OverseaServiceImpl implements OverseaService {
 				createPolicy.setLang(checkJsonObjNull(responsObject, "lang"));
 				createPolicy.setPaymentGateway(checkJsonObjNull(responsObject, "paymentGateway"));
 				createPolicy.setPaymentType(checkJsonObjNull(responsObject, "paymentType"));
-				// Calling Api of Confirm Travel Care Policy
 				JSONObject confirmPolicyParameter = new JSONObject();
 				confirmPolicyParameter.put("referenceNo", finalizeReferenceNo);
 				session.setAttribute("finalizeReferenceNo", finalizeReferenceNo);
