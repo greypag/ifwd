@@ -61,8 +61,8 @@ function validatecountryOfInstitution(){
 		$("#" + 'countryOfInstitution').removeClass("invalid-field");
 	}	
 }
-<<<<<<< HEAD
-var options = {
+
+/*var options = {
 	
 	  data : [ "Abu Dhabi", "Australia", "Austria", "Belgium",
 				"Brunei", "Canada", "Cuba", "Cyprus", "Denmark", "Dubai", "France",
@@ -81,7 +81,7 @@ var options = {
 };
 
 //$("#countryOfInstitution").easyAutocomplete(options);
-/*
+
 $(function() {
 	var availableTags = [ "Abu Dhabi", "Australia", "Austria", "Belgium",
 			"Brunei", "Canada", "Cuba", "Cyprus", "Denmark", "Dubai", "France",
