@@ -622,9 +622,10 @@ var languageP = "${language}";
         	 if('${sendEmailOrNot}' == null || '${sendEmailOrNot}' != 'yes'){
         		 ga('ecommerce:addItem', {
         			 'id': '${eliteTermPolicy.transactionNumber }', // Transaction ID. 
-        			 'name': ' Elite Term ', // Product name. 
-        			 'category': 'Protect ', // Category or variation 
-        			 'price': '${eliteTermPremium.monthlyDuePremium*2}', // Unit price 
+        			 'name': 'Elite Term', // Product name. 
+        			 'category': 'Life', // Category or variation 
+        			 'revenue': '${eliteTermPremium.monthlyDuePremium*2}',  
+        			 'price': '${eliteTermPremium.monthlyPremium}', // Unit price 
         			 'currency': 'HKD',
         			 'quantity': '2'
         		 });
