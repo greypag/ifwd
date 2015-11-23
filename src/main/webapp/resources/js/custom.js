@@ -1439,7 +1439,7 @@ function addFormBeneficiary (counter) {
 		+ '</div>'
 
 		+ '<div class="form-group beneficiary-info-row">'
-		+ '<label for="savieBeneficiaryBean['+counter+'].chineseName">' + fm_label_chi_name + '<span class="optional">' + fm_label_optional + '</span></label>'
+		+ '<label for="savieBeneficiaryBean['+counter+'].chineseName">' + fm_label_chi_name + ' <span class="optional">' + fm_label_optional + '</span></label>'
 		+ '<input type="text" id="savieBeneficiaryBean['+counter+'].chineseName" name="savieBeneficiaryBean['+counter+'].chineseName" class="form-control gray-textbox form-textbox" placeholder="' + fm_placeholder_chi_name + '">'
 		+ '<span class="error-msg" id="beneficiaryChineseNameMessage['+counter+']"></span>'
 		+ '<span class="dup-error-msg hidden" id="duplicate-chinese-name['+counter+']">' + fm_error_dup_chi_name + '</span>'

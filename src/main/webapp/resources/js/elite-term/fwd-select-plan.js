@@ -897,9 +897,6 @@
             "savieApplicantBean.residentialTelNo": {
                container: '#resTelMessage',
                validators: {
-                  notEmpty: {
-                     message: getBundle(getBundleLanguage, "et.selectPlan.Mobile.number.is.required")
-                  },
                   stringLength: {
                       min: 8,
                       max: 8,
