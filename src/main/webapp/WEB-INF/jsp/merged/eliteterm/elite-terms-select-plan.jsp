@@ -2579,6 +2579,26 @@ var home_url = "<%=request.getContextPath()%>";
   			    .data('bootstrapValidator')
   			    .updateStatus('dob','VALID');
   			}
+  			
+  			setTimeout(function(){
+	  			if($('#savieApplicantBean\\.permanentAddress1').val()!='' || $('#savieApplicantBean\\.permanentAddress1').val()!=$('#savieApplicantBean\\.permanentAddress1').attr('placeholder')) {
+	  				$('#eliteTermsInsuredInfoForm')
+	  			    .data('bootstrapValidator')
+	  			    .updateStatus('savieApplicantBean.permanentAddress1','VALID');
+	            }
+	  			
+	  			if($('#savieApplicantBean\\.residentialAdress1').val()!='' || $('#savieApplicantBean\\.residentialAdress1').val()!=$('#savieApplicantBean\\.residentialAdress1').attr('placeholder')) {
+	  				$('#eliteTermsInsuredInfoForm')
+	  			    .data('bootstrapValidator')
+	  			    .updateStatus('savieApplicantBean.residentialAdress1','VALID');
+	            }
+	  			
+	  			if($('#savieApplicantBean\\.correspondenceAdress1').val()!='' || $('#savieApplicantBean\\.correspondenceAdress1').val()!=$('#savieApplicantBean\\.correspondenceAdress1').attr('placeholder')) {
+	  				$('#eliteTermsInsuredInfoForm')
+	  			    .data('bootstrapValidator')
+	  			    .updateStatus('savieApplicantBean.correspondenceAdress1','VALID');
+	            }
+    		}, 300);
   		});
   		
   		$('.et-app-sum-edit').on('click', function(e) {
@@ -2826,51 +2846,7 @@ var home_url = "<%=request.getContextPath()%>";
                      .updateStatus('tel', 'INVALID','callback');
                }
             }); */
-            //addresses fix
-            $(document).on('change', '#eliteTermsInsuredInfoForm .permanent-address.optional-field', function(e) {
-            	setTimeout(function(){
-	            	if(($('#savieApplicantBean\\.permanentAddress2').val()!='' || $('#savieApplicantBean\\.permanentAddress3').val()!='') && ($('#savieApplicantBean\\.permanentAddress2').val()!=$('#savieApplicantBean\\.permanentAddress2').attr('placeholder') || $('#savieApplicantBean\\.permanentAddress3').val()!=$('#savieApplicantBean\\.permanentAddress3').attr('placeholder'))) {
-	            		$('#eliteTermsInsuredInfoForm')
-	                    .data('bootstrapValidator')
-	                    .updateStatus('savieApplicantBean.permanentAddress1','VALID');
-	            	}
-	            	else {
-	            		$('#eliteTermsInsuredInfoForm')
-	                    .data('bootstrapValidator')
-	                    .updateStatus('savieApplicantBean.permanentAddress1','INVALID','notEmpty');
-	            	}
-            	}, 100);
-            });
-            
-            $(document).on('change', '#eliteTermsInsuredInfoForm .residential-address.optional-field', function(e) {
-            	setTimeout(function(){
-	            	if(($('#savieApplicantBean\\.residentialAdress2').val()!='' || $('#savieApplicantBean\\.residentialAdress3').val()!='') && ($('#savieApplicantBean\\.residentialAdress2').val()!=$('#savieApplicantBean\\.residentialAdress2').attr('placeholder') || $('#savieApplicantBean\\.residentialAdress3').val()!=$('#savieApplicantBean\\.residentialAdress3').attr('placeholder'))) {
-	            		$('#eliteTermsInsuredInfoForm')
-	                    .data('bootstrapValidator')
-	                    .updateStatus('savieApplicantBean.residentialAdress1','VALID');
-	            	}
-	            	else {
-	            		$('#eliteTermsInsuredInfoForm')
-	                    .data('bootstrapValidator')
-	                    .updateStatus('savieApplicantBean.residentialAdress1','INVALID','notEmpty');
-	            	}
-            	}, 100);
-            });
-            
-            $(document).on('change', '#eliteTermsInsuredInfoForm .correspondence-address.optional-field', function(e) {
-            	setTimeout(function(){
-	            	if(($('#savieApplicantBean\\.correspondenceAdress2').val()!='' || $('#savieApplicantBean\\.correspondenceAdress3').val()!='') && ($('#savieApplicantBean\\.correspondenceAdress2').val()!=$('#savieApplicantBean\\.correspondenceAdress2').attr('placeholder') || $('#savieApplicantBean\\.correspondenceAdress3').val()!=$('#savieApplicantBean\\.correspondenceAdress3').attr('placeholder'))) {
-	            		$('#eliteTermsInsuredInfoForm')
-	                    .data('bootstrapValidator')
-	                    .updateStatus('savieApplicantBean.correspondenceAdress1','VALID');
-	            	}
-	            	else {
-	            		$('#eliteTermsInsuredInfoForm')
-	                    .data('bootstrapValidator')
-	                    .updateStatus('savieApplicantBean.correspondenceAdress1','INVALID','notEmpty');
-	            	}
-            	}, 100);
-            });
+       
             
             //ie fixes
             if(msieversion() > 0) {
@@ -2893,7 +2869,39 @@ var home_url = "<%=request.getContextPath()%>";
 	            		}
            			}, 100);
             	});
+            	
+            	$(document).on('change', '#savieApplicantBean\\.permanentAddress1', function(e) {
+	            	setTimeout(function(){
+	    	  			if($('#savieApplicantBean\\.permanentAddress1').val()!='' || $('#savieApplicantBean\\.permanentAddress1').val()!=$('#savieApplicantBean\\.permanentAddress1').attr('placeholder')) {
+	    	  				$('#eliteTermsInsuredInfoForm')
+	    	  			    .data('bootstrapValidator')
+	    	  			    .updateStatus('savieApplicantBean.permanentAddress1','VALID');
+	    	            }
+	            	}, 300);
+            	});
+            	
+            	$(document).on('change', '#savieApplicantBean\\.residentialAdress1', function(e) {
+	            	setTimeout(function(){
+	            		if($('#savieApplicantBean\\.residentialAdress1').val()!='' || $('#savieApplicantBean\\.residentialAdress1').val()!=$('#savieApplicantBean\\.residentialAdress1').attr('placeholder')) {
+	    	  				$('#eliteTermsInsuredInfoForm')
+	    	  			    .data('bootstrapValidator')
+	    	  			    .updateStatus('savieApplicantBean.residentialAdress1','VALID');
+	    	            }
+	            	}, 300);
+            	});
+				
+            	$(document).on('change', '#savieApplicantBean\\.correspondenceAdress1', function(e) {
+	            	setTimeout(function(){
+	            		if($('#savieApplicantBean\\.correspondenceAdress1').val()!='' || $('#savieApplicantBean\\.correspondenceAdress1').val()!=$('#savieApplicantBean\\.correspondenceAdress1').attr('placeholder')) {
+	    	  				$('#eliteTermsInsuredInfoForm')
+	    	  			    .data('bootstrapValidator')
+	    	  			    .updateStatus('savieApplicantBean.correspondenceAdress1','VALID');
+	    	            }
+	            	}, 300);
+            	});
+    	  			
             }
+
             // ^ bootstrap validation
             $('#et-cust-serv-form').bootstrapValidator({
                excluded:[],
