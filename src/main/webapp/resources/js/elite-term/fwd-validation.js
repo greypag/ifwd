@@ -441,6 +441,11 @@ $(function() {
 					integer:{
 	                	message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
 	                },
+	                between:{
+	                	min: 0,
+	                	max: 100,
+                        message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.range")
+                    },
 					callback: {
 						message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
 						callback: function (value, validator, $field) {
@@ -602,6 +607,11 @@ $(function() {
 	                  },*/
 	                  integer:{
 	                  	 message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
+	                  },
+	                  between:{
+		                 min: 0,
+		                 max: 100,
+	                     message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.range")
 	                  },
 	                  callback: {
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
@@ -777,6 +787,11 @@ $(function() {
                   		integer:{
 	                  		message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.format")
 	              		},
+	              		between:{
+			                min: 0,
+			                max: 100,
+		                    message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.range")
+		                },
                   		callback: {
                      		message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
                      		callback: function (value, validator, $field) {
