@@ -40,13 +40,13 @@ public class ImgUtil {
 		    int height = bufferedImage.getHeight(); 
 		    double ratio = width*1.0/height;
 		    if(ratio > Integer.valueOf(imgMaxRatio) || ratio < 1.0/Integer.valueOf(imgMaxRatio)){
-		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.length.width",request));
+		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.size.limit.error",request));
 		    }
 		    if(width > Integer.valueOf(imgMaxWidth)){
-		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.wider.than",request)+" "+imgMaxWidth);
+		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.size.limit.error",request));
 		    }
 		    if(height > Integer.valueOf(imgMaxHeight)){
-		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.higher.than",request)+" "+imgMaxHeight);
+		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.size.limit.error",request));
 		    }
 			      // create a blank, RGB, same width and height, and a white background
 			BufferedImage newBufferedImage = new BufferedImage(bufferedImage.getWidth(),
@@ -67,13 +67,13 @@ public class ImgUtil {
 	    int height = bufferedImage.getHeight(); 
 	    double ratio = width*1.0/height;
 	    if(ratio > Integer.valueOf(imgMaxRatio) || ratio < 1.0/Integer.valueOf(imgMaxRatio)){
-	    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.length.width",request));
+	    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.size.limit.error",request));
 	    }
 	    if(width > Integer.valueOf(imgMaxWidth)){
-	    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.wider.than",request)+" "+imgMaxWidth);
+	    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.size.limit.error",request));
 	    }
 	    if(height > Integer.valueOf(imgMaxHeight)){
-	    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.higher.than",request)+" "+imgMaxHeight);
+	    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.size.limit.error",request));
 	    }
 	    bufferedImage.flush();
 	    
