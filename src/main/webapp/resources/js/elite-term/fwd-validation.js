@@ -381,12 +381,16 @@ $(function() {
 						regexp: /^[\s\u4e00-\u9eff]*$/,
 						message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
 					},
-                    callback: {
-	                    message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid"),
-	                    callback: function (value, validator) {
-	                    	return value !== document.getElementById('savieBeneficiaryBean[0].chineseName').getAttribute('placeholder');
-	                	}
-	            	}
+					callback: {
+		                  callback: function (value, validator) {
+		                	  if(document.getElementById('savieBeneficiaryBean[0].chineseName').getAttribute('placeholder')==value && msieversion()>0) {
+		                		  $('#beneficiaryInfoForm\\[0\\]')
+	                                .data('bootstrapValidator')
+	                                .updateStatus('savieBeneficiaryBean[0].chineseName','VALID');
+		                	  }
+		                	  return true;		                	  
+		                  }
+		               }
 				}
 			},
 			'savieBeneficiaryBean[0].passportNo':{
@@ -546,9 +550,14 @@ $(function() {
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
 	                  },
 	                  callback: {
-	                     message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid"),
-	                     callback: function (value, validator) {
-	                        return value !== document.getElementById('savieBeneficiaryBean[1].chineseName').getAttribute('placeholder');
+	                        callback: function(value, validator) {
+	                        	if(document.getElementById('savieBeneficiaryBean[1].chineseName').getAttribute('placeholder')==value && msieversion()>0) {
+			                		  $('#beneficiaryInfoForm\\[1\\]')
+		                                .data('bootstrapValidator')
+		                                .updateStatus('savieBeneficiaryBean[1].chineseName','VALID');
+			                	  }
+			                	  return true;
+	                            }
 	                     }
 	                  }
 	               }
@@ -712,22 +721,26 @@ $(function() {
 				'savieBeneficiaryBean[2].chineseName':{
 					container: '#beneficiaryChineseNameMessage\\[2\\]',
 					validators: {
-	                  	stringLength: {
-							min: 1,
-							max: 6,
-							message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
-						},
-						regexp: {
-							regexp: /^[\s\u4e00-\u9eff]*$/,
-							message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
-						},
-						callback: {
-							message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid"),
-							callback: function (value, validator) {
-								return value !== document.getElementById('savieBeneficiaryBean[2].chineseName').getAttribute('placeholder');
-							}
-						}
-					}
+                  stringLength: {
+                           min: 1,
+                           max: 6,
+                           message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.length")
+                       },
+                  regexp: {
+                     regexp: /^[\s\u4e00-\u9eff]*$/,
+                     message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
+                  },
+                  callback: {
+                      callback: function(value, validator) {
+                    	  if(document.getElementById('savieBeneficiaryBean[2].chineseName').getAttribute('placeholder')==value && msieversion()>0) {
+	                		  $('#beneficiaryInfoForm\\[2\\]')
+                                .data('bootstrapValidator')
+                                .updateStatus('savieBeneficiaryBean[2].chineseName','VALID');
+	                	  }
+	                	  return true;
+                          }
+                   }
+               }
 				},
 				'savieBeneficiaryBean[2].passportNo':{
 					container: '#bnfPassportMessage\\[2\\]',
