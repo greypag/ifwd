@@ -972,7 +972,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 		long commencementDate = (long) jsonRelationShipCode.get("commencementDate");
 		Date date = new Date();
 		long days = (date.getTime()-commencementDate) / (1000 * 60 * 60 * 24);
-		if(days > 30){
+		if(days > 42){
 			request.getSession().setAttribute("errorMessageType", "UrlExpired");
 			return true;
 		}
