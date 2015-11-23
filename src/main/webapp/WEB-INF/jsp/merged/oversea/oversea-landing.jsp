@@ -149,11 +149,11 @@ function prepareOverseaPlan(form){
 	        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	            <div class="col-xs-12 col-sm-12 col-md-4 landing-feature-item-wrapper pad-none" style="padding:5px !important;">
 	                <div>
-					  <div class="col-xs-4 col-sm-4 landing-feature-image">
-	                       <img src="<%=request.getContextPath()%>/resources/images/oversea/big_icon1_mob.png">
+					  <div class="col-xs-4 col-sm-4 oversea-landing-feature-image">
+	                       <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/oversea/big_icon1_mob.png">
 	                  </div>
 					  <div class="col-xs-8 col-sm-8 landing-feature-text-wrapper">
-						  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+						  <h3 class="landing-feature-title single-line" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
 								<key id='Overseas.Landing.USP.TopUp'>Top up<br/>In-patient Medical</key>
 						  </h3>
 						  <div class="ups-message-wrapper">
@@ -164,12 +164,12 @@ function prepareOverseaPlan(form){
 	            </div>
 	              <div class="col-xs-12 col-sm-12 col-md-4 landing-feature-item-wrapper pad-none" style="padding:5px !important;">
 	                   <div>
-						  <div class="col-xs-4 col-sm-4 landing-feature-image">
-							   <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/oversea/big_icon2_mob.png">
+						  <div class="col-xs-4 col-sm-4 oversea-landing-feature-image">
+							   <img class="img-responsive" src="<%=request.getContextPath()%>/resources/images/oversea/big_icon2_mob.png">
 						  </div>
 						  <div class="col-xs-8 col-sm-8 landing-feature-text-wrapper">
-							  <h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
-									<key id='Overseas.Landing.USP.Education'>Education<br/>Fund</key>
+							  <h3 class="landing-feature-title single-line" style="font-weight: bold; color:black; margin-top:45px;">
+									<key id='Overseas.Landing.USP.Education'>Education Fund</key>
 							  </h3>
 							  <div class="ups-message-wrapper">
 									<key id='Overseas.Landing.USP.Education.Copy'>Education Fund to provide for unpaid Tuition Fees if tragedy strikes your family, in the event of the death of the parent or legal guardian of the Insured Student</key>
@@ -179,11 +179,11 @@ function prepareOverseaPlan(form){
 	              </div>
 	              <div class="col-xs-12 col-sm-12 col-md-4 pad-none" style="padding:5px !important;">
 	                  <div>
-							<div class="col-xs-4 col-sm-4 landing-feature-image">
-							   <img style="max-width:40%" src="<%=request.getContextPath()%>/resources/images/oversea/big_icon3_mob.png">
+							<div class="col-xs-4 col-sm-4 oversea-landing-feature-image">
+							   <img style="img-responsive" src="<%=request.getContextPath()%>/resources/images/oversea/big_icon3_mob.png">
 							</div>
 							<div class="col-xs-8 col-sm-8 landing-feature-text-wrapper">
-								<h3 class="landing-feature-title" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
+								<h3 class="landing-feature-title single-line" style="font-weight: bold; color:black; margin-top:45px; line-height:35px; height: 80px;">
 									<key id='Overseas.Landing.USP.Leisure'>Leisure + Amateur<br/>Spoarts Coverage</key>
 								</h3>
 								<div class="ups-message-wrapper">

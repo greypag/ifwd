@@ -10248,14 +10248,3 @@ div.breadcrumb-wrapper>ol.breadcrumb a{
 div.breadcrumb-wrapper>ol.breadcrumb .fa{
 	padding: 0 7px;
 }
-.cta-btn.btn-primary{
-	background-color:#fdb714;
-	border: 1px solid #fdb714;
-}
-.cta-btn.btn-primary:hover{
-    color:#fdb714;
-    background-color:#fff;
-}
-.section-title.big-title{
-	color:#f6871e;
-}

@@ -61,6 +61,7 @@ function validatecountryOfInstitution(){
 		$("#" + 'countryOfInstitution').removeClass("invalid-field");
 	}	
 }
+<<<<<<< HEAD
 var options = {
 	
 	  data : [ "Abu Dhabi", "Australia", "Austria", "Belgium",
@@ -101,6 +102,11 @@ $(function() {
 // Building or Estate must be filled in.</key>
 /*
 function coverageToggle(id){
+=======
+
+
+function coverageToogle(id){
+>>>>>>> 452c745cbaf25cf84db2b94106f9f87da1fb9465
 	$('#'+id).mCustomScrollbar();
 	$('#'+id).css("display","block");
 }
@@ -426,11 +432,11 @@ if (correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstateI
 		$("#"+'addressofInstitutionLine2').removeClass("invalid-field");
 		$("#"+'addressofInstitutionLine3').removeClass("invalid-field");
 	}
-
 //Overseas.userdetails.Instituation.Country.NotCoveredAsia
 //Overseas.userdetails.Instituation.Country.NotCoveredAsia.url
 	plan = document.getElementById("selectedPlanName").value;
 	asis_country_list =["Abu Dhabi","Dubai","India","Indonesia","Iran","Japan","Korea","Lao, P.D.R.","Macau","Malaysia","Myanmar","Nepal","North Korea","Pakistan","People Republic of China","Philippines","Singapore","Sri Lanka","Sudan","Taiwan","Thailand","Vietnam"]
+	console.log(asis_country_list.indexOf(countryOfInstitution));	
 	//alert(countryOfInstitution);
 	if (countryOfInstitution.trim() == '')
 	{
@@ -445,6 +451,9 @@ if (correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstateI
 			$("#"+'countryOfInstitution').addClass("invalid-field");
 			$("#countryOfInstitutionInvalid").html( getBundle(getBundleLanguage, 'Selected plan does not cover this country. Please consider "Worldwide Plans".'));
 			flag = false;
+		}else{
+			$("#"+'countryOfInstitution').removeClass("invalid-field");
+			$("#countryOfInstitutionInvalid").html( ''); 			
 		}
 	}
 
