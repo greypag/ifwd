@@ -753,22 +753,22 @@ function setDropArea(id) {
                                         </div>
                                     </div>
                                     
-                                    <div class="form-group float">
+                                    <div class="form-group">
                                         <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                             <label for="countryOfInstitution" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Country'>Country of Institution</key></label>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                            <input name="countryOfInstitution" type="" class="form-control full-control" placeholder="Country of Institution" value="" id="countryOfInstitution" onkeypress="" onfocus="placeholderOnFocus(this,'Country of Institution');" onblur="placeholderOnBlur(this,'Country of Institution');" maxlength="50">                                              
+                                            <input name="countryOfInstitution" type="" class="form-control full-control" placeholder="Country of Institution" value="" id="countryOfInstitution" onkeypress="validatecountryOfInstitution();" onfocus="placeholderOnFocus(this,'Country of Institution');" onblur="placeholderOnBlur(this,'Country of Institution');" maxlength="50">                                              
                                             <br>                                                
                                             <span id="countryOfInstitutionInvalid" class="text-red"></span>
                                         </div>
                                     </div>
-                                    <div class="form-group float">
+                                    <div class="form-group float clear-float">
                                         <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                             <label for="nameOfInstitution" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Name'>Name of Institution</key></label>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                            <input name="nameOfInstitution" type="" class="form-control full-control" placeholder="Name of Institution" value="" id="nameOfInstitution" onkeypress="" onfocus="placeholderOnFocus(this,'Name of Institution');" onblur="placeholderOnBlur(this,'Name of Institution');" maxlength="50"> 
+                                            <input name="nameOfInstitution" type="" class="form-control full-control" placeholder="Name of Institution" value="" id="nameOfInstitution" onkeypress="validatecountryOfInstitution();" onfocus="placeholderOnFocus(this,'Name of Institution');" onblur="placeholderOnBlur(this,'Name of Institution');" maxlength="50"> 
                                             <span id="nameOfInstitutionInvalid" class="text-red"></span>
                                         </div>
                                     </div>
@@ -927,10 +927,10 @@ function setDropArea(id) {
                         
                         <div class="form-wrap" style="margin-bottom: 10px;">
                         <h4 class="h4-4 product_landing_download_button pull-left">
-                            <i class="fa fa-download"></i> <a href="http://www.fwd.com.hk/upload/en-US/travel_care_insurance.pdf" target="_blank">Product Brochure   </a>
+                            <i class="fa fa-download"></i> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Overseas_StudyCare_Brochure.pdf" target="_blank">Product Brochure   </a>
                         </h4>
                         <h4 class="h4-4 product_landing_download_button pull-left">
-                            <i class="fa fa-download"></i> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/TravelCare_Provisions_Mar_2015.pdf" target="_blank">Policy Provisions   </a>
+                            <i class="fa fa-download"></i> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Overseas_StudyCare_Provisions.pdf" target="_blank">Policy Provisions   </a>
                         </h4>
                         <div class="clearfix"></div>
                         </div>  
@@ -1042,5 +1042,26 @@ function setDropArea(id) {
 </section>
 <link href="<%=request.getContextPath()%>/resources/css/easy-autocomplete.min.css" rel="stylesheet">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.easy-autocomplete.min.js"></script>
+<script>
+var options = {
+        
+          data : [ "Abu Dhabi", "Australia", "Austria", "Belgium",
+                    "Brunei", "Canada", "Cuba", "Cyprus", "Denmark", "Dubai", "France",
+                    "Germany", "Guam", "Holland", "India", "Indonesia", "Iran",
+                    "Ireland", "Italy", "Japan", "Korea", "Lao P.D.R.", "Macau",
+                    "Malaysia", "Monaco", "Myanmar", "Nepal", "New Zealand",
+                    "North Korea", "Norway", "Pakistan", "People Republic of China",
+                    "Philippines", "Poland", "Portugal", "Russia", "Singapore",
+                    "South Africa", "Spain", "Sri Lanka", "Sudan", "Sweden",
+                    "Switzerland", "Syria", "Taiwan", "Thailand", "Turkey",
+                    "United Kingdom", "Vietnam" ],
+          
+          
+          list: { match: { enabled: true } }
+
+    };
+
+    $("#countryOfInstitution").easyAutocomplete(options);
+</script>
 <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>

@@ -540,3 +540,27 @@ li.sponsor-wrapper+li.sponsor-wrapper{
     color: #ccc;
     font-size: 24px;	
 }
+.clear-float{
+    clear: both;
+}
+.oversea-landing-feature-image{
+    margin-top: 50px;
+}
+.oversea-landing-feature-image .img-responsive{
+    display: inline-block;
+}
+.single-line.landing-feature-title{
+    line-height: 33px !important;
+    height: auto !important;
+}
+.cta-btn.btn-primary{
+    background-color:#fdb714;
+    border: 1px solid #fdb714;
+}
+.cta-btn.btn-primary:hover{
+    color:#fdb714;
+    background-color:#fff;
+}
+.section-title.big-title{
+    color:#f6871e;
+}

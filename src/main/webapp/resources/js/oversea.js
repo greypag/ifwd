@@ -61,44 +61,8 @@ function validatecountryOfInstitution(){
 		$("#" + 'countryOfInstitution').removeClass("invalid-field");
 	}	
 }
-var options = {
-	
-	  data : [ "Abu Dhabi", "Australia", "Austria", "Belgium",
-				"Brunei", "Canada", "Cuba", "Cyprus", "Denmark", "Dubai", "France",
-				"Germany", "Guam", "Holland", "India", "Indonesia", "Iran",
-				"Ireland", "Italy", "Japan", "Korea", "Lao P.D.R.", "Macau",
-				"Malaysia", "Monaco", "Myanmar", "Nepal", "New Zealand",
-				"North Korea", "Norway", "Pakistan", "People Republic of China",
-				"Philippines", "Poland", "Portugal", "Russia", "Singapore",
-				"South Africa", "Spain", "Sri Lanka", "Sudan", "Sweden",
-				"Switzerland", "Syria", "Taiwan", "Thailand", "Turkey",
-				"United Kingdom", "Vietnam" ],
-	  
-	  
-	  list: { match: { enabled: true } }
 
-};
 
-//$("#countryOfInstitution").easyAutocomplete(options);
-/*
-$(function() {
-	var availableTags = [ "Abu Dhabi", "Australia", "Austria", "Belgium",
-			"Brunei", "Canada", "Cuba", "Cyprus", "Denmark", "Dubai", "France",
-			"Germany", "Guam", "Holland", "India", "Indonesia", "Iran",
-			"Ireland", "Italy", "Japan", "Korea", "Lao P.D.R.", "Macau",
-			"Malaysia", "Monaco", "Myanmar", "Nepal", "New Zealand",
-			"North Korea", "Norway", "Pakistan", "People Republic of China",
-			"Philippines", "Poland", "Portugal", "Russia", "Singapore",
-			"South Africa", "Spain", "Sri Lanka", "Sudan", "Sweden",
-			"Switzerland", "Syria", "Taiwan", "Thailand", "Turkey",
-			"United Kingdom", "Vietnam" ];
-	$("#countryOfInstitution").autocomplete({
-		source : availableTags
-	});
-});
-*/
-// <key id='Overseas.userdetails.applicant.Correspondence.Error.BorE'>Either
-// Building or Estate must be filled in.</key>
 function coverageToogle(id){
 	$('#'+id).mCustomScrollbar();
 	$('#'+id).css("display","block");
@@ -424,11 +388,11 @@ if (correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstateI
 		$("#"+'addressofInstitutionLine2').removeClass("invalid-field");
 		$("#"+'addressofInstitutionLine3').removeClass("invalid-field");
 	}
-
 //Overseas.userdetails.Instituation.Country.NotCoveredAsia
 //Overseas.userdetails.Instituation.Country.NotCoveredAsia.url
 	plan = document.getElementById("selectedPlanName").value;
 	asis_country_list =["Abu Dhabi","Dubai","India","Indonesia","Iran","Japan","Korea","Lao, P.D.R.","Macau","Malaysia","Myanmar","Nepal","North Korea","Pakistan","People Republic of China","Philippines","Singapore","Sri Lanka","Sudan","Taiwan","Thailand","Vietnam"]
+	console.log(asis_country_list.indexOf(countryOfInstitution));	
 	//alert(countryOfInstitution);
 	if (countryOfInstitution.trim() == '')
 	{
@@ -443,6 +407,9 @@ if (correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstateI
 			$("#"+'countryOfInstitution').addClass("invalid-field");
 			$("#countryOfInstitutionInvalid").html( getBundle(getBundleLanguage, 'Selected plan does not cover this country. Please consider "Worldwide Plans".'));
 			flag = false;
+		}else{
+			$("#"+'countryOfInstitution').removeClass("invalid-field");
+			$("#countryOfInstitutionInvalid").html( ''); 			
 		}
 	}
 
