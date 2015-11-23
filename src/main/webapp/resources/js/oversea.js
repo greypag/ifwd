@@ -99,11 +99,12 @@ $(function() {
 */
 // <key id='Overseas.userdetails.applicant.Correspondence.Error.BorE'>Either
 // Building or Estate must be filled in.</key>
-function coverageToogle(id){
+/*
+function coverageToggle(id){
 	$('#'+id).mCustomScrollbar();
 	$('#'+id).css("display","block");
 }
-
+*/
 function validateCorrespondenceBorE() {
 	building = $("#correspondenceAddressBuildingId").val();
 	estate = $("#correspondenceAddressEstateId").val();
@@ -156,7 +157,7 @@ function addDistrictList(value) {
 		distirctList.appendChild(opt);
 	}
 }
-
+/*
 function changeRegion(region){
 	$('#amountdue').html('0');
 	$('#subtotal').html('0');
@@ -182,12 +183,13 @@ function changeRegion(region){
 		changeColorAndPrice('box6','6','txtPlanName6','txtDiscountAmount6','txtTotalDue6');
 	}
 }
-
-function coverageToogle(){
+*/
+/*
+function coverageToggle(){
 	$("#summary-of-coverage").mCustomScrollbar();
 	$('#summary-of-coverage').css("display","block");
 }
-
+*/
 var oversea_click = false;
 function validateOverseaDetails(form, formId, language) {
 	if ($("#inputFullName").val().trim() == namePlaceholder.trim()) {
