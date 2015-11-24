@@ -229,7 +229,6 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 }
 .floor-block-pad-right-none{
 	padding-right: 0;
-<<<<<<< HEAD
 }
 /********** Oversea plan-selection page *********/
 .plan-coverage-box-l{
@@ -244,9 +243,10 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 }
 @media (min-width: 768px){
 	.pad-left-des{
-	}
+    width:49%;
+    }
 	.pad-right-des{
-		padding-right: 0 !important;
+    width:49%;
 	}
 	.plan-display-mobile-only{
 		display:none !important;
