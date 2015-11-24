@@ -244,7 +244,6 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 }
 @media (min-width: 768px){
 	.pad-left-des{
-		padding-left: 10px !important;
 	}
 	.pad-right-des{
 		padding-right: 0 !important;
