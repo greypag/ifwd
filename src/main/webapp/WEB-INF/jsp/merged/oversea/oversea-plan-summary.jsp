@@ -80,9 +80,10 @@ $(document).ready(function(){
     <div id="cn" class="oversea-summary-detail-wrapper container">
         <div class="row">
             <form name="paymentForm" id="paymentForm" method="post">
-				<div class="oversea-summary-mainhead col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none">
+				<!-- <div class="oversea-summary-mainhead col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none">
 					<h3 class="h2-3-existing-fwd-head summary-header summary-header-margin oversea-summary-mainhead" style="margin-left:0px !important;"><key id='Overseas.Payment.Summaryheader'>Your summary and payment</key></h3>
 				</div>
+				-->
 				<div class="clearfix"></div>
                 <ol class="breadcrumb pad-none">
 				  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer1'>Home</key></a> <i class="fa fa-caret-right"></i></li>
@@ -120,7 +121,7 @@ $(document).ready(function(){
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.DOB'>Date of birth</key></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.applicantDob }</div>
-                                        </div>										
+                                        </div>                                      
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Email'>Email address</key></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.emailAddress }</div>
@@ -128,6 +129,10 @@ $(document).ready(function(){
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Mobile'>Mobile no.</key></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.mobileNo }</div>
+                                        </div>                                      
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Relationship'>Relationship with insured person</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">XXX</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Correspondence'>Correspondence address</key></div>
@@ -263,14 +268,18 @@ $(document).ready(function(){
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.StudentVisaHolder'>Student visa holder</key></div>
 											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">Yes</div>
-										</div>																					
+										</div>                                                                            
+                                        <div class="row summary-row">
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.originalamount'>Original amount</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">HK$ ${originalAmount}</div> 
+                                        </div>                                                                            
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><key id='Overseas.Payment.Summary.AmountDue'>Amount due</key></span></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b pad-none">HK$ ${dueAmount} </span></div> 
                                         </div>
 										<div class="row summary-row">
 											<h4 class="h4-4 product_landing_download_button pull-left">
-												<i class="fa fa-download"></i> <a href="http://www.fwd.com.hk/upload/en-US/travel_care_insurance.pdf" target="_blank"><key id='Overseas.Payment.Brochure'>Download Brochure</key></a> <!-- /<%=request.getContextPath()%>/resources/policy-provisions-pdf/Overseas_StudyCare_Brochure.pdf -->
+												<i class="fa fa-download"></i> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Overseas_StudyCare_Brochure.pdf" target="_blank"><key id='Overseas.Payment.Brochure'>Download Brochure</key></a> <!-- /<%=request.getContextPath()%>/resources/policy-provisions-pdf/Overseas_StudyCare_Brochure.pdf -->
 											</h4>	
 										</div>
                                     <div class="clearfix"></div>
