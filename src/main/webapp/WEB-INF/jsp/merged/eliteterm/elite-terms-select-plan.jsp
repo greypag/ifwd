@@ -2549,7 +2549,7 @@ var home_url = "<%=request.getContextPath()%>";
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.jscrollpane.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-validation.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/elite-term/placeholders.min.js"></script>
+		
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/date.format.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.timepicker.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
@@ -2586,7 +2586,8 @@ var home_url = "<%=request.getContextPath()%>";
   			    .updateStatus('dob','VALID');
   			}
   			
-  			setTimeout(function(){
+  			/*
+         setTimeout(function(){
 	  			if($('#savieApplicantBean\\.permanentAddress1').val()!='' || $('#savieApplicantBean\\.permanentAddress1').val()!=$('#savieApplicantBean\\.permanentAddress1').attr('placeholder')) {
 	  				$('#eliteTermsInsuredInfoForm')
 	  			    .data('bootstrapValidator')
@@ -2605,6 +2606,7 @@ var home_url = "<%=request.getContextPath()%>";
 	  			    .updateStatus('savieApplicantBean.correspondenceAdress1','VALID');
 	            }
     		}, 300);
+         */
   		});
   		
   		$('.et-app-sum-edit').on('click', function(e) {
@@ -2852,6 +2854,8 @@ var home_url = "<%=request.getContextPath()%>";
                      .updateStatus('tel', 'INVALID','callback');
                }
             }); */
+
+            /*
             //addresses fix
             $(document).on('change', '#eliteTermsInsuredInfoForm .permanent-address.optional-field', function(e) {
             	setTimeout(function(){
@@ -2897,10 +2901,11 @@ var home_url = "<%=request.getContextPath()%>";
 	            	}
             	}, 100);
             });
-
+            */
             //ie fixes
+            /*
             if(msieversion() > 0) {
-            	$(document).on('change', '#et-cust-serv-form #email', function(e) {
+               $(document).on('change', '#et-cust-serv-form #email', function(e) {
            			setTimeout(function(){
 	            		if($(this).parent().find('small.help-block:visible').length <= 0 && $('#et-cust-serv-form #tel').attr('placeholder')==$('#et-cust-serv-form #tel').val()) {
 	            			$('#et-cust-serv-form')
@@ -2951,7 +2956,7 @@ var home_url = "<%=request.getContextPath()%>";
             	});
     	  			
             }
-
+            */
             // ^ bootstrap validation
             $('#et-cust-serv-form').bootstrapValidator({
                excluded:[],
@@ -2991,19 +2996,11 @@ var home_url = "<%=request.getContextPath()%>";
                                        message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
                                    }
                               }
-                               if($('#et-cust-serv-form #email').attr('placeholder')==value && $('#et-cust-serv-form #tel').attr('placeholder')==$('#et-cust-serv-form #tel').val() && msieversion() > 0) {
-                            	   return {
-                                       valid: false,
-                                       message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
-                                   }
-                               }
-                               if($('#et-cust-serv-form #tel').parent().find('small.help-block:visible').length <= 0 && $('#et-cust-serv-form #email').attr('placeholder')==value) {
-      	            				$('#et-cust-serv-form')
-                                  .data('bootstrapValidator')
-                                  .updateStatus('email','VALID');
-      	            			}	
+
                               // Remove Tel Error message as well
-                              $('#cannotApplyTelMessage').find('.help-block[data-bv-validator="callback"][data-bv-for="tel"]').html('');
+                              $('#et-cust-serv-form')
+                                  .data('bootstrapValidator')
+                                  .updateStatus('tel','VALID');
                               return true;
                            }
                         }
@@ -3031,19 +3028,12 @@ var home_url = "<%=request.getContextPath()%>";
                                        message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
                                    }                          
                                }
-                               if($('#et-cust-serv-form #tel').attr('placeholder')==value && $('#et-cust-serv-form #email').attr('placeholder')==$('#et-cust-serv-form #email').val() && msieversion() > 0) {
-                            	   return {
-                                       valid: false,
-                                       message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
-                                   }
-                               }
-                               if($('#et-cust-serv-form #email').parent().find('small.help-block:visible').length <= 0 && $('#et-cust-serv-form #tel').attr('placeholder')==value) {
-       	            				$('#et-cust-serv-form')
-                                   .data('bootstrapValidator')
-                                   .updateStatus('tel','VALID');
-       	            			}	
+                               
                               // Remove Email Error message as well
-                              $('#cannotApplyEmailMessage').find('.help-block[data-bv-validator="callback"][data-bv-for="email"]').html('');
+                              $('#et-cust-serv-form')
+                                   .data('bootstrapValidator')
+                                   .updateStatus('email','VALID');
+                              
                               return true;
                            }
                         }
@@ -3072,7 +3062,7 @@ var home_url = "<%=request.getContextPath()%>";
           
                    $('.modal').modal('hide');
                    
-                    var name = $('#name').val();
+                     var name = $('#name').val();
 	               	var email = $('#email').val();
 	               	var mobile = $('#tel').val();
 	               	var preferredDay = $('#day').val();

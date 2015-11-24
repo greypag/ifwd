@@ -450,11 +450,19 @@ $(function() {
 					callback: {
 						message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
 						callback: function (value, validator, $field) {
-							if(totalBeneficiaryEntitlement() == "Exceed"){
-								return false;
-							}else{
-								return true;
-							}
+							if(value==''){
+                        		// display the range error message if it is empty
+                        		$('#beneficiaryInfoForm\\[0\\]')
+                        			.data('bootstrapValidator')
+                        			.updateStatus('savieBeneficiaryBean[0].entitlement', 'INVALID', 'between');
+                        		return true;
+                        	} else {
+                        		if (totalBeneficiaryEntitlement() == "Exceed"){
+	                          		return false;
+	                        	} else {
+	                           		return true;
+	                        	}
+                        	}
 						}
 					}
 				}
@@ -548,19 +556,19 @@ $(function() {
 	                  regexp: {
 	                     regexp: /^[\s\u4e00-\u9eff]*$/,
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
-	                  },
+	                  }/*,
 	                  callback: {
 	                        callback: function(value, validator) {
 	                        	if(document.getElementById('savieBeneficiaryBean[1].chineseName').getAttribute('placeholder')==value && msieversion()>0) {
 			                		  $('#beneficiaryInfoForm\\[1\\]')
 		                                .data('bootstrapValidator')
 		                                .updateStatus('savieBeneficiaryBean[1].chineseName','VALID');
-			                	  }
-			                	  return true;
-	                            }
-	                     }
+			                	}
+			                	 
+			                	return true;
+							}
+						}*/
 	                  }
-	               }
 	            },
 	            'savieBeneficiaryBean[1].passportNo':{
 	               container: '#bnfPassportMessage\\[1\\]',
@@ -619,16 +627,24 @@ $(function() {
 	                  callback: {
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
 	                     callback: function (value, validator, $field) {
-	                        if(totalBeneficiaryEntitlement() == "Exceed"){
-	                           return false;
-	                        }else{
-	                           return true;
-	                        }
+	                        if(value==''){
+                        		// display the range error message if it is empty
+                        		$('#beneficiaryInfoForm\\[1\\]')
+                        			.data('bootstrapValidator')
+                        			.updateStatus('savieBeneficiaryBean[1].entitlement', 'INVALID', 'between');
+                        		return true;
+                        	} else {
+                        		if (totalBeneficiaryEntitlement() == "Exceed"){
+	                          		return false;
+	                        	} else {
+	                           		return true;
+	                        	}
+                        	}
 	                     }
 	                  }
 	               }
 	            }
-	         
+	        }
 	      });
 		 
 		 //input hkid
@@ -729,7 +745,7 @@ $(function() {
                   regexp: {
                      regexp: /^[\s\u4e00-\u9eff]*$/,
                      message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
-                  },
+                  }/*,
                   callback: {
                       callback: function(value, validator) {
                     	  if(document.getElementById('savieBeneficiaryBean[2].chineseName').getAttribute('placeholder')==value && msieversion()>0) {
@@ -739,7 +755,7 @@ $(function() {
 	                	  }
 	                	  return true;
                           }
-                   }
+                   }*/
                }
 				},
 				'savieBeneficiaryBean[2].passportNo':{
@@ -799,10 +815,18 @@ $(function() {
                   		callback: {
                      		message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
                      		callback: function (value, validator, $field) {
-                        	if(totalBeneficiaryEntitlement() == "Exceed"){
-                          		return false;
-                        	}else{
-                           		return true;
+                        	if(value==''){
+                        		// display the range error message if it is empty
+                        		$('#beneficiaryInfoForm\\[2\\]')
+                        			.data('bootstrapValidator')
+                        			.updateStatus('savieBeneficiaryBean[2].entitlement', 'INVALID', 'between');
+                        		return true;
+                        	} else {
+                        		if (totalBeneficiaryEntitlement() == "Exceed"){
+	                          		return false;
+	                        	} else {
+	                           		return true;
+	                        	}
                         	}
                      	}
                   	}
