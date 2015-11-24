@@ -64,7 +64,7 @@ function prepareOverseaPlan(form){
 								<tbody>
 									<tr>  
 										<td align="center" class="col-md-2 pad-none">
-											<button style="height:70px;" type="submit" class="border-radius cta-btn btn btn-primary get-btn ">Get Quote</button>
+											<button style="height:70px;" type="submit" class="oversea-cta border-radius cta-btn btn btn-primary get-btn ">Get Quote</button>
 										</td>
 									</tr>
 								</tbody>

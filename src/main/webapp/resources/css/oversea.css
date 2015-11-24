@@ -9,7 +9,8 @@
 
 .oversea-middle .product-download-wrapper{
 	text-align: center;
-	margin-bottom: 20px
+	margin-bottom: 20px;
+	margin-top: 8px;
 }
 
 .product-download-wrapper .product_landing_download_button{
@@ -555,12 +556,15 @@ li.sponsor-wrapper+li.sponsor-wrapper{
     line-height: 33px !important;
     height: auto !important;
 }
-.cta-btn.btn-primary{
+.get-btn.oversea-cta{
+	padding: 15px 40px !important;
+}
+.cta-btn.btn-primary,.cta-btn.btn-primary:focus{
     background-color:#fdb714;
     border: 1px solid #fdb714;
 }
 .cta-btn.btn-primary:hover{
-    color:#fdb714;
+    color:#f68a1d;
     background-color:#fff;
 }
 .section-title.big-title{

@@ -497,30 +497,7 @@ function setDropArea(id) {
                             <div class="form-group float">
                                 <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                     <label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.District'>District</key></label>
-                                </div>
-                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none district-btn-grp">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-                                                                                <input type="radio" name="districtSelected"
-                                            name="correspondenceAddressDistrict" type="" value="HK"
-                                            id="inlineCARadio3" onclick="" maxlength="50" onblur=""><span id="" class="text-red"></span>
-                                        <label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.HongKong'>HK</key></label>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-                                        <input type="radio" name="districtSelected"
-                                            name="correspondenceAddressDistrict" type="" value="KL"
-                                            id="inlineCARadio4" onclick="" maxlength="50" onblur=""><span id="" class="text-red"></span>
-                                        <label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Kowloon'>KLN</key></label>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-                                                                                <input type="radio" name="districtSelected"
-                                            name="correspondenceAddressDistrict" type="" value="NT"
-                                            onclick="" id="inlineCARadio5" maxlength="50" onblur=""><span id="" class="text-red"></span>
-                                        <label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.NT'>N.T.</key></label>
-                                    </div>
-                                </div>                                                          
-                                <span id="errCADist" class="text-red"> </span>
-                            </div>
-                            <div class="form-group float">
+                                </div>                            
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none pull-right">
                                     <div class="styled-select">
                                             <select name="applicantDistrict" id="applicantDistrict"
@@ -561,18 +538,37 @@ function setDropArea(id) {
                                     <span id="errpersonalselectBenificiary1" class="text-red"></span>
                                 </div>                          
                             </div>
-                                <div class="form-group float">
-                                    <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none"></div>
-                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <span id="errorEmptycorrespondenceAddressDistrict" class="text-red"></span> 
-                                </div>
-                            <!-- correspondence address ends -->
-                            </div>
+                            <div class="form-group float">
+	                            <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none"></div>
+	                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
+                                        <span id="errorEmptycorrespondenceAddressDistrict" class="text-red"></span> 
+                                    </div>
+                            </div>                                
+                            <div class="form-group float">
+                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none district-btn-grp pull-right">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
+                                                                                <input type="radio" name="districtSelected"
+                                            name="correspondenceAddressDistrict" type="" value="HK"
+                                            id="inlineCARadio3" onclick="" maxlength="50" onblur=""><span id="" class="text-red"></span>
+                                        <label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.HongKong'>HK</key></label>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
+                                        <input type="radio" name="districtSelected"
+                                            name="correspondenceAddressDistrict" type="" value="KL"
+                                            id="inlineCARadio4" onclick="" maxlength="50" onblur=""><span id="" class="text-red"></span>
+                                        <label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Kowloon'>KLN</key></label>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
+                                                                                <input type="radio" name="districtSelected"
+                                            name="correspondenceAddressDistrict" type="" value="NT"
+                                            onclick="" id="inlineCARadio5" maxlength="50" onblur=""><span id="" class="text-red"></span>
+                                        <label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.NT'>N.T.</key></label>
+                                    </div>
+                                </div>                                                          
+                                <span id="errCADist" class="text-red"> </span>
+                            </div>                            
                         </div>
-
-
-                
-                        
+                       <!-- correspondence address ends -->
                         <div class="clearfix"></div>
                         <div class="form-wrap">
                             <div class="big-title black-bold section-title" style="padding-left:0px !important;">
@@ -681,7 +677,7 @@ function setDropArea(id) {
                                                     </label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-                                                   <input type="text" name="beneficiaryFullName" id="beneficiaryFullName" class="form-control full-control textUpper bmg_custom_placeholder" value="SAME AS ID DOCUMENT" onblur="validateName('beneficiaryFullName','errBeneficiaryFullName',false,'beneficiary');" onkeypress="    return alphaOnly(event);" maxlength="100"></input>
+                                                   <input type="text" name="beneficiaryFullName" id="beneficiaryFullName" class="form-control full-control textUpper bmg_custom_placeholder" value="SAME AS ID DOCUMENT" onblur="validateName('beneficiaryFullName','errBeneficiaryFullName',false,'beneficiary');" onkeypress="    return alphaOnly(event);" maxlength="50"></input>
                                                     <span id="errBeneficiaryFullName" class="text-red"> </span>
                                                </div>
                                                <div class="clearfix"></div>
@@ -720,7 +716,7 @@ function setDropArea(id) {
                                                   <label class="field-label form-label bold-500 hidden-lg hidden-md"></label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-                                                  <input id="beneficiaryID" name="beneficiaryID" class="form-control textUpper full-control bmg_custom_placeholder" value="EG: X1234567 WITHOUT ()" onkeypress=" return hkidOnkeypress(event);" onfocus="placeholderOnFocus(this,'EG: X1234567 WITHOUT ()');" onblur="placeholderOnBlur(this,'EG: X1234567 WITHOUT ()'); validateHkid('beneficiaryID','beneficiaryIDType','errBeneficiaryID',false,'beneficiary');"></input>
+                                                  <input type="text" id="beneficiaryID" name="beneficiaryID" class="form-control textUpper full-control bmg_custom_placeholder" value="EG: X1234567 WITHOUT ()" onkeypress=" return hkidOnkeypress(event);" onfocus="placeholderOnFocus(this,'EG: X1234567 WITHOUT ()');" onblur="placeholderOnBlur(this,'EG: X1234567 WITHOUT ()'); validateHkid('beneficiaryID','beneficiaryIDType','errBeneficiaryID',false,'beneficiary');"></input>
                                                   <span id="errBeneficiaryID" class="text-red"> </span>
                                                </div>
                                            </div>
@@ -757,7 +753,7 @@ function setDropArea(id) {
                                             <label for="countryOfInstitution" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Country'>Country of Institution</key></label>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                            <input name="countryOfInstitution" type="" class="form-control full-control" placeholder="Country of Institution" value="" id="countryOfInstitution" onkeypress="validatecountryOfInstitution();" onfocus="placeholderOnFocus(this,'Country of Institution');" onblur="placeholderOnBlur(this,'Country of Institution');" maxlength="50">                                              
+                                            <input name="countryOfInstitution" type="text" class="form-control full-control" placeholder="Country of Institution" value="" id="countryOfInstitution" onkeypress="validatecountryOfInstitution();" onfocus="placeholderOnFocus(this,'Country of Institution');" onblur="placeholderOnBlur(this,'Country of Institution');" maxlength="50">                                              
                                             <br>                                                
                                             <span id="countryOfInstitutionInvalid" class="text-red"></span>
                                         </div>
@@ -767,7 +763,7 @@ function setDropArea(id) {
                                             <label for="nameOfInstitution" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Name'>Name of Institution</key></label>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                            <input name="nameOfInstitution" type="" class="form-control full-control" placeholder="Name of Institution" value="" id="nameOfInstitution" onkeypress="validatecountryOfInstitution();" onfocus="placeholderOnFocus(this,'Name of Institution');" onblur="placeholderOnBlur(this,'Name of Institution');" maxlength="50"> 
+                                            <input name="nameOfInstitution" type="text" class="form-control full-control" placeholder="Name of Institution" value="" id="nameOfInstitution" onkeypress="validatecountryOfInstitution();" onfocus="placeholderOnFocus(this,'Name of Institution');" onblur="placeholderOnBlur(this,'Name of Institution');" maxlength="100"> 
                                             <span id="nameOfInstitutionInvalid" class="text-red"></span>
                                         </div>
                                     </div>
@@ -778,21 +774,21 @@ function setDropArea(id) {
                                             <label for="addressofInstitutionLine1" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Address'>Address</key></label>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                            <input name="addressofInstitutionLine1" type="text" class="form-control full-control" placeholder="Line 1" value="" id="addressofInstitutionLine1" onkeypress=""  onfocus="placeholderOnFocus(this,'Line 1');" onblur="placeholderOnBlur(this,'Line 1');validateaddressofInstitutionLine()" maxlength="50"> 
+                                            <input name="addressofInstitutionLine1" type="text" class="form-control full-control" placeholder="Line 1" value="" id="addressofInstitutionLine1" onkeypress="return isAlphaNumeric(event);"  onfocus="placeholderOnFocus(this,'Line 1');" onblur="placeholderOnBlur(this,'Line 1');validateaddressofInstitutionLine()" maxlength="100"> 
                                         </div>
                                     </div>
                                     <div class="form-group float">
                                         <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                            <input name="addressofInstitutionLine2" type="text" class="form-control full-control" placeholder="Line 2" value="" id="addressofInstitutionLine2" onkeypress="" onfocus="placeholderOnFocus(this,'Line 2');" onblur="placeholderOnBlur(this,'Line 2');validateaddressofInstitutionLine()" maxlength="50"> 
+                                            <input name="addressofInstitutionLine2" type="text" class="form-control full-control" placeholder="Line 2" value="" id="addressofInstitutionLine2" onkeypress="return isAlphaNumeric(event);" onfocus="placeholderOnFocus(this,'Line 2');" onblur="placeholderOnBlur(this,'Line 2');validateaddressofInstitutionLine()" maxlength="100"> 
                                         </div>
                                     </div>
                                     <div class="form-group float">
                                         <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                            <input name="addressofInstitutionLine3" type="text" class="form-control full-control" placeholder="Line 3" value="" id="addressofInstitutionLine3" onkeypress="" onfocus="placeholderOnFocus(this,'Line 3');" onblur="placeholderOnBlur(this,'Line 3');validateaddressofInstitutionLine()" maxlength="50"> 
+                                            <input name="addressofInstitutionLine3" type="text" class="form-control full-control" placeholder="Line 3" value="" id="addressofInstitutionLine3" onkeypress="return isAlphaNumeric(event);" onfocus="placeholderOnFocus(this,'Line 3');" onblur="placeholderOnBlur(this,'Line 3');validateaddressofInstitutionLine()" maxlength="100"> 
                                             <span id="addressofInstitutionInvalid" class="text-red"></span> 
                                         </div>
                                     </div>
