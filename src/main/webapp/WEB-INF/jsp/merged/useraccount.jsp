@@ -110,6 +110,11 @@
     .plan-item-empty{
         margin-bottom:90px;
     }
+    @media screen and (max-width: 991px){
+	    .currency-label-align{
+	        text-align: left;   
+	    }
+    }
 </style>
 
 
@@ -394,7 +399,13 @@
 	                        <div class="plan-item first even hidden-md hidden-lg">
 	                            <div class="plan-item-cols odd plan-item-cols-top">
 	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.plan.name" bundle="${msg}" /></h5>
-	                                <p>${i.planCode}</p>
+	                                <p>
+	                                   <c:if test="${i.planCode == 'FlightCare'}"><fmt:message key="plan.flight" bundle="${msg}" /></c:if>
+	                                   <c:if test="${i.planCode == 'TravelCare'}"><fmt:message key="plan.travel" bundle="${msg}" /></c:if>
+	                                   <c:if test="${i.planCode == 'AnnualTravelCare'}"><fmt:message key="plan.annual.travel" bundle="${msg}" /></c:if>
+	                                   <c:if test="${i.planCode == 'WorkingHolidayCare'}"><fmt:message key="plan.working.holiday" bundle="${msg}" /></c:if>
+	                                   <c:if test="${i.planCode == 'EasyHomeCare'}"><fmt:message key="plan.easyhome" bundle="${msg}" /></c:if>
+	                                </p>
 	                            </div>
 	                            <div class="plan-item-cols odd plan-item-cols-top">
 	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.no" bundle="${msg}" /></h5>
@@ -441,7 +452,9 @@
 	                        <div class="plan-item first even hidden-md hidden-lg">
 	                            <div class="plan-item-cols odd plan-item-cols-top">
 	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.plan.name" bundle="${msg}" /></h5>
-	                                <p>Elite term</p>
+	                                <p>
+	                                  <c:if test="${i.planCode == 'ET'}"><fmt:message key="plan.elite.term" bundle="${msg}" /></c:if>
+	                                </p>
 	                            </div>
 	                            <div class="plan-item-cols odd plan-item-cols-top">
 	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.no" bundle="${msg}" /></h5>
@@ -450,13 +463,13 @@
 	                            <div class="plan-item-cols odd plan-item-cols-bottom">
 	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.commencement.date" bundle="${msg}" /></h5>
 	                                <p>
-	                                  <c:if test="${i.documentUploaded == 'true'}">${i.submissionDate}<br/>${i.status}</c:if>
+	                                  <c:if test="${i.documentUploaded == 'true'}">${i.submissionDate}<br/><fmt:message key="user.policy.status.uploaded" bundle="${msg}" /></c:if>
 	                                  <c:if test="${i.documentUploaded == 'false'}"><fmt:message key="user.policy.status.incomplete" bundle="${msg}" /><br/><a id="eservices-document-upload-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload?policyNumber=${i.policyNumberBase64 }"><fmt:message key="user.policy.status.pending_upload" bundle="${msg}" /></a></c:if>
 	                                </p>
 	                            </div>
 	                            <div class="plan-item-cols odd plan-item-cols-bottom">
 	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.insured.amount" bundle="${msg}" /></h5>
-	                                <p class="hidden-lg hidden-md"><fmt:message key="currency.hkd" bundle="${msg}" /><fmt:formatNumber value='${i.amount }' pattern="0,000.00"/></p>
+	                                <p class="hidden-lg hidden-md currency-label-align"><fmt:message key="currency.hkd" bundle="${msg}" /><br/><fmt:formatNumber value='${i.amount }' pattern="0,000.00"/></p>
 	                            </div>
 	                        </div>
                         </c:forEach>
@@ -482,7 +495,13 @@
 		                             </tr> --%>
 	                                 <c:forEach items="${policiesGI}" var="i" varStatus="obj">
 	                                    <tr <c:if test="${obj.count%2 == '0'}">class="odd"</c:if><c:if test="${obj.count%2 != '0'}">class="even"</c:if>>
-	                                        <td>${i.planCode}</td>
+	                                        <td>
+	                                           <c:if test="${i.planCode == 'FlightCare'}"><fmt:message key="plan.flight" bundle="${msg}" /></c:if>
+			                                   <c:if test="${i.planCode == 'TravelCare'}"><fmt:message key="plan.travel" bundle="${msg}" /></c:if>
+			                                   <c:if test="${i.planCode == 'AnnualTravelCare'}"><fmt:message key="plan.annual.travel" bundle="${msg}" /></c:if>
+			                                   <c:if test="${i.planCode == 'WorkingHolidayCare'}"><fmt:message key="plan.working.holiday" bundle="${msg}" /></c:if>
+			                                   <c:if test="${i.planCode == 'EasyHomeCare'}"><fmt:message key="plan.easyhome" bundle="${msg}" /></c:if>
+	                                        </td>
 	                                        <td>${i.policyNumber}</td>
 	                                        <td>${i.commencementDate}~<br/>${i.expiryDate}</td>
 	                                        <td><a id="eservices-document-upload-link" href="${i.claimFormUrl}" target="_blank"><fmt:message key="user.policy.claim.form" bundle="${msg}" /></a></td>
@@ -529,13 +548,13 @@
                                  <tbody>
                                  <c:forEach items="${policiesLife}" var="i" varStatus="obj">
                                     <tr <c:if test="${obj.count%2 == '0'}">class="odd"</c:if><c:if test="${obj.count%2 != '0'}">class="even"</c:if>>
-                                        <td>${i.planCode}</td>
+                                        <td><c:if test="${i.planCode == 'ET'}"><fmt:message key="plan.elite.term" bundle="${msg}" /></c:if></td>
                                         <td>${i.policyNumber}</td>
                                         <td>
-	                                        <c:if test="${i.documentUploaded == 'true'}">${i.submissionDate}<br/>${i.status}</c:if>
+	                                        <c:if test="${i.documentUploaded == 'true'}">${i.submissionDate}<br/><fmt:message key="user.policy.status.uploaded" bundle="${msg}" /></c:if>
 	                                        <c:if test="${i.documentUploaded == 'false'}"><fmt:message key="user.policy.status.incomplete" bundle="${msg}" /><br/><a id="eservices-document-upload-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload?policyNumber=${i.policyNumberBase64 }"><fmt:message key="user.policy.status.pending_upload" bundle="${msg}" /></a></c:if>
                                         </td>
-                                        <td><fmt:message key="currency.hkd" bundle="${msg}" />
+                                        <td class="currency-label-align"><fmt:message key="currency.hkd" bundle="${msg}" />
                                             <fmt:formatNumber value='${i.amount }' pattern="0,000.00"/>
                                         </td>
                                     </tr>

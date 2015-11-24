@@ -209,7 +209,14 @@ public class UserController {
 						for(int i=0;i<purchaseHistory.getPolicies().size();i++){
 							SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 							if(purchaseHistory.getPolicies().get(i).getSubmissionDate() !=null){
-								purchaseHistory.getPolicies().get(i).setSubmissionDate(purchaseHistory.getPolicies().get(i).getSubmissionDate().substring(0, 10));
+						        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss") ;
+						        Date d = null ;    
+						        try{    
+						            d = sdf1.parse(purchaseHistory.getPolicies().get(i).getSubmissionDate()) ;
+						        }catch(Exception e){
+						            e.printStackTrace() ;
+						        }    
+								purchaseHistory.getPolicies().get(i).setSubmissionDate(sdf.format(d));
 							}
 							if(purchaseHistory.getPolicies().get(i).getCommencementDate() !=null && purchaseHistory.getPolicies().get(i).getCommencementDate().length() >9 ){
 								purchaseHistory.getPolicies().get(i).setCommencementDate(sdf.format(new Date(Long.valueOf(purchaseHistory.getPolicies().get(i).getCommencementDate()))));

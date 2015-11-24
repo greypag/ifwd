@@ -45,6 +45,7 @@ import com.ifwd.fwdhk.util.PolicyNoUtil;
 public class EliteTermServiceImpl implements EliteTermService {
 	private final static Logger logger = LoggerFactory.getLogger(EliteTermServiceImpl.class);
 	
+	
 	@Autowired
 	private RestServiceDao restService;
 	
@@ -476,21 +477,16 @@ public class EliteTermServiceImpl implements EliteTermService {
 		try {
 			CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
 			String policyNo = eliteTermPolicy.getPolicyNo();
-			String url = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
 			String language = (String) request.getSession().getAttribute("language");
 			if(StringUtils.isEmpty(language)){
 				language = "tc";
 			}
 			CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
-			String customerName="";
-			if(etPolicyApplication.getApplicant() != null){
-				 customerName = etPolicyApplication.getApplicant().getFirstName()+" "+etPolicyApplication.getApplicant().getLastName();
-				 if(StringUtils.isEmpty(etPolicyApplication.getApplicant().getFirstName())){
-					 customerName =  etPolicyApplication.getApplicant().getChineseName();
-				 }
+			UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+			String customerName = userDetails.getFullName();
+			if(StringUtils.isEmpty(customerName)){
+				customerName =  userDetails.getFirstName()+" "+userDetails.getLastName();
 			}
-			String imgUrl = url+"/resources/images/elite-terms/ifwd_hero-banner_edm.jpg";
-			url = url + "/"+language+"/term-life-insurance/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(policyNo.getBytes());
 			final Map<String,String> header = headerUtil.getHeader(request);
 			header.put("language", "ZH");
 			String to = (String) request.getSession().getAttribute("eliteTermEmail");
@@ -500,6 +496,9 @@ public class EliteTermServiceImpl implements EliteTermService {
 			{
 				serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 			}
+			String imgUrl = serverUrl + "/resources/images/elite-terms/ifwd_hero-banner_edm.jpg";
+			String url = serverUrl + "/"+language+"/term-life-insurance/document-upload?policyNumber="+new sun.misc.BASE64Encoder().encode(policyNo.getBytes());
+			
 			String message = "<html><head><meta charset='UTF-8'><title>FWD Elite Term – Pending ["+policyNo+"]</title></head>"
 					       + "<body><div marginwidth='0' marginheight='0' style='margin:0;padding:0;background-color:#f2f2f2;min-height:100%!important;width:100%!important'><center>"
 					       + "<table align='center' border='0' cellpadding='0' cellspacing='0' height='100%' width='100%' style='border-collapse:collapse;margin:0;padding:0;background-color:#f2f2f2;height:100%!important;width:100%!important'>"
@@ -508,7 +507,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 					       + "<tbody><tr><td align='center' valign='top'><table border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse:collapse;background-color:#ffffff;border-top:0;border-bottom:0'>"
 					       + "<tbody><tr><td valign='top' style='padding-top:9px'><table border='0' cellpadding='0' cellspacing='0' width='100%' style='border-collapse:collapse'>"
 					       + "<tbody><tr><td valign='top'><table align='left' border='0' cellpadding='0' cellspacing='0' width='266' style='border-collapse:collapse'>"
-					       + "<tbody><tr><td valign='top' style='padding-top:9px;padding-left:18px;padding-bottom:9px;padding-right:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left'><a href='https://i.fwd.com.hk/tc/?utm_source=edm&amp;utm_medium=cpc&amp;utm_campaign=EDM%7CSA%7CP2%7CO2O+Appointment+Confirmation&amp;utm_content=logo' style='word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline' target='_blank'><img align='none' src='https://ci5.googleusercontent.com/proxy/pUUalkIKCfYBNDy3jLrAXaOG3fZKkCgfdmngGJRLq2z16WSbVoolnNEzM6URl0ebkOdGIJZbBsntZA4qwhNGC7iNAiEv_joIenDGsE-Lrv9ddo_wUPLfDJ7x0DolmiB-0r9la_aL9DT2iWAecsFUrfJn1VZqvuVgHQ1NeLw=s0-d-e1-ft#https://gallery.mailchimp.com/e03376087b8f7b09d66ad1fd2/images/c9050e8a-40a3-451c-ad15-4fcd44856132.jpg' style='margin:0px;border:0;outline:none;text-decoration:none;min-height:auto!important' class='CToWUd'></a></td></tr></tbody></table>"
+					       + "<tbody><tr><td valign='top' style='padding-top:9px;padding-left:18px;padding-bottom:9px;padding-right:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left'><a href='"+serverUrl+"' style='word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline' target='_blank'><img align='none' src='"+serverUrl+"/resources/images/fwd-email-logo.jpg' style='margin:0px;border:0;outline:none;text-decoration:none;min-height:auto!important' class='CToWUd'></a></td></tr></tbody></table>"
 					       + "<table align='right' border='0' cellpadding='0' cellspacing='0' width='297' style='border-collapse:collapse'><tbody><tr><td valign='top' style='padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left'><div style='text-align:right'><br></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr>"
 					       + "<tr><td align='center' valign='top'><table border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse:collapse;background-color:#ffffff;border-top:0;border-bottom:0'>"
 					       + "<tbody><tr><td valign='top'><table border='0' cellpadding='0' cellspacing='0' width='100%' style='border-collapse:collapse'>"
@@ -552,10 +551,10 @@ public class EliteTermServiceImpl implements EliteTermService {
 					       + "<tbody><tr><td valign='top'><table align='left' border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse:collapse'><tbody>"
 					       + "<tr><td valign='top' style='padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left'><div style='text-align:center'>"
 					       + "<p dir='ltr' style='line-height:1.2;margin-top:0pt;margin-bottom:10pt;text-align:center;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>富衛人壽保險(百慕達)有限公司</span></span></p>"
-					       + "<p dir='ltr' style='line-height:1.2;margin-top:0pt;margin-bottom:10pt;text-align:center;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px'><a href='http://www.fwd.com/hk/?utm_source=edm&amp;utm_medium=cpc&amp;utm_campaign=EDM%7CSA%7CP2%7CO2O+Access+Code&amp;utm_content=copy' style='word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline' target='_blank'><span style='color:#ff8c00'><span style='font-family:microsoft jhenghei,calibri,sans-serif'><span><span style='background-color:transparent;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>www.fwd.com.hk</span></span></span></span></a></p></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></center></div></body></html>";
+					       + "<p dir='ltr' style='line-height:1.2;margin-top:0pt;margin-bottom:10pt;text-align:center;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px'><a href='http://www.fwd.com/hk/' style='word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline' target='_blank'><span style='color:#ff8c00'><span style='font-family:microsoft jhenghei,calibri,sans-serif'><span><span style='background-color:transparent;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>www.fwd.com.hk</span></span></span></span></a></p></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></center></div></body></html>";
 			String subject = "FWD Elite Term – Pending ["+policyNo+"]";
 			String attachment = "";
-			String from = "FWD Elite Term <i-info.hk@fwd.com>";
+			String from = "Fanny at FWD HK <i-services.hk@fwd.com>";
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
@@ -623,11 +622,6 @@ public class EliteTermServiceImpl implements EliteTermService {
 			header.put("language", "ZH");
 			String to = request.getParameter("email");
 			logger.info("To Email:"+to);
-			String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
-			if (request.getServerPort() != 80 && request.getServerPort() != 443)
-			{
-				serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
-			}
 			String message = "\u60A8\u597D,<p><p>\u591A\u8B1D\u60A8\u767B\u8A18\u8A02\u95B1\u5BCC\u885B\u7684\u63A8\u5EE3\u512A\u60E0\u3001"
 					       + "\u5347\u7D1A\u734E\u8CDE\u53CA\u516C\u53F8\u8CC7\u8A0A*\u3002\u60A8\u53EF\u4EE5\u4F7F\u7528\u63A8\u5EE3\u7DE8"
 					       + "\u865F " + promoteCode + " \u7372\u53D6\u7DB2\u4E0A\u6295\u4FDD\u512A\u60E0\u3002<p>"
@@ -641,7 +635,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 					       + "*Note: You may unsubscribe at any time.  To unsubscribe, please call us at 3123-3123.";
 			String subject = "FWD Promotion Code";
 			String attachment = "";
-			String from = "FWD Elite Term <i-noreply.hk@fwd.com>";
+			String from = "Fanny at FWD HK <i-services.hk@fwd.com>";
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
@@ -666,9 +660,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 		if("false".equals(uploadLaterFlage)){	
 			try {
 				UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
-//				CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
-				String customerName="";
-				customerName = userDetails.getFullName();
+				String customerName = userDetails.getFullName();
 				if(StringUtils.isEmpty(customerName)){
 					customerName =  userDetails.getFirstName()+" "+userDetails.getLastName();
 				}
@@ -678,11 +670,15 @@ public class EliteTermServiceImpl implements EliteTermService {
 				headerEmail.put("language", "ZH");
 				String subject = "FWD Elite Term – Complete["+policyNo+"]";
 				String attachment = "";
-				String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
-				String imageUrl  = "http://" + request.getServerName() 
-	                    + ":"   
-	                    + request.getServerPort()          
-	                    + request.getContextPath() +"/resources/images/ifwd_hero-banner_edm.jpg";
+				String from = "Fanny at FWD HK <i-services.hk@fwd.com>";
+				
+				String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
+				if (request.getServerPort() != 80 && request.getServerPort() != 443)
+				{
+					serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+				}
+				
+				String imageUrl  = serverUrl +"/resources/images/ifwd_hero-banner_edm.jpg";
 				boolean isHTML = true;
 				String  message = " <body>  "+
 						" <div marginwidth=\"0\" marginheight=\"0\" style=\"margin:0;padding:0;background-color:#f2f2f2;min-height:100%!important;width:100%!important\">  "+
@@ -707,7 +703,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 						"                 <tbody>  "+
 						"                   <tr>  "+
 						"                     <td valign=\"top\" style=\"padding-top:9px;padding-left:18px;padding-bottom:9px;padding-right:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left\">  "+
-						"                       <a href=\"https://i.fwd.com.hk/tc/?utm_source=edm&amp;utm_medium=cpc&amp;utm_campaign=EDM%7CSA%7CP2%7CO2O+Appointment+Confirmation&amp;utm_content=logo\" style=\"word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline\" target=\"_blank\"><img align=\"none\" src=\"https://ci5.googleusercontent.com/proxy/pUUalkIKCfYBNDy3jLrAXaOG3fZKkCgfdmngGJRLq2z16WSbVoolnNEzM6URl0ebkOdGIJZbBsntZA4qwhNGC7iNAiEv_joIenDGsE-Lrv9ddo_wUPLfDJ7x0DolmiB-0r9la_aL9DT2iWAecsFUrfJn1VZqvuVgHQ1NeLw=s0-d-e1-ft#https://gallery.mailchimp.com/e03376087b8f7b09d66ad1fd2/images/c9050e8a-40a3-451c-ad15-4fcd44856132.jpg\" style=\"margin:0px;border:0;outline:none;text-decoration:none;min-height:auto!important\" class=\"CToWUd\"></a>  "+
+						"                       <a href=\""+serverUrl+"\" style=\"word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline\" target=\"_blank\"><img align=\"none\" src=\""+serverUrl+"/resources/images/fwd-email-logo.jpg\" style=\"margin:0px;border:0;outline:none;text-decoration:none;min-height:auto!important\" class=\"CToWUd\"></a>  "+
 						"                     </td>  "+
 						"                   </tr>  "+
 						"                 </tbody>  "+
@@ -892,7 +888,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 						"                     <td valign=\"top\" style=\"padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left\">  "+
 						"                       <div style=\"text-align:center\">  "+
 						"                         <p dir=\"ltr\" style=\"line-height:1.2;margin-top:0pt;margin-bottom:10pt;text-align:center;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">富衛人壽保險(百慕達)有限公司</span></span></p>  "+
-						"                         <p dir=\"ltr\" style=\"line-height:1.2;margin-top:0pt;margin-bottom:10pt;text-align:center;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px\"><a href=\"http://www.fwd.com/hk/?utm_source=edm&amp;utm_medium=cpc&amp;utm_campaign=EDM%7CSA%7CP2%7CO2O+Access+Code&amp;utm_content=copy\" style=\"word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline\" target=\"_blank\"><span style=\"color:#ff8c00\"><span style=\"font-family:microsoft jhenghei,calibri,sans-serif\"><span><span style=\"background-color:transparent;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">www.fwd.com.hk</span></span></span></span></a></p>  "+
+						"                         <p dir=\"ltr\" style=\"line-height:1.2;margin-top:0pt;margin-bottom:10pt;text-align:center;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px\"><a href=\"http://www.fwd.com/hk/\" style=\"word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline\" target=\"_blank\"><span style=\"color:#ff8c00\"><span style=\"font-family:microsoft jhenghei,calibri,sans-serif\"><span><span style=\"background-color:transparent;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">www.fwd.com.hk</span></span></span></span></a></p>  "+
 						"                       </div>  "+
 						"                     </td>  "+
 						"                   </tr>  "+
@@ -918,7 +914,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 						"    </div>  "+
 						"  </body>";
 				
-				String[] emailList = {userDetails.getEmailAddress(), "i-direct-hk@fwd.com", "nb.hk@fwd.com"};
+				String[] emailList = {userDetails.getEmailAddress(), "i-direct.hk@fwd.com", "nb.hk@fwd.com"};
 				for (int i=0; i<emailList.length; i++) {
 					org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
 					parametersEmail.put("to", emailList[i]);

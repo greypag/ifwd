@@ -1042,7 +1042,7 @@ $(function() {
                 if (getWidth() < 992) {
                     $('body').css({
 
-                       'position' : 'fixed',
+                       //'position' : 'fixed',
                        'width' : '100%',
                        'z-index': 10
 
