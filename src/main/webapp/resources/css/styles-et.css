@@ -31,6 +31,10 @@ body.chin .bold{
 	font-family: Calibri, sans-serif !important;
 }
 
+.placeholder{
+	color: #ccc;
+}
+
 /* ET Chinese Font */
 body.chin .fwd-savie-wrapper .banner-widget .buy-now,
 body.chin .fwd-savie-wrapper .three-column-widget a,

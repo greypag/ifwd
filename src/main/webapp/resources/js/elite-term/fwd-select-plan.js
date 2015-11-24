@@ -1003,13 +1003,13 @@
                     regexp: {
                       regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                       message: getBundle(getBundleLanguage, "form.address.invalid")
-                    },
+                    }/*,
                     callback: {
                         message: getBundle(getBundleLanguage, "form.address.empty"),
                         callback: function(value, validator) {
                            return value !== document.getElementById('savieApplicantBean.permanentAddress1').getAttribute('placeholder');
                         }
-                     }
+                     }*/
                     /*,
                     callback: {
                         callback: function(value, validator) {
@@ -1027,13 +1027,13 @@
                     regexp: {
                        regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                        message: getBundle(getBundleLanguage, "form.address.invalid")
-                    },
+                    }/*,
                     callback: {
                         callback: function(value, validator) {
                         	permanentAddress(value,'permanentAddress2','permanentAddress1', 'permanentAddress3');
                           return true;
                         }
-                    }
+                    }*/
                  }
               },
               "savieApplicantBean.permanentAddress3": {
@@ -1042,13 +1042,13 @@
                     regexp: {
                        regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                        message: getBundle(getBundleLanguage, "form.address.invalid")
-                    },
+                    }/*,
                     callback: {
                         callback: function(value, validator) {
                         	permanentAddress(value,'permanentAddress3','permanentAddress1','permanentAddress2');
                           return true;
                         }
-                    }
+                    }*/
                  }
               },
               "savieApplicantBean.residentialAdress1": {
@@ -1060,13 +1060,13 @@
                      regexp: {
                         regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                         message: getBundle(getBundleLanguage, "form.address.invalid")
-                     },
+                     }/*,
                      callback: {
                          message: getBundle(getBundleLanguage, "form.address.empty"),
                          callback: function(value, validator) {
                             return value !== document.getElementById('savieApplicantBean.residentialAdress1').getAttribute('placeholder');
                          }
-                      }
+                      }*/
                       /*,
                       callback: {
                           callback: function(value, validator) {
@@ -1084,13 +1084,13 @@
                       regexp: {
                          regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                          message: getBundle(getBundleLanguage, "form.address.invalid")
-                      },
+                      }/*,
                       callback: {
                           callback: function(value, validator) {
                           	permanentAddress(value,'residentialAdress2','residentialAdress1', 'residentialAdress3');
                             return true;
                           }
-                      }
+                      }*/
                    }
                 },
                 "savieApplicantBean.residentialAdress3": {
@@ -1099,13 +1099,13 @@
                       regexp: {
                          regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                          message: getBundle(getBundleLanguage, "form.address.invalid")
-                      },
+                      }/*,
                       callback: {
                           callback: function(value, validator) {
                           	permanentAddress(value,'residentialAdress3','residentialAdress1', 'residentialAdress2');
                             return true;
                           }
-                      }
+                      }*/
                    }
                 },
                 "savieApplicantBean.correspondenceAdress1": {
@@ -1117,13 +1117,13 @@
                      regexp: {
                           regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                           message: getBundle(getBundleLanguage, "form.address.invalid")
-                      },
+                      }/*,
                       callback: {
                           message: getBundle(getBundleLanguage, "form.address.empty"),
                           callback: function(value, validator) {
                              return value !== document.getElementById('savieApplicantBean.correspondenceAdress1').getAttribute('placeholder');
                           }
-                       }
+                       }*/
                       /*,
                       callback: {
                           callback: function(value, validator) {
@@ -1141,13 +1141,13 @@
                         regexp: {
                            regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                            message: getBundle(getBundleLanguage, "form.address.invalid")
-                        },
+                        }/*,
                         callback: {
                             callback: function(value, validator) {
                             	permanentAddress(value,'correspondenceAdress2','correspondenceAdress1', 'correspondenceAdress3');
                               return true;
                             }
-                        }
+                        }*/
                      }
                   },
                   "savieApplicantBean.correspondenceAdress3": {
@@ -1156,13 +1156,13 @@
                         regexp: {
                            regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                            message: getBundle(getBundleLanguage, "form.address.invalid")
-                        },
+                        }/*,
                         callback: {
                             callback: function(value, validator) {
                             	permanentAddress(value,'correspondenceAdress3','correspondenceAdress1', 'correspondenceAdress2');
                               return true;
                             }
-                        }
+                        }*/
                      }
                   }
               

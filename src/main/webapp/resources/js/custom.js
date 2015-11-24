@@ -670,6 +670,9 @@ $(function() {
 					$(this).css('color', '#ccc');
 				}
 			});
+
+			// Initialize placeholder
+			$('#beneficiaryInfoForm\\[1\\] input').placeholder();
 		});
 		$("#add-beneficiary-button-3").click(function(){
 			$("#add-beneficiary-2 .add-beneficiary" ).addClass("hidden");
@@ -711,6 +714,9 @@ $(function() {
 						$(this).css('color', '#ccc');
 					}
 				});
+
+				// Initialize placeholder
+				$('#beneficiaryInfoForm\\[2\\] input').placeholder();
 		});
 	}
 

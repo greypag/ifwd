@@ -111,7 +111,7 @@ var languageP = "${language}";
 
 									<div class="page-content-item">
 										<label for="card-num"><fmt:message key="eliteTerms.payment.Credit.card.number" bundle="${msg}" /></label>
-										<input id="card-num" type="tel" class="form-control gray-textbox desktop-half" placeholder="<fmt:message key="eliteTerms.payment.Credit.card.number.placeholder" bundle="${msg}" />"  autocomplete="off" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardNo').val());">
+										<input id="card-num" type="tel" class="form-control gray-textbox desktop-half"   autocomplete="off" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardNo').val());">
 										<span id="errcardno" class="error-msg"></span>
 										<input type="hidden" id="cardNo" name="cardNo" maxlength="16" data-min="16">
 					                    <input type="hidden" name="merchantId" value="${eliteTermPolicy.merchantId}">
@@ -168,13 +168,13 @@ var languageP = "${language}";
 									</div>
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Name.on.credit.card" bundle="${msg}" /></label>
-										<input type="text" class="form-control gray-textbox desktop-half" placeholder="<fmt:message key="eliteTerms.payment.Name.on.credit.card.placeholder" bundle="${msg}" />" value="" id="card-name" autocomplete="off" name="cardHolder" onblur="replaceAlphaEx2(this); chkNotNullCreditCareNameEx2(this, 'errname');">
+										<input type="text" class="form-control gray-textbox desktop-half"  value="" id="card-name" autocomplete="off" name="cardHolder" onblur="replaceAlphaEx2(this); chkNotNullCreditCareNameEx2(this, 'errname');">
 									    <span id="errname" class="error-msg"></span>
 									</div>
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Security.code" bundle="${msg}" /></label>
 										<div class="clearfix desktop-half">
-											<input type="password" class="form-control gray-textbox card-cvv" placeholder="<fmt:message key="eliteTerms.payment.Security.code.placeholder" bundle="${msg}" />" id="card-cvv" autocomplete="off" maxlength="3"  name="securityCode" onblur="chkNotNullCardCvv(this, 'errcode');">
+											<input type="password" class="form-control gray-textbox card-cvv"  id="card-cvv" autocomplete="off" maxlength="3"  name="securityCode" onblur="chkNotNullCardCvv(this, 'errcode');">
 											<div class="cvv-image-holder">
 												<img src="<%=request.getContextPath()%>/resources/images/elite-terms/cvv-logo.png" class="cvv-image">
 											</div>
@@ -244,7 +244,6 @@ var languageP = "${language}";
 		
 		<!-- <script src="assets/js/fwd-dropzone.js"></script> -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/elite-term/placeholders.min.js"></script>
       <script type="text/javascript">
          $(document).on('click', '.et-header-info-btn', function(e) {
             e.preventDefault();
@@ -260,6 +259,24 @@ var languageP = "${language}";
                window.location.href = url;
             }
          });
+         
+         // change language
+         var isChangingLang;
+			$(function(){
+			    $("#anchor-lang").on("click", function() {
+				 	isChangingLang = true;
+			    });
+			});
+			
+			function goodbye(e) {
+			    if (!isChangingLang) { 
+			        return; 
+			    }
+			    isChangingLang = false;
+			    return 'Are you leaving the page';
+			}
+			window.onbeforeunload = goodbye;
+
       </script>
       
       <script>
