@@ -260,6 +260,24 @@ var languageP = "${language}";
                window.location.href = url;
             }
          });
+         
+         // change language
+         var isChangingLang;
+			$(function(){
+			    $("#anchor-lang").on("click", function() {
+				 	isChangingLang = true;
+			    });
+			});
+			
+			function goodbye(e) {
+			    if (!isChangingLang) { 
+			        return; 
+			    }
+			    isChangingLang = false;
+			    return 'Are you leaving the page';
+			}
+			window.onbeforeunload = goodbye;
+
       </script>
       
       <script>
