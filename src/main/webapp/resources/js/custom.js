@@ -1,78 +1,78 @@
 
 $(function() {
-	
+
 	$('#eServices-mobile-notications').click(function(){
 		$('#notifications-mobile').removeClass('hidden');
-		
+
 		$('#headerNavmenu').offcanvas('hide');
-		
+
 		//Landing Page
 		if(($('#eServices-landing-page').length) > 0){
 			$('#eServices-landing-page').addClass('hidden');
 		}
-		
+
 		//Personal Info
 		if(($('#eServices-personal-info').length) > 0){
 			$('#eServices-personal-info').addClass('hidden');
 		}
-		
+
 		//Purchase History
 		if(($('#eServices-purchase-history').length) > 0){
 			$('#eServices-purchase-history').addClass('hidden');
 		}
-		
+
 		//Referrals and Promo
 		if(($('#eServices-referral').length) > 0){
 			$('#eServices-referral').addClass('hidden');
 		}
-		
+
 		//Document Upload
 		if(($('#eServices-document-upload').length) > 0){
 			$('#eServices-document-upload').addClass('hidden');
 		}
-		
+
 		//Signature
 		if(($('#eServices-signature').length) > 0){
 			$('#eServices-signature').addClass('hidden');
 		}
 	});
-	
+
 	$('#notifications-mobile-back').click(function(){
 		$('#notifications-mobile').addClass('hidden');
-		
+
 		//Landing Page
 		if(($('#eServices-landing-page').length) > 0){
 			$('#eServices-landing-page').removeClass('hidden');
 		}
-		
+
 		//Personal Info
 		if(($('#eServices-personal-info').length) > 0){
 			$('#eServices-personal-info').removeClass('hidden');
 		}
-		
+
 		//Purchase History
 		if(($('#eServices-purchase-history').length) > 0){
 			$('#eServices-purchase-history').removeClass('hidden');
 		}
-		
+
 		//Referrals and Promo
 		if(($('#eServices-referral').length) > 0){
 			$('#eServices-referral').removeClass('hidden');
 		}
-		
+
 		//Document Upload
 		if(($('#eServices-document-upload').length) > 0){
 			$('#eServices-document-upload').removeClass('hidden');
 		}
-		
+
 		//Signature
 		if(($('#eServices-signature').length) > 0){
 			$('#eServices-signature').removeClass('hidden');
 		}
-		
+
 	});
 
-	
+
 	//E SERVICES REFERRAL CODES!
 	if($('.referral').length > 0) {
 		$(document).on('click','.referral .view-all',function(){
@@ -94,11 +94,11 @@ $(function() {
                   $(this).css("color", "#ff8200");
 	            }
 	        });
-	        
+
 
 	        var client = new ZeroClipboard($('.referral-item'));
 	        client.on( 'ready', function(event) {
-				
+
 	            client.on( 'copy', function(event) {
 	              //var promocode = $(event.target).closest('.referral-item').find('p.discount-code').html();
 	              var promocode = $(event.target).find('p.discount-code').html();
@@ -143,17 +143,17 @@ $(function() {
 		var promoCode = $('#promocode').val();
 		var planDetailsDob = new Date($('#sales-illu-dob').val());
 		var planDetailsAge = calculateAge(planDetailsDob.format('Y-m-d'));
-	
+
 		//check if date of Birth is Empty
 		if($('#sales-illu-dob').val() != ""){
 			$('#promo-code-dateOfBirthEmpty').addClass('hideSpan');
-		
-			
+
+
 			if((!invalidPromoCode()) && (planDetailsAge>18)){
 				$('#promo-code-errmsg').addClass('hideSpan');
 				$('#promo-code-dateOfBirth').addClass('hideSpan');
 			}else{
-			
+
 				if(invalidPromoCode()){
 					if($('#promo-code-errmsg').hasClass('hideSpan')){
 						$('#promo-code-errmsg').removeClass('hideSpan');
@@ -161,7 +161,7 @@ $(function() {
 				}else{
 					$('#promo-code-errmsg').addClass('hideSpan');
 				}
-				
+
 				if(planDetailsAge<19){
 					if($('#promo-code-dateOfBirth').hasClass('hideSpan')){
 						$('#promo-code-dateOfBirth').removeClass('hideSpan');
@@ -170,32 +170,32 @@ $(function() {
 					$('#promo-code-dateOfBirth').addClass('hideSpan');
 				}
 			}
-			
+
 		}else{
 			if($('#promo-code-dateOfBirthEmpty').hasClass('hideSpan')){
-				$('#promo-code-dateOfBirthEmpty').removeClass('hideSpan');				
+				$('#promo-code-dateOfBirthEmpty').removeClass('hideSpan');
 			}
-		}		
+		}
 	});
-	
+
 
 	//Thank You Page
 	//by: RMN
 	//$('#membership-account').bootstrapValidator();
-	
+
 	$('#activate-fwd-account').click(function(){
 		$('html, body').animate({
 			scrollTop: $('#member-account').offset().top - $('.navbar-fixed-top').height()
 		}, 1000);
 
 	});
-	
+
 	//Form Validation
 	$("#activate-account-now").click(function(){
 		var username = $("#member-username").val();
 		var password = $("#member-password").val();
 		var confirmPassword = $("#confirmPassword").val();
-		
+
 		if(( (username.match('^[a-zA-Z0-9]+$'))   && (username.length >= 6 && username.length <= 50)) &&
 			 (password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/)) &&
 			 (confirmPassword == password)
@@ -205,9 +205,9 @@ $(function() {
 		}else{
 			//do nothing
 		}
-		
+
     });
-	
+
 	//change border color set-appointment
 	var radioId = $('input[name=set-appointment-select]:checked', '#service-centre').attr("id");
 	changeBorder(radioId);
@@ -216,14 +216,14 @@ $(function() {
 	   	var radioId = $('input[name=set-appointment-select]:checked', '#service-centre').attr("id");
 	   	changeBorder(radioId);
 	});
-	
+
 	//Beneficiary Info
 	//added by: RMN
 	$("#own-estate-now").click(function() {
 		$('#beneficiary-contents').addClass('hidden');
 		$('#add-beneficiary-1').addClass('hidden');
 		$('#add-beneficiary-2').addClass('hidden');
-		
+
 		$('#savieBeneficiaryBean\\[0\\]\\.firstName').val('');
 		$('#savieBeneficiaryBean\\[0\\]\\.lastName').val('');
 		$('#savieBeneficiaryBean\\[0\\]\\.chineseName').val('');
@@ -261,23 +261,23 @@ $(function() {
 			$('#beneficiaryInfoForm\\[2\\]').find('.error-msg .help-block').css('display', 'none');
 		}
 	});
-	
+
 	$("#name-others-now").click(function() {
 		if($('#beneficiary-contents').hasClass('hidden')){
 			$('#beneficiary-contents').removeClass('hidden');
 		}
-		
+
 		if($('#add-beneficiary-1').hasClass('hidden')){
 			$('#add-beneficiary-1').removeClass('hidden');
 		}
-		
+
 		if($('#add-beneficiary-2').hasClass('hidden')){
 			$('#add-beneficiary-2').removeClass('hidden');
 		}
-	
+
 	});
-	
-	
+
+
 	//by: RMN
 	$("#residence-check").change(function() {
 		if(this.checked) {
@@ -289,17 +289,17 @@ $(function() {
 			}
 		}
 	});
-	
-	
+
+
 	$("#file-upload").change( function() {
 		$('#select-file-section').addClass('hidden');
-		
+
 		if($('#finish-upload').hasClass('hidden')){
 			$('#finish-upload').removeClass('hidden');
 		}
 	});
-	
-	
+
+
 	$("#fileToUpload").change( function() {
 		//$('#select-file-section-address').addClass('hidden');
 		//
@@ -310,13 +310,13 @@ $(function() {
 			$('#proof-of-address-progress').removeClass('hidden');
 		}
 	});
-	
+
 	//Tooltip
 	//by: RMN
-	 $('[data-toggle="tooltip"]').tooltip();  
-	// $('[data-toggle=tooltip]').tooltip({trigger: 'manual'}).tooltip('show'); 
-	
-	
+	 $('[data-toggle="tooltip"]').tooltip();
+	// $('[data-toggle=tooltip]').tooltip({trigger: 'manual'}).tooltip('show');
+
+
 	//Upload Document Radio Buttons
 	//by: RMN
 	//give-store
@@ -327,59 +327,59 @@ $(function() {
 			$('#submit-btn').removeClass('hidden');
 		}
 	});
-	
+
 	//upload-later
 	$("#upload-later").click(function() {
 		if($('#upload-later-section').hasClass('hidden')){
 			$('#upload-later-section').removeClass('hidden');
 		}
-		
+
 		$('#upload-now-section').addClass('hidden');
 		$('#submit-btn').addClass('hidden');
         $('#upload-link-btn').removeClass('hidden');
 	});
-	
+
 	//upload-now
 	$("#upload-now").click(function() {
 		if($('#upload-now-section').hasClass('hidden')){
 			$('#upload-now-section').removeClass('hidden');
 		}
-		
+
 		if($('#submit-btn').hasClass('hidden')){
 			$('#submit-btn').removeClass('hidden');
 		}
 		$('#upload-later-section').addClass('hidden');
         $('#upload-link-btn').addClass('hidden');
 	});
-	
+
 	// Sales Illustration Page to FNA Page
 	$("#made-decision-next-btn").on('click', function(){
 		$('#planDetailsLoginModal').modal('show');
 		//$('#thankYouModal').modal('show');
-      //  window.location = "fna";    
-    });	
-	
+      //  window.location = "fna";
+    });
+
 	// Plan Details Login Button
 	$("#planDetailsLogin").on('click', function(){
-        //window.location = "application-registration";    
+        //window.location = "application-registration";
 		$('#thankYouModal').modal('show');
-    });	
-	
+    });
+
 	// Plan Details - Thank You Continue Button
-	
+
 	// Application Registration
 	$("#application-registration button.btn").on('click', function(){
-        window.location = "financial-needs-analysis";    
+        window.location = "financial-needs-analysis";
     });
-	
+
 	// FNA Page to Application Page
 	$("#fna-next-btn").on('click', function(){
-        window.location = "financial-needs-analysis-review";    
+        window.location = "financial-needs-analysis-review";
     });
-	
+
 	// FNA Review Page to PDF
 	$("#proceed-to-sales-btn").on('click', function(){
-        window.location = "web-pdf/savie-proposal";    
+        window.location = "web-pdf/savie-proposal";
     });
 
 	// Application Page to Application Summary
@@ -387,13 +387,13 @@ $(function() {
 		var paymentMethod = document.getElementById("pay-online-radio").checked;
 		if (paymentMethod) {
 			setCookie("paymentMethod", "online", 30);
-			window.location = "application-summary";    
+			window.location = "application-summary";
 		} else {
 			setCookie("paymentMethod", "offline", 30);
-			window.location = "service-center";    
+			window.location = "service-center";
 		}
     });
-	
+
 	// Update back button link of application summary
 	if ($("#order-summary-return-btn").length > 0) {
 		var paymentMethod = getCookie("paymentMethod");
@@ -406,8 +406,8 @@ $(function() {
 
 	// Order Page to Declaration Page
 	$("#order-summary-proceed-btn").on('click', function(){
-        window.location = "declarations";    
-    }); 
+        window.location = "declarations";
+    });
 
 	// Declaration Page to Signature Page
 	$("#declaration-proceed-btn").on('click', function(){
@@ -417,67 +417,67 @@ $(function() {
 		} else {
 			window.location = "confirmation-offline"
 		}
-    });  
+    });
 
 	// Signature Page to Set Appointment Page
 	$("#signature-proceed-btn").on('click', function(){
-        window.location = "document-upload";    
-    });  
-    
+        window.location = "document-upload";
+    });
+
 	// Set Appointment Page to Upload Document Page
 	$("#set-application-confirm-btn").on('click', function(){
-		window.location = "application-summary";    
-	});     
+		window.location = "application-summary";
+	});
 
 	// Upload Document Page to Thank You Page
 	$("#upload-doc-submit-btn").on('click', function(){
-		window.location = "confirmation-online";    
+		window.location = "confirmation-online";
  	});
 
 	// Thank you to Overall
 	$("#back-home-btn").on('click', function(){
-		//window.location = "overall";    
-		window.location = "/saving-insurance";    
+		//window.location = "overall";
+		window.location = "/saving-insurance";
  	});
 
 	// Overall Page Links
 	// Sales Illustration Page
 	$("#sales-edit-btn").on('click', function(){
-        window.location = "plan-details";    
+        window.location = "plan-details";
     });
 
 	// FNA Page
 	$("#fna-edit-btn").on('click', function(){
-        window.location = "financial-needs-analysis";    
+        window.location = "financial-needs-analysis";
     });
 
 	// Application Page
 	$("#application-edit-btn").on('click', function(){
-        window.location = "application";    
-    });    
+        window.location = "application";
+    });
 
 	// Order Summary Page
 	$("#application-view-btn").on('click', function(){
-        window.location = "application-summary";    
-    });    
+        window.location = "application-summary";
+    });
 
 	// Set Appointment Page
 	$("#appointment-change-btn").on('click', function(){
-        window.location = "service-center";    
-    });	
-	
+        window.location = "service-center";
+    });
+
 	//Signature Radio Buttons
 	//by: RMN
-	
+
 	$("#offline-signature").click(function() {
 		$('#signature-section').addClass('hidden');
 	});
-	
+
 	$("#digital-signature").click(function() {
 		if($('#signature-section').hasClass('hidden')){
 			$('#signature-section').removeClass('hidden');
 		}
-		
+
 	});
 	//change caret class
 	window.onload = function() {
@@ -485,7 +485,7 @@ $(function() {
 	        $('span.caret').removeClass('caret').addClass('icon-chevron-thin-down');
 	    }
 	}
-	
+
 	if ($('#male-0').length > 0) {
 		changeColorRadioButtonLabel(1);
 	}
@@ -497,7 +497,7 @@ $(function() {
 			}
 
 			else {
-				$("#own-estate-label").addClass("hidden-sm hidden-xs");	
+				$("#own-estate-label").addClass("hidden-sm hidden-xs");
 			}
 		}
 		else {
@@ -505,7 +505,7 @@ $(function() {
 				ifSelected("own-estate-label", "name-others-label");
 			}
 
-			else {	
+			else {
 				$("#name-others-label").addClass("hidden-sm hidden-xs");
 			}
 		}
@@ -518,7 +518,7 @@ $(function() {
 			}
 
 			else {
-				$("#pay-later-label").addClass("hidden-sm hidden-xs");	
+				$("#pay-later-label").addClass("hidden-sm hidden-xs");
 			}
 		}
 		else {
@@ -526,7 +526,7 @@ $(function() {
 				ifSelected("pay-later-label", "pay-online-label");
 			}
 
-			else {	
+			else {
 				$("#pay-online-label").addClass("hidden-sm hidden-xs");
 			}
 		}
@@ -539,7 +539,7 @@ $(function() {
 			}
 
 			else {
-				removeClass("roundedOne-female-label");	
+				removeClass("roundedOne-female-label");
 			}
 		}
 		else {
@@ -548,13 +548,13 @@ $(function() {
 			}
 
 			else {
-				removeClass("roundedOne-male-label");	
+				removeClass("roundedOne-male-label");
 			}
 		}
 	});
 
 	if ($('#payment-content').length > 0) {
-		$("#pay-later-radio, #pay-online-radio").change(function () {			
+		$("#pay-later-radio, #pay-online-radio").change(function () {
 			if($("#pay-later-radio").is(":checked"))
 			{
 				$("#payment-content").addClass("hidden");
@@ -569,7 +569,7 @@ $(function() {
 	}
 
 	if ($('#estate').length > 0) {
-		$("#own-estate, #name-others").change(function () {			
+		$("#own-estate, #name-others").change(function () {
 			if($("#own-estate").is(":checked"))
 			{
 				$("#beneficiary-contents, #add-beneficiary-2, #add-beneficiary-3").addClass("hidden");
@@ -623,15 +623,15 @@ $(function() {
 				scrollTop: $('#fna-policy-replacement').offset().top - $('.navbar-fixed-top').height()
 			}, 1000);
     	});
-	}	
+	}
 
 
-	if($("#add-beneficiary-1").length > 0) { 
+	if($("#add-beneficiary-1").length > 0) {
 		$("#add-beneficiary-button-2").click(function(){
 			$("#add-beneficiary-1 .add-beneficiary" ).addClass("hidden");
-			
+
 			addFormBeneficiary ($("#add-beneficiary-button-2").attr("value"));
-			
+
 			$('#remove-beneficiary\\[1\\]').click(function(){
 				$('#remove-beneficiary\\[1\\]').parents('form').remove();
       			$('#beneficiary1').removeClass('hidden');
@@ -641,14 +641,14 @@ $(function() {
                 .updateStatus('savieBeneficiaryBean[0].entitlement', 'NOT_VALIDATED')
                 .validateField('savieBeneficiaryBean[0].entitlement');
 			});
-			
+
 			//BENEFICIARY DROP-DOWN PASSPORT/HKID
 			$('#beneficiaryHkidPassport\\[1\\]').on('change', function() {
 
 				if($(this).val()==="Passport") {
 					$('#savieBeneficiaryBean\\[1\\]\\.hkId').addClass('hidden');
 					$('#savieBeneficiaryBean\\[1\\]\\.passportNo').removeClass('hidden');
-					
+
 					$('#bnfPassportMessage\\[1\\]').removeClass('hidden');
 					$('#hkidOrPassportMessage\\[1\\]').addClass('hidden');
 					$('#duplicate-beneficiaries\\[1\\]').addClass('hidden');
@@ -675,13 +675,13 @@ $(function() {
 			$("#add-beneficiary-2 .add-beneficiary" ).addClass("hidden");
 
 				addFormBeneficiary ($("#add-beneficiary-button-3").attr("value"));
-			
+
 				$('#remove-beneficiary\\[2\\]').click(function(){
 					$('#remove-beneficiary\\[2\\]').parents('form').remove();
 	      			$('#beneficiary2').removeClass('hidden');
-				
+
 				});
-				
+
 				//BENEFICIARY DROP-DOWN PASSPORT/HKID
 				$('#beneficiaryHkidPassport\\[2\\]').on('change', function() {
 
@@ -716,8 +716,8 @@ $(function() {
 
 	//Mobile Menu on Accordion Expanded
 	//by: RMN
-	
-	$('#travel-mobile-menu').click(function(){	
+
+	$('#travel-mobile-menu').click(function(){
 		if($('#travel-mobile-menu').hasClass('collapsed')){
 			$('#arrow-travel').removeClass('arrow-right');
 			$('#arrow-travel').addClass('arrow-down ');
@@ -728,65 +728,65 @@ $(function() {
 		}
 	});
 
-	
-	
+
+
 	//Input number only
 	//by: RMN
 	$('#residential-first').keypress(function(e) {
 		var a = [];
 		var k = e.which;
-		
+
 		for (i = 48; i < 58; i++)
 			a.push(i);
-		
+
 		if (!(a.indexOf(k)>=0))
 			e.preventDefault();
 	});
-	
+
 	$('#residential-second').keypress(function(e) {
 		var a = [];
 		var k = e.which;
-		
+
 		for (i = 48; i < 58; i++)
 			a.push(i);
-		
+
 		if (!(a.indexOf(k)>=0))
 			e.preventDefault();
 	});
-	
+
 	$('#mobile-first').keypress(function(e) {
 		var a = [];
 		var k = e.which;
-		
+
 		for (i = 48; i < 58; i++)
 			a.push(i);
-		
+
 		if (!(a.indexOf(k)>=0))
 			e.preventDefault();
 	});
-	
+
 	$('#mobile-second').keypress(function(e) {
 		var a = [];
 		var k = e.which;
-		
+
 		for (i = 48; i < 58; i++)
 			a.push(i);
-		
+
 		if (!(a.indexOf(k)>=0))
 			e.preventDefault();
 	});
-	
-		
+
+
 	//Sample only
 	$('#previous').click(function(){
 
 	});
-	
+
 	//next button onclick
 	$('#next').click(function(){
 		$('#timeline-step-2').addClass('done');
 	});
-	
+
 	//DATE PICKER
 	if($("#datePicker").length > 0 && getWidth() >= 992) {
 		var datePlaceholder = (getWidth() >= 992) ? "28th May 1996" : "1996-05-28";
@@ -794,12 +794,12 @@ $(function() {
 		$('#dates').attr('placeholder', datePlaceholder);
 		changeDatePickerValue($datePicker);
 	}
-	
+
 	if ($("#mobile-date").length > 0) {
 		var currentDate = new Date();
-		$("#mobile-date").attr('max', currentDate.format('Y-m-d'));			
+		$("#mobile-date").attr('max', currentDate.format('Y-m-d'));
 	}
-	
+
 	//SET-APPOINTMENT PAGE DATEPICKER
 	if($("#scheduler-datePicker").length > 0) {
 		var $sched_datePicker = $("#scheduler-datePicker");
@@ -817,7 +817,7 @@ $(function() {
 			if (!$('body').hasClass('page-sales-illustration')) {
 				$('.navbar-menu').addClass('show-dropdown');
 			}
-			
+
 			$(this).find('.dropdown-menu').first().stop(true, true).slideDown(400, function() {
 				$(this).addClass('dropdown-menu-open');
 				if (!$('body').hasClass('page-sales-illustration')) {
@@ -827,7 +827,7 @@ $(function() {
 			setTimeout(function(){
 				$('#overlay').removeClass('hidden');
 			},400);
-			
+
 			var screenheight = ($('.fwd-savie-wrapper').height() - 170) + 'px';
 			$('#overlay').css({"height":screenheight});
 		})
@@ -839,92 +839,92 @@ $(function() {
 				if (!$('body').hasClass('page-sales-illustration')) {
 					$('.navbar-menu').removeClass('show-dropdown');
 				}
-			});	   
+			});
 		});
-	
+
 	//Sales Illustration Page
-	//Dropdown 
+	//Dropdown
 	$('.selectpicker').selectpicker();
 	$('.selectpicker').selectpicker({
 		style: 'btn-info',
 		size: 3
 	});
-	
-	window.onresize = function() {		
+
+	window.onresize = function() {
 		//Eservices Page
 		//by: RMN
-		
+
 		if ($('.et-collapse-link').length) {
 	        if(getWidth()>=992){
 	         $('.et-collapse-link[aria-expanded="true"]').parent()
 	                                                   .next()
 	                                                   .find('.et-panel-body')
 	                                                   .jScrollPane({showArrows: true});
-	   
-	         
+
+
 				$('.et-select-plan-panel').on('shown.bs.collapse', function (e) {
 					var $target = $(e.currentTarget);
 					var $innerPanel = $target.find('.et-panel-body');
-					
+
 	            if(getWidth()>=992){
 	               $innerPanel.jScrollPane({showArrows: true});
 	            }
 				});
-	         
+
 			}else{
 	         // Remove the jScrollpane
 	         $('.et-panel-body').each(function() {
 	            var $self = $(this);
-	            
-	            if ($self.data().jsp) {  
+
+	            if ($self.data().jsp) {
 	               $self.data().jsp.destroy();
 	            }
 	         });
 			}
 		}//END OF ET Select Plan Page
-	
+
 		if(getWidth()>=992){
 			//Promo and Referrals Page
 			$('#copy-link').removeClass('invisible');
-            
+
             $('#eServices-sidebar').removeClass('hidden');
 			$('#notifications-mobile').addClass('hidden');
 			if(($('#eServices-landing-page').length) > 0){
 				$('#eServices-landing-page').removeClass('hidden');
 			}
-			
+
 			//Personal Info
 			if(($('#eServices-personal-info').length) > 0){
 				$('#eServices-personal-info').removeClass('hidden');
 			}
-			
+
 			//Purchase History
 			if(($('#eServices-purchase-history').length) > 0){
 				$('#eServices-purchase-history').removeClass('hidden');
 			}
-			
+
 			//Referrals and Promo
 			if(($('#eServices-referral').length) > 0){
 				$('#eServices-referral').removeClass('hidden');
 			}
-			
+
 			//Document Upload
 			if(($('#eServices-document-upload').length) > 0){
 				$('#eServices-document-upload').removeClass('hidden');
 			}
-			
+
 			//Signature
 			if(($('#eServices-signature').length) > 0){
 				$('#eServices-signature').removeClass('hidden');
 			}
-			
+
 		}else{
 			//$('#notifications-mobile').addClass('hidden');
 			//Promo and Referrals Page
 			if($('#referral-view').html() == "View all"){
 				$('#copy-link').addClass('invisible');
 			}
-            
+
 			//do nothing
 			if($('#eServices-body').hasClass('hidden-sm')){
 				//do nothing
@@ -932,18 +932,18 @@ $(function() {
 				$('#eServices-sidebar').addClass('hidden');
 			}
 		}
-		
+
 		if(parseInt($(document).width() )>= 992) {
 			//description: add the modal attr for login button
 			$('#login-button').attr("data-toggle","modal");
-			
+
 			$('#collapseExplanation').collapse('show');
-			
-			if($("body").hasClass('canvas-slid')) {		
+
+			if($("body").hasClass('canvas-slid')) {
 				$('.navmenu').offcanvas('hide');
 				$("body").attr('style','');
 			}
-		} else {			
+		} else {
 			//description: remove modal attr for login button
 			$('#login-button').removeAttr("data-toggle");
 			if($("#loginModal").hasClass("in")){
@@ -967,7 +967,7 @@ $(function() {
 			$('#gotop').addClass('hidden');
 		}
 		//END
-		
+
 		// Made your decision
 		if (getWidth() >= 992) {
 			$('.made-your-decision-section, footer').removeAttr('style');
@@ -980,16 +980,16 @@ $(function() {
 
 
 		if(getWidth()>=992)
-		{	
+		{
 			$("#own-estate-label").removeClass("second-label-mobile");
-			$("#name-others-label").removeClass("second-label-mobile");	
+			$("#name-others-label").removeClass("second-label-mobile");
 
 			$("#own-estate, #name-others").change(function () {
 				if($("#own-estate").is(":checked"))
 					$("#own-estate-label").removeClass("hidden-xs hidden-sm");
 
 				if($("#name-others").is(":checked"))
-					$("#name-others-label").removeClass("hidden-xs hidden-sm");	
+					$("#name-others-label").removeClass("hidden-xs hidden-sm");
 			});
 
 			$("#pay-later-radio, #pay-online-radio").change(function () {
@@ -997,7 +997,7 @@ $(function() {
 					$("#pay-later-label").removeClass("hidden-xs hidden-sm");
 
 				if($("#pay-online-radio").is(":checked"))
-					$("#pay-online-label").removeClass("hidden-xs hidden-sm");	
+					$("#pay-online-label").removeClass("hidden-xs hidden-sm");
 			});
 		}
 		else
@@ -1010,9 +1010,9 @@ $(function() {
 		if ($('#dates').length > 0) {
 			var datePlaceholder = (getWidth() >= 992) ? "28-05-1995" : "1996-05-28";
 			$('#dates').attr('placeholder', datePlaceholder);
-			
+
 			var dateVal = new Date($('#dates').val());
-			if ($('#dates').val().length > 0) {	
+			if ($('#dates').val().length > 0) {
 				var dateVal = new Date($datePicker.datepicker('getFormattedDate'));
 				if (getWidth() >= 992) {
 					$('#dates').val(dateVal.format('jS M Y'));
@@ -1021,31 +1021,31 @@ $(function() {
 				}
 			}
 		}
-		
+
 		// modals
 		//var top = $('header .navbar-fixed-top').height();
 		$('.modal.in').css('margin-top', top + 'px');
-		
+
 		// orange bar
 		if ($('.application-page-header').length > 0 ) { // check if flux div exists
-			var $application = $('.application-page-header');			
+			var $application = $('.application-page-header');
 			var $mobBar = $('.mob-topbar');
-            
+
             if ($application.hasClass('sticky-bar')) {
                 /* var $stickyElement = $('.navbar-fixed-top').length ? $('.navbar-fixed-top') : ((getWidth() >= 992) ? $('.top-bar:first') : $('.mob-topbar:first'));
-                
+
                 if (!$stickyElement.length) {
                     $stickyElement = $('.top-bar', '#header');
                 }
-                
+
 				$application.css('top', $stickyElement.height() + 'px'); */
                 if (getWidth() < 992) {
                     $('body').css({
-                       
+
                        'position' : 'fixed',
                        'width' : '100%',
                        'z-index': 10
-                       
+
                     });
                     $application.css('top', $mobBar.height() + 'px');
                 }
@@ -1053,7 +1053,7 @@ $(function() {
                 $mobBar.removeAttr('style');
             }
 		}
-	};	
+	};
 	$(window).resize();
 
 	$(window).bind('scroll', function() {
@@ -1065,12 +1065,12 @@ $(function() {
 	 		} else {
 	 			$('#sticky-buy-now').removeClass('sticky-button');
 	 		}
-          
+
 	 		if ($(window).scrollTop() >= $('#flux').offset().top + $('#flux').outerHeight() - window.innerHeight) {
-	 			$('#sticky-buy-now').removeClass('sticky-button');			
+	 			$('#sticky-buy-now').removeClass('sticky-button');
 	 		}
 	 	}
-		
+
 		madeDecisionSticky();
 		stickApplicationOrangeBar();
 		stickeServicesOrangeBar();
@@ -1098,20 +1098,20 @@ $(function() {
 
 		$('html, body').animate({scrollTop: 0}, 1000);
     });
-	
+
 	// Power saving Swipe
 	$(".carousel-inner").swipe( {
 		//Generic swipe handler for all directions
 		swipeLeft:function(event, direction, distance, duration, fingerCount) {
-			$(this).parent().carousel('next'); 
+			$(this).parent().carousel('next');
 		},
 		swipeRight: function() {
-			$(this).parent().carousel('prev'); 
+			$(this).parent().carousel('prev');
 		},
 		//Default is 75px, set to 0 for demo so any distance triggers swipe
 		threshold:0
 	});
-	
+
 	// add overflow hidden to html
 	var windowHeight = ($(window).height()) + 'px';
 	$('#headerNavmenu')
@@ -1121,7 +1121,7 @@ $(function() {
 		.on('hide.bs.offcanvas', function() {
 			$('.fwd--savie-wrapper').removeAttr('style');
 		});
-		
+
 	// Made your decision sticky
 	$('#collapseExplanation')
 		.on('show.bs.collapse', function() {
@@ -1133,7 +1133,7 @@ $(function() {
 						'position': 'fixed',
 						'bottom': '0'
 					});
-					
+
 					$('footer').css('margin-top', $('.made-your-decision-section').outerHeight());
 				}
 			});
@@ -1141,11 +1141,11 @@ $(function() {
 		.on('hide.bs.collapse', function() {
 			$('.made-your-decision-section, footer').removeAttr('style');
 		});
-	
+
 	// Login Modal
 	$('#loginModal, #american-citizen, #fna-no, #fna-yes, #illustration-result,#teaserSurvery, #planDetailsLoginModal, #accessCode').on('show.bs.modal', function() {
 		var top = $('header .navbar-fixed-top').height();
-		$(this).css('margin-top', top + 'px');	
+		$(this).css('margin-top', top + 'px');
 	});
 	$('#loginModal, #american-citizen, #fna-no, #fna-yes, #illustration-result,#teaserSurvery, #planDetailsLoginModal, #accessCode').on('hide.bs.modal', function() {
 		//$('header .navbar-menu').removeClass('modal-display');
@@ -1182,17 +1182,17 @@ function getHeight() {
 
  //BACK TO TOP
 function checkPosition() {
-	
+
 	var footer_height = $(".footer-whole").height();
 
     if ($(this).scrollTop() > 200) {
 		$('.go-top').fadeIn(400);
-    } 
+    }
     else {
      	$('.go-top').fadeOut(400);
     }
 
-    if($(window).scrollTop() + $(window).height() > $(document).height() - $(".footer-whole").height()) { 
+    if($(window).scrollTop() + $(window).height() > $(document).height() - $(".footer-whole").height()) {
     	$(".go-top").css("bottom", footer_height+"px");
     	$('#gotop').removeClass('go-top-default');
     }
@@ -1212,7 +1212,7 @@ function madeDecisionSticky() {
 	var explanationTopScroll = $(document).height() - $(".explanation-block").height() - $('.made-your-decision-section').outerHeight();
 
 	if ($('.explanation-block').length > 0 && getWidth() < 992) {
-		if (windowScroll > footerTopScroll) { 
+		if (windowScroll > footerTopScroll) {
 			$('.made-your-decision-section, footer').removeAttr('style');
 		} else {
 			if ($('#collapseExplanation').hasClass('in')) {
@@ -1221,15 +1221,15 @@ function madeDecisionSticky() {
 					'bottom': '0',
 					'width': '100%'
 				});
-				
+
 				$('footer').css('margin-top', $('.made-your-decision-section').outerHeight());
 			}
-		}					
-		
-		if (windowScroll < explanationTopScroll) { 
+		}
+
+		if (windowScroll < explanationTopScroll) {
 			$('.made-your-decision-section, footer').removeAttr('style');
 		} else {
-			if (windowScroll > footerTopScroll) { 
+			if (windowScroll > footerTopScroll) {
 				$('.made-your-decision-section, footer').removeAttr('style');
 			} else {
 				if ($('#collapseExplanation').hasClass('in')) {
@@ -1238,7 +1238,7 @@ function madeDecisionSticky() {
 						'bottom': '0',
 						'width': '100%'
 					});
-					
+
 					$('footer').css('margin-top', $('.made-your-decision-section').outerHeight());
 				}
 			}
@@ -1285,7 +1285,7 @@ function stickApplicationOrangeBar() {
 function stickeServicesOrangeBar() {
 	if ($('.notification-header').length > 0 ) { // check if orange bar exists exists
 		var $bar = $('.notification-header');
-		
+
 		if ($(window).scrollTop() >= $('.navbar-menu').height()) {
 			$bar.addClass('sticky-bar');
 			//$bar.css('top', $('.navbar-fixed-top').height() + 'px');
@@ -1314,7 +1314,7 @@ function changeDatePickerValue($datePicker) {
 		formatDate: 'mm-dd-yyyy'
     }).on("changeDate", function(e) {
         $datePicker.datepicker('hide');
-		
+
 		var dateVal = new Date($datePicker.datepicker('getFormattedDate'));
 
 		//console.log('Next Button'+$('.next').css("visibility"));
@@ -1326,7 +1326,7 @@ function changeDatePickerValue($datePicker) {
 		}
 	});
 }
- 
+
 function changeColorRadioButtonLabel (formNumber) {
 	if(getWidth()<992){
 		ifChecked(formNumber);
@@ -1341,7 +1341,7 @@ function changeColorRadioButtonLabel (formNumber) {
 			}
 
 			else {
-				removeClasses(formNumber);	
+				removeClasses(formNumber);
 			}
 		});
 }
@@ -1357,14 +1357,14 @@ function ifChecked (formNumberReceive) {
 	if($("#male-"+formNumberReceive).is(":checked")==false) {
 		$("#male-label-"+formNumberReceive).addClass("hidden");
 		$("#female-label-"+formNumberReceive).removeClass("hidden");
-		$("#female-label-"+formNumberReceive).addClass("second-label-mobile");	
-		$("#male-label-"+formNumberReceive).removeClass("second-label-mobile");			
+		$("#female-label-"+formNumberReceive).addClass("second-label-mobile");
+		$("#male-label-"+formNumberReceive).removeClass("second-label-mobile");
 	}
 	else {
 		$("#male-label-"+formNumberReceive).removeClass("hidden");
 		$("#male-label-"+formNumberReceive).addClass("second-label-mobile");
 		$("#female-label-"+formNumberReceive).removeClass("second-label-mobile");
-		$("#female-label-"+formNumberReceive).addClass("hidden");	
+		$("#female-label-"+formNumberReceive).addClass("hidden");
 	}
 }
 
@@ -1420,7 +1420,7 @@ function addFormBeneficiary (counter) {
 	var fm_error_dup_passport	= fmTranslation('beneficiary.error.duplicate.passport');
 
 	//$('<div class="page-divider page-divider-margin hidden-md hidden-lg"></div>').appendTo("#add-beneficiary-"+counter);
-	
+
 	var counterPlus = parseInt(counter)+1;
 	var fm_counter_label = (counterPlus==2)?fm_label_beneficiary_p2:fm_label_beneficiary_p3;
 
@@ -1454,7 +1454,7 @@ function addFormBeneficiary (counter) {
 		+'<select class="form-control gray-dropdown" id="beneficiaryHkidPassport['+counter+']">'
 		+'<option disabled value="">' + fm_option_select + '</option>'
 		+'<option selected value="HKID">' + fm_option_hkid + '</option>'
-		+'<option value="Passport">' + fm_option_passport + '</option>'	
+		+'<option value="Passport">' + fm_option_passport + '</option>'
 		+'</select>'
 		+'</div>'
 		+'</div>'
@@ -1468,17 +1468,17 @@ function addFormBeneficiary (counter) {
 		+'<span class="dup-error-msg hidden" id="duplicate-beneficiaries['+counter+']">' + fm_error_dup_hkid + '</span>'
 		+'<span class="dup-error-msg hidden" id="duplicate-beneficiariesPAssport['+counter+']">' + fm_error_dup_passport + '</span>'
 		+'</div>'
-		
+
 		+ '<div class="beneficiary-info-row">'
 		+ '<label for="savieBeneficiaryBean['+counter+'].gender">' + fm_label_gender + '</label>'
 		+ '<div id="gender-'+counter+'" class="clearfix radio-buttons">'
-		+ '<input type="radio" name="savieBeneficiaryBean['+counter+'].gender" value="male" id="male-'+counter+'" checked>'
+		+ '<input type="radio" name="savieBeneficiaryBean['+counter+'].gender" value="M" id="male-'+counter+'" checked>'
 		+ '<label for="male-'+counter+'" class="male" >'
 		+ '<span class="hidden-lg hidden-md">' + fm_option_male + '</span>'
 		+ '<span class="orange-hover hidden-xs hidden-sm pull-left"></span>'
 		+ '</label>'
 		+ '<span id="male-label-'+counter+'" class="pull-left second-label hidden-xs hidden-sm">' + fm_option_male + '</span>'
-		+ '<input type="radio" name="savieBeneficiaryBean['+counter+'].gender" value="female" id="female-'+counter+'">'
+		+ '<input type="radio" name="savieBeneficiaryBean['+counter+'].gender" value="F" id="female-'+counter+'">'
 		+ '<label for="female-'+counter+'" class="female">'
 		+ '<span class="hidden-lg hidden-md">' + fm_option_female + '</span>'
 		+ '<span class="orange-hover hidden-xs hidden-sm pull-left"></span>'
@@ -1486,7 +1486,7 @@ function addFormBeneficiary (counter) {
 		+ '<span id="female-label-'+counter+'" class="pull-left second-label-female hidden-xs hidden-sm">' + fm_option_female + '</span>'
 		+ '</div>'
 		+ '</div>'
-		
+
 		+ '<div class="form-group beneficiary-info-row relationship">'
 		+ '<label for="savieBeneficiaryBean['+counter+'].relationship">' + fm_label_relationship + '</label>'
 		+ '<div class="selectBeneficiary">'
@@ -1494,12 +1494,12 @@ function addFormBeneficiary (counter) {
 		+ '<select class="form-control gray-dropdown"  id="savieBeneficiaryBean['+counter+'].relationship" name="savieBeneficiaryBean['+counter+'].relationship" data-style="application-select">'
 		+ '<option selected disabled value="">- Please select -</option>'
 		+ '<option value="father">Father</option>'
-		+ '<option value="mother">Mother</option>'	
+		+ '<option value="mother">Mother</option>'
 		+ '</select>'
 		+ '</div>'
 		+ '	<span class="error-msg" id="relationshipMessage['+counter+']"></span>'
 		+ '</div>'
-		
+
 		+ '<div class="form-group beneficiary-info-row entitle">'
 		+ '<label for="savieBeneficiaryBean['+counter+'].entitlement">' + fm_label_entitlement + '</label>'
 		+ '<input type="number" id="savieBeneficiaryBean['+counter+'].entitlement" name="savieBeneficiaryBean['+counter+'].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="">'
@@ -1507,14 +1507,14 @@ function addFormBeneficiary (counter) {
 		+ '<div class="clearfix hidden-md hidden-lg"><div class="pull-left"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>' + fm_action_remove + '</button></div></div>'
 		+ '</div>'
 		).appendTo("#add-beneficiary-"+counter+" .content");
-	
+
 	$("#savieBeneficiaryBean\\["+counter+"\\]\\.relationship").empty();
 	$("#savieBeneficiaryBean\\[0\\]\\.relationship option").each(function () {
         var txt = $(this).text();
         var val = $(this).val();
         $("#savieBeneficiaryBean\\["+counter+"\\]\\.relationship").append("<option value='"+val+"'>"+txt+"</option>");
     });
-	
+
 	changeColorRadioButtonLabel (counter);
 }
 
@@ -1540,7 +1540,7 @@ function getResidentialFinalValue() {
 	if (document.getElementById("savieApplicantBean.residentialTelNo")) {
       document.getElementById("savieApplicantBean.residentialTelNo").value = firstValue + secondValue + thirdValue;
    }
-}   
+}
 
 // Getting the Final Mobile No Value
 function getMobileFinalValue() {
@@ -1562,7 +1562,7 @@ function invalidPromoCode(){
 		return false;
 	}
 	return false;
-	
+
 }
 
 function getCookie(cname) {
@@ -1608,7 +1608,7 @@ var calculateAge = function(birthday) {
 function showErrorModal(_properties) {
    var $genModal = $('#fwd-gen-modal');
    var properties = $.isEmptyObject(_properties) ? {header: 'Error', body: 'Default Body Content', footer: 'OK'} : _properties;
-   
+
    // Create the modal html if it's not been initialize
    if (!$genModal.length) {
       $genModal = $(['<div id="fwd-gen-modal" class="modal fade fwd-generic-modal" role="dialog">',
@@ -1628,29 +1628,29 @@ function showErrorModal(_properties) {
                         '</div>',
                      '</div>'
                    ].join(''));
-       
-      // Append into body 
+
+      // Append into body
       $genModal.appendTo('body');
    }
-   
+
    // Append title text
    if (properties.header) {
       $genModal.find('.title')
                .text(properties.header);
    }
-   
+
    // Append body content
    if (properties.body) {
       $genModal.find('.content')
                .text(properties.body);
    }
-   
+
    // Append footer button label
    if (properties.footer) {
       $genModal.find('.btn-footer')
                .text(properties.footer);
    }
-   
+
    $genModal.modal('show');
 }
 
@@ -1665,16 +1665,16 @@ function addFormFieldError(_element, _errorMsg, _errorClassSelector) {
    if (!arguments.length) {
       throw ('Parameters _element and _errorMsg are required.');
    }
-   
+
    var $element = (typeof _element === 'string') ? $(_element) : _element;
-   
+
    if (!$element.length) {
       throw ('The _element parameter must be a valid selector or a valid jQuery Object');
    }
-   
+
    var errorMsg = _errorMsg || '';
    var errorClassSelector = _errorClassSelector || '';
-   
+
    $element.append('<small class="help-block dynamic-err-msg ' + errorClassSelector + '">' + errorMsg + '</small>');
 };
 
@@ -1689,19 +1689,19 @@ function removeFormFieldError(_element, _errorClassSelector, _removeAll) {
    if (!arguments.length) {
       throw ('Parameter _element is required.');
    }
-   
+
    var $element = (typeof _element === 'string') ? $(_element) : _element;
-   
+
    if (!$element.length) {
       throw ('The _element parameter must be a valid selector or a valid jQuery Object');
    }
-   
+
    var removeAll = _removeAll || false;
-   
+
    if (removeAll) {
       $element.find('.dynamic-err-msg')
                .remove();
-   } else if ((arguments.length === 1) || ((arguments.length > 1) && !arguments[1])) { 
+   } else if ((arguments.length === 1) || ((arguments.length > 1) && !arguments[1])) {
       $element.find('.dynamic-err-msg')
                .remove();
    } else {
@@ -1712,10 +1712,10 @@ function removeFormFieldError(_element, _errorClassSelector, _removeAll) {
 
 /**
  * Function helper to determine the IE version
- * 
+ *
  * @return number
  */
-function msieversion() { 
+function msieversion() {
    var ua = window.navigator.userAgent
    var msie = ua.indexOf ( "MSIE " )
 
