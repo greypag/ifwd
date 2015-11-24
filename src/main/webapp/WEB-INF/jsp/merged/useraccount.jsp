@@ -469,7 +469,7 @@
 	                            </div>
 	                            <div class="plan-item-cols odd plan-item-cols-bottom">
 	                                <h5 class="hidden-md hidden-lg"><fmt:message key="user.policy.insured.amount" bundle="${msg}" /></h5>
-	                                <p class="hidden-lg hidden-md currency-label-align"><fmt:message key="currency.hkd" bundle="${msg}" /><fmt:formatNumber value='${i.amount }' pattern="0,000.00"/></p>
+	                                <p class="hidden-lg hidden-md currency-label-align"><fmt:message key="currency.hkd" bundle="${msg}" /><br/><fmt:formatNumber value='${i.amount }' pattern="0,000.00"/></p>
 	                            </div>
 	                        </div>
                         </c:forEach>

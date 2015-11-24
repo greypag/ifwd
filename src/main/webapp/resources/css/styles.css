@@ -61,7 +61,7 @@
 **/
 body {
 	font-family: Calibri, sans-serif !important;
-  -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
 }
 
 body .bold{
@@ -25595,7 +25595,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
     .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-back-arrow .et-back-arrow-link{
         padding-top: 5px;
     }
-
+}
 #et-select-plan-go-homepage {
 	color: #fff;
 	background: #ff8200;
