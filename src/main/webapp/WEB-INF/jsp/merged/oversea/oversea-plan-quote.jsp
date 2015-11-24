@@ -239,103 +239,49 @@ function sendEmail() {
 	}
 	return false;
 }
-
+function coverageToggleGoto(id){
+    $.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+    $.mCustomScrollbar.defaults.axis="y";
+    $('.fwdpanel-body').mCustomScrollbar({
+        theme:"light-2"
+    });
+	if(id=="1"){
+		coverageToggle('#MedicalExpensesContent','open');
+        coverageToggle('#MedicalExpensesInnerContent','close');
+		coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','open');
+		$('html, body').animate({
+            scrollTop: $('#WorldwideEmergencyAssistanceServicesInnerContent').offset().top
+        }, 500);
+		$('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
+        $('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-minus');
+        $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().addClass('fa-minus');
+        $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().removeClass('fa-plus');
+        $('#SummaryofCoverage').find('h4').find('i').removeClass('fa-chevron-down');
+        $('#SummaryofCoverage').find('h4').find('i').addClass('fa-chevron-up');
+   	}else if(id=="2"){
+		coverageToggle('#MedicalExpensesContent','open');
+        coverageToggle('#MedicalExpensesInnerContent','open');
+		coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','close');
+		$('html, body').animate({
+            scrollTop: $('#MedicalExpensesInnerContent').offset().top
+        }, 500);
+        $('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-minus');
+		$('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-plus');
+        $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().addClass('fa-plus');
+        $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().removeClass('fa-minus');
+        $('#SummaryofCoverage').find('h4').find('i').removeClass('fa-chevron-down');
+        $('#SummaryofCoverage').find('h4').find('i').addClass('fa-chevron-up');
+    }
+}
 function coverageToggle(id,action){
-    $('#'+id).mCustomScrollbar();
-    $('#'+id).css("display","block");
-
-    /*
-//var product_plan_panel_valid=true;
-    if(action){
-        //product_plan_panel_valid=false;
-        $panel=$(this);
-        
-        if($panel.next('.product_plan_panel_content:visible').length>0){
-            console.log("1");
-            $('#'+id).find('.fa-chevron-up').addClass('fa-chevron-down');
-            $('#'+id).find('.fa-chevron-up').removeClass('fa-chevron-up');
-            $('.product_plan_panel_content:visible').slideUp("slow",function(){
-                $(".product_plan_panel_content").mCustomScrollbar("destroy");
-                //product_plan_panel_valid=true;
-            });
-        }else if($('.product_plan_panel_content:visible').length>0){
-            console.log("2");
-            $('#'+id).find('.fa-chevron-up').addClass('fa-chevron-down');
-            $('#'+id).find('.fa-chevron-up').removeClass('fa-chevron-up');
-            $('.product_plan_panel_content:visible').slideUp("slow",function(){
-                $(".product_plan_panel_content").mCustomScrollbar("destroy");
-                
-                var $target = $panel.next('.fwdpanel-body');
-                scrollDownProductPanel($target);
-            });
-        }else{
-            console.log("3");
-            var $target = $panel.next('.fwdpanel-body');        
-            scrollDownProductPanel($target);
-        }
+    //$(id).mCustomScrollbar();
+    if(action=='open'){
+        $(id).css("display","block");
+    }else if(action=='close'){
+        $(id).css("display","none");
     }
-    
-
-//var product_plan_inner_panel_valid=true;
-    //console.log("1");
-    if(action){
-       // product_plan_inner_panel_valid=false;
-        $panel=$(this);
-        //console.log($panel);
-        if($panel.next('.product_plan_inner_panel_content:visible').length>0){
-            $('.product_plan_inner_panel').find('.fa-minus').addClass('fa-plus');
-            $('.product_plan_inner_panel').find('.fa-minus').removeClass('fa-minus');
-            $('.product_plan_inner_panel_content:visible').slideUp("slow",function(){
-                var $target = $panel.next('.fwdpanel-body');
-                $target.find('table').parent().removeAttr('id');
-                
-                //product_plan_inner_panel_valid=true;
-                //console.log($panel.parents(".mCustomScrollbar"));
-                $panel.parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $panel);
-                
-            });
-        }else if($('.product_plan_inner_panel_content:visible').length>0){
-            $("#plan-no-more-tables").removeAttr('id');
-            $('.product_plan_inner_panel').find('.fa-minus').addClass('fa-plus');
-            $('.product_plan_inner_panel').find('.fa-minus').removeClass('fa-minus');
-            $('.product_plan_inner_panel_content:visible').slideUp("fast",function(){
-                var $target = $panel.next('.fwdpanel-body');
-                $target.find('table').parent().attr('id', 'plan-no-more-tables');
-                $target.slideDown("slow", function(){
-                    $panel.find('i').removeClass('fa-plus');
-                    $panel.find('i').addClass('fa-minus');
-                    
-                    //product_plan_inner_panel_valid=true;
-                    $panel.parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $panel);
-                    $('html, body').animate({
-                        scrollTop: $panel.offset().top
-                    }, 500);
-                });
-            });
-        }else{
-            $("#plan-no-more-tables").removeAttr('id');
-            var $target = $panel.next('.fwdpanel-body');
-            $target.find('table').parent().attr('id', 'plan-no-more-tables');
-            $target.slideDown("slow", function(){
-                $panel.find('i').removeClass('fa-plus');
-                $panel.find('i').addClass('fa-minus');
-                
-                //product_plan_inner_panel_valid=true;
-                $panel.parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $panel);
-                $('html, body').animate({
-                    scrollTop: $panel.offset().top
-                }, 500);
-            });
-        }
-    }
-*/
-
-
     return true;
 }
-
-
-
 
 function scrollDownOverseaProductPanel($element){
     $element.slideDown("slow", function(){
@@ -551,7 +497,7 @@ Vietnam
                                 <key id='Overseas.PlanOptions.WorldwideStandardplanA.Benefit2.Amount'>Up to HK$1,000,000</key>
                             </div>
                             <div class="sub-link">
-                                <a  onclick="coverageToggle('MedicalExpensesContent','open');coverageToggle('MedicalExpensesInnerContent','open')"><key id='Overseas.PlanOptions.WorldwideStandardplanA.Benefit.textlink'>Coverage item 3-11 (refer to coverage table)</key></a>
+                                <a  onclick="coverageToggleGoto(1)"><key id='Overseas.PlanOptions.WorldwideStandardplanA.Benefit.textlink'>Coverage item 3-11 (refer to coverage table)</key></a>
 							</div>
                         </div>
                         
@@ -570,7 +516,7 @@ Vietnam
                                 <key id='Overseas.PlanOptions.WorldwideStandardplanB.Benefit2.Amount'>Up to HK$500,000</key>
                             </div>
                             <div class="sub-link">
-                                <a onclick="coverageToggle('MedicalExpensesContent','open');coverageToggle('MedicalExpensesInnerContent','open')"><key id='Overseas.PlanOptions.WorldwideStandardplanB.Benefit.textlink'>Coverage item 3-11 (refer to coverage table)</key></a>
+                                <a onclick="coverageToggleGoto(1)"><key id='Overseas.PlanOptions.WorldwideStandardplanB.Benefit.textlink'>Coverage item 3-11 (refer to coverage table)</key></a>
 							</div>
                         </div>
                         
@@ -584,7 +530,7 @@ Vietnam
 								<key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit1.Amount'>HK$1,000,000</key>
                             </div>
                             <div class="plan-coverage-box-l">
-								<key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2'>Top up inpatient medical expenses<a data-toggle="tooltip" title="Worldwide Comprehensive medical plan A Benefit 2"><img src="/fwdhk/resources/images/annual_travel/i-icon.png" style="display:inline"></a></key>
+								<key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2'>Top up inpatient medical expenses<a data-toggle="tooltip"  data-placement="bottom"  title="Worldwide Comprehensive medical plan A Benefit 2"><img src="<%=request.getContextPath()%>/resources/images/oversea/oversea-tooltip.png" style="display:inline;padding-left: 5px;"></a></key>
                             </div>
                             <div class="plan-coverage-box-r">
 								<key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2.Amount'>Up to HK$2,000,000</key>
@@ -609,7 +555,7 @@ Vietnam
 								<key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Amount'>Up to HK$500,000</key>
                             </div>
                             <div class="sub-link">
-								<a  onclick="coverageToggle('ProductHighlightContent','open');"><key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Tooltip'>1, 3-11 (refer to coverage table)</key></a>
+								<a  onclick="coverageToggleGoto(2)"><key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Tooltip'>1, 3-11 (refer to coverage table)</key></a>
 							</div>
                         </div>
                         
@@ -629,7 +575,7 @@ Vietnam
                             </div>
 
                             <div class="sub-link">
-                                <a  onclick="coverageToggle('MedicalExpensesContent','open');coverageToggle('MedicalExpensesInnerContent','open')"><key id='Overseas.PlanOptions.WorldwideStandardplanA.Benefit.textlink'>Coverage item 3-11 (refer to coverage table)</key></a>
+                                <a onclick="coverageToggleGoto(1)"><key id='Overseas.PlanOptions.WorldwideStandardplanA.Benefit.textlink'>Coverage item 3-11 (refer to coverage table)</key></a>
 							</div>
                         </div>
                         
@@ -648,7 +594,7 @@ Vietnam
                                 <key id='Overseas.PlanOptions.WorldwideStandardplanB.Benefit2.Amount'>Up to HK$500,000</key>
                             </div>
                             <div class="sub-link">
-                                <a onclick="coverageToggle('MedicalExpensesContent','open');coverageToggle('MedicalExpensesInnerContent','open')"><key id='Overseas.PlanOptions.WorldwideStandardplanB.Benefit.textlink'>Coverage item 3-11 (refer to coverage table)</key></a>
+                                <a onclick="coverageToggleGoto(1)"><key id='Overseas.PlanOptions.WorldwideStandardplanB.Benefit.textlink'>Coverage item 3-11 (refer to coverage table)</key></a>
 							</div>
                         </div>
                         
@@ -668,7 +614,7 @@ Vietnam
                                 <key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit2.Amount'>Up to HK$2,000,000</key>
                             </div>
                             <div class="sub-link">
-                                <a  onclick="coverageToggle('MedicalExpensesContent','open');coverageToggle('MedicalExpensesInnerContent','open')"><key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit.textlink'>Full coverage (refer to coverage table)</key></a>
+                                <a  onclick="coverageToggleGoto(1)"><key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit.textlink'>Full coverage (refer to coverage table)</key></a>
 							</div>
                         </div>
                         
@@ -691,7 +637,7 @@ Vietnam
                                 <key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Amount'>Up to HK$500,000</key>
                             </div>
                             <div class="sub-link">
-                                <a  onclick="coverageToggle('ProductHighlightContent','open');"><key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Tooltip'>1, 3-11 (refer to coverage table)</key></a>
+                                <a  onclick="coverageToggleGoto(2)"><key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Tooltip'>1, 3-11 (refer to coverage table)</key></a>
 							</div>
                         </div>
 
@@ -827,7 +773,7 @@ Vietnam
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
-                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;" id="WorldwideEmergencyAssistanceServicesInnerContent">
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
