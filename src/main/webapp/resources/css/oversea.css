@@ -258,8 +258,10 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 
 @media (max-width: 767px){
 	.pad-left-des{
+	width:49%;
 	}
 	.pad-right-des{
+    width:49%;
 	}
 	.planDetails{
 		margin-top:20px!important;
