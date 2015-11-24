@@ -565,7 +565,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			parameters.put("subject", subject);
 			parameters.put("attachment", attachment);
 			parameters.put("isHtml", isHTML);
-			br = connector.sendEmail(parameters,header);
+			br = connector.sendEmail(parameters,header);		
 			request.getSession().setAttribute("sendEmailOrNot", "yes");
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl sendEliteTermMail occurs an exception!");
@@ -917,14 +917,18 @@ public class EliteTermServiceImpl implements EliteTermService {
 						"    </center>  "+
 						"    </div>  "+
 						"  </body>";
-				org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
-				parametersEmail.put("to", userDetails.getEmailAddress());
-				parametersEmail.put("message", message);
-				parametersEmail.put("subject", subject);
-				parametersEmail.put("attachment", attachment);
-				parametersEmail.put("from", from);
-				parametersEmail.put("isHtml", isHTML);
-				connector.sendEmail(parametersEmail,headerEmail);
+				
+				String[] emailList = {userDetails.getEmailAddress(), "i-direct-hk@fwd.com", "nb.hk@fwd.com"};
+				for (int i=0; i<emailList.length; i++) {
+					org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
+					parametersEmail.put("to", emailList[i]);
+					parametersEmail.put("message", message);
+					parametersEmail.put("subject", subject);
+					parametersEmail.put("attachment", attachment);
+					parametersEmail.put("from", from);
+					parametersEmail.put("isHtml", isHTML);
+					connector.sendEmail(parametersEmail,headerEmail);
+				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -968,7 +972,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 		long commencementDate = (long) jsonRelationShipCode.get("commencementDate");
 		Date date = new Date();
 		long days = (date.getTime()-commencementDate) / (1000 * 60 * 60 * 24);
-		if(days > 30){
+		if(days > 42){
 			request.getSession().setAttribute("errorMessageType", "UrlExpired");
 			return true;
 		}

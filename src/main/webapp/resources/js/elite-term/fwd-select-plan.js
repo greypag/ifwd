@@ -435,6 +435,13 @@
          var monthlyPrem = $('#et-month-dis-amount').text();
          var monthlyPremExtra = $('#et-month-amount').text();
          
+         console.log(monthlyPrem+' -- '+monthlyPremExtra);
+         
+         //clear htmls 1st
+         $('#etaspd-insured-amount').html('');
+         $('#etaspd-monthly-premium .hkd').html('');
+         $('#etaspd-monthly-premium-extra-years .hkd').html('');
+         
          $('#etaspd-insured-amount').html('HK$ '+ sliderVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
          $('#etaspd-monthly-premium .value').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
          $('#etaspd-monthly-premium-extra-years .value').html('HK$ '+ monthlyPremExtra.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
@@ -624,6 +631,7 @@
          
          $self.parent().addClass('et-selected');
          
+         
          // Set timer for confirm and sign button
          var waitSecond = 0;
          if (waitSecond <= 0) {
@@ -642,10 +650,12 @@
          
          //res address
          if($('#etaspi-res-add').html().length <= 0 || !$('#savieApplicantBean\\.isResidential').prop('checked')) {
+        	 $('#etaspi-res-add').removeClass('hide-element');
         	 $('#etaspi-res-add').html($('#etaspi-per-add').html());
          }
          //corr address
          if($('#etaspi-corr-add').html().length <= 0 || !$('#savieApplicantBean\\.addressIsSame').prop('checked')) {
+        	 $('#etaspi-corr-add').removeClass('hide-element');
         	 $('#etaspi-corr-add').html($('#etaspi-res-add').html());
          }
          $appSum.removeClass('hide-element');
@@ -1017,6 +1027,12 @@
                     regexp: {
                        regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                        message: getBundle(getBundleLanguage, "form.address.invalid")
+                    },
+                    callback: {
+                        callback: function(value, validator) {
+                        	permanentAddress(value,'permanentAddress2','permanentAddress1', 'permanentAddress3');
+                          return true;
+                        }
                     }
                  }
               },
@@ -1026,6 +1042,12 @@
                     regexp: {
                        regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                        message: getBundle(getBundleLanguage, "form.address.invalid")
+                    },
+                    callback: {
+                        callback: function(value, validator) {
+                        	permanentAddress(value,'permanentAddress3','permanentAddress1','permanentAddress2');
+                          return true;
+                        }
                     }
                  }
               },
@@ -1062,6 +1084,12 @@
                       regexp: {
                          regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                          message: getBundle(getBundleLanguage, "form.address.invalid")
+                      },
+                      callback: {
+                          callback: function(value, validator) {
+                          	permanentAddress(value,'residentialAdress2','residentialAdress1', 'residentialAdress3');
+                            return true;
+                          }
                       }
                    }
                 },
@@ -1071,6 +1099,12 @@
                       regexp: {
                          regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                          message: getBundle(getBundleLanguage, "form.address.invalid")
+                      },
+                      callback: {
+                          callback: function(value, validator) {
+                          	permanentAddress(value,'residentialAdress3','residentialAdress1', 'residentialAdress2');
+                            return true;
+                          }
                       }
                    }
                 },
@@ -1107,6 +1141,12 @@
                         regexp: {
                            regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                            message: getBundle(getBundleLanguage, "form.address.invalid")
+                        },
+                        callback: {
+                            callback: function(value, validator) {
+                            	permanentAddress(value,'correspondenceAdress2','correspondenceAdress1', 'correspondenceAdress3');
+                              return true;
+                            }
                         }
                      }
                   },
@@ -1116,6 +1156,12 @@
                         regexp: {
                            regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                            message: getBundle(getBundleLanguage, "form.address.invalid")
+                        },
+                        callback: {
+                            callback: function(value, validator) {
+                            	permanentAddress(value,'correspondenceAdress3','correspondenceAdress1', 'correspondenceAdress2');
+                              return true;
+                            }
                         }
                      }
                   }
@@ -1566,6 +1612,20 @@
    }
    
    // Utility function
+   function permanentAddress(value, id, validator, idSecond) {
+	   setTimeout(function(){
+       	if((value!=$('#savieApplicantBean\\.'+id).attr('placeholder') && $('#savieApplicantBean\\.'+idSecond)!='') && value!='' && ($('#savieApplicantBean\\.'+validator).val()!='' || $('#savieApplicantBean\\.'+validator).attr('placeholder')!=$('#savieApplicantBean\\.'+validator).val())) {
+       		$('#eliteTermsInsuredInfoForm')
+            .data('bootstrapValidator')
+            .updateStatus('savieApplicantBean.'+validator,'VALID');
+       	}
+       	else {
+       		$('#eliteTermsInsuredInfoForm')
+               .data('bootstrapValidator')
+               .updateStatus('savieApplicantBean.'+validator,'INVALID','notEmpty');
+       	}
+   	}, 100);
+   }
    function capitalizeFirstLetter(string) {
       return string ? string.charAt(0).toUpperCase() + string.slice(1) : '';
    }
@@ -1706,13 +1766,13 @@
       $('#etaspi-mob-no').text(appInfoData.mobNo);   
       
       var perAddArr = [];
-      if (appInfoData.perAddL1) {
+      if (appInfoData.perAddL1 && appInfoData.perAddL1!=$('#savieApplicantBean\\.permanentAddress1').attr('placeholder')) {
          perAddArr.push(appInfoData.perAddL1);
       }
-      if (appInfoData.perAddL2) {
+      if (appInfoData.perAddL2 && appInfoData.perAddL2!=$('#savieApplicantBean\\.permanentAddress2').attr('placeholder')) {
          perAddArr.push(appInfoData.perAddL2);
       }
-      if (appInfoData.perAddL3) {
+      if (appInfoData.perAddL3 && appInfoData.perAddL3!=$('#savieApplicantBean\\.permanentAddress3').attr('placeholder')) {
          perAddArr.push(appInfoData.perAddL3);
       }
       (appInfoData.perAdd) ? perAddArr.push(appInfoData.perAdd) : '';
@@ -1723,13 +1783,13 @@
          $('#etaspi-res-add').removeClass('hide-element');
             
          var resAddArr = [];
-         if (appInfoData.resAddL1) {
+         if (appInfoData.resAddL1 && appInfoData.resAddL1!=$('#savieApplicantBean\\.residentialAdress1').attr('placeholder')) {
             resAddArr.push(appInfoData.resAddL1);
          }
-         if (appInfoData.resAddL2) {
+         if (appInfoData.resAddL2 && appInfoData.resAddL2!=$('#savieApplicantBean\\.residentialAdress2').attr('placeholder')) {
             resAddArr.push(appInfoData.resAddL2);
          }
-         if (appInfoData.resAddL3) {
+         if (appInfoData.resAddL3 && appInfoData.resAddL3!=$('#savieApplicantBean\\.residentialAdress3').attr('placeholder')) {
             resAddArr.push(appInfoData.resAddL3);
          }
          (appInfoData.resAdd) ? resAddArr.push(appInfoData.resAdd) : '';
@@ -1743,13 +1803,13 @@
          $('#etaspi-corr-add').removeClass('hide-element');
             
          var corrAddArr = [];
-         if (appInfoData.corrAddL1) {
+         if (appInfoData.corrAddL1 && appInfoData.corrAddL1!=$('#savieApplicantBean\\.correspondenceAdress1').attr('placeholder')) {
             corrAddArr.push(appInfoData.corrAddL1);
          }
-         if (appInfoData.corrAddL2) {
+         if (appInfoData.corrAddL2 && appInfoData.corrAddL2!=$('#savieApplicantBean\\.correspondenceAdress2').attr('placeholder')) {
             corrAddArr.push(appInfoData.corrAddL2);
          }
-         if (appInfoData.corrAddL3) {
+         if (appInfoData.corrAddL3 && appInfoData.corrAddL3!=$('#savieApplicantBean\\.correspondenceAdress3').attr('placeholder')) {
             corrAddArr.push(appInfoData.corrAddL3);
          }
          (appInfoData.corrAddL) ? corrAddArr.push(appInfoData.corrAddL) : '';
