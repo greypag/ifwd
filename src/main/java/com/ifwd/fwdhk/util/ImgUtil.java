@@ -200,12 +200,7 @@ public class ImgUtil {
         p = Math.round(p2); 
         return p; 
     } 
-    
-    
-    /**
-     * public final static String getPressImgPath() { return ApplicationContext
-     * .getRealPath("/template/data/util/shuiyin.gif"); }
-     */
+
  
     /**
      * 把图片印刷到图片上
@@ -223,7 +218,6 @@ public class ImgUtil {
             int x, int y) {
         try {
             //目标文件
-//            File _file = new File(targetImg);
             java.awt.Image src = ImageIO.read(targetImg);
             int wideth = src.getWidth(null);
             int height = src.getHeight(null);
@@ -233,13 +227,10 @@ public class ImgUtil {
             g.drawImage(src, 0, 0, wideth, height, null);
  
             //水印文件
-//            File _filebiao = new File(pressImg);
             java.awt.Image src_biao = ImageIO.read(pressImg);
             int wideth_biao = src_biao.getWidth(null);
             int height_biao = src_biao.getHeight(null);
             g.drawImage(src_biao, (wideth - wideth_biao) / 2,0, wideth_biao, height_biao, null);
-//            g.drawImage(src_biao, (wideth - wideth_biao) / 2,
-//                    (height - height_biao) / 2, wideth_biao, height_biao, null);
             //水印文件结束
             g.dispose();
             FileOutputStream out = new FileOutputStream(targetImg);
@@ -250,53 +241,5 @@ public class ImgUtil {
             e.printStackTrace();
         }
     }
- 
-    /**
-     * 打印文字水印图片
-     * 
-     * @param pressText
-     *            --文字
-     * @param targetImg --
-     *            目标图片
-     * @param fontName --
-     *            字体名
-     * @param fontStyle --
-     *            字体样式
-     * @param color --
-     *            字体颜色
-     * @param fontSize --
-     *            字体大小
-     * @param x --
-     *            偏移量
-     * @param y
-     */
- 
-    public static void pressText(String pressText, String targetImg,
-            String fontName, int fontStyle, int color, int fontSize, int x,
-            int y) {
-        try {
-            File _file = new File(targetImg);
-            java.awt.Image src = ImageIO.read(_file);
-            int wideth = src.getWidth(null);
-            int height = src.getHeight(null);
-            BufferedImage image = new BufferedImage(wideth, height,
-                    BufferedImage.TYPE_INT_RGB);
-            Graphics g = image.createGraphics();
-            g.drawImage(src, 0, 0, wideth, height, null);
-             
-            g.setColor(Color.RED);
-            g.setFont(new Font(fontName, fontStyle, fontSize));
- 
-            g.drawString(pressText, wideth - fontSize - x, height - fontSize
-                    / 2 - y);
-            g.dispose();
-            FileOutputStream out = new FileOutputStream(targetImg);
-            com.sun.image.codec.jpeg.JPEGImageEncoder encoder = com.sun.image.codec.jpeg.JPEGCodec.createJPEGEncoder(out);
-            encoder.encode(image);
-            out.close();
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
- 
+
 }
