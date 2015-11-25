@@ -1365,7 +1365,7 @@
                 validators: {
                   stringLength: {
                       min: 1,
-                      max: 255,
+                      max: 35,
                       message: getBundle(getBundleLanguage, "form.employer.name.length")
                   },
                 	
