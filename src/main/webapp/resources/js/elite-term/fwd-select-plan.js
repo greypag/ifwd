@@ -541,21 +541,36 @@
             // Store beneficiaries data
             storeBeneficiaryInfo();
         	populateAppSummBI();
+        	console.log('First validate, true');
             if ($self.hasClass('back-to-summary')) {
-            	storeBeneficiaryInfo();
+               storeBeneficiaryInfo();
                populateAppSummBI();
                $('#et-application-third-section').removeClass('hide-element');
                $('body, html').animate({
             	  scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
                }, 0);
+               console.log('back-summary present, true');
             } else {
                $target = $('#et-application-second-section');
                $target.removeClass('hide-element');
                $('body, html').animate({
                   scrollTop: ($target.offset().top - stickyHeight) + 'px'
                }, 500);
+               console.log('no back-summary, true');
             }
+            
+            $('#name-others-now').on('click', function(e) {
+            	$('#beneficiaryInfoForm\\[0\\]').data('bootstrapValidator').resetForm(true);
+        		if ($('#beneficiaryInfoForm\\[1\\]').length) {
+        			$('#beneficiaryInfoForm\\[1\\]').data('bootstrapValidator').resetForm(true);
+        		}
+        		if ($('#beneficiaryInfoForm\\[2\\]').length) {
+        			$('#beneficiaryInfoForm\\[2\\]').data('bootstrapValidator').resetForm(true);
+        		}
+             });
+            
          } else {
+        	 console.log('First validate, false');
             $('body, html').animate({
                   scrollTop: ($('#et-beneficiary-info-section').offset().top - stickyHeight) + 'px'
             }, 0);
@@ -2009,7 +2024,6 @@
    */
    function storeBeneficiaryInfo() {
       if ($('#own-estate-now').prop('checked')) {
-         
       }
       if ($('#name-others-now').prop('checked')) {
          // Person 1

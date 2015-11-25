@@ -320,6 +320,8 @@ $(function() {
 	
 	//Beneficiary Info Form [0]
 	//by: RMN
+	
+	// start of validation
 	var counter = 0;
 				
 	$('#beneficiaryInfoForm\\[0\\]').bootstrapValidator({
@@ -469,6 +471,7 @@ $(function() {
 			}
 		}
 	});
+	// end of validation
 	
 	$( "#savieBeneficiaryBean\\[0\\]\\.entitlement" ).on('change', function() {
 		if(totalBeneficiaryEntitlement()!="Exceed") {
