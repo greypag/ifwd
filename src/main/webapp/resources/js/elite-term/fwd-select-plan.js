@@ -431,18 +431,18 @@
          var $self = $(this);
          
          // Store plan detail data
-         var sliderVal = $('#et-slider-range').text();
-         var monthlyPrem = $('#et-month-dis-amount').text();
-         var monthlyPremExtra = $('#et-month-amount').text();
+         //////var sliderVal = $('#et-slider-range').text();
+         //////var monthlyPrem = $('#et-month-dis-amount').text();
+         //////var monthlyPremExtra = $('#et-month-amount').text();
          
          //clear htmls 1st
-         $('#etaspd-insured-amount').html('');
-         $('#etaspd-monthly-premium .hkd').html('');
-         $('#etaspd-monthly-premium-extra-years .hkd').html('');
+         ////$('#etaspd-insured-amount').html('');
+         ////$('#etaspd-monthly-premium .hkd').html('');
+         ////$('#etaspd-monthly-premium-extra-years .hkd').html('');
          
-         $('#etaspd-insured-amount').html('HK$ '+ sliderVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-         $('#etaspd-monthly-premium .value').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-         $('#etaspd-monthly-premium-extra-years .value').html('HK$ '+ monthlyPremExtra.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+         //$('#etaspd-insured-amount').html('HK$ '+ sliderVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+         //$('#etaspd-monthly-premium .value').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+         //$('#etaspd-monthly-premium-extra-years .value').html('HK$ '+ monthlyPremExtra.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
          
          populateAppSummPD();
 

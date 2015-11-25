@@ -560,9 +560,13 @@ function setCalculatedAmt(bDiscount, insuredAmt, oriMonthlyAmt, oriDailyAmt, dis
 		$("#etaspd-monthly-premium-extra-years .value").text(parseFloat(oriMonthlyAmt).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
  	} else{
  		actPromo.find('.top .et-po-amount-label').text(default_period_text);
+ 		$("#et-month-dis-amount").html('');
+		$("#et-day-dis-amount").html('');
+		
  		$('#et-dis-promo-amount').addClass('hide-element');
  		
  		$("#etaspd-monthly-premium .value").text(parseFloat(oriMonthlyAmt).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+ 		$("#etaspd-monthly-premium-extra-years .value").text('');
  	}
 
  	//enable proceed button
