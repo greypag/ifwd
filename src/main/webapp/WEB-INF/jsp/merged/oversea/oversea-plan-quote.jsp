@@ -471,33 +471,30 @@ Vietnam
 										</div>
 										<div class="clearfix"></div>
 									</div>
-									<!--
-                                    <input type="hidden" name="txtPlanName" id="txtPlanName${i+1}" value="${quoteDetails.planName[j] }">
-                                    -->
 		                            <input type="hidden" name="txtPlanName" id="txtPlanName${i}" value="<c:choose>
-                                                    <c:when test="${j == '0'}">
-                                                    Standard Worldwide Plan A
+                                                    <c:when test="${i == '0'}">
+                                                    Standard Overseas StudyCare Insurance - Plan A
                                                     </c:when>
-                                                    <c:when test="${j == '1'}">
-                                                    Standard Worldwide Plan B
+                                                    <c:when test="${i == '1'}">
+                                                    Standard Overseas StudyCare Insurance - Plan B
                                                     </c:when>
-                                                    <c:when test="${j == '2'}">
-                                                    Comprehensive Medical Worldwide - Plan A
+                                                    <c:when test="${i == '2'}">
+                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan A
                                                     </c:when>
-                                                    <c:when test="${j == '3'}">
-                                                    Comprehensive Medical Worldwide - Plan B
+                                                    <c:when test="${i == '3'}">
+                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan B
                                                     </c:when>
-                                                    <c:when test="${j == '4'}">
-                                                    Standard Asia - Plan A
+                                                    <c:when test="${i == '4'}">
+                                                    Standard Overseas StudyCare Insurance - Plan A
                                                     </c:when>
-                                                    <c:when test="${j == '5'}">
-                                                    Standard Asia - Plan B
+                                                    <c:when test="${i == '5'}">
+                                                    Standard Overseas StudyCare Insurance - Plan B
                                                     </c:when>
-                                                    <c:when test="${j == '6'}">
-                                                    Comprehensive Medical Asia - Plan A
+                                                    <c:when test="${i == '6'}">
+                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan A
                                                     </c:when>
-                                                    <c:when test="${j == '7'}">
-                                                    Comprehensive Medical Asia - Plan B
+                                                    <c:when test="${i == '7'}">
+                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan B
                                                     </c:when>
                                                 </c:choose>">
 		                            <input type="hidden" name="txtTotalDue" id="txtTotalDue${i}" value="${quoteDetails.toalDue[j] }">
@@ -511,33 +508,30 @@ Vietnam
 										</div>
 										<div class="clearfix"></div>
 									</div>
-									<!-- 
-		                            <input type="hidden" name="txtPlanName" id="txtPlanName${i+1}" value="${quoteDetails.planName[j+1] }">
-		                            -->
-		                            <input type="hidden" name="txtPlanName" id="txtPlanName${i}" value="<c:choose>
-                                                    <c:when test="${j == '0'}">
-                                                    Standard Worldwide Plan A
+		                            <input type="hidden" name="txtPlanName" id="txtPlanName${i+1}" value="<c:choose>
+                                                    <c:when test="${i == '-1'}">
+                                                    Standard Overseas StudyCare Insurance - Plan A
                                                     </c:when>
-                                                    <c:when test="${j == '1'}">
-                                                    Standard Worldwide Plan B
+                                                    <c:when test="${i == '0'}">
+                                                    Standard Overseas StudyCare Insurance - Plan B
                                                     </c:when>
-                                                    <c:when test="${j == '2'}">
-                                                    Comprehensive Medical Worldwide - Plan A
+                                                    <c:when test="${i == '1'}">
+                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan A
                                                     </c:when>
-                                                    <c:when test="${j == '3'}">
-                                                    Comprehensive Medical Worldwide - Plan B
+                                                    <c:when test="${i == '2'}">
+                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan B
                                                     </c:when>
-                                                    <c:when test="${j == '4'}">
-                                                    Standard Asia - Plan A
+                                                    <c:when test="${i == '3'}">
+                                                    Standard Overseas StudyCare Insurance - Plan A
                                                     </c:when>
-                                                    <c:when test="${j == '5'}">
-                                                    Standard Asia - Plan B
+                                                    <c:when test="${i == '4'}">
+                                                    Standard Overseas StudyCare Insurance - Plan B
                                                     </c:when>
-                                                    <c:when test="${j == '6'}">
-                                                    Comprehensive Medical Asia - Plan A
+                                                    <c:when test="${i == '5'}">
+                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan A
                                                     </c:when>
-                                                    <c:when test="${j == '7'}">
-                                                    Comprehensive Medical Asia - Plan B
+                                                    <c:when test="${i == '6'}">
+                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan B
                                                     </c:when>
                                                 </c:choose>">
 		                            <input type="hidden" name="txtTotalDue" id="txtTotalDue${i+1}" value="${quoteDetails.toalDue[j+1] }">
