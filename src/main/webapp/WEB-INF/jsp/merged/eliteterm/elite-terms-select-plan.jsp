@@ -215,7 +215,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        </span>
                                     </h3> 
                                  </div>
-                                 <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range">${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'800000' }</span></p>
+                                 <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range">${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'1000000' }</span></p>
                                  <div class="clearfix et-slider-info-div">
                                     <div class="pull-left">
                                        <p class="et-slider-info center"><fmt:message key="eliteTerms.selectPlan.Min" bundle="${msg}" /></p>
@@ -226,7 +226,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <p id="et-ins-amt-max-display" class="et-slider-info"><fmt:message key="eliteTerms.selectPlan.Max.val" bundle="${msg}" /></p>
                                     </div>
                                  </div>
-                                 <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-value="${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'800000' }" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
+                                 <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-value="${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'1000000' }" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
                                  <div class="et-broken-line et-padding hidden-md hidden-lg"></div>
                               </div>
                               <div class="col-xs-12 col-md-5">
@@ -2683,27 +2683,6 @@ var home_url = "<%=request.getContextPath()%>";
          } else if ($('#et-gender-female').prop('checked')) {
             planDetailData.gender = 'Female';
          }
-
-         // Set default value and maximum value of insured amount
-         var age = getAge(parseInt($('#et-select-plan-date-input').val().substring(6,10)),
-                 parseInt($('#et-select-plan-date-input').val().substring(3,5)),
-                 parseInt($('#et-select-plan-date-input').val().substring(0,2)));
-         if (age < 50) {
-             $('#et-ins-amt-max-display').text('2,000,000');
-             $('#et-slider-range').html('1,000,000');
-             $('#R2').slider({max:2000000});
-             $('#R2').slider('setValue', 1000000);
-         } else if (age < 55) {
-             $('#et-ins-amt-max-display').text('1,500,000');
-             $('#et-slider-range').html('1,000,000');
-             $('#R2').slider({max:1500000});
-             $('#R2').slider('setValue', 1000000);
-         } else {
-             $('#et-ins-amt-max-display').text('500,000');
-             $('#et-slider-range').html('500,000');
-             $('#R2').slider({max:500000});
-             $('#R2').slider('setValue', 500000);
-         }         
          
          planDetailData.dob = $planDate.val();
       });
@@ -2756,7 +2735,39 @@ var home_url = "<%=request.getContextPath()%>";
         /* Reset calculated amount when on input value change */
         $('input[name=et-gender]').on('change', resetCalculatedAmt);
         $('input[name=et-smoker]').on('change', resetCalculatedAmt);
-        $('#et-select-plan-date-input').on('change', resetCalculatedAmt);
+        $('#et-select-plan-date-input').on('change', function(){
+            resetCalculatedAmt();
+
+            // Set default value and maximum value of insured amount
+            var age = getAge(parseInt($('#et-select-plan-date-input').val().substring(6,10)),
+                    parseInt($('#et-select-plan-date-input').val().substring(3,5)),
+                    parseInt($('#et-select-plan-date-input').val().substring(0,2)));
+            var curr_insured_amt = parseInt($('#R2').val());
+
+            if(age < 50){
+               $('#et-ins-amt-max-display').text('2,000,000');
+               $('#R2').slider({max:2000000});
+               $('#R2').slider('setValue', curr_insured_amt);
+            } else if(age < 55){
+               $('#et-ins-amt-max-display').text('1,500,000');
+               $('#R2').slider({max:1500000});
+               if(curr_insured_amt > 1500000){
+                  $('#et-slider-range').html('1,000,000');
+                  $('#R2').slider('setValue', 1000000);
+               } else{
+                  $('#R2').slider('setValue', curr_insured_amt);
+               }
+            } else{
+               $('#et-ins-amt-max-display').text('500,000');
+               $('#R2').slider({max:500000});
+               if(curr_insured_amt > 500000){
+                  $('#et-slider-range').html('500,000');
+                  $('#R2').slider('setValue', 500000);
+               } else{
+                  $('#R2').slider('setValue', curr_insured_amt);
+               }
+            } 
+         });
         $('#R2').on('change', resetCalculatedAmt);
 
 
