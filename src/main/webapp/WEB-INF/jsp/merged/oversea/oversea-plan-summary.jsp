@@ -175,7 +175,28 @@ $(document).ready(function(){
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Plan'>Plan</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">${planSelected }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><!--${planSelected }-->
+                                                <c:choose>
+                                                    <c:when test="${planSelected == 'basicA'}">
+                                                    Standard Overseas StudyCare Insurance - Plan A
+                                                    </c:when>
+                                                    <c:when test="${planSelected == 'basicB'}">
+                                                    Standard Overseas StudyCare Insurance - Plan B
+                                                    </c:when>
+                                                    <c:when test="${planSelected == 'medicalWorldwideA'}">
+                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan A
+                                                    </c:when>
+                                                    <c:when test="${planSelected == 'medicalWorldwideB'}">
+                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan B
+                                                    </c:when>
+                                                    <c:when test="${planSelected == 'medicalAsiaA'}">
+                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan A
+                                                    </c:when>
+                                                     <c:when test="${planSelected == 'medicalAsiaB'}">
+                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan B
+                                                    </c:when>                                                                                                                                                                                                                                                                                                                                                                         
+                                                </c:choose>                                            
+                                            </div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Region'>Region</key></div>

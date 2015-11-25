@@ -943,11 +943,12 @@ function setDropArea(id) {
                         <div class="hidden-sm hidden-xs">
                             <div class="wd2">
                                 <div class="pull-left" style="">
-                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;">Overseas StudentCare Worldwide</h2>
-                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;"></h2>
-                                    <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;">${planName }</h4>
+                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;">Overseas StudyCare</h2>
+                                    <h2 id="seletedplanregion" class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;"></h2>
+                                    <h4 id="selectedPlanNameDisplay" style="padding-left:0px;line-height: 0px;font-size: 16px;">${planName }</h4>
                                     <input type="hidden" id="selectedPlanName" name="selectedPlanName" value="${planName }">
                                 </div>
+                                <div class="clearfix"></div>
                                 <div class="pull-right" style="">
                                     <div class="text-left h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
                                         <div class="hk" style="font-size: 18px;">
@@ -1047,6 +1048,33 @@ function setDropArea(id) {
 <link href="<%=request.getContextPath()%>/resources/css/easy-autocomplete.min.css" rel="stylesheet">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.easy-autocomplete.min.js"></script>
 <script>
+var selectedPlanName = $('#selectedPlanName').val();
+console.log(selectedPlanName);
+if(selectedPlanName=='basicA'){
+    $('#seletedplanregion').html('Worldwide');
+    $('#selectedPlanNameDisplay').html('Standard A');
+}
+if(selectedPlanName=='basicB'){
+    $('#seletedplanregion').html('Worldwide');
+    $('#selectedPlanNameDisplay').html('Standard B');
+}
+if(selectedPlanName=='medicalWorldwideA'){
+    $('#seletedplanregion').html('Worldwide');
+    $('#selectedPlanNameDisplay').html('Comprehensive Medical A');
+}
+if(selectedPlanName=='medicalWorldwideB'){
+    $('#seletedplanregion').html('Worldwide');
+    $('#selectedPlanNameDisplay').html('Comprehensive Medical B');
+}
+if(selectedPlanName=='medicalAsiaA'){
+    $('#seletedplanregion').html('Asia');
+    $('#selectedPlanNameDisplay').html('Comprehensive Medical A');
+}
+if(selectedPlanName=='medicalAsiaB'){
+    $('#seletedplanregion').html('Asia');
+    $('#selectedPlanNameDisplay').html('Comprehensive Medical B');
+}
+
 var options;
 if("${planName}"=="basicA" || "${planName}"=="basicB" || "${planName}"=="medicalWorldwideA" || "${planName}"=="medicalWorldwideB"){
     options = {       
