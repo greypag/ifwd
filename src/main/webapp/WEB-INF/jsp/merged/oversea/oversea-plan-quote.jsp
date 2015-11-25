@@ -20,7 +20,10 @@ function prepareOverseaPlan(form){
 		async : false,
 		success : function(data) {
 			if (data == "success") {
+				/*
 				form.action = "<%=request.getContextPath()%>/${language}/oversea-insurance/quote";
+				*/
+                form.action = "/fwdhk/${language}/oversea-insurance/quote";
 				result = true;
 			} else {
 				console.log(data);
@@ -45,8 +48,7 @@ function changeRegion(region){
         $('#region-btn-1').addClass("region-box-inactive");
         $('#region-btn-1').removeClass("region-box-active");
        //$('#seletedplanregion').html('Worldwide');
-    }
-    if(region=='region1'){
+    }else if(region=='region1'){
         $('#region0').css("display","none");
         $('#region1').css("display","block");
         $('#region-btn-0').addClass("region-box-inactive");
@@ -55,7 +57,7 @@ function changeRegion(region){
         $('#region-btn-1').removeClass("region-box-inactive");
         //$('#seletedplanregion').html('Asia');
     }
-    return true;
+    //return true;
 }
 
 function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
@@ -115,12 +117,23 @@ function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 
 	$('#discountAmt').html(numeral(txtDiscountAmt).format('0,0.00'));
 	
+	/*
 	document.getElementById("selectedAmountDue").value = parseFloat(txtTotalDue.trim()).toFixed(2);
-	document.getElementById("selectedDiscountAmt").value = parseFloat(txtDiscountAmt.trim()).toFixed(2);
-	$('#txtDiscountAmount').val(numeral(txtDiscountAmt.trim()).format('0,0.00'));
-	document.getElementById("txtgrossPremiumAmt").value = parseFloat(selected_price.trim()).toFixed(2);
-	
-	if(promoData != '')
+    document.getElementById("selectedDiscountAmt").value = parseFloat(txtDiscountAmt.trim()).toFixed(2);
+    $('#txtDiscountAmount').val(numeral(txtDiscountAmt.trim()).format('0,0.00'));
+    document.getElementById("txtgrossPremiumAmt").value = parseFloat(selected_price.trim()).toFixed(2);
+    */
+    
+    
+    document.getElementById("selectedAmountDue").value = parseFloat(txtTotalDue).toFixed(2);
+    document.getElementById("selectedDiscountAmt").value = parseFloat(txtDiscountAmt).toFixed(2);
+    //document.getElementById("txtDiscountAmount").value = parseFloat(txtDiscountAmt).toFixed(2);
+    //$('#txtDiscountAmount').val(numeral(txtDiscountAmt).format('0,0.00'));
+    document.getElementById("txtgrossPremiumAmt").value = parseFloat(selected_price).toFixed(2);
+    
+    
+    
+    if(promoData != '')
 		setValue(promoData);
 	return true;
 	
@@ -140,12 +153,18 @@ function submitPlan(){
 function subForm(form, formId) {
 	$.ajax({
 		type : "POST",
+		/*
 		url : '<%=request.getContextPath()%>/ajax/oversea/prepareOverseaDetails',
+		*/
+        url : '/fwdhk/ajax/oversea/prepareOverseaDetails',
 		data : $(formId).serialize(),
 		async : false,
 		success : function(data) {
 			if (data == "success") {
-				form.action = '${pageContext.request.contextPath}/${language}/oversea-insurance/details';
+				/*
+                form.action = '${pageContext.request.contextPath}/${language}/oversea-insurance/details';
+                */
+                form.action = '/fwdhk/${language}/oversea-insurance/details';
 				result = true;
 			} else {
 				console.log(data);
@@ -159,21 +178,22 @@ function subForm(form, formId) {
 }
 var promoCodeInsertFlag = true;
 function applyOverseaPromoCode() {
-	if(promoCodeInsertFlag){
-		promoCodeInsertFlag = false;
-		$("#errPromoCode").html("");
+    if(promoCodeInsertFlag){
+        promoCodeInsertFlag = false;
+        $("#errPromoCode").html("");
         if(chkPromoCode()){
-        	$('#loading-overlay').modal({
+            $('#loading-overlay').modal({
                 backdrop: 'static',
                 keyboard: false
             })
             console.log($('#frmTravelPlan input').serialize());
-        	$.ajax({
+            $.ajax({
                 type : 'POST',
-                url : '<%=request.getContextPath()%>/ajax/oversea/applyOverseaPromoCode',
+                url : '/fwdhk/ajax/oversea/applyOverseaPromoCode',
+                /*url : '<%=request.getContextPath()%>/ajax/oversea/applyOverseaPromoCode',*/
                 data : $('#frmTravelPlan input').serialize(),
                 success : function(data) {
-                	$('#loading-overlay').modal('hide');
+                    $('#loading-overlay').modal('hide');
                     promoCodeInsertFlag = true;
                     
                     var json = JSON.parse(data);
@@ -183,10 +203,11 @@ function applyOverseaPromoCode() {
 
             });
         }else{
-        	promoCodeInsertFlag = true;
+            promoCodeInsertFlag = true;
         }
-	}
+    }
 }
+
 
 
 function chkPromoCode() {
@@ -313,12 +334,22 @@ $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");               
     $('[data-toggle="tooltip"]').tooltip();
     $('#seletedplanregion').html('Worldwide');
-    //$('#amountdue').html('8000.0')
-       //$('#amountdue').html(format('8000,0.00'));
+    $('#seletedplanname').html('Comprehensive Medical A');
+    $('#selectedAmountDue').val('8000.00');
+    $('#txtgrossPremiumAmt').val('8000.00');
+    //
 
+    changeColorAndPrice('box2','2','medicalWorldwideA','0','8000');
+    $('#inputseletedplanname').val('medicalWorldwideA');
+    
 
-    changeColorAndPrice('box2','2','txtPlanName2','0','8000.00');
-   // $('#seletedplanname').html('Comprehensive Medical Worldwide - Plan A');
+    $('#amountdue').html('8,000.00');
+
+    //$('#amountdue').html('8,000.00');
+
+    //changeColorAndPrice('box2','2','medicalWorldwideA','0','8000.00');
+    //$('#inputseletedplanname').html('medicalWorldwideA');
+    //$('#amountdue').html('8000.0');
     //$('#inputseletedplanname').html('Comprehensive Medical Worldwide - Plan A');
 });
 
@@ -362,12 +393,12 @@ $(document).ready(function() {
 
 
 <!-- Modal -->
-<div class="modal fade" id="myModalAsia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModalAsia" tabindex="-1" role="dialog" aria-labelledby="myModalLabelAsia">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title region-asia-title" id="myModalLabel">Asia Countries</h4>
+        <h4 class="modal-title region-asia-title" id="myModalLabelAsia">Asia Countries</h4>
       </div>
       <div class="modal-body">
         <div class="row plan-display-desktop-only">
@@ -458,7 +489,7 @@ Vietnam
 									</div>
 									<div class="clearfix"></div>
 								</div>
-								<div class="plan-box-s plan-box-title oversea_productbox_title plan-display-desktop-only plan-flow-r-mobile-only">
+								<div class="plan-box-s plan-box-title oversea_productbox_title plan-display-desktop-only ">
 									<div class="" style="">                           
 										<h2><key id='Overseas.PlanOptions.Plans.table1.col3.header'>Plan B</key></h2>
 									</div>
@@ -468,13 +499,14 @@ Vietnam
 								
 								<c:forEach begin="${h }" end="${h+2 }" var="i" step="2">
 									<c:set var="j" value="${h==4 ? (i==4 ? 0 : 4) : i}" />
-									<div class="plan-box-l oversea_productbox_subtitle<c:if test="${h == 0}"> plan-flow-l-mobile-only</c:if>">
+								<div class="oversea-plan-quote-coverage-wrapper<c:if test="${j == 2 || j == 4}"> plan-flow-r-mobile-only</c:if>">
+                                    <div class="plan-box-l oversea_productbox_subtitle">
 										<div class="" style="">                           
 											<h2><key id='Overseas.PlanOptions.Plans.table1.col1row2<c:if test="${h == 4}">.ver2</c:if>'><fmt:message key="oversea.quote.coverage${i }" bundle="${msg}" /></key></h2>
 										</div>
 										<div class="clearfix"></div>
 									</div>
-									<div class="plan-box-s travelproductbox oversea_productbox<c:if test="${h == 0}"> plan-flow-l-mobile-only pad-right-des</c:if>" id="box${i}" onClick="changeColorAndPrice('box${i}','${i}','txtPlanName${i}','txtDiscountAmount${i}','txtTotalDue${i}')">
+									<div class="plan-box-s travelproductbox oversea_productbox<c:if test="${h == 0}"> pad-right-des</c:if>" id="box${i}" onClick="changeColorAndPrice('box${i}','${i}','txtPlanName${i}','txtDiscountAmount${i}','txtTotalDue${i}')">
 										<div class="" style="">
 											<h3 class="plan-display-mobile-only"><key id='Overseas.PlanOptions.Plans.table1.col2.header'>Plan A</key></h3>
 											<h2>HK$ <span id="total${i}">${quoteDetails.totalNetPremium[j] }0</span></h2>
@@ -513,7 +545,7 @@ Vietnam
 		                            <input type="hidden" name="txtGrossPremium" id="txtGrossPremium${i}" value="${quoteDetails.grossPremium[j] }">
 		                            <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount${i}" value="${quoteDetails.discountAmount[j] }">
 								
-									<div class="plan-box-s travelproductbox oversea_productbox plan-flow-r-mobile-only pad-left-des" id="box${i+1}" onClick="changeColorAndPrice('box${i+1}','${i+1}','txtPlanName${i+1}','txtDiscountAmount${i+1}','txtTotalDue${i+1}')">
+									<div class="plan-box-s travelproductbox oversea_productbox  pad-left-des" id="box${i+1}" onClick="changeColorAndPrice('box${i+1}','${i+1}','txtPlanName${i+1}','txtDiscountAmount${i+1}','txtTotalDue${i+1}')">
 										<div class="" style="">
 											<h3 class="plan-display-mobile-only"><key id='Overseas.PlanOptions.Plans.table1.col2.header'>Plan B</key></h3>
 											<h2>HK$ <span id="total${i+1}">${quoteDetails.totalNetPremium[j+1] }0</span></h2>
@@ -554,6 +586,7 @@ Vietnam
 		                            <input type="hidden" name="txtTotalDue" id="txtTotalDue${i+1}" value="${quoteDetails.toalDue[j+1] }">
 		                            <input type="hidden" name="txtGrossPremium" id="txtGrossPremium${i+1}" value="${quoteDetails.grossPremium[j+1] }">
 		                            <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount${i+1}" value="${quoteDetails.discountAmount[j+1] }">
+		                           </div>
 								</c:forEach>
 							</div>
 						</c:forEach>
@@ -2108,8 +2141,8 @@ Vietnam
 						<div style="width:80%;margin-left:10%">
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6" style="padding-left:0px;font-size: 18px;"><key id='Overseas.PlanOptions.Amountdue'>Amount Due</key></h3>
 							<h3 class="h4-1-orange-b col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right" id="amountdue" style="padding-right: 0px;font-size: 18px;">0</h3>
-							<input type="hidden" name="selectedAmountDue" id="selectedAmountDue" value="435.00">
-							<input type="hidden" name="selectPlanPremium" id="selectPlanPremium" value="435.00">
+							<input type="hidden" name="selectedAmountDue" id="selectedAmountDue" value="0.00">
+							<input type="hidden" name="selectPlanPremium" id="selectPlanPremium" value="0.00">
 						  </div>
 						</div>
 						<div class="col-xs-12 hidden-sm hidden-xs pad-none">

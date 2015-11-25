@@ -674,7 +674,6 @@ function setDropArea(id) {
 
 	}
 
-
 function setValue(result) {
 	var selValue = document.getElementById("inputseletedplanname").value;
 	if(result['errMsgs'] !== null){
@@ -721,6 +720,7 @@ function setValue(result) {
 		}
 	}
 }
+
 
 function validateValue(id, invalid, placeholder, message) {
 	var value = $("#" + id).val();

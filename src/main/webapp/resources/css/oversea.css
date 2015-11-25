@@ -510,20 +510,22 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 	height:none !important;
 }
 @media (max-width: 767px){
-    .oversea-insurance-quote-plan-wraper{
-        display:inline-block;
-        width:100%;
-    }
-    .oversea-insurance-quote-plan-wraper:last-element{
-        float:right;
-    }
+
     .plan-box-l{
     }
     .plan-box-s{
+    /*
         width:49% !important;
+    */
+        width:100% !important;
+        margin-bottom:10px !important;
     }
     .plan-flow-r-mobile-only{
-    float:right;
+    float:right !important
+    }  
+    .oversea-plan-quote-coverage-wrapper {
+        width: 49%;
+        display: inline-block;
     }
 }
 .oversea_productbox{
