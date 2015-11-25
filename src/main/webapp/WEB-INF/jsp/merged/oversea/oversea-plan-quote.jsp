@@ -44,7 +44,7 @@ function changeRegion(region){
         $('#region-btn-0').removeClass("region-box-inactive");
         $('#region-btn-1').addClass("region-box-inactive");
         $('#region-btn-1').removeClass("region-box-active");
-        $('#seletedplanregion').html('Worldwide');
+       //$('#seletedplanregion').html('Worldwide');
     }
     if(region=='region1'){
         $('#region0').css("display","none");
@@ -53,12 +53,19 @@ function changeRegion(region){
         $('#region-btn-0').removeClass("region-box-active");
         $('#region-btn-1').addClass("region-box-active");
         $('#region-btn-1').removeClass("region-box-inactive");
-        $('#seletedplanregion').html('Asia');
+        //$('#seletedplanregion').html('Asia');
     }
     return true;
 }
 
 function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
+	if(index>=0&&index<=3){
+        $('#seletedplanregion').html('Worldwide');       
+    }else if(index>=3&&index<=5){
+        $('#seletedplanregion').html('Worldwide (include Asia)');       
+    }else{
+        $('#seletedplanregion').html('Asia');       		
+	}
     var txtPlanName = $("#"+planName).val()
     
 	var txtDiscountAmt = $("#"+discountAmt).val()
@@ -296,11 +303,11 @@ function scrollDownOverseaProductPanel($element){
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");               
     $('[data-toggle="tooltip"]').tooltip();
+    $('#seletedplanregion').html('Worldwide');
 
     changeColorAndPrice('box2','2','txtPlanName2','0.0','8000.0');
     $('#seletedplanname').html('Comprehensive Medical Worldwide - Plan A');
     $('#inputseletedplanname').html('Comprehensive Medical Worldwide - Plan A');
-    $('#seletedplanregion').html('Worldwide');
     //inputseletedplanname
     //changeColorAndPrice('box2','2','txtPlanName2','txtDiscountAmount2','txtTotalDue2');
 });
@@ -333,10 +340,10 @@ $(document).ready(function() {
 						<h2 class="h2-3-choose"><key id='Overseas.PlanOptions.Region'>Select a region</key></h2>
 						<div style="margin-bottom: 40px;">
                             <div class="pull-left pad-none region-box col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-right-des" >
-	                                <div id="region-btn-0" type="button" class="btn-block bdr-curve btn region-box-btn region-box-active" onClick="changeRegion('region0')" style="padding-right:10px" ><key id='Overseas.PlanOptions.Region.Worldwide'>Worldwide</key></div>
+	                                <div id="region-btn-0" type="button" class="btn-block bdr-curve btn region-box-btn region-box-active" onClick="changeRegion('region0')" style="" ><key id='Overseas.PlanOptions.Region.Worldwide'>Worldwide</key></div>
 							</div>
                             <div class="pull-right pad-none region-box col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-left-des" >
-	                                <div id="region-btn-1" type="button" class="btn-block bdr-curve btn region-box-btn" onClick="changeRegion('region1')" style="padding-left:10px" ><key id='Overseas.PlanOptions.Region.Asiaonly'>Asia only</key></div>
+	                                <div id="region-btn-1" type="button" class="btn-block bdr-curve btn region-box-btn" onClick="changeRegion('region1')" style="" ><key id='Overseas.PlanOptions.Region.Asiaonly'>Asia only</key></div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -2018,7 +2025,7 @@ Vietnam
 							<div class="wd2">
 								<div class="pull-left" style="">
 								    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;">Overseas StudentCare</h2>
-                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;" id="seletedplanregion"></h2>
+                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 20px;margin-top:0px;" id="seletedplanregion"></h2>
 									<h4 style="padding-left:0px;line-height: 24px;font-size: 16px;" id="seletedplanname"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname" value="">
 									
