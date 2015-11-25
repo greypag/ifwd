@@ -73,9 +73,6 @@ public class AjaxEliteTermController extends BaseController{
 		        File toFile = new File(uploadDir + sep  
 				                + realName);
 		        ImgUtil.ImageToPdfToJPG(uploadDir + sep+ fileName, uploadDir + sep + name + ".pdf", toFile , request);
-		        String copyImagePath = request.getRealPath("/")+"resources/images/elite-terms/COPY.png";
-		        File copy = new File(copyImagePath);
-		        ImgUtil.pressImage(copy, toFile, 0, 0);
 //				ImgUtil.changeImageToJPG(uploadedFile,toFile,request);
 		        response.getWriter().write("true");
 			} catch (ECOMMAPIException e) {
