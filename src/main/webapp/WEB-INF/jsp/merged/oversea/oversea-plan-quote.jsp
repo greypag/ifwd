@@ -127,7 +127,7 @@ function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
     
     document.getElementById("selectedAmountDue").value = parseFloat(txtTotalDue).toFixed(2);
     document.getElementById("selectedDiscountAmt").value = parseFloat(txtDiscountAmt).toFixed(2);
-    document.getElementById("txtDiscountAmount").value = parseFloat(txtDiscountAmt).toFixed(2);
+    //document.getElementById("txtDiscountAmount").value = parseFloat(txtDiscountAmt).toFixed(2);
     //$('#txtDiscountAmount').val(numeral(txtDiscountAmt).format('0,0.00'));
     document.getElementById("txtgrossPremiumAmt").value = parseFloat(selected_price).toFixed(2);
     
