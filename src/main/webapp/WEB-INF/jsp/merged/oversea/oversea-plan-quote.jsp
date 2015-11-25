@@ -10,7 +10,7 @@
 <script type='text/javascript'>
 var promoData = '';
 var promoCodePlaceholder="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />";
-var userSelectRegion=false;
+//var userSelectRegion=false;
 function prepareOverseaPlan(form){
 	var result = false;
 	var method = "<%=request.getContextPath()%>/ajax/oversea/prepareOverseaQuote";
@@ -66,6 +66,7 @@ function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
     }else{
         $('#seletedplanregion').html('Asia');       		
 	}
+	
     var txtPlanName = $("#"+planName).val()
     
 	var txtDiscountAmt = $("#"+discountAmt).val()
@@ -96,7 +97,15 @@ function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 	
 	$('#subtotal').html(numeral(selected_price).format('0,0.00'));
 	$('#plansummary').html(numeral(selected_price).format('0,0.00'));
+	/*
     $('#seletedplanname').html(txtPlanName);
+    */
+    if(txtPlanName=='basicA')$('#seletedplanname').html('Standard A');
+    if(txtPlanName=='basicB')$('#seletedplanname').html('Standard B');
+    if(txtPlanName=='medicalWorldwideA'||txtPlanName=='medicalAsiaA')$('#seletedplanname').html('Comprehensive Medical A');
+    if(txtPlanName=='medicalWorldwideB'||txtPlanName=='medicalAsiaB')$('#seletedplanname').html('Comprehensive Medical B');
+   
+    
 	$('#inputseletedplanname').val(txtPlanName);
 	$('#selectPlanPremium').val(parseFloat(selected_price).toFixed(2));
 	
@@ -281,7 +290,7 @@ function coverageToggle(id,action){
     }
     return true;
 }
-
+/*
 function scrollDownOverseaProductPanel($element){
     $element.slideDown("slow", function(){
         $panel.find('i').addClass('fa-chevron-up');
@@ -299,17 +308,18 @@ function scrollDownOverseaProductPanel($element){
         }, 500);
     });
 }
-
+*/
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");               
     $('[data-toggle="tooltip"]').tooltip();
     $('#seletedplanregion').html('Worldwide');
+    //$('#amountdue').html('8000.0')
+       //$('#amountdue').html(format('8000,0.00'));
 
-    changeColorAndPrice('box2','2','txtPlanName2','0.0','8000.0');
-    $('#seletedplanname').html('Comprehensive Medical Worldwide - Plan A');
-    $('#inputseletedplanname').html('Comprehensive Medical Worldwide - Plan A');
-    //inputseletedplanname
-    //changeColorAndPrice('box2','2','txtPlanName2','txtDiscountAmount2','txtTotalDue2');
+
+    changeColorAndPrice('box2','2','txtPlanName2','0','8000.00');
+   // $('#seletedplanname').html('Comprehensive Medical Worldwide - Plan A');
+    //$('#inputseletedplanname').html('Comprehensive Medical Worldwide - Plan A');
 });
 
 </script>
@@ -343,7 +353,7 @@ $(document).ready(function() {
 	                                <div id="region-btn-0" type="button" class="btn-block bdr-curve btn region-box-btn region-box-active" onClick="changeRegion('region0')" style="" ><key id='Overseas.PlanOptions.Region.Worldwide'>Worldwide</key></div>
 							</div>
                             <div class="pull-right pad-none region-box col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-left-des" >
-	                                <div id="region-btn-1" type="button" class="btn-block bdr-curve btn region-box-btn" onClick="changeRegion('region1')" style="" ><key id='Overseas.PlanOptions.Region.Asiaonly'>Asia only</key></div>
+	                                <div id="region-btn-1" type="button" class="btn-block bdr-curve btn region-box-btn" onClick="changeRegion('region1')" style=""  data-toggle="modal" data-target="#myModalAsia"><key id='Overseas.PlanOptions.Region.Asiaonly'>Asia only</key></div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -352,7 +362,7 @@ $(document).ready(function() {
 
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myModalAsia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -471,32 +481,34 @@ Vietnam
 										</div>
 										<div class="clearfix"></div>
 									</div>
+									<input type="hidden" name="txtPlanName" id="txtPlanName${i}" value="${quoteDetails.planName[j]}">
+									<!-- 
 		                            <input type="hidden" name="txtPlanName" id="txtPlanName${i}" value="<c:choose>
                                                     <c:when test="${i == '0'}">
-                                                    Standard Overseas StudyCare Insurance - Plan A
+                                                    basicA
                                                     </c:when>
                                                     <c:when test="${i == '1'}">
-                                                    Standard Overseas StudyCare Insurance - Plan B
+                                                    basicB
                                                     </c:when>
                                                     <c:when test="${i == '2'}">
-                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan A
+                                                    Comprehensive Medical A
                                                     </c:when>
                                                     <c:when test="${i == '3'}">
-                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan B
+                                                    Comprehensive Medical B
                                                     </c:when>
                                                     <c:when test="${i == '4'}">
-                                                    Standard Overseas StudyCare Insurance - Plan A
+                                                    Standard A
                                                     </c:when>
                                                     <c:when test="${i == '5'}">
-                                                    Standard Overseas StudyCare Insurance - Plan B
+                                                    Standard B
                                                     </c:when>
                                                     <c:when test="${i == '6'}">
-                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan A
+                                                    Comprehensive Medical A
                                                     </c:when>
                                                     <c:when test="${i == '7'}">
-                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan B
+                                                    Comprehensive Medical B
                                                     </c:when>
-                                                </c:choose>">
+                                                </c:choose>"> -->
 		                            <input type="hidden" name="txtTotalDue" id="txtTotalDue${i}" value="${quoteDetails.toalDue[j] }">
 		                            <input type="hidden" name="txtGrossPremium" id="txtGrossPremium${i}" value="${quoteDetails.grossPremium[j] }">
 		                            <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount${i}" value="${quoteDetails.discountAmount[j] }">
@@ -508,32 +520,37 @@ Vietnam
 										</div>
 										<div class="clearfix"></div>
 									</div>
+									
+									<input type="hidden" name="txtPlanName" id="txtPlanName${i+1}" value="${quoteDetails.planName[j+1]}">
+									
+									<!-- 
 		                            <input type="hidden" name="txtPlanName" id="txtPlanName${i+1}" value="<c:choose>
                                                     <c:when test="${i == '-1'}">
-                                                    Standard Overseas StudyCare Insurance - Plan A
+                                                    Standard    A
                                                     </c:when>
                                                     <c:when test="${i == '0'}">
-                                                    Standard Overseas StudyCare Insurance - Plan B
+                                                    Standard    B
                                                     </c:when>
                                                     <c:when test="${i == '1'}">
-                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan A
+                                                    Comprehensive Medical A
                                                     </c:when>
                                                     <c:when test="${i == '2'}">
-                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan B
+                                                    Comprehensive Medical B
                                                     </c:when>
                                                     <c:when test="${i == '3'}">
-                                                    Standard Overseas StudyCare Insurance - Plan A
+                                                    Standard A
                                                     </c:when>
                                                     <c:when test="${i == '4'}">
-                                                    Standard Overseas StudyCare Insurance - Plan B
+                                                    Standard B
                                                     </c:when>
                                                     <c:when test="${i == '5'}">
-                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan A
+                                                    Comprehensive Medical A
                                                     </c:when>
                                                     <c:when test="${i == '6'}">
-                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan B
+                                                    Comprehensive Medical B
                                                     </c:when>
                                                 </c:choose>">
+                                                -->
 		                            <input type="hidden" name="txtTotalDue" id="txtTotalDue${i+1}" value="${quoteDetails.toalDue[j+1] }">
 		                            <input type="hidden" name="txtGrossPremium" id="txtGrossPremium${i+1}" value="${quoteDetails.grossPremium[j+1] }">
 		                            <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount${i+1}" value="${quoteDetails.discountAmount[j+1] }">
@@ -2019,8 +2036,8 @@ Vietnam
 							<div class="wd2">
 								<div class="pull-left" style="">
 								    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;">Overseas StudentCare</h2>
-                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 20px;margin-top:0px;" id="seletedplanregion"></h2>
-									<h4 style="padding-left:0px;line-height: 24px;font-size: 16px;" id="seletedplanname"></h4>
+                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;" id="seletedplanregion"></h2>
+									<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanname"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname" value="">
 									
 										
