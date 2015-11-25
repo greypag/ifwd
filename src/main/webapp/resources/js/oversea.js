@@ -691,6 +691,16 @@ function setValue(result) {
 				5:'basicB',
 				6:'medicalAsiaA',
 			    7:'medicalAsiaB'
+			    /*
+				0:'basicWorldwideA',
+				1:'basicWorldwideB',
+				2:'medicalWorldwideA',
+				3:'medicalWorldwideB',
+				4:'basicAsiaA',
+				5:'basicAsiaB',
+				6:'medicalAsiaA',
+			    7:'medicalAsiaB'
+			    */
 			};
 		
 		for(var i = 0; i < 8; i++) {

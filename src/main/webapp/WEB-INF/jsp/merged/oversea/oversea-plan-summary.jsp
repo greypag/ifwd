@@ -196,6 +196,9 @@ $(document).ready(function(){
                             <div class="clearfix"></div>
                            </div>
                         </div>
+                        
+                        
+                        
 						<div class="row summary-row summary-group-divider">
 			
                             <div style="width:80%;margin-left:10%;">
@@ -241,8 +244,13 @@ $(document).ready(function(){
                             <div class="clearfix"></div>
                            </div>
                         </div>
-						<div class="row summary-row">			
-                            <div style="width:80%;margin-left:10%;">									
+                        
+                        
+                        
+                        <div class="row summary-row summary-group-divider">
+            
+                            <div style="width:80%;margin-left:10%;">
+                                    
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none">
                                 <div class="table activation-form vert-middle travel-summary">
 
@@ -272,7 +280,7 @@ $(document).ready(function(){
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.originalamount'>Original amount</key></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">HK$ ${originalAmount}</div> 
-                                        </div>                                                                            
+                                        </div>  
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><key id='Overseas.Payment.Summary.AmountDue'>Amount due</key></span></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b pad-none">HK$ ${dueAmount} </span></div> 
