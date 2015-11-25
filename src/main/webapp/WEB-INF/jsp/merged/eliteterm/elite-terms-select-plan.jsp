@@ -269,8 +269,8 @@ var home_url = "<%=request.getContextPath()%>";
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /> <span id="et-month-dis-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.permonth" bundle="${msg}" /></p>
-                                 <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.perday1" bundle="${msg}" /> <span id="et-day-dis-amount"><fmt:formatNumber value="${eliteTermPremium.dailyDuePremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.perday2" bundle="${msg}" /></p>
+                                 <p class="et-amount"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /> <span id="et-month-dis-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" maxFractionDigits="2"  pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.permonth" bundle="${msg}" /></p>
+                                 <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.perday1" bundle="${msg}" /> <span id="et-day-dis-amount"><fmt:formatNumber value="${eliteTermPremium.dailyDuePremium }" maxFractionDigits="2" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.perday2" bundle="${msg}" /></p>
                               </div>
                               
                            </div>
@@ -282,8 +282,8 @@ var home_url = "<%=request.getContextPath()%>";
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /> <span id="et-month-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.permonth" bundle="${msg}" /></p>
-                                 <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.perday1" bundle="${msg}" /> <span id="et-day-amount"><fmt:formatNumber value="${eliteTermPremium.dailyPremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.perday2" bundle="${msg}" /></p>
+                                 <p class="et-amount"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /> <span id="et-month-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" maxFractionDigits="2" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.permonth" bundle="${msg}" /></p>
+                                 <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.perday1" bundle="${msg}" /> <span id="et-day-amount"><fmt:formatNumber value="${eliteTermPremium.dailyPremium }" maxFractionDigits="2" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.perday2" bundle="${msg}" /></p>
                               </div>
                               
                            </div>
@@ -1854,8 +1854,8 @@ var home_url = "<%=request.getContextPath()%>";
                                  </div>
                                  <div class="clearfix plan-detail-holder monthly-premium">
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Monthly.premium" bundle="${msg}" /></h4>
-                                    <p class="info" id="etaspd-monthly-premium" class="hidden"> <span class="hkd">HK$</span> <span class="value"><fmt:formatNumber value="${ eliteTermPremium.monthlyDuePremium }" maxFractionDigits="2"/></span> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.1styear" bundle="${msg}" /></span></p>
-                                    <p class="info" id="etaspd-monthly-premium-extra-years"><span class="hkd">HK$</span> <span class="value"><fmt:formatNumber value="${ eliteTermPremium.monthlyPremium }" maxFractionDigits="2"/></span> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.2ndto20thyear" bundle="${msg}" /></span></p>
+                                    <p class="info" id="etaspd-monthly-premium" class="hidden"> <span class="hkd">HK$</span> <span class="value"><fmt:formatNumber value="${ eliteTermPremium.monthlyDuePremium }" maxFractionDigits="2" pattern="#.00"/></span> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.1styear" bundle="${msg}" /></span></p>
+                                    <p class="info" id="etaspd-monthly-premium-extra-years"><span class="hkd">HK$</span> <span class="value"><fmt:formatNumber value="${ eliteTermPremium.monthlyPremium }" maxFractionDigits="2" pattern="#.00"/></span> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.2ndto20thyear" bundle="${msg}" /></span></p>
                                  </div>
                               </div>
                            <!-- PLAN DETAIL END-->
