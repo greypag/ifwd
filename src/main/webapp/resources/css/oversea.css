@@ -569,3 +569,6 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 .section-title.big-title{
     color:#f6871e;
 }
+.pillar-here-height{
+	min-height: 407px;
+}

@@ -353,7 +353,7 @@ function prepareOverseaPlan(form){
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="">
+              <div class="recent-work-inner pillar-here-height"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="">
 				  <h2><key id='Overseas.Landing.Platformpillar1.headline'>Here when you<br/>need us</key></h2>
 				  <p><key id='Overseas.Landing.Platformpillar1.copy'>Our 24x7 call centre support, 5 drop-in locations across Hong Kong and our <a href="http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" target="_blank"><u>eServices App</u></a> ensures you get the support you need, when you need it.</key></p>
               </div>
