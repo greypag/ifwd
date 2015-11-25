@@ -533,7 +533,7 @@ var home_url = "<%=request.getContextPath()%>";
                   <div class="page-divider"></div>
                   
                   <!--Personal Info Widget-->
-                  <div class="container-fluid fwd-container">
+                  <div class="container-fluid fwd-container et-personal-info">
                      <div id="personal-info" class="personal-info-widget page-application et-application-page">
                         <h2><fmt:message key="eliteTerms.selectPlan.person.info" bundle="${msg}" />
                            <!-- <button type="button" class="tooltip-button btn-app-info-tooltip"  data-container="body" data-toggle="tooltip" data-placement="top" title="Applicant and the insured must be the same person" data-template= 	'<div class="tooltip et-app-info-tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="info-tooltip"></span></button> -->
@@ -574,7 +574,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     	<div class="clearfix">
 	                                       <input type="text" class="form-control gray-textbox pull-left et-80-width" name="dob" id="sales-illu-dob" placeholder="<fmt:message key="eliteTerms.selectPlan.Date.of.birth.placeholder" bundle="${msg}" />" onfocusin="fnSetStyle()" readonly value="${etPolicyApplication.applicant.dobD }"  />
 	                                       <div class="et-app-edit-wrapper">
-	                                          <a href="#" title="Edit Date of birth" class="et-app-sum-edit et-app-edit" data-target="#et-about-yoursel-section">
+	                                          <a href="#" title="Edit Date of birth" class="et-app-sum-edit et-app-edit" id="edit-birthday" data-target="#et-about-yoursel-section">
 	                                             <span class="text-center">
 	                                                <fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" />
 	                                             </span>
@@ -594,7 +594,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <input type="hidden" name="savieApplicantBeanGender" id="savieApplicantBeanGender" value="${etPolicyApplication.applicant.gender }"  />
                                        <input type="text" class="form-control gray-textbox pull-left et-80-width" name="savieApplicantBean.gender" id="savieApplicantBean.gender" placeholder="<fmt:message key="eliteTerms.selectPlan.Gender" bundle="${msg}" />" readonly value="${etPolicyApplication.applicant.gender == 'M' ? 'Male':'Female' }"  />
                                         <div class="et-app-edit-wrapper">
-                                          <a href="#" title="Edit Gender" class="et-app-sum-edit et-app-edit" data-target="#et-about-yoursel-section">
+                                          <a href="#" title="Edit Gender" class="et-app-sum-edit et-app-edit" id="edit-gender"data-target="#et-about-yoursel-section">
                                              <span class="text-center">
                                                 <fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" />
                                              </span>
@@ -2852,6 +2852,25 @@ var home_url = "<%=request.getContextPath()%>";
 		    		  $etPlanOption.removeClass('hide-element');
 			      });
 				});
+		      
+		      
+		      $('#edit-birthday').on('click', function(e) {
+		    	  var $etPersonInfo = $('.et-personal-info');
+		    	  $etPersonInfo.addClass('hide-element');
+		      });
+		      
+		      
+		      $('#edit-gender').on('click', function(e) {
+		    	  var $etPersonInfo = $('.et-personal-info');
+		    	  $etPersonInfo.addClass('hide-element');
+		      });
+		      
+		      $('#et-brn-proceed-to-application').on('click', function(e) {
+		    	  var $etPersonInfo = $('.et-personal-info');
+		    	  $etPersonInfo.removeClass('hide-element');
+		      });
+		      
+		     
 		      
             //cannot apply modal 
            /*  $(document).on('change', '#et-cust-serv-form #email', function(e) {
