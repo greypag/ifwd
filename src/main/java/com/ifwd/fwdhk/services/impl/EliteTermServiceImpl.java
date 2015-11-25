@@ -64,6 +64,9 @@ public class EliteTermServiceImpl implements EliteTermService {
 	@Override
 	public CreateEliteTermPolicyResponse createEliteTermPolicy(HttpServletRequest request)throws ECOMMAPIException{
 		GetEliteTermPremiumResponse eliteTermPremium = (GetEliteTermPremiumResponse) request.getSession().getAttribute("eliteTermPremium");
+		if (eliteTermPremium == null) {
+			throw new ECOMMAPIException("session expired");
+		}
 		CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
 		if(etPolicyApplication == null){
 			etPolicyApplication = new CreateEliteTermPolicyRequest();

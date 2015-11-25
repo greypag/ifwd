@@ -175,7 +175,7 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 			    			}
 			    	    },
 			       		error:function(){     
-			    	    	console.log('error');     
+                            $('#timeout-modal').modal('show');     
 			    	    }
 			    	});
 				}
