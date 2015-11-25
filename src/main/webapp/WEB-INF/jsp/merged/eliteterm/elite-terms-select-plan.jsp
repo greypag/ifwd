@@ -3205,7 +3205,7 @@ var home_url = "<%=request.getContextPath()%>";
             
             function getOccupation(value,language) {
             	var code = value.replace(/[^0-9]/ig,"");
-            	console.log(code);
+
             	if(code==''){
             		$("#savieEmploymentBean\\.occupation").empty();
             		$("#occupation option").each(function () {
