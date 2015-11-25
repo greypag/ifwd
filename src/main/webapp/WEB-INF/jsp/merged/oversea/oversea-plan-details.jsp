@@ -1047,8 +1047,9 @@ function setDropArea(id) {
 <link href="<%=request.getContextPath()%>/resources/css/easy-autocomplete.min.css" rel="stylesheet">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.easy-autocomplete.min.js"></script>
 <script>
-var options = {
-        
+var options;
+if("${planName}"=="basicA" || "${planName}"=="basicB" || "${planName}"=="medicalWorldwideA" || "${planName}"=="medicalWorldwideB"){
+    options = {       
           data : [ "Abu Dhabi", "Australia", "Austria", "Belgium",
                     "Brunei", "Canada", "Cuba", "Cyprus", "Denmark", "Dubai", "France",
                     "Germany", "Guam", "Holland", "India", "Indonesia", "Iran",
@@ -1058,14 +1059,19 @@ var options = {
                     "Philippines", "Poland", "Portugal", "Russia", "Singapore",
                     "South Africa", "Spain", "Sri Lanka", "Sudan", "Sweden",
                     "Switzerland", "Syria", "Taiwan", "Thailand", "Turkey",
-                    "United Kingdom", "Vietnam" ],
-          
-          
+                    "United Kingdom", "Vietnam" ],         
           list: { match: { enabled: true } }
-
     };
-
-    $("#countryOfInstitution").easyAutocomplete(options);
+}else if("${planName}"=="medicalAsiaA" || "${planName}"=="medicalAsiaB"){
+	options = {       
+          data : [ "Abu Dhabi", "Dubai", "India", "Indonesia",
+                    "Iran", "Japan", "Korea", "Lao, P.D.R.", "Macau", "Malaysia", "Myanmar",
+                    "Nepal", "North Korea", "Pakistan", "People Republic of China", "Philippines", "Singapore",
+                    "Sri Lanka", "Sudan", "Taiwan", "Thailand", "Vietnam"],         
+          list: { match: { enabled: true } }
+	    };	
+}
+$("#countryOfInstitution").easyAutocomplete(options);
 </script>
 <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>
