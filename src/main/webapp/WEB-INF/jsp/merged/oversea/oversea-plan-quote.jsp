@@ -20,7 +20,10 @@ function prepareOverseaPlan(form){
 		async : false,
 		success : function(data) {
 			if (data == "success") {
+				/*
 				form.action = "<%=request.getContextPath()%>/${language}/oversea-insurance/quote";
+				*/
+                form.action = "/fwdhk/${language}/oversea-insurance/quote";
 				result = true;
 			} else {
 				console.log(data);
@@ -45,8 +48,7 @@ function changeRegion(region){
         $('#region-btn-1').addClass("region-box-inactive");
         $('#region-btn-1').removeClass("region-box-active");
        //$('#seletedplanregion').html('Worldwide');
-    }
-    if(region=='region1'){
+    }else if(region=='region1'){
         $('#region0').css("display","none");
         $('#region1').css("display","block");
         $('#region-btn-0').addClass("region-box-inactive");
@@ -55,7 +57,7 @@ function changeRegion(region){
         $('#region-btn-1').removeClass("region-box-inactive");
         //$('#seletedplanregion').html('Asia');
     }
-    return true;
+    //return true;
 }
 
 function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
@@ -115,12 +117,23 @@ function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 
 	$('#discountAmt').html(numeral(txtDiscountAmt).format('0,0.00'));
 	
-	document.getElementById("selectedAmountDue").value = parseFloat(txtTotalDue).toFixed(2);
-	document.getElementById("selectedDiscountAmt").value = parseFloat(txtDiscountAmt).toFixed(2);
-	$('#txtDiscountAmount').val(numeral(txtDiscountAmt).format('0,0.00'));
-	document.getElementById("txtgrossPremiumAmt").value = parseFloat(selected_price).toFixed(2);
-	
-	if(promoData != '')
+	/*
+	document.getElementById("selectedAmountDue").value = parseFloat(txtTotalDue.trim()).toFixed(2);
+    document.getElementById("selectedDiscountAmt").value = parseFloat(txtDiscountAmt.trim()).toFixed(2);
+    $('#txtDiscountAmount').val(numeral(txtDiscountAmt.trim()).format('0,0.00'));
+    document.getElementById("txtgrossPremiumAmt").value = parseFloat(selected_price.trim()).toFixed(2);
+    */
+    
+    
+    document.getElementById("selectedAmountDue").value = parseFloat(txtTotalDue).toFixed(2);
+    document.getElementById("selectedDiscountAmt").value = parseFloat(txtDiscountAmt).toFixed(2);
+    document.getElementById("txtDiscountAmount").value = parseFloat(txtDiscountAmt).toFixed(2);
+    //$('#txtDiscountAmount').val(numeral(txtDiscountAmt).format('0,0.00'));
+    document.getElementById("txtgrossPremiumAmt").value = parseFloat(selected_price).toFixed(2);
+    
+    
+    
+    if(promoData != '')
 		setValue(promoData);
 	return true;
 	
@@ -140,12 +153,18 @@ function submitPlan(){
 function subForm(form, formId) {
 	$.ajax({
 		type : "POST",
+		/*
 		url : '<%=request.getContextPath()%>/ajax/oversea/prepareOverseaDetails',
+		*/
+        url : '/fwdhk/ajax/oversea/prepareOverseaDetails',
 		data : $(formId).serialize(),
 		async : false,
 		success : function(data) {
 			if (data == "success") {
-				form.action = '${pageContext.request.contextPath}/${language}/oversea-insurance/details';
+				/*
+                form.action = '${pageContext.request.contextPath}/${language}/oversea-insurance/details';
+                */
+                form.action = '/fwdhk/${language}/oversea-insurance/details';
 				result = true;
 			} else {
 				console.log(data);
@@ -159,21 +178,22 @@ function subForm(form, formId) {
 }
 var promoCodeInsertFlag = true;
 function applyOverseaPromoCode() {
-	if(promoCodeInsertFlag){
-		promoCodeInsertFlag = false;
-		$("#errPromoCode").html("");
+    if(promoCodeInsertFlag){
+        promoCodeInsertFlag = false;
+        $("#errPromoCode").html("");
         if(chkPromoCode()){
-        	$('#loading-overlay').modal({
+            $('#loading-overlay').modal({
                 backdrop: 'static',
                 keyboard: false
             })
             console.log($('#frmTravelPlan input').serialize());
-        	$.ajax({
+            $.ajax({
                 type : 'POST',
-                url : '<%=request.getContextPath()%>/ajax/oversea/applyOverseaPromoCode',
+                url : '/fwdhk/ajax/oversea/applyOverseaPromoCode',
+                /*url : '<%=request.getContextPath()%>/ajax/oversea/applyOverseaPromoCode',*/
                 data : $('#frmTravelPlan input').serialize(),
                 success : function(data) {
-                	$('#loading-overlay').modal('hide');
+                    $('#loading-overlay').modal('hide');
                     promoCodeInsertFlag = true;
                     
                     var json = JSON.parse(data);
@@ -183,10 +203,11 @@ function applyOverseaPromoCode() {
 
             });
         }else{
-        	promoCodeInsertFlag = true;
+            promoCodeInsertFlag = true;
         }
-	}
+    }
 }
+
 
 
 function chkPromoCode() {
@@ -319,6 +340,7 @@ $(document).ready(function() {
     //
 
     changeColorAndPrice('box2','2','medicalWorldwideA','0','8000');
+    $('#inputseletedplanname').val('medicalWorldwideA');
     
 
     $('#amountdue').html('8,000.00');
