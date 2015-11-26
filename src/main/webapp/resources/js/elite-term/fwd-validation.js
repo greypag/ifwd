@@ -62,6 +62,12 @@ $(function() {
 	});
 	
 	$("#savieApplicantBean\\.addressIsSame").change(function() {
+		
+		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.correspondenceAdress1', 'NOT_VALIDATE');
+		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.correspondenceAdress2', 'NOT_VALIDATE');
+		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.correspondenceAdress3', 'NOT_VALIDATE');
+	
+
 		if(this.checked) {
 			//console.log('Check');
 			if($('#correspondence-address').hasClass('hidden')){
@@ -87,12 +93,17 @@ $(function() {
 	});
 	
     $("#savieApplicantBean\\.isResidential").change(function() {
+
+    	$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.residentialAdress1', 'NOT_VALIDATE');
+		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.residentialAdress2', 'NOT_VALIDATE');
+		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.residentialAdress3', 'NOT_VALIDATE');
+	
 		if(this.checked) {
 			//console.log('Check');
 			if($('#residential-address').hasClass('hidden')){
 				$('#residential-address').removeClass('hidden');
 			}
-	
+
 			$('#personal-info-next').addClass('residential');
 		}
 		else{

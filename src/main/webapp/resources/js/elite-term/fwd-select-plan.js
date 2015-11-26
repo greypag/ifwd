@@ -662,15 +662,15 @@
       	}
          
          //res address
-         if($('#etaspi-res-add').html().length <= 0 || !$('#savieApplicantBean\\.isResidential').prop('checked')) {
-        	 $('#etaspi-res-add').removeClass('hide-element');
-        	 $('#etaspi-res-add').html($('#etaspi-per-add').html());
-         }
-         //corr address
-         if($('#etaspi-corr-add').html().length <= 0 || !$('#savieApplicantBean\\.addressIsSame').prop('checked')) {
-        	 $('#etaspi-corr-add').removeClass('hide-element');
-        	 $('#etaspi-corr-add').html($('#etaspi-res-add').html());
-         }
+        // if($('#etaspi-res-add').html().length <= 0 || !$('#savieApplicantBean\\.isResidential').prop('checked')) {
+        //	 $('#etaspi-res-add').removeClass('hide-element');
+        //	 $('#etaspi-res-add').html($('#etaspi-per-add').html());
+        // }
+        // //corr address
+        // if($('#etaspi-corr-add').html().length <= 0 || !$('#savieApplicantBean\\.addressIsSame').prop('checked')) {
+        //	 $('#etaspi-corr-add').removeClass('hide-element');
+        //	 $('#etaspi-corr-add').html($('#etaspi-res-add').html());
+        // }
          $appSum.removeClass('hide-element');
          
          $('body, html').animate({
@@ -1224,7 +1224,7 @@
          $('#et-personal-info-next').removeAttr('disabled');
          
          if ($('#et-personal-info-next').hasClass('back-to-summary')) {
-        	 storeAppInfo();
+        	  storeAppInfo();
             populateAppSummPI();
         	$('#et-application-third-section').removeClass('hide-element');
             $('body, html').animate({
@@ -1728,12 +1728,12 @@
    function isBeneficiaryFormClear(pos) {
       var $form = $('#beneficiaryInfoForm\\[' + pos +'\\]');
   
-      if (!document.getElementById('savieBeneficiaryBean[' + pos + '].firstName').value
-            && !document.getElementById('savieBeneficiaryBean[' + pos + '].lastName').value
-            && !document.getElementById('savieBeneficiaryBean[' + pos +'].chineseName').value
-            && (!document.getElementById('savieBeneficiaryBean[' + pos + '].hkId').value || !document.getElementById('savieBeneficiaryBean[' + pos + '].passportNo').value)
-            && ((pos === 0) || !document.getElementById('savieBeneficiaryBean[' + pos + '].entitlement').value)
-            && !document.getElementById('savieBeneficiaryBean[' + pos + '].relationship').value
+      if (!$('#savieBeneficiaryBean\\[' + pos + '\\]\\.firstName').val()
+            && !$('#savieBeneficiaryBean\\[' + pos + '\\]\\.lastName').val()
+            && !$('#savieBeneficiaryBean\\[' + pos +'\\]\\.chineseName').val()
+            && (!$('#savieBeneficiaryBean\\[' + pos + '\\]\\.hkId').val() || !$('#savieBeneficiaryBean\\[' + pos + '\\]\\.passportNo').val())
+            && ((pos === 0) || !$('#savieBeneficiaryBean\\[' + pos + '\\]\\.entitlement').val())
+            && !$('#savieBeneficiaryBean\\[' + pos + '\\]\\.relationship').val()
          ) {
     	  $('#beneficiaryInfoForm\\[' + pos +'\\]').find('#remove-beneficiary\\[' + pos +'\\]').trigger('click');
          return true;
@@ -1792,8 +1792,8 @@
       // perAddArr.push(appInfoData.perAddCountry);
       $('#etaspi-per-add').text(perAddArr.join(', '));
       
-      if ($('#savieApplicantBean\\.isResidential').prop('checked')) {
-         $('#etaspi-res-add').removeClass('hide-element');
+      //if ($('#savieApplicantBean\\.isResidential').prop('checked')) {
+         //$('#etaspi-res-add').removeClass('hide-element');
             
          var resAddArr = [];
          if (appInfoData.resAddL1 && appInfoData.resAddL1!=$('#savieApplicantBean\\.residentialAdress1').attr('placeholder')) {
@@ -1808,12 +1808,12 @@
          (appInfoData.resAdd) ? resAddArr.push(appInfoData.resAdd) : '';
          // resAddArr.push(appInfoData.resAddCountry);
          $('#etaspi-res-add').text(resAddArr.join(', '));
-      } else {
-         $('#etaspi-res-add').addClass('hide-element');
-      }
+      //} else {
+         //$('#etaspi-res-add').addClass('hide-element');
+      //}
       
-      if ($('#savieApplicantBean\\.addressIsSame').prop('checked')) {
-         $('#etaspi-corr-add').removeClass('hide-element');
+      //if ($('#savieApplicantBean\\.addressIsSame').prop('checked')) {
+         //$('#etaspi-corr-add').removeClass('hide-element');
             
          var corrAddArr = [];
          if (appInfoData.corrAddL1 && appInfoData.corrAddL1!=$('#savieApplicantBean\\.correspondenceAdress1').attr('placeholder')) {
@@ -1828,9 +1828,9 @@
          (appInfoData.corrAddL) ? corrAddArr.push(appInfoData.corrAddL) : '';
          // corrAddArr.push(appInfoData.corrAddCountry);
          $('#etaspi-corr-add').text(corrAddArr.join(', '));
-      } else {
-         $('#etaspi-corr-add').addClass('hide-element');
-      }
+      //} else {
+         //$('#etaspi-corr-add').addClass('hide-element');
+      //}
       
    }
    function populateAppSummEI() {
@@ -1920,10 +1920,10 @@
    * Save all data from application field
    */
    function storeAppInfo() {
-      appInfoData.enFName = document.getElementById('savieApplicantBean.firstName').value;
-      appInfoData.enLName = document.getElementById('savieApplicantBean.lastName').value;
-      appInfoData.chName = document.getElementById('savieApplicantBean.chineseName').value;
-      appInfoData.dob = document.getElementById('sales-illu-dob').value;
+      appInfoData.enFName = $('#savieApplicantBean\\.firstName').val();
+      appInfoData.enLName = $('#savieApplicantBean\\.lastName').val();
+      appInfoData.chName = $('#savieApplicantBean\\.chineseName').val();
+      appInfoData.dob = $('#sales-illu-dob').val();
       
       if ($('#et-gender-male').prop('checked')) {
           planDetailData.gender = getBundle(getBundleLanguage, "option.male");
@@ -1939,48 +1939,58 @@
       }
       
       appInfoData.gender = planDetailData.gender;
-      appInfoData.maritalStat = $('option[value="' + document.getElementById('savieApplicantBean.maritalStatus').value + '"]', '#savieApplicantBean\\.maritalStatus').text();
-      appInfoData.pob = $('option[value="' + document.getElementById('savieApplicantBean.placeOfBirth').value + '"]', '#savieApplicantBean\\.placeOfBirth').text();
-      appInfoData.nationality = $('option[value="' + document.getElementById('savieApplicantBean.nationality').value + '"]', '#savieApplicantBean\\.nationality').text();
-      appInfoData.resTelNo = document.getElementById('savieApplicantBean.residentialTelNo').value;
-      appInfoData.mobNo = document.getElementById('savieApplicantBean.mobileNo').value;
-      appInfoData.email = document.getElementById('savieApplicantBean.emailAddress').value;
-      appInfoData.perAddL1 = document.getElementById('savieApplicantBean.permanentAddress1').value;
-      appInfoData.perAddL2 = document.getElementById('savieApplicantBean.permanentAddress2').value;
-      appInfoData.perAddL3 = document.getElementById('savieApplicantBean.permanentAddress3').value;
-      appInfoData.perAdd = $('option[value="' + document.getElementById('savieApplicantBean.permanentAddress').value + '"]', '#savieApplicantBean\\.permanentAddress').text();
-      //appInfoData.perAddCountry = document.getElementById('savieApplicantBean.permanentAddressCountry').value;
+      appInfoData.maritalStat = $('option[value="' + $('#savieApplicantBean\\.maritalStatus').val() + '"]', '#savieApplicantBean\\.maritalStatus').text();
+      appInfoData.pob = $('option[value="' + $('#savieApplicantBean\\.placeOfBirth').val() + '"]', '#savieApplicantBean\\.placeOfBirth').text();
+      appInfoData.nationality = $('option[value="' + $('#savieApplicantBean\\.nationality').val() + '"]', '#savieApplicantBean\\.nationality').text();
+      appInfoData.resTelNo = $('#savieApplicantBean\\.residentialTelNo').val();
+      appInfoData.mobNo = $('#savieApplicantBean\\.mobileNo').val();
+      appInfoData.email = $('#savieApplicantBean\\.emailAddress').val();
+      appInfoData.perAddL1 = $('#savieApplicantBean\\.permanentAddress1').val();
+      appInfoData.perAddL2 = $('#savieApplicantBean\\.permanentAddress2').val();
+      appInfoData.perAddL3 = $('#savieApplicantBean\\.permanentAddress3').val();
+      appInfoData.perAdd = $('option[value="' + $('#savieApplicantBean\\.permanentAddress').val() + '"]', '#savieApplicantBean\\.permanentAddress').text();
+      //appInfoData.perAddCountry = $('#savieApplicantBean\\.permanentAddressCountry').val();
 
       // For the residential address
       if ($('#savieApplicantBean\\.isResidential').prop('checked')) {  
-         appInfoData.resAddL1 = document.getElementById('savieApplicantBean.residentialAdress1').value;
-         appInfoData.resAddL2 = document.getElementById('savieApplicantBean.residentialAdress2').value;
-         appInfoData.resAddL3 = document.getElementById('savieApplicantBean.residentialAdress3').value;
-         appInfoData.resAdd = $('option[value="' + document.getElementById('savieApplicantBean.residentialDistrict').value + '"]', '#savieApplicantBean\\.residentialDistrict').text();
-         //appInfoData.resAddCountry = document.getElementById('savieApplicantBean.residentialDistrictCountry').value;
+         appInfoData.resAddL1 = $('#savieApplicantBean\\.residentialAdress1').val();
+         appInfoData.resAddL2 = $('#savieApplicantBean\\.residentialAdress2').val();
+         appInfoData.resAddL3 = $('#savieApplicantBean\\.residentialAdress3').val();
+         appInfoData.resAdd = $('option[value="' + $('#savieApplicantBean\\.residentialDistrict').val() + '"]', '#savieApplicantBean\\.residentialDistrict').text();
+         //appInfoData.resAddCountry = $('#savieApplicantBean\\.residentialDistrictCountry').val();
+      } else {
+         appInfoData.resAddL1 = appInfoData.perAddL1;
+         appInfoData.resAddL2 = appInfoData.perAddL2;
+         appInfoData.resAddL3 = appInfoData.perAddL3;
+         appInfoData.resAdd = appInfoData.perAdd;
       }
       
       // For the correspondence address
       if ($('#savieApplicantBean\\.addressIsSame').prop('checked')) {
-         appInfoData.corrAddL1 = document.getElementById('savieApplicantBean.correspondenceAdress1').value;
-         appInfoData.corrAddL2 = document.getElementById('savieApplicantBean.correspondenceAdress2').value;
-         appInfoData.corrAddL3 = document.getElementById('savieApplicantBean.correspondenceAdress3').value;
-         appInfoData.corrAddL = $('option[value="' + document.getElementById('savieApplicantBean.correspondenceDistrict').value + '"]', '#savieApplicantBean\\.correspondenceDistrict').text();
-         //appInfoData.corrAddCountry = document.getElementById('savieApplicantBean.correspondenceDistrictCountry').value;
+         appInfoData.corrAddL1 = $('#savieApplicantBean\\.correspondenceAdress1').val();
+         appInfoData.corrAddL2 = $('#savieApplicantBean\\.correspondenceAdress2').val();
+         appInfoData.corrAddL3 = $('#savieApplicantBean\\.correspondenceAdress3').val();
+         appInfoData.corrAddL = $('option[value="' + $('#savieApplicantBean\\.correspondenceDistrict').val() + '"]', '#savieApplicantBean\\.correspondenceDistrict').text();
+         //appInfoData.corrAddCountry = $('#savieApplicantBean.correspondenceDistrictCountry').val();
+      } else {
+         appInfoData.corrAddL1 = appInfoData.resAddL1;
+         appInfoData.corrAddL2 = appInfoData.resAddL2;
+         appInfoData.corrAddL3 = appInfoData.resAddL3;
+         appInfoData.corrAddL = appInfoData.resAdd;
       }
    }
    function isPerLineValid() {
-      var l1 = document.getElementById('savieApplicantBean.permanentAddress1').value;
-      var l2 = document.getElementById('savieApplicantBean.permanentAddress2').value;
-      var l3 = document.getElementById('savieApplicantBean.permanentAddress3').value;
+      var l1 = $('#savieApplicantBean\\.permanentAddress1').val();
+      var l2 = $('#savieApplicantBean\\.permanentAddress2').val();
+      var l3 = $('#savieApplicantBean\\.permanentAddress3').val();
       
       return (l1 || l2 || l3)!='';
    }
    function isResLineValid() {
       if ($('#savieApplicantBean\\.isResidential').prop('checked')) {
-         var l1 = document.getElementById('savieApplicantBean.residentialAdress1').value;
-         var l2 = document.getElementById('savieApplicantBean.residentialAdress2').value;
-         var l3 = document.getElementById('savieApplicantBean.residentialAdress3').value;
+         var l1 = $('#savieApplicantBean\\.residentialAdress1').val();
+         var l2 = $('#savieApplicantBean\\.residentialAdress2').val();
+         var l3 = $('#savieApplicantBean\\.residentialAdress3').val();
       
          return (l1 || l2 || l3)!='';
       }
@@ -1989,9 +1999,9 @@
    
    function isCorrLineValid() {
       if ($('#savieApplicantBean\\.addressIsSame').prop('checked')) {
-         var l1 = document.getElementById('savieApplicantBean.correspondenceAdress1').value;
-         var l2 = document.getElementById('savieApplicantBean.correspondenceAdress2').value;
-         var l3 = document.getElementById('savieApplicantBean.correspondenceAdress3').value;
+         var l1 = $('#savieApplicantBean\\.correspondenceAdress1').val();
+         var l2 = $('#savieApplicantBean\\.correspondenceAdress2').val();
+         var l3 = $('#savieApplicantBean\\.correspondenceAdress3').val();
          
          return (l1 || l2 || l3)!='';
       }
@@ -2008,15 +2018,15 @@
 	   
 	   
 	   
-	   empEduInfoData.status = document.getElementById('savieEmploymentBean.employmentStatus').value.split("-")[1];
-	   empEduInfoData.occupation = $('option[value="' + document.getElementById('savieEmploymentBean.occupation').value + '"]', '#savieEmploymentBean\\.occupation').text();
+	   empEduInfoData.status = $('#savieEmploymentBean\\.employmentStatus').val().split("-")[1];
+	   empEduInfoData.occupation = $('option[value="' + $('#savieEmploymentBean\\.occupation').val() + '"]', '#savieEmploymentBean\\.occupation').text();
 
-       empEduInfoData.eduLevel = document.getElementById('savieEmploymentBean.educationLevel').value.split("-")[1];
-       empEduInfoData.natBusiness = document.getElementById('savieEmploymentBean.natureOfBusiness').value.split("-")[1]; 
-       empEduInfoData.monIncome = document.getElementById('savieEmploymentBean.monthlyPersonalIncome').value.split("-")[1];
-       empEduInfoData.liqAsset = $('option[value="' + document.getElementById('savieEmploymentBean.liquidAssets').value + '"]', '#savieEmploymentBean\\.liquidAssets').text();
-       empEduInfoData.empName = document.getElementById('savieEmploymentBean.currentEmployerName').value;
-       empEduInfoData.sourceIncome = $('option[value="' + document.getElementById('savieEmploymentBean.sourceOfIncome').value + '"]', '#savieEmploymentBean\\.sourceOfIncome').text();
+       empEduInfoData.eduLevel = $('#savieEmploymentBean\\.educationLevel').val().split("-")[1];
+       empEduInfoData.natBusiness = $('#savieEmploymentBean\\.natureOfBusiness').val().split("-")[1]; 
+       empEduInfoData.monIncome = $('#savieEmploymentBean\\.monthlyPersonalIncome').val().split("-")[1];
+       empEduInfoData.liqAsset = $('option[value="' + $('#savieEmploymentBean\\.liquidAssets').val() + '"]', '#savieEmploymentBean\\.liquidAssets').text();
+       empEduInfoData.empName = $('#savieEmploymentBean\\.currentEmployerName').val();
+       empEduInfoData.sourceIncome = $('option[value="' + $('#savieEmploymentBean\\.sourceOfIncome').val() + '"]', '#savieEmploymentBean\\.sourceOfIncome').text();
    }
    
    /**
@@ -2029,16 +2039,16 @@
          // Person 1
          beneInfoData.first = {};
          
-         beneInfoData.first.enFName = document.getElementById('savieBeneficiaryBean[0].firstName').value;
-         beneInfoData.first.enLName = document.getElementById('savieBeneficiaryBean[0].lastName').value;
-         beneInfoData.first.chName = document.getElementById('savieBeneficiaryBean[0].chineseName').value;
+         beneInfoData.first.enFName = $('#savieBeneficiaryBean\\[0\\]\\.firstName').val();
+         beneInfoData.first.enLName = $('#savieBeneficiaryBean\\[0\\]\\.lastName').val();
+         beneInfoData.first.chName = $('#savieBeneficiaryBean\\[0\\]\\.chineseName').val();
          
-         var benHKIDPASS = document.getElementById('beneficiaryHkidPassport[0]').value;
+         var benHKIDPASS = $('#beneficiaryHkidPassport\\[0\\]').val();
          
          if ((benHKIDPASS.toLowerCase().indexOf('hkid') > -1)) {
-            beneInfoData.first.hkid = document.getElementById('savieBeneficiaryBean[0].hkId').value;
+            beneInfoData.first.hkid = $('#savieBeneficiaryBean\\[0\\]\\.hkId').val();
          } else if ((benHKIDPASS.toLowerCase().indexOf('passport') > -1)) { 
-            beneInfoData.first.passNo = document.getElementById('savieBeneficiaryBean[0].passportNo').value;
+            beneInfoData.first.passNo = $('#savieBeneficiaryBean\\[0\\]\\.passportNo').val();
          }
          
          if ($('#male-0').prop('checked')) {
@@ -2047,27 +2057,27 @@
             beneInfoData.first.gender = getBundle(getBundleLanguage, "option.female");
          }
          
-         beneInfoData.first.relationship = $('option[value="' + document.getElementById('savieBeneficiaryBean[0].relationship').value + '"]', '#savieBeneficiaryBean\\[0\\]\\.relationship').text();
-         beneInfoData.first.entitlement = document.getElementById('savieBeneficiaryBean[0].entitlement').value;
+         beneInfoData.first.relationship = $('option[value="' + $('#savieBeneficiaryBean\\[0\\]\\.relationship').val() + '"]', '#savieBeneficiaryBean\\[0\\]\\.relationship').text();
+         beneInfoData.first.entitlement = $('#savieBeneficiaryBean\\[0\\]\\.entitlement').val();
          
          if (beneInfoData.first.enFName) {
             beneInfoData.first.saved = true;
          }
          
          // Person 2
-         if (document.getElementById('beneficiaryInfoForm[1]') && !$('#beneficiaryInfoForm\\[1\\]').hasClass('hidden')) {
+         if ($('#beneficiaryInfoForm\\[1\\]').length>0 && !$('#beneficiaryInfoForm\\[1\\]').hasClass('hidden')) {
             beneInfoData.second = {};
             
-            beneInfoData.second.enFName = document.getElementById('savieBeneficiaryBean[1].firstName').value;
-            beneInfoData.second.enLName = document.getElementById('savieBeneficiaryBean[1].lastName').value;
-            beneInfoData.second.chName = document.getElementById('savieBeneficiaryBean[1].chineseName').value;
+            beneInfoData.second.enFName = $('#savieBeneficiaryBean\\[1\\]\\.firstName').val();
+            beneInfoData.second.enLName = $('#savieBeneficiaryBean\\[1\\]\\.lastName').val();
+            beneInfoData.second.chName = $('#savieBeneficiaryBean\\[1\\]\\.chineseName').val();
             
-            var benHKIDPASS = document.getElementById('beneficiaryHkidPassport[1]').value;
+            var benHKIDPASS = $('#beneficiaryHkidPassport\\[1\\]').val();
             
             if ((benHKIDPASS.toLowerCase().indexOf('hkid') > -1)) {
-               beneInfoData.second.hkid = document.getElementById('savieBeneficiaryBean[1].hkId').value;
+               beneInfoData.second.hkid = $('#savieBeneficiaryBean\\[1\\]\\.hkId').val();
             } else if ((benHKIDPASS.toLowerCase().indexOf('passport') > -1)) { 
-               beneInfoData.second.passNo = document.getElementById('savieBeneficiaryBean[1].passportNo').value;
+               beneInfoData.second.passNo = $('#savieBeneficiaryBean\\[1\\]\\.passportNo').val();
             }
             
             if ($('#male-1').prop('checked')) {
@@ -2076,8 +2086,8 @@
                beneInfoData.second.gender = getBundle(getBundleLanguage, "option.female");
             }
             
-            beneInfoData.second.relationship = $('option[value="' + document.getElementById('savieBeneficiaryBean[1].relationship').value + '"]', '#savieBeneficiaryBean\\[1\\]\\.relationship').text();
-            beneInfoData.second.entitlement = document.getElementById('savieBeneficiaryBean[1].entitlement').value;
+            beneInfoData.second.relationship = $('option[value="' + $('#savieBeneficiaryBean\\[1\\]\\.relationship').val() + '"]', '#savieBeneficiaryBean\\[1\\]\\.relationship').text();
+            beneInfoData.second.entitlement = $('#savieBeneficiaryBean\\[1\\]\\.entitlement').val();
             
             if (beneInfoData.second.enFName) {
                beneInfoData.second.saved = true;
@@ -2087,19 +2097,19 @@
          }
          
          // Person 3
-         if (document.getElementById('beneficiaryInfoForm[2]') && !$('#beneficiaryInfoForm\\[2\\]').hasClass('hidden')) {
+         if ($('#beneficiaryInfoForm\\[2\\]').length>0 && !$('#beneficiaryInfoForm\\[2\\]').hasClass('hidden')) {
             beneInfoData.third = {};
             
-            beneInfoData.third.enFName = document.getElementById('savieBeneficiaryBean[2].firstName').value;
-            beneInfoData.third.enLName = document.getElementById('savieBeneficiaryBean[2].lastName').value;
-            beneInfoData.third.chName = document.getElementById('savieBeneficiaryBean[2].chineseName').value;
+            beneInfoData.third.enFName = $('#savieBeneficiaryBean\\[2\\]\\.firstName').val();
+            beneInfoData.third.enLName = $('#savieBeneficiaryBean\\[2\\]\\.lastName').val();
+            beneInfoData.third.chName = $('#savieBeneficiaryBean\\[2\\]\\.chineseName').val();
             
-            var benHKIDPASS = document.getElementById('beneficiaryHkidPassport[2]').value;
+            var benHKIDPASS = $('#beneficiaryHkidPassport\\[2\\]').val();
             
             if ((benHKIDPASS.toLowerCase().indexOf('hkid') > -1)) {
-               beneInfoData.third.hkid = document.getElementById('savieBeneficiaryBean[2].hkId').value;
+               beneInfoData.third.hkid = $('#savieBeneficiaryBean\\[2\\]\\.hkId').val();
             } else if ((benHKIDPASS.toLowerCase().indexOf('passport') > -1)) { 
-               beneInfoData.third.passNo = document.getElementById('savieBeneficiaryBean[2].passportNo').value;
+               beneInfoData.third.passNo = $('#savieBeneficiaryBean\\[2\\]\\.passportNo').val();
             }
             
             if ($('#male-2').prop('checked')) {
@@ -2108,8 +2118,8 @@
                beneInfoData.third.gender = getBundle(getBundleLanguage, "option.female");
             }
             
-            beneInfoData.third.relationship = $('option[value="' + document.getElementById('savieBeneficiaryBean[2].relationship').value + '"]', '#savieBeneficiaryBean\\[2\\]\\.relationship').text();
-            beneInfoData.third.entitlement = document.getElementById('savieBeneficiaryBean[2].entitlement').value;
+            beneInfoData.third.relationship = $('option[value="' + $('#savieBeneficiaryBean\\[2\\]\\.relationship').val() + '"]', '#savieBeneficiaryBean\\[2\\]\\.relationship').text();
+            beneInfoData.third.entitlement = $('#savieBeneficiaryBean\\[2\\]\\.entitlement').val();
             
             if (beneInfoData.third.enFName) {
                beneInfoData.third.saved = true;
