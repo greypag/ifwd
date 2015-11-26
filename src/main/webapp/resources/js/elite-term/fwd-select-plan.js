@@ -1866,14 +1866,15 @@
          if (beneInfoData.first && beneInfoData.first.saved) {
             $('.et-person-1').removeClass('hide-element');
             
-            beneInfoData.first.enFName ? $('#etasbi-en-fname-1').text(beneInfoData.first.enFName) : '';
-            beneInfoData.first.enLName ? $('#etasbi-en-lname-1').text(beneInfoData.first.enLName) : '';
-            beneInfoData.first.chName ? $('#etasbi-ch-name-1').text(beneInfoData.first.chName) : '';
+            $('#etasbi-en-fname-1').text( beneInfoData.first.enFName ? beneInfoData.first.enFName : '' );
+            $('#etasbi-en-lname-1').text( beneInfoData.first.enLName ? beneInfoData.first.enLName : '' );
+            $('#etasbi-ch-name-1').text( beneInfoData.first.chName ? beneInfoData.first.chName : '' );
             var hkidPassValue = beneInfoData.first.hkid ? beneInfoData.first.hkid : beneInfoData.first.passNo;
-            (beneInfoData.first.hkid || beneInfoData.first.passNo) ? $('#etasbi-hkid-pass-1').text(hkidPassValue) : '';
-            beneInfoData.first.relationship ? $('#etasbi-relationship-1').text(capitalizeFirstLetter(beneInfoData.first.relationship)) : '';
-            beneInfoData.first.gender ? $('#etasbi-gender-1').text(beneInfoData.first.gender) : '';
-            beneInfoData.first.entitlement ? $('#etasbi-entitlement-1').text(beneInfoData.first.entitlement + '%') : '';
+            $('#etasbi-hkid-pass-1').text( (beneInfoData.first.hkid || beneInfoData.first.passNo) ? hkidPassValue : '' );
+            $('#etasbi-relationship-1').text( beneInfoData.first.relationship ? capitalizeFirstLetter(beneInfoData.first.relationship) : '' );
+            $('#etasbi-gender-1').text( beneInfoData.first.gender ? beneInfoData.first.gender : '' );
+            $('#etasbi-entitlement-1').text( beneInfoData.first.entitlement ? beneInfoData.first.entitlement + '%' : '' );
+      
          } else {
             $('.et-person-1').addClass('hide-element');
          }
@@ -1882,14 +1883,15 @@
          if (beneInfoData.second && beneInfoData.second.saved) {
             $('.et-person-2').removeClass('hide-element');
             
-            beneInfoData.second.enFName ? $('#etasbi-en-fname-2').text(beneInfoData.second.enFName) : '';
-            beneInfoData.second.enLName ? $('#etasbi-en-lname-2').text(beneInfoData.second.enLName) : '';
-            beneInfoData.second.chName ? $('#etasbi-ch-name-2').text(beneInfoData.second.chName) : '';
+            $('#etasbi-en-fname-2').text( beneInfoData.second.enFName ? beneInfoData.second.enFName : '' );
+            $('#etasbi-en-lname-2').text( beneInfoData.second.enLName ? beneInfoData.second.enLName : '' );
+            $('#etasbi-ch-name-2').text( beneInfoData.second.chName ? beneInfoData.second.chName : '' );
             var hkidPassValue = beneInfoData.second.hkid ? beneInfoData.second.hkid : beneInfoData.second.passNo;
-            (beneInfoData.second.hkid || beneInfoData.second.passNo) ? $('#etasbi-hkid-pass-2').text(hkidPassValue) : '';
-            beneInfoData.second.relationship ? $('#etasbi-relationship-2').text(capitalizeFirstLetter(beneInfoData.second.relationship)) : '';
-            beneInfoData.second.gender ? $('#etasbi-gender-2').text(beneInfoData.second.gender) : '';
-            beneInfoData.second.entitlement ? $('#etasbi-entitlement-2').text(beneInfoData.second.entitlement + '%') : '';
+            $('#etasbi-hkid-pass-2').text( (beneInfoData.second.hkid || beneInfoData.second.passNo) ? hkidPassValue : '' );
+            $('#etasbi-relationship-2').text( beneInfoData.second.relationship ? capitalizeFirstLetter(beneInfoData.second.relationship) : '' );
+            $('#etasbi-gender-2').text( beneInfoData.second.gender ? beneInfoData.second.gender : '' );
+            $('#etasbi-entitlement-2').text( beneInfoData.second.entitlement ? beneInfoData.second.entitlement + '%' : '' );
+            
          } else {
             $('.et-person-2').addClass('hide-element');
          }
@@ -1898,14 +1900,15 @@
          if (beneInfoData.third && beneInfoData.third.saved) {
             $('.et-person-3').removeClass('hide-element');
             
-            beneInfoData.third.enFName ? $('#etasbi-en-fname-3').text(beneInfoData.third.enFName) : '';
-            beneInfoData.third.enLName ? $('#etasbi-en-lname-3').text(beneInfoData.third.enLName) : '';
-            beneInfoData.third.chName ? $('#etasbi-ch-name-3').text(beneInfoData.third.chName) : '';
+            $('#etasbi-en-fname-3').text( beneInfoData.third.enFName ? beneInfoData.third.enFName : '' );
+            $('#etasbi-en-lname-3').text( beneInfoData.third.enLName ? beneInfoData.third.enLName : '' );
+            $('#etasbi-ch-name-3').text( beneInfoData.third.chName ? beneInfoData.third.chName : '' );
             var hkidPassValue = beneInfoData.third.hkid ? beneInfoData.third.hkid : beneInfoData.third.passNo;
-            (beneInfoData.third.hkid || beneInfoData.third.passNo) ? $('#etasbi-hkid-pass-3').text(hkidPassValue) : '';
-            beneInfoData.third.relationship ? $('#etasbi-relationship-3').text(capitalizeFirstLetter(beneInfoData.third.relationship)) : '';
-            beneInfoData.third.gender ? $('#etasbi-gender-3').text(beneInfoData.third.gender) : '';
-            beneInfoData.third.entitlement ? $('#etasbi-entitlement-3').text(beneInfoData.third.entitlement + '%') : '';
+            $('#etasbi-hkid-pass-3').text( (beneInfoData.third.hkid || beneInfoData.third.passNo) ? hkidPassValue : '' );
+            $('#etasbi-relationship-3').text( beneInfoData.third.relationship ? capitalizeFirstLetter(beneInfoData.third.relationship) : '' );
+            $('#etasbi-gender-3').text( beneInfoData.third.gender ? beneInfoData.third.gender : '' );
+            $('#etasbi-entitlement-3').text( beneInfoData.third.entitlement ? beneInfoData.third.entitlement + '%' : '' );
+            
          } else {
             $('.et-person-3').addClass('hide-element');
          }
