@@ -185,7 +185,6 @@ var languageP = "${language}";
 															<span class="mobile-camera"></span>
 														</label>
 													</div>
-													<!--[if lte IE 9]>
 													<div class="desk hidden-xs hidden-sm">
 														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
@@ -256,7 +255,6 @@ var languageP = "${language}";
 															<span class="mobile-camera"></span>
 														</label>
 													</div>
-													<!--[if lte IE 9]>
 													<div class="desk hidden-xs hidden-sm">
 														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
@@ -327,7 +325,6 @@ var languageP = "${language}";
 															<span class="mobile-camera"></span>
 														</label>
 													</div>
-													<!--[if lte IE 9]>
 													<div class="desk hidden-xs hidden-sm">
 														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
