@@ -1519,7 +1519,7 @@ function addFormBeneficiary (counter) {
 
 		+ '<div class="form-group beneficiary-info-row entitle">'
 		+ '<label for="savieBeneficiaryBean['+counter+'].entitlement">' + fm_label_entitlement + '</label>'
-		+ '<input type="number" id="savieBeneficiaryBean['+counter+'].entitlement" name="savieBeneficiaryBean['+counter+'].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="">'
+		+ '<input type="tel" id="savieBeneficiaryBean['+counter+'].entitlement" name="savieBeneficiaryBean['+counter+'].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="">'
 		+ '<span class="error-msg" id="entitlementMessage['+counter+']"></span>'
 		+ '<div class="clearfix hidden-md hidden-lg"><div class="pull-left"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>' + fm_action_remove + '</button></div></div>'
 		+ '</div>'

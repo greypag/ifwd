@@ -540,8 +540,8 @@
          if (isBeneficaryValid()) {
             // Store beneficiaries data
             storeBeneficiaryInfo();
-        	populateAppSummBI();
-        	console.log('First validate, true');
+        	  populateAppSummBI();
+
             if ($self.hasClass('back-to-summary')) {
                storeBeneficiaryInfo();
                populateAppSummBI();
@@ -549,14 +549,14 @@
                $('body, html').animate({
             	  scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
                }, 0);
-               console.log('back-summary present, true');
+               
             } else {
                $target = $('#et-application-second-section');
                $target.removeClass('hide-element');
                $('body, html').animate({
                   scrollTop: ($target.offset().top - stickyHeight) + 'px'
                }, 500);
-               console.log('no back-summary, true');
+               
             }
             
             $('#name-others-now').on('click', function(e) {
@@ -570,7 +570,7 @@
              });
             
          } else {
-        	 console.log('First validate, false');
+        	 
             $('body, html').animate({
                   scrollTop: ($('#et-beneficiary-info-section').offset().top - stickyHeight) + 'px'
             }, 0);
@@ -1870,7 +1870,7 @@
             $('#etasbi-en-lname-1').text( beneInfoData.first.enLName ? beneInfoData.first.enLName : '' );
             $('#etasbi-ch-name-1').text( beneInfoData.first.chName ? beneInfoData.first.chName : '' );
             var hkidPassValue = beneInfoData.first.hkid ? beneInfoData.first.hkid : beneInfoData.first.passNo;
-            $('#etasbi-hkid-pass-1').text( (beneInfoData.first.hkid || beneInfoData.first.passNo) ? hkidPassValue : '' );
+            $('#etasbi-hkid-pass-1').text( (beneInfoData.first.hkid || beneInfoData.first.passNo) ? hkidPassValue.toUpperCase() : '' );
             $('#etasbi-relationship-1').text( beneInfoData.first.relationship ? capitalizeFirstLetter(beneInfoData.first.relationship) : '' );
             $('#etasbi-gender-1').text( beneInfoData.first.gender ? beneInfoData.first.gender : '' );
             $('#etasbi-entitlement-1').text( beneInfoData.first.entitlement ? beneInfoData.first.entitlement + '%' : '' );
@@ -1887,7 +1887,7 @@
             $('#etasbi-en-lname-2').text( beneInfoData.second.enLName ? beneInfoData.second.enLName : '' );
             $('#etasbi-ch-name-2').text( beneInfoData.second.chName ? beneInfoData.second.chName : '' );
             var hkidPassValue = beneInfoData.second.hkid ? beneInfoData.second.hkid : beneInfoData.second.passNo;
-            $('#etasbi-hkid-pass-2').text( (beneInfoData.second.hkid || beneInfoData.second.passNo) ? hkidPassValue : '' );
+            $('#etasbi-hkid-pass-2').text( (beneInfoData.second.hkid || beneInfoData.second.passNo) ? hkidPassValue.toUpperCase() : '' );
             $('#etasbi-relationship-2').text( beneInfoData.second.relationship ? capitalizeFirstLetter(beneInfoData.second.relationship) : '' );
             $('#etasbi-gender-2').text( beneInfoData.second.gender ? beneInfoData.second.gender : '' );
             $('#etasbi-entitlement-2').text( beneInfoData.second.entitlement ? beneInfoData.second.entitlement + '%' : '' );
@@ -1904,7 +1904,7 @@
             $('#etasbi-en-lname-3').text( beneInfoData.third.enLName ? beneInfoData.third.enLName : '' );
             $('#etasbi-ch-name-3').text( beneInfoData.third.chName ? beneInfoData.third.chName : '' );
             var hkidPassValue = beneInfoData.third.hkid ? beneInfoData.third.hkid : beneInfoData.third.passNo;
-            $('#etasbi-hkid-pass-3').text( (beneInfoData.third.hkid || beneInfoData.third.passNo) ? hkidPassValue : '' );
+            $('#etasbi-hkid-pass-3').text( (beneInfoData.third.hkid || beneInfoData.third.passNo) ? hkidPassValue.toUpperCase() : '' );
             $('#etasbi-relationship-3').text( beneInfoData.third.relationship ? capitalizeFirstLetter(beneInfoData.third.relationship) : '' );
             $('#etasbi-gender-3').text( beneInfoData.third.gender ? beneInfoData.third.gender : '' );
             $('#etasbi-entitlement-3').text( beneInfoData.third.entitlement ? beneInfoData.third.entitlement + '%' : '' );

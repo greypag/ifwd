@@ -674,16 +674,16 @@ $(function() {
 			});
 		 $('#savieBeneficiaryBean\\[1\\]\\.hkId').css('text-transform','uppercase');
 		 
-		 $( "#savieBeneficiaryBean\\[1\\]\\.entitlement" ).on('change', function() {
+		$( "#savieBeneficiaryBean\\[1\\]\\.entitlement" ).on('change', function() {
 			if(totalBeneficiaryEntitlement()!="Exceed") {
 				 $('#beneficiaryInfoForm\\[0\\]')
 	             .data('bootstrapValidator')
-	             .updateStatus('savieBeneficiaryBean[0].entitlement', 'VALID');
+	             .updateStatus('savieBeneficiaryBean[0].entitlement', 'VALID', 'callback');
 				 
 				 if($('#savieBeneficiaryBean\\[2\\]\\.entitlement').length > 0){
 					 $('#beneficiaryInfoForm\\[2\\]')
 		             .data('bootstrapValidator')
-		             .updateStatus('savieBeneficiaryBean[2].entitlement', 'VALID');
+		             .updateStatus('savieBeneficiaryBean[2].entitlement', 'VALID', 'callback');
 				 }
 			} else {
 				$('#beneficiaryInfoForm\\[0\\]')
@@ -866,22 +866,22 @@ $(function() {
 				if(totalBeneficiaryEntitlement()!="Exceed") {
 					 $('#beneficiaryInfoForm\\[0\\]')
 		             .data('bootstrapValidator')
-		             .updateStatus('savieBeneficiaryBean[0].entitlement', 'VALID');
+		             .updateStatus('savieBeneficiaryBean[0].entitlement', 'VALID', 'callback');
 					 
 					 if($('#savieBeneficiaryBean\\[1\\]\\.entitlement').length > 0){
 						 $('#beneficiaryInfoForm\\[1\\]')
 			             .data('bootstrapValidator')
-			             .updateStatus('savieBeneficiaryBean[1].entitlement', 'VALID');
+			             .updateStatus('savieBeneficiaryBean[1].entitlement', 'VALID', 'callback');
 					 }
 				} else {
 					$('#beneficiaryInfoForm\\[0\\]')
 		             .data('bootstrapValidator')
-		             .updateStatus('savieBeneficiaryBean[0].entitlement', 'INVALID','callback');
+		             .updateStatus('savieBeneficiaryBean[0].entitlement', 'INVALID', 'callback');
 					
 					 if($('#savieBeneficiaryBean\\[1\\]\\.entitlement').length > 0){
 						 $('#beneficiaryInfoForm\\[1\\]')
 			             .data('bootstrapValidator')
-			             .updateStatus('savieBeneficiaryBean[1].entitlement', 'INVALID','callback');
+			             .updateStatus('savieBeneficiaryBean[1].entitlement', 'INVALID', 'callback');
 					 }
 				}
 			});
