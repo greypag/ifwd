@@ -2138,13 +2138,13 @@ Vietnam
 									<!--
 									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'eg: FWD789');" onBlur="placeholderOnBlur(this,'eg: FWD789');" value="eg: FWD789">
 									-->
-									<input type="text" id="promoCode" name="promoCode" class="form-control <c:if test="${!(referralCode != null && referralCode != '')}">bmg_custom_placeholder</c:if>" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');" onBlur="placeholderOnBlur(this,'<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />');"
+									<input type="text" id="promoCode" name="promoCode" class="form-control <c:if test="${!(referralCode != null && referralCode != '')}">bmg_custom_placeholder</c:if>" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'If applicable');" onBlur="placeholderOnBlur(this,'If applicable');"
 									    <c:choose>
 										   <c:when test="${referralCode != null && referralCode != ''}">
 										   value="${referralCode }"
 										   </c:when>
 										   <c:otherwise>
-	                                       value="<fmt:message key="travel.sidebar.summary.promocode.placeholder" bundle="${msg}" />"
+	                                       value="If applicable"
 	                                       </c:otherwise>
 									   </c:choose>
 									/>
