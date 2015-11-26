@@ -2254,7 +2254,7 @@ var home_url = "<%=request.getContextPath()%>";
                         
                         <div class="et-clear-signature">
                             <a href="#" id="et-clear-signature" title="Clear signature" class=""><fmt:message key="eliteTerms.selectPlan.Clear" bundle="${msg}" /></a>
-                            <span class="pull-right"><fmt:message key="eliteTerms.selectPlan.hk.Signature" bundle="${msg}" /></span>
+                            <span class="pull-right" style="font-size: 14px;"><fmt:message key="eliteTerms.selectPlan.hk.Signature" bundle="${msg}" /></span>
                         </div>
                         
                         <div class="correct-signature hide-element">

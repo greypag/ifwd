@@ -756,9 +756,18 @@
          $sigSection.removeClass('hide-element');
          
          if (!$("#signature").find('canvas').length) {
+
+            // determine signature pad height
+            var $jSignatureCan = $('.jSignature');
+            
+            var sigHeight = '350px';
+            if (getWidth() < 992) {
+              sigHeight = '260px';
+            }
+
             // Initialize signature area
             $("#signature").jSignature({
-               height: '350px', 
+               height: sigHeight, 
                width: '100%',
                'decor-color': 'transparent',
             }).on('change', function(e) {
@@ -775,13 +784,6 @@
                         .addClass('hide-element');
                }
             });
-            
-            var $jSignatureCan = $('.jSignature');
-            if (getWidth() < 992) {
-            	$jSignatureCan.css('height', '260px');
-            } else {
-            	$jSignatureCan.css('height', '350px');
-            }
             
             // Signature clear
             $(document).on('click', '#et-clear-signature', function(e) {
