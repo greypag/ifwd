@@ -24246,6 +24246,12 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 	margin-top: 18px;
 }
 
+.et-document-upload .iframe-holder {
+	position: relative;
+	overflow: hidden; 
+	margin-top: 5px;
+}
+
 @media ( min-width : 992px) {
 	/* line 34, ../sass/partials/_elite-terms-document-upload.scss */
 	.et-document-upload p.notice, .et-document-upload #application-registration form p.notice-password,
@@ -25615,3 +25621,32 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 	-o-transition: background 0.1s ease-in;
 	transition: background 0.1s ease-in;
 }
+
+/*iframes*/
+.fwd-container.container-fluid.iframe-container {
+    max-width: none;
+}
+.document-upload.et-document-upload.upload-iframe {
+  padding: 0;
+}
+.document-upload .upload-now-section .document-upload-progress.iframe {
+    max-height: 75px;
+    overflow: hidden;
+}
+.document-upload .upload-now-section .upload-iframe-height {
+  height: 400px;
+  width: 23%;
+}
+.document-upload .upload-now-section .upload-iframe {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    width: 70%;
+}
+.document-upload .upload-now-section .col-xs-12.col-md-4, .document-upload .upload-now-section .col-xs-12.col-md-6 {
+  padding-top: 32px;
+  position: relative;
+}
+

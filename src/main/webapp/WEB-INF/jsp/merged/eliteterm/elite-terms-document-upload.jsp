@@ -185,7 +185,6 @@ var languageP = "${language}";
 															<span class="mobile-camera"></span>
 														</label>
 													</div>
-													<!--[if lte IE 9]>
 													<div class="desk hidden-xs hidden-sm">
 														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
@@ -256,7 +255,6 @@ var languageP = "${language}";
 															<span class="mobile-camera"></span>
 														</label>
 													</div>
-													<!--[if lte IE 9]>
 													<div class="desk hidden-xs hidden-sm">
 														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
@@ -327,7 +325,6 @@ var languageP = "${language}";
 															<span class="mobile-camera"></span>
 														</label>
 													</div>
-													<!--[if lte IE 9]>
 													<div class="desk hidden-xs hidden-sm">
 														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
@@ -367,7 +364,13 @@ var languageP = "${language}";
 										</div>
 									</div>
 								</div>
-                        
+								
+								<div class="iframe-holder hidden">
+									<iframe src="http://52.74.209.219:8080/saving-insurance/document-upload-iframe-hkid.jsp" scrolling="" class="upload-ie-iframe"></iframe>
+									<iframe src="http://52.74.209.219:8080/saving-insurance/document-upload-iframe-passport.jsp" scrolling="" class="upload-ie-iframe-second"></iframe>
+									<iframe src="http://52.74.209.219:8080/saving-insurance/document-upload-iframe-address.jsp" scrolling="" class="upload-ie-iframe-third"></iframe>
+                        		</div>
+
 								<div class="col-xs-12 col-md-12">
 									<p class="notice"><span class="asterisk">* </span><fmt:message key="eliteTerms.documentUpload.Policy.remarks" bundle="${msg}" /></p>
 								</div>
@@ -453,8 +456,13 @@ var languageP = "${language}";
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-dropzone.js"></script>
 		<script language="javascript">
-
-
+			
+		//iframe
+		uploadIe();
+		$(window).on('resize', function(){
+			//uploadIe();
+		});
+		
 			$('#residence-check').click(function(){
 				$('.passport-holder').toggle();
 			})
@@ -495,6 +503,23 @@ var languageP = "${language}";
 					window.location.href= '<%=request.getContextPath()%>/${language}/term-life-insurance/confirmation';
 				}
 			})
+			
+			//upload IE
+			function uploadIe() {
+				if(msieversion()>0 && msieversion()<10) {
+					$('.upload-buttons').addClass('hidden');
+					$('.iframe-holder').removeClass('hidden');
+					if(getWidth() < 992) {
+						$('.upload-ie-iframe').removeAttr('style');
+						$('.upload-ie-iframe').css({'width': '103%', 'border': 'none', 'height': '1450px', 'margin-left': '-15px'});
+					}
+					else {
+						$('.upload-ie-iframe').css({'width': '140%', 'border': 'none', 'height': '550px'});
+						$('.upload-ie-iframe-second').css({'width': '140%', 'border': 'none', 'height': '550px','position':'absolute','top':'0','left':'34%'});
+						$('.upload-ie-iframe-third').css({'width': '140%', 'border': 'none', 'height': '550px','position':'absolute','top':'0','left':'68%'});
+					}
+				}
+			}
 
             // Check if hkid is valid
             function isHkidValidity() {
