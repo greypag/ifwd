@@ -39,6 +39,8 @@ var home_url = "<%=request.getContextPath()%>";
 				</div>
 			</div>-->
 			
+			
+			
 			<div class="text-center o2o-landing banner-widget hunger-selling container-fluid">
 				<img class="mobile-banner" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.banner.image.mobile" bundle="${msg}" />" />
 				<img class="desktop-banner" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.banner.image.desktop" bundle="${msg}" />" />
@@ -318,6 +320,30 @@ var home_url = "<%=request.getContextPath()%>";
 				<p class="text-left hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.The.information" bundle="${msg}" /></p>
 			</div>
 			
+			<c:if test="${language == 'en'}">
+			<div class="savie-overlay-modal modal fade" role="dialog" id="accessCodeO2O" data-keyboard="false" data-backdrop="static">
+				<div class="savie-overlay-container container-fluid modal-dialog" role="document">
+					<div class="modal-content savie-overlay-content">
+						<img class= "hidden-xs hidden-sm"src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/iFWD_savie_prelaunch_desktop_v5_nb.png"/>
+						<img class= "img-responsive hidden-md hidden-lg" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/iFWD_savie_prelaunch_mobile_en_v5_nb.jpg"/>
+						<button type="submit" class="btn savie-overlay-btn" id="savie-overlay-button" onclick="javascript:location.href='<%=request.getContextPath()%>'"><fmt:message key="savie.o2o.landing.Back.to.home" bundle="${msg}" /></button>	
+					</div>
+				</div>
+			</div>
+			</c:if>
+			 
+			<c:if test="${language == 'tc'}">
+			<div class="savie-overlay-modal modal fade" role="dialog" aria-labelledby="accessCode" id="accessCodeO2O" data-keyboard="false" data-backdrop="static">
+				<div class="savie-overlay-container container-fluid modal-dialog" role="document">
+					<div class="modal-content savie-overlay-content">
+						<img class= "hidden-xs hidden-sm"src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/iFWD_savie_prelaunch_desktop_cn_v5_nb.jpg"/>
+						<img class= "img-responsive hidden-md hidden-lg" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/iFWD_savie_prelaunch_cn_mobile_v5_nb.jpg"/>
+						<button type="submit" class="btn savie-overlay-btn" id="savie-overlay-button" onclick="javascript:location.href='<%=request.getContextPath()%>'"><fmt:message key="savie.o2o.landing.Back.to.home" bundle="${msg}" /></button>	
+					</div>
+				</div>
+			</div>
+			</c:if>
+			
 			<!-- Customer Center Modal -->
 			<div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">
 				<div class="modal-dialog" role="document">
@@ -365,7 +391,7 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->	
-			</div><!-- /.modal -->
+			</div><!-- /.modal --> 
 			
 			<!--Signup Now Modal-->
 			<div class="modal fade" role="dialog" aria-labelledby="signupnow" id="signup-now-modal">
@@ -576,6 +602,11 @@ var home_url = "<%=request.getContextPath()%>";
 				$('.other-benefits-list-mobile').removeClass('hidden-sm');
 				$('#read-more-other-benefits').hide();
 			});
+			
+			$(window).load(function(){
+		        $('#accessCodeO2O').modal('show');
+		    });
+			
 			
 		</script>
 		
