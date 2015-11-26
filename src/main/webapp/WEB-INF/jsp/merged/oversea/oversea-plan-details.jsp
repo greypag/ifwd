@@ -282,10 +282,10 @@ function setDropArea(id) {
         <div class="row">
             <form:form id="frmYourDetails" name="frmYourDetails" onsubmit="return confirmDetails(this,'frmYourDetails','${language}');" modelAttribute="frmYourDetails" method="post" action="">
                 <ol class="breadcrumb pad-none">
-                  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer1'>Home</key></a> <i class="fa fa-caret-right"></i></li>
-                  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer2'>Protect</key></a></li> <i class="fa fa-caret-right"></i></li>
+                  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer1'>Home</key></a> <i class="fa fa-chevron-right"></i></li>
+                  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer2'>Protect</key></a></li> <i class="fa fa-chevron-right"></i></li>
                   <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer3'>Overseas StudyCare Insurance</key></a></li>
-                  <li class="active "><i class="fa fa-caret-right"></i><key id='Overseas.Landing.Breadcrumb.step3'>Application</key></li>
+                  <li class="active "><i class="fa fa-chevron-right"></i><key id='Overseas.Landing.Breadcrumb.step3'>Application</key></li>
                 </ol>
                 
                 <%
@@ -944,8 +944,8 @@ function setDropArea(id) {
                             <div class="wd2">
                                 <div class="pull-left" style="">
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;">Overseas StudyCare</h2>
-                                    <h2 id="seletedplanregion" class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;"></h2>
-                                    <h4 id="selectedPlanNameDisplay" style="padding-left:0px;line-height: 0px;font-size: 16px;">${planName }</h4>
+                                    <h2 id="selectedPlanNameDisplay" class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;">${planName }</h2>
+                                    <h4 id="seletedplanregion" style="padding-left:0px;line-height: 0px;font-size: 16px;"></h4>
                                     <input type="hidden" id="selectedPlanName" name="selectedPlanName" value="${planName }">
                                 </div>
                                 <div class="clearfix"></div>

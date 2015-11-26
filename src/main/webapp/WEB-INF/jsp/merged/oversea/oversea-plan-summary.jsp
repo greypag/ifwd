@@ -86,10 +86,10 @@ $(document).ready(function(){
 				-->
 				<div class="clearfix"></div>
                 <ol class="breadcrumb pad-none">
-				  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer1'>Home</key></a> <i class="fa fa-caret-right"></i></li>
-				  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer2'>Protect</key></a></li> <i class="fa fa-caret-right"></i></li>
+				  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer1'>Home</key></a> <i class="fa fa-chevron-right"></i></li>
+				  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer2'>Protect</key></a></li> <i class="fa fa-chevron-right"></i></li>
 				  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer3'>Overseas StudentCare Insurance</key></a></li>
-				  <li class="active "><i class="fa fa-caret-right"></i><key id='Overseas.Landing.Breadcrumb.step3'>Payment</key></li>
+				  <li class="active "><i class="fa fa-chevron-right"></i><key id='Overseas.Landing.Breadcrumb.step3'>Payment</key></li>
                 </ol>
                 <div class="oversea-summary-detail-wrapper container pad-none bdr ur-opt-content gray-bg3">
                     <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1 summary-container product_summary_container">

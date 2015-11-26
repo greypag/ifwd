@@ -59,7 +59,6 @@ function changeRegion(region){
     }
     //return true;
 }
-
 function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 	if(index>=0&&index<=3){
         $('#seletedplanregion').html('Worldwide');       
@@ -130,13 +129,15 @@ function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
     //document.getElementById("txtDiscountAmount").value = parseFloat(txtDiscountAmt).toFixed(2);
     //$('#txtDiscountAmount').val(numeral(txtDiscountAmt).format('0,0.00'));
     document.getElementById("txtgrossPremiumAmt").value = parseFloat(selected_price).toFixed(2);
-    
-    
-    
     if(promoData != '')
 		setValue(promoData);
 	return true;
 	
+}
+function regionDefaultPlan(id1,index1, planName1, discountAmt1, totalDue1){ 	
+    changeColorAndPrice(id1,index1, planName1, discountAmt1, totalDue1);
+    $('#inputseletedplanname').val(planName1);
+    $('#amountdue').html(parseFloat(totalDue1).toFixed(2));   
 }
 function submitPlan(){
 	$('#loading-overlay').modal({backdrop: 'static',keyboard: false});
@@ -404,11 +405,11 @@ $(document).ready(function() {
 		<div class="row">
 			<form id="frmTravelPlan" name="frmTravelPlan" method="post" onsubmit="return subForm(this, 'frmTravelPlan');" >
 				<ol class="breadcrumb pad-none">
-					<li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer1'>Home</key></a> <i class="fa fa-caret-right"></i></li>
+					<li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer1'>Home</key></a> <i class="fa fa-chevron-right"></i></li>
 					<li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer2'>Protect</key></a><i class="fa fa-chevron-right"></i></li>
 					<li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer3'>StudyCare Insurance</key></a></li>
 					<i class="fa fa-chevron-right"></i>
-					<li class="active "><i class="fa fa-caret-right"></i><key id='Overseas.Landing.Breadcrumb.step1'>Plan Options</key></li>
+					<li class="active "><key id='Overseas.Landing.Breadcrumb.step1'>Plan Options</key></li>
 				</ol>
 				<div id="quote-wrap" class="container pad-none bdr gray-bg3">
 					<div class="col-lg-8 col-xs-12 col-sm-12 col-md-8 pad-none white-bg1" id="oversea-plan-quote-select-region-container">
@@ -416,10 +417,10 @@ $(document).ready(function() {
 						<h2 class="h2-3-choose"><key id='Overseas.PlanOptions.Region'>Select a region</key></h2>
 						<div style="margin-bottom: 40px;">
                             <div class="pull-left pad-none region-box col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-right-des" >
-	                                <div id="region-btn-0" type="button" class="btn-block bdr-curve btn region-box-btn region-box-active" onClick="changeRegion('region0');changeColorAndPrice('box2','2','medicalWorldwideA','0','8000')" style="" ><key id='Overseas.PlanOptions.Region.Worldwide'>Worldwide</key></div>
+	                                <div id="region-btn-0" type="button" class="btn-block bdr-curve btn region-box-btn region-box-active" onClick="changeRegion('region0');regionDefaultPlan('box2','2','medicalWorldwideA','0','8000')" style="" ><key id='Overseas.PlanOptions.Region.Worldwide'>Worldwide</key></div>
 							</div>
                             <div class="pull-right pad-none region-box col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-left-des" >
-	                                <div id="region-btn-1" type="button" class="btn-block bdr-curve btn region-box-btn" onClick="changeRegion('region1');changeColorAndPrice('box6','6','medicalAsiaA','0','5500')" style=""  data-toggle="modal" data-target="#myModalAsia"><key id='Overseas.PlanOptions.Region.Asiaonly'>Asia only</key></div>
+	                                <div id="region-btn-1" type="button" class="btn-block bdr-curve btn region-box-btn" onClick="changeRegion('region1');regionDefaultPlan('box6','6','medicalAsiaA','0','5500')" style=""  data-toggle="modal" data-target="#myModalAsia"><key id='Overseas.PlanOptions.Region.Asiaonly'>Asia only</key></div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -2108,13 +2109,12 @@ Vietnam
 						<div class="hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left" style="">
-								    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;">Overseas StudentCare</h2>
-                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;" id="seletedplanregion"></h2>
-									<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanname"></h4>
-									<input type="hidden" name="planName" id="inputseletedplanname" value="">
-									
-										
+								    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;">Overseas StudyCare</h2>
+                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;" id="seletedplanname"></h2>
+									<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanregion"></h4>
+									<input type="hidden" name="planName" id="inputseletedplanname" value="">	
 								</div>
+								<div class="clearfix"></div>
 								<div class="pull-right" style="">
 									<div class="text-left h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
 										<div class="hk" style="font-size: 18px;">

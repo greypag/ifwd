@@ -25,10 +25,10 @@
     <div class="row">
       <form>
         <ol class="breadcrumb pad-none">
-          <li><a href="#">Home</a> <i class="fa fa-caret-right"></i></li>
-          <li><a href="#">Protect</a></li> <i class="fa fa-caret-right"></i></li>
-		   <li><a href="#">Overseas StudentCare Insurance</a></li>                                  <!-- <key id='Overseas.Confirmation.breadcrumb'>Home > Protect > Overseas StudyCare Insurance > Confirmation</key> -->
-          <li class="active "><i class="fa fa-caret-right"></i> Confirmation</li>
+          <li><a href="#">Home</a> <i class="fa fa-chevron-right"></i></li>
+          <li><a href="#">Protect</a></li> <i class="fa fa-chevron-right"></i></li>
+		   <li><a href="#">Overseas StudyCare Insurance</a></li>                                  <!-- <key id='Overseas.Confirmation.breadcrumb'>Home > Protect > Overseas StudyCare Insurance > Confirmation</key> -->
+          <li class="active "><i class="fa fa-chevron-right"></i> Confirmation</li>
         </ol>
 
         
