@@ -339,13 +339,18 @@ function prepareOverseaPlan(form){
     </div>
     <!--End Desktop Support--> 
     <!--/.row-->
-    <p><key id='Overseas.Landing.Disclaimer'>For a complete explanation of the terms and conditions, feel free to contact our 24-hour hotline at 3123 3123.</key></p>
     <div class="clearfix"></div>
   </div>
   <!--/.container--> 
 </section>
+<!--Desktop Disclaimer--> 
+<section class="hidden-xs hidden-sm">
+    <div class="bottom-disclaimer-wrapper container">
+        <p class="h4-6"><key id='Overseas.Landing.Disclaimer'>For a complete explanation of the terms and conditions, feel free to contact our 24-hour hotline at 3123 3123.</key></p>
+    </div>
+</section>
+<!--End of Desktop Disclaimer-->     
 <!--/#recent-works-->
-
 <section id="recent-works-mob" class="hidden-lg hidden-md">
   <div class="carousel slide">
     <div class="carousel-inner">
@@ -393,6 +398,10 @@ function prepareOverseaPlan(form){
   </div>
   <!--/.carousel--> 
   <a class="prev" href="#recent-works-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#recent-works-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a> </section>
-
+<section class="hidden-lg hidden-md">
+    <div class="bottom-disclaimer-wrapper container">
+        <p class="h4-6"><key id='Overseas.Landing.Disclaimer'>For a complete explanation of the terms and conditions, feel free to contact our 24-hour hotline at 3123 3123.</key></p>
+    </div>
+</section>
   <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
   <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>

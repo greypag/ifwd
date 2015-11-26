@@ -381,10 +381,10 @@ $(document).ready(function() {
 						<h2 class="h2-3-choose"><key id='Overseas.PlanOptions.Region'>Select a region</key></h2>
 						<div style="margin-bottom: 40px;">
                             <div class="pull-left pad-none region-box col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-right-des" >
-	                                <div id="region-btn-0" type="button" class="btn-block bdr-curve btn region-box-btn region-box-active" onClick="changeRegion('region0')" style="" ><key id='Overseas.PlanOptions.Region.Worldwide'>Worldwide</key></div>
+	                                <div id="region-btn-0" type="button" class="btn-block bdr-curve btn region-box-btn region-box-active" onClick="changeRegion('region0');changeColorAndPrice('box2','2','medicalWorldwideA','0','8000')" style="" ><key id='Overseas.PlanOptions.Region.Worldwide'>Worldwide</key></div>
 							</div>
                             <div class="pull-right pad-none region-box col-lg-6 col-xs-6 col-sm-6 col-md-6 pad-left-des" >
-	                                <div id="region-btn-1" type="button" class="btn-block bdr-curve btn region-box-btn" onClick="changeRegion('region1')" style=""  data-toggle="modal" data-target="#myModalAsia"><key id='Overseas.PlanOptions.Region.Asiaonly'>Asia only</key></div>
+	                                <div id="region-btn-1" type="button" class="btn-block bdr-curve btn region-box-btn" onClick="changeRegion('region1');changeColorAndPrice('box6','6','medicalAsiaA','0','5500')" style=""  data-toggle="modal" data-target="#myModalAsia"><key id='Overseas.PlanOptions.Region.Asiaonly'>Asia only</key></div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -489,7 +489,7 @@ Vietnam
 									</div>
 									<div class="clearfix"></div>
 								</div>
-								<div class="plan-box-s plan-box-title oversea_productbox_title plan-display-desktop-only ">
+								<div class="plan-box-s plan-box-title oversea_productbox_title plan-display-desktop-only">
 									<div class="" style="">                           
 										<h2><key id='Overseas.PlanOptions.Plans.table1.col3.header'>Plan B</key></h2>
 									</div>

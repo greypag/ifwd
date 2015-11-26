@@ -29,7 +29,7 @@ h4.product_landing_download_button.divider{
 	text-decoration: none;
 }
 .product-download-wrapper .product_landing_download_button a:hover{
-	color: #9fb1b2;
+	color: #f68a1d;
 }
 .banner-message-wrapper{
 	background: #505759;
@@ -242,7 +242,7 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 	text-align:right;
 
 }
-@media (min-width: 768px){
+@media (min-width: 992px){
 	.pad-left-des{
     width:49%;
     }
@@ -256,7 +256,7 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 
 }
 
-@media (max-width: 767px){
+@media (max-width: 991px){
 	.pad-left-des{
 	width:49%;
 	}
@@ -509,7 +509,7 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 .mCustomScrollBox{
 	height:none !important;
 }
-@media (max-width: 767px){
+@media (max-width: 991px){
 
     .plan-box-l{
     }
@@ -573,4 +573,7 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 }
 .pillar-here-height{
 	min-height: 407px;
+}
+.bottom-disclaimer-wrapper{
+    margin: 15px auto;
 }
