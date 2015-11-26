@@ -274,13 +274,19 @@ function coverageToggleGoto(id){
     $('.fwdpanel-body').mCustomScrollbar({
         theme:"light-2"
     });
+    
 	if(id=="1"){
-		coverageToggle('#MedicalExpensesContent','open');
+		coverageToggle('#SummaryofCoverageContent','open');
         coverageToggle('#MedicalExpensesInnerContent','close');
 		coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','open');
+        coverageToggle('#PersonalLiabilityInnerContent','close');
+        //$('#WorldwideEmergencyAssistanceServicesInnerContent').slideDown("slow");
 		$('html, body').animate({
             scrollTop: $('#WorldwideEmergencyAssistanceServicesInnerContent').offset().top
         }, 500);
+		
+        $('#WorldwideEmergencyAssistanceServicesInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#WorldwideEmergencyAssistanceServicesInnerContent'));
+        
 		$('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
         $('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-minus');
         $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().addClass('fa-minus');
@@ -288,16 +294,45 @@ function coverageToggleGoto(id){
         $('#SummaryofCoverage').find('h4').find('i').removeClass('fa-chevron-down');
         $('#SummaryofCoverage').find('h4').find('i').addClass('fa-chevron-up');
    	}else if(id=="2"){
-		coverageToggle('#MedicalExpensesContent','open');
+        coverageToggle('#SummaryofCoverageContent','open');
         coverageToggle('#MedicalExpensesInnerContent','open');
-		coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','close');
-		$('html, body').animate({
+        coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','close');
+        coverageToggle('#PersonalLiabilityInnerContent','close');
+       // $('#MedicalExpensesInnerContent').slideDown("slow");
+        $('html, body').animate({
             scrollTop: $('#MedicalExpensesInnerContent').offset().top
         }, 500);
+        
+        $('#MedicalExpensesInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#MedicalExpensesInnerContent'));
+        
         $('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-minus');
-		$('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-plus');
+        $('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-plus');
         $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().addClass('fa-plus');
         $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().removeClass('fa-minus');
+        $('#SummaryofCoverage').find('h4').find('i').removeClass('fa-chevron-down');
+        $('#SummaryofCoverage').find('h4').find('i').addClass('fa-chevron-up');
+    }else if(id=="3"){
+        coverageToggle('#SummaryofCoverageContent','open');
+        coverageToggle('#MedicalExpensesInnerContent','close');
+        coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','close');
+        coverageToggle('#PersonalLiabilityInnerContent','open');
+        //$('#PersonalLiabilityInnerContent').slideDown("slow");
+        $('html, body').animate({
+            scrollTop: $('#PersonalLiabilityInnerContent').offset().top
+        }, 500);
+        /*
+        $('#SummaryofCoverageContent').animate({
+            scrollTop: $('#PersonalLiabilityInnerContent').slideUp("fast")
+        }, 500);
+        */
+        $('#PersonalLiabilityInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#PersonalLiabilityInnerContent'));
+        
+        $('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
+        $('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-minus');
+        $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().addClass('fa-plus');
+        $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().removeClass('fa-minus');
+        $('#PersonalLiabilityInnerContent').prev().children().children().addClass('fa-minus');
+        $('#PersonalLiabilityInnerContent').prev().children().children().removeClass('fa-plus');
         $('#SummaryofCoverage').find('h4').find('i').removeClass('fa-chevron-down');
         $('#SummaryofCoverage').find('h4').find('i').addClass('fa-chevron-up');
     }
@@ -647,6 +682,9 @@ Vietnam
                             <div class="plan-coverage-box-r">
 								<key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2.Amount'>Up to HK$2,000,000</key>
                             </div>
+                            <div class="sub-link">
+                                <a onclick="coverageToggleGoto(2)"><key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2.Tooltip'>Full coverage (refer to coverage table)</key></a>
+                            </div>
                         </div>
                         
                         
@@ -667,7 +705,7 @@ Vietnam
 								<key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Amount'>Up to HK$500,000</key>
                             </div>
                             <div class="sub-link">
-								<a  onclick="coverageToggleGoto(2)"><key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Tooltip'>1, 3-11 (refer to coverage table)</key></a>
+								<a  onclick="coverageToggleGoto(3)"><key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Tooltip'>1, 3-11 (refer to coverage table)</key></a>
 							</div>
                         </div>
                         
@@ -726,7 +764,7 @@ Vietnam
                                 <key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit2.Amount'>Up to HK$2,000,000</key>
                             </div>
                             <div class="sub-link">
-                                <a  onclick="coverageToggleGoto(1)"><key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit.textlink'>Full coverage (refer to coverage table)</key></a>
+                                <a  onclick="coverageToggleGoto(2)"><key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit.textlink'>Full coverage (refer to coverage table)</key></a>
 							</div>
                         </div>
                         
@@ -749,7 +787,7 @@ Vietnam
                                 <key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Amount'>Up to HK$500,000</key>
                             </div>
                             <div class="sub-link">
-                                <a  onclick="coverageToggleGoto(2)"><key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Tooltip'>1, 3-11 (refer to coverage table)</key></a>
+                                <a  onclick="coverageToggleGoto(3)"><key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Tooltip'>1, 3-11 (refer to coverage table)</key></a>
 							</div>
                         </div>
 
@@ -815,7 +853,7 @@ Vietnam
                                     <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
-                            <div class="fwdpanel-body product_plan_panel_content" style="display: none;" id="MedicalExpensesContent" >
+                            <div class="fwdpanel-body product_plan_panel_content" style="display: none;" id="SummaryofCoverageContent" >
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Medical Expenses
@@ -840,7 +878,7 @@ Vietnam
                                                       <td data-title="Plan B">$500,000</td>
                                                   </tr>
                                                   <tr>
-                                                      <td data-title="Benefits">b) Follow-up Expenses - medical, hospital and treatment expenses reasonably incurred within 90 days of the Insured Student’s return to the country of residence up to HK$100,000 (Including Chinese medical practitioner in Hong Kong up to HK$3,000 with maximum daily limit per visit HK$200). </td>
+                                                      <td data-title="Benefits">b) Follow-up Expenses - medical, hospital and treatment expenses reasonably incurred within 90 days of the Insured Student’s return to the country of residence up to HK$100,000 (Including Chinese medical practitioner in Hong Kong up to HK$3,000 with maximum daily limit per visit HK$200).</td>
                                                       <td data-title="Plan A">$1,000,000</td>
                                                       <td data-title="Plan B">$500,000</td>
                                                   </tr>												  
@@ -928,7 +966,7 @@ Vietnam
                                                    <td data-title="Plan B">$15,000</td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">g) Additional Costs of Travel – Intl.SOS will arrange for an economy class airfare for the Insured Student to return Hong Kong  due to a serious medical condition.</td>
+                                                   <td data-title="Benefits">g) Additional Costs of Travel – Intl.SOS will arrange for an economy class airfare for the Insured Student to return Hong Kong  due to a serious medical condition.   </td>
                                                    <td data-title="Plan A">$40,000</td>
                                                    <td data-title="Plan B">$15,000</td>
                                                </tr>
@@ -1218,7 +1256,7 @@ Vietnam
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
-                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;" id="PersonalLiabilityInnerContent">
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
@@ -1241,6 +1279,7 @@ Vietnam
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
+                                <!-- 
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
                                         Loss of Home Contents
@@ -1299,6 +1338,7 @@ Vietnam
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
+                                -->
                             </div>
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
