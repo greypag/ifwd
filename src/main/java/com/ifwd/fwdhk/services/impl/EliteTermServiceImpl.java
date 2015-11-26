@@ -3,9 +3,7 @@ package com.ifwd.fwdhk.services.impl;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,8 +26,6 @@ import com.ifwd.fwdhk.connector.request.eliteterm.CreateEliteTermPolicyRequest;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.GetEliteTermPremiumResponse;
-import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
-import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.UserDetails;
@@ -39,7 +35,6 @@ import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.ImgUtil;
-import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
 @Service
 public class EliteTermServiceImpl implements EliteTermService {
@@ -177,6 +172,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 					beneficiarie1.put("gender", request.getParameter("savieBeneficiaryBean[0].gender"));
 					beneficiarie1.put("relationship", request.getParameter("savieBeneficiaryBean[0].relationship")!=null?request.getParameter("savieBeneficiaryBean[0].relationship").split("-")[0]:"");
 					beneficiarie1.put("entitlement", request.getParameter("savieBeneficiaryBean[0].entitlement"));
+					beneficiaries.add(beneficiarie1);
 				}
 				if(request.getParameter("savieBeneficiaryBean[1].firstName")!=null && request.getParameter("savieBeneficiaryBean[1].firstName")!=""){
 					beneficiarie2.put("firstName", request.getParameter("savieBeneficiaryBean[1].firstName"));
@@ -210,8 +206,8 @@ public class EliteTermServiceImpl implements EliteTermService {
 				beneficiarie1.put("gender", applicant.getString("gender"));
 				beneficiarie1.put("relationship", "SE");
 				beneficiarie1.put("entitlement", "100");
+				beneficiaries.add(beneficiarie1);
 			}
-			beneficiaries.add(beneficiarie1);
 			insured.put("beneficiaries", beneficiaries);
 			parameters.put("insured", insured);
 			JSONObject payment = new JSONObject();
@@ -236,6 +232,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 		return apiReturn;
 	}
 	
+	@Override
 	@SuppressWarnings({ "restriction", "unchecked", "unused"})
 	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException{
 		BaseResponse apiReturn = new BaseResponse();
@@ -657,6 +654,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 		return br;
 	}
 	
+	@Override
 	@SuppressWarnings({ "unchecked"})
 	public void uploadEliteTermDocuments(HttpServletRequest request)throws ECOMMAPIException{
 		String uploadLaterFlage = (String) request.getSession().getAttribute("uploadLaterFlage");
@@ -936,6 +934,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 
 	}
 	
+	@Override
 	public String getPolicyUserName(HttpServletRequest request,String policyNumber){
 		String userName="";
 		String relationshipCode = UserRestURIConstants.GET_POLICY
@@ -951,6 +950,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 	}
 	
 
+	@Override
 	public boolean checkIsDocumentUpload(HttpServletRequest request,String policyNumber){
 		String relationshipCode = UserRestURIConstants.GET_IS_UPLOAD
 				+ "?policyNo="+policyNumber;
