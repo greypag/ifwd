@@ -246,7 +246,7 @@ $(function() {
 			$('input[name="savieBeneficiaryBean\\[1\\]\\.gender"]#male-1').prop('checked', true);
 			$('#savieBeneficiaryBean\\[1\\]\\.relationship').val('');
 			$('#savieBeneficiaryBean\\[1\\]\\.entitlement').val('');
-			$('#beneficiaryInfoForm\\[0\\]').find('.error-msg .help-block').addClass('hide-element');
+			$('#beneficiaryInfoForm\\[1\\]').find('.error-msg .help-block').addClass('hide-element');
 		}
 
 		if ($('#beneficiaryInfoForm\\[2\\]').length) {
@@ -259,7 +259,7 @@ $(function() {
 			$('input[name="savieBeneficiaryBean\\[2\\]\\.gender"]#male-2').prop('checked', true);
 			$('#savieBeneficiaryBean\\[2\\]\\.relationship').val('');
 			$('#savieBeneficiaryBean\\[2\\]\\.entitlement').val('');
-			$('#beneficiaryInfoForm\\[0\\]').find('.error-msg .help-block').addClass('hide-element');
+			$('#beneficiaryInfoForm\\[2\\]').find('.error-msg .help-block').addClass('hide-element');
 		}
 	});
 
