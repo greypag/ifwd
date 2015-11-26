@@ -857,7 +857,7 @@ Vietnam
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;" id="SummaryofCoverageContent" >
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Medical Expenses
+                                        1. Medical Expenses
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -891,7 +891,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Top up In-Patient Medical Expenses
+                                        2. Top up In-Patient Medical Expenses
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -920,7 +920,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Worldwide Emergency Assistance Services
+                                        3. Worldwide Emergency Assistance Services
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -989,7 +989,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Personal Accident
+                                        4. Personal Accident
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1049,7 +1049,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Cancellation Charge
+                                        5. Cancellation Charge
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1078,7 +1078,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Curtailment of Trip
+                                        6. Curtailment of Trip
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1107,7 +1107,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Kidnapping
+                                        7. Kidnapping
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1141,7 +1141,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Education Fund
+                                        8. Education Fund
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1170,7 +1170,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Travel Delay
+                                        9. Travel Delay
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1209,7 +1209,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Baggage
+                                        10. Baggage
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1253,7 +1253,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        Personal Liability
+                                        11. Personal Liability
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
