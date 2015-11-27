@@ -888,7 +888,7 @@ function submitLoginForm(formID) {
             }
         %>             
              </li>
-             <li class="pad-none col-sm-12 dropdown link-btn link-grp border-bottom">
+             <li class="pad-none col-sm-12 dropdown link-btn link-grp border-bottom fwd-header-navgation-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
               <ul class="col-sm-12 dropdown-menu">
                 <li class="menu-link-grp-title">
@@ -907,10 +907,10 @@ function submitLoginForm(formID) {
 									key="header.product.type1.group3.title" bundle="${msg}" /></a></li>
 					</ul>              
             </li>         
-            <li class="pad-none col-sm-12 dropdown link-btn border-bottom">
+            <li class="pad-none col-sm-12 dropdown link-btn border-bottom fwd-header-navgation-menu">
               <a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
             </li>
-            <li class="pad-none col-sm-12 dropdown link-btn">
+            <li class="pad-none col-sm-12 dropdown link-btn fwd-header-navgation-menu">
               <a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
             </li>
           </ul>
