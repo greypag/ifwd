@@ -42,6 +42,24 @@ public class EliteTermController extends BaseController{
 		eliteTermService.removeEtSession(request);
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_LANDING);
 	}
+
+	@RequestMapping(value = {"/{lang}/term-life-insurance/document-upload-hkid"})
+	public ModelAndView uploadHkid(Model model, HttpServletRequest request) throws ECOMMAPIException {
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) 
+				+ "eliteterm/" + UserRestURIConstants.PAGE_ELITE_TERMS_DOCUMENT_UPLOAD_HKID);
+	}	
+	
+	@RequestMapping(value = {"/{lang}/term-life-insurance/document-upload-passport"})
+	public ModelAndView uploadPassport(Model model, HttpServletRequest request) throws ECOMMAPIException {
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) 
+				+ "eliteterm/" + UserRestURIConstants.PAGE_ELITE_TERMS_DOCUMENT_UPLOAD_PASSPORT);
+	}	
+	
+	@RequestMapping(value = {"/{lang}/term-life-insurance/document-upload-address"})
+	public ModelAndView uploadAddressProof(Model model, HttpServletRequest request) throws ECOMMAPIException {
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) 
+				+ "eliteterm/" + UserRestURIConstants.PAGE_ELITE_TERMS_DOCUMENT_UPLOAD_ADDR_PROOF);
+	}	
 	
 	@RequestMapping(value = {"/{lang}/term-life-insurance/select-plan","/{lang}/term-life-insurance/application"})
 	public ModelAndView getSelectPlan(Model model, HttpServletRequest request) {
@@ -176,8 +194,9 @@ public class EliteTermController extends BaseController{
 	@RequestMapping(value = {"/{lang}/term-life-insurance/confirmation"})
 	public ModelAndView getConfirmation(Model model, HttpServletRequest request) {
 		try {
-			String email = request.getSession().getAttribute("eliteTermEmail").toString();
-			model.addAttribute("confirmationEmail", email);
+			UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+			String email = userDetails.getEmailAddress();
+			model.addAttribute("confirmationEmail", email);			
 			eliteTermService.uploadEliteTermDocuments(request);
 		} catch (ECOMMAPIException e) {
 			// TODO Auto-generated catch block
