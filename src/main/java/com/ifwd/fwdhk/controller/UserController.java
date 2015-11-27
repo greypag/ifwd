@@ -199,8 +199,12 @@ public class UserController {
 				/* getPurchaseHistory */
 				if (!tokenInSession.isEmpty() && !usernameInSession.isEmpty()) {
 					HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+					String lang = UserRestURIConstants.getLanaguage(request);
 					header.put("userName", usernameInSession);
 					header.put("token", tokenInSession);
+					header.put("language", WebServiceUtils
+							.transformLanaguage(UserRestURIConstants
+									.getLanaguage(request)));
 
 					PurchaseHistoryResponse purchaseHistory = connector.getPurchaseHistory(header);
 					List<PurchaseHistoryPolicies> policiesGI = new ArrayList<PurchaseHistoryPolicies>();
