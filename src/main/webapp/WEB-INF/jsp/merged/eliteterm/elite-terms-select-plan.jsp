@@ -714,7 +714,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <label for="savieApplicantBean.emailAddress" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box">
-                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.emailAddress" name="savieApplicantBean.emailAddress" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" />" value="${userDetails.emailAddress }">
+                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.emailAddress" name="savieApplicantBean.emailAddress" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" />" value="${userDetails.emailAddress }" readonly>
                                        <span class="error-msg" id="emailMessage"></span>
                                     </div>
                                  </div>
