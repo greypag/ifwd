@@ -322,6 +322,11 @@ body.chin #etConfirm .et-submit button
 	background-color: transparent;
 }
 
+.fwd-et-wrapper .et-smoker-tooltip{
+	position: absolute;
+	left: 10px;
+}
+
 .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip,
 .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-promo-code-tooltip{
 	position: absolute;

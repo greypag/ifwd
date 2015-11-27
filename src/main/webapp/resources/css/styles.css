@@ -7749,6 +7749,7 @@ span.explanation {
 .fwd-savie-wrapper #ET .slider-selection, .fwd-savie-wrapper #RC2 .slider-selection
 	{
 	background: #ff8200;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8200', endColorstr='#ff8200', GradientType=0);
 	border-radius: 0;
 }
 /* line 29, ../sass/partials/_slider.scss */
