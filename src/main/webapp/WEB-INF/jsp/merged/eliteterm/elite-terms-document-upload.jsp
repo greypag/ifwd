@@ -366,9 +366,9 @@ var languageP = "${language}";
 								</div>
 								
 								<div class="iframe-holder hidden">
-									<iframe src="http://52.74.209.219:8080/saving-insurance/document-upload-iframe-hkid.jsp" scrolling="" class="upload-ie-iframe"></iframe>
-									<iframe src="http://52.74.209.219:8080/saving-insurance/document-upload-iframe-passport.jsp" scrolling="" class="upload-ie-iframe-second"></iframe>
-									<iframe src="http://52.74.209.219:8080/saving-insurance/document-upload-iframe-address.jsp" scrolling="" class="upload-ie-iframe-third"></iframe>
+									<iframe src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-hkid" scrolling="" class="upload-ie-iframe"></iframe>
+									<iframe src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-passport" scrolling="" class="upload-ie-iframe-second"></iframe>
+									<iframe src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-address" scrolling="" class="upload-ie-iframe-third"></iframe>
                         		</div>
 
 								<div class="col-xs-12 col-md-12">
