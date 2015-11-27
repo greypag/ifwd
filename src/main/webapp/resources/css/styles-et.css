@@ -547,3 +547,31 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
 #customer-service-modal .modal-body form input[type="email"] :-ms-input-placeholder{
 	color: #9a9a9a;
 }
+
+/*iframes*/
+.fwd-container.container-fluid.iframe-container {
+    max-width: none;
+}
+.document-upload.et-document-upload.upload-iframe {
+  padding: 0;
+}
+.document-upload .upload-now-section .document-upload-progress.iframe {
+    max-height: 75px;
+    overflow: hidden;
+}
+.document-upload .upload-now-section .upload-iframe-height {
+  height: 400px;
+  width: 23%;
+}
+.document-upload .upload-now-section .upload-iframe {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    width: 70%;
+}
+.document-upload .upload-now-section .col-xs-12.col-md-4, .document-upload .upload-now-section .col-xs-12.col-md-6 {
+  padding-top: 32px;
+  position: relative;
+}

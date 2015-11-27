@@ -1741,3 +1741,14 @@ function msieversion() {
    else                 // If another browser, return 0
       return 0
 }
+
+//upload ie et iframe
+function upload(id) {
+var fileName = $('#'+id).val().split('\\').pop();
+
+	$('#'+id).closest('.select-file-section').addClass('hidden');
+	$('#'+id).parents('.upload-form').find('.finish-upload').removeClass('hidden');
+	$('#'+id).parents('.upload-iframe-height').find('.document-upload-progress').removeClass('hidden');
+	$('#'+id).parents('.upload-iframe-height').find('.document-upload-progress span').html(fileName);
+	$('#'+id).parents('.upload-form').next('.upload-error').addClass('hidden');
+}
