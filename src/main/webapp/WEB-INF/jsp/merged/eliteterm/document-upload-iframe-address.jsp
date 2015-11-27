@@ -36,7 +36,7 @@ var languageP = "${language}";
 								<div class="col-xs-12 col-md-4 upload-iframe-height">
 									<h4>Proof of address</h4><button class="info addr orange-tooltip" type="button" data-toggle="tooltip" data-placement="right" title="Lorem Ipsum"></button>
 									<h5>Your current residential address</h5>
-									<form id="address-upload-form" class="upload-form select-iframe" action="http://52.74.209.219/sample-upload/upload.php" method="post" enctype="multipart/form-data">
+									<form id="address-upload-form" class="upload-form select-iframe" action="${pageContext.request.contextPath}/ajax/eliteTerm/getEliteTermImage" method="post" enctype="multipart/form-data">
 										<div class="finish-upload hidden" id="finish-upload-addr">
 											<div class="center-align">
 												<span class="finish-upload-check"></span>
