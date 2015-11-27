@@ -233,7 +233,8 @@ $(function() {
 		$('input[name="savieBeneficiaryBean\\[0\\]\\.gender"]#male-0').prop('checked', true);
 		$('#savieBeneficiaryBean\\[0\\]\\.relationship').val('');
 		$('#savieBeneficiaryBean\\[0\\]\\.entitlement').val(100);
-		$('#beneficiaryInfoForm\\[0\\]').find('.error-msg .help-block').css('display', 'none');
+		/*$('#beneficiaryInfoForm\\[0\\]').find('.error-msg .help-block').css('display', 'none');*/
+		$('#beneficiaryInfoForm\\[0\\]').find('.error-msg .help-block').addClass('hide-element');
 
 		if ($('#beneficiaryInfoForm\\[1\\]').length) {
 			$('#savieBeneficiaryBean\\[1\\]\\.firstName').val('');
@@ -245,7 +246,7 @@ $(function() {
 			$('input[name="savieBeneficiaryBean\\[1\\]\\.gender"]#male-1').prop('checked', true);
 			$('#savieBeneficiaryBean\\[1\\]\\.relationship').val('');
 			$('#savieBeneficiaryBean\\[1\\]\\.entitlement').val('');
-			$('#beneficiaryInfoForm\\[1\\]').find('.error-msg .help-block').css('display', 'none');
+			$('#beneficiaryInfoForm\\[1\\]').find('.error-msg .help-block').addClass('hide-element');
 		}
 
 		if ($('#beneficiaryInfoForm\\[2\\]').length) {
@@ -258,11 +259,12 @@ $(function() {
 			$('input[name="savieBeneficiaryBean\\[2\\]\\.gender"]#male-2').prop('checked', true);
 			$('#savieBeneficiaryBean\\[2\\]\\.relationship').val('');
 			$('#savieBeneficiaryBean\\[2\\]\\.entitlement').val('');
-			$('#beneficiaryInfoForm\\[2\\]').find('.error-msg .help-block').css('display', 'none');
+			$('#beneficiaryInfoForm\\[2\\]').find('.error-msg .help-block').addClass('hide-element');
 		}
 	});
 
 	$("#name-others-now").click(function() {
+		
 		if($('#beneficiary-contents').hasClass('hidden')){
 			$('#beneficiary-contents').removeClass('hidden');
 		}
@@ -274,7 +276,16 @@ $(function() {
 		if($('#add-beneficiary-2').hasClass('hidden')){
 			$('#add-beneficiary-2').removeClass('hidden');
 		}
-
+		
+		$("#et-beneficiary-info-next").click(function() {
+			$('#beneficiaryInfoForm\\[0\\]').find('.error-msg .help-block').removeClass('hide-element');
+			if ($('#beneficiaryInfoForm\\[1\\]').length) {
+				$('#beneficiaryInfoForm\\[1\\]').find('.error-msg .help-block').removeClass('hide-element');
+			}
+			if ($('#beneficiaryInfoForm\\[2\\]').length) {
+				$('#beneficiaryInfoForm\\[2\\]').find('.error-msg .help-block').removeClass('hide-element');
+			}
+		});
 	});
 
 
@@ -670,6 +681,9 @@ $(function() {
 					$(this).css('color', '#ccc');
 				}
 			});
+
+			// Initialize placeholder
+			$('#beneficiaryInfoForm\\[1\\] input').placeholder();
 		});
 		$("#add-beneficiary-button-3").click(function(){
 			$("#add-beneficiary-2 .add-beneficiary" ).addClass("hidden");
@@ -711,6 +725,9 @@ $(function() {
 						$(this).css('color', '#ccc');
 					}
 				});
+
+				// Initialize placeholder
+				$('#beneficiaryInfoForm\\[2\\] input').placeholder();
 		});
 	}
 
@@ -1505,7 +1522,7 @@ function addFormBeneficiary (counter) {
 
 		+ '<div class="form-group beneficiary-info-row entitle">'
 		+ '<label for="savieBeneficiaryBean['+counter+'].entitlement">' + fm_label_entitlement + '</label>'
-		+ '<input type="number" id="savieBeneficiaryBean['+counter+'].entitlement" name="savieBeneficiaryBean['+counter+'].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="">'
+		+ '<input type="tel" id="savieBeneficiaryBean['+counter+'].entitlement" name="savieBeneficiaryBean['+counter+'].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="">'
 		+ '<span class="error-msg" id="entitlementMessage['+counter+']"></span>'
 		+ '<div class="clearfix hidden-md hidden-lg"><div class="pull-left"><button type="button" class="remove-bnfry-btn" id="remove-beneficiary['+counter+']"><i class="fa fa-minus-circle"></i>' + fm_action_remove + '</button></div></div>'
 		+ '</div>'

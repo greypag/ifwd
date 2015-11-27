@@ -551,7 +551,9 @@
                                         <td><c:if test="${i.planCode == 'ET'}"><fmt:message key="plan.elite.term" bundle="${msg}" /></c:if></td>
                                         <td>${i.policyNumber}</td>
                                         <td>
-	                                        <c:if test="${i.documentUploaded == 'true'}">${i.submissionDate}<br/><fmt:message key="user.policy.status.uploaded" bundle="${msg}" /></c:if>
+	                                        <c:if test="${i.documentUploaded == 'true' && i.status == 'IN_FORCE'}">${i.submissionDate}</c:if>
+	                                        <c:if test="${i.documentUploaded == 'true' && i.status == 'PENDING'}">${i.submissionDate}<br/><fmt:message key="user.policy.status.uploaded" bundle="${msg}" /></c:if>
+	                                        <c:if test="${i.documentUploaded == 'true' && i.status != 'IN_FORCE' && i.status != 'PENDING'}">${i.status}</c:if>
 	                                        <c:if test="${i.documentUploaded == 'false'}"><fmt:message key="user.policy.status.incomplete" bundle="${msg}" /><br/><a id="eservices-document-upload-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload?policyNumber=${i.policyNumberBase64 }"><fmt:message key="user.policy.status.pending_upload" bundle="${msg}" /></a></c:if>
                                         </td>
                                         <td class="currency-label-align"><fmt:message key="currency.hkd" bundle="${msg}" />

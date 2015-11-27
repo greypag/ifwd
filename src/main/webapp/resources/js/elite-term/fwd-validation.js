@@ -62,6 +62,12 @@ $(function() {
 	});
 	
 	$("#savieApplicantBean\\.addressIsSame").change(function() {
+		
+		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.correspondenceAdress1', 'NOT_VALIDATE');
+		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.correspondenceAdress2', 'NOT_VALIDATE');
+		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.correspondenceAdress3', 'NOT_VALIDATE');
+	
+
 		if(this.checked) {
 			//console.log('Check');
 			if($('#correspondence-address').hasClass('hidden')){
@@ -87,12 +93,17 @@ $(function() {
 	});
 	
     $("#savieApplicantBean\\.isResidential").change(function() {
+
+    	$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.residentialAdress1', 'NOT_VALIDATE');
+		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.residentialAdress2', 'NOT_VALIDATE');
+		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.residentialAdress3', 'NOT_VALIDATE');
+	
 		if(this.checked) {
 			//console.log('Check');
 			if($('#residential-address').hasClass('hidden')){
 				$('#residential-address').removeClass('hidden');
 			}
-	
+
 			$('#personal-info-next').addClass('residential');
 		}
 		else{
@@ -320,6 +331,8 @@ $(function() {
 	
 	//Beneficiary Info Form [0]
 	//by: RMN
+	
+	// start of validation
 	var counter = 0;
 				
 	$('#beneficiaryInfoForm\\[0\\]').bootstrapValidator({
@@ -450,17 +463,26 @@ $(function() {
 					callback: {
 						message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
 						callback: function (value, validator, $field) {
-							if(totalBeneficiaryEntitlement() == "Exceed"){
-								return false;
-							}else{
-								return true;
-							}
+							if(value==''){
+                        		// display the range error message if it is empty
+                        		$('#beneficiaryInfoForm\\[0\\]')
+                        			.data('bootstrapValidator')
+                        			.updateStatus('savieBeneficiaryBean[0].entitlement', 'INVALID', 'between');
+                        		return true;
+                        	} else {
+                        		if (totalBeneficiaryEntitlement() == "Exceed"){
+	                          		return false;
+	                        	} else {
+	                           		return true;
+	                        	}
+                        	}
 						}
 					}
 				}
 			}
 		}
 	});
+	// end of validation
 	
 	$( "#savieBeneficiaryBean\\[0\\]\\.entitlement" ).on('change', function() {
 		if(totalBeneficiaryEntitlement()!="Exceed") {
@@ -548,19 +570,19 @@ $(function() {
 	                  regexp: {
 	                     regexp: /^[\s\u4e00-\u9eff]*$/,
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
-	                  },
+	                  }/*,
 	                  callback: {
 	                        callback: function(value, validator) {
 	                        	if(document.getElementById('savieBeneficiaryBean[1].chineseName').getAttribute('placeholder')==value && msieversion()>0) {
 			                		  $('#beneficiaryInfoForm\\[1\\]')
 		                                .data('bootstrapValidator')
 		                                .updateStatus('savieBeneficiaryBean[1].chineseName','VALID');
-			                	  }
-			                	  return true;
-	                            }
-	                     }
+			                	}
+			                	 
+			                	return true;
+							}
+						}*/
 	                  }
-	               }
 	            },
 	            'savieBeneficiaryBean[1].passportNo':{
 	               container: '#bnfPassportMessage\\[1\\]',
@@ -619,16 +641,24 @@ $(function() {
 	                  callback: {
 	                     message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
 	                     callback: function (value, validator, $field) {
-	                        if(totalBeneficiaryEntitlement() == "Exceed"){
-	                           return false;
-	                        }else{
-	                           return true;
-	                        }
+	                        if(value==''){
+                        		// display the range error message if it is empty
+                        		$('#beneficiaryInfoForm\\[1\\]')
+                        			.data('bootstrapValidator')
+                        			.updateStatus('savieBeneficiaryBean[1].entitlement', 'INVALID', 'between');
+                        		return true;
+                        	} else {
+                        		if (totalBeneficiaryEntitlement() == "Exceed"){
+	                          		return false;
+	                        	} else {
+	                           		return true;
+	                        	}
+                        	}
 	                     }
 	                  }
 	               }
 	            }
-	         
+	        }
 	      });
 		 
 		 //input hkid
@@ -644,16 +674,16 @@ $(function() {
 			});
 		 $('#savieBeneficiaryBean\\[1\\]\\.hkId').css('text-transform','uppercase');
 		 
-		 $( "#savieBeneficiaryBean\\[1\\]\\.entitlement" ).on('change', function() {
+		$( "#savieBeneficiaryBean\\[1\\]\\.entitlement" ).on('change', function() {
 			if(totalBeneficiaryEntitlement()!="Exceed") {
 				 $('#beneficiaryInfoForm\\[0\\]')
 	             .data('bootstrapValidator')
-	             .updateStatus('savieBeneficiaryBean[0].entitlement', 'VALID');
+	             .updateStatus('savieBeneficiaryBean[0].entitlement', 'VALID', 'callback');
 				 
 				 if($('#savieBeneficiaryBean\\[2\\]\\.entitlement').length > 0){
 					 $('#beneficiaryInfoForm\\[2\\]')
 		             .data('bootstrapValidator')
-		             .updateStatus('savieBeneficiaryBean[2].entitlement', 'VALID');
+		             .updateStatus('savieBeneficiaryBean[2].entitlement', 'VALID', 'callback');
 				 }
 			} else {
 				$('#beneficiaryInfoForm\\[0\\]')
@@ -729,7 +759,7 @@ $(function() {
                   regexp: {
                      regexp: /^[\s\u4e00-\u9eff]*$/,
                      message: getBundle(getBundleLanguage, "form.beneficiary.chineseName.invalid")
-                  },
+                  }/*,
                   callback: {
                       callback: function(value, validator) {
                     	  if(document.getElementById('savieBeneficiaryBean[2].chineseName').getAttribute('placeholder')==value && msieversion()>0) {
@@ -739,7 +769,7 @@ $(function() {
 	                	  }
 	                	  return true;
                           }
-                   }
+                   }*/
                }
 				},
 				'savieBeneficiaryBean[2].passportNo':{
@@ -799,10 +829,18 @@ $(function() {
                   		callback: {
                      		message: getBundle(getBundleLanguage, "form.beneficiary.entitlement.total"),
                      		callback: function (value, validator, $field) {
-                        	if(totalBeneficiaryEntitlement() == "Exceed"){
-                          		return false;
-                        	}else{
-                           		return true;
+                        	if(value==''){
+                        		// display the range error message if it is empty
+                        		$('#beneficiaryInfoForm\\[2\\]')
+                        			.data('bootstrapValidator')
+                        			.updateStatus('savieBeneficiaryBean[2].entitlement', 'INVALID', 'between');
+                        		return true;
+                        	} else {
+                        		if (totalBeneficiaryEntitlement() == "Exceed"){
+	                          		return false;
+	                        	} else {
+	                           		return true;
+	                        	}
                         	}
                      	}
                   	}
@@ -828,22 +866,22 @@ $(function() {
 				if(totalBeneficiaryEntitlement()!="Exceed") {
 					 $('#beneficiaryInfoForm\\[0\\]')
 		             .data('bootstrapValidator')
-		             .updateStatus('savieBeneficiaryBean[0].entitlement', 'VALID');
+		             .updateStatus('savieBeneficiaryBean[0].entitlement', 'VALID', 'callback');
 					 
 					 if($('#savieBeneficiaryBean\\[1\\]\\.entitlement').length > 0){
 						 $('#beneficiaryInfoForm\\[1\\]')
 			             .data('bootstrapValidator')
-			             .updateStatus('savieBeneficiaryBean[1].entitlement', 'VALID');
+			             .updateStatus('savieBeneficiaryBean[1].entitlement', 'VALID', 'callback');
 					 }
 				} else {
 					$('#beneficiaryInfoForm\\[0\\]')
 		             .data('bootstrapValidator')
-		             .updateStatus('savieBeneficiaryBean[0].entitlement', 'INVALID','callback');
+		             .updateStatus('savieBeneficiaryBean[0].entitlement', 'INVALID', 'callback');
 					
 					 if($('#savieBeneficiaryBean\\[1\\]\\.entitlement').length > 0){
 						 $('#beneficiaryInfoForm\\[1\\]')
 			             .data('bootstrapValidator')
-			             .updateStatus('savieBeneficiaryBean[1].entitlement', 'INVALID','callback');
+			             .updateStatus('savieBeneficiaryBean[1].entitlement', 'INVALID', 'callback');
 					 }
 				}
 			});

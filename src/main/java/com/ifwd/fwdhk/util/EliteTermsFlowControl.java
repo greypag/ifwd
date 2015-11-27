@@ -111,6 +111,15 @@ public class EliteTermsFlowControl {
 		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_CONFIRMATION)) {
 			return UserRestURIConstants.PAGE_ELITE_TERMS_CONFIRMATION;
 		}		
+		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_DOCUMENT_UPLOAD_HKID)) {
+			return UserRestURIConstants.PAGE_ELITE_TERMS_DOCUMENT_UPLOAD_HKID;
+		}	
+		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_DOCUMENT_UPLOAD_PASSPORT)) {
+			return UserRestURIConstants.PAGE_ELITE_TERMS_DOCUMENT_UPLOAD_PASSPORT;
+		}	
+		if(url.endsWith(UserRestURIConstants.URL_ELITE_TERMS_DOCUMENT_UPLOAD_ADDR_PROOF)) {
+			return UserRestURIConstants.PAGE_ELITE_TERMS_DOCUMENT_UPLOAD_ADDR_PROOF;
+		}	
 		return "";
 	}
 }

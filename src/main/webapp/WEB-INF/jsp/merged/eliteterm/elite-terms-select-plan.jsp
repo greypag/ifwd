@@ -215,7 +215,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        </span>
                                     </h3> 
                                  </div>
-                                 <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range">${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'800000' }</span></p>
+                                 <p class="et-hkd"><fmt:message key="eliteTerms.selectPlan.HKD" bundle="${msg}" /> <span class="et-hkd-dollars" id="et-slider-range">${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'1000000' }</span></p>
                                  <div class="clearfix et-slider-info-div">
                                     <div class="pull-left">
                                        <p class="et-slider-info center"><fmt:message key="eliteTerms.selectPlan.Min" bundle="${msg}" /></p>
@@ -226,7 +226,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <p id="et-ins-amt-max-display" class="et-slider-info"><fmt:message key="eliteTerms.selectPlan.Max.val" bundle="${msg}" /></p>
                                     </div>
                                  </div>
-                                 <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-value="${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'800000' }" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
+                                 <input type="text" class="span2" name="amount" value="" data-slider-min="400000" data-slider-max="2000000" data-slider-step="10000" data-slider-value="${(etPolicyApplication.amount != null && etPolicyApplication.amount != '') ? etPolicyApplication.amount:'1000000' }" data-slider-ticks-snap-bounds="10000" data-slider-id="ET" id="R2" data-slider-tooltip="hide" data-slider-handle="square" />
                                  <div class="et-broken-line et-padding hidden-md hidden-lg"></div>
                               </div>
                               <div class="col-xs-12 col-md-5">
@@ -269,8 +269,8 @@ var home_url = "<%=request.getContextPath()%>";
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /> <span id="et-month-dis-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.permonth" bundle="${msg}" /></p>
-                                 <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.perday1" bundle="${msg}" /> <span id="et-day-dis-amount"><fmt:formatNumber value="${eliteTermPremium.dailyDuePremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.perday2" bundle="${msg}" /></p>
+                                 <p class="et-amount"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /> <span id="et-month-dis-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyDuePremium }" maxFractionDigits="2"  pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.permonth" bundle="${msg}" /></p>
+                                 <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.perday1" bundle="${msg}" /> <span id="et-day-dis-amount"><fmt:formatNumber value="${eliteTermPremium.dailyDuePremium }" maxFractionDigits="2" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.perday2" bundle="${msg}" /></p>
                               </div>
                               
                            </div>
@@ -282,8 +282,8 @@ var home_url = "<%=request.getContextPath()%>";
                            </div>
                            <div class="et-extra-info bottom">
                               <div class="et-center-div">
-                                 <p class="et-amount"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /> <span id="et-month-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.permonth" bundle="${msg}" /></p>
-                                 <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.perday1" bundle="${msg}" /> <span id="et-day-amount"><fmt:formatNumber value="${eliteTermPremium.dailyPremium }" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.perday2" bundle="${msg}" /></p>
+                                 <p class="et-amount"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /> <span id="et-month-amount"><fmt:formatNumber value="${eliteTermPremium.monthlyPremium }" maxFractionDigits="2" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.permonth" bundle="${msg}" /></p>
+                                 <p class="et-per et-month"><fmt:message key="eliteTerms.selectPlan.perday1" bundle="${msg}" /> <span id="et-day-amount"><fmt:formatNumber value="${eliteTermPremium.dailyPremium }" maxFractionDigits="2" pattern="#.00"/></span> <fmt:message key="eliteTerms.selectPlan.perday2" bundle="${msg}" /></p>
                               </div>
                               
                            </div>
@@ -533,7 +533,7 @@ var home_url = "<%=request.getContextPath()%>";
                   <div class="page-divider"></div>
                   
                   <!--Personal Info Widget-->
-                  <div class="container-fluid fwd-container">
+                  <div class="container-fluid fwd-container et-personal-info">
                      <div id="personal-info" class="personal-info-widget page-application et-application-page">
                         <h2><fmt:message key="eliteTerms.selectPlan.person.info" bundle="${msg}" />
                            <!-- <button type="button" class="tooltip-button btn-app-info-tooltip"  data-container="body" data-toggle="tooltip" data-placement="top" title="Applicant and the insured must be the same person" data-template= 	'<div class="tooltip et-app-info-tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="info-tooltip"></span></button> -->
@@ -574,7 +574,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     	<div class="clearfix">
 	                                       <input type="text" class="form-control gray-textbox pull-left et-80-width" name="dob" id="sales-illu-dob" placeholder="<fmt:message key="eliteTerms.selectPlan.Date.of.birth.placeholder" bundle="${msg}" />" onfocusin="fnSetStyle()" readonly value="${etPolicyApplication.applicant.dobD }"  />
 	                                       <div class="et-app-edit-wrapper">
-	                                          <a href="#" title="Edit Date of birth" class="et-app-sum-edit et-app-edit" data-target="#et-about-yoursel-section">
+	                                          <a href="#" title="Edit Date of birth" class="et-app-sum-edit et-app-edit" id="edit-birthday" data-target="#et-about-yoursel-section">
 	                                             <span class="text-center">
 	                                                <fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" />
 	                                             </span>
@@ -594,7 +594,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <input type="hidden" name="savieApplicantBeanGender" id="savieApplicantBeanGender" value="${etPolicyApplication.applicant.gender }"  />
                                        <input type="text" class="form-control gray-textbox pull-left et-80-width" name="savieApplicantBean.gender" id="savieApplicantBean.gender" placeholder="<fmt:message key="eliteTerms.selectPlan.Gender" bundle="${msg}" />" readonly value="${etPolicyApplication.applicant.gender == 'M' ? 'Male':'Female' }"  />
                                         <div class="et-app-edit-wrapper">
-                                          <a href="#" title="Edit Gender" class="et-app-sum-edit et-app-edit" data-target="#et-about-yoursel-section">
+                                          <a href="#" title="Edit Gender" class="et-app-sum-edit et-app-edit" id="edit-gender"data-target="#et-about-yoursel-section">
                                              <span class="text-center">
                                                 <fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" />
                                              </span>
@@ -714,7 +714,7 @@ var home_url = "<%=request.getContextPath()%>";
                                        <label for="savieApplicantBean.emailAddress" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box">
-                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.emailAddress" name="savieApplicantBean.emailAddress" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" />" value="${userDetails.emailAddress }">
+                                       <input class="form-control gray-textbox" autocomplete="off" id="savieApplicantBean.emailAddress" name="savieApplicantBean.emailAddress" type="text" placeholder="<fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" />" value="${userDetails.emailAddress }" readonly>
                                        <span class="error-msg" id="emailMessage"></span>
                                     </div>
                                  </div>
@@ -1520,7 +1520,7 @@ var home_url = "<%=request.getContextPath()%>";
                                     </div>
                                     <div class="form-group has-error beneficiary-info-row entitle">
                                        <label for="savieBeneficiaryBean[0].entitlement"><fmt:message key="eliteTerms.selectPlan.Entitlement" bundle="${msg}" /></label>
-                                       <input type="number" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBean[0].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="100"/>
+                                       <input type="tel" id="savieBeneficiaryBean[0].entitlement" name="savieBeneficiaryBean[0].entitlement" class="form-control gray-textbox percentage" placeholder="--" value="100"/>
                                        <span class="error-msg" id="entitlementMessage[0]"></span>
                                     </div>		                
                                  </div>
@@ -1839,7 +1839,7 @@ var home_url = "<%=request.getContextPath()%>";
 
                            <!-- PLAN DETAIL -->
                               <div class="summary-body-item">
-                                 <h3 class="plan-detail"><fmt:message key="eliteTerms.selectPlan.Plan.detail" bundle="${msg}" /> <a href="#" title="Edit" class="et-app-sum-edit" data-target="#et-plan-option-section"><fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a></h3>
+                                 <h3 class="plan-detail"><fmt:message key="eliteTerms.selectPlan.Plan.detail" bundle="${msg}" /> <a href="#" title="Edit" class="et-app-sum-edit" data-target="#et-about-yoursel-section"><fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a></h3>
                                  <div class="clearfix plan-detail-holder">
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Selected.plan" bundle="${msg}" /></h4>
                                     <p class="info" id="etaspd-selected-plan"><fmt:message key="eliteTerms.selectPlan.Elite.term" bundle="${msg}" /></p>
@@ -1854,8 +1854,8 @@ var home_url = "<%=request.getContextPath()%>";
                                  </div>
                                  <div class="clearfix plan-detail-holder monthly-premium">
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Monthly.premium" bundle="${msg}" /></h4>
-                                    <p class="info" id="etaspd-monthly-premium" class="hidden"> <span class="hkd">HK$</span> <span class="value"><fmt:formatNumber value="${ eliteTermPremium.monthlyDuePremium }" maxFractionDigits="2"/></span> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.1styear" bundle="${msg}" /></span></p>
-                                    <p class="info" id="etaspd-monthly-premium-extra-years"><span class="hkd">HK$</span> <span class="value"><fmt:formatNumber value="${ eliteTermPremium.monthlyPremium }" maxFractionDigits="2"/></span> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.2ndto20thyear" bundle="${msg}" /></span></p>
+                                    <p class="info" id="etaspd-monthly-premium" class="hidden"> <span class="hkd">HK$</span> <span class="value"><fmt:formatNumber value="${ eliteTermPremium.monthlyDuePremium }" maxFractionDigits="2" pattern="#.00"/></span> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.1styear" bundle="${msg}" /></span></p>
+                                    <p class="info" id="etaspd-monthly-premium-extra-years"><span class="hkd">HK$</span> <span class="value"><fmt:formatNumber value="${ eliteTermPremium.monthlyPremium }" maxFractionDigits="2" pattern="#.00"/></span> <span class="extra-years-remarks"><fmt:message key="eliteTerms.selectPlan.Monthly.premium.2ndto20thyear" bundle="${msg}" /></span></p>
                                  </div>
                               </div>
                            <!-- PLAN DETAIL END-->
@@ -2254,7 +2254,7 @@ var home_url = "<%=request.getContextPath()%>";
                         
                         <div class="et-clear-signature">
                             <a href="#" id="et-clear-signature" title="Clear signature" class=""><fmt:message key="eliteTerms.selectPlan.Clear" bundle="${msg}" /></a>
-                            <span class="pull-right"><fmt:message key="eliteTerms.selectPlan.hk.Signature" bundle="${msg}" /></span>
+                            <span class="pull-right" style="font-size: 14px;"><fmt:message key="eliteTerms.selectPlan.hk.Signature" bundle="${msg}" /></span>
                         </div>
                         
                         <div class="correct-signature hide-element">
@@ -2549,7 +2549,7 @@ var home_url = "<%=request.getContextPath()%>";
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.jscrollpane.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-validation.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/elite-term/placeholders.min.js"></script>
+		
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/date.format.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/jquery.timepicker.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
@@ -2586,7 +2586,8 @@ var home_url = "<%=request.getContextPath()%>";
   			    .updateStatus('dob','VALID');
   			}
   			
-  			setTimeout(function(){
+  			/*
+         setTimeout(function(){
 	  			if($('#savieApplicantBean\\.permanentAddress1').val()!='' || $('#savieApplicantBean\\.permanentAddress1').val()!=$('#savieApplicantBean\\.permanentAddress1').attr('placeholder')) {
 	  				$('#eliteTermsInsuredInfoForm')
 	  			    .data('bootstrapValidator')
@@ -2605,6 +2606,7 @@ var home_url = "<%=request.getContextPath()%>";
 	  			    .updateStatus('savieApplicantBean.correspondenceAdress1','VALID');
 	            }
     		}, 300);
+         */
   		});
   		
   		$('.et-app-sum-edit').on('click', function(e) {
@@ -2681,27 +2683,6 @@ var home_url = "<%=request.getContextPath()%>";
          } else if ($('#et-gender-female').prop('checked')) {
             planDetailData.gender = 'Female';
          }
-
-         // Set default value and maximum value of insured amount
-         var age = getAge(parseInt($('#et-select-plan-date-input').val().substring(6,10)),
-                 parseInt($('#et-select-plan-date-input').val().substring(3,5)),
-                 parseInt($('#et-select-plan-date-input').val().substring(0,2)));
-         if (age < 50) {
-             $('#et-ins-amt-max-display').text('2,000,000');
-             $('#et-slider-range').html('1,000,000');
-             $('#R2').slider({max:2000000});
-             $('#R2').slider('setValue', 1000000);
-         } else if (age < 55) {
-             $('#et-ins-amt-max-display').text('1,500,000');
-             $('#et-slider-range').html('1,000,000');
-             $('#R2').slider({max:1500000});
-             $('#R2').slider('setValue', 1000000);
-         } else {
-             $('#et-ins-amt-max-display').text('500,000');
-             $('#et-slider-range').html('500,000');
-             $('#R2').slider({max:500000});
-             $('#R2').slider('setValue', 500000);
-         }         
          
          planDetailData.dob = $planDate.val();
       });
@@ -2754,7 +2735,39 @@ var home_url = "<%=request.getContextPath()%>";
         /* Reset calculated amount when on input value change */
         $('input[name=et-gender]').on('change', resetCalculatedAmt);
         $('input[name=et-smoker]').on('change', resetCalculatedAmt);
-        $('#et-select-plan-date-input').on('change', resetCalculatedAmt);
+        $('#et-select-plan-date-input').on('change', function(){
+            resetCalculatedAmt();
+
+            // Set default value and maximum value of insured amount
+            var age = getAge(parseInt($('#et-select-plan-date-input').val().substring(6,10)),
+                    parseInt($('#et-select-plan-date-input').val().substring(3,5)),
+                    parseInt($('#et-select-plan-date-input').val().substring(0,2)));
+            var curr_insured_amt = parseInt($('#R2').val());
+
+            if(age < 50){
+               $('#et-ins-amt-max-display').text('2,000,000');
+               $('#R2').slider({max:2000000});
+               $('#R2').slider('setValue', curr_insured_amt);
+            } else if(age < 55){
+               $('#et-ins-amt-max-display').text('1,500,000');
+               $('#R2').slider({max:1500000});
+               if(curr_insured_amt > 1500000){
+                  $('#et-slider-range').html('1,000,000');
+                  $('#R2').slider('setValue', 1000000);
+               } else{
+                  $('#R2').slider('setValue', curr_insured_amt);
+               }
+            } else{
+               $('#et-ins-amt-max-display').text('500,000');
+               $('#R2').slider({max:500000});
+               if(curr_insured_amt > 500000){
+                  $('#et-slider-range').html('500,000');
+                  $('#R2').slider('setValue', 500000);
+               } else{
+                  $('#R2').slider('setValue', curr_insured_amt);
+               }
+            } 
+         });
         $('#R2').on('change', resetCalculatedAmt);
 
 
@@ -2840,6 +2853,25 @@ var home_url = "<%=request.getContextPath()%>";
 			      });
 				});
 		      
+		      
+		      $('#edit-birthday').on('click', function(e) {
+		    	  var $etPersonInfo = $('.et-personal-info');
+		    	  $etPersonInfo.addClass('hide-element');
+		      });
+		      
+		      
+		      $('#edit-gender').on('click', function(e) {
+		    	  var $etPersonInfo = $('.et-personal-info');
+		    	  $etPersonInfo.addClass('hide-element');
+		      });
+		      
+		      $('#et-brn-proceed-to-application').on('click', function(e) {
+		    	  var $etPersonInfo = $('.et-personal-info');
+		    	  $etPersonInfo.removeClass('hide-element');
+		      });
+		      
+		     
+		      
             //cannot apply modal 
            /*  $(document).on('change', '#et-cust-serv-form #email', function(e) {
                if(!$('#et-cust-serv-form #cannotApplyEmailMessage').find('small').is(':visible')) {
@@ -2852,6 +2884,8 @@ var home_url = "<%=request.getContextPath()%>";
                      .updateStatus('tel', 'INVALID','callback');
                }
             }); */
+
+            /*
             //addresses fix
             $(document).on('change', '#eliteTermsInsuredInfoForm .permanent-address.optional-field', function(e) {
             	setTimeout(function(){
@@ -2897,10 +2931,11 @@ var home_url = "<%=request.getContextPath()%>";
 	            	}
             	}, 100);
             });
-
+            */
             //ie fixes
+            /*
             if(msieversion() > 0) {
-            	$(document).on('change', '#et-cust-serv-form #email', function(e) {
+               $(document).on('change', '#et-cust-serv-form #email', function(e) {
            			setTimeout(function(){
 	            		if($(this).parent().find('small.help-block:visible').length <= 0 && $('#et-cust-serv-form #tel').attr('placeholder')==$('#et-cust-serv-form #tel').val()) {
 	            			$('#et-cust-serv-form')
@@ -2951,7 +2986,7 @@ var home_url = "<%=request.getContextPath()%>";
             	});
     	  			
             }
-
+            */
             // ^ bootstrap validation
             $('#et-cust-serv-form').bootstrapValidator({
                excluded:[],
@@ -2991,19 +3026,11 @@ var home_url = "<%=request.getContextPath()%>";
                                        message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
                                    }
                               }
-                               if($('#et-cust-serv-form #email').attr('placeholder')==value && $('#et-cust-serv-form #tel').attr('placeholder')==$('#et-cust-serv-form #tel').val() && msieversion() > 0) {
-                            	   return {
-                                       valid: false,
-                                       message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
-                                   }
-                               }
-                               if($('#et-cust-serv-form #tel').parent().find('small.help-block:visible').length <= 0 && $('#et-cust-serv-form #email').attr('placeholder')==value) {
-      	            				$('#et-cust-serv-form')
-                                  .data('bootstrapValidator')
-                                  .updateStatus('email','VALID');
-      	            			}	
+
                               // Remove Tel Error message as well
-                              $('#cannotApplyTelMessage').find('.help-block[data-bv-validator="callback"][data-bv-for="tel"]').html('');
+                              $('#et-cust-serv-form')
+                                  .data('bootstrapValidator')
+                                  .updateStatus('tel','VALID');
                               return true;
                            }
                         }
@@ -3031,19 +3058,12 @@ var home_url = "<%=request.getContextPath()%>";
                                        message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
                                    }                          
                                }
-                               if($('#et-cust-serv-form #tel').attr('placeholder')==value && $('#et-cust-serv-form #email').attr('placeholder')==$('#et-cust-serv-form #email').val() && msieversion() > 0) {
-                            	   return {
-                                       valid: false,
-                                       message: '<fmt:message key="eliteTerms.selectPlan.email.mobile" bundle="${msg}" />'
-                                   }
-                               }
-                               if($('#et-cust-serv-form #email').parent().find('small.help-block:visible').length <= 0 && $('#et-cust-serv-form #tel').attr('placeholder')==value) {
-       	            				$('#et-cust-serv-form')
-                                   .data('bootstrapValidator')
-                                   .updateStatus('tel','VALID');
-       	            			}	
+                               
                               // Remove Email Error message as well
-                              $('#cannotApplyEmailMessage').find('.help-block[data-bv-validator="callback"][data-bv-for="email"]').html('');
+                              $('#et-cust-serv-form')
+                                   .data('bootstrapValidator')
+                                   .updateStatus('email','VALID');
+                              
                               return true;
                            }
                         }
@@ -3072,7 +3092,7 @@ var home_url = "<%=request.getContextPath()%>";
           
                    $('.modal').modal('hide');
                    
-                    var name = $('#name').val();
+                     var name = $('#name').val();
 	               	var email = $('#email').val();
 	               	var mobile = $('#tel').val();
 	               	var preferredDay = $('#day').val();
@@ -3215,7 +3235,7 @@ var home_url = "<%=request.getContextPath()%>";
             
             function getOccupation(value,language) {
             	var code = value.replace(/[^0-9]/ig,"");
-            	console.log(code);
+
             	if(code==''){
             		$("#savieEmploymentBean\\.occupation").empty();
             		$("#occupation option").each(function () {

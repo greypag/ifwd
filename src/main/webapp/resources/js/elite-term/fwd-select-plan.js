@@ -431,20 +431,18 @@
          var $self = $(this);
          
          // Store plan detail data
-         var sliderVal = $('#et-slider-range').text();
-         var monthlyPrem = $('#et-month-dis-amount').text();
-         var monthlyPremExtra = $('#et-month-amount').text();
-         
-         console.log(monthlyPrem+' -- '+monthlyPremExtra);
+         //////var sliderVal = $('#et-slider-range').text();
+         //////var monthlyPrem = $('#et-month-dis-amount').text();
+         //////var monthlyPremExtra = $('#et-month-amount').text();
          
          //clear htmls 1st
-         $('#etaspd-insured-amount').html('');
-         $('#etaspd-monthly-premium .hkd').html('');
-         $('#etaspd-monthly-premium-extra-years .hkd').html('');
+         ////$('#etaspd-insured-amount').html('');
+         ////$('#etaspd-monthly-premium .hkd').html('');
+         ////$('#etaspd-monthly-premium-extra-years .hkd').html('');
          
-         $('#etaspd-insured-amount').html('HK$ '+ sliderVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-         $('#etaspd-monthly-premium .value').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-         $('#etaspd-monthly-premium-extra-years .value').html('HK$ '+ monthlyPremExtra.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+         //$('#etaspd-insured-amount').html('HK$ '+ sliderVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+         //$('#etaspd-monthly-premium .value').html('HK$ '+ monthlyPrem.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+         //$('#etaspd-monthly-premium-extra-years .value').html('HK$ '+ monthlyPremExtra.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
          
          populateAppSummPD();
 
@@ -542,22 +540,37 @@
          if (isBeneficaryValid()) {
             // Store beneficiaries data
             storeBeneficiaryInfo();
-        	populateAppSummBI();
+        	  populateAppSummBI();
+
             if ($self.hasClass('back-to-summary')) {
-            	storeBeneficiaryInfo();
+               storeBeneficiaryInfo();
                populateAppSummBI();
                $('#et-application-third-section').removeClass('hide-element');
                $('body, html').animate({
             	  scrollTop: ($('#et-application-third-section').offset().top - stickyHeight) + 'px'
                }, 0);
+               
             } else {
                $target = $('#et-application-second-section');
                $target.removeClass('hide-element');
                $('body, html').animate({
                   scrollTop: ($target.offset().top - stickyHeight) + 'px'
                }, 500);
+               
             }
+            
+            $('#name-others-now').on('click', function(e) {
+            	$('#beneficiaryInfoForm\\[0\\]').data('bootstrapValidator').resetForm(true);
+        		if ($('#beneficiaryInfoForm\\[1\\]').length) {
+        			$('#beneficiaryInfoForm\\[1\\]').data('bootstrapValidator').resetForm(true);
+        		}
+        		if ($('#beneficiaryInfoForm\\[2\\]').length) {
+        			$('#beneficiaryInfoForm\\[2\\]').data('bootstrapValidator').resetForm(true);
+        		}
+             });
+            
          } else {
+        	 
             $('body, html').animate({
                   scrollTop: ($('#et-beneficiary-info-section').offset().top - stickyHeight) + 'px'
             }, 0);
@@ -565,44 +578,58 @@
       });
       
       function checkCheckBoxBySelectPay() {
-    	  var result = true;
-     	 if(!$('#pics-check').is(':checked')) {
-     		 $("#chk1").html(getBundle(getBundleLanguage, "et.PICS.notChecked"));
-     		 result = false;
-     	 }else {
-     		 $("#chk1").html("");
-     	 }
-     	 if(!$('#cancellation-check').is(':checked')) {
-     		 $("#chk2").html(getBundle(getBundleLanguage, "et.cancellation.notChecked"));
-     		 result = false;
-     	 }else {
-     		 $("#chk2").html("");
-     	 }
-     	 if(!$('#application-declaration').is(':checked')) {
-     		 $("#chk3").html(getBundle(getBundleLanguage, "et.tnc.notChecked"));
-     		 result = false;
-	     }else {
-	         $("#chk3").html("");
-	     }
-		 if(!$('#is-resident-check').is(':checked')) {
-			 $("#chk4").html(getBundle(getBundleLanguage, "et.option.notSelected"));
-		 	 result = false;
-		 }else {
-		     $("#chk4").html("");
-		 }
-		 if(!$('#no-policy-replace-check').is(':checked')) {
-			 $("#chk6").html(getBundle(getBundleLanguage, "et.option.notSelected"));
-		 	 result = false;
-		 }else {
-		     $("#chk6").html("");
-		 }
-         if(!$('#no-policy-replace-existing-check').is(':checked')) {
-        	 $("#chk7").html(getBundle(getBundleLanguage, "et.option.notSelected"));
-        	 result = false;
-         }else {
-        	 $("#chk7").html("");
-         }
-         return result;
+        var result = true;
+        if(!$('#pics-check').is(':checked')) {
+          $("#chk1").html(getBundle(getBundleLanguage, "et.PICS.notChecked"));
+          result = false;
+        }else {
+          $("#chk1").html("");
+        }
+     	 
+        if(!$('#cancellation-check').is(':checked')) {
+          $("#chk2").html(getBundle(getBundleLanguage, "et.cancellation.notChecked"));
+          result = false;
+        }else {
+          $("#chk2").html("");
+        }
+        
+        if(!$('#application-declaration').is(':checked')) {
+          $("#chk3").html(getBundle(getBundleLanguage, "et.tnc.notChecked"));
+          result = false;
+        }else {
+          $("#chk3").html("");
+        }
+
+        if($('#is-resident-check').is(':checked')) {
+          $("#chk4").html("");
+        }else if($('#non-resident-check').is(':checked')) {
+          $("#chk4").html(getBundle(getBundleLanguage, "error.handle.cs.hotline"));
+          result = false;
+        }else {
+          $("#chk4").html(getBundle(getBundleLanguage, "et.option.notSelected"));
+          result = false;
+        }
+
+        if($('#no-policy-replace-check').is(':checked')) {
+          $("#chk6").html("");
+        } else if($('#yes-policy-replace-check').is(':checked')) {
+          $("#chk6").html(getBundle(getBundleLanguage, "error.handle.cs.hotline"));
+          result = false;
+        } else {
+          $("#chk6").html(getBundle(getBundleLanguage, "et.option.notSelected"));
+          result = false;
+        }
+
+        if($('#no-policy-replace-existing-check').is(':checked')) {
+          $("#chk7").html("");
+        }else if($('#yes-policy-replace-existing-check').is(':checked')) {
+          $("#chk7").html(getBundle(getBundleLanguage, "error.handle.cs.hotline"));
+          result = false;
+        }else {
+          $("#chk7").html(getBundle(getBundleLanguage, "et.option.notSelected"));
+          result = false;
+        }
+        return result;
       }
       
       // Show Application Summary section
@@ -649,15 +676,15 @@
       	}
          
          //res address
-         if($('#etaspi-res-add').html().length <= 0 || !$('#savieApplicantBean\\.isResidential').prop('checked')) {
-        	 $('#etaspi-res-add').removeClass('hide-element');
-        	 $('#etaspi-res-add').html($('#etaspi-per-add').html());
-         }
-         //corr address
-         if($('#etaspi-corr-add').html().length <= 0 || !$('#savieApplicantBean\\.addressIsSame').prop('checked')) {
-        	 $('#etaspi-corr-add').removeClass('hide-element');
-        	 $('#etaspi-corr-add').html($('#etaspi-res-add').html());
-         }
+        // if($('#etaspi-res-add').html().length <= 0 || !$('#savieApplicantBean\\.isResidential').prop('checked')) {
+        //	 $('#etaspi-res-add').removeClass('hide-element');
+        //	 $('#etaspi-res-add').html($('#etaspi-per-add').html());
+        // }
+        // //corr address
+        // if($('#etaspi-corr-add').html().length <= 0 || !$('#savieApplicantBean\\.addressIsSame').prop('checked')) {
+        //	 $('#etaspi-corr-add').removeClass('hide-element');
+        //	 $('#etaspi-corr-add').html($('#etaspi-res-add').html());
+        // }
          $appSum.removeClass('hide-element');
          
          $('body, html').animate({
@@ -743,9 +770,18 @@
          $sigSection.removeClass('hide-element');
          
          if (!$("#signature").find('canvas').length) {
+
+            // determine signature pad height
+            var $jSignatureCan = $('.jSignature');
+            
+            var sigHeight = '350px';
+            if (getWidth() < 992) {
+              sigHeight = '260px';
+            }
+
             // Initialize signature area
             $("#signature").jSignature({
-               height: '350px', 
+               height: sigHeight, 
                width: '100%',
                'decor-color': 'transparent',
             }).on('change', function(e) {
@@ -762,13 +798,6 @@
                         .addClass('hide-element');
                }
             });
-            
-            var $jSignatureCan = $('.jSignature');
-            if (getWidth() < 992) {
-            	$jSignatureCan.css('height', '260px');
-            } else {
-            	$jSignatureCan.css('height', '350px');
-            }
             
             // Signature clear
             $(document).on('click', '#et-clear-signature', function(e) {
@@ -1003,13 +1032,13 @@
                     regexp: {
                       regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                       message: getBundle(getBundleLanguage, "form.address.invalid")
-                    },
+                    }/*,
                     callback: {
                         message: getBundle(getBundleLanguage, "form.address.empty"),
                         callback: function(value, validator) {
                            return value !== document.getElementById('savieApplicantBean.permanentAddress1').getAttribute('placeholder');
                         }
-                     }
+                     }*/
                     /*,
                     callback: {
                         callback: function(value, validator) {
@@ -1027,13 +1056,13 @@
                     regexp: {
                        regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                        message: getBundle(getBundleLanguage, "form.address.invalid")
-                    },
+                    }/*,
                     callback: {
                         callback: function(value, validator) {
                         	permanentAddress(value,'permanentAddress2','permanentAddress1', 'permanentAddress3');
                           return true;
                         }
-                    }
+                    }*/
                  }
               },
               "savieApplicantBean.permanentAddress3": {
@@ -1042,13 +1071,13 @@
                     regexp: {
                        regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                        message: getBundle(getBundleLanguage, "form.address.invalid")
-                    },
+                    }/*,
                     callback: {
                         callback: function(value, validator) {
                         	permanentAddress(value,'permanentAddress3','permanentAddress1','permanentAddress2');
                           return true;
                         }
-                    }
+                    }*/
                  }
               },
               "savieApplicantBean.residentialAdress1": {
@@ -1060,13 +1089,13 @@
                      regexp: {
                         regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                         message: getBundle(getBundleLanguage, "form.address.invalid")
-                     },
+                     }/*,
                      callback: {
                          message: getBundle(getBundleLanguage, "form.address.empty"),
                          callback: function(value, validator) {
                             return value !== document.getElementById('savieApplicantBean.residentialAdress1').getAttribute('placeholder');
                          }
-                      }
+                      }*/
                       /*,
                       callback: {
                           callback: function(value, validator) {
@@ -1084,13 +1113,13 @@
                       regexp: {
                          regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                          message: getBundle(getBundleLanguage, "form.address.invalid")
-                      },
+                      }/*,
                       callback: {
                           callback: function(value, validator) {
                           	permanentAddress(value,'residentialAdress2','residentialAdress1', 'residentialAdress3');
                             return true;
                           }
-                      }
+                      }*/
                    }
                 },
                 "savieApplicantBean.residentialAdress3": {
@@ -1099,13 +1128,13 @@
                       regexp: {
                          regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                          message: getBundle(getBundleLanguage, "form.address.invalid")
-                      },
+                      }/*,
                       callback: {
                           callback: function(value, validator) {
                           	permanentAddress(value,'residentialAdress3','residentialAdress1', 'residentialAdress2');
                             return true;
                           }
-                      }
+                      }*/
                    }
                 },
                 "savieApplicantBean.correspondenceAdress1": {
@@ -1117,13 +1146,13 @@
                      regexp: {
                           regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                           message: getBundle(getBundleLanguage, "form.address.invalid")
-                      },
+                      }/*,
                       callback: {
                           message: getBundle(getBundleLanguage, "form.address.empty"),
                           callback: function(value, validator) {
                              return value !== document.getElementById('savieApplicantBean.correspondenceAdress1').getAttribute('placeholder');
                           }
-                       }
+                       }*/
                       /*,
                       callback: {
                           callback: function(value, validator) {
@@ -1141,13 +1170,13 @@
                         regexp: {
                            regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                            message: getBundle(getBundleLanguage, "form.address.invalid")
-                        },
+                        }/*,
                         callback: {
                             callback: function(value, validator) {
                             	permanentAddress(value,'correspondenceAdress2','correspondenceAdress1', 'correspondenceAdress3');
                               return true;
                             }
-                        }
+                        }*/
                      }
                   },
                   "savieApplicantBean.correspondenceAdress3": {
@@ -1156,13 +1185,13 @@
                         regexp: {
                            regexp: /^[a-zA-Z0-9\s,-\/]*$/,
                            message: getBundle(getBundleLanguage, "form.address.invalid")
-                        },
+                        }/*,
                         callback: {
                             callback: function(value, validator) {
                             	permanentAddress(value,'correspondenceAdress3','correspondenceAdress1', 'correspondenceAdress2');
                               return true;
                             }
-                        }
+                        }*/
                      }
                   }
               
@@ -1211,7 +1240,7 @@
          $('#et-personal-info-next').removeAttr('disabled');
          
          if ($('#et-personal-info-next').hasClass('back-to-summary')) {
-        	 storeAppInfo();
+        	  storeAppInfo();
             populateAppSummPI();
         	$('#et-application-third-section').removeClass('hide-element');
             $('body, html').animate({
@@ -1365,7 +1394,7 @@
                 validators: {
                   stringLength: {
                       min: 1,
-                      max: 255,
+                      max: 35,
                       message: getBundle(getBundleLanguage, "form.employer.name.length")
                   },
                 	
@@ -1715,12 +1744,12 @@
    function isBeneficiaryFormClear(pos) {
       var $form = $('#beneficiaryInfoForm\\[' + pos +'\\]');
   
-      if (!document.getElementById('savieBeneficiaryBean[' + pos + '].firstName').value
-            && !document.getElementById('savieBeneficiaryBean[' + pos + '].lastName').value
-            && !document.getElementById('savieBeneficiaryBean[' + pos +'].chineseName').value
-            && (!document.getElementById('savieBeneficiaryBean[' + pos + '].hkId').value || !document.getElementById('savieBeneficiaryBean[' + pos + '].passportNo').value)
-            && ((pos === 0) || !document.getElementById('savieBeneficiaryBean[' + pos + '].entitlement').value)
-            && !document.getElementById('savieBeneficiaryBean[' + pos + '].relationship').value
+      if (!$('#savieBeneficiaryBean\\[' + pos + '\\]\\.firstName').val()
+            && !$('#savieBeneficiaryBean\\[' + pos + '\\]\\.lastName').val()
+            && !$('#savieBeneficiaryBean\\[' + pos +'\\]\\.chineseName').val()
+            && (!$('#savieBeneficiaryBean\\[' + pos + '\\]\\.hkId').val() || !$('#savieBeneficiaryBean\\[' + pos + '\\]\\.passportNo').val())
+            && ((pos === 0) || !$('#savieBeneficiaryBean\\[' + pos + '\\]\\.entitlement').val())
+            && !$('#savieBeneficiaryBean\\[' + pos + '\\]\\.relationship').val()
          ) {
     	  $('#beneficiaryInfoForm\\[' + pos +'\\]').find('#remove-beneficiary\\[' + pos +'\\]').trigger('click');
          return true;
@@ -1779,8 +1808,8 @@
       // perAddArr.push(appInfoData.perAddCountry);
       $('#etaspi-per-add').text(perAddArr.join(', '));
       
-      if ($('#savieApplicantBean\\.isResidential').prop('checked')) {
-         $('#etaspi-res-add').removeClass('hide-element');
+      //if ($('#savieApplicantBean\\.isResidential').prop('checked')) {
+         //$('#etaspi-res-add').removeClass('hide-element');
             
          var resAddArr = [];
          if (appInfoData.resAddL1 && appInfoData.resAddL1!=$('#savieApplicantBean\\.residentialAdress1').attr('placeholder')) {
@@ -1795,12 +1824,12 @@
          (appInfoData.resAdd) ? resAddArr.push(appInfoData.resAdd) : '';
          // resAddArr.push(appInfoData.resAddCountry);
          $('#etaspi-res-add').text(resAddArr.join(', '));
-      } else {
-         $('#etaspi-res-add').addClass('hide-element');
-      }
+      //} else {
+         //$('#etaspi-res-add').addClass('hide-element');
+      //}
       
-      if ($('#savieApplicantBean\\.addressIsSame').prop('checked')) {
-         $('#etaspi-corr-add').removeClass('hide-element');
+      //if ($('#savieApplicantBean\\.addressIsSame').prop('checked')) {
+         //$('#etaspi-corr-add').removeClass('hide-element');
             
          var corrAddArr = [];
          if (appInfoData.corrAddL1 && appInfoData.corrAddL1!=$('#savieApplicantBean\\.correspondenceAdress1').attr('placeholder')) {
@@ -1815,9 +1844,9 @@
          (appInfoData.corrAddL) ? corrAddArr.push(appInfoData.corrAddL) : '';
          // corrAddArr.push(appInfoData.corrAddCountry);
          $('#etaspi-corr-add').text(corrAddArr.join(', '));
-      } else {
-         $('#etaspi-corr-add').addClass('hide-element');
-      }
+      //} else {
+         //$('#etaspi-corr-add').addClass('hide-element');
+      //}
       
    }
    function populateAppSummEI() {
@@ -1853,14 +1882,15 @@
          if (beneInfoData.first && beneInfoData.first.saved) {
             $('.et-person-1').removeClass('hide-element');
             
-            beneInfoData.first.enFName ? $('#etasbi-en-fname-1').text(beneInfoData.first.enFName) : '';
-            beneInfoData.first.enLName ? $('#etasbi-en-lname-1').text(beneInfoData.first.enLName) : '';
-            beneInfoData.first.chName ? $('#etasbi-ch-name-1').text(beneInfoData.first.chName) : '';
+            $('#etasbi-en-fname-1').text( beneInfoData.first.enFName ? beneInfoData.first.enFName : '' );
+            $('#etasbi-en-lname-1').text( beneInfoData.first.enLName ? beneInfoData.first.enLName : '' );
+            $('#etasbi-ch-name-1').text( beneInfoData.first.chName ? beneInfoData.first.chName : '' );
             var hkidPassValue = beneInfoData.first.hkid ? beneInfoData.first.hkid : beneInfoData.first.passNo;
-            (beneInfoData.first.hkid || beneInfoData.first.passNo) ? $('#etasbi-hkid-pass-1').text(hkidPassValue) : '';
-            beneInfoData.first.relationship ? $('#etasbi-relationship-1').text(capitalizeFirstLetter(beneInfoData.first.relationship)) : '';
-            beneInfoData.first.gender ? $('#etasbi-gender-1').text(beneInfoData.first.gender) : '';
-            beneInfoData.first.entitlement ? $('#etasbi-entitlement-1').text(beneInfoData.first.entitlement + '%') : '';
+            $('#etasbi-hkid-pass-1').text( (beneInfoData.first.hkid || beneInfoData.first.passNo) ? hkidPassValue.toUpperCase() : '' );
+            $('#etasbi-relationship-1').text( beneInfoData.first.relationship ? capitalizeFirstLetter(beneInfoData.first.relationship) : '' );
+            $('#etasbi-gender-1').text( beneInfoData.first.gender ? beneInfoData.first.gender : '' );
+            $('#etasbi-entitlement-1').text( beneInfoData.first.entitlement ? beneInfoData.first.entitlement + '%' : '' );
+      
          } else {
             $('.et-person-1').addClass('hide-element');
          }
@@ -1869,14 +1899,15 @@
          if (beneInfoData.second && beneInfoData.second.saved) {
             $('.et-person-2').removeClass('hide-element');
             
-            beneInfoData.second.enFName ? $('#etasbi-en-fname-2').text(beneInfoData.second.enFName) : '';
-            beneInfoData.second.enLName ? $('#etasbi-en-lname-2').text(beneInfoData.second.enLName) : '';
-            beneInfoData.second.chName ? $('#etasbi-ch-name-2').text(beneInfoData.second.chName) : '';
+            $('#etasbi-en-fname-2').text( beneInfoData.second.enFName ? beneInfoData.second.enFName : '' );
+            $('#etasbi-en-lname-2').text( beneInfoData.second.enLName ? beneInfoData.second.enLName : '' );
+            $('#etasbi-ch-name-2').text( beneInfoData.second.chName ? beneInfoData.second.chName : '' );
             var hkidPassValue = beneInfoData.second.hkid ? beneInfoData.second.hkid : beneInfoData.second.passNo;
-            (beneInfoData.second.hkid || beneInfoData.second.passNo) ? $('#etasbi-hkid-pass-2').text(hkidPassValue) : '';
-            beneInfoData.second.relationship ? $('#etasbi-relationship-2').text(capitalizeFirstLetter(beneInfoData.second.relationship)) : '';
-            beneInfoData.second.gender ? $('#etasbi-gender-2').text(beneInfoData.second.gender) : '';
-            beneInfoData.second.entitlement ? $('#etasbi-entitlement-2').text(beneInfoData.second.entitlement + '%') : '';
+            $('#etasbi-hkid-pass-2').text( (beneInfoData.second.hkid || beneInfoData.second.passNo) ? hkidPassValue.toUpperCase() : '' );
+            $('#etasbi-relationship-2').text( beneInfoData.second.relationship ? capitalizeFirstLetter(beneInfoData.second.relationship) : '' );
+            $('#etasbi-gender-2').text( beneInfoData.second.gender ? beneInfoData.second.gender : '' );
+            $('#etasbi-entitlement-2').text( beneInfoData.second.entitlement ? beneInfoData.second.entitlement + '%' : '' );
+            
          } else {
             $('.et-person-2').addClass('hide-element');
          }
@@ -1885,14 +1916,15 @@
          if (beneInfoData.third && beneInfoData.third.saved) {
             $('.et-person-3').removeClass('hide-element');
             
-            beneInfoData.third.enFName ? $('#etasbi-en-fname-3').text(beneInfoData.third.enFName) : '';
-            beneInfoData.third.enLName ? $('#etasbi-en-lname-3').text(beneInfoData.third.enLName) : '';
-            beneInfoData.third.chName ? $('#etasbi-ch-name-3').text(beneInfoData.third.chName) : '';
+            $('#etasbi-en-fname-3').text( beneInfoData.third.enFName ? beneInfoData.third.enFName : '' );
+            $('#etasbi-en-lname-3').text( beneInfoData.third.enLName ? beneInfoData.third.enLName : '' );
+            $('#etasbi-ch-name-3').text( beneInfoData.third.chName ? beneInfoData.third.chName : '' );
             var hkidPassValue = beneInfoData.third.hkid ? beneInfoData.third.hkid : beneInfoData.third.passNo;
-            (beneInfoData.third.hkid || beneInfoData.third.passNo) ? $('#etasbi-hkid-pass-3').text(hkidPassValue) : '';
-            beneInfoData.third.relationship ? $('#etasbi-relationship-3').text(capitalizeFirstLetter(beneInfoData.third.relationship)) : '';
-            beneInfoData.third.gender ? $('#etasbi-gender-3').text(beneInfoData.third.gender) : '';
-            beneInfoData.third.entitlement ? $('#etasbi-entitlement-3').text(beneInfoData.third.entitlement + '%') : '';
+            $('#etasbi-hkid-pass-3').text( (beneInfoData.third.hkid || beneInfoData.third.passNo) ? hkidPassValue.toUpperCase() : '' );
+            $('#etasbi-relationship-3').text( beneInfoData.third.relationship ? capitalizeFirstLetter(beneInfoData.third.relationship) : '' );
+            $('#etasbi-gender-3').text( beneInfoData.third.gender ? beneInfoData.third.gender : '' );
+            $('#etasbi-entitlement-3').text( beneInfoData.third.entitlement ? beneInfoData.third.entitlement + '%' : '' );
+            
          } else {
             $('.et-person-3').addClass('hide-element');
          }
@@ -1907,10 +1939,10 @@
    * Save all data from application field
    */
    function storeAppInfo() {
-      appInfoData.enFName = document.getElementById('savieApplicantBean.firstName').value;
-      appInfoData.enLName = document.getElementById('savieApplicantBean.lastName').value;
-      appInfoData.chName = document.getElementById('savieApplicantBean.chineseName').value;
-      appInfoData.dob = document.getElementById('sales-illu-dob').value;
+      appInfoData.enFName = $('#savieApplicantBean\\.firstName').val();
+      appInfoData.enLName = $('#savieApplicantBean\\.lastName').val();
+      appInfoData.chName = $('#savieApplicantBean\\.chineseName').val();
+      appInfoData.dob = $('#sales-illu-dob').val();
       
       if ($('#et-gender-male').prop('checked')) {
           planDetailData.gender = getBundle(getBundleLanguage, "option.male");
@@ -1926,48 +1958,58 @@
       }
       
       appInfoData.gender = planDetailData.gender;
-      appInfoData.maritalStat = $('option[value="' + document.getElementById('savieApplicantBean.maritalStatus').value + '"]', '#savieApplicantBean\\.maritalStatus').text();
-      appInfoData.pob = $('option[value="' + document.getElementById('savieApplicantBean.placeOfBirth').value + '"]', '#savieApplicantBean\\.placeOfBirth').text();
-      appInfoData.nationality = $('option[value="' + document.getElementById('savieApplicantBean.nationality').value + '"]', '#savieApplicantBean\\.nationality').text();
-      appInfoData.resTelNo = document.getElementById('savieApplicantBean.residentialTelNo').value;
-      appInfoData.mobNo = document.getElementById('savieApplicantBean.mobileNo').value;
-      appInfoData.email = document.getElementById('savieApplicantBean.emailAddress').value;
-      appInfoData.perAddL1 = document.getElementById('savieApplicantBean.permanentAddress1').value;
-      appInfoData.perAddL2 = document.getElementById('savieApplicantBean.permanentAddress2').value;
-      appInfoData.perAddL3 = document.getElementById('savieApplicantBean.permanentAddress3').value;
-      appInfoData.perAdd = $('option[value="' + document.getElementById('savieApplicantBean.permanentAddress').value + '"]', '#savieApplicantBean\\.permanentAddress').text();
-      //appInfoData.perAddCountry = document.getElementById('savieApplicantBean.permanentAddressCountry').value;
+      appInfoData.maritalStat = $('option[value="' + $('#savieApplicantBean\\.maritalStatus').val() + '"]', '#savieApplicantBean\\.maritalStatus').text();
+      appInfoData.pob = $('option[value="' + $('#savieApplicantBean\\.placeOfBirth').val() + '"]', '#savieApplicantBean\\.placeOfBirth').text();
+      appInfoData.nationality = $('option[value="' + $('#savieApplicantBean\\.nationality').val() + '"]', '#savieApplicantBean\\.nationality').text();
+      appInfoData.resTelNo = $('#savieApplicantBean\\.residentialTelNo').val();
+      appInfoData.mobNo = $('#savieApplicantBean\\.mobileNo').val();
+      appInfoData.email = $('#savieApplicantBean\\.emailAddress').val();
+      appInfoData.perAddL1 = $('#savieApplicantBean\\.permanentAddress1').val();
+      appInfoData.perAddL2 = $('#savieApplicantBean\\.permanentAddress2').val();
+      appInfoData.perAddL3 = $('#savieApplicantBean\\.permanentAddress3').val();
+      appInfoData.perAdd = $('option[value="' + $('#savieApplicantBean\\.permanentAddress').val() + '"]', '#savieApplicantBean\\.permanentAddress').text();
+      //appInfoData.perAddCountry = $('#savieApplicantBean\\.permanentAddressCountry').val();
 
       // For the residential address
       if ($('#savieApplicantBean\\.isResidential').prop('checked')) {  
-         appInfoData.resAddL1 = document.getElementById('savieApplicantBean.residentialAdress1').value;
-         appInfoData.resAddL2 = document.getElementById('savieApplicantBean.residentialAdress2').value;
-         appInfoData.resAddL3 = document.getElementById('savieApplicantBean.residentialAdress3').value;
-         appInfoData.resAdd = $('option[value="' + document.getElementById('savieApplicantBean.residentialDistrict').value + '"]', '#savieApplicantBean\\.residentialDistrict').text();
-         //appInfoData.resAddCountry = document.getElementById('savieApplicantBean.residentialDistrictCountry').value;
+         appInfoData.resAddL1 = $('#savieApplicantBean\\.residentialAdress1').val();
+         appInfoData.resAddL2 = $('#savieApplicantBean\\.residentialAdress2').val();
+         appInfoData.resAddL3 = $('#savieApplicantBean\\.residentialAdress3').val();
+         appInfoData.resAdd = $('option[value="' + $('#savieApplicantBean\\.residentialDistrict').val() + '"]', '#savieApplicantBean\\.residentialDistrict').text();
+         //appInfoData.resAddCountry = $('#savieApplicantBean\\.residentialDistrictCountry').val();
+      } else {
+         appInfoData.resAddL1 = appInfoData.perAddL1;
+         appInfoData.resAddL2 = appInfoData.perAddL2;
+         appInfoData.resAddL3 = appInfoData.perAddL3;
+         appInfoData.resAdd = appInfoData.perAdd;
       }
       
       // For the correspondence address
       if ($('#savieApplicantBean\\.addressIsSame').prop('checked')) {
-         appInfoData.corrAddL1 = document.getElementById('savieApplicantBean.correspondenceAdress1').value;
-         appInfoData.corrAddL2 = document.getElementById('savieApplicantBean.correspondenceAdress2').value;
-         appInfoData.corrAddL3 = document.getElementById('savieApplicantBean.correspondenceAdress3').value;
-         appInfoData.corrAddL = $('option[value="' + document.getElementById('savieApplicantBean.correspondenceDistrict').value + '"]', '#savieApplicantBean\\.correspondenceDistrict').text();
-         //appInfoData.corrAddCountry = document.getElementById('savieApplicantBean.correspondenceDistrictCountry').value;
+         appInfoData.corrAddL1 = $('#savieApplicantBean\\.correspondenceAdress1').val();
+         appInfoData.corrAddL2 = $('#savieApplicantBean\\.correspondenceAdress2').val();
+         appInfoData.corrAddL3 = $('#savieApplicantBean\\.correspondenceAdress3').val();
+         appInfoData.corrAddL = $('option[value="' + $('#savieApplicantBean\\.correspondenceDistrict').val() + '"]', '#savieApplicantBean\\.correspondenceDistrict').text();
+         //appInfoData.corrAddCountry = $('#savieApplicantBean.correspondenceDistrictCountry').val();
+      } else {
+         appInfoData.corrAddL1 = appInfoData.resAddL1;
+         appInfoData.corrAddL2 = appInfoData.resAddL2;
+         appInfoData.corrAddL3 = appInfoData.resAddL3;
+         appInfoData.corrAddL = appInfoData.resAdd;
       }
    }
    function isPerLineValid() {
-      var l1 = document.getElementById('savieApplicantBean.permanentAddress1').value;
-      var l2 = document.getElementById('savieApplicantBean.permanentAddress2').value;
-      var l3 = document.getElementById('savieApplicantBean.permanentAddress3').value;
+      var l1 = $('#savieApplicantBean\\.permanentAddress1').val();
+      var l2 = $('#savieApplicantBean\\.permanentAddress2').val();
+      var l3 = $('#savieApplicantBean\\.permanentAddress3').val();
       
       return (l1 || l2 || l3)!='';
    }
    function isResLineValid() {
       if ($('#savieApplicantBean\\.isResidential').prop('checked')) {
-         var l1 = document.getElementById('savieApplicantBean.residentialAdress1').value;
-         var l2 = document.getElementById('savieApplicantBean.residentialAdress2').value;
-         var l3 = document.getElementById('savieApplicantBean.residentialAdress3').value;
+         var l1 = $('#savieApplicantBean\\.residentialAdress1').val();
+         var l2 = $('#savieApplicantBean\\.residentialAdress2').val();
+         var l3 = $('#savieApplicantBean\\.residentialAdress3').val();
       
          return (l1 || l2 || l3)!='';
       }
@@ -1976,9 +2018,9 @@
    
    function isCorrLineValid() {
       if ($('#savieApplicantBean\\.addressIsSame').prop('checked')) {
-         var l1 = document.getElementById('savieApplicantBean.correspondenceAdress1').value;
-         var l2 = document.getElementById('savieApplicantBean.correspondenceAdress2').value;
-         var l3 = document.getElementById('savieApplicantBean.correspondenceAdress3').value;
+         var l1 = $('#savieApplicantBean\\.correspondenceAdress1').val();
+         var l2 = $('#savieApplicantBean\\.correspondenceAdress2').val();
+         var l3 = $('#savieApplicantBean\\.correspondenceAdress3').val();
          
          return (l1 || l2 || l3)!='';
       }
@@ -1995,14 +2037,15 @@
 	   
 	   
 	   
-	   empEduInfoData.status = document.getElementById('savieEmploymentBean.employmentStatus').value.split("-")[1];
-       empEduInfoData.occupation = document.getElementById('savieEmploymentBean.occupation').value.split("-")[1];
-       empEduInfoData.eduLevel = document.getElementById('savieEmploymentBean.educationLevel').value.split("-")[1];
-       empEduInfoData.natBusiness = document.getElementById('savieEmploymentBean.natureOfBusiness').value.split("-")[1];
-       empEduInfoData.monIncome = document.getElementById('savieEmploymentBean.monthlyPersonalIncome').value.split("-")[1];
-       empEduInfoData.liqAsset = $('option[value="' + document.getElementById('savieEmploymentBean.liquidAssets').value + '"]', '#savieEmploymentBean\\.liquidAssets').text();
-       empEduInfoData.empName = document.getElementById('savieEmploymentBean.currentEmployerName').value;
-       empEduInfoData.sourceIncome = $('option[value="' + document.getElementById('savieEmploymentBean.sourceOfIncome').value + '"]', '#savieEmploymentBean\\.sourceOfIncome').text();
+	   empEduInfoData.status = $('#savieEmploymentBean\\.employmentStatus').val().split("-")[1];
+	   empEduInfoData.occupation = $('option[value="' + $('#savieEmploymentBean\\.occupation').val() + '"]', '#savieEmploymentBean\\.occupation').text();
+
+       empEduInfoData.eduLevel = $('#savieEmploymentBean\\.educationLevel').val().split("-")[1];
+       empEduInfoData.natBusiness = $('#savieEmploymentBean\\.natureOfBusiness').val().split("-")[1]; 
+       empEduInfoData.monIncome = $('#savieEmploymentBean\\.monthlyPersonalIncome').val().split("-")[1];
+       empEduInfoData.liqAsset = $('option[value="' + $('#savieEmploymentBean\\.liquidAssets').val() + '"]', '#savieEmploymentBean\\.liquidAssets').text();
+       empEduInfoData.empName = $('#savieEmploymentBean\\.currentEmployerName').val();
+       empEduInfoData.sourceIncome = $('option[value="' + $('#savieEmploymentBean\\.sourceOfIncome').val() + '"]', '#savieEmploymentBean\\.sourceOfIncome').text();
    }
    
    /**
@@ -2010,22 +2053,21 @@
    */
    function storeBeneficiaryInfo() {
       if ($('#own-estate-now').prop('checked')) {
-         
       }
       if ($('#name-others-now').prop('checked')) {
          // Person 1
          beneInfoData.first = {};
          
-         beneInfoData.first.enFName = document.getElementById('savieBeneficiaryBean[0].firstName').value;
-         beneInfoData.first.enLName = document.getElementById('savieBeneficiaryBean[0].lastName').value;
-         beneInfoData.first.chName = document.getElementById('savieBeneficiaryBean[0].chineseName').value;
+         beneInfoData.first.enFName = $('#savieBeneficiaryBean\\[0\\]\\.firstName').val();
+         beneInfoData.first.enLName = $('#savieBeneficiaryBean\\[0\\]\\.lastName').val();
+         beneInfoData.first.chName = $('#savieBeneficiaryBean\\[0\\]\\.chineseName').val();
          
-         var benHKIDPASS = document.getElementById('beneficiaryHkidPassport[0]').value;
+         var benHKIDPASS = $('#beneficiaryHkidPassport\\[0\\]').val();
          
          if ((benHKIDPASS.toLowerCase().indexOf('hkid') > -1)) {
-            beneInfoData.first.hkid = document.getElementById('savieBeneficiaryBean[0].hkId').value;
+            beneInfoData.first.hkid = $('#savieBeneficiaryBean\\[0\\]\\.hkId').val();
          } else if ((benHKIDPASS.toLowerCase().indexOf('passport') > -1)) { 
-            beneInfoData.first.passNo = document.getElementById('savieBeneficiaryBean[0].passportNo').value;
+            beneInfoData.first.passNo = $('#savieBeneficiaryBean\\[0\\]\\.passportNo').val();
          }
          
          if ($('#male-0').prop('checked')) {
@@ -2034,27 +2076,27 @@
             beneInfoData.first.gender = getBundle(getBundleLanguage, "option.female");
          }
          
-         beneInfoData.first.relationship = $('option[value="' + document.getElementById('savieBeneficiaryBean[0].relationship').value + '"]', '#savieBeneficiaryBean\\[0\\]\\.relationship').text();
-         beneInfoData.first.entitlement = document.getElementById('savieBeneficiaryBean[0].entitlement').value;
+         beneInfoData.first.relationship = $('option[value="' + $('#savieBeneficiaryBean\\[0\\]\\.relationship').val() + '"]', '#savieBeneficiaryBean\\[0\\]\\.relationship').text();
+         beneInfoData.first.entitlement = $('#savieBeneficiaryBean\\[0\\]\\.entitlement').val();
          
          if (beneInfoData.first.enFName) {
             beneInfoData.first.saved = true;
          }
          
          // Person 2
-         if (document.getElementById('beneficiaryInfoForm[1]') && !$('#beneficiaryInfoForm\\[1\\]').hasClass('hidden')) {
+         if ($('#beneficiaryInfoForm\\[1\\]').length>0 && !$('#beneficiaryInfoForm\\[1\\]').hasClass('hidden')) {
             beneInfoData.second = {};
             
-            beneInfoData.second.enFName = document.getElementById('savieBeneficiaryBean[1].firstName').value;
-            beneInfoData.second.enLName = document.getElementById('savieBeneficiaryBean[1].lastName').value;
-            beneInfoData.second.chName = document.getElementById('savieBeneficiaryBean[1].chineseName').value;
+            beneInfoData.second.enFName = $('#savieBeneficiaryBean\\[1\\]\\.firstName').val();
+            beneInfoData.second.enLName = $('#savieBeneficiaryBean\\[1\\]\\.lastName').val();
+            beneInfoData.second.chName = $('#savieBeneficiaryBean\\[1\\]\\.chineseName').val();
             
-            var benHKIDPASS = document.getElementById('beneficiaryHkidPassport[1]').value;
+            var benHKIDPASS = $('#beneficiaryHkidPassport\\[1\\]').val();
             
             if ((benHKIDPASS.toLowerCase().indexOf('hkid') > -1)) {
-               beneInfoData.second.hkid = document.getElementById('savieBeneficiaryBean[1].hkId').value;
+               beneInfoData.second.hkid = $('#savieBeneficiaryBean\\[1\\]\\.hkId').val();
             } else if ((benHKIDPASS.toLowerCase().indexOf('passport') > -1)) { 
-               beneInfoData.second.passNo = document.getElementById('savieBeneficiaryBean[1].passportNo').value;
+               beneInfoData.second.passNo = $('#savieBeneficiaryBean\\[1\\]\\.passportNo').val();
             }
             
             if ($('#male-1').prop('checked')) {
@@ -2063,8 +2105,8 @@
                beneInfoData.second.gender = getBundle(getBundleLanguage, "option.female");
             }
             
-            beneInfoData.second.relationship = $('option[value="' + document.getElementById('savieBeneficiaryBean[1].relationship').value + '"]', '#savieBeneficiaryBean\\[1\\]\\.relationship').text();
-            beneInfoData.second.entitlement = document.getElementById('savieBeneficiaryBean[1].entitlement').value;
+            beneInfoData.second.relationship = $('option[value="' + $('#savieBeneficiaryBean\\[1\\]\\.relationship').val() + '"]', '#savieBeneficiaryBean\\[1\\]\\.relationship').text();
+            beneInfoData.second.entitlement = $('#savieBeneficiaryBean\\[1\\]\\.entitlement').val();
             
             if (beneInfoData.second.enFName) {
                beneInfoData.second.saved = true;
@@ -2074,19 +2116,19 @@
          }
          
          // Person 3
-         if (document.getElementById('beneficiaryInfoForm[2]') && !$('#beneficiaryInfoForm\\[2\\]').hasClass('hidden')) {
+         if ($('#beneficiaryInfoForm\\[2\\]').length>0 && !$('#beneficiaryInfoForm\\[2\\]').hasClass('hidden')) {
             beneInfoData.third = {};
             
-            beneInfoData.third.enFName = document.getElementById('savieBeneficiaryBean[2].firstName').value;
-            beneInfoData.third.enLName = document.getElementById('savieBeneficiaryBean[2].lastName').value;
-            beneInfoData.third.chName = document.getElementById('savieBeneficiaryBean[2].chineseName').value;
+            beneInfoData.third.enFName = $('#savieBeneficiaryBean\\[2\\]\\.firstName').val();
+            beneInfoData.third.enLName = $('#savieBeneficiaryBean\\[2\\]\\.lastName').val();
+            beneInfoData.third.chName = $('#savieBeneficiaryBean\\[2\\]\\.chineseName').val();
             
-            var benHKIDPASS = document.getElementById('beneficiaryHkidPassport[2]').value;
+            var benHKIDPASS = $('#beneficiaryHkidPassport\\[2\\]').val();
             
             if ((benHKIDPASS.toLowerCase().indexOf('hkid') > -1)) {
-               beneInfoData.third.hkid = document.getElementById('savieBeneficiaryBean[2].hkId').value;
+               beneInfoData.third.hkid = $('#savieBeneficiaryBean\\[2\\]\\.hkId').val();
             } else if ((benHKIDPASS.toLowerCase().indexOf('passport') > -1)) { 
-               beneInfoData.third.passNo = document.getElementById('savieBeneficiaryBean[2].passportNo').value;
+               beneInfoData.third.passNo = $('#savieBeneficiaryBean\\[2\\]\\.passportNo').val();
             }
             
             if ($('#male-2').prop('checked')) {
@@ -2095,8 +2137,8 @@
                beneInfoData.third.gender = getBundle(getBundleLanguage, "option.female");
             }
             
-            beneInfoData.third.relationship = $('option[value="' + document.getElementById('savieBeneficiaryBean[2].relationship').value + '"]', '#savieBeneficiaryBean\\[2\\]\\.relationship').text();
-            beneInfoData.third.entitlement = document.getElementById('savieBeneficiaryBean[2].entitlement').value;
+            beneInfoData.third.relationship = $('option[value="' + $('#savieBeneficiaryBean\\[2\\]\\.relationship').val() + '"]', '#savieBeneficiaryBean\\[2\\]\\.relationship').text();
+            beneInfoData.third.entitlement = $('#savieBeneficiaryBean\\[2\\]\\.entitlement').val();
             
             if (beneInfoData.third.enFName) {
                beneInfoData.third.saved = true;

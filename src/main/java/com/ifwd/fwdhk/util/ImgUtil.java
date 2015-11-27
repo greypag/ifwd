@@ -1,6 +1,8 @@
 package com.ifwd.fwdhk.util;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -198,4 +200,7 @@ public class ImgUtil {
         p = Math.round(p2); 
         return p; 
     } 
+
+
+
 }

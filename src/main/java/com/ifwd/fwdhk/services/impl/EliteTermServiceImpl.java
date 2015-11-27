@@ -3,9 +3,7 @@ package com.ifwd.fwdhk.services.impl;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,8 +26,6 @@ import com.ifwd.fwdhk.connector.request.eliteterm.CreateEliteTermPolicyRequest;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.GetEliteTermPremiumResponse;
-import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
-import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.UserDetails;
@@ -39,7 +35,6 @@ import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.ImgUtil;
-import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
 @Service
 public class EliteTermServiceImpl implements EliteTermService {
@@ -64,6 +59,9 @@ public class EliteTermServiceImpl implements EliteTermService {
 	@Override
 	public CreateEliteTermPolicyResponse createEliteTermPolicy(HttpServletRequest request)throws ECOMMAPIException{
 		GetEliteTermPremiumResponse eliteTermPremium = (GetEliteTermPremiumResponse) request.getSession().getAttribute("eliteTermPremium");
+		if (eliteTermPremium == null) {
+			throw new ECOMMAPIException("session expired");
+		}
 		CreateEliteTermPolicyRequest etPolicyApplication = (CreateEliteTermPolicyRequest) request.getSession().getAttribute("etPolicyApplication");
 		if(etPolicyApplication == null){
 			etPolicyApplication = new CreateEliteTermPolicyRequest();
@@ -174,6 +172,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 					beneficiarie1.put("gender", request.getParameter("savieBeneficiaryBean[0].gender"));
 					beneficiarie1.put("relationship", request.getParameter("savieBeneficiaryBean[0].relationship")!=null?request.getParameter("savieBeneficiaryBean[0].relationship").split("-")[0]:"");
 					beneficiarie1.put("entitlement", request.getParameter("savieBeneficiaryBean[0].entitlement"));
+					beneficiaries.add(beneficiarie1);
 				}
 				if(request.getParameter("savieBeneficiaryBean[1].firstName")!=null && request.getParameter("savieBeneficiaryBean[1].firstName")!=""){
 					beneficiarie2.put("firstName", request.getParameter("savieBeneficiaryBean[1].firstName"));
@@ -207,8 +206,8 @@ public class EliteTermServiceImpl implements EliteTermService {
 				beneficiarie1.put("gender", applicant.getString("gender"));
 				beneficiarie1.put("relationship", "SE");
 				beneficiarie1.put("entitlement", "100");
+				beneficiaries.add(beneficiarie1);
 			}
-			beneficiaries.add(beneficiarie1);
 			insured.put("beneficiaries", beneficiaries);
 			parameters.put("insured", insured);
 			JSONObject payment = new JSONObject();
@@ -233,6 +232,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 		return apiReturn;
 	}
 	
+	@Override
 	@SuppressWarnings({ "restriction", "unchecked", "unused"})
 	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException{
 		BaseResponse apiReturn = new BaseResponse();
@@ -528,8 +528,8 @@ public class EliteTermServiceImpl implements EliteTermService {
 					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>Your policy is not yet in force. To complete your application process, please upload your [HKID card copy], [passport copy] and [address proof] through the following link. </p>"
 					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>您的保單尚未正式生效，您需要通過以下的連結上載您的[身份證副本]，[護照複印件]和[住址證明]。</p>"
 					       + "<a style='color:#ff8c00' href='"+url+"'><span style='background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap;text-decoration:underline;'>Document Upload 上載檔案</span></a>&nbsp;</p>"
-					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>Please ensure you complete the application process within 30 days, otherwise your application will be void.  For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com.</p>"
-					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>請確保於30天內完成申請投保程序，否則您的投保申請會被作廢。如有任何查詢，請致電富衛客戶服務熱線 (852) 3123 3123 或電郵至 cs.hk@fwd.com.</p>"
+					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>Please ensure you complete the application process within 30 days, otherwise your application will be void.  For enquiry, please contact us at <a href=\"tel:+85231233123\">(852) 3123 3123</a> or via email at cs.hk@fwd.com.</p>"
+					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>請確保於30天內完成申請投保程序，否則您的投保申請會被作廢。如有任何查詢，請致電富衛客戶服務熱線 <a href=\"tel:+85231233123\">(852) 3123 3123</a> 或電郵至 cs.hk@fwd.com.</p>"
 					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>We wish you a happy life!</p>"
 					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>祝閣下生活愉快！</p>&nbsp;"
 					       + "<p dir='ltr' style='line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px'><span><span style='background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>Regards,<br>FWD Life Insurance Company (Bermuda) Limited (“FWD”)<br>富衛人壽保險(百慕達)有限公司（「富衛」）謹啟</span></span></p></div></td></tr></tbody></table></td></tr></tbody></table>"
@@ -654,6 +654,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 		return br;
 	}
 	
+	@Override
 	@SuppressWarnings({ "unchecked"})
 	public void uploadEliteTermDocuments(HttpServletRequest request)throws ECOMMAPIException{
 		String uploadLaterFlage = (String) request.getSession().getAttribute("uploadLaterFlage");
@@ -780,8 +781,8 @@ public class EliteTermServiceImpl implements EliteTermService {
 						"                         <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">Dear "+customerName+",</span></span></p>  "+
 						"                         <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">Thank you for purchasing FWD Elite Term Insurance Plan via  our website. Your documents have been received and your application has been processed. Please note that your policy will be updated in your purchase history in 3 working days.</p>  "+
 						"                         <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">多謝閣下經我們的網站購買富衛智理想定期保障計劃。我們已經收到您上載的檔案並正在處理您的投保申請。請注意您的保單將於3個工作天內更新至您的購買記錄。</p>  "+
-						"                         <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">For enquiry, please contact us at (852) 3123 3123 or via email at cs.hk@fwd.com.</p>  "+
-						"                         <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">如有任何查詢，請致電富衛客戶服務熱線 (852) 3123 3123 或電郵至 cs.hk@fwd.com.</p>  "+
+						"                         <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">For enquiry, please contact us at <a href=\"tel:+85231233123\">(852) 3123 3123</a> or via email at cs.hk@fwd.com.</p>  "+
+						"                         <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">如有任何查詢，請致電富衛客戶服務熱線 <a href=\"tel:+85231233123\">(852) 3123 3123</a> 或電郵至 cs.hk@fwd.com.</p>  "+
 						"                         <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">We wish you a happy life!</p>  "+
 						"                          <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">祝閣下生活愉快！</p>  "+
 						"                         &nbsp;  "+
@@ -914,7 +915,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 						"    </div>  "+
 						"  </body>";
 				
-				String[] emailList = {userDetails.getEmailAddress(), "i-direct-hk@fwd.com", "nb.hk@fwd.com"};
+				String[] emailList = {request.getSession().getAttribute("eliteTermEmail").toString(), "i-direct.hk@fwd.com"};
 				for (int i=0; i<emailList.length; i++) {
 					org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
 					parametersEmail.put("to", emailList[i]);
@@ -933,6 +934,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 
 	}
 	
+	@Override
 	public String getPolicyUserName(HttpServletRequest request,String policyNumber){
 		String userName="";
 		String relationshipCode = UserRestURIConstants.GET_POLICY
@@ -944,10 +946,12 @@ public class EliteTermServiceImpl implements EliteTermService {
 			org.json.simple.JSONObject policy = (org.json.simple.JSONObject) jsonRelationShipCode.get("policy");
 			 userName = (String) policy.get("userName");
 		}
+		request.getSession().setAttribute("eliteTermEmail","stephen.cf.lai@fwd.com");
 		return userName;
 	}
 	
 
+	@Override
 	public boolean checkIsDocumentUpload(HttpServletRequest request,String policyNumber){
 		String relationshipCode = UserRestURIConstants.GET_IS_UPLOAD
 				+ "?policyNo="+policyNumber;

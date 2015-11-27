@@ -28,15 +28,11 @@
 			        <i class="fa fa-chevron-right"></i>        
 			        <li class="active"><fmt:message key="eliteTerms.breadcrumb.product" bundle="${msg}" /></li>
 			     </ol>
-			</div>			
-			<img src="<%=request.getContextPath()%>/resources/images/elite-terms/iFWD_elite-term_hero-image_mobile.jpg" alt="Team Insurance" class="hidden-md hidden-lg img-responsive english-picture">
-            <img src="<%=request.getContextPath()%>/resources/images/elite-terms/iFWD_elite-term_hero-image_desktop.jpg" alt="Team Insurance" class="hidden-sm hidden-xs img-responsive english-picture desktop-cover">
-            
-            <img src="<%=request.getContextPath()%>/resources/images/elite-terms/iFWD_hero-image_mobile_cn.jpg" alt="Team Insurance" class="hidden-md hidden-lg img-responsive ch-picture">
-            <img src="<%=request.getContextPath()%>/resources/images/elite-terms/iFWD_hero-image_desktop_cn.jpg" alt="Team Insurance" class="hidden-sm hidden-xs img-responsive ch-picture desktop-cover">
+			</div>			  
+            <img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.image.mobile" bundle="${msg}" />" alt="Team Insurance" class="hidden-md hidden-lg img-responsive">
+            <img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.image" bundle="${msg}" />" alt="Team Insurance" class="hidden-sm hidden-xs img-responsive desktop-cover">
             <div class="tagline-holder">
-            	<img src="<%=request.getContextPath()%>/resources/images/elite-terms/iFWD_elite-term_tagline_option-2.png" alt="Protection for your family's future" class="img-responsive elite-term-tagline english-picture">
-            	<img src="<%=request.getContextPath()%>/resources/images/elite-terms/iFWD_elite-term_tagline_cn.png" alt="Protection for your family's future" class="img-responsive elite-term-tagline ch-picture">
+            	<img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive elite-term-tagline">
             </div>
             <div class="et-banner-label">
                <a href="<%=request.getContextPath()%>/${language}/term-life-insurance/${nextPageFlow}" class="buy-now et-quote" ><fmt:message key="eliteTerms.landing.Get.Quote" bundle="${msg}" /></a>
@@ -496,15 +492,7 @@
                   $quoteElement.addClass('hide-element');
                });
             }
-         });
-         
-         if($('#language-holder').attr('value')=="tc") {
-        	 $('.banner-widget').children('.english-picture').remove();
-        	 $('.tagline-holder').children('.english-picture').remove();
-         } else {
-        	 $('.banner-widget').children('.ch-picture').remove();
-        	 $('.tagline-holder').children('.ch-picture').remove();
-         }
+         });      
 
          /* Lightbox for benefit items */
          $(document).ready(function() {

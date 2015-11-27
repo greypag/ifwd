@@ -31,6 +31,10 @@ body.chin .bold{
 	font-family: Calibri, sans-serif !important;
 }
 
+.placeholder{
+	color: #ccc;
+}
+
 /* ET Chinese Font */
 body.chin .fwd-savie-wrapper .banner-widget .buy-now,
 body.chin .fwd-savie-wrapper .three-column-widget a,
@@ -316,6 +320,11 @@ body.chin #etConfirm .et-submit button
 	height: 18px;
 	border: none;
 	background-color: transparent;
+}
+
+.fwd-et-wrapper .et-smoker-tooltip{
+	position: absolute;
+	left: 10px;
 }
 
 .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-minimal.et-insured-amount-tooltip,

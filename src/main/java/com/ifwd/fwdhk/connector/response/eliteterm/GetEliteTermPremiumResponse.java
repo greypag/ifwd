@@ -11,10 +11,12 @@ public class GetEliteTermPremiumResponse extends BaseResponse {
 	private String dailyPremium;
 	private String dailyDuePremium;
 	private String promoCode;
-	private String promoValue;
+	private String referralCode;
 	private String promoCodeType;
+	private String promoValue;
 	private String promoName;
 	private String effectivePeriod;
+	
 	public String getMonthlyPremium() {
 		return monthlyPremium;
 	}
@@ -40,6 +42,12 @@ public class GetEliteTermPremiumResponse extends BaseResponse {
 		this.promoCode = promoCode;
 	}
 	
+	public String getPromoCodeType() {
+		return promoCodeType;
+	}
+	public void setPromoCodeType(String promoCodeType) {
+		this.promoCodeType = promoCodeType;
+	}
 	public String getPromoValue() {
 		return promoValue;
 	}
@@ -58,11 +66,12 @@ public class GetEliteTermPremiumResponse extends BaseResponse {
 	public void setEffectivePeriod(String effectivePeriod) {
 		this.effectivePeriod = effectivePeriod;
 	}
-	public String getPromoCodeType() {
-		return promoCodeType;
+
+	public String getReferralCode() {
+		return referralCode;
 	}
-	public void setPromoCodeType(String promoCodeType) {
-		this.promoCodeType = promoCodeType;
+	public void setReferralCode(String referralCode) {
+		this.referralCode = referralCode;
 	}
 	public String getDailyDuePremium() {
 		return dailyDuePremium;
