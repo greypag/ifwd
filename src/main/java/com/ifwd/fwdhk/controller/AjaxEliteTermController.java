@@ -76,7 +76,11 @@ public class AjaxEliteTermController extends BaseController{
 //				ImgUtil.changeImageToJPG(uploadedFile,toFile,request);
 		        response.getWriter().write("true");
 			} catch (ECOMMAPIException e) {
-				response.getWriter().write(e.getMessage());
+				String error = e.getMessage();
+				response.setCharacterEncoding("utf-8");  //这里不设置编码会有乱码
+	            response.setContentType("text/plain;charset=utf-8");
+	            response.setHeader("Cache-Control", "no-cache");  
+				response.getWriter().write(error);
 			}catch (Exception e) {
 				logger.info(e.getMessage());
 				e.printStackTrace();
