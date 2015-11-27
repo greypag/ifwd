@@ -578,44 +578,58 @@
       });
       
       function checkCheckBoxBySelectPay() {
-    	  var result = true;
-     	 if(!$('#pics-check').is(':checked')) {
-     		 $("#chk1").html(getBundle(getBundleLanguage, "et.PICS.notChecked"));
-     		 result = false;
-     	 }else {
-     		 $("#chk1").html("");
-     	 }
-     	 if(!$('#cancellation-check').is(':checked')) {
-     		 $("#chk2").html(getBundle(getBundleLanguage, "et.cancellation.notChecked"));
-     		 result = false;
-     	 }else {
-     		 $("#chk2").html("");
-     	 }
-     	 if(!$('#application-declaration').is(':checked')) {
-     		 $("#chk3").html(getBundle(getBundleLanguage, "et.tnc.notChecked"));
-     		 result = false;
-	     }else {
-	         $("#chk3").html("");
-	     }
-		 if(!$('#is-resident-check').is(':checked')) {
-			 $("#chk4").html(getBundle(getBundleLanguage, "et.option.notSelected"));
-		 	 result = false;
-		 }else {
-		     $("#chk4").html("");
-		 }
-		 if(!$('#no-policy-replace-check').is(':checked')) {
-			 $("#chk6").html(getBundle(getBundleLanguage, "et.option.notSelected"));
-		 	 result = false;
-		 }else {
-		     $("#chk6").html("");
-		 }
-         if(!$('#no-policy-replace-existing-check').is(':checked')) {
-        	 $("#chk7").html(getBundle(getBundleLanguage, "et.option.notSelected"));
-        	 result = false;
-         }else {
-        	 $("#chk7").html("");
-         }
-         return result;
+        var result = true;
+        if(!$('#pics-check').is(':checked')) {
+          $("#chk1").html(getBundle(getBundleLanguage, "et.PICS.notChecked"));
+          result = false;
+        }else {
+          $("#chk1").html("");
+        }
+     	 
+        if(!$('#cancellation-check').is(':checked')) {
+          $("#chk2").html(getBundle(getBundleLanguage, "et.cancellation.notChecked"));
+          result = false;
+        }else {
+          $("#chk2").html("");
+        }
+        
+        if(!$('#application-declaration').is(':checked')) {
+          $("#chk3").html(getBundle(getBundleLanguage, "et.tnc.notChecked"));
+          result = false;
+        }else {
+          $("#chk3").html("");
+        }
+
+        if($('#is-resident-check').is(':checked')) {
+          $("#chk4").html("");
+        }else if($('#non-resident-check').is(':checked')) {
+          $("#chk4").html(getBundle(getBundleLanguage, "error.handle.cs.hotline"));
+          result = false;
+        }else {
+          $("#chk4").html(getBundle(getBundleLanguage, "et.option.notSelected"));
+          result = false;
+        }
+
+        if($('#no-policy-replace-check').is(':checked')) {
+          $("#chk6").html("");
+        } else if($('#yes-policy-replace-check').is(':checked')) {
+          $("#chk6").html(getBundle(getBundleLanguage, "error.handle.cs.hotline"));
+          result = false;
+        } else {
+          $("#chk6").html(getBundle(getBundleLanguage, "et.option.notSelected"));
+          result = false;
+        }
+
+        if($('#no-policy-replace-existing-check').is(':checked')) {
+          $("#chk7").html("");
+        }else if($('#yes-policy-replace-existing-check').is(':checked')) {
+          $("#chk7").html(getBundle(getBundleLanguage, "error.handle.cs.hotline"));
+          result = false;
+        }else {
+          $("#chk7").html(getBundle(getBundleLanguage, "et.option.notSelected"));
+          result = false;
+        }
+        return result;
       }
       
       // Show Application Summary section
