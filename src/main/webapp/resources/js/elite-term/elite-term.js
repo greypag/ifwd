@@ -154,7 +154,7 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 		        url:contextPath+'/ajax/eliteTerm/createEliteTermPolicy',
 		        data: formdata,
 		        success:function(data){
-			if(data.errMsgs == null){
+			if(data!=null && data!='' && data.errMsgs == null){
 				var $sigdiv = $("#signature");
 				var datapair = $sigdiv.jSignature("getData", "image");
 				var obj = datapair[1];
@@ -173,7 +173,7 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 			    	    	"policyNo" : data.policyNo
 			       		},     
 			    	    success:function(data){
-			    	    	if(data!=null && data.errMsgs == null){
+			    	    	if(data!=null && data!='' && data.errMsgs == null){
 			    	    		window.onbeforeunload=null;
 			    	    		window.location.href= contextPath+'/'+language+'/term-life-insurance/'+selectPlanNextPageFlow;
 			    			}
