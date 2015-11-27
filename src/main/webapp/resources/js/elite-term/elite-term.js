@@ -191,11 +191,13 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 			}
 			else{
 				console.log("data error");
+				$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
 				$('#loading-overlay').modal('hide');
 			}
 		},
 		error:function(){
 		    console.log('error');     
+		    $('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
 		    $('#loading-overlay').modal('hide');
 		}
 		});
