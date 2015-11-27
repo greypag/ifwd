@@ -89,8 +89,6 @@ var languageP = "${language}";
 		</div>
 		<!-- JS INCLUDES -->
 		
-		<%@include file="includes/js-include.jsp" %>
-
 		<script type="text/javascript">
 
 			ieUpload();

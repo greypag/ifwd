@@ -1,8 +1,8 @@
-<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% 
    response.setHeader("Pragma","No-cache"); 
@@ -174,7 +174,7 @@ var languageP = "${language}";
 		</div>
 		<!-- JS INCLUDES -->
 		
-		<%@include file="includes/js-include.jsp" %>
+
 
 		<script type="text/javascript">
 
