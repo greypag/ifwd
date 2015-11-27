@@ -191,10 +191,12 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 			}
 			else{
 				console.log("data error");
+				$('#loading-overlay').modal('hide');
 			}
 		},
 		error:function(){
 		    console.log('error');     
+		    $('#loading-overlay').modal('hide');
 		}
 		});
 	}
