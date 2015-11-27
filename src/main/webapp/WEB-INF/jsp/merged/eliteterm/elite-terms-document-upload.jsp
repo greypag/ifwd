@@ -366,9 +366,10 @@ var languageP = "${language}";
 								</div>
 								
 								<div class="iframe-holder hidden">
-									<iframe src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-hkid" scrolling="" class="upload-ie-iframe"></iframe>
-									<iframe src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-passport" scrolling="" class="upload-ie-iframe-second"></iframe>
-									<iframe src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-address" scrolling="" class="upload-ie-iframe-third"></iframe>
+									<iframe id="iframe-one" src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-hkid" onLoad="isUploaded(this.id);" class="upload-ie-iframe"></iframe>
+									<iframe id="iframe-two" src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-passport" onLoad="isUploaded(this.id);" class="upload-ie-iframe-second"></iframe>
+									<iframe id="iframe-three" src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-address" onLoad="isUploaded(this.id);" class="upload-ie-iframe-third"></iframe>
+						
                         		</div>
 
 								<div class="col-xs-12 col-md-12">
@@ -505,6 +506,12 @@ var languageP = "${language}";
 			})
 			
 			//upload IE
+			function isUploaded(id) {
+				if(document.getElementById(id).contentWindow.document.body.innerHTML == 'true') {
+					var newURL = $('#'+id).attr('src');
+					$('#'+id).attr('src',newURL+'?uploadResult=true');
+				}
+			}
 			function uploadIe() {
 				if(msieversion()>0 && msieversion()<10) {
 					$('.upload-buttons').addClass('hidden');

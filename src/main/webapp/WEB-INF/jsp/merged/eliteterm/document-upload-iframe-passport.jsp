@@ -4,18 +4,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<% 
-   response.setHeader("Pragma","No-cache"); 
-   response.setHeader("Cache-Control","No-cache"); 
-   response.setDateHeader("Expires", 0); 
-   response.setHeader("Cache-Control", "No-store"); 
-%>
+
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-et.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var documentUploadNextPageFlow = "${nextPageFlow}";
@@ -26,9 +22,8 @@ var languageP = "${language}";
 			boolean isEservicesActiveClass = false;
 		%>
 		<div class="fwd-savie-wrapper">
-			
 	
-			<div> 
+			<!-- <div>--> 
 				<div class="container-fluid fwd-container iframe-container">
 					<div class="document-upload page-application et-document-upload upload-iframe">	
 						 <div class="upload-now-section " id="upload-now-section">							
@@ -84,18 +79,14 @@ var languageP = "${language}";
 						</div>
 					</div>
 				</div>
-			</div>
+			<!-- </div>-->
 			
 		</div>
 		<!-- JS INCLUDES -->
-		
+		<script src="<%=request.getContextPath()%>/resources/js/jquery.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/bootstrap.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
 		<script type="text/javascript">
-
-			ieUpload();
-
-			$(window).on('resize', function(){
-				ieUpload();
-			});
 
 			$(document).on('click', '#passport-upload-now', function(e) {
 				if($('#passportFileToUpload').val()!='' || $('#fileToUpload-passport-cam').val()!='') {
@@ -105,6 +96,15 @@ var languageP = "${language}";
 					$('#passport-upload-form').next('.upload-error').removeClass('hidden');
 				}
 			});
+			
+			var check = <%=request.getParameter("uploadResult")%>;
+			if(check==true) {
+				$('.select-file-section').addClass('hidden');
+				$('.upload-form').find('.finish-upload').removeClass('hidden');
+				$('.upload-iframe-height').find('.document-upload-progress').removeClass('hidden');
+				$('.upload-form').next('.upload-error').addClass('hidden');
+				$('.upload-iframe-height').find('button.upload-iframe').addClass('hidden');
+			}
 
 		</script>
 
