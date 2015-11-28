@@ -864,11 +864,13 @@ $(function() {
 		});
 	//Sales Illustration Page
 	//Dropdown
-	$('.selectpicker').selectpicker();
-	$('.selectpicker').selectpicker({
-		style: 'btn-info',
-		size: 3
-	});
+	if( $('.selectpicker').selectpicker ) {
+		$('.selectpicker').selectpicker();
+		$('.selectpicker').selectpicker({
+			style: 'btn-info',
+			size: 3
+		});
+	}
 
 	window.onresize = function() {
 		//Eservices Page
@@ -1120,17 +1122,19 @@ $(function() {
     });
 
 	// Power saving Swipe
-	$(".carousel-inner").swipe( {
-		//Generic swipe handler for all directions
-		swipeLeft:function(event, direction, distance, duration, fingerCount) {
-			$(this).parent().carousel('next');
-		},
-		swipeRight: function() {
-			$(this).parent().carousel('prev');
-		},
-		//Default is 75px, set to 0 for demo so any distance triggers swipe
-		threshold:0
-	});
+	if( $(".carousel-inner").swipe ){
+		$(".carousel-inner").swipe( {
+			//Generic swipe handler for all directions
+			swipeLeft:function(event, direction, distance, duration, fingerCount) {
+				$(this).parent().carousel('next');
+			},
+			swipeRight: function() {
+				$(this).parent().carousel('prev');
+			},
+			//Default is 75px, set to 0 for demo so any distance triggers swipe
+			threshold:0
+		});
+	}
 
 	// add overflow hidden to html
 	var windowHeight = ($(window).height()) + 'px';
