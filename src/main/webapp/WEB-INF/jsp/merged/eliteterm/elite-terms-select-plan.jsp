@@ -1839,7 +1839,7 @@ var home_url = "<%=request.getContextPath()%>";
 
                            <!-- PLAN DETAIL -->
                               <div class="summary-body-item">
-                                 <h3 class="plan-detail"><fmt:message key="eliteTerms.selectPlan.Plan.detail" bundle="${msg}" /> <a href="#" title="Edit" class="et-app-sum-edit" data-target="#et-about-yoursel-section"><fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a></h3>
+                                 <h3 class="plan-detail"><fmt:message key="eliteTerms.selectPlan.Plan.detail" bundle="${msg}" /> <a href="#" title="Edit" class="et-app-sum-edit" data-target="#et-plan-option-section"><fmt:message key="eliteTerms.selectPlan.Edit" bundle="${msg}" /></a></h3>
                                  <div class="clearfix plan-detail-holder">
                                     <h4 class="info-label"><fmt:message key="eliteTerms.selectPlan.Selected.plan" bundle="${msg}" /></h4>
                                     <p class="info" id="etaspd-selected-plan"><fmt:message key="eliteTerms.selectPlan.Elite.term" bundle="${msg}" /></p>
@@ -2835,7 +2835,7 @@ var home_url = "<%=request.getContextPath()%>";
 		      
 		      // Hiding Plan Option		      
 		      $('.et-gender-main-div input[type=radio]').change(function(){
-		    	  var $etPlanOption = $('.et-plan-option');
+		    	  var $etPlanOption = $('#et-plan-option-section');
 		    	  $etPlanOption.addClass('hide-element');
 		    	  
 		    	  $('#et-btn-ay-self').on('click', function(e) {
@@ -2845,7 +2845,7 @@ var home_url = "<%=request.getContextPath()%>";
 		      
 		      // Datepicker
 		      $('#et-select-plan-date-input').datepicker().on("input change", function (e) {
-		    	  var $etPlanOption = $('.et-plan-option');
+		    	  var $etPlanOption = $('#et-plan-option-section');
 		    	  $etPlanOption.addClass('hide-element');
 		    	  
 		    	  $('#et-btn-ay-self').on('click', function(e) {
