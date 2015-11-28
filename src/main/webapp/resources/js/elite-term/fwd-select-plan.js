@@ -741,7 +741,7 @@
          
          if (($self.data('target') === '#et-about-yoursel-section') || $self.data('target') === '#et-plan-option-section') {
             currentSection = 'et-select-plan-section';
-            $('#' + currentSection).removeClass('hide-element');
+            //$('#' + currentSection).removeClass('hide-element');
             
             //$('#et-brn-proceed-to-application').addClass('back-to-app').text('Back to application');
             
