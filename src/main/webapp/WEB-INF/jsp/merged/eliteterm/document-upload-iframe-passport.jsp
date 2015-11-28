@@ -30,8 +30,12 @@ var languageP = "${language}";
 							<div class="row upload-now-row">
 								
 								<div class="col-xs-12 col-md-4 upload-iframe-height" id="passport-section">
-									<h4>Your passport copy</h4><button class="info passport orange-tooltip" type="button" data-toggle="tooltip" data-placement="right" title="Lorem Ipsum"></button>
-									<h5>If you are a non-permanent resident</h5>
+									<h4><fmt:message key="eliteTerms.documentUpload.Your.passport.copy" bundle="${msg}" /></h4>
+									<button type="button" class="et-minimal info passport orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Your.passport.copy.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
+									</button>
+
+									<h5><fmt:message key="eliteTerms.documentUpload.If.you.are" bundle="${msg}" /></h5>
+
 									<form id="passport-upload-form" class="upload-form select-iframe" action="${pageContext.request.contextPath}/ajax/eliteTerm/getEliteTermImage" method="post" enctype="multipart/form-data">
 										<div class="finish-upload hidden" id="finish-upload-passport">
 											<div class="center-align">
@@ -52,13 +56,13 @@ var languageP = "${language}";
 													</label>
 												</div>
 												<div class="mob-desk hidden-lg hidden-md">
-													<span class="OR">or</span>
+													<span class="OR"><fmt:message key="eliteTerms.documentUpload.or" bundle="${msg}" /></span>
 												</div>
 												
 												<div class="mob-desk">
 													<label for="passportFileToUpload" class="orange-select-file">
 														<input type="file" id="passportFileToUpload" name="passportFileToUpload" onchange="upload(this.id);">
-														<span class="input-file-text">Select files</span>
+														<span class="input-file-text"><fmt:message key="eliteTerms.documentUpload.Select.files" bundle="${msg}" /></span>
 													</label>
 												</div>
 											</div>
@@ -72,7 +76,7 @@ var languageP = "${language}";
 											</div>									
 										</div>
 									</div>
-									<div class="text-center"><button type="button" class="btn next upload-iframe" id="passport-upload-now">Upload now</button></div>
+									<div class="text-center"><button type="button" class="btn next upload-iframe" id="passport-upload-now"><fmt:message key="upload.button" bundle="${msg}" /></button></div>
 								</div>
 							</div>
 							

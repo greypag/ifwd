@@ -30,8 +30,15 @@ var languageP = "${language}";
 						 <div class="upload-now-section " id="upload-now-section">							
 							<div class="row upload-now-row">
 								<div class="col-xs-12 col-md-4 upload-iframe-height">
-									<h4>Proof of address</h4><button class="info addr orange-tooltip" type="button" data-toggle="tooltip" data-placement="right" title="Lorem Ipsum"></button>
-									<h5>Your current residential address</h5>
+									<h4><fmt:message key="eliteTerms.documentUpload.Proof.of.address" bundle="${msg}" /></h4>
+									<!--<button type="button" class="et-minimal info addr orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Proof.of.address.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
+										</button>-->
+									<h5>
+										<fmt:message key="eliteTerms.documentUpload.Your.current.residential" bundle="${msg}" />
+										<a href="<%=request.getContextPath()%>/<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank">
+											<fmt:message key="eliteTerms.documentUpload.Your.current.residential.validProof" bundle="${msg}" />
+										</a>
+									</h5>
 									<form id="address-upload-form" class="upload-form select-iframe" action="${pageContext.request.contextPath}/ajax/eliteTerm/getEliteTermImage" method="post" enctype="multipart/form-data">
 										<div class="finish-upload hidden" id="finish-upload-addr">
 											<div class="center-align">
@@ -47,13 +54,13 @@ var languageP = "${language}";
 													</label>
 												</div>
 												<div class="mob-desk hidden-lg hidden-md">
-													<span class="OR">or</span>
+													<span class="OR"><fmt:message key="eliteTerms.documentUpload.or" bundle="${msg}" /></span>
 												</div>
 												
 												<div class="mob-desk">
 													<label for="fileToUpload" class="orange-select-file">
 														<input type="file" id="fileToUpload" name="fileToUpload" onchange="upload(this.id);">
-														<span class="input-file-text">Select files</span>
+														<span class="input-file-text"><fmt:message key="eliteTerms.documentUpload.Select.files" bundle="${msg}" /></span>
 													</label>
 												</div>
 											</div>
@@ -67,7 +74,7 @@ var languageP = "${language}";
 											</div>
 										</div>
 									</div>
-									<div class="text-center"><button type="button" class="btn next upload-iframe" id="address-upload-now">Upload now</button></div>
+									<div class="text-center"><button type="button" class="btn next upload-iframe" id="address-upload-now"><fmt:message key="upload.button" bundle="${msg}" /></button></div>
 								</div>
 							</div>
 							
@@ -85,6 +92,7 @@ var languageP = "${language}";
 			
 			$(document).on('click', '#address-upload-now', function(e) {
 				if($('#fileToUpload').val()!='' || $('#fileToUpload-addr-cam').val()!='') {
+					console.log($('#fileToUpload').val() + ' --- ' + $('#fileToUpload-addr-cam').val());
 					$('#address-upload-form').submit();
 				}
 				else {

@@ -510,6 +510,9 @@ var languageP = "${language}";
 				if(document.getElementById(id).contentWindow.document.body.innerHTML == 'true') {
 					var newURL = $('#'+id).attr('src');
 					$('#'+id).attr('src',newURL+'?uploadResult=true');
+				} else if (document.getElementById(id).contentWindow.document.body.innerHTML == 'system error') {
+					var newURL = $('#'+id).attr('src');
+					$('#'+id).attr('src',newURL);
 				}
 			}
 			function uploadIe() {
