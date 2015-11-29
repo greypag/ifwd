@@ -143,7 +143,6 @@ function fileSelected(progressDivBarID, inputId, docuFileNameID, docuFileSizeId,
 		file = document.getElementById(inputId.toString()).files[0];
 		forDragAndDrop = '';
 	}
-	
 	if (file) {
 		var fileSize = 0;
 		if (file.size > 1024 * 1024) {
@@ -155,7 +154,6 @@ function fileSelected(progressDivBarID, inputId, docuFileNameID, docuFileSizeId,
         document.getElementById(docuFileNameID.toString()).innerHTML = file.name+" ";
         document.getElementById(docuFileSizeId.toString()).innerHTML = "\("+fileSize+"\)";
 	} 
-
 	if (!$fileObj.attr('accept') || ($fileObj.attr('accept') && isFileValid(file, $fileObj, errorMsgCon))) {
         if (errorMsgCon) {
             removeFormFieldError(errorMsgCon, '', true);
@@ -182,7 +180,7 @@ function isFileValid(file, $fileObj, errorMsgCon) {
     
     // Check file size
     // Filesize limit: 2MB
-    if ((file.size > (1024 * 1024 * 2)) && errorMsgCon) {
+    if ((file.size > (1024 * 1024 * 5)) && errorMsgCon) {
            
         if ($fileObj.closest('form').find(':reset').length) {
             $fileObj.closest('form')
@@ -190,7 +188,7 @@ function isFileValid(file, $fileObj, errorMsgCon) {
                     .trigger('click');
         }
             
-        addFormFieldError(errorMsgCon, getBundle(getBundleLanguage,file.not.greate.than));
+        addFormFieldError(errorMsgCon, getBundle(getBundleLanguage,"file.not.greate.than"));
         isValid = false;
     }
     
@@ -223,7 +221,6 @@ function cancelUpload(progressBarID,doneID,progressBarReset){
 
 var errorMsgCons ;
 function uploadFile(inputID,forDragAndDrop) {
-
 	var fd = new FormData();	
 	if(forDragAndDrop!=''){
 		fd.append("img",forDragAndDrop );
@@ -244,7 +241,7 @@ function uploadFile(inputID,forDragAndDrop) {
 function xhrReturn(){    
     if(xhr.readyState == 4 && xhr.status == 200){    
         var b = xhr.responseText;
-        if(b != "true"){  
+        if(b != "true"){ 
         	addFormFieldError(errorMsgCons, b);
         	cancelUpload(deleteProgressDivBarID,deleteUploadCompleteId,deleteProgressBarId);
         }          

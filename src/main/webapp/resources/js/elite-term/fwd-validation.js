@@ -66,6 +66,7 @@ $(function() {
 		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.correspondenceAdress1', 'NOT_VALIDATE');
 		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.correspondenceAdress2', 'NOT_VALIDATE');
 		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.correspondenceAdress3', 'NOT_VALIDATE');
+		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.correspondenceDistrict', 'NOT_VALIDATE');
 	
 
 		if(this.checked) {
@@ -97,6 +98,7 @@ $(function() {
     	$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.residentialAdress1', 'NOT_VALIDATE');
 		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.residentialAdress2', 'NOT_VALIDATE');
 		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.residentialAdress3', 'NOT_VALIDATE');
+		$('#eliteTermsInsuredInfoForm').data('bootstrapValidator').updateStatus('savieApplicantBean.residentialDistrict', 'NOT_VALIDATE');
 	
 		if(this.checked) {
 			//console.log('Check');

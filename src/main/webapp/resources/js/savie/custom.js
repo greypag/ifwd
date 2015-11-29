@@ -724,32 +724,36 @@ $(function() {
 	}
 	$('.dropdown')
 		.on('show.bs.dropdown', function(e){
-			if (!$('body').hasClass('page-sales-illustration')) {
-				$('.navbar-menu').addClass('show-dropdown');
-			}
-			
-			$(this).find('.dropdown-menu').first().stop(true, true).slideDown(400, function() {
-				$(this).addClass('dropdown-menu-open');
+			if(!$('.dropdown').hasClass('fwd-header-navgation-menu')){	
 				if (!$('body').hasClass('page-sales-illustration')) {
 					$('.navbar-menu').addClass('show-dropdown');
 				}
-			});
-			setTimeout(function(){
-				$('#overlay').removeClass('hidden');
-			},400);
-			
-			var screenheight = ($('.fwd-savie-wrapper').height() - 170) + 'px';
-			$('#overlay').css({"height":screenheight});
+				
+				$(this).find('.dropdown-menu').first().stop(true, true).slideDown(400, function() {
+					$(this).addClass('dropdown-menu-open');
+					if (!$('body').hasClass('page-sales-illustration')) {
+						$('.navbar-menu').addClass('show-dropdown');
+					}
+				});
+				setTimeout(function(){
+					$('#overlay').removeClass('hidden');
+				},400);
+				
+				var screenheight = ($('.fwd-savie-wrapper').height() - 170) + 'px';
+				$('#overlay').css({"height":screenheight});
+			}
 		})
 		.on('hide.bs.dropdown', function(e){
-			$('#overlay').addClass('hidden');
-			$(this).find('.dropdown-menu').first().stop(true, true).slideUp(400, function() {
-				$(this).removeClass('dropdown-menu-open');
-				$('#login-button-modal').removeAttr( "data-toggle" );
-				if (!$('body').hasClass('page-sales-illustration')) {
-					$('.navbar-menu').removeClass('show-dropdown');
-				}
-			});	   
+			if(!$('.dropdown').hasClass('fwd-header-navgation-menu')){
+				$('#overlay').addClass('hidden');
+				$(this).find('.dropdown-menu').first().stop(true, true).slideUp(400, function() {
+					$(this).removeClass('dropdown-menu-open');
+					$('#login-button-modal').removeAttr( "data-toggle" );
+					if (!$('body').hasClass('page-sales-illustration')) {
+						$('.navbar-menu').removeClass('show-dropdown');
+					}
+				});	
+			}
 		});
 	
 	//Sales Illustration Page

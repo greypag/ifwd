@@ -5,9 +5,9 @@
 	<excludes>
         <pattern>/google*</pattern>
         <pattern>/baidu*</pattern>
-        <pattern>/*/term-life-insurance/document-upload-hkid</pattern>
-        <pattern>/*/term-life-insurance/document-upload-passport</pattern>
-        <pattern>/*/term-life-insurance/document-upload-address</pattern>
+        <pattern>/*/term-life-insurance/document-upload-hkid*</pattern>
+        <pattern>/*/term-life-insurance/document-upload-passport*</pattern>
+        <pattern>/*/term-life-insurance/document-upload-address*</pattern>
     </excludes>
 
 	<decorator name="default" page="template_default.jsp">

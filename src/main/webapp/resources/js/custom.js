@@ -831,41 +831,46 @@ $(function() {
 	}
 	$('.dropdown')
 		.on('show.bs.dropdown', function(e){
-			if (!$('body').hasClass('page-sales-illustration')) {
-				$('.navbar-menu').addClass('show-dropdown');
-			}
-
-			$(this).find('.dropdown-menu').first().stop(true, true).slideDown(400, function() {
-				$(this).addClass('dropdown-menu-open');
+			if(!$('.dropdown').hasClass('fwd-header-navgation-menu')){
 				if (!$('body').hasClass('page-sales-illustration')) {
 					$('.navbar-menu').addClass('show-dropdown');
 				}
-			});
-			setTimeout(function(){
-				$('#overlay').removeClass('hidden');
-			},400);
-
-			var screenheight = ($('.fwd-savie-wrapper').height() - 170) + 'px';
-			$('#overlay').css({"height":screenheight});
+				
+				$(this).find('.dropdown-menu').first().stop(true, true).slideDown(400, function() {
+					$(this).addClass('dropdown-menu-open');
+					if (!$('body').hasClass('page-sales-illustration')) {
+						$('.navbar-menu').addClass('show-dropdown');
+					}
+				});
+				setTimeout(function(){
+					$('#overlay').removeClass('hidden');
+				},400);
+	
+				var screenheight = ($('.fwd-savie-wrapper').height() - 170) + 'px';
+				$('#overlay').css({"height":screenheight});
+			}
 		})
 		.on('hide.bs.dropdown', function(e){
-			$('#overlay').addClass('hidden');
-			$(this).find('.dropdown-menu').first().stop(true, true).slideUp(400, function() {
-				$(this).removeClass('dropdown-menu-open');
-				$('#login-button-modal').removeAttr( "data-toggle" );
-				if (!$('body').hasClass('page-sales-illustration')) {
-					$('.navbar-menu').removeClass('show-dropdown');
-				}
-			});
+			if(!$('.dropdown').hasClass('fwd-header-navgation-menu')){
+				$('#overlay').addClass('hidden');
+				$(this).find('.dropdown-menu').first().stop(true, true).slideUp(400, function() {
+					$(this).removeClass('dropdown-menu-open');
+					$('#login-button-modal').removeAttr( "data-toggle" );
+					if (!$('body').hasClass('page-sales-illustration')) {
+						$('.navbar-menu').removeClass('show-dropdown');
+					}
+				});
+			}
 		});
-
 	//Sales Illustration Page
 	//Dropdown
-	$('.selectpicker').selectpicker();
-	$('.selectpicker').selectpicker({
-		style: 'btn-info',
-		size: 3
-	});
+	if( $('.selectpicker').selectpicker ) {
+		$('.selectpicker').selectpicker();
+		$('.selectpicker').selectpicker({
+			style: 'btn-info',
+			size: 3
+		});
+	}
 
 	window.onresize = function() {
 		//Eservices Page
@@ -1117,17 +1122,19 @@ $(function() {
     });
 
 	// Power saving Swipe
-	$(".carousel-inner").swipe( {
-		//Generic swipe handler for all directions
-		swipeLeft:function(event, direction, distance, duration, fingerCount) {
-			$(this).parent().carousel('next');
-		},
-		swipeRight: function() {
-			$(this).parent().carousel('prev');
-		},
-		//Default is 75px, set to 0 for demo so any distance triggers swipe
-		threshold:0
-	});
+	if( $(".carousel-inner").swipe ){
+		$(".carousel-inner").swipe( {
+			//Generic swipe handler for all directions
+			swipeLeft:function(event, direction, distance, duration, fingerCount) {
+				$(this).parent().carousel('next');
+			},
+			swipeRight: function() {
+				$(this).parent().carousel('prev');
+			},
+			//Default is 75px, set to 0 for demo so any distance triggers swipe
+			threshold:0
+		});
+	}
 
 	// add overflow hidden to html
 	var windowHeight = ($(window).height()) + 'px';
@@ -1740,4 +1747,15 @@ function msieversion() {
       return parseInt (ua.substring (msie+5, ua.indexOf (".", msie )))
    else                 // If another browser, return 0
       return 0
+}
+
+//upload ie et iframe
+function upload(id) {
+var fileName = $('#'+id).val().split('\\').pop();
+
+	$('#'+id).closest('.select-file-section').addClass('hidden');
+	$('#'+id).parents('.upload-form').find('.finish-upload').removeClass('hidden');
+	$('#'+id).parents('.upload-iframe-height').find('.document-upload-progress').removeClass('hidden');
+	$('#'+id).parents('.upload-iframe-height').find('.document-upload-progress span').html(fileName);
+	$('#'+id).parents('.upload-form').next('.upload-error').addClass('hidden');
 }

@@ -341,6 +341,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 			logger.info("EliteTermServiceImpl getEliteTermPremium occurs an exception!");
 			logger.info(e.getMessage());
 			e.printStackTrace();
+			apiReturn.setErrMsg("api error");
 		}
 		return apiReturn;
 	}

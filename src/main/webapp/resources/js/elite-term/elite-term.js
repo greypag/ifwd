@@ -143,19 +143,27 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 	    $('#beneficiaryInfoForm\\[0\\]').serialize()+"&"+
 	    $('#beneficiaryInfoForm\\[1\\]').serialize()+"&"+
 	    $('#beneficiaryInfoForm\\[2\\]').serialize();
+
+	    $('#loading-overlay').modal({
+	       backdrop: 'static',
+	       keyboard: false
+	    });
+
 		$.ajax({
 		        type: "POST",
 		        url:contextPath+'/ajax/eliteTerm/createEliteTermPolicy',
 		        data: formdata,
 		        success:function(data){
-			if(data.errMsgs == null){
+			if(data!=null && data!='' && data.errMsgs == null){
 				var $sigdiv = $("#signature");
 				var datapair = $sigdiv.jSignature("getData", "image");
 				var obj = datapair[1];
 				if(datapair[1].length > signatureFileSize*1024 ){
-			    	console.log("Image size exceeds limit.");
+			    	$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.size")).css('display', 'block');
+			    	$('#loading-overlay').modal('hide');
 				}else if($('.correct-signature').hasClass('hide-element')){
-					console.log("Need to sign");
+					$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.empty")).css('display', 'block');
+					$('#loading-overlay').modal('hide');
 				}else{
 					$.ajax({     
 			    	    url:contextPath+'/ajax/eliteTerm/uploadSignature',     
@@ -165,27 +173,32 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 			    	    	"policyNo" : data.policyNo
 			       		},     
 			    	    success:function(data){
-			    	    	if(data!=null && data.errMsgs == null){
-			    	    		console.log("signature success");
+			    	    	if(data!=null && data!='' && data.errMsgs == null){
 			    	    		window.onbeforeunload=null;
 			    	    		window.location.href= contextPath+'/'+language+'/term-life-insurance/'+selectPlanNextPageFlow;
 			    			}
 			    			else{
-			    				console.log("data error");
+			    				$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
 			    			}
+			    			$('#loading-overlay').modal('hide');
 			    	    },
-			       		error:function(){     
-                            $('#timeout-modal').modal('show');     
+			       		error:function(){
+			       			$('#loading-overlay').modal('hide');
+                            $('#timeout-modal').modal('show'); 
 			    	    }
 			    	});
 				}
 			}
 			else{
 				console.log("data error");
+				$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+				$('#loading-overlay').modal('hide');
 			}
 		},
 		error:function(){
 		    console.log('error');     
+		    $('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+		    $('#loading-overlay').modal('hide');
 		}
 		});
 	}

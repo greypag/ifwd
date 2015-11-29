@@ -15,9 +15,14 @@ public class ErrorMessageUtils {
 	public static String getMessage(String key,HttpServletRequest request){
 		String str = "";
 		try {
-			Locale locale = getLanguage(request);
-			ResourceBundle res = ResourceBundle.getBundle("messages", locale);
-			str = res.getString(key);
+			String language = (String) request.getSession().getAttribute("language");
+			if(StringUtils.isEmpty(language)){
+				language = "en";
+			}
+			str = WebServiceUtils.getMessage(key, language);
+//			Locale locale = getLanguage(request);
+//			ResourceBundle res = ResourceBundle.getBundle("messages", locale);
+//			str = res.getString(key);
 		} catch (Exception e) {
 			return "system error";
 		}
