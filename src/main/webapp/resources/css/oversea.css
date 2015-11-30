@@ -577,3 +577,7 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 .bottom-disclaimer-wrapper{
     margin: 15px auto;
 }
+.textCap{
+	text-transform:capitalize;
+	
+}

@@ -1052,27 +1052,27 @@ var selectedPlanName = $('#selectedPlanName').val();
 console.log(selectedPlanName);
 if(selectedPlanName=='basicA'){
     $('#seletedplanregion').html('Worldwide');
-    $('#selectedPlanNameDisplay').html('Standard A');
+    $('#selectedPlanNameDisplay').html('Standard Plan A');
 }
 if(selectedPlanName=='basicB'){
     $('#seletedplanregion').html('Worldwide');
-    $('#selectedPlanNameDisplay').html('Standard B');
+    $('#selectedPlanNameDisplay').html('Standard Plan B');
 }
 if(selectedPlanName=='medicalWorldwideA'){
     $('#seletedplanregion').html('Worldwide');
-    $('#selectedPlanNameDisplay').html('Comprehensive Medical A');
+    $('#selectedPlanNameDisplay').html('Comprehensive Medical Plan A');
 }
 if(selectedPlanName=='medicalWorldwideB'){
     $('#seletedplanregion').html('Worldwide');
-    $('#selectedPlanNameDisplay').html('Comprehensive Medical B');
+    $('#selectedPlanNameDisplay').html('Comprehensive Medical Plan B');
 }
 if(selectedPlanName=='medicalAsiaA'){
     $('#seletedplanregion').html('Asia');
-    $('#selectedPlanNameDisplay').html('Comprehensive Medical A');
+    $('#selectedPlanNameDisplay').html('Comprehensive Medical Plan A');
 }
 if(selectedPlanName=='medicalAsiaB'){
     $('#seletedplanregion').html('Asia');
-    $('#selectedPlanNameDisplay').html('Comprehensive Medical B');
+    $('#selectedPlanNameDisplay').html('Comprehensive Medical Plan B');
 }
 
 var options;
