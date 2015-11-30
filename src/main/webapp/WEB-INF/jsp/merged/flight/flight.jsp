@@ -610,7 +610,7 @@ $(document).ready(function() {
           <div class="slide-margin">
             <div class="other-benefits-wrap text-center">
               <div class="other-benefits-inner">
-	           <p style="font-size: 21px;"><fmt:message key="working.special.promotion.copy1" bundle="${msg}" /></p>
+	           <p style="font-size: 21px;"><fmt:message key="fight.special.promotion.copy1" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
@@ -716,35 +716,6 @@ $(document).ready(function() {
                     </div>
                   </div>
               </div>
-              <!--/.item-->
-              <div class="item" >
-                  <div class="slide-margin">
-                    <div class="other-benefits-wrap text-center">
-                      <div class="other-benefits-inner">
-                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc7.part1" bundle="${msg}" /> <a href="<fmt:message key="y5buddy.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc7.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc7.part3" bundle="${msg}" /></p>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-              <!--/.item-->
-              <div class="item" >
-                  <div class="slide-margin">
-                    <div class="other-benefits-wrap text-center">
-                      <div class="other-benefits-inner">
-                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc8.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc8.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc8.part3" bundle="${msg}" /></p>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-              <div class="item" >
-                  <div class="slide-margin">
-                    <div class="other-benefits-wrap text-center">
-                      <div class="other-benefits-inner">
-                        <p style="font-size: 21px;"><fmt:message key="flight.main.other.tnc.desc9.part1" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part2" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part3" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part4" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part5" bundle="${msg}" /></p>
-                      </div>
-                    </div>
-                  </div>
-              </div>              
               <!--/.item-->
             </div>
             <!--/.carousel-inner-->
