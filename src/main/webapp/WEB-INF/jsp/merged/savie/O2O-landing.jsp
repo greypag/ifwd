@@ -326,7 +326,7 @@ var home_url = "<%=request.getContextPath()%>";
 					<div class="modal-content savie-overlay-content">
 						<img class= "hidden-xs hidden-sm"src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/iFWD_savie_prelaunch_desktop_en_v6a.jpg"/>
 						<img class= "img-responsive hidden-md hidden-lg" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/iFWD_savie_prelaunch_mobile_en_v6a.jpg"/>
-						<button type="submit" class="btn savie-overlay-btn" id="savie-overlay-button" onclick="javascript:location.href='<%=request.getContextPath()%>'"><fmt:message key="savie.o2o.landing.Back.to.home" bundle="${msg}" /></button>	
+						<button type="submit" class="btn savie-overlay-btn" id="savie-overlay-button" onclick="javascript:location.href='https://i.fwd.com.hk/en'"><fmt:message key="savie.o2o.landing.Back.to.home" bundle="${msg}" /></button>	
 					</div>
 				</div>
 			</div>
@@ -338,7 +338,7 @@ var home_url = "<%=request.getContextPath()%>";
 					<div class="modal-content savie-overlay-content">
 						<img class= "hidden-xs hidden-sm"src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/iFWD_savie_prelaunch_desktop_cn_v6a.jpg"/>
 						<img class= "img-responsive hidden-md hidden-lg" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/iFWD_savie_prelaunch_mobile_cn_v6a.jpg"/>
-						<button type="submit" class="btn savie-overlay-btn" id="savie-overlay-button" onclick="javascript:location.href='<%=request.getContextPath()%>'"><fmt:message key="savie.o2o.landing.Back.to.home" bundle="${msg}" /></button>	
+						<button type="submit" class="btn savie-overlay-btn" id="savie-overlay-button" onclick="javascript:location.href='https://i.fwd.com.hk/tc'"><fmt:message key="savie.o2o.landing.Back.to.home" bundle="${msg}" /></button>	
 					</div>
 				</div>
 			</div>
