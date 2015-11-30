@@ -101,10 +101,10 @@ function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 	/*
     $('#seletedplanname').html(txtPlanName);
     */
-    if(txtPlanName=='basicA')$('#seletedplanname').html('Standard A');
-    if(txtPlanName=='basicB')$('#seletedplanname').html('Standard B');
-    if(txtPlanName=='medicalWorldwideA'||txtPlanName=='medicalAsiaA')$('#seletedplanname').html('Comprehensive Medical A');
-    if(txtPlanName=='medicalWorldwideB'||txtPlanName=='medicalAsiaB')$('#seletedplanname').html('Comprehensive Medical B');
+    if(txtPlanName=='basicA')$('#seletedplanname').html('Standard Plan A');
+    if(txtPlanName=='basicB')$('#seletedplanname').html('Standard Plan B');
+    if(txtPlanName=='medicalWorldwideA'||txtPlanName=='medicalAsiaA')$('#seletedplanname').html('Comprehensive Medical Plan A');
+    if(txtPlanName=='medicalWorldwideB'||txtPlanName=='medicalAsiaB')$('#seletedplanname').html('Comprehensive Medical Plan B');
    
     
 	$('#inputseletedplanname').val(txtPlanName);
@@ -282,11 +282,14 @@ function coverageToggleGoto(id){
 		coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','open');
         coverageToggle('#PersonalLiabilityInnerContent','close');
         //$('#WorldwideEmergencyAssistanceServicesInnerContent').slideDown("slow");
+        
 		$('html, body').animate({
             scrollTop: $('#WorldwideEmergencyAssistanceServicesInnerContent').offset().top
         }, 500);
 		
         $('#WorldwideEmergencyAssistanceServicesInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#WorldwideEmergencyAssistanceServicesInnerContent'));
+        
+        
         
 		$('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
         $('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-minus');
@@ -303,8 +306,14 @@ function coverageToggleGoto(id){
         $('html, body').animate({
             scrollTop: $('#MedicalExpensesInnerContent').offset().top
         }, 500);
-        
+/*
+        $('#SummaryofCoverageContent').animate({
+            scrollTop: $('#MedicalExpensesInnerContent').slideUp("fast")
+        }, 500);
+        */
         $('#MedicalExpensesInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#MedicalExpensesInnerContent'));
+        
+        
         
         $('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-minus');
         $('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-plus');
@@ -370,7 +379,7 @@ $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");               
     $('[data-toggle="tooltip"]').tooltip();
     $('#seletedplanregion').html('Worldwide');
-    $('#seletedplanname').html('Comprehensive Medical A');
+    $('#seletedplanname').html('Comprehensive Medical Plan A');
     $('#selectedAmountDue').val('8000.00');
     $('#txtgrossPremiumAmt').val('8000.00');
     //
@@ -706,7 +715,7 @@ Vietnam
 								<key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Amount'>Up to HK$500,000</key>
                             </div>
                             <div class="sub-link">
-								<a  onclick="coverageToggleGoto(3)"><key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Tooltip'>1, 3-11 (refer to coverage table)</key></a>
+								<a  onclick="coverageToggleGoto(2)"><key id='Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Tooltip'>1, 3-11 (refer to coverage table)</key></a>
 							</div>
                         </div>
                         
@@ -788,7 +797,7 @@ Vietnam
                                 <key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Amount'>Up to HK$500,000</key>
                             </div>
                             <div class="sub-link">
-                                <a  onclick="coverageToggleGoto(3)"><key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Tooltip'>1, 3-11 (refer to coverage table)</key></a>
+                                <a  onclick="coverageToggleGoto(2)"><key id='Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Tooltip'>1, 3-11 (refer to coverage table)</key></a>
 							</div>
                         </div>
 
