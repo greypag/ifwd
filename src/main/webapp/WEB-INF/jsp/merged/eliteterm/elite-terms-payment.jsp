@@ -353,6 +353,14 @@ var languageP = "${language}";
  				firstErrorElementId="card-num";
  			}
  		}
+ 		if(!validateCardNumber(cardNum.replace(/\s+/g,""))){
+ 			flag=false;
+ 			$('#errcardno').html("invalid card type");
+ 			$("#card-num").addClass("invalid-field");
+ 			if(firstErrorElementId==""){
+ 				firstErrorElementId="card-num";
+ 			}
+ 		} 		
  		else{
  			$("#card-num").removeClass("invalid-field");
  		}
@@ -433,6 +441,31 @@ var languageP = "${language}";
  		console.log(flag);
  		return flag;
  	}
+
+ 	function validateCardNumber(cardNum) {
+ 		// See if the card is valid
+ 		// The regex will capture the number in one of the capturing groups
+ 		var match = /^(?:(4[0-9]{12}(?:[0-9]{3})?)|(5[1-5][0-9]{14}))$/.exec(cardNum);
+ 		
+ 		if (match) {
+ 			// List of card types, in the same order as the regex capturing groups
+ 			var types = ['Unknown', 'VISA', 'Master'];
+ 			// Find the capturing group that matched
+ 			// Skip the zeroth element of the match array (the overall match)
+ 			for (var i = 1; i < match.length; i++) {
+ 				if (match[i]) {
+ 					// Display the card type for that group
+				 	$('#pMethod').val(types[i]);
+ 					break;
+ 				}
+ 			}
+ 		} else {
+ 			return false;
+ 		}
+ 		return true;
+ 	}
+
+    	
  	//function copyCardNo(){
  	//	$('#cardNo').val($('#card-num').val().replace(/\s+/g,""));
  	//	if($('#card-num').val().substring(0,1) == "5"){
