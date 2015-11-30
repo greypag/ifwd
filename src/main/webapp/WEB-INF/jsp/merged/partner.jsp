@@ -54,8 +54,18 @@
                                 <div class="partner_tnc_list">
                                     <ul class="bullets">
                                         <li>
+                                        <!-- 
+<<<<<<< HEAD
+-->
                                            <p class="h4-5"><fmt:message key="the.club.copy8.1" bundle="${msg}" /> <a href="<fmt:message key="the.club.copy8.2.url" bundle="${msg}" />" target="_blank"><fmt:message key="partner.the.club.tnc1.part2" bundle="${msg}" /></a> <fmt:message key="partner.the.club.tnc1.part3" bundle="${msg}" /></p>
-                                        </li>
+<!--
+=======
+
+                                           <p class="h4-5"><fmt:message key="the.club.copy8.1" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.the.club.tnc1.part2" bundle="${msg}" /></a> <fmt:message key="partner.the.club.tnc1.part3" bundle="${msg}" /></p>
+
+>>>>>>> 5d01f1b14bb136369829949bd6430cc00054e11b
+ -->
+                                         </li>
                                     </ul>
                                 </div>
                             </div>
