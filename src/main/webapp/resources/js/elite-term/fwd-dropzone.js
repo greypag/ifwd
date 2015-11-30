@@ -229,7 +229,7 @@ function uploadFile(inputID,forDragAndDrop) {
 	}
 	fd.append("name",inputID.toString());
 	xhr.upload.addEventListener("progress", uploadProgress, false);
-	xhr.addEventListener("load", uploadComplete, false);
+	//xhr.addEventListener("load", uploadComplete, false);
 	xhr.addEventListener("error", uploadFailed, false);
 	xhr.addEventListener("abort", uploadCanceled, false);
 	xhr.onreadystatechange = xhrReturn;
@@ -244,7 +244,9 @@ function xhrReturn(){
         if(b != "true"){ 
         	addFormFieldError(errorMsgCons, b);
         	cancelUpload(deleteProgressDivBarID,deleteUploadCompleteId,deleteProgressBarId);
-        }          
+        } else {
+        	uploadComplete();
+        }        
     }    
 }  
 
