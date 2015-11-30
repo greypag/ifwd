@@ -602,11 +602,19 @@ var home_url = "<%=request.getContextPath()%>";
 				$('.other-benefits-list-mobile').removeClass('hidden-sm');
 				$('#read-more-other-benefits').hide();
 			});
-			
-			$(window).load(function(){
-		        $('#accessCodeO2O').modal('show');
-		    });
-			
-			
+
+			<%
+		    java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd");
+			long current = System.currentTimeMillis();  
+		    long start = format.parse("2015-12-01").getTime();
+		    
+		    if (current >= start) {
+			%>
+				$(window).load(function(){
+			        $('#accessCodeO2O').modal('show');
+			    });
+		    <%
+		    	}
+		    %>
 		</script>
 		
