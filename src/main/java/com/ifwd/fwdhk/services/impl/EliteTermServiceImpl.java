@@ -557,15 +557,19 @@ public class EliteTermServiceImpl implements EliteTermService {
 			String attachment = "";
 			String from = "Fanny at FWD HK <i-services.hk@fwd.com>";
 			boolean isHTML = true;
-			
-			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
-			parameters.put("from", from);
-			parameters.put("to", to);
-			parameters.put("message", message);
-			parameters.put("subject", subject);
-			parameters.put("attachment", attachment);
-			parameters.put("isHtml", isHTML);
-			br = connector.sendEmail(parameters,header);		
+
+			String[] emailList = {to, "i-direct.hk@fwd.com"};
+			for (int i=0; i<emailList.length; i++) {
+				org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+				parameters.put("from", from);
+				parameters.put("to", emailList[i]);
+				parameters.put("message", message);
+				parameters.put("subject", subject);
+				parameters.put("attachment", attachment);
+				parameters.put("isHtml", isHTML);
+				br = connector.sendEmail(parameters,header);		
+			}			
+
 			request.getSession().setAttribute("sendEmailOrNot", "yes");
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl sendEliteTermMail occurs an exception!");
