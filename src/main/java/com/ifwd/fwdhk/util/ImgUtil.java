@@ -42,7 +42,7 @@ public class ImgUtil {
 		    int height = bufferedImage.getHeight(); 
 		    double ratio = width*1.0/height;
 		    if(ratio > Integer.valueOf(imgMaxRatio) || ratio < 1.0/Integer.valueOf(imgMaxRatio)){
-		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.size.limit.error",request));
+		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.length.width",request));
 		    }
 		    if(width > Integer.valueOf(imgMaxWidth)){
 		    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.size.limit.error",request));
@@ -69,7 +69,7 @@ public class ImgUtil {
 	    int height = bufferedImage.getHeight(); 
 	    double ratio = width*1.0/height;
 	    if(ratio > Integer.valueOf(imgMaxRatio) || ratio < 1.0/Integer.valueOf(imgMaxRatio)){
-	    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.size.limit.error",request));
+	    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.length.width",request));
 	    }
 	    if(width > Integer.valueOf(imgMaxWidth)){
 	    	throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.size.limit.error",request));
