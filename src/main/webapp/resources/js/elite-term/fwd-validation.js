@@ -896,7 +896,9 @@ $(function() {
 		
 		$('#etaspi-hkid').text(hkidTemp);
 		value = value.replace(/[()]/g,'');
-		$(this).val(value);
+		//$(this).val(value);
+		$('#savieApplicantBean\\.hkId')[0].value = value;
+
 		if(isValidHKID($('#savieApplicantBean\\.hkId').val())) {
 			$('#eliteTermsInsuredInfoForm')
 		    .data('bootstrapValidator')
@@ -907,7 +909,9 @@ $(function() {
 	$('#savieBeneficiaryBean\\[0\\]\\.hkId').blur(function (e) {
 		var value = $(this).val();
 		value = value.replace(/[()]/g,'');
-		$(this).val(value);
+		//$(this).val(value);
+		$('#savieBeneficiaryBean\\[0\\]\\.hkId')[0].value = value;
+
 		if(isValidHKID($('#savieBeneficiaryBean\\[0\\]\\.hkId').val())) {
 			$('#beneficiaryInfoForm\\[0\\]')
 		    .data('bootstrapValidator')
