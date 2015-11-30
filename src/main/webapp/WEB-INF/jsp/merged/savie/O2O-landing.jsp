@@ -603,18 +603,8 @@ var home_url = "<%=request.getContextPath()%>";
 				$('#read-more-other-benefits').hide();
 			});
 
-			<%
-		    java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd");
-			long current = System.currentTimeMillis();  
-		    long start = format.parse("2015-12-01").getTime();
-		    
-		    if (current >= start) {
-			%>
-				$(window).load(function(){
-			        $('#accessCodeO2O').modal('show');
-			    });
-		    <%
-		    	}
-		    %>
+			$(window).load(function(){
+		        $('#accessCodeO2O').modal('show');
+		    });
 		</script>
 		
