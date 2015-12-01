@@ -143,6 +143,22 @@ body.chin #etConfirm .et-submit button
 	}
 }
 
+@media(max-width:991px){
+	.visible-xs-inline,
+	.visible-sm-inline{
+		display: inline !important;
+	}
+	.visible-xs-inline-block,
+	.visible-sm-inline-block{
+		display: inline-block !important;
+	}
+
+	.visible-md-inline, .visible-md-inline-block,
+	.visible-lg-inline, .visible-lg-inline-block{
+		display: none !important;
+	}
+}
+
 /* ET Shared */
 .hide,
 .hide-element {
