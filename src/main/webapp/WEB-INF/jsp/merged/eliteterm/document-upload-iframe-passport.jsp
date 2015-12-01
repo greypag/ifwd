@@ -31,8 +31,8 @@ var languageP = "${language}";
 								
 								<div class="col-xs-12 col-md-4 upload-iframe-height" id="passport-section">
 									<h4><fmt:message key="eliteTerms.documentUpload.Your.passport.copy" bundle="${msg}" /></h4>
-									<button type="button" class="et-minimal info passport orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Your.passport.copy.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner iframe-passport"></div></div>'><span class="et-info-tooltip"></span>
-									</button>
+									<!--<button type="button" class="et-minimal info passport orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Your.passport.copy.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner iframe-passport"></div></div>'><span class="et-info-tooltip"></span>
+									</button> -->
 
 									<h5><fmt:message key="eliteTerms.documentUpload.If.you.are" bundle="${msg}" /></h5>
 									<br />
