@@ -10,7 +10,7 @@ function msieversion() {
 }
 $(function() {
 	if ((msieversion() > 0) && (msieversion() < 10)) {
-		console.log(msieversion());
+		//console.log(msieversion());
 		$("#oversea_feature").find(".wow").css("visibility", "show");
 		$("#oversea_feature_mob").find(".wow").css("visibility", "show");
 	}
@@ -228,6 +228,8 @@ function validateOverseaDetails() {
 	var InsuHkid = document.getElementById("txtInsuHkid1").value;
 	var InsuDob = document.getElementById("insuredDob").value;
 	var correspondenceAddressBuildingId = document.getElementById("correspondenceAddressBuildingId").value;
+	
+	console.log(correspondenceAddressBuildingId);
 	var correspondenceAddressEstateId = document.getElementById("correspondenceAddressEstateId").value;	
 	var addressofInstitutionLine1 = document.getElementById("addressofInstitutionLine1").value;	
 	var addressofInstitutionLine2 = document.getElementById("addressofInstitutionLine2").value;
@@ -300,7 +302,7 @@ function validateOverseaDetails() {
 			flag = false;
 		}
 	}
-	if (applicantDob.trim() == "") {
+	if (applicantDob.trim() == "" || applicantDob.trim() == "DD-MM-YYYY") {
 		$('#dobInvalid').html(
 				getBundle(getBundleLanguage, "applicant.dob.notNull.message"));
 		$('#input_oversea_dob').addClass('invalid-field');
@@ -463,7 +465,7 @@ if (correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstateI
 			previous_action_link = previous_action_link.replace("details","quote");
 			$("#"+'countryOfInstitution').addClass("invalid-field");
 			$("#countryOfInstitutionInvalid").html( getBundle(getBundleLanguage, 'Selected plan does not cover this country. Please consider "Worldwide Plans".'));
-			$("#countryOfInstitutionInvalid").append("<br/><a class='error-to-previous-page' href='"+previous_action_link+"'>Click here to select your plan again please.</a>");
+			$("#countryOfInstitutionInvalid").append("<br/><a class='error-to-previous-page text-red' href='"+previous_action_link+"'>Click here to select your plan again please.</a>");
 			flag = false;
 		}else{
 			$("#"+'countryOfInstitution').removeClass("invalid-field");

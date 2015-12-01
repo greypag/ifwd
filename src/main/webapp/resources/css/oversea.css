@@ -578,6 +578,8 @@ li.sponsor-wrapper+li.sponsor-wrapper{
     margin: 15px auto;
 }
 .textCap{
-	text-transform:capitalize;
-	
+	text-transform:capitalize;	
+}
+.error-to-previous-page:hover,.error-to-previous-page{
+    text-decoration: underline; 
 }
