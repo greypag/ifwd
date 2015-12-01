@@ -677,7 +677,7 @@ function setDropArea(id) {
                                                     </label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
-                                                   <input type="text" name="beneficiaryFullName" id="beneficiaryFullName" class="form-control full-control textUpper bmg_custom_placeholder" value="SAME AS ID DOCUMENT" onblur="validateName('beneficiaryFullName','errBeneficiaryFullName',false,'beneficiary');" onkeypress="    return alphaOnly(event);" maxlength="50"></input>
+                                               <input type="text" name="beneficiaryFullName" id="beneficiaryFullName" class="form-control full-control textUpper bmg_custom_placeholder" value="SAME AS ID DOCUMENT" onfocus="placeholderOnFocus(this,'SAME AS ID DOCUMENT');" onblur="placeholderOnBlur(this,'SAME AS ID DOCUMENT'); validateName('beneficiaryFullName','errBeneficiaryFullName',false,'beneficiary');" onkeypress="return alphaOnly(event);" maxlength="50"></input>
                                                     <span id="errBeneficiaryFullName" class="text-red"> </span>
                                                </div>
                                                <div class="clearfix"></div>
