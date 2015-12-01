@@ -39,6 +39,7 @@ var insureNamePlaceholder="";
 var insureHkidPlaceholder="HKID/PASSPORT NO.";
 var benNamePlaceholder="SAME AS ID DOCUMENT";
 var benHkidPlaceholder="EG: X1234567 WITHOUT ()";
+var calendarPlaceholder = "DD-MM-YYYY";
 
 <% if (authenticate.equals("false") || authenticate.equals("direct")) { %>
 function activateUserAccountJoinUs() {
@@ -280,7 +281,7 @@ function setDropArea(id) {
 <section>
     <div id="cn" class="container">
         <div class="row">
-            <form:form id="frmYourDetails" name="frmYourDetails" onsubmit="return confirmDetails(this,'frmYourDetails','${language}');" modelAttribute="frmYourDetails" method="post" action="">
+            <form:form id="frmYourDetails" class="oversea-details-form" name="frmYourDetails" onsubmit="return confirmDetails(this,'frmYourDetails','${language}');" modelAttribute="frmYourDetails" method="post" action="">
                 <ol class="breadcrumb pad-none">
                   <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer1'>Home</key></a> <i class="fa fa-chevron-right"></i></li>
                   <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer2'>Protect</key></a></li> <i class="fa fa-chevron-right"></i></li>
@@ -452,13 +453,13 @@ function setDropArea(id) {
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <div class="col-sm-4 col-xs-4 col-lg-4 col-md-4 pad-none">
-                                        <input class="col-lg-12 col-md-12 col-xs-12 col-sm-12 form-control full-control textUpper bmg_custom_placeholder" name="correspondenceAddressRoom" size=10 type="text" value="" placeholder="ROOM" id="correspondenceAddressRoomId" maxlength="50" placeholder="ROOM" onfocus="placeholderOnFocus(this,'ROOM');" onblur="placeholderOnBlur(this,'Room');" onkeypress="return isAlphaNumeric(event);" ><span id="" class="text-red"></span>
+                                        <input class="col-lg-12 col-md-12 col-xs-12 col-sm-12 form-control full-control textUpper" name="correspondenceAddressRoom" size=10 type="text" value="" placeholder="ROOM" id="correspondenceAddressRoomId" maxlength="50" placeholder="ROOM" onfocus="placeholderOnFocus(this,'ROOM');" onblur="placeholderOnBlur(this,'ROOM');" onkeypress="return isAlphaNumeric(event);" ><span id="" class="text-red"></span>
                                     </div>
                                     <div class="col-sm-4 col-xs-4 col-lg-4 col-md-4 floor-block-pad-right-none">
-                                        <input class="col-lg-12 col-md-12 col-xs-12 col-sm-12 form-control full-control textUpper bmg_custom_placeholder" name="correspondenceAddressFloor" size=1 type="text" value="" placeholder="FLOOR" id="correspondenceAddressFloorId" maxlength="50" placeholder="FLOOR" onfocus="placeholderOnFocus(this,'FLOOR');" onblur="placeholderOnBlur(this,'Floor');" onkeypress="return isAlphaNumeric(event);" ><span id="" class="text-red"></span>
+                                        <input class="col-lg-12 col-md-12 col-xs-12 col-sm-12 form-control full-control textUpper" name="correspondenceAddressFloor" size=1 type="text" value="" placeholder="FLOOR" id="correspondenceAddressFloorId" maxlength="50" placeholder="FLOOR" onfocus="placeholderOnFocus(this,'FLOOR');" onblur="placeholderOnBlur(this,'FLOOR');" onkeypress="return isAlphaNumeric(event);" ><span id="" class="text-red"></span>
                                     </div>
                                     <div class="col-sm-4 col-xs-4 col-lg-4 col-md-4 floor-block-pad-right-none">
-                                        <input class="col-lg-12 col-md-12 col-xs-12 col-sm-12 form-control full-control textUpper bmg_custom_placeholder" name="correspondenceAddressBlock" size=1 type="text" value="" placeholder="BLOCK" id="correspondenceAddressBlockId" maxlength="50" placeholder="BLOCK" onfocus="placeholderOnFocus(this,'BLOCK');" onblur="placeholderOnBlur(this,'Block');" onkeypress="return isAlphaNumeric(event);" ><span id="" class="text-red"></span>
+                                        <input class="col-lg-12 col-md-12 col-xs-12 col-sm-12 form-control full-control textUpper" name="correspondenceAddressBlock" size=1 type="text" value="" placeholder="BLOCK" id="correspondenceAddressBlockId" maxlength="50" placeholder="BLOCK" onfocus="placeholderOnFocus(this,'BLOCK');" onblur="placeholderOnBlur(this,'BLOCK');" onkeypress="return isAlphaNumeric(event);" ><span id="" class="text-red"></span>
                                     </div>
                                 </div>
                             </div>
@@ -467,7 +468,7 @@ function setDropArea(id) {
                                     <label for="inputBuildingId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.BUILDING'>BUILDING</key></label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <input class="form-control full-control textUpper" name="correspondenceAddressBuilding" type="text" value="" id="correspondenceAddressBuildingId" maxlength="50" placeholder="BUILDING"  onfocus="placeholderOnFocus(this,'BUILDING');" onblur="placeholderOnBlur(this,'BUILDING');validateCorrespondenceBorE();"><span id="" class="text-red"></span>
+                                    <input class="form-control full-control textUpper" name="correspondenceAddressBuilding" type="text" value="" id="correspondenceAddressBuildingId" maxlength="50" placeholder="BUILDING"  onfocus="placeholderOnFocus(this,'BUILDING');" onblur="placeholderOnBlur(this,'BUILDING');validateCorrespondenceBorE();"><span id="errorEmptyCorrespondenceAddressBuilding" class="text-red"></span>
                                 </div>
                             </div>
                             <div class="form-group float">
@@ -499,7 +500,7 @@ function setDropArea(id) {
                                     <label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.District'>District</key></label>
                                 </div>                            
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none pull-right">
-                                    <div class="styled-select">
+                                    <div id="applicantDistrictSelectWrap" class="styled-select">
                                             <select name="applicantDistrict" id="applicantDistrict"
                                             onchange="activeDiv('personalbenificiaryId1','personalselectBenificiary1', 'personalBenefitiaryId1', 'personalBenefitiaryHKId1');setDropArea(this.value)"
                                             class="form-control soflow select-label">
@@ -625,7 +626,7 @@ function setDropArea(id) {
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                 <div class="input-group date" id="oversea_insure_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                                    <input name="insuredDob" type="text" class="pointer datepicker form-control border-radius" id="insuredDob" onfocus="placeholderOnFocus(this,'DD-MM-YYYY');" onblur="placeholderOnBlur(this,'DD-MM-YYYY');" placeholder="DD-MM-YYYY" value="" readonly>
+                                                    <input name="insuredDob" type="text" class="pointer datepicker form-control border-radius" id="insuredDob" onfocus="placeholderOnFocus(this,calendarPlaceholder);" onblur="placeholderOnBlur(this,calendarPlaceholder);" placeholder="DD-MM-YYYY" value="" readonly>
                                                 </div>
                                                 <div id="lock_datepicker" style="cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)">&nbsp;</div>
                                                 <span id="dobInsuredInvalid" class="text-red"></span>

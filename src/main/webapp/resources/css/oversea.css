@@ -593,3 +593,9 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 .error-to-previous-page:hover,.error-to-previous-page{
     text-decoration: underline; 
 }
+.easy-autocomplete input.bmg_custom_placeholder{
+	color: #ccc;
+}
+.oversea-details-form .easy-autocomplete input{
+	border-radius: 0;
+}
