@@ -459,6 +459,7 @@ var languageP = "${language}";
 		<script language="javascript">
 			
 		//iframe
+		
 		uploadIe();
 		$(window).on('resize', function(){
 			//uploadIe();
@@ -466,6 +467,9 @@ var languageP = "${language}";
 		
 			$('#residence-check').click(function(){
 				$('.passport-holder').toggle();
+				if(msieversion() > 0) {
+					$('#iframe-three').toggle();
+				}
 			})
 			
 			function goodbye(e) {
