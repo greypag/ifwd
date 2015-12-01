@@ -445,7 +445,7 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 }
 @media (min-width: 768px) and (max-width: 1199px){
 	.plan-box-l h2, .plan-box-s h2{
-	   font-size:18px;
+	   font-size:16px;
 	}
 }
 .plan-box-l h2{
