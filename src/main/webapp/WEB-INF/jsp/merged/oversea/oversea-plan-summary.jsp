@@ -301,11 +301,11 @@ $(document).ready(function(){
 										</div>                                                                            
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.originalamount'>Original amount</key></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">HK$ <fmt:formatNumber type="number" maxFractionDigits="3" value="${originalAmount}" /></div> 
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${originalAmount}" /></div> 
                                         </div>  
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><key id='Overseas.Payment.Summary.AmountDue'>Amount due</key></span></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b pad-none">HK$ <fmt:formatNumber type="number" maxFractionDigits="3" value="${dueAmount}" /></span></div> 
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b pad-none">HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${dueAmount}" /></span></div> 
                                         </div>
 										<div class="row summary-row">
 											<h4 class="h4-4 product_landing_download_button pull-left">
