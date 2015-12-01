@@ -33,7 +33,7 @@ var languageP = "${language}";
 									<h4><fmt:message key="eliteTerms.documentUpload.Proof.of.address" bundle="${msg}" /></h4>
 									<!--<button type="button" class="et-minimal info addr orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Proof.of.address.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
 										</button>-->
-									<h5>
+									<h5 class="resident-address-desc">
 										<fmt:message key="eliteTerms.documentUpload.Your.current.residential" bundle="${msg}" />
 										<a href="<%=request.getContextPath()%>/<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank">
 											<fmt:message key="eliteTerms.documentUpload.Your.current.residential.validProof" bundle="${msg}" />
@@ -67,6 +67,7 @@ var languageP = "${language}";
 										</div>
 									</form>
 									<span class="hidden upload-error" style="color:red; font-size:14px; display:block; text-align:center">No file selected</span>
+									<span id="upload-system-error" class="upload-error" style="color:red; font-size:14px; display:block; text-align:center"><span class="ch hidden">上載失敗。請重新嘗試。</span><span class="en hidden">Upload failed. Please try again.</span> </span>
 									<div class="document-upload-progress iframe hidden" id="proof-of-address-progress">
 										<div class="clearfix">
 											<div class="pull-left">

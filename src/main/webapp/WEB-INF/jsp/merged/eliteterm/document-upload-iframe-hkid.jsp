@@ -33,6 +33,7 @@ var languageP = "${language}";
 									<!--<button type="button" class="et-minimal info hkid orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Upload.your.HKID.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
 											</button>-->
 									<h5><fmt:message key="eliteTerms.documentUpload.Upload.your.HKID" bundle="${msg}" /></h5>
+									<br />
 									<form  id="hkid-upload-form" class="upload-form select-iframe" action="${pageContext.request.contextPath}/ajax/eliteTerm/getEliteTermImage" method="post" enctype="multipart/form-data">
 										<div class="finish-upload hidden" id="finish-upload-hkid">
 											<div class="center-align">
@@ -66,6 +67,7 @@ var languageP = "${language}";
 										</div>
 									</form>
 									<span class="hidden upload-error" style="color:red; font-size:14px; display:block; text-align:center">No file selected</span>
+									<span id="upload-system-error" class="upload-error" style="color:red; font-size:14px; display:block; text-align:center"><span class="ch hidden">上載失敗。請重新嘗試。</span><span class="en hidden">Upload failed. Please try again.</span> </span>
 									<div class="document-upload-progress iframe hidden" id="hkid-copy-progress">
 										<div class="clearfix">
 											<div class="pull-left">

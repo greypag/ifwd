@@ -14288,6 +14288,10 @@ span.dup-error-msg {
 	padding-top: 1px;
 }
 
+.fwd-savie-wrapper .document-upload .upload-now-section .upload-now-row h5.resident-address-desc {
+	margin-bottom: 5px;
+}
+
 @media ( min-width : 992px) {
 	/* line 410, ../sass/partials/_docu_upload.scss */
 	.fwd-savie-wrapper .document-upload .upload-now-section .upload-now-row h5

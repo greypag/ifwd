@@ -31,11 +31,11 @@ var languageP = "${language}";
 								
 								<div class="col-xs-12 col-md-4 upload-iframe-height" id="passport-section">
 									<h4><fmt:message key="eliteTerms.documentUpload.Your.passport.copy" bundle="${msg}" /></h4>
-									<button type="button" class="et-minimal info passport orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Your.passport.copy.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
+									<button type="button" class="et-minimal info passport orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Your.passport.copy.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner iframe-passport"></div></div>'><span class="et-info-tooltip"></span>
 									</button>
 
 									<h5><fmt:message key="eliteTerms.documentUpload.If.you.are" bundle="${msg}" /></h5>
-
+									<br />
 									<form id="passport-upload-form" class="upload-form select-iframe" action="${pageContext.request.contextPath}/ajax/eliteTerm/getEliteTermImage" method="post" enctype="multipart/form-data">
 										<div class="finish-upload hidden" id="finish-upload-passport">
 											<div class="center-align">
@@ -69,6 +69,7 @@ var languageP = "${language}";
 										</div>
 									</form>
 									<span class="hidden upload-error" style="color:red; font-size:14px; display:block; text-align:center">No file selected</span>
+									<span id="upload-system-error" class="upload-error" style="color:red; font-size:14px; display:block; text-align:center"><span class="ch hidden">上載失敗。請重新嘗試。</span><span class="en hidden">Upload failed. Please try again.</span> </span>
 									<div class="document-upload-progress iframe hidden" id="passport-copy-progress">
 										<div class="clearfix">
 											<div class="pull-left">
