@@ -432,11 +432,22 @@ $(function() {
 						message: getBundle(getBundleLanguage, "form.beneficiary.hkid.empty")
 					},
 					callback: {
-	                  message: getBundle(getBundleLanguage, "form.beneficiary.hkid.invalid"),
 	                  callback: function(value, validator) {
-	                     return isValidHKID(value);
+						if( value.toUpperCase() == $('#savieApplicantBean\\.hkId').val().toUpperCase()) {
+							return {
+								valid: false,
+								message: getBundle(getBundleLanguage, "error.beneficiary.equal.applicant")
+							}
+						}
+						if( !isValidHKID(value) ){
+							return {
+								valid: false,
+								message: getBundle(getBundleLanguage, "form.beneficiary.hkid.invalid")
+							}
+						}
+						return true;
 	                  }
-	               }
+	                }
 				}
 			},
 			'savieBeneficiaryBean[0].relationship':{
@@ -606,15 +617,26 @@ $(function() {
 	            'savieBeneficiaryBean[1].hkId':{
 	               container: '#hkidOrPassportMessage\\[1\\]',
 	               validators: {
-	                  notEmpty: {
-	                     message: getBundle(getBundleLanguage, "form.beneficiary.hkid.empty")
-	                  },
-	                  callback: {
-	                     message: getBundle(getBundleLanguage, "form.beneficiary.hkid.invalid"),
-	                     callback: function(value, validator) {
-	                        return isValidHKID(value);
-	                     }
-	                  }
+						notEmpty: {
+							message: getBundle(getBundleLanguage, "form.beneficiary.hkid.empty")
+						},
+						callback: {
+							callback: function(value, validator) {
+								if( value.toUpperCase() == $('#savieApplicantBean\\.hkId').val().toUpperCase()) {
+									return {
+										valid: false,
+										message: getBundle(getBundleLanguage, "error.beneficiary.equal.applicant")
+									}
+								}
+								if( !isValidHKID(value) ){
+									return {
+										valid: false,
+										message: getBundle(getBundleLanguage, "form.beneficiary.hkid.invalid")
+									}
+								}
+								return true;
+							}
+	                	}
 	               }
 	            },
 	            'savieBeneficiaryBean[1].relationship':{
@@ -668,11 +690,11 @@ $(function() {
 				var value = $(this).val();
 				value = value.replace(/[()]/g,'');
 				$(this).val(value);
-				if(isValidHKID($('#savieBeneficiaryBean\\[1\\]\\.hkId').val())) {
-					$('#beneficiaryInfoForm\\[1\\]')
-				    .data('bootstrapValidator')
-				    .updateStatus('savieBeneficiaryBean[1].hkId','VALID');
-				}
+				//if(isValidHKID($('#savieBeneficiaryBean\\[1\\]\\.hkId').val())) {
+				//	$('#beneficiaryInfoForm\\[1\\]')
+				//    .data('bootstrapValidator')
+				//    .updateStatus('savieBeneficiaryBean[1].hkId','VALID');
+				//}
 			});
 		 $('#savieBeneficiaryBean\\[1\\]\\.hkId').css('text-transform','uppercase');
 		 
@@ -794,16 +816,27 @@ $(function() {
 				'savieBeneficiaryBean[2].hkId':{
 					container: '#hkidOrPassportMessage\\[2\\]',
 					validators: {
-                  notEmpty: {
-                     message: getBundle(getBundleLanguage, "form.beneficiary.hkid.empty")
-                  },
-                  callback: {
-                     message: getBundle(getBundleLanguage, "form.beneficiary.hkid.invalid"),
-                     callback: function(value, validator) {
-                        return isValidHKID(value);
-                     }
-                  }
-               }
+						notEmpty: {
+							message: getBundle(getBundleLanguage, "form.beneficiary.hkid.empty")
+						},
+						callback: {
+							callback: function(value, validator) {
+								if( value.toUpperCase() == $('#savieApplicantBean\\.hkId').val().toUpperCase()) {
+									return {
+										valid: false,
+										message: getBundle(getBundleLanguage, "error.beneficiary.equal.applicant")
+									}
+								}
+								if( !isValidHKID(value) ){
+									return {
+										valid: false,
+										message: getBundle(getBundleLanguage, "form.beneficiary.hkid.invalid")
+									}
+								}
+								return true;
+							}
+                		}
+               		}
 				},
 				'savieBeneficiaryBean[2].relationship':{
 					container: '#relationshipMessage\\[2\\]',
@@ -856,11 +889,11 @@ $(function() {
 				var value = $(this).val();
 				value = value.replace(/[()]/g,'');
 				$(this).val(value);
-				if(isValidHKID($('#savieBeneficiaryBean\\[2\\]\\.hkId').val())) {
-					$('#beneficiaryInfoForm\\[2\\]')
-				    .data('bootstrapValidator')
-				    .updateStatus('savieBeneficiaryBean[2].hkId','VALID');
-				}
+				//if(isValidHKID($('#savieBeneficiaryBean\\[2\\]\\.hkId').val())) {
+				//	$('#beneficiaryInfoForm\\[2\\]')
+				//    .data('bootstrapValidator')
+				//    .updateStatus('savieBeneficiaryBean[2].hkId','VALID');
+				//}
 			});
 		 $('#savieBeneficiaryBean\\[2\\]\\.hkId').css('text-transform','uppercase');
 		 
@@ -912,11 +945,11 @@ $(function() {
 		//$(this).val(value);
 		$('#savieBeneficiaryBean\\[0\\]\\.hkId')[0].value = value;
 
-		if(isValidHKID($('#savieBeneficiaryBean\\[0\\]\\.hkId').val())) {
-			$('#beneficiaryInfoForm\\[0\\]')
-		    .data('bootstrapValidator')
-		    .updateStatus('savieBeneficiaryBean[0].hkId','VALID');
-		}
+		//if(isValidHKID($('#savieBeneficiaryBean\\[0\\]\\.hkId').val())) {
+		//	$('#beneficiaryInfoForm\\[0\\]')
+		//    .data('bootstrapValidator')
+		//    .updateStatus('savieBeneficiaryBean[0].hkId','VALID');
+		//}
 	});
 	
 	if(msieversion() > 0) {
