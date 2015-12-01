@@ -482,6 +482,13 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
   	left: 110px;
 }
 
+.chin .fwd-et-wrapper .document-upload .upload-now-section .et-du-passport-tooltip,
+.fwd-et-wrapper .document-upload .upload-now-section .et-du-passport-tooltip {
+	left: 56%;
+	top: 30px;
+	z-index: 5;
+}
+
 @media (min-width: 992px) {
   .fwd-et-wrapper .document-upload .info {
     top: 35px;

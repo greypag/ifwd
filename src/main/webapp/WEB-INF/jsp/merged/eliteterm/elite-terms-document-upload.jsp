@@ -366,6 +366,8 @@ var languageP = "${language}";
 								</div>
 								
 								<div class="iframe-holder hidden">
+									<button type="button" class="et-minimal info passport orange-tooltip et-du-passport-tooltip" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Your.passport.copy.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span></button>
+									
 									<iframe id="iframe-one" src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-hkid" onLoad="isUploaded(this.id);" class="upload-ie-iframe"></iframe>
 									<iframe id="iframe-two" src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-passport" onLoad="isUploaded(this.id);" class="upload-ie-iframe-second"></iframe>
 									<iframe id="iframe-three" src="<%=request.getContextPath()%>/${language}/term-life-insurance/document-upload-address" onLoad="isUploaded(this.id);" class="upload-ie-iframe-third"></iframe>
@@ -459,10 +461,12 @@ var languageP = "${language}";
 		<script language="javascript">
 			
 		//iframe
-		
 		uploadIe();
+		//tooltip
+		tooltip();
+		
 		$(window).on('resize', function(){
-			//uploadIe();
+			tooltip();
 		});
 		
 			$('#residence-check').click(function(){
@@ -528,6 +532,16 @@ var languageP = "${language}";
 						}, 100);
 					}
 					$('#'+id).attr('src',newURL+'?uploadResult=false');
+				}
+			}
+			function tooltip() {
+				if(getWidth() > 1100) {
+					$('.chin .fwd-et-wrapper .document-upload .upload-now-section .et-du-passport-tooltip').css('left','51.4%');
+					$('.fwd-et-wrapper .document-upload .upload-now-section .et-du-passport-tooltip').css('left','51.4%');
+				}
+				else {
+					$('.chin .fwd-et-wrapper .document-upload .upload-now-section .et-du-passport-tooltip').removeAttr('style');
+					$('.fwd-et-wrapper .document-upload .upload-now-section .et-du-passport-tooltip').removeAttr('style');
 				}
 			}
 			function uploadIe() {
