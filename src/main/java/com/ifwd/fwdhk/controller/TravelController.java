@@ -76,13 +76,13 @@ public class TravelController {
 			@RequestParam(required = false) final String utm_content)  {
 
 		//String promo = (String)request.getAttribute("promo");
-		String departureDate = (String)request.getParameter("departureDate");
-		String returnDate = (String)request.getParameter("returnDate");
-		String plan = (String)request.getParameter("plan");
-		String traveler = (String)request.getParameter("traveler");
-		String adult = (String)request.getParameter("adult");
-		String child = (String)request.getParameter("child");
-		String other = (String)request.getParameter("other");
+		String departureDate = request.getParameter("departureDate");
+		String returnDate = request.getParameter("returnDate");
+		String plan = request.getParameter("plan");
+		String traveler = request.getParameter("traveler");
+		String adult = request.getParameter("adult");
+		String child = request.getParameter("child");
+		String other = request.getParameter("other");
 		int iTraveler = 0;
 		int iAdult = 0;
 		int iChild = 0;
@@ -431,8 +431,9 @@ public class TravelController {
 			}
 			
 			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc"))
+			if (lang.equals("tc")) {
 				lang = "CN";
+			}
 			
 			header.put("language", WebServiceUtils.transformLanaguage(lang));
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,
@@ -574,8 +575,9 @@ public class TravelController {
 					+ expiryDate + "&referralCode=" + promoCode;
 
 			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc"))
+			if (lang.equals("tc")) {
 				lang = "CN";
+			}
 			
 			HashMap<String, String> header = new HashMap<String, String>(
 					COMMON_HEADERS);
@@ -596,65 +598,61 @@ public class TravelController {
 			} else {
 				session.setAttribute("referralCode", StringHelper.emptyIfNull(request.getParameter("promoCode")));
 			}
-			if (responseJsonObj.get("errMsgs") == null) {
-				QuoteDetails quoteDetails = new QuoteDetails();
-				
-				JSONObject jsonPriceInfoA = new JSONObject();
-				jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
-				JSONObject jsonPriceInfoB = new JSONObject();
-				jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
-				String planeName[] = { "A", "B" };
-				String grossPrem[] = {
-						StringHelper.formatPrice(jsonPriceInfoA.get("grossPremium").toString()),
-						StringHelper.formatPrice(jsonPriceInfoB.get("grossPremium").toString()) };
+			
+			// in case responseJsonObj contains errors, likely promo code invalid, thus, still put the details to session
+			QuoteDetails quoteDetails = new QuoteDetails();			
+			JSONObject jsonPriceInfoA = new JSONObject();
+			jsonPriceInfoA = (JSONObject) responseJsonObj.get("priceInfoA");
+			JSONObject jsonPriceInfoB = new JSONObject();
+			jsonPriceInfoB = (JSONObject) responseJsonObj.get("priceInfoB");
+			String planeName[] = { "A", "B" };
+			String grossPrem[] = {
+					StringHelper.formatPrice(jsonPriceInfoA.get("grossPremium").toString()),
+					StringHelper.formatPrice(jsonPriceInfoB.get("grossPremium").toString()) };
 
-				String discountPercentage[] = {
-						StringHelper.formatPrice(jsonPriceInfoA.get("discountPercentage").toString()),
-						StringHelper.formatPrice(jsonPriceInfoB.get("discountPercentage").toString()) };
+			String discountPercentage[] = {
+					StringHelper.formatPrice(jsonPriceInfoA.get("discountPercentage").toString()),
+					StringHelper.formatPrice(jsonPriceInfoB.get("discountPercentage").toString()) };
 
-				String discountAmount[] = {
-						StringHelper.formatPrice(jsonPriceInfoA.get("discountAmount").toString()),
-						StringHelper.formatPrice(jsonPriceInfoB.get("discountAmount").toString()) };
+			String discountAmount[] = {
+					StringHelper.formatPrice(jsonPriceInfoA.get("discountAmount").toString()),
+					StringHelper.formatPrice(jsonPriceInfoB.get("discountAmount").toString()) };
 
-				String totalNetPremium[] = {
-						StringHelper.formatPrice(jsonPriceInfoA.get("totalNetPremium").toString()),
-						StringHelper.formatPrice(jsonPriceInfoB.get("totalNetPremium").toString()) };
+			String totalNetPremium[] = {
+					StringHelper.formatPrice(jsonPriceInfoA.get("totalNetPremium").toString()),
+					StringHelper.formatPrice(jsonPriceInfoB.get("totalNetPremium").toString()) };
 
-				String totalDue[] = {
-						StringHelper.formatPrice(jsonPriceInfoA.get("totalDue").toString()),
-						StringHelper.formatPrice(jsonPriceInfoB.get("totalDue").toString()) };
+			String totalDue[] = {
+					StringHelper.formatPrice(jsonPriceInfoA.get("totalDue").toString()),
+					StringHelper.formatPrice(jsonPriceInfoB.get("totalDue").toString()) };
 
-				quoteDetails.setGrossPremium(grossPrem);
-				quoteDetails.setDiscountPercentage(discountPercentage);
-				quoteDetails.setDiscountAmount(discountAmount);
-				quoteDetails.setTotalNetPremium(totalNetPremium);
-				quoteDetails.setToalDue(totalDue);
-				quoteDetails.setPlanName(planeName);
-				
-				JSONObject jsonPromoCodeDetail = new JSONObject();
-				jsonPromoCodeDetail = (JSONObject) responseJsonObj.get("promoCodeDetail");
-				if(jsonPromoCodeDetail != null) {
-					PromoCodeDetail promoCodeDetail = new PromoCodeDetail();
-					promoCodeDetail.setCode(jsonPromoCodeDetail.get("code").toString());
-					promoCodeDetail.setPromoCodeType(jsonPromoCodeDetail.get("promoCodeType").toString());
-					promoCodeDetail.setDescription(jsonPromoCodeDetail.get("description").toString());
-					promoCodeDetail.setPlanCode(jsonPromoCodeDetail.get("planCode").toString());
-					promoCodeDetail.setValue(jsonPromoCodeDetail.get("value").toString());
-					session.setAttribute("promoCodeDetail", promoCodeDetail);
-				}else {
-					session.removeAttribute("promoCodeDetail");
-				}
-				
-				session.setAttribute("priceInfoA", jsonPriceInfoA);
-				session.setAttribute("priceInfoB", jsonPriceInfoB);
-				request.setAttribute("quoteDetails", quoteDetails);
-				
-				session.setAttribute("quoteDetails", quoteDetails);
-				return responseJsonObj.toString();
-			} else {
-				model.addAttribute("quoteDetails", session.getAttribute("quoteDetails"));
-				return responseJsonObj.get("errMsgs").toString();
+			quoteDetails.setGrossPremium(grossPrem);
+			quoteDetails.setDiscountPercentage(discountPercentage);
+			quoteDetails.setDiscountAmount(discountAmount);
+			quoteDetails.setTotalNetPremium(totalNetPremium);
+			quoteDetails.setToalDue(totalDue);
+			quoteDetails.setPlanName(planeName);
+			
+			JSONObject jsonPromoCodeDetail = new JSONObject();
+			jsonPromoCodeDetail = (JSONObject) responseJsonObj.get("promoCodeDetail");
+			if(jsonPromoCodeDetail != null) {
+				PromoCodeDetail promoCodeDetail = new PromoCodeDetail();
+				promoCodeDetail.setCode(jsonPromoCodeDetail.get("code").toString());
+				promoCodeDetail.setPromoCodeType(jsonPromoCodeDetail.get("promoCodeType").toString());
+				promoCodeDetail.setDescription(jsonPromoCodeDetail.get("description").toString());
+				promoCodeDetail.setPlanCode(jsonPromoCodeDetail.get("planCode").toString());
+				promoCodeDetail.setValue(jsonPromoCodeDetail.get("value").toString());
+				session.setAttribute("promoCodeDetail", promoCodeDetail);
+			}else {
+				session.removeAttribute("promoCodeDetail");
 			}
+			
+			session.setAttribute("priceInfoA", jsonPriceInfoA);
+			session.setAttribute("priceInfoB", jsonPriceInfoB);
+			request.setAttribute("quoteDetails", quoteDetails);
+			
+			session.setAttribute("quoteDetails", quoteDetails);
+			return responseJsonObj.toString();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -766,8 +764,9 @@ public class TravelController {
 					COMMON_HEADERS);
 			
 			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc"))
+			if (lang.equals("tc")) {
 				lang = "CN";
+			}
 			
 			header.put("language", WebServiceUtils
 					.transformLanaguage(lang));
@@ -849,8 +848,8 @@ public class TravelController {
 			}
 
 			model.addAttribute("planName", planName);
-			model.addAttribute("planSummary", planSummary);
-//			model.addAttribute("planPremium", selectPlanPremium);
+			//model.addAttribute("planSummary", planSummary);
+			//model.addAttribute("planPremium", selectPlanPremium);
 			
 			session.setAttribute("travelQuote", travelQuote); // vincent - fix back btn from 3rd page to 2nd page
 			model.addAttribute("travelQuote", travelQuote);
@@ -1887,7 +1886,10 @@ public class TravelController {
 					parameters);
 			logger.info("TRAVEL_FINALIZE_POLICY Response " + responsObject);
 			
-			if (responsObject.get("errMsgs") == null) {
+			Object errMsgs = responsObject.get("errMsgs");
+			if (errMsgs == null) {
+	            sendEmail.sendY5buddyEmail(request, session.getAttribute("emailAddress").toString(), header);
+				
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
 				session.removeAttribute("upgradeTotalTravallingDays");
@@ -1915,19 +1917,21 @@ public class TravelController {
 				return UserRestURIConstants.getSitePath(request)
 						+ "travel/travel-confirmation";
 			} else {
-				if (responsObject.get("errMsgs").toString().contains("invalid payment amount")) {
+				// FIXME this is duplicated in HomeCareController & others, better move up this logic to parent class or somewhere else.
+				if (errMsgs.toString().contains("invalid payment amount")) {
 					model.addAttribute("errorHeader1", "Invalid Payment Amount");
 					model.addAttribute("errorDescription1", "There is a mismatch of the payment amount with the policy");
 					model.addAttribute("errorHeader2", "Please DO NOT retry the payment");
 					model.addAttribute("errorDescription2", "Contact our CS at 3123 3123");
+				} else if(errMsgs instanceof JSONArray){
+					JSONArray errors = (JSONArray)errMsgs;
+					model.addAttribute("errMsgs", errors.toArray());					
 				} else {
 					model.addAttribute("errorHeader1", UserRestURIConstants.ERROR_HEADER1_1 + email + UserRestURIConstants.ERROR_HEADER1_2);
 					model.addAttribute("errorDescription1", UserRestURIConstants.ERROR_DESCRIPTION1 + " " + requestNo);
 					model.addAttribute("errorHeader2", UserRestURIConstants.ERROR_HEADER2_1 + " " + email + UserRestURIConstants.ERROR_HEADER2_2);
 					model.addAttribute("errorDescription2", UserRestURIConstants.ERROR_DESCRIPTION2 + " " + requestNo);
 				}		
-
-				
 				
 				return UserRestURIConstants.getSitePath(request)
 						+ "error";
@@ -2015,14 +2019,15 @@ public class TravelController {
 		header.put("token", tokenInSession);
 		header.put("language", WebServiceUtils
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
-		if (planCode == null)
+		if (planCode == null) {
 			planCode = "TRAVELCARE";
-		if (planCode.toUpperCase().equals("HOMECARE"))
-		
-		// String referalCOde = session.getAttribute("referralCode").toString();
+		}
+		if (planCode.toUpperCase().equals("HOMECARE")) {
+			// String referalCOde = session.getAttribute("referralCode").toString();
 			mailed = sendEmail.sendEmail(emailToSendPromoCode, "ECHOME", header);
-		else
+		} else {
 			mailed = sendEmail.sendEmail(emailToSendPromoCode, "TRA123", header);
+		}
 		if (mailed) {
 			return "success";
 		} else {
@@ -2145,8 +2150,9 @@ public class TravelController {
 			}
 			
 			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc"))
+			if (lang.equals("tc")) {
 				lang = "CN";
+			}
 			
 			header.put("language", WebServiceUtils.transformLanaguage(lang));
 			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,

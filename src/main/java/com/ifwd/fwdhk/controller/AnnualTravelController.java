@@ -47,6 +47,7 @@ import com.ifwd.fwdhk.util.JsonUtils;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
+import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Controller
 public class AnnualTravelController {
@@ -55,6 +56,9 @@ public class AnnualTravelController {
 
 	@Autowired
 	private RestServiceDao restService;
+
+	@Autowired
+	private SendEmailDao sendEmail;
 
 	@Autowired
 	private AnnualTravelService annualTravelService;
@@ -297,8 +301,8 @@ public class AnnualTravelController {
 			model.addAttribute("districtList", districtList);
 			
 			model.addAttribute("planName", planName);
-			model.addAttribute("planSummary", planSummary);
-//			model.addAttribute("planPremium", selectPlanPremium);
+			//model.addAttribute("planSummary", planSummary);
+			//model.addAttribute("planPremium", selectPlanPremium);
 			
 			session.setAttribute("annualTravelQuote", travelQuote); // vincent - fix back btn from 3rd page to 2nd page
 			model.addAttribute("annualTravelQuote", travelQuote);
@@ -551,6 +555,8 @@ public class AnnualTravelController {
 			logger.info("TRAVEL_FINALIZE_POLICY Response " + responsObject);
 			
 			if (responsObject.get("errMsgs") == null) {
+	            sendEmail.sendY5buddyEmail(request, session.getAttribute("emailAddress").toString(), header);
+				
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
 				session.removeAttribute("upgradeTotalTravallingDays");

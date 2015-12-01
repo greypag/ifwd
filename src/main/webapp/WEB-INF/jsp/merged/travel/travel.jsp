@@ -386,7 +386,7 @@ function getParameterByUrl(name){
 	                 </div>
 	                 </td>
 	               <td class="">
-	                <button type="submit" class="border-radius btn btn-primary get-btn " style="line-height:32px;padding: 8px 20px !important;width: 100%;" onclick="reset_desktop_submit()">
+	                <button type="submit" class="two-test-002 border-radius btn btn-primary get-btn " style="line-height:32px;padding: 8px 20px !important;width: 100%;" onclick="reset_desktop_submit()">
 	                   <fmt:message key="travel.main.quote.top.action" bundle="${msg}" />
 	                </button>
 	                 <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即報價</a> -->
@@ -597,7 +597,7 @@ function getParameterByUrl(name){
   <div class="form-container">
     <h3 class="text-center"> 
       <!-- <a href="#" class="border-radius get-btn" onclick="return flightValidateMobTravel()">立即申請免費保障! </a>  -->
-      <button type="submit" onclick="reset_mobile_submit()" class="bdr-curve btn btn-primary btn-lg btn-block">
+      <button type="submit" onclick="reset_mobile_submit()" class="two-test-002 bdr-curve btn btn-primary btn-lg btn-block">
               <fmt:message key="travel.main.quote.top.action" bundle="${msg}" /> 
              </button>
     </h3>
@@ -815,7 +815,7 @@ function getParameterByUrl(name){
 <section style="margin-top:40px;margin-bottom:40px;">
   <div class="container pad-none">
 <div class="other-benefits col-lg-12 col-md-12 col-sm-12 col-xs-12">
-  <h2><fmt:message key="travel.main.other.benefit" bundle="${msg}" /></h2>
+  <h2><fmt:message key="special.promotion.headline" bundle="${msg}" /></h2>
   <ul class="bullets">
     <!-- <li>
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc1" bundle="${msg}" /></p>
@@ -827,13 +827,27 @@ function getParameterByUrl(name){
       <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc3" bundle="${msg}" /></p>
     </li> -->
   <li>
-      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc4.part1" bundle="${msg}" /> <a href="<fmt:message key="y5buddy.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc4.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc4.part3" bundle="${msg}" /></p>
+      <p class="h4-5"><fmt:message key="special.promotion.copy1" bundle="${msg}" /></p>
     </li>
+   <ul class="travel-promo-tnc bullets">
+       <li>
+          <p class="h4-5"><fmt:message key="special.promotion.copy1.1" bundle="${msg}" /> <fmt:message key="special.promotion.copy1.2" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="special.promotion.copy1.2.1.url" bundle="${msg}" />" target="_blank"><fmt:message key="special.promotion.copy1.2.1" bundle="${msg}" /></a> <fmt:message key="special.promotion.copy1.2.2" bundle="${msg}" /></p>
+       </li>
+       <!--<li>
+           <p class="h4-5"><fmt:message key="y5buddy.copy1.2" bundle="${msg}" />
+            <a href="<fmt:message key="y5buddy.copy1.2.1.url" bundle="${msg}" />" target="_blank"><u><fmt:message key="y5buddy.copy1.2.1" bundle="${msg}" /></u></a>
+            <fmt:message key="y5buddy.copy1.2.2" bundle="${msg}" />
+           </p>       
+       </li>-->
+       <li>
+          <p class="h4-5"><fmt:message key="special.promotion.copy1.3" bundle="${msg}" /></p>
+       </li> 
+   </ul>    
   <li>
-      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc5.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc5.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc5.part3" bundle="${msg}" /></p>  
+      <p class="h4-5"><fmt:message key="special.promotion.copy2.1" bundle="${msg}" /> <a href="<fmt:message key="special.promotion.copy2.2.url" bundle="${msg}" />" target="_blank"><fmt:message key="special.promotion.copy2.2" bundle="${msg}" /></a> <fmt:message key="special.promotion.copy2.3" bundle="${msg}" /></p>  
     </li>
     <li>
-      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc6.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.eshop.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc6.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc6.part3" bundle="${msg}" /></p>  
+      <p class="h4-5"><fmt:message key="special.promotion.copy3.1" bundle="${msg}" /> <a href="<fmt:message key="special.promotion.copy3.2.url" bundle="${msg}" />" target="_blank"><fmt:message key="special.promotion.copy3.2" bundle="${msg}" /></a> <fmt:message key="special.promotion.copy3.3" bundle="${msg}" /></p>  
     </li>
     <li>
       <p id="single_benefit_club" class="h4-5"><fmt:message key="travel.main.other.benefit.desc8.part1" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc8.part2" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc8.part3" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc8.part4" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc8.part5" bundle="${msg}" /></p>
@@ -846,20 +860,20 @@ function getParameterByUrl(name){
   </ul>
   
   <div class="col-lg-12 col-md-12 hidden-xs hidden-sm main-partner pad-none" style="">
+    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-right:15px;">
   	<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-right:15px;">
     <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class="" style="margin-right:15px;">
-    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-right:15px;">
     <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-right:15px;">
   </div>
   <div class="hidden-lg hidden-md col-xs-12 col-sm-12 main-partner mob" style="text-align:center">
+    <div class="col-md-12 col-xs-12">
+        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
+    </div>  
     <div class="col-md-12 col-xs-12">
         <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
     </div>
     <div class="col-md-12 col-xs-12">
         <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class="" style="margin-bottom:15px;">
-    </div>
-    <div class="col-md-12 col-xs-12">
-        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
     </div>
     <div class="col-md-12 col-xs-12">
         <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-bottom:15px;">
@@ -1331,7 +1345,7 @@ function getParameterByUrl(name){
                 
         </td>
               <td class="">
-                  <button type="submit" onclick="reset_bottom_submit()" class="border-radius btn btn-primary get-btn" style="line-height:32px;padding: 8px 20px !important;width: 100%;"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
+                  <button type="submit" onclick="reset_bottom_submit()" class="two-test-002 border-radius btn btn-primary get-btn" style="line-height:32px;padding: 8px 20px !important;width: 100%;"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
                  </td>
             </tr>
             <tr class="product-landing-error-wrap">

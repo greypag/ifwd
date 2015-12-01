@@ -219,10 +219,10 @@
 						<div>
 							<img src="<%=request.getContextPath()%>/resources/images/user.jpg" alt="" />
 						</div>
-						<h2 class="h2-1 fwd-acc"><fmt:message key="member.registration.details.label.whyaccount" bundle="${msg}" /></h2>
-						<h4 class="h4-1"><fmt:message key="member.registration.details.label.whyaccount.desc" bundle="${msg}" /></h4>
+						<h2 class="h2-1 fwd-acc"><fmt:message key="reason.item1.title" bundle="${msg}" /></h2>
+						<h4 class="h4-1"><fmt:message key="reason.item1.copy" bundle="${msg}" /></h4>
 					    <div class="col-lg-12 col-md-12 col-xs-12">
-					      <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
+					      <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="<fmt:message key="reason.item1.image" bundle="${msg}" />" class="" style="margin-bottom:15px;">
 					    </div>
 					</div>
 

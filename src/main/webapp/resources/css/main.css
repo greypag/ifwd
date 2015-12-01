@@ -8224,7 +8224,8 @@ tr.product-landing-error-wrap {
 	margin-top: 30px;
 }
 
-#other-benefits-mob .prev, #other-benefits-mob .next {
+#other-benefits-mob .prev, #other-benefits-mob .next,
+#other-offers-mob .prev, #other-offers-mob .next{
 	position: absolute;
 	top: 50%;
 	color: #495d66;
@@ -8238,11 +8239,11 @@ tr.product-landing-error-wrap {
 	z-index: 5;
 }
 
-#other-benefits-mob .prev {
+#other-benefits-mob .prev,#other-offers-mob .prev {
 	left: 10px;
 }
 
-#other-benefits-mob .next {
+#other-benefits-mob .next, #other-offers-mob .next {
 	right: 10px;
 }
 
@@ -8610,7 +8611,7 @@ tr.product-landing-error-wrap {
 	line-height: 1.4;
 }
 
-.partner_tnc_list .bullets {
+ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 	color: #B3C3CD;
 	padding: 0px 18px;
 	font-size: 18px;
@@ -10170,6 +10171,34 @@ background-color
 }
 /******** ios chrome alert tc ********/
 /******** ios chrome alert ********/
+ul.bullets.travel-promo-tnc{
+	padding:0px;
+	color: #B3C3CD;
+	list-style-type: disc;
+    list-style-image: none;
+}
+
+.travel-promo-tnc .h4-5{
+	font-size: 14px;
+}
+
+.special-offer-img-margin{
+	margin-right: 30px;
+}
+.strike-text{
+	text-decoration: line-through;
+	color: #00B0F0;
+}
+ul.promotion-sub-tnc.bullets {
+    list-style-image: none;
+    list-style-type: disc;
+    padding: 0;
+}
+@media screen and (max-width: 991px) {
+    ul.promotion-sub-tnc.bullets p{
+        color: #333;
+    }    	
+}
 
 /******** Desktop header menutab v2 ********/
 @media ( min-width : 992px) {

@@ -12267,6 +12267,67 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
   height: 1px;
   background: #bbbbbb;
 }
+ 
+.fwd-savie-wrapper. savie-overlay-container {
+  padding: 0 0 26px 0;
+}
+
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .savie-overlay-container{
+    padding: 0 0 3px 0;
+  }
+}
+
+@media (max-width: 379px) {
+  .fwd-savie-wrapper .savie-overlay-container {
+    padding: 0 0 0 0;
+  }
+}
+
+.savie-overlay-container.container-fluid.modal-dialog {
+	width: auto;
+}
+
+.savie-overlay-container .savie-overlay-content {
+   border-radius: 0;
+   max-width: 414px;
+   margin: 0 auto;
+   background-color: #fff;
+   border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 992px) {
+	.savie-overlay-container .savie-overlay-content {
+		max-width: 1002px;
+	}
+}
+
+.savie-overlay-btn {
+	position: absolute;
+	bottom: 80px;
+    left: 20px;
+    width: 160px;
+    height: 40px;
+    color: white;
+    background-color: #ff8200;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+@media (min-width: 441px) {
+	.savie-overlay-btn {
+ 		bottom: 108px;
+		left: 30px;
+   }
+}
+
+@media (min-width: 992px) {
+	.savie-overlay-btn {
+ 		bottom: 57px;
+		left: 62px;
+   }
+}
+
 
 .fwd-savie-wrapper .banner-widget.hunger-selling {
   background: url("../../images/savie/hunger-selling-banner-mobile.jpg") center center no-repeat;
@@ -14828,7 +14889,7 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
     max-width: 450px;
     width: 35%;
     //top: 285px;
-    bottom: 85px;
+    bottom: 200px;
     position: absolute;
     padding-left: 65px;
     padding-right: 65px;
@@ -14836,7 +14897,7 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
   }
 
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 70px;
+    bottom: 135px;
   }
 
   .fwd-savie-wrapper .sign-up-teaser button.get-started {
@@ -14857,37 +14918,31 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
 
 @media (min-width: 1023px){
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 75px;
-  }
-}
-
-@media (min-width: 1029px){
-  .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 85px;
+    bottom: 165px;
   }
 }
 
 @media (min-width: 1040px){
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 100px;
+    bottom: 165px;
   }
 }
 
 @media (min-width: 1076px){
   .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 110px;
+    bottom: 195px;
   }
 }
 
 @media (min-width: 1115px){
   .fwd-savie-wrapper .sign-up-teaser {
-    //bottom: 135px;
+    bottom: 225px;
   }
 }
 
 @media (min-width: 1195px){
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 120px;
+    bottom: 165px;
   }
 }
 
@@ -14900,13 +14955,13 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
 
 @media (min-width: 1213px){
   .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 115px;
+    bottom: 225px;
   }
 }
 
 @media (min-width: 1230px){
   .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 135px;
+    bottom: 225px;
   }
 }
 

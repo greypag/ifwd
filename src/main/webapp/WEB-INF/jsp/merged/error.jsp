@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <script type="text/javascript">
@@ -62,11 +63,17 @@
     <div class="container annexure-form error-page " >
     	<div class="col-xs-12">
     		<div class="company form-regisration error">
-				<h4>${errorHeader1}</strong></h4><br>
-				<h4><strong>${errorDescription1}</strong></h4><br>
-				<h4>${errorHeader2}</h4><br>
-				<h4><strong>${errorDescription2}</strong></h4><br>
-				
+				<c:if test="${errMsgs != null}">
+					<c:forEach var="errMsg" items="${errMsgs}">
+					<h4>${errMsg}</h4>
+					</c:forEach>
+                </c:if>
+                <c:if test="${errMsgs == null}">
+					<h4>${errorHeader1}</h4><br>
+					<h4><strong>${errorDescription1}</strong></h4><br>
+					<h4>${errorHeader2}</h4><br>
+					<h4><strong>${errorDescription2}</strong></h4><br>                
+                </c:if>
 			</div>
 			<div class="row">
 	            <div class="col-xs-12 col-sm-12 col-md-4">
