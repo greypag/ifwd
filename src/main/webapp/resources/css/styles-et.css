@@ -596,3 +596,7 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
   padding-top: 32px;
   position: relative;
 }
+
+.et-valid-proof {
+	color: #f6871e;	
+}

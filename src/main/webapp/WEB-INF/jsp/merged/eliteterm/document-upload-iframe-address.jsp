@@ -35,10 +35,11 @@ var languageP = "${language}";
 										</button>-->
 									<h5 class="resident-address-desc">
 										<fmt:message key="eliteTerms.documentUpload.Your.current.residential" bundle="${msg}" />
-										<a href="<%=request.getContextPath()%>/<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank">
+										<a class="et-valid-proof" href="<%=request.getContextPath()%>/<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank">
 											<fmt:message key="eliteTerms.documentUpload.Your.current.residential.validProof" bundle="${msg}" />
 										</a>
 									</h5>
+									
 									<form id="address-upload-form" class="upload-form select-iframe" action="${pageContext.request.contextPath}/ajax/eliteTerm/getEliteTermImage" method="post" enctype="multipart/form-data">
 										<div class="finish-upload hidden" id="finish-upload-addr">
 											<div class="center-align">
