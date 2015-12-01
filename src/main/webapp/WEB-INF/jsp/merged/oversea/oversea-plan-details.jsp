@@ -501,9 +501,12 @@ function setDropArea(id) {
                                 </div>                            
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none pull-right">
                                     <div id="applicantDistrictSelectWrap" class="styled-select">
-                                            <select name="applicantDistrict" id="applicantDistrict"
+                                            <!--<select name="applicantDistrict" id="applicantDistrict"
                                             onchange="activeDiv('personalbenificiaryId1','personalselectBenificiary1', 'personalBenefitiaryId1', 'personalBenefitiaryHKId1');setDropArea(this.value)"
-                                            class="form-control soflow select-label">
+                                            class="form-control soflow select-label">-->
+                                            <select name="applicantDistrict" id="applicantDistrict"
+                                            onchange="setDropArea(this.value)"
+                                            class="form-control soflow select-label">                                            
                                             <option value=""><fmt:message
                                                     key="annual.details.address.district" bundle="${msg}" /></option>
                                             <%
@@ -754,7 +757,7 @@ function setDropArea(id) {
                                             <label for="countryOfInstitution" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Country'>Country of Institution</key></label>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                            <input name="countryOfInstitution" type="text" class="form-control full-control" placeholder="Country of Institution" value="" id="countryOfInstitution" onkeypress="validatecountryOfInstitution();" onfocus="placeholderOnFocus(this,'Country of Institution');" onblur="placeholderOnBlur(this,'Country of Institution');" maxlength="50">                                              
+                                            <input name="countryOfInstitution" type="text" class="form-control full-control" placeholder="Country of Institution" value="" id="countryOfInstitution" onkeypress="" onfocus="placeholderOnFocus(this,'Country of Institution');" onblur="placeholderOnBlur(this,'Country of Institution');validatecountryOfInstitution();" maxlength="50">                                              
                                             <br>                                                
                                             <span id="countryOfInstitutionInvalid" class="text-red"></span>
                                         </div>
@@ -764,7 +767,7 @@ function setDropArea(id) {
                                             <label for="nameOfInstitution" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Name'>Name of Institution</key></label>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                            <input name="nameOfInstitution" type="text" class="form-control full-control" placeholder="Name of Institution" value="" id="nameOfInstitution" onkeypress="validatecountryOfInstitution();" onfocus="placeholderOnFocus(this,'Name of Institution');" onblur="placeholderOnBlur(this,'Name of Institution');" maxlength="100"> 
+                                            <input name="nameOfInstitution" type="text" class="form-control full-control" placeholder="Name of Institution" value="" id="nameOfInstitution" onkeypress="" onfocus="placeholderOnFocus(this,'Name of Institution');" onblur="placeholderOnBlur(this,'Name of Institution');validatenameOfInstitution();" maxlength="100"> 
                                             <span id="nameOfInstitutionInvalid" class="text-red"></span>
                                         </div>
                                     </div>

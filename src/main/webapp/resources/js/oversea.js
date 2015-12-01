@@ -22,9 +22,7 @@ function validateaddressofInstitutionLine() {
 	addressline1 = $("#addressofInstitutionLine1").val();
 	addressline2 = $("#addressofInstitutionLine2").val();
 	addressline3 = $("#addressofInstitutionLine3").val();
-	if (addressline1.trim() == "" && addressline2.trim() == ""
-			&& addressline3.trim() == "") {
-
+	if ((addressline1.trim() == "" && addressline2.trim() == "" && addressline3.trim() == "") || (addressline1.trim() == "Line 1" && addressline2.trim() == "Line 2" && addressline3.trim() == "Line 3")) {
 		$("#addressofInstitutionLine1").addClass("invalid-field");
 		$("#addressofInstitutionLine2").addClass("invalid-field");
 		$("#addressofInstitutionLine3").addClass("invalid-field");
@@ -40,7 +38,7 @@ function validateaddressofInstitutionLine() {
 
 function validatenameOfInstitution(){
 	nameOfInstitution = $("#nameOfInstitution").val();
-	if (nameOfInstitution.trim() == "") {
+	if (nameOfInstitution.trim() == "" || nameOfInstitution.trim() == "Name of Institution") {
 		$("#nameOfInstitution").addClass("invalid-field");
 		$("#nameOfInstitutionInvalid").html(
 				getBundle(getBundleLanguage, "Please enter name of Institution."));
@@ -52,7 +50,7 @@ function validatenameOfInstitution(){
 
 function validatecountryOfInstitution(){
 	countryOfInstitution = $("#countryOfInstitution").val();
-	if (countryOfInstitution.trim() == "") {
+	if (countryOfInstitution.trim() == "" || countryOfInstitution.trim()=="Country of Institution") {
 		$("#countryOfInstitution").addClass("invalid-field");
 		$("#countryOfInstitutionInvalid").html(
 				getBundle(getBundleLanguage, "Please enter the country of Institution."));
@@ -121,7 +119,11 @@ function validateCorrespondenceBorE() {
 		$("#errorEmptyCorrespondenceAddressEstate").html(
 				getBundle(getBundleLanguage,
 						"Either Building or Estate must be filled in"));
+		$("#errorEmptyCorrespondenceAddressBuilding").html(
+				getBundle(getBundleLanguage,
+						"Either Building or Estate must be filled in"));		
 	} else {
+		$("#" + 'errorEmptyCorrespondenceAddressBuilding').html('');
 		$("#" + 'errorEmptyCorrespondenceAddressEstate').html('');
 		$("#" + 'correspondenceAddressBuildingId').removeClass("invalid-field");
 		$("#" + 'correspondenceAddressEstateId').removeClass("invalid-field");
@@ -240,16 +242,7 @@ function validateOverseaDetails() {
 	var nameOfInstitution = document.getElementById("nameOfInstitution").value;
 	var visacheckbox = document.getElementById("visacheckbox").checked;		
 	var overseaDepartureDate = document.getElementById("overseaDepartureDate").value;
-	
-
-	
-	var building = $("#correspondenceAddressBuildingId").val();
-	var estate = $("#correspondenceAddressEstateId").val();
-	var addressline1 = $("#addressofInstitutionLine1").val();
-	var addressline2 = $("#addressofInstitutionLine2").val();
-	var addressline3 = $("#addressofInstitutionLine3").val();
-	
-	
+		
 	var building = $("#correspondenceAddressBuildingId").val();
 	var estate = $("#correspondenceAddressEstateId").val();
 	//var insuredDob = $("#overseaDepartureDate").val();
@@ -260,7 +253,9 @@ function validateOverseaDetails() {
 	var addressline2 = $("#addressofInstitutionLine2").val();
 	var addressline3 = $("#addressofInstitutionLine3").val();
 	
-
+	var beneficiaryName = document.getElementById("beneficiaryFullName").value;
+	var beneficiaryId = document.getElementById("beneficiaryFullName").value;
+	
 	/*if (applicantBuilding.trim() == buildingPlaceholder.trim()) {
 		applicantBuilding = '';
 	}
@@ -411,6 +406,86 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 		$("#"+'dobInsuredInvalid').html('');
 		$("#"+'oversea_insure_dob').removeClass("invalid-field");
 	}
+	
+	/*if($("#personalselectBenificiary").val() != "" && $("#personalselectBenificiary").val() != 'SE'){
+		if (beneficiaryName.trim() == "" || beneficiaryName.trim() == "SAME AS ID DOCUMENT") {
+			$("#errBeneficiaryFullName").html( getBundle(getBundleLanguage, "Please enter Beneficiary Name in English."));
+			$("#beneficiaryFullName").addClass("invalid-field");
+			if(firstErrorElementId==""){
+				firstErrorElementId="beneficiaryFullName";
+			}
+			flag = false;
+		}
+		
+		if($('#beneficiaryIDType').length > 0 && $('#beneficiaryIDType').val().toLowerCase() == 'passport'){
+			if (beneficiaryId.trim() == "" || beneficiaryId.trim() == "EG: X1234567 WITHOUT ()") {
+				$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "Please enter your Beneficiary passport."));
+				$("#beneficiaryID").addClass("invalid-field");
+				if(firstErrorElementId==""){
+					firstErrorElementId="beneficiaryID";
+				}
+				flag = false;
+			}else{
+				var tr = chkTravelHKPass(beneficiaryId.trim());
+				if (tr == false) {
+					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "beneficiary.passport.notValid.message"));
+					$("#beneficiaryID").addClass("invalid-field");
+					if(firstErrorElementId==""){
+						firstErrorElementId="beneficiaryID";
+					}
+					flag = false;
+				}
+				
+				var tr1 = chkTravelHKPassLen(beneficiaryId.trim());
+				if (tr1 == false) {
+					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "Please enter your Beneficiary HKID."));
+					$("#beneficiaryID").addClass("invalid-field");
+					if(firstErrorElementId==""){
+						firstErrorElementId="beneficiaryID";
+					}
+					flag = false;
+				}
+				
+				if(beneficiaryId.trim() == InsuHkid.trim()){
+					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "beneficiary.passport.same.message"));
+					$("#beneficiaryID").addClass("invalid-field");
+					if(firstErrorElementId==""){
+						firstErrorElementId="beneficiaryID";
+					}
+					flag = false;
+				}
+			}
+		}else{ 
+			if (beneficiaryId.trim() == "" || beneficiaryId.trim() == "EG: X1234567 WITHOUT ()") {
+				$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
+				$("#beneficiaryID").addClass("invalid-field");
+				if(firstErrorElementId==""){
+					firstErrorElementId="beneficiaryID";
+				}
+				flag = false;
+			}else {
+				var tr=IsHKID(beneficiaryId.trim());
+				if(tr==false){
+					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+					$("#beneficiaryID").addClass("invalid-field");
+					if(firstErrorElementId==""){
+						firstErrorElementId="beneficiaryID";
+					}
+					flag = false;
+				}
+				
+				if(beneficiaryId.trim() == InsuHkid.trim()){
+					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "beneficiary.hkId.same.message"));
+					$("#beneficiaryID").addClass("invalid-field");
+					if(firstErrorElementId==""){
+						firstErrorElementId="beneficiaryID";
+					}
+					flag = false;
+				}
+			}
+		}
+			
+	}*/
 	
 	
 	if (overseaDepartureDate.trim() == "" || overseaDepartureDate.trim() =="DD-MM-YYYY") {
