@@ -49,7 +49,7 @@ var languageP = "${language}";
 											<div class="select-file-section" id="select-file-section">
 												<div class="mob hidden-md hidden-lg">
 													<label for="hkidFileToUploadCam" class="mobile-camera-pic-file">
-														<input type="file" id="hkidFileToUploadCam" name="hkidFileToUploadCam" onchange="upload(this.id);">
+														<input type="file" id="fileToUpload-hkid-dragAndDrop" name="hkidFileToUploadCam" onchange="upload(this.id);">
 														<span class="mobile-camera"></span>
 													</label>
 												</div>
