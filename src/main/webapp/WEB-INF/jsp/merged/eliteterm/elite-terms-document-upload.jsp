@@ -514,12 +514,25 @@ var languageP = "${language}";
 			})
 			
 			//upload IE
+
 			function isUploaded(id) {
-				if(document.getElementById(id).contentWindow.document.body.innerHTML == 'true') {
-					var newURL = $('#'+id).attr('src');
-					$('#'+id).attr('src',newURL+'?uploadResult=true');
-				} else if (document.getElementById(id).contentWindow.document.body.innerHTML == 'system error') {
-					var newURL = $('#'+id).attr('src');
+
+				var status = document.getElementById(id).contentWindow.document.body.innerHTML;
+				var targetURL = $('#' + id).attr('src').split(/[?#]/)[0]; //get raw url
+				var responseURL = $('#' + id)[0].contentWindow.location.href;
+
+				// skip handling if iframe document <> server response
+				var bSkip = responseURL.indexOf(targetURL) > -1;
+				if ( bSkip ) {
+					return false;
+				}
+
+				if(status == 'true') {
+					$('#'+id).attr('src',targetURL+'?uploadResult=true');
+					//enable submit button
+					$('#et-upload-doc-submit-btn').removeAttr('disabled');
+				} else {
+					
 					var lang = '${language}';
 					if(lang=='en') {
 						setTimeout(function(){
@@ -531,8 +544,10 @@ var languageP = "${language}";
 							$('#'+id).contents().find('#upload-system-error .ch').removeClass('hidden');
 						}, 100);
 					}
-					$('#'+id).attr('src',newURL+'?uploadResult=false');
+					$('#'+id).attr('src',targetURL+'?uploadResult=false');
 				}
+
+				//set 
 			}
 			function tooltip() {
 				if(getWidth() > 1100) {
@@ -562,6 +577,12 @@ var languageP = "${language}";
 
             // Check if hkid is valid
             function isHkidValidity() {
+                
+                /* For IE9, check the src result */
+                if(msieversion()>0 && msieversion()<10) {
+                	return $('#iframe-one').attr('src').indexOf('uploadResult=true') > -1; 
+            	}
+
                 var isValid = true;
                 var $hkidFileDnD = $('#fileToUpload-hkid-dragAndDrop');
                 var $hkidFile = $('#hkidFileToUpload');
@@ -582,6 +603,12 @@ var languageP = "${language}";
             
             // Check if passport is valid
             function isPassportValidity() {
+
+            	/* For IE9, check the src result */
+                if(msieversion()>0 && msieversion()<10) {
+                	return $('#iframe-two').attr('src').indexOf('uploadResult=true') > -1; 
+            	}
+
                 var isValid = true;
                 var $passportFileDnD = $('#fileToUpload-passport-dragAndDrop');
                 var $passportFile = $('#passportFileToUpload');
@@ -607,6 +634,11 @@ var languageP = "${language}";
                     return true;
                 }
                 
+                /* For IE9, check the src result */
+                if(msieversion()>0 && msieversion()<10) {
+                	return $('#iframe-three').attr('src').indexOf('uploadResult=true') > -1; 
+            	}
+
                 var isValid = true;
                 var $profAddFileDnD = $('#fileToUpload-addr-dragAndDrop');
                 var $profAddFile = $('#fileToUploadProofAdd');
