@@ -953,7 +953,7 @@ function setDropArea(id) {
                                     <div class="text-left h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
                                         <div class="hk" style="font-size: 18px;">
                                             HK$
-                                            <div class="flightcare-hk" style="font-weight: bold;font-size: 28px;">${planPremium}</div>
+                                            <div class="flightcare-hk" style="font-weight: bold;font-size: 28px;"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${planPremium}" /></div>
                                         </div>
                                     </div>
                                 </div>
@@ -972,15 +972,15 @@ function setDropArea(id) {
                                     <h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;">${referralCode}</h4>
                                 </c:if>-->
                                 <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;">Subtotal </h3>
-                                <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">${planPremium} </h3>
+                                <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${planPremium}" /></h3>
                                 <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;">Discount </h3>
-                                <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">${planDiscount} </h3>
+                                <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${planDiscount}" /></h3>
                             </div>
                             <div class="clearfix"></div>
                             <div class="orange-bdr"></div>
                             <div style="width: 80%;margin-left: 10%;">
                                 <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;">Amount due  </h3>
-                                <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;">${planSummary}</h3>
+                                <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${planSummary}" /></h3>
                                 <input type="hidden" name="finalDueAmount" value="${planSummary}">
                                 <input type="hidden" name="finalOriginalAmount" value="${planPremium}">
                             </div>
