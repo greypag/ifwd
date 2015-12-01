@@ -516,7 +516,18 @@ var languageP = "${language}";
 					$('#'+id).attr('src',newURL+'?uploadResult=true');
 				} else if (document.getElementById(id).contentWindow.document.body.innerHTML == 'system error') {
 					var newURL = $('#'+id).attr('src');
-					$('#'+id).attr('src',newURL);
+					var lang = '${language}';
+					if(lang=='en') {
+						setTimeout(function(){
+							$('#'+id).contents().find('#upload-system-error .en').removeClass('hidden');
+						}, 100);
+					}
+					else {
+						setTimeout(function(){
+							$('#'+id).contents().find('#upload-system-error .ch').removeClass('hidden');
+						}, 100);
+					}
+					$('#'+id).attr('src',newURL+'?uploadResult=false');
 				}
 			}
 			function uploadIe() {

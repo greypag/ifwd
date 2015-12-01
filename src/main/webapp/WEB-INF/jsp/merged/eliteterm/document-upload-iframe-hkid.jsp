@@ -67,6 +67,7 @@ var languageP = "${language}";
 										</div>
 									</form>
 									<span class="hidden upload-error" style="color:red; font-size:14px; display:block; text-align:center">No file selected</span>
+									<span id="upload-system-error" class="upload-error" style="color:red; font-size:14px; display:block; text-align:center"><span class="ch hidden">上載失敗。請重新嘗試。</span><span class="en hidden">Upload failed. Please try again.</span> </span>
 									<div class="document-upload-progress iframe hidden" id="hkid-copy-progress">
 										<div class="clearfix">
 											<div class="pull-left">
