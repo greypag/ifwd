@@ -40,7 +40,7 @@ var languageP = "${language}";
 										</a>
 									</h5>
 									
-									<form id="address-upload-form" class="upload-form select-iframe" action="${pageContext.request.contextPath}/ajax/eliteTerm/getEliteTermImage" method="post" enctype="multipart/form-data">
+									<form id="address-upload-form" class="upload-form select-iframe" action="${pageContext.request.contextPath}/ajax/eliteTerm/postEliteTermImage" method="post" enctype="multipart/form-data">
 										<div class="finish-upload hidden" id="finish-upload-addr">
 											<div class="center-align">
 												<span class="finish-upload-check"></span>

@@ -34,7 +34,7 @@ var languageP = "${language}";
 											</button>-->
 									<h5><fmt:message key="eliteTerms.documentUpload.Upload.your.HKID" bundle="${msg}" /></h5>
 									<br />
-									<form  id="hkid-upload-form" class="upload-form select-iframe" action="${pageContext.request.contextPath}/ajax/eliteTerm/getEliteTermImage" method="post" enctype="multipart/form-data">
+									<form  id="hkid-upload-form" class="upload-form select-iframe" action="${pageContext.request.contextPath}/ajax/eliteTerm/postEliteTermImage" method="post" enctype="multipart/form-data">
 										<div class="finish-upload hidden" id="finish-upload-hkid">
 											<div class="center-align">
 												<span class="finish-upload-check"></span>

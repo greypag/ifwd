@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
@@ -35,6 +36,75 @@ public class AjaxEliteTermController extends BaseController{
 	private EliteTermService eliteTermService;
 
 
+	@SuppressWarnings({ "restriction" })
+	@RequestMapping(value = {"/ajax/eliteTerm/postEliteTermImage"})
+	  public void doAddImageByForm(HttpServletRequest request, HttpServletResponse response,
+			  MultipartFile hkidFileToUpload,
+			  MultipartFile passportFileToUpload,
+			  MultipartFile fileToUpload
+	            ) throws Exception {
+		MultipartFile file;
+		if( hkidFileToUpload!= null) {
+			file = hkidFileToUpload;
+		}else if( passportFileToUpload!= null) {
+			file = passportFileToUpload;
+		}else if( fileToUpload!= null) {
+			file = fileToUpload;
+		}else{
+			return;
+		}
+		
+		try {
+				String imgMaxSize = UserRestURIConstants.getProperties("imgMaxSize");
+				String name = file.getOriginalFilename();
+				long size = file.getSize();
+				if(size/(1024*1024) > Integer.valueOf(imgMaxSize)){
+					throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.greater.than",request)+" "+imgMaxSize+"MB");
+				}
+				
+				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+				String policyNo = eliteTermPolicy.getPolicyNo();
+				String documentPath = UserRestURIConstants.getProperties("documentPath");
+				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes()); 
+		        File dirPath = new File(uploadDir);  
+		        if (!dirPath.exists()) {   
+		            dirPath.mkdirs();  
+		        } 
+		        String fileName = file.getOriginalFilename();
+		        
+		        String imgName = name.substring(0, name.lastIndexOf("."));
+		        
+		        String realName = imgName+".jpg";
+				request.getSession().setAttribute(imgName, realName);
+				request.getSession().setAttribute(imgName+"Type", "jpg");
+		        byte[] bytes = file.getBytes();
+		        String sep = System.getProperty("file.separator");  
+		        File uploadedFile = new File(uploadDir + sep  
+		                + fileName);  
+		        FileCopyUtils.copy(bytes, uploadedFile); 
+//		        if(!FileUtil.checkImageFile(uploadDir + sep  
+//		                + fileName)){
+//		        	throw new ECOMMAPIException("Illegal file");
+//		        }
+		        
+		        File toFile = new File(uploadDir + sep  
+				                + realName);
+		        ImgUtil.ImageToPdfToJPG(uploadDir + sep+ fileName, uploadDir + sep + imgName + ".pdf", toFile , request);
+//				ImgUtil.changeImageToJPG(uploadedFile,toFile,request);
+		        response.getWriter().write("true");
+		    } catch (ECOMMAPIException e) {
+				String error = e.getMessage();
+				response.setCharacterEncoding("utf-8");  //这里不设置编码会有乱码
+	            response.setContentType("text/plain;charset=utf-8");
+	            response.setHeader("Cache-Control", "no-cache");  
+	            response.getWriter().write(error);
+	        }catch (Exception e) {
+				logger.info(e.getMessage());
+				e.printStackTrace();
+				response.getWriter().write("system error");
+	        }
+	}
+	
 	@SuppressWarnings({ "restriction" })
 	@RequestMapping(value = {"/ajax/eliteTerm/getEliteTermImage"},method = RequestMethod.POST)
 	  public void doAddImageByGroupId(HttpServletRequest request, HttpServletResponse response,
