@@ -35,7 +35,7 @@ var languageP = "${language}";
 									</button>
 
 									<h5><fmt:message key="eliteTerms.documentUpload.If.you.are" bundle="${msg}" /></h5>
-
+									<br />
 									<form id="passport-upload-form" class="upload-form select-iframe" action="${pageContext.request.contextPath}/ajax/eliteTerm/getEliteTermImage" method="post" enctype="multipart/form-data">
 										<div class="finish-upload hidden" id="finish-upload-passport">
 											<div class="center-align">

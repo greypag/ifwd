@@ -33,7 +33,7 @@ var languageP = "${language}";
 									<h4><fmt:message key="eliteTerms.documentUpload.Proof.of.address" bundle="${msg}" /></h4>
 									<!--<button type="button" class="et-minimal info addr orange-tooltip hidden-xs hidden-sm" data-container="body" data-trigger="hover focus click" data-html="true" data-toggle="tooltip" data-placement="top" title="<fmt:message key="eliteTerms.documentUpload.Proof.of.address.tooltip" bundle="${msg}" />" data-template='<div class="tooltip et-sp-tooltip-wrapper" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'><span class="et-info-tooltip "></span>
 										</button>-->
-									<h5>
+									<h5 class="resident-address-desc">
 										<fmt:message key="eliteTerms.documentUpload.Your.current.residential" bundle="${msg}" />
 										<a href="<%=request.getContextPath()%>/<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank">
 											<fmt:message key="eliteTerms.documentUpload.Your.current.residential.validProof" bundle="${msg}" />
