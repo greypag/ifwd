@@ -443,10 +443,15 @@ li.sponsor-wrapper+li.sponsor-wrapper{
     margin:auto;
     line-height:72px;
 }
-@media (min-width: 768px) and (max-width: 1199px){
-	.plan-box-l h2, .plan-box-s h2{
-	   font-size:16px;
-	}
+@media (min-width: 992px) and (max-width: 1199px){
+    .plan-box-l h2, .plan-box-s h2{
+       font-size:16px;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px){
+    .plan-box-l h2, .plan-box-s h2{
+       font-size:18px;
+    }
 }
 .plan-box-l h2{
     font-weight: 900;
