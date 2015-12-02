@@ -283,10 +283,10 @@ function setDropArea(id) {
         <div class="row">
             <form:form id="frmYourDetails" class="oversea-details-form" name="frmYourDetails" onsubmit="return confirmDetails(this,'frmYourDetails','${language}');" modelAttribute="frmYourDetails" method="post" action="">
                 <ol class="breadcrumb pad-none">
-                  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer1'>Home</key></a> <i class="fa fa-chevron-right"></i></li>
-                  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer2'>Protect</key></a></li> <i class="fa fa-chevron-right"></i></li>
-                  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer3'>Overseas StudyCare Insurance</key></a></li>
-                  <li class="active "><i class="fa fa-chevron-right"></i><key id='Overseas.Landing.Breadcrumb.step3'>Application</key></li>
+                  <li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer1" bundle="${msg}" /></a> <i class="fa fa-chevron-right"></i></li>
+                  <li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer2" bundle="${msg}" /></a></li> <i class="fa fa-chevron-right"></i></li>
+                  <li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer3" bundle="${msg}" /></a></li>
+                  <li class="active "><i class="fa fa-chevron-right"></i><fmt:message key="Overseas.Landing.Breadcrumb.step3" bundle="${msg}" /></li>
                 </ol>
                 
                 <%
@@ -320,7 +320,7 @@ function setDropArea(id) {
                         <!-- updated responsive design start -->
                         <div class="form-wrap">
                             <div class="big-title black-bold pad-none section-title">
-                                <key id='Overseas.userdetails.info'>Applicant info</key>
+                                <fmt:message key="Overseas.userdetails.info" bundle="${msg}" />
                             </div>
                             <div class="form-group float">
                                 <span id="errorMsg"  class="text-red">${errormsg}</span>
@@ -328,7 +328,7 @@ function setDropArea(id) {
                             <!-- english name start -->
                            <div class="form-group float">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                   <label for="inputFullName" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Fullname'>Full name</key></label>
+                                   <label for="inputFullName" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Fullname" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input type="text" name="fullName" class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" id="inputFullName" 
@@ -349,12 +349,12 @@ function setDropArea(id) {
                            <div class="form-group float">
                                <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                 <label class="field-label bold-500">
-                                    <key id='Overseas.userdetails.applicant.HKID'>HKID</key>
+                                    <fmt:message key="Overseas.userdetails.applicant.HKID" bundle="${msg}" />
                                     <input type="hidden" name="selectedHkidPassApplicant" id="selectHkidPass" value="HKID">
                                 </label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input type="text" name="hkid" class="form-control numberinput textUpper full-control bmg_custom_placeholder" id="inputTxtAppHkid" onkeypress=" return hkidOnkeypress(event);" value="EG: X1234567 WITHOUT ()" onfocus="placeholderOnFocus(this,'EG: X1234567 WITHOUT ()');" onblur="placeholderOnBlur(this,'EG: X1234567 WITHOUT ()'); validateHkid('inputTxtAppHkid','selectHkidPass','errAppHkid',true,'applicant');"> <!-- <key id='Overseas.userdetails.applicant.HKID.eg'>EG: X1234567 WITHOUT ()</key> -->
+                                   <input type="text" name="hkid" class="form-control numberinput textUpper full-control bmg_custom_placeholder" id="inputTxtAppHkid" onkeypress=" return hkidOnkeypress(event);" value="EG: X1234567 WITHOUT ()" onfocus="placeholderOnFocus(this,'EG: X1234567 WITHOUT ()');" onblur="placeholderOnBlur(this,'EG: X1234567 WITHOUT ()'); validateHkid('inputTxtAppHkid','selectHkidPass','errAppHkid',true,'applicant');"> <!-- <fmt:message key="Overseas.userdetails.applicant.HKID.eg" bundle="${msg}" /> -->
                                        <span id="errAppHkid" class="text-red"></span>
                                </div>
                            </div>
@@ -362,7 +362,7 @@ function setDropArea(id) {
                            <!-- birthday starts -->
                            <div class="form-group float">
                                <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                   <label for="inputApplicantDob" class="field-label bold-500"><key id='Overseas.userdetails.applicant.DOB'>Date of birth</key></label>
+                                   <label for="inputApplicantDob" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.DOB" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <div class="input-group date" id="input_oversea_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
@@ -375,7 +375,7 @@ function setDropArea(id) {
                            <!-- mobile starts -->
                            <div class="form-group float">
                                <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                   <label for="inputMobileNo" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Mobile'>Mobile no.</key></label>
+                                   <label for="inputMobileNo" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Mobile" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <input name="mobileNo" type="tel" class="form-control full-control"
@@ -385,7 +385,7 @@ function setDropArea(id) {
                                             readonly="readonly"
                                            </c:when>
                                        </c:choose>
-                                        id="inputMobileNo" onkeypress="return isNumeric(event)" onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8">  <!-- <key id='Overseas.userdetails.applicant.Mobile.number'>Mobile no.</key> -->
+                                        id="inputMobileNo" onkeypress="return isNumeric(event)" onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8">  <!-- <fmt:message key="Overseas.userdetails.applicant.Mobile.number" bundle="${msg}" /> -->
                                     <span id="errMobileNo" class="text-red">
                                     </span>
                                </div>
@@ -394,7 +394,7 @@ function setDropArea(id) {
                            <!-- email address starts -->
                            <div class="form-group float">
                                <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                   <label for="inputEmailId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Email'>Email address</key></label>
+                                   <label for="inputEmailId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Email" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                    <input class="form-control full-control textLower" name="emailAddress" type="email" 
@@ -441,15 +441,15 @@ function setDropArea(id) {
                         <div class="form-wrap">
                         <!-- correspondence address -->
                             <div class="big-title black-bold pad-none ">
-                                <key id='Overseas.userdetails.applicant.Correspondence'>Correspondence address</key>
+                                <fmt:message key="Overseas.userdetails.applicant.Correspondence" bundle="${msg}" />
                             </div>
                             <div class="form-group float">
                                 <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                    <label for="inputRoomId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.ROOM'>ROOM</key></label>
+                                    <label for="inputRoomId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Correspondence.ROOM" bundle="${msg}" /></label>
                                     /
-                                    <label for="inputFloorId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.FLOOR'>FLOOR</key></label>
+                                    <label for="inputFloorId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Correspondence.FLOOR" bundle="${msg}" /></label>
                                     /
-                                    <label for="inputBlockId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.BLOCK'>BLOCK</key></label>
+                                    <label for="inputBlockId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Correspondence.BLOCK" bundle="${msg}" /></label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <div class="col-sm-4 col-xs-4 col-lg-4 col-md-4 pad-none">
@@ -465,7 +465,7 @@ function setDropArea(id) {
                             </div>
                             <div class="form-group float">
                                 <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                    <label for="inputBuildingId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.BUILDING'>BUILDING</key></label>
+                                    <label for="inputBuildingId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Correspondence.BUILDING" bundle="${msg}" /></label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <input class="form-control full-control textUpper" name="correspondenceAddressBuilding" type="text" value="" id="correspondenceAddressBuildingId" maxlength="50" placeholder="BUILDING"  onfocus="placeholderOnFocus(this,'BUILDING');" onblur="placeholderOnBlur(this,'BUILDING');validateCorrespondenceBorE();"><span id="errorEmptyCorrespondenceAddressBuilding" class="text-red"></span>
@@ -473,7 +473,7 @@ function setDropArea(id) {
                             </div>
                             <div class="form-group float">
                                 <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                    <label for="inputEstateId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.ESTATE'>ESTATE</key></label>
+                                    <label for="inputEstateId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Correspondence.ESTATE" bundle="${msg}" /></label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <input class="form-control full-control textUpper" name="correspondenceAddressEstate" type="text" value="" id="correspondenceAddressEstateId" maxlength="50" placeholder="ESTATE" onfocus="placeholderOnFocus(this,'ESTATE');" onblur="placeholderOnBlur(this,'ESTATE');validateCorrespondenceBorE();"><span id="errorEmptyCorrespondenceAddressEstate" class="text-red"></span>
@@ -481,7 +481,7 @@ function setDropArea(id) {
                             </div>
                             <div class="form-group float">
                                 <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                    <label for="inputStreetNoId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.STREETNO'>Street No.</key></label>
+                                    <label for="inputStreetNoId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNO" bundle="${msg}" /></label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <input class="form-control full-control textUpper" name="correspondenceAddressStreetNo" type="text" value="" id="correspondenceAddressStreetNoId" maxlength="50" placeholder="STREET NO." onfocus="placeholderOnFocus(this,'STREET NO.');" onblur="placeholderOnBlur(this,'STREET NO.');"><span id="" class="text-red"></span>
@@ -489,7 +489,7 @@ function setDropArea(id) {
                             </div>
                             <div class="form-group float">
                                 <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                    <label for="inputStreetNameId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.STREETNAME'>STREET NAME</key></label>
+                                    <label for="inputStreetNameId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNAME" bundle="${msg}" /></label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <input class="form-control full-control textUpper" name="correspondenceAddressStreetName" type="text" value="" id="correspondenceAddressStreetNameId" maxlength="50" placeholder="STREET NAME" onfocus="placeholderOnFocus(this,'STREET NAME');" onblur="placeholderOnBlur(this,'STREET NAME');"><span id="" class="text-red"></span>
@@ -497,7 +497,7 @@ function setDropArea(id) {
                             </div>
                             <div class="form-group float">
                                 <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                    <label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Correspondence.District'>District</key></label>
+                                    <label for="inputDistrictId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Correspondence.District" bundle="${msg}" /></label>
                                 </div>                            
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none pull-right">
                                     <div id="applicantDistrictSelectWrap" class="styled-select">
@@ -554,19 +554,19 @@ function setDropArea(id) {
                                                                                 <input type="radio" name="districtSelected"
                                             name="correspondenceAddressDistrict" type="" value="HK"
                                             id="inlineCARadio3" onclick="" maxlength="50" onblur=""><span id="" class="text-red"></span>
-                                        <label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.HongKong'>HK</key></label>
+                                        <label for="inputDistrictId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.HongKong" bundle="${msg}" /></label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
                                         <input type="radio" name="districtSelected"
                                             name="correspondenceAddressDistrict" type="" value="KL"
                                             id="inlineCARadio4" onclick="" maxlength="50" onblur=""><span id="" class="text-red"></span>
-                                        <label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.Kowloon'>KLN</key></label>
+                                        <label for="inputDistrictId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Kowloon" bundle="${msg}" /></label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
                                                                                 <input type="radio" name="districtSelected"
                                             name="correspondenceAddressDistrict" type="" value="NT"
                                             onclick="" id="inlineCARadio5" maxlength="50" onblur=""><span id="" class="text-red"></span>
-                                        <label for="inputDistrictId" class="field-label bold-500"><key id='Overseas.userdetails.applicant.NT'>N.T.</key></label>
+                                        <label for="inputDistrictId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.NT" bundle="${msg}" /></label>
                                     </div>
                                 </div>                                                          
                                 <span id="errCADist" class="text-red"> </span>
@@ -576,7 +576,7 @@ function setDropArea(id) {
                         <div class="clearfix"></div>
                         <div class="form-wrap">
                             <div class="big-title black-bold section-title" style="padding-left:0px !important;">
-                                <key id='Overseas.userdetails.Insured'>Insured person info</key>
+                                <fmt:message key="Overseas.userdetails.Insured" bundle="${msg}" />
                             </div>
                         </div>
                             <!-- Personal -->
@@ -593,7 +593,7 @@ function setDropArea(id) {
                                         <!-- english name start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                                <label class="field-label bold-500"><key id='Overseas.userdetails.Insured.Fullname'>Full name</key></label>
+                                                <label class="field-label bold-500"><fmt:message key="Overseas.userdetails.Insured.Fullname" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                   <input type="text" id="txtInsuFullName1" name="personalName" class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
@@ -613,11 +613,11 @@ function setDropArea(id) {
                                        <!-- id card start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                                   <label class="field-label bold-500"><key id='Overseas.userdetails.Insured.HKID'>HKID</key></label>
+                                                   <label class="field-label bold-500"><fmt:message key="Overseas.userdetails.Insured.HKID" bundle="${msg}" /></label>
                                                    <input id="selectedPersonalHkidPass1" name="selectedPersonalHkidPass" value="HKID" type="hidden">
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                               <input id="txtInsuHkid1" name="personalHKID" class="form-control textUpper full-control bmg_custom_placeholder" value="EG: X1234567 WITHOUT ()" placholder="EG: X1234567 WITHOUT ()" onkeypress=" return hkidOnkeypress(event);" onfocus="placeholderOnFocus(this,'EG: X1234567 WITHOUT ()');" onblur="placeholderOnBlur(this,'EG: X1234567 WITHOUT ()'); validateHkid('txtInsuHkid1','selectedPersonalHkidPass1','errtxtInsuHkid1',false,'insured');" readonly="readonly">  <!-- <key id='Overseas.userdetails.Insured.HKID.eg'>EG: X1234567 WITHOUT ()</key> --> 
+                                               <input id="txtInsuHkid1" name="personalHKID" class="form-control textUpper full-control bmg_custom_placeholder" value="EG: X1234567 WITHOUT ()" placholder="EG: X1234567 WITHOUT ()" onkeypress=" return hkidOnkeypress(event);" onfocus="placeholderOnFocus(this,'EG: X1234567 WITHOUT ()');" onblur="placeholderOnBlur(this,'EG: X1234567 WITHOUT ()'); validateHkid('txtInsuHkid1','selectedPersonalHkidPass1','errtxtInsuHkid1',false,'insured');" readonly="readonly">  <!-- <fmt:message key="Overseas.userdetails.Insured.HKID.eg" bundle="${msg}" /> --> 
                                                     <span id="errtxtInsuHkid1" class="text-red"> </span>
                                            </div>
                                        </div>
@@ -625,7 +625,7 @@ function setDropArea(id) {
                                        <!-- birthday starts -->
                                        <div class="form-group float">
                                            <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <label for="inputApplicantDob" class="field-label bold-500"><key id='Overseas.userdetails.Insured.DOB'>Date of birth</key></label>
+                                               <label for="inputApplicantDob" class="field-label bold-500"><fmt:message key="Overseas.userdetails.Insured.DOB" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                 <div class="input-group date" id="oversea_insure_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
@@ -644,14 +644,14 @@ function setDropArea(id) {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
                                                      <!-- <select name="personalBeneficiary" id="personalselectBenificiary1" onchange="activeDiv('personalbenificiary','personalselectBenificiary1', 'personalBenefitiaryId1', 'personalBenefitiaryHKId1')" class="form-control soflow select-label">
-                                                            <option value="SE"><key id='Overseas.userdetails.Bene.Option1'>Own estate</key></option>
-                                                            <option value="CH"><key id='Overseas.userdetails.Bene.Option2'>Child</key></option>
-                                                            <option value="FM"><key id='Overseas.userdetails.Bene.Option3'>Fiance</key></option>
-                                                            <option value="FF"><key id='Overseas.userdetails.Bene.Option4'>Fiancee</key></option>
-                                                            <option value="GC"><key id='Overseas.userdetails.Bene.Option5'>Grand Parent &amp; Grand Child</key></option>
-                                                            <option value="PA"><key id='Overseas.userdetails.Bene.Option6'>Parent</key></option>
-                                                            <option value="SL"><key id='Overseas.userdetails.Bene.Option7'>Sibling</key></option>
-                                                            <option value="SP"><key id='Overseas.userdetails.Bene.Option8'>Spouse</key></option>
+                                                            <option value="SE"><fmt:message key="Overseas.userdetails.Bene.Option1" bundle="${msg}" /></option>
+                                                            <option value="CH"><fmt:message key="Overseas.userdetails.Bene.Option2" bundle="${msg}" /></option>
+                                                            <option value="FM"><fmt:message key="Overseas.userdetails.Bene.Option3" bundle="${msg}" /></option>
+                                                            <option value="FF"><fmt:message key="Overseas.userdetails.Bene.Option4" bundle="${msg}" /></option>
+                                                            <option value="GC"><fmt:message key="Overseas.userdetails.Bene.Option5" bundle="${msg}" /></option>
+                                                            <option value="PA"><fmt:message key="Overseas.userdetails.Bene.Option6" bundle="${msg}" /></option>
+                                                            <option value="SL"><fmt:message key="Overseas.userdetails.Bene.Option7" bundle="${msg}" /></option>
+                                                            <option value="SP"><fmt:message key="Overseas.userdetails.Bene.Option8" bundle="${msg}" /></option>
                                                     </select> -->
                                                    <select name="personalBeneficiary" id="personalselectBenificiary"
                                                         onChange="activeDiv('personalbenificiary','personalselectBenificiary')"
@@ -696,14 +696,14 @@ function setDropArea(id) {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                               <div class="form-label col-lg-5 col-md-5 col-sm-5 col-xs-5 pad-none">
                                                   <label class="field-label form-label bold-500">
-                                                        <key id='Overseas.userdetails.Bene.HKID'>ID Type</key>
+                                                        <fmt:message key="Overseas.userdetails.Bene.HKID" bundle="${msg}" />
                                                     </label>
                                                </div>
                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 pad-none">
                                                   <div class="styled-select">
                                                     <select id="beneficiaryIDType" class="form-control soflow select-label" name="beneficiaryIDType" onchange="togglePlaceholder(this,'beneficiaryID','EG: X1234567 WITHOUT ()');">
-                                                            <option value="HKID" selected="selected"><key id='Overseas.userdetails.Bene.HKID'>HKID</key></option>
-                                                            <option value="passport"><key id='Overseas.userdetails.Bene.Passport'>Passport no</key></option>
+                                                            <option value="HKID" selected="selected"><fmt:message key="Overseas.userdetails.Bene.HKID" bundle="${msg}" /></option>
+                                                            <option value="passport"><fmt:message key="Overseas.userdetails.Bene.Passport" bundle="${msg}" /></option>
                                                     </select>
                                                     </div>
                                                </div>
@@ -742,7 +742,7 @@ function setDropArea(id) {
                                 <div class="form-wrap">
                                     <div class="form-group float">
                                         <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                            <label for="overseaDepartureDate" class="field-label bold-500"><key id='Overseas.userdetails.institution.departure'>Departure Date</key></label>
+                                            <label for="overseaDepartureDate" class="field-label bold-500"><fmt:message key="Overseas.userdetails.institution.departure" bundle="${msg}" /></label>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                             <div class="input-group date" id="oversea_departure_date"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
@@ -754,7 +754,7 @@ function setDropArea(id) {
                                     
                                     <div class="form-group">
                                         <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                            <label for="countryOfInstitution" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Country'>Country of Institution</key></label>
+                                            <label for="countryOfInstitution" class="field-label bold-500"><fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" /></label>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                             <input name="countryOfInstitution" type="text" class="form-control full-control" placeholder="Country of Institution" value="" id="countryOfInstitution" onkeypress="" onfocus="placeholderOnFocus(this,'Country of Institution');" onblur="placeholderOnBlur(this,'Country of Institution');validatecountryOfInstitution();" maxlength="50">                                              
@@ -764,7 +764,7 @@ function setDropArea(id) {
                                     </div>
                                     <div class="form-group float clear-float">
                                         <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                            <label for="nameOfInstitution" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Name'>Name of Institution</key></label>
+                                            <label for="nameOfInstitution" class="field-label bold-500"><fmt:message key="Overseas.userdetails.Instituation.Name" bundle="${msg}" /></label>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                             <input name="nameOfInstitution" type="text" class="form-control full-control" placeholder="Name of Institution" value="" id="nameOfInstitution" onkeypress="" onfocus="placeholderOnFocus(this,'Name of Institution');" onblur="placeholderOnBlur(this,'Name of Institution');validatenameOfInstitution();" maxlength="100"> 
@@ -775,7 +775,7 @@ function setDropArea(id) {
 
                                     <div class="form-group float">
                                         <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                            <label for="addressofInstitutionLine1" class="field-label bold-500"><key id='Overseas.userdetails.Instituation.Address'>Address</key></label>
+                                            <label for="addressofInstitutionLine1" class="field-label bold-500"><fmt:message key="Overseas.userdetails.Instituation.Address" bundle="${msg}" /></label>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                             <input name="addressofInstitutionLine1" type="text" class="form-control full-control" placeholder="Line 1" value="" id="addressofInstitutionLine1" onkeypress="return isAlphaNumeric(event);"  onfocus="placeholderOnFocus(this,'Line 1');" onblur="placeholderOnBlur(this,'Line 1');validateaddressofInstitutionLine()" maxlength="100"> 
@@ -800,7 +800,7 @@ function setDropArea(id) {
                                     <div class="form-group">
                                         <div class="checkbox margin-fix">
                                             <input id="visacheckbox" name="visacheckbox" type="checkbox">
-                                            <label for="visacheckbox"><key id='Overseas.userdetails.TC.ValidVisa'>I have a valid Full-time Overseas Student Visa</key></label>
+                                            <label for="visacheckbox"><fmt:message key="Overseas.userdetails.TC.ValidVisa" bundle="${msg}" /></label>
                                         </div>
                                         <span id="visacheckboxInvalid" class="text-red"></span> 
                                     </div>
@@ -820,7 +820,7 @@ function setDropArea(id) {
                                 <div class="checkbox">
                                     <input id="checkbox1" name="checkbox1" type="checkbox"> 
                                     <label for="checkbox1">
-                                        <key id='Overseas.userdetails.TC.TC'>I have read and understood the policy provisions and declare that:</key>
+                                        <fmt:message key="Overseas.userdetails.TC.TC" bundle="${msg}" />
                                         <ol class="ol-disclaimer">
                                             <li>the particulars and statements given above are, to the best of my knowledge and belief, true and complete;</li>
                                             <li>to the best of my knowledge and belief no Insured Person is travelling contrary to the advice of any medical practitioner or for the purpose of obtaining medical treatment and I understand that treatment of any pre-existing, recurring or congenital medical conditions are not insured. I am not aware of any condition cause or circumstance that may necessitate the cancellation or curtailment of the journey as planned;</li>
@@ -834,7 +834,7 @@ function setDropArea(id) {
                                 <span id="chk1" class="text-red"></span>        
                                 <div class="checkbox">
                                     <input id="checkbox2" name="checkbox2" type="checkbox"> <label for="checkbox2">
-                                        <key id='Overseas.userdetails.TC.PICS'>I have read and understood <a href="http://www.fwd.com.hk/upload/en-US/GI_Personal%20Data%20Protection%20Policy%20and%20Practices.pdf" class="sub-link" target="_blank">Personal Information Collection Statement</a> and agree to be bound by the same.</key>
+                                        <fmt:message key="Overseas.userdetails.TC.PICS" bundle="${msg}" />
                                         
 
 
@@ -844,18 +844,18 @@ function setDropArea(id) {
                                 <hr>
                                 <div>
                                     <label>
-                                    <key id='Overseas.userdetails.TC.DoNotWish'>If you do NOT wish FWD General Insurance Company Limited to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below:</key> <br>
+                                    <fmt:message key="Overseas.userdetails.TC.DoNotWish" bundle="${msg}" /> <br>
                                     </label>
                                 </div>
                                  <div class="checkbox">
-                                    <input id="checkbox3" name="checkbox3" type="checkbox"> <label for="checkbox3"><key id='Overseas.userdetails.TC.DoNotSend'>Please do not send direct marketing information to me.</key><br>
+                                    <input id="checkbox3" name="checkbox3" type="checkbox"> <label for="checkbox3"><fmt:message key="Overseas.userdetails.TC.DoNotSend" bundle="${msg}" /><br>
                                         
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <input id="checkbox4" name="checkbox4" type="checkbox"> <label for="checkbox4">
 
-                                        <key id='Overseas.userdetails.TC.DoNotProvide'>Please do not provide my personal data to other persons or companies for their use in direct marketing.</key><br>
+                                        <fmt:message key="Overseas.userdetails.TC.DoNotProvide" bundle="${msg}" /><br>
                                         
                                     </label>
                                 </div>
@@ -891,14 +891,14 @@ function setDropArea(id) {
                         <div class="gray-bg3-wid container membership-wrap" style="padding-top: 20px;padding-left:0px;padding-right:0px;">
                             <div class="form-wrap">
                             <div class="membership-header">
-                                <h3 class="bmg-membership-header"><key id='Overseas.userdetails.Create'>Create FWD member account</key></h3>
-                                <h5><key id='Overseas.userdetails.Create.Enjoy'>Enjoy year-round promotions and referral benefits</key></h5>
-                                <i class="text-grey"><key id='Overseas.userdetails.Create.Leave'>Leave blank if you do not want to creat a member account</key></i>
+                                <h3 class="bmg-membership-header"><fmt:message key="Overseas.userdetails.Create" bundle="${msg}" /></h3>
+                                <h5><fmt:message key="Overseas.userdetails.Create.Enjoy" bundle="${msg}" /></h5>
+                                <i class="text-grey"><fmt:message key="Overseas.userdetails.Create.Leave" bundle="${msg}" /></i>
                                 <h3 id="error_hide" class="error-hide" style="display:none; color:red; font-size:15px;"></h3>                                
                             </div>
                             <div class="form-group float row">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label class="field-label bold-500"><key id='Overseas.userdetails.Create.Username'>Choose username</key></label>
+                                   <label class="field-label bold-500"><fmt:message key="Overseas.userdetails.Create.Username" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                    <input type="text" name="username" class="form-control full-control input-white" id="Username" onfocus="emptyMembershipError();" onkeypress="return validationUsername(event);"><span id="UsernameError" class="text-red"> </span>
@@ -906,7 +906,7 @@ function setDropArea(id) {
                             </div>
                             <div class="form-group float row">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label class="field-label bold-500"><key id='Overseas.userdetails.Create.Password'>Choose password</key></label>
+                                   <label class="field-label bold-500"><fmt:message key="Overseas.userdetails.Create.Password" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                    <input type="password" name="password" class="form-control full-control input-white" id="Password" autocomplete="off" onfocus="emptyMembershipError();"> <span id="PasswordError" class="text-red"> </span>
@@ -914,7 +914,7 @@ function setDropArea(id) {
                             </div>
                             <div class="form-group float row">
                                <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                   <label class="field-label bold-500"><key id='Overseas.userdetails.Create.Confirm'>Confirm password</key></label>
+                                   <label class="field-label bold-500"><fmt:message key="Overseas.userdetails.Create.Confirm" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
                                   <input type="password" class="form-control full-control input-white" id="Confirm-Password" autocomplete="off" onfocus="emptyMembershipError();"> <span id="Confirm-PasswordError" class="text-red"> </span>
@@ -1019,8 +1019,8 @@ function setDropArea(id) {
 </div>
 
 <p class="padding1 workingholiday-plan-disclaimer"><br>
-<key id='Overseas.userdetails.Disclaimer1'>The feature above are indicative only.</key><br>
-<key id='Overseas.userdetails.Disclaimer2'>For a complete explanation of the terms and conditions, please contact your adviser or our customer service at 3123 3123 for more details.</key></p>
+<fmt:message key="Overseas.userdetails.Disclaimer1" bundle="${msg}" /><br>
+<fmt:message key="Overseas.userdetails.Disclaimer2" bundle="${msg}" /></p>
 
 <div class="col-xs-12 hidden-md hidden-lg pad-none">
    <div style="width: 80%;margin-left: 10%;  margin-bottom: 50px;">
