@@ -94,7 +94,7 @@ var languageP = "${language}";
 			
 			$(document).on('click', '#address-upload-now', function(e) {
 				if(fAddrValid()) {
-					parent.isDis2Sub();
+					//parent.isDis2Sub();
 					$('#address-upload-form').submit();
 				}
 				else {

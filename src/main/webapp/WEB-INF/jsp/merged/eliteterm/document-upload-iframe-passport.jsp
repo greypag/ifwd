@@ -95,7 +95,7 @@ var languageP = "${language}";
 
 			$(document).on('click', '#passport-upload-now', function(e) {
 				if(fPassportValid()) {
-					parent.isDis2Sub();
+					//parent.isDis2Sub();
 					$('#passport-upload-form').submit();
 				}
 				else {

@@ -89,7 +89,7 @@ var languageP = "${language}";
 
 			$(document).on('click', '#hkid-upload-now', function(e) {
 				if(fHkidValid()) {
-					parent.isDis2Sub();
+					//parent.isDis2Sub();
 					$('#hkid-upload-form').submit();
 				}
 				else {

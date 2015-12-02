@@ -519,8 +519,8 @@ var languageP = "${language}";
 			function isUploaded(id) {
 
 				var status = document.getElementById(id).contentWindow.document.body.innerHTML;
-				var targetURL = $('#' + id).attr('src').split(/[?#]/)[0]; //get raw url
-				var responseURL = $('#' + id)[0].contentWindow.location.href;
+				var targetURL = document.getElementById(id).src.split(/[?#]/)[0]; //get raw url
+				var responseURL = document.getElementById(id).contentWindow.location.href;
 
 				// skip handling if iframe document <> server response
 				var bSkip = responseURL.indexOf(targetURL) > -1;
@@ -529,23 +529,32 @@ var languageP = "${language}";
 				}
 
 				if(status == 'true') {
-					$('#'+id).attr('src',targetURL+'?uploadResult=true');
+					document.getElementById(id).src = targetURL+'?uploadResult=true';
 					//enable submit button
-					$('#et-upload-doc-submit-btn').removeAttr('disabled');
+					document.getElementById('et-upload-doc-submit-btn').removeAttribute('disabled');
 				} else {
 					
+					document.getElementById(id).src = targetURL+'?uploadResult=false';
+
 					var lang = '${language}';
 					if(lang=='en') {
 						setTimeout(function(){
-							$('#'+id).contents().find('#upload-system-error .en').removeClass('hidden');
-						}, 100);
+							//$('#'+id).contents().find('#upload-system-error .en').removeClass('hidden');
+							var el_err = document.getElementById(id).contentWindow.document.querySelectorAll('#upload-system-error span.en')[0];
+
+							el_err.className = el_err.className.replace('hidden', '');
+
+						}, 500);
 					}
 					else {
 						setTimeout(function(){
-							$('#'+id).contents().find('#upload-system-error .ch').removeClass('hidden');
-						}, 100);
+							//$('#'+id).contents().find('#upload-system-error .ch').removeClass('hidden');
+
+							var el_err = document.getElementById(id).contentWindow.document.querySelectorAll('#upload-system-error span.ch')[0];
+
+							el_err.className = el_err.className.replace('hidden', '');
+						}, 500);
 					}
-					$('#'+id).attr('src',targetURL+'?uploadResult=false');
 				}
 
 				//set 
