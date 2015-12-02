@@ -113,7 +113,7 @@ $(document).ready(function() {
                                         %>
                                         <div class="col-md-4">
                                             <button id="home_submit" type="submit"
-                                                class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare"
+                                                class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare btn-color-ylw"
                                                 onclick="return msgAlertDesk('getHomeQuote')"><fmt:message key="home.main.quote.top.action" bundle="${msg}" /></button>
                                         </div>
                                         <div class="clearfix"></div>
@@ -276,7 +276,7 @@ $(document).ready(function() {
                 <div class="clearfix"></div>
 				<div class="form-container">
 				    <h3 class="text-center">
-				        <button type="submit" class="bdr-curve btn btn-primary btn-lg btn-block"
+				        <button type="submit" class="bdr-curve btn btn-primary btn-lg btn-block btn-color-ylw"
                             onclick="return msgAlertDesk('getHomeQuoteMob')"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
 				    </h3>
 						
@@ -848,7 +848,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						%>
 						<div class="col-md-4 ">
 							<button type="submit"
-								class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare"
+								class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare btn-color-ylw"
 								onclick="return msgAlertDesk('getHomeQuoteBottom')"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
 						</div>
 						<div class="clearfix"></div>

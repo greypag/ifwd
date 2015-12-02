@@ -1133,7 +1133,14 @@ img.bdr-img {
 .btn-transparent:hover {
 	border-color: rgba(255, 255, 255, 0.5);
 }
-
+.btn-color-ylw, .btn-color-ylw:focus{
+    background-color:#fdb714 !important;
+    border:1px solid #fdb714 !important;
+}
+.btn-color-ylw:hover{
+    background-color:#fff !important;
+    color:#fdb714 !important;
+}
 a:hover, a:focus {
 	text-decoration: none;
 	outline: none;

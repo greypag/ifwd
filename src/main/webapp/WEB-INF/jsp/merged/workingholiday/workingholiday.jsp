@@ -62,7 +62,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 						<tbody>
 							<tr>  
 								<td align="center" class="col-md-2 pad-none">
-								    <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn "><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
+								    <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn btn-color-ylw"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
 								</td>
 							</tr>
 						</tbody>
@@ -77,7 +77,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 <!--Mobileform-->
 <div class="slider-form hidden-lg hidden-md">
 <form name="frmWorkingHolidayGetQuote" id="frmWorkingHolidayGetQuote" commandName="workingholidayQuote" method="post" onsubmit="return prepareWorkingHolidayPlan(this,'frmWorkingHolidayGetQuote');">
-      <button type="submit" class="bdr-curve btn btn-primary btn-lg" style="width:100%">
+      <button type="submit" class="bdr-curve btn btn-primary btn-lg btn-color-ylw" style="width:100%">
               <fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /> 
       </button>
 </form>
@@ -296,7 +296,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
         </div>
         
         <div style="margin-top:18px;">
-            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn "><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
+            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn"><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
         </div>
     </div>
     
