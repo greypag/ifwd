@@ -154,52 +154,73 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 		        url:contextPath+'/ajax/eliteTerm/createEliteTermPolicy',
 		        data: formdata,
 		        success:function(data){
-			if(data!=null && data!='' && data.errMsgs == null){
-				var $sigdiv = $("#signature");
-				var datapair = $sigdiv.jSignature("getData", "image");
-				var obj = datapair[1];
-				if(datapair[1].length > signatureFileSize*1024 ){
-			    	$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.size")).css('display', 'block');
-			    	$('#loading-overlay').modal('hide');
-				}else if($('.correct-signature').hasClass('hide-element')){
-					$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.empty")).css('display', 'block');
+					if(data==null || data!='' ){
+						//Unknown errors
+			    	    $('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+
+					} else if( data.errMsgs == 'session expired'){
+						//Timeout errors
+						$('#timeout-modal').modal('show'); 
+
+					} else if( data.errMsgs != null ){
+						//Other errors
+						$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+
+					} else {
+						var $sigdiv = $("#signature");
+						var datapair = $sigdiv.jSignature("getData", "image");
+						var obj = datapair[1];
+						if(datapair[1].length > signatureFileSize*1024 ){
+					    	$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.size")).css('display', 'block');
+					    	$('#loading-overlay').modal('hide');
+
+						}else if($('.correct-signature').hasClass('hide-element')){
+							$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.empty")).css('display', 'block');
+							$('#loading-overlay').modal('hide');
+
+						}else{
+							$.ajax({     
+					    	    url:contextPath+'/ajax/eliteTerm/uploadSignature',     
+					    	    type:'post',     
+					    	    data:{    
+					    	    	"image" : datapair[1],
+					    	    	"policyNo" : data.policyNo
+					       		},     
+					    	    success:function(data){
+					    	    	if(data==null || data == ''){
+					    	    		//Unknown errors
+					    	    		$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+
+					    	    	} else if( data.errMsgs == 'session expired'){
+					    	    		//Timeout errors
+					    	    		$('#timeout-modal').modal('show'); 
+
+					    	    	} else if( data.errMsgs != null ){
+					    	    		//Other errors
+					    	    		$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+
+					    	    	} else {
+					    	    		// success
+					    	    		window.onbeforeunload=null;
+					    	    		window.location.href= contextPath+'/'+language+'/term-life-insurance/'+selectPlanNextPageFlow;
+					    	    	}
+					    			$('#loading-overlay').modal('hide');
+					    	    },
+								error:function(){
+									$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+									$('#loading-overlay').modal('hide');
+								}
+					    	});
+						}
+					}
+
 					$('#loading-overlay').modal('hide');
-				}else{
-					$.ajax({     
-			    	    url:contextPath+'/ajax/eliteTerm/uploadSignature',     
-			    	    type:'post',     
-			    	    data:{    
-			    	    	"image" : datapair[1],
-			    	    	"policyNo" : data.policyNo
-			       		},     
-			    	    success:function(data){
-			    	    	if(data!=null && data!='' && data.errMsgs == null){
-			    	    		window.onbeforeunload=null;
-			    	    		window.location.href= contextPath+'/'+language+'/term-life-insurance/'+selectPlanNextPageFlow;
-			    			}
-			    			else{
-			    				$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
-			    			}
-			    			$('#loading-overlay').modal('hide');
-			    	    },
-			       		error:function(){
-			       			$('#loading-overlay').modal('hide');
-                            $('#timeout-modal').modal('show'); 
-			    	    }
-			    	});
+				},
+				error:function(){
+					console.log('error');
+					$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+					$('#loading-overlay').modal('hide');
 				}
-			}
-			else{
-				console.log("data error");
-				$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
-				$('#loading-overlay').modal('hide');
-			}
-		},
-		error:function(){
-		    console.log('error');     
-		    $('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
-		    $('#loading-overlay').modal('hide');
-		}
 		});
 	}
 });

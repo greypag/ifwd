@@ -892,7 +892,7 @@ function submitLoginForm(formID) {
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
               <ul class="col-sm-12 dropdown-menu">
                 <li class="menu-link-grp-title">
-                    <a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.title" bundle="${msg}" /></a>
+                    <a href="<%=request.getContextPath()%>/${language}/term-life-insurance"><fmt:message key="header.product.type1.group1.title" bundle="${msg}" /></a>                   
                 </li>
                 <li class="menu-link-grp-title">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group2.title" bundle="${msg}" /></a>
@@ -1225,9 +1225,13 @@ function submitLoginForm(formID) {
         // Avoid having the menu to close when clicking
         event.stopPropagation(); 
         // Re-add .open to parent sub-menu item
-        $(this).parent().addClass('open');
-        $(this).parent().siblings("li").removeClass('open');
-        $(this).parent().find("ul").parent().find("li.dropdown").addClass('open');
+        if($(this).parent().hasClass('open')){
+            $(this).parent().removeClass('open');
+        }else{          
+	        $(this).parent().addClass('open');
+	        $(this).parent().siblings("li").removeClass('open');
+	        $(this).parent().find("ul").parent().find("li.dropdown").addClass('open');
+        }
     }); 
 </script>
 <jsp:include page="/WEB-INF/jsp/merged/iosChromeAlert.jsp" />

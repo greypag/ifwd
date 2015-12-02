@@ -70,12 +70,11 @@ var languageP = "${language}";
 									<span id="upload-system-error" class="upload-error" style="color:red; font-size:14px; display:block; text-align:center"><span class="ch hidden">上載失敗。請重新嘗試。</span><span class="en hidden">Upload failed. Please try again.</span> </span>
 									<div class="document-upload-progress iframe hidden" id="hkid-copy-progress">
 										<div class="clearfix">
-											<div class="pull-left">
+											<div class="pull-left document-filename">
 												<span id="hkid-docu-filename">Yourfiles.pdf </span>
 											</div>
 										</div>
 									</div>
-
 									<div class="text-center"><button type="button" class="btn next upload-iframe" id="hkid-upload-now"><fmt:message key="upload.button" bundle="${msg}" /></button></div>
 								</div>
 			
@@ -98,16 +97,26 @@ var languageP = "${language}";
 			});
 			
 			var check = <%=request.getParameter("uploadResult")%>;
-			console.log(check);
+			
 			if(check==true) {
 				$('.select-file-section').addClass('hidden');
 				$('.upload-form').find('.finish-upload').removeClass('hidden');
 				$('.upload-iframe-height').find('.document-upload-progress').removeClass('hidden');
 				$('.upload-form').next('.upload-error').addClass('hidden');
 				$('.upload-iframe-height').find('button.upload-iframe').addClass('hidden');
+				$('.document-filename').addClass('pull-left hidden');
+				$('.document-filename').removeClass('text-center');
+			} else {
+				$('.document-filename').removeClass('pull-left hidden');
+				$('.document-filename').addClass('text-center');
 			}
+		
 
 		</script>
-
+		<style>
+			#hkid-copy-progress {
+				margin-top: 6px;
+			}
+		</style>
 	</body>
 </html>

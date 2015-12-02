@@ -258,6 +258,7 @@ var home_url = "<%=request.getContextPath()%>";
                            <div id="promocode-hidden-button" class="et-next-btn-div et-calcu">
                               <button type="button" class="btn btn-orange et-calculate-btn" onclick="getEliteTermPremium();"><fmt:message key="eliteTerms.selectPlan.Calculate" bundle="${msg}" /></button>
                            </div>
+                           <div class="site-remarks text-center"><fmt:message key="eliteTerms.selectPlan.option.remarks" bundle="${msg}" /></div>
                         </div>
                         
                         <!-- <div class="et-broken-line et-padding hidden-md hidden-lg"></div> -->
@@ -308,7 +309,6 @@ var home_url = "<%=request.getContextPath()%>";
                                     <p class="et-accrdion-txt-bold"><fmt:message key="eliteTerms.selectPlan.Product.highlights.line1" bundle="${msg}" /></p>
                                     <p class="et-accrdion-txt-normal"><fmt:message key="eliteTerms.selectPlan.Product.highlights.line2.part1" bundle="${msg}" /> <a href="#" class="et-contact-link" title="Contact customer service" data-toggle="modal" data-target="#cannot-apply-modal" onclick="getCsChannel('ETMD1');"><fmt:message key="eliteTerms.selectPlan.Product.highlights.line2.part2" bundle="${msg}" /></a> <fmt:message key="eliteTerms.selectPlan.Product.highlights.line2.part3" bundle="${msg}" /></p>
                                     <p class="et-accrdion-txt-normal bottom"><fmt:message key="eliteTerms.selectPlan.Product.highlights.line3" bundle="${msg}" /></p>
-                                    <p class="et-accrdion-txt-normal"><fmt:message key="eliteTerms.selectPlan.Product.highlights.line4" bundle="${msg}" /></p>
                                  </div>
                               </div>
                            </div>
@@ -1542,6 +1542,7 @@ var home_url = "<%=request.getContextPath()%>";
                                  </div>
                               </div>
                            </div>
+                           <div class="site-remarks text-center"><fmt:message key="eliteTerms.selectPlan.beneficiary.remarks" bundle="${msg}" /></div>
                            <div class="button-row text-center btn-beneficiary">
                               <button id="et-beneficiary-info-next" type="button" class="next"><fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" /></button><!--Bind a click event temporarily to show the hidden Declaration & authorization section-->
                            </div>              

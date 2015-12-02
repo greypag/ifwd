@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.services.EliteTermService;
@@ -193,6 +194,9 @@ public class AjaxEliteTermController extends BaseController{
 		try {
 			ajaxReturn(response, eliteTermService.createEliteTermPolicy(request));
 		} catch (ECOMMAPIException e) {
+            BaseResponse errorResponse = new BaseResponse();
+            errorResponse.setErrMsg(e.getMessage());
+            ajaxReturn(response, errorResponse);
 			logger.info(e.getMessage());
 			e.printStackTrace();
 		}
