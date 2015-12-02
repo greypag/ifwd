@@ -101,6 +101,32 @@ public class OverseaController extends BaseController{
 		
 		model.addAttribute("planName", planName);
 		model.addAttribute("selectPlanName", selectPlanName);
+		
+		if(planName.equals("basicA")) {
+			model.addAttribute("displayRegion", WebServiceUtils.getMessage("Overseas.PlanOptions.Region.Worldwide", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("displayPlan", WebServiceUtils.getMessage("Overseas.Plan.Name.Short.Standard.PlanA", UserRestURIConstants.getLanaguage(request)));
+		}
+		if(planName.equals("basicB")) {
+			model.addAttribute("displayRegion", WebServiceUtils.getMessage("Overseas.PlanOptions.Region.Worldwide", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("displayPlan", WebServiceUtils.getMessage("Overseas.Plan.Name.Short.Standard.PlanB", UserRestURIConstants.getLanaguage(request)));
+		}
+		if(planName.equals("medicalWorldwideA")) {
+			model.addAttribute("displayRegion", WebServiceUtils.getMessage("Overseas.PlanOptions.Region.Worldwide", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("displayPlan", WebServiceUtils.getMessage("Overseas.Plan.Name.Short.Comprehensive.PlanA", UserRestURIConstants.getLanaguage(request)));
+		}
+		if(planName.equals("medicalWorldwideB")) {
+			model.addAttribute("displayRegion", WebServiceUtils.getMessage("Overseas.PlanOptions.Region.Worldwide", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("displayPlan", WebServiceUtils.getMessage("Overseas.Plan.Name.Short.Comprehensive.PlanB", UserRestURIConstants.getLanaguage(request)));
+		}
+		if(planName.equals("medicalAsiaA")) {
+			model.addAttribute("displayRegion", WebServiceUtils.getMessage("Overseas.PlanOptions.Region.Asiaonly", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("displayPlan", WebServiceUtils.getMessage("Overseas.Plan.Name.Short.Comprehensive.PlanA", UserRestURIConstants.getLanaguage(request)));
+		}
+		if(planName.equals("medicalAsiaB")) {
+			model.addAttribute("displayRegion", WebServiceUtils.getMessage("Overseas.PlanOptions.Region.Asiaonly", UserRestURIConstants.getLanaguage(request)));
+			model.addAttribute("displayPlan", WebServiceUtils.getMessage("Overseas.Plan.Name.Short.Comprehensive.PlanB", UserRestURIConstants.getLanaguage(request)));
+		}
+		
 		QuoteDetails quoteDetails = (QuoteDetails)session.getAttribute("quoteDetails");
 		if(quoteDetails == null) {
 			model.addAttribute("errMsgs", session.getAttribute("errMsgs"));
@@ -170,6 +196,7 @@ public class OverseaController extends BaseController{
 		
 		request.setAttribute("districtList", districtList);
 		model.addAttribute("districtList", districtList);
+		session.removeAttribute("overseaCreatePolicy");
 		
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_DETAILS);
 	}
@@ -231,18 +258,40 @@ public class OverseaController extends BaseController{
 		model.addAttribute("dueAmount", dueAmount.replace(",", ""));
 		model.addAttribute("originalAmount", originalAmount.replace(",", ""));
 		model.addAttribute("userDetails", userDetails);
+		switch (planDetailsForm.getApplicantRelationship())
+		{
+			case "SE":
+				model.addAttribute("applicantRelationshipDisplay", WebServiceUtils.getMessage("Overseas.userdetails.applicant.Relationship.Option1", UserRestURIConstants.getLanaguage(request)));
+				break;
+			case "CH":
+				model.addAttribute("applicantRelationshipDisplay", WebServiceUtils.getMessage("Overseas.userdetails.applicant.Relationship.Option2", UserRestURIConstants.getLanaguage(request)));
+				break;
+			case "OT":
+				model.addAttribute("applicantRelationshipDisplay", WebServiceUtils.getMessage("Overseas.userdetails.applicant.Relationship.Option3", UserRestURIConstants.getLanaguage(request)));
+				break;			
+		}
 		model.addAttribute("planDetailsForm", planDetailsForm);
 		StringBuffer sb = new StringBuffer();
-		sb.append(planDetailsForm.getAddressofInstitutionLine1());
 		if(!StringUtils.isEmpty(planDetailsForm.getAddressofInstitutionLine1())) {
-			sb.append(", ").append(planDetailsForm.getAddressofInstitutionLine2());
-		}else {
-			sb.append(planDetailsForm.getAddressofInstitutionLine2());
+			sb.append(planDetailsForm.getAddressofInstitutionLine1());
 		}
-		if(!StringUtils.isEmpty(planDetailsForm.getAddressofInstitutionLine2())) {
-			sb.append(", ").append(planDetailsForm.getAddressofInstitutionLine3());
+		if(sb.length() > 0) {
+			if (!StringUtils.isEmpty(planDetailsForm.getAddressofInstitutionLine2())) {
+				sb.append(", ").append(planDetailsForm.getAddressofInstitutionLine2());
+			}
 		}else {
-			sb.append(planDetailsForm.getAddressofInstitutionLine3());
+			if (!StringUtils.isEmpty(planDetailsForm.getAddressofInstitutionLine2())) {
+				sb.append(planDetailsForm.getAddressofInstitutionLine2());
+			}
+		}
+		if(sb.length() > 0) {
+			if (!StringUtils.isEmpty(planDetailsForm.getAddressofInstitutionLine3())) {
+				sb.append(", ").append(planDetailsForm.getAddressofInstitutionLine3());
+			}
+		}else {
+			if (!StringUtils.isEmpty(planDetailsForm.getAddressofInstitutionLine3())) {
+				sb.append(planDetailsForm.getAddressofInstitutionLine3());
+			}
 		}
 		model.addAttribute("AddressofInstitutionLine", sb.toString());
 		model.addAttribute("overseaBeneficaryDesc", WebServiceUtils.getBeneRelationshipDesc(planDetailsForm.getPersonalBeneficiary(), WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request))));
