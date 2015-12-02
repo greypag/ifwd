@@ -50,7 +50,7 @@ var languageP = "${language}";
 											<div class="select-file-section" id="select-file-section-address">
 												<div class="mob hidden-md hidden-lg">
 													<label for="fileToUpload-addr-cam" class="mobile-camera-pic-file">
-														<input type="file" id="fileToUpload-addr-dragAndDrop" name="fileToUpload-addr-cam" onchange="upload(this.id);">
+														<input type="file" id="fileToUpload-addr-cam" name="fileToUpload-addr-cam" onchange="upload(this.id);">
 														<span class="mobile-camera"></span>
 													</label>
 												</div>
