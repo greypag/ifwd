@@ -134,25 +134,23 @@
 										   <p class="h4-5"><fmt:message key="partner.agoda.desc2" bundle="${msg}" /></p>
 										</li>
 									</ul>
-                                            <p class="h4-5" style="font-size: 14px; margin-left: 21px; margin-top: 12px;"><fmt:message key="partner.the.club.copy7" bundle="${msg}" /></p>
-								</li>
-							</ul>
-						</div>
-						<div class="partner_tnc">
-							<div class="partner_tnc_list">
-								<ul class="bullets">
-									<li>
-										<p class="h4-5">
-											<fmt:message key="partner.the.club.copy8.1" bundle="${msg}" /> <a href="<fmt:message key="partner.the.club.copy8.2.url" bundle="${msg}" />"><fmt:message key="partner.the.club.copy8.2" bundle="${msg}" /></a> <fmt:message key="partner.the.club.copy8.3" bundle="${msg}" />
-										</p>
-									</li>
-								</ul>
+	                            </div>
+	                        <div class="partner_tnc">
+	                            <div class="partner_tnc_list">
+									<ul class="bullets">
+										<li>
+										   <p class="h4-5"><fmt:message key="partner.agoda.tnc1" bundle="${msg}" /></p>
+										</li>
+										<li>
+										   <p class="h4-5"><fmt:message key="partner.agoda.tnc2" bundle="${msg}" /></p>
+										</li>
+									</ul>
+	                            </div>
+	                        </div>
+							<div class="partner_link">
+								<a href="<fmt:message key="theclub.link" bundle="${msg}" />"
+									target="_blank"><u><fmt:message key="partner.visit.website" bundle="${msg}" /></u></a>
 							</div>
-						</div>
-						<div class="partner_link">
-							<a href="<fmt:message key="theclub.link" bundle="${msg}" />"
-								target="_blank"><u><fmt:message key="partner.visit.website" bundle="${msg}" /></u></a>
-						</div>
 					</div>
 					<hr class="partner_hr"/>
 	                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none partner_content">
