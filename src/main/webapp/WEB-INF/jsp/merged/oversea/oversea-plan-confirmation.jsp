@@ -27,7 +27,7 @@
         <ol class="breadcrumb pad-none">
           <li><a href="#">Home</a> <i class="fa fa-chevron-right"></i></li>
           <li><a href="#">Protect</a></li> <i class="fa fa-chevron-right"></i></li>
-		   <li><a href="#">Overseas StudyCare Insurance</a></li>                                  <!-- <key id='Overseas.Confirmation.breadcrumb'>Home > Protect > Overseas StudyCare Insurance > Confirmation</key> -->
+		   <li><a href="#">Overseas StudyCare Insurance</a></li>                                  <!-- <fmt:message key="Overseas.Confirmation.breadcrumb" bundle="${msg}" /> -->
           <li class="active "><i class="fa fa-chevron-right"></i> Confirmation</li>
         </ol>
 
@@ -37,21 +37,21 @@
         <div class="container pad-none bdr" style="margin-top:0px;">
           <div class="col-sm-12 pad-none confimration-msg-wrapper">
             <div style="width:80%;margin-left:10%">
-				<h3 class="h2-3-existing-fwd-head summary-header summary-header-margin" style="margin-left:0px !important;"><key id='Overseas.Confirmation.Confirmation'>Confirmation</key></h3>
+				<h3 class="h2-3-existing-fwd-head summary-header summary-header-margin" style="margin-left:0px !important;"><fmt:message key="Overseas.Confirmation.Confirmation" bundle="${msg}" /></h3>
 				<div class="summary-border">
 					<h3 class="bmg-confirmation-h3">
-						<key id='Overseas.Confirmation.Confirmation.Success1'>You have successfully completed your purchase of Overseas StudentCare insurance with FWD.</br>An email will be sent to</key>
-						<span class="email-addr-confirm"><key id='Overseas.Confirmation.Confirmation.Success2'>${emailAddress}</key></span>
-						<key id='Overseas.Confirmation.Confirmation.Success3'>with the details of your policy.</key>
+						<fmt:message key="Overseas.Confirmation.Confirmation.Success1" bundle="${msg}" />
+						<span class="email-addr-confirm"><fmt:message key="Overseas.Confirmation.Confirmation.Success2" bundle="${msg}" /></span>
+						<fmt:message key="Overseas.Confirmation.Confirmation.Success3" bundle="${msg}" />
 						
 					</h3>
 					
-					<h4 class="oversea-policy-no bmg-confirmation-h4"><strong><key id='Overseas.Confirmation.Confirmation.PolicyNo'>Policy Number:</key></strong><span> ${policyNo}</span></h4>
+					<h4 class="oversea-policy-no bmg-confirmation-h4"><strong><fmt:message key="Overseas.Confirmation.Confirmation.PolicyNo" bundle="${msg}" /></strong><span> ${policyNo}</span></h4>
 				</div>
-                <div class="h4-2"><key id='Overseas.Confirmation.Share'>Share this product with your friends now.</key></div>
+                <div class="h4-2"><fmt:message key="Overseas.Confirmation.Share" bundle="${msg}" /></div>
                 <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
-                    <div class="oversea-link wht-bg1 text-center" id="toBeCopied" contenteditable="true"><key id='Overseas.Confirmation.Share.Link'>http://i.fwd.com.hk/overseas0studycare/referral?johndoe00001</key></div>
-                    <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage hidden-sm hidden-xs"><key id='Overseas.Confirmation.Share.Copy.CtrlC'>Press CTRL-C to copy</key></span><span class="boxMessage hidden-md hidden-lg">Long-press to copy</span> <span class="boxDownArrow"></span> </div>
+                    <div class="oversea-link wht-bg1 text-center" id="toBeCopied" contenteditable="true"><fmt:message key="Overseas.Confirmation.Share.Link" bundle="${msg}" /></div>
+                    <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage hidden-sm hidden-xs"><fmt:message key="Overseas.Confirmation.Share.Copy.CtrlC" bundle="${msg}" /></span><span class="boxMessage hidden-md hidden-lg">Long-press to copy</span> <span class="boxDownArrow"></span> </div>
                 </div>
                 <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
                     <!-- <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">
@@ -59,7 +59,7 @@
                     </div> -->
                     
                     <div class="copy-link pull-left" onclick="autoSelect('toBeCopied');">
-                        <key id='Overseas.Confirmation.Share.Copy'>Copy Link</key>
+                        <fmt:message key="Overseas.Confirmation.Share.Copy" bundle="${msg}" />
                     </div>
 
                     <div class="addthis_sharing_toolbox" data-url="http://localhosten/travel-insurance/sharing/?promo=TRA123" data-title="iFWD"><div id="atstbx" class="at-share-tbx-element addthis_32x32_style addthis-smartlayers addthis-animated at4-show"><a class="at-share-btn at-svc-facebook"><span class="at4-icon aticon-facebook" title="Facebook"></span></a><a class="at-share-btn at-svc-twitter"><span class="at4-icon aticon-twitter" title="Twitter"></span></a><a class="at-share-btn at-svc-google_plusone_share"><span class="at4-icon aticon-google_plusone_share" title="Google+"></span></a></div></div>
@@ -152,7 +152,7 @@
           </div>
 		<div class="container pad-none oversea-promotion-wrapper">
 			<div class="row-fluid">
-				<h4 class="h2-3-existing-fwd-head summary-header summary-header-margin"><key id='Overseas.Confirmation.Upsell.sectiontitle'>You may also be interested in:</key></h4> 							
+				<h4 class="h2-3-existing-fwd-head summary-header summary-header-margin"><fmt:message key="Overseas.Confirmation.Upsell.sectiontitle" bundle="${msg}" /></h4> 							
 				<div class="col-md-12 col-lg-12 text-left pad-none">
 					<div class="summary-promotion-wrapper">
 						<div class="col-md-3 col-lg-3 col-xs-12 col-sm-12 text-left summary-image-wrapper">
@@ -160,11 +160,11 @@
 							<img class="img-responsive oversea-mob-display" src="<%=request.getContextPath()%>/resources/images/oversea/travel_promotion_mob.png" alt=""> 							
 						</div>						
 						<div class="col-md-7 col-lg-8 col-xs-12 col-sm-12 h2-32 summary-text-wrapper">
-							<strong><key id='Overseas.Confirmation.Upsell1.title'>TravelCare(Annual Cover)</key></strong>
+							<strong><fmt:message key="Overseas.Confirmation.Upsell1.title" bundle="${msg}" /></strong>
 							<br>
-							<key id='Overseas.Confirmation.Upsell1.copy'>Embark on an adventure abroad with a comprehensive travel protection companion</key><br>
+							<fmt:message key="Overseas.Confirmation.Upsell1.copy" bundle="${msg}" /><br>
 							<a href="en/home-insurance" class="border-radius btn btn-primary  get-btn">
-							<key id='Overseas.Confirmation.Upsell1.Quote'>Get quote</key></a>
+							<fmt:message key="Overseas.Confirmation.Upsell1.Quote" bundle="${msg}" /></a>
 						</div>
 						<div class="clearfix"></div>
 					</div>																 
@@ -174,11 +174,11 @@
 							<img class="img-responsive oversea-mob-display" src="<%=request.getContextPath()%>/resources/images/oversea/home_promotion_mob.png" alt=""> 
 						</div>							
 						<div class="col-md-7 col-lg-8 col-xs-12 col-sm-12 h2-32 summary-text-wrapper">
-							<strong><key id='Overseas.Confirmation.Upsell2.title'>Easy HomeCare</key></strong>
+							<strong><fmt:message key="Overseas.Confirmation.Upsell2.title" bundle="${msg}" /></strong>
 							<br>
-							<key id='Overseas.Confirmation.Upsell2.copy'>Protect your home for around HK$1 a day, against loss or damage from fire, flood, bursting pipes, typhoon, theft, and accidents.</key><br>
+							<fmt:message key="Overseas.Confirmation.Upsell2.copy" bundle="${msg}" /><br>
 							<a href="en/home-insurance" class="border-radius btn btn-primary  get-btn">
-							<key id='Overseas.Confirmation.Upsell2.Quote'>Get quote</key></a>
+							<fmt:message key="Overseas.Confirmation.Upsell2.Quote" bundle="${msg}" /></a>
 						</div>
 						<div class="clearfix"></div>
 					</div>
