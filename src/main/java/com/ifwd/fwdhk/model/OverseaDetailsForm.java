@@ -44,6 +44,15 @@ public class OverseaDetailsForm {
 	private String mobileNo;
 	private String emailAddress;
 	private String applicantDob;
+	private String applicantRelationship;
+
+	public String getApplicantRelationship() {
+		return applicantRelationship;
+	}
+
+	public void setApplicantRelationship(String applicantRelationship) {
+		this.applicantRelationship = applicantRelationship;
+	}
 	
 	public String getCorrespondenceAddressDistrict() {
 		return correspondenceAddressDistrict;
