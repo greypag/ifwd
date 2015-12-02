@@ -186,6 +186,11 @@ body.chin #etConfirm .et-submit button
 	padding-bottom: 0px;
 }
 
+.site-remarks{
+	margin: 30px;
+	font-size: 14px;
+}
+
 /* FWD Buttons DIV wrapper*/
 .fwd-orange-btn-center-wrapper{
 	margin: 20px auto 0;

@@ -22709,7 +22709,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 	.fwd-savie-wrapper .container-fluid.fwd-container .et-next-btn-div {
 		margin-left: 15px;
 		padding-top: 20px;
-		padding-bottom: 50px;
+		padding-bottom: 20px;
 	}
 }
 /* line 314, ../sass/partials/_elite-terms-select-plan.scss */
@@ -23430,7 +23430,7 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 		{
 		margin-top: 35px;
 		height: 60px;
-		margin-bottom: 60px;
+		margin-bottom: 0;
 	}
 }
 /* line 971, ../sass/partials/_elite-terms-select-plan.scss */
