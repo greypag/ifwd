@@ -494,8 +494,8 @@ var languageP = "${language}";
             $('#et-upload-doc-submit-btn').on('click', function(e) {
                 var $self = $(this);
                 var isValid = isHkidValidity($self);
-                    isValid = isPassportValidity($self);
-                    isValid = isProfAddValidity($self);
+                    isValid = isValid && isPassportValidity($self);
+                    isValid = isValid && isProfAddValidity($self);
                 
                 if (isValid) {     
                     $self.removeAttr('disabled');
@@ -503,7 +503,7 @@ var languageP = "${language}";
                     
                 } else {
                     $self.attr('disabled', 'disabled');
-                    alert('You might have uploaded an invalid file. Please try again!');
+                    alert(getBundle(getBundleLanguage, 'error.upload.invalid'));
                 }
             });
             
@@ -531,7 +531,9 @@ var languageP = "${language}";
 				if(status == 'true') {
 					document.getElementById(id).src = targetURL+'?uploadResult=true';
 					//enable submit button
-					document.getElementById('et-upload-doc-submit-btn').removeAttribute('disabled');
+					if( document.getElementById('iframe-et-upload-doc-submit-btn') ) {
+						document.getElementById('iframe-et-upload-doc-submit-btn') .removeAttribute('disabled');
+					}
 				} else {
 					
 					document.getElementById(id).src = targetURL+'?uploadResult=false';
@@ -542,9 +544,11 @@ var languageP = "${language}";
 							//$('#'+id).contents().find('#upload-system-error .en').removeClass('hidden');
 							var el_err = document.getElementById(id).contentWindow.document.querySelectorAll('#upload-system-error span.en')[0];
 
-							el_err.className = el_err.className.replace('hidden', '');
+							if( el_err ){
+								el_err.className = el_err.className.replace('hidden', '');
+							}
 
-						}, 500);
+						}, 1000);
 					}
 					else {
 						setTimeout(function(){
@@ -552,8 +556,10 @@ var languageP = "${language}";
 
 							var el_err = document.getElementById(id).contentWindow.document.querySelectorAll('#upload-system-error span.ch')[0];
 
-							el_err.className = el_err.className.replace('hidden', '');
-						}, 500);
+							if( el_err ){
+								el_err.className = el_err.className.replace('hidden', '');
+							}
+						}, 1000);
 					}
 				}
 

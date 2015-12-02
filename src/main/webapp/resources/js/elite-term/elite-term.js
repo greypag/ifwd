@@ -258,14 +258,14 @@ $('#et-upload-doc-submit-btn').on('click', function(e) {
 $('#iframe-et-upload-doc-submit-btn').on('click', function(e) {
     var $self = $(this);
     var isValid = isFHkidValidity($self);
-        isValid = isFPassportValidity($self);
-        isValid = isFProfAddValidity($self);
+        isValid = isValid && isFPassportValidity($self);
+        isValid = isValid && isFProfAddValidity($self);
     
     if (isValid) {     
         $self.removeAttr('disabled');
     } else {
         $self.attr('disabled', 'disabled');
-        alert('You might have uploaded an invalid file. Please try again!');
+        alert(getBundle(getBundleLanguage, 'error.upload.invalid'));
         return false;
     }
     
