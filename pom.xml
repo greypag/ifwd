@@ -188,6 +188,13 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/PDFRenderer.jar</systemPath>
          </dependency>
+         <dependency>
+            <groupId>rt</groupId>
+            <artifactId>rt</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/rt.jar</systemPath>
+         </dependency>
 		<dependency>
 			<groupId>com.github.pukkaone</groupId>
 			<artifactId>webappenhance</artifactId>
