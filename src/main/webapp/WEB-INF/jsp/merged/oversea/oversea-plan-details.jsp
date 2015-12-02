@@ -422,13 +422,9 @@ function setDropArea(id) {
                                           <select name="applicantRelationship" id="applicantRelationship"
                                               onchange="checkInsuredPerson(this.value)"
                                               class="form-control soflow select-label">
-                                              <option value="SE"><key
-                                                      id='Overseas.userdetails.applicant.Relationship.Option1'>Self</key></option>
-                                              <option value="CH"><key
-                                                      id='Overseas.userdetails.applicant.Relationship.Option2'>Children</key></option>
-                                              <option value="OT"><key
-                                                      id='Overseas.userdetails.applicant.Relationship.Option3'>Legal
-                                                  guardian</key></option>
+                                              <option value="SE"><fmt:message key="Overseas.userdetails.applicant.Relationship.Option1" bundle="${msg}" /></option>
+                                              <option value="CH"><fmt:message key="Overseas.userdetails.applicant.Relationship.Option2" bundle="${msg}" /></option>
+                                              <option value="OT"><fmt:message key="Overseas.userdetails.applicant.Relationship.Option3" bundle="${msg}" /></option>
                                           </select>
                                       </div>
                                       <span id="errapplicantRelationship" class="text-red"></span>
