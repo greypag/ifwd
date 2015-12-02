@@ -583,6 +583,7 @@ $(function () {
 		$("#errtxtAdDob1").html("");
 		$("#dobInsuredInvalid").html("");
 		$("#input_oversea_dob").removeClass("invalid-field");
+		$("#oversea_insure_dob").removeClass("invalid-field");
 	});
 	
 	$('#oversea_insure_dob').datepicker({

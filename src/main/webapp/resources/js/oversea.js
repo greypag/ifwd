@@ -254,7 +254,7 @@ function validateOverseaDetails() {
 	var addressline3 = $("#addressofInstitutionLine3").val();
 	
 	var beneficiaryName = document.getElementById("beneficiaryFullName").value;
-	var beneficiaryId = document.getElementById("beneficiaryFullName").value;
+	var beneficiaryId = document.getElementById("beneficiaryID").value;
 	
 	/*if (applicantBuilding.trim() == buildingPlaceholder.trim()) {
 		applicantBuilding = '';
@@ -406,8 +406,8 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 		$("#"+'dobInsuredInvalid').html('');
 		$("#"+'oversea_insure_dob').removeClass("invalid-field");
 	}
-	
-	/*if($("#personalselectBenificiary").val() != "" && $("#personalselectBenificiary").val() != 'SE'){
+	//console.log(chkTravelHKPass(beneficiaryId.trim()));
+	if($("#personalselectBenificiary").val() != "" && $("#personalselectBenificiary").val() != 'SE'){
 		if (beneficiaryName.trim() == "" || beneficiaryName.trim() == "SAME AS ID DOCUMENT") {
 			$("#errBeneficiaryFullName").html( getBundle(getBundleLanguage, "Please enter Beneficiary Name in English."));
 			$("#beneficiaryFullName").addClass("invalid-field");
@@ -418,8 +418,8 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 		}
 		
 		if($('#beneficiaryIDType').length > 0 && $('#beneficiaryIDType').val().toLowerCase() == 'passport'){
-			if (beneficiaryId.trim() == "" || beneficiaryId.trim() == "EG: X1234567 WITHOUT ()") {
-				$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "Please enter your Beneficiary passport."));
+			if (beneficiaryId.trim() == "") {
+				$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "1 Please enter your Beneficiary passport."));
 				$("#beneficiaryID").addClass("invalid-field");
 				if(firstErrorElementId==""){
 					firstErrorElementId="beneficiaryID";
@@ -428,7 +428,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			}else{
 				var tr = chkTravelHKPass(beneficiaryId.trim());
 				if (tr == false) {
-					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "beneficiary.passport.notValid.message"));
+					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "2 beneficiary.passport.notValid.message"));
 					$("#beneficiaryID").addClass("invalid-field");
 					if(firstErrorElementId==""){
 						firstErrorElementId="beneficiaryID";
@@ -438,7 +438,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 				
 				var tr1 = chkTravelHKPassLen(beneficiaryId.trim());
 				if (tr1 == false) {
-					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "Please enter your Beneficiary HKID."));
+					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "3 Please enter your Beneficiary HKID."));
 					$("#beneficiaryID").addClass("invalid-field");
 					if(firstErrorElementId==""){
 						firstErrorElementId="beneficiaryID";
@@ -447,7 +447,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 				}
 				
 				if(beneficiaryId.trim() == InsuHkid.trim()){
-					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "beneficiary.passport.same.message"));
+					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "4 beneficiary.passport.same.message"));
 					$("#beneficiaryID").addClass("invalid-field");
 					if(firstErrorElementId==""){
 						firstErrorElementId="beneficiaryID";
@@ -457,7 +457,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			}
 		}else{ 
 			if (beneficiaryId.trim() == "" || beneficiaryId.trim() == "EG: X1234567 WITHOUT ()") {
-				$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notNull.message"));
+				$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "5 beneficiary.hkId.notNull.message"));
 				$("#beneficiaryID").addClass("invalid-field");
 				if(firstErrorElementId==""){
 					firstErrorElementId="beneficiaryID";
@@ -466,7 +466,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			}else {
 				var tr=IsHKID(beneficiaryId.trim());
 				if(tr==false){
-					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "beneficiary.hkId.notValid.message"));
+					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "6 beneficiary.hkId.notValid.message"));
 					$("#beneficiaryID").addClass("invalid-field");
 					if(firstErrorElementId==""){
 						firstErrorElementId="beneficiaryID";
@@ -475,7 +475,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 				}
 				
 				if(beneficiaryId.trim() == InsuHkid.trim()){
-					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "beneficiary.hkId.same.message"));
+					$("#errBeneficiaryID").html(getBundle(getBundleLanguage, "7 beneficiary.hkId.same.message"));
 					$("#beneficiaryID").addClass("invalid-field");
 					if(firstErrorElementId==""){
 						firstErrorElementId="beneficiaryID";
@@ -485,7 +485,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			}
 		}
 			
-	}*/
+	}
 	
 	
 	if (overseaDepartureDate.trim() == "" || overseaDepartureDate.trim() =="DD-MM-YYYY") {
@@ -822,3 +822,10 @@ function validateValue(id, invalid, placeholder, message) {
 		$('#'+id).removeClass('invalid-field');
 	}
 }
+$(function () {
+	$("#applicantDistrict").change(function() {
+		$("#errorEmptycorrespondenceAddressDistrict").html('');
+		$('#applicantDistrictSelectWrap').removeClass('invalid-field');
+		setAtt("selectCADistHid", $(this).val());
+	});
+});
