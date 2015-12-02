@@ -1414,7 +1414,14 @@ $(document).ready(function() {
 	}
 });
 </script>
-
+<style>
+   @media screen and (max-width: 991px) {
+   body {
+      /* Hero image Position Fix*/
+      padding-top: 95px;
+   }
+</style>
+      
 <div class="modal fade bs-example-modal-lg  in" id="policyCoveragePopup" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content plan-modal">

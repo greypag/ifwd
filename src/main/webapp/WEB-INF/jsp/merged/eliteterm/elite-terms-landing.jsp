@@ -505,6 +505,13 @@
             }
          });
       </script>
+      <style>
+         @media screen and (max-width: 991px) {
+         body {
+            /* Hero image Position Fix*/
+            padding-top: 95px;
+         }
+      </style>
 
 <!-- Modal Box -->
 <div class="modal fade bs-example-modal-lg  in" id="benefitsPopup" tabindex="-1" role="dialog" aria-hidden="true">
