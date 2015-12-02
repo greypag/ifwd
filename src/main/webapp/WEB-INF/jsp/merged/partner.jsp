@@ -148,7 +148,7 @@
 	                            </div>
 	                        </div>
 							<div class="partner_link">
-								<a href="<fmt:message key="theclub.link" bundle="${msg}" />"
+								<a href="<fmt:message key="agoda.link" bundle="${msg}" />"
 									target="_blank"><u><fmt:message key="partner.visit.website" bundle="${msg}" /></u></a>
 							</div>
 					</div>
