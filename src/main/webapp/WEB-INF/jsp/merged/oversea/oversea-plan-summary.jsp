@@ -69,10 +69,10 @@ $(document).ready(function(){
 <section class="product_header_path_container ">
     <div class="container">
         <div class="product_header_path_item back"><i class="fa fa-arrow-left"></i><div class="partition"></div></div>
-        <div class="product_header_path_item hidden-sm hidden-xs"><key id='Overseas.PlanOptions.progressbar.item1'>Plan options</key><div class="partition"></div></div>
-        <div class="product_header_path_item hidden-sm hidden-xs"><key id='Overseas.PlanOptions.progressbar.item2'>Application</key></div>
-        <div class="product_header_path_item active"><key id='Overseas.PlanOptions.progressbar.item3'>Payment</key></div>
-        <div class="product_header_path_item hidden-sm hidden-xs"><key id='Overseas.PlanOptions.progressbar.item4'>Confirmation</key></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="Overseas.PlanOptions.progressbar.item1" bundle="${msg}" /><div class="partition"></div></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="Overseas.PlanOptions.progressbar.item2" bundle="${msg}" /></div>
+        <div class="product_header_path_item active"><fmt:message key="Overseas.PlanOptions.progressbar.item3" bundle="${msg}" /></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="Overseas.PlanOptions.progressbar.item4" bundle="${msg}" /></div>
     </div>
 </section>
 <!--/#main-Content-->
@@ -81,22 +81,22 @@ $(document).ready(function(){
         <div class="row">
             <form name="paymentForm" id="paymentForm" method="post">
 				<!-- <div class="oversea-summary-mainhead col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none">
-					<h3 class="h2-3-existing-fwd-head summary-header summary-header-margin oversea-summary-mainhead" style="margin-left:0px !important;"><key id='Overseas.Payment.Summaryheader'>Your summary and payment</key></h3>
+					<h3 class="h2-3-existing-fwd-head summary-header summary-header-margin oversea-summary-mainhead" style="margin-left:0px !important;"><fmt:message key="Overseas.Payment.Summaryheader" bundle="${msg}" /></h3>
 				</div>
 				-->
 				<div class="clearfix"></div>
                 <ol class="breadcrumb pad-none">
-				  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer1'>Home</key></a> <i class="fa fa-chevron-right"></i></li>
-				  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer2'>Protect</key></a></li> <i class="fa fa-chevron-right"></i></li>
-				  <li><a href="#"><key id='Overseas.Landing.Breadcrumb.layer3'>Overseas StudentCare Insurance</key></a></li>
-				  <li class="active "><i class="fa fa-chevron-right"></i><key id='Overseas.Landing.Breadcrumb.step3'>Payment</key></li>
+				  <li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer1" bundle="${msg}" /></a> <i class="fa fa-chevron-right"></i></li>
+				  <li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer2" bundle="${msg}" /></a></li> <i class="fa fa-chevron-right"></i></li>
+				  <li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer3" bundle="${msg}" /></a></li>
+				  <li class="active "><i class="fa fa-chevron-right"></i><fmt:message key="Overseas.Landing.Breadcrumb.step3" bundle="${msg}" /></li>
                 </ol>
                 <div class="oversea-summary-detail-wrapper container pad-none bdr ur-opt-content gray-bg3">
                     <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1 summary-container product_summary_container">
                        <div class="row summary-row">
                            <div style="width:80%;margin-left:10%;">						   
 								<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 pad-none">
-									<h3 class="h2-3-existing-fwd-head summary-header summary-header-margin oversea-summary-subhead" style="margin-left:0px !important;"><key id='Overseas.Payment.Summary'>Plan Summary</key></h3>
+									<h3 class="h2-3-existing-fwd-head summary-header summary-header-margin oversea-summary-subhead" style="margin-left:0px !important;"><fmt:message key="Overseas.Payment.Summary" bundle="${msg}" /></h3>
 								</div>
                              <div class="clearfix"></div>
                            </div>
@@ -108,34 +108,34 @@ $(document).ready(function(){
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none">
                                 <div class="table activation-form vert-middle travel-summary">
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><key id='Overseas.Payment.Summary.Applicant.sectiontitle'>Applicant</key></span></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="Overseas.Payment.Summary.Applicant.sectiontitle" bundle="${msg}" /></span></div>
 										</div>								
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Fullname'>Full name</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.Fullname" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.fullName }</div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.HKID'>HKID</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.HKID" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.hkid }</div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.DOB'>Date of birth</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.DOB" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.applicantDob }</div>
                                         </div>                                      
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Email'>Email address</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.Email" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.emailAddress }</div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Mobile'>Mobile no.</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.Mobile" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.mobileNo }</div>
                                         </div>                                      
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Relationship'>Relationship with insured person</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.Relationship" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">XXX</div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Correspondence'>Correspondence address</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.Correspondence" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
                                                 <c:if test="${planDetailsForm.correspondenceAddressRoom != ''}">
 	                                                Room/Flat ${planDetailsForm.correspondenceAddressRoom}, 
@@ -171,11 +171,11 @@ $(document).ready(function(){
                                             </div>
                                         </div>											
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.RequestNo'>Request no.</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.RequestNo" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${createPolicy.referenceNo }</div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Plan'>Plan</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.Plan" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><!--${planSelected }-->
                                                 <c:choose>
                                                     <c:when test="${planSelected == 'basicA'}">
@@ -200,7 +200,7 @@ $(document).ready(function(){
                                             </div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Region'>Region</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.Region" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
 	                                            <c:choose>
 													<c:when test="${planSelected == 'medicalAsiaA' || planSelected == 'medicalAsiaB'}">
@@ -228,35 +228,35 @@ $(document).ready(function(){
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pad-none">
                                 <div class="table activation-form vert-middle travel-summary">
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><key id='Overseas.Payment.Summary.Insured..sectiontitle'>Insured person</key></span></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="Overseas.Payment.Summary.Insured..sectiontitle" bundle="${msg}" /></span></div>
 										</div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Insured.Fullname'>Full name</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Insured.Fullname" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.personalName }</div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Insured.HKID'>HKID</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Insured.HKID" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.personalHKID }</div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Insured.DOB'>DOB</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Insured.DOB" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.insuredDob }</div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Insured.Email'>Email address</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Insured.Email" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.emailAddress }</div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Beneficiary'>Beneficiary</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Beneficiary" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${overseaBeneficaryDesc} </div>
                                         </div>
                                         <c:if test="${planDetailsForm != null && planDetailsForm.personalBeneficiary != 'SE'}" >
 	                                        <div class="row summary-row">
-	                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Beneficiary.Fullname'>Full name(Beneficiary)</key></div>
+	                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Beneficiary.Fullname" bundle="${msg}" /></div>
 	                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.beneficiaryFullName }</div>
 	                                        </div>
 	                                        <div class="row summary-row">
-	                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Beneficiary.hkid'>HKID(Beneficiary)</key></div>
+	                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Beneficiary.hkid" bundle="${msg}" /></div>
 	                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.beneficiaryID }</div>
 	                                        </div>
                                         </c:if>
@@ -277,39 +277,39 @@ $(document).ready(function(){
                                 <div class="table activation-form vert-middle travel-summary">
 
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><key id='Overseas.Payment.Summary.Institution.sectiontitle'>Educational institution</key></span></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="Overseas.Payment.Summary.Institution.sectiontitle" bundle="${msg}" /></span></div>
 										</div>										
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Applicant.Peroid'>Period of insurance</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.Peroid" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">From ${planDetailsForm.departureDate } to ${planDetailsForm.returnDate }</div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Institution.Country'>Educational institution country</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Institution.Country" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textCap">${planDetailsForm.countryOfInstitution }</div>
                                         </div>	
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Institution.Name'>Educational institution name</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Institution.Name" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textCap">${planDetailsForm.nameOfInstitution }</div>
                                         </div>	
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.Institution.Address'>Educational institution address</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Institution.Address" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textCap">${AddressofInstitutionLine }</div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.StudentVisaHolder'>Student visa holder</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.StudentVisaHolder" bundle="${msg}" /></div>
 											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">Yes</div>
 										</div>                                                                            
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><key id='Overseas.Payment.Summary.originalamount'>Original amount</key></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.originalamount" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${originalAmount}" /></div> 
                                         </div>  
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><key id='Overseas.Payment.Summary.AmountDue'>Amount due</key></span></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="Overseas.Payment.Summary.AmountDue" bundle="${msg}" /></span></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b pad-none">HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${dueAmount}" /></span></div> 
                                         </div>
 										<div class="row summary-row">
 											<h4 class="h4-4 product_landing_download_button pull-left">
-												<i class="fa fa-download"></i> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Overseas_StudyCare_Brochure.pdf" target="_blank"><key id='Overseas.Payment.Brochure'>Download Brochure</key></a> <!-- /<%=request.getContextPath()%>/resources/policy-provisions-pdf/Overseas_StudyCare_Brochure.pdf -->
+												<i class="fa fa-download"></i> <a href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Overseas_StudyCare_Brochure.pdf" target="_blank"><fmt:message key="Overseas.Payment.Brochure" bundle="${msg}" /></a> <!-- /<%=request.getContextPath()%>/resources/policy-provisions-pdf/Overseas_StudyCare_Brochure.pdf -->
 											</h4>	
 										</div>
                                     <div class="clearfix"></div>
@@ -330,7 +330,7 @@ $(document).ready(function(){
                     <div style="width:80%;margin-left:10%;">
                     <!-- Payment Form -->
                     <div class="col-xs-12 pad-none">
-                       <h2 class="from-control" style="padding:0px !important;"><key id='Overseas.Payment.Details'>Payment Details</key></h2>
+                       <h2 class="from-control" style="padding:0px !important;"><fmt:message key="Overseas.Payment.Details" bundle="${msg}" /></h2>
                        <span id="paymentGatewayErrorMsg" class="text-red"></span>
                     </div>
                     <input type="hidden" name="merchantId" value="${createPolicy.merchantId}">
@@ -356,7 +356,7 @@ $(document).ready(function(){
                     <div class="col-xs-12 pad-none product_payment_details">
                         <div class="form-group float">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
-                                <label class="control-label h4-5"><key id='Overseas.Payment.Details.Cardtype'>Card type</key></label>
+                                <label class="control-label h4-5"><fmt:message key="Overseas.Payment.Details.Cardtype" bundle="${msg}" /></label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
                                 <img src="<%=request.getContextPath()%>/resources/images/payment.png" alt="">
@@ -385,7 +385,7 @@ $(document).ready(function(){
                         </div>
                         <div class="form-group float">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
-                                <label class="control-label h4-5"><key id='Overseas.Payment.Details.CardNo'>Credit card number</key></label>
+                                <label class="control-label h4-5"><fmt:message key="Overseas.Payment.Details.CardNo" bundle="${msg}" /></label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
                                 <input id="cardNo1" type="tel" class="input-block-level cardnumber" maxlength="19" data-min="19" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardnumber').val());">
@@ -397,11 +397,11 @@ $(document).ready(function(){
                         </div>
                         <div class="form-group float">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
-                                <label class="control-label  h4-5"><key id='Overseas.Payment.Details.Expiry'>Expiry date</key></label>
+                                <label class="control-label  h4-5"><fmt:message key="Overseas.Payment.Details.Expiry" bundle="${msg}" /></label>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-right: 2% !important;">
                                 <div class="styled-select payment-select" id="inputMonth"><select class="pay-details-select" id="month" name="epMonth" onblur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
-                                        <option value="0"><key id='Overseas.Payment.Details.Expiry.Month'>Month</key></option>
+                                        <option value="0"><fmt:message key="Overseas.Payment.Details.Expiry.Month" bundle="${msg}" /></option>
                                         <option value="1">01</option>
                                         <option value="2">02</option>
                                         <option value="3">03</option>
@@ -419,7 +419,7 @@ $(document).ready(function(){
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-left: 2% !important;">
                                 <div class="styled-select payment-select" id="inputYear"><select class="pay-details-select" id="year" name="epYear" onblur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
-                                        <option value="0"><key id='Overseas.Payment.Details.Expiry.Year'>year</key></option>
+                                        <option value="0"><fmt:message key="Overseas.Payment.Details.Expiry.Year" bundle="${msg}" /></option>
                                     <c:forEach begin="0" end="10" varStatus="loop">
                                         <c:set var="currentYear" value="${year + loop.index}" />
                                         <option value="${currentYear}">${currentYear}</option>
@@ -431,7 +431,7 @@ $(document).ready(function(){
                         </div>
                         <div class="form-group float">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
-                                <label class="control-label  h4-5"><key id='Overseas.Payment.Details.Name'>Name on credit card</key></label>
+                                <label class="control-label  h4-5"><fmt:message key="Overseas.Payment.Details.Name" bundle="${msg}" /></label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
                                 <input id="holdername" name="cardHolder" type="text" class="input-block-level" onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');" onkeypress="return alphaOnly(event);"> <span id="errname" class="error-msg"></span>
@@ -440,7 +440,7 @@ $(document).ready(function(){
                         </div>
                         <div class="form-group float">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none product_payment_details_title">
-                                <label class="control-label  h4-5"><key id='Overseas.Payment.Details.CVV'>CVV</key></label>
+                                <label class="control-label  h4-5"><fmt:message key="Overseas.Payment.Details.CVV" bundle="${msg}" /></label>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-right: 2% !important;">
                                 <input id="seccode" type="password" name="securityCode" class="input-block-level" autocomplete="off" maxlength="3" title="" onblur="replaceAlphaNumeric(this);" onkeypress="return isAlphaNumeric(event);">
@@ -498,7 +498,7 @@ $(document).ready(function(){
                              <img src="<%=request.getContextPath()%>/resources/images/icon-pay-dollar.png" alt="">
                             </div>
                             <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
-                             <key id='Overseas.Payment.Paydollar'>We adopt PayDollar payment gateway, a leading, secure and reliable international payment service provider to banks and online merchants.</key>
+                             <fmt:message key="Overseas.Payment.Paydollar" bundle="${msg}" />
                             </div>
                             <div class="clearfix"></div>
                           </div>
@@ -507,7 +507,7 @@ $(document).ready(function(){
                              <img src="<%=request.getContextPath()%>/resources/images/icon-visa.png" alt="">
                             </div>
                             <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
-                             <key id='Overseas.Payment.VISA'>Verified by Visa is a new way to add safety when you buy online. It ensures that only you can use your Visa card online.</key>
+                             <fmt:message key="Overseas.Payment.VISA" bundle="${msg}" />
                             </div>
                             <div class="clearfix"></div>
                           </div>
@@ -516,7 +516,7 @@ $(document).ready(function(){
                              <img src="<%=request.getContextPath()%>/resources/images/icon-master.png" alt="">
                             </div>
                             <div class="col-xs-6 col-sm-9 col-md-12 col-lg-12 pad-none pull-right">
-                             <key id='Overseas.Payment.MasterCard'>MasterCard SecureCode is a new service that enhances your existing MasterCard card. A private code gives added protection against unauthorized use of your card when you shop at participating online merchants.</key>
+                             <fmt:message key="Overseas.Payment.MasterCard" bundle="${msg}" />
                             </div>
                             <div class="clearfix"></div>
                           </div>
