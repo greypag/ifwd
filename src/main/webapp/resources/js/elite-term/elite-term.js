@@ -154,18 +154,20 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 		        url:contextPath+'/ajax/eliteTerm/createEliteTermPolicy',
 		        data: formdata,
 		        success:function(data){
-					if(data==null || data!='' ){
+					if(data==null || data=='' ){
 						//Unknown errors
 			    	    $('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
-
+			    	    $('#loading-overlay').modal('hide');
+			    	    
 					} else if( data.errMsgs == 'session expired'){
 						//Timeout errors
+						$('#loading-overlay').modal('hide');
 						$('#timeout-modal').modal('show'); 
 
 					} else if( data.errMsgs != null ){
 						//Other errors
 						$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
-
+						$('#loading-overlay').modal('hide');
 					} else {
 						var $sigdiv = $("#signature");
 						var datapair = $sigdiv.jSignature("getData", "image");
@@ -190,21 +192,23 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 					    	    	if(data==null || data == ''){
 					    	    		//Unknown errors
 					    	    		$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+					    	    		$('#loading-overlay').modal('hide');
 
 					    	    	} else if( data.errMsgs == 'session expired'){
 					    	    		//Timeout errors
+					    	    		$('#loading-overlay').modal('hide');
 					    	    		$('#timeout-modal').modal('show'); 
 
 					    	    	} else if( data.errMsgs != null ){
 					    	    		//Other errors
 					    	    		$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+					    	    		$('#loading-overlay').modal('hide');
 
 					    	    	} else {
 					    	    		// success
 					    	    		window.onbeforeunload=null;
 					    	    		window.location.href= contextPath+'/'+language+'/term-life-insurance/'+selectPlanNextPageFlow;
 					    	    	}
-					    			$('#loading-overlay').modal('hide');
 					    	    },
 								error:function(){
 									$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
@@ -214,10 +218,8 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 						}
 					}
 
-					$('#loading-overlay').modal('hide');
 				},
 				error:function(){
-					console.log('error');
 					$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
 					$('#loading-overlay').modal('hide');
 				}
