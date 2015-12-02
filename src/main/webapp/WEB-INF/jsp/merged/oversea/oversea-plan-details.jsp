@@ -491,7 +491,7 @@ function setDropArea(id) {
                             </div>
                             <div class="form-group float">
                                 <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                    <label for="inputDistrictId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Correspondence.District" bundle="${msg}" /></label>
+                                    <label for="inputDistrictId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Correspondence.DISTRICT" bundle="${msg}" /></label>
                                 </div>                            
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none pull-right">
                                     <div id="applicantDistrictSelectWrap" class="styled-select">
