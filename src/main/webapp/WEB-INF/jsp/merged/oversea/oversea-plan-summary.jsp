@@ -132,7 +132,7 @@ $(document).ready(function(){
                                         </div>                                      
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.Relationship" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">XXX</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${applicantRelationshipDisplay }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.Correspondence" bundle="${msg}" /></div>
@@ -179,22 +179,22 @@ $(document).ready(function(){
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><!--${planSelected }-->
                                                 <c:choose>
                                                     <c:when test="${planSelected == 'basicA'}">
-                                                    Standard Overseas StudyCare Insurance - Plan A
+                                                    <fmt:message key="Overseas.Plan.Name.Standard.PlanA" bundle="${msg}" />
                                                     </c:when>
                                                     <c:when test="${planSelected == 'basicB'}">
-                                                    Standard Overseas StudyCare Insurance - Plan B
+                                                    <fmt:message key="Overseas.Plan.Name.Standard.PlanB" bundle="${msg}" />
                                                     </c:when>
                                                     <c:when test="${planSelected == 'medicalWorldwideA'}">
-                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan A
+                                                    <fmt:message key="Overseas.Plan.Name.Comprehensive.PlanA" bundle="${msg}" />
                                                     </c:when>
                                                     <c:when test="${planSelected == 'medicalWorldwideB'}">
-                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan B
+                                                    <fmt:message key="Overseas.Plan.Name.Comprehensive.PlanB" bundle="${msg}" />
                                                     </c:when>
                                                     <c:when test="${planSelected == 'medicalAsiaA'}">
-                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan A
+                                                    <fmt:message key="Overseas.Plan.Name.Comprehensive.PlanA" bundle="${msg}" />
                                                     </c:when>
                                                      <c:when test="${planSelected == 'medicalAsiaB'}">
-                                                    Comprehensive Medical Overseas StudyCare Insurance - Plan B
+                                                    <fmt:message key="Overseas.Plan.Name.Comprehensive.PlanB" bundle="${msg}" />
                                                     </c:when>                                                                                                                                                                                                                                                                                                                                                                         
                                                 </c:choose>                                            
                                             </div>
@@ -204,10 +204,10 @@ $(document).ready(function(){
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
 	                                            <c:choose>
 													<c:when test="${planSelected == 'medicalAsiaA' || planSelected == 'medicalAsiaB'}">
-													Asia Only
+													<fmt:message key="Overseas.PlanOptions.Region.Asiaonly" bundle="${msg}" />
 													</c:when>
 													<c:otherwise>
-													Worldwide
+													<fmt:message key="Overseas.PlanOptions.Region.Worldwide" bundle="${msg}" />
 													</c:otherwise>
 												</c:choose>
                                             </div>
