@@ -13,10 +13,10 @@
 <section class="product_header_path_container ">
     <div class="container">
         <div class="product_header_path_item back"><i class="fa fa-arrow-left"></i><div class="partition"></div></div>
-        <div class="product_header_path_item hidden-sm hidden-xs">Plan Options</div>
-        <div class="product_header_path_item hidden-sm hidden-xs">Application</div>
-        <div class="product_header_path_item hidden-sm hidden-xs">Payment</div>
-        <div class="product_header_path_item active">Confirmation</div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="Overseas.PlanOptions.progressbar.item1" bundle="${msg}" /></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="Overseas.PlanOptions.progressbar.item2" bundle="${msg}" /></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="Overseas.PlanOptions.progressbar.item3" bundle="${msg}" /></div>
+        <div class="product_header_path_item active"><fmt:message key="Overseas.PlanOptions.progressbar.item4" bundle="${msg}" /></div>
     </div>
 </section>
 
@@ -41,7 +41,7 @@
 				<div class="summary-border">
 					<h3 class="bmg-confirmation-h3">
 						<fmt:message key="Overseas.Confirmation.Confirmation.Success1" bundle="${msg}" />
-						<span class="email-addr-confirm"><fmt:message key="Overseas.Confirmation.Confirmation.Success2" bundle="${msg}" /></span>
+						<span class="email-addr-confirm"><fmt:message key="Overseas.Confirmation.Confirmation.Success2" bundle="${msg}" />${emailAddress}</span>
 						<fmt:message key="Overseas.Confirmation.Confirmation.Success3" bundle="${msg}" />
 						
 					</h3>

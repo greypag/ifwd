@@ -272,10 +272,10 @@ function setDropArea(id) {
 <section class="product_header_path_container ">
     <div class="container">
         <div class="product_header_path_item back"><i class="fa fa-arrow-left"></i><div class="partition"></div></div>
-        <div class="product_header_path_item hidden-sm hidden-xs">Plan Options</div>
-        <div class="product_header_path_item active">Application</div>
-        <div class="product_header_path_item hidden-sm hidden-xs">Payment<div class="partition"></div></div>
-        <div class="product_header_path_item hidden-sm hidden-xs">Confirmation</div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="Overseas.PlanOptions.progressbar.item1" bundle="${msg}" /></div>
+        <div class="product_header_path_item active"><fmt:message key="Overseas.PlanOptions.progressbar.item2" bundle="${msg}" /></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="Overseas.PlanOptions.progressbar.item3" bundle="${msg}" /><div class="partition"></div></div>
+        <div class="product_header_path_item hidden-sm hidden-xs"><fmt:message key="Overseas.PlanOptions.progressbar.item4" bundle="${msg}" /></div>
     </div>
 </section>
 <section>
