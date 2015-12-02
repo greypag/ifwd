@@ -20,10 +20,7 @@ function prepareOverseaPlan(form){
 		async : false,
 		success : function(data) {
 			if (data == "success") {
-				/*
-				form.action = "<%=request.getContextPath()%>/${language}/oversea-insurance/quote";
-				*/
-                form.action = "/fwdhk/${language}/oversea-insurance/quote";
+                form.action = "<%=request.getContextPath()%>/${language}/oversea-insurance/quote";
 				result = true;
 			} else {
 				console.log(data);
@@ -154,18 +151,12 @@ function submitPlan(){
 function subForm(form, formId) {
 	$.ajax({
 		type : "POST",
-		/*
-		url : '<%=request.getContextPath()%>/ajax/oversea/prepareOverseaDetails',
-		*/
-        url : '/fwdhk/ajax/oversea/prepareOverseaDetails',
+        url : '<%=request.getContextPath()%>/ajax/oversea/prepareOverseaDetails',
 		data : $(formId).serialize(),
 		async : false,
 		success : function(data) {
 			if (data == "success") {
-				/*
-                form.action = '${pageContext.request.contextPath}/${language}/oversea-insurance/details';
-                */
-                form.action = '/fwdhk/${language}/oversea-insurance/details';
+                form.action = '<%=request.getContextPath()%>/${language}/oversea-insurance/details';
 				result = true;
 			} else {
 				console.log(data);
@@ -190,8 +181,7 @@ function applyOverseaPromoCode() {
             console.log($('#frmTravelPlan input').serialize());
             $.ajax({
                 type : 'POST',
-                url : '/fwdhk/ajax/oversea/applyOverseaPromoCode',
-                /*url : '<%=request.getContextPath()%>/ajax/oversea/applyOverseaPromoCode',*/
+                url : '<%=request.getContextPath()%>/ajax/oversea/applyOverseaPromoCode',
                 data : $('#frmTravelPlan input').serialize(),
                 success : function(data) {
                     $('#loading-overlay').modal('hide');
