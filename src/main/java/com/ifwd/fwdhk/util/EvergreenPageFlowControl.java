@@ -47,6 +47,7 @@ public class EvergreenPageFlowControl {
 
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
+		logger.info("current:"+current);
 		if (referer != null) {
 			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("savings-evergreen-insurance")){
 				referer = UserRestURIConstants.PAGE_EVERGREEN_O2O_LANDING;
@@ -57,11 +58,12 @@ public class EvergreenPageFlowControl {
 
 		if (current != null) {
 			logger.info(current.substring(current.lastIndexOf("/") + 1));
-			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("savings-evergreen-insurance")){
+			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("landing")){
 				current = UserRestURIConstants.PAGE_EVERGREEN_O2O_LANDING;
 			} else {
 				current = getEvergreenPage(current);
 			}
+			logger.info("current:"+current);
 		}
 
 		// Landing Page
