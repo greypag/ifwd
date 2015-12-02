@@ -11653,6 +11653,29 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
   padding-bottom: 17px;
   color: #fff;
 }
+.fwd-savie-wrapper .o2o-landing.teaser.op-div {
+    background-color: #ffffff;
+    color: #000;
+    padding: 40px 0;
+}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper .o2o-landing.teaser.op-div {
+        position: absolute;
+        z-index: 1;
+        background: transparent;
+        top: 6%;
+        padding: 0;
+        margin-left: 25px;
+    }
+}
+.get-started-holder.op-align {
+    text-align: center;
+}
+@media (min-width: 992px) {
+    .get-started-holder.op-align {
+        text-align: left;
+    }
+}
 @media (min-width: 992px) {
   .fwd-savie-wrapper .teaser {
     padding-top: 30px;
@@ -11822,15 +11845,33 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
   font-size: 30px;
   font-family: 'Calibri-bold', sans-serif;
   color: #ff8200;
-  line-height: 28px;
+}
+.fwd-savie-wrapper p.additional.top.part {
+    font-size: 24px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper p.additional.top {
+    padding: 20px 0 0 0;
+    width: 46%;
+    font-size: 27px;
+    line-height: 40px;
+  }
+}
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .op-div p.additional.top {
     padding: 42px 0 0 0;
     width: 46%;
     font-size: 48px;
     line-height: 40px;
   }
+}
+.fwd-savie-wrapper p.additional.top.desktop {
+    padding: 0;
+   font-size: 30px;
+   color: #fff;
+   max-width: 385px !important;
+   margin-left: 0 !important;
+   line-height: 34px;
 }
 .fwd-savie-wrapper p.additional.top.lower {
   padding: 7px 0 17px 0;
@@ -11857,14 +11898,19 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
 }
 .fwd-savie-wrapper p.bottom-text {
   text-align: center;
-  margin: 0 auto;
+  margin: 7px auto 15px;
+  max-width: 350px;
+  font-size: 18px;
 }
+
 @media (min-width: 992px) {
   .fwd-savie-wrapper p.bottom-text {
     width: 46%;
     text-align: left;
-    margin-left: 0;
+    margin-left: 0 !important;
     margin-right: 0;
+    color: #fff;
+    max-width: 390px !important;
   }
 }
 .fwd-savie-wrapper p.bottom-text.upper {
@@ -11885,6 +11931,13 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
 .fwd-savie-wrapper p.bottom-text.lower {
   font-size: 14px;
   line-height: 16px;
+}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper p.bottom-text.lower {
+          font-size: 12px;
+          max-width: 570px !important;
+          margin-top: 7px !important;
+    }
 }
 .fwd-savie-wrapper p.bottom-text.lower span.asterisk {
   color: #ff8200;
@@ -12445,12 +12498,12 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
 }
 
 .fwd-savie-wrapper .banner-widget .hunger-selling-text {
-  font-size: 17px;
+  font-size: 40px;
   font-family: 'Calibri-bold', sans-serif;
   color: white;
   text-shadow: 1px 1px 10px #000;
   padding: 0;
-  line-height: 24px;
+  line-height: 34px;
   width: 65%;
 }
 @media (min-width: 480px) {
@@ -14560,25 +14613,28 @@ body.chin button#thank-you-continue {
   bottom: 29px;
   width: 100%;
 }
-.fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .hunger-selling-text {
-  margin: 0 auto;
-}
 .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
-  max-width: 290px;
+  max-width: 245px;
   padding: 0;
   margin-bottom: 5px;
 }
 @media (min-width: 768px) {
   .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
-    max-width: 100%;
-    font-size: 20px;
+    font-size: 40px;
     //text-align: right;
     //padding-right: 30px;
   }
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
-    font-size: 24px;
+    font-size: 80px;
+    max-width: 445px;
+    line-height: 65px;
+    text-shadow: none;
+  }
+  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1.big {
+       font-size: 85px;
+    padding-left: 35px;
   }
 }
 .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-2 {
@@ -14608,12 +14664,13 @@ body.chin button#thank-you-continue {
 }
 @media (min-width: 768px) {
   .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section {
-    bottom: 20px;
+    bottom: 8%;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section {
-    bottom: 8%;
+    top: 8%;
+    bottom: 0;
   }
 }
 @media (min-width: 992px) {
@@ -14632,9 +14689,8 @@ body.chin button#thank-you-continue {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing p.bottom-text {
     width: 100%;
-    /* text-align: center; */
     max-width: 525px;
-    margin: 0 auto;
+    margin: 15px auto 10px;
   }
 }
 .fwd-savie-wrapper .o2o-landing#flux .disclaimer-policy .policy-provisions {
@@ -14679,14 +14735,15 @@ body.chin button#thank-you-continue {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.teaser ul.crediting-rate-list {
     width: 100%;
-    max-width: 576px;
+    max-width: 460px;
     margin: 0 auto;
     padding-right: 0px;
+    float: left;
   }
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.teaser .teaser-banner-text {
-    width: 65%;
+    width: 100%;
     padding-left: 0;
   }
 }
@@ -14716,8 +14773,6 @@ body.chin button#thank-you-continue {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.teaser .additional.top {
     max-width: 525px;
-    padding-top: 50px;
-    padding-bottom: 10px;
     text-align: left;
   }
 }
@@ -14730,11 +14785,11 @@ body.chin button#thank-you-continue {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.teaser .crediting-rate-list li .percent {
-    font-size: 75px;
-    line-height: 75px;
+    font-size: 45px;
+    line-height: 45px;
   }
   .fwd-savie-wrapper .o2o-landing.teaser .crediting-rate-list li .year {
-    font-size: 22px;
+    font-size: 15px;
     line-height: 22px;
   }
   .fwd-savie-wrapper .o2o-landing.teaser .crediting-rate-list li .white {
@@ -14746,6 +14801,12 @@ body.chin button#thank-you-continue {
     padding-top: 0;
     padding-bottom: 32px;
   }
+}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper .o2o-landing.teaser .additional.top {
+        float: left;
+        max-width: 260px;
+    }
 }
 .fwd-savie-wrapper .o2o-landing.saving-plans {
   position: relative;
@@ -14993,7 +15054,7 @@ body.chin button#thank-you-continue {
 .fwd-savie-wrapper .o2o-landing #savings-carousel {
   background-color: #e9edf0;
 }
-.fwd-savie-wrapper .hunger-text-section button.get-started,
+.fwd-savie-wrapper .op-div button.get-started,
 .fwd-savie-wrapper .sign-up-teaser button.get-started {
   font-family: 'Calibri-bold', sans-serif;
   height: 60px;
@@ -15005,10 +15066,19 @@ body.chin button#thank-you-continue {
 body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
   font-family: 'Microsoft JhengHei', Calibri, sans-serif;;
 }
-.fwd-savie-wrapper .hunger-text-section button.get-started {
-  background-color: #fcb714;
+.fwd-savie-wrapper .op-div button.get-started {
+  background-color: #fdb714;
   color: #fff;
-  border: 1px solid #fcb714;
+  max-width: 220px;
+  border: none;
+  border-radius: 3px;
+  font-size: 24px;
+  border-bottom: 3px #cf9611 solid;
+}
+@media (min-width: 992px) {
+    .fwd-savie-wrapper .op-div button.get-started {
+        max-width: 208px;
+    }
 }
 .fwd-savie-wrapper .sign-up-teaser button.get-started {
   background-color: #fcb714;
@@ -15965,6 +16035,45 @@ body.chin #btn-cstmr-srvc-cnter {
   .fwd-savie-wrapper #other-benefits .pull-left.mobile-image {
     width: 20%;
   }
+}
+.op-logo {
+    float: right;
+   position: absolute;
+   top: 20%;
+   right: 10%;
+}
+@media (min-width: 768px) {
+    .op-logo {
+       right: 5%;
+       bottom: 5%;
+       top: initial;
+    }
+}
+.bottom-text.lower a:hover {
+    color: #9fb1b2;
+}
+@media (min-width: 992px) {
+    .col-xs-12.col-md-6 p.additional.top {
+        float: right !important;
+    }
+}
+@media (min-width: 992px) {
+    .download-pdf {
+        padding-left: 25%;
+    }
+    .download-pdf .crediting-rate-list.pdf {
+        float: none !important;
+        padding: 0 !important;
+    }
+    .download-pdf .crediting-rate-list.pdf li .year {
+        font-family: Calibri-bold, sans-serif;
+        font-size: 18px !important;
+        line-height: 15px !important;
+        color: #fff;
+    }
+    .download-pdf .crediting-rate-list.pdf li.middle {
+        border-right: 2px #fff solid;
+    }
 }
 
 .placeholder{

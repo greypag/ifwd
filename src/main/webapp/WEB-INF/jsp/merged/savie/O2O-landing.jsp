@@ -40,8 +40,8 @@ var home_url = "<%=request.getContextPath()%>";
 			</div>-->
 			
 			<div class="text-center o2o-landing banner-widget hunger-selling container-fluid">
-				<img class="mobile-banner" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.banner.image.mobile" bundle="${msg}" />" />
-				<img class="desktop-banner" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.banner.image.desktop" bundle="${msg}" />" />
+				<img class="mobile-banner" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.mobile" bundle="${msg}" />" />
+				<img class="desktop-banner" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.desktop" bundle="${msg}" />" />
 				<!--<div class="fwd-container container-fluid breadcrumbs">
 					<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
 						<li><a href="#"><fmt:message key="savie.o2o.landing.Home" bundle="${msg}" /></a></li>
@@ -49,47 +49,51 @@ var home_url = "<%=request.getContextPath()%>";
 						<li><a href="#"><fmt:message key="savie.o2o.landing.Save" bundle="${msg}" /></a></li>
 					</ol>
 				</div>-->
-
-				<div class="text-content hunger-img">
-					<img src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.tagline.image.desktop" bundle="${msg}" />" title="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" alt="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" class="img-responsive">
-				</div>
 				
-				<div class="hunger-text-section hidden-md hidden-lg">
-					<p class="hunger-selling-text text-1"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p> 
-					<div class="get-started-holder text-center">
-						<button id="hunger-selling-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
+				<div class="hunger-text-section">
+					<p class="hunger-selling-text text-1 big"><fmt:message key="oceanpark.landing.save.while" bundle="${msg}" /></p>
+					<p class="hunger-selling-text text-1"><fmt:message key="oceanpark.landing.you.play" bundle="${msg}" /></p>
+					<img class="op-logo" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
+				</div>
+			</div>
+			
+			<div class="fwd-full-container container-fluid o2o-landing teaser op-div">
+				<div class="fwd-container-limit">
+					<div class="teaser-banner-text">
+						<p class="additional top hidden-md hidden-lg"><fmt:message key="oceanpark.landing.exclusive.offer.part1" bundle="${msg}" /></p>
+						<p class="additional top part hidden-md hidden-lg"><fmt:message key="oceanpark.landing.exclusive.offer.part2" bundle="${msg}" /></p>
+						<p class="additional top part hidden-md hidden-lg"><fmt:message key="oceanpark.landing.exclusive.offer.part3" bundle="${msg}" /></p>
+						<p class="additional top desktop hidden-xs hidden-sm"><fmt:message key="oceanpark.landing.exclusive.offer" bundle="${msg}" /></p>
+						<p class="bottom-text"><fmt:message key="oceanpark.landing.gold.and.silver.part1" bundle="${msg}" /> <b><fmt:message key="oceanpark.landing.gold.and.silver.part2" bundle="${msg}" /></b> <fmt:message key="oceanpark.landing.gold.and.silver.part3" bundle="${msg}" /> <b><fmt:message key="oceanpark.landing.gold.and.silver.part4" bundle="${msg}" /></b> <fmt:message key="oceanpark.landing.gold.and.silver.part5" bundle="${msg}" /></p>
+						<div class="get-started-holder op-align">
+							<button id="op-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
+						</div>
+						<p class="bottom-text lower hidden-sm hidden-xs"><fmt:message key="oceanpark.landing.please.refer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"> <fmt:message key="oceanpark.landing.please.refer.part2" bundle="${msg}" /></a> <fmt:message key="oceanpark.landing.please.refer.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.provisions.link" bundle="${msg}" />" target="_blank"><fmt:message key="oceanpark.landing.please.refer.part4" bundle="${msg}" /></a><fmt:message key="oceanpark.landing.please.refer.part5" bundle="${msg}" /></p>
 					</div>
-					<p class="footnote below"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p>
 				</div>
 			</div>
 			
 			<div class="fwd-full-container container-fluid o2o-landing teaser">
 				<div class="fwd-container-limit">
-					<div class="teaser-banner-text">
-						<div class="money-div">
-							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/money-logo-large.png" class="money">
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							<p class="additional top"><fmt:message key="oceanpark.landing.enjoy" bundle="${msg}" /></p>
 						</div>
-						<p class="additional top"><fmt:message key="savie.o2o.landing.Act.now.to" bundle="${msg}" /></p>
-						<ul class="crediting-rate-list clearfix">
-							<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.First.year" bundle="${msg}" /></span></li>
-							<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Second.year" bundle="${msg}" /></span><div class="white right"></div></li>
-							<li><span class="percent gold">4% </span><span class="year gold"><fmt:message key="savie.o2o.landing.Third.year" bundle="${msg}" /></span></li>
-						</ul>
-						<p class="bottom-text"><fmt:message key="savie.o2o.landing.Lump.sum.info" bundle="${msg}" /></p>
+						<div class="col-xs-12 col-md-6">
+							<ul class="crediting-rate-list clearfix">
+								<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.First.year" bundle="${msg}" /></span></li>
+								<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Second.year" bundle="${msg}" /></span><div class="white right"></div></li>
+								<li><span class="percent gold">3.3% </span><span class="year gold"><fmt:message key="savie.o2o.landing.Third.year" bundle="${msg}" /></li>
+							</ul>
+						</div>
+						<div class="download-pdf hidden-xs hidden-sm col-md-12">
+							<ul class="crediting-rate-list pdf">
+								<li class="middle"><a class="year" href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"><fmt:message key="oceanpark.landing.brochure" bundle="${msg}" /></a></li>
+								<li><a class="year" href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.provisions.link" bundle="${msg}" />" target="_blank"><fmt:message key="oceanpark.landing.provision" bundle="${msg}" /></a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
-			</div>
-			
-			<div class="sign-up-teaser">
-				<p class="sign-up-header hidden-sm hidden-xs"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>
-				<div class="get-started-holder text-center hidden-sm hidden-xs">
-					<button id="hunger-selling-buy-now-O2O" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
-				</div>
-				<p class="sign-up-header below">
-					<fmt:message key="savie.o2o.landing.Haven't.applied.part1" bundle="${msg}" /><button id="signup"><fmt:message key="savie.o2o.landing.Haven't.applied.link.text" bundle="${msg}" /></button><fmt:message key="savie.o2o.landing.Haven't.applied.part2" bundle="${msg}" />
-				</p>
-				<p class="footnote below hidden-sm hidden-xs"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p>
-			</div>
 			</div>
 			
 	        <div class="teaser-three-column O2O-landing">
@@ -473,7 +477,7 @@ var home_url = "<%=request.getContextPath()%>";
 				//$('#accessCodeO2O').modal('show');
 				getAppointmentAccessCode();
 			});
-			$('#hunger-selling-buy-now-O2O-mobile').click(function(e){
+			$('#op-buy-now-O2O-mobile').click(function(e){
 				//$('#accessCodeO2O').modal('show');
 				getAppointmentAccessCode();
 			});
