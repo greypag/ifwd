@@ -1,9 +1,6 @@
 package com.ifwd.fwdhk.controller;
 
 import java.io.File;
-import java.lang.reflect.Method;
-import java.security.AccessController;
-import java.security.PrivilegedAction;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
@@ -40,24 +36,29 @@ public class AjaxEliteTermController extends BaseController{
 	@SuppressWarnings({ "restriction" })
 	@RequestMapping(value = {"/ajax/eliteTerm/postEliteTermImage"})
 	  public void doAddImageByForm(HttpServletRequest request, HttpServletResponse response,
-			  MultipartFile hkidFileToUpload,
-			  MultipartFile passportFileToUpload,
-			  MultipartFile fileToUpload
+			  MultipartFile iframeHkidFileToUpload,
+			  MultipartFile iframePassportFileToUpload,
+			  MultipartFile iframeFileToUpload
 	            ) throws Exception {
 		MultipartFile file;
-		if( hkidFileToUpload!= null) {
-			file = hkidFileToUpload;
-		}else if( passportFileToUpload!= null) {
-			file = passportFileToUpload;
-		}else if( fileToUpload!= null) {
-			file = fileToUpload;
+		String imgName;
+		if( iframeHkidFileToUpload!= null) {
+			file = iframeHkidFileToUpload;
+			imgName = "hkidFileToUpload";
+		}else if( iframePassportFileToUpload!= null) {
+			file = iframePassportFileToUpload;
+			imgName = "passportFileToUpload";
+		}else if( iframeFileToUpload!= null) {
+			file = iframeFileToUpload;
+			imgName = "fileToUploadProofAdd";
 		}else{
 			return;
 		}
 		
 		try {
 				String imgMaxSize = UserRestURIConstants.getProperties("imgMaxSize");
-				String name = file.getOriginalFilename();
+				//String name = file.getOriginalFilename();
+				//String imgName = name.substring(0, name.lastIndexOf("."));
 				long size = file.getSize();
 				if(size/(1024*1024) > Integer.valueOf(imgMaxSize)){
 					throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.greater.than",request)+" "+imgMaxSize+"MB");
@@ -73,7 +74,6 @@ public class AjaxEliteTermController extends BaseController{
 		        } 
 		        String fileName = file.getOriginalFilename();
 		        
-		        String imgName = name.substring(0, name.lastIndexOf("."));
 		        
 		        String realName = imgName+".jpg";
 				request.getSession().setAttribute(imgName, realName);
@@ -91,6 +91,13 @@ public class AjaxEliteTermController extends BaseController{
 		        File toFile = new File(uploadDir + sep  
 				                + realName);
 		        ImgUtil.ImageToPdfToJPG(uploadDir + sep+ fileName, uploadDir + sep + imgName + ".pdf", toFile , request);
+		        String copyImagePath = request.getRealPath("/")+"resources/images/elite-terms/COPY.png";
+				File copyImageFile = new File(copyImagePath);
+				try {
+					ImgUtil.pressImage(copyImageFile, toFile, 0, 0);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 //				ImgUtil.changeImageToJPG(uploadedFile,toFile,request);
 		        response.getWriter().write("true");
 		    } catch (ECOMMAPIException e) {

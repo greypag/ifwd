@@ -255,6 +255,82 @@ $('#et-upload-doc-submit-btn').on('click', function(e) {
 	sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage);
 });
 
+$('#iframe-et-upload-doc-submit-btn').on('click', function(e) {
+    var $self = $(this);
+    var isValid = isFHkidValidity($self);
+        isValid = isFPassportValidity($self);
+        isValid = isFProfAddValidity($self);
+    
+    if (isValid) {     
+        $self.removeAttr('disabled');
+    } else {
+        $self.attr('disabled', 'disabled');
+        alert('You might have uploaded an invalid file. Please try again!');
+        return false;
+    }
+    
+    
+    if(!checkLogin()){
+		return false;
+	}
+	var uploadNow = $("input[name='upload-doc']:checked").val();
+	var passportFlage = true;
+	var uploadLaterFlage = false;
+	if(uploadNow == 'upload-now'){
+		passportFlage = true;
+	}else{
+		uploadLaterFlage = true;
+	}
+	sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage);
+});
+
+function isDis2Sub(){
+	var isValidHkid = parent.frames["iframe-one"].window.finishUploadHkid();
+	var isValidPassport = parent.frames["iframe-two"].window.finishUploadPassport();
+	var isValidAddr = parent.frames["iframe-three"].window.finishUploadAddr();
+    if(isValidHkid && isValidPassport && isValidAddr) {
+    	$("#iframe-et-upload-doc-submit-btn").removeAttr('disabled');
+    }
+}
+
+function isFHkidValidity() {
+    var isValid = true;
+    if (parent.frames["iframe-one"].window.finishUploadHkid()) {
+        removeFormFieldError('#et-hkid-file-message', '', true);
+    } else {
+        removeFormFieldError('#et-hkid-file-message', 'required-hkid');
+        addFormFieldError('#et-hkid-file-message', getBundle(getBundleLanguage, 'error.hkid.document.empty'), 'required-hkid');
+        isValid = false;
+    }
+    return isValid;
+}
+
+function isFPassportValidity() {
+    var isValid = true;
+    if (parent.frames["iframe-two"].window.finishUploadPassport()) {
+        removeFormFieldError('#et-passport-file-message', '', true);
+    } else {
+        removeFormFieldError('#et-passport-file-message', 'required-hkid');
+        addFormFieldError('#et-passport-file-message', getBundle(getBundleLanguage, 'error.passport.document.empty'), 'required-hkid');
+        isValid = false;
+    }
+    return isValid;
+}
+
+function isFProfAddValidity() {
+    if ($('#residence-check').prop('checked')) {
+        return true;
+    }
+    var isValid = true;
+    if (parent.frames["iframe-three"].window.finishUploadAddr()) {
+        removeFormFieldError('#et-address-file-message', '', true);
+    } else {
+        removeFormFieldError('#et-address-file-message', 'required-hkid');
+        addFormFieldError('#et-address-file-message', getBundle(getBundleLanguage, 'error.address.proof.empty'), 'required-hkid');
+        isValid = false;
+    }
+    return isValid;
+}
 
 function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
 	$.ajax({
