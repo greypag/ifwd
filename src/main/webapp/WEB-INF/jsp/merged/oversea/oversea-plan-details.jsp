@@ -426,7 +426,7 @@ function setDropArea(id) {
                                                       id='Overseas.userdetails.applicant.Relationship.Option1'>Self</key></option>
                                               <option value="CH"><key
                                                       id='Overseas.userdetails.applicant.Relationship.Option2'>Children</key></option>
-                                              <option value="LG"><key
+                                              <option value="OT"><key
                                                       id='Overseas.userdetails.applicant.Relationship.Option3'>Legal
                                                   guardian</key></option>
                                           </select>
