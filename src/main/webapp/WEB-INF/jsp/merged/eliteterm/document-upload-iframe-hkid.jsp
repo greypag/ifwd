@@ -58,8 +58,8 @@ var languageP = "${language}";
 												</div>
 												
 												<div class="mob-desk">
-													<label for="hkidFileToUpload" class="orange-select-file">
-														<input type="file" id="hkidFileToUpload" name="hkidFileToUpload" onchange="upload(this.id);">
+													<label for="iframeHkidFileToUpload" class="orange-select-file">
+														<input type="file" id="iframeHkidFileToUpload" name="iframeHkidFileToUpload" onchange="upload(this.id);">
 														<span class="input-file-text"><fmt:message key="eliteTerms.documentUpload.Select.files" bundle="${msg}" /></span>
 													</label>
 												</div>
@@ -88,7 +88,8 @@ var languageP = "${language}";
 		<script type="text/javascript">
 
 			$(document).on('click', '#hkid-upload-now', function(e) {
-				if($('#hkidFileToUpload').val()!='' || $('#hkidFileToUploadCam').val()!='') {
+				if(fHkidValid()) {
+					parent.isDis2Sub();
 					$('#hkid-upload-form').submit();
 				}
 				else {
@@ -110,7 +111,14 @@ var languageP = "${language}";
 				$('.document-filename').removeClass('pull-left hidden');
 				$('.document-filename').addClass('text-center');
 			}
-		
+			
+			function fHkidValid() {
+				return $('#iframeHkidFileToUpload').val()!='' || $('#hkidFileToUploadCam').val()!='';
+			}
+			
+			function finishUploadHkid() {
+				return !$("#finish-upload-hkid").hasClass("hidden");
+			}
 
 		</script>
 		<style>

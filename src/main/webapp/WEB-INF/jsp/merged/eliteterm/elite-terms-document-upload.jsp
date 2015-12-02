@@ -382,6 +382,7 @@ var languageP = "${language}";
                   	</div> <!-- PAGE CONTENT -->
 					<div class="submit-btn" id="submit-btn">
 						<button id="et-upload-doc-submit-btn" type="button" class="btn next"><fmt:message key="eliteTerms.button.complete" bundle="${msg}" /></button>
+						<button id="iframe-et-upload-doc-submit-btn" type="button" class="btn next hidden"><fmt:message key="eliteTerms.button.complete" bundle="${msg}" /></button>
 					</div>
 					<div class="elite-home-btn hidden" id="elite-home-btn">
 						<button id="et-upload-doc-home-btn" type="button" class="btn next"><fmt:message key="eliteTerms.button.complete" bundle="${msg}" /></button>
@@ -563,6 +564,8 @@ var languageP = "${language}";
 				if(msieversion()>0 && msieversion()<10) {
 					$('.upload-buttons').addClass('hidden');
 					$('.iframe-holder').removeClass('hidden');
+					$('#et-upload-doc-submit-btn').addClass('hidden');
+					$('#iframe-et-upload-doc-submit-btn').removeClass('hidden');
 					if(getWidth() < 992) {
 						$('.upload-ie-iframe').removeAttr('style');
 						$('.upload-ie-iframe').css({'width': '103%', 'border': 'none', 'height': '1450px', 'margin-left': '-15px'});
