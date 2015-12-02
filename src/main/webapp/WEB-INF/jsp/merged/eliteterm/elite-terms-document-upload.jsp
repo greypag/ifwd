@@ -189,7 +189,7 @@ var languageP = "${language}";
 														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
 													<![endif]-->
-													<div class="mob-desk hidden-lg hidden-md">
+													<div class="mob-desk">
 														<span class="OR"><fmt:message key="eliteTerms.documentUpload.or" bundle="${msg}" /></span>
 													</div>
 													<div class="mob-desk">
