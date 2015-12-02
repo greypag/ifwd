@@ -413,9 +413,7 @@ function setDropArea(id) {
                               <div class="form-group float">
                                   <div
                                       class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                      <label class="field-label bold-500"><key
-                                              id='Overseas.userdetails.applicant.Relationship'>Relationship<br/>
-                                          with insured person</key></label>
+                                      <label class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Relationship" bundle="${msg}" /></label>
                                   </div>
                                   <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                       <div class="styled-select">
@@ -639,16 +637,6 @@ function setDropArea(id) {
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
-                                                     <!-- <select name="personalBeneficiary" id="personalselectBenificiary1" onchange="activeDiv('personalbenificiary','personalselectBenificiary1', 'personalBenefitiaryId1', 'personalBenefitiaryHKId1')" class="form-control soflow select-label">
-                                                            <option value="SE"><fmt:message key="Overseas.userdetails.Bene.Option1" bundle="${msg}" /></option>
-                                                            <option value="CH"><fmt:message key="Overseas.userdetails.Bene.Option2" bundle="${msg}" /></option>
-                                                            <option value="FM"><fmt:message key="Overseas.userdetails.Bene.Option3" bundle="${msg}" /></option>
-                                                            <option value="FF"><fmt:message key="Overseas.userdetails.Bene.Option4" bundle="${msg}" /></option>
-                                                            <option value="GC"><fmt:message key="Overseas.userdetails.Bene.Option5" bundle="${msg}" /></option>
-                                                            <option value="PA"><fmt:message key="Overseas.userdetails.Bene.Option6" bundle="${msg}" /></option>
-                                                            <option value="SL"><fmt:message key="Overseas.userdetails.Bene.Option7" bundle="${msg}" /></option>
-                                                            <option value="SP"><fmt:message key="Overseas.userdetails.Bene.Option8" bundle="${msg}" /></option>
-                                                    </select> -->
                                                    <select name="personalBeneficiary" id="personalselectBenificiary"
                                                         onChange="activeDiv('personalbenificiary','personalselectBenificiary')"
                                                         class="form-control soflow select-label">
@@ -944,8 +932,8 @@ function setDropArea(id) {
                             <div class="wd2">
                                 <div class="pull-left" style="">
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;">Overseas StudyCare</h2>
-                                    <h2 id="selectedPlanNameDisplay" class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;">${planName }</h2>
-                                    <h4 id="seletedplanregion" style="padding-left:0px;line-height: 0px;font-size: 16px;"></h4>
+                                    <h2 id="selectedPlanNameDisplay" class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;">${displayPlan }</h2>
+                                    <h4 id="seletedplanregion" style="padding-left:0px;line-height: 0px;font-size: 16px;">${displayRegion }</h4>
                                     <input type="hidden" id="selectedPlanName" name="selectedPlanName" value="${planName }">
                                 </div>
                                 <div class="clearfix"></div>
@@ -1050,30 +1038,6 @@ function setDropArea(id) {
 <script>
 var selectedPlanName = $('#selectedPlanName').val();
 console.log(selectedPlanName);
-if(selectedPlanName=='basicA'){
-    $('#seletedplanregion').html('Worldwide');
-    $('#selectedPlanNameDisplay').html('Standard Plan A');
-}
-if(selectedPlanName=='basicB'){
-    $('#seletedplanregion').html('Worldwide');
-    $('#selectedPlanNameDisplay').html('Standard Plan B');
-}
-if(selectedPlanName=='medicalWorldwideA'){
-    $('#seletedplanregion').html('Worldwide');
-    $('#selectedPlanNameDisplay').html('Comprehensive Medical Plan A');
-}
-if(selectedPlanName=='medicalWorldwideB'){
-    $('#seletedplanregion').html('Worldwide');
-    $('#selectedPlanNameDisplay').html('Comprehensive Medical Plan B');
-}
-if(selectedPlanName=='medicalAsiaA'){
-    $('#seletedplanregion').html('Asia');
-    $('#selectedPlanNameDisplay').html('Comprehensive Medical Plan A');
-}
-if(selectedPlanName=='medicalAsiaB'){
-    $('#seletedplanregion').html('Asia');
-    $('#selectedPlanNameDisplay').html('Comprehensive Medical Plan B');
-}
 
 var options;
 if("${planName}"=="basicA" || "${planName}"=="basicB" || "${planName}"=="medicalWorldwideA" || "${planName}"=="medicalWorldwideB"){

@@ -58,11 +58,11 @@ function changeRegion(region){
 }
 function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 	if(index>=0&&index<=3){
-        $('#seletedplanregion').html('Worldwide');       
+        $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.Worldwide" bundle="${msg}" />');       
     }else if(index>=3&&index<=5){
-        $('#seletedplanregion').html('Worldwide (include Asia)');       
+        $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.WorldwideAsia" bundle="${msg}" />');       
     }else{
-        $('#seletedplanregion').html('Asia');       		
+        $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.Asiaonly" bundle="${msg}" />');       		
 	}
 	
     var txtPlanName = $("#"+planName).val()
@@ -98,10 +98,10 @@ function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 	/*
     $('#seletedplanname').html(txtPlanName);
     */
-    if(txtPlanName=='basicA')$('#seletedplanname').html('Standard Plan A');
-    if(txtPlanName=='basicB')$('#seletedplanname').html('Standard Plan B');
-    if(txtPlanName=='medicalWorldwideA'||txtPlanName=='medicalAsiaA')$('#seletedplanname').html('Comprehensive Medical Plan A');
-    if(txtPlanName=='medicalWorldwideB'||txtPlanName=='medicalAsiaB')$('#seletedplanname').html('Comprehensive Medical Plan B');
+    if(txtPlanName=='basicA')$('#seletedplanname').html('<fmt:message key="Overseas.Plan.Name.Short.Standard.PlanA" bundle="${msg}" />');
+    if(txtPlanName=='basicB')$('#seletedplanname').html('<fmt:message key="Overseas.Plan.Name.Short.Standard.PlanB" bundle="${msg}" />');
+    if(txtPlanName=='medicalWorldwideA'||txtPlanName=='medicalAsiaA')$('#seletedplanname').html('<fmt:message key="Overseas.Plan.Name.Short.Comprehensive.PlanA" bundle="${msg}" />');
+    if(txtPlanName=='medicalWorldwideB'||txtPlanName=='medicalAsiaB')$('#seletedplanname').html('<fmt:message key="Overseas.Plan.Name.Short.Comprehensive.PlanB" bundle="${msg}" />');
    
     
 	$('#inputseletedplanname').val(txtPlanName);
@@ -368,8 +368,8 @@ function scrollDownOverseaProductPanel($element){
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");               
     $('[data-toggle="tooltip"]').tooltip();
-    $('#seletedplanregion').html('Worldwide');
-    $('#seletedplanname').html('Comprehensive Medical Plan A');
+    $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.Worldwide" bundle="${msg}" />');
+    $('#seletedplanname').html('<fmt:message key="Overseas.Plan.Name.Short.Comprehensive.PlanA" bundle="${msg}" />');
     $('#selectedAmountDue').val('8000.00');
     $('#txtgrossPremiumAmt').val('8000.00');
     //
@@ -380,12 +380,6 @@ $(document).ready(function() {
 
     $('#amountdue').html('8,000.00');
 
-    //$('#amountdue').html('8,000.00');
-
-    //changeColorAndPrice('box2','2','medicalWorldwideA','0','8000.00');
-    //$('#inputseletedplanname').html('medicalWorldwideA');
-    //$('#amountdue').html('8000.0');
-    //$('#inputseletedplanname').html('Comprehensive Medical Worldwide - Plan A');
 });
 
 </script>
@@ -537,7 +531,7 @@ Vietnam
 								<div class="oversea-plan-quote-coverage-wrapper<c:if test="${j == 2 || j == 4}"> plan-flow-r-mobile-only</c:if>">
                                     <div class="plan-box-l oversea_productbox_subtitle">
 										<div class="" style="">                           
-											<h2><key id='Overseas.PlanOptions.Plans.table1.col1row2<c:if test="${h == 4}">.ver2</c:if>'><fmt:message key="oversea.quote.coverage${i }" bundle="${msg}" /></key></h2>
+											<h2><fmt:message key="oversea.quote.coverage${i }" bundle="${msg}" /></h2>
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -549,33 +543,6 @@ Vietnam
 										<div class="clearfix"></div>
 									</div>
 									<input type="hidden" name="txtPlanName" id="txtPlanName${i}" value="${quoteDetails.planName[j]}">
-									<!-- 
-		                            <input type="hidden" name="txtPlanName" id="txtPlanName${i}" value="<c:choose>
-                                                    <c:when test="${i == '0'}">
-                                                    basicA
-                                                    </c:when>
-                                                    <c:when test="${i == '1'}">
-                                                    basicB
-                                                    </c:when>
-                                                    <c:when test="${i == '2'}">
-                                                    Comprehensive Medical A
-                                                    </c:when>
-                                                    <c:when test="${i == '3'}">
-                                                    Comprehensive Medical B
-                                                    </c:when>
-                                                    <c:when test="${i == '4'}">
-                                                    Standard A
-                                                    </c:when>
-                                                    <c:when test="${i == '5'}">
-                                                    Standard B
-                                                    </c:when>
-                                                    <c:when test="${i == '6'}">
-                                                    Comprehensive Medical A
-                                                    </c:when>
-                                                    <c:when test="${i == '7'}">
-                                                    Comprehensive Medical B
-                                                    </c:when>
-                                                </c:choose>"> -->
 		                            <input type="hidden" name="txtTotalDue" id="txtTotalDue${i}" value="${quoteDetails.toalDue[j] }">
 		                            <input type="hidden" name="txtGrossPremium" id="txtGrossPremium${i}" value="${quoteDetails.grossPremium[j] }">
 		                            <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount${i}" value="${quoteDetails.discountAmount[j] }">
@@ -589,35 +556,6 @@ Vietnam
 									</div>
 									
 									<input type="hidden" name="txtPlanName" id="txtPlanName${i+1}" value="${quoteDetails.planName[j+1]}">
-									
-									<!-- 
-		                            <input type="hidden" name="txtPlanName" id="txtPlanName${i+1}" value="<c:choose>
-                                                    <c:when test="${i == '-1'}">
-                                                    Standard    A
-                                                    </c:when>
-                                                    <c:when test="${i == '0'}">
-                                                    Standard    B
-                                                    </c:when>
-                                                    <c:when test="${i == '1'}">
-                                                    Comprehensive Medical A
-                                                    </c:when>
-                                                    <c:when test="${i == '2'}">
-                                                    Comprehensive Medical B
-                                                    </c:when>
-                                                    <c:when test="${i == '3'}">
-                                                    Standard A
-                                                    </c:when>
-                                                    <c:when test="${i == '4'}">
-                                                    Standard B
-                                                    </c:when>
-                                                    <c:when test="${i == '5'}">
-                                                    Comprehensive Medical A
-                                                    </c:when>
-                                                    <c:when test="${i == '6'}">
-                                                    Comprehensive Medical B
-                                                    </c:when>
-                                                </c:choose>">
-                                                -->
 		                            <input type="hidden" name="txtTotalDue" id="txtTotalDue${i+1}" value="${quoteDetails.toalDue[j+1] }">
 		                            <input type="hidden" name="txtGrossPremium" id="txtGrossPremium${i+1}" value="${quoteDetails.grossPremium[j+1] }">
 		                            <input type="hidden" name="txtDiscountAmount" id="txtDiscountAmount${i+1}" value="${quoteDetails.discountAmount[j+1] }">
@@ -1349,30 +1287,7 @@ Vietnam
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
                                 <div class="row product_plan_panel_content_row">
                                     <div class="col-xs-12">
-										<key id='Overseas.PlanOptions.importantnotes.copy'>
-                                        <p>
-                                            For the insured person<br>
-                                            </p><ul class="bullets">
-                                                <li>The insured person must be the holder of a valid HKID through out the policy coverage period</li>
-                                                <li>This policy excluded any accidents whilst engaging in sports or games in a professional capacity or where an insured person would or could earn income or remuneration from engaging in such sport or game; racing (other than on foot). </li>
-                                                <li>This policy does not cover the insured person being a crew member or an operator of any air carrier; accidents whilst engaging in any kind of manual labour work; engaging in offshore activities including commercial diving, oil rigging, mining or aerial photography; handling of explosives, performing as an actor/actress, being a site worker, tour guide or tour escort; or being a member of an armed forces service</li>
-                                            </ul>
-                                        <p></p>
-                                        <p>
-                                            About the journey<br>
-                                            </p><ul class="bullets">
-                                                <li>Each journey commences when the insured person completes the immigration departure clearance procedure from Hong Kong and ends when the insured person completes the immigration arrival clearance procedure for returning to Hong Kong after such Journey.</li>
-                                                <li>The policy will only cover journeys taken within the period of insurance that are less than 90 days duration.</li>
-                                            </ul>
-                                        <p></p>
-                                        <p>
-                                            General Conditions<br>
-                                            </p><ul class="bullets">
-                                                <li>In the event that an insured person is covered by more than one policy issued by the Company for the same journey, the benefits payable for any claim based on the policy which provides the greatest amount of benefit.</li>
-                                                <li>This policy may be cancelled by the policyholder provided no claim has been made.  In this event, the policyholder may be entitled to a partial refund of the premium paid, but subject to a minimum premium of HK$500 being retained by the Company per policy. Please see the policy provisions for the details of the partial refund.</li>
-                                            </ul>
-                                        <p></p>
-										</key>
+                                    	<fmt:message key="Overseas.PlanOptions.importantnotes.copy" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -1386,19 +1301,7 @@ Vietnam
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
                                 <div class="row product_plan_panel_content_row">
                                     <div class="col-xs-12">
-                                        <key id='Overseas.PlanOptions.exlusions.copy'><ol class="">
-                                            <li>War (whether declared or not), civil war, act of foreign enemies, rebellion, military or usurped power.</li>
-                                            <li>Nuclear hazards.</li>
-                                            <li>Acts of Terrorism (except that this exclusion does not apply to the Medical Expenses Benefit, Worldwide Emergency Assistance Services, Personal Accident Benefit, Cancellation Charge Benefit, Curtailment of Trip Benefit and Travel Delay).</li>
-                                            <li>Pre-existing condition, congenital and hereditary condition.</li>
-                                            <li>Suicide, attempted suicide or intentional self-inflicted bodily injuries, insanity, abortion, miscarriage, assigned complications, pregnancy, child-birth, venereal diseases, the use of alcohol or drugs other than those prescribed by a qualified registered physician, dental treatment (unless resulting from accidental bodily injury to sound and natural teeth).</li>
-                                            <li>Racing (other than on foot) or any sports or games in a professional capacity or where the Insured Student would or could earn income or remuneration from engaging in such sport.</li>
-                                            <li>Any activities in the air unless an Insured Student is (i) travelling as a fare paying passenger in a licensed aircraft operated by a recognised airline, or (ii) participating in such activity where the maneuver or navigation of such activity is managed and controlled by another licensed person and the provider of such activity must be authorised by the relevant local authority.</li>
-                                            <li>The Insured Student being a crew member or an operator of any air carrier; engaging in offshore activities including commercial diving, oil rigging, mining or aerial photography; handling of explosives, being a site worker or rendering armed force services. This exclusion does not apply if the Insured Student was engaged in one of the above occupation as a compulsory requirement of his/her course of study.</li>
-                                            <li>Losses not reported within 24 hours to the authorities (such as airlines, police) and failure to provide the report certified by the relevant authorities.</li>
-                                            <li>Personal liabilities arising from use or operation of vehicles, aircraft, watercraft.</li>
-											<li>Any illegal or unlawful act.</li>
-                                        </ol></key>
+                                        <fmt:message key="Overseas.PlanOptions.exlusions.copy" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
