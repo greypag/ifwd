@@ -862,166 +862,6 @@ public class SavieServiceImpl implements SavieService {
 			{
 				serverUrl = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 			}
-			/*String message = "<html>" +
-                    "<head>" +
-					"	<meta charset=\"UTF-8\">" +
-                    "</head>" +
-                    "<body>" +
-                    "<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100.0%;background:white;border-collapse:collapse\">" +
-                    "  <tbody>" +
-                    "    <tr>" +
-                    "      <td width=\"100%\" valign=\"top\" style=\"width:100.0%;padding:15.0pt 15.0pt 15.0pt 15.0pt\">" +
-                    "        <div align=\"center\">" +
-                    "          <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"600\" style=\"width:6.25in;border-collapse:collapse\">" +
-                    "            <tbody>" +
-                    "              <tr>" +
-                    "                <td valign=\"top\" style=\"padding:0in 0in 0in 0in\">" +
-                    "                  <div align=\"center\">" +
-                    "                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"600\" style=\"width:6.25in;background:white;border-collapse:collapse\">" +
-                    "                      <tbody>" +
-                    "                        <tr>" +
-                    "                          <td valign=\"top\" style=\"padding:6.75pt 0in 0in 0in\">" +
-                    "                            <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100.0%;border-collapse:collapse\">" +
-                    "                              <tbody>" +
-                    "                                <tr>" +
-                    "                                  <td valign=\"top\" style=\"padding:6.75pt 6.75pt 6.75pt 6.75pt\">" +
-                    "                                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\" width=\"100%\" style=\"width:100.0%;border-collapse:collapse\">" +
-                    "                                      <tbody>" +
-                    "                                        <tr>" +
-                    "                                          <td valign=\"top\" style=\"padding:0in 6.75pt 0in 6.75pt\">"+
-                    "                                            <p class=\"MsoNormal\"><u></u><img width=\"564\" src=\""+serverUrl+"/resources/images/savie-banner.jpg\" align=\"left\" class=\"CToWUd a6T\" tabindex=\"0\">" +
-                    "                                              <div class=\"a6S\" dir=\"ltr\" style=\"opacity: 0.01; left: 676px; top: 603px;\">" +
-                    "                                                <div id=\":n3\" class=\"T-I J-J5-Ji aQv T-I-ax7 L3 a5q\" role=\"button\" tabindex=\"0\" aria-label=\"Download attachment \" data-tooltip-class=\"a1V\" data-tooltip=\"Download\">" +
-                    "                                                  <div class=\"aSK J-J5-Ji aYr\"></div>" +
-                    "                                                </div>" +                    
-                    "                                              </div><u></u><u></u><u></u>" +
-                    "                                            </p>" +
-                    "                                          </td>" +
-                    "                                        </tr>" +
-                    "                                      </tbody>" +
-                    "                                    </table>" +
-                    "                                  </td>" +
-                    "                                </tr>" +
-                    "                              </tbody>" +
-                    "                            </table>" +
-                    "                          </td>" +
-                    "                        </tr>" +
-                    "                      </tbody>" +
-                    "                    </table>" +
-                    "                  </div>" +
-                    "                </td>" +
-                    "              </tr>" +
-                    "              <tr>" +
-                    "                <td valign=\"top\" style=\"padding:0in 0in 0in 0in\">" +
-                    "                  <div align=\"center\">" +
-                    "                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"600\" style=\"width:6.25in;background:white;border-collapse:collapse\">" +
-                    "                      <tbody>" +
-                    "                        <tr>" +
-                    "                          <td valign=\"top\" style=\"padding:0in 0in 0in 0in\">" +
-                    "                            <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\" style=\"width:100.0%;border-collapse:collapse\">" +
-                    "                              <tbody>" +
-                    "                                <tr>" +
-                    "                                  <td valign=\"top\" style=\"padding:0in 0in 0in 0in\">" +
-                    "                                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" align=\"left\" width=\"600\" style=\"width:6.25in;border-collapse:collapse\">" +
-                    "                                      <tbody>" +
-                    "                                        <tr>" +
-                    "                                          <td valign=\"top\" style=\"padding:6.75pt 13.5pt 6.75pt 13.5pt\">" +
-                    "                                            <p class=\"MsoNormal\" style=\"line-height:15.6pt\"><span class=\"im\"><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">您好</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\"><br>" +
-                    "&nbsp;<br>" +
-                    "</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">您已成功於自助息理財壽險計劃網頁登記電郵地址。<wbr>自助息理財壽險計劃</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">(</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">「<strong><span style=\"font-family:Microsoft JhengHei, Calibri, sans-serif !important\">本計劃</span>" +
-                    "                                              </strong>」</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">)" +
-                    "</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">即將於</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">2015</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">年</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">9</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">月推出。<wbr>您有機會透過已登記的電郵地址在自助息理財壽險計劃推出前收到接<wbr>受申請的電郵通知</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">(</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">「<strong><span style=\"font-family:Microsoft JhengHei, Calibri, sans-serif !important\">電郵通知</span>" +
-                    "                                              </strong>」</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">)</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">。<wbr>憑該電郵通知富衛將為您進行財務需要分析以評估<strong><span style=\"font-family:Microsoft JhengHei, Calibri, sans-serif !important\">本計劃</span>" +
-                    "                                              </strong>是否適合您" +
-                    "                                              <wbr>的需要；一經確定</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">" +
-                    "</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">，您便可立刻申請投保。</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\"><br>" +
-                    "</span></span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">於限量發售期間，每位申請人只限以一筆過繳付</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">30,000" +
-                    "</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">至</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\"> 400,000</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">港元申請<strong><span style=\"font-family:Microsoft JhengHei, Calibri, sans-serif !important\">本計劃</span>" +
-                    "                                              </strong>保單一份。請密切期待富衛的<strong><span style=\"font-family:Microsoft JhengHei, Calibri, sans-serif !important\">電郵通<wbr>知</span></strong>，希望您能夠成為其中一位優先入場的幸運兒！</span><span class=\"im\"><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\"><br>" +
-                    "&nbsp;<br>" +                    
-                    "Hi,<br>" +
-                    "&nbsp;<br>" +
-                    "You have successfully registered your email address at the Savie Insurance Plan’s website. The Savie Insurance Plan (“<strong><span style=\"font-family:Microsoft JhengHei, Calibri, sans-serif !important\">the Plan</span>" +
-                    "                                              </strong>”) will be offered in September 2015. You may receive a notification (“<strong><span style=\"font-family:Microsoft JhengHei, Calibri, sans-serif !important\">Notification Email</span></strong>”) of the launch date of" +
-                    "                                              <strong><span style=\"font-family:Microsoft JhengHei, Calibri, sans-serif !important\">the Plan</span></strong> through the registered email address. By receiving the" +
-                    "                                              <strong><span style=\"font-family:Microsoft JhengHei, Calibri, sans-serif !important\">Notification Email</span></strong>, FWD shall conduct a financial needs analysis to assess your suitability of" +
-                    "                                              <strong><span style=\"font-family:Microsoft JhengHei, Calibri, sans-serif !important\">the Plan</span></strong>. Once it is confirmed, you may immediately apply for<strong><span style=\"font-family:Microsoft JhengHei, Calibri, sans-serif !important\"> the Plan</span></strong>." +
-                    "                                              <br> &nbsp;" +
-                    "                                              <br> During the limited sales period, each applicant can only apply one policy for <strong>" +
-                    "<span style=\"font-family:Microsoft JhengHei, Calibri, sans-serif !important\">the Plan</span></strong> by paying a single lump sum of HK$30,000 to HK$400,000. Stay tuned for FWD" +
-                    "                                              <strong><span style=\"font-family:Microsoft JhengHei, Calibri, sans-serif !important\">Notification Email</span></strong>, wish you be amongst the lucky ones to get priority access!" +
-                    "                                              <br> &nbsp;" +
-                    "                                              <br>" +
-                    "                                              </span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">此致</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\"><br>" +
-                    "Yours sincerely,<br>" +
-                    "&nbsp;<br>" +
-                    "Fanny<br>" +
-                    "&nbsp;<br>" +
-                    "</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">富衛人壽保險</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">(</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">百慕達</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">)</span><span lang=\"ZH-TW\" style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">有限公司</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\"><br>" +
-                    "FWD Life Insurance Company (Bermuda) Limited<br>" +
-                    "<a href=\"http://www.fwd.com.hk\" target=\"_blank\">www.fwd.com.hk</a><br><img border=\"0\" width=\"200\" height=\"124\" src=\""+serverUrl+"/resources/images/fwd-logo.jpg\" class=\"CToWUd a6T\" tabindex=\"0\">"+
-                    "<div class=\"a6S\" dir=\"ltr\" style=\"opacity: 0.01; left: 362px; top: 1415px;\"><div id=\":n2\" class=\"T-I J-J5-Ji aQv T-I-ax7 L3 a5q\" role=\"button\" tabindex=\"0\" aria-label=\"Download attachment \" data-tooltip-class=\"a1V\" data-tooltip=\"Download\"><div class=\"aSK J-J5-Ji aYr\"></div></div></div>" +
-                    "</span><span lang=\"ZH-TW\" style=\"font-size:9.0pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">如有任何查詢，請致電富衛</span><span style=\"font-size:9.0pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">24</span><span lang=\"ZH-TW\" style=\"font-size:9.0pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">小時客戶服務熱線</span><span style=\"font-size:9.0pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">(852)" +
-                    " 3123 3123<span lang=\"ZH-TW\" style=\"font-family:Microsoft JhengHei, Calibri, sans-serif !important\">或電郵至</span><a href=\"mailto:iService.hk@fwd.com\" target=\"_blank\">iService.hk@fwd.com</a>" +
-                    "                                              </span><span lang=\"ZH-TW\" style=\"font-size:9.0pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">。</span><span style=\"font-size:9.0pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\"><br>" +
-                    "For enquiry, please contact our FWD 24 hours Customer Service Hotline at (852) 3123 3123 or via email at " +
-                    "<a href=\"mailto:iService.hk@fwd.com\" target=\"_blank\">iService.hk@fwd.com</a>.<br>" +
-                    "&nbsp;<br>" +
-                    "</span><span lang=\"ZH-TW\" style=\"font-size:9.0pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\">備註：此乃電腦發出之電子郵件，請不要回覆。</span><span style=\"font-size:9.0pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\"><br>" +
-                    "Note: This is an automatically generated email, please do not reply.</span><span style=\"font-size:11.5pt;font-family:Microsoft JhengHei, Calibri, sans-serif !important;color:#606060\"><u></u><u></u></span></span>" +
-                    "                                            </p>" +
-                    "                                          </td>" +
-                    "                                        </tr>" +
-                    "                                      </tbody>" +
-                    "                                    </table>" +
-                    "                                  </td>" +
-                    "                                </tr>" +
-                    "                              </tbody>" +
-                    "                            </table>" +
-                    "                          </td>" +
-                    "                        </tr>" +
-                    "                      </tbody>" +
-                    "                    </table>" +
-                    "                  </div>" +
-                    "                </td>" +
-                    "              </tr>" +
-                    "              <tr>" +
-                    "                <td valign=\"top\" style=\"padding:0in 0in 0in 0in\">" +
-                    "                  <div align=\"center\">" +
-                    "                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"600\" style=\"width:6.25in;background:white;border-collapse:collapse\">" +
-                    "                      <tbody>" +
-                    "                        <tr>" +
-                    "                          <td valign=\"top\" style=\"padding:0in 0in 0in 0in\">" +
-                    "                          </td>" +
-                    "                        </tr>" +
-                    "                      </tbody>" +
-                    "                    </table>" +
-                    "                  </div>" +
-                    "                </td>" +
-                    "              </tr>" +
-                    "              <tr>" +
-                    "                <td valign=\"top\" style=\"padding:0in 0in 0in 0in\">" +
-                    "                  <div align=\"center\">" +
-                    "                    <table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"600\" style=\"width:6.25in;background:white;border-collapse:collapse\">" +
-                    "                      <tbody>" +
-                    "                        <tr>" +
-                    "                          <td valign=\"top\" style=\"padding:0in 0in 6.75pt 0in\">" +
-                    "                          </td>" +
-                    "                        </tr>" +
-                    "                      </tbody>" +
-                    "                    </table>" +
-                    "                  </div>" +
-                    "                </td>" +
-                    "              </tr>" +
-                    "            </tbody>" +
-                    "          </table>" +
-                    "        </div>" +
-                    "      </td>" +
-                    "    </tr>" +
-                    "  </tbody>" +
-                    "</table>" +
-                    "</body>" +
-                    "</html>";*/
 			String message = "<html>" +
                     "<head>" +
 					"	<meta charset=\"UTF-8\">" +
@@ -2118,4 +1958,29 @@ public class SavieServiceImpl implements SavieService {
 		}
 		return num;
 	}
+	@Override
+	public void getAppointmentAccessCode(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
+		response.setContentType("text/json;charset=utf-8");
+		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/accessCode";
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", "*DIRECTGI");
+		header.put("token", commonUtils.getToken("reload"));
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		if(responseJsonObj.get("errMsgs")==null){
+			request.getSession().setAttribute("accessCode", responseJsonObj.get("accessCode"));
+		}
+		response.setContentType("text/json;charset=utf-8");
+		try {
+			logger.info(responseJsonObj.toString());
+			response.getWriter().print(responseJsonObj.toString());
+		}catch(Exception e) {  
+			e.printStackTrace();
+		}
+	}	
 }
