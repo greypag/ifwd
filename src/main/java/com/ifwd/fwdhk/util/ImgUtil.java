@@ -227,8 +227,8 @@ public class ImgUtil {
  
             //水印文件
             java.awt.Image src_biao = ImageIO.read(pressImg);
-            int wideth_biao = src_biao.getWidth(null);
-            int height_biao = src_biao.getHeight(null);
+            int wideth_biao = src_biao.getWidth(null)/2;
+            int height_biao = src_biao.getHeight(null)/2;
             g.drawImage(src_biao, (wideth - wideth_biao) / 2,0, wideth_biao, height_biao, null);
             //水印文件结束
             g.dispose();
