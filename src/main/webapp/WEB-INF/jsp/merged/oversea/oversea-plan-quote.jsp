@@ -507,7 +507,7 @@ Vietnam
 							<div id="region${h==4?1:0}" <c:if test="${h==4}">class="region-box-hidden"</c:if>>
 								<div class="plan-box-l plan-box-title oversea_productbox_title plan-display-desktop-only">
 									<div class="" style="">                           
-										<h2>Plans</h2>
+										<h2><fmt:message key="Overseas.PlanOptions.Plans.table1.col1row2.header" bundle="${msg}" /></h2>
 									</div>
 									<div class="clearfix"></div>
 								</div>
