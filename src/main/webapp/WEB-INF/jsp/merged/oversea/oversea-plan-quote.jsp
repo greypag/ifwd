@@ -745,7 +745,7 @@ $(document).ready(function() {
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;" id="SummaryofCoverageContent" >
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        1. Medical Expenses
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -779,7 +779,7 @@ $(document).ready(function() {
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        2. Top up In-Patient Medical Expenses
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item2" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -808,7 +808,7 @@ $(document).ready(function() {
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        3. Worldwide Emergency Assistance Services
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -877,7 +877,7 @@ $(document).ready(function() {
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        4. Personal Accident
+                                       <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -937,7 +937,7 @@ $(document).ready(function() {
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        5. Cancellation Charge
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item5" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -966,7 +966,7 @@ $(document).ready(function() {
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        6. Curtailment of Trip
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item6" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -995,7 +995,7 @@ $(document).ready(function() {
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        7. Kidnapping
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1029,7 +1029,7 @@ $(document).ready(function() {
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        8. Education Fund
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item8" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1058,7 +1058,7 @@ $(document).ready(function() {
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        9. Travel Delay
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1097,7 +1097,7 @@ $(document).ready(function() {
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        10. Baggage
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1141,7 +1141,7 @@ $(document).ready(function() {
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        11. Personal Liability
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item11" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
