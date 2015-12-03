@@ -14539,8 +14539,16 @@ body.chin button#thank-you-continue {
 }
 .fwd-savie-wrapper .o2o-landing.banner-widget.hunger-selling {
   background: transparent;
-  height: auto;
+  height: 453px;
   position: relative;
+  overflow: hidden;
+  /* height: 453px;
+  height: auto;  
+  background: url(/fwdhk/resources/images/savie/o2o-landing/iFWD_hero_desktop_op_en1.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+    background-size: cover; */
 }
 .fwd-savie-wrapper .o2o-landing.banner-widget.hunger-selling .breadcrumbs-product-details a:hover,
 .fwd-savie-wrapper .o2o-landing.banner-widget.hunger-selling .breadcrumbs-product-details .fa-play {
@@ -14549,6 +14557,7 @@ body.chin button#thank-you-continue {
 .fwd-savie-wrapper .o2o-landing.banner-widget .mobile-banner {
   display: block;
   width: 100%;
+  height: 100%;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.banner-widget .mobile-banner {
@@ -14558,6 +14567,7 @@ body.chin button#thank-you-continue {
 .fwd-savie-wrapper .o2o-landing.banner-widget .desktop-banner {
   display: none;
   width: 100%;
+  height: 100%;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.banner-widget .desktop-banner {
