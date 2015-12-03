@@ -754,21 +754,21 @@ $(document).ready(function() {
                                             <table>
                                                 <thead>
                                                   <tr>
-                                                      <th>Benefits</th>
-                                                      <th>Plan A</th>
-                                                      <th>Plan B</th>
+                                                      <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                      <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                      <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                   </tr>
                                                   </thead>
                                                   <tbody>
                                                   <tr>
-                                                      <td data-title="Benefits">a) Medical Expenses - the cost of qualified medical treatment, surgery and hospitalisation arising from a sickness or accidental injury. </td>
-                                                      <td data-title="Plan A">$1,000,000</td>
-                                                      <td data-title="Plan B">$500,000</td>
+                                                      <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.row1" bundle="${msg}" /></td>
+                                                      <td data-title="Plan A"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planA.1" bundle="${msg}" /></td>
+                                                      <td data-title="Plan B"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planB.1" bundle="${msg}" /></td>
                                                   </tr>
                                                   <tr>
-                                                      <td data-title="Benefits">b) Follow-up Expenses - medical, hospital and treatment expenses reasonably incurred within 90 days of the Insured Student’s return to the country of residence up to HK$100,000 (Including Chinese medical practitioner in Hong Kong up to HK$3,000 with maximum daily limit per visit HK$200).</td>
-                                                      <td data-title="Plan A">$1,000,000</td>
-                                                      <td data-title="Plan B">$500,000</td>
+                                                      <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.row2" bundle="${msg}" /></td>
+                                                      <td data-title="Plan A"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planA.1" bundle="${msg}" /></td>
+                                                      <td data-title="Plan B"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planB.1" bundle="${msg}" /></td>
                                                   </tr>												  
                                                   </tbody>
                                                </table>
@@ -788,16 +788,16 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Additional medical insurance cover for inpatient medical expenses, where you have another medical benefits policy cover the same area, up to 2 times the cover provided under that other policy, or HK$2,000,000 (whichever is the lesser) </td>
-                                                   <td data-title="Plan A">Up to $2,000,000</td>
-                                                   <td data-title="Plan B">N/A</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item2.row1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item2.planA.1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item2.planB.1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -817,9 +817,9 @@ $(document).ready(function() {
                                             <table>
                                                <thead>
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
@@ -886,9 +886,9 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
@@ -946,9 +946,9 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
@@ -975,9 +975,9 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
@@ -1004,9 +1004,9 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
@@ -1038,9 +1038,9 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
@@ -1067,9 +1067,9 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
@@ -1106,9 +1106,9 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
@@ -1150,9 +1150,9 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
