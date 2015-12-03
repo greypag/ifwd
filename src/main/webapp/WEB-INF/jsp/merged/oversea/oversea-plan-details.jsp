@@ -362,7 +362,7 @@ function setDropArea(id) {
                            <!-- birthday starts -->
                            <div class="form-group float">
                                <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                   <label for="inputApplicantDob" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.DOB" bundle="${msg}" /></label>
+                                   <label for="applicantDob" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.DOB" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                     <div class="input-group date" id="input_oversea_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
@@ -619,7 +619,7 @@ function setDropArea(id) {
                                        <!-- birthday starts -->
                                        <div class="form-group float">
                                            <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <label for="inputApplicantDob" class="field-label bold-500"><fmt:message key="Overseas.userdetails.Insured.DOB" bundle="${msg}" /></label>
+                                               <label for="insuredDob" class="field-label bold-500"><fmt:message key="Overseas.userdetails.Insured.DOB" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                 <div class="input-group date" id="oversea_insure_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
@@ -633,7 +633,7 @@ function setDropArea(id) {
                                        <!-- beneficiary start -->
                                        <div class="form-group float">
                                            <div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-                                               <label class="field-label bold-500">Beneficiary</label>
+                                               <label class="field-label bold-500"><fmt:message key="Overseas.userdetails.Bene" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                <div class="styled-select">
@@ -931,7 +931,7 @@ function setDropArea(id) {
                         <div class="hidden-sm hidden-xs">
                             <div class="wd2">
                                 <div class="pull-left" style="">
-                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;">Overseas StudyCare</h2>
+                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="Overseas.Planname.title" bundle="${msg}" /></h2>
                                     <h2 id="selectedPlanNameDisplay" class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;">${displayPlan }</h2>
                                     <h4 id="seletedplanregion" style="padding-left:0px;line-height: 0px;font-size: 16px;">${displayRegion }</h4>
                                     <input type="hidden" id="selectedPlanName" name="selectedPlanName" value="${planName }">

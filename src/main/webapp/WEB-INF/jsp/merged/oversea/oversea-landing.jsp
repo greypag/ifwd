@@ -32,7 +32,7 @@ function prepareOverseaPlan(form){
 
 <section id="main-slider" class="no-margin"> 
   <!--Mobilebanner--> 
-  <img src="<%=request.getContextPath()%>/resources/images/slider/oversea_en_m.jpg" alt="FWD Travel Insurance Hong Kong" class="img-responsive hidden-lg hidden-md">
+  <img src="<%=request.getContextPath()%><fmt:message key="Overseas.Landing.Hero.Mobile" bundle="${msg}" />" alt="<fmt:message key="Overseas.Landing.Hero.Image.Alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md">
   <!--Mobilebanner-->
 <div class="carousel slide hidden-xs hidden-sm">
 <div class="col-lg-12 col-md-12 breadcrumb-wrapper">
@@ -47,7 +47,7 @@ function prepareOverseaPlan(form){
 <div class="carousel-inner">
 <div class="item active">
 <!--/#middle-->
-        <img src="<%=request.getContextPath()%>/resources/images/slider/oversea_en.jpg" alt="FWD Travel Insurance Hong Kong">
+        <img src="<%=request.getContextPath()%><fmt:message key="Overseas.Landing.Hero.Desktop" bundle="${msg}" />" alt="<fmt:message key="Overseas.Landing.Hero.Image.Alt" bundle="${msg}" />">
          </div>
       <!--/.item--> 
     </div>
