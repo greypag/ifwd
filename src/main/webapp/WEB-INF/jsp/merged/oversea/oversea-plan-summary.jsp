@@ -460,7 +460,7 @@ $(document).ready(function(){
                     <div class="clearfix"></div>
                     <div class="declaration-content" style="margin:0px !important;">
                         <div class="checkbox" style="padding-left: 24px;">
-                            <input id="checkbox3" type="checkbox"> <label for="checkbox3"> I hereby authorize FWD General Insurance Company Limited to debit my Credit Card Account for the premium of this insurance. No refund of premium is allowed once the insurance certificate has been issued.</label>
+                            <input id="checkbox3" type="checkbox"> <label for="checkbox3"><fmt:message key="Overseas.Payment.Details.Authorize" bundle="${msg}" /><br/><fmt:message key="Overseas.Payment.Details.Declare" bundle="${msg}" /></label>
                         </div>
                         <span id="errchk1" class="error-msg"></span>
 
