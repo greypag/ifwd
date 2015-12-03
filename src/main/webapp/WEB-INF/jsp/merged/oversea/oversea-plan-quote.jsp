@@ -370,16 +370,15 @@ $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
     $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.Worldwide" bundle="${msg}" />');
     $('#seletedplanname').html('<fmt:message key="Overseas.Plan.Name.Short.Comprehensive.PlanA" bundle="${msg}" />');
-    $('#selectedAmountDue').val('8000.00');
+    /* $('#selectedAmountDue').val('8000.00');
     $('#txtgrossPremiumAmt').val('8000.00');
-    //
 
     changeColorAndPrice('box2','2','medicalWorldwideA','0','8000');
     $('#inputseletedplanname').val('medicalWorldwideA');
     
 
-    $('#amountdue').html('8,000.00');
-
+    $('#amountdue').html('8,000.00'); */
+    changeColorAndPrice('box2','2','txtPlanName2','txtDiscountAmount2','txtTotalDue2')
 });
 
 </script>
