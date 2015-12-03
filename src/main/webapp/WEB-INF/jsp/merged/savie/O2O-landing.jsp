@@ -52,9 +52,9 @@ var home_url = "<%=request.getContextPath()%>";
 				
 				<div class="hunger-text-section">
 					<p class="hunger-selling-text text-1 big"><fmt:message key="oceanpark.landing.save.while" bundle="${msg}" /></p>
-					<p class="hunger-selling-text text-1"><fmt:message key="oceanpark.landing.you.play" bundle="${msg}" /></p>
-					<img class="op-logo" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
+                    <p class="hunger-selling-text text-1"><fmt:message key="oceanpark.landing.you.play" bundle="${msg}" /></p>                    
 				</div>
+                <img class="op-logo" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
 			</div>
 			
 			<div class="fwd-full-container container-fluid o2o-landing teaser op-div">

@@ -11673,6 +11673,16 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
         margin-left: 25px;
     }
 }
+@media (min-width: 1400px) {
+    .fwd-savie-wrapper .o2o-landing.teaser.op-div {
+        left: 4%;
+    }
+}
+@media (min-width: 1500px) {
+    .fwd-savie-wrapper .o2o-landing.teaser.op-div {
+        left: 8%;
+    }
+}
 .get-started-holder.op-align {
     text-align: center;
 }
@@ -14664,6 +14674,16 @@ body.chin button#thank-you-continue {
        font-size: 80px;
   }
 }
+@media (min-width: 1500px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
+          margin-left: 50px;
+  }
+ }
+@media (min-width: 1500px) {
+    .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1.big {
+        margin-left: 50px;
+    }
+}
 .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-2 {
   max-width: 325px;
   padding: 0;
@@ -14698,6 +14718,11 @@ body.chin button#thank-you-continue {
   .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section {
     top: 8%;
     bottom: 0;
+  }
+}
+@media (min-width: 1400px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section {
+    left: 4%;
   }
 }
 @media (min-width: 992px) {
