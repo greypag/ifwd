@@ -19,16 +19,28 @@ var affiliate = "${affiliate}";
 			boolean isSaleActiveClass = true;
 			boolean isEservicesActiveClass = false;
 		%>
-		<div class="fwd-savie-wrapper">			
-			
+        <div class="fwd-savie-wrapper">
 			<div class="container-fluid fwd-full-container">
-				<div class="application-page-header thank-you">
-					<div class="row">
-						<div class="col-xs-12 orange-section">
-							<div class="clearfix position">
-								<div class="description-desktop">
-									<span><fmt:message key="savie.confirmation.offline.We.are.done" bundle="${msg}" /></span>
-								</div>
+                <div class="application-page-header et-header-browse">
+                    <div class="et-back-arrow hidden-xs hidden-sm">
+                        <a href="#" class="et-back-arrow-link">
+                            <span class="icon-arrow-left2 arrow-left"></span>
+                        </a>
+                    </div>
+                    <div class="row reset-margin hidden-xs hidden-sm">
+                  <div class="col-md-12 reset-padding">
+                      <button type="button" class="et-header-info-btn et-bind-btn-header active" id="confirmation" data-et-section-target="et-dec-sign-section">Confirmation</button>
+                  </div>
+                  </div>
+                    <div class="et-mobile-header-info hidden-md hidden-lg">
+                        <div class="clearfix">
+                            <div class="et-back-arrow">
+                                <a href="#" class="et-back-arrow-link">
+                                    <span class="icon-arrow-left2 arrow-left"></span>
+                                </a>
+                            </div>
+                            <div class="et-header-tex">
+                                <h3 id="et-active-section-label">Confirmation</h3>
 							</div>
 						</div>
 					</div>
@@ -41,7 +53,7 @@ var affiliate = "${affiliate}";
 					<div class="details-container details-full" id="printable-area">
 						<div class="row">
 							<div class="col-xs-12">
-								<h2 class="bring-things"><fmt:message key="savie.confirmation.offline.Things.bring" bundle="${msg}" /></h2>
+								<h2 class="bring-things"><fmt:message key="oceanpark.confirmation.please.bring" bundle="${msg}" /></h2>
 								<div class="row offline-procedure-row">
 									<div class="col-xs-12 col-md-4">
 										<div class="offline-procedure text-center">
@@ -54,7 +66,7 @@ var affiliate = "${affiliate}";
 									<div class="col-xs-12 col-md-4">
 										<div class="offline-procedure text-center">
 											<span class="step">2</span>
-											<p><fmt:message key="savie.confirmation.offline.A.address.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="savie.confirmation.offline.A.address.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.confirmation.offline.A.address.link.text" bundle="${msg}" /></a><fmt:message key="savie.confirmation.offline.A.address.part2" bundle="${msg}" /></p>
+                                            <p><fmt:message key="oceanpark.confirmation.proof" bundle="${msg}" /></p>
 											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-2.jpg" class="img-responsive" /></div>
 										</div>
 									</div>
@@ -62,69 +74,19 @@ var affiliate = "${affiliate}";
 										<div class="offline-procedure procedure-3 text-center">
 											<span class="step">3</span>
 											<p><fmt:message key="savie.confirmation.offline.Cheque.in" bundle="${msg}" /></p>
-											<div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-3.jpg" class="img-responsive" /></div>
+                                            <p class="step3-2"><fmt:message key="oceanpark.confirmation.or.settle" bundle="${msg}" /><p>
+                                            <div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-3-mob.png" class="img-responsive hidden-md hidden-lg" /><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-3.png" class="img-responsive hidden-xs hidden-sm" /></div>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="col-xs-12">
-								<h2><fmt:message key="savie.confirmation.offline.What.happens" bundle="${msg}" /></h2>
-								<div class="whats-next">
-									<p><fmt:message key="savie.confirmation.offline.1.You.will" bundle="${msg}" /></p>
-									<p><fmt:message key="savie.confirmation.offline.2.Visit" bundle="${msg}" /></p>
-									<p><fmt:message key="savie.confirmation.offline.3.Bring" bundle="${msg}" /></p>
-									<p><fmt:message key="savie.confirmation.offline.4.Only" bundle="${msg}" /></p>
+                                <div class="oceanpark-foot-message">
+                                    <p><fmt:message key="oceanpark.confirmation.foot.part1" bundle="${msg}" /> <b><fmt:message key="oceanpark.confirmation.foot.part2" bundle="${msg}" /></b> <fmt:message key="oceanpark.confirmation.foot.part3" bundle="${msg}" /></p>
 								</div>
 							</div>
-							<div class="col-xs-12">
-								<div class="detail">
-									<h2><fmt:message key="savie.confirmation.offline.Appointment.details" bundle="${msg}" /></h2>
-									<div class="appointment-detail clearfix">
-										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Date" bundle="${msg}" /></label>
-										<span class="pull-left">${preferred_date }</span>
-									</div>
-									<div class="appointment-detail clearfix">
-										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Time" bundle="${msg}" /></label>
-										<span class="pull-left">${preferred_time }</span>
-									</div>
-									<div class="appointment-detail clearfix">
-										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Branch" bundle="${msg}" /></label>
-										<span class="pull-left">${centreDetails.serviceCentreName }</span>
-									</div>
-									<div class="appointment-detail clearfix">
-										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Address" bundle="${msg}" /></label>
-										<span class="pull-left">${centreDetails.address }</span>
-									</div>
-									<div class="appointment-detail clearfix">
-										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Reference.no" bundle="${msg}" /></label>
-										<span class="pull-left">${applicationNumber }</span>
-									</div>
-									<div class="appointment-detail clearfix">
-										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Phone.no" bundle="${msg}" /></label>
-										<span class="pull-left">${centreDetails.phone }</span>
-									</div>
-									<!--<div class="appointment-detail clearfix">
-										<label class="pull-left"><fmt:message key="savie.confirmation.offline.Operating.hours" bundle="${msg}" /></label>
-										<span class="pull-left">${centreDetails.operationHours }</span>
-									</div>-->
-								</div>
-							</div>
-							<!--<div class="col-xs-12 print-document">
-								<a href="" class="hidden-xs hidden-sm" id="print-this-page"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/print-icon.png" class="img-responsive" /><fmt:message key="savie.confirmation.offline.Print" bundle="${msg}" /></a>
-							</div>-->
 						</div>
 					</div>
-					
-					<div class="share-container text-center">
-						<!--<p><fmt:message key="savie.confirmation.offline.Follow.us" bundle="${msg}" /></p>
-						<div class="clearfix">
-							<a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-google-plus"></i></a>
-						</div>-->
-					</div>
-					
-					<button id="back-home-btn" type="button" class="btn next"><fmt:message key="savie.confirmation.offline.Back" bundle="${msg}" /></button>
 				</div>
 			</div>
 			
