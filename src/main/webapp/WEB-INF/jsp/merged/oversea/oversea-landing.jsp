@@ -80,6 +80,7 @@ function prepareOverseaPlan(form){
 				<h4 class="product_landing_download_button">
 					<a id="travel_provision_button" href="/<%=request.getContextPath()%><fmt:message key="Overseas.Provisions.Download.URL" bundle="${msg}" />" target="_blank" style=""><fmt:message key="Overseas.Provisions.Download.title" bundle="${msg}" /></a>
 				</h4>
+				
 			</div>
 			<div class="clearfix"></div>
 		</div> 					
