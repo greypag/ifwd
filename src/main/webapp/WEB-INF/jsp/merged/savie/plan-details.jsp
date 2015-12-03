@@ -52,11 +52,11 @@ var context = "${pageContext.request.contextPath}";
 			<div class="fwd-container container-fluid hidden-xs hidden-sm clearfix">
 				<div class="breadcrumbs pull-left">
 					<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
-						<li><a href="#"><fmt:message key="savie.planDetails.Save" bundle="${msg}" /></a></li>
+						<li><a href="#"><fmt:message key="saviee.planoption.breadcrumb2" bundle="${msg}" /></a></li>
 						<li class="divider"><i class="fa fa-play"></i></li>
-						<li><a href="#"><fmt:message key="savie.planDetails.Savie" bundle="${msg}" /></a></li>
+						<li><a href="#"><fmt:message key="saviee.planoption.breadcrumb3" bundle="${msg}" /></a></li>
 						<li class="divider last"><i class="fa fa-play"></i></li>
-						<li class="active-bc"><fmt:message key="savie.planDetails.plan.details" bundle="${msg}" /></li>
+						<li class="active-bc"><fmt:message key="saviee.planoption.breadcrumb4" bundle="${msg}" /></li>
 					</ol>
 				</div>
 				<!--  <div id="questions" class="text-center pull-right">
@@ -83,27 +83,27 @@ var context = "${pageContext.request.contextPath}";
 					<img class="money" src="<%=request.getContextPath()%>/resources/images/savie/money-logo.png">
 					<div id="investment-amount">    
 						<div id="desktop-left">
-							<h3 class="saving"><fmt:message key="savie.planDetails.Savings.amount" bundle="${msg}" /><!--<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Savings.amount.tooltips" bundle="${msg}" />"></button>--></h3>
+							<h3 class="saving"><fmt:message key="saviee.planoption.oneoff.premium.amount" bundle="${msg}" /><!--<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Savings.amount.tooltips" bundle="${msg}" />"></button>--></h3>
 							
 							<h3 class="pull-right total"><span id="range">${formatSavingAmount != null && formatSavingAmount != '' ? formatSavingAmount : '200,000'}</span></h3>
-							<label id="hkd" class="pull-right total"><fmt:message key="savie.planDetails.HK" bundle="${msg}" /></label>
+							<label id="hkd" class="pull-right total"><fmt:message key="saviee.planoption.q1.currency" bundle="${msg}" /></label>
 							
 							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="${savingAmount != null && savingAmount != '' ? savingAmount : '200000'}" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
                            
                             <div id="left" class="pull-left">
-								<p><fmt:message key="savie.planDetails.Min" bundle="${msg}" /></p>
+								<p><fmt:message key="saviee.planoption.q1.min" bundle="${msg}" /></p>
 								<p>$30,000</p>
 							</div>
 
 							<div id="right" class="pull-right">
-								<p><fmt:message key="savie.planDetails.Max" bundle="${msg}" /></p>
+								<p><fmt:message key="saviee.planoption.q1.max" bundle="${msg}" /></p>
 								<p>$400,000</p>
 							</div>	
 						</div>
 
 						<div id="desktop-right">
 							<img class="promo-code hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie/bday-icon.png">
-							<h2 id="promo"><fmt:message key="savie.planDetails.Date.Birth" bundle="${msg}" /><!--
+							<h2 id="promo"><fmt:message key="saviee.planoption.dob" bundle="${msg}" /><!--
 								<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.birth.above" bundle="${msg}" />"></button>-->
 							</h2>
 							<div id="birthday">
@@ -130,14 +130,14 @@ var context = "${pageContext.request.contextPath}";
 							<img id="birthday" src="<%=request.getContextPath()%>/resources/images/savie/promo-img.png">
 						</div>
 
-						<h2><fmt:message key="savie.planDetails.promo.code" bundle="${msg}" /><!--
+						<h2><fmt:message key="saviee.planoption.promocode" bundle="${msg}" /><!--
 							<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.promo.code.tooltips" bundle="${msg}" />"></button>-->
 						</h2>
-						<input value="${savingPromocode }" name="promocode" type="text" placeholder="<fmt:message key="savie.planDetails.promo.code.placeholder" bundle="${msg}" />" class="promocode" id="promocode">
+						<input value="${savingPromocode }" name="promocode" type="text" placeholder="<fmt:message key="saviee.planoption.promocode.placeholder" bundle="${msg}" />" class="promocode" id="promocode">
 						<span class="error-msg-promo hideSpan" id="promo-code-errmsg">Invalid promo code. Try again?</span>
 					</div>
 					<div class="apply">
-						<button onclick='getSaviePlanDetails()' class="btn btn-orange calculate" type="button" id="sales-illu-apply-now"><fmt:message key="savie.planDetails.promo.calculate" bundle="${msg}" /><span class="icon icon-chevron-thin-right"></span></button>
+						<button onclick='getSaviePlanDetails()' class="btn btn-orange calculate" type="button" id="sales-illu-apply-now"><fmt:message key="saviee.planoption.calculate.button" bundle="${msg}" /><span class="icon icon-chevron-thin-right"></span></button>
 					</div>
 				</form>
 			</div>
@@ -154,7 +154,7 @@ var context = "${pageContext.request.contextPath}";
 	                                		<img src="<fmt:message key="savie.planDetails.info-image" bundle="${msg}" />">
 	                                	</button>-->
 	                                </h2>
-	                                <h3><fmt:message key="savie.planDetails.year.guaranteed" bundle="${msg}" /></h3>
+	                                <h3><fmt:message key="saviee.planoption.summarytable1.first3years" bundle="${msg}" /></h3>
 	                                <h3 class="desktop-right"><fmt:message key="savie.planDetails.End.of.3rd.years.part1" bundle="${msg}" /><span id="3rd_policy_year">0</span><fmt:message key="savie.planDetails.End.of.3rd.years.part2" bundle="${msg}" /></h3>
 	                            </div>
 	                            <div class="rate-table">
@@ -162,11 +162,11 @@ var context = "${pageContext.request.contextPath}";
 	                                    <thead>
 	                                    <tr>
 	                                        <th class="left-border">
-	                                        	<button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.End.of.policy.year.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" />
+	                                        	<button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.End.of.policy.year.tooltips" bundle="${msg}" />"></button><fmt:message key="saviee.planoption.summarytable1.col1" bundle="${msg}" /><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" />
 	                                        </th>
-	                                        <th class="desktop-only"><fmt:message key="savie.planDetails.Annual.Crediting.Rate" bundle="${msg}" /></th>
+	                                        <th class="desktop-only"><fmt:message key="saviee.planoption.summarytable1.col2" bundle="${msg}" /></th>
 	                                        <th class="premium">
-	                                           	<button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Total.paid.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" />
+	                                           	<button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Total.paid.tooltips" bundle="${msg}" />"></button><fmt:message key="saviee.planoption.summarytable1.col3" bundle="${msg}" />
 	                                        </th>
 	                                        <th class="desktop-only">
 	                                        	<button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Account.value.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" />
@@ -236,9 +236,9 @@ var context = "${pageContext.request.contextPath}";
 	                                <table class="table table-hover">
 	                                    <thead>
 	                                    <tr>
-	                                        <th class="left-border"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.End.of.policy.year.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /></th>
+	                                        <th class="left-border"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.End.of.policy.year.tooltips" bundle="${msg}" />"></button><fmt:message key="saviee.planoption.summarytable1.col1" bundle="${msg}" /><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /></th>
 											<th class="credit-rate desktop-only"><fmt:message key="savie.planDetails.annual.rate" bundle="${msg}" /></th>
-	                                        <th class="premium"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Total.paid.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></th>
+	                                        <th class="premium"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Total.paid.tooltips" bundle="${msg}" />"></button><fmt:message key="saviee.planoption.summarytable1.col3" bundle="${msg}" /></th>
 	                                        <th class="desktop-only"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Account.value.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /></th>
 	                                        <th class="right-border"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Surrender.benefit.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /></th>
 	                                    </tr>
@@ -273,9 +273,9 @@ var context = "${pageContext.request.contextPath}";
 	                                <table class="table table-hover">
 	                                    <thead>
 	                                    <tr>
-	                                        <th class="left-border"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.End.of.policy.year.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /></th>
+	                                        <th class="left-border"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.End.of.policy.year.tooltips" bundle="${msg}" />"></button><fmt:message key="saviee.planoption.summarytable1.col1" bundle="${msg}" /><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /></th>
 											<th class="credit-rate desktop-only"><fmt:message key="savie.planDetails.annual.rate" bundle="${msg}" /></th>
-	                                        <th class="premium"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Total.paid.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></th>
+	                                        <th class="premium"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Total.paid.tooltips" bundle="${msg}" />"></button><fmt:message key="saviee.planoption.summarytable1.col3" bundle="${msg}" /></th>
 	                                        <th class="desktop-only"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Account.value.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /></th>
 	                                        <th class="right-border"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Surrender.benefit.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /></th>
 	                                    </tr>
@@ -310,9 +310,9 @@ var context = "${pageContext.request.contextPath}";
 	                                <table class="table table-hover">
 	                                    <thead>
 	                                    <tr>
-	                                        <th class="left-border"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.End.of.policy.year.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /></th>
+	                                        <th class="left-border"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.End.of.policy.year.tooltips" bundle="${msg}" />"></button><fmt:message key="saviee.planoption.summarytable1.col1" bundle="${msg}" /><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /></th>
 											<th class="credit-rate desktop-only"><fmt:message key="savie.planDetails.annual.rate" bundle="${msg}" /></th>
-	                                        <th class="premium"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Total.paid.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></th>
+	                                        <th class="premium"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Total.paid.tooltips" bundle="${msg}" />"></button><fmt:message key="saviee.planoption.summarytable1.col3" bundle="${msg}" /></th>
 	                                        <th class="desktop-only"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Account.value.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /></th>
 	                                        <th class="right-border"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Surrender.benefit.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /></th>
 	                                    </tr>
@@ -347,9 +347,9 @@ var context = "${pageContext.request.contextPath}";
 	                                <table class="table table-hover">
 	                                    <thead>
 	                                    <tr>
-	                                        <th class="left-border"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.End.of.policy.year.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.End.of" bundle="${msg}" /><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /></th>
+	                                        <th class="left-border"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.End.of.policy.year.tooltips" bundle="${msg}" />"></button><fmt:message key="saviee.planoption.summarytable1.col1" bundle="${msg}" /><fmt:message key="savie.planDetails.policy.year" bundle="${msg}" /></th>
 											<th class="credit-rate desktop-only"><fmt:message key="savie.planDetails.annual.rate" bundle="${msg}" /></th>
-	                                        <th class="premium"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Total.paid.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.Total.paid" bundle="${msg}" /></th>
+	                                        <th class="premium"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Total.paid.tooltips" bundle="${msg}" />"></button><fmt:message key="saviee.planoption.summarytable1.col3" bundle="${msg}" /></th>
 	                                        <th class="desktop-only"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Account.value.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.Account.value" bundle="${msg}" /></th>
 	                                        <th class="right-border"><button type="button" class="info-table-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.Surrender.benefit.tooltips" bundle="${msg}" />"></button><fmt:message key="savie.planDetails.Surrender.benefit" bundle="${msg}" /></th>
 	                                    </tr>
