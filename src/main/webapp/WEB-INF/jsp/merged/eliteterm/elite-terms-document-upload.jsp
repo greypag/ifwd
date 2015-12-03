@@ -428,34 +428,32 @@ var languageP = "${language}";
             </div>
          </div>
          
-         <div id="error-to-home-modal" class="modal fade fwd-generic-modal back-to-home" role="dialog" data-keyboard="false" data-backdrop="static">
-            <div class="modal-dialog">
-           <%--      <div class="modal-content" align="center">
-                  <div class="modal-body" style="color:#fc6d08">
-                     <p><fmt:message key="eliteTerms.selectPlan.successfully.submitted" bundle="${msg}" /></p>	
-                  </div>
-                  <div>
-                     <button type="button" class="btn btn-orange et-next-btn et-pad-bot-50" id="et-select-plan-go-homepage" data-dismiss="modal"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button>
-                  </div>
-               </div> --%>
-
-               
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h4 class="modal-title" id="error-to-home-modal-errorMessage">system error.</h4>
-                  </div>
-                     
-                  <div class="modal-body"></div>
-                  
-                  <div class="modal-footer">
-                     <a href="<%=request.getContextPath()%>/${language}/term-life-insurance" title="Back to homepage" class="btn-block"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></a> 
-                     <%-- <button type="button" class="btn btn-orange et-next-btn et-pad-bot-50" id="et-select-plan-go-homepage" data-dismiss="modal"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button> --%>
-                  </div>
-                  <br/>
-               </div>
-
-            </div>
-         </div>
+        <!-- Error to Home Modal -->
+		<div id="error-to-home-modal" class="modal fade fwd-generic-modal back-to-home" role="dialog" data-keyboard="false" data-backdrop="static">
+		  <div class="modal-dialog">
+		      <div class="modal-content" align="center">
+		        <div class="modal-body form-container" style="color:#fc6d08">
+		           <div class="row">
+		              <h2 id="error-to-home-modal-errorMessage">Unexpected Error</h2>  
+		           </div>
+		           <div class="row">
+		              <div class="col-lg-6 col-md-6 fwd-orange-btn-center-wrapper">		                 
+	                 	<button type="button" class="btn next bdr-curve btn btn-primary btn-lg wd5" id="error-to-home-btn" data-dismiss="modal">
+	                 		<fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" />
+	                 	</button>
+	                 	<script>
+	                 		$('#error-to-home-btn').on('click', function(e) {
+							  window.onbeforeunload=null;
+							  window.location.href= '<%=request.getContextPath()%>/${language}/term-life-insurance';
+							});
+	                 	</script>
+		              </div>
+		           </div>
+		        </div>
+		     </div>
+		  </div>
+		</div>
+			
 		<!-- JS INCLUDES -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-dropzone.js"></script>
