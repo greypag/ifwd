@@ -2069,9 +2069,8 @@ $(document).ready(function() {
 		</div>
 		<input type="hidden" name="planSelected" id="planSeelcted" value="personal">
 		<p class="padding1 workingholiday-plan-disclaimer">
-			The features above are indicative only.
-				<br>
-				For a complete explanation of the terms and conditions for our online travel insurance, feel free to contact our 24-hour hotline at 3123 3123.
+<fmt:message key="Overseas.userdetails.Disclaimer1" bundle="${msg}" /><br>
+<fmt:message key="Overseas.userdetails.Disclaimer2" bundle="${msg}" /></p>
 		</p>
 		
 		<div class="col-xs-12 hidden-md hidden-lg pad-none">
