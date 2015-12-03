@@ -133,26 +133,31 @@ $(document).ready(function() {
 %>
 
 <!--Main Content-->
-<section id="main-slider" class="no-margin"> 
-<!--Mobile banner--> 
-<img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="flight.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md"  /> 
+<section id="main-slider" class="p_flight no-margin"> 
+  <!--Mobile banner--> 
+  <img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="flight.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md"  /> 
+  <div class="tagline-holder hidden-lg hidden-md">
+      <img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.tagline" bundle="${msg}" />" class="img-responsive">
+  </div>
   <!--Mobile banner-->
   <div class="carousel slide hidden-xs hidden-sm">
-<div class="col-lg-12 col-md-12 breadcrumb-wrapper">
+  <div class="col-lg-12 col-md-12 breadcrumb-wrapper">
      <ol class="breadcrumb container pad-none">
          <li><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></li>
         <i class="fa fa-chevron-right"></i>
         <li class="active"><fmt:message key="home.breadcrumb1.flight" bundle="${msg}" /></li>
      </ol>
-</div>  
-    <div class="carousel-inner">
-      <div class="item active">
-     
-        <img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image" bundle="${msg}" />" alt="<fmt:message key="flight.hero.image.alt" bundle="${msg}" />">
+  </div>  
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.image" bundle="${msg}" />" alt="<fmt:message key="flight.hero.image.alt" bundle="${msg}" />">
          </div>
       <!--/.item--> 
     </div>
     <!--/.carousel-inner--> 
+  </div>
+  <div class="tagline-holder">
+      <img src="<%=request.getContextPath()%>/<fmt:message key="flight.hero.tagline" bundle="${msg}" />" class="img-responsive">
   </div>
   <!--/.carousel--> 
   <!-- flight top form -->
@@ -1107,3 +1112,10 @@ function setGetParameter(paramName, paramValue)
     window.location.href = url;
 }
 </script>
+<style>
+   @media screen and (max-width: 991px) {
+   body {
+      /* Hero image Position Fix*/
+      padding-top: 95px;
+   }
+</style>

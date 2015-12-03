@@ -1726,6 +1726,50 @@ input.search-form:hover {
 	font-weight: bold;
 }
 
+.tagline-holder{
+	position: absolute;
+	left: 0;
+	z-index: 10;
+}
+
+.p_homecare .tagline-holder{top: 50%;}
+
+.p_workingholiday .tagline-holder{top: 25%; left: 0;}
+.p_workingholiday .tagline-holder img{width: 100%;}
+
+.p_flight .tagline-holder{top: 25%;}
+.p_flight .tagline-holder img{width: 70%;}
+
+.p_travel .tagline-holder{top: 25%;}
+.p_travel .tagline-holder img{width: 70%;}
+
+@media(max-width: 991px){
+	
+	.tagline-holder{
+		width: 100%;
+	}
+
+	.tagline-holder img{
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 5%;
+	}
+
+	.p_homecare .tagline-holder{top: auto; bottom: 10%;}
+	.p_workingholiday .tagline-holder{top: auto; bottom: 20%;}
+	.p_flight .tagline-holder{top: auto; bottom: 20%;}
+	.p_travel .tagline-holder{top: auto; bottom: 20%;}
+	
+	.p_homecare .tagline-holder img{}
+	.p_workingholiday .tagline-holder img{width: 70%;}
+	.p_flight .tagline-holder img{width: 90%;}
+	.p_travel .tagline-holder img{}
+}
+
+@media(max-width: 1245px){
+	.p_workingholiday .tagline-holder img{width: 70%;}
+}
+
 .slider-form .people-travelling {
 	font-style: italic;
 }

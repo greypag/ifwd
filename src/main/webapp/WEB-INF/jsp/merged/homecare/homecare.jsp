@@ -49,10 +49,13 @@ $(document).ready(function() {
 
 
 	<!--   Main Content-->
-	<section id="main-slider" class="no-margin">
+	<section id="main-slider" class="p_homecare no-margin">
 		<!--Mobile--->
 		<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="home.hero.image.alt" bundle="${msg}" />"
 			class="img-responsive hidden-lg hidden-md" />
+        <div class="tagline-holder hidden-lg hidden-md">
+            <img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive">
+        </div>
 		<!--desktop-->
 		<div class="carousel slide hidden-xs hidden-sm">
 		     <div class="col-lg-12 col-md-12 breadcrumb-wrapper">
@@ -70,6 +73,9 @@ $(document).ready(function() {
 				<!--/.item-->
 			</div>
 			<!--/.carousel-inner-->
+        <div class="tagline-holder">
+            <img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive">
+        </div>
 		</div>
 		<div class="homecare hidden-xs hidden-sm" id="homecare-scroll">
                         <div class="container">
@@ -888,5 +894,12 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 		</div>
 	</div>
 </div>
+<style>
+   @media screen and (max-width: 991px) {
+   body {
+      /* Hero image Position Fix*/
+      padding-top: 95px;
+   }
+</style>
 </body>
 </html>
