@@ -599,3 +599,6 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 .oversea-details-form .easy-autocomplete input{
 	border-radius: 0;
 }
+.breadcrumb a{
+	cursor: default;
+}

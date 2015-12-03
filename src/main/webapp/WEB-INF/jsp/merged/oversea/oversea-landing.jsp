@@ -64,7 +64,7 @@ function prepareOverseaPlan(form){
 								<tbody>
 									<tr>  
 										<td align="center" class="col-md-2 pad-none">
-											<button style="height:70px;" type="submit" class="oversea-cta border-radius cta-btn btn btn-primary get-btn ">Get Quote</button>
+											<button style="height:70px;" type="submit" class="oversea-cta border-radius cta-btn btn btn-primary get-btn "><fmt:message key="Overseas.Landing.GetQuote" bundle="${msg}" /></button>
 										</td>
 									</tr>
 								</tbody>
@@ -75,10 +75,10 @@ function prepareOverseaPlan(form){
 			</form>	
 			<div class="product-download-wrapper col-xs-12 col-sm-12 col-md-12 col-lg-12">
 				<h4 class="product_landing_download_button divider">
-					<a href="/<%=request.getContextPath()%>/resources/policy-provisions-pdf/Overseas_StudyCare_Brochure.pdf" target="_blank">Download brochure</a>
+					<a href="/<%=request.getContextPath()%><fmt:message key="Overseas.Brochure.Download.URL" bundle="${msg}" />" target="_blank"><fmt:message key="Overseas.Brochure.Download" bundle="${msg}" /></a>
 				</h4>
 				<h4 class="product_landing_download_button">
-					<a id="travel_provision_button" href="/<%=request.getContextPath()%>/resources/policy-provisions-pdf/Overseas_StudyCare_Provisions.pdf" target="_blank" style="">Download policy provisions</a>
+					<a id="travel_provision_button" href="/<%=request.getContextPath()%><fmt:message key="Overseas.Provisions.Download.URL" bundle="${msg}" />" target="_blank" style=""><fmt:message key="Overseas.Provisions.Download" bundle="${msg}" /></a>
 				</h4>
 			</div>
 			<div class="clearfix"></div>
