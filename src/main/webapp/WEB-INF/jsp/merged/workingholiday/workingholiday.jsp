@@ -71,7 +71,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 						<tbody>
 							<tr>  
 								<td align="center" class="col-md-2 pad-none">
-								    <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn "><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
+								    <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn btn-color-ylw"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
 								</td>
 							</tr>
 						</tbody>
@@ -372,7 +372,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
         </div>
         
         <div style="margin-top:18px;">
-            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn "><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
+            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn btn-color-ylw"><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
         </div>
     </div>
     
@@ -415,7 +415,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 
         
 
-            <button style="width:100%;height:70px;margin-top: 50px;" type="submit" class="border-radius btn btn-primary get-btn "><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
+            <button style="width:100%;height:70px;margin-top: 50px;" type="submit" class="border-radius btn btn-primary get-btn btn-color-ylw"><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
     
     <!--/.row--> 
     <!--/.desktop-testimonials--> 

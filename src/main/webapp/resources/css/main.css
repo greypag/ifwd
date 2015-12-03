@@ -10499,3 +10499,12 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa {
 	    overflow: hidden;
 	}		
 }
+
+.btn-color-ylw, .btn-color-ylw:focus{
+    background-color:#fdb714 !important;
+    border:1px solid #fdb714 !important;
+}
+.btn-color-ylw:hover{
+    background-color:#fff !important;
+    color:#fdb714 !important;
+}

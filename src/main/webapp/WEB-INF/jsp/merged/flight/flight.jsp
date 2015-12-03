@@ -309,7 +309,7 @@ $(document).ready(function() {
                 
                 </td>
               <td class="">
-                <button  type="submit" class="bdr-curve btn btn-primary btn-lg marg-t2 pad-increase vwo-test-001" onclick="reset_desktop_submit()">
+                <button  type="submit" class="bdr-curve btn btn-primary btn-lg marg-t2 pad-increase vwo-test-001 btn-color-ylw" onclick="reset_desktop_submit()">
               <fmt:message key="flight.main.quote.top.action" bundle="${msg}" />
              </button> 
               </td>
@@ -477,7 +477,7 @@ $(document).ready(function() {
   </div>
   <div class="form-container">
     <h3 class="text-center"> 
-  <button type="submit" onclick="reset_mobile_submit()" class="bdr-curve btn btn-primary btn-lg btn-block vwo-test-001"><fmt:message key="flight.main.quote.top.action" bundle="${msg}" /></button>
+  <button type="submit" onclick="reset_mobile_submit()" class="bdr-curve btn btn-primary btn-lg btn-block vwo-test-001 btn-color-ylw"><fmt:message key="flight.main.quote.top.action" bundle="${msg}" /></button>
   </h3> 
   </div>
   </form>
@@ -1051,7 +1051,7 @@ $(document).ready(function() {
                 </td>
               <td class="">
                 <!--  <input type="submit" class="border-radius btn btn-primary get-btn marg-t2" value="Apply for Free Now!"> -->
-                 <button  type="submit" onclick="reset_bottom_submit()" class="bdr-curve btn btn-primary marg-t2 btn-lg pad-increase vwo-test-001">
+                 <button  type="submit" onclick="reset_bottom_submit()" class="bdr-curve btn btn-primary marg-t2 btn-lg pad-increase vwo-test-001 btn-color-ylw">
               <fmt:message key="flight.main.quote.bottom.action" bundle="${msg}" />
              </button> 
             </tr>

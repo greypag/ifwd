@@ -386,7 +386,7 @@ function getParameterByUrl(name){
 	                 </div>
 	                 </td>
 	               <td class="">
-	                <button type="submit" class="two-test-002 border-radius btn btn-primary get-btn " style="line-height:32px;padding: 8px 20px !important;width: 100%;" onclick="reset_desktop_submit()">
+	                <button type="submit" class="two-test-002 border-radius btn btn-primary get-btn btn-color-ylw" style="line-height:32px;padding: 8px 20px !important;width: 100%;" onclick="reset_desktop_submit()">
 	                   <fmt:message key="travel.main.quote.top.action" bundle="${msg}" />
 	                </button>
 	                 <!--   <a href="flight-plan-cn.html" class="border-radius btn btn-primary  get-btn marg-t2" onclick="return flightValidateDeskTravel()">立即報價</a> -->
@@ -597,7 +597,7 @@ function getParameterByUrl(name){
   <div class="form-container">
     <h3 class="text-center"> 
       <!-- <a href="#" class="border-radius get-btn" onclick="return flightValidateMobTravel()">立即申請免費保障! </a>  -->
-      <button type="submit" onclick="reset_mobile_submit()" class="two-test-002 bdr-curve btn btn-primary btn-lg btn-block">
+      <button type="submit" onclick="reset_mobile_submit()" class="two-test-002 bdr-curve btn btn-primary btn-lg btn-block btn-color-ylw">
               <fmt:message key="travel.main.quote.top.action" bundle="${msg}" /> 
              </button>
     </h3>
@@ -1347,7 +1347,7 @@ function getParameterByUrl(name){
                 
         </td>
               <td class="">
-                  <button type="submit" onclick="reset_bottom_submit()" class="two-test-002 border-radius btn btn-primary get-btn" style="line-height:32px;padding: 8px 20px !important;width: 100%;"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
+                  <button type="submit" onclick="reset_bottom_submit()" class="two-test-002 border-radius btn btn-primary get-btn btn-color-ylw" style="line-height:32px;padding: 8px 20px !important;width: 100%;"><fmt:message key="travel.main.quote.bottom.action" bundle="${msg}" /></button>
                  </td>
             </tr>
             <tr class="product-landing-error-wrap">
