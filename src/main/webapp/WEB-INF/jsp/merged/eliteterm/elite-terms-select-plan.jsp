@@ -1345,7 +1345,7 @@ var home_url = "<%=request.getContextPath()%>";
                               <div class="clearfix form-group has-error employment-info-row et-emp-info-employer-name-container">
                                  <label for="savieEmploymentBean.monthlyPersonalIncome" class="monthly-income"><fmt:message key="eliteTerms.selectPlan.Current.Employer.Name" bundle="${msg}" /></label>
                                  <div class="selectEmployment">
-                                    <input type="text" class="form-control gray-textbox" id="savieEmploymentBean.currentEmployerName" name="savieEmploymentBean.currentEmployerName">
+                                    <input type="text" class="form-control gray-textbox" id="savieEmploymentBean.currentEmployerName" name="savieEmploymentBean.currentEmployerName" autocomplete="off">
                                  </div>
                                  <span class="error-msg" id="employerNameMessage"></span>
                               </div>
