@@ -63,6 +63,10 @@ public class OverseaPageFlowControl {
 		switch (current) {
 		case UserRestURIConstants.PAGE_OVERSEA_LANDING:
 			to = UserRestURIConstants.URL_OVERSEA_QUOTE;
+			if(UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_QUOTE.equals(key)) {
+				current = UserRestURIConstants.PAGE_OVERSEA_QUOTE;
+				to = UserRestURIConstants.URL_OVERSEA_DETAILS;
+			}
 			break;
 		case UserRestURIConstants.PAGE_OVERSEA_QUOTE:
 			to = UserRestURIConstants.URL_OVERSEA_DETAILS;
