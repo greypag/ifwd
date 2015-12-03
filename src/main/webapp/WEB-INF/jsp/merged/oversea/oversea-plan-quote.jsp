@@ -426,73 +426,24 @@ $(document).ready(function() {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title region-asia-title" id="myModalLabelAsia">Asia Countries</h4>
+        <h4 class="modal-title region-asia-title" id="myModalLabelAsia"><fmt:message key="Overseas.PlanOptions.AsiaCountries.title" bundle="${msg}" /></h4>
       </div>
       <div class="modal-body">
         <div class="row plan-display-desktop-only">
-          <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3">
-Abu Dhabi<br>
-Dubai<br>
-India<br>
-Indonesia<br>
-Iran<br>
-Japan<br>
-Korea<br>
-Lao, P.D.R.
-</div>
-          <div class="col-lg-5 col-xs-5 col-sm-5 col-md-5">
-Macau<br>
-Malaysia<br>
-Myanmar<br>
-Nepal<br>
-North Korea<br>
-Pakistan<br>
-People Republic of China
-</div>
-          <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3">
-Philippines<br>
-Singapore<br>
-Sri Lanka<br>
-Sudan<br>
-Taiwan<br>
-Thailand<br>
-Vietnam
-</div>
+          <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3"><fmt:message key="Overseas.PlanOptions.AsiaCountries.desktop.col1" bundle="${msg}" /></div>
+          <div class="col-lg-5 col-xs-5 col-sm-5 col-md-5"><fmt:message key="Overseas.PlanOptions.AsiaCountries.desktop.col2" bundle="${msg}" /></div>
+          <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3"><fmt:message key="Overseas.PlanOptions.AsiaCountries.desktop.col3" bundle="${msg}" /></div>
         </div>
 
         <div class="row plan-display-mobile-only">
-          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6">
-Abu Dhabi<br>
-Dubai<br>
-India<br>
-Indonesia<br>
-Iran<br>
-Japan<br>
-Korea<br>
-Lao, P.D.R.<br>
-Macau<br>
-Malaysia<br>
-Myanmar<br>
-</div>
-          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6">
-Nepal<br>
-North Korea<br>
-Pakistan<br>
-People Republic of China<br>
-Philippines<br>
-Singapore<br>
-Sri Lanka<br>
-Sudan<br>
-Taiwan<br>
-Thailand<br>
-Vietnam
-</div>
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6"><fmt:message key="Overseas.PlanOptions.AsiaCountries.mobi.col1" bundle="${msg}" /></div>
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6"><fmt:message key="Overseas.PlanOptions.AsiaCountries.mobi.col1" bundle="${msg}" /></div>
           <div class="col-lg-3 col-md-3">
 </div>
         </div>
       </div>
       <div class="modal-footer" style="text-align:center">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal"><fmt:message key="Overseas.PlanOptions.AsiaCountries.mobi.ok" bundle="${msg}" /></button>
       </div>
     </div>
   </div>
@@ -793,7 +744,7 @@ Vietnam
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;" id="SummaryofCoverageContent" >
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        1. Medical Expenses
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -827,7 +778,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        2. Top up In-Patient Medical Expenses
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item2" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -856,7 +807,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        3. Worldwide Emergency Assistance Services
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -925,7 +876,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        4. Personal Accident
+                                       <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -985,7 +936,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        5. Cancellation Charge
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item5" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1014,7 +965,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        6. Curtailment of Trip
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item6" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1043,7 +994,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        7. Kidnapping
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1077,7 +1028,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        8. Education Fund
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item8" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1106,7 +1057,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        9. Travel Delay
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1145,7 +1096,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        10. Baggage
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
@@ -1189,7 +1140,7 @@ Vietnam
                                 </div>
                                 <div class="fwdpanel-heading product_plan_inner_panel">
                                     <h4 class="fwdpanel-title h4-4-full">
-                                        11. Personal Liability
+                                        <fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item11" bundle="${msg}" />
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
