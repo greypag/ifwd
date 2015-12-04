@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
@@ -56,6 +57,9 @@ public class OverseaServiceImpl implements OverseaService {
 		}
 
 		String referralCode = (String) session.getAttribute("referralCode");
+		if(!StringUtils.isEmpty(referralCode)) {
+			referralCode = java.net.URLEncoder.encode(referralCode, "UTF-8").replace("+", "%20");
+		}
 		String Url = UserRestURIConstants.OVERSEA_GET_QUOTE + "?planCode=Overseas" + "&referralCode="
 				+ (referralCode != null ? referralCode : "");
 
