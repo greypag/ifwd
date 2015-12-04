@@ -488,7 +488,7 @@ $(document).ready(function() {
 									<div class="plan-box-s travelproductbox oversea_productbox<c:if test="${h == 0}"> pad-right-des</c:if>" id="box${i}" onClick="changeColorAndPrice('box${i}','${i}','txtPlanName${i}','txtDiscountAmount${i}','txtTotalDue${i}')">
 										<div class="" style="">
 											<h3 class="plan-display-mobile-only"><fmt:message key="Overseas.PlanOptions.Plans.table1.col2.header" bundle="${msg}" /></h3>
-											<h2>HK$ <span id="total${i}">${quoteDetails.totalNetPremium[j] }0</span></h2>
+											<h2>HK$ <span id="total${i}"><fmt:formatNumber type="number" maxFractionDigits="3" value="${quoteDetails.totalNetPremium[j] }" />.00</span></h2>
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -500,7 +500,7 @@ $(document).ready(function() {
 									<div class="plan-box-s travelproductbox oversea_productbox  pad-left-des" id="box${i+1}" onClick="changeColorAndPrice('box${i+1}','${i+1}','txtPlanName${i+1}','txtDiscountAmount${i+1}','txtTotalDue${i+1}')">
 										<div class="" style="">
 											<h3 class="plan-display-mobile-only"><fmt:message key="Overseas.PlanOptions.Plans.table1.col2.header" bundle="${msg}" /></h3>
-											<h2>HK$ <span id="total${i+1}">${quoteDetails.totalNetPremium[j+1] }0</span></h2>
+											<h2>HK$ <span id="total${i+1}"><fmt:formatNumber type="number" maxFractionDigits="3" value="${quoteDetails.totalNetPremium[j+1] }" />.00</span></h2>
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -754,21 +754,19 @@ $(document).ready(function() {
                                             <table>
                                                 <thead>
                                                   <tr>
-                                                      <th>Benefits</th>
-                                                      <th>Plan A</th>
-                                                      <th>Plan B</th>
+                                                      <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                      <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                      <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                   </tr>
                                                   </thead>
                                                   <tbody>
                                                   <tr>
-                                                      <td data-title="Benefits">a) Medical Expenses - the cost of qualified medical treatment, surgery and hospitalisation arising from a sickness or accidental injury. </td>
-                                                      <td data-title="Plan A">$1,000,000</td>
-                                                      <td data-title="Plan B">$500,000</td>
+                                                      <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.row1" bundle="${msg}" /></td>
+                                                      <td data-title="Plan A" class="planOptionCoverageColS" rowspan="2"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planA.1" bundle="${msg}" /></td>
+                                                      <td data-title="Plan B" class="planOptionCoverageColS" rowspan="2"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planB.1" bundle="${msg}" /></td>
                                                   </tr>
                                                   <tr>
-                                                      <td data-title="Benefits">b) Follow-up Expenses - medical, hospital and treatment expenses reasonably incurred within 90 days of the Insured Student’s return to the country of residence up to HK$100,000 (Including Chinese medical practitioner in Hong Kong up to HK$3,000 with maximum daily limit per visit HK$200).</td>
-                                                      <td data-title="Plan A">$1,000,000</td>
-                                                      <td data-title="Plan B">$500,000</td>
+                                                      <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.row2" bundle="${msg}" /></td>
                                                   </tr>												  
                                                   </tbody>
                                                </table>
@@ -788,16 +786,16 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Additional medical insurance cover for inpatient medical expenses, where you have another medical benefits policy cover the same area, up to 2 times the cover provided under that other policy, or HK$2,000,000 (whichever is the lesser) </td>
-                                                   <td data-title="Plan A">Up to $2,000,000</td>
-                                                   <td data-title="Plan B">N/A</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item2.row1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item2.planA.1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item2.planB.1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -817,54 +815,54 @@ $(document).ready(function() {
                                             <table>
                                                <thead>
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">a) Remittance of Hospital Admission Guarantee Deposits - for hospital admittance fees on behalf of the Insured Student.</td>
-                                                   <td data-title="Plan A">$40,000</td>
-                                                   <td data-title="Plan B">$40,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.row1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planA.1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planB.1" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">b) Emergency Medical Evacuation and Repatriation - to the nearest facility capable of providing adequate medical care and to repatriate back to Hong Kong if the physician determines that it is necessary.</td>
-                                                   <td data-title="Plan A">Included</td>
-                                                   <td data-title="Plan B">Included</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.row2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planA.2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planB.2" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">c) Repatriation of Mortal Remains - transportation charges for repatriation of the mortal remains to Hong Kong.</td>
-                                                   <td data-title="Plan A">$40,000</td>
-                                                   <td data-title="Plan B">$15,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.row3" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planA.3" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planB.3" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">d) Compassionate Visit and Hotel Accommodation - up to 2 immediate family members, includes travelling cost to join the Insured Student  where the Insured Student is confined in hospital for more than 3 days. (Accommodations HK$1,200 per night up to 5 consecutive days)</td>
-                                                   <td data-title="Plan A">$40,000</td>
-                                                   <td data-title="Plan B">$15,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.row4" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planA.4" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planB.4" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">e) Convalescence Expenses - ISOS will arrange additional hotel expenses incurred in relation to an incident which requires medical evacuation and repatriation. (Accommodations HK$1,200 per night up to 5 consecutive days)</td>
-                                                   <td data-title="Plan A">$6,000</td>
-                                                   <td data-title="Plan B">$6,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.row5" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planA.5" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planB.5" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">f) Unexpected Return in the Event of the Death of a Close Relative - return economy class airfare for unexpected return to Hong Kong following the death of a close relative.</td>
-                                                   <td data-title="Plan A">$40,000</td>
-                                                   <td data-title="Plan B">$15,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.row6" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planA.6" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planB.6" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">g) Additional Costs of Travel – Intl.SOS will arrange for an economy class airfare for the Insured Student to return Hong Kong  due to a serious medical condition.   </td>
-                                                   <td data-title="Plan A">$40,000</td>
-                                                   <td data-title="Plan B">$15,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.row7" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planA.7" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planB.7" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">h) Other Assistance - including telephone medical advice, emergency travel service assistance or legal referral.</td>
-                                                   <td data-title="Plan A">included</td>
-                                                   <td data-title="Plan B">included</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.row8" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planA.8" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planB.8" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">Worldwide Emergency Services are arranged by International SOS Assistance (HK) Limited.</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.row9" bundle="${msg}" /></td>
                                                    <td></td>
                                                    <td></td>
                                                </tr>
@@ -886,47 +884,41 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">a) Personal Accident - Accidental death/ permanent total disablement/total and permanent loss of sight in one or both eyes/loss by severance or permanent and total loss of use of one or more limbs.</td>
-                                                   <td data-title="Plan A">$500,000</td>
-                                                   <td data-title="Plan B">$250,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.row1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.planA.1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.planB.1" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">(Limit for Death benefit for children under 18 years old)</td>
-                                                   <td data-title="Plan A">$250,000</td>
-                                                   <td data-title="Plan B">$250,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.row2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.planA.2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.planB.2" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">b) Double Indemnity – Accidental Death Benefits will be doubled up for:
-													   <ol>
-															<li>- a fare paying passenger on a public conveyance which was involved in an accident</li>
-															<li>- an innocent bystander in a gun battle between the police and another person(s)</li>
-															<li>- a fire within a residential building</li>
-													   </ol>
-												   </td>
-                                                   <td data-title="Plan A">$1,000,000</td>
-                                                   <td data-title="Plan B">$500,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.row3" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.planA.3" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.planB.3" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">(Limit for Death benefit for children under 18 years old)</td>
-                                                   <td data-title="Plan A">$500,000</td>
-                                                   <td data-title="Plan B">$500,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.row4" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.planA.4" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.planB.4" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">c) Major Burns - Suffering of Third Degree Burns with burnt areas equal to or greater than 5% of head or 10% of total body surface area.</td>
-                                                   <td data-title="Plan A">$200,000</td>
-                                                   <td data-title="Plan B">$100,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.row5" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.planA.5" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.planB.5" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">(Apply either a or b compensation only)</td>
-                                                   <td data-title="Plan A"></td>
-                                                   <td data-title="Plan B"></td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item4.row6" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"></td>
                                                </tr>												   
                                                </tbody>
                                             </table>
@@ -946,16 +938,16 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Reimbursement of irrecoverable prepaid study costs and airfares in the event of death, serious sickness or injury of the Insured Student, immediate family members of the Insured Student, witness summons, jury service, compulsory quarantine of the Insured Student, natural disaster, unanticipated outbreak of epidemic diseases at destination; industrial action involving a Public Conveyance, riot/civil commotion at the destination, serious damage to the Insured Student's principal home in Hong Kong arising from fire or flooding within 10 days from the departure date or Black Outbound Travel Alert for the destination in effect 7 days before the departure date.</td>
-                                                   <td data-title="Plan A">$30,000</td>
-                                                   <td data-title="Plan B">N/A</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item5.row1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item5.planA.1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item5.planB.1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -975,16 +967,16 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Irrecoverable unused portion of prepaid transport or accommodation charges, pre-paid tuition fees and additional public transportation expenses incurred to return to Hong Kong as a direct result of death, serious injury/sickness of the Insured Student or immediate family member , or of the hijack of transport arranged by a travel agency, adverse weather conditions, natural disaster, or unanticipated outbreak of epidemic diseases; industrial action involving a Public Conveyance, riot/civil commotion at the destination that prevents the Insured Student from continuing the journey or Black Outbound Travel Alert for the destination is in effect during the study.</td>
-                                                   <td data-title="Plan A">$30,000</td>
-                                                   <td data-title="Plan B">N/A</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item6.row1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item6.planA.1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item6.planB.1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -1004,21 +996,20 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">a) Compassionate Visit and Hotel Accommodation – Provided to up to 2 immediate family members, including travelling costs to the location of the educational institution where the Insured Student was kidnapped. (Accommodations up to HK$1,200 per person per night for 5 consecutive days)</td>
-                                                   <td data-title="Plan A">$40,000</td>
-                                                   <td data-title="Plan B">N/A</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.row1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.planA.1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS" rowspan="2"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.planB.1" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">b) Compassionate Death Benefit – compensation for the Accidental Death of Insured Student from injury inflicted during the kidnapping incident. </td>
-                                                   <td data-title="Plan A">$250,000</td>
-                                                   <td data-title="Plan B">N/A</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.row1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.planA.2" bundle="${msg}" /></td>
                                                </tr>											   
                                                </tbody>
                                             </table>
@@ -1038,16 +1029,16 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Payment of unpaid tuition fees in the event of the death of the parent or legal guardian of the Insured Student, where the Insured Student is an unmarried full time student under 23 years old.</td>
-                                                   <td data-title="Plan A">$350,000</td>
-                                                   <td data-title="Plan B">$200,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item8.row1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item8.planA.1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item8.planB.1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -1067,24 +1058,24 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">a) Additional Travel Cost - Public transportation expenses necessarily incurred as a direct consequence of airline or other public transportation being delayed due to serious weather condition, industrial action, hijack, mechanical derangement, but only if the Insured Student has to re-route the trip as the result of the cancellation of the transportation previously confirmed.</td>
-                                                   <td data-title="Plan A">$10,000</td>
-                                                   <td data-title="Plan B">$2,500</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.row1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.planA.1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.planB.1" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">b) Cash Allowance - In the event of travel delay exceeding 6 hours,  the Insured Student will be indemnified at HK$300 for each full 6-hour period delay. </td>
-                                                   <td data-title="Plan A">$2,500</td>
-                                                   <td data-title="Plan B">$600</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.row2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.planA.2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.planB.2" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">(Select either a or b for compensation only.) </td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.row3" bundle="${msg}" /></td>
                                                    <td></td>
                                                    <td></td>
                                                </tr>
@@ -1106,31 +1097,29 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Loss, physical breakage or damage directly resulting from accident, theft, burglary, or mishandling by carriers to the Insured Student’s baggage or personal property</td>
-                                                   <td data-title="Plan A">$20,000</td>
-                                                   <td data-title="Plan B">$10,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10.row1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS" rowspan="2"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10.planA.1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS" rowspan="2"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10.planB.1" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">(Personal property does not include mobile phones, pagers, handheld portable telecommunication equipment, or other computer equipment, except lap top computers)</td>
-                                                   <td data-title="Plan A">$20,000</td>
-                                                   <td data-title="Plan B">$10,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10.row2" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">a) Limit for each item, pair or set</td>
-                                                   <td data-title="Plan A">$3,000</td>
-                                                   <td data-title="Plan B">$3,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10.row3" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10.planA.2" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10.planB.2" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="Benefits">b) Limit for lap-top computer</td>
-                                                   <td data-title="Plan A">$10,000</td>
-                                                   <td data-title="Plan B">$5,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10.row4" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10.planA.3" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item10.planB.3" bundle="${msg}" /></td>
                                                </tr>											   
                                                </tbody>
                                             </table>
@@ -1150,16 +1139,16 @@ $(document).ready(function() {
                                             <table>
                                                <thead> 
                                                <tr>
-                                                   <th>Benefits</th>
-                                                   <th>Plan A</th>
-                                                   <th>Plan B</th>
+                                                   <th><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" /></th>
+                                                   <th class="planOptionCoverageColTitleS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" /></th>
                                                </tr>
                                                </thead>
                                                <tbody>
                                                <tr>
-                                                   <td data-title="Benefits">Indemnity against third party legal liability arising as a result of accidental injury or loss or damage to third party's property during the Period of Insurance. (This benefit does not apply to liability arising from the use or hire of motor vehicle.)</td>
-                                                   <td data-title="Plan A">$1,500,000</td>
-                                                   <td data-title="Plan B">$750,000</td>
+                                                   <td data-title="Benefits"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item11.row1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item11.planA.1" bundle="${msg}" /></td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS">><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item11.planB.1" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -1188,8 +1177,8 @@ $(document).ready(function() {
                                                <tbody>
                                                <tr>
                                                    <td data-title="Benefits">The loss of or damage to the contents or personal effects of the Insured Person’s principal home as a result of burglary accompanied by forcible and violent entry to or exit from the premise whilst the home is unoccupied during the period of travel. </td>
-                                                   <td data-title="Plan A">$30,000</td>
-                                                   <td data-title="Plan B">$10,000</td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS">$30,000</td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS">$10,000</td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -1217,8 +1206,8 @@ $(document).ready(function() {
                                                <tbody>
                                                <tr>
                                                    <td data-title="Benefits">Indemnity against third party legal liability arising from a result of accidental injury. Loss or damage to third party’s property during the Period of Insurance. (This benefit does not apply to liability arising from the use or hire of motor vehicle.) </td>
-                                                   <td data-title="Plan A">$3,000,000</td>
-                                                   <td data-title="Plan B">$1,500,000</td>
+                                                   <td data-title="Plan A" class="planOptionCoverageColS">$3,000,000</td>
+                                                   <td data-title="Plan B" class="planOptionCoverageColS">$1,500,000</td>
                                                </tr>
                                                </tbody>
                                             </table>
@@ -1961,7 +1950,7 @@ $(document).ready(function() {
 						<div class="hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left" style="">
-								    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;">Overseas StudyCare</h2>
+								    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="Overseas.Planname.title" bundle="${msg}" /></h2>
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;" id="seletedplanname"></h2>
 									<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanregion"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname" value="">	
@@ -1985,22 +1974,22 @@ $(document).ready(function() {
 							<h3 style="font-size:18px;"><fmt:message key="Overseas.PlanOptions.Promo" bundle="${msg}" /></h3>
 							<span class="text-grey" id="loadingPromo" style="display:none;">Updating...</span>
 							<span class="text-red" id="errPromoCode"></span>
-							<div id="promo-wrap" class="form-group">
+							<div id="promo-wrap" class="form-group">						
 								<div class="input-group" id="inputPromo" style="display:inital;width:100%;padding-left: 20px;padding-right: 20px;">
 									<!--
 									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'eg: FWD789');" onBlur="placeholderOnBlur(this,'eg: FWD789');" value="eg: FWD789">
 									-->
-									<input type="text" id="promoCode" name="promoCode" class="form-control <c:if test="${!(referralCode != null && referralCode != '')}">bmg_custom_placeholder</c:if>" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'If applicable');" onBlur="placeholderOnBlur(this,'If applicable');"
+									<input type="text" id="promoCode" name="promoCode" class="form-control <c:if test="${!(referralCode != null && referralCode != '')}">bmg_custom_placeholder</c:if>" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'<fmt:message key="Overseas.PlanOptions.Promo.eg" bundle="${msg}" />');" onBlur="placeholderOnBlur(this,'<fmt:message key="Overseas.PlanOptions.Promo.eg" bundle="${msg}" />');"
 									    <c:choose>
 										   <c:when test="${referralCode != null && referralCode != ''}">
 										   value="${referralCode }"
 										   </c:when>
 										   <c:otherwise>
-	                                       value="If applicable"
+	                                       value="<fmt:message key="Overseas.PlanOptions.Promo.eg" bundle="${msg}" />"
 	                                       </c:otherwise>
 									   </c:choose>
 									/>
-									<a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:30%;padding: 0px;float: right;margin-top: 15px;" onClick="applyOverseaPromoCode()">APPLY</a>
+									<a class="input-group-addon in black-bold pointer sub-link" style="display:inline-block;width:30%;padding: 0px;float: right;margin-top: 15px;" onClick="applyOverseaPromoCode()"><fmt:message key="Overseas.PlanOptions.Promo.Apply" bundle="${msg}" /></a>
 								</div>
 							</div>
 							<div class="travel-italic workingholiday-getpromocode" style="font-size:14px;">
@@ -2069,9 +2058,8 @@ $(document).ready(function() {
 		</div>
 		<input type="hidden" name="planSelected" id="planSeelcted" value="personal">
 		<p class="padding1 workingholiday-plan-disclaimer">
-			The features above are indicative only.
-				<br>
-				For a complete explanation of the terms and conditions for our online travel insurance, feel free to contact our 24-hour hotline at 3123 3123.
+<fmt:message key="Overseas.userdetails.Disclaimer1" bundle="${msg}" /><br>
+<fmt:message key="Overseas.userdetails.Disclaimer2" bundle="${msg}" /></p>
 		</p>
 		
 		<div class="col-xs-12 hidden-md hidden-lg pad-none">

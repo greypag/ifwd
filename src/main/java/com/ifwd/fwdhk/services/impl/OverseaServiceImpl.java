@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
@@ -56,6 +57,9 @@ public class OverseaServiceImpl implements OverseaService {
 		}
 
 		String referralCode = (String) session.getAttribute("referralCode");
+		if(!StringUtils.isEmpty(referralCode)) {
+			referralCode = java.net.URLEncoder.encode(referralCode, "UTF-8").replace("+", "%20");
+		}
 		String Url = UserRestURIConstants.OVERSEA_GET_QUOTE + "?planCode=Overseas" + "&referralCode="
 				+ (referralCode != null ? referralCode : "");
 
@@ -272,10 +276,9 @@ public class OverseaServiceImpl implements OverseaService {
 
 		}
 
-		String hkId = "hkId", passId = "passport";
 		String deaprtureDate = DateApi.pickDate1(planDetailsForm.getOverseaDepartureDate());
 		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(new Date());
+		calendar.setTime(DateApi.formatDate1(deaprtureDate));
 		calendar.add(Calendar.DATE, -1);
 		calendar.add(Calendar.YEAR, 1);
 		String returnDate = DateApi.formatString1(calendar.getTime());
@@ -286,7 +289,7 @@ public class OverseaServiceImpl implements OverseaService {
 		String dob = planDetailsForm.getApplicantDob();
 		dob = DateApi.pickDate1(dob);
 		
-		planDetailsForm.setDepartureDate(deaprtureDate);
+		planDetailsForm.setDepartureDate(planDetailsForm.getOverseaDepartureDate());
 		planDetailsForm.setReturnDate(DateApi.pickDate1(returnDate));
 
 		if (planDetailsForm.getHkid() != null) {
