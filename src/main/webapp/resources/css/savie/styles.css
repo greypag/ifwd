@@ -12314,6 +12314,10 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
     font-size: 16px;
 }
 
+.savie-overlay-btn:hover{
+  color: white;
+}
+
 @media (min-width: 441px) {
 	.savie-overlay-btn {
  		bottom: 108px;
