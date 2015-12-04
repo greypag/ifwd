@@ -605,6 +605,33 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 .oversea-details-form .easy-autocomplete input{
 	border-radius: 0;
 }
+.addthis-animated{-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:1s;animation-duration:1s}
+.addthis_32x32_style .at4-icon, .addthis_32x32_white_style .at4-icon, .at-32x32 {
+    line-height: 2pc;
+    background-size: 2px!important;
+}
+/*
+.at4-icon.aticon-facebook {
+    background: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.o….03h5v-12.03h5v-4.97h-5v-2.55c0-.86.532-1.5%201-1.5z%22%2F%3E%3C%2Fsvg%3E') no-repeat left;
+}
+.at4-icon.aticon-google_plusone, .at4-icon.aticon-googleplus, .at4-icon.aticon-google_follow, .at4-icon.aticon-google_plusone_share {
+    background: url('data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2232%22%20height%3D%223…ketch%3Atype%3D%22MSShapeGroup%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E') no-repeat left;
+}
+*/
+.at-share-tbx-element .at-share-btn {
+    margin: 0 2px;
+    display: inline-block;
+}
+a.at-svc-facebook {
+    background: #305891;
+}
+a.at-svc-lidar, a.at-svc-twitter, a.at-svc-yammer {
+    background: #2ca8d2;
+}
+a.at-svc-google_plusone, a.at-svc-google_plusone_share {
+    background: #ce4d39;
+}
+
 .breadcrumb a{
 	cursor: default;
 }

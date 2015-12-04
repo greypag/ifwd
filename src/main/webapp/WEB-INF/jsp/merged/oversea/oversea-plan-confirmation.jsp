@@ -6,10 +6,6 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
-<script type='text/javascript'>
-
-</script>
-
 <section class="product_header_path_container ">
     <div class="container">
         <div class="product_header_path_item back"><i class="fa fa-arrow-left"></i><div class="partition"></div></div>
@@ -48,9 +44,13 @@
 					
 					<h4 class="oversea-policy-no bmg-confirmation-h4"><strong><fmt:message key="Overseas.Confirmation.Confirmation.PolicyNo" bundle="${msg}" /></strong><span> ${policyNo}</span></h4>
 				</div>
+                <div class="clearfix"></div>
                 <div class="h4-2"><fmt:message key="Overseas.Confirmation.Share" bundle="${msg}" /></div>
                 <div class="col-md-7 col-sm-12 col-xs-12 pad-none">
+                    <!--
                     <div class="oversea-link wht-bg1 text-center" id="toBeCopied" contenteditable="true"><fmt:message key="Overseas.Confirmation.Share.Link" bundle="${msg}" /></div>
+                     -->
+                    <div class="oversea-link wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/oversea-insurance?promo=<%=session.getAttribute("myTravelReferralCode")%></div>
                     <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage hidden-sm hidden-xs"><fmt:message key="Overseas.Confirmation.Share.Copy.CtrlC" bundle="${msg}" /></span><span class="boxMessage hidden-md hidden-lg">Long-press to copy</span> <span class="boxDownArrow"></span> </div>
                 </div>
                 <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
@@ -61,8 +61,7 @@
                     <div class="copy-link pull-left" onclick="autoSelect('toBeCopied');">
                         <fmt:message key="Overseas.Confirmation.Share.Copy" bundle="${msg}" />
                     </div>
-
-                    <div class="addthis_sharing_toolbox" data-url="http://localhosten/travel-insurance/sharing/?promo=TRA123" data-title="iFWD"><div id="atstbx" class="at-share-tbx-element addthis_32x32_style addthis-smartlayers addthis-animated at4-show"><a class="at-share-btn at-svc-facebook"><span class="at4-icon aticon-facebook" title="Facebook"></span></a><a class="at-share-btn at-svc-twitter"><span class="at4-icon aticon-twitter" title="Twitter"></span></a><a class="at-share-btn at-svc-google_plusone_share"><span class="at4-icon aticon-google_plusone_share" title="Google+"></span></a></div></div>
+                    <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/oversea-insurance/sharing/?promo=<%=session.getAttribute("myTravelReferralCode")%>" data-title="iFWD"></div>
                 </div>
             </div>
             <div style="display:none" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">
@@ -190,6 +189,8 @@
     <!--/.row--> 
   <!--/.container-->
 </section>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5506a5af18925186" async="async"></script>
 
 <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
 <script type="text/javascript" src="resources/js/oversea.js"></script>
