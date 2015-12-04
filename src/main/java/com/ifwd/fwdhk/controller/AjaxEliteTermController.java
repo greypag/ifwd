@@ -40,6 +40,10 @@ public class AjaxEliteTermController extends BaseController{
 			  MultipartFile iframePassportFileToUpload,
 			  MultipartFile iframeFileToUpload
 	            ) throws Exception {
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
+		
 		MultipartFile file;
 		String imgName;
 		if( iframeHkidFileToUpload!= null) {
@@ -57,8 +61,6 @@ public class AjaxEliteTermController extends BaseController{
 		
 		try {
 				String imgMaxSize = UserRestURIConstants.getProperties("imgMaxSize");
-				//String name = file.getOriginalFilename();
-				//String imgName = name.substring(0, name.lastIndexOf("."));
 				long size = file.getSize();
 				if(size/(1024*1024) > Integer.valueOf(imgMaxSize)){
 					throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.greater.than",request)+" "+imgMaxSize+"MB");
@@ -83,11 +85,6 @@ public class AjaxEliteTermController extends BaseController{
 		        File uploadedFile = new File(uploadDir + sep  
 		                + fileName);  
 		        FileCopyUtils.copy(bytes, uploadedFile); 
-//		        if(!FileUtil.checkImageFile(uploadDir + sep  
-//		                + fileName)){
-//		        	throw new ECOMMAPIException("Illegal file");
-//		        }
-		        
 		        File toFile = new File(uploadDir + sep  
 				                + realName);
 		        ImgUtil.ImageToPdfToJPG(uploadDir + sep+ fileName, uploadDir + sep + imgName + ".pdf", toFile , request);
@@ -98,7 +95,6 @@ public class AjaxEliteTermController extends BaseController{
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-//				ImgUtil.changeImageToJPG(uploadedFile,toFile,request);
 		        response.getWriter().write("true");
 		    } catch (ECOMMAPIException e) {
 				String error = e.getMessage();
@@ -119,6 +115,10 @@ public class AjaxEliteTermController extends BaseController{
 	            @RequestParam(value = "name", required = true) String name,
 	            @RequestParam(value = "img", required = true) MultipartFile imageFile
 	            ) throws Exception {
+			if (Methods.isXssAjax(request)) {
+				return;
+			}
+		
 			try {
 				String imgMaxSize = UserRestURIConstants.getProperties("imgMaxSize");
 				long size = imageFile.getSize();
@@ -143,18 +143,12 @@ public class AjaxEliteTermController extends BaseController{
 		        File uploadedFile = new File(uploadDir + sep  
 		                + fileName);  
 		        FileCopyUtils.copy(bytes, uploadedFile); 
-//		        if(!FileUtil.checkImageFile(uploadDir + sep  
-//		                + fileName)){
-//		        	throw new ECOMMAPIException("Illegal file");
-//		        }
-		        
 		        File toFile = new File(uploadDir + sep  
 				                + realName);
 		        ImgUtil.ImageToPdfToJPG(uploadDir + sep+ fileName, uploadDir + sep + name + ".pdf", toFile , request);
 				String copyImagePath = request.getRealPath("/")+"resources/images/elite-terms/Watermark.png";
 				File copyImageFile = new File(copyImagePath);
 				ImgUtil.pressImage(copyImageFile, toFile, 0, 0);
-//				ImgUtil.changeImageToJPG(uploadedFile,toFile,request);
 		        response.getWriter().write("true");
 			} catch (ECOMMAPIException e) {
 				String error = e.getMessage();
@@ -175,6 +169,10 @@ public class AjaxEliteTermController extends BaseController{
 	            @RequestParam String passportFlage,
 	            @RequestParam String uploadLaterFlage
 	            ) throws Exception {
+			if (Methods.isXssAjax(request)) {				
+				return;
+			}
+		
 			try {
 				request.getSession().setAttribute("uploadLaterFlage", uploadLaterFlage);
 				ajaxReturn(response, eliteTermService.sendImage(request,passportFlage));
