@@ -46,7 +46,6 @@ var appBuildingPlaceholder = "<fmt:message key="Overseas.userdetails.applicant.C
 var appEstatePlaceholder = "<fmt:message key="Overseas.userdetails.applicant.Correspondence.ESTATE" bundle="${msg}" />";
 var apprStreetNoPlaceholder = "<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNO" bundle="${msg}" />";
 var appStreetNamelaceholder = "<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNAME" bundle="${msg}" />";
-var appStreetNamelaceholder = "<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNAME" bundle="${msg}" />";
 
 var insurNamePlaceholder="<fmt:message key="Overseas.userdetails.Insured.Fullname.Same" bundle="${msg}" />";
 var insurHkidPlaceholder="<fmt:message key="Overseas.userdetails.Insured.HKID.eg" bundle="${msg}" />";
@@ -940,10 +939,10 @@ function setDropArea(id) {
                         
                         <div class="form-wrap" style="margin-bottom: 10px;">
                         <h4 class="h4-4 product_landing_download_button pull-left">
-                            <i class="fa fa-download"></i> <a href="<%=request.getContextPath()%><fmt:message key="Overseas.Brochure.Download.URL" bundle="${msg}" />" target="_blank">Product Brochure   </a>
+                            <i class="fa fa-download"></i> <a href="<%=request.getContextPath()%><fmt:message key="Overseas.Brochure.Download.URL" bundle="${msg}" />" target="_blank"><fmt:message key="Overseas.PlanOptions.Brochure" bundle="${msg}" />   </a>
                         </h4>
                         <h4 class="h4-4 product_landing_download_button pull-left">
-                            <i class="fa fa-download"></i> <a href="<%=request.getContextPath()%><fmt:message key="Overseas.Provisions.Download.URL" bundle="${msg}" />" target="_blank">Policy Provisions   </a>
+                            <i class="fa fa-download"></i> <a href="<%=request.getContextPath()%><fmt:message key="Overseas.Provisions.Download.URL" bundle="${msg}" />" target="_blank"><fmt:message key="Overseas.PlanOptions.Provisions" bundle="${msg}" />   </a>
                         </h4>
                         <div class="clearfix"></div>
                         </div>  
@@ -980,15 +979,15 @@ function setDropArea(id) {
                                     <h3 style="margin-bottom:0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h3>
                                     <h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;">${referralCode}</h4>
                                 </c:if>-->
-                                <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;">Subtotal </h3>
+                                <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="Overseas.PlanOptions.Subtotal" bundle="${msg}" /></h3>
                                 <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${planPremium}" /></h3>
-                                <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;">Discount </h3>
+                                <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="Overseas.PlanOptions.Discount" bundle="${msg}" /></h3>
                                 <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${planDiscount}" /></h3>
                             </div>
                             <div class="clearfix"></div>
                             <div class="orange-bdr"></div>
                             <div style="width: 80%;margin-left: 10%;">
-                                <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;">Amount due  </h3>
+                                <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="Overseas.PlanOptions.Amountdue" bundle="${msg}" /></h3>
                                 <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${planSummary}" /></h3>
                                 <input type="hidden" name="finalDueAmount" value="${planSummary}">
                                 <input type="hidden" name="finalOriginalAmount" value="${planPremium}">

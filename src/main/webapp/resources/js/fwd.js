@@ -6280,7 +6280,7 @@ function chkValidIAEffDate(element, errElementId, name){
 }
 
 // get resource bundle
-function getBundle(lang, key) {
+/*function getBundle(lang, key) {
 	var rtn; 
 	loadBundles(lang, key, function(value){
 		rtn = value;
@@ -6299,7 +6299,7 @@ function loadBundles(lang, key, fn) {
         	fn($.i18n.prop(key)); //msg_welcome;	//$.i18n.prop("msg_welcome")      
         }
     });
-}
+}*/
 
 
 
