@@ -6279,31 +6279,6 @@ function chkValidIAEffDate(element, errElementId, name){
 	}
 }
 
-// get resource bundle
-function getBundle(lang, key) {
-	var rtn; 
-	loadBundles(lang, key, function(value){
-		rtn = value;
-	});
-	return rtn;
-}
-function loadBundles(lang, key, fn) {
-	//var u = window.location.origin+''+home+'/resources/bundle/';
-   	$.i18n.properties({
-        name: 'Messages',
-        path: ''+home_url+'/resources/bundle/',
-        mode: 'both',
-        language: lang,
-        cache: true,
-        callback: function() {
-        	fn($.i18n.prop(key)); //msg_welcome;	//$.i18n.prop("msg_welcome")      
-        }
-    });
-}
-
-
-
-
 
 ///////////////
 
