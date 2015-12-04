@@ -14565,10 +14565,19 @@ body.chin button#thank-you-continue {
 .fwd-savie-wrapper .o2o-landing.banner-widget.hunger-selling .breadcrumbs-product-details .fa-play {
   color: #fff;
 }
-.fwd-savie-wrapper .o2o-landing.banner-widget .mobile-banner {
-  display: block;
-  width: 100%;
-  height: 100%;
+@media (min-width: 601px) {
+    .fwd-savie-wrapper .o2o-landing.banner-widget .mobile-banner {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+}
+@media (max-width: 600px) {
+  .fwd-savie-wrapper .o2o-landing.banner-widget .mobile-banner {
+    display: block;
+      width: 100%;
+      height: 100%;
+  }
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.banner-widget .mobile-banner {
@@ -14578,7 +14587,7 @@ body.chin button#thank-you-continue {
 .fwd-savie-wrapper .o2o-landing.banner-widget .desktop-banner {
   display: none;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.banner-widget .desktop-banner {
@@ -16114,6 +16123,8 @@ body.chin #btn-cstmr-srvc-cnter {
 @media (min-width: 992px) {
     .download-pdf {
         padding-left: 25%;
+      padding-top: 5px;
+      padding-bottom: 10px;
     }
     .download-pdf .crediting-rate-list.pdf {
         float: none !important;

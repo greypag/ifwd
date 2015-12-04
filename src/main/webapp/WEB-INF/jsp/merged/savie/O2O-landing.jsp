@@ -52,9 +52,9 @@ var home_url = "<%=request.getContextPath()%>";
 				
 				<div class="hunger-text-section">
 					<p class="hunger-selling-text text-1 big"><fmt:message key="oceanpark.landing.save.while" bundle="${msg}" /></p>
-                    <p class="hunger-selling-text text-1"><fmt:message key="oceanpark.landing.you.play" bundle="${msg}" /></p>                    
+                    <p class="hunger-selling-text text-1"><fmt:message key="oceanpark.landing.you.play" bundle="${msg}" /></p>
+                    <img class="op-logo" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />                    
 				</div>
-                <img class="op-logo" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
 			</div>
 			
 			<div class="fwd-full-container container-fluid o2o-landing teaser op-div">
@@ -68,7 +68,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="get-started-holder op-align">
 							<button id="op-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
 						</div>
-						<p class="bottom-text lower hidden-sm hidden-xs"><fmt:message key="oceanpark.landing.please.refer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"> <fmt:message key="oceanpark.landing.please.refer.part2" bundle="${msg}" /></a> <fmt:message key="oceanpark.landing.please.refer.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.provisions.link" bundle="${msg}" />" target="_blank"><fmt:message key="oceanpark.landing.please.refer.part4" bundle="${msg}" /></a><fmt:message key="oceanpark.landing.please.refer.part5" bundle="${msg}" /></p>
+                        <p class="bottom-text lower hidden-sm hidden-xs"><fmt:message key="oceanpark.landing.please.refer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"> <fmt:message key="oceanpark.landing.please.refer.part2" bundle="${msg}" /></a> <fmt:message key="oceanpark.landing.please.refer.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.terms.conditions.link" bundle="${msg}" />" target="_blank"><fmt:message key="oceanpark.landing.please.refer.part4" bundle="${msg}" /></a><fmt:message key="oceanpark.landing.please.refer.part5" bundle="${msg}" /></p>
 					</div>
 				</div>
 			</div>
