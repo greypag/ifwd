@@ -14,6 +14,10 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
+  <loc>https://i.fwd.com.hk/tc/term-life-insurance</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
   <loc>https://i.fwd.com.hk/tc/working-holiday-insurance</loc>
   <changefreq>weekly</changefreq>
 </url>
@@ -43,6 +47,10 @@
 </url>
 <url>
   <loc>https://i.fwd.com.hk/en/savings-insurance</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/en/term-life-insurance</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
