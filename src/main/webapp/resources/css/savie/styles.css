@@ -9476,7 +9476,7 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
 @media (min-width: 992px) {
   .fwd-savie-wrapper .thank-you-container h1 {
     text-align: left;
-    padding-left: 85px;
+    /* padding-left: 85px; */
     padding-top: 45px;
   }
 }
@@ -9491,8 +9491,9 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .thank-you-container .details-container {
-    padding: 36px 85px 15px 85px;
+    /* padding: 36px 85px 15px; */
     /* border: 1px solid #b7c3cd; */
+    padding: 36px 0 15px;
   }
 }
 .fwd-savie-wrapper .thank-you-container .details-container .detail {
