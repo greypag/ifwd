@@ -162,7 +162,7 @@
 							<strong><fmt:message key="Overseas.Confirmation.Upsell1.title" bundle="${msg}" /></strong>
 							<br>
 							<fmt:message key="Overseas.Confirmation.Upsell1.copy" bundle="${msg}" /><br>
-							<a href="<%= request.getContextPath() %>/${language}/travel" class="border-radius btn btn-primary  get-btn">
+							<a href="<%= request.getContextPath() %>/${language}/travel?product=annual" class="border-radius btn btn-primary  get-btn">
 							<fmt:message key="Overseas.Confirmation.Upsell1.Quote" bundle="${msg}" /></a>
 						</div>
 						<div class="clearfix"></div>
