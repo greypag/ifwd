@@ -103,7 +103,7 @@ var language = "${language}";
 											</div>
 										</div>
 									</div>
-									<p class="confirm-call"><fmt:message key="savie.customerServiceCentre.confirmCall" bundle="${msg}" /></p>
+									<p class="confirm-call"><fmt:message key="saviee.appointment.remarks" bundle="${msg}" /></p>
 								</div>
 								
 								<div class="col-xs-12 col-md-6">
@@ -127,7 +127,7 @@ var language = "${language}";
 							</div>
 							
 							<div class="text-center">
-								<button class="btn next confirm-appointment" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="savie.customerServiceCentre.confirmBtn" bundle="${msg}" /></button>
+								<button class="btn next confirm-appointment" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="saviee.appointment.submit" bundle="${msg}" /></button>
 							</div>
 						</form>
 					</div>
