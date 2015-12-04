@@ -2,7 +2,6 @@ package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
-import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
@@ -24,6 +23,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
@@ -55,72 +55,15 @@ public class OverseaController extends BaseController{
 	private CommonUtils commonUtils;
 
 	@RequestMapping(value = {"/{lang}/oversea-insurance"})
-	public ModelAndView getOverseaLanding(Model model, HttpServletRequest request) {
+	public ModelAndView getOverseaLanding(@RequestParam(required = false) final String promo, Model model, HttpServletRequest request) {
 		UserRestURIConstants.setController("Oversea");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
 		session.removeAttribute("referralCode");
-		
-		String promoCode = request.getParameter("promo");
-		if(!StringUtils.isEmpty(promoCode)) {
-			try {
-				promoCode = java.net.URLEncoder.encode(promoCode, "UTF-8").replace("+", "%20");
-			} catch (UnsupportedEncodingException e) {
-				e.printStackTrace();
-			}
-			String Url = UserRestURIConstants.OVERSEA_GET_QUOTE + "?planCode=Overseas" + "&referralCode="
-					+ promoCode;
-			String token = null, username = null;
-			if ((session.getAttribute("token") != null) && (session.getAttribute("username") != null)) {
-				token = session.getAttribute("token").toString();
-				username = session.getAttribute("username").toString();
-			} else {
-				restService.consumeLoginApi(request);
-				if ((session.getAttribute("token") != null)) {
-					token = session.getAttribute("token").toString();
-					username = session.getAttribute("username").toString();
-				}
-			}
-			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-			if (request.getSession().getAttribute("username") != null) {
-				header.put("userName", username);
-				header.put("token", token);
-			}
-			String lang = UserRestURIConstants.getLanaguage(request);
-			if (lang.equals("tc")) {
-				lang = "CN";
-			}
-			header.put("language", WebServiceUtils.transformLanaguage(lang));
-			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
-			logger.info("OVERSEA_GET_QUOTE Response " + responseJsonObj);
-			if (responseJsonObj != null && responseJsonObj.get("errMsgs") == null) {
-				QuoteDetails quoteDetails = new QuoteDetails();
-				String planeName[] = { "basicA", "basicB", "medicalWorldwideA", "medicalWorldwideB", "medicalAsiaA", "medicalAsiaB" };
-				String grossPrem[] = new String[6];
-				String discountPercentage[] = new String[6];
-				String discountAmount[] = new String[6];
-				String totalNetPremium[] = new String[6];
-				String totalDue[] = new String[6];
-				JSONObject obj;
-				for(int i = 0; i < planeName.length; i++) {
-					obj = (JSONObject) responseJsonObj.get(planeName[i]);
-					grossPrem[i] = obj.get("grossPremium").toString();
-					discountPercentage[i] = obj.get("discountPercentage").toString();
-					discountAmount[i] = obj.get("discountAmount").toString();
-					totalNetPremium[i] = obj.get("totalNetPremium").toString();
-					totalDue[i] = obj.get("totalDue").toString();
-				}
-				quoteDetails.setGrossPremium(grossPrem);
-				quoteDetails.setDiscountPercentage(discountPercentage);
-				quoteDetails.setDiscountAmount(discountAmount);
-				quoteDetails.setTotalNetPremium(totalNetPremium);
-				quoteDetails.setToalDue(totalDue);
-				quoteDetails.setPlanName(planeName);
-				session.setAttribute("quoteDetails", quoteDetails);
-				session.setAttribute("referralCode", StringHelper.emptyIfNull(request.getParameter("promo")));
-				return getOverseaQuote(model, request);
-			}
-			
+		if (promo != null) {
+			if (!promo.equals("")) {
+				session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
+			}	
 		}
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_LANDING);
 	}

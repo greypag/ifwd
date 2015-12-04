@@ -488,7 +488,7 @@ $(document).ready(function() {
 									<div class="plan-box-s travelproductbox oversea_productbox<c:if test="${h == 0}"> pad-right-des</c:if>" id="box${i}" onClick="changeColorAndPrice('box${i}','${i}','txtPlanName${i}','txtDiscountAmount${i}','txtTotalDue${i}')">
 										<div class="" style="">
 											<h3 class="plan-display-mobile-only"><fmt:message key="Overseas.PlanOptions.Plans.table1.col2.header" bundle="${msg}" /></h3>
-											<h2>HK$ <span id="total${i}">${quoteDetails.totalNetPremium[j] }0</span></h2>
+											<h2>HK$ <span id="total${i}"><fmt:formatNumber type="number" maxFractionDigits="3" value="${quoteDetails.totalNetPremium[j] }" />.00</span></h2>
 										</div>
 										<div class="clearfix"></div>
 									</div>
@@ -500,7 +500,7 @@ $(document).ready(function() {
 									<div class="plan-box-s travelproductbox oversea_productbox  pad-left-des" id="box${i+1}" onClick="changeColorAndPrice('box${i+1}','${i+1}','txtPlanName${i+1}','txtDiscountAmount${i+1}','txtTotalDue${i+1}')">
 										<div class="" style="">
 											<h3 class="plan-display-mobile-only"><fmt:message key="Overseas.PlanOptions.Plans.table1.col2.header" bundle="${msg}" /></h3>
-											<h2>HK$ <span id="total${i+1}">${quoteDetails.totalNetPremium[j+1] }0</span></h2>
+											<h2>HK$ <span id="total${i+1}"><fmt:formatNumber type="number" maxFractionDigits="3" value="${quoteDetails.totalNetPremium[j+1] }" />.00</span></h2>
 										</div>
 										<div class="clearfix"></div>
 									</div>

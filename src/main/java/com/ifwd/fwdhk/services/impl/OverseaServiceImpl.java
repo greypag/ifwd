@@ -56,6 +56,7 @@ public class OverseaServiceImpl implements OverseaService {
 		}
 
 		String referralCode = (String) session.getAttribute("referralCode");
+		referralCode = java.net.URLEncoder.encode(referralCode, "UTF-8").replace("+", "%20");
 		String Url = UserRestURIConstants.OVERSEA_GET_QUOTE + "?planCode=Overseas" + "&referralCode="
 				+ (referralCode != null ? referralCode : "");
 
