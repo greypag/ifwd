@@ -608,7 +608,6 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 .addthis-animated{-webkit-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:1s;animation-duration:1s}
 .addthis_32x32_style .at4-icon, .addthis_32x32_white_style .at4-icon, .at-32x32 {
     line-height: 2pc;
-    background-size: 2px!important;
 }
 /*
 .at4-icon.aticon-facebook {
