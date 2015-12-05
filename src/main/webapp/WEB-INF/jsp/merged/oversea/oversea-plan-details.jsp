@@ -819,18 +819,18 @@ function setDropArea(id) {
                        <div class="clearfix"></div>
                             
                             <div class="form-wrap">
-                                <h4 class="h4-2 bmg-disclaimer-header">Declaration:-</h4>
+                                <h4 class="h4-2 bmg-disclaimer-header"><fmt:message key="Overseas.userdetails.declarations.heading" bundle="${msg}" /></h4>
                                 <div class="declaration-content" style="margin-left: 0px;margin-right: 0px;">
                                 <div class="checkbox">
                                     <input id="checkbox1" name="checkbox1" type="checkbox"> 
                                     <label for="checkbox1">
-                                        <fmt:message key="Overseas.userdetails.TC.TC" bundle="${msg}" />
+                                        <fmt:message key="Overseas.userdetails.declarations.tnc" bundle="${msg}" />
                                         <ol class="ol-disclaimer">
-                                            <li>the particulars and statements given above are, to the best of my knowledge and belief, true and complete;</li>
-                                            <li>to the best of my knowledge and belief no Insured Person is travelling contrary to the advice of any medical practitioner or for the purpose of obtaining medical treatment and I understand that treatment of any pre-existing, recurring or congenital medical conditions are not insured. I am not aware of any condition cause or circumstance that may necessitate the cancellation or curtailment of the journey as planned;</li>
-                                            <li>this application shall be the basis of the contract between me and FWD General Insurance Company Limited;</li>
-                                            <li>this Proposal Form is applied at HKSAR, in case of fraud or misrepresentation, the policy may be declared void;</li>
-                                            <li>I have obtained the consent from the Insured Person(s) for passing the above information to FWD General Insurance Company Limited for the purpose of carrying out the TravelCare Insurance.</li>
+                                            <li><fmt:message key="Overseas.userdetails.declarations.tnc.desc1" bundle="${msg}" /></li>
+											<li><fmt:message key="Overseas.userdetails.declarations.tnc.desc2" bundle="${msg}" /></li>
+											<li><fmt:message key="Overseas.userdetails.declarations.tnc.desc3" bundle="${msg}" /></li>
+											<li><fmt:message key="Overseas.userdetails.declarations.tnc.desc4" bundle="${msg}" /></li>
+											<li><fmt:message key="Overseas.userdetails.declarations.tnc.desc5" bundle="${msg}" /></li>
                                         </ol>
                                         
                                     </label>
@@ -838,10 +838,9 @@ function setDropArea(id) {
                                 <span id="chk1" class="text-red"></span>        
                                 <div class="checkbox">
                                     <input id="checkbox2" name="checkbox2" type="checkbox"> <label for="checkbox2">
-                                        <fmt:message key="Overseas.userdetails.TC.PICS" bundle="${msg}" />
-                                        
-
-
+                                        <fmt:message key="Overseas.userdetails.declarations.PICS.part1" bundle="${msg}" /> <a
+										href="<fmt:message key="PICS.link" bundle="${msg}" />"
+										class="sub-link" target="_blank"><fmt:message key="Overseas.userdetails.declarations.PICS.part2" bundle="${msg}" /></a> <fmt:message key="Overseas.userdetails.declarations.PICS.part3" bundle="${msg}" />
                                         </label>
                                 </div>
                                 <span id="chk2" class="text-red"></span>
