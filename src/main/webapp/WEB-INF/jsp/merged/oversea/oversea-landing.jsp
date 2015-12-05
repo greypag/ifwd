@@ -30,9 +30,13 @@ function prepareOverseaPlan(form){
 }
 </script>
 
-<section id="main-slider" class="no-margin"> 
+<section id="main-slider" class="p_oversea no-margin"> 
   <!--Mobilebanner--> 
-  <img src="<%=request.getContextPath()%><fmt:message key="Overseas.Landing.Hero.Mobile" bundle="${msg}" />" alt="<fmt:message key="Overseas.Landing.Hero.Image.Alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md">
+  <img src="<%=request.getContextPath()%>/<fmt:message key="oversea.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="Overseas.Landing.Hero.Image.Alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md">
+  <div class="tagline-holder hidden-lg hidden-md">
+      <img src="<%=request.getContextPath()%>/<fmt:message key="oversea.hero.tagline" bundle="${msg}" />" class="img-responsive">
+  </div>
+
   <!--Mobilebanner-->
 <div class="carousel slide hidden-xs hidden-sm">
 <div class="col-lg-12 col-md-12 breadcrumb-wrapper">
@@ -47,12 +51,15 @@ function prepareOverseaPlan(form){
 <div class="carousel-inner">
 <div class="item active">
 <!--/#middle-->
-        <img src="<%=request.getContextPath()%><fmt:message key="Overseas.Landing.Hero.Desktop" bundle="${msg}" />" alt="<fmt:message key="Overseas.Landing.Hero.Image.Alt" bundle="${msg}" />">
+        <img src="<%=request.getContextPath()%>/<fmt:message key="oversea.hero.image" bundle="${msg}" />" alt="<fmt:message key="Overseas.Landing.Hero.Image.Alt" bundle="${msg}" />">
          </div>
       <!--/.item--> 
     </div>
     <!--/.carousel inner--> 
   </div> 
+  <div class="tagline-holder hidden-xs hidden-sm">
+      <img src="<%=request.getContextPath()%>/<fmt:message key="oversea.hero.tagline" bundle="${msg}" />" class="img-responsive">
+  </div>
   <!--/.carousel--> 
 	<section id="middle" class="banner-overlay-wrapper">
 		<div class="oversea-middle" style="background:none;">
@@ -64,7 +71,7 @@ function prepareOverseaPlan(form){
 								<tbody>
 									<tr>  
 										<td align="center" class="col-md-2 pad-none">
-											<button style="height:70px;" type="submit" class="oversea-cta border-radius cta-btn btn btn-primary get-btn "><fmt:message key="Overseas.Landing.GetQuote" bundle="${msg}" /></button>
+											<button type="submit" class="oversea-cta border-radius cta-btn btn btn-primary get-btn "><fmt:message key="Overseas.Landing.GetQuote" bundle="${msg}" /></button>
 										</td>
 									</tr>
 								</tbody>
@@ -84,13 +91,17 @@ function prepareOverseaPlan(form){
 			</div>
 			<div class="clearfix"></div>
 		</div> 					
-	    <div class="banner-message-wrapper row">
+	    <div class="banner-message-wrapper row hidden-xs hidden-sm">
 		<p class="container banner-message"><fmt:message key="Overseas.Landing.H1" bundle="${msg}" /></p>
 	    </div>
 	    <!--/.row--> 
 	</section>
 	<!--</form>-->
 </section>
+<div class="banner-message-wrapper hidden-lg hidden-md">
+	<p class="container banner-message"><fmt:message key="Overseas.Landing.H1" bundle="${msg}" /></p>
+</div>
+
 
 <section id="feature"  class="hidden-sm hidden-xs" style="margin-top:40px;">		
     <div id="oversea_feature" class="oversea_feature" style="display: block;">
@@ -322,7 +333,7 @@ function prepareOverseaPlan(form){
       </div>
       <div class="col-xs-12 col-sm-4 col-md-4 pad-none ">
         <div class="recent-work-wrap wrap text-center claim-pillar-wrapper">
-          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim.png" alt="">
+          <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim_pillar.png" alt="">
             <h1><fmt:message key="Overseas.Landing.Platformpillar2.headline" bundle="${msg}" /></h1>
             <p><fmt:message key="Overseas.Landing.Platformpillar2.copy" bundle="${msg}" /></p>
             </p>
@@ -372,7 +383,7 @@ function prepareOverseaPlan(form){
         <div class="container">
           <div class="row slide-margin">
             <div class="recent-work-wrap text-center">
-              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim.png" alt=""> 
+              <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim_pillar.png" alt=""> 
 				<h2><fmt:message key="Overseas.Landing.Platformpillar2.headline" bundle="${msg}" /></h2>
 				<p><fmt:message key="Overseas.Landing.Platformpillar2.copy" bundle="${msg}" /></p>
               </div>
@@ -406,3 +417,13 @@ function prepareOverseaPlan(form){
 </section>
   <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
   <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>
+
+  </script>
+
+<style>
+   @media screen and (max-width: 991px) {
+   body {
+      /* Hero image Position Fix*/
+      padding-top: 95px;
+   }
+</style>
