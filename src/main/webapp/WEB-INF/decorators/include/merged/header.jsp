@@ -718,12 +718,12 @@ function submitLoginForm(formID) {
 			if (request.getServletPath().equals("/en")) {
 		%>
 		<a class="lang pull-right" id="anchor-lang"
-			href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/">ÖÐÎÄ</a>
+			href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/en/">中文</a>
 		<%
 			} else {
 		%>
 		<a class="lang pull-right" id="anchor-lang"
-			href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">ÖÐÎÄ</a>
+			href="<%=request.getContextPath()%>/changeLang?selectLang=tc&action=<%=request.getServletPath()%>">中文</a>
 
 		<%
 			}

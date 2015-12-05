@@ -534,6 +534,7 @@ ul.maintabs li a span.special-offer:hover {
 	padding: 8px 65px !important;
 	font-size: 30px;
 	font-weight: 700;
+	line-height: 30px;
 }
 
 #bottom-form .h3-i {
@@ -7023,7 +7024,7 @@ select#selectHkidPass, .selectHkidPass { /*width:98% !important;*/
   font-size: 30px;*/
 	margin-top: 0;
 	padding: 8px 30px !important;
-	min-width: 300px;
+	min-width: 235px;
 	line-height: 30px;
 }
 
