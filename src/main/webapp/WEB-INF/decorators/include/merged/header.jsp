@@ -1146,6 +1146,22 @@ function submitLoginForm(formID) {
 <!--End Mobile header-->
 <!--/header-->
 <script>
+$(function() {
+    var pageControllerName = "#<%=actionName%>";
+    var faqProductLink = "<%=request.getContextPath()%>/<fmt:message key='footer.menu.faq.link' bundle='${msg}' />";
+    //console.log(faqProductLink);
+    $("#faqProductLink").attr("href", ""+ faqProductLink + pageControllerName + "");
+    var faqLinkRe = new RegExp(/^faq/);
+    var langFaqProductLink = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
+    console.log(faqLinkRe.test(langFaqProductLink));
+//     if(faqLinkRe.test(langFaqProductLink)){
+<%--         <%if ("en".equals(session.getAttribute("language").toString())) {%> --%>
+<%--         $("#anchor-lang").attr("href", "<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/tc/"+langFaqProductLink+""); --%>
+<%--     	<%} else {%> --%>
+<%--     	$("#anchor-lang").attr("href", "<%=request.getContextPath()%>/"+langFaqProductLink+"changeLang?selectLang=tc&action=/en/"+langFaqProductLink+""); --%>
+<%--     	<%}%> --%>
+//     }
+});
 	function centerModals($element) {
 	    var $modals;
 	    if ($element.length) {

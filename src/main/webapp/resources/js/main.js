@@ -409,10 +409,13 @@ $('.faq_qna').click(function(e){
 });
 
 
-
-function faqChangeCare(element, care){
+function faqChangeCare(element, care, remote){
 	$(".faq_menu_item").removeClass('active');
-	$(element).addClass('active');
+	if(remote == false){
+		$(element).addClass('active');
+	}else if(remote == true){
+		$("#"+element).addClass('active');
+	}
 	
 	$(".faq_care_container").hide();
 	$("#faq_"+care).show();

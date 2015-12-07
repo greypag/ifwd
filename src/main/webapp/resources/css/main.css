@@ -8564,7 +8564,7 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 	border-bottom-width: 5px;
 }
 
-.faq_container .faq_menu_item {
+/*.faq_container .faq_menu_item {
 	float: left;
 	text-align: center;
 	padding: 20px;
@@ -8573,6 +8573,34 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 	background-color: #fff;
 	color: #000;
 	cursor: pointer;
+}*/
+.faq_container .faq_menu_item {
+    float: left;
+    text-align: center;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    background-color: #fff;
+    border-color: #f6871e;
+    border-style: solid;
+    border-width: 2px;
+    color: #f6871e;
+    cursor: pointer;
+}
+.faq-btn-wrapper,.faq-btn-wrapper-bottom{
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+.faq-btn-wrapper-bottom{
+	margin-bottom: 40px;
+}
+.faq-btn-wrapper .faq_menu_item,.faq-btn-wrapper-bottom .faq_menu_item{
+	float: left;
+	width: 22%;
+	margin-right: 4%;
+}
+.faq-btn-wrapper .faq_menu_item.last,.faq-btn-wrapper-bottom .faq_menu_item.last{
+	margin-right: 0;
 }
 
 .faq_container .faq_menu_item:hover {
