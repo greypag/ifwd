@@ -1523,3 +1523,331 @@ body{
 #landscapeWarningDiv div.divContent div.startButton:active{
 	background: url("../../images/mini-calculator/start_btn.png") right no-repeat;
 }
+/******** Desktop header menutab v2 ********/
+.mob-login-form-wrapper{
+    display: none;
+}
+@media ( min-width : 992px){
+    .no-padding{
+        padding:0;
+    }
+    .protect-save-enjoy-tab{
+        font-size: 24px;    
+    }
+    ul.menutab-V2{
+        flaot:right;
+        font-size:24px;
+        margin:0;
+        padding:0;
+    }
+    ul.menutab-V2 li.dropdown:hover .dropdown-menu{
+        display: block;
+        margin-top: 0;
+        width:510%;
+        border-top:1px;
+        background-clip: border-box;
+        text-align:left;
+        padding: 20px 40px 20px 44px;
+    }
+    ul.menutab-V2 li.dropdown:hover .dropdown-menu.one-column{
+        width:201%;
+    }
+    .dropdown-menu.one-column.enjoy-tab{
+        left:-100%;
+    }
+    .dropdown-menu.protect-tab{
+        left:-209%;
+    }
+    ul.maintabs .dropdown-menu li.menu-subtitle{
+        color: #373a36;
+        font-size: 22px;
+        font-weight: 700;
+    }
+    ul.maintabs li li.menu-link, li.menu-subtitle{
+        display:block;
+        line-height: 2;
+    }
+    ul.maintabs .dropdown-menu ul,
+    ul.maintabs .dropdown-menu ul:hover,
+    ul.maintabs .dropdown-menu ul li.menu-subtitle *,
+    ul.maintabs .dropdown-menu ul li.menu-link *,
+    ul.maintabs .dropdown-menu ul li.menu-subtitle:hover,
+    ul.maintabs .dropdown-menu ul li.menu-subtitle:hover *,
+    ul.maintabs .dropdown-menu ul li.menu-link:hover{
+        background-color: #fff;
+    }
+    ul.maintabs .dropdown-menu ul li.menu-link:hover{
+        color: #9fb1b2;
+    }
+    ul.maintabs.menutab-V2 .dropdown-menu li.menu-link *{
+        color: #f6871e;
+        font-size: 18px;
+    }
+    ul.maintabs.menutab-V2 .dropdown-menu li.menu-link:hover * {
+        color: #9fb1b2;
+        font-size: 18px;
+    }
+    ul.maintabs.menutab-V2 .dropdown-menu li.menu-link a{
+        font-size: 18px;
+        font-weight: 300;
+    }
+    ul.maintabs.menutab-V2 .dropdown-menu li.menu-link span.glyphicon-chevron-right {
+        margin-right:7px;
+        font-size: 11px;
+    }
+    .middle-group{
+        border-left-style: solid;
+        border-width: 1px;
+        border-color: #9fb1b2;
+        border-right-style: solid;
+        margin-right: 5%;
+        padding-left: 5%;   
+    }
+}
+
+/******** End of desktop header menutab v2 ********/
+/******** Start of mobile header menu v2 ********/
+@media screen and (max-width: 991px) {
+    body {
+       padding-top: 95px;
+    }
+    div.mobile-menu-V2{
+        width:100%;
+    }    
+    div.mobile-menu-V2 div.wd2{
+        margin:0;
+        width:100%;
+        text-align:left;
+        background-color: #061d29;
+    }
+    div.mobile-menu-V2 div.wd2>a#fwd-login{
+        font-size: 24px;
+        color: #fff;
+        background-color: #061d29;
+    }
+    #myDropdownMob div.drop-width a,#myDropdownMob div.drop-width li{
+        color: #fff !important;
+    }
+    div.mobile-menu-V2 div.wd2>a#fwd-login:hover,div.mobile-menu-V2 div.wd2>a#fwd-login:focus{
+        background-color: #061d29;
+        color: #fff;
+    }
+    .navbar-default .navbar-toggle.mob-menu-btn .icon-bar{
+        background-color: #f68a1d;
+        width:40px;
+        height:6px;
+    }
+    div.mobile-menu-V2 .navbar-nav>li.dropdown{
+        margin-left:0;
+        background-color: #f68a1d;
+    }
+    div.mobile-menu-V2 .navbar-nav{
+        margin: 0 -15px;
+    }
+    div.mobile-menu-V2 .navbar-nav>li.dropdown.link-btn>a,
+    div.mobile-menu-V2 .navbar-nav>li.dropdown.link-btn>a:focus,
+    div.mobile-menu-V2 .navbar-nav>li.dropdown.link-btn>a:hover{
+       padding:12px 30px;
+       color: #fff;
+       background-color: #f68a1d;
+    }
+    div.mobile-menu-V2 .navbar-nav>li.dropdown.border-bottom{
+        border-width: 0 0 2px 0;
+        border-style: solid;
+        border-color: #fff;        
+    }
+    div.mobile-menu-V2 .navbar-nav>li.dropdown>a,div.mobile-menu-V2 .navbar-nav>li.dropdown>a:focus{
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+        background-color: #f68a1d;
+        padding:0;
+        line-height:1.2;
+    }
+    .navbar-default .mob-menu-btn.navbar-toggle:hover, .navbar-default .mob-menu-btn.navbar-toggle:focus,.navbar-default .navbar-toggle.mob-menu-btn{
+        background-color: transparent;
+        border-color: transparent;
+        outline-color: transparent;
+        margin: 7px 30px 0 0;
+    }
+    li.menu-link-grp-title>a,li.menu-link-grp-title>a:hover{
+        font-size: 18px;
+        font-weight: 700;
+        color: #000000 !important;
+        background-color: #f0f3f5 !important;
+    }
+    .mobile-menu-V2 li.menu-link{
+        border-bottom:1px solid #f2f5f6;
+        background-color: #fff;
+    }
+    .mobile-menu-V2 .navbar-nav .dropdown-menu>li.menu-link a{
+        font-size: 18px;
+        color: #ff8201;
+        background-color: #fff;
+        display: inline-block;
+        padding-left:25px !important;
+    }
+    .mobile-menu-V2 .navbar-nav .dropdown-menu>li.menu-link:hover a,
+    .mobile-menu-V2 .navbar-nav .dropdown-menu>li.menu-link:hover span{
+        color: #9fb1b2;
+    }
+    .mobile-menu-V2 .navbar-nav .dropdown-menu>li.menu-link span{
+        font-size: 12px;
+        color: #ff8201;
+        padding-left:25px;
+    }
+    li.menu-link-grp-title>ul.dropdown-menu,li.link-btn>ul.dropdown-menu{
+        padding:0;
+    }
+    .mobile-menu-V2 .navbar-nav .open .dropdown-menu>li>a{
+        padding: 12px 30px;
+        line-height: 1.5;
+    }
+    .col-sm-12.nav.navbar-nav{
+        padding: 0;
+    }
+    .login-form{
+        top: 10;
+        z-index: 2000;
+    }
+    a.navbar-brand>img{
+        padding: 10px 0;
+        margin-left: 30px;
+    }
+    .mob-login-form-wrapper{
+        display:none;
+    }
+    .mob-login-form-wrapper.open{
+        display:block;
+    }
+    .link-arrow{
+        margin-top:8px;
+        float:right;
+    }
+    .hidden-label{
+        display:none;
+    }
+.mob-header {
+    position: relative;
+}
+
+.mob-topbar {
+    background-color: #061d29;
+    line-height: 35px;
+    height: 35px;
+}
+
+.mob-topbar a {
+    color: #f5f5f5;
+}
+.mob-topbar .chat {
+    background-color: #FF8200;
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    padding: 0 20px;
+}
+
+.mob-topbar .callus {
+    font-weight: bold;
+    float: left;
+    font-size: 18px;
+    padding: 0 0 0 20px !important;
+    line-height: 35px;
+    color: #fff;
+}
+
+.mob-topbar .lang {
+    line-height: 35px;
+    padding: 0 20px;
+    background-color: #000;
+}
+
+	.logobox {
+	    border-bottom: 1px solid #f68a1d;
+	}
+	a.navbar-brand{
+	   height: auto;
+	}
+	.navbar-toggle{
+	   width: 50px;
+	}
+}
+
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+    max-height: 440px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+	.navbar-nav .open .dropdown-menu {
+	    position: static;
+	    float: none;
+	    width: auto;
+	    margin-top: 0;
+	    background-color: transparent;
+	    border: 0;
+	    box-shadow: none
+	}	
+    .navbar-fixed-top div.logobox>div.navbar-collapse.mobile-menu-V2{
+        display:none !important;
+        max-height: 475px;
+        overflow-x: visible;
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top div.logobox>div.navbar-collapse.mobile-menu-V2.in{
+        display:block !important;
+    }
+    .col-sm-12.nav.navbar-nav{
+        padding: 0;
+        margin: 0;   
+    }
+    #myDropdownMob div.drop-width{
+        width: 768px !important;
+        border-style: none;
+        padding: 0;     
+    }
+    #myDropdownMob div.drop-width>ul{
+        background-color: #061d29;       
+    }
+    body {
+        padding-top: 95px;
+    }
+}
+/******** End of mobile header menu v2 ********/
+/******** CSS merge for Savie Navbar ********/
+.travel-and-home-tab, .protect-save-enjoy-tab {
+    /*top: 47px;*/
+    top: 30px;
+    position: relative;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+/******** Mobile header fix ********/
+@media screen and (max-width: 767px){
+    .mob-topbar .chat,.mob-topbar .lang{
+       font-size: 14px;
+    }
+    .mob-topbar .callus{
+       font-size: 16px;
+    }
+    .mob-topbar .chat{
+       padding: 0 18px;
+    }
+}
+@media screen and (max-width: 320px){
+     .mob-topbar .callus{
+       font-size: 12px;
+       padding: 0 10px 0 10px !important;
+     }     
+}
+@media screen and (max-width: 991px){
+    #myDropdownMob.modal-dialog{
+       margin-top: 35%;
+    }
+    .modal-open {
+        position: fixed;
+        width: 100%;
+        overflow: hidden;
+    }   
+}
