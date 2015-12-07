@@ -89,7 +89,7 @@ $(document).ready(function(){
 				  <li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer1" bundle="${msg}" /></a> <i class="fa fa-chevron-right"></i></li>
 				  <li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer2" bundle="${msg}" /></a></li> <i class="fa fa-chevron-right"></i></li>
 				  <li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer3" bundle="${msg}" /></a></li>
-				  <li class="active "><i class="fa fa-chevron-right"></i><fmt:message key="Overseas.Landing.Breadcrumb.step3" bundle="${msg}" /></li>
+				  <li class="active "><i class="fa fa-chevron-right"></i><fmt:message key="Overseas.payment.progressbar.item3" bundle="${msg}" /></li>
                 </ol>
                 <div class="oversea-summary-detail-wrapper container pad-none bdr ur-opt-content gray-bg3">
                     <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pad-none white-bg1 summary-container product_summary_container">

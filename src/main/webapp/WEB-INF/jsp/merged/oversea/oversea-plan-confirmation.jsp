@@ -21,10 +21,10 @@
     <div class="row">
       <form>
         <ol class="breadcrumb pad-none">
-          <li><a href="#">Home</a> <i class="fa fa-chevron-right"></i></li>
-          <li><a href="#">Protect</a></li> <i class="fa fa-chevron-right"></i></li>
-		   <li><a href="#">Overseas StudyCare Insurance</a></li>                                  <!-- <fmt:message key="Overseas.Confirmation.breadcrumb" bundle="${msg}" /> -->
-          <li class="active "><i class="fa fa-chevron-right"></i> Confirmation</li>
+                    <li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer1" bundle="${msg}" /></a> <i class="fa fa-chevron-right"></i></li>
+                    <li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer2" bundle="${msg}" /></a><i class="fa fa-chevron-right"></i></li>
+                    <li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer3" bundle="${msg}" /></a></li>                                  <!-- <fmt:message key="Overseas.Confirmation.breadcrumb" bundle="${msg}" /> -->
+          <li class="active "><i class="fa fa-chevron-right"></i><fmt:message key="Overseas.Landing.Breadcrumb.step4" bundle="${msg}" /></li>
         </ol>
 
         
