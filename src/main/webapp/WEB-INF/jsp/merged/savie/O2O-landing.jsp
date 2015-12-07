@@ -39,9 +39,14 @@ var home_url = "<%=request.getContextPath()%>";
 				</div>
 			</div>-->
 			
-			<div class="text-center o2o-landing banner-widget hunger-selling container-fluid">
-				<img class="mobile-banner" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.banner.image.mobile" bundle="${msg}" />" />
-				<img class="desktop-banner" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.banner.image.desktop" bundle="${msg}" />" />
+			
+			
+			<div class="text-center o2o-landing banner-widget hunger-selling container-fluid p_savie">
+				<img class="mobile-banner" src="<%=request.getContextPath()%>/<fmt:message key="savie.hero.image.mobile" bundle="${msg}" />" />
+				<div class="tagline-holder hidden-md hidden-lg">
+					<img src="<%=request.getContextPath()%>/<fmt:message key="savie.hero.tagline" bundle="${msg}" />" title="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" alt="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" class="img-responsive">
+				</div>
+				<img class="desktop-banner" src="<%=request.getContextPath()%>/<fmt:message key="savie.hero.image" bundle="${msg}" />" />
 				<!--<div class="fwd-container container-fluid breadcrumbs">
 					<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
 						<li><a href="#"><fmt:message key="savie.o2o.landing.Home" bundle="${msg}" /></a></li>
@@ -50,8 +55,8 @@ var home_url = "<%=request.getContextPath()%>";
 					</ol>
 				</div>-->
 
-				<div class="text-content hunger-img">
-					<img src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.hero.tagline.image.desktop" bundle="${msg}" />" title="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" alt="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" class="img-responsive">
+				<div class="tagline-holder">
+					<img src="<%=request.getContextPath()%>/<fmt:message key="savie.hero.tagline" bundle="${msg}" />" title="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" alt="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" class="img-responsive">
 				</div>
 				
 				<form action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}" method="post">
