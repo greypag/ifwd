@@ -269,6 +269,7 @@ function coverageToggleGoto(id){
 	if(id=="1"){
 		coverageToggle('#SummaryofCoverageContent','open');
         coverageToggle('#MedicalExpensesInnerContent','close');
+        coverageToggle('#TopupInPatientMedicalExpensesInnerContent','close');
 		coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','open');
         coverageToggle('#PersonalLiabilityInnerContent','close');
         //$('#WorldwideEmergencyAssistanceServicesInnerContent').slideDown("slow");
@@ -283,6 +284,8 @@ function coverageToggleGoto(id){
         
 		$('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
         $('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-minus');
+        $('#TopupInPatientMedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
+        $('#TopupInPatientMedicalExpensesInnerContent').prev().children().children().removeClass('fa-minus');
         $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().addClass('fa-minus');
         $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().removeClass('fa-plus');
         $('#SummaryofCoverage').find('h4').find('i').removeClass('fa-chevron-down');
@@ -290,6 +293,7 @@ function coverageToggleGoto(id){
    	}else if(id=="2"){
         coverageToggle('#SummaryofCoverageContent','open');
         coverageToggle('#MedicalExpensesInnerContent','open');
+        coverageToggle('#TopupInPatientMedicalExpensesInnerContent','close');
         coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','close');
         coverageToggle('#PersonalLiabilityInnerContent','close');
        // $('#MedicalExpensesInnerContent').slideDown("slow");
@@ -307,6 +311,8 @@ function coverageToggleGoto(id){
         
         $('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-minus');
         $('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-plus');
+        $('#TopupInPatientMedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
+        $('#TopupInPatientMedicalExpensesInnerContent').prev().children().children().removeClass('fa-minus');
         $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().addClass('fa-plus');
         $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().removeClass('fa-minus');
         $('#SummaryofCoverage').find('h4').find('i').removeClass('fa-chevron-down');
@@ -314,6 +320,7 @@ function coverageToggleGoto(id){
     }else if(id=="3"){
         coverageToggle('#SummaryofCoverageContent','open');
         coverageToggle('#MedicalExpensesInnerContent','close');
+        coverageToggle('#TopupInPatientMedicalExpensesInnerContent','close');
         coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','close');
         coverageToggle('#PersonalLiabilityInnerContent','open');
         //$('#PersonalLiabilityInnerContent').slideDown("slow");
@@ -329,12 +336,43 @@ function coverageToggleGoto(id){
         
         $('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
         $('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-minus');
+        $('#TopupInPatientMedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
+        $('#TopupInPatientMedicalExpensesInnerContent').prev().children().children().removeClass('fa-minus');
         $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().addClass('fa-plus');
         $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().removeClass('fa-minus');
         $('#PersonalLiabilityInnerContent').prev().children().children().addClass('fa-minus');
         $('#PersonalLiabilityInnerContent').prev().children().children().removeClass('fa-plus');
         $('#SummaryofCoverage').find('h4').find('i').removeClass('fa-chevron-down');
         $('#SummaryofCoverage').find('h4').find('i').addClass('fa-chevron-up');
+    }else if(id=="4"){
+        coverageToggle('#SummaryofCoverageContent','open');
+        coverageToggle('#MedicalExpensesInnerContent','close');
+        coverageToggle('#TopupInPatientMedicalExpensesInnerContent','open');
+        coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','close');
+        coverageToggle('#PersonalLiabilityInnerContent','close');
+        
+        //TopupInPatientMedicalExpensesInnerContent
+        //$('#PersonalLiabilityInnerContent').slideDown("slow");
+        $('html, body').animate({
+            scrollTop: $('#TopupInPatientMedicalExpensesInnerContent').offset().top
+        }, 500);
+        /*
+        $('#SummaryofCoverageContent').animate({
+            scrollTop: $('#PersonalLiabilityInnerContent').slideUp("fast")
+        }, 500);
+        */
+        $('#TopupInPatientMedicalExpensesInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#TopupInPatientMedicalExpensesInnerContent'));
+        
+        $('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
+        $('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-minus');
+        $('#TopupInPatientMedicalExpensesInnerContent').prev().children().children().removeClass('fa-plus');
+        $('#TopupInPatientMedicalExpensesInnerContent').prev().children().children().addClass('fa-minus');
+        $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().addClass('fa-plus');
+        $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().removeClass('fa-minus');
+        $('#PersonalLiabilityInnerContent').prev().children().children().addClass('fa-minus');
+        $('#PersonalLiabilityInnerContent').prev().children().children().removeClass('fa-plus');
+        $('#SummaryofCoverage').find('h4').find('i').addClass('fa-chevron-down');
+        $('#SummaryofCoverage').find('h4').find('i').removeClass('fa-chevron-up');
     }
 }
 function coverageToggle(id,action){
@@ -581,7 +619,7 @@ $(document).ready(function() {
                                 <fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit3.Amount" bundle="${msg}" />
                             </div>
                             <div class="sub-link">
-                                <a onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2.Tooltip" bundle="${msg}" /></a>
+                                <a onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2.Tooltip" bundle="${msg}" /> <!--<img src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""  class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title=" " onmouseover="this.style.cursor='pointer';">--></a>
                             </div>
                         </div>
                         
@@ -603,7 +641,7 @@ $(document).ready(function() {
 								<fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Amount" bundle="${msg}" />
                             </div>
                             <div class="sub-link">
-								<a  onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Tooltip" bundle="${msg}" /></a>
+								<a  onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Tooltip" bundle="${msg}" /> <!--<img src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""  class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title=" " onmouseover="this.style.cursor='pointer';">--></a>
 							</div>
                         </div>
                         
@@ -650,7 +688,10 @@ $(document).ready(function() {
                         
                         <div class="planDetails" id="plan-coverage-box6" style="padding:1em;display:none">
                             <div class="plan-coverage-box-l">
-                                <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit1" bundle="${msg}" />
+                                <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit1" bundle="${msg}" /><a class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title="<fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit1.Tooltip" bundle="${msg}" />" onclick="coverageToggleGoto(4)" onmouseover="this.style.cursor='pointer';">
+                    <img src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""></a>
+                    
+                    
                             </div>
                             <div class="plan-coverage-box-r">
                                 <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit1.Amount" bundle="${msg}" />
@@ -685,7 +726,7 @@ $(document).ready(function() {
                                 <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Amount" bundle="${msg}" />
                             </div>
                             <div class="sub-link">
-                                <a  onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Tooltip" bundle="${msg}" /></a>
+                                <a  onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Tooltip" bundle="${msg}" /> <!--<img src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""  class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title=" " onmouseover="this.style.cursor='pointer';">--></a>
 							</div>
                         </div>
 
@@ -759,7 +800,7 @@ $(document).ready(function() {
                                     </h4>
                                 </div>
                                 <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;" id="MedicalExpensesInnerContent">
-                                   <div class="row product_plan_panel_inner_content_row" id="MedicalExpensesInnerContentRow">
+                                   <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
                                                 <thead>
@@ -790,7 +831,7 @@ $(document).ready(function() {
                                         <i class="fa fa-plus"></i>
                                     </h4>
                                 </div>
-                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;">
+                                <div class="fwdpanel-body product_plan_inner_panel_content" style="display: none;" id="TopupInPatientMedicalExpensesInnerContent">
                                    <div class="row product_plan_panel_inner_content_row">
                                         <div class="col-xs-12">
                                             <table>
