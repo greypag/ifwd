@@ -434,12 +434,10 @@ $(document).ready(function() {
           <div class="col-lg-5 col-xs-5 col-sm-5 col-md-5"><fmt:message key="Overseas.PlanOptions.AsiaCountries.desktop.col2" bundle="${msg}" /></div>
           <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3"><fmt:message key="Overseas.PlanOptions.AsiaCountries.desktop.col3" bundle="${msg}" /></div>
         </div>
-
         <div class="row plan-display-mobile-only">
           <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6"><fmt:message key="Overseas.PlanOptions.AsiaCountries.mobi.col1" bundle="${msg}" /></div>
           <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6"><fmt:message key="Overseas.PlanOptions.AsiaCountries.mobi.col1" bundle="${msg}" /></div>
-          <div class="col-lg-3 col-md-3">
-</div>
+          <div class="col-lg-3 col-md-3"></div>
         </div>
       </div>
       <div class="modal-footer" style="text-align:center">
@@ -499,7 +497,7 @@ $(document).ready(function() {
 								
 									<div class="plan-box-s travelproductbox oversea_productbox  pad-left-des" id="box${i+1}" onClick="changeColorAndPrice('box${i+1}','${i+1}','txtPlanName${i+1}','txtDiscountAmount${i+1}','txtTotalDue${i+1}')">
 										<div class="" style="">
-											<h3 class="plan-display-mobile-only"><fmt:message key="Overseas.PlanOptions.Plans.table1.col2.header" bundle="${msg}" /></h3>
+											<h3 class="plan-display-mobile-only"><fmt:message key="Overseas.PlanOptions.Plans.table1.col3.header" bundle="${msg}" /></h3>
 											<h2>HK$ <span id="total${i+1}"><fmt:formatNumber type="number" maxFractionDigits="3" value="${quoteDetails.totalNetPremium[j+1] }" />.00</span></h2>
 										</div>
 										<div class="clearfix"></div>
@@ -527,9 +525,15 @@ $(document).ready(function() {
 							</div>
                             <div class="plan-coverage-box-l">
                                 <fmt:message key="Overseas.PlanOptions.WorldwideStandardplanA.Benefit2" bundle="${msg}" />
-							</div>
+                            </div>
                             <div class="plan-coverage-box-r">
                                 <fmt:message key="Overseas.PlanOptions.WorldwideStandardplanA.Benefit2.Amount" bundle="${msg}" />
+                            </div>
+                            <div class="plan-coverage-box-l">
+                                <fmt:message key="Overseas.PlanOptions.WorldwideStandardplanA.Benefit3" bundle="${msg}" />
+                            </div>
+                            <div class="plan-coverage-box-r">
+                                <fmt:message key="Overseas.PlanOptions.WorldwideStandardplanA.Benefit3.Amount" bundle="${msg}" />
                             </div>
                             <div class="sub-link">
                                 <a  onclick="coverageToggleGoto(1)"><fmt:message key="Overseas.PlanOptions.WorldwideStandardplanA.Benefit.textlink" bundle="${msg}" /></a>
@@ -565,10 +569,16 @@ $(document).ready(function() {
 								<fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit1.Amount" bundle="${msg}" />
                             </div>
                             <div class="plan-coverage-box-l">
-								<fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2" bundle="${msg}" />
+                                <fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2" bundle="${msg}" />
                             </div>
                             <div class="plan-coverage-box-r">
-								<fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2.Amount" bundle="${msg}" />
+                                <fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2.Amount" bundle="${msg}" />
+                            </div>
+                            <div class="plan-coverage-box-l">
+                                <fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit3" bundle="${msg}" />
+                            </div>
+                            <div class="plan-coverage-box-r">
+                                <fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit3.Amount" bundle="${msg}" />
                             </div>
                             <div class="sub-link">
                                 <a onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2.Tooltip" bundle="${msg}" /></a>
@@ -1950,9 +1960,14 @@ $(document).ready(function() {
 						<div class="hidden-sm hidden-xs">
 							<div class="wd2">
 								<div class="pull-left" style="">
+								<!-- 
 								    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="Overseas.Planname.title" bundle="${msg}" /></h2>
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;" id="seletedplanname"></h2>
 									<h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanregion"></h4>
+									 -->
+                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="Overseas.PlanOptions.PlanSelected.line1" bundle="${msg}" /></h2>
+                                    <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;" id="seletedplanname"></h2>
+                                    <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanregion"></h4>
 									<input type="hidden" name="planName" id="inputseletedplanname" value="">	
 								</div>
 								<div class="clearfix"></div>
