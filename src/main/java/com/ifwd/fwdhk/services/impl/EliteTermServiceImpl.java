@@ -679,6 +679,10 @@ public class EliteTermServiceImpl implements EliteTermService {
 				final Map<String,String> headerEmail = headerUtil.getHeader(request);
 				headerEmail.put("language", "ZH");
 				String subject = "FWD Elite Term – Complete["+policyNo+"]";
+				String policyUserName = (String) request.getSession().getAttribute("policyUserName");
+				if(StringUtils.isNotEmpty(policyUserName)){
+					subject = "FWD Elite Term – Upload Complete["+policyNo+"]";
+				}
 				String attachment = "";
 				String from = "Fanny at FWD HK <i-services.hk@fwd.com>";
 				
@@ -924,7 +928,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 						"    </div>  "+
 						"  </body>";
 				
-				String[] emailList = {request.getSession().getAttribute("eliteTermEmail").toString(), "i-direct.hk@fwd.com"};
+				String[] emailList = {userDetails.getEmailAddress(), "i-direct.hk@fwd.com"};
 				for (int i=0; i<emailList.length; i++) {
 					org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
 					parametersEmail.put("to", emailList[i]);
@@ -956,7 +960,6 @@ public class EliteTermServiceImpl implements EliteTermService {
 			org.json.simple.JSONObject policy = (org.json.simple.JSONObject) jsonRelationShipCode.get("policy");
 			 userName = (String) policy.get("userName");
 		}
-		request.getSession().setAttribute("eliteTermEmail","stephen.cf.lai@fwd.com");
 		return userName;
 	}
 	
