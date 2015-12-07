@@ -571,6 +571,10 @@ public class EliteTermServiceImpl implements EliteTermService {
 			}			
 
 			request.getSession().setAttribute("sendEmailOrNot", "yes");
+			
+			request.getSession().removeAttribute("creditCaredNo");
+			request.getSession().removeAttribute("expiryDate");
+			request.getSession().removeAttribute("cardHolderName");
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl sendEliteTermMail occurs an exception!");
 			logger.info(e.getMessage());
