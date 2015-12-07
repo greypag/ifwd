@@ -59,7 +59,6 @@ public class OverseaController extends BaseController{
 		UserRestURIConstants.setController("Oversea");
 		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
-		session.removeAttribute("referralCode");
 		if (promo != null) {
 			if (!promo.equals("")) {
 				session.setAttribute("referralCode", StringHelper.emptyIfNull(promo));
@@ -229,13 +228,16 @@ public class OverseaController extends BaseController{
 		session.setAttribute("originalAmount", originalAmount);
 		
 		String selectPlanName = planSelected;
-		//String deaprtureDate = DateApi.pickDate1((String)session.getAttribute("departureDate"));
-		//String returnDate = DateApi.pickDate1((String) session.getAttribute("returnDate"));
-		String applicantFullName = planDetailsForm.getFullName();
+		/*String applicantFullName = planDetailsForm.getFullName();
 		String applicantHKID = planDetailsForm.getHkid();
 		String applicantMobNo = planDetailsForm.getMobileNo();
 		String emailAddress = planDetailsForm.getEmailAddress();
-		String dob = planDetailsForm.getApplicantDob();
+		String dob = planDetailsForm.getApplicantDob();*/
+		String applicantFullName = WebServiceUtils.getParameterValue("fullName", session, request);
+		String applicantHKID = WebServiceUtils.getParameterValue("hkid", session, request);
+		String applicantMobNo = WebServiceUtils.getParameterValue("mobileNo", session, request);
+		String emailAddress = WebServiceUtils.getParameterValue("emailAddress",	session, request);
+		String dob = WebServiceUtils.getParameterValue("applicantDob",	session, request);
 		dob = DateApi.pickDate1(dob);
 		
 		planDetailsForm = (OverseaDetailsForm) session.getAttribute("overseaPlanDetailsFormBySummary");
@@ -390,6 +392,7 @@ public class OverseaController extends BaseController{
 				//session.removeAttribute("annualTravelQuote");
 				session.removeAttribute("overseaCreatePolicy");
 				session.removeAttribute("travel-temp-save");
+				session.removeAttribute("overseaPlanDetailsFormBySummary");
 				session.setAttribute("policyNo", responsObject.get("policyNo"));
 				model.addAttribute("policyNo", responsObject.get("policyNo"));
 				model.addAttribute("emailAddress",
