@@ -90,6 +90,7 @@ var language = "${language}";
 										    
 										    <h4><fmt:message key="savie.servicecenter.address" bundle="${msg}" /></h4>
 										    <p>${list.address }</p>
+										    <p><a href="${list.map }" title="" class="et-btn-download-item" target="_blank">Veiw map</a></p>
 									    </div>
 							        </c:forEach>
 								</div>
