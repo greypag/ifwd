@@ -257,8 +257,11 @@ $('#et-upload-doc-submit-btn').on('click', function(e) {
 
 $('#iframe-et-upload-doc-submit-btn').on('click', function(e) {
     var $self = $(this);
+    var isHKPermanent = $('#residence-check').prop('checked');
     var isValid = isFHkidValidity($self);
-        isValid = isValid && isFPassportValidity($self);
+        if(!isHKPermanent) {
+        	isValid = isValid && isFPassportValidity($self);
+        }
         isValid = isValid && isFProfAddValidity($self);
     
     if (isValid) {     
