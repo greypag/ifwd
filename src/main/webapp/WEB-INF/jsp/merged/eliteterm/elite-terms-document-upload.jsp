@@ -471,7 +471,16 @@ var languageP = "${language}";
 			$('#residence-check').click(function(){
 				$('.passport-holder').toggle();
 				if(msieversion() > 0) {
-					$('#iframe-three').toggle();
+					
+	               	if( $('#iframe-two').hasClass('hide-element') ){
+	                  $('#iframe-three').css('left', '68%');
+	                  $('#iframe-two').removeClass('hide-element');
+	                  $('.iframe-holder .et-du-passport-tooltip').removeClass('hide-element');
+	               	} else {
+	                  $('#iframe-three').css('left', '34%');
+	                  $('#iframe-two').addClass('hide-element');
+	                  $('.iframe-holder .et-du-passport-tooltip').addClass('hide-element');
+	               	}
 				}
 			})
 			
