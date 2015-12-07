@@ -619,7 +619,7 @@ $(document).ready(function() {
                                 <fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit3.Amount" bundle="${msg}" />
                             </div>
                             <div class="sub-link">
-                                <a onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2.Tooltip" bundle="${msg}" /> <!--<img src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""  class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title=" " onmouseover="this.style.cursor='pointer';">--></a>
+                                <a onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit2.Tooltip" bundle="${msg}" /> <!--<img src="<%=request.getContextPath()%>/resources/images/oversea/oversea-tooltip.png" alt=""  class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title=" " onmouseover="this.style.cursor='pointer';">--></a>
                             </div>
                         </div>
                         
@@ -641,7 +641,7 @@ $(document).ready(function() {
 								<fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Amount" bundle="${msg}" />
                             </div>
                             <div class="sub-link">
-								<a  onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Tooltip" bundle="${msg}" /> <!--<img src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""  class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title=" " onmouseover="this.style.cursor='pointer';">--></a>
+								<a  onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanB.Benefit2.Tooltip" bundle="${msg}" /> <!--<img src="<%=request.getContextPath()%>/resources/images/oversea/oversea-tooltip.png" alt=""  class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title=" " onmouseover="this.style.cursor='pointer';">--></a>
 							</div>
                         </div>
                         
@@ -689,7 +689,7 @@ $(document).ready(function() {
                         <div class="planDetails" id="plan-coverage-box6" style="padding:1em;display:none">
                             <div class="plan-coverage-box-l">
                                 <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit1" bundle="${msg}" /><a class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title="<fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanA.Benefit1.Tooltip" bundle="${msg}" />" onclick="coverageToggleGoto(4)" onmouseover="this.style.cursor='pointer';">
-                    <img src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""></a>
+                    <img src="<%=request.getContextPath()%>/resources/images/oversea/oversea-tooltip.png" alt=""></a>
                     
                     
                             </div>
@@ -726,7 +726,7 @@ $(document).ready(function() {
                                 <fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Amount" bundle="${msg}" />
                             </div>
                             <div class="sub-link">
-                                <a  onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Tooltip" bundle="${msg}" /> <!--<img src="<%=request.getContextPath()%>/resources/images/ic.png" alt=""  class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title=" " onmouseover="this.style.cursor='pointer';">--></a>
+                                <a  onclick="coverageToggleGoto(2)"><fmt:message key="Overseas.PlanOptions.AsiaComprehensivemedicalplanB.Benefit2.Tooltip" bundle="${msg}" /> <!--<img src="<%=request.getContextPath()%>/resources/images/oversea/oversea-tooltip.png" alt=""  class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title=" " onmouseover="this.style.cursor='pointer';">--></a>
 							</div>
                         </div>
 
