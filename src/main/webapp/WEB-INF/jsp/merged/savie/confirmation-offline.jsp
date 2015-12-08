@@ -85,6 +85,48 @@ var affiliate = "${affiliate}";
                                     <p><fmt:message key="oceanpark.confirmation.foot.part1" bundle="${msg}" /> <b><fmt:message key="oceanpark.confirmation.foot.part2" bundle="${msg}" /></b> <fmt:message key="oceanpark.confirmation.foot.part3" bundle="${msg}" /></p>
 								</div>
 							</div>
+                            <div class="col-xs-12">
+                            <h2 class="h2-orange"><fmt:message key="savie.confirmation.offline.What.happens" bundle="${msg}" /></h2>
+                                <div class="whats-next">
+                                    <p><fmt:message key="savie.confirmation.offline.1.You.will" bundle="${msg}" /></p>
+                                    <p><fmt:message key="savie.confirmation.offline.2.Visit" bundle="${msg}" /></p>
+                                    <p><fmt:message key="savie.confirmation.offline.3.Bring" bundle="${msg}" /></p>
+                                    <p><fmt:message key="savie.confirmation.offline.4.Only" bundle="${msg}" /></p>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="detail">
+                                    <h2 class="h2-orange"><fmt:message key="savie.confirmation.offline.Appointment.details" bundle="${msg}" /></h2>
+                                    <div class="appointment-detail clearfix">
+                                        <label class="pull-left"><fmt:message key="savie.confirmation.offline.Date" bundle="${msg}" /></label>
+                                        <span class="pull-left">${preferred_date }</span>
+                                    </div>
+                                    <div class="appointment-detail clearfix">
+                                        <label class="pull-left"><fmt:message key="savie.confirmation.offline.Time" bundle="${msg}" /></label>
+                                        <span class="pull-left">${preferred_time }</span>
+                                    </div>
+                                    <div class="appointment-detail clearfix">
+                                        <label class="pull-left"><fmt:message key="savie.confirmation.offline.Branch" bundle="${msg}" /></label>
+                                        <span class="pull-left">${centreDetails.serviceCentreName }</span>
+                                    </div>
+                                    <div class="appointment-detail clearfix">
+                                        <label class="pull-left"><fmt:message key="savie.confirmation.offline.Address" bundle="${msg}" /></label>
+                                        <span class="pull-left">${centreDetails.address }</span>
+                                    </div>
+                                    <div class="appointment-detail clearfix">
+                                        <label class="pull-left"><fmt:message key="savie.confirmation.offline.Reference.no" bundle="${msg}" /></label>
+                                        <span class="pull-left">${applicationNumber }</span>
+                                    </div>
+                                    <div class="appointment-detail clearfix">
+                                        <label class="pull-left"><fmt:message key="savie.confirmation.offline.Phone.no" bundle="${msg}" /></label>
+                                        <span class="pull-left">${centreDetails.phone }</span>
+                                    </div>
+                                    <!--<div class="appointment-detail clearfix">
+                                        <label class="pull-left"><fmt:message key="savie.confirmation.offline.Operating.hours" bundle="${msg}" /></label>
+                                        <span class="pull-left">${centreDetails.operationHours }</span>
+                                    </div>-->
+                                </div>
+                            </div>
 						</div>
 					</div>
 				</div>

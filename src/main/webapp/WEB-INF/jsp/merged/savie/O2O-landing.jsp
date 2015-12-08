@@ -42,13 +42,15 @@ var home_url = "<%=request.getContextPath()%>";
 			<div class="text-center o2o-landing banner-widget hunger-selling container-fluid">
 				<img class="mobile-banner" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.mobile" bundle="${msg}" />" />
 				<img class="desktop-banner" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.desktop" bundle="${msg}" />" />
-				<!--<div class="fwd-container container-fluid breadcrumbs">
-					<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
+                <div class="fwd-container container-fluid breadcrumbs op-breadcrumbs-container">
+                    <ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing op-breadcrumbs">
 						<li><a href="#"><fmt:message key="savie.o2o.landing.Home" bundle="${msg}" /></a></li>
-						<li class="divider"><i class="fa fa-play"></i></li>
+                        <li class="divider"><!-- <i class="fa fa-chevron-right"></i> -->></li>
 						<li><a href="#"><fmt:message key="savie.o2o.landing.Save" bundle="${msg}" /></a></li>
+                        <li class="divider">></li>
+                        <li><a href="#" class="active"><fmt:message key="savie.o2o.landing.Savie" bundle="${msg}" /></a></li>
 					</ol>
-				</div>-->
+				</div>
 				
 				<div class="hunger-text-section">
 					<p class="hunger-selling-text text-1 big"><fmt:message key="oceanpark.landing.save.while" bundle="${msg}" /></p>
@@ -65,9 +67,12 @@ var home_url = "<%=request.getContextPath()%>";
 						<p class="additional top part hidden-md hidden-lg"><fmt:message key="oceanpark.landing.exclusive.offer.part3" bundle="${msg}" /></p>
 						<p class="additional top desktop hidden-xs hidden-sm"><fmt:message key="oceanpark.landing.exclusive.offer" bundle="${msg}" /></p>
 						<p class="bottom-text"><fmt:message key="oceanpark.landing.gold.and.silver.part1" bundle="${msg}" /> <b><fmt:message key="oceanpark.landing.gold.and.silver.part2" bundle="${msg}" /></b> <fmt:message key="oceanpark.landing.gold.and.silver.part3" bundle="${msg}" /> <b><fmt:message key="oceanpark.landing.gold.and.silver.part4" bundle="${msg}" /></b> <fmt:message key="oceanpark.landing.gold.and.silver.part5" bundle="${msg}" /></p>
-						<div class="get-started-holder op-align">
-							<button id="op-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
-						</div>
+                        <form action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}" method="post">
+                            <input type="hidden" name="accessCodeConfirm" value="TEST123"/>
+                            <div class="get-started-holder op-align">
+                                <button id="op-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
+                            </div>
+                        </form>
                         <p class="bottom-text lower hidden-sm hidden-xs"><fmt:message key="oceanpark.landing.please.refer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"> <fmt:message key="oceanpark.landing.please.refer.part2" bundle="${msg}" /></a> <fmt:message key="oceanpark.landing.please.refer.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.terms.conditions.link" bundle="${msg}" />" target="_blank"><fmt:message key="oceanpark.landing.please.refer.part4" bundle="${msg}" /></a><fmt:message key="oceanpark.landing.please.refer.part5" bundle="${msg}" /></p>
 					</div>
 				</div>
@@ -175,9 +180,9 @@ var home_url = "<%=request.getContextPath()%>";
 							</div>
 						</div>
 						<!-- Disclaimer and Policy Provisions -->
-						<div class="disclaimer-policy-teaser teaser-policy">
+                        <!-- <div class="disclaimer-policy-teaser teaser-policy">
 							<p class="h4-6"><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.provisions.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part4" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part5" bundle="${msg}" /></p>
-						</div>
+                        </div> -->
 					</div>
 	            
 	            <div class="hidden-xs hidden-sm fwd-full-container container-fluid o2o-landing saving-plans">
@@ -553,5 +558,20 @@ var home_url = "<%=request.getContextPath()%>";
 				$('#read-more-other-benefits').hide();
 			});
 			
+            function getAppointmentAccessCode(){
+                $.get('${pageContext.request.contextPath}/ajax/savings-insurance/getAppointmentAccessCode',
+                function(data) {
+                    if(data.errMsgs != null && data.errMsgs != ''){
+                    }
+                    else{
+                        var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
+                        $("#o2o-landing-form").attr("action", url);
+                        $('#o2o-landing-form').submit();
+                    }
+                })
+                .fail(function(data) {
+                });
+            };
+            
 		</script>
 		
