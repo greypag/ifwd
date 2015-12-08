@@ -55,7 +55,7 @@ var home_url = "<%=request.getContextPath()%>";
 				</div>
 				
 				<form action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}" method="post">
-					<input type="hidden" name="accessCodeConfirm" value="TEST123"/>
+					<input type="hidden" name="accessCodeConfirm"/>
 					<div class="hunger-text-section">
 						<!-- <p class="hunger-selling-text text-1"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>   -->
 						<div class="get-started-holder text-center">
@@ -625,6 +625,7 @@ var home_url = "<%=request.getContextPath()%>";
 							}
 							else{
 								var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
+								
 								$("#o2o-landing-form").attr("action", url);
 								$('#o2o-landing-form').submit();
 							}
