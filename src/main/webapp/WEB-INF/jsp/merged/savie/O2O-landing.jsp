@@ -44,17 +44,16 @@ var home_url = "<%=request.getContextPath()%>";
 				<img class="desktop-banner" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.desktop" bundle="${msg}" />" />
                 <div class="fwd-container container-fluid breadcrumbs op-breadcrumbs-container">
                     <ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing op-breadcrumbs">
-						<li><a href="#"><fmt:message key="savie.o2o.landing.Home" bundle="${msg}" /></a></li>
+						<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
                         <li class="divider"><!-- <i class="fa fa-chevron-right"></i> -->></li>
-						<li><a href="#"><fmt:message key="savie.o2o.landing.Save" bundle="${msg}" /></a></li>
+						<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
                         <li class="divider">></li>
-                        <li><a href="#" class="active"><fmt:message key="savie.o2o.landing.Savie" bundle="${msg}" /></a></li>
+                        <li><a href="#" class="active"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
 					</ol>
 				</div>
 				
 				<div class="hunger-text-section">
-					<p class="hunger-selling-text text-1 big"><fmt:message key="oceanpark.landing.save.while" bundle="${msg}" /></p>
-                    <p class="hunger-selling-text text-1"><fmt:message key="oceanpark.landing.you.play" bundle="${msg}" /></p>
+					<p class="hunger-selling-text text-1 big"><fmt:message key="jumbo.savie.oceanpark" bundle="${msg}" /></p>
                     <img class="op-logo" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />                    
 				</div>
 			</div>
@@ -62,18 +61,21 @@ var home_url = "<%=request.getContextPath()%>";
 			<div class="fwd-full-container container-fluid o2o-landing teaser op-div">
 				<div class="fwd-container-limit">
 					<div class="teaser-banner-text">
-						<p class="additional top hidden-md hidden-lg"><fmt:message key="oceanpark.landing.exclusive.offer.part1" bundle="${msg}" /></p>
-						<p class="additional top part hidden-md hidden-lg"><fmt:message key="oceanpark.landing.exclusive.offer.part2" bundle="${msg}" /></p>
-						<p class="additional top part hidden-md hidden-lg"><fmt:message key="oceanpark.landing.exclusive.offer.part3" bundle="${msg}" /></p>
-						<p class="additional top desktop hidden-xs hidden-sm"><fmt:message key="oceanpark.landing.exclusive.offer" bundle="${msg}" /></p>
-						<p class="bottom-text"><fmt:message key="oceanpark.landing.gold.and.silver.part1" bundle="${msg}" /> <b><fmt:message key="oceanpark.landing.gold.and.silver.part2" bundle="${msg}" /></b> <fmt:message key="oceanpark.landing.gold.and.silver.part3" bundle="${msg}" /> <b><fmt:message key="oceanpark.landing.gold.and.silver.part4" bundle="${msg}" /></b> <fmt:message key="oceanpark.landing.gold.and.silver.part5" bundle="${msg}" /></p>
+						<p class="additional top hidden-md hidden-lg"><fmt:message key="jumbo.savie.oceanpark.copy1.mobile" bundle="${msg}" /></p>
+						<p class="additional top desktop hidden-xs hidden-sm"><fmt:message key="jumbo.savie.oceanpark.copy1" bundle="${msg}" /></p>
+						<p class="bottom-text"><fmt:message key="jumbo.savie.oceanpark.copy2" bundle="${msg}" /></p>
+						
                         <form action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}" method="post">
                             <input type="hidden" name="accessCodeConfirm" value="TEST123"/>
                             <div class="get-started-holder op-align">
-                                <button id="op-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
+                                <button id="op-buy-now-O2O-mobile" class="get-started"><fmt:message key="cta.start" bundle="${msg}" /></button>
                             </div>
                         </form>
-                        <p class="bottom-text lower hidden-sm hidden-xs"><fmt:message key="oceanpark.landing.please.refer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"> <fmt:message key="oceanpark.landing.please.refer.part2" bundle="${msg}" /></a> <fmt:message key="oceanpark.landing.please.refer.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.terms.conditions.link" bundle="${msg}" />" target="_blank"><fmt:message key="oceanpark.landing.please.refer.part4" bundle="${msg}" /></a><fmt:message key="oceanpark.landing.please.refer.part5" bundle="${msg}" /></p>
+                        <p class="bottom-text lower hidden-sm hidden-xs">
+                        	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part3" bundle="${msg}" />
+                        	<br>
+                        	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part3" bundle="${msg}" />
+                        </p>
 					</div>
 				</div>
 			</div>
@@ -82,19 +84,19 @@ var home_url = "<%=request.getContextPath()%>";
 				<div class="fwd-container-limit">
 					<div class="row">
 						<div class="col-xs-12 col-md-6">
-							<p class="additional top"><fmt:message key="oceanpark.landing.enjoy" bundle="${msg}" /></p>
+							<p class="additional top"><fmt:message key="custom.savie.credit.rate.title" bundle="${msg}" /></p>
 						</div>
 						<div class="col-xs-12 col-md-6">
 							<ul class="crediting-rate-list clearfix">
-								<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.First.year" bundle="${msg}" /></span></li>
-								<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Second.year" bundle="${msg}" /></span><div class="white right"></div></li>
-								<li><span class="percent gold">3.3% </span><span class="year gold"><fmt:message key="savie.o2o.landing.Third.year" bundle="${msg}" /></li>
+								<li><span class="percent"><fmt:message key="custom.savie.credit.rate.rate1" bundle="${msg}" /></span><span class="year"><fmt:message key="custom.savie.credit.rate.year1" bundle="${msg}" /></span></li>
+								<li class="middle"><div class="white"></div><span class="percent"><fmt:message key="custom.savie.credit.rate.rate2" bundle="${msg}" /></span><span class="year"><fmt:message key="custom.savie.credit.rate.year2" bundle="${msg}" /></span><div class="white right"></div></li>
+								<li><span class="percent gold"><fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></span><span class="year gold"><fmt:message key="custom.savie.credit.rate.year3" bundle="${msg}" /></li>
 							</ul>
 						</div>
 						<div class="download-pdf hidden-xs hidden-sm col-md-12">
 							<ul class="crediting-rate-list pdf">
-								<li class="middle"><a class="year" href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"><fmt:message key="oceanpark.landing.brochure" bundle="${msg}" /></a></li>
-								<li><a class="year" href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.provisions.link" bundle="${msg}" />" target="_blank"><fmt:message key="oceanpark.landing.provision" bundle="${msg}" /></a></li>
+								<li class="middle"><a class="year" href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie" bundle="${msg}" />" target="_blank"><fmt:message key="general.product.brochure" bundle="${msg}" /></a></li>
+								<li><a class="year" href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="general.product.provisions" bundle="${msg}" /></a></li>
 							</ul>
 						</div>
 					</div>
@@ -111,10 +113,10 @@ var home_url = "<%=request.getContextPath()%>";
 											<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings-mobile" bundle="${msg}" />" class="img-responsive">
 										</div>
 										<div class="right">
-											<h2><fmt:message key="savie.interestGather.feature1.header.part1" bundle="${msg}" /></h2>
-											<h3><fmt:message key="savie.interestGather.feature1.header.part2" bundle="${msg}" /></h3>
+											<h2><fmt:message key="usp.savie1.title.part1" bundle="${msg}" /></h2>
+											<h3><fmt:message key="usp.savie1.title.part2" bundle="${msg}" /></h3>
 											<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings" bundle="${msg}" />" class="hidden-xs hidden-sm">
-											<p><fmt:message key="savie.interestGather.feature1.paragraph1" bundle="${msg}" /></p>
+											<p><fmt:message key="usp.savie1.copy" bundle="${msg}" /></p>
 										</div>
 									</div>
 								</div>
@@ -126,10 +128,10 @@ var home_url = "<%=request.getContextPath()%>";
 											<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment-mobile" bundle="${msg}" />" class="img-responsive">
 										</div>
 										<div class="right">
-											<h2><fmt:message key="savie.interestGather.feature2.header.part1" bundle="${msg}" /></h2>
-											<h3><fmt:message key="savie.interestGather.feature2.header.part2" bundle="${msg}" /></h3>
+											<h2><fmt:message key="usp.savie2.title.part1" bundle="${msg}" /></h2>
+											<h3><fmt:message key="usp.savie2.title.part2" bundle="${msg}" /></h3>
 											<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment" bundle="${msg}" />" class="hidden-xs hidden-sm">
-											<p><fmt:message key="savie.interestGather.feature2.paragraph1" bundle="${msg}" /></p>
+											<p><fmt:message key="usp.savie2.copy" bundle="${msg}" /></p>
 										</div>
 									</div>
 								</div>
@@ -141,11 +143,11 @@ var home_url = "<%=request.getContextPath()%>";
 											<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional-mobile" bundle="${msg}" />" class="img-responsive">
 										</div>
 										<div class="right">
-											<h2><fmt:message key="savie.interestGather.feature3.header.part1" bundle="${msg}" /></h2>
-											<h3><fmt:message key="savie.interestGather.feature3.header.part2" bundle="${msg}" /></h3>
+											<h2><fmt:message key="usp.savie3.title.part1" bundle="${msg}" /></h2>
+											<h3><fmt:message key="usp.savie3.title.part2" bundle="${msg}" /></h3>
 											<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional" bundle="${msg}" />" class="hidden-xs hidden-sm">
-											<p><fmt:message key="savie.interestGather.feature3.paragraph1" bundle="${msg}" /></p>
-											<p class="info-asterisk"><fmt:message key="savie.interestGather.feature3.footnote" bundle="${msg}" /><p>
+											<p><fmt:message key="usp.savie3.copy" bundle="${msg}" /></p>
+											<p class="info-asterisk"><fmt:message key="usp.savie3.disclaimer" bundle="${msg}" /><p>
 										</div>
 									</div>
 								</div>
@@ -161,19 +163,19 @@ var home_url = "<%=request.getContextPath()%>";
 								</div>
 								<div class="right">
 									<div class="col-xs-12 col-md-8 pull-right">
-										<h2 class="text-center"><fmt:message key="savie.interestGather.otherfeatures.header" bundle="${msg}" /></h2>
+										<h2 class="text-center"><fmt:message key="feature.savie.title" bundle="${msg}" /></h2>
 									</div>
 									<div class="col-xs-12 col-md-4 fwd-col text-center left-clear">
 										<img src="<%=request.getContextPath()%><fmt:message key="img.other.benefits" bundle="${msg}" />" class="hidden-xs hidden-sm">
 									</div>
 									<div class="col-xs-12 col-md-8 fwd-col">
 										<ul>
-											<li><p><fmt:message key="savie.interestGather.otherfeatures.context1" bundle="${msg}" /></p></li>
+											<li><p><fmt:message key="feature.savie.copy1" bundle="${msg}" /></p></li>
 											<a class="read-more hidden-md hidden-lg" id="read-more-other-benefits"><fmt:message key="savie.landing.hidden.readmore" bundle="${msg}" /></a>
-											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-0"><p><fmt:message key="savie.interestGather.otherfeatures.context5" bundle="${msg}" /></p></li>
-											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-1"><p><fmt:message key="savie.interestGather.otherfeatures.context2" bundle="${msg}" /></p></li>
-											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-2"><p><fmt:message key="savie.interestGather.otherfeatures.context6" bundle="${msg}" /></p></li>
-											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-3"><p><fmt:message key="savie.interestGather.otherfeatures.context3" bundle="${msg}" /></p></li>
+											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-0"><p><fmt:message key="feature.savie.copy2" bundle="${msg}" /></p></li>
+											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-1"><p><fmt:message key="feature.savie.copy3" bundle="${msg}" /></p></li>
+											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-2"><p><fmt:message key="feature.savie.copy4" bundle="${msg}" /></p></li>
+											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-3"><p><fmt:message key="feature.savie.copy5" bundle="${msg}" /></p></li>
 										</ul>
 									</div>
 								</div>
@@ -297,29 +299,29 @@ var home_url = "<%=request.getContextPath()%>";
 			<!-- OUR BLOG -->
 			<div id="landing-page-blog" class="fwd-container blog-widget container-fluid text-center">
 				<div class="read-blog-desktop three-column-widget O2O-landing">
-					<h2 class="hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.Read.more" bundle="${msg}" /></h2>
-					<h2 class="hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.Our.blog" bundle="${msg}" /></h2>
+					<h2 class="hidden-xs hidden-sm"><fmt:message key="blog.headline" bundle="${msg}" /></h2>
+					<h2 class="hidden-md hidden-lg"><fmt:message key="blog.headline.mobile" bundle="${msg}" /></h2>
 					<div class="row text-left">
 						<div class="col-xs-12 col-md-4 fwd-col">
-							<a href="<fmt:message key="savie.o2o.landing.Staying.connected.link" bundle="${msg}" />" target="_blank">
+							<a href="<fmt:message key="link.blog.savie.post1" bundle="${msg}" />" target="_blank">
 								<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/power-1-percent-savings-interest.jpg"/>
 							</a>
-							<h3><a href="<fmt:message key="savie.o2o.landing.Staying.connected.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.o2o.landing.Staying.connected" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
+							<h3><a href="<fmt:message key="link.blog.savie.post1" bundle="${msg}" />" target="_blank"><fmt:message key="blog.savie.post1" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
 						</div>
 						<div class="col-md-4 fwd-col hidden-xs hidden-sm">
-							<a href="<fmt:message key="savie.o2o.landing.7.musts.link" bundle="${msg}" />" target="_blank">
+							<a href="<fmt:message key="link.blog.savie.post2" bundle="${msg}" />" target="_blank">
 								<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/saving-is-easier-than-you-think.jpg"/>
 							</a>
-							<h3><a href="<fmt:message key="savie.o2o.landing.7.musts.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.o2o.landing.7.musts" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
+							<h3><a href="<fmt:message key="link.blog.savie.post2" bundle="${msg}" />" target="_blank"><fmt:message key="blog.savie.post2" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
 						</div>
 						<div class="col-md-4 fwd-col hidden-xs hidden-sm">
-							<a href="<fmt:message key="savie.o2o.landing.Top.tips.link" bundle="${msg}" />" target="_blank">
+							<a href="<fmt:message key="link.blog.savie.post3" bundle="${msg}" />" target="_blank">
 								<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/3-saving-tips-smart-parents.jpg"/>
 							</a>
-							<h3><a href="<fmt:message key="savie.o2o.landing.Top.tips.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.o2o.landing.Top.tips" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
+							<h3><a href="<fmt:message key="link.blog.savie.post3" bundle="${msg}" />" target="_blank"><fmt:message key="blog.savie.post3" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
 						</div>
 					</div>
-					<p class="text-left hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.The.information" bundle="${msg}" /></p>
+					<p class="text-left hidden-xs hidden-sm"><fmt:message key="disclaimer.blog" bundle="${msg}" /></p>
 				</div>			
 			</div>
 
