@@ -1268,12 +1268,14 @@ $(document).ready(function() {
                                 </div>
                                 -->
                             </div>
+                            <!-- 
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
                                     <fmt:message key="Overseas.PlanOptions.importantnotes.title" bundle="${msg}" />
                                     <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
+                           
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
                                 <div class="row product_plan_panel_content_row">
                                     <div class="col-xs-12">
@@ -1282,12 +1284,14 @@ $(document).ready(function() {
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
+                             -->
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
                                     <fmt:message key="Overseas.PlanOptions.exclusions.title" bundle="${msg}" />
                                     <i class="fa fa-chevron-down"></i>
                                 </h4>
                             </div>
+                            
                             <div class="fwdpanel-body product_plan_panel_content" style="display: none;">
                                 <div class="row product_plan_panel_content_row">
                                     <div class="col-xs-12">
@@ -1296,6 +1300,7 @@ $(document).ready(function() {
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
+                            <!-- 
                             <div class="fwdpanel-heading product_plan_panel">
                                 <h4 class="fwdpanel-title h4-4-full">
                                     <fmt:message key="Overseas.PlanOptions.agelimit.title" bundle="${msg}" />
@@ -1310,6 +1315,7 @@ $(document).ready(function() {
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
+                             -->
                         </div>
                         <div style="margin-bottom:20px;" id="oversea-plan-quote-download-container">
                               <h4 class="h4-4 product_landing_download_button pull-left plan-mobile-center">

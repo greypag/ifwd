@@ -565,22 +565,22 @@ function setDropArea(id) {
                             <div class="form-group float">
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none district-btn-grp pull-right">
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-                                                                                <input type="radio" name="districtSelected"
+                                        <label class="field-label bold-500"><input type="radio" name="districtSelected"
                                             name="correspondenceAddressDistrict" type="" value="HK"
-                                            id="inlineCARadio3" onclick="" maxlength="50" onblur=""><span id="" class="text-red"></span>
-                                        <label for="inputDistrictId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.HongKong" bundle="${msg}" /></label>
+                                            id="inlineCARadio3" onclick="" maxlength="50" onblur=""><span id="" class="radio-inline oversea-lb">
+                                        <fmt:message key="Overseas.userdetails.applicant.HongKong" bundle="${msg}" /></span></label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-                                        <input type="radio" name="districtSelected"
+                                        <label class="field-label bold-500"><input type="radio" name="districtSelected"
                                             name="correspondenceAddressDistrict" type="" value="KL"
-                                            id="inlineCARadio4" onclick="" maxlength="50" onblur=""><span id="" class="text-red"></span>
-                                        <label for="inputDistrictId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Kowloon" bundle="${msg}" /></label>
+                                            id="inlineCARadio4" onclick="" maxlength="50" onblur=""><span id="" class="radio-inline oversea-lb">
+                                        <fmt:message key="Overseas.userdetails.applicant.Kowloon" bundle="${msg}" /></span></label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-                                                                                <input type="radio" name="districtSelected"
+                                        <label class="field-label bold-500"><input type="radio" name="districtSelected"
                                             name="correspondenceAddressDistrict" type="" value="NT"
-                                            onclick="" id="inlineCARadio5" maxlength="50" onblur=""><span id="" class="text-red"></span>
-                                        <label for="inputDistrictId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.NT" bundle="${msg}" /></label>
+                                            onclick="" id="inlineCARadio5" maxlength="50" onblur=""><span id="" class="radio-inline oversea-lb">
+                                        <fmt:message key="Overseas.userdetails.applicant.NT" bundle="${msg}" /></span></label>
                                     </div>
                                 </div>                                                          
                                 <span id="errCADist" class="text-red"> </span>
@@ -969,11 +969,11 @@ function setDropArea(id) {
                             <div class="clearfix"></div>
                             <div class="orange-bdr"></div>
                             <div style="width: 80%;margin-left: 10%;">
-                                 <!-- <h3 style="margin-bottom:0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h3>
+                                  <h3 style="margin-bottom:0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h3>
                                  <c:choose>
                                  <c:when test="${referralCode!=null && referralCode!=''}"><h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h4></c:when>
-                                 <c:otherwise><h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;">No Code used</h4></c:otherwise>
-                                 </c:choose> -->
+                                 <c:otherwise><h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;"><fmt:message key="Overseas.PlanOptions.NoCodeused" bundle="${msg}" /></h4></c:otherwise>
+                                 </c:choose> 
                                 <!--<c:if test="${referralCode!=null && referralCode!=''}">
                                     <h3 style="margin-bottom:0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h3>
                                     <h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;">${referralCode}</h4>
