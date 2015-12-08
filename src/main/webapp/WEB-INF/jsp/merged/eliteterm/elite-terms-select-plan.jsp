@@ -641,7 +641,7 @@ var language = "${language}";
                                        <label for="savieApplicantBean.residentialTelNo" class="application-page-input-text et-input-label"><fmt:message key="eliteTerms.selectPlan.Residential.tel.no" bundle="${msg}" /></label>
                                     </div>
                                     <div class="left-desktop text-box clearfix">
-                                       <input type="text" class="form-control gray-textbox" name="savieApplicantBean.residentialTelNo" id="savieApplicantBean.residentialTelNo" placeholder="Telephone no."/>
+                                       <input type="text" class="form-control gray-textbox" name="savieApplicantBean.residentialTelNo" id="savieApplicantBean.residentialTelNo" placeholder="Telephone no." autocomplete="off"/>
                                        <span class="error-msg" id="resTelMessage"></span>
                                     </div>
                                  </div>
