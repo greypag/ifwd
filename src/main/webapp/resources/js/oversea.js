@@ -278,6 +278,7 @@ function validateOverseaDetails() {
 	var applicantDob = document.getElementById("applicantDob").value;
 	var mobileNo = document.getElementById("inputMobileNo").value;
 	var emailId = document.getElementById("inputEmailId").value;
+	var appRelation = document.getElementById("applicantRelationship").value;
 	var applicantBuilding = document.getElementById("correspondenceAddressBuildingId").value;
 	var applicantEstate = document.getElementById("correspondenceAddressEstateId").value;
 	var applicantDistrict = document.getElementById("applicantDistrict").value;
@@ -301,19 +302,14 @@ function validateOverseaDetails() {
 	var nameOfInstitution = document.getElementById("nameOfInstitution").value;
 	var visacheckbox = document.getElementById("visacheckbox").checked;		
 	var overseaDepartureDate = document.getElementById("overseaDepartureDate").value;
-		
-	var building = $("#correspondenceAddressBuildingId").val();
-	var estate = $("#correspondenceAddressEstateId").val();
 	//var insuredDob = $("#overseaDepartureDate").val();
 	var insuredDob = $("#overseaDepartureDate").val();
-	var countryOfInstitution = $("#countryOfInstitution").val();
-	var nameOfInstitution = $("#nameOfInstitution").val();
-	var addressline1 = $("#addressofInstitutionLine1").val();
-	var addressline2 = $("#addressofInstitutionLine2").val();
-	var addressline3 = $("#addressofInstitutionLine3").val();
 	
 	var beneficiaryName = document.getElementById("beneficiaryFullName").value;
 	var beneficiaryId = document.getElementById("beneficiaryID").value;
+	
+	var applicantAge = calculateAge((parseDate)(applicantDob), new Date());
+	var insuredAge = calculateAge((parseDate)(InsuDob), new Date());
 	
 	var firstErrorElementId = "";
 	if (fullname.trim() == "") {
@@ -661,6 +657,42 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 		}
 		flag = false;
 	}
+	if(applicantAge > 65 && appRelation =="SE"){
+		$("#input_oversea_dob").addClass("invalid-field");
+		$("#dobInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));
+		$("#oversea_insure_dob").addClass("invalid-field");
+		$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));		
+		flag = false;
+		if (firstErrorElementId == "") {
+			firstErrorElementId = "input_oversea_dob";
+		}		
+	}else{
+		$("#input_oversea_dob").removeClass("invalid-field");
+		$("#dobInvalid").html( '');
+		$("#oversea_insure_dob").removeClass("invalid-field");
+		$("#dobInsuredInvalid").html( ''); 		
+	}
+	if((insuredAge < 12 || insuredAge > 65 || isNaN(insuredAge)) && appRelation!="SE"){
+		$("#oversea_insure_dob").addClass("invalid-field");
+		console.log(isNaN(insuredAge));
+		if(isNaN(insuredAge)){
+			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.Empty"));	
+		}else{
+			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));
+		}
+		flag = false;
+		if (firstErrorElementId == "") {
+			firstErrorElementId = "oversea_insure_dob";
+		}		
+	}else{
+		$("#oversea_insure_dob").removeClass("invalid-field");
+		$("#dobInsuredInvalid").html( ''); 		
+	}
+	var testDate = new Date();
+	var testDate2 = parseDate(applicantDob);
+	console.log(testDate.setDate(testDate2.getDate() + 90));
+	console.log(testDate.setDate(testDate.getDate() + 90));
+	//console.log(calculateAge((parseDate)(applicantDob), new Date()));
 	if (firstErrorElementId != "") {
 		scrollToElement(firstErrorElementId);
 	}
@@ -845,3 +877,59 @@ $(function () {
 		setAtt("selectCADistHid", $(this).val());
 	});
 });
+function parseDate(dateStr) {
+  var dateParts = dateStr.split("-");
+  return new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
+}
+
+//is valid date format
+function calculateAge (dateOfBirth, dateToCalculate) {
+    var calculateYear = dateToCalculate.getFullYear();
+    var calculateMonth = dateToCalculate.getMonth();
+    var calculateDay = dateToCalculate.getDate();
+
+    var birthYear = dateOfBirth.getFullYear();
+    var birthMonth = dateOfBirth.getMonth();
+    var birthDay = dateOfBirth.getDate();
+
+    var age = calculateYear - birthYear;
+    var ageMonth = calculateMonth - birthMonth;
+    var ageDay = calculateDay - birthDay;
+
+    if (ageMonth < 0 || (ageMonth == 0 && ageDay < 0)) {
+        age = parseInt(age) - 1;
+    }
+    return age;
+}
+
+function isDate(txtDate) {
+  var currVal = txtDate;
+  if (currVal == '')
+    return true;
+
+  //Declare Regex
+  var rxDatePattern = /^(\d{1,2})(\/|-)(\d{1,2})(\/|-)(\d{4})$/;
+  var dtArray = currVal.match(rxDatePattern); // is format OK?
+
+  if (dtArray == null)
+    return false;
+
+  //Checks for dd/mm/yyyy format.
+  var dtDay = dtArray[1];
+  var dtMonth = dtArray[3];
+  var dtYear = dtArray[5];
+
+  if (dtMonth < 1 || dtMonth > 12)
+    return false;
+  else if (dtDay < 1 || dtDay > 31)
+    return false;
+  else if ((dtMonth == 4 || dtMonth == 6 || dtMonth == 9 || dtMonth == 11) && dtDay == 31)
+    return false;
+  else if (dtMonth == 2) {
+    var isleap = (dtYear % 4 == 0 && (dtYear % 100 != 0 || dtYear % 400 == 0));
+    if (dtDay > 29 || (dtDay == 29 && !isleap))
+      return false;
+  }
+
+  return true;
+}

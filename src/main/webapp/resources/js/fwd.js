@@ -572,11 +572,13 @@ $(function () {
 		startView: "decade",
 		autoclose: true,
 		format: "dd-mm-yyyy",
-		startDate: dob_start_date,
+		//startDate: dob_start_date,
 		endDate: dob_end_date
 	}).on('changeDate', function (ev) {
 		if (document.getElementById("applicantRelationship").value == 'SE'){
 			$('#oversea_insure_dob').datepicker('setDate', $("#applicantDob").val());
+			//console.log($('#oversea_insure_dob').datepicker('getDate'));
+			//console.log($('#applicantDob').val());
 		}
 		$("#dobInvalid").html("");
 		$("#errtxtInsuDob").html("");
@@ -589,9 +591,9 @@ $(function () {
 	$('#oversea_insure_dob').datepicker({
 		startView: "decade",
 		autoclose: true,
-		format: "dd-mm-yyyy",
-		startDate: dob_65_date,
-		endDate: dob_12_date
+		format: "dd-mm-yyyy"
+		//startDate: dob_65_date,
+		//endDate: dob_12_date
 		/*language: getBundleLanguage*/
 	}).on('changeDate', function (ev) {
 		$("#dobInsuredInvalid").html("");
@@ -5237,6 +5239,7 @@ function chkTravelHKPass(value) {
 //ie9 placeholder solution
 function placeholderOnFocus(element, placeholderVal){
 	$(element).removeClass("bmg_custom_placeholder");
+	console.log($(element).val().trim());
 	if($(element).val().trim()==placeholderVal.trim()){
 		$(element).val('');
 	}

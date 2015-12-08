@@ -643,7 +643,8 @@ function setDropArea(id) {
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                 <div class="input-group date" id="oversea_insure_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                                    <input name="insuredDob" type="text" class="pointer datepicker form-control border-radius" id="insuredDob" onfocus="placeholderOnFocus(this,<fmt:message key="Overseas.userdetails.Insured.DOB" bundle="${msg}" />);" onblur="placeholderOnBlur(this,<fmt:message key="Overseas.userdetails.Insured.DOB" bundle="${msg}" />);" placeholder="<fmt:message key="Overseas.userdetails.Insured.DOB" bundle="${msg}" />" value="" readonly>
+<%--                                                     <input name="insuredDob" type="text" class="pointer datepicker form-control border-radius" id="insuredDob" onfocus="placeholderOnFocus(this,<fmt:message key="Overseas.userdetails.Insured.DOB" bundle="${msg}" />);" onblur="placeholderOnBlur(this,<fmt:message key="Overseas.userdetails.Insured.DOB" bundle="${msg}" />);" placeholder="<fmt:message key="Overseas.userdetails.Insured.DOB" bundle="${msg}" />" value="" readonly> --%>
+                                                         <input name="insuredDob" type="text" class="pointer datepicker form-control border-radius" id="insuredDob" placeholder="<fmt:message key="Overseas.userdetails.Insured.DOB" bundle="${msg}" />" value="" readonly>
                                                 </div>
                                                 <div id="lock_datepicker" style="cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)">&nbsp;</div>
                                                 <span id="dobInsuredInvalid" class="text-red"></span>
@@ -1085,4 +1086,5 @@ if("${planName}"=="basicA" || "${planName}"=="basicB" || "${planName}"=="medical
 $("#countryOfInstitution").easyAutocomplete(options);
 </script>
 <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/moment.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>
