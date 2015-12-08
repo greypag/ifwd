@@ -438,8 +438,7 @@ $(document).ready(function() {
 					<li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer1" bundle="${msg}" /></a> <i class="fa fa-chevron-right"></i></li>
 					<li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer2" bundle="${msg}" /></a><i class="fa fa-chevron-right"></i></li>
 					<li><a href="#"><fmt:message key="Overseas.Landing.Breadcrumb.layer3" bundle="${msg}" /></a></li>
-					<i class="fa fa-chevron-right"></i>
-					<li class="active "><fmt:message key="Overseas.Landing.Breadcrumb.step1" bundle="${msg}" /></li>
+					<li class="active "><i class="fa fa-chevron-right"></i><fmt:message key="Overseas.Landing.Breadcrumb.step1" bundle="${msg}" /></li>
 				</ol>
 				<div id="quote-wrap" class="container pad-none bdr gray-bg3">
 					<div class="col-lg-8 col-xs-12 col-sm-12 col-md-8 pad-none white-bg1" id="oversea-plan-quote-select-region-container">

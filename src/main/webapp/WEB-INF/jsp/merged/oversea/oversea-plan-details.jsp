@@ -5,6 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
+<%@ page language="java" import="java.util.*" %>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -978,10 +979,10 @@ function setDropArea(id) {
                                     <h3 style="margin-bottom:0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h3>
                                     <h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;">${referralCode}</h4>
                                 </c:if>-->
-                                <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="Overseas.PlanOptions.Subtotal" bundle="${msg}" /></h3>
+                                <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;margin-bottom:0;font-size: 18px;"><fmt:message key="Overseas.PlanOptions.Subtotal" bundle="${msg}" /></h3>
                                 <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${planPremium}" /></h3>
-                                <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="Overseas.PlanOptions.Discount" bundle="${msg}" /></h3>
-                                <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${planDiscount}" /></h3>
+                                <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;margin-bottom:0;margin-top:0;font-size: 18px;"><fmt:message key="Overseas.PlanOptions.Discount" bundle="${msg}" /></h3>
+                                <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;margin-top:0;font-size: 18px;"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${planDiscount}" /></h3>
                             </div>
                             <div class="clearfix"></div>
                             <div class="orange-bdr"></div>
@@ -1086,3 +1087,18 @@ $("#countryOfInstitution").easyAutocomplete(options);
 </script>
 <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>
+
+
+<%
+  
+  for (Enumeration e = session.getAttributeNames(); e.hasMoreElements(); ) {     
+    String attribName = (String) e.nextElement();
+    Object attribValue = session.getAttribute(attribName);
+%>
+<BR><%= attribName %> - <%= attribValue %>
+
+<%
+}
+%>
+
+
