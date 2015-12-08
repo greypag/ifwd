@@ -369,7 +369,7 @@ function prepareOverseaPlan(form){
       <div class="item active">
         <div class="container">
           <div class="row slide-margin">
-            <div class="recent-work-wrap text-center">
+            <div class="recent-work-wrap text-center recent-work-fixed-height">
               <div class="recent-work-inner pillar-here-height"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="">
 				  <h2><fmt:message key="Overseas.Landing.Platformpillar1.headline" bundle="${msg}" /></h2>
 				  <p><fmt:message key="Overseas.Landing.Platformpillar1.copy" bundle="${msg}" /></p>
@@ -382,7 +382,7 @@ function prepareOverseaPlan(form){
       <div class="item">
         <div class="container">
           <div class="row slide-margin">
-            <div class="recent-work-wrap text-center">
+            <div class="recent-work-wrap text-center recent-work-fixed-height">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim_pillar.png" alt=""> 
 				<h2><fmt:message key="Overseas.Landing.Platformpillar2.headline" bundle="${msg}" /></h2>
 				<p><fmt:message key="Overseas.Landing.Platformpillar2.copy" bundle="${msg}" /></p>
@@ -395,7 +395,7 @@ function prepareOverseaPlan(form){
       <div class="item">
         <div class="container">
           <div class="row slide-margin">
-            <div class="recent-work-wrap text-center">
+            <div class="recent-work-wrap text-center recent-work-fixed-height">
               <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/rewards.png" alt=""> 
 				<h2><fmt:message key="Overseas.Landing.Platformpillar3.headline" bundle="${msg}" /></h2>
 				<p><fmt:message key="Overseas.Landing.Platformpillar3.copy" bundle="${msg}" /></p>
