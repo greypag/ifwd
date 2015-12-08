@@ -2713,8 +2713,7 @@ var home_url = "<%=request.getContextPath()%>";
     		  $('#etaspd-monthly-premium').find('span.extra-years-remarks').addClass('hidden');
     		  $('#etaspd-monthly-premium-extra-years').addClass('hidden');
     	  }
-    	  
-    	  if('${goApp}'!=null && '${goApp}'=='yes'){
+    	  if(escape('${goApp}')!=null && escape('${goApp}')=='yes'){
   			  $('#et-btn-before-start').removeClass('et-pad-bot-50');
   			  //$('#et-about-yoursel-section').removeClass('hide-element').css('margin-bottom', '125px');
   			  $('#et-about-yoursel-section').addClass('hide-element');

@@ -2,6 +2,7 @@ package com.ifwd.fwdhk.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -148,6 +149,7 @@ public class EliteTermController extends BaseController{
 		
 		String goApp = request.getParameter("goApp");
 		if(goApp!=null && goApp!="" && !goApp.equals("")){
+			goApp = StringEscapeUtils.escapeJavaScript(goApp);
 			request.getSession().setAttribute("goApp", goApp);
 		}
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_SELECT_PLAN);
