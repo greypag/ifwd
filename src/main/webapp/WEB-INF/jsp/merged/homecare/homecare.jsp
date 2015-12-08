@@ -460,7 +460,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
                           <div class="slide-margin">
                             <div class="other-benefits-wrap text-center">
                               <div class="other-benefits-inner">
-                                <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part1" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part3" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part4" bundle="${msg}" />
+                                <p style="font-size: 21px"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part1" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part3" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part4" bundle="${msg}" />
 
                               </div>
                             </div>
