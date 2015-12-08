@@ -5,7 +5,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="enhance" uri="http://pukkaone.github.com/jsp" %>
-<%@ page language="java" import="java.util.*" %>
 
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -1087,18 +1086,4 @@ $("#countryOfInstitution").easyAutocomplete(options);
 </script>
 <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>
-
-
-<%
-  
-  for (Enumeration e = session.getAttributeNames(); e.hasMoreElements(); ) {     
-    String attribName = (String) e.nextElement();
-    Object attribValue = session.getAttribute(attribName);
-%>
-<BR><%= attribName %> - <%= attribValue %>
-
-<%
-}
-%>
-
 
