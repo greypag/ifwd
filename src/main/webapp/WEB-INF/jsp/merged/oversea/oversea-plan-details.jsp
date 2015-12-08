@@ -482,7 +482,7 @@ function setDropArea(id) {
                                     <label for="correspondenceAddressBuildingId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Correspondence.BUILDING" bundle="${msg}" /></label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <input class="form-control full-control textUpper" name="correspondenceAddressBuilding" type="text" value="" id="correspondenceAddressBuildingId" maxlength="50" placeholder="<fmt:message key="Overseas.userdetails.applicant.Correspondence.BUILDING" bundle="${msg}" />"  onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.BUILDING" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.BUILDING" bundle="${msg}" />');validateCorrespondenceBorE();"><span id="errorEmptyCorrespondenceAddressBuilding" class="text-red"></span>
+                                    <input class="form-control full-control textUpper" name="correspondenceAddressBuilding" type="text" value="" id="correspondenceAddressBuildingId" maxlength="50" placeholder="<fmt:message key="Overseas.userdetails.applicant.Correspondence.BUILDING" bundle="${msg}" />"  onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.BUILDING" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.BUILDING" bundle="${msg}" />');validateCorrespondenceBorE();" onkeypress="return isAlphaNumeric(event);"><span id="errorEmptyCorrespondenceAddressBuilding" class="text-red"></span>
                                 </div>
                             </div>
                             <div class="form-group float">
@@ -490,7 +490,7 @@ function setDropArea(id) {
                                     <label for="correspondenceAddressEstateId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Correspondence.ESTATE" bundle="${msg}" /></label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <input class="form-control full-control textUpper" name="correspondenceAddressEstate" type="text" value="" id="correspondenceAddressEstateId" maxlength="50" placeholder="<fmt:message key="Overseas.userdetails.applicant.Correspondence.ESTATE" bundle="${msg}" />" onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.ESTATE" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.ESTATE" bundle="${msg}" />');validateCorrespondenceBorE();"><span id="errorEmptyCorrespondenceAddressEstate" class="text-red"></span>
+                                    <input class="form-control full-control textUpper" name="correspondenceAddressEstate" type="text" value="" id="correspondenceAddressEstateId" maxlength="50" placeholder="<fmt:message key="Overseas.userdetails.applicant.Correspondence.ESTATE" bundle="${msg}" />" onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.ESTATE" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.ESTATE" bundle="${msg}" />');validateCorrespondenceBorE();" onkeypress="return isAlphaNumeric(event);"><span id="errorEmptyCorrespondenceAddressEstate" class="text-red"></span>
                                 </div>
                             </div>
                             <div class="form-group float">
@@ -498,7 +498,7 @@ function setDropArea(id) {
                                     <label for="correspondenceAddressStreetNoId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNO" bundle="${msg}" /></label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <input class="form-control full-control textUpper" name="correspondenceAddressStreetNo" type="text" value="" id="correspondenceAddressStreetNoId" maxlength="50" placeholder="<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNO" bundle="${msg}" />" onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNO" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNO" bundle="${msg}" />');"><span id="" class="text-red"></span>
+                                    <input class="form-control full-control textUpper" name="correspondenceAddressStreetNo" type="text" value="" id="correspondenceAddressStreetNoId" maxlength="50" placeholder="<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNO" bundle="${msg}" />" onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNO" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNO" bundle="${msg}" />');" onkeypress="return isAlphaNumeric(event);"><span id="" class="text-red"></span>
                                 </div>
                             </div>
                             <div class="form-group float">
@@ -506,7 +506,7 @@ function setDropArea(id) {
                                     <label for="correspondenceAddressStreetNameId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNAME" bundle="${msg}" /></label>
                                 </div>
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <input class="form-control full-control textUpper" name="correspondenceAddressStreetName" type="text" value="" id="correspondenceAddressStreetNameId" maxlength="50" placeholder="<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNAME" bundle="${msg}" />" onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNAME" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNAME" bundle="${msg}" />');"><span id="" class="text-red"></span>
+                                    <input class="form-control full-control textUpper" name="correspondenceAddressStreetName" type="text" value="" id="correspondenceAddressStreetNameId" maxlength="50" placeholder="<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNAME" bundle="${msg}" />" onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNAME" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.applicant.Correspondence.STREETNAME" bundle="${msg}" />');" onkeypress="return isAlphaNumeric(event);"><span id="" class="text-red"></span>
                                 </div>
                             </div>
                             <div class="form-group float">
@@ -565,22 +565,22 @@ function setDropArea(id) {
                             <div class="form-group float">
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none district-btn-grp pull-right">
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-                                                                                <input type="radio" name="districtSelected"
+                                        <label class="field-label bold-500"><input type="radio" name="districtSelected"
                                             name="correspondenceAddressDistrict" type="" value="HK"
-                                            id="inlineCARadio3" onclick="" maxlength="50" onblur=""><span id="" class="text-red"></span>
-                                        <label for="inputDistrictId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.HongKong" bundle="${msg}" /></label>
+                                            id="inlineCARadio3" onclick="" maxlength="50" onblur=""><span id="" class="radio-inline oversea-lb">
+                                        <fmt:message key="Overseas.userdetails.applicant.HongKong" bundle="${msg}" /></span></label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-                                        <input type="radio" name="districtSelected"
+                                        <label class="field-label bold-500"><input type="radio" name="districtSelected"
                                             name="correspondenceAddressDistrict" type="" value="KL"
-                                            id="inlineCARadio4" onclick="" maxlength="50" onblur=""><span id="" class="text-red"></span>
-                                        <label for="inputDistrictId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Kowloon" bundle="${msg}" /></label>
+                                            id="inlineCARadio4" onclick="" maxlength="50" onblur=""><span id="" class="radio-inline oversea-lb">
+                                        <fmt:message key="Overseas.userdetails.applicant.Kowloon" bundle="${msg}" /></span></label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-                                                                                <input type="radio" name="districtSelected"
+                                        <label class="field-label bold-500"><input type="radio" name="districtSelected"
                                             name="correspondenceAddressDistrict" type="" value="NT"
-                                            onclick="" id="inlineCARadio5" maxlength="50" onblur=""><span id="" class="text-red"></span>
-                                        <label for="inputDistrictId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.NT" bundle="${msg}" /></label>
+                                            onclick="" id="inlineCARadio5" maxlength="50" onblur=""><span id="" class="radio-inline oversea-lb">
+                                        <fmt:message key="Overseas.userdetails.applicant.NT" bundle="${msg}" /></span></label>
                                     </div>
                                 </div>                                                          
                                 <span id="errCADist" class="text-red"> </span>
@@ -762,7 +762,7 @@ function setDropArea(id) {
                                             <label for="countryOfInstitution" class="field-label bold-500"><fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" /></label>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                            <input name="countryOfInstitution" type="text" class="form-control full-control" placeholder="<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />" value="" id="countryOfInstitution" onkeypress="" onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />');validatecountryOfInstitution();" maxlength="50">                                              
+                                            <input name="countryOfInstitution" type="text" class="form-control full-control" placeholder="<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />" value="" id="countryOfInstitution" onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />');validatecountryOfInstitution();" onkeypress="return isAlphaNumeric(event);" maxlength="50">                                              
                                             <br>                                                
                                             <span id="countryOfInstitutionInvalid" class="text-red"></span>
                                         </div>
@@ -772,7 +772,7 @@ function setDropArea(id) {
                                             <label for="nameOfInstitution" class="field-label bold-500"><fmt:message key="Overseas.userdetails.Instituation.Name" bundle="${msg}" /></label>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                            <input name="nameOfInstitution" type="text" class="form-control full-control" placeholder="<fmt:message key="Overseas.userdetails.Instituation.Name" bundle="${msg}" />" value="" id="nameOfInstitution" onkeypress="" onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.Instituation.Name" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.Instituation.Name" bundle="${msg}" />');validatenameOfInstitution();" maxlength="100"> 
+                                            <input name="nameOfInstitution" type="text" class="form-control full-control" placeholder="<fmt:message key="Overseas.userdetails.Instituation.Name" bundle="${msg}" />" value="" id="nameOfInstitution" onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.Instituation.Name" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.Instituation.Name" bundle="${msg}" />');validatenameOfInstitution();" onkeypress="return isAlphaNumeric(event);" maxlength="100"> 
                                             <span id="nameOfInstitutionInvalid" class="text-red"></span>
                                         </div>
                                     </div>
@@ -970,19 +970,19 @@ function setDropArea(id) {
                             <div class="clearfix"></div>
                             <div class="orange-bdr"></div>
                             <div style="width: 80%;margin-left: 10%;">
-                                 <!-- <h3 style="margin-bottom:0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h3>
+                                  <h3 style="margin-bottom:0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h3>
                                  <c:choose>
                                  <c:when test="${referralCode!=null && referralCode!=''}"><h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h4></c:when>
-                                 <c:otherwise><h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;">No Code used</h4></c:otherwise>
-                                 </c:choose> -->
+                                 <c:otherwise><h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;"><fmt:message key="Overseas.PlanOptions.NoCodeused" bundle="${msg}" /></h4></c:otherwise>
+                                 </c:choose> 
                                 <!--<c:if test="${referralCode!=null && referralCode!=''}">
                                     <h3 style="margin-bottom:0px;"><fmt:message key="annual.details.promotioncode" bundle="${msg}" /></h3>
                                     <h4 class="pad-none" style="color:#999;font-size: 22px;margin-top: 0px;">${referralCode}</h4>
                                 </c:if>-->
-                                <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="Overseas.PlanOptions.Subtotal" bundle="${msg}" /></h3>
+                                <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;margin-bottom:0;font-size: 18px;"><fmt:message key="Overseas.PlanOptions.Subtotal" bundle="${msg}" /></h3>
                                 <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${planPremium}" /></h3>
-                                <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;font-size: 18px;"><fmt:message key="Overseas.PlanOptions.Discount" bundle="${msg}" /></h3>
-                                <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;font-size: 18px;"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${planDiscount}" /></h3>
+                                <h3 class="h4-1-orange-b col-lg-6 col-md-6" style="padding-left:0px;margin-bottom:0;margin-top:0;font-size: 18px;"><fmt:message key="Overseas.PlanOptions.Discount" bundle="${msg}" /></h3>
+                                <h3 class="h4-1-orange-b col-lg-6 col-md-6 text-right" style="padding-right: 0px;margin-top:0;font-size: 18px;"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${planDiscount}" /></h3>
                             </div>
                             <div class="clearfix"></div>
                             <div class="orange-bdr"></div>
@@ -1088,3 +1088,4 @@ $("#countryOfInstitution").easyAutocomplete(options);
 <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/moment.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>
+

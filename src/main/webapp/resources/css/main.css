@@ -626,7 +626,9 @@ ul.maintabs li a span.special-offer:hover {
 	background-color: #061d2a;
 	padding: 50px 0px 70px 0px;
 }
-
+.recent-work-fixed-height{
+	height:562px;
+}
 .recent-work-wrap-mid {
 	position: relative;
 	background-color: #f68a1d;
