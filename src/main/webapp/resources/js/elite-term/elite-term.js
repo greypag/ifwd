@@ -277,11 +277,9 @@ $('#iframe-et-upload-doc-submit-btn').on('click', function(e) {
 		return false;
 	}
 	var uploadNow = $("input[name='upload-doc']:checked").val();
-	var passportFlage = true;
+	var passportFlage = (isHKPermanent)?false:true;
 	var uploadLaterFlage = false;
-	if(uploadNow == 'upload-now'){
-		passportFlage = true;
-	}else{
+	if(uploadNow != 'upload-now'){
 		uploadLaterFlage = true;
 	}
 	sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage);

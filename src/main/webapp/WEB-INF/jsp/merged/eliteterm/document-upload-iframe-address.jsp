@@ -107,7 +107,9 @@ var languageP = "${language}";
 			}
 			
 			function finishUploadAddr() {
-				return !$("#finish-upload-addr").hasClass("hidden");
+				//return !$("#finish-upload-addr").hasClass("hidden");
+				var frameSrc = window.frameElement.getAttribute('src') || '';
+				return frameSrc.indexOf('uploadResult=true') > -1; 
 			}
 			
 			var check = <%=request.getParameter("uploadResult")%>;

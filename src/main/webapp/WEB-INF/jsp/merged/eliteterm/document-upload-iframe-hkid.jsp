@@ -117,7 +117,9 @@ var languageP = "${language}";
 			}
 			
 			function finishUploadHkid() {
-				return !$("#finish-upload-hkid").hasClass("hidden");
+				//return !$("#finish-upload-hkid").hasClass("hidden");
+				var frameSrc = window.frameElement.getAttribute('src') || '';
+				return frameSrc.indexOf('uploadResult=true') > -1; 
 			}
 
 		</script>

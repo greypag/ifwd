@@ -108,7 +108,9 @@ var languageP = "${language}";
 			}
 			
 			function finishUploadPassport() {
-				return !$("#finish-upload").hasClass("hidden");
+				//return !$("#finish-upload").hasClass("hidden");
+				var frameSrc = window.frameElement.getAttribute('src') || '';
+				return frameSrc.indexOf('uploadResult=true') > -1; 
 			}
 			
 			var check = <%=request.getParameter("uploadResult")%>;
