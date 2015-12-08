@@ -667,8 +667,17 @@ public class EliteTermServiceImpl implements EliteTermService {
 	@SuppressWarnings({ "unchecked"})
 	public void uploadEliteTermDocuments(HttpServletRequest request)throws ECOMMAPIException{
 		String uploadLaterFlage = (String) request.getSession().getAttribute("uploadLaterFlage");
+		if (uploadLaterFlage != null) {
+			logger.debug("uploadLaterFlage is null");
+		} else {
+			logger.debug(uploadLaterFlage);
+		}
+		
+		
+		
 		if("false".equals(uploadLaterFlage)){
 			try {
+				request.getSession().setAttribute("uploadLaterFlage",null);
 				UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 				String customerName = userDetails.getFullName();
 				if(StringUtils.isEmpty(customerName)){
@@ -939,7 +948,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 					parametersEmail.put("isHtml", isHTML);
 					connector.sendEmail(parametersEmail,headerEmail);
 				}
-				request.getSession().setAttribute("uploadLaterFlage",null);
+				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
