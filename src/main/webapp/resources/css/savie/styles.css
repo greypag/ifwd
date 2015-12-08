@@ -3822,7 +3822,6 @@ body.chin #illustration-filters #investment-amount #hkd {
   font-family: 'foco_regular', Calibri, sans-serif;
   font-size: 15px;
   padding-top: 10px;
-  padding-bottom: 30px;
 }
 #illustration-filters #investment-amount #left p, #illustration-filters #investment-amount #right p {
   margin: 0;
@@ -4655,6 +4654,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 .fwd-savie-wrapper .investment {
   padding: 0;
   margin-top: 15px;
+  margin-bottom: 25px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .investment {
@@ -5724,6 +5724,16 @@ body.chin .fwd-savie-wrapper .investment .tab-content.credits table thead {
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .application-flux {
+    margin-top: 80px;
+  }
+}
+
+.fwd-evergreen-wrapper .application-flux {
+  margin-top: 60px;
+}
+
+@media (min-width: 992px) {
+  .fwd-evergreen-wrapper .application-flux {
     margin-top: 80px;
   }
 }
@@ -14199,11 +14209,12 @@ input[type=number] {
 
 .fwd-savie-wrapper .investment .after-3-years-btn {
   text-align: center;
-  padding-bottom:30px;
+  /*padding-bottom:30px;*/
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .investment .after-3-years-btn {
-    padding-bottom: 58px;
+    /*padding-bottom: 58px;*/
+    padding-bottom: 25px;
   }
 }
 .fwd-savie-wrapper .investment .after-3-years-btn .btn.btn-white.see-more {
@@ -14260,6 +14271,10 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   text-decoration: underline;
   padding-left: 0;
   padding-right: 0;
+}
+
+.login-holder{
+  padding: 15px 0 ;
 }
 
 @media (min-width: 992px) {
@@ -16733,10 +16748,10 @@ a:focus {
 }
 
 .page-sales-illustration .sales-head {
-	margin-top: 100px;
+	/*margin-top: 100px;*/
 }
 @media (min-width: 992px) {
 	.page-sales-illustration .sales-head {
-		margin-top: 125px;
+		/*margin-top: 125px;*/
 	}
 }
