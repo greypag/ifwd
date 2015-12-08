@@ -182,13 +182,13 @@ public class EvergreenPageFlowControl {
 		model.addAttribute("nextPageFlow", to);
 		model.addAttribute("nextPageFlow2", to2);
 
-		logger.debug(UserRestURIConstants.getSitePath(request) + "evergreen/"
+		logger.debug(UserRestURIConstants.getSitePath(request) + "savie/"
 				+ current);
 
 		logger.debug("-----------------------------------page flow end--------------------------------------------");
 
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "evergreen/" + current);
+				+ "savie/" + current);
 
 	}
 	
