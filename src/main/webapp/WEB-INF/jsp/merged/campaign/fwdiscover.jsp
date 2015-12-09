@@ -17,11 +17,11 @@
 				<div class="fwd-container container-fluid hidden-xs hidden-sm clearfix breadcrumbs-holder">
 					<div class="breadcrumbs pull-left">
 						<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
-							<li><a href="#">Home</a></li>
+							<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
 							<li class="divider"><i class="fa fa-play"></i></li>
-							<li><a href="#">Enjoy</a></li>
+							<li><a href="#"><fmt:message key="breadcrumb.fwdiscover.category" bundle="${msg}" /></a></li>
 							<li class="divider last"><i class="fa fa-play"></i></li>
-							<li class="active-bc">FWDiscover</li>
+							<li class="active-bc"><fmt:message key="breadcrumb.fwdiscover.product" bundle="${msg}" /></li>
 						</ol>
 					</div>
 				</div>
@@ -31,20 +31,24 @@
 						<img src="assets2/images/fwdiscover/page-banner-desktop.jpg" class="img-responsive hidden-sm hidden-xs">
 
 						<div class="banner-title">
-							<p class="welcome">Welcome to</p>
-							<p class="fwdiscover">FWDiscover</p>
+							<p class="welcome"><fmt:message key="jumbo.fwdiscover1" bundle="${msg}" /></p>
+							<p class="fwdiscover"><fmt:message key="jumbo.fwdiscover2" bundle="${msg}" /></p>
 						</div>
 					</div>
 
 					<div class="clearfix">
 						<div class="fwdiscover-description">
-							<p>FWDiscover is a fun way to bag a bargain.</p>
-							<p>For a limited time every month, discover discounted coverage, great travel offers, lifestyle accessories and more. But like all great things in life, the early birds get the goods! <span class="grab">So grab this month’s deals before they’re gone.</span></p>
-							<p class="register">Exclusive offers for FWD members. Not yet a member? <a href="#">Register now</a>.</p>
+							<p><fmt:message key="Fanfare.landingpage.description1.part1" bundle="${msg}" /></p>
+							<p><fmt:message key="Fanfare.landingpage.description1.part2" bundle="${msg}" />
+								<span class="grab"><fmt:message key="Fanfare.landingpage.description1.part3" bundle="${msg}" /></span>
+							</p>
+							<p class="register">
+								<fmt:message key="Fanfare.landingpage.description2.part1" bundle="${msg}" /> <a href="#"><fmt:message key="Fanfare.landingpage.description2.part2" bundle="${msg}" /></a> <fmt:message key="Fanfare.landingpage.description2.part3" bundle="${msg}" />
+							</p>
 						</div>
 
 						<div class="fwdiscover-timer pull-right">
-							<p class="hurry">HURRY – Offers ends in</p>
+							<p class="hurry"><fmt:message key="Fanfare.landingpage.timerword" bundle="${msg}" /></p>
 							<div class="clearfix">
 								<!-- month -->
 								<div class="timer-holder month-holder">
@@ -55,7 +59,7 @@
 										</div>
 										<span class="line line-gray"></span>
 									</div>
-									<span class="desc text-center">DATE</span>
+									<span class="desc text-center"><fmt:message key="Fanfare.landingpage.timer1" bundle="${msg}" /></span>
 								</div>
 								<!-- end month -->
 
@@ -68,7 +72,7 @@
 											</div>
 											<span class="line"></span>
 										</div>
-										<span class="desc text-center">DAYS</span>
+										<span class="desc text-center"><fmt:message key="Fanfare.landingpage.timer2" bundle="${msg}" /></span>
 									</div>
 
 									<div class="timer-holder right">
@@ -78,7 +82,7 @@
 											</div>
 											<span class="line"></span>
 										</div>
-										<span class="desc text-center">HOURS</span>
+										<span class="desc text-center"><fmt:message key="Fanfare.landingpage.timer3" bundle="${msg}" /></span>
 									</div>
 
 									<div class="timer-holder right">
@@ -88,7 +92,7 @@
 											</div>
 											<span class="line"></span>
 										</div>
-										<span class="desc text-center">MINUTES</span>
+										<span class="desc text-center"><fmt:message key="Fanfare.landingpage.timer4" bundle="${msg}" /></span>
 									</div>
 
 									<div class="timer-holder right">
@@ -98,7 +102,7 @@
 											</div>
 											<span class="line"></span>
 										</div>
-										<span class="desc text-center">SECONDS</span>
+										<span class="desc text-center"><fmt:message key="Fanfare.landingpage.timer5" bundle="${msg}" /></span>
 									</div>
 								</div>
 								<!-- end DAY HOUR MINS SECS -->
@@ -121,7 +125,7 @@
 	                            		<p class="discount">(80% off)</p>
 	                            	</div>
 	                            	<span class="text-center">
-	                            		<p>Annual Travel Plan</p>
+	                            		<p><fmt:message key="Fanfare.landingpage.thumbnail1" bundle="${msg}" /></p>
 	                            	</span>
 	                            </div>
 	                            <div class="col-xs-4">
@@ -131,7 +135,7 @@
 	                            		<p class="discount">(80% off)</p>
 	                            	</div>
 	                            	<span class="text-center">
-	                            		<p>14-day Single Trip Travel Plan</p>
+	                            		<p><fmt:message key="Fanfare.landingpage.thumbnail2" bundle="${msg}" /></p>
 	                            	</span>
 	                            </div>
 	                            <div class="col-xs-4">
@@ -141,7 +145,7 @@
 	                            		<p class="discount">(w/ pocket wi-fi)</p>
 	                            	</div>
 	                            	<span class="text-center">
-	                            		<p>4-day Single Trip Travel Plan</p>
+	                            		<p><fmt:message key="Fanfare.landingpage.thumbnail3" bundle="${msg}" /></p>
 	                            	</span>
 	                            </div>
 	                        </div>
@@ -157,7 +161,7 @@
 	                            		<p class="discount">(50% off)</p>
 	                            	</div>
 	                            	<span class="text-center">
-	                            		<p>1-year Home Insurance Plan</p>
+	                            		<p><fmt:message key="Fanfare.landingpage.thumbnail4" bundle="${msg}" /></p>
 	                            	</span>
 	                            </div>
 	                            <div class="col-xs-4">
@@ -167,7 +171,7 @@
 	                            		<p class="discount">(40% off)</p>
 	                            	</div>
 	                            	<span class="text-center">
-	                            		<p>1-year Working Holiday Plan</p>
+	                            		<p><fmt:message key="Fanfare.landingpage.thumbnail5" bundle="${msg}" /></p>
 	                            	</span>
 	                            </div>
 	                            <div class="col-xs-4">
@@ -203,13 +207,16 @@
 						<div class="plan-details-box gray-bg left">
 							<div class="plan-desc">
 								<div class="upper-desc">
-									<p class="title">Annual Travel Plan</p>
-									<p class="promo">now <span class="price">HK$260</span> <span class="italic">(80% off)</span></p>
+									<p class="title"><fmt:message key="Fanfare.landingpage.offer1" bundle="${msg}" /></p>
+									<p class="promo"><fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer3" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer4" bundle="${msg}" /></span></p>
 								</div>
 								<div class="lower-desc">
 									<ul>
-										<li>Original price: HK$1,300</li>
-										<li>Year-round coverage up to 90 days per trip...</li>
+										<li><fmt:message key="Fanfare.landingpage.offer1.bullet1" bundle="${msg}" /></li>
+										<li><fmt:message key="Fanfare.landingpage.offer1.bullet2" bundle="${msg}" /></li>
+										<li><fmt:message key="Fanfare.landingpage.offer1.bullet3" bundle="${msg}" /></li>
+										<li><fmt:message key="Fanfare.landingpage.offer1.bullet4" bundle="${msg}" /></li>
+										<li><fmt:message key="Fanfare.landingpage.offer1.bullet5" bundle="${msg}" /></li>
 									</ul>
 								</div>
 							</div>
@@ -218,11 +225,11 @@
 								<div class="promo-desc text-center">
 									<div class="clearfix">
 										<div class="holder">
-											<p class="title">Quota</p>
+											<p class="title"><fmt:message key="Fanfare.landingpage.offer1.box1" bundle="${msg}" /></p>
 											<p class="value">20</p>
 										</div>
 										<div class="holder date">
-											<p class="title">Ends</p>
+											<p class="title"><fmt:message key="Fanfare.landingpage.offer1.box2" bundle="${msg}" /></p>
 											<p class="value date">NOV</p>
 											<p class=" value date day">19</p>
 										</div>
@@ -230,7 +237,7 @@
 								</div>
 
 								<div class="details-button-holder text-center" name="offer1">
-									<button class="details-btn" id="first-plan">Details</button>
+									<button class="details-btn" id="first-plan"><fmt:message key="Fanfare.landingpage.offer1.box3" bundle="${msg}" /></button>
 								</div>
 							</div>
 						</div>
@@ -243,13 +250,15 @@
 						<div class="plan-details-box blue-bg right">
 							<div class="plan-desc">
 								<div class="upper-desc">
-									<p class="title">14-day Single Trip Travel Plan</p>
-									<p class="promo">now <span class="price">HK$55</span> <span class="italic">(80% off)</span></p>
+									<p class="title"><fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" /></p>
+									<p class="promo"><fmt:message key="Fanfare.landingpage.offer2.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer2.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer2.subtitle3" bundle="${msg}" /></span></p>
 								</div>
 								<div class="lower-desc">
 									<ul>
-										<li>Original price: HK$273</li>
-										<li>Valid for one individual...</li>
+										<li><fmt:message key="Fanfare.landingpage.offer2.bullet1" bundle="${msg}" /></li>
+										<li><fmt:message key="Fanfare.landingpage.offer2.bullet2" bundle="${msg}" /></li>
+										<li><fmt:message key="Fanfare.landingpage.offer2.bullet3" bundle="${msg}" /></li>
+										<li><fmt:message key="Fanfare.landingpage.offer2.bullet4" bundle="${msg}" /></li>
 									</ul>
 								</div>
 							</div>
@@ -258,11 +267,11 @@
 								<div class="promo-desc text-center">
 									<div class="clearfix">
 										<div class="holder">
-											<p class="title">Quota</p>
+											<p class="title"><fmt:message key="Fanfare.landingpage.offer2.box1" bundle="${msg}" /></p>
 											<p class="value">10</p>
 										</div>
 										<div class="holder date">
-											<p class="title">Ends</p>
+											<p class="title"><fmt:message key="Fanfare.landingpage.offer2.box2" bundle="${msg}" /></p>
 											<p class="value date">NOV</p>
 											<p class=" value date day">19</p>
 										</div>
@@ -270,7 +279,7 @@
 								</div>
 
 								<div class="details-button-holder text-center" name="offer2">
-									<button class="details-btn" id="second-plan">Details</button>
+									<button class="details-btn" id="second-plan"><fmt:message key="Fanfare.landingpage.offer2.box3" bundle="${msg}" /></button>
 								</div>
 							</div>
 						</div>
@@ -284,13 +293,15 @@
 						<div class="plan-details-box orange-bg left">
 							<div class="plan-desc">
 								<div class="upper-desc">
-									<p class="title">4-day Single Trip Travel Plan</p>
-									<p class="promo">now <span class="price">FREE</span> <span class="second-line">plus 3-day pocket wi-fi</span></p>
+									<p class="title"><fmt:message key="Fanfare.landingpage.offer3" bundle="${msg}" /></p>
+									<p class="promo"><fmt:message key="Fanfare.landingpage.offer3.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer3.subtitle2" bundle="${msg}" /></span> <span class="second-line"><fmt:message key="Fanfare.landingpage.offer3.subtitle3" bundle="${msg}" /></span></p>
 								</div>
 								<div class="lower-desc">
 									<ul>
-										<li>Original price: HK$135</li>
-										<li>Pocket wifi provided by Y5buddy worth up...</li>
+										<li><fmt:message key="Fanfare.landingpage.offer3.bullet1" bundle="${msg}" /></li>
+										<li><fmt:message key="Fanfare.landingpage.offer3.bullet2" bundle="${msg}" /></li>
+										<li><fmt:message key="Fanfare.landingpage.offer3.bullet3" bundle="${msg}" /></li>
+										<li><fmt:message key="Fanfare.landingpage.offer3.bullet4" bundle="${msg}" /></li>
 									</ul>
 								</div>
 							</div>
@@ -299,11 +310,11 @@
 								<div class="promo-desc text-center">
 									<div class="clearfix">
 										<div class="holder">
-											<p class="title">Quota</p>
+											<p class="title"><fmt:message key="Fanfare.landingpage.offer3.box1" bundle="${msg}" /></p>
 											<p class="value">20</p>
 										</div>
 										<div class="holder date">
-											<p class="title">Ends</p>
+											<p class="title"><fmt:message key="Fanfare.landingpage.offer2.box2" bundle="${msg}" /></p>
 											<p class="value date">NOV</p>
 											<p class=" value date day">19</p>
 										</div>
@@ -311,7 +322,7 @@
 								</div>
 
 								<div class="details-button-holder text-center" name="offer3">
-									<button class="details-btn" id="third-plan">Details</button>
+									<button class="details-btn" id="third-plan"><fmt:message key="Fanfare.landingpage.offer2.box3" bundle="${msg}" /></button>
 								</div>
 							</div>
 						</div>
@@ -325,13 +336,14 @@
 						<div class="plan-details-box light-blue-bg right">
 							<div class="plan-desc">
 								<div class="upper-desc">
-									<p class="title">1-year Home Insurance Plan</p>
-									<p class="promo">now <span class="price">HK$210</span> <span class="italic">(50% off)</p>
+									<p class="title"><fmt:message key="Fanfare.landingpage.offer4" bundle="${msg}" /></p>
+									<p class="promo"><fmt:message key="Fanfare.landingpage.offer4.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer4.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer4.subtitle3" bundle="${msg}" /></p>
 								</div>
 								<div class="lower-desc">
 									<ul>
-										<li>Original price: HK$420</li>
-										<li>Applicable to any home below net floor area...</li>
+										<li><fmt:message key="Fanfare.landingpage.offer4.bullet1" bundle="${msg}" /></li>
+										<li><fmt:message key="Fanfare.landingpage.offer4.bullet2" bundle="${msg}" /></li>
+										<li><fmt:message key="Fanfare.landingpage.offer4.bullet3" bundle="${msg}" /></li>
 									</ul>
 								</div>
 							</div>
@@ -340,11 +352,11 @@
 								<div class="promo-desc text-center">
 									<div class="clearfix">
 										<div class="holder">
-											<p class="title">Quota</p>
+											<p class="title"><fmt:message key="Fanfare.landingpage.offer4.box1" bundle="${msg}" /></p>
 											<p class="value">10</p>
 										</div>
 										<div class="holder date">
-											<p class="title">Ends</p>
+											<p class="title"><fmt:message key="Fanfare.landingpage.offer4.box2" bundle="${msg}" /></p>
 											<p class="value date">NOV</p>
 											<p class=" value date day">19</p>
 										</div>
@@ -352,7 +364,7 @@
 								</div>
 
 								<div class="details-button-holder text-center" name="offer4">
-									<button class="details-btn" id="fourth-plan">Details</button>
+									<button class="details-btn" id="fourth-plan"><fmt:message key="Fanfare.landingpage.offer4.box3" bundle="${msg}" /></button>
 								</div>
 							</div>
 						</div>
@@ -366,13 +378,14 @@
 						<div class="plan-details-box red-bg left">
 							<div class="plan-desc">
 								<div class="upper-desc">
-									<p class="title two-lines">1-year Working Holiday Plan</p>
-									<p class="promo">now <span class="price">HK$2,100</span> <span class="italic">(40% off)</p>
+									<p class="title two-lines"><fmt:message key="Fanfare.landingpage.offer5" bundle="${msg}" /></p>
+									<p class="promo"><fmt:message key="Fanfare.landingpage.offer5.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer5.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer5.subtitle3" bundle="${msg}" /></p>
 								</div>
 								<div class="lower-desc">
 									<ul>
-										<li>Original price: HK$3,500</li>
-										<li>Enjoy full/partial refund if unable to continue...</li>
+										<li><fmt:message key="Fanfare.landingpage.offer5.bullet1" bundle="${msg}" /></li>
+										<li><fmt:message key="Fanfare.landingpage.offer5.bullet2" bundle="${msg}" /></li>
+										<li><fmt:message key="Fanfare.landingpage.offer5.bullet3" bundle="${msg}" /></li>
 									</ul>
 								</div>
 							</div>
@@ -381,11 +394,11 @@
 								<div class="promo-desc text-center">
 									<div class="clearfix">
 										<div class="holder">
-											<p class="title">Quota</p>
+											<p class="title"><fmt:message key="Fanfare.landingpage.offer5.box1" bundle="${msg}" /></p>
 											<p class="value">20</p>
 										</div>
 										<div class="holder date">
-											<p class="title">Ends</p>
+											<p class="title"><fmt:message key="Fanfare.landingpage.offer5.box2" bundle="${msg}" /></p>
 											<p class="value date">NOV</p>
 											<p class=" value date day">19</p>
 										</div>
@@ -393,7 +406,7 @@
 								</div>
 
 								<div class="details-button-holder text-center" name="offer5">
-									<button class="details-btn">Details</button>
+									<button class="details-btn"><fmt:message key="Fanfare.landingpage.offer5.box3" bundle="${msg}" /></button>
 								</div>
 							</div>
 						</div>
