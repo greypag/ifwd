@@ -17,12 +17,33 @@ var language = "${language}";
 <div class="fwd-savie-wrapper">		
      <form method="post" id="serviceCenterForm">	
 			<div id="set-appointment" class="container-fluid fwd-full-container">
-				<div class="application-page-header">
-					<div class="row">
-						<div class="col-xs-12 orange-section">
-							<div class="clearfix position">
-								<div class="description-desktop">
-									<span><fmt:message key="savie.customerServiceCentre.orangeStickyBar" bundle="${msg}" /></span>
+				<div class="application-page-header et-header-browse">
+					<div class="et-back-arrow hidden-xs hidden-sm">
+						<a href="#" class="et-back-arrow-link">
+							<span class="icon-arrow-left2 arrow-left"></span>
+						</a>
+				    </div>
+					<div class="row reset-margin hidden-xs hidden-sm">
+		                  <div class="col-md-4 reset-padding">
+		                      <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="plan-detail" data-et-section-target="et-select-plan-section"><fmt:message key="stepindicator.plan_details" bundle="${msg}" /></button>
+		                  </div>
+		                  <div class="col-md-4 reset-padding">
+		                      <button type="button" class="et-header-info-btn et-bind-btn-header active" id="make-appointment" data-et-section-target="et-application-section"><fmt:message key="stepindicator.appointment" bundle="${msg}" /></button>
+		                  </div>
+		                  <div class="col-md-4 reset-padding">
+		                      <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="confirmation" data-et-section-target="et-dec-sign-section"><fmt:message key="stepindicator.confirmation" bundle="${msg}" /></button>
+		                  </div>
+              		</div>
+					<div class="et-mobile-header-info hidden-md hidden-lg">
+						<div class="clearfix">
+							<div class="et-back-arrow">
+								<a href="#" class="et-back-arrow-link">
+									<span class="icon-arrow-left2 arrow-left"></span>
+								</a>
+							</div>
+							<div class="et-header-tex">
+								<h3 id="et-active-section-label"><fmt:message key="section.header.appointment" bundle="${msg}" /></h3>
+
 								</div>
 							</div>
 						</div>
@@ -73,7 +94,7 @@ var language = "${language}";
 											</div>
 										</div>
 									</div>
-									<p class="confirm-call"><fmt:message key="savie.customerServiceCentre.confirmCall" bundle="${msg}" /></p>
+									<p class="confirm-call"><fmt:message key="saviee.appointment.remarks" bundle="${msg}" /></p>
 								</div>
 								
 								<div class="col-xs-12 col-md-6">
@@ -97,7 +118,7 @@ var language = "${language}";
 							</div>
 							
 							<div class="text-center">
-								<button class="btn next confirm-appointment" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="savie.customerServiceCentre.confirmBtn" bundle="${msg}" /></button>
+								<button class="btn next confirm-appointment" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="saviee.appointment.submit" bundle="${msg}" /></button>
 							</div>
 						</form>
 					</div>

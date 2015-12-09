@@ -40,7 +40,7 @@ var context = "${pageContext.request.contextPath}";
 							</a>
 						</div>
 						<div class="et-header-tex">
-							<h3 id="et-active-section-label">Plan details</h3>
+							<h3 id="et-active-section-label"><fmt:message key="section.header.plan_details" bundle="${msg}" /></h3>
 						</div>
 					</div>
 				</div>
