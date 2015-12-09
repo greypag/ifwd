@@ -119,6 +119,10 @@ public class UserRestURIConstants {
 	public static final String UPLOAD_SIGNATURE = "/documents/applications";
 	public static final String UPLOAD_DOCUMENTS = "/documents/applications";
 	
+	/*API For Campaign Promo Code*/
+	public static final String CAMPAIGN_PROMO_CODE_GET_COUNT = SERVICE_URL + "/leads/campaign/promoCodeCount";
+	public static final String CAMPAIGN_PROMO_CODE_ASSIGN = SERVICE_URL + "/leads/campaign/assignPromoCode";
+	
 	/* Page Flow Control For Savie */
 	
 	//public static final String PAGE_SAVIE_LANDING = "landing";
