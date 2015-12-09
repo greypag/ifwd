@@ -48,11 +48,11 @@ public class Methods {
 	public static boolean isXssAjax(HttpServletRequest request) {
 		String referrer = request.getHeader("referer");
 		logger.info(referrer);
-		if (referrer.contains(request.getServerName()))
+		if (referrer != null && referrer.contains(request.getServerName())) {
 			return false;
-		else
+		} else {
 			return true;
-		
+		}		
 	}
 
 	public static boolean  isHkid(String hkid){
