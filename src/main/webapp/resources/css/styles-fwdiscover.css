@@ -166,7 +166,7 @@
 @media ( min-width : 992px) {
 	.page-fwdiscover .fwdiscover-info .fwdiscover-description .register {
 	    font-size: 14px;
-    	margin-top: 4px;
+    	margin-top: 7px;
     	display: block;
 	}
 }
@@ -201,7 +201,7 @@
 	}
 }
 
-@media ( min-width : 640px) {
+@media ( min-width : 992px) {
 	.fwdiscover-timer .hurry {
 		font-size: 18px;
 		margin-top: 6px;
@@ -252,7 +252,8 @@
 .fwdiscover-timer .timer-holder .bg {
     border-radius: 5px;
     color: #fff;
-    padding: 0 10px 5px;
+    height: 82px;
+    padding: 30px 10px 5px;
     font-size: 54px;
     position: relative;
     background:#ff9900;
@@ -263,6 +264,8 @@
 	    font-size: 42px;
 	    line-height: 62px;
 	    padding-bottom: 2px;
+        height: 65px;
+    	padding: 0 10px;
 	}
 }
 
@@ -342,35 +345,35 @@
 	margin-top: 52px;
 }
 
-.page-fwdiscover .plans-holder .plan {
+.page-fwdiscover .plans-holder .fwdiscover-plan {
 	border-top: 2px solid #fff;
 	color: #fff;
 }
 
 @media ( min-width : 992px) {
-	.page-fwdiscover .plans-holder .plan {
+	.page-fwdiscover .plans-holder .fwdiscover-plan {
 		position: relative;
 		border-top: none;
 	}
 }
 
-.page-fwdiscover .plans-holder .plan .plan-details-box {
+.page-fwdiscover .plans-holder .fwdiscover-plan .plan-details-box {
 	padding-bottom: 60px;
 }
 
 @media ( min-width : 992px) {
-	.page-fwdiscover .plans-holder .plan .plan-details-box {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .plan-details-box {
 		padding-bottom: 0;
 	    width: 425px;
 	    position: absolute;
 	    bottom: 164px;
 	}
 
-	.page-fwdiscover .plans-holder .plan .plan-details-box.left {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .plan-details-box.left {
 		left: 95px;
 	}
 
-	.page-fwdiscover .plans-holder .plan .plan-details-box.right {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .plan-details-box.right {
 		right: 95px;
 	}
 }
@@ -395,26 +398,26 @@
 	background: #e3012b;
 }
 
-.page-fwdiscover .plans-holder .plan img {
+.page-fwdiscover .plans-holder .fwdiscover-plan img {
 	width: 100%;
 }
 
-.page-fwdiscover .plans-holder .plan .plan-desc {
+.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc {
     padding: 50px 20px 40px;
 }
 
-.page-fwdiscover .plans-holder .plan .plan-desc .upper-desc {
+.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc {
 	font-family: 'foco_bold';
     text-align: center;
 }
 
 @media ( min-width : 992px) {
-	.page-fwdiscover .plans-holder .plan .plan-desc .upper-desc {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc {
 		padding-top: 28px;
 	}
 }
 
-.page-fwdiscover .plans-holder .plan .plan-desc .upper-desc .title {
+.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .title {
 	font-size: 50px;
 	line-height: 53px;
 	width: 85%;
@@ -422,46 +425,46 @@
 }
 
 @media ( min-width : 992px) {
-	.page-fwdiscover .plans-holder .plan .plan-desc .upper-desc .title {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .title {
 	    font-size: 25px;
     	line-height: 25px;
 	}
 }
 
-.page-fwdiscover .plans-holder .plan .plan-desc .upper-desc .title.two-lines {
+.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .title.two-lines {
 	width: 90%;
 }
 
-.page-fwdiscover .plans-holder .plan .plan-desc .upper-desc .promo {
+.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .promo {
 	font-size: 40px;
 	margin-top: 10px;
 }
 
 @media ( min-width : 992px) {
-	.page-fwdiscover .plans-holder .plan .plan-desc .upper-desc .promo {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .promo {
 	    font-size: 20px;
 	}
 }
 
-.page-fwdiscover .plans-holder .plan .plan-desc .upper-desc .promo .price {
+.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .promo .price {
 	font-size: 80px;
 	line-height: 86px;
 }
 
 @media ( min-width : 992px) {
-	.page-fwdiscover .plans-holder .plan .plan-desc .upper-desc .promo .price {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .promo .price {
 	   	font-size: 40px;
     	line-height: 38px;
 	}
 }
 
-.page-fwdiscover .plans-holder .plan .plan-desc .upper-desc .second-line {
+.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .second-line {
 	display: block;
     padding-bottom: 16px;
 }
 
 @media ( min-width : 640px) {
-	.page-fwdiscover .plans-holder .plan .plan-desc .upper-desc .second-line {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .second-line {
 		line-height: 25px;
 	}
 }
@@ -470,114 +473,122 @@
 	font-style: italic;
 }
 
-.page-fwdiscover .plans-holder .plan .plan-desc .lower-desc {
-	margin-top: 54px;
+.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .lower-desc {
+	margin-top: 52px;
 }
 
 @media ( min-width : 992px) {
-	.page-fwdiscover .plans-holder .plan .plan-desc .lower-desc {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .lower-desc {
 		margin-top: 28px;
 	}
 }
 
-.page-fwdiscover .plans-holder .plan .plan-desc .lower-desc ul {
+.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .lower-desc ul {
 	padding-left: 20px;
     font-family: arial;
     font-size: 28px;
+    line-height: 40px;
 }
 
 @media ( min-width : 992px) {
-	.page-fwdiscover .plans-holder .plan .plan-desc .lower-desc ul {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .lower-desc ul {
 		font-size: 14px;
     	padding-left: 50px;
+    	line-height: 20px;
 	}
 
-	.page-fwdiscover .plans-holder .plan .promo-desc {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc {
 		float: left;	
 	}
 
-	.page-fwdiscover .plans-holder .plan .desc-and-button-holder {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .desc-and-button-holder {
 	    padding: 20px 20px 13px;
 		margin-top: 48px;
 	}
 }
 
-.page-fwdiscover .plans-holder .plan .promo-desc .holder {
+.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder {
     display: block;
     margin-right: 4px;
-    padding: 11px 31px;
+    padding: 18px 31px;
     background: #fa8200;
     max-width: 140px;
     float: left;
 }
 
 @media ( min-width : 992px) {
-	.page-fwdiscover .plans-holder .plan .promo-desc .holder {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder {
 	    padding: 6px 17px;
 	    margin-right: 2px;
 	}
 }
 
-.page-fwdiscover .plans-holder .plan .promo-desc .holder p {
+.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder p {
 	text-align: center;
 }
 
-.page-fwdiscover .plans-holder .plan .promo-desc .holder.date {
+.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder.date {
     padding-bottom: 17px;
 }
 
 @media ( min-width : 992px) {
-	.page-fwdiscover .plans-holder .plan .promo-desc .holder.date {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder.date {
 		padding-bottom: 9px;
 	}
 }
 
-.page-fwdiscover .plans-holder .plan .promo-desc .holder .title {
+.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder .title {
 	font-family: 'lato_regular';
     font-size: 28px;
 }
 
 @media ( min-width : 992px) {
-	.page-fwdiscover .plans-holder .plan .promo-desc .holder .title {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder .title {
 		font-size: 14px;
 	}
 }
 
-.page-fwdiscover .plans-holder .plan .promo-desc .holder .value {
+.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder .value {
 	font-family: 'lato_bold';
     font-size: 56px;
+    padding: 40px 0 20px;
 }
 
 @media ( min-width : 992px) {
-	.page-fwdiscover .plans-holder .plan .promo-desc .holder .value {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder .value {
 		font-size: 28px;
+		padding: 6px 0 8px;
 	}
 }
 
-.page-fwdiscover .plans-holder .plan .promo-desc .holder .value.date {
+.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder .value.date {
+	padding: 10px 0 0;
 	font-size: 36px;
 	line-height: 43px;
 }
 
 @media ( min-width : 992px) {
-	.page-fwdiscover .plans-holder .plan .promo-desc .holder .value.date {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder .value.date {
 		font-size: 18px;
     	line-height: 22px;
+    	padding: 0 0 3px;
+   		line-height: 16px;
 	}
 }
 
-.page-fwdiscover .plans-holder .plan .promo-desc .holder .value.date.day {
+.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder .value.date.day {
     line-height: 30px;
+    padding: 0;
 }
 
 @media ( min-width : 992px) {
-	.page-fwdiscover .plans-holder .plan .promo-desc .holder .value.date.day {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder .value.date.day {
 	    font-size: 18px;
     	line-height: 14px;
 	}
 }
 
-.page-fwdiscover .plans-holder .plan .promo-desc .clearfix {
+.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .clearfix {
 	display: inline-block;
 }
 
@@ -1240,12 +1251,12 @@
 	    padding: 0 5%;
 	}
 
-	.page-fwdiscover .plans-holder .plan .plan-details-box .details-button-holder {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .plan-details-box .details-button-holder {
 		margin: 0;
     	float: right;
 	}
 
-	.page-fwdiscover .plans-holder .plan .plan-details-box .details-button-holder .details-btn, .fwdiscover-modal .details-button-holder .details-btn {
+	.page-fwdiscover .plans-holder .fwdiscover-plan .plan-details-box .details-button-holder .details-btn, .fwdiscover-modal .details-button-holder .details-btn {
 	    width: 168px;
 	    font-size: 22px;
 	    padding-top: 10px;
@@ -1432,3 +1443,4 @@
     	height: 41px;
 	}
 }
+

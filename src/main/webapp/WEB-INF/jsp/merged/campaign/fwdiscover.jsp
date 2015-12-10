@@ -7,6 +7,7 @@
 	boolean isEservicesActiveClass = false;
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-fwdiscover.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css" />
 		<div class="fwd-savie-wrapper fwdiscover-wrapper">			
 			<!--Top Header-->
 			<div class="page-fwdiscover">
@@ -111,7 +112,7 @@
 	            <div id="myCarousel-fwdiscover" class="carousel slide">
 	                
 	                <!-- Carousel items -->
-	                <div class="carousel-inner">
+	                <div class="carousel-inner clearfix">
 	                    <div class="item active">
 	                        <div class="row">
 	                            <div class="col-xs-4">
@@ -196,7 +197,7 @@
 				<!-- PLANS -->
 				<div class="plans-holder">
 					<!-- first plan -->
-					<div class="plan">
+					<div class="fwdiscover-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -240,7 +241,7 @@
 					</div>
 					<!-- end first plan -->
 					<!-- second plan -->
-					<div class="plan">
+					<div class="fwdiscover-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-14dayssingletrip.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-14dayssingletrip-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 						<div class="plan-details-box blue-bg right">
@@ -282,7 +283,7 @@
 					</div>
 					<!-- end second plan -->
 					<!-- third plan -->
-					<div class="plan">
+					<div class="fwdiscover-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-4daysingletravel.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-4daysingletravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -325,7 +326,7 @@
 					</div>
 					<!-- end third plan -->
 					<!-- fourth plan -->
-					<div class="plan">
+					<div class="fwdiscover-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -367,7 +368,7 @@
 					</div>
 					<!-- end fourth plan -->
 					<!-- fiffth plan -->
-					<div class="plan">
+					<div class="fwdiscover-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -551,8 +552,8 @@
 		            <!-- terms and cond -->
 	            	<div class="terms-and-condition">
 	            		<p class="message">Terms & Conditions 
-	            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/terms-and-cond.png" class="img-responsive hidden-md hidden-lg">
-	            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/terms-and-cond-desktop.png" class="img-responsive hidden-xs hidden-sm">
+	            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/terms-and-cond.png" class="img-responsive mobile">
+	            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/terms-and-cond-desktop.png" class="img-responsive desktop">
 	            		</p>
 	            	</div>
 		            <!-- end terms and cond -->
@@ -679,9 +680,16 @@
 			<!-- FOOTER -->
 		</div>
 		<!-- JS INCLUDES -->
-		<script src="<%=request.getContextPath()%>/resources/js/jquery.countdown.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/fwdiscover/jquery.countdown.min.js"></script>
 		<script type="text/javascript">
-
+		
+		if(getWidth() > 991) {
+			$('.page-fwdiscover .fwdiscover-footer .terms-and-condition .message img.mobile').addClass('hidden');
+		} else {
+			$('.page-fwdiscover .fwdiscover-footer .terms-and-condition .message img.desktop').addClass('hidden');
+		}
+		
 		$("#myCarousel-fwdiscover .carousel-inner .item a").click(function(){
 			var temp = $(this).attr('href');
 			var des = temp.substring(1, temp.length);
