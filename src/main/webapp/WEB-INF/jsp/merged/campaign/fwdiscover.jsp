@@ -1,18 +1,14 @@
-<%@page pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<%@include file="includes/head2.jsp" %>
-	</head>
-	<body>
-		<%!
-			boolean isSaleActiveClass = true;
-			boolean isEservicesActiveClass = false;
-		%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
+<%!
+	boolean isSaleActiveClass = true;
+	boolean isEservicesActiveClass = false;
+%>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-fwdiscover.css" />
 		<div class="fwd-savie-wrapper fwdiscover-wrapper">			
 			<!--Top Header-->
-			<%@include file="includes/header-block-fwdiscover.jsp" %>
-		
 			<div class="page-fwdiscover">
 				<div class="fwd-container container-fluid hidden-xs hidden-sm clearfix breadcrumbs-holder">
 					<div class="breadcrumbs pull-left">
@@ -27,8 +23,8 @@
 				</div>
 				<div class="fwdiscover-info clearfix">
 					<div class="fwd-full-container container-fluid fwdiscover-banner clearfix">
-						<img src="assets2/images/fwdiscover/page-banner-mobile.jpg" class="img-responsive hidden-md hidden-lg">
-						<img src="assets2/images/fwdiscover/page-banner-desktop.jpg" class="img-responsive hidden-sm hidden-xs">
+						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/page-banner-mobile.jpg" class="img-responsive hidden-md hidden-lg">
+						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/page-banner-desktop.jpg" class="img-responsive hidden-sm hidden-xs">
 
 						<div class="banner-title">
 							<p class="welcome"><fmt:message key="jumbo.fwdiscover1" bundle="${msg}" /></p>
@@ -119,7 +115,7 @@
 	                    <div class="item active">
 	                        <div class="row">
 	                            <div class="col-xs-4">
-	                            	<a href="#offer1"><img src="assets2/images/fwdiscover/annualtravel.png" class="img-responsive"></a>
+	                            	<a href="#offer1"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/annualtravel.png" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
 	                            		<p class="price">$260</p>
 	                            		<p class="discount">(80% off)</p>
@@ -129,7 +125,7 @@
 	                            	</span>
 	                            </div>
 	                            <div class="col-xs-4">
-	                            	<a href="#offer2"><img src="assets2/images/fwdiscover/single-trip.png" class="img-responsive"></a>
+	                            	<a href="#offer2"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/single-trip.png" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
 	                            		<p class="price">$55</p>
 	                            		<p class="discount">(80% off)</p>
@@ -139,7 +135,7 @@
 	                            	</span>
 	                            </div>
 	                            <div class="col-xs-4">
-	                            	<a href="#offer3"><img src="assets2/images/fwdiscover/4daysingletrave.png" class="img-responsive"></a>
+	                            	<a href="#offer3"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/4daysingletrave.png" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
 	                            		<p class="price">FREE</p>
 	                            		<p class="discount">(w/ pocket wi-fi)</p>
@@ -155,7 +151,7 @@
 	                    <div class="item">
 	                        <div class="row">
 	                            <div class="col-xs-4">
-	                            	<a href="#offer4"><img src="assets2/images/fwdiscover/1yearhomeplan.jpg" class="img-responsive"></a>
+	                            	<a href="#offer4"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/1yearhomeplan.jpg" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
 	                            		<p class="price">$210</p>
 	                            		<p class="discount">(50% off)</p>
@@ -165,7 +161,7 @@
 	                            	</span>
 	                            </div>
 	                            <div class="col-xs-4">
-	                            	<a href="#offer5"><img src="assets2/images/fwdiscover/1yearworkingholiday.jpg" class="img-responsive"></a>
+	                            	<a href="#offer5"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/1yearworkingholiday.jpg" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
 	                            		<p class="price">$2,100</p>
 	                            		<p class="discount">(40% off)</p>
@@ -185,13 +181,13 @@
 	                <!--/carousel-inner--> 
 	                <a class="left carousel-control hidden-md hidden-lg" href="#myCarousel-fwdiscover" data-slide="prev">
 	                	<div class="img-holder">
-	                		<img src="assets2/images/fwdiscover/carousel-left.png" class="img-responsive">
+	                		<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/carousel-left.png" class="img-responsive">
 	                	</div>
 	                </a>
 
 	                <a class="right carousel-control hidden-md hidden-lg" href="#myCarousel-fwdiscover" data-slide="next">
 	                	<div class="img-holder">
-	                		<img src="assets2/images/fwdiscover/carousel-right.png" class="img-responsive">
+	                		<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/carousel-right.png" class="img-responsive">
 	                	</div>
 	                </a>
 	            </div>
@@ -201,8 +197,8 @@
 				<div class="plans-holder">
 					<!-- first plan -->
 					<div class="plan">
-						<img src="assets2/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
-						<img src="assets2/images/fwdiscover/plan-annualtravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
+						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
 						<div class="plan-details-box gray-bg left">
 							<div class="plan-desc">
@@ -245,8 +241,8 @@
 					<!-- end first plan -->
 					<!-- second plan -->
 					<div class="plan">
-						<img src="assets2/images/fwdiscover/plan-14dayssingletrip.jpg" class="img-responsive hidden-md hidden-lg">
-						<img src="assets2/images/fwdiscover/plan-14dayssingletrip-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-14dayssingletrip.jpg" class="img-responsive hidden-md hidden-lg">
+						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-14dayssingletrip-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 						<div class="plan-details-box blue-bg right">
 							<div class="plan-desc">
 								<div class="upper-desc">
@@ -287,8 +283,8 @@
 					<!-- end second plan -->
 					<!-- third plan -->
 					<div class="plan">
-						<img src="assets2/images/fwdiscover/plan-4daysingletravel.jpg" class="img-responsive hidden-md hidden-lg">
-						<img src="assets2/images/fwdiscover/plan-4daysingletravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-4daysingletravel.jpg" class="img-responsive hidden-md hidden-lg">
+						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-4daysingletravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
 						<div class="plan-details-box orange-bg left">
 							<div class="plan-desc">
@@ -330,8 +326,8 @@
 					<!-- end third plan -->
 					<!-- fourth plan -->
 					<div class="plan">
-						<img src="assets2/images/fwdiscover/plan-1yearhome.jpg" class="img-responsive hidden-md hidden-lg">
-						<img src="assets2/images/fwdiscover/plan-1yearhome-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome.jpg" class="img-responsive hidden-md hidden-lg">
+						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
 						<div class="plan-details-box light-blue-bg right">
 							<div class="plan-desc">
@@ -372,8 +368,8 @@
 					<!-- end fourth plan -->
 					<!-- fiffth plan -->
 					<div class="plan">
-						<img src="assets2/images/fwdiscover/plan-workingholiday.jpg" class="img-responsive hidden-md hidden-lg">
-						<img src="assets2/images/fwdiscover/plan-workingholiday-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday.jpg" class="img-responsive hidden-md hidden-lg">
+						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
 						<div class="plan-details-box red-bg left">
 							<div class="plan-desc">
@@ -430,11 +426,11 @@
 		                <div class="carousel-inner">
 		                    <div class="item active clearfix">
 		                    	<div class="footer-image-holder">
-                            		<img src="assets2/images/fwdiscover/footer-image.jpg" class="img-responsive">
+                            		<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/footer-image.jpg" class="img-responsive">
                             	</div>
                             	<div class="footer-image-info-holder">
                             		<div class="sponsor-logo">
-		                				<img src="assets2/images/fwdiscover/footer-agoda.png" class="img-responsive">
+		                				<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/footer-agoda.png" class="img-responsive">
 		                			</div>
 
 		                			<div class="promo-info-holder">
@@ -448,11 +444,11 @@
 		                    </div>			  
 		                    <div class="item clearfix">
 		                    	<div class="footer-image-holder">
-                            		<img src="assets2/images/fwdiscover/footer-image.jpg" class="img-responsive">
+                            		<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/footer-image.jpg" class="img-responsive">
                             	</div>
                             	<div class="footer-image-info-holder">
                             		<div class="sponsor-logo">
-		                				<img src="assets2/images/fwdiscover/footer-agoda.png" class="img-responsive">
+		                				<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/footer-agoda.png" class="img-responsive">
 		                			</div>
 
 		                			<div class="promo-info-holder">
@@ -466,11 +462,11 @@
 		                    </div>	   
 		                    <div class="item clearfix">
 		                    	<div class="footer-image-holder">
-                            		<img src="assets2/images/fwdiscover/footer-image.jpg" class="img-responsive">
+                            		<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/footer-image.jpg" class="img-responsive">
                             	</div>
                             	<div class="footer-image-info-holder">
                             		<div class="sponsor-logo">
-		                				<img src="assets2/images/fwdiscover/footer-agoda.png" class="img-responsive">
+		                				<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/footer-agoda.png" class="img-responsive">
 		                			</div>
 
 		                			<div class="promo-info-holder">
@@ -484,11 +480,11 @@
 		                    </div>
 		                    <div class="item clearfix">
 		                    	<div class="footer-image-holder">
-                            		<img src="assets2/images/fwdiscover/footer-image.jpg" class="img-responsive">
+                            		<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/footer-image.jpg" class="img-responsive">
                             	</div>
                             	<div class="footer-image-info-holder">
                             		<div class="sponsor-logo">
-		                				<img src="assets2/images/fwdiscover/footer-agoda.png" class="img-responsive">
+		                				<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/footer-agoda.png" class="img-responsive">
 		                			</div>
 
 		                			<div class="promo-info-holder">
@@ -502,11 +498,11 @@
 		                    </div>
 		                    <div class="item clearfix">
 		                    	<div class="footer-image-holder">
-                            		<img src="assets2/images/fwdiscover/footer-image.jpg" class="img-responsive">
+                            		<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/footer-image.jpg" class="img-responsive">
                             	</div>
                             	<div class="footer-image-info-holder">
                             		<div class="sponsor-logo">
-		                				<img src="assets2/images/fwdiscover/footer-agoda.png" class="img-responsive">
+		                				<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/footer-agoda.png" class="img-responsive">
 		                			</div>
 
 		                			<div class="promo-info-holder">
@@ -520,11 +516,11 @@
 		                    </div>
 		                    <div class="item clearfix">
 		                    	<div class="footer-image-holder">
-                            		<img src="assets2/images/fwdiscover/footer-image.jpg" class="img-responsive">
+                            		<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/footer-image.jpg" class="img-responsive">
                             	</div>
                             	<div class="footer-image-info-holder">
                             		<div class="sponsor-logo">
-		                				<img src="assets2/images/fwdiscover/footer-agoda.png" class="img-responsive">
+		                				<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/footer-agoda.png" class="img-responsive">
 		                			</div>
 
 		                			<div class="promo-info-holder">
@@ -540,13 +536,13 @@
 		                <!--/carousel-inner--> 
 		                <a class="left carousel-control hidden-md hidden-lg" href="#myCarousel-footer" data-slide="prev">
 		                	<div class="img-holder">
-		                		<img src="assets2/images/fwdiscover/carousel-left.png" class="img-responsive">
+		                		<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/carousel-left.png" class="img-responsive">
 		                	</div>
 		                </a>
 
 		                <a class="right carousel-control hidden-md hidden-lg" href="#myCarousel-footer" data-slide="next">
 		                	<div class="img-holder">
-		                		<img src="assets2/images/fwdiscover/carousel-right.png" class="img-responsive">
+		                		<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/carousel-right.png" class="img-responsive">
 		                	</div>
 		                </a>
 		            </div>
@@ -555,8 +551,8 @@
 		            <!-- terms and cond -->
 	            	<div class="terms-and-condition">
 	            		<p class="message">Terms & Conditions 
-	            			<img src="assets2/images/fwdiscover/terms-and-cond.png" class="img-responsive hidden-md hidden-lg">
-	            			<img src="assets2/images/fwdiscover/terms-and-cond-desktop.png" class="img-responsive hidden-xs hidden-sm">
+	            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/terms-and-cond.png" class="img-responsive hidden-md hidden-lg">
+	            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/terms-and-cond-desktop.png" class="img-responsive hidden-xs hidden-sm">
 	            		</p>
 	            	</div>
 		            <!-- end terms and cond -->
@@ -567,16 +563,16 @@
 		            		<p class="text-center">Our Partners</p>
 		            		<div class="clearfix">
 			            		<div class="partner-image-holder">
-			            			<img src="assets2/images/fwdiscover/partner-agoda.png" class="img-responsive agoda hidden">
+			            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/partner-agoda.png" class="img-responsive agoda hidden">
 			            		</div>
 			            		<div class="partner-image-holder">
-			            			<img src="assets2/images/fwdiscover/partner-y5.png" class="img-responsive y5">
+			            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/partner-y5.png" class="img-responsive y5">
 			            		</div>
 			            		<div class="partner-image-holder">
-			            			<img src="assets2/images/fwdiscover/partner-boconcept.png" class="img-responsive boconcept hidden">
+			            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/partner-boconcept.png" class="img-responsive boconcept hidden">
 			            		</div>
 			            		<div class="partner-image-holder last">
-			            			<img src="assets2/images/fwdiscover/partner-pricerite.png" class="img-responsive pricerite hidden">
+			            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/partner-pricerite.png" class="img-responsive pricerite hidden">
 			            		</div>
 			            	</div>
 		            	</div>
@@ -678,14 +674,12 @@
 					</div>
 				</div>
 
-				<a href="#" id="gotop" class="go-top go-top-default"><img src="assets2/images/fwdiscover/to-top.jpg"></a> 
+				<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/to-top.jpg"></a> 
 			</div>
 			<!-- FOOTER -->
-			<%@include file="includes/footer-block.jsp" %>
 		</div>
 		<!-- JS INCLUDES -->
-		<%@include file="includes/js-include.jsp" %>		
-		<script src="assets2/js/jquery.countdown.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/jquery.countdown.min.js"></script>
 		<script type="text/javascript">
 
 		$("#myCarousel-fwdiscover .carousel-inner .item a").click(function(){

@@ -159,11 +159,23 @@ public class ECommController {
 	}
 	
 	
-	@RequestMapping(value = "/{lang}/maintenace")
+	@RequestMapping(value = {"/{lang}/maintenace", "/{lang}/maintenance"})
 	public ModelAndView maintenace(HttpServletRequest request,HttpServletResponse response) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/maintenace");
 	}
-	
+
+	@RequestMapping(value = "/{lang}/discover")
+	public ModelAndView getFanFareHomePage(HttpServletRequest request, Model model)  {
+		model.addAttribute("pageTitle", WebServiceUtils.getPageTitle("page.travel", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("pageMetaDataDescription", WebServiceUtils.getPageTitle("meta.travel", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogTitle", WebServiceUtils.getPageTitle("travel.sharing.og.title", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogType", WebServiceUtils.getPageTitle("travel.sharing.og.type", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogUrl", WebServiceUtils.getPageTitle("travel.sharing.og.url", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogImage", WebServiceUtils.getPageTitle("travel.sharing.og.image", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogDescription", WebServiceUtils.getPageTitle("travel.sharing.og.description", UserRestURIConstants.getLanaguage(request)));
+		
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "campaign/fwdiscover");			
+	}	
 }
