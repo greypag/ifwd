@@ -11,15 +11,17 @@
 		<div class="fwd-savie-wrapper fwdiscover-wrapper">			
 			<!--Top Header-->
 			<div class="page-fwdiscover">
-				<div class="fwd-container container-fluid hidden-xs hidden-sm clearfix breadcrumbs-holder">
-					<div class="breadcrumbs pull-left">
-						<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
-							<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
-							<li class="divider"><i class="fa fa-play"></i></li>
-							<li><a href="#"><fmt:message key="breadcrumb.fwdiscover.category" bundle="${msg}" /></a></li>
-							<li class="divider last"><i class="fa fa-play"></i></li>
-							<li class="active-bc"><fmt:message key="breadcrumb.fwdiscover.product" bundle="${msg}" /></li>
-						</ol>
+				<div class="breadcrumbs-holder">
+					<div class="fwd-container container-fluid hidden-xs hidden-sm clearfix">
+						<div class="breadcrumbs pull-left">
+							<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
+								<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
+								<li class="divider"><i class="fa fa-play"></i></li>
+								<li><a href="#"><fmt:message key="breadcrumb.fwdiscover.category" bundle="${msg}" /></a></li>
+								<li class="divider last"><i class="fa fa-play"></i></li>
+								<li class="active-bc"><fmt:message key="breadcrumb.fwdiscover.product" bundle="${msg}" /></li>
+							</ol>
+						</div>
 					</div>
 				</div>
 				<div class="fwdiscover-info clearfix">
