@@ -67,7 +67,7 @@
             <div style="display:none" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">
                 <div style="width:80%;margin-left:10%">
               <h5 class="bmg-confirmation-h5">
-                  <strong>Additional Offer - Use your promotion code:</strong><span>TRA123</span>
+                  <strong>Additional Offer - Use your promotion code:</strong><span>OVS123</span>
               </h5>
 				
               <div class="h4-3-b margin-bottom-10" style="color: #f6871e;">
