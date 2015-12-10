@@ -496,14 +496,31 @@
 
          /* Lightbox for benefit items */
          $(document).ready(function() {
-            if(isMobile){
-               $(".et-benefit-item").click(function(){
-                  var html=$(this).children('.hidden-content').children().clone();
-                  $("#modal_policy_container").html(html);
-                  $("#benefitsPopup").modal("show");
-               });
-            }
+             if(isMobile){
+                 $(".et-benefit-item").click(function(){
+                    itemTop = $(this).offset();
+                    //console.log(itemTop);
+                    var html=$(this).children('.hidden-content').children().clone();
+                    $("#modal_policy_container").html(html);
+                    $("#benefitsPopup").modal("show");
+                    $("#benefitsPopup").on('show.bs.modal', function () {
+                        $('body').css("position", "inital");
+                        //$('body').css("position", "fixed");
+                        $('body').animate({scrollTop: itemTop.top - 60}, 0);      
+                    });
+                    $("#benefitsPopup").on('hide.bs.modal', function () {
+                        //alert(itemTop.top);
+                        $('body').css("position", "initial");
+                        $('body').animate({scrollTop: itemTop.top - 60}, 0);
+                        //$('body').css("position", "relative");
+                    });
+                    $("#benefitsPopup").on('hidden.bs.modal', function () {
+                        $('body').attr("style", "");
+                    });                   
+                 });  
+              }        	 
          });
+        
       </script>
       <style>
          @media screen and (max-width: 991px) {

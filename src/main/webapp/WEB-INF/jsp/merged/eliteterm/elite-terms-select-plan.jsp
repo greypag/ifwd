@@ -2778,6 +2778,14 @@ var home_url = "<%=request.getContextPath()%>";
             template:   '<div class="tooltip et-app-info-tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
             placement: tooltipPlacement
          });
+
+         //IE 11 label for smoker fix
+         if( msieversion()>=11 ){
+            $('label img').on('click', function(){
+               $('#' + $(this).parents('label').attr('for')).click();
+            })
+         }
+
       });
   
 		      // Move to Medical declaration section
