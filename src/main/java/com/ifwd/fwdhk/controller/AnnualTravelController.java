@@ -122,7 +122,7 @@ public class AnnualTravelController {
 			@ModelAttribute("annualTravelQuote") AnnualTravelQuoteBean travelQuote,
 			BindingResult result, Model model, HttpServletRequest request) throws Exception {
 		UserRestURIConstants.setController("Travel");
-		
+		request.setAttribute("controller", UserRestURIConstants.getController());
 		HttpSession session = request.getSession();
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);

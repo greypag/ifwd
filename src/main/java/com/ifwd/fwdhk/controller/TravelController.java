@@ -2023,9 +2023,14 @@ public class TravelController {
 			planCode = "TRAVELCARE";
 		}
 		if (planCode.toUpperCase().equals("HOMECARE")) {
-			// String referalCOde = session.getAttribute("referralCode").toString();
+		
+		// String referalCOde = session.getAttribute("referralCode").toString();
 			mailed = sendEmail.sendEmail(emailToSendPromoCode, "ECHOME", header);
-		} else {
+		}		
+		else
+		}else if(planCode.toUpperCase().equals("OVERSEACARE")) {
+			mailed = sendEmail.sendEmail(emailToSendPromoCode, "ABCDE", header);
+		}else {
 			mailed = sendEmail.sendEmail(emailToSendPromoCode, "TRA123", header);
 		}
 		if (mailed) {

@@ -514,6 +514,22 @@ $(function () {
 	// 18 year ago date
 	var dob_end_date = new Date();
 	dob_end_date.setFullYear(dob_end_date.getFullYear()-18);
+	// this year
+	var dob_end_date_this_year = new Date();
+	// this year - 90 days
+	var dob_end_date_this_year_plus_90 = new Date();
+	dob_end_date_this_year_plus_90.setDate(dob_end_date_this_year_plus_90.getDate() + 90);
+	
+	
+	// 65 year ago date
+	var dob_65_date = new Date();
+	dob_65_date.setFullYear(dob_end_date_this_year.getFullYear() - 65);		
+	dob_65_date.setDate(dob_65_date.getDate() + 1);
+	
+	// 12 year ago date
+	var dob_12_date = new Date();
+	dob_12_date.setFullYear(dob_12_date.getFullYear() - 12);		
+	dob_12_date.setDate(dob_12_date.getDate() + 1);
 	
 	// 86 year ago date
 	var dob_start_date = new Date();
@@ -551,6 +567,59 @@ $(function () {
 		$("#input_dob").removeClass("invalid-field");
 	});
 	$('#input_dob').datepicker('setDate', dob_end_date);
+	
+	$('#input_oversea_dob').datepicker({
+		startView: "decade",
+		autoclose: true,
+		format: "dd-mm-yyyy",
+		//startDate: dob_start_date,
+		endDate: dob_end_date
+	}).on('changeDate', function (ev) {
+		if (document.getElementById("applicantRelationship").value == 'SE'){
+			$('#oversea_insure_dob').datepicker('setDate', $("#applicantDob").val());
+			//console.log($('#oversea_insure_dob').datepicker('getDate'));
+			//console.log($('#applicantDob').val());
+		}
+		$("#dobInvalid").html("");
+		$("#errtxtInsuDob").html("");
+		$("#errtxtAdDob1").html("");
+		$("#dobInsuredInvalid").html("");
+		$("#input_oversea_dob").removeClass("invalid-field");
+		$("#oversea_insure_dob").removeClass("invalid-field");
+	});
+	
+	$('#oversea_insure_dob').datepicker({
+		startView: "decade",
+		autoclose: true,
+		format: "dd-mm-yyyy"
+		//startDate: dob_65_date,
+		//endDate: dob_12_date
+		/*language: getBundleLanguage*/
+	}).on('changeDate', function (ev) {
+		$("#dobInsuredInvalid").html("");
+	});	
+		
+	$('#oversea_educational_insured_dob').datepicker({
+		startView: "decade",
+		autoclose: true,
+		format: "dd-mm-yyyy",
+		startDate: dob_start_date,
+		endDate: dob_end_date
+	}).on('changeDate', function (ev) {
+		$(this).next().html("");
+		$(this).removeClass("invalid-field");
+	});
+	
+	$('#oversea_departure_date').datepicker({
+		startView: "decade",
+		autoclose: true,
+		format: "dd-mm-yyyy",
+		startDate: dob_end_date_this_year,
+		endDate: dob_end_date_this_year_plus_90
+	}).on('changeDate', function (ev) {
+		$(this).next().html("");
+		$(this).removeClass("invalid-field");
+	});
 	
 	$('#input_annual_dob').datepicker({
 		startView: "decade",
@@ -2279,13 +2348,26 @@ function validateName(inputId, errorId, insureBoolean, inputType){
 		return false;
 	}
 	if(insureBoolean){
-		$("#txtInsuFullName1").val(fullname);
-		$("#txtInsuFullName1").removeClass("bmg_custom_placeholder");
-		
-		$("#txtInsuFullName1").removeClass("invalid-field");
-		$("#errtxtPersonalFullName1").html("");
-		$("#errtxtAdFullName1").html("");
+		if (document.getElementById("applicantRelationship") != null) {
+			if (document.getElementById("applicantRelationship").value == 'SE'){
+				$("#txtInsuFullName1").val(fullname);
+				$("#txtInsuFullName1").removeClass("bmg_custom_placeholder");
+				
+				$("#txtInsuFullName1").removeClass("invalid-field");
+				$("#errtxtPersonalFullName1").html("");
+				$("#errtxtAdFullName1").html("");
+			}
+		}
+		else {
+			$("#txtInsuFullName1").val(fullname);
+			$("#txtInsuFullName1").removeClass("bmg_custom_placeholder");
+			
+			$("#txtInsuFullName1").removeClass("invalid-field");
+			$("#errtxtPersonalFullName1").html("");
+			$("#errtxtAdFullName1").html("");
+		}
 	}
+	
 	$("#"+errorId).html('');
 	$("#"+inputId).removeClass("invalid-field");
 }
@@ -2365,12 +2447,24 @@ function validateHkid(inputId, selectId, errorId, insureBoolean, inputType){
 			return false;
 		}
 	}
+	
 	if(insureBoolean){
-		$("#txtInsuHkid1").val(appHkid);
-		$("#txtInsuHkid1").removeClass("bmg_custom_placeholder");
+		if (document.getElementById("applicantRelationship") != null) {
+			if (document.getElementById("applicantRelationship").value == 'SE'){
+				$("#txtInsuHkid1").val(appHkid);
+				$("#txtInsuHkid1").removeClass("bmg_custom_placeholder");
+			
+				$("#txtInsuHkid1").removeClass("invalid-field");
+				$("#errtxtInsuHkid1").html("");
+			}
+		}
+		else {
+			$("#txtInsuHkid1").val(appHkid);
+			$("#txtInsuHkid1").removeClass("bmg_custom_placeholder");
 		
-		$("#txtInsuHkid1").removeClass("invalid-field");
-		$("#errtxtInsuHkid1").html("");
+			$("#txtInsuHkid1").removeClass("invalid-field");
+			$("#errtxtInsuHkid1").html("");
+		}
 	}
 	$('#'+errorId).html('');
 	$("#"+inputId).removeClass("invalid-field");
@@ -3074,19 +3168,6 @@ function tPlanValid()
 		}
 	}
 	
-	
-	
-
-
-	
-
-	 
-
-	 
-	 
-
-	
-
 	var rowCountAdult=document.getElementById("totalAdultTraveler").value;
 	var rowCountChild=document.getElementById("totalCountOfChild").value;
 	var rowCountOther=document.getElementById("totalCountOther").value;
@@ -5176,6 +5257,7 @@ function chkTravelHKPass(value) {
 //ie9 placeholder solution
 function placeholderOnFocus(element, placeholderVal){
 	$(element).removeClass("bmg_custom_placeholder");
+	console.log($(element).val().trim());
 	if($(element).val().trim()==placeholderVal.trim()){
 		$(element).val('');
 	}

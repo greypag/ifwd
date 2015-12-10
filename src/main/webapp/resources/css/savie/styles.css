@@ -9444,10 +9444,14 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
   margin: 0;
   padding-bottom: 13px;
   color: #ff8200;
+  border-bottom: dashed #9ba5a7 1px;
+  margin: 0 0 30px;
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .thank-you-container .details-container h2 {
     padding-bottom: 14px;
+    border-bottom: none;
+    margin: 0;
   }
 }
 .fwd-savie-wrapper .thank-you-container .details-container whats-next {
@@ -9480,6 +9484,24 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
   .fwd-savie-wrapper .thank-you-container .details-container .appointment-detail label {
     width: 40%;
   }
+}
+.fwd-savie-wrapper .thank-you-container .details-container .appointment-detail .print-image-holder { 
+	margin-top: 30px;
+    margin-bottom: 22px;
+    text-align: center;
+}
+@media (min-width: 992px) {
+	.fwd-savie-wrapper .thank-you-container .details-container .appointment-detail .print-image-holder { 
+		text-align: left;
+	}
+}
+.fwd-savie-wrapper .thank-you-container .details-container .appointment-detail .print-image-holder p { 
+    font-size: 14px;
+    color: #ff8200;
+    border-bottom: 1px solid #ff8200;
+    margin-left: 8px;
+    display: inline;
+    cursor: pointer;
 }
 .fwd-savie-wrapper .thank-you-container .details-container .appointment-detail span {
   width: 65%;
@@ -11680,6 +11702,10 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
 .fwd-savie-wrapper p {
   margin: 0;
 }
+
+.fwd-savie-wrapper a.map-link{
+	text-decoration: underline;
+}
 .fwd-savie-wrapper p.save-my-way {
   font-size: 38px;
   font-family: 'Calibri-bold', sans-serif;
@@ -11730,7 +11756,7 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
   }
 }
 .fwd-savie-wrapper p.additional.top {
-  padding: 32px 0 0 0;
+  padding: 0 0 0 0;
   font-size: 30px;
   font-family: 'Calibri-bold', sans-serif;
   color: #ff8200;
@@ -11740,7 +11766,7 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
   .fwd-savie-wrapper p.additional.top {
     padding: 42px 0 0 0;
     width: 46%;
-    font-size: 38px;
+    font-size: 48px;
     line-height: 40px;
   }
 }
@@ -12374,7 +12400,7 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
   font-family: 'fantasy', Calibri, sans-serif;
 }
 .fwd-savie-wrapper .banner-widget .text-content.hunger-img img {
-  margin-top: -60px;
+  margin-top: 40px;
   margin-bottom: 30px;
 }
 .fwd-savie-wrapper .banner-widget .buy-now.hunger-buy-now {
@@ -14405,11 +14431,11 @@ body.chin button#thank-you-continue {
 /*    margin: 0;
     padding: 0;*/
   }
-  .fwd-savie-wrapper .o2o-landing.banner-widget .text-content.hunger-img img {
+ /* .fwd-savie-wrapper .o2o-landing.banner-widget .text-content.hunger-img img {
     margin: 0;
     padding: 0;
     width: 340px;
-  }
+  } */
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.banner-widget .text-content {
@@ -14538,7 +14564,7 @@ body.chin button#thank-you-continue {
   }
 }
 .fwd-savie-wrapper .o2o-landing.teaser {
-  padding-top: 55px;
+  padding-top: 35px;
   padding-bottom: 8px;
 }
 @media (min-width: 992px) {
@@ -14546,7 +14572,7 @@ body.chin button#thank-you-continue {
     width: 100%;
     max-width: 576px;
     margin: 0 auto;
-    padding-right: 40px;
+    padding-right: 0px;
   }
 }
 @media (min-width: 992px) {
@@ -14861,34 +14887,44 @@ body.chin button#thank-you-continue {
 .fwd-savie-wrapper .hunger-text-section button.get-started,
 .fwd-savie-wrapper .sign-up-teaser button.get-started {
   font-family: 'Calibri-bold', sans-serif;
-  height: 48px;
-  width: 65%;
-  max-width: 245px;
-  font-size: 28px;
+  height: 60px;
+  width: 90%;
+  max-width: 450px;
+  font-size: 30px;
   border: 1px solid #ff8000;
 }
 body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
   font-family: 'Microsoft JhengHei', Calibri, sans-serif;;
 }
 .fwd-savie-wrapper .hunger-text-section button.get-started {
-  background-color: #fff;
-  color: #ff8200;
+  background-color: #fcb714;
+  color: #fff;
+  border: 1px solid #fcb714;
 }
 .fwd-savie-wrapper .sign-up-teaser button.get-started {
-  background-color: #ff8200;
+  background-color: #fcb714;
   color: white;
   margin: 20px 0;
 }
 
 @media (min-width: 992px) {
+ .fwd-savie-wrapper .hunger-text-section button.get-started,
+ .fwd-savie-wrapper .sign-up-teaser button.get-started {
+   font-family: 'Calibri-bold', sans-serif;
+   height: 80px;
+   width: 300px;
+   font-size: 60px;
+   border: 1px solid #fcb714;
+}
+		
   .fwd-savie-wrapper .sign-up-teaser {
     margin-top: 0;
     position: relative;
-    background: rgba(0, 0, 0, 0.5);
+    background: none;
     /* Here some time problem for Hover than you can use background color/image */
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000)";
+   /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000)";
     /* Below IE7 supported */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000);
+   /* filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000, endColorstr=#88000000); */
     right: 4%;
     max-width: 450px;
     width: 35%;
@@ -15780,13 +15816,24 @@ body.chin #btn-cstmr-srvc-cnter {
 .fwd-savie-wrapper #set-appointment .selectDiv #centre,
 .fwd-savie-wrapper #set-appointment .selectDiv #preferred-time {
   z-index: 1;
-  -webkit-appearance: menulist;
-  -moz-appearance: menulist;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   text-indent: 1px;
   text-overflow: '';
   margin-bottom: 0;
   /*width: 110%;*/
   /*width: 112%\9;*/
+  background-image: url(../../images/savie/arrow-down.png);
+  background-position: 97% 20px;
+  background-repeat: no-repeat;
+  padding-top: 10px;
+}
+
+@media screen and (min-width: 992px) {
+	.fwd-savie-wrapper #set-appointment .selectDiv #centre,
+	.fwd-savie-wrapper #set-appointment .selectDiv #preferred-time {
+	  background-position: 93% 20px;
+	}
 }
 
 .fwd-savie-wrapper #set-appointment .selectDiv #centre::-ms-expand,
@@ -15842,3 +15889,158 @@ body.chin #btn-cstmr-srvc-cnter {
 @media(max-width: 1245px){
   .p_savie .tagline-holder img{width: 50%;}
 }
+<<<<<<< HEAD
+=======
+
+/* For the 6 benefits block */
+.annualTravel_policy_item {
+	position: relative;
+	height: 180px;
+	margin-top: 30px;
+}
+
+
+@media ( min-width : 992px) {
+	.annualTravel_policy_item {
+		margin-bottom: 25px;
+	}
+}
+
+
+.annualTravel_policy_item .hidden-content {
+	position: absolute;
+	top: 0px;
+	z-index: 99;
+	background-color: #FFFFFF;
+	opacity: 0.9;
+	display: none;
+	min-height: 195px;
+	padding-top: 30px;
+}
+
+.annualTravel_policy_item .hidden-content .hidden-content-title {
+	font-weight: bold;
+}
+
+.annualTravel_policy_item .hidden-content .hidden-content-p {
+	font-size: 14px;
+	margin-top: 5px;
+}
+
+.annualTravel_policy_item .hidden-content .hidden-content-p p {
+	margin-bottom: 3px;
+   line-height: 18px;
+}
+
+.annualTravel_policy_item .hidden-content .hidden-content-a {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.annualTravel_policy_item .hidden-content .hidden-content-a a {
+	text-decoration: underline;
+}
+
+.annualTravel_policy_item img {
+	width: 80px;
+}
+
+.annualTravel_policy_item img.eg-img {
+	width: 100px;
+}
+
+@media ( min-width : 992px) {
+	.annualTravel_policy_item img.eg-img {
+		width: 120px;
+	}
+}
+
+.pad-none h2 {
+	font-size: 32px;
+}
+
+@media ( min-width : 992px) {
+	.pad-none h2 {
+		font-size: 41px;
+	}
+}
+
+.annualTravel_policy_item h5 {
+	margin-top: 20px;
+}
+
+.annualTravel_policy_item h5.bold {
+	font-size: 18px;
+	margin-left: auto;
+   margin-right: auto;
+   max-width: 145px;
+   line-height: 1.4;
+}
+.eg-link {
+	border-bottom: #f6871e 2px solid;
+}
+
+.eg-link:hover {
+  border-bottom: #9fb1b2 2px solid;
+}
+
+.annualTravel_policy_item h5.eg-width-33 {
+   padding: 0 33px;
+}
+
+.annualTravel_policy_item h5.eg-width-22 {
+   padding: 0 22px;
+}
+
+.annualTravel_policy_item h5.eg-width-15 {
+   padding: 0 15px;
+}
+
+@media ( min-width : 325px) and (max-width: 385px) {
+	.annualTravel_policy_item h5.eg-width-33 {
+	   padding: 0;
+	}
+	
+	.annualTravel_policy_item h5.eg-width-22 {
+	   padding: 0;
+	}
+	
+	.annualTravel_policy_item h5.eg-width-15 {
+	   padding: 0;
+	}
+}
+
+.eg-benefits-col { 
+	margin-top: -10px;
+}
+
+@media ( min-width : 992px) {
+	.eg-benefits-col { 
+		margin-top: 5px;
+	}
+}
+
+@media ( min-width : 992px) {
+	.annualTravel_policy_item:hover .hidden-content {
+		display: block;
+	}
+	.product_landing_download_button {
+		margin-right: 20px;
+	}
+	.product_payment_details_title {
+		margin-top: 8px;
+	}
+	td .product_confirmation_dis {
+		font-size: 12px;
+		position: absolute;
+	}
+}
+
+a:hover {
+	color: #9fb1b2; 
+}
+
+a:focus {
+	color: #9fb1b2;
+}
+>>>>>>> remotes/origin/fwdhk_overseasstudy

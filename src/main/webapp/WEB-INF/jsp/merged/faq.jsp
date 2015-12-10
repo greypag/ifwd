@@ -28,17 +28,549 @@
 				        </p>
 				    </div>
 			        <div class="col-md-12 col-lg-12 pad-none faq_menu">
-			            <div class="faq_menu_item active" onclick="faqChangeCare(this, 'e');"><fmt:message key="faq.eliteterm" bundle="${msg}" /></div>
-			            <div class="faq_menu_item" onclick="faqChangeCare(this, 's');"><fmt:message key="faq.savie.care" bundle="${msg}" /></div>
-			            <div class="faq_menu_item" onclick="faqChangeCare(this, 'wh');"><fmt:message key="faq.working.holidayCare" bundle="${msg}" /></div>
-			            <div class="faq_menu_item" onclick="faqChangeCare(this, 'f');"><fmt:message key="faq.flight.care" bundle="${msg}" /></div>
-			            <div class="faq_menu_item" onclick="faqChangeCare(this, 't');"><fmt:message key="faq.travel.care" bundle="${msg}" /></div>
-			            <div class="faq_menu_item" onclick="faqChangeCare(this, 'h');"><fmt:message key="faq.home.care" bundle="${msg}" /></div>
+		                <div class="faq-btn-wrapper">
+	                        <div id="ElitetermFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'e', false);"><fmt:message key="faq.eliteterm" bundle="${msg}" /></div>
+	                        <div id="SavieFaq" class="faq_menu_item" onclick="faqChangeCare(this, 's', false);"><fmt:message key="faq.savie.care" bundle="${msg}" /></div>
+	                        <div id="OverseaFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'o', false);"><fmt:message key="faq.overseas" bundle="${msg}" /></div>
+	                        <div id="WorkingHolidayFaq" class="faq_menu_item last" onclick="faqChangeCare(this, 'wh', false);"><fmt:message key="faq.working.holidayCare" bundle="${msg}" /></div>		                
+		                </div>  
+			            <div class="clearfix"></div>
+			            <div class="faq-btn-wrapper-bottom">
+	                        <div id="FlightFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'f', false);"><fmt:message key="faq.flight.care" bundle="${msg}" /></div>
+	                        <div id="TravelFaq" class="faq_menu_item" onclick="faqChangeCare(this, 't', false);"><fmt:message key="faq.travel.care" bundle="${msg}" /></div>
+	                        <div id="HomecareFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'h', false);"><fmt:message key="faq.home.care" bundle="${msg}" /></div>			            
+			            </div>
 			            <div class="clearfix"></div>
 			        </div>
 
+                    <!-- Overseas start -->
+                    <div id="faq_o" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
+                        <div class="col-md-12 col-lg-12 pad-none faq_content">
+                            <div class="col-md-11 col-lg-11 pad-none faq_cat">
+                               <fmt:message key="faq.eliteterm.group1" bundle="${msg}" />
+                            </div>
+                            <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
+                                <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group1.q1" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group1.a1" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group1.q2" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group1.a2" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>                            
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group1.q3" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group1.a3" bundle="${msg}" />
+                                        <ol class="">
+                                            <li><fmt:message key="faq.savie.group1.a1.li1" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.savie.group1.a1.li2" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.savie.group1.a1.li3" bundle="${msg}" /></li>
+                                        </ol>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group1.q4" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group1.a4" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group1.q5" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group1.a5" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group1.q6" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group1.a6" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group1.q7" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group1.a7" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 pad-none faq_content">
+                            <div class="col-md-11 col-lg-11 pad-none faq_cat">
+                                <fmt:message key="faq.eliteterm.group2" bundle="${msg}" />
+                            </div>
+                            <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
+                                <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group2.q8" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group2.a8" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group2.q9" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group2.a9" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group2.q10" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group2.a10" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group2.q11" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group2.a11" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group2.q12" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group2.a12" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group2.q13" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group2.a13" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group2.q14" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group2.a14" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group2.q15" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group2.a15" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group2.q16" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group2.a16" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group2.q17" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group2.a17" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group2.q18" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group2.a18" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group2.q19" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group2.a19" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>                           
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 pad-none faq_content">
+                            <div class="col-md-11 col-lg-11 pad-none faq_cat">
+                                <fmt:message key="faq.eliteterm.group3" bundle="${msg}" />
+                            </div>
+                            <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
+                                <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group3.q20" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group3.a20" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group3.q21" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group3.a21" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group3.q22" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group3.a22" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group3.q23" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group3.a23" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group3.q24" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group3.a24" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>                                                                                    
+                            <div class="col-md-12 col-lg-12 pad-none faq_qna">
+                                <div class="col-md-12 col-lg-12 pad-none">
+                                    <div class="col-md-11 col-lg-11 pad-none faq_question">
+                                        <fmt:message key="faq.eliteterm.group3.q25" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-md-12 col-lg-12 pad-none faq_answer">
+                                        <fmt:message key="faq.eliteterm.group3.a25" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div> 
+                                                        
+                            <div class="clearfix"></div>
+                        </div>
+                   
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- Overseas end -->
+
                     <!-- Elite Term start -->
-                    <div id="faq_e" class="col-md-12 col-lg-12 pad-none faq_care_container">
+                    <div id="faq_e" class="col-md-12 col-lg-12 pad-none faq_care_container" style="display:none;">
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
                             <div class="col-md-11 col-lg-11 pad-none faq_cat">
                                <fmt:message key="faq.eliteterm.group1" bundle="${msg}" />
@@ -3369,7 +3901,29 @@
 		</div>
 		
 		<script>
-		  
+        $(function() {
+            //faqChangeCare("#OverseaFaq","o");
+            $('input, textarea').placeholder();
+            var curProductUrl = window.location.href;
+            var productName = curProductUrl.substr(curProductUrl.indexOf("#") + 1)+"Faq";
+            if(productName=="ElitetermFaq"){
+                faqChangeCare(productName,"e", true);
+            }else if(productName=="SavieFaq"){
+                faqChangeCare(productName,"s", true);
+            }else if(productName=="OverseaFaq"){
+                faqChangeCare(productName,"o", true);
+            }else if(productName=="WorkingHolidayFaq"){
+                faqChangeCare(productName,"wh", true);          
+            }else if(productName=="FlightFaq"){
+                faqChangeCare(productName,"f", true);
+            }else if(productName=="TravelFaq"){
+                faqChangeCare(productName,"t", true);
+            }else if(productName=="HomecareFaq"){
+                faqChangeCare(productName,"h", true);
+            }else{
+            	faqChangeCare("ElitetermFaq","e", true);
+            }  
+        }); 	  
 		</script>
 		<!--/.container-->
 	</section>

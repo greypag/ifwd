@@ -81,8 +81,28 @@ public class DateApi {
 		
 	}
 	
+	/**
+	 * 将date日期格式为dd-MM-yyyy的字符串转化为Date
+	 * @param date
+	 * @return Date
+	 */
 	public static Date formatDate(String date){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+		try {
+			return dateFormat.parse(date);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/**
+	 * 将date日期格式为yyyy-MM-dd的字符串转化为Date
+	 * @param date
+	 * @return Date
+	 */
+	public static Date formatDate1(String date){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 		try {
 			return dateFormat.parse(date);
 		} catch (Exception e) {
@@ -98,6 +118,16 @@ public class DateApi {
 	 */
 	public static String formatString(Date date) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+		return dateFormat.format(date);
+	}
+	
+	/**
+	 * 将date转化为日期格式为yyyy-MM-dd的字符串
+	 * @param date
+	 * @return String
+	 */
+	public static String formatString1(Date date) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 		return dateFormat.format(date);
 	}
 	
@@ -118,6 +148,11 @@ public class DateApi {
 		return convertSuccess;
 	}
 	
+	/**
+	 * 将date转化为日期格式为yyyy-MM-dd的字符串
+	 * @param date
+	 * @return String
+	 */
 	public static String formatString(String date){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
 		SimpleDateFormat newDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);

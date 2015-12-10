@@ -59,41 +59,67 @@ var home_url = "<%=request.getContextPath()%>";
 					<img src="<%=request.getContextPath()%>/<fmt:message key="savie.hero.tagline" bundle="${msg}" />" title="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" alt="<fmt:message key="savie.o2o.landing.hero.tagline.image.alt.text" bundle="${msg}" />" class="img-responsive">
 				</div>
 				
-				<div class="hunger-text-section hidden-md hidden-lg">
-					<p class="hunger-selling-text text-1"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p> 
-					<div class="get-started-holder text-center">
-						<button id="hunger-selling-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
+				<form action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}" method="post">
+					<input type="hidden" name="accessCodeConfirm" value="TEST123"/>
+					<div class="hunger-text-section">
+						<!-- <p class="hunger-selling-text text-1"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>   -->
+						<div class="get-started-holder text-center">
+							<button id="hunger-selling-buy-now-O2O-mobile" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
+						</div>
+						<!--<p class="footnote below"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p> -->
 					</div>
+<<<<<<< HEAD
 				</div>
+=======
+				</form>
+>>>>>>> remotes/origin/fwdhk_overseasstudy
 			</div>
+			
 			
 			<div class="fwd-full-container container-fluid o2o-landing teaser">
 				<div class="fwd-container-limit">
-					<div class="teaser-banner-text">
-						<div class="money-div">
+					<!--<div class="teaser-banner-text"> -->
+						<!-- <div class="money-div">
 							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/money-logo-large.png" class="money">
+						</div> -->
+						<div class = "row">
+							<div class = "col-xs-12 col-md-6">
+								<p class="additional top hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.Act.now.to" bundle="${msg}" /></p> 
+								<p class="additional top hidden-xs hidden-sm"><fmt:message key="savie.o2o.landing.Act.now.to2" bundle="${msg}" /></p>
+							</div>
+							
+							<div class = "col-xs-12 col-md-6">
+								<ul class="crediting-rate-list clearfix">
+									<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.First.year" bundle="${msg}" /></span></li>
+									<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Second.year" bundle="${msg}" /></span><div class="white right"></div></li>
+									<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Third.year" bundle="${msg}" /></span></li>
+								</ul>
+							</div>
 						</div>
-						<p class="additional top"><fmt:message key="savie.o2o.landing.Act.now.to" bundle="${msg}" /></p>
-						<ul class="crediting-rate-list clearfix">
-							<li><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.First.year" bundle="${msg}" /></span></li>
-							<li class="middle"><div class="white"></div><span class="percent">3% </span><span class="year"><fmt:message key="savie.o2o.landing.Second.year" bundle="${msg}" /></span><div class="white right"></div></li>
-							<li><span class="percent gold">4% </span><span class="year gold"><fmt:message key="savie.o2o.landing.Third.year" bundle="${msg}" /></span></li>
-						</ul>
-						<p class="bottom-text"><fmt:message key="savie.o2o.landing.Lump.sum.info" bundle="${msg}" /></p>
-					</div>
+						<!--<p class="bottom-text"><fmt:message key="savie.o2o.landing.Lump.sum.info" bundle="${msg}" /></p> -->
+					<!-- </div> -->
 				</div>
 			</div>
 			
-			<div class="sign-up-teaser">
-				<p class="sign-up-header hidden-sm hidden-xs"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p>
-				<div class="get-started-holder text-center hidden-sm hidden-xs">
+			<!-- <div class="sign-up-teaser">
+				<!--<p class="sign-up-header hidden-sm hidden-xs"><fmt:message key="savie.o2o.landing.SAVIE.is.currently" bundle="${msg}" /></p> -->
+				<!-- <div class="get-started-holder text-center hidden-sm hidden-xs">
 					<button id="hunger-selling-buy-now-O2O" class="get-started"><fmt:message key="savie.o2o.landing.Get.started" bundle="${msg}" /></button>
 				</div>
+<<<<<<< HEAD
 				<p class="sign-up-header below">
 					<fmt:message key="savie.o2o.landing.Haven't.applied" bundle="${msg}" />
 				</p>
 			</div>
 			</div>
+=======
+				<!--<p class="sign-up-header below">
+					<fmt:message key="savie.o2o.landing.Haven't.applied.part1" bundle="${msg}" /><button id="signup"><fmt:message key="savie.o2o.landing.Haven't.applied.link.text" bundle="${msg}" /></button><fmt:message key="savie.o2o.landing.Haven't.applied.part2" bundle="${msg}" />
+				</p> 
+				<p class="footnote below hidden-sm hidden-xs"><fmt:message key="savie.o2o.landing.Access.code.info" bundle="${msg}" /></p> -->
+			<!--</div> 
+			</div>  -->
+>>>>>>> remotes/origin/fwdhk_overseasstudy
 			
 	        <div class="teaser-three-column O2O-landing">
 					<div id="landing-three-column" class="fwd-container container-fluid three-column-widget O2O-landing">
@@ -172,6 +198,83 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 								</div>
 							</div>
+						</div>
+						<!--  6 benefit coverage -->
+						<div style="background-color:#FFFFFF;text-align:center;margin-top: 20px;padding-bottom: 20px;">
+						    <div class="container pad-none">
+						        <h2><fmt:message key="evergreen.travel.benefits" bundle="${msg}" /></h2>
+						        <h4><strong></strong></h4>
+						        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 eg-benefits-col">
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon1.png">
+						                <h5 class="bold eg-width-33"><fmt:message key="evergreen.travel.simple.and.easy" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon1.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.simple.and.easy" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon2.png">
+						                <h5 class="bold eg-width-33"><fmt:message key="evergreen.travel.19.to.70.issue.age" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon2.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.19.to.70.issue.age" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon3.png">
+						                <h5 class="bold"><fmt:message key="evergreen.travel.withdrawal.without.charges" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon3.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.withdrawal.without.charges" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon4.png">
+						                <h5 class="bold eg-width-22"><fmt:message key="evergreen.travel.earning.after.3.years" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon4.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.earning.after.3.years" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon5.png">
+						                <h5 class="bold eg-width-15"><fmt:message key="evergreen.travel.24.hours.service.hotline" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon5.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.24.hours.service.hotline" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon6.png">
+						                <h5 class="bold eg-width-33"><a class="eg-link" href="<fmt:message key="evergreen.travel.bocomm.link" bundle="${msg}" />"
+							              target="_blank"><fmt:message key="evergreen.travel.bocomm.card.offer" bundle="${msg}" /></a></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon6.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="evergreen.travel.bocomm.card.offer" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="evergreen.travel.details" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="clearfix"></div>
+						        </div>
+						    </div>
 						</div>
 						<!-- Disclaimer and Policy Provisions -->
 						<div class="disclaimer-policy-teaser teaser-policy">
@@ -373,7 +476,7 @@ var home_url = "<%=request.getContextPath()%>";
 			</div>
 			
 			<!--Access Code Modal-->
-			<div class="modal fade" role="dialog" aria-labelledby="accessCode" id="accessCodeO2O">
+		<!-- <div class="modal fade" role="dialog" aria-labelledby="accessCode" id="accessCodeO2O">
 				<div class=" hunger-selling-container container-fluid modal-dialog" role="document">
 					<div class="modal-content hunger-selling-content">
 						<div class="hunger-selling-header text-center">
@@ -393,8 +496,13 @@ var home_url = "<%=request.getContextPath()%>";
 							</div>
 						</div>
 					</div><!-- /.modal-content -->
+<<<<<<< HEAD
 				</div><!-- /.modal-dialog -->	
 			</div><!-- /.modal --> 
+=======
+				<!-- </div><!-- /.modal-dialog -->	
+			<!-- </div><!-- /.modal -->
+>>>>>>> remotes/origin/fwdhk_overseasstudy
 			
 			<!--Signup Now Modal-->
 			<div class="modal fade" role="dialog" aria-labelledby="signupnow" id="signup-now-modal">
@@ -547,7 +655,7 @@ var home_url = "<%=request.getContextPath()%>";
 							}
 							else{
 								$('.validation-msg').addClass('hidden-error-msg');
-								var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
+								var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}'; 
 								$("#o2o-landing-form").attr("action", url);
 								$('#o2o-landing-form').submit();
 							}

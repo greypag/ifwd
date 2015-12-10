@@ -109,6 +109,19 @@ public class UserRestURIConstants {
 	public static final String SEND_DOCUMENTS = "/documents/applications";
 	public static final String GENERATE_SALES_ILLUSTRATION = "/savie/salesIllustration";
 	
+	/*API For Oversea*/
+	public static final String OVERSEA_GET_QUOTE = SERVICE_URL
+			+ "/gi/overseasStudy/quote";
+	public static final String OVERSEA_CREATE_POLICY = SERVICE_URL
+			+ "/gi/overseasStudy/policies";
+	public static final String OVERSEA_CONFIRM_POLICY = SERVICE_URL
+			+ "/gi/overseasStudy/payments/make";
+	public static final String OVERSEA_FINALIZE_POLICY = SERVICE_URL
+			+ "/gi/overseasStudy/policies";
+	public static final String OVERSEA_SUBMIT_POLICY = SERVICE_URL
+			+ "/gi/homeCare/payments/submit";
+	
+	
 	/*API For eliteTerm*/
 	public static final String CREATE_ELITE_TERM_POLICY = "/eliteterm/policies";
 	public static final String GET_ELITE_TERM_PREMIUM = "/eliteterm/premium";
@@ -153,6 +166,59 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED = "savie.emailSubmitted";
 	public static final String PAGE_PROPERTIES_SAVIE_PDF = "pdf-show";
 	public static final String PAGE_PROPERTIES_SAVIE_SIGNATURE = "savie.signature";
+	
+	/* Page Flow Control For OverSea */
+	public static final String URL_OVERSEA_LANDING = "oversea-insurance";
+	public static final String URL_OVERSEA_QUOTE = "quote";
+	public static final String URL_OVERSEA_DETAILS = "details";
+	public static final String URL_OVERSEA_SUMMARY = "summary";
+	public static final String URL_OVERSEA_CONFIRMATION = "confirmation";
+	
+	public static final String PAGE_OVERSEA_LANDING = "oversea-landing";
+	public static final String PAGE_OVERSEA_QUOTE = "oversea-plan-quote";
+	public static final String PAGE_OVERSEA_DETAILS = "oversea-plan-details";
+	public static final String PAGE_OVERSEA_SUMMARY = "oversea-plan-summary";
+	public static final String PAGE_OVERSEA_CONFIRMATION = "oversea-plan-confirmation";
+	
+	public static final String PAGE_PROPERTIES_OVERSEA_LANDING = "oversea.landing";
+	public static final String PAGE_PROPERTIES_OVERSEA_QUOTE = "oversea.quote";
+	public static final String PAGE_PROPERTIES_OVERSEA_DETAILS = "oversea.details";
+	public static final String PAGE_PROPERTIES_OVERSEA_SUMMARY = "oversea.summary";
+	public static final String PAGE_PROPERTIES_OVERSEA_CONFIRMATION = "oversea.confirmation";
+	
+    /* Page Flow Control For Evergreen */
+	
+	public static final String PAGE_EVERGREEN_PLAN_DETAILS = "plan-details";	
+	public static final String PAGE_EVERGREEN_ACCOUNT_ACTIVATION = "account-activation";	
+	public static final String PAGE_EVERGREEN_FNA = "financial-needs-analysis";
+	public static final String PAGE_EVERGREEN_SALES_ILLUSTRATION = "sales-illustration";	
+	public static final String PAGE_EVERGREEN_APPLICATION = "application";
+	public static final String PAGE_EVERGREEN_APPLICATION_SUMMARY = "application-summary";	
+	public static final String PAGE_EVERGREEN_DECLARATIONS = "declarations";
+	public static final String PAGE_EVERGREEN_SIGNATURE = "signature";
+	public static final String PAGE_EVERGREEN_DOCUMENT_UPLOAD = "document-upload";	
+	public static final String PAGE_EVERGREEN_CONFIRMATION = "confirmation";
+	public static final String PAGE_EVERGREEN_O2O_LANDING = "O2O-landing";
+	public static final String PAGE_EVERGREEN_INTEREST_GATHERING = "interest-gathering";
+	public static final String PAGE_EVERGREEN_EMAIL_SUBMITTED = "email-submitted";
+	public static final String PAGE_EVERGREEN_SERVICE_CENTER = "customer-service-centre";
+	public static final String PAGE_EVERGREEN_APPOINTMENT_SUCCESS = "appointment-success"; 
+	public static final String PAGE_EVERGREEN_CONFIRMATION_OFFLINE = "confirmation-offline";
+	
+	public static final String PAGE_PROPERTIES_EVERGREEN_LANDING = "savie.landing";
+	public static final String PAGE_PROPERTIES_EVERGREEN_PLAN_DETAILS = "savie.planDetails";
+	public static final String PAGE_PROPERTIES_EVERGREEN_FNA = "savie.fna";
+	public static final String PAGE_PROPERTIES_EVERGREEN_SALES_ILLUSTRATION = "savie.salesIllustration";
+	public static final String PAGE_PROPERTIES_EVERGREEN_APPLICATION = "savie.application";
+	public static final String PAGE_PROPERTIES_EVERGREEN_SUMMARY = "savie.summary";
+	public static final String PAGE_PROPERTIES_EVERGREEN_CS = "savie.cs";
+	public static final String PAGE_PROPERTIES_EVERGREEN_DOCUMENT_UPLOAD = "savie.documentUplaod";
+	public static final String PAGE_PROPERTIES_EVERGREEN_CONFIRMATION = "savie.confirmation";
+	public static final String PAGE_PROPERTIES_EVERGREEN_DECLARATION = "savie.declaration";
+	public static final String PAGE_PROPERTIES_EVERGREEN_INTEREST_GATHERING = "savie.interestGathering";
+	public static final String PAGE_PROPERTIES_EVERGREEN_EMAIL_SUBMITTED = "savie.emailSubmitted";
+	public static final String PAGE_PROPERTIES_EVERGREEN_PDF = "pdf-show";
+	public static final String PAGE_PROPERTIES_EVERGREEN_SIGNATURE = "savie.signature";
 	
 	/* Page Flow Control For Elite */
 	public static final String URL_ELITE_TERMS_LANDING = "term-life-insurance";

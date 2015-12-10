@@ -610,6 +610,7 @@ function submitLoginForm(formID) {
 	                              <li class="menu-subtitle"><fmt:message key="header.product.type1.group2.title" bundle="${msg}" /></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.type1.group2.linkname1" bundle="${msg}" /></a></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="header.product.type1.group2.linkname3" bundle="${msg}" /></a></li>
+	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/oversea-insurance"><fmt:message key="header.product.type1.group2.linkname2" bundle="${msg}" /></a></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /></a></li>
 	                             </ul>                            
 	                          </li>
@@ -1145,6 +1146,22 @@ function submitLoginForm(formID) {
 <!--End Mobile header-->
 <!--/header-->
 <script>
+$(function() {
+    var pageControllerName = "#<%=actionName%>";
+    var faqProductLink = "<%=request.getContextPath()%>/<fmt:message key='footer.menu.faq.link' bundle='${msg}' />";
+    //console.log(faqProductLink);
+    $("#faqProductLink").attr("href", ""+ faqProductLink + pageControllerName + "");
+    var faqLinkRe = new RegExp(/^faq/);
+    var langFaqProductLink = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
+    console.log(faqLinkRe.test(langFaqProductLink));
+//     if(faqLinkRe.test(langFaqProductLink)){
+<%--         <%if ("en".equals(session.getAttribute("language").toString())) {%> --%>
+<%--         $("#anchor-lang").attr("href", "<%=request.getContextPath()%>/changeLang?selectLang=tc&action=/tc/"+langFaqProductLink+""); --%>
+<%--     	<%} else {%> --%>
+<%--     	$("#anchor-lang").attr("href", "<%=request.getContextPath()%>/"+langFaqProductLink+"changeLang?selectLang=tc&action=/en/"+langFaqProductLink+""); --%>
+<%--     	<%}%> --%>
+//     }
+});
 	function centerModals($element) {
 	    var $modals;
 	    if ($element.length) {
@@ -1162,9 +1179,9 @@ function submitLoginForm(formID) {
 	  }
 	
 	var iosChromeAlertMsg = [];
-    iosChromeAlertMsg[0] = '抱歉，你的瀏覽器現時未受支援。';
-    iosChromeAlertMsg[1] = '請選用以下其它建議的瀏覽器：';
-    iosChromeAlertMsg[2] = '關閉';
+    iosChromeAlertMsg[0] = '±§Ç¸£¬ÄãµÄžgÓ[Æ÷¬F•rÎ´ÊÜÖ§Ô®¡£';
+    iosChromeAlertMsg[1] = 'ÕˆßxÓÃÒÔÏÂÆäËü½¨×hµÄžgÓ[Æ÷£º';
+    iosChromeAlertMsg[2] = 'êPé]';
     
     function offerMenuActive(){
     	var site_uri = window.location.pathname;

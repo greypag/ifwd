@@ -13,6 +13,14 @@ public class JsonUtils {
 	private static String REPLACE_KEY;
 	private static final String RE_CHAR = "*";
 	
+	public static final String checkJsonObjNull(JSONObject obj, String checkByStr) {
+		if (obj.get(checkByStr) != null) {
+			return obj.get(checkByStr).toString();
+		} else {
+			return "";
+		}
+	}
+	
 	@SuppressWarnings("unchecked")
 	public static final boolean hasEmpty(JSONObject obj) {
 		Set<Object> keys = obj.keySet();

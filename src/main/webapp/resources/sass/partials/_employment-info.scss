@@ -1,0 +1,121 @@
+//.fwd-savie-wrapper {
+
+	#employment-info {
+		padding: 0 30px; 
+		@media (min-width: $screen-md-min) {
+			overflow: visible;
+			padding: 0 30px 0 15px; 
+		}
+		h2 {
+			color: #ff8200;
+			font-size: 30px;
+			margin: 32px 0 0;
+	
+			@media (min-width: $screen-md-min) {
+				text-align: left;
+				margin-top: 55px;
+			}
+		}
+	
+		.content {
+			padding: 25px 0 60px;
+			.employment-info-row {
+				margin-bottom: 16px;
+				label {
+					color: black;
+					font-family: 'Calibri-bold';
+					font-size: 18px;
+					margin-bottom: 7px;
+					color: #061d2a;
+					font-weight: normal;
+					font-weight: normal;
+					@media (min-width: $screen-md-min) {
+						width: 33.4%;
+						float: left;
+					}
+				}
+	
+	
+	
+				@media (min-width: $screen-md-min) {
+					.form-control.gray-textbox {
+						width: 65.5%;
+					}
+					.monthly-income {
+						padding-right: 5px;
+					}
+					.right-panel {
+						margin-right: 1%;
+						padding-left: 1%;
+					}
+				}
+			}
+	
+			.button-row {
+				width: 100%;
+				clear: both;
+			}
+			
+	
+			@media (min-width: $screen-md-min) {
+				padding-top: 20px;
+				overflow: auto;
+				.content-left, .content-right {
+					width: 49.75%;
+					float: left;
+				}
+	
+				.content-right {
+					margin-left: .5%;
+	
+					label {
+						margin-right: 1%;
+						padding-left: 1%;
+					}
+
+					.employment-info-row {
+						margin-bottom: 0;
+					}
+
+				}
+			}
+		}
+      
+      &.et-employement-info {
+         padding-left: 20px;
+         
+         h2 {
+            @media (min-width: $screen-md-min) {
+               margin-bottom: 10px;
+            }
+         }
+         
+         .selectEmployment {
+            overflow: hidden;
+            
+            select {
+               width: 110%;
+            }
+         }
+         
+         .error-msg {
+            margin-bottom: 0;
+            
+            @media (min-width: $screen-md-min) {
+               width: 66.5%;
+               float: right;
+            }
+         }
+         
+         .content-right {
+            
+            .error-msg {
+               
+               @media (min-width: $screen-md-min) {
+                  width: 65.5%;
+               }
+            }
+         }
+      }
+	}
+//}

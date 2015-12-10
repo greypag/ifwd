@@ -254,6 +254,11 @@ function getSaviePlanDetails() {
 								items[0][i] = rateIsZero;
 								if(i==2){
 									var rowCtr = 3;
+									// For the card "Plan details tables need to be catered  3%, 3%, 3% instead of 3%, 3% , 4% " The next two lines are
+									// the only changes we made
+									json.salesIllustration.yearPlans[i].plans[j].rate = 'three';
+									
+									console.log(json.salesIllustration.yearPlans[i].plans[j].rate);
 									$('#credit-rate-change-'+rowCtr).html(fmoney(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate))+"%");
 									$('#premium-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 									$('#account-value-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
