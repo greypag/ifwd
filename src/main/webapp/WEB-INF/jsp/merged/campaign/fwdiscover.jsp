@@ -596,7 +596,7 @@
 							</ul>
 
 							<div class="details-button-holder text-center">
-								<button class="details-btn">Grab!</button>
+								<button class="details-btn" id="modal-grab-button">Grab!</button>
 							</div>
 
 							<div class="terms-and-condition">
@@ -683,6 +683,7 @@
 		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/fwdiscover/jquery.countdown.min.js"></script>
 		<script type="text/javascript">
+
 		
 		if(getWidth() > 991) {
 			$('.page-fwdiscover .fwdiscover-footer .terms-and-condition .message img.mobile').addClass('hidden');
@@ -718,18 +719,46 @@
 		$("#myCarousel-fwdiscover .carousel-inner .item .gray-hover").mouseleave(function() {
 			$(this).addClass('hidden');
 		});
+		
+		
+		//modals
+		<%String username = (String) session.getAttribute("username");%>		
+		$('#modal-grab-button').click(function(){
+			$('.modal').modal('hide');
+			$('#offer-details-promotion-code').modal('show');
+		});
 
 		$("#first-plan").on('click', function(){
-	        $('#offer-details').modal('show');
+			if('<%=username%>' == 'null') {
+				$('#loginpopup').modal('show');
+			}
+			else {
+	        	$('#offer-details').modal('show');
+			}
 	    });
 	    $("#second-plan").on('click', function(){
-	        $('#offer-details-promotion-code').modal('show');
+	    	if('<%=username%>' == 'null') {
+				$('#loginpopup').modal('show');
+			}
+			else {
+	        	$('#offer-details-promotion-code').modal('show');
+			}
 	    });
 	    $("#third-plan").on('click', function(){
-	        $('#offer-details-promotion-code-error-once').modal('show');
+	    	if('<%=username%>' == 'null') {
+				$('#loginpopup').modal('show');
+			}
+			else {
+	        	$('#offer-details-promotion-code-error-once').modal('show');
+			}
 	    });
 	    $("#fourth-plan").on('click', function(){
-	        $('#offer-details-promotion-code-error-sold').modal('show');
+	    	if('<%=username%>' == 'null') {
+				$('#loginpopup').modal('show');
+			}
+			else {
+	        	$('#offer-details-promotion-code-error-sold').modal('show');
+			}
 	    });
 
 	    $(".fwdiscover-modal .close-modal").on('click', function(){
