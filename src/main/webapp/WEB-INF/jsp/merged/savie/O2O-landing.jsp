@@ -66,7 +66,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<p class="bottom-text"><fmt:message key="jumbo.savie.oceanpark.copy2" bundle="${msg}" /></p>
 						
                         <form action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}" method="post">
-                            <input type="hidden" name="accessCodeConfirm" value="TEST123"/>
+                            <input type="hidden" name="accessCodeConfirm" value=""/>
                             <div class="get-started-holder op-align">
                                 <button id="op-buy-now-O2O-mobile" class="get-started"><fmt:message key="cta.start" bundle="${msg}" /></button>
                             </div>
@@ -78,7 +78,7 @@ var home_url = "<%=request.getContextPath()%>";
                         </p>
 					</div>
 				</div>
->>>>>>> remotes/origin/fwdhk_overseasstudy
+
 			</div>
 			
 			<div class="fwd-full-container container-fluid o2o-landing teaser">
@@ -404,7 +404,7 @@ var home_url = "<%=request.getContextPath()%>";
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->	
 			</div><!-- /.modal -->
->>>>>>> remotes/origin/fwdhk_overseasstudy
+
 			
 			<!--Signup Now Modal-->
 			<div class="modal fade" role="dialog" aria-labelledby="signupnow" id="signup-now-modal">
@@ -523,12 +523,12 @@ var home_url = "<%=request.getContextPath()%>";
 			// Access Code Confirmation
 			function getAppointmentAccessCode(){
 			$.get(
-			    '${pageContext.request.contextPath}//ajax/savings-evergreen-insurance/getAppointmentAccessCode',
+			    '${pageContext.request.contextPath}//ajax/savings-insurance/getAppointmentAccessCode',
 				function(data) {
 					if(data.errMsgs != null && data.errMsgs != ''){
 					}
 					else{
-						var url = '${pageContext.request.contextPath}/${language}/savings-evergreen-insurance/${nextPageFlow}';
+						var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
 						$("#o2o-landing-form").attr("action", url);
 						$('#o2o-landing-form').submit();
 					}
