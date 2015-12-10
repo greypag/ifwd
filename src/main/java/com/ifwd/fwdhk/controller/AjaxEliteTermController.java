@@ -5,6 +5,7 @@ import java.io.File;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,10 @@ import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.Methods;
 @Controller
 public class AjaxEliteTermController extends BaseController{
-	private final static Logger logger = LoggerFactory.getLogger(AjaxEliteTermController.class);
+	
+	private static final Logger logger = LoggerFactory.getLogger(AjaxEliteTermController.class);
+	
+	private static final String WATERMARK = "/resources/images/elite-terms/Watermark.png";
 	
 	@Autowired
 	private RestServiceDao restService;
@@ -85,26 +89,29 @@ public class AjaxEliteTermController extends BaseController{
 		        File uploadedFile = new File(uploadDir + sep  
 		                + fileName);  
 		        FileCopyUtils.copy(bytes, uploadedFile); 
-		        File toFile = new File(uploadDir + sep  
-				                + realName);
+		        String toPath = uploadDir + sep + realName;
+		        logger.debug("toPath: " + toPath);
+				File toFile = new File(toPath);
 		        ImgUtil.ImageToPdfToJPG(uploadDir + sep+ fileName, uploadDir + sep + imgName + ".pdf", toFile , request);
-		        String copyImagePath = request.getRealPath("/")+"resources/images/elite-terms/COPY.png";
-				File copyImageFile = new File(copyImagePath);
+		        String copyImagePath = request.getRealPath(WATERMARK);
+				logger.debug("copyImagePath: " + copyImagePath);
+		        File copyImageFile = new File(copyImagePath);
 				try {
 					ImgUtil.pressImage(copyImageFile, toFile, 0, 0);
 				} catch (Exception e) {
-					e.printStackTrace();
+					logger.error(ExceptionUtils.getStackTrace(e));
+					response.getWriter().write("system error");
 				}
 		        response.getWriter().write("true");
 		    } catch (ECOMMAPIException e) {
-				String error = e.getMessage();
+		    	logger.error(ExceptionUtils.getStackTrace(e));
+		    	String error = e.getMessage();
 				response.setCharacterEncoding("utf-8");  //这里不设置编码会有乱码
 	            response.setContentType("text/plain;charset=utf-8");
 	            response.setHeader("Cache-Control", "no-cache");  
 	            response.getWriter().write(error);
 	        }catch (Exception e) {
-				logger.info(e.getMessage());
-				e.printStackTrace();
+	        	logger.error(ExceptionUtils.getStackTrace(e));
 				response.getWriter().write("system error");
 	        }
 	}
@@ -143,22 +150,24 @@ public class AjaxEliteTermController extends BaseController{
 		        File uploadedFile = new File(uploadDir + sep  
 		                + fileName);  
 		        FileCopyUtils.copy(bytes, uploadedFile); 
-		        File toFile = new File(uploadDir + sep  
-				                + realName);
+		        String toPath = uploadDir + sep + realName;
+		        logger.debug("toPath: " + toPath);
+				File toFile = new File(toPath);
 		        ImgUtil.ImageToPdfToJPG(uploadDir + sep+ fileName, uploadDir + sep + name + ".pdf", toFile , request);
-				String copyImagePath = request.getRealPath("/")+"resources/images/elite-terms/Watermark.png";
+				String copyImagePath = request.getRealPath(WATERMARK);
+				logger.debug("copyImagePath: " + copyImagePath);
 				File copyImageFile = new File(copyImagePath);
 				ImgUtil.pressImage(copyImageFile, toFile, 0, 0);
 		        response.getWriter().write("true");
 			} catch (ECOMMAPIException e) {
+				logger.error(ExceptionUtils.getStackTrace(e));
 				String error = e.getMessage();
 				response.setCharacterEncoding("utf-8");  //这里不设置编码会有乱码
 	            response.setContentType("text/plain;charset=utf-8");
 	            response.setHeader("Cache-Control", "no-cache");  
 				response.getWriter().write(error);
 			}catch (Exception e) {
-				logger.info(e.getMessage());
-				e.printStackTrace();
+				logger.error(ExceptionUtils.getStackTrace(e));
 				response.getWriter().write("system error");
 			}
 	}
@@ -185,8 +194,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/getEliteTermPremium"})
 	public void getEliteTermPremium(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.getEliteTermPremium(request));
 		} catch (ECOMMAPIException e) {
@@ -197,8 +207,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/createEliteTermPolicy"})
 	public void createEliteTermPolicy(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.createEliteTermPolicy(request));
 		} catch (ECOMMAPIException e) {
@@ -212,8 +223,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/uploadSignature"})
 	public void uploadSignature(HttpServletRequest request,HttpServletResponse response,@RequestParam String image,@RequestParam String policyNo){
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response,eliteTermService.uploadSignature(request,image,policyNo));
 		} catch (ECOMMAPIException e) {
@@ -224,8 +236,9 @@ public class AjaxEliteTermController extends BaseController{
 
 	@RequestMapping(value = {"/ajax/eliteTerm/finalizeEliteTermPolicy"})
 	public void finalizeEliteTermPolicy(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.finalizeEliteTermPolicy(request));
 		} catch (ECOMMAPIException e) {
@@ -236,8 +249,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/sendEliteTermMail"})
 	public void sendEliteTermMail(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.sendEliteTermMail(request));
 		} catch (ECOMMAPIException e) {
@@ -248,8 +262,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/getUploadedDocument"})
 	public void getUploadedDocument(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.getUploadedDocument(request));
 		} catch (ECOMMAPIException e) {
@@ -260,8 +275,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/contactCs"})
 	public void contactCs(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.contactCs(request));
 		} catch (ECOMMAPIException e) {
@@ -272,8 +288,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/setEliteTermPolicyAgentEmail"})
 	public void setEliteTermPolicyAgentEmail(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.setEliteTermPolicyAgentEmail(request));
 		} catch (ECOMMAPIException e) {
@@ -285,8 +302,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/putEtPlanOptionSession"})
 	public void putEtPlanOptionSession(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			eliteTermService.putEtPlanOptionSession(request);
 			ajaxReturn(response,"success");
@@ -297,8 +315,9 @@ public class AjaxEliteTermController extends BaseController{
 	}
 	@RequestMapping(value = {"/ajax/eliteTerm/putEtPaymentSession"})
 	public void putEtPaymentSession(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			eliteTermService.putEtPaymentSession(request);
 			ajaxReturn(response,"success");
@@ -310,8 +329,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/getPromoteCode"})
 	public void getPromoteCode(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.getPromoteCode(request));
 		} catch (ECOMMAPIException e) {

@@ -1,7 +1,6 @@
 package com.ifwd.fwdhk.util;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -19,6 +18,10 @@ import java.security.PrivilegedAction;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.itextpdf.text.Document;
@@ -32,6 +35,8 @@ import com.sun.pdfview.PDFPage;
 
 public class ImgUtil {
 
+	private static final Logger logger = LoggerFactory.getLogger(ImgUtil.class);
+	
 	public static void changeImageToJPG(File fromFile,File toFile,HttpServletRequest request)throws ECOMMAPIException,Exception{
 		
 			BufferedImage bufferedImage = ImageIO.read(fromFile);
@@ -237,7 +242,8 @@ public class ImgUtil {
             encoder.encode(image);
             out.close();
         } catch (Exception e) {
-            e.printStackTrace();
+        	logger.error(ExceptionUtils.getStackTrace(e));
+        	throw new RuntimeException(e);
         }
     }
 
