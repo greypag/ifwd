@@ -586,9 +586,7 @@ var home_url = "<%=request.getContextPath()%>";
 				$('#read-more-other-benefits').hide();
 			});
 
-			$(window).load(function(){
-		        $('#accessCodeO2O').modal('show');
-		    });
+
             function getAppointmentAccessCode(){
                 $.get('${pageContext.request.contextPath}/ajax/savings-insurance/getAppointmentAccessCode',
                 function(data) {
