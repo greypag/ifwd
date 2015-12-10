@@ -122,6 +122,9 @@ public class UserController {
 							checkJsonObjNull(customer, "referralCode"));
 					session.setAttribute("myAnnualTravelReferralCode",
 							checkJsonObjNull(customer, "referralCode"));
+					session.setAttribute("myOverseasReferralCode",
+							checkJsonObjNull(customer, "referralCode"));
+					
 
 					UserDetails userDetails = new UserDetails();
 					userDetails.setToken(checkJsonObjNull(response, "token"));
@@ -429,6 +432,8 @@ public class UserController {
 					session.setAttribute("myTravelReferralCode",
 							checkJsonObjNull(customer, "referralCode"));
 					session.setAttribute("myAnnualTravelReferralCode",
+							checkJsonObjNull(customer, "referralCode"));
+					session.setAttribute("myOverseasReferralCode",
 							checkJsonObjNull(customer, "referralCode"));
 
 					UserDetails loginUserDetails = new UserDetails();
