@@ -60,8 +60,8 @@ var languageP = "${language}";
 												</div>
 												
 												<div class="mob-desk">
-													<label for="passportFileToUpload" class="orange-select-file">
-														<input type="file" id="passportFileToUpload" name="passportFileToUpload" onchange="upload(this.id);">
+													<label for="iframePassportFileToUpload" class="orange-select-file">
+														<input type="file" id="iframePassportFileToUpload" name="iframePassportFileToUpload" onchange="upload(this.id);">
 														<span class="input-file-text"><fmt:message key="eliteTerms.documentUpload.Select.files" bundle="${msg}" /></span>
 													</label>
 												</div>
@@ -94,13 +94,24 @@ var languageP = "${language}";
 		<script type="text/javascript">
 
 			$(document).on('click', '#passport-upload-now', function(e) {
-				if($('#passportFileToUpload').val()!='' || $('#fileToUpload-passport-cam').val()!='') {
+				if(fPassportValid()) {
+					//parent.isDis2Sub();
 					$('#passport-upload-form').submit();
 				}
 				else {
 					$('#passport-upload-form').next('.upload-error').removeClass('hidden');
 				}
 			});
+			
+			function fPassportValid() {
+				return $('#iframePassportFileToUpload').val()!='' || $('#fileToUpload-passport-cam').val()!='';
+			}
+			
+			function finishUploadPassport() {
+				//return !$("#finish-upload").hasClass("hidden");
+				var frameSrc = window.frameElement.getAttribute('src') || '';
+				return frameSrc.indexOf('uploadResult=true') > -1; 
+			}
 			
 			var check = <%=request.getParameter("uploadResult")%>;
 			if(check==true) {

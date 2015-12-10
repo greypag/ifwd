@@ -49,10 +49,13 @@ $(document).ready(function() {
 
 
 	<!--   Main Content-->
-	<section id="main-slider" class="no-margin">
+	<section id="main-slider" class="p_homecare no-margin">
 		<!--Mobile--->
 		<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="home.hero.image.alt" bundle="${msg}" />"
 			class="img-responsive hidden-lg hidden-md" />
+        <div class="tagline-holder hidden-lg hidden-md">
+            <img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive">
+        </div>
 		<!--desktop-->
 		<div class="carousel slide hidden-xs hidden-sm">
 		     <div class="col-lg-12 col-md-12 breadcrumb-wrapper">
@@ -70,6 +73,9 @@ $(document).ready(function() {
 				<!--/.item-->
 			</div>
 			<!--/.carousel-inner-->
+        <div class="tagline-holder">
+            <img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive">
+        </div>
 		</div>
 		<div class="homecare hidden-xs hidden-sm" id="homecare-scroll">
                         <div class="container">
@@ -120,7 +126,7 @@ $(document).ready(function() {
                                         %>
                                         <div class="col-md-4">
                                             <button id="home_submit" type="submit"
-                                                class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare"
+                                                class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare btn-color-ylw"
                                                 onclick="return msgAlertDesk('getHomeQuote')"><fmt:message key="home.main.quote.top.action" bundle="${msg}" /></button>
                                         </div>
                                         <div class="clearfix"></div>
@@ -283,7 +289,7 @@ $(document).ready(function() {
                 <div class="clearfix"></div>
 				<div class="form-container">
 				    <h3 class="text-center">
-				        <button type="submit" class="bdr-curve btn btn-primary btn-lg btn-block"
+				        <button type="submit" class="bdr-curve btn btn-primary btn-lg btn-block btn-color-ylw"
                             onclick="return msgAlertDesk('getHomeQuoteMob')"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
 				    </h3>
 						
@@ -454,7 +460,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
                           <div class="slide-margin">
                             <div class="other-benefits-wrap text-center">
                               <div class="other-benefits-inner">
-                                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc4.part1" bundle="${msg}" /> <a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part3" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part4" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part5" bundle="${msg}" /></p>
+                                <p style="font-size: 21px"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part1" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc4.part3" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc4.part4" bundle="${msg}" />
 
                               </div>
                             </div>
@@ -855,7 +861,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 						%>
 						<div class="col-md-4 ">
 							<button type="submit"
-								class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare"
+								class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare btn-color-ylw"
 								onclick="return msgAlertDesk('getHomeQuoteBottom')"><fmt:message key="home.main.quote.bottom.action" bundle="${msg}" /></button>
 						</div>
 						<div class="clearfix"></div>
@@ -888,5 +894,12 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 		</div>
 	</div>
 </div>
+<style>
+   @media screen and (max-width: 991px) {
+   body {
+      /* Hero image Position Fix*/
+      padding-top: 95px;
+   }
+</style>
 </body>
 </html>

@@ -571,6 +571,10 @@ public class EliteTermServiceImpl implements EliteTermService {
 			}			
 
 			request.getSession().setAttribute("sendEmailOrNot", "yes");
+			
+			request.getSession().removeAttribute("creditCaredNo");
+			request.getSession().removeAttribute("expiryDate");
+			request.getSession().removeAttribute("cardHolderName");
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl sendEliteTermMail occurs an exception!");
 			logger.info(e.getMessage());
@@ -663,8 +667,17 @@ public class EliteTermServiceImpl implements EliteTermService {
 	@SuppressWarnings({ "unchecked"})
 	public void uploadEliteTermDocuments(HttpServletRequest request)throws ECOMMAPIException{
 		String uploadLaterFlage = (String) request.getSession().getAttribute("uploadLaterFlage");
-		if("false".equals(uploadLaterFlage)){	
+		if (uploadLaterFlage != null) {
+			logger.debug("uploadLaterFlage is null");
+		} else {
+			logger.debug(uploadLaterFlage);
+		}
+		
+		
+		
+		if("false".equals(uploadLaterFlage)){
 			try {
+				request.getSession().setAttribute("uploadLaterFlage",null);
 				UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 				String customerName = userDetails.getFullName();
 				if(StringUtils.isEmpty(customerName)){
@@ -675,6 +688,10 @@ public class EliteTermServiceImpl implements EliteTermService {
 				final Map<String,String> headerEmail = headerUtil.getHeader(request);
 				headerEmail.put("language", "ZH");
 				String subject = "FWD Elite Term – Complete["+policyNo+"]";
+				String policyUserName = (String) request.getSession().getAttribute("policyUserName");
+				if(StringUtils.isNotEmpty(policyUserName)){
+					subject = "FWD Elite Term – Upload Complete["+policyNo+"]";
+				}
 				String attachment = "";
 				String from = "Fanny at FWD HK <i-services.hk@fwd.com>";
 				
@@ -920,7 +937,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 						"    </div>  "+
 						"  </body>";
 				
-				String[] emailList = {request.getSession().getAttribute("eliteTermEmail").toString(), "i-direct.hk@fwd.com"};
+				String[] emailList = {userDetails.getEmailAddress(), "i-direct.hk@fwd.com"};
 				for (int i=0; i<emailList.length; i++) {
 					org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
 					parametersEmail.put("to", emailList[i]);
@@ -931,6 +948,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 					parametersEmail.put("isHtml", isHTML);
 					connector.sendEmail(parametersEmail,headerEmail);
 				}
+				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -951,7 +969,6 @@ public class EliteTermServiceImpl implements EliteTermService {
 			org.json.simple.JSONObject policy = (org.json.simple.JSONObject) jsonRelationShipCode.get("policy");
 			 userName = (String) policy.get("userName");
 		}
-		request.getSession().setAttribute("eliteTermEmail","stephen.cf.lai@fwd.com");
 		return userName;
 	}
 	

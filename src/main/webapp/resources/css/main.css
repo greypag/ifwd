@@ -1726,6 +1726,50 @@ input.search-form:hover {
 	font-weight: bold;
 }
 
+.tagline-holder{
+	position: absolute;
+	left: 0;
+	z-index: 10;
+}
+
+.p_homecare .tagline-holder{top: 50%;}
+
+.p_workingholiday .tagline-holder{top: 25%; left: 0;}
+.p_workingholiday .tagline-holder img{width: 100%;}
+
+.p_flight .tagline-holder{top: 25%;}
+.p_flight .tagline-holder img{width: 70%;}
+
+.p_travel .tagline-holder{top: 25%;}
+.p_travel .tagline-holder img{width: 70%;}
+
+@media(max-width: 991px){
+	
+	.tagline-holder{
+		width: 100%;
+	}
+
+	.tagline-holder img{
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 5%;
+	}
+
+	.p_homecare .tagline-holder{top: auto; bottom: 10%;}
+	.p_workingholiday .tagline-holder{top: auto; bottom: 20%;}
+	.p_flight .tagline-holder{top: auto; bottom: 20%;}
+	.p_travel .tagline-holder{top: auto; bottom: 20%;}
+	
+	.p_homecare .tagline-holder img{}
+	.p_workingholiday .tagline-holder img{width: 70%;}
+	.p_flight .tagline-holder img{width: 90%;}
+	.p_travel .tagline-holder img{}
+}
+
+@media(max-width: 1245px){
+	.p_workingholiday .tagline-holder img{width: 70%;}
+}
+
 .slider-form .people-travelling {
 	font-style: italic;
 }
@@ -8961,40 +9005,42 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 	width: 100%;
 }
 
-@
--webkit-keyframes rotating /* Safari and Chrome */ {from { -ms-transform:rotate(0deg);
-	-moz-transform: rotate(0deg);
-	-webkit-transform: rotate(0deg);
-	-o-transform: rotate(0deg);
-	transform: rotate(0deg);
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+	from { 
+		-ms-transform:rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	to {
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
 }
 
-to {
-	-ms-transform: rotate(360deg);
-	-moz-transform: rotate(360deg);
-	-webkit-transform: rotate(360deg);
-	-o-transform: rotate(360deg);
-	transform: rotate(360deg);
+@keyframes rotating {
+	from {
+		-ms-transform:rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	to {
+		-ms-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
 }
 
-}
-@
-keyframes rotating {from { -ms-transform:rotate(0deg);
-	-moz-transform: rotate(0deg);
-	-webkit-transform: rotate(0deg);
-	-o-transform: rotate(0deg);
-	transform: rotate(0deg);
-}
-
-to {
-	-ms-transform: rotate(360deg);
-	-moz-transform: rotate(360deg);
-	-webkit-transform: rotate(360deg);
-	-o-transform: rotate(360deg);
-	transform: rotate(360deg);
-}
-
-}
 .circle_outer {
 	-webkit-animation: rotating 30s linear infinite;
 	-moz-animation: rotating 30s linear infinite;
@@ -10498,4 +10544,13 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa {
 	    width: 100%;
 	    overflow: hidden;
 	}		
+}
+
+.btn-color-ylw, .btn-color-ylw:focus{
+    background-color:#fdb714 !important;
+    border:1px solid #fdb714 !important;
+}
+.btn-color-ylw:hover{
+    background-color:#fff !important;
+    color:#fdb714 !important;
 }

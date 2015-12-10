@@ -154,18 +154,20 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 		        url:contextPath+'/ajax/eliteTerm/createEliteTermPolicy',
 		        data: formdata,
 		        success:function(data){
-					if(data==null || data!='' ){
+					if(data==null || data=='' ){
 						//Unknown errors
 			    	    $('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
-
+			    	    $('#loading-overlay').modal('hide');
+			    	    
 					} else if( data.errMsgs == 'session expired'){
 						//Timeout errors
+						$('#loading-overlay').modal('hide');
 						$('#timeout-modal').modal('show'); 
 
 					} else if( data.errMsgs != null ){
 						//Other errors
 						$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
-
+						$('#loading-overlay').modal('hide');
 					} else {
 						var $sigdiv = $("#signature");
 						var datapair = $sigdiv.jSignature("getData", "image");
@@ -190,21 +192,23 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 					    	    	if(data==null || data == ''){
 					    	    		//Unknown errors
 					    	    		$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+					    	    		$('#loading-overlay').modal('hide');
 
 					    	    	} else if( data.errMsgs == 'session expired'){
 					    	    		//Timeout errors
+					    	    		$('#loading-overlay').modal('hide');
 					    	    		$('#timeout-modal').modal('show'); 
 
 					    	    	} else if( data.errMsgs != null ){
 					    	    		//Other errors
 					    	    		$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
+					    	    		$('#loading-overlay').modal('hide');
 
 					    	    	} else {
 					    	    		// success
 					    	    		window.onbeforeunload=null;
 					    	    		window.location.href= contextPath+'/'+language+'/term-life-insurance/'+selectPlanNextPageFlow;
 					    	    	}
-					    			$('#loading-overlay').modal('hide');
 					    	    },
 								error:function(){
 									$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
@@ -214,10 +218,8 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 						}
 					}
 
-					$('#loading-overlay').modal('hide');
 				},
 				error:function(){
-					console.log('error');
 					$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "system.error.message")).css('display', 'block');
 					$('#loading-overlay').modal('hide');
 				}
@@ -253,8 +255,86 @@ $('#et-upload-doc-submit-btn').on('click', function(e) {
 	sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage);
 });
 
+$('#iframe-et-upload-doc-submit-btn').on('click', function(e) {
+    var $self = $(this);
+    var isHKPermanent = $('#residence-check').prop('checked');
+    var isValid = isFHkidValidity($self);
+        if(!isHKPermanent) {
+        	isValid = isValid && isFPassportValidity($self);
+        }
+        isValid = isValid && isFProfAddValidity($self);
+    
+    if (isValid) {     
+        $self.removeAttr('disabled');
+    } else {
+        $self.attr('disabled', 'disabled');
+        alert(getBundle(getBundleLanguage, 'error.upload.invalid'));
+        return false;
+    }
+    
+    
+    if(!checkLogin()){
+		return false;
+	}
+	var uploadNow = $("input[name='upload-doc']:checked").val();
+	var passportFlage = (isHKPermanent)?false:true;
+	var uploadLaterFlage = false;
+	if(uploadNow != 'upload-now'){
+		uploadLaterFlage = true;
+	}
+	sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage);
+});
+
+function isDis2Sub(){
+	var isValidHkid = parent.frames["iframe-one"].window.finishUploadHkid();
+	var isValidPassport = parent.frames["iframe-two"].window.finishUploadPassport();
+	var isValidAddr = parent.frames["iframe-three"].window.finishUploadAddr();
+    if(isValidHkid && isValidPassport && isValidAddr) {
+    	$("#iframe-et-upload-doc-submit-btn").removeAttr('disabled');
+    }
+}
+
+function isFHkidValidity() {
+    var isValid = true;
+    if (parent.frames["iframe-one"].window.finishUploadHkid()) {
+        removeFormFieldError('#et-hkid-file-message', '', true);
+    } else {
+        removeFormFieldError('#et-hkid-file-message', 'required-hkid');
+        addFormFieldError('#et-hkid-file-message', getBundle(getBundleLanguage, 'error.hkid.document.empty'), 'required-hkid');
+        isValid = false;
+    }
+    return isValid;
+}
+
+function isFPassportValidity() {
+    var isValid = true;
+    if (parent.frames["iframe-two"].window.finishUploadPassport()) {
+        removeFormFieldError('#et-passport-file-message', '', true);
+    } else {
+        removeFormFieldError('#et-passport-file-message', 'required-hkid');
+        addFormFieldError('#et-passport-file-message', getBundle(getBundleLanguage, 'error.passport.document.empty'), 'required-hkid');
+        isValid = false;
+    }
+    return isValid;
+}
+
+function isFProfAddValidity() {
+    if ($('#residence-check').prop('checked')) {
+        return true;
+    }
+    var isValid = true;
+    if (parent.frames["iframe-three"].window.finishUploadAddr()) {
+        removeFormFieldError('#et-address-file-message', '', true);
+    } else {
+        removeFormFieldError('#et-address-file-message', 'required-hkid');
+        addFormFieldError('#et-address-file-message', getBundle(getBundleLanguage, 'error.address.proof.empty'), 'required-hkid');
+        isValid = false;
+    }
+    return isValid;
+}
 
 function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
+	$('#et-upload-doc-submit-btn').attr('disabled', 'disabled');
 	$.ajax({
 		        type: "POST",
 		        url:contextPath+'/ajax/eliteTerm/getEliteTermSendImageFlage',

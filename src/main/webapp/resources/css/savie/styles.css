@@ -12314,6 +12314,10 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
     font-size: 16px;
 }
 
+.savie-overlay-btn:hover{
+  color: white;
+}
+
 @media (min-width: 441px) {
 	.savie-overlay-btn {
  		bottom: 108px;
@@ -15810,4 +15814,31 @@ body.chin #btn-cstmr-srvc-cnter {
 
 .placeholder{
   color: #ccc;
+}
+
+/* Hero Image */
+.tagline-holder{
+  position: absolute;
+  left: 0;
+  z-index: 10;
+}
+.p_savie .tagline-holder{top: 30%;}
+.p_savie .tagline-holder img{width: 65%;}
+
+@media(max-width: 991px){
+  
+  .tagline-holder{
+    width: 100%;
+  }
+
+  .tagline-holder img{
+    width: 100%;
+  }
+
+  .p_savie .tagline-holder{top: 10%;}
+  .p_savie .tagline-holder img{width: 50%;}
+}
+
+@media(max-width: 1245px){
+  .p_savie .tagline-holder img{width: 50%;}
 }

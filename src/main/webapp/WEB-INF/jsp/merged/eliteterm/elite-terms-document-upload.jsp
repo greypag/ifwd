@@ -189,7 +189,7 @@ var languageP = "${language}";
 														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
 													<![endif]-->
-													<div class="mob-desk hidden-lg hidden-md">
+													<div class="mob-desk">
 														<span class="OR"><fmt:message key="eliteTerms.documentUpload.or" bundle="${msg}" /></span>
 													</div>
 													<div class="mob-desk">
@@ -259,7 +259,7 @@ var languageP = "${language}";
 														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
 													<![endif]-->
-													<div class="mob-desk hidden-lg hidden-md">
+													<div class="mob-desk">
 														<span class="OR"><fmt:message key="eliteTerms.documentUpload.or" bundle="${msg}" /></span>
 													</div>
 													<div class="mob-desk">
@@ -329,7 +329,7 @@ var languageP = "${language}";
 														<fmt:message key="eliteTerms.documentUpload.Drag.and.drop" bundle="${msg}" />
 													</div>
 													<![endif]-->
-													<div class="mob-desk hidden-lg hidden-md">
+													<div class="mob-desk">
 														<span class="OR"><fmt:message key="eliteTerms.documentUpload.or" bundle="${msg}" /></span>
 													</div>
 													<div class="mob-desk">
@@ -382,6 +382,7 @@ var languageP = "${language}";
                   	</div> <!-- PAGE CONTENT -->
 					<div class="submit-btn" id="submit-btn">
 						<button id="et-upload-doc-submit-btn" type="button" class="btn next"><fmt:message key="eliteTerms.button.complete" bundle="${msg}" /></button>
+						<button id="iframe-et-upload-doc-submit-btn" type="button" class="btn next hide-element"><fmt:message key="eliteTerms.button.complete" bundle="${msg}" /></button>
 					</div>
 					<div class="elite-home-btn hidden" id="elite-home-btn">
 						<button id="et-upload-doc-home-btn" type="button" class="btn next"><fmt:message key="eliteTerms.button.complete" bundle="${msg}" /></button>
@@ -427,34 +428,32 @@ var languageP = "${language}";
             </div>
          </div>
          
-         <div id="error-to-home-modal" class="modal fade fwd-generic-modal back-to-home" role="dialog" data-keyboard="false" data-backdrop="static">
-            <div class="modal-dialog">
-           <%--      <div class="modal-content" align="center">
-                  <div class="modal-body" style="color:#fc6d08">
-                     <p><fmt:message key="eliteTerms.selectPlan.successfully.submitted" bundle="${msg}" /></p>	
-                  </div>
-                  <div>
-                     <button type="button" class="btn btn-orange et-next-btn et-pad-bot-50" id="et-select-plan-go-homepage" data-dismiss="modal"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button>
-                  </div>
-               </div> --%>
-
-               
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h4 class="modal-title" id="error-to-home-modal-errorMessage">system error.</h4>
-                  </div>
-                     
-                  <div class="modal-body"></div>
-                  
-                  <div class="modal-footer">
-                     <a href="<%=request.getContextPath()%>/${language}/term-life-insurance" title="Back to homepage" class="btn-block"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></a> 
-                     <%-- <button type="button" class="btn btn-orange et-next-btn et-pad-bot-50" id="et-select-plan-go-homepage" data-dismiss="modal"><fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" /></button> --%>
-                  </div>
-                  <br/>
-               </div>
-
-            </div>
-         </div>
+        <!-- Error to Home Modal -->
+		<div id="error-to-home-modal" class="modal fade fwd-generic-modal back-to-home" role="dialog" data-keyboard="false" data-backdrop="static">
+		  <div class="modal-dialog">
+		      <div class="modal-content" align="center">
+		        <div class="modal-body form-container" style="color:#fc6d08">
+		           <div class="row">
+		              <h2 id="error-to-home-modal-errorMessage">Unexpected Error</h2>  
+		           </div>
+		           <div class="row">
+		              <div class="col-lg-6 col-md-6 fwd-orange-btn-center-wrapper">		                 
+	                 	<button type="button" class="btn next bdr-curve btn btn-primary btn-lg wd5" id="error-to-home-btn" data-dismiss="modal">
+	                 		<fmt:message key="eliteTerms.selectPlan.Back.to.homepage" bundle="${msg}" />
+	                 	</button>
+	                 	<script>
+	                 		$('#error-to-home-btn').on('click', function(e) {
+							  window.onbeforeunload=null;
+							  window.location.href= '<%=request.getContextPath()%>/${language}/term-life-insurance';
+							});
+	                 	</script>
+		              </div>
+		           </div>
+		        </div>
+		     </div>
+		  </div>
+		</div>
+			
 		<!-- JS INCLUDES -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/elite-term/fwd-dropzone.js"></script>
@@ -472,7 +471,16 @@ var languageP = "${language}";
 			$('#residence-check').click(function(){
 				$('.passport-holder').toggle();
 				if(msieversion() > 0) {
-					$('#iframe-three').toggle();
+					
+	               	if( $('#iframe-two').hasClass('hide-element') ){
+	                  $('#iframe-three').css('left', '68%');
+	                  $('#iframe-two').removeClass('hide-element');
+	                  $('.iframe-holder .et-du-passport-tooltip').removeClass('hide-element');
+	               	} else {
+	                  $('#iframe-three').css('left', '34%');
+	                  $('#iframe-two').addClass('hide-element');
+	                  $('.iframe-holder .et-du-passport-tooltip').addClass('hide-element');
+	               	}
 				}
 			})
 			
@@ -493,8 +501,8 @@ var languageP = "${language}";
             $('#et-upload-doc-submit-btn').on('click', function(e) {
                 var $self = $(this);
                 var isValid = isHkidValidity($self);
-                    isValid = isPassportValidity($self);
-                    isValid = isProfAddValidity($self);
+                    isValid = isValid && isPassportValidity($self);
+                    isValid = isValid && isProfAddValidity($self);
                 
                 if (isValid) {     
                     $self.removeAttr('disabled');
@@ -502,7 +510,7 @@ var languageP = "${language}";
                     
                 } else {
                     $self.attr('disabled', 'disabled');
-                    alert('You might have uploaded an invalid file. Please try again!');
+                    alert(getBundle(getBundleLanguage, 'error.upload.invalid'));
                 }
             });
             
@@ -518,8 +526,8 @@ var languageP = "${language}";
 			function isUploaded(id) {
 
 				var status = document.getElementById(id).contentWindow.document.body.innerHTML;
-				var targetURL = $('#' + id).attr('src').split(/[?#]/)[0]; //get raw url
-				var responseURL = $('#' + id)[0].contentWindow.location.href;
+				var targetURL = document.getElementById(id).src.split(/[?#]/)[0]; //get raw url
+				var responseURL = document.getElementById(id).contentWindow.location.href;
 
 				// skip handling if iframe document <> server response
 				var bSkip = responseURL.indexOf(targetURL) > -1;
@@ -528,23 +536,38 @@ var languageP = "${language}";
 				}
 
 				if(status == 'true') {
-					$('#'+id).attr('src',targetURL+'?uploadResult=true');
+					document.getElementById(id).src = targetURL+'?uploadResult=true';
 					//enable submit button
-					$('#et-upload-doc-submit-btn').removeAttr('disabled');
+					if( document.getElementById('iframe-et-upload-doc-submit-btn') ) {
+						document.getElementById('iframe-et-upload-doc-submit-btn') .removeAttribute('disabled');
+					}
 				} else {
 					
+					document.getElementById(id).src = targetURL+'?uploadResult=false';
+
 					var lang = '${language}';
 					if(lang=='en') {
 						setTimeout(function(){
-							$('#'+id).contents().find('#upload-system-error .en').removeClass('hidden');
-						}, 100);
+							//$('#'+id).contents().find('#upload-system-error .en').removeClass('hidden');
+							var el_err = document.getElementById(id).contentWindow.document.querySelectorAll('#upload-system-error span.en')[0];
+
+							if( el_err ){
+								el_err.className = el_err.className.replace('hidden', '');
+							}
+
+						}, 1000);
 					}
 					else {
 						setTimeout(function(){
-							$('#'+id).contents().find('#upload-system-error .ch').removeClass('hidden');
-						}, 100);
+							//$('#'+id).contents().find('#upload-system-error .ch').removeClass('hidden');
+
+							var el_err = document.getElementById(id).contentWindow.document.querySelectorAll('#upload-system-error span.ch')[0];
+
+							if( el_err ){
+								el_err.className = el_err.className.replace('hidden', '');
+							}
+						}, 1000);
 					}
-					$('#'+id).attr('src',targetURL+'?uploadResult=false');
 				}
 
 				//set 
@@ -563,6 +586,8 @@ var languageP = "${language}";
 				if(msieversion()>0 && msieversion()<10) {
 					$('.upload-buttons').addClass('hidden');
 					$('.iframe-holder').removeClass('hidden');
+					$('#et-upload-doc-submit-btn').addClass('hide-element');
+					$('#iframe-et-upload-doc-submit-btn').removeClass('hide-element');
 					if(getWidth() < 992) {
 						$('.upload-ie-iframe').removeAttr('style');
 						$('.upload-ie-iframe').css({'width': '103%', 'border': 'none', 'height': '1450px', 'margin-left': '-15px'});

@@ -37,29 +37,29 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 
 
 </script>
-<section id="main-slider" class="no-margin"> 
-<img src="<%=request.getContextPath()%>/<fmt:message key="workingholiday.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="workingholiday.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md"  /> 
-<div class="text-content hunger-img hidden-lg hidden-md">
+<section id="main-slider" class="p_workingholiday no-margin"> 
+  <img src="<%=request.getContextPath()%>/<fmt:message key="workingholiday.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="workingholiday.hero.image.alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md"  /> 
+  <div class="tagline-holder hidden-lg hidden-md">
     <img src="<%=request.getContextPath()%>/<fmt:message key="workingholiday.hero.text.image" bundle="${msg}" />" alt="<fmt:message key="workingholiday.hero.image.alt" bundle="${msg}" />" class="img-responsive">
-</div>
+  </div>
 
-<div class="carousel slide hidden-xs hidden-sm">
-                <div class="col-lg-12 col-md-12 breadcrumb-wrapper">
-                <ol class="breadcrumb container pad-none">
-                    <li><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></li>
-                     <i class="fa fa-chevron-right"></i>
-                    <li><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /></li>
-                     <i class="fa fa-chevron-right"></i>                     
-                    <li class="active"><fmt:message key="home.breadcrumb1.workingHoliday" bundle="${msg}" /></li>
-                </ol>
-                </div> 
-	<div class="carousel-inner">
-		<div class="item active">
-            <img src="<%=request.getContextPath()%>/<fmt:message key="workingholiday.hero.image" bundle="${msg}" />" alt="<fmt:message key="workingholiday.hero.image.alt" bundle="${msg}" />"  />
-		    <div class="text-content hunger-img">
-                <img src="<%=request.getContextPath()%>/<fmt:message key="workingholiday.hero.text.image" bundle="${msg}" />" alt="<fmt:message key="workingholiday.hero.image.alt" bundle="${msg}" />" class="img-responsive">
-            </div>
+  <div class="carousel slide hidden-xs hidden-sm">
+    <div class="col-lg-12 col-md-12 breadcrumb-wrapper">
+    <ol class="breadcrumb container pad-none">
+        <li><fmt:message key="home.breadcrumb1.item1" bundle="${msg}" /></li>
+         <i class="fa fa-chevron-right"></i>
+        <li><fmt:message key="home.breadcrumb1.type1" bundle="${msg}" /></li>
+         <i class="fa fa-chevron-right"></i>                     
+        <li class="active"><fmt:message key="home.breadcrumb1.workingHoliday" bundle="${msg}" /></li>
+    </ol>
+    </div> 
+    <div class="carousel-inner">
+    	<div class="item active">
+        <img src="<%=request.getContextPath()%>/<fmt:message key="workingholiday.hero.image" bundle="${msg}" />" alt="<fmt:message key="workingholiday.hero.image.alt" bundle="${msg}" />"  />
 		</div>
+    <div class="tagline-holder">
+      <img src="<%=request.getContextPath()%>/<fmt:message key="workingholiday.hero.text.image" bundle="${msg}" />" alt="<fmt:message key="workingholiday.hero.image.alt" bundle="${msg}" />" class="img-responsive">
+    </div>
 	</div>
 </div>
 <div id="middle" class="hidden-sm hidden-xs workingholiday-middle" style="background:none;">
@@ -71,7 +71,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 						<tbody>
 							<tr>  
 								<td align="center" class="col-md-2 pad-none">
-								    <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn "><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
+								    <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn btn-color-ylw"><fmt:message key="workingholiday.main.quote.top.action" bundle="${msg}" /></button>
 								</td>
 							</tr>
 						</tbody>
@@ -372,7 +372,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
         </div>
         
         <div style="margin-top:18px;">
-            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn "><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
+            <button style="height:70px;" type="submit" class="border-radius btn btn-primary get-btn btn-color-ylw"><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
         </div>
     </div>
     
@@ -415,7 +415,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 
         
 
-            <button style="width:100%;height:70px;margin-top: 50px;" type="submit" class="border-radius btn btn-primary get-btn "><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
+            <button style="width:100%;height:70px;margin-top: 50px;" type="submit" class="border-radius btn btn-primary get-btn btn-color-ylw"><fmt:message key="workingholiday.main.quote.bottom.action" bundle="${msg}" /></button>
     
     <!--/.row--> 
     <!--/.desktop-testimonials--> 
@@ -548,4 +548,13 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
    
   </div>
 </section>
+
+<style>
+   @media screen and (max-width: 991px) {
+   body {
+      /* Hero image Position Fix*/
+      padding-top: 95px;
+   }
+</style>
+
 <!--/#middle-->

@@ -35,7 +35,7 @@
             	<img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive elite-term-tagline">
             </div>
             <div class="et-banner-label">
-               <a href="<%=request.getContextPath()%>/${language}/term-life-insurance/${nextPageFlow}" class="buy-now et-quote" ><fmt:message key="eliteTerms.landing.Get.Quote" bundle="${msg}" /></a>
+               <a href="<%=request.getContextPath()%>/${language}/term-life-insurance/${nextPageFlow}" class="buy-now et-quote btn-color-ylw" ><fmt:message key="eliteTerms.landing.Get.Quote" bundle="${msg}" /></a>
 				</div>
 			</div>
 			
@@ -522,6 +522,13 @@
          });
         
       </script>
+      <style>
+         @media screen and (max-width: 991px) {
+         body {
+            /* Hero image Position Fix*/
+            padding-top: 95px;
+         }
+      </style>
 
 <!-- Modal Box -->
 <div class="modal fade bs-example-modal-lg  in" id="benefitsPopup" tabindex="-1" role="dialog" aria-hidden="true">

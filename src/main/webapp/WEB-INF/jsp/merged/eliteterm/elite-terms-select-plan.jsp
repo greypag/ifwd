@@ -1345,7 +1345,7 @@ var home_url = "<%=request.getContextPath()%>";
                               <div class="clearfix form-group has-error employment-info-row et-emp-info-employer-name-container">
                                  <label for="savieEmploymentBean.monthlyPersonalIncome" class="monthly-income"><fmt:message key="eliteTerms.selectPlan.Current.Employer.Name" bundle="${msg}" /></label>
                                  <div class="selectEmployment">
-                                    <input type="text" class="form-control gray-textbox" id="savieEmploymentBean.currentEmployerName" name="savieEmploymentBean.currentEmployerName">
+                                    <input type="text" class="form-control gray-textbox" id="savieEmploymentBean.currentEmployerName" name="savieEmploymentBean.currentEmployerName" autocomplete="off">
                                  </div>
                                  <span class="error-msg" id="employerNameMessage"></span>
                               </div>
@@ -2713,8 +2713,7 @@ var home_url = "<%=request.getContextPath()%>";
     		  $('#etaspd-monthly-premium').find('span.extra-years-remarks').addClass('hidden');
     		  $('#etaspd-monthly-premium-extra-years').addClass('hidden');
     	  }
-    	  
-    	  if('${goApp}'!=null && '${goApp}'=='yes'){
+    	  if(escape('${goApp}')!=null && escape('${goApp}')=='yes'){
   			  $('#et-btn-before-start').removeClass('et-pad-bot-50');
   			  //$('#et-about-yoursel-section').removeClass('hide-element').css('margin-bottom', '125px');
   			  $('#et-about-yoursel-section').addClass('hide-element');
@@ -2779,6 +2778,14 @@ var home_url = "<%=request.getContextPath()%>";
             template:   '<div class="tooltip et-app-info-tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
             placement: tooltipPlacement
          });
+
+         //IE 11 label for smoker fix
+         if( msieversion()>=11 ){
+            $('label img').on('click', function(){
+               $('#' + $(this).parents('label').attr('for')).click();
+            })
+         }
+
       });
   
 		      // Move to Medical declaration section

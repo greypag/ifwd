@@ -1,13 +1,11 @@
 package com.ifwd.fwdhk.controller;
 
 import java.io.File;
-import java.lang.reflect.Method;
-import java.security.AccessController;
-import java.security.PrivilegedAction;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
@@ -29,7 +26,10 @@ import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.Methods;
 @Controller
 public class AjaxEliteTermController extends BaseController{
-	private final static Logger logger = LoggerFactory.getLogger(AjaxEliteTermController.class);
+	
+	private static final Logger logger = LoggerFactory.getLogger(AjaxEliteTermController.class);
+	
+	private static final String WATERMARK = "/resources/images/elite-terms/Watermark.png";
 	
 	@Autowired
 	private RestServiceDao restService;
@@ -40,24 +40,31 @@ public class AjaxEliteTermController extends BaseController{
 	@SuppressWarnings({ "restriction" })
 	@RequestMapping(value = {"/ajax/eliteTerm/postEliteTermImage"})
 	  public void doAddImageByForm(HttpServletRequest request, HttpServletResponse response,
-			  MultipartFile hkidFileToUpload,
-			  MultipartFile passportFileToUpload,
-			  MultipartFile fileToUpload
+			  MultipartFile iframeHkidFileToUpload,
+			  MultipartFile iframePassportFileToUpload,
+			  MultipartFile iframeFileToUpload
 	            ) throws Exception {
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
+		
 		MultipartFile file;
-		if( hkidFileToUpload!= null) {
-			file = hkidFileToUpload;
-		}else if( passportFileToUpload!= null) {
-			file = passportFileToUpload;
-		}else if( fileToUpload!= null) {
-			file = fileToUpload;
+		String imgName;
+		if( iframeHkidFileToUpload!= null) {
+			file = iframeHkidFileToUpload;
+			imgName = "hkidFileToUpload";
+		}else if( iframePassportFileToUpload!= null) {
+			file = iframePassportFileToUpload;
+			imgName = "passportFileToUpload";
+		}else if( iframeFileToUpload!= null) {
+			file = iframeFileToUpload;
+			imgName = "fileToUploadProofAdd";
 		}else{
 			return;
 		}
 		
 		try {
 				String imgMaxSize = UserRestURIConstants.getProperties("imgMaxSize");
-				String name = file.getOriginalFilename();
 				long size = file.getSize();
 				if(size/(1024*1024) > Integer.valueOf(imgMaxSize)){
 					throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.greater.than",request)+" "+imgMaxSize+"MB");
@@ -73,7 +80,6 @@ public class AjaxEliteTermController extends BaseController{
 		        } 
 		        String fileName = file.getOriginalFilename();
 		        
-		        String imgName = name.substring(0, name.lastIndexOf("."));
 		        
 		        String realName = imgName+".jpg";
 				request.getSession().setAttribute(imgName, realName);
@@ -83,25 +89,29 @@ public class AjaxEliteTermController extends BaseController{
 		        File uploadedFile = new File(uploadDir + sep  
 		                + fileName);  
 		        FileCopyUtils.copy(bytes, uploadedFile); 
-//		        if(!FileUtil.checkImageFile(uploadDir + sep  
-//		                + fileName)){
-//		        	throw new ECOMMAPIException("Illegal file");
-//		        }
-		        
-		        File toFile = new File(uploadDir + sep  
-				                + realName);
+		        String toPath = uploadDir + sep + realName;
+		        logger.debug("toPath: " + toPath);
+				File toFile = new File(toPath);
 		        ImgUtil.ImageToPdfToJPG(uploadDir + sep+ fileName, uploadDir + sep + imgName + ".pdf", toFile , request);
-//				ImgUtil.changeImageToJPG(uploadedFile,toFile,request);
+		        String copyImagePath = request.getRealPath(WATERMARK);
+				logger.debug("copyImagePath: " + copyImagePath);
+		        File copyImageFile = new File(copyImagePath);
+				try {
+					ImgUtil.pressImage(copyImageFile, toFile, 0, 0);
+				} catch (Exception e) {
+					logger.error(ExceptionUtils.getStackTrace(e));
+					response.getWriter().write("system error");
+				}
 		        response.getWriter().write("true");
 		    } catch (ECOMMAPIException e) {
-				String error = e.getMessage();
+		    	logger.error(ExceptionUtils.getStackTrace(e));
+		    	String error = e.getMessage();
 				response.setCharacterEncoding("utf-8");  //这里不设置编码会有乱码
 	            response.setContentType("text/plain;charset=utf-8");
 	            response.setHeader("Cache-Control", "no-cache");  
 	            response.getWriter().write(error);
 	        }catch (Exception e) {
-				logger.info(e.getMessage());
-				e.printStackTrace();
+	        	logger.error(ExceptionUtils.getStackTrace(e));
 				response.getWriter().write("system error");
 	        }
 	}
@@ -112,6 +122,10 @@ public class AjaxEliteTermController extends BaseController{
 	            @RequestParam(value = "name", required = true) String name,
 	            @RequestParam(value = "img", required = true) MultipartFile imageFile
 	            ) throws Exception {
+			if (Methods.isXssAjax(request)) {
+				return;
+			}
+		
 			try {
 				String imgMaxSize = UserRestURIConstants.getProperties("imgMaxSize");
 				long size = imageFile.getSize();
@@ -136,25 +150,24 @@ public class AjaxEliteTermController extends BaseController{
 		        File uploadedFile = new File(uploadDir + sep  
 		                + fileName);  
 		        FileCopyUtils.copy(bytes, uploadedFile); 
-//		        if(!FileUtil.checkImageFile(uploadDir + sep  
-//		                + fileName)){
-//		        	throw new ECOMMAPIException("Illegal file");
-//		        }
-		        
-		        File toFile = new File(uploadDir + sep  
-				                + realName);
+		        String toPath = uploadDir + sep + realName;
+		        logger.debug("toPath: " + toPath);
+				File toFile = new File(toPath);
 		        ImgUtil.ImageToPdfToJPG(uploadDir + sep+ fileName, uploadDir + sep + name + ".pdf", toFile , request);
-//				ImgUtil.changeImageToJPG(uploadedFile,toFile,request);
+				String copyImagePath = request.getRealPath(WATERMARK);
+				logger.debug("copyImagePath: " + copyImagePath);
+				File copyImageFile = new File(copyImagePath);
+				ImgUtil.pressImage(copyImageFile, toFile, 0, 0);
 		        response.getWriter().write("true");
 			} catch (ECOMMAPIException e) {
+				logger.error(ExceptionUtils.getStackTrace(e));
 				String error = e.getMessage();
 				response.setCharacterEncoding("utf-8");  //这里不设置编码会有乱码
 	            response.setContentType("text/plain;charset=utf-8");
 	            response.setHeader("Cache-Control", "no-cache");  
 				response.getWriter().write(error);
 			}catch (Exception e) {
-				logger.info(e.getMessage());
-				e.printStackTrace();
+				logger.error(ExceptionUtils.getStackTrace(e));
 				response.getWriter().write("system error");
 			}
 	}
@@ -165,6 +178,10 @@ public class AjaxEliteTermController extends BaseController{
 	            @RequestParam String passportFlage,
 	            @RequestParam String uploadLaterFlage
 	            ) throws Exception {
+			if (Methods.isXssAjax(request)) {				
+				return;
+			}
+		
 			try {
 				request.getSession().setAttribute("uploadLaterFlage", uploadLaterFlage);
 				ajaxReturn(response, eliteTermService.sendImage(request,passportFlage));
@@ -177,8 +194,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/getEliteTermPremium"})
 	public void getEliteTermPremium(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.getEliteTermPremium(request));
 		} catch (ECOMMAPIException e) {
@@ -189,8 +207,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/createEliteTermPolicy"})
 	public void createEliteTermPolicy(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.createEliteTermPolicy(request));
 		} catch (ECOMMAPIException e) {
@@ -204,8 +223,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/uploadSignature"})
 	public void uploadSignature(HttpServletRequest request,HttpServletResponse response,@RequestParam String image,@RequestParam String policyNo){
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response,eliteTermService.uploadSignature(request,image,policyNo));
 		} catch (ECOMMAPIException e) {
@@ -216,8 +236,9 @@ public class AjaxEliteTermController extends BaseController{
 
 	@RequestMapping(value = {"/ajax/eliteTerm/finalizeEliteTermPolicy"})
 	public void finalizeEliteTermPolicy(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.finalizeEliteTermPolicy(request));
 		} catch (ECOMMAPIException e) {
@@ -228,8 +249,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/sendEliteTermMail"})
 	public void sendEliteTermMail(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.sendEliteTermMail(request));
 		} catch (ECOMMAPIException e) {
@@ -240,8 +262,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/getUploadedDocument"})
 	public void getUploadedDocument(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.getUploadedDocument(request));
 		} catch (ECOMMAPIException e) {
@@ -252,8 +275,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/contactCs"})
 	public void contactCs(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.contactCs(request));
 		} catch (ECOMMAPIException e) {
@@ -264,8 +288,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/setEliteTermPolicyAgentEmail"})
 	public void setEliteTermPolicyAgentEmail(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.setEliteTermPolicyAgentEmail(request));
 		} catch (ECOMMAPIException e) {
@@ -277,8 +302,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/putEtPlanOptionSession"})
 	public void putEtPlanOptionSession(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			eliteTermService.putEtPlanOptionSession(request);
 			ajaxReturn(response,"success");
@@ -289,8 +315,9 @@ public class AjaxEliteTermController extends BaseController{
 	}
 	@RequestMapping(value = {"/ajax/eliteTerm/putEtPaymentSession"})
 	public void putEtPaymentSession(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			eliteTermService.putEtPaymentSession(request);
 			ajaxReturn(response,"success");
@@ -302,8 +329,9 @@ public class AjaxEliteTermController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/eliteTerm/getPromoteCode"})
 	public void getPromoteCode(HttpServletRequest request,HttpServletResponse response) {
-		if (Methods.isXssAjax(request))
+		if (Methods.isXssAjax(request)) {
 			return;
+		}
 		try {
 			ajaxReturn(response, eliteTermService.getPromoteCode(request));
 		} catch (ECOMMAPIException e) {

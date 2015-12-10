@@ -59,8 +59,8 @@ var languageP = "${language}";
 												</div>
 												
 												<div class="mob-desk">
-													<label for="fileToUpload" class="orange-select-file">
-														<input type="file" id="fileToUpload" name="fileToUpload" onchange="upload(this.id);">
+													<label for="iframeFileToUpload" class="orange-select-file">
+														<input type="file" id="iframeFileToUpload" name="iframeFileToUpload" onchange="upload(this.id);">
 														<span class="input-file-text"><fmt:message key="eliteTerms.documentUpload.Select.files" bundle="${msg}" /></span>
 													</label>
 												</div>
@@ -93,14 +93,24 @@ var languageP = "${language}";
 		<script type="text/javascript">
 			
 			$(document).on('click', '#address-upload-now', function(e) {
-				if($('#fileToUpload').val()!='' || $('#fileToUpload-addr-cam').val()!='') {
-					
+				if(fAddrValid()) {
+					//parent.isDis2Sub();
 					$('#address-upload-form').submit();
 				}
 				else {
 					$('#address-upload-form').next('.upload-error').removeClass('hidden');
 				}
 			});
+			
+			function fAddrValid() {
+				return $('#iframeFileToUpload').val()!='' || $('#fileToUpload-addr-cam').val()!='';
+			}
+			
+			function finishUploadAddr() {
+				//return !$("#finish-upload-addr").hasClass("hidden");
+				var frameSrc = window.frameElement.getAttribute('src') || '';
+				return frameSrc.indexOf('uploadResult=true') > -1; 
+			}
 			
 			var check = <%=request.getParameter("uploadResult")%>;
 			

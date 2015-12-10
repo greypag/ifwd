@@ -1,7 +1,6 @@
 package com.ifwd.fwdhk.util;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -19,6 +18,10 @@ import java.security.PrivilegedAction;
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.itextpdf.text.Document;
@@ -32,6 +35,8 @@ import com.sun.pdfview.PDFPage;
 
 public class ImgUtil {
 
+	private static final Logger logger = LoggerFactory.getLogger(ImgUtil.class);
+	
 	public static void changeImageToJPG(File fromFile,File toFile,HttpServletRequest request)throws ECOMMAPIException,Exception{
 		
 			BufferedImage bufferedImage = ImageIO.read(fromFile);
@@ -200,6 +205,47 @@ public class ImgUtil {
         p = Math.round(p2); 
         return p; 
     } 
+    
+    /**
+     * 把图片印刷到图片上
+     * 
+     * @param pressImg --
+     *            水印文件
+     * @param targetImg --
+     *            目标文件
+     * @param x
+     *            --x坐标
+     * @param y
+     *            --y坐标
+     */
+    public final static void pressImage(File pressImg, File targetImg,
+            int x, int y) {
+        try {
+            //目标文件
+            java.awt.Image src = ImageIO.read(targetImg);
+            int wideth = src.getWidth(null);
+            int height = src.getHeight(null);
+            BufferedImage image = new BufferedImage(wideth, height,
+                    BufferedImage.TYPE_INT_RGB);
+            Graphics g = image.createGraphics();
+            g.drawImage(src, 0, 0, wideth, height, null);
+ 
+            //水印文件
+            java.awt.Image src_biao = ImageIO.read(pressImg);
+            int wideth_biao = src_biao.getWidth(null)/2;
+            int height_biao = src_biao.getHeight(null)/2;
+            g.drawImage(src_biao, (wideth - wideth_biao) / 2,0, wideth_biao, height_biao, null);
+            //水印文件结束
+            g.dispose();
+            FileOutputStream out = new FileOutputStream(targetImg);
+            com.sun.image.codec.jpeg.JPEGImageEncoder encoder = com.sun.image.codec.jpeg.JPEGCodec.createJPEGEncoder(out);
+            encoder.encode(image);
+            out.close();
+        } catch (Exception e) {
+        	logger.error(ExceptionUtils.getStackTrace(e));
+        	throw new RuntimeException(e);
+        }
+    }
 
 
 
