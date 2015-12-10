@@ -334,6 +334,7 @@ function isFProfAddValidity() {
 }
 
 function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
+	$('#et-upload-doc-submit-btn').attr('disabled', 'disabled');
 	$.ajax({
 		        type: "POST",
 		        url:contextPath+'/ajax/eliteTerm/getEliteTermSendImageFlage',
