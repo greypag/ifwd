@@ -117,8 +117,8 @@
 	                            <div class="col-xs-4">
 	                            	<a href="#offer1"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/annualtravel.png" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
-	                            		<p class="price">$260</p>
-	                            		<p class="discount">(80% off)</p>
+	                            		<p class="price"><fmt:message key="Fanfare.landingpage.thumbnail1.price" bundle="${msg}" /></p>
+	                            		<p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail1.copy" bundle="${msg}" /></p>
 	                            	</div>
 	                            	<span class="text-center">
 	                            		<p><fmt:message key="Fanfare.landingpage.thumbnail1" bundle="${msg}" /></p>
@@ -127,8 +127,8 @@
 	                            <div class="col-xs-4">
 	                            	<a href="#offer2"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/single-trip.png" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
-	                            		<p class="price">$55</p>
-	                            		<p class="discount">(80% off)</p>
+	                            		<p class="price"><fmt:message key="Fanfare.landingpage.thumbnail2.price" bundle="${msg}" /></p>
+	                            		<p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail2.copy" bundle="${msg}" /></p>
 	                            	</div>
 	                            	<span class="text-center">
 	                            		<p><fmt:message key="Fanfare.landingpage.thumbnail2" bundle="${msg}" /></p>
@@ -137,8 +137,8 @@
 	                            <div class="col-xs-4">
 	                            	<a href="#offer3"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/4daysingletrave.png" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
-	                            		<p class="price">FREE</p>
-	                            		<p class="discount">(w/ pocket wi-fi)</p>
+	                            		<p class="price"><fmt:message key="Fanfare.landingpage.thumbnail3.price" bundle="${msg}" /></p>
+	                            		<p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail3.copy" bundle="${msg}" /></p>
 	                            	</div>
 	                            	<span class="text-center">
 	                            		<p><fmt:message key="Fanfare.landingpage.thumbnail3" bundle="${msg}" /></p>
@@ -153,8 +153,8 @@
 	                            <div class="col-xs-4">
 	                            	<a href="#offer4"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/1yearhomeplan.jpg" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
-	                            		<p class="price">$210</p>
-	                            		<p class="discount">(50% off)</p>
+	                            		<p class="price"><fmt:message key="Fanfare.landingpage.thumbnail4.price" bundle="${msg}" /></p>
+	                            		<p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail4.copy" bundle="${msg}" /></p>
 	                            	</div>
 	                            	<span class="text-center">
 	                            		<p><fmt:message key="Fanfare.landingpage.thumbnail4" bundle="${msg}" /></p>
@@ -163,8 +163,8 @@
 	                            <div class="col-xs-4">
 	                            	<a href="#offer5"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/1yearworkingholiday.jpg" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
-	                            		<p class="price">$2,100</p>
-	                            		<p class="discount">(40% off)</p>
+	                            		<p class="price"><fmt:message key="Fanfare.landingpage.thumbnail5.price" bundle="${msg}" /></p>
+	                            		<p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail5.copy" bundle="${msg}" /></p>
 	                            	</div>
 	                            	<span class="text-center">
 	                            		<p><fmt:message key="Fanfare.landingpage.thumbnail5" bundle="${msg}" /></p>
@@ -233,7 +233,7 @@
 								</div>
 
 								<div class="details-button-holder text-center" name="offer1">
-									<button class="details-btn" id="first-plan"><fmt:message key="Fanfare.landingpage.offer1.box3" bundle="${msg}" /></button>
+									<button class="details-btn" id="first-plan"><fmt:message key="Fanfare.landingpage.offer1.button" bundle="${msg}" /></button>
 								</div>
 							</div>
 						</div>
@@ -275,7 +275,7 @@
 								</div>
 
 								<div class="details-button-holder text-center" name="offer2">
-									<button class="details-btn" id="second-plan"><fmt:message key="Fanfare.landingpage.offer2.box3" bundle="${msg}" /></button>
+									<button class="details-btn" id="second-plan"><fmt:message key="Fanfare.landingpage.offer2.button" bundle="${msg}" /></button>
 								</div>
 							</div>
 						</div>
@@ -310,7 +310,7 @@
 											<p class="value">20</p>
 										</div>
 										<div class="holder date">
-											<p class="title"><fmt:message key="Fanfare.landingpage.offer2.box2" bundle="${msg}" /></p>
+											<p class="title"><fmt:message key="Fanfare.landingpage.offer3.box2" bundle="${msg}" /></p>
 											<p class="value date">NOV</p>
 											<p class=" value date day">19</p>
 										</div>
@@ -318,7 +318,7 @@
 								</div>
 
 								<div class="details-button-holder text-center" name="offer3">
-									<button class="details-btn" id="third-plan"><fmt:message key="Fanfare.landingpage.offer2.box3" bundle="${msg}" /></button>
+									<button class="details-btn" id="third-plan"><fmt:message key="Fanfare.landingpage.offer3.button" bundle="${msg}" /></button>
 								</div>
 							</div>
 						</div>
@@ -360,7 +360,7 @@
 								</div>
 
 								<div class="details-button-holder text-center" name="offer4">
-									<button class="details-btn" id="fourth-plan"><fmt:message key="Fanfare.landingpage.offer4.box3" bundle="${msg}" /></button>
+									<button class="details-btn" id="fourth-plan"><fmt:message key="Fanfare.landingpage.offer4.button" bundle="${msg}" /></button>
 								</div>
 							</div>
 						</div>
@@ -402,7 +402,7 @@
 								</div>
 
 								<div class="details-button-holder text-center" name="offer5">
-									<button class="details-btn"><fmt:message key="Fanfare.landingpage.offer5.box3" bundle="${msg}" /></button>
+									<button class="details-btn"><fmt:message key="Fanfare.landingpage.offer5.button" bundle="${msg}" /></button>
 								</div>
 							</div>
 						</div>
