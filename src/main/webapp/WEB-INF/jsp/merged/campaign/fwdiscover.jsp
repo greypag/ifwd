@@ -39,7 +39,7 @@
 								<span class="grab"><fmt:message key="Fanfare.landingpage.description1.part3" bundle="${msg}" /></span>
 							</p>
 							<p class="register">
-								<fmt:message key="Fanfare.landingpage.description2.part1" bundle="${msg}" /> <a href="#"><fmt:message key="Fanfare.landingpage.description2.part2" bundle="${msg}" /></a> <fmt:message key="Fanfare.landingpage.description2.part3" bundle="${msg}" />
+								<fmt:message key="Fanfare.landingpage.description2.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%><fmt:message key="link.register" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.description2.part2" bundle="${msg}" /></a> <fmt:message key="Fanfare.landingpage.description2.part3" bundle="${msg}" />
 							</p>
 						</div>
 
@@ -595,12 +595,19 @@
 							</ul>
 
 							<div class="details-button-holder text-center">
-								<button class="details-btn">Grab!</button>
+								<button class="details-btn"><fmt:message key="Fanfare.clickdetail.lightbox1.button" bundle="${msg}" /></button>
 							</div>
 
 							<div class="terms-and-condition">
-								<p class="title">Terms & Conditions</p>
-								<p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non velit id enim porttitor sagittis at id urna. Phasellus vehicula vulputate elit vel fermentum. Donec libero turpis, consectetur id porttitor at, mollis ac felis. Nulla condimentum vulputate condimentum. In hac habitasse platea dictumst. Cras sed nibh molestie, pharetra ipsum lobortis, sodales sapien. Maecenas urna ipsum, placerat et tincidunt sagittis, malesuada eget nunc.</p>
+								<p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
+								<p class="content">
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
+								</p>
 							</div>
 
 							<p class="close-modal">Close</p>
@@ -615,18 +622,25 @@
 							<p class="promo">now <span class="price">HK$260</span> <span class="italic">(80% off)</span></p>
 
 							<div class="promo-code-holder">
-								<p class="text-center congrats">Congratulations!</p>
+								<p class="text-center congrats"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle1" bundle="${msg}" /></p>
 								<p class="code">FWD987654321</p>
-								<p class="note">Use this offer by entering the above promotion code</p>
+								<p class="note"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle2" bundle="${msg}" /></p>
 							</div>
 
 							<div class="details-button-holder text-center">
-								<button class="details-btn">Buy now!</button>
+								<button class="details-btn"><fmt:message key="Fanfare.clickdetail.lightbox3.button" bundle="${msg}" /></button>
 							</div>
 
 							<div class="terms-and-condition offer-details">
-								<p class="title">Terms & Conditions</p>
-								<p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non velit id enim porttitor sagittis at id urna. Phasellus vehicula vulputate elit vel fermentum. Donec libero turpis, consectetur id porttitor at, mollis ac felis. Nulla condimentum vulputate condimentum. In hac habitasse platea dictumst. Cras sed nibh molestie, pharetra ipsum lobortis, sodales sapien. Maecenas urna ipsum, placerat et tincidunt sagittis, malesuada eget nunc.</p>
+								<p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
+								<p class="content">
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
+								</p>
 							</div>
 
 							<p class="close-modal">Close</p>
@@ -640,13 +654,20 @@
 							<p class="title">Annual Travel Plan</p>
 
 							<div class="error-message">
-								<p>You may only get the promotion code once for each offer.</p>
-								<p class="lower">Say tuned to our next wave of FWDiscover offers.</p>
+								<p><fmt:message key="Fanfare.clickdetail.lightbox5.subtitle1" bundle="${msg}" /></p>
+								<p class="lower"><fmt:message key="Fanfare.clickdetail.lightbox5.subtitle2" bundle="${msg}" /></p>
 							</div>
 							
 							<div class="terms-and-condition">
-								<p class="title">Terms & Conditions</p>
-								<p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non velit id enim porttitor sagittis at id urna. Phasellus vehicula vulputate elit vel fermentum. Donec libero turpis, consectetur id porttitor at, mollis ac felis. Nulla condimentum vulputate condimentum. In hac habitasse platea dictumst. Cras sed nibh molestie, pharetra ipsum lobortis, sodales sapien. Maecenas urna ipsum, placerat et tincidunt sagittis, malesuada eget nunc.</p>
+								<p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
+								<p class="content">
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
+								</p>
 							</div>
 
 							<p class="close-modal">Close</p>
@@ -660,13 +681,20 @@
 							<p class="title">Annual Travel Plan</p>
 
 							<div class="error-message">
-								<p>Unfortunately the offer you have selected is already sold out.</p>
-								<p class="lower">Say tuned to our next wave of FWDiscover offers.</p>
+								<p><fmt:message key="Fanfare.clickdetail.lightbox4.subtitle1" bundle="${msg}" /></p>
+								<p class="lower"><fmt:message key="Fanfare.clickdetail.lightbox4.subtitle2" bundle="${msg}" /></p>
 							</div>
 							
 							<div class="terms-and-condition">
-								<p class="title">Terms & Conditions</p>
-								<p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non velit id enim porttitor sagittis at id urna. Phasellus vehicula vulputate elit vel fermentum. Donec libero turpis, consectetur id porttitor at, mollis ac felis. Nulla condimentum vulputate condimentum. In hac habitasse platea dictumst. Cras sed nibh molestie, pharetra ipsum lobortis, sodales sapien. Maecenas urna ipsum, placerat et tincidunt sagittis, malesuada eget nunc.</p>
+								<p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
+								<p class="content">
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
+								</p>
 							</div>
 
 							<p class="close-modal">Close</p>
