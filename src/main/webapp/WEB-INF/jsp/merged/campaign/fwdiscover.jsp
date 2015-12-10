@@ -33,7 +33,7 @@
 						</div>
 					</div>
 
-					<div class="clearfix">
+					<div class="clearfix fwdiscover-container">
 						<div class="fwdiscover-description">
 							<p><fmt:message key="Fanfare.landingpage.description1.part1" bundle="${msg}" /></p>
 							<p><fmt:message key="Fanfare.landingpage.description1.part2" bundle="${msg}" />
@@ -109,7 +109,7 @@
 				</div>
 
 
-	            <div id="myCarousel-fwdiscover" class="carousel slide">
+	            <div id="myCarousel-fwdiscover" class="carousel slide fwdiscover-container">
 	                
 	                <!-- Carousel items -->
 	                <div class="carousel-inner clearfix">
@@ -195,7 +195,7 @@
 	            <!--/myCarousel-->
 				
 				<!-- PLANS -->
-				<div class="plans-holder">
+				<div class="plans-holder fwdiscover-container">
 					<!-- first plan -->
 					<div class="fwdiscover-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
