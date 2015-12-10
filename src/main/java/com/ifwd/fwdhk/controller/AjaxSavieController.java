@@ -310,4 +310,18 @@ public class AjaxSavieController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+
+	@RequestMapping(value = {"/ajax/savings-insurance/getAppointmentAccessCode"})
+	public void getAppointmentAccessCode(Model model, HttpServletRequest request,HttpServletResponse response) {
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
+
+		try {
+			savieService.getAppointmentAccessCode(model, request, response);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }

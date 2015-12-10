@@ -17,13 +17,32 @@ var language = "${language}";
 <div class="fwd-savie-wrapper">		
      <form method="post" id="serviceCenterForm">	
 			<div id="set-appointment" class="container-fluid fwd-full-container">
-				<div class="application-page-header">
-					<div class="row">
-						<div class="col-xs-12 orange-section">
-							<div class="clearfix position">
-								<div class="description-desktop">
-									<span><fmt:message key="savie.customerServiceCentre.orangeStickyBar" bundle="${msg}" /></span>
-								</div>
+				<div class="application-page-header et-header-browse">
+					<div class="et-back-arrow hidden-xs hidden-sm">
+						<a href="#" class="et-back-arrow-link">
+							<span class="icon-arrow-left2 arrow-left"></span>
+						</a>
+				    </div>
+					<div class="row reset-margin hidden-xs hidden-sm">
+		                  <div class="col-md-4 reset-padding">
+		                      <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="plan-detail" data-et-section-target="et-select-plan-section">Plan details</button>
+		                  </div>
+		                  <div class="col-md-4 reset-padding">
+		                      <button type="button" class="et-header-info-btn et-bind-btn-header active" id="make-appointment" data-et-section-target="et-application-section">Make appointment</button>
+		                  </div>
+		                  <div class="col-md-4 reset-padding">
+		                      <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="confirmation" data-et-section-target="et-dec-sign-section">Confirmation</button>
+		                  </div>
+              		</div>
+					<div class="et-mobile-header-info hidden-md hidden-lg">
+						<div class="clearfix">
+							<div class="et-back-arrow">
+								<a href="#" class="et-back-arrow-link">
+									<span class="icon-arrow-left2 arrow-left"></span>
+								</a>
+							</div>
+							<div class="et-header-tex">
+								<h3 id="et-active-section-label">Make appointment</h3>
 							</div>
 						</div>
 					</div>
@@ -31,6 +50,17 @@ var language = "${language}";
 				
 				<div class="application-flux customer-service">
 					<div id="service-centre" class="container-fluid fwd-container page-application">
+						<div class="fwd-container hidden-xs hidden-sm clearfix">
+								<div class="breadcrumbs pull-left">
+									<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
+										<li><a href="#"><fmt:message key="savie.planDetails.Save" bundle="${msg}" /></a></li>
+										<li class="divider"><i class="fa fa-play"></i></li>
+										<li><a href="#">Evergreen</a></li>
+										<li class="divider last"><i class="fa fa-play"></i></li>
+										<li class="active-bc">Make appointment</li>
+									</ol>
+								</div>
+							</div>
 						<h2><fmt:message key="savie.customerServiceCentre.headerText1" bundle="${msg}" /></h2>
 						<form>
 							<div class="row">
@@ -73,7 +103,7 @@ var language = "${language}";
 											</div>
 										</div>
 									</div>
-									<p class="confirm-call"><fmt:message key="savie.customerServiceCentre.confirmCall" bundle="${msg}" /></p>
+									<p class="confirm-call"><fmt:message key="saviee.appointment.remarks" bundle="${msg}" /></p>
 								</div>
 								
 								<div class="col-xs-12 col-md-6">
@@ -90,13 +120,14 @@ var language = "${language}";
 										    
 										    <h4><fmt:message key="savie.servicecenter.address" bundle="${msg}" /></h4>
 										    <p>${list.address }</p>
+										    <a href="url" class="map-link" target="_blank" >View map</a>
 									    </div>
 							        </c:forEach>
 								</div>
 							</div>
 							
 							<div class="text-center">
-								<button class="btn next confirm-appointment" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="savie.customerServiceCentre.confirmBtn" bundle="${msg}" /></button>
+								<button class="btn next confirm-appointment" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="saviee.appointment.submit" bundle="${msg}" /></button>
 							</div>
 						</form>
 					</div>
@@ -188,6 +219,8 @@ var language = "${language}";
 			</div><!-- /.modal -->
 	</form>
 </div>
+<%-- 
+<script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script> --%>
 <script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
 
 <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
@@ -261,7 +294,7 @@ var language = "${language}";
 			}
 			else{
 				$.ajax({     
-				    url:context+'/ajax/savings-evergreen-insurance/upsertAppointment',     
+				    url:context+'/ajax/savie/savings-insurance/upsertAppointment',     
 				    type:'post',     
 				    data:{    
 				    	"csCenter": csCenter,
@@ -274,7 +307,7 @@ var language = "${language}";
 				    	if(data.errMsgs == null){
 				    		//send email
 				    		$.ajax({     
-							    url:context+'/ajax/savings-evergreen-insurance/service-center-confirm/email',     
+							    url:context+'/ajax/savie/service-center-confirm/email',     
 							    type:'post',
 							    data:{    
 							    	"csCenter": csCenter,
@@ -284,7 +317,7 @@ var language = "${language}";
 							    success:function(data){
 							    	if(data.errMsgs == null){
 							    		console.log("send email success");
-							    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-evergreen-insurance/confirmation");
+							    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation");
 								    	$("#serviceCenterForm").submit();
 							    	}else{
 							    		console.log(data.errMsgs);
@@ -307,7 +340,7 @@ var language = "${language}";
 			}
 		});
 		$('#back-to-home-btn').click(function(){
-    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-evergreen-insurance");
+    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance");
 	    	$("#serviceCenterForm").submit();
 		});		
 	});
@@ -315,7 +348,7 @@ var language = "${language}";
 	function putTimeSession(){
 		var perTime = $("#preferred-time").val();
 		$.ajax({     
-		    url:context+'/ajax/savings-evergreen-insurance/putTimeSession',     
+		    url:context+'/ajax/savie/savings-insurance/putTimeSession',     
 		    type:'post',     
 		    data:{    
 		        "perferredTime":perTime

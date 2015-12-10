@@ -1131,7 +1131,14 @@ img.bdr-img {
 .btn-transparent:hover {
 	border-color: rgba(255, 255, 255, 0.5);
 }
-
+.btn-color-ylw, .btn-color-ylw:focus{
+    background-color:#fdb714 !important;
+    border:1px solid #fdb714 !important;
+}
+.btn-color-ylw:hover{
+    background-color:#fff !important;
+    color:#fdb714 !important;
+}
 a:hover, a:focus {
 	text-decoration: none;
 	outline: none;
@@ -9006,22 +9013,20 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 	width: 100%;
 }
 
-@-webkit-keyframes rotating /* Safari and Chrome */ {
-	from { 
-		-ms-transform:rotate(0deg);
-		-moz-transform: rotate(0deg);
-		-webkit-transform: rotate(0deg);
-		-o-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
+@
+-webkit-keyframes rotating /* Safari and Chrome */ {from { -ms-transform:rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+}
 
-	to {
-		-ms-transform: rotate(360deg);
-		-moz-transform: rotate(360deg);
-		-webkit-transform: rotate(360deg);
-		-o-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
+to {
+	-ms-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	transform: rotate(360deg);
 }
 
 @keyframes rotating {
@@ -9033,15 +9038,15 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 		transform: rotate(0deg);
 	}
 
-	to {
-		-ms-transform: rotate(360deg);
-		-moz-transform: rotate(360deg);
-		-webkit-transform: rotate(360deg);
-		-o-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
+to {
+	-ms-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	transform: rotate(360deg);
 }
 
+}
 .circle_outer {
 	-webkit-animation: rotating 30s linear infinite;
 	-moz-animation: rotating 30s linear infinite;
@@ -20082,434 +20087,428 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 .navbar_hidden_content .submenu_list hr {
 	margin: 0px;
 }
-/******** hidden navbar ********/{
-	background-color: #f68a1d;
+/******** hidden navbar ********/
+{
+background-color
+
+
+:
+
+ 
+
+#f68a1d
+
+
+;
+}
+.product_header_path_item {
+	color: #fff;
+	width: 20%;
+	float: left;
+	text-align: center;
+	/*padding-top: 40px;
+	padding-bottom: 40px;*/
+	padding: 29px 0;
+	position: relative;
+	font-size: 24px;
 }
 
-.product_header_path_item{
-	color:#fff;
-	width:20%;
-	float:left;
-	text-align:center;
-	padding-top: 40px;
-    padding-bottom: 40px;
-	position:relative;
-	font-size: 23px;
-}
-
-.product_header_path_item.back{
-	font-size: 22px;
+.product_header_path_item.back {
+	font-size: 24px;
 	cursor: pointer;
 }
-.chin .product_header_path_item.back{
-    font-size: 20px;
+
+.chin .product_header_path_item.back {
+	font-size: 20px;
 }
 
-.product_header_path_item.active{
-    color:#f68a1d;
-    background-color:#fff;
-    border-top: solid 2px #f68a1d;
-    border-bottom: solid 2px #f68a1d;
-    padding-top: 38px;
-    padding-bottom: 38px;
+.product_header_path_item.active {
+	color: #f68a1d;
+	background-color: #fff;
+	border-top: solid 3px #f68a1d;
+	border-bottom: solid 2px #f68a1d;
+	/*padding-top: 38px;
+	padding-bottom: 38px;*/
+	padding:27px 0;
 }
 
-.product_header_path_item .partition{
-    height: 100%;
-    width: 2px;
-    background-color: #FFB367;
-    position: absolute;
-    top: 0px;
-    right: 0px;
+.product_header_path_item .partition {
+	height: 100%;
+	width: 2px;
+	background-color: #FFB367;
+	position: absolute;
+	top: 0px;
+	right: 0px;
 }
 
-.plan-box3 h4.product_plan_box_description{
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-.plan-box3 h4 .product_plan_box_description_orange{
-	color:#f68a1d;
-	font-weight:bold;
-}
-
-.product_plan_box_price_container{
-	margin-left:10px;
-}
-
-.plan-box3 h4.product_plan_box_title_right{
+.plan-box3 h4.product_plan_box_description {
 	font-size: 18px;
-    line-height: 1.5;
-    font-weight:normal;
-    text-align:center;
-    margin-left: 0px;
-    margin-top: 30px;
-    margin-bottom: 0px;
+	line-height: 1.5;
 }
 
-.plan-box3 h2.product_plan_box_price_right{
-	margin-left: 0px;
-	text-align:center;
-    margin-top: 0px;
-    margin-bottom: 0px;
+.plan-box3 h4 .product_plan_box_description_orange {
+	color: #f68a1d;
+	font-weight: bold;
 }
 
-.plan-box3 div.del.product_plan_box_del{
-    margin-left: 0px;
-    text-align: center;
-    font-size: 24px;
-    line-height: 31.5px;
-}
-
-.product_plan_box_select_button_container{
+.product_plan_box_price_container {
 	margin-left: 10px;
-	margin-top:10px;
+}
+
+.plan-box3 h4.product_plan_box_title_right {
+	font-size: 18px;
+	line-height: 1.5;
+	font-weight: normal;
+	text-align: center;
+	margin-left: 0px;
+	margin-top: 30px;
+	margin-bottom: 0px;
+}
+
+.plan-box3 h2.product_plan_box_price_right {
+	margin-left: 0px;
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.plan-box3 div.del.product_plan_box_del {
+	margin-left: 0px;
+	text-align: center;
+	font-size: 24px;
+	line-height: 31.5px;
+}
+
+.product_plan_box_select_button_container {
+	margin-left: 10px;
+	margin-top: 10px;
 	margin-bottom: 30px;
 }
 
-.product_plan_box_select_button_container .product_plan_box_select_button{
-    width: 130px;
-    text-align: center;
-    border: solid 1px #f68a1d;
-    color: #f68a1d;
-    margin: 0 auto;
-    font-size: 30px;
-    font-weight: bold;
-    padding: 20px 10px;
-    background-color: #fff;
+.product_plan_box_select_button_container .product_plan_box_select_button
+	{
+	width: 130px;
+	text-align: center;
+	border: solid 1px #f68a1d;
+	color: #f68a1d;
+	margin: 0 auto;
+	font-size: 30px;
+	font-weight: bold;
+	padding: 20px 10px;
+	background-color: #fff;
 }
 
-.annual_travelproductbox{
-	position:relative;
+.annual_travelproductbox {
+	position: relative;
 	border: 1px solid #ccc;
 }
 
-.annual_travelproductbox .partition{
-	position:absolute;
-	top:0px;
-	right:33.33333333333333%;
-	width:1px;
-	height:100%;
+.annual_travelproductbox .partition {
+	position: absolute;
+	top: 0px;
+	right: 33.33333333333333%;
+	width: 1px;
+	height: 100%;
 	background-color: #ccc;
 }
 
-.annual_travelproductbox:hover .partition{
-    background-color: #FFB367;
+.annual_travelproductbox:hover .partition {
+	background-color: #FFB367;
 }
 
-.annual_travelproductbox:hover .partition{
-    background-color: #FFB367;
+.annual_travelproductbox:hover .partition {
+	background-color: #FFB367;
 }
 
-.annual_travelproductbox.plan-box4 .partition{
-    background-color: #FFB367;
+.annual_travelproductbox.plan-box4 .partition {
+	background-color: #FFB367;
 }
 
-.product_plan_panel_container{
-	margin-top:50px;
+.product_plan_panel_container {
+	margin-top: 50px;
 }
 
-.product_plan_panel{
+.product_plan_panel {
 	position: relative;
 	background-color: #9BA5A7;
-	margin-bottom:1px;
-	cursor:pointer;
+	margin-bottom: 1px;
+	cursor: pointer;
 }
 
-.product_plan_panel h4{
-	margin:0px;
+.product_plan_panel h4 {
+	margin: 0px;
 	padding: 0px 20px;
-	color:#fff;
+	color: #fff;
 }
 
-.product_plan_panel .fa{
-    position: absolute;
-    bottom: 15px;
-    right: 10px;
+.product_plan_panel .fa {
+	position: absolute;
+	bottom: 15px;
+	right: 10px;
 }
 
-.product_plan_inner_panel{
+.product_plan_inner_panel {
 	position: relative;
-    background-color: #C5CFD8;
-    cursor:pointer;
+	background-color: #C5CFD8;
+	cursor: pointer;
 }
 
-.product_plan_inner_panel h4{
-    margin:0px;
-    padding: 0px 20px;
-    color:#333;
+.product_plan_inner_panel h4 {
+	margin: 0px;
+	padding: 0px 20px;
+	color: #333;
 }
 
-.product_plan_inner_panel .fa{
-    position: absolute;
-    bottom: 15px;
-    right: 10px;
+.product_plan_inner_panel .fa {
+	position: absolute;
+	bottom: 15px;
+	right: 10px;
 }
 
-.product_plan_panel_inner_content{
-    margin-bottom:1px;
+.product_plan_panel_inner_content {
+	margin-bottom: 1px;
 }
 
-.product_plan_panel_inner_content_row{
+.product_plan_panel_inner_content_row {
 	background-color: #F2F3F5;
 	padding: 20px;
-	margin-bottom:1px;
+	margin-bottom: 1px;
 }
 
-.product_plan_panel_inner_content_row table{
-    width:100%;
+.product_plan_panel_inner_content_row table {
+	width: 100%;
 }
 
-.product_plan_panel_inner_content_row table th{
-	text-align:center;
+.product_plan_panel_inner_content_row table th {
+	text-align: center;
 }
 
-.product_plan_panel_inner_content_row table th, .product_plan_panel_inner_content_row table td{
-	border:solid 1px #333;
-	padding:10px;
+.product_plan_panel_inner_content_row table th,
+	.product_plan_panel_inner_content_row table td {
+	border: solid 1px #333;
+	padding: 10px;
 }
 
-.product_plan_panel_container .bullets{
-    list-style-image: url('../images/li-icon.png');
-    color: #f68a1d;
-    padding: 0px 18px;
-    font-size: 18px;
-    line-height: 1.4;
+.product_plan_panel_container .bullets {
+	list-style-image: url('../images/li-icon.png');
+	color: #f68a1d;
+	padding: 0px 18px;
+	font-size: 18px;
+	line-height: 1.4;
 }
 
-.product_plan_panel_container .bullets li{
-    font-size: 16px;
-    line-height: 22px;
-    color: #333;
-    margin-bottom:0px;
+.product_plan_panel_container .bullets li {
+	font-size: 16px;
+	line-height: 22px;
+	color: #333;
+	margin-bottom: 0px;
 }
 
-.product_plan_panel_content{
-    height: 300px;
-    margin-bottom:1px;
+.product_plan_panel_content {
+	height: 300px;
+	margin-bottom: 1px;
 }
 
-.product_plan_panel_content_row{
-    padding:20px;
+.product_plan_panel_content_row {
+	padding: 20px;
 }
 
-.product_plan_details_member_title .login-btn{
+.product_plan_details_member_title .login-btn {
 	width: 150px;
-    margin-left: 20px;
+	margin-left: 20px;
 }
 
-.product_payment_detail_form_container .form-group{
-	width:620px;
+.product_payment_detail_form_container .form-group {
+	width: 620px;
 }
 
-.product_payment_detail_benelist{
+.product_payment_detail_benelist {
 	border: solid 1px #f6871e;
 	width: 100%;
 }
 
-.product_payment_detail_benelist .travel-tb-td{
-	background-color:#f6871e;
+.product_payment_detail_benelist .travel-tb-td {
+	background-color: #f6871e;
 	font-size: 18px;
 }
 
-.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
-    background-color: #f5f5f5;
+.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th
+	{
+	background-color: #f5f5f5;
 }
 
-.product_payment_detail_benelist td{
-	padding:5px 20px !important;
+.product_payment_detail_benelist td {
+	padding: 5px 20px !important;
 }
 
-.product_payment_details input{
-	padding:4px 15px;
+.product_payment_details input {
+	padding: 4px 15px;
 }
 
-.disclaimer .product_confirmation_dis{
-    font-size: 10px;
-    margin-top:-5px;
+.disclaimer .product_confirmation_dis {
+	font-size: 10px;
+	margin-top: -5px;
 }
 
-@media (min-width: 992px) {
-	.annualTravel_policy_item:hover .hidden-content{
-	    display: block;
+@media ( min-width : 992px) {
+	.annualTravel_policy_item:hover .hidden-content {
+		display: block;
 	}
-	
-    .product_landing_download_button{
-        margin-right: 20px;
-    }
-    
-    .product_payment_details_title{
-        margin-top: 8px;
-    }
-    
-    td .product_confirmation_dis{
-        font-size: 12px;
-        position: absolute;
-    }
+	.product_landing_download_button {
+		margin-right: 20px;
+	}
+	.product_payment_details_title {
+		margin-top: 8px;
+	}
+	td .product_confirmation_dis {
+		font-size: 12px;
+		position: absolute;
+	}
 }
 
-@media (max-width: 991px) {
-    .product_landing_download_button{
-        width: 100%;
-    }
-    
-    .product_header_path_item, .product_header_path_item.active{
-        width:auto;
-        padding:20px 10px;
-        border:0px;
-        color:#fff;
-        background-color:#f68a1d;
-    }
-    
-    .annual_travelproductbox .partition{
-        position: initial;
-	    width: 100%;
-	    height: 1px;
-	    background-color: #ccc;
-	    float: left;
-    }
-    
-    .plan-box3 h2.product_plan_box_price_right {
-        font-size:30px;
-    }
-    
-    .product_plan_box_price_container, .product_plan_box_select_button_container{
-        margin-left:0px !important;
-    }
-    
-    .product_plan_box_select_button_container{
-        margin-top:30px;
-    }
-    
-    .product_plan_panel h4{
-        font-size: 24px;
-        line-height: 42px;
-    }
-    
-    .product_plan_panel_content{
-        height:auto;
-    }
-    
-    .product_plan_inner_panel h4{
-        font-size: 24px;
-        line-height: 42px;
-    }
-    
-    .mCSB_inside>.mCSB_container{
-        margin-right:0px !important;
-    }
-    
-    .product_plan_details_member_title{
-        margin-left:10%;
-        width:80%;
-    }
-    
-    .product_plan_details_member_title .h2-3-existing-fwd-head{
-        width:100%;
-    }
-    
-    .product_plan_details_member_title .login-btn{
-	    margin-left: 0px;
+@media ( max-width : 991px) {
+	.product_landing_download_button {
+		width: 100%;
 	}
-	
-	.product_payment_detail_form_container .form-group{
-	    width:100%;
+	.product_header_path_item, .product_header_path_item.active {
+		width: auto;
+		padding: 19px 10px;
+		border: 0px;
+		color: #fff;
+		background-color: #f68a1d;
+		font-size: 18px;
 	}
-	
-	.product_summary_container{
-	   border:none;
+	.product_header_path_item.back{
+	   font-size: 18px;
 	}
-	
-	.product_summary_orange_price{
-	   margin-top: 10px !important;
+	.annual_travelproductbox .partition {
+		position: initial;
+		width: 100%;
+		height: 1px;
+		background-color: #ccc;
+		float: left;
 	}
-	
-	.product_summary_container .h4-4-orange-b{
-	   line-height: 28px !important;
+	.plan-box3 h2.product_plan_box_price_right {
+		font-size: 30px;
 	}
-	
-	.product_summary_table_field{
+	.product_plan_box_price_container,
+		.product_plan_box_select_button_container {
+		margin-left: 0px !important;
+	}
+	.product_plan_box_select_button_container {
+		margin-top: 30px;
+	}
+	.product_plan_panel h4 {
+		font-size: 24px;
+		line-height: 42px;
+	}
+	.product_plan_panel_content {
+		height: auto;
+	}
+	.product_plan_inner_panel h4 {
+		font-size: 24px;
+		line-height: 42px;
+	}
+	.mCSB_inside>.mCSB_container {
+		margin-right: 0px !important;
+	}
+	.product_plan_details_member_title {
+		margin-left: 10%;
+		width: 80%;
+	}
+	.product_plan_details_member_title .h2-3-existing-fwd-head {
+		width: 100%;
+	}
+	.product_plan_details_member_title .login-btn {
+		margin-left: 0px;
+	}
+	.product_payment_detail_form_container .form-group {
+		width: 100%;
+	}
+	.product_summary_container {
+		border: none;
+	}
+	.product_summary_orange_price {
+		margin-top: 10px !important;
+	}
+	.product_summary_container .h4-4-orange-b {
+		line-height: 28px !important;
+	}
+	.product_summary_table_field {
 		margin-bottom: 5px;
 		margin-top: 5px;
-		min-width:230px !important;
+		min-width: 230px !important;
 	}
-	
-	.product_summary_table_field.summary-detail-head{
-	   min-width:180px !important;
+	.product_summary_table_field.summary-detail-head {
+		min-width: 180px !important;
 	}
-	
-	.product_summary_table_header{
-	   color: #999;
-       font-weight: bold;
+	.product_summary_table_header {
+		color: #999;
+		font-weight: bold;
 	}
-	
-	h4 .product_confirmation_dis{
-	   font-size: 16px;
-       position: absolute;
+	h4 .product_confirmation_dis {
+		font-size: 16px;
+		position: absolute;
 	}
-	
-	.product_confirmation_dis{
-	   font-size: 12px;
-       margin-top: -5px;
+	.product_confirmation_dis {
+		font-size: 12px;
+		margin-top: -5px;
 	}
 }
 
-@media (max-width: 480px) {
-   	.product_plan_box_price_container, .product_plan_box_select_button_container{
-        width:100% !important;
-    }
+@media ( max-width : 480px) {
+	.product_plan_box_price_container,
+		.product_plan_box_select_button_container {
+		width: 100% !important;
+	}
 }
 /** annual travel **/
-
 @media only screen and (max-width: 480px) {
 	/* Force table to not be like tables anymore */
-	#plan-no-more-tables table,
-	#plan-no-more-tables thead,
-	#plan-no-more-tables tbody,
-	#plan-no-more-tables th,
-	#plan-no-more-tables td,
-	#plan-no-more-tables tr {
-	    display: block;
+	#plan-no-more-tables table, #plan-no-more-tables thead,
+		#plan-no-more-tables tbody, #plan-no-more-tables th,
+		#plan-no-more-tables td, #plan-no-more-tables tr {
+		display: block;
 	}
-	 
+
 	/* Hide table headers (but not display: none;, for accessibility) */
 	#plan-no-more-tables thead tr {
-	 position: absolute;
-	 top: -9999px;
-	 left: -9999px;
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
 	}
-	 
-	#plan-no-more-tables tr { border: 1px solid #ccc; }
-	  
+	#plan-no-more-tables tr {
+		border: 1px solid #ccc;
+	}
 	#plan-no-more-tables td {
-	 /* Behave like a "row" */
-	 border: none;
-	 border-bottom: 1px solid #eee;
-	 position: relative;
-	 padding-left: 50%;
-	 white-space: normal;
-	 text-align:left;
+		/* Behave like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+		white-space: normal;
+		text-align: left;
 	}
-	 
 	#plan-no-more-tables td:before {
-	 /* Now like a table header */
-	 position: absolute;
-	 /* Top/left values mimic padding */
-	 top: 6px;
-	 left: 6px;
-	 width: 45%;
-	 padding-right: 10px;
-	 white-space: nowrap;
-	 text-align:left;
-	 font-weight: bold;
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+		text-align: left;
+		font-weight: bold;
 	}
-	 
+
 	/*
 	Label the data
 	*/
-	#plan-no-more-tables td:before { content: attr(data-title); }
+	#plan-no-more-tables td:before {
+		content: attr(data-title);
+	}
 }
-
 
 #main-slider .text-content {
 	display: block;
@@ -20522,118 +20521,122 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 
 #main-slider .text-content.hunger-img img {
 	position: relative;
-    height:initial;
-}
-@media (max-width: 991px) {
-	 #main-slider .text-content {
-	   top: initial;
-	   bottom: 20%;
-	 }
-	 #main-slider .text-content.hunger-img img {
-	   margin: 0 auto;
-	   padding: 0;
-	   width: 340px;
-	 }
-	#promo-code-body.holiday-code-wrapper{
-	    padding-bottom: 58px !important;
-	}
-}
-@media (min-width: 992px) {
-  #main-slider .text-content {
-    top: 28%;
-  }
-  #main-slider .text-content.hunger-img img {
-    width: 34%;
-    padding:0px;
-  }
+	height: initial;
 }
 
-#modal_policy_container .hidden-content-title{
-	color:#f68a1d;
-	font-weight:bold;
+@media ( max-width : 991px) {
+	#main-slider .text-content {
+		top: initial;
+		bottom: 20%;
+	}
+	#main-slider .text-content.hunger-img img {
+		margin: 0 auto;
+		padding: 0;
+		width: 340px;
+	}
+	#promo-code-body.holiday-code-wrapper {
+		padding-bottom: 58px !important;
+	}
+}
+
+@media ( min-width : 992px) {
+	#main-slider .text-content {
+		top: 28%;
+	}
+	#main-slider .text-content.hunger-img img {
+		width: 34%;
+		padding: 0px;
+	}
+}
+
+#modal_policy_container .hidden-content-title {
+	color: #f68a1d;
+	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
-.annual_travel_tips{
+.annual_travel_tips {
 	margin-top: 50px;
-    margin-bottom: 50px;
-    background-color: #F1F3F5;
-    padding: 5px 10px;
-    border-radius: 20px;
+	margin-bottom: 50px;
+	background-color: #F1F3F5;
+	padding: 5px 10px;
+	border-radius: 20px;
 }
 
-.annual_travel_tips table tr td{
+.annual_travel_tips table tr td {
 	padding: 2px 10px;
 }
 
 /******** hidden navbar ********/
-.navbar_hidden_content{
+.navbar_hidden_content {
 	position: absolute;
-    width: 100%;
-    background-color: #f68a1d;
-    z-index: 2;
-    display:none;
+	width: 100%;
+	background-color: #f68a1d;
+	z-index: 2;
+	display: none;
 }
 
-.navbar_hidden_content .submenu_list{
-    min-width:200px;
+.navbar_hidden_content .submenu_list {
+	min-width: 200px;
 }
 
-.navbar_hidden_content .submenu_list .product_type{
+.navbar_hidden_content .submenu_list .product_type {
 	padding: 10px 0px;
 }
 
-.navbar_hidden_content .submenu_list hr{
-    margin:0px;
+.navbar_hidden_content .submenu_list hr {
+	margin: 0px;
 }
 /******** hidden navbar ********/
 
 /******** ios chrome alert ********/
-#ios_chromeAlert .modal-header{
+#ios_chromeAlert .modal-header {
 	border-bottom: none;
-	padding: 18px; 
+	padding: 18px;
 }
 
-#ios_chromeAlert .modal-dialog{
-    max-width: 337px;
-    margin: 0 auto;
+#ios_chromeAlert .modal-dialog {
+	max-width: 337px;
+	margin: 0 auto;
 }
 
-#ios_chromeAlert .modal-content{
+#ios_chromeAlert .modal-content {
 	padding: 18px 18px 40px 18px;
 	color: #f68a1d;
 }
 
-#ios_chromeAlert .modal-header, #ios_chromeAlert .modal-body, #ios_chromeAlert .modal-footer{
+#ios_chromeAlert .modal-header, #ios_chromeAlert .modal-body,
+	#ios_chromeAlert .modal-footer {
 	padding: 0;
 }
 
-#ios_chromeAlert .modal-body img{
+#ios_chromeAlert .modal-body img {
 	margin: 0 auto;
 	display: block;
 }
 
-#ios_chromeAlert .modal-body p{
+#ios_chromeAlert .modal-body p {
 	margin-left: 18px;
 }
 
-#ios_chromeAlert .modal-body .alert_header{
+#ios_chromeAlert .modal-body .alert_header {
 	font-size: 25px;
 	font-weight: 700;
 	line-height: 1.2;
 }
 
-#ios_chromeAlert .modal-body .alert_suggest{
-    font-size: 17px;
+#ios_chromeAlert .modal-body .alert_suggest {
+	font-size: 17px;
 }
 
-#ios_chromeAlert .modal-footer{
+#ios_chromeAlert .modal-footer {
 	border-top: none;
-    text-align: center;
-    color: #000;  
+	text-align: center;
+	color: #000;
 }
-#ios_chromeAlert .modal-footer .btn{
+
+#ios_chromeAlert .modal-footer .btn {
 	background-color: #f68a1d;
 	border-color: transparent;
 	width: 100%;
@@ -20642,8 +20645,8 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 }
 
 /******** ios chrome alert tc ********/
-#ios_chromeAlert.tc_alert .alert_suggest{
-    margin-bottom: 20px;
+#ios_chromeAlert.tc_alert .alert_suggest {
+	margin-bottom: 20px;
 }
 /******** ios chrome alert tc ********/
 /******** ios chrome alert ********/
@@ -20975,4 +20978,4 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
     background-color:#fff !important;		
     color:#fdb714 !important;		
 }
->>>>>>> remotes/origin/fwdhk_overseasstudy
+

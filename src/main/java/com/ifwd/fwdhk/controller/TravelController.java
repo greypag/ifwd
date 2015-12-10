@@ -2019,17 +2019,14 @@ public class TravelController {
 		header.put("token", tokenInSession);
 		header.put("language", WebServiceUtils
 				.transformLanaguage(UserRestURIConstants.getLanaguage(request)));
-		if (planCode == null) {
+		if (planCode == null)
 			planCode = "TRAVELCARE";
-		}
 		if (planCode.toUpperCase().equals("HOMECARE")) {
 		
 		// String referalCOde = session.getAttribute("referralCode").toString();
 			mailed = sendEmail.sendEmail(emailToSendPromoCode, "ECHOME", header);
-		}		
-		else
 		}else if(planCode.toUpperCase().equals("OVERSEACARE")) {
-			mailed = sendEmail.sendEmail(emailToSendPromoCode, "ABCDE", header);
+			mailed = sendEmail.sendEmail(emailToSendPromoCode, "OVS123", header);
 		}else {
 			mailed = sendEmail.sendEmail(emailToSendPromoCode, "TRA123", header);
 		}
