@@ -626,8 +626,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 	}
 	
 	if (insuredDob.trim() == "") {
-		$('#overseaDepartureDateInvalid').html(
-				getBundle(getBundleLanguage, "Overseas.userdetails.instituation.departure.Error.Empty"));
+		$('#overseaDepartureDateInvalid').html(getBundle(getBundleLanguage, "Overseas.userdetails.institution.departure.Error.Empty"));
 		$('#oversea_departure_date').addClass('invalid-field');
 		if (firstErrorElementId == "") {
 			firstErrorElementId = "oversea_departure_date";

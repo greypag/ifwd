@@ -20,7 +20,7 @@ var home_url = "<%=request.getContextPath()%>";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
-		<div class="fwd-savie-wrapper">			
+		<div class="fwd-savie-wrapper fwd-savie-eg-wrapper">			
 			<div class="teaser-container">
 			<!-- Access Code Cover Div -->
 			<!--<div class="hunger-selling-container container-fluid" id="myAccessCode">
@@ -78,7 +78,6 @@ var home_url = "<%=request.getContextPath()%>";
                         </p>
 					</div>
 				</div>
-
 			</div>
 			
 			<div class="fwd-full-container container-fluid o2o-landing teaser">
@@ -157,7 +156,7 @@ var home_url = "<%=request.getContextPath()%>";
 					</div>
 	          
 					<div class="fwd-container container-fluid other-benefits-teaser O2O-landing">
-						<div id="other-benefits" class="row">
+						<!--<div id="other-benefits" class="row">
 							<div class="clearfix">
 								<div class="pull-left mobile-image hidden-md hidden-lg">
 									<img src="<%=request.getContextPath()%><fmt:message key="img.other.benefits-mobile" bundle="${msg}" />">
@@ -181,11 +180,88 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 								</div>
 							</div>
+						</div>-->
+						<!--  6 benefit coverage -->
+						<div style="background-color:#FFFFFF;text-align:center;margin-top: 20px;padding-bottom: 20px;">
+						    <div class="container pad-none">
+						        <h2><fmt:message key="saviee.landing.coverage.headline" bundle="${msg}" /></h2>
+						        <h4><strong></strong></h4>
+						        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 eg-benefits-col">
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon1.png">
+						                <h5 class="bold eg-width-33"><fmt:message key="saviee.landing.coverage1.title" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon1.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="saviee.landing.coverage1.title" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="saviee.landing.coverage1.copy" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon2.png">
+						                <h5 class="bold eg-width-33"><fmt:message key="saviee.landing.coverage2.title" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon2.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="saviee.landing.coverage2.title" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="saviee.landing.coverage2.copy" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon3.png">
+						                <h5 class="bold"><fmt:message key="saviee.landing.coverage3.title" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon3.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="saviee.landing.coverage3.title" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="saviee.landing.coverage3.copy" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon4.png">
+						                <h5 class="bold eg-width-22"><fmt:message key="saviee.landing.coverage4.title" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon4.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="saviee.landing.coverage4.title" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="saviee.landing.coverage4.copy" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon5.png">
+						                <h5 class="bold eg-width-15"><fmt:message key="saviee.landing.coverage5.title" bundle="${msg}" /></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon5.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="saviee.landing.coverage5.title" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="saviee.landing.coverage5.copy" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon6.png">
+						                <h5 class="bold eg-width-33"><a class="eg-link" href="<fmt:message key="evergreen.travel.bocomm.link" bundle="${msg}" />"
+							              target="_blank"><fmt:message key="saviee.landing.coverage6.title" bundle="${msg}" /></a></h5>
+						                <div class="hidden-content">
+						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon6.png"></div>
+						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="saviee.landing.coverage6.title" bundle="${msg}" /></div>
+						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="saviee.landing.coverage6.copy" bundle="${msg}" /></p></div>
+						                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
+						                    <div class="clearfix"></div>
+						                </div>
+						            </div>
+						            <div class="clearfix"></div>
+						        </div>
+						    </div>
 						</div>
 						<!-- Disclaimer and Policy Provisions -->
-                        <!-- <div class="disclaimer-policy-teaser teaser-policy">
-							<p class="h4-6"><fmt:message key="savie.interestGather.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.bochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="savie.interestGather.disclaimer.provisions.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="savie.interestGather.disclaimer.part4" bundle="${msg}" /></u></a> <fmt:message key="savie.interestGather.disclaimer.part5" bundle="${msg}" /></p>
-                        </div> -->
+						<div class="disclaimer-policy-teaser teaser-policy">
+							<!-- <p class="h4-6"><fmt:message key="saviee.landing.disclaimer.1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="saviee.landing.disclaimer.2.url" bundle="${msg}" />" target="_blank"> <u><fmt:message key="saviee.landing.disclaimer.2" bundle="${msg}" /></u></a> <fmt:message key="saviee.landing.disclaimer.3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="saviee.landing.disclaimer.4.url" bundle="${msg}" />" target="_blank"> <u><fmt:message key="saviee.landing.disclaimer.4" bundle="${msg}" /></u></a> <fmt:message key="saviee.landing.disclaimer.5" bundle="${msg}" /></p>-->
+						</div>
 					</div>
 	            
 	            <div class="hidden-xs hidden-sm fwd-full-container container-fluid o2o-landing saving-plans">
@@ -332,30 +408,6 @@ var home_url = "<%=request.getContextPath()%>";
 				<p class="text-left hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.The.information" bundle="${msg}" /></p>
 			</div>
 			
-			<c:if test="${language == 'en'}">
-			<div class="savie-overlay-modal modal fade" role="dialog" id="accessCodeO2O" data-keyboard="false" data-backdrop="static">
-				<div class="savie-overlay-container container-fluid modal-dialog" role="document">
-					<div class="modal-content savie-overlay-content">
-						<img class= "hidden-xs hidden-sm"src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/iFWD_savie_prelaunch_desktop_en_v6a.jpg"/>
-						<img class= "img-responsive hidden-md hidden-lg" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/iFWD_savie_prelaunch_mobile_en_v6a.jpg"/>
-						<button type="submit" class="btn savie-overlay-btn" id="savie-overlay-button" onclick="javascript:location.href='https://i.fwd.com.hk/en'"><fmt:message key="savie.o2o.landing.Back.to.home" bundle="${msg}" /></button>	
-					</div>
-				</div>
-			</div>
-			</c:if>
-			 
-			<c:if test="${language == 'tc'}">
-			<div class="savie-overlay-modal modal fade" role="dialog" aria-labelledby="accessCode" id="accessCodeO2O" data-keyboard="false" data-backdrop="static">
-				<div class="savie-overlay-container container-fluid modal-dialog" role="document">
-					<div class="modal-content savie-overlay-content">
-						<img class= "hidden-xs hidden-sm"src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/iFWD_savie_prelaunch_desktop_cn_v6a.jpg"/>
-						<img class= "img-responsive hidden-md hidden-lg" src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/iFWD_savie_prelaunch_mobile_cn_v6a.jpg"/>
-						<button type="submit" class="btn savie-overlay-btn" id="savie-overlay-button" onclick="javascript:location.href='https://i.fwd.com.hk/tc'"><fmt:message key="savie.o2o.landing.Back.to.home" bundle="${msg}" /></button>	
-					</div>
-				</div>
-			</div>
-			</c:if>
-			
 			<!-- Customer Center Modal -->
 			<div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">
 				<div class="modal-dialog" role="document">
@@ -404,7 +456,6 @@ var home_url = "<%=request.getContextPath()%>";
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->	
 			</div><!-- /.modal -->
-
 			
 			<!--Signup Now Modal-->
 			<div class="modal fade" role="dialog" aria-labelledby="signupnow" id="signup-now-modal">
@@ -585,8 +636,7 @@ var home_url = "<%=request.getContextPath()%>";
 				$('.other-benefits-list-mobile').removeClass('hidden-sm');
 				$('#read-more-other-benefits').hide();
 			});
-
-
+			
             function getAppointmentAccessCode(){
                 $.get('${pageContext.request.contextPath}/ajax/savings-insurance/getAppointmentAccessCode',
                 function(data) {

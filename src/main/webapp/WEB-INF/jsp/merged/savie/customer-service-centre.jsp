@@ -43,15 +43,24 @@ var language = "${language}";
 							</div>
 							<div class="et-header-tex">
 								<h3 id="et-active-section-label"><fmt:message key="section.header.appointment" bundle="${msg}" /></h3>
-
-								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="application-flux customer-service">
 					<div id="service-centre" class="container-fluid fwd-container page-application">
+						<div class="fwd-container hidden-xs hidden-sm clearfix">
+								<div class="breadcrumbs pull-left">
+									<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
+										<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
+										<li class="divider"><i class="fa fa-play"></i></li>
+										<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
+										<li class="divider last"><i class="fa fa-play"></i></li>
+										<li class="active-bc"><fmt:message key="breadcrumb.savie.appointment" bundle="${msg}" /></li>
+									</ol>
+								</div>
+							</div>
 						<h2><fmt:message key="savie.customerServiceCentre.headerText1" bundle="${msg}" /></h2>
 						<form>
 							<div class="row">
@@ -111,7 +120,7 @@ var language = "${language}";
 										    
 										    <h4><fmt:message key="savie.servicecenter.address" bundle="${msg}" /></h4>
 										    <p>${list.address }</p>
-										    <p><a href="${list.map }" title="" class="et-btn-download-item" target="_blank">Veiw map</a></p>
+										    <p><a href="${list.map }" title="" class="et-btn-download-item" target="_blank"><fmt:message key="general.view.map" bundle="${msg}" /></a></p>
 									    </div>
 							        </c:forEach>
 								</div>
@@ -210,12 +219,14 @@ var language = "${language}";
 			</div><!-- /.modal -->
 	</form>
 </div>
+<%-- 
+<script src="<%=request.getContextPath()%>/resources/js/locales/bootstrap-datepicker.zh-TW.js"></script> --%>
 <script src="<%=request.getContextPath()%>/resources/js/savie/fwd-teaser.js"></script>
 
 <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 
 <script>
-	var startDate= new Date((new Date()).getTime());
+	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
 	var endDate= new Date((new Date()).getTime() + 22*24*60*60*1000);
 	$(function() {
 		//daysOfWeekDisabled: [0]
@@ -297,7 +308,7 @@ var language = "${language}";
 				    		//send email
 				    		$.ajax({     
 							    url:context+'/ajax/savings-evergreen-insurance/service-center-confirm/email',     
-							    type:'post',
+							    type:'get',
 							    data:{    
 							    	"csCenter": csCenter,
 							        "perferredDate":perferredDate,
@@ -306,7 +317,7 @@ var language = "${language}";
 							    success:function(data){
 							    	if(data.errMsgs == null){
 							    		console.log("send email success");
-							    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-evergreen-insurance/confirmation");
+							    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation");
 								    	$("#serviceCenterForm").submit();
 							    	}else{
 							    		console.log(data.errMsgs);
@@ -329,7 +340,7 @@ var language = "${language}";
 			}
 		});
 		$('#back-to-home-btn').click(function(){
-    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-evergreen-insurance/landing");
+    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/landing");
 	    	$("#serviceCenterForm").submit();
 		});		
 	});
