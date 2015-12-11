@@ -15,7 +15,7 @@ var language = "${language}";
 	boolean isSaleActiveClass = true;
 %>
 <div class="fwd-savie-wrapper">		
-     <form method="post" id="serviceCenterForm">	
+    <form method="post" id="serviceCenterForm">	
 			<div id="set-appointment" class="container-fluid fwd-full-container">
 				<div class="application-page-header et-header-browse">
 					<div class="et-back-arrow hidden-xs hidden-sm">
@@ -84,7 +84,7 @@ var language = "${language}";
 										<div class="col-xs-12 col-md-4"><label for="preferred-date"><fmt:message key="savie.customerServiceCentre.date" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div id="date" class="selectDiv preferred-date">
-												<input type="text" class="date" name="preferred-date" id="preferred-date" value="${perferredDate }" readonly="">
+												<input type="text" class="date" name="preferred-date" id="preferred-date" value="${perferredDate }" readonly>
 												<input type="hidden" id="preferred-date-mirror" value="${perferredDate }">
 											</div>
 										</div>
