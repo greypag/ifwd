@@ -699,12 +699,12 @@
 
 			if(getWidth()<992) {
 	        	$('html, body').animate({
-					scrollTop: $('[name="'+des+'"]').offset().top - ($('[name="'+des+'"]').parents('.plan').find('.plan-details-box').height()-60)
+					scrollTop: $('[name="'+des+'"]').offset().top - ($('[name="'+des+'"]').parents('.fwdiscover-plan').find('.plan-details-box').height()-60)
 				}, 1000);
 			}
 			else {
 				$('html, body').animate({
-					scrollTop: $('[name="'+des+'"]').offset().top - ($('[name="'+des+'"]').parents('.plan').find('.plan-details-box').height()+60 + $('.navbar-fixed-top').height())
+					scrollTop: $('[name="'+des+'"]').offset().top - ($('[name="'+des+'"]').parents('.fwdiscover-plan').find('.plan-details-box').height()+60 + $('.navbar-fixed-top').height())
 				}, 1000);
 			}
     	});
