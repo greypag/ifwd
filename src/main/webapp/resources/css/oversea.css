@@ -816,6 +816,16 @@ a.at-svc-google_plusone, a.at-svc-google_plusone_share {
 .breadcrumb a{
 	cursor: default;
 }
+    
+@media screen and (max-width: 991px){       
+    .tooltip.bottom{
+        left: 10% !important;
+        right: 10% !important;
+    }
+    .tooltip.bottom .tooltip-arrow{
+       left:70%;
+    }
+}   
 .datepicker table tr td.day.old, 
 .datepicker table tr td.day.old:hover,
 .datepicker table tr td.day.new, 
