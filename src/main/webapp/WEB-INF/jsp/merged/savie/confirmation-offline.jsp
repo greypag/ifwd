@@ -151,7 +151,7 @@ var affiliate = "${affiliate}";
                                     <div class="appointment-detail clearfix print hidden-xs hidden-sm">
 										<div class="print-image-holder">
 											<img src="<%=request.getContextPath()%>/resources/images/savie/print-logo.png" alt="Print" class="">
-											<p onclick="window.print()">Print this document</p>
+											<p onclick="window.print()"><fmt:message key="savie.confirmation.offline.Print" bundle="${msg}" /></p>
 										</div>
 									</div>
 									<div class = "share-container text-center" >		
