@@ -7,18 +7,21 @@
 	boolean isEservicesActiveClass = false;
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-fwdiscover.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css" />
 		<div class="fwd-savie-wrapper fwdiscover-wrapper">			
 			<!--Top Header-->
 			<div class="page-fwdiscover">
-				<div class="fwd-container container-fluid hidden-xs hidden-sm clearfix breadcrumbs-holder">
-					<div class="breadcrumbs pull-left">
-						<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
-							<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
-							<li class="divider"><i class="fa fa-play"></i></li>
-							<li><a href="#"><fmt:message key="breadcrumb.fwdiscover.category" bundle="${msg}" /></a></li>
-							<li class="divider last"><i class="fa fa-play"></i></li>
-							<li class="active-bc"><fmt:message key="breadcrumb.fwdiscover.product" bundle="${msg}" /></li>
-						</ol>
+				<div class="breadcrumbs-holder">
+					<div class="fwd-container container-fluid hidden-xs hidden-sm clearfix">
+						<div class="breadcrumbs pull-left">
+							<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
+								<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
+								<li class="divider"><i class="fa fa-play"></i></li>
+								<li><a href="#"><fmt:message key="breadcrumb.fwdiscover.category" bundle="${msg}" /></a></li>
+								<li class="divider last"><i class="fa fa-play"></i></li>
+								<li class="active-bc"><fmt:message key="breadcrumb.fwdiscover.product" bundle="${msg}" /></li>
+							</ol>
+						</div>
 					</div>
 				</div>
 				<div class="fwdiscover-info clearfix">
@@ -32,7 +35,7 @@
 						</div>
 					</div>
 
-					<div class="clearfix">
+					<div class="clearfix fwdiscover-container">
 						<div class="fwdiscover-description">
 							<p><fmt:message key="Fanfare.landingpage.description1.part1" bundle="${msg}" /></p>
 							<p><fmt:message key="Fanfare.landingpage.description1.part2" bundle="${msg}" />
@@ -108,10 +111,10 @@
 				</div>
 
 
-	            <div id="myCarousel-fwdiscover" class="carousel slide">
+	            <div id="myCarousel-fwdiscover" class="carousel slide fwdiscover-container">
 	                
 	                <!-- Carousel items -->
-	                <div class="carousel-inner">
+	                <div class="carousel-inner clearfix">
 	                    <div class="item active">
 	                        <div class="row">
 	                            <div class="col-xs-4">
@@ -194,9 +197,9 @@
 	            <!--/myCarousel-->
 				
 				<!-- PLANS -->
-				<div class="plans-holder">
+				<div class="plans-holder fwdiscover-container">
 					<!-- first plan -->
-					<div class="plan">
+					<div class="fwdiscover-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -240,7 +243,7 @@
 					</div>
 					<!-- end first plan -->
 					<!-- second plan -->
-					<div class="plan">
+					<div class="fwdiscover-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-14dayssingletrip.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-14dayssingletrip-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 						<div class="plan-details-box blue-bg right">
@@ -282,7 +285,7 @@
 					</div>
 					<!-- end second plan -->
 					<!-- third plan -->
-					<div class="plan">
+					<div class="fwdiscover-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-4daysingletravel.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-4daysingletravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -325,7 +328,7 @@
 					</div>
 					<!-- end third plan -->
 					<!-- fourth plan -->
-					<div class="plan">
+					<div class="fwdiscover-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -367,7 +370,7 @@
 					</div>
 					<!-- end fourth plan -->
 					<!-- fiffth plan -->
-					<div class="plan">
+					<div class="fwdiscover-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -551,8 +554,8 @@
 		            <!-- terms and cond -->
 	            	<div class="terms-and-condition">
 	            		<p class="message">Terms & Conditions 
-	            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/terms-and-cond.png" class="img-responsive hidden-md hidden-lg">
-	            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/terms-and-cond-desktop.png" class="img-responsive hidden-xs hidden-sm">
+	            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/terms-and-cond.png" class="img-responsive mobile">
+	            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/terms-and-cond-desktop.png" class="img-responsive desktop">
 	            		</p>
 	            	</div>
 		            <!-- end terms and cond -->
@@ -595,7 +598,7 @@
 							</ul>
 
 							<div class="details-button-holder text-center">
-								<button class="details-btn"><fmt:message key="Fanfare.clickdetail.lightbox1.button" bundle="${msg}" /></button>
+								<button class="details-btn" id="modal-grab-button"><fmt:message key="Fanfare.clickdetail.lightbox1.button" bundle="${msg}" /></button>
 							</div>
 
 							<div class="terms-and-condition">
@@ -707,21 +710,29 @@
 			<!-- FOOTER -->
 		</div>
 		<!-- JS INCLUDES -->
-		<script src="<%=request.getContextPath()%>/resources/js/jquery.countdown.min.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/fwdiscover/jquery.countdown.min.js"></script>
 		<script type="text/javascript">
 
+		
+		if(getWidth() > 991) {
+			$('.page-fwdiscover .fwdiscover-footer .terms-and-condition .message img.mobile').addClass('hidden');
+		} else {
+			$('.page-fwdiscover .fwdiscover-footer .terms-and-condition .message img.desktop').addClass('hidden');
+		}
+		
 		$("#myCarousel-fwdiscover .carousel-inner .item a").click(function(){
 			var temp = $(this).attr('href');
 			var des = temp.substring(1, temp.length);
 
 			if(getWidth()<992) {
 	        	$('html, body').animate({
-					scrollTop: $('[name="'+des+'"]').offset().top - ($('[name="'+des+'"]').parents('.plan').find('.plan-details-box').height()-60)
+					scrollTop: $('[name="'+des+'"]').offset().top - ($('[name="'+des+'"]').parents('.fwdiscover-plan').find('.plan-details-box').height()-60)
 				}, 1000);
 			}
 			else {
 				$('html, body').animate({
-					scrollTop: $('[name="'+des+'"]').offset().top - ($('[name="'+des+'"]').parents('.plan').find('.plan-details-box').height()+60 + $('.navbar-fixed-top').height())
+					scrollTop: $('[name="'+des+'"]').offset().top - ($('[name="'+des+'"]').parents('.fwdiscover-plan').find('.plan-details-box').height()+60 + $('.navbar-fixed-top').height())
 				}, 1000);
 			}
     	});
@@ -738,18 +749,46 @@
 		$("#myCarousel-fwdiscover .carousel-inner .item .gray-hover").mouseleave(function() {
 			$(this).addClass('hidden');
 		});
+		
+		
+		//modals
+		<%String username = (String) session.getAttribute("username");%>		
+		$('#modal-grab-button').click(function(){
+			$('.modal').modal('hide');
+			$('#offer-details-promotion-code').modal('show');
+		});
 
 		$("#first-plan").on('click', function(){
-	        $('#offer-details').modal('show');
+			if('<%=username%>' == 'null') {
+				$('#loginpopup').modal('show');
+			}
+			else {
+	        	$('#offer-details').modal('show');
+			}
 	    });
 	    $("#second-plan").on('click', function(){
-	        $('#offer-details-promotion-code').modal('show');
+	    	if('<%=username%>' == 'null') {
+				$('#loginpopup').modal('show');
+			}
+			else {
+	        	$('#offer-details-promotion-code').modal('show');
+			}
 	    });
 	    $("#third-plan").on('click', function(){
-	        $('#offer-details-promotion-code-error-once').modal('show');
+	    	if('<%=username%>' == 'null') {
+				$('#loginpopup').modal('show');
+			}
+			else {
+	        	$('#offer-details-promotion-code-error-once').modal('show');
+			}
 	    });
 	    $("#fourth-plan").on('click', function(){
-	        $('#offer-details-promotion-code-error-sold').modal('show');
+	    	if('<%=username%>' == 'null') {
+				$('#loginpopup').modal('show');
+			}
+			else {
+	        	$('#offer-details-promotion-code-error-sold').modal('show');
+			}
 	    });
 
 	    $(".fwdiscover-modal .close-modal").on('click', function(){
