@@ -320,7 +320,7 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 	}
 	.plan-box-s h3,.plan-box-l h3{
 		font-size:14px;
-		font-weight:100 !important;
+		font-weight:bold !important;
 		margin: 16px 0 0 0 !important;
 	}
 	
@@ -344,7 +344,14 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 	font-size:18px;
 	font-weight:bold;
 }
-	.modal-dialog{margin:100px auto}
+	.modal-dialog{
+		margin:100px auto
+	}
+
+	#loading-overlay .modal-dialog{
+		margin-left: -150px;
+    	margin-top: -150px;
+	}
 
 }
 .plan-mobile-nopad{
@@ -358,7 +365,6 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 	text-decoration:none;
 }
 .modal-header{border-bottom:none;}
-.modal-body{padding:0 20px;}
 .modal-footer{border-top:none;}
 .oversea_productbox_title{
 	background-color:#f5f5f5;
@@ -444,14 +450,17 @@ li.sponsor-wrapper+li.sponsor-wrapper{
     margin-left:2%;
 }
 .plan-box-l h2, .plan-box-s h2{
-	font-size:18px;
+	font-size:14px;
     text-align:center;
     margin:auto;
     line-height:72px;
 }
+.plan-box-l h2 span, .plan-box-s h2 span{
+    font-size:18px;
+}
 @media (min-width: 992px) and (max-width: 1199px){
     .plan-box-l h2, .plan-box-s h2{
-       font-size:16px;
+       font-size:14px;
     }
 }
 @media (min-width: 768px) and (max-width: 991px){
@@ -467,7 +476,8 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 .plan-box-s h2{
 }
 .plan-box-s h3{
-    font-size:14px !important;
+    font-size:18px !important;
+    font-weight:bold !important
     text-align:center;
 }
 .plan-box-active{
@@ -630,7 +640,186 @@ a.at-svc-lidar, a.at-svc-twitter, a.at-svc-yammer {
 a.at-svc-google_plusone, a.at-svc-google_plusone_share {
     background: #ce4d39;
 }
+.oversea_policy_item img{
+	
+    width: 80px;
+	
+}
+/*model*/
+@media (max-width: 991px){
+	.modal-dialog {
+	    min-width: 200px;
+	}
+}
+
+.oversea_policy_item {
+    position: relative;
+    height: 180px;
+}
+.oversea_policy_item .hidden-content .hidden-content-p {
+    font-size: 14px;
+}
+.oversea_policy_item .hidden-content {
+    position: absolute;
+    top: 0px;
+    z-index: 99;
+    background-color: #F2F3F5;
+    opacity: 0.9;
+    display: none;
+    min-height: 180px;
+}
+#modal_policy_container img {
+    width: 102px;
+}
+
+
+
+
+/* For the 6 benefits block */
+.oversea_policy_item {
+    position: relative;
+    height: 180px;
+    margin-top: 30px;
+}
+
+
+@media ( min-width : 992px) {
+    .oversea_policy_item {
+        margin-bottom: 25px;
+    }
+}
+
+
+.oversea_policy_item .hidden-content {
+    position: absolute;
+    top: 0px;
+    z-index: 99;
+    opacity: 0.9;
+    display: none;
+    min-height: 195px;
+    padding-top: 30px;
+}
+
+.oversea_policy_item .hidden-content .hidden-content-title {
+    font-weight: bold;
+}
+
+.oversea_policy_item .hidden-content .hidden-content-p {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.oversea_policy_item .hidden-content .hidden-content-p p {
+    margin-bottom: 3px;
+   line-height: 18px;
+}
+
+.oversea_policy_item .hidden-content .hidden-content-a {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.oversea_policy_item .hidden-content .hidden-content-a a {
+    text-decoration: underline;
+}
+
+.oversea_policy_item img {
+    width: 80px;
+}
+
+.oversea_policy_item img.eg-img {
+    width: 100px;
+}
+
+@media ( min-width : 992px) {
+    .oversea_policy_item img.eg-img {
+        width: 120px;
+    }
+}
+
+
+.oversea_policy_item h5 {
+    margin-top: 20px;
+}
+
+.oversea_policy_item h5.bold {
+    font-size: 18px;
+    margin-left: auto;
+   margin-right: auto;
+   max-width: 145px;
+   line-height: 1.4;
+}
+.eg-link {
+    border-bottom: #f6871e 2px solid;
+}
+
+.eg-link:hover {
+  border-bottom: #9fb1b2 2px solid;
+}
+
+.oversea_policy_item h5.eg-width-33 {
+   padding: 0 33px;
+}
+
+.oversea_policy_item h5.eg-width-22 {
+   padding: 0 22px;
+}
+
+.oversea_policy_item h5.eg-width-15 {
+   padding: 0 15px;
+}
+
+@media ( min-width : 325px) and (max-width: 385px) {
+    .oversea_policy_item h5.eg-width-33 {
+       padding: 0;
+    }
+    
+    .oversea_policy_item h5.eg-width-22 {
+       padding: 0;
+    }
+    
+    .oversea_policy_item h5.eg-width-15 {
+       padding: 0;
+    }
+}
+
+.eg-benefits-col { 
+    margin-top: -10px;
+}
+
+@media ( min-width : 992px) {
+    .eg-benefits-col { 
+        margin-top: 5px;
+    }
+}
+
+@media ( min-width : 992px) {
+    .oversea_policy_item:hover .hidden-content {
+        display: block;
+    }
+    .product_landing_download_button {
+        margin-right: 20px;
+    }
+    .product_payment_details_title {
+        margin-top: 8px;
+    }
+    td .product_confirmation_dis {
+        font-size: 12px;
+        position: absolute;
+    }
+}
+/*/model*/
+#checkboxvisa label::after{
+	    top: -8px;
+}
 
 .breadcrumb a{
+	cursor: default;
+}
+.datepicker table tr td.day.old, 
+.datepicker table tr td.day.old:hover,
+.datepicker table tr td.day.new, 
+.datepicker table tr td.day.new:hover{
+	color: #999;
 	cursor: default;
 }

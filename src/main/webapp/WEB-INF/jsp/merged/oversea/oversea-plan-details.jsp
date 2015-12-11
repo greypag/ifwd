@@ -153,7 +153,6 @@ function activateUserAccountJoinUs() {
 	                name = document.getElementById("inputFullName").value;
 	                userName = document.getElementById("Username").value;
 	                email = document.getElementById("inputEmailId").value;
-	    alert("optIn1: " + optIn1 +" || " + "optIn2: " + optIn2)
 	    
 	                $.ajax({
                         type : 'POST',
@@ -661,7 +660,7 @@ function setDropArea(id) {
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                                 <div class="input-group date" id="oversea_insure_dob"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
 <%--                                                     <input name="insuredDob" type="text" class="pointer datepicker form-control border-radius" id="insuredDob" onfocus="placeholderOnFocus(this,<fmt:message key="Overseas.userdetails.Insured.DOB" bundle="${msg}" />);" onblur="placeholderOnBlur(this,<fmt:message key="Overseas.userdetails.Insured.DOB" bundle="${msg}" />);" placeholder="<fmt:message key="Overseas.userdetails.Insured.DOB" bundle="${msg}" />" value="" readonly> --%>
-                                                         <input autocomplete="off" name="insuredDob" type="text" class="pointer datepicker form-control border-radius" id="insuredDob" placeholder="<fmt:message key="Overseas.userdetails.Insured.DOB" bundle="${msg}" />" value="" readonly>
+                                                         <input autocomplete="off" name="insuredDob" type="text" class="pointer datepicker form-control border-radius" id="insuredDob" placeholder="<fmt:message key="Overseas.userdetails.Insured.DOB.DDMMYYYY" bundle="${msg}" />" value="" readonly>
                                                 </div>
                                                 <div id="lock_datepicker" style="cursor: not-allowed;background-color: #eee;position:absolute;width:100%;height:100%;left:0px;top:0px;background:#fff;opacity:0;filter:alpha(opacity=0)">&nbsp;</div>
                                                 <span id="dobInsuredInvalid" class="text-red"></span>
@@ -768,7 +767,7 @@ function setDropArea(id) {
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                             <div class="input-group date" id="oversea_departure_date"> <span class="input-group-addon in border-radius"><img src="<%=request.getContextPath()%>/resources/images/calendar.png" alt=""></span>
-                                                <input autocomplete="off" name="overseaDepartureDate" type="text" class="pointer datepicker form-control border-radius bmg_custom_placeholder" id="overseaDepartureDate"  onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.institution.departure" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.institution.departure" bundle="${msg}" />');" placeholder="<fmt:message key="Overseas.userdetails.institution.departure" bundle="${msg}" />" readonly="">
+                                                <input autocomplete="off" name="overseaDepartureDate" type="text" class="pointer datepicker form-control border-radius bmg_custom_placeholder" id="overseaDepartureDate"  onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.institution.departure" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.applicant.DOB.DDMMYYYY" bundle="${msg}" />');" placeholder="<fmt:message key="Overseas.userdetails.applicant.DOB.DDMMYYYY" bundle="${msg}" />" readonly="">
                                             </div>
                                             <span id="overseaDepartureDateInvalid" class="text-red"></span>
                                         </div>
@@ -780,8 +779,7 @@ function setDropArea(id) {
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
                                             <input autocomplete="off" name="countryOfInstitution" type="text" class="form-control full-control bmg_custom_placeholder" value="<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />" id="countryOfInstitution" onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />');validatecountryOfInstitution();" onkeypress="return isAlphaNumeric(event);" maxlength="50">                                              
-                                            <br>                                                
-                                            <span id="countryOfInstitutionInvalid" class="text-red"></span>
+                                            <span id="countryOfInstitutionInvalid" class="text-red"></span><br>
                                         </div>
                                     </div>
                                     <div class="form-group float clear-float">
@@ -880,9 +878,13 @@ function setDropArea(id) {
                                         
                                     </label>
                                 </div>
-                                
+                                <!-- 
                                 <div class="checkboxBubble">
                                     You may not be able to receive our latest promotion and benefits!
+                                </div>
+                                 -->
+                                <div class="checkboxBubble">
+                                    <fmt:message key="annual.details.declarations.PDPO.warning" bundle="${msg}" />
                                 </div>
 
                                 <script type="text/javascript">
@@ -978,7 +980,8 @@ function setDropArea(id) {
                                 <div class="pull-right" style="">
                                     <div class="text-left h2-2 h2" style="margin-top:0px;margin-bottom:0px;">
                                         <div class="hk" style="font-size: 18px;">
-                                            HK$
+                                        <fmt:message key="Overseas.Payment.Summary.originalamount.currency" bundle="${msg}" /> 
+                                            
                                             <div class="flightcare-hk" style="font-weight: bold;font-size: 28px;"><fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${planPremium}" /></div>
                                         </div>
                                     </div>
