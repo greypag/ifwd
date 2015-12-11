@@ -597,6 +597,7 @@ $(function () {
 		/*language: getBundleLanguage*/
 	}).on('changeDate', function (ev) {
 		$("#dobInsuredInvalid").html("");
+		$("#oversea_insure_dob").removeClass("invalid-field");		
 	});	
 		
 	$('#oversea_educational_insured_dob').datepicker({
@@ -6349,29 +6350,29 @@ function chkValidIAEffDate(element, errElementId, name){
 }
 
 // get resource bundle
-function getBundle(lang, key) {
-	
-	return fwdGetBundle(lang, key); // New Shared Error Message Bundle
-
-	//var rtn; 
-	//loadBundles(lang, key, function(value){
-	//	rtn = value;
-	//});
-	//return rtn;
-}
-function loadBundles(lang, key, fn) {
-	//var u = window.location.origin+''+home+'/resources/bundle/';
-   	$.i18n.properties({
-        name: 'Messages',
-        path: ''+home_url+'/resources/bundle/',
-        mode: 'map',
-        language: lang,
-        cache: true,
-        callback: function() {
-        	fn($.i18n.prop(key)); //msg_welcome;	//$.i18n.prop("msg_welcome")      
-        }
-    });
-}
+//function getBundle(lang, key) {
+//	
+//	return fwdGetBundle(lang, key); // New Shared Error Message Bundle
+//
+//	//var rtn; 
+//	//loadBundles(lang, key, function(value){
+//	//	rtn = value;
+//	//});
+//	//return rtn;
+//}
+//function loadBundles(lang, key, fn) {
+//	//var u = window.location.origin+''+home+'/resources/bundle/';
+//   	$.i18n.properties({
+//        name: 'Messages',
+//        path: ''+home_url+'/resources/bundle/',
+//        mode: 'map',
+//        language: lang,
+//        cache: true,
+//        callback: function() {
+//        	fn($.i18n.prop(key)); //msg_welcome;	//$.i18n.prop("msg_welcome")      
+//        }
+//    });
+//}
 
 
 
