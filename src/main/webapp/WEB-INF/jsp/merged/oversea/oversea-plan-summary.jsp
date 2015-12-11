@@ -203,11 +203,15 @@ $(document).ready(function(){
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.Region" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">
 	                                            <c:choose>
-													<c:when test="${planSelected == 'medicalAsiaA' || planSelected == 'medicalAsiaB'}">
-													<fmt:message key="Overseas.PlanOptions.Region.Asiaonly" bundle="${msg}" />
+													<%-- <c:when test="${planSelected == 'medicalAsiaA' || planSelected == 'medicalAsiaB'}"> --%>
+													<c:when test="${planIndex == '6' || planIndex == '7'}">
+													    <fmt:message key="Overseas.PlanOptions.Region.Asiaonly" bundle="${msg}" />
+													</c:when>
+													<c:when test="${planIndex == '4' || planIndex == '5'}">
+													    <fmt:message key="Overseas.PlanOptions.Region.WorldwideAsia" bundle="${msg}" />
 													</c:when>
 													<c:otherwise>
-													<fmt:message key="Overseas.PlanOptions.Region.Worldwide" bundle="${msg}" />
+													    <fmt:message key="Overseas.PlanOptions.Region.Worldwide" bundle="${msg}" />
 													</c:otherwise>
 												</c:choose>
                                             </div>
@@ -252,7 +256,7 @@ $(document).ready(function(){
                                         </div>
                                         <c:if test="${planDetailsForm != null && planDetailsForm.personalBeneficiary != 'SE'}" >
 	                                        <div class="row summary-row">
-	                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Beneficiary.Fullname" bundle="${msg}" /></div>
+	                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Beneficiary.fullname" bundle="${msg}" /></div>
 	                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.beneficiaryFullName }</div>
 	                                        </div>
 	                                        <div class="row summary-row">
@@ -334,8 +338,8 @@ $(document).ready(function(){
                        <span id="paymentGatewayErrorMsg" class="text-red"></span>
                     </div>
                     <input type="hidden" name="merchantId" value="${createPolicy.merchantId}">
-                    <input type="hidden" name="amount" value="${dueAmount.trim()}">
-                    <input type="hidden" name="remark" value="${referralCode.trim()}">
+                    <input type="hidden" name="amount" value="${dueAmount}">
+                    <input type="hidden" name="remark" value="${referralCode}">
                     <input type="hidden" name="orderRef" value="${createPolicy.transactionNo }">
                     <input type="hidden" name="currCode" value="${createPolicy.currCode }">
                     <input type="hidden" name="successUrl" value="${path}">
@@ -388,7 +392,7 @@ $(document).ready(function(){
                                 <label class="control-label h4-5"><fmt:message key="Overseas.Payment.Details.CardNo" bundle="${msg}" /></label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
-                                <input id="cardNo1" type="tel" class="input-block-level cardnumber" maxlength="19" data-min="19" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardnumber').val());">
+                                <input autocomplete="off" id="cardNo1" type="tel" class="input-block-level cardnumber" maxlength="19" data-min="19" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardnumber').val());">
 
                                 <span id="errcardno" class="error-msg"></span>
                                 <input id="cardnumber" name="cardNo" type="hidden" class="input-block-level" maxlength="16" data-min="16">
@@ -434,7 +438,7 @@ $(document).ready(function(){
                                 <label class="control-label  h4-5"><fmt:message key="Overseas.Payment.Details.Name" bundle="${msg}" /></label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 pad-none">
-                                <input id="holdername" name="cardHolder" type="text" class="input-block-level" onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');" onkeypress="return alphaOnly(event);"> <span id="errname" class="error-msg"></span>
+                                <input autocomplete="off" id="holdername" name="cardHolder" type="text" class="input-block-level" onblur="replaceAlpha(this); chkNotNullCreditCareName(this, 'errname');" onkeypress="return alphaOnly(event);"> <span id="errname" class="error-msg"></span>
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -481,7 +485,7 @@ $(document).ready(function(){
 								</c:choose>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 pull-right">
-                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();">Back </a>
+                                <a class="bdr-curve btn btn-primary bck-btn" onclick="perventRedirect=false;BackMe();"><fmt:message key="travel.action.back" bundle="${msg}" /> </a>
                             </div>
                         </div>
                         

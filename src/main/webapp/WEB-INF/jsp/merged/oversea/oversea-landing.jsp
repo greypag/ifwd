@@ -8,10 +8,21 @@
 <script type='text/javascript'>
 $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
+
 });
-function prepareOverseaPlan(form){
-	var result = false;
-	var method = "<%=request.getContextPath()%>/ajax/oversea/prepareOverseaQuote";
+
+function hover2div(obj){
+	$(obj).children("div .hidden-content").css('display','block');
+	$(obj).children("div .block-content").css('display','none');
+}
+function mouseout2div(obj) {
+	$(obj).children("div .hidden-content").css('display','none');
+	$(obj).children("div .block-content").css('display','block');
+}
+
+	function prepareOverseaPlan(form) {
+		var result = false;
+		var method = "<%=request.getContextPath()%>/ajax/oversea/prepareOverseaQuote";
 	$.ajax({
 		type : "POST",
 		url : method,
@@ -215,8 +226,10 @@ function prepareOverseaPlan(form){
       
 <div style="background-color:#F2F3F5;text-align:center;padding-top: 20px;padding-bottom: 20px;">
     <div class="container pad-none">
+        <h2><fmt:message key="Overseas.Landing.Coverage" bundle="${msg}" /></h2>
+        <h4><strong></strong></h4>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-top:40px;">
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 oversea_policy_item">
                 <img src="<%=request.getContextPath()%>/resources/images/oversea/icon1.png">
                 <h5><fmt:message key="Overseas.Landing.Coverage.24hours" bundle="${msg}" /></h5>
                 <div class="hidden-content">
@@ -226,7 +239,7 @@ function prepareOverseaPlan(form){
                     <div class="clearfix"></div>
                 </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 oversea_policy_item">
                 <img src="<%=request.getContextPath()%>/resources/images/oversea/icon2.png">
                 <h5><fmt:message key="Overseas.Landing.Coverage.Medical" bundle="${msg}" /></h5>
                 <div class="hidden-content">
@@ -236,7 +249,7 @@ function prepareOverseaPlan(form){
                     <div class="clearfix"></div>
                 </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 oversea_policy_item">
                 <img src="<%=request.getContextPath()%>/resources/images/oversea/icon3.png">
                 <h5><fmt:message key="Overseas.Landing.Coverage.Personal" bundle="${msg}" /></h5>
                 <div class="hidden-content">
@@ -246,7 +259,7 @@ function prepareOverseaPlan(form){
                     <div class="clearfix"></div>
                 </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 oversea_policy_item">
                 <img src="<%=request.getContextPath()%>/resources/images/oversea/icon4.png">
                 <h5><fmt:message key="Overseas.Landing.Coverage.Act" bundle="${msg}" /></h5>
                 <div class="hidden-content">
@@ -256,7 +269,7 @@ function prepareOverseaPlan(form){
                     <div class="clearfix"></div>
                 </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 oversea_policy_item">
                 <img src="<%=request.getContextPath()%>/resources/images/oversea/icon5.png">
                 <h5><fmt:message key="Overseas.Landing.Coverage.Kidnapping" bundle="${msg}" /></h5>
                 <div class="hidden-content">
@@ -266,7 +279,7 @@ function prepareOverseaPlan(form){
                     <div class="clearfix"></div>
                 </div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 oversea_policy_item">
                 <img src="<%=request.getContextPath()%>/resources/images/oversea/icon6.png">
                 <h5><fmt:message key="Overseas.Landing.Coverage.Lifelong" bundle="${msg}" /></h5>
                 <div class="hidden-content">
@@ -302,11 +315,11 @@ function prepareOverseaPlan(form){
   <div class="col-lg-12 col-md-12 hidden-xs hidden-sm main-partner pad-none" style="">
   </div>
   <div class="hidden-lg hidden-md col-xs-12 col-sm-12 main-partner mob" style="text-align:center">
-    <div class="col-md-6 col-xs-6">
+    <div class="col-md-12 col-xs-12">
         <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
 		<p class="h4-5"><fmt:message key="Overseas.Landing.Other.Benefit1" bundle="${msg}" /></p>
     </div>
-    <div class="col-md-6 col-xs-6">
+    <div class="col-md-12 col-xs-12">
         <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
 		<p class="h4-5"><fmt:message key="Overseas.Landing.Other.Benefit2" bundle="${msg}" /></p> 
     </div>
@@ -415,11 +428,7 @@ function prepareOverseaPlan(form){
         <p class="h4-6"><fmt:message key="Overseas.Landing.Disclaimer" bundle="${msg}" /></p>
     </div>
 </section>
-  <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
-  <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>
-
-  </script>
-
+<link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
 <style>
    @media screen and (max-width: 991px) {
    body {
@@ -427,3 +436,26 @@ function prepareOverseaPlan(form){
       padding-top: 95px;
    }
 </style>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/oversea.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    if(isMobile){
+        $(".oversea_policy_item").click(function(){
+            var html=$(this).children('.hidden-content').children().clone();
+            $("#modal_policy_container").html(html);
+            $("#policyCoveragePopup").modal("show");
+        });
+    }
+});
+</script>
+<div class="modal fade bs-example-modal-lg  in" id="policyCoveragePopup" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content plan-modal">
+        <div class="modal-body">
+            <a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true" style="font-size:30px;">¡Á</span></a>
+            <div id="modal_policy_container" style="padding-top: 10px;text-align: center;">
+            </div>
+      </div>
+    </div>
+  </div>
+</div>

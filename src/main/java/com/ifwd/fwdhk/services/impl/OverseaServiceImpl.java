@@ -3,7 +3,6 @@ package com.ifwd.fwdhk.services.impl;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -76,7 +75,11 @@ public class OverseaServiceImpl implements OverseaService {
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
 		logger.info("OVERSEA_GET_QUOTE Response " + responseJsonObj);
-
+		if (responseJsonObj.toJSONString().contains("Promotion code is not valid")) {
+			session.setAttribute("referralCode", "");
+		} else {
+			session.setAttribute("referralCode", StringHelper.emptyIfNull(referralCode));
+		}
 		if (responseJsonObj != null && responseJsonObj.get("errMsgs") == null) {
 			
 			QuoteDetails quoteDetails = new QuoteDetails();
@@ -245,7 +248,7 @@ public class OverseaServiceImpl implements OverseaService {
 		String token = session.getAttribute("token").toString();
 		String language = WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request));
 
-		if (planDetailsForm.getDepartureDate() != null) {
+		if (planDetailsForm.getOverseaDepartureDate() != null) {
 			session.removeAttribute("overseaCreatePolicy");
 		} else {
 			JSONObject parameters = new JSONObject();
@@ -276,6 +279,12 @@ public class OverseaServiceImpl implements OverseaService {
 
 		}
 
+		
+		planDetailsForm.setFullName(planDetailsForm.getFullName().toUpperCase());
+		planDetailsForm.setPersonalName(planDetailsForm.getPersonalName().toUpperCase());
+		if(planDetailsForm.getPersonalBeneficiary() != null && !"SE".equals(planDetailsForm.getPersonalBeneficiary())) {
+			planDetailsForm.setBeneficiaryFullName(planDetailsForm.getBeneficiaryFullName().toUpperCase());
+		}
 		String deaprtureDate = DateApi.pickDate1(planDetailsForm.getOverseaDepartureDate());
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(DateApi.formatDate1(deaprtureDate));
@@ -320,10 +329,22 @@ public class OverseaServiceImpl implements OverseaService {
 		insuredOjb.put("passport", "");
 		insuredOjb.put("relationship", planDetailsForm.getApplicantRelationship());
 		JSONObject beneficiary = new JSONObject();
-		beneficiary.put("name", "");
-		beneficiary.put("hkId", "");
-		beneficiary.put("passport", "");
-		beneficiary.put("relationship", "");
+		if(planDetailsForm.getPersonalBeneficiary() != null && !"SE".equals(planDetailsForm.getPersonalBeneficiary())) {
+			beneficiary.put("name", planDetailsForm.getBeneficiaryFullName());
+			if("HKID".equals(planDetailsForm.getBeneficiaryIDType())) {
+				beneficiary.put("hkId", planDetailsForm.getBeneficiaryID());
+				beneficiary.put("passport", "");
+			}else {
+				beneficiary.put("hkId", "");
+				beneficiary.put("passport", planDetailsForm.getBeneficiaryID());
+			}
+			beneficiary.put("relationship", planDetailsForm.getPersonalBeneficiary());
+		}else {
+			beneficiary.put("name", "");
+			beneficiary.put("hkId", "");
+			beneficiary.put("passport", "");
+			beneficiary.put("relationship", "SE");
+		}
 		insuredOjb.put("beneficiary", beneficiary);
 		insured.add(insuredOjb);
 		parameters.put("insured", insured);
@@ -340,8 +361,8 @@ public class OverseaServiceImpl implements OverseaService {
 		applicant.put("mobileNo", applicantMobNo);
 		applicant.put("email", emailAddress);
 		applicant.put("dob", dob);
-		/*applicant.put("optIn1", planDetailsForm.getCheckbox3());
-		applicant.put("optIn2", planDetailsForm.getCheckbox4());*/
+		applicant.put("optIn1", planDetailsForm.getCheckbox3());
+		applicant.put("optIn2", planDetailsForm.getCheckbox4());
 		parameters.put("applicant", applicant);
 
 		JSONObject correspondenceAddress = new JSONObject();
@@ -356,7 +377,7 @@ public class OverseaServiceImpl implements OverseaService {
 		correspondenceAddress.put("area", planDetailsForm.getCorrespondenceAddressDistrict());
 		parameters.put("correspondenceAddress", correspondenceAddress);
 
-		parameters.put("externalParty", "");
+		parameters.put("externalParty", "THE CLUB");
 		parameters.put("externalPartyCode", "");
 
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);

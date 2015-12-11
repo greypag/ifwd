@@ -107,13 +107,25 @@ public class OverseaController extends BaseController{
 		model.addAttribute("planName", planName);
 		model.addAttribute("selectPlanName", selectPlanName);
 		
+		String planIndex = WebServiceUtils.getParameterValue("planIndex", session, request);
+		
 		if(planName.equals("basicA")) {
-			model.addAttribute("displayRegion", WebServiceUtils.getMessage("Overseas.PlanOptions.Region.Worldwide", UserRestURIConstants.getLanaguage(request)));
-			model.addAttribute("displayPlan", WebServiceUtils.getMessage("Overseas.Plan.Name.Short.Standard.PlanA", UserRestURIConstants.getLanaguage(request)));
+			if("4".equals(planIndex) || "5".equals(planIndex)) {
+				model.addAttribute("displayRegion", WebServiceUtils.getMessage("Overseas.PlanOptions.Region.WorldwideAsia", UserRestURIConstants.getLanaguage(request)));
+				model.addAttribute("displayPlan", WebServiceUtils.getMessage("Overseas.Plan.Name.Short.Standard.PlanA", UserRestURIConstants.getLanaguage(request)));
+			}else {
+				model.addAttribute("displayRegion", WebServiceUtils.getMessage("Overseas.PlanOptions.Region.Worldwide", UserRestURIConstants.getLanaguage(request)));
+				model.addAttribute("displayPlan", WebServiceUtils.getMessage("Overseas.Plan.Name.Short.Standard.PlanA", UserRestURIConstants.getLanaguage(request)));
+			}
 		}
 		if(planName.equals("basicB")) {
-			model.addAttribute("displayRegion", WebServiceUtils.getMessage("Overseas.PlanOptions.Region.Worldwide", UserRestURIConstants.getLanaguage(request)));
-			model.addAttribute("displayPlan", WebServiceUtils.getMessage("Overseas.Plan.Name.Short.Standard.PlanB", UserRestURIConstants.getLanaguage(request)));
+			if("4".equals(planIndex) || "5".equals(planIndex)) {
+				model.addAttribute("displayRegion", WebServiceUtils.getMessage("Overseas.PlanOptions.Region.WorldwideAsia", UserRestURIConstants.getLanaguage(request)));
+				model.addAttribute("displayPlan", WebServiceUtils.getMessage("Overseas.Plan.Name.Short.Standard.PlanB", UserRestURIConstants.getLanaguage(request)));
+			}else {
+				model.addAttribute("displayRegion", WebServiceUtils.getMessage("Overseas.PlanOptions.Region.Worldwide", UserRestURIConstants.getLanaguage(request)));
+				model.addAttribute("displayPlan", WebServiceUtils.getMessage("Overseas.Plan.Name.Short.Standard.PlanB", UserRestURIConstants.getLanaguage(request)));
+			}
 		}
 		if(planName.equals("medicalWorldwideA")) {
 			model.addAttribute("displayRegion", WebServiceUtils.getMessage("Overseas.PlanOptions.Region.Worldwide", UserRestURIConstants.getLanaguage(request)));
@@ -200,6 +212,7 @@ public class OverseaController extends BaseController{
 		List<DistrictBean> districtList = homecareService.getDistrict(userName, token, lang);
 		
 		request.setAttribute("districtList", districtList);
+		model.addAttribute("planIndex", planIndex);
 		model.addAttribute("districtList", districtList);
 		session.removeAttribute("overseaCreatePolicy");
 		
@@ -251,21 +264,19 @@ public class OverseaController extends BaseController{
 		//planDetailsForm.setApplicantAreaDesc(WebServiceUtils.getAreaDesc(areas, planDetailsForm.getc));
 		planDetailsForm.setApplicantDistrictDesc(WebServiceUtils.getDistrictDesc(districts, planDetailsForm.getApplicantDistrict()));
 
-		String langSelected = UserRestURIConstants.getLanaguage(request);
-		String[] relationships;
-		String[] beneRelationships;
-		
-		userDetails.setFullName(applicantFullName);
+		userDetails.setFullName(applicantFullName.toUpperCase());
 		userDetails.setHkid(applicantHKID);
 		userDetails.setMobileNo(applicantMobNo);
 		userDetails.setEmailAddress(emailAddress);
 		userDetails.setDob(dob);
 		
 		String path = request.getRequestURL().toString();
+		String planIndex = WebServiceUtils.getParameterValue("planIndex", session, request);
 		model.addAttribute("selectPlanName", selectPlanName);
 		model.addAttribute("dueAmount", dueAmount.replace(",", ""));
 		model.addAttribute("originalAmount", originalAmount.replace(",", ""));
 		model.addAttribute("userDetails", userDetails);
+		model.addAttribute("planIndex", planIndex);
 		switch (planDetailsForm.getApplicantRelationship())
 		{
 			case "SE":

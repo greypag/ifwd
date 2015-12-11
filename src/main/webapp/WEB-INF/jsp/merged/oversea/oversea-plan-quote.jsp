@@ -58,13 +58,13 @@ function changeRegion(region){
 }
 function changeColorAndPrice(id,index, planName, discountAmt, totalDue) {
 	if(index>=0&&index<=3){
-        $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.Worldwide" bundle="${msg}" />');       
+        $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.Worldwide" bundle="${msg}" />');
     }else if(index>=3&&index<=5){
         $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.WorldwideAsia" bundle="${msg}" />');       
     }else{
         $('#seletedplanregion').html('<fmt:message key="Overseas.PlanOptions.Region.Asiaonly" bundle="${msg}" />');       		
 	}
-	
+	$("#planIndex").val(index);
     var txtPlanName = $("#"+planName).val()
     
 	var txtDiscountAmt = $("#"+discountAmt).val()
@@ -473,7 +473,7 @@ $(document).ready(function() {
         </div>
         <div class="row plan-display-mobile-only">
           <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6"><fmt:message key="Overseas.PlanOptions.AsiaCountries.mobi.col1" bundle="${msg}" /></div>
-          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6"><fmt:message key="Overseas.PlanOptions.AsiaCountries.mobi.col1" bundle="${msg}" /></div>
+          <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6"><fmt:message key="Overseas.PlanOptions.AsiaCountries.mobi.col2" bundle="${msg}" /></div>
           <div class="col-lg-3 col-md-3"></div>
         </div>
       </div>
@@ -600,7 +600,8 @@ $(document).ready(function() {
                         
                         <div class="planDetails" id="plan-coverage-box2" style="padding:1em;display:none">
                             <div class="plan-coverage-box-l">
-								<fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit1" bundle="${msg}" />
+								<fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit1" bundle="${msg}" /><a class="tool-tip show-inline-md" data-toggle="tooltip" data-placement="bottom" title="<fmt:message key="Overseas.PlanOptions.WorldWideComprehensivemedicalplanA.Benefit1.Tooltip" bundle="${msg}" />" onclick="coverageToggleGoto(2)" onmouseover="this.style.cursor='pointer';">
+                    <img src="<%=request.getContextPath()%>/resources/images/oversea/oversea-tooltip.png" alt=""></a>
                             </div>
                             <div class="plan-coverage-box-r">
 								<fmt:message key="Overseas.PlanOptions.WorldwideComprehensivemedicalplanA.Benefit1.Amount" bundle="${msg}" />
@@ -2014,7 +2015,8 @@ $(document).ready(function() {
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-bottom:0px;"><fmt:message key="Overseas.PlanOptions.PlanSelected.line1" bundle="${msg}" /></h2>
                                     <h2 class="h2-3-choose" style="padding-left:0px;font-size: 24px;margin-top:0px;" id="seletedplanname"></h2>
                                     <h4 style="padding-left:0px;line-height: 0px;font-size: 16px;" id="seletedplanregion"></h4>
-									<input type="hidden" name="planName" id="inputseletedplanname" value="">	
+									<input type="hidden" name="planName" id="inputseletedplanname" value="">
+									<input type="hidden" name="planIndex" id="planIndex" value="">	
 								</div>
 								<div class="clearfix"></div>
 								<div class="pull-right" style="">
@@ -2040,7 +2042,7 @@ $(document).ready(function() {
 									<!--
 									<input type="text" id="promoCode" name="promoCode" class="form-control bmg_custom_placeholder" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'eg: FWD789');" onBlur="placeholderOnBlur(this,'eg: FWD789');" value="eg: FWD789">
 									-->
-									<input type="text" id="promoCode" name="promoCode" class="form-control <c:if test="${!(referralCode != null && referralCode != '')}">bmg_custom_placeholder</c:if>" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'<fmt:message key="Overseas.PlanOptions.Promo.eg" bundle="${msg}" />');" onBlur="placeholderOnBlur(this,'<fmt:message key="Overseas.PlanOptions.Promo.eg" bundle="${msg}" />');"
+									<input autocomplete="off" type="text" id="promoCode" name="promoCode" class="form-control <c:if test="${!(referralCode != null && referralCode != '')}">bmg_custom_placeholder</c:if>" style="display:inline-block;width:70%;padding: 0px;" onFocus="placeholderOnFocus(this,'<fmt:message key="Overseas.PlanOptions.Promo.eg" bundle="${msg}" />');" onBlur="placeholderOnBlur(this,'<fmt:message key="Overseas.PlanOptions.Promo.eg" bundle="${msg}" />');"
 									    <c:choose>
 										   <c:when test="${referralCode != null && referralCode != ''}">
 										   value="${referralCode }"
@@ -2171,7 +2173,7 @@ $(document).ready(function() {
 	                    <div class="alert alert-success hide proSuccess"></div>
 	                    <h4><fmt:message key="promotion.get.code.email" bundle="${msg}" /></h4>
 	                    <div class="form-group">
-	                        <input type="email" class="form-control" placeholder=""
+	                        <input autocomplete="off" type="email" class="form-control" placeholder=""
 	                            name="emailToSendPromoCode" id="emailToSendPromoCode">
 	                        <input type="hidden" name="planCode" id="planCode" value="OVERSEACARE">                         
 	                    </div>

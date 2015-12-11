@@ -202,6 +202,8 @@ function coverageToggle(){
 */
 var oversea_click = false;
 function validateOverseaDetails() {
+	
+	
 	if ($("#inputFullName").val().trim() == namePlaceholder.trim()) {
 		$("#inputFullName").val('');
 	}
@@ -238,9 +240,11 @@ function validateOverseaDetails() {
 	if ($("#correspondenceAddressStreetNameId").val().trim() == appStreetNamelaceholder.trim()) {
 		$("#correspondenceAddressStreetNameId").val('');
 	}	
+	
 	/*if ($("#applicantDistrict").val().trim() == appDobPlaceholder.trim()) {
 		$("#applicantDistrict").val('');
 	}*/	
+	
 	if ($("#txtInsuFullName1").val().trim() == insurNamePlaceholder.trim()) {
 		$("#txtInsuFullName1").val('');
 	}
@@ -623,7 +627,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 	
 	if (insuredDob.trim() == "") {
 		$('#overseaDepartureDateInvalid').html(
-				getBundle(getBundleLanguage, "applicant.dob.notNull.message"));
+				getBundle(getBundleLanguage, "Overseas.userdetails.instituation.departure.Error.Empty"));
 		$('#oversea_departure_date').addClass('invalid-field');
 		if (firstErrorElementId == "") {
 			firstErrorElementId = "oversea_departure_date";
@@ -657,36 +661,69 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 		}
 		flag = false;
 	}
-	if(applicantAge > 65 && appRelation =="SE"){
-		$("#input_oversea_dob").addClass("invalid-field");
-		$("#dobInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));
-		$("#oversea_insure_dob").addClass("invalid-field");
-		$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));		
-		flag = false;
-		if (firstErrorElementId == "") {
-			firstErrorElementId = "input_oversea_dob";
-		}		
-	}else{
-		$("#input_oversea_dob").removeClass("invalid-field");
-		$("#dobInvalid").html( '');
-		$("#oversea_insure_dob").removeClass("invalid-field");
-		$("#dobInsuredInvalid").html( ''); 		
-	}
-	if((insuredAge < 12 || insuredAge > 65 || isNaN(insuredAge)) && appRelation!="SE"){
-		$("#oversea_insure_dob").addClass("invalid-field");
-		console.log(isNaN(insuredAge));
-		if(isNaN(insuredAge)){
-			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.Empty"));	
-		}else{
+    var Date1 = moment(InsuDob,"DD-MM-YYYY");
+    var Date2 = moment();
+	var Date3 =moment(overseaDepartureDate,"DD-MM-YYYY");	
+	//var departAge = Date1.from(Date3).split(" ");
+	//var currAge = Date1.from(Date2).split(" ");
+	var departAge = Date3.diff(Date1,'years',true);
+	var currAge = Date2.diff(Date1,'years',true);
+	//console.log("DepartAge= "+departAge);
+	//console.log("CurrAge= "+currAge);
+	if(appRelation =="SE"){
+		if(currAge >= 65){
+			//console.log(">65");
+			$("#input_oversea_dob").addClass("invalid-field");
+			$("#dobInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));
+			$("#oversea_insure_dob").addClass("invalid-field");
 			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));
+			flag = false;
+			if (firstErrorElementId == "") {firstErrorElementId = "input_oversea_dob";}		
+		}else if(departAge >= 64 && departAge < 65){
+			$("#input_oversea_dob").addClass("invalid-field");
+			$("#dobInvalid").html( getBundle(getBundleLanguage, "Your next birthday age on departure date will be 65."));
+			$("#oversea_insure_dob").addClass("invalid-field");
+			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Your next birthday age on departure date will be 65."));
+			flag = false;
+			if (firstErrorElementId == "") {firstErrorElementId = "input_oversea_dob";}	
+		}else if(currAge==""){
+			$("#input_oversea_dob").addClass("invalid-field");
+			$("#dobInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.applicant.DOB.Error.Empty"));
+			$("#oversea_insure_dob").addClass("invalid-field");
+			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.Empty"));
+			flag = false;
+			if (firstErrorElementId == "") {firstErrorElementId = "input_oversea_dob";}	
+		}else{
+			$("#input_oversea_dob").removeClass("invalid-field");
+			$("#dobInvalid").html( '');
+			$("#oversea_insure_dob").removeClass("invalid-field");
+			$("#dobInsuredInvalid").html( ''); 		
 		}
-		flag = false;
-		if (firstErrorElementId == "") {
-			firstErrorElementId = "oversea_insure_dob";
-		}		
 	}else{
-		$("#oversea_insure_dob").removeClass("invalid-field");
-		$("#dobInsuredInvalid").html( ''); 		
+		//console.log("insured");
+		if(currAge >= 65){
+			$("#oversea_insure_dob").addClass("invalid-field");
+			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));
+			flag = false;
+			if (firstErrorElementId == "") {firstErrorElementId = "oversea_insure_dob";}		
+		}else if((departAge >= 64 && departAge < 65) || (departAge < 11)){
+			$("#oversea_insure_dob").addClass("invalid-field");
+			if(departAge < 11){
+				$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Your next birthday age on departure date will be less than 12."));
+			}else{
+				$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Your next birthday age on departure date will be 65."));
+			}
+			flag = false;
+			if (firstErrorElementId == "") {firstErrorElementId = "input_oversea_dob";}		
+		}else if(currAge==""){
+			$("#oversea_insure_dob").addClass("invalid-field");
+			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.Empty"));
+			flag = false;
+			if (firstErrorElementId == "") {firstErrorElementId = "input_oversea_dob";}			
+		}else{
+			$("#oversea_insure_dob").removeClass("invalid-field");
+			$("#dobInsuredInvalid").html( ''); 		
+		}
 	}
 	var testDate = new Date();
 	var testDate2 = parseDate(applicantDob);

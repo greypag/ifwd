@@ -294,8 +294,7 @@ public class RestServiceImpl implements RestServiceDao {
 				session.setAttribute("myHomeReferralCode", "ECHOME");
 				session.setAttribute("myTravelReferralCode", "TRA123");
 				session.setAttribute("myAnnualTravelReferralCode", "ANNTRA");
-				session.setAttribute("myOverseasReferralCode", "OVS123");
-				
+				session.setAttribute("myOverseaReferralCode", "OVS123");
 				
 				session.setAttribute("username", "*DIRECTGI");
 				UserDetails userDetails = new UserDetails();
