@@ -2,6 +2,12 @@ jQuery(function($) {'use strict',
 
 	//#main-slider
 	$(function(){
+        isMobileHead = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+        if(isMobileHead){
+        headerHeight = $('.logobox').height()+$('.mob-topbar').height();
+        }else{
+            headerHeight = $('.top-bar').height();  
+        }		
 		$('#main-slider.carousel').carousel({
 			interval: 8000
 		});
@@ -170,7 +176,7 @@ $('.product_plan_inner_panel').click(function(e){
 					product_plan_inner_panel_valid=true;
 					$panel.parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $panel);
 					$('html, body').animate({
-						scrollTop: $panel.offset().top
+						scrollTop: $panel.offset().top - headerHeight
 					}, 500);
 				});
 			});
@@ -185,7 +191,7 @@ $('.product_plan_inner_panel').click(function(e){
 				product_plan_inner_panel_valid=true;
 				$panel.parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $panel);
 				$('html, body').animate({
-					scrollTop: $panel.offset().top
+					scrollTop: $panel.offset().top - headerHeight
 				}, 500);
 			});
 		}
@@ -205,7 +211,7 @@ function scrollDownProductPanel($element){
 		product_plan_panel_valid=true;
 		
 		$('html, body').animate({
-			scrollTop: $panel.offset().top
+			scrollTop: $panel.offset().top - headerHeight
 		}, 500);
 	});
 }
