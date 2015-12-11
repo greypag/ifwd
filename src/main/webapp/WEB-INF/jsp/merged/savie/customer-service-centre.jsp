@@ -283,7 +283,7 @@ var language = "${language}";
 			}
 			else{
 				$.ajax({     
-				    url:context+'/ajax/savings-insurance/upsertAppointment',     
+				    url:context+'/ajax/savings-evergreen-insurance/upsertAppointment',     
 				    type:'post',     
 				    data:{    
 				    	"csCenter": csCenter,
@@ -296,7 +296,7 @@ var language = "${language}";
 				    	if(data.errMsgs == null){
 				    		//send email
 				    		$.ajax({     
-							    url:context+'/ajax/savings-insurance/service-center-confirm/email',     
+							    url:context+'/ajax/savings-evergreen-insurance/service-center-confirm/email',     
 							    type:'post',
 							    data:{    
 							    	"csCenter": csCenter,
@@ -329,7 +329,7 @@ var language = "${language}";
 			}
 		});
 		$('#back-to-home-btn').click(function(){
-    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-evergreen-insurance");
+    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-evergreen-insurance/landing");
 	    	$("#serviceCenterForm").submit();
 		});		
 	});
@@ -337,7 +337,7 @@ var language = "${language}";
 	function putTimeSession(){
 		var perTime = $("#preferred-time").val();
 		$.ajax({     
-		    url:context+'/ajax/savings-insurance/putTimeSession',     
+		    url:context+'/ajax/savings-evergreen-insurance/putTimeSession',     
 		    type:'post',     
 		    data:{    
 		        "perferredTime":perTime
