@@ -51,7 +51,10 @@
                     <div class="oversea-link wht-bg1 text-center" id="toBeCopied" contenteditable="true"><fmt:message key="Overseas.Confirmation.Share.Link" bundle="${msg}" /></div>
                      -->
                     <div class="oversea-link wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/oversea-insurance?promo=<%=session.getAttribute("myOverseaReferralCode")%></div>
+                    <!-- 
                     <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage hidden-sm hidden-xs"><fmt:message key="Overseas.Confirmation.Share.Copy.CtrlC" bundle="${msg}" /></span><span class="boxMessage hidden-md hidden-lg">Long-press to copy</span> <span class="boxDownArrow"></span> </div>
+                     -->
+                    <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage hidden-sm hidden-xs"><fmt:message key="Overseas.Confirmation.Share.Copy.CtrlC" bundle="${msg}" /></span><span class="boxMessage hidden-md hidden-lg"><fmt:message key="Overseas.Confirmation.Share.Copy.LongPress" bundle="${msg}" /></span> <span class="boxDownArrow"></span> </div>
                 </div>
                 <div class="col-md-5 col-sm-12 col-xs-12 pad-none"> 
                     <!-- <div class="copy-link pull-left" id="d_clip_button" title="" data-clipboard-target="toBeCopied" data-clipboard-text="Default clipboard text from attribute">
@@ -67,7 +70,7 @@
             <div style="display:none" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">
                 <div style="width:80%;margin-left:10%">
               <h5 class="bmg-confirmation-h5">
-                  <strong>Additional Offer - Use your promotion code:</strong><span>OVS123</span>
+                  <strong>Additional Offer - Use your promotion code:</strong><span>TRA123</span>
               </h5>
 				
               <div class="h4-3-b margin-bottom-10" style="color: #f6871e;">

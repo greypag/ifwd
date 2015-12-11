@@ -255,7 +255,7 @@ function mouseout2div(obj) {
                 <div class="hidden-content">
                     <div class="col-xs-12 hidden-md hidden-lg"><img src="<%=request.getContextPath()%>/resources/images/oversea/icon3.png"></div>
                     <div class="col-xs-12 hidden-content-title"><fmt:message key="Overseas.Landing.Coverage.Personal" bundle="${msg}" /></div>
-                    <div class="col-xs-12 hidden-content-p"><p>"<fmt:message key="Overseas.Landing.Coverage.Personal.hover" bundle="${msg}" />"</p></div>
+                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="Overseas.Landing.Coverage.Personal.hover" bundle="${msg}" /></p></div>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -299,15 +299,16 @@ function mouseout2div(obj) {
 <div class="other-benefits col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none">
   <h2 class="oversea-sponsor-header"><fmt:message key="Overseas.Landing.Other" bundle="${msg}" /></h2>
   <ul class="bullets oversea-bullets pad-none">
+  
+    <li class="sponsor-wrapper col-lg-6 col-md-6 hidden-xs hidden-sm pad-none">
+        <!--Refer to key ID Overseas.Landing.Other.Benefit2.Logo for alt value-->
+        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="Y5Buddy" class="" style="margin-right:15px;">
+        <p class="h4-5"><fmt:message key="Overseas.Landing.Other.Benefit2" bundle="${msg}" /></p>  
+    </li>
 	<li class="sponsor-wrapper col-lg-6 col-md-6 hidden-xs hidden-sm pad-none">
 		<!--Refer to key ID Overseas.Landing.Other.Benefit1.Logo for alt value-->
 		<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="Agoda" class="" style="margin-right:15px;">
 		<p class="h4-5"><fmt:message key="Overseas.Landing.Other.Benefit1" bundle="${msg}" /></p>
-    </li>
-	<li class="sponsor-wrapper col-lg-6 col-md-6 hidden-xs hidden-sm pad-none">
-		<!--Refer to key ID Overseas.Landing.Other.Benefit2.Logo for alt value-->
-		<img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="Y5Buddy" class="" style="margin-right:15px;">
-		<p class="h4-5"><fmt:message key="Overseas.Landing.Other.Benefit2" bundle="${msg}" /></p>  
     </li>
 	<li class="clearfix"></li>
   </ul>
@@ -316,12 +317,12 @@ function mouseout2div(obj) {
   </div>
   <div class="hidden-lg hidden-md col-xs-12 col-sm-12 main-partner mob" style="text-align:center">
     <div class="col-md-12 col-xs-12">
-        <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
-		<p class="h4-5"><fmt:message key="Overseas.Landing.Other.Benefit1" bundle="${msg}" /></p>
+        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
+        <p class="h4-5"><fmt:message key="Overseas.Landing.Other.Benefit2" bundle="${msg}" /></p> 
     </div>
     <div class="col-md-12 col-xs-12">
-        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
-		<p class="h4-5"><fmt:message key="Overseas.Landing.Other.Benefit2" bundle="${msg}" /></p> 
+        <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
+		<p class="h4-5"><fmt:message key="Overseas.Landing.Other.Benefit1" bundle="${msg}" /></p>
     </div>
   </div>
   <div class="spacer3"></div>
@@ -340,7 +341,7 @@ function mouseout2div(obj) {
         <div class="recent-work-wrap wrap text-center">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="">
             <h1><fmt:message key="Overseas.Landing.Platformpillar1.headline" bundle="${msg}" /></h1>
-              <p><fmt:message key="Overseas.Landing.Platformpillar1.copy" bundle="${msg}" /></p>
+              <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /><a href="<fmt:message key="Overseas.Landing.Platformpillar1.textlink1.url" bundle="${msg}" />"><fmt:message key="Overseas.Landing.Platformpillar1.copy2" bundle="${msg}" /></a><fmt:message key="Overseas.Landing.Platformpillar1.copy3" bundle="${msg}" /></p>
           </div>
         </div>
       </div>
@@ -452,7 +453,7 @@ $(document).ready(function() {
   <div class="modal-dialog modal-lg">
     <div class="modal-content plan-modal">
         <div class="modal-body">
-            <a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true" style="font-size:30px;">¡Á</span></a>
+            <a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true" style="font-size:30px;">Ã—</span></a>
             <div id="modal_policy_container" style="padding-top: 10px;text-align: center;">
             </div>
       </div>
