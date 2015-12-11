@@ -29,7 +29,7 @@ function mouseout2div(obj) {
 		async : false,
 		success : function(data) {
 			if (data == "success") {
-				form.action = "<%=request.getContextPath()%>/${language}/oversea-insurance/quote";
+				form.action = "<%=request.getContextPath()%>/${language}/overseas-study-insurance/plan-options";
 				result = true;
 			} else {
 				console.log(data);

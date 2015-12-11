@@ -50,7 +50,7 @@
                     <!--
                     <div class="oversea-link wht-bg1 text-center" id="toBeCopied" contenteditable="true"><fmt:message key="Overseas.Confirmation.Share.Link" bundle="${msg}" /></div>
                      -->
-                    <div class="oversea-link wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/oversea-insurance?promo=<%=session.getAttribute("myOverseaReferralCode")%></div>
+                    <div class="oversea-link wht-bg1 text-center" id="toBeCopied" contenteditable="true"><%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/overseas-study-insurance?promo=<%=session.getAttribute("myOverseaReferralCode")%></div>
                     <!-- 
                     <div id="copyTipBox" class="boxMain boxSub" style="display: none;"> <span class="boxMessage hidden-sm hidden-xs"><fmt:message key="Overseas.Confirmation.Share.Copy.CtrlC" bundle="${msg}" /></span><span class="boxMessage hidden-md hidden-lg">Long-press to copy</span> <span class="boxDownArrow"></span> </div>
                      -->
@@ -64,7 +64,7 @@
                     <div class="copy-link pull-left" onclick="autoSelect('toBeCopied');">
                         <fmt:message key="Overseas.Confirmation.Share.Copy" bundle="${msg}" />
                     </div>
-                    <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/oversea-insurance/sharing/?promo=<%=session.getAttribute("myOverseaReferralCode")%>" data-title="iFWD"></div>
+                    <div class="addthis_sharing_toolbox" data-url="<%=request.getScheme() + "://" + request.getServerName() +  request.getContextPath()%>/${language}/overseas-study-insurance/sharing/?promo=<%=session.getAttribute("myOverseaReferralCode")%>" data-title="iFWD"></div>
                 </div>
             </div>
             <div style="display:none" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none margin-bottom-40">

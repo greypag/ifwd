@@ -168,10 +168,10 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIE_SIGNATURE = "savie.signature";
 	
 	/* Page Flow Control For OverSea */
-	public static final String URL_OVERSEA_LANDING = "oversea-insurance";
-	public static final String URL_OVERSEA_QUOTE = "quote";
-	public static final String URL_OVERSEA_DETAILS = "details";
-	public static final String URL_OVERSEA_SUMMARY = "summary";
+	public static final String URL_OVERSEA_LANDING = "overseas-study-insurance";
+	public static final String URL_OVERSEA_QUOTE = "plan-options";
+	public static final String URL_OVERSEA_DETAILS = "application";
+	public static final String URL_OVERSEA_SUMMARY = "payment";
 	public static final String URL_OVERSEA_CONFIRMATION = "confirmation";
 	
 	public static final String PAGE_OVERSEA_LANDING = "oversea-landing";

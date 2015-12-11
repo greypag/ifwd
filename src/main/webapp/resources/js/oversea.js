@@ -765,7 +765,7 @@ function confirmDetails(form, formId, language) {
 		success : function(data) {
 			if (data == 'success') {
 				form.action = contextPath + '/' + language
-						+ '/oversea-insurance/summary';
+						+ '/overseas-study-insurance/payment';
 				result = true;
 			} else {
 				oversea_click = false;
