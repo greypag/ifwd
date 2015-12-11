@@ -603,8 +603,8 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			previous_action_link = window.location.href;
 			previous_action_link = previous_action_link.replace("details","quote");
 			$("#"+'countryOfInstitution').addClass("invalid-field");
-			$("#countryOfInstitutionInvalid").html( getBundle(getBundleLanguage, 'Selected plan does not cover this country. Please consider "Worldwide Plans".'));
-			$("#countryOfInstitutionInvalid").append("<br/><a class='error-to-previous-page text-red' href='"+previous_action_link+"'>Click here to select your plan again please.</a>");
+			$("#countryOfInstitutionInvalid").html( getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredAsia') );
+			$("#countryOfInstitutionInvalid").append("<a class='error-to-previous-page text-red' href='"+previous_action_link+"'>" + getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredAsia.url') +"</a>" + getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredAsia.end'));
 			flag = false;
 		}else{
 			$("#"+'countryOfInstitution').removeClass("invalid-field");
