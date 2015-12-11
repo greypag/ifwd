@@ -246,10 +246,12 @@ $(document).ready(function(){
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Insured.DOB" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.insuredDob }</div>
                                         </div>
+                                        <!-- 
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Insured.Email" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${planDetailsForm.emailAddress }</div>
                                         </div>
+                                         -->
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Beneficiary" bundle="${msg}" /></div>
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">${overseaBeneficaryDesc} </div>
@@ -285,7 +287,7 @@ $(document).ready(function(){
 										</div>										
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Applicant.Peroid" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">From ${planDetailsForm.departureDate } to ${planDetailsForm.returnDate }</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none"><fmt:message key="Overseas.Payment.Summary.Applicant.Peroid.From" bundle="${msg}" /> ${planDetailsForm.departureDate } <fmt:message key="Overseas.Payment.Summary.Applicant.Peroid.To" bundle="${msg}" /> ${planDetailsForm.returnDate }</div>
                                         </div>
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.Institution.Country" bundle="${msg}" /></div>
@@ -300,16 +302,21 @@ $(document).ready(function(){
                                             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textCap">${AddressofInstitutionLine }</div>
                                         </div>
                                         <div class="row summary-row">
-                                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.StudentVisaHolder" bundle="${msg}" /></div>
-											<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none">Yes</div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 h2-1 pad-none summary-detail-head">
+                                            <div class="checkbox">
+                                                <input id="checkboxvisa" name="checkbox3" type="checkbox" disable="disable" checked onclick="return false">
+                                                <label for="checkbox3"><fmt:message key="Overseas.Payment.Summary.StudentVisaHolder" bundle="${msg}" /></label>
+                                            </div>
 										</div>                                                                            
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 h2-1 pad-none summary-detail-head"><fmt:message key="Overseas.Payment.Summary.originalamount" bundle="${msg}" /></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${originalAmount}" /></div> 
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 h4-5 pad-none textUpper">
+                                        <fmt:message key="Overseas.Payment.Summary.originalamount.currency" bundle="${msg}" /> <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${originalAmount}" /></div> 
                                         </div>  
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pad-none summary-detail-head"><span class="h4-4-orange-b pad-none"><fmt:message key="Overseas.Payment.Summary.AmountDue" bundle="${msg}" /></span></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b pad-none">HK$ <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${dueAmount}" /></span></div> 
+                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pad-none textUpper"><span class="h4-4-orange-b pad-none">
+                                        <fmt:message key="Overseas.Payment.Summary.originalamount.currency" bundle="${msg}" /> <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="3" value="${dueAmount}" /></span></div> 
                                         </div>
 										<div class="row summary-row">
 											<h4 class="h4-4 product_landing_download_button pull-left">

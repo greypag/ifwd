@@ -626,8 +626,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 	}
 	
 	if (insuredDob.trim() == "") {
-		$('#overseaDepartureDateInvalid').html(
-				getBundle(getBundleLanguage, "Overseas.userdetails.instituation.departure.Error.Empty"));
+		$('#overseaDepartureDateInvalid').html(getBundle(getBundleLanguage, "Overseas.userdetails.institution.departure.Error.Empty"));
 		$('#oversea_departure_date').addClass('invalid-field');
 		if (firstErrorElementId == "") {
 			firstErrorElementId = "oversea_departure_date";
@@ -681,9 +680,9 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			if (firstErrorElementId == "") {firstErrorElementId = "input_oversea_dob";}		
 		}else if(departAge >= 64 && departAge < 65){
 			$("#input_oversea_dob").addClass("invalid-field");
-			$("#dobInvalid").html( getBundle(getBundleLanguage, "Your next birthday age on departure date will be 65."));
+			$("#dobInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.applicant.DOB.Error.65"));
 			$("#oversea_insure_dob").addClass("invalid-field");
-			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Your next birthday age on departure date will be 65."));
+			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.applicant.DOB.Error.65"));
 			flag = false;
 			if (firstErrorElementId == "") {firstErrorElementId = "input_oversea_dob";}	
 		}else if(currAge==""){
@@ -693,42 +692,46 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.Empty"));
 			flag = false;
 			if (firstErrorElementId == "") {firstErrorElementId = "input_oversea_dob";}	
-		}else{
+		}else if(applicantDob.trim() !=""){
 			$("#input_oversea_dob").removeClass("invalid-field");
 			$("#dobInvalid").html( '');
 			$("#oversea_insure_dob").removeClass("invalid-field");
 			$("#dobInsuredInvalid").html( ''); 		
 		}
 	}else{
+		if(applicantDob.trim() !=""){
+			$("#input_oversea_dob").removeClass("invalid-field");
+			$("#dobInvalid").html( '');			
+		}		
 		//console.log("insured");
-		if(currAge >= 65){
+		if(currAge >= 65 && InsuDob!=""){
 			$("#oversea_insure_dob").addClass("invalid-field");
 			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));
 			flag = false;
 			if (firstErrorElementId == "") {firstErrorElementId = "oversea_insure_dob";}		
-		}else if((departAge >= 64 && departAge < 65) || (departAge < 11)){
+		}else if((departAge >= 64 && departAge < 65 && InsuDob!="") || (departAge < 11 && InsuDob!="")){
 			$("#oversea_insure_dob").addClass("invalid-field");
 			if(departAge < 11){
-				$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Your next birthday age on departure date will be less than 12."));
+				$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.insured.DOB.Error.12"));
 			}else{
-				$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Your next birthday age on departure date will be 65."));
+				$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.insured.DOB.Error.65"));
 			}
 			flag = false;
-			if (firstErrorElementId == "") {firstErrorElementId = "input_oversea_dob";}		
-		}else if(currAge==""){
+			if (firstErrorElementId == "") {firstErrorElementId = "oversea_insure_dob";}		
+		}else if(InsuDob==""){
 			$("#oversea_insure_dob").addClass("invalid-field");
 			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.Empty"));
 			flag = false;
-			if (firstErrorElementId == "") {firstErrorElementId = "input_oversea_dob";}			
+			if (firstErrorElementId == "") {firstErrorElementId = "oversea_insure_dob";}			
 		}else{
 			$("#oversea_insure_dob").removeClass("invalid-field");
 			$("#dobInsuredInvalid").html( ''); 		
 		}
 	}
-	var testDate = new Date();
-	var testDate2 = parseDate(applicantDob);
-	console.log(testDate.setDate(testDate2.getDate() + 90));
-	console.log(testDate.setDate(testDate.getDate() + 90));
+//	var testDate = new Date();
+//	var testDate2 = parseDate(applicantDob);
+//	console.log(testDate.setDate(testDate2.getDate() + 90));
+//	console.log(testDate.setDate(testDate.getDate() + 90));
 	//console.log(calculateAge((parseDate)(applicantDob), new Date()));
 	if (firstErrorElementId != "") {
 		scrollToElement(firstErrorElementId);
