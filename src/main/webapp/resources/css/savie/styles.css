@@ -7940,7 +7940,7 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
 }
 @media (min-width: 768px) {
   .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.policy-replace-desc {
-    width: 40%;
+    width: 30%;
   }
 }
 .fwd-savie-wrapper .declare-authorize .agreement-description .pull-left.fatca-desc,
@@ -9517,7 +9517,6 @@ body.chin .fwd-savie-wrapper .page-application .form-control.gray-dropdown {
 .fwd-savie-wrapper .thank-you-container .details-container h2 {
   font-size: 18px;
   font-family: 'Calibri-bold', sans-serif;
-  margin: 0;
   padding-bottom: 13px;
   color: #32362e;
   border-bottom: dashed #9ba5a7 1px;
@@ -12567,6 +12566,14 @@ body.chin .fwd-savie-wrapper p.additional.top {
   }
 }
 
+.fwd-savie-eg-wrapper .banner-widget .hunger-selling-text {
+  margin-top: 5px;
+}
+
+body.chin .fwd-savie-eg-wrapper .banner-widget .hunger-selling-text {
+  margin-top: 45px;
+}
+
 .fwd-savie-wrapper .banner-widget .hunger-selling-text {
   font-size: 40px;
   font-family: 'Calibri-bold', sans-serif;
@@ -15267,7 +15274,7 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
     max-width: 450px;
     width: 35%;
     //top: 285px;
-    bottom: 200px;
+    bottom: 85px;
     position: absolute;
     padding-left: 65px;
     padding-right: 65px;
@@ -15275,20 +15282,19 @@ body.chin .fwd-savie-wrapper .sign-up-teaser button.get-started {
   }
 
   body.chin .fwd-savie-wrapper .sign-up-teaser {
-    bottom: 135px;
+    bottom: 70px;
   }
 
   .fwd-savie-wrapper .sign-up-teaser button.get-started {
     font-family: 'Calibri-bold', sans-serif;
-    font-size: 30px;
+    font-size: 32px;
     display: block;
     width: 94%;
-    /*height: 80px;*/
-    height: 70px;
+    height: 80px;
     text-align: center;
-    /*padding-top: 5px;*/
+    padding-top: 5px;
     margin-top: 27px;
-    margin-bottom: 20px;
+    margin-bottom: 240px;
     border: none;
     max-width: none;
   }
@@ -16405,7 +16411,7 @@ h2.h2-orange {
     text-decoration: underline;
 }
 .fwd-savie-wrapper .banner-widget .breadcrumbs .breadcrumbs-landing.op-breadcrumbs {
-    margin-top: 0;
+    /*margin-top: 0;*/
 }
 .fwd-savie-wrapper .banner-widget .breadcrumbs .breadcrumbs-landing.op-breadcrumbs a,
 .fwd-savie-wrapper .banner-widget .breadcrumbs .breadcrumbs-landing.op-breadcrumbs .divider {
@@ -16451,6 +16457,7 @@ h2.h2-orange {
 }
 
 
+
 /* For the 6 benefits block */
 .annualTravel_policy_item {
 	position: relative;
@@ -16458,13 +16465,11 @@ h2.h2-orange {
 	margin-top: 30px;
 }
 
-
 @media ( min-width : 992px) {
 	.annualTravel_policy_item {
 		margin-bottom: 25px;
 	}
 }
-
 
 .annualTravel_policy_item .hidden-content {
 	position: absolute;

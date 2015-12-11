@@ -179,7 +179,7 @@ var context = "${pageContext.request.contextPath}";
 	                                    <tbody>
                                             <tr>    <td class="left-border">1</td>  <td class="black-text desktop-only" id="credit-rate-change-1"><span>3%</span></td>   <td class="black-text" id="premium-1"><span>$</span> 0</td> <td class="black-text desktop-only" id="account-value-1"><span>$</span> 0</td>    <td class="black-text right-border" id="surrender-1"><span>$</span> 0</td>    </tr>
                                             <tr>    <td class="left-border">2</td>  <td class="black-text desktop-only" id="credit-rate-change-2"><span>3%</span></td>   <td class="black-text" id="premium-2"><span>$</span> 0</td> <td class="black-text desktop-only" id="account-value-2"><span>$</span> 0</td>    <td class="black-text right-border" id="surrender-2"><span>$</span> 0</td>    </tr>
-                                            <tr class="bottom-border">  <td class="left-border">3</td>  <td class="black-text desktop-only" id="credit-rate-change-3"><span>4%</span></td>   <td class="black-text" id="premium-3"><span>$</span> 0</td> <td class="black-text desktop-only" id="account-value-3"><span>$</span> 0</td>    <td class="black-text right-border" id="surrender-3"><span>$</span> 0</td>    </tr>
+                                            <tr class="bottom-border">  <td class="left-border">3</td>  <td class="black-text desktop-only" id="credit-rate-change-3"><span>3.3%</span></td>   <td class="black-text" id="premium-3"><span>$</span> 0</td> <td class="black-text desktop-only" id="account-value-3"><span>$</span> 0</td>    <td class="black-text right-border" id="surrender-3"><span>$</span> 0</td>    </tr>
 	                                    </tbody>
 	                                </table>
 	                            </div>
@@ -391,7 +391,7 @@ var context = "${pageContext.request.contextPath}";
 			<div class="fwd-container container-fluid proceed-block text-center">
 				<!--<h2><fmt:message key="savie.planDetails.login.create" bundle="${msg}" /></h2> -->
 				<button id="create-account" type="button" class="btn btn-orange proceed-btn"><fmt:message key="saviee.planoption.createaccount.button" bundle="${msg}" /></button>
-				<button id="proceed" type="button" class="btn btn-orange proceed-btn hidden" onclick="goServiceCenter();">Proceed</button>
+				<button id="proceed" type="button" class="btn btn-orange proceed-btn hidden" onclick="goServiceCenter();"><fmt:message key="saviee.planoption.proceed" bundle="${msg}" /></button>
 				<div class="login-holder">
 					<p><fmt:message key="saviee.planoption.login.1" bundle="${msg}" /></p>
 					<button id="made-decision-next-btn" type="button" class="login-button"><fmt:message key="saviee.planoption.login.2" bundle="${msg}" /></button>
@@ -452,7 +452,6 @@ var context = "${pageContext.request.contextPath}";
 		<script src="<%=request.getContextPath()%>/resources/js/evergreen/fwd-chart.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/evergreen/evergreen.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
-		<script src="<%=request.getContextPath()%>/resources/js/jquery.placeholder.min.js"></script>
 		<script type="text/javascript">	
 		        $(function() {
 				$('#datePicker').datepicker({
@@ -518,12 +517,9 @@ var context = "${pageContext.request.contextPath}";
 					$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
 					$('#thankYouModal').modal('show');
 				}
-
-				//initialize placeholder
-				$('input').placeholder();
 			});
 			
 			function goServiceCenter(){
-				window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-evergreen-insurance/'+'${nextPageFlow2 }'; 
+				window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-insurance/'+'${nextPageFlow2 }'; 
 			}
 		</script>
