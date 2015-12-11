@@ -572,19 +572,23 @@ var home_url = "<%=request.getContextPath()%>";
 
 			// Access Code Confirmation
 			function getAppointmentAccessCode(){
-			$.get(
-			    '${pageContext.request.contextPath}//ajax/savings-insurance/getAppointmentAccessCode',
-				function(data) {
-					if(data.errMsgs != null && data.errMsgs != ''){
-					}
-					else{
-						var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
-						$("#o2o-landing-form").attr("action", url);
-						$('#o2o-landing-form').submit();
-					}
-				})
-				.fail(function(data) {
-				});
+				$.ajax({
+				        type: "GET",
+				        url:'${pageContext.request.contextPath}/ajax/savings-insurance/getAppointmentAccessCode',
+				        async:false,         
+				        success:function(data){
+							if(data.errMsgs != null && data.errMsgs != ''){
+							}
+							else{
+								var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
+								$("#o2o-landing-form").attr("action", url);
+								$('#o2o-landing-form').submit();
+							}
+				        },
+						error:function(){
+						    console.log('error');     
+					    }
+				    });
 			};
 
 			// Sign up now validation
@@ -635,21 +639,5 @@ var home_url = "<%=request.getContextPath()%>";
 				$('.other-benefits-list-mobile').removeClass('hidden-sm');
 				$('#read-more-other-benefits').hide();
 			});
-			
-            function getAppointmentAccessCode(){
-                $.get('${pageContext.request.contextPath}/ajax/savings-insurance/getAppointmentAccessCode',
-                function(data) {
-                    if(data.errMsgs != null && data.errMsgs != ''){
-                    }
-                    else{
-                        var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
-                        $("#o2o-landing-form").attr("action", url);
-                        $('#o2o-landing-form').submit();
-                    }
-                })
-                .fail(function(data) {
-                });
-            };
-            
 		</script>
 		
