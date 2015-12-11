@@ -73,7 +73,6 @@ var home_url = "<%=request.getContextPath()%>";
                         </form>
                         <p class="bottom-text lower hidden-sm hidden-xs">
                         	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part3" bundle="${msg}" />
-                        	<br>
                         	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part3" bundle="${msg}" />
                         </p>
 					</div>

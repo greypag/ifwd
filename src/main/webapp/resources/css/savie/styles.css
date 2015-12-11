@@ -14719,9 +14719,10 @@ body.chin button#thank-you-continue {
   width: 100%;
 }
 .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
-  max-width: 245px;
-  padding: 0;
+  max-width: 345px;
+  padding-left: 25px;
   margin-bottom: 5px;
+  text-align: left;
 }
 @media (min-width: 768px) {
   .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
@@ -14741,19 +14742,19 @@ body.chin button#thank-you-continue {
           font-size: 72px;
   }
   .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1.big {
-       font-size: 80px;
-    padding-left: 35px;
+    font-size: 80px;
+    padding-left: 60px;
     margin-bottom: 0;
-  }
-  
+    text-align: left;
+  }  
   body.chin .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1.big {
        font-size: 80px;
   }
 }
 @media (min-width: 1200px) {
 .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1.big {
-       font-size: 85px;
-    padding-left: 35px;
+    font-size: 85px;
+    padding-left: 50px;
   }
  .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
       font-size: 80px;
@@ -14838,13 +14839,14 @@ body.chin button#thank-you-continue {
   .fwd-savie-wrapper .o2o-landing p.bottom-text {
     width: 100%;
     max-width: 525px;
-    margin: 15px auto 10px;
+    margin: 20px auto 5px;
     line-height: 16px;
   }
 }
 @media (min-width: 1200px) {
   .fwd-savie-wrapper .o2o-landing p.bottom-text {
-          line-height: inherit;
+    line-height: 20px;
+    margin: 20px auto 10px;
   }
 }
 .fwd-savie-wrapper .o2o-landing#flux .disclaimer-policy .policy-provisions {
@@ -16412,6 +16414,7 @@ h2.h2-orange {
 }
 .fwd-savie-wrapper .banner-widget .breadcrumbs .breadcrumbs-landing.op-breadcrumbs {
     /*margin-top: 0;*/
+    margin-left: 15px;
 }
 .fwd-savie-wrapper .banner-widget .breadcrumbs .breadcrumbs-landing.op-breadcrumbs a,
 .fwd-savie-wrapper .banner-widget .breadcrumbs .breadcrumbs-landing.op-breadcrumbs .divider {
