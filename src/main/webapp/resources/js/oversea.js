@@ -203,7 +203,6 @@ function coverageToggle(){
 var oversea_click = false;
 function validateOverseaDetails() {
 	
-	
 	if ($("#inputFullName").val().trim() == namePlaceholder.trim()) {
 		$("#inputFullName").val('');
 	}
@@ -253,6 +252,9 @@ function validateOverseaDetails() {
 	}
 	if ($("#insuredDob").val().trim() == insurDobPlaceholder.trim()) {
 		$("#insuredDob").val('');
+	}
+	if ($("#overseaDepartureDate").val().trim() == departurePlaceholder.trim()) {
+		$("#overseaDepartureDate").val('');
 	}
 	if ($("#countryOfInstitution").val().trim() == institueCountryPlaceholder.trim()) {
 		$("#countryOfInstitution").val('');
@@ -304,7 +306,7 @@ function validateOverseaDetails() {
 	var InsuFullName = document.getElementById("txtInsuFullName1").value;
 	var InsuHkid = document.getElementById("txtInsuHkid1").value;
 	var InsuDob = document.getElementById("insuredDob").value;
-
+	
 	var addressofInstitutionLine1 = document.getElementById("addressofInstitutionLine1").value;	
 	var addressofInstitutionLine2 = document.getElementById("addressofInstitutionLine2").value;
 	var addressofInstitutionLine3 = document.getElementById("addressofInstitutionLine3").value;
@@ -312,7 +314,6 @@ function validateOverseaDetails() {
 	var nameOfInstitution = document.getElementById("nameOfInstitution").value;
 	var visacheckbox = document.getElementById("visacheckbox").checked;		
 	var overseaDepartureDate = document.getElementById("overseaDepartureDate").value;
-	//var insuredDob = $("#overseaDepartureDate").val();
 	var insuredDob = $("#overseaDepartureDate").val();
 	
 	var beneficiaryName = document.getElementById("beneficiaryFullName").value;
@@ -354,7 +355,7 @@ function validateOverseaDetails() {
 			flag = false;
 		}
 	}
-	if (applicantDob.trim() == "") {
+	if (applicantDob.trim() == "" || applicantDob.trim() == "DD-MM-YYYY") {
 		$('#dobInvalid').html(
 				getBundle(getBundleLanguage, "applicant.dob.notNull.message"));
 		$('#input_oversea_dob').addClass('invalid-field');
@@ -470,7 +471,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			}
 		}
 	}
-	if (InsuDob.trim() == ""){
+	if (InsuDob.trim() == ""  || InsuDob.trim() == "DD-MM-YYYY"){
 		$("#oversea_insure_dob").addClass("invalid-field");	
 		$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.Empty"));
 		flag = false;
@@ -564,7 +565,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 	}
 	
 	
-	if (overseaDepartureDate.trim() == "") {
+	if (overseaDepartureDate.trim() == "" || overseaDepartureDate.trim() == "DD-MM-YYYY") {
 		$('#oversea_departure_date').addClass('invalid-field');
 		$("#overseaDepartureDateInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.institution.departure.Error.Empty"));
 		flag = false;
@@ -735,7 +736,12 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			$("#input_oversea_dob").removeClass("invalid-field");
 			$("#dobInvalid").html( '');
 			$("#oversea_insure_dob").removeClass("invalid-field");
-			$("#dobInsuredInvalid").html( ''); 		
+			$("#dobInsuredInvalid").html( ''); 	
+			if(applicantDob.trim() =="DD-MM-YYYY"){
+				$('#dobInvalid').html(
+						getBundle(getBundleLanguage, "applicant.dob.notNull.message"));
+				$('#input_oversea_dob').addClass('invalid-field');				
+			}
 		}
 	}else{
 		if(applicantDob.trim() !=""){
@@ -757,7 +763,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			}
 			flag = false;
 			if (firstErrorElementId == "") {firstErrorElementId = "oversea_insure_dob";}		
-		}else if(InsuDob==""){
+		}else if(InsuDob=="" || InsuDob=="DD-MM-YYYY"){
 			$("#oversea_insure_dob").addClass("invalid-field");
 			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.Empty"));
 			flag = false;
