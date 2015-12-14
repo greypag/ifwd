@@ -160,14 +160,12 @@ $(document).ready(function(){
 	                                             <c:if test="${planDetailsForm.correspondenceAddressStreetName != ''}">
 	                                                ${planDetailsForm.correspondenceAddressStreetName},
 	                                            </c:if>
-	                                            
 	                                            <c:if test="${planDetailsForm.applicantDistrictDesc != ''}">
 	                                                ${planDetailsForm.applicantDistrictDesc},
-	                                            </c:if>
-	                                            <c:if test="${planDetailsForm.correspondenceAddressDistrictDesc != ''}">
-	                                                ${planDetailsForm.correspondenceAddressDistrictDesc}
-	                                            </c:if>
-	                                            Hong Kong
+	                                            </c:if>, HONG KONG
+                                                <%--<c:if test="${planDetailsForm.applicantAreaDesc != ''}">
+                                                    ${planDetailsForm.applicantAreaDesc}
+                                                </c:if> --%>
                                             </div>
                                         </div>											
                                         <div class="row summary-row">

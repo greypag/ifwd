@@ -1117,6 +1117,9 @@ $(document).ready(function() {
                                                </thead>
                                                <tbody>
                                                <tr>
+                                                   <td colspan="3"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.row1" bundle="${msg}" /></td>
+                                               </tr>
+                                               <tr>
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" />"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.row2" bundle="${msg}" /></td>
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" />" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.planA.1" bundle="${msg}" /></td>
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.planB.1" bundle="${msg}" /></td>
@@ -1127,14 +1130,7 @@ $(document).ready(function() {
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.planB.2" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" />"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.row4" bundle="${msg}" /></td>
-                                                   <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" />" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.planA.2" bundle="${msg}" /></td>
-                                                   <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.planB.2" bundle="${msg}" /></td>
-                                               </tr>
-                                               <tr>
-                                                   <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" />"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.row3" bundle="${msg}" /></td>
-                                                   <td></td>
-                                                   <td></td>
+                                                   <td colspan="3"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item9.row4" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
