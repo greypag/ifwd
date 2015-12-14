@@ -42,39 +42,38 @@ var home_url = "<%=request.getContextPath()%>";
 			<div class="text-center o2o-landing banner-widget hunger-selling container-fluid">
 				<img class="mobile-banner" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.mobile" bundle="${msg}" />" />
 				<img class="desktop-banner" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.desktop" bundle="${msg}" />" />
-                <div class="fwd-container container-fluid breadcrumbs op-breadcrumbs-container">
-                    <ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing op-breadcrumbs">
-						<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
-                        <li class="divider"><!-- <i class="fa fa-chevron-right"></i> -->></li>
-						<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
-                        <li class="divider">></li>
-                        <li><a href="#" class="active"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
-					</ol>
+            <div class="fwd-container container-fluid breadcrumbs op-breadcrumbs-container">
+                <ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing op-breadcrumbs">
+						  <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
+                    <li class="divider"><!-- <i class="fa fa-chevron-right"></i> -->></li>
+						  <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
+                    <li class="divider">></li>
+                    <li><a href="#" class="active"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
+					 </ol>
 				</div>
 				
 				<div class="hunger-text-section">
-					<p class="hunger-selling-text text-1 big"><fmt:message key="jumbo.savie.oceanpark" bundle="${msg}" /></p>
-                    <img class="op-logo" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />                    
+				   <img class="op-logo" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
+					<p class="hunger-selling-text text-1"><fmt:message key="jumbo.savie.oceanpark" bundle="${msg}" /></p>
 				</div>
 			</div>
-			
+						
 			<div class="fwd-full-container container-fluid o2o-landing teaser op-div">
 				<div class="fwd-container-limit">
 					<div class="teaser-banner-text">
 						<p class="additional top hidden-md hidden-lg"><fmt:message key="jumbo.savie.oceanpark.copy1.mobile" bundle="${msg}" /></p>
 						<p class="additional top desktop hidden-xs hidden-sm"><fmt:message key="jumbo.savie.oceanpark.copy1" bundle="${msg}" /></p>
 						<p class="bottom-text"><fmt:message key="jumbo.savie.oceanpark.copy2" bundle="${msg}" /></p>
-						
-                        <form action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}" method="post">
-                            <input type="hidden" name="accessCodeConfirm" value=""/>
-                            <div class="get-started-holder op-align">
-                                <button id="op-buy-now-O2O-mobile" class="get-started"><fmt:message key="cta.start" bundle="${msg}" /></button>
-                            </div>
-                        </form>
-                        <p class="bottom-text lower hidden-sm hidden-xs">
-                        	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part3" bundle="${msg}" />
-                        	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part3" bundle="${msg}" />
-                        </p>
+                  <form action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}" method="post">
+                      <input type="hidden" name="accessCodeConfirm" value=""/>
+                      <div class="get-started-holder op-align">
+                          <button id="op-buy-now-O2O-mobile" class="get-started"><fmt:message key="cta.start" bundle="${msg}" /></button>
+                      </div>
+                  </form>
+                  <p class="bottom-text lower hidden-sm hidden-xs">
+                  	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part3" bundle="${msg}" />
+                  	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part3" bundle="${msg}" />
+                  </p>
 					</div>
 				</div>
 			</div>
