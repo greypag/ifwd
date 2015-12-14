@@ -167,7 +167,6 @@ $(document).ready(function(){
 	                                            <c:if test="${planDetailsForm.correspondenceAddressDistrictDesc != ''}">
 	                                                ${planDetailsForm.correspondenceAddressDistrictDesc}
 	                                            </c:if>
-	                                            Hong Kong
                                             </div>
                                         </div>											
                                         <div class="row summary-row">
