@@ -439,6 +439,24 @@ public class UserController {
 					UserDetails loginUserDetails = new UserDetails();
 					loginUserDetails.setToken(checkJsonObjNull(response, "token"));
 					loginUserDetails.setFullName(checkJsonObjNull(customer, "name"));
+					if(loginUserDetails.getFullName() != null && loginUserDetails.getFullName().contains(" ")){
+						String[] strArray = loginUserDetails.getFullName().split(" ");
+						String firstName = "";
+						String lastName = "";
+						for(int i=0;i<strArray.length;i++){
+							if(i==0){
+								firstName = strArray[0];
+							}
+							else{
+								lastName += strArray[i]+" ";
+							}
+						}
+						loginUserDetails.setFirstName(firstName);
+						loginUserDetails.setLastName(lastName);
+					}
+					else{
+						loginUserDetails.setFirstName(loginUserDetails.getFullName());
+					}
 					loginUserDetails.setEmailAddress(checkJsonObjNull(customer,
 							"email"));
 					loginUserDetails.setMobileNo(checkJsonObjNull(customer,
