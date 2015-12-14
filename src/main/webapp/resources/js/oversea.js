@@ -706,7 +706,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 	//var currAge = Date1.from(Date2).split(" ");
 	var departAge = Date3.diff(Date1,'years',true);
 	var currAge = Date2.diff(Date1,'years',true);
-	//console.log("DepartAge= "+departAge);
+	console.log("DepartAge= "+departAge);
 	//console.log("CurrAge= "+currAge);
 	if(appRelation =="SE"){
 		if(currAge >= 65){

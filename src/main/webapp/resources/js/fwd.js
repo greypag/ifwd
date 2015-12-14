@@ -531,6 +531,11 @@ $(function () {
 	dob_12_date.setFullYear(dob_12_date.getFullYear() - 12);		
 	dob_12_date.setDate(dob_12_date.getDate() + 1);
 	
+	// 10 year ago date
+	var dob_10_date = new Date();
+	dob_10_date.setFullYear(dob_10_date.getFullYear() - 10);		
+	dob_10_date.setDate(dob_12_date.getDate() + 1);
+	
 	// 86 year ago date
 	var dob_start_date = new Date();
 	dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
@@ -540,6 +545,10 @@ $(function () {
 	var dob_70_date = new Date();
 	dob_70_date.setFullYear(dob_70_date.getFullYear()-71);
 	dob_70_date.setDate(dob_70_date.getDate());
+	
+	//Start at 1900
+	var dob_1900_date = new Date();
+	dob_1900_date.setFullYear(1900,0,1);
 	
 	// birthday datepicker, only 18-85 year-old users can buy the insurance
 	$('#input_dob').datepicker({
@@ -572,7 +581,7 @@ $(function () {
 		startView: "decade",
 		autoclose: true,
 		format: "dd-mm-yyyy",
-		//startDate: dob_start_date,
+		startDate: dob_1900_date,
 		endDate: dob_end_date
 	}).on('changeDate', function (ev) {
 		if (document.getElementById("applicantRelationship").value == 'SE'){
@@ -593,9 +602,9 @@ $(function () {
 	$('#oversea_insure_dob').datepicker({
 		startView: "decade",
 		autoclose: true,
-		format: "dd-mm-yyyy"
-		//startDate: dob_65_date,
-		//endDate: dob_12_date
+		format: "dd-mm-yyyy",
+		startDate: dob_1900_date,
+		endDate: dob_10_date
 		/*language: getBundleLanguage*/
 	}).on('changeDate', function (ev) {
 		$("#dobInsuredInvalid").html("");
