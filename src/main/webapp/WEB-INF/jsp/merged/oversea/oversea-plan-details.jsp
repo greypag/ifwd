@@ -55,7 +55,7 @@ var insurDobPlaceholder="<fmt:message key="Overseas.userdetails.Insured.DOB" bun
 var benNamePlaceholder="<fmt:message key="Overseas.userdetails.Bene.Fullname" bundle="${msg}" />";
 var benHkidPlaceholder="<fmt:message key="Overseas.userdetails.Bene.Insured.HKID.eg" bundle="${msg}" />";
 
-var departurePlaceholder="<fmt:message key="Overseas.userdetails.institution.departure" bundle="${msg}" />";
+var departurePlaceholder="<fmt:message key="Overseas.userdetails.institution.departure.DDMMYYYY" bundle="${msg}" />";
 var institueCountryPlaceholder="<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />";
 var institueNamePlaceholder="<fmt:message key="Overseas.userdetails.Instituation.Name" bundle="${msg}" />";
 var institueAddr1Placeholder="<fmt:message key="Overseas.userdetails.Instituation.Line1" bundle="${msg}" />";
