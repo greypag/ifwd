@@ -162,10 +162,6 @@ $(document).ready(function(){
 	                                            </c:if>
 	                                            <c:if test="${planDetailsForm.applicantDistrictDesc != ''}">
 	                                                ${planDetailsForm.applicantDistrictDesc},
-	                                            </c:if>, HONG KONG
-                                                <%--<c:if test="${planDetailsForm.applicantAreaDesc != ''}">
-                                                    ${planDetailsForm.applicantAreaDesc}
-                                                </c:if> --%>
 	                                            </c:if>
 	                                            <c:if test="${planDetailsForm.correspondenceAddressDistrictDesc != ''}">
 	                                                ${planDetailsForm.correspondenceAddressDistrictDesc}
