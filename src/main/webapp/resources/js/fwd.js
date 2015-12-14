@@ -4145,7 +4145,15 @@ function tPlanValid()
 	
 
 }
-
+function isAlphaNumericWithSpecialChar(evt) {
+	evt = (evt) ? evt : event;
+	var charCode = (evt.charCode) ? evt.charCode : ((evt.keyCode) ? evt.keyCode : ((evt.which) ? evt.which : 0));
+	console.log(charCode);
+	if (charCode > 32 && (charCode < 65 || charCode > 90) && (charCode < 97 || charCode > 122) && (charCode < 43 || charCode > 57)) {
+		return false;
+	}
+	return true;
+}
 
 
 function isAlphaNumeric(evt) {

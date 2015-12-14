@@ -254,6 +254,12 @@ function validateOverseaDetails() {
 	if ($("#insuredDob").val().trim() == insurDobPlaceholder.trim()) {
 		$("#insuredDob").val('');
 	}
+	if ($("#countryOfInstitution").val().trim() == institueCountryPlaceholder.trim()) {
+		$("#countryOfInstitution").val('');
+	}
+	if ($("#nameOfInstitution").val().trim() == institueNamePlaceholder.trim()) {
+		$("#nameOfInstitution").val('');
+	}
 	if ($("#addressofInstitutionLine1").val().trim() == institueAddr1Placeholder.trim()) {
 		$("#addressofInstitutionLine1").val('');
 	}
@@ -410,6 +416,9 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 		$("#errorEmptyCorrespondenceAddressBuilding").html( getBundle(getBundleLanguage, "Overseas.userdetails.applicant.Correspondence.Error.BorE"));
 		$("#errorEmptyCorrespondenceAddressEstate").html( getBundle(getBundleLanguage, "Overseas.userdetails.applicant.Correspondence.Error.BorE"));
 		flag = false;
+		if(firstErrorElementId==""){
+			firstErrorElementId="correspondenceAddressBuildingId";
+		}		
 	}
 	else {
 		$("#"+'errorEmptyCorrespondenceAddressEstate').html('');
@@ -424,6 +433,9 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 		$("#"+'applicantDistrictSelectWrap').addClass("invalid-field");
 		$("#"+"errorEmptycorrespondenceAddressDistrict").html( getBundle(getBundleLanguage, 'Overseas.userdetails.applicant.Correspondence.Error.District')); 
 		flag = false;
+		if(firstErrorElementId==""){
+			firstErrorElementId="applicantDistrictSelectWrap";
+		}		
 	}
 	else {
 		$("#"+'errorEmptycorrespondenceAddressDistrict').html('');
@@ -434,25 +446,37 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 		$("#txtInsuFullName1").addClass("invalid-field");	
 		$("#errtxtPersonalFullName1").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.Fullname.Error.Empty"));
 		flag = false;
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtInsuFullName1";
+		}
 	}
 	
 	if (InsuHkid.trim() == ""){
 		$("#txtInsuHkid1").addClass("invalid-field");	
 		$("#errtxtInsuHkid1").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.HKID.Error.Invalid"));
 		flag = false;
+		if(firstErrorElementId==""){
+			firstErrorElementId="txtInsuHkid1";
+		}
 	}
 	else {
 		var tr = IsHKID(InsuHkid.trim());
 		if (tr == false) {
 			$("#txtInsuHkid1").addClass("invalid-field");	
 			$("#errtxtInsuHkid1").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.HKID.Error.Invalid"));
-			flag = false;			
+			flag = false;
+			if(firstErrorElementId==""){
+				firstErrorElementId="txtInsuHkid1";
+			}
 		}
 	}
 	if (InsuDob.trim() == ""){
 		$("#oversea_insure_dob").addClass("invalid-field");	
 		$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.Empty"));
 		flag = false;
+		if(firstErrorElementId==""){
+			firstErrorElementId="oversea_insure_dob";
+		}
 	}
 	else {
 		$("#"+'dobInsuredInvalid').html('');
@@ -540,42 +564,21 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 	}
 	
 	
-	if (overseaDepartureDate.trim() == "" || overseaDepartureDate.trim() =="DD-MM-YYYY") {
+	if (overseaDepartureDate.trim() == "") {
 		$('#oversea_departure_date').addClass('invalid-field');
-		$("#overseaDepartureDateInvalid").html( getBundle(getBundleLanguage, "Please select a departure date."));
+		$("#overseaDepartureDateInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.institution.departure.Error.Empty"));
 		flag = false;
+		if(firstErrorElementId==""){
+			firstErrorElementId="oversea_departure_date";
+		}
 	}
 	else {
 		$("#"+'overseaDepartureDateInvalid').html('');
 		$("#"+'oversea_departure_date').removeClass("invalid-field");
 	}	
 
-	if (nameOfInstitution.trim() == "" || nameOfInstitution.trim() =="Name of Institution") {
-	
-		$("#nameOfInstitution").addClass("invalid-field");	
-		$("#nameOfInstitutionInvalid").html( getBundle(getBundleLanguage, "Please enter the name of Instituation."));
-		flag = false;
-	}
-	else {
-		$("#"+'nameOfInstitutionInvalid').html('');
-		$("#"+'nameOfInstitution').removeClass("invalid-field");
-	}
-	
-	if (addressofInstitutionLine1.trim() == "" && addressofInstitutionLine2.trim() == "" && addressofInstitutionLine3.trim() == "") {
-		$("#addressofInstitutionLine1").addClass("invalid-field");	
-		$("#addressofInstitutionLine2").addClass("invalid-field");
-		$("#addressofInstitutionLine3").addClass("invalid-field");
-		$("#addressofInstitutionInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Instituation.Error.Empty"));
-		flag = false;
-	}
-	else {
-		$("#"+'addressofInstitutionInvalid').html('');
-		$("#"+'addressofInstitutionLine1').removeClass("invalid-field");
-		$("#"+'addressofInstitutionLine2').removeClass("invalid-field");
-		$("#"+'addressofInstitutionLine3').removeClass("invalid-field");
-	}
-//Overseas.userdetails.Instituation.Country.NotCoveredAsia
-//Overseas.userdetails.Instituation.Country.NotCoveredAsia.url
+	//Overseas.userdetails.Instituation.Country.NotCoveredAsia
+	//Overseas.userdetails.Instituation.Country.NotCoveredAsia.url
 	plan = document.getElementById("selectedPlanName").value;
 	asia_country_list =["Abu Dhabi","Dubai","India","Indonesia","Iran","Japan","Korea","Lao, P.D.R.","Macau","Malaysia","Myanmar","Nepal","North Korea","Pakistan","People Republic of China","Philippines","Singapore","Sri Lanka","Sudan","Taiwan","Thailand","Vietnam"];
 	world_wide_country_list = [ "Abu Dhabi", "Australia", "Austria", "Belgium","Brunei", "Canada", "Cuba", "Cyprus", "Denmark", "Dubai", "France", "Germany", "Guam", "Holland", "India", "Indonesia", "Iran","Ireland", "Italy", "Japan", "Korea", "Lao P.D.R.", "Macau","Malaysia", "Monaco", "Myanmar", "Nepal", "New Zealand","North Korea", "Norway", "Pakistan", "People Republic of China","Philippines", "Poland", "Portugal", "Russia", "Singapore","South Africa", "Spain", "Sri Lanka", "Sudan", "Sweden","Switzerland", "Syria", "Taiwan", "Thailand", "Turkey","United Kingdom", "Vietnam" ];
@@ -586,6 +589,9 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 		$("#"+'countryOfInstitution').addClass("invalid-field");
 		$("#countryOfInstitutionInvalid").html( getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.Error'));
 		flag = false;
+		if(firstErrorElementId==""){
+			firstErrorElementId="countryOfInstitution";
+		}
 	}
 	else
 	{
@@ -606,12 +612,45 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			$("#countryOfInstitutionInvalid").html( getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredAsia') );
 			$("#countryOfInstitutionInvalid").append("<a class='error-to-previous-page text-red' href='"+previous_action_link+"'>" + getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredAsia.url') +"</a>" + getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredAsia.end'));
 			flag = false;
+			if(firstErrorElementId==""){
+				firstErrorElementId="countryOfInstitution";
+			}
 		}else{
 			$("#"+'countryOfInstitution').removeClass("invalid-field");
 			$("#countryOfInstitutionInvalid").html( ''); 			
 		}
 	}
 
+	if (nameOfInstitution.trim() == "") {
+		$('#nameOfInstitutionInvalid').html(getBundle(
+				getBundleLanguage, "Overseas.userdetails.Instituation.Name.Error"));
+		$('#nameOfInstitution').addClass('invalid-field');
+		flag = false;
+		if (firstErrorElementId == "") {
+			firstErrorElementId = "nameOfInstitution";
+		}
+	}
+	else {
+		$("#"+'nameOfInstitutionInvalid').html('');
+		$("#"+'nameOfInstitution').removeClass("invalid-field");
+	}
+	
+	if (addressofInstitutionLine1.trim() == "" && addressofInstitutionLine2.trim() == "" && addressofInstitutionLine3.trim() == "") {
+		$("#addressofInstitutionLine1").addClass("invalid-field");	
+		$("#addressofInstitutionLine2").addClass("invalid-field");
+		$("#addressofInstitutionLine3").addClass("invalid-field");
+		$("#addressofInstitutionInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Instituation.Error.Empty"));
+		flag = false;
+		if(firstErrorElementId==""){
+			firstErrorElementId="addressofInstitutionLine1";
+		}
+	}
+	else {
+		$("#"+'addressofInstitutionInvalid').html('');
+		$("#"+'addressofInstitutionLine1').removeClass("invalid-field");
+		$("#"+'addressofInstitutionLine2').removeClass("invalid-field");
+		$("#"+'addressofInstitutionLine3').removeClass("invalid-field");
+	}
 	
 	if (!visacheckbox)
 	{
@@ -625,25 +664,25 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 		$("#visacheckboxInvalid").html( ''); 	
 	}
 	
-	if (insuredDob.trim() == "") {
-		$('#overseaDepartureDateInvalid').html(getBundle(getBundleLanguage, "Overseas.userdetails.institution.departure.Error.Empty"));
-		$('#oversea_departure_date').addClass('invalid-field');
-		if (firstErrorElementId == "") {
-			firstErrorElementId = "oversea_departure_date";
-		}
-		flag = false;
-	}
-
-	
-	if (nameOfInstitution.trim() == "") {
-		$('#nameOfInstitutionInvalid').html(getBundle(
-				getBundleLanguage, "Overseas.userdetails.Instituation.Name.Error"));
-		$('#nameOfInstitution').addClass('invalid-field');
-		if (firstErrorElementId == "") {
-			firstErrorElementId = "nameOfInstitution";
-		}
-		flag = false;
-	}
+//	if (insuredDob.trim() == "") {
+//		$('#overseaDepartureDateInvalid').html(getBundle(getBundleLanguage, "Overseas.userdetails.institution.departure.Error.Empty"));
+//		$('#oversea_departure_date').addClass('invalid-field');
+//		if (firstErrorElementId == "") {
+//			firstErrorElementId = "oversea_departure_date";
+//		}
+//		flag = false;
+//	}
+//
+//	
+//	if (nameOfInstitution.trim() == "") {
+//		$('#nameOfInstitutionInvalid').html(getBundle(
+//				getBundleLanguage, "Overseas.userdetails.Instituation.Name.Error"));
+//		$('#nameOfInstitution').addClass('invalid-field');
+//		if (firstErrorElementId == "") {
+//			firstErrorElementId = "nameOfInstitution";
+//		}
+//		flag = false;
+//	}
 	if (document.getElementById("checkbox1").checked == false) {
 		document.getElementById("chk1").innerHTML = getBundle(
 				getBundleLanguage, "travelcare.declaration.notChecked.message");
