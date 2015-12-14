@@ -314,7 +314,7 @@ public class OverseaController extends BaseController{
 		}
 		model.addAttribute("AddressofInstitutionLine", sb.toString());
 		model.addAttribute("overseaBeneficaryDesc", WebServiceUtils.getBeneRelationshipDesc(planDetailsForm.getPersonalBeneficiary(), WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request))));
-		model.addAttribute("path", path.replace("payment", "confirmation?utm_nooverride=1"));
+		model.addAttribute("path", path.replace("summary", "confirmation?utm_nooverride=1"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
         String errorMsg =request.getParameter("errorMsg");
