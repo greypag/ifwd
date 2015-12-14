@@ -73,7 +73,6 @@ var home_url = "<%=request.getContextPath()%>";
                         </form>
                         <p class="bottom-text lower hidden-sm hidden-xs">
                         	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part3" bundle="${msg}" />
-                        	<br>
                         	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part3" bundle="${msg}" />
                         </p>
 					</div>
@@ -573,19 +572,23 @@ var home_url = "<%=request.getContextPath()%>";
 
 			// Access Code Confirmation
 			function getAppointmentAccessCode(){
-			$.get(
-			    '${pageContext.request.contextPath}//ajax/savings-insurance/getAppointmentAccessCode',
-				function(data) {
-					if(data.errMsgs != null && data.errMsgs != ''){
-					}
-					else{
-						var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
-						$("#o2o-landing-form").attr("action", url);
-						$('#o2o-landing-form').submit();
-					}
-				})
-				.fail(function(data) {
-				});
+				$.ajax({
+				        type: "GET",
+				        url:'${pageContext.request.contextPath}/ajax/savings-insurance/getAppointmentAccessCode',
+				        async:false,         
+				        success:function(data){
+							if(data.errMsgs != null && data.errMsgs != ''){
+							}
+							else{
+								var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
+								$("#o2o-landing-form").attr("action", url);
+								$('#o2o-landing-form').submit();
+							}
+				        },
+						error:function(){
+						    console.log('error');     
+					    }
+				    });
 			};
 
 			// Sign up now validation
@@ -636,21 +639,5 @@ var home_url = "<%=request.getContextPath()%>";
 				$('.other-benefits-list-mobile').removeClass('hidden-sm');
 				$('#read-more-other-benefits').hide();
 			});
-			
-            function getAppointmentAccessCode(){
-                $.get('${pageContext.request.contextPath}/ajax/savings-insurance/getAppointmentAccessCode',
-                function(data) {
-                    if(data.errMsgs != null && data.errMsgs != ''){
-                    }
-                    else{
-                        var url = '${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}';
-                        $("#o2o-landing-form").attr("action", url);
-                        $('#o2o-landing-form').submit();
-                    }
-                })
-                .fail(function(data) {
-                });
-            };
-            
 		</script>
 		
