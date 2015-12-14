@@ -350,7 +350,6 @@ function mouseout2div(obj) {
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/claim_pillar.png" alt="">
             <h1><fmt:message key="Overseas.Landing.Platformpillar2.headline" bundle="${msg}" /></h1>
             <p><fmt:message key="Overseas.Landing.Platformpillar2.copy" bundle="${msg}" /></p>
-            </p>
           </div>
         </div>
       </div>
