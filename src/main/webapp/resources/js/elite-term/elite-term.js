@@ -137,6 +137,7 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 		$('#et-employment-info-next').click();
 	}
 	else{
+		$('#et-signature-proceed-btn').attr('disabled',"true");
 		var formdata =  $('#eliteTermsInsuredInfoForm').serialize()+"&"+
 	    $('#etEmploymentInfoForm').serialize()+"&"+
 	    $('#etLicenseInfoForm').serialize()+"&"+

@@ -450,7 +450,7 @@ li.sponsor-wrapper+li.sponsor-wrapper{
     margin-left:2%;
 }
 .plan-box-l h2, .plan-box-s h2{
-	font-size:14px;
+	font-size:16px;
     text-align:center;
     margin:auto;
     line-height:72px;
@@ -460,12 +460,12 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 }
 @media (min-width: 992px) and (max-width: 1199px){
     .plan-box-l h2, .plan-box-s h2{
-       font-size:14px;
+       font-size:16px;
     }
 }
 @media (min-width: 768px) and (max-width: 991px){
     .plan-box-l h2, .plan-box-s h2{
-       font-size:18px;
+       font-size:16px;
     }
 }
 .plan-box-l h2{
@@ -531,6 +531,7 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 .plan-box-active h3{
     color:#fff;
 }
+.oversea_productbox h2 {font-size:14px !important}
 .mCustomScrollBox{
 	height:none !important;
 }
@@ -832,4 +833,9 @@ a.at-svc-google_plusone, a.at-svc-google_plusone_share {
 .datepicker table tr td.day.new:hover{
 	color: #999;
 	cursor: default;
+}
+@media only screen and (max-width: 480px){
+#oversea-plan-quote-select-region-container #plan-no-more-tables td {
+    padding-left: 35%;
+}
 }

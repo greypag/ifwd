@@ -261,7 +261,7 @@ public class OverseaController extends BaseController{
 			lang = "CN";
 		List<DistrictBean> districts = homecareService.getDistrict(session.getAttribute("username").toString(), session.getAttribute("token").toString(), lang);
 		Map<String, String> areas = homecareService.getArea(session.getAttribute("username").toString(), session.getAttribute("token").toString(), lang);
-		//planDetailsForm.setApplicantAreaDesc(WebServiceUtils.getAreaDesc(areas, planDetailsForm.getc));
+		planDetailsForm.setCorrespondenceAddressDistrictDesc(WebServiceUtils.getAreaDesc(areas, planDetailsForm.getCorrespondenceAddressDistrict()));
 		planDetailsForm.setApplicantDistrictDesc(WebServiceUtils.getDistrictDesc(districts, planDetailsForm.getApplicantDistrict()));
 
 		userDetails.setFullName(applicantFullName.toUpperCase());
@@ -314,7 +314,7 @@ public class OverseaController extends BaseController{
 		}
 		model.addAttribute("AddressofInstitutionLine", sb.toString());
 		model.addAttribute("overseaBeneficaryDesc", WebServiceUtils.getBeneRelationshipDesc(planDetailsForm.getPersonalBeneficiary(), WebServiceUtils.transformLanaguage(UserRestURIConstants.getLanaguage(request))));
-		model.addAttribute("path", path.replace("summary", "confirmation?utm_nooverride=1"));
+		model.addAttribute("path", path.replace("payment", "confirmation?utm_nooverride=1"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
         String paymentGatewayFlag =request.getParameter("paymentGatewayFlag");
         String errorMsg =request.getParameter("errorMsg");

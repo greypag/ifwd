@@ -582,19 +582,19 @@ function setDropArea(id) {
                             <div class="form-group float">
                                 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none district-btn-grp pull-right">
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-                                        <label class="field-label bold-500"><input type="radio" name="districtSelected"
+                                        <label class="field-label bold-500"><input type="radio"
                                             name="correspondenceAddressDistrict" type="" value="HK"
                                             id="inlineCARadio3" onclick="" maxlength="50" onblur=""><span id="" class="radio-inline oversea-lb">
                                         <fmt:message key="Overseas.userdetails.applicant.HongKong" bundle="${msg}" /></span></label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-                                        <label class="field-label bold-500"><input type="radio" name="districtSelected"
+                                        <label class="field-label bold-500"><input type="radio"
                                             name="correspondenceAddressDistrict" type="" value="KL"
                                             id="inlineCARadio4" onclick="" maxlength="50" onblur=""><span id="" class="radio-inline oversea-lb">
                                         <fmt:message key="Overseas.userdetails.applicant.Kowloon" bundle="${msg}" /></span></label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 pad-none">
-                                        <label class="field-label bold-500"><input type="radio" name="districtSelected"
+                                        <label class="field-label bold-500"><input type="radio"
                                             name="correspondenceAddressDistrict" type="" value="NT"
                                             onclick="" id="inlineCARadio5" maxlength="50" onblur=""><span id="" class="radio-inline oversea-lb">
                                         <fmt:message key="Overseas.userdetails.applicant.NT" bundle="${msg}" /></span></label>
