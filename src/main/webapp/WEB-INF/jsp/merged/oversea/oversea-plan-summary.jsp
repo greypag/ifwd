@@ -166,6 +166,10 @@ $(document).ready(function(){
                                                 <%--<c:if test="${planDetailsForm.applicantAreaDesc != ''}">
                                                     ${planDetailsForm.applicantAreaDesc}
                                                 </c:if> --%>
+	                                            </c:if>
+	                                            <c:if test="${planDetailsForm.correspondenceAddressDistrictDesc != ''}">
+	                                                ${planDetailsForm.correspondenceAddressDistrictDesc}
+	                                            </c:if>
                                             </div>
                                         </div>											
                                         <div class="row summary-row">

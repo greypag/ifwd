@@ -261,7 +261,7 @@ public class OverseaController extends BaseController{
 			lang = "CN";
 		List<DistrictBean> districts = homecareService.getDistrict(session.getAttribute("username").toString(), session.getAttribute("token").toString(), lang);
 		Map<String, String> areas = homecareService.getArea(session.getAttribute("username").toString(), session.getAttribute("token").toString(), lang);
-		//planDetailsForm.setApplicantAreaDesc(WebServiceUtils.getAreaDesc(areas, planDetailsForm.getc));
+		planDetailsForm.setCorrespondenceAddressDistrictDesc(WebServiceUtils.getAreaDesc(areas, planDetailsForm.getCorrespondenceAddressDistrict()));
 		planDetailsForm.setApplicantDistrictDesc(WebServiceUtils.getDistrictDesc(districts, planDetailsForm.getApplicantDistrict()));
 
 		userDetails.setFullName(applicantFullName.toUpperCase());
