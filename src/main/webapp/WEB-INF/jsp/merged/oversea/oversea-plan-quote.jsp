@@ -20,7 +20,7 @@ function prepareOverseaPlan(form){
 		async : false,
 		success : function(data) {
 			if (data == "success") {
-                form.action = "<%=request.getContextPath()%>/${language}/oversea-insurance/quote";
+                form.action = "<%=request.getContextPath()%>/${language}/overseas-study-insurance/plan-options";
 				result = true;
 			} else {
 				console.log(data);
@@ -156,7 +156,7 @@ function subForm(form, formId) {
 		async : false,
 		success : function(data) {
 			if (data == "success") {
-                form.action = '<%=request.getContextPath()%>/${language}/oversea-insurance/details';
+                form.action = '<%=request.getContextPath()%>/${language}/overseas-study-insurance/application';
 				result = true;
 			} else {
 				console.log(data);

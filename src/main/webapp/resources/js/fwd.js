@@ -586,7 +586,9 @@ $(function () {
 		$("#dobInsuredInvalid").html("");
 		$("#input_oversea_dob").removeClass("invalid-field");
 		$("#oversea_insure_dob").removeClass("invalid-field");
-	});
+	}).on('show', function(ev){
+	       $("td.day.old,td.day.new").addClass("disabled");        
+	}); 
 	
 	$('#oversea_insure_dob').datepicker({
 		startView: "decade",
@@ -598,6 +600,8 @@ $(function () {
 	}).on('changeDate', function (ev) {
 		$("#dobInsuredInvalid").html("");
 		$("#oversea_insure_dob").removeClass("invalid-field");		
+	}).on('show', function(ev){
+	       $("td.day.old,td.day.new").addClass("disabled");        
 	});	
 		
 	$('#oversea_educational_insured_dob').datepicker({
@@ -609,7 +613,9 @@ $(function () {
 	}).on('changeDate', function (ev) {
 		$(this).next().html("");
 		$(this).removeClass("invalid-field");
-	});
+	}).on('show', function(ev){
+	       $("td.day.old,td.day.new").addClass("disabled");        
+	}); 
 	
 	$('#oversea_departure_date').datepicker({
 		startView: "decade",
@@ -620,7 +626,9 @@ $(function () {
 	}).on('changeDate', function (ev) {
 		$(this).next().html("");
 		$(this).removeClass("invalid-field");
-	});
+	}).on('show', function(ev){
+	       $("td.day.old,td.day.new").addClass("disabled");        
+	}); 
 	
 	$('#input_annual_dob').datepicker({
 		startView: "decade",

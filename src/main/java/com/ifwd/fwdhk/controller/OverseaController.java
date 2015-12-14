@@ -54,7 +54,7 @@ public class OverseaController extends BaseController{
 	@Autowired
 	private CommonUtils commonUtils;
 
-	@RequestMapping(value = {"/{lang}/oversea-insurance"})
+	@RequestMapping(value = {"/{lang}/overseas-study-insurance"})
 	public ModelAndView getOverseaLanding(@RequestParam(required = false) final String promo, Model model, HttpServletRequest request) {
 		UserRestURIConstants.setController("Oversea");
 		request.setAttribute("controller", UserRestURIConstants.getController());
@@ -66,7 +66,7 @@ public class OverseaController extends BaseController{
 		}
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_LANDING);
 	}
-	@RequestMapping(value = {"/{lang}/oversea-insurance/quote"})
+	@RequestMapping(value = {"/{lang}/overseas-study-insurance/plan-options"})
 	public ModelAndView getOverseaQuote(Model model, HttpServletRequest request) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
@@ -84,11 +84,11 @@ public class OverseaController extends BaseController{
 		} else {
 			model.addAttribute("errMsgs", session.getAttribute("errMsgs"));
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/oversea-insurance");
+					+ "/overseas-study-insurance");
 		}
 		return OverseaPageFlowControl.pageFlow(model, request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_QUOTE);
 	}
-	@RequestMapping(value = {"/{lang}/oversea-insurance/details"})
+	@RequestMapping(value = {"/{lang}/overseas-study-insurance/application"})
 	public ModelAndView getOverseaDetails(Model model, HttpServletRequest request) {
 		UserRestURIConstants.setController("Oversea");
 		HttpSession session = request.getSession();
@@ -97,7 +97,7 @@ public class OverseaController extends BaseController{
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errMsgs", "Session Expired");
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/oversea-insurance");
+					+ "/overseas-study-insurance");
 		}
 		String planName = WebServiceUtils.getParameterValue("planName", session, request);
 		/*String planSummary = WebServiceUtils.getParameterValue("selectedAmountDue", session, request);
@@ -148,7 +148,7 @@ public class OverseaController extends BaseController{
 		if(quoteDetails == null) {
 			model.addAttribute("errMsgs", session.getAttribute("errMsgs"));
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/oversea-insurance");
+					+ "/overseas-study-insurance");
 		}
 		for(int i = 0; i < quoteDetails.getPlanName().length; i++) {
 			if (quoteDetails.getPlanName()[i].equals(planName)) {
@@ -218,7 +218,7 @@ public class OverseaController extends BaseController{
 		
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_DETAILS);
 	}
-	@RequestMapping(value = {"/{lang}/oversea-insurance/summary"})
+	@RequestMapping(value = {"/{lang}/overseas-study-insurance/payment"})
 	public ModelAndView getOverseaSummary(Model model, HttpServletRequest request,
 			@ModelAttribute("frmYourDetails") OverseaDetailsForm planDetailsForm) {
 		HttpSession session = request.getSession();
@@ -228,7 +228,7 @@ public class OverseaController extends BaseController{
 		String planSelected = (String) session.getAttribute("planSelected");
 		if(session.getAttribute("token") == null || planSelected == null){
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/oversea-insurance");	
+					+ "/overseas-study-insurance");	
 		}
 		UserRestURIConstants.setController("Oversea");
 		request.setAttribute("controller", UserRestURIConstants.getController());
@@ -328,13 +328,13 @@ public class OverseaController extends BaseController{
 		return OverseaPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_OVERSEA_SUMMARY);
 	}
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = {"/{lang}/oversea-insurance/confirmation"})
+	@RequestMapping(value = {"/{lang}/overseas-study-insurance/confirmation"})
 	public ModelAndView getOverseaConfirmation(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("token") == null) {
 			model.addAttribute("errormsg", "Session Expired");
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-					+ "/oversea-insurance");
+					+ "/overseas-study-insurance");
 		}
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
@@ -374,7 +374,7 @@ public class OverseaController extends BaseController{
 
 			if(JsonUtils.hasEmpty(parameters)) {
 				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-						+ "/oversea-insurance");
+						+ "/overseas-study-insurance");
 			}
 			
 			HashMap<String, String> header = new HashMap<String, String>(

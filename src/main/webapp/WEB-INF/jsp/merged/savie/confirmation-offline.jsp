@@ -87,7 +87,7 @@ var affiliate = "${affiliate}";
                       <span class="step">2</span>
 						<p>
 							<fmt:message key="saviee.appointment.doucmenttobring2" bundle="${msg}" />
-							<a href="<%=request.getContextPath()%>/<fmt:message key="saviee.appointment.doucmenttobring2.URL" bundle="${msg}" />" target="_blank"><fmt:message key="savie.confirmation.offline.A.address.link.text" bundle="${msg}" />
+							<a href="<%=request.getContextPath()%>/<fmt:message key="saviee.appointment.doucmenttobring2.URL" bundle="${msg}" />" target="_blank"><fmt:message key="savie.confirmation.offline.A.address.link.text" bundle="${msg}" /></a>
 							<fmt:message key="savie.confirmation.offline.A.address.part2" bundle="${msg}" />
 						</p>
                       <div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-2.jpg" class="img-responsive" /></div>
@@ -151,7 +151,7 @@ var affiliate = "${affiliate}";
                                     <div class="appointment-detail clearfix print hidden-xs hidden-sm">
 										<div class="print-image-holder">
 											<img src="<%=request.getContextPath()%>/resources/images/savie/print-logo.png" alt="Print" class="">
-											<p onclick="window.print()">Print this document</p>
+											<p onclick="window.print()"><fmt:message key="savie.confirmation.offline.Print" bundle="${msg}" /></p>
 										</div>
 									</div>
 									<div class = "share-container text-center" >		
