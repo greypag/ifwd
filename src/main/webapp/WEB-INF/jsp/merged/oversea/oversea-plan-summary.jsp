@@ -304,8 +304,8 @@ $(document).ready(function(){
                                         <div class="row summary-row">
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 h2-1 pad-none summary-detail-head">
                                             <div class="checkbox">
-                                                <input id="checkboxvisa" name="checkbox3" type="checkbox" disable="disable" checked onclick="return false">
-                                                <label for="checkbox3"><fmt:message key="Overseas.Payment.Summary.StudentVisaHolder" bundle="${msg}" /></label>
+                                                <input type="checkbox" disable="disable" checked onclick="return false">
+                                                <label ><fmt:message key="Overseas.Payment.Summary.StudentVisaHolder" bundle="${msg}" /></label>
                                             </div>
 										</div>                                                                            
                                         <div class="row summary-row">
