@@ -260,7 +260,7 @@ function sendEmail() {
 	return false;
 }
 function coverageToggleGoto(id){
-    $.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+    $.mCustomScrollbar.defaults.scrollButtons.enable=true;
     $.mCustomScrollbar.defaults.axis="y";
     $('.fwdpanel-body').mCustomScrollbar({
         theme:"light-2"
@@ -272,16 +272,16 @@ function coverageToggleGoto(id){
         coverageToggle('#TopupInPatientMedicalExpensesInnerContent','close');
 		coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','open');
         coverageToggle('#PersonalLiabilityInnerContent','close');
-        //$('#WorldwideEmergencyAssistanceServicesInnerContent').slideDown("slow");
-        
-		$('html, body').animate({
-            scrollTop: $('#WorldwideEmergencyAssistanceServicesInnerContent').offset().top
-        }, 500);
-		
-        $('#WorldwideEmergencyAssistanceServicesInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#WorldwideEmergencyAssistanceServicesInnerContent'));
-        
-        
-        
+        if($('.top-bar').height()>0){
+            $('html, body').animate({
+                scrollTop: $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().offset().top
+            }, 500);
+        }else{
+            $('html, body').animate({
+                scrollTop:($('#WorldwideEmergencyAssistanceServicesInnerContent').prev().offset().top-$('.logobox').height())
+            }, 500);
+        }
+        $('#WorldwideEmergencyAssistanceServicesInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#WorldwideEmergencyAssistanceServicesInnerContent').prev());
 		$('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
         $('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-minus');
         $('#TopupInPatientMedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
@@ -289,26 +289,24 @@ function coverageToggleGoto(id){
         $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().addClass('fa-minus');
         $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().removeClass('fa-plus');
         $('#SummaryofCoverage').find('h4').find('i').removeClass('fa-chevron-down');
-        $('#SummaryofCoverage').find('h4').find('i').addClass('fa-chevron-up');
+        $('#SummaryofCoverage').find('h4').find('i').addClass('fa-chevron-up');      
    	}else if(id=="2"){
         coverageToggle('#SummaryofCoverageContent','open');
         coverageToggle('#MedicalExpensesInnerContent','open');
         coverageToggle('#TopupInPatientMedicalExpensesInnerContent','close');
         coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','close');
         coverageToggle('#PersonalLiabilityInnerContent','close');
-       // $('#MedicalExpensesInnerContent').slideDown("slow");
-        $('html, body').animate({
-            scrollTop: $('#MedicalExpensesInnerContent').offset().top
-        }, 500);
-/*
-        $('#SummaryofCoverageContent').animate({
-            scrollTop: $('#MedicalExpensesInnerContent').slideUp("fast")
-        }, 500);
-        */
-        $('#MedicalExpensesInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#MedicalExpensesInnerContent'));
-        
-        
-        
+       
+        if($('.top-bar').height()>0){
+            $('html, body').animate({
+                scrollTop: $('#MedicalExpensesInnerContent').prev().offset().top
+            }, 500);
+        }else{
+            $('html, body').animate({
+                scrollTop:($('#MedicalExpensesInnerContent').prev().offset().top-$('.logobox').height())
+            }, 500);
+        }
+        $('#MedicalExpensesInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#MedicalExpensesInnerContent').prev());
         $('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-minus');
         $('#MedicalExpensesInnerContent').prev().children().children().removeClass('fa-plus');
         $('#TopupInPatientMedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
@@ -317,7 +315,7 @@ function coverageToggleGoto(id){
         $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().children().children().removeClass('fa-minus');
         $('#SummaryofCoverage').find('h4').find('i').removeClass('fa-chevron-down');
         $('#SummaryofCoverage').find('h4').find('i').addClass('fa-chevron-up');
-    }else if(id=="3"){
+    }/*else if(id=="3"){
         coverageToggle('#SummaryofCoverageContent','open');
         coverageToggle('#MedicalExpensesInnerContent','close');
         coverageToggle('#TopupInPatientMedicalExpensesInnerContent','close');
@@ -327,11 +325,11 @@ function coverageToggleGoto(id){
         $('html, body').animate({
             scrollTop: $('#PersonalLiabilityInnerContent').offset().top
         }, 500);
-        /*
-        $('#SummaryofCoverageContent').animate({
-            scrollTop: $('#PersonalLiabilityInnerContent').slideUp("fast")
-        }, 500);
-        */
+        
+        //$('#SummaryofCoverageContent').animate({
+        //    scrollTop: $('#PersonalLiabilityInnerContent').slideUp("fast")
+        //}, 500);
+        
         $('#PersonalLiabilityInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#PersonalLiabilityInnerContent'));
         
         $('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
@@ -356,11 +354,11 @@ function coverageToggleGoto(id){
         $('html, body').animate({
             scrollTop: $('#TopupInPatientMedicalExpensesInnerContent').offset().top
         }, 500);
-        /*
-        $('#SummaryofCoverageContent').animate({
-            scrollTop: $('#PersonalLiabilityInnerContent').slideUp("fast")
-        }, 500);
-        */
+        
+        //$('#SummaryofCoverageContent').animate({
+        //    scrollTop: $('#PersonalLiabilityInnerContent').slideUp("fast")
+        //}, 500);
+        
         $('#TopupInPatientMedicalExpensesInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#TopupInPatientMedicalExpensesInnerContent'));
         
         $('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
@@ -373,7 +371,7 @@ function coverageToggleGoto(id){
         $('#PersonalLiabilityInnerContent').prev().children().children().removeClass('fa-plus');
         $('#SummaryofCoverage').find('h4').find('i').addClass('fa-chevron-down');
         $('#SummaryofCoverage').find('h4').find('i').removeClass('fa-chevron-up');
-    }
+    }*/
 }
 function coverageToggle(id,action){
     //$(id).mCustomScrollbar();
@@ -817,7 +815,7 @@ $(document).ready(function() {
                                                       <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" class="planOptionCoverageColS" rowspan="2"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planB.1" bundle="${msg}" /></td>
                                                   </tr>
                                                   <tr>
-                                                      <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" />"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.row2" bundle="${msg}" /></td>
+                                                      <td><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.row2" bundle="${msg}" /></td>
                                                   </tr>												  
                                                   </tbody>
                                                </table>
@@ -913,9 +911,7 @@ $(document).ready(function() {
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planB.8" bundle="${msg}" /></td>
                                                </tr>
                                                <tr>
-                                                   <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" />"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.row9" bundle="${msg}" /></td>
-                                                   <td></td>
-                                                   <td></td>
+                                                   <td colspan="3" data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" />"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.row9" bundle="${msg}" /></td>
                                                </tr>
                                                </tbody>
                                             </table>
