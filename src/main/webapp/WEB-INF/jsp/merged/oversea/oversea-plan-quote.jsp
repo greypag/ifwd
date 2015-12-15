@@ -2127,7 +2127,7 @@ $(document).ready(function() {
 		<div class="col-xs-12 hidden-md hidden-lg pad-none">
 		   <div style="width: 80%;margin-left: 10%; margin-bottom: 40px;">
 		        <div class="top35 pull-left pad-none" style="width:47%">
-		            <a class="bdr-curve btn btn-primary bck-btn" onClick="perventRedirect=false;BackMe();">Back </a>
+		            <a class="bdr-curve btn btn-primary bck-btn" onClick="perventRedirect=false;BackMe();"><fmt:message key="Overseas.PlanOptions.Back" bundle="${msg}" /></a>
 		        </div>
 		        <div class="top35 pull-right pad-none" style="width:47%">
 		            
