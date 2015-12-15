@@ -225,7 +225,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer1.box1" bundle="${msg}" /></p>
-											<p class="value">20</p>
+											<p class="value">${count0}</p>
 										</div>
 										<div class="holder date">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer1.box2" bundle="${msg}" /></p>
@@ -267,7 +267,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer2.box1" bundle="${msg}" /></p>
-											<p class="value">10</p>
+											<p class="value">${count1}</p>
 										</div>
 										<div class="holder date">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer2.box2" bundle="${msg}" /></p>
@@ -310,7 +310,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer3.box1" bundle="${msg}" /></p>
-											<p class="value">20</p>
+											<p class="value">${count2}</p>
 										</div>
 										<div class="holder date">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer3.box2" bundle="${msg}" /></p>
@@ -352,7 +352,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer4.box1" bundle="${msg}" /></p>
-											<p class="value">10</p>
+											<p class="value">${count3}</p>
 										</div>
 										<div class="holder date">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer4.box2" bundle="${msg}" /></p>
@@ -394,7 +394,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer5.box1" bundle="${msg}" /></p>
-											<p class="value">20</p>
+											<p class="value">${count4}</p>
 										</div>
 										<div class="holder date">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer5.box2" bundle="${msg}" /></p>
@@ -405,7 +405,7 @@
 								</div>
 
 								<div class="details-button-holder text-center" name="offer5">
-									<button class="details-btn"><fmt:message key="Fanfare.landingpage.offer5.button" bundle="${msg}" /></button>
+									<button class="details-btn" id="fifth-plan"><fmt:message key="Fanfare.landingpage.offer5.button" bundle="${msg}" /></button>
 								</div>
 							</div>
 						</div>
@@ -704,6 +704,177 @@
 						</div>
 					</div>
 				</div>
+				
+				<!-- annualtravel -->
+				<div class="modal fade fwdiscover-modal" id="offer-details-first" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<p class="title">Annual Travel Plan</p>
+							<p class="promo">now <span class="price">HK$260</span> <span class="italic">(80% off)</span></p>
+
+							<ul>
+								<li>Original price: HK$1,300</li>
+								<li>Year-round coverage up to 90 days per trip</li>
+								<li>Covers medical expenses, baggage loss/damage, personal liability etc.</li>
+							</ul>
+
+							<div class="details-button-holder text-center">
+								<button class="details-btn" id="modal-grab-button-first"><fmt:message key="Fanfare.clickdetail.lightbox1.button" bundle="${msg}" /></button>
+							</div>
+
+							<div class="terms-and-condition">
+								<p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
+								<p class="content">
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
+								</p>
+							</div>
+
+							<p class="close-modal">Close</p>
+						</div>
+					</div>
+				</div>
+				<!-- annualtravel end -->
+				<!-- 14day travel -->
+				<div class="modal fade fwdiscover-modal" id="offer-details-second" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<p class="title">14-day Single Trip Travel Plan</p>
+							<p class="promo">now <span class="price">HK$260</span> <span class="italic">(80% off)</span></p>
+
+							<ul>
+								<li>Original price: HK$1,300</li>
+								<li>Year-round coverage up to 90 days per trip</li>
+								<li>Covers medical expenses, baggage loss/damage, personal liability etc.</li>
+							</ul>
+
+							<div class="details-button-holder text-center">
+								<button class="details-btn" id="modal-grab-button-second"><fmt:message key="Fanfare.clickdetail.lightbox1.button" bundle="${msg}" /></button>
+							</div>
+
+							<div class="terms-and-condition">
+								<p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
+								<p class="content">
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
+								</p>
+							</div>
+
+							<p class="close-modal">Close</p>
+						</div>
+					</div>
+				</div>
+				<!-- 14day travel end -->
+				<!-- 4day travel -->
+				<div class="modal fade fwdiscover-modal" id="offer-details-third" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<p class="title">4-day Single Trip Travel Plan</p>
+							<p class="promo">now <span class="price">HK$260</span> <span class="italic">(80% off)</span></p>
+
+							<ul>
+								<li>Original price: HK$1,300</li>
+								<li>Year-round coverage up to 90 days per trip</li>
+								<li>Covers medical expenses, baggage loss/damage, personal liability etc.</li>
+							</ul>
+
+							<div class="details-button-holder text-center">
+								<button class="details-btn" id="modal-grab-button-third"><fmt:message key="Fanfare.clickdetail.lightbox1.button" bundle="${msg}" /></button>
+							</div>
+
+							<div class="terms-and-condition">
+								<p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
+								<p class="content">
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
+								</p>
+							</div>
+
+							<p class="close-modal">Close</p>
+						</div>
+					</div>
+				</div>
+				<!-- 4day travel end -->
+				<!-- home care -->
+				<div class="modal fade fwdiscover-modal" id="offer-details-fourth" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<p class="title">1-year Home Insurance Plan</p>
+							<p class="promo">now <span class="price">HK$260</span> <span class="italic">(80% off)</span></p>
+
+							<ul>
+								<li>Original price: HK$1,300</li>
+								<li>Year-round coverage up to 90 days per trip</li>
+								<li>Covers medical expenses, baggage loss/damage, personal liability etc.</li>
+							</ul>
+
+							<div class="details-button-holder text-center">
+								<button class="details-btn" id="modal-grab-button-fourth"><fmt:message key="Fanfare.clickdetail.lightbox1.button" bundle="${msg}" /></button>
+							</div>
+
+							<div class="terms-and-condition">
+								<p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
+								<p class="content">
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
+								</p>
+							</div>
+
+							<p class="close-modal">Close</p>
+						</div>
+					</div>
+				</div>
+				<!-- home care end -->
+				<!-- working holiday -->
+				<div class="modal fade fwdiscover-modal" id="offer-details-fifth" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<p class="title">1-year Working Holiday Plan</p>
+							<p class="promo">now <span class="price">HK$260</span> <span class="italic">(80% off)</span></p>
+
+							<ul>
+								<li>Original price: HK$1,300</li>
+								<li>Year-round coverage up to 90 days per trip</li>
+								<li>Covers medical expenses, baggage loss/damage, personal liability etc.</li>
+							</ul>
+
+							<div class="details-button-holder text-center">
+								<button class="details-btn" id="modal-grab-button-fifth"><fmt:message key="Fanfare.clickdetail.lightbox1.button" bundle="${msg}" /></button>
+							</div>
+
+							<div class="terms-and-condition">
+								<p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
+								<p class="content">
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
+									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
+								</p>
+							</div>
+
+							<p class="close-modal">Close</p>
+						</div>
+					</div>
+				</div>
+				<!-- working holiday end -->
 
 				<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/to-top.jpg"></a> 
 			</div>
@@ -754,46 +925,98 @@
 		//modals
 		<%String username = (String) session.getAttribute("username");%>		
 		$('#modal-grab-button').click(function(){
-			$('.modal').modal('hide');
-			$('#offer-details-promotion-code').modal('show');
+			if('<%=username%>' == 'null') {
+				$('.modal').modal('hide');
+				$('#loginpopup').modal('show');
+			}else {
+				$('.modal').modal('hide');
+				$('#offer-details-promotion-code').modal('show');
+			}
 		});
 
 		$("#first-plan").on('click', function(){
+			$('#offer-details-first').modal('show');
+	    });
+		$('#modal-grab-button-first').click(function(){
 			if('<%=username%>' == 'null') {
+				$('.modal').modal('hide');
 				$('#loginpopup').modal('show');
+			}else {
+				assignPromoCode("6");
 			}
-			else {
-	        	$('#offer-details').modal('show');
-			}
-	    });
+		});
+		
 	    $("#second-plan").on('click', function(){
-	    	if('<%=username%>' == 'null') {
-				$('#loginpopup').modal('show');
-			}
-			else {
-	        	$('#offer-details-promotion-code').modal('show');
-			}
+	        $('#offer-details-second').modal('show');
 	    });
+	    $('#modal-grab-button-second').click(function(){
+			if('<%=username%>' == 'null') {
+				$('.modal').modal('hide');
+				$('#loginpopup').modal('show');
+			}else {
+				assignPromoCode("5");
+			}
+		});
+	    
 	    $("#third-plan").on('click', function(){
-	    	if('<%=username%>' == 'null') {
-				$('#loginpopup').modal('show');
-			}
-			else {
-	        	$('#offer-details-promotion-code-error-once').modal('show');
-			}
+	        $('#offer-details-third').modal('show');
 	    });
+	    $('#modal-grab-button-third').click(function(){
+			if('<%=username%>' == 'null') {
+				$('.modal').modal('hide');
+				$('#loginpopup').modal('show');
+			}else {
+				assignPromoCode("4");
+			}
+		});
+	    
 	    $("#fourth-plan").on('click', function(){
-	    	if('<%=username%>' == 'null') {
-				$('#loginpopup').modal('show');
-			}
-			else {
-	        	$('#offer-details-promotion-code-error-sold').modal('show');
-			}
+	        $('#offer-details-fourth').modal('show');
 	    });
+	    $('#modal-grab-button-fourth').click(function(){
+			if('<%=username%>' == 'null') {
+				$('.modal').modal('hide');
+				$('#loginpopup').modal('show');
+			}else {
+				assignPromoCode("7");
+			}
+		});
+	    
+	    $("#fifth-plan").on('click', function(){
+	        $('#offer-details-fifth').modal('show');
+	    });
+	    $('#modal-grab-button-fifth').click(function(){
+			if('<%=username%>' == 'null') {
+				$('.modal').modal('hide');
+				$('#loginpopup').modal('show');
+			}else {
+				assignPromoCode("8");
+			}
+		});
 
 	    $(".fwdiscover-modal .close-modal").on('click', function(){
 	    	$('.modal').modal('hide');
 	    });
+	    
+	    function assignPromoCode(campaignId) {
+	    	$.ajax({
+		        type : "POST",
+		        url : "<%=request.getContextPath()%>/ajax/campaign/assignPromoCode",
+		        data : {campaignId:campaignId},
+		        async : false,
+		        success : function(data) {
+					$('.modal').modal('hide');
+		        	if(data["result"]=="success"){
+						$('.promo-code-holder .code').html(data["promoCode"]);
+						$('#offer-details-promotion-code').modal('show');
+		        	}else if(data["result"]=="duplicated") {
+		        		$('#offer-details-promotion-code-error-once').modal('show');
+		        	}else{
+		        		$('#offer-details-promotion-code-error-sold').modal('show');
+		        	}
+		        }
+		    });
+	    }
 
 	    $("#countdown")
 		   .countdown("2015/12/25", function(event) {

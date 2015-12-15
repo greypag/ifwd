@@ -1,10 +1,13 @@
 package com.ifwd.fwdhk.controller;
 
+import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ifwd.fwdhk.services.CampaignService;
 import com.ifwd.fwdhk.util.Methods;
+import com.ifwd.fwdhk.util.WebServiceUtils;
+import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Controller
 public class AjaxCampaignController extends BaseController {
@@ -24,6 +29,8 @@ public class AjaxCampaignController extends BaseController {
 
 	@Autowired
 	private CampaignService campaignService;
+	@Autowired
+	private SendEmailDao sendEmail;
 	
 	@RequestMapping(value = "/ajax/campaign/promoCodeCount")
 	@ResponseBody
@@ -64,6 +71,15 @@ public class AjaxCampaignController extends BaseController {
 					map.put("promoCode", "");
 					break;
 				default:
+					HttpSession session = request.getSession();
+					HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+					header.put("userName", session.getAttribute("username").toString());
+					header.put("token", session.getAttribute("token").toString());
+					header.put("language", WebServiceUtils
+							.transformLanaguage(UserRestURIConstants
+									.getLanaguage(request)));
+					String email = session.getAttribute("emailAddress").toString();
+					sendEmail.sendEmailByDiscover(email, result, header);
 					map.put("result", "success");
 					map.put("promoCode", result);
 					break;

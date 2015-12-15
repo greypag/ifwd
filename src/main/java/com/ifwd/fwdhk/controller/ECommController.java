@@ -1,13 +1,18 @@
 package com.ifwd.fwdhk.controller;
 
+import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,12 +20,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Controller
 public class ECommController {
+	@Autowired
+	private RestServiceDao restService;
 	@Autowired
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
 	@RequestMapping(value = "/changeLang")
@@ -168,14 +176,34 @@ public class ECommController {
 
 	@RequestMapping(value = "/{lang}/discover")
 	public ModelAndView getFanFareHomePage(HttpServletRequest request, Model model)  {
-		model.addAttribute("pageTitle", WebServiceUtils.getPageTitle("page.travel", UserRestURIConstants.getLanaguage(request)));
-		model.addAttribute("pageMetaDataDescription", WebServiceUtils.getPageTitle("meta.travel", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("pageTitle", WebServiceUtils.getPageTitle("page.discover", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("pageMetaDataDescription", WebServiceUtils.getPageTitle("meta.discover", UserRestURIConstants.getLanaguage(request)));
 		model.addAttribute("ogTitle", WebServiceUtils.getPageTitle("travel.sharing.og.title", UserRestURIConstants.getLanaguage(request)));
 		model.addAttribute("ogType", WebServiceUtils.getPageTitle("travel.sharing.og.type", UserRestURIConstants.getLanaguage(request)));
 		model.addAttribute("ogUrl", WebServiceUtils.getPageTitle("travel.sharing.og.url", UserRestURIConstants.getLanaguage(request)));
 		model.addAttribute("ogImage", WebServiceUtils.getPageTitle("travel.sharing.og.image", UserRestURIConstants.getLanaguage(request)));
 		model.addAttribute("ogDescription", WebServiceUtils.getPageTitle("travel.sharing.og.description", UserRestURIConstants.getLanaguage(request)));
 		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+
+		String Url;
+		JSONObject responseJsonObj;
+		int[] indexs = {6, 5, 4, 7, 8};
+		for(int i = 0; i < indexs.length; i++) {
+			Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_GET_COUNT + "?campaign_id=" + indexs[i];
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
+			if (responseJsonObj.get("errMsgs") == null) {
+				int availableCount = Integer.parseInt(responseJsonObj.get("availableCount").toString());
+				model.addAttribute("count" + i, availableCount);
+			} else {
+				model.addAttribute("count" + i, 0);
+			} 
+		}
+		
+		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "campaign/fwdiscover");			
 	}	
 }
+
+
+
