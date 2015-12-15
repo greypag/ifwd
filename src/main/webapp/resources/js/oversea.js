@@ -864,8 +864,16 @@ function setDropArea(id) {
 			$("#errCADist").html('');
 			$('#inputCADistrict').removeClass('invalid-field');
 		}
-	}
-
+	}	
+	// 63 year and 9 month ago date
+	var dob_63_date = new Date();
+	dob_63_date.setFullYear(dob_63_date.getFullYear() - 64);		
+	dob_63_date.setDate(dob_63_date.getDate()+ 90);
+	
+	//Start at 1900
+	var dob_1900_date = new Date();
+	dob_1900_date.setFullYear(1900,0,1);
+	
 	function checkInsuredPerson(value) {
 		if (value != "SE") {
 			document.getElementById("lock_datepicker").removeAttribute("style");
@@ -873,9 +881,10 @@ function setDropArea(id) {
 					false);
 			document.getElementById("txtInsuFullName1").value = insureNamePlaceholder;
 			document.getElementById("txtInsuHkid1").value = insureHkidPlaceholder;
-			document.getElementById("insuredDob").value = '';			
+			document.getElementById("insuredDob").value = '';
+			$('#oversea_insure_dob').datepicker('setStartDate',dob_63_date);
 		} else {
-
+			$('#oversea_insure_dob').datepicker('setStartDate',dob_1900_date);
 			document.getElementById("txtInsuFullName1").value = document
 					.getElementById("inputFullName").value;
 			document.getElementById("txtInsuHkid1").value = document

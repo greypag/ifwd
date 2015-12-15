@@ -531,11 +531,11 @@ $(function () {
 	dob_12_date.setFullYear(dob_12_date.getFullYear() - 12);		
 	dob_12_date.setDate(dob_12_date.getDate() + 1);
 	
-	// 10 year ago date
+	// 10 year and 9 month ago date
 	var dob_10_date = new Date();
-	dob_10_date.setFullYear(dob_10_date.getFullYear() - 10);		
-	dob_10_date.setDate(dob_12_date.getDate() + 1);
-	
+	dob_10_date.setFullYear(dob_10_date.getFullYear() - 11);		
+	dob_10_date.setDate(dob_10_date.getDate() + 90);
+		
 	// 86 year ago date
 	var dob_start_date = new Date();
 	dob_start_date.setFullYear(dob_start_date.getFullYear()-86);
