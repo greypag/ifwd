@@ -91,6 +91,9 @@ var home_url = "<%=request.getContextPath()%>";
 								<li><span class="percent gold"><fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></span><span class="year gold"><fmt:message key="custom.savie.credit.rate.year3" bundle="${msg}" /></li>
 							</ul>
 						</div>
+						<div class="col-xs-12">
+							<p class="text-center"><fmt:message key="custom.savie.credit.rate.description" bundle="${msg}" /></p>
+						</div >
 						<div class="download-pdf hidden-xs hidden-sm col-md-12">
 							<ul class="crediting-rate-list pdf">
 								<li class="middle"><a class="year" href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie" bundle="${msg}" />" target="_blank"><fmt:message key="general.product.brochure" bundle="${msg}" /></a></li>
