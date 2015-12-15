@@ -641,11 +641,6 @@ a.at-svc-lidar, a.at-svc-twitter, a.at-svc-yammer {
 a.at-svc-google_plusone, a.at-svc-google_plusone_share {
     background: #ce4d39;
 }
-.oversea_policy_item img{
-	
-    width: 80px;
-	
-}
 /*model*/
 @media (max-width: 991px){
 	.modal-dialog {
