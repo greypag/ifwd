@@ -4422,8 +4422,7 @@ var home_url = "<%=request.getContextPath()%>";
             	if(validate_promo_val()){
             		$.ajax({
   		 			  type : "POST",
-  		 			  url : "<%=request.getContextPath()%>
-	/ajax/eliteTerm/getPromoteCode",
+  		 			  url : "<%=request.getContextPath()%>/ajax/eliteTerm/getPromoteCode",
 						data : {
 							email : $('#emailToSendPromoCode').val()
 						},
