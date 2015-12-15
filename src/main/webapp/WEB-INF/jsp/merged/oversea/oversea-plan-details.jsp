@@ -37,7 +37,7 @@ var namePlaceholder="<fmt:message key="Overseas.userdetails.applicant.Fullname.S
 var hkidPlaceholder="<fmt:message key="Overseas.userdetails.applicant.HKID.eg" bundle="${msg}" />";
 var appDobPlaceholder = "<fmt:message key="Overseas.userdetails.applicant.DOB.DDMMYYYY" bundle="${msg}" />";
 var appMobilePlaceholder = "<fmt:message key="Overseas.userdetails.applicant.Mobile.number" bundle="${msg}" />";
-var appEmailPlaceholder = "<fmt:message key="Overseas.userdetails.applicant.Email" bundle="${msg}" />";
+var appEmailPlaceholder = "<fmt:message key="Overseas.userdetails.applicant.Email.Placeholder" bundle="${msg}" />";
 
 var appRoomPlaceholder = "<fmt:message key="Overseas.userdetails.applicant.Correspondence.ROOM" bundle="${msg}" />";
 var appFloorPlaceholder = "<fmt:message key="Overseas.userdetails.applicant.Correspondence.FLOOR" bundle="${msg}" />";
@@ -410,18 +410,17 @@ function setDropArea(id) {
                                    <label for="inputMobileNo" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Mobile" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <input autocomplete="off" name="mobileNo" type="tel" class="form-control full-control" 
-                                        value="${userDetails.mobileNo}"
+                                    <input autocomplete="off" name="mobileNo" type="tel" class="form-control full-control bmg_custom_placeholder" 
                                        <c:choose>
                                            <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
-                                            readonly="readonly"
+                                            readonly="readonly" value="${userDetails.mobileNo}"
                                            </c:when>
                                        </c:choose>
                                         id="inputMobileNo"
                                         onkeypress="return isNumeric(event)"
                                         value="<fmt:message key="Overseas.userdetails.applicant.Mobile.number" bundle="${msg}" />"
                                         onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.applicant.Mobile.number" bundle="${msg}" />');"
-                                        onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.applicant.Mobile.number" bundle="${msg}" />'); replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');"
+                                        onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.applicant.Mobile.number" bundle="${msg}" />'); validateMobile('inputMobileNo','errMobileNo');"
                                         maxlength="8">  <!-- <fmt:message key="Overseas.userdetails.applicant.Mobile.number" bundle="${msg}" /> -->
                                     <span id="errMobileNo" class="text-red">
                                     </span>
@@ -434,14 +433,14 @@ function setDropArea(id) {
                                    <label for="inputEmailId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Email" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input autocomplete="off" class="form-control full-control textLower" name="emailAddress" type="email" 
-                                       value="${userDetails.emailAddress}"
+                                   <input autocomplete="off" class="form-control full-control textLower bmg_custom_placeholder" name="emailAddress" type="email"
                                        <c:choose>
                                            <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
-                                            readonly="readonly"
+                                            readonly="readonly" value="${userDetails.emailAddress}"
                                            </c:when>
                                        </c:choose>
-                                       id="inputEmailId" maxlength="50" onblur="validateEmail('inputEmailId','emailid');">
+                                       id="inputEmailId" maxlength="50" value="<fmt:message key="Overseas.userdetails.applicant.Email.Placeholder" bundle="${msg}" />"  onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.applicant.Email.Placeholder" bundle="${msg}" />');"
+                                       onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.applicant.Email.Placeholder" bundle="${msg}" />');validateEmail('inputEmailId','emailid');">
                                    <span id="emailid" class="text-red"></span>
                                </div>
                            </div>

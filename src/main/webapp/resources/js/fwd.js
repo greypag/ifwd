@@ -2491,7 +2491,7 @@ function validateHkid(inputId, selectId, errorId, insureBoolean, inputType){
 function validateEmail(inputId, errorId, inputType){
 	var emailId = $("#"+inputId).val();
 	
-	if (emailId.trim() == "") {
+	if (emailId.trim() == "" || emailId.trim() ==appEmailPlaceholder) {
 		$("#"+inputId).addClass("invalid-field");
 		$("#"+errorId).html(getBundle(getBundleLanguage, "applicant.email.notNull.message"));
 		return false;
@@ -2508,7 +2508,7 @@ function validateEmail(inputId, errorId, inputType){
 function validateMobile(inputId, errorId, inputType){
 	var mobileNo = $("#"+inputId).val();
 	
-	if (mobileNo.trim() == "") {
+	if (mobileNo.trim() == "" || mobileNo.trim() ==appMobilePlaceholder) {
 		$("#"+inputId).addClass("invalid-field");
 		$("#"+errorId).html(getBundle(getBundleLanguage, "applicant.mobileNo.notNull.message"));
 		return false;
