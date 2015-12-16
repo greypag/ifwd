@@ -1,28 +1,40 @@
 package com.ifwd.fwdhk.controller;
 
+import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
+import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Controller
 public class ECommController {
+	@Autowired
+	private SendEmailDao sendEmail;
+	@Autowired
+	private RestServiceDao restService;
 	@Autowired
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
 	
@@ -170,11 +182,70 @@ public class ECommController {
 	}
 	
 	
-	@RequestMapping(value = "/{lang}/maintenace")
+	@RequestMapping(value = {"/{lang}/maintenace", "/{lang}/maintenance"})
 	public ModelAndView maintenace(HttpServletRequest request,HttpServletResponse response) {
 		UserRestURIConstants urc = new UserRestURIConstants();
 		urc.updateLanguage(request);
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/maintenace");
 	}
-	
+
+	@RequestMapping(value = "/{lang}/fwdiscover")
+	public ModelAndView getFanFareHomePage(HttpServletRequest request, Model model)  {
+		model.addAttribute("pageTitle", WebServiceUtils.getPageTitle("page.discover", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("pageMetaDataDescription", WebServiceUtils.getPageTitle("meta.discover", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogTitle", WebServiceUtils.getPageTitle("discover.og.title", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogType", WebServiceUtils.getPageTitle("discover.og.type", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogUrl", WebServiceUtils.getPageTitle("discover.og.url", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogImage", WebServiceUtils.getPageTitle("discover.og.image", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogDescription", WebServiceUtils.getPageTitle("discover.og.description", UserRestURIConstants.getLanaguage(request)));
+		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		HttpSession session = request.getSession();
+		String choose = (String)session.getAttribute("chooseCampaign");
+		int[] indexs = {6, 5, 4, 7, 8};
+		String Url;
+		String code;
+		JSONObject responseJsonObj;
+		
+		if(!StringUtils.isEmpty(choose) &&
+				(session.getAttribute("authenticate") !=null && session.getAttribute("authenticate").equals("true"))) {
+			Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_ASSIGN 
+					+ "?campaign_id="+choose;
+
+			header.put("userName", request.getSession().getAttribute("username").toString());
+			header.put("token", request.getSession().getAttribute("token").toString());
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url,
+					header, null);
+
+			if (responseJsonObj.get("result").equals("success")) {
+				code = responseJsonObj.get("promoCode").toString();
+				String email = session.getAttribute("emailAddress").toString();
+				sendEmail.sendEmailByDiscover(email, code, header);
+			} else {
+				code = responseJsonObj.get("result").toString(); // failed or duplicated
+			}
+			for(int i = 0; i < indexs.length; i++){
+				if(choose.equals(String.valueOf(indexs[i]))){
+					request.setAttribute("chooseIndex", i);
+					break;
+				}
+			}
+			request.setAttribute("chooseCode", code);
+		}
+		for(int i = 0; i < indexs.length; i++) {
+			Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_GET_COUNT + "?campaign_id=" + indexs[i];
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
+			if (responseJsonObj.get("errMsgs") == null) {
+				int availableCount = Integer.parseInt(responseJsonObj.get("availableCount").toString());
+				model.addAttribute("count" + i, availableCount);
+			} else {
+				model.addAttribute("count" + i, 0);
+			} 
+		}
+		session.removeAttribute("chooseCampaign");
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "campaign/fwdiscover");			
+	}	
 }
+
+
+

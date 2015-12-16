@@ -50,12 +50,11 @@
  								else {
  									window.location.href = '<%=request.getContextPath()%>/${language}/account';
  								}
- 								
-								
 // 								setTimeout(function() {window.location.href = '/getAccByUsernaneAndPassword';;								
 // 								}, 3000);
 								
-								
+							} else if(data == 'discover'){
+								window.location.href = '<%=request.getContextPath()%>/${language}/fwdiscover';
 							} else {
 								
 								$('#joinus-err-msg').show();

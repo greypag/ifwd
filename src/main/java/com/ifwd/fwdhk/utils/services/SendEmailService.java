@@ -45,6 +45,31 @@ public class SendEmailService implements SendEmailDao {
 		}
 		return result;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean sendEmailByDiscover(String emailId, String discover,
+			HashMap<String, String> header) {
+		boolean result = false;
+		String message = discover;
+
+		JSONObject email_params = new JSONObject();
+		email_params.put("to", emailId);
+		email_params.put("message", message);
+		email_params.put("subject", "FWD Promotion Code");
+		email_params.put("attachment", null);
+		email_params.put("from", "i-noreply.hk@fwd.com");
+		email_params.put("isHtml", true);
+		
+		JSONObject resp = restService.consumeApi(HttpMethod.POST,
+				UserRestURIConstants.SEND_MAIL, header, email_params);
+		if (resp != null) {
+			if (checkJsonObjNull(resp, "errMsgs").equals("null")) {
+				result = true;
+			}
+		}
+		return result;
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
