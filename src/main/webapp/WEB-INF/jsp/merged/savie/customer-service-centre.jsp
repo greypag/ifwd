@@ -227,7 +227,7 @@ var language = "${language}";
 
 <script>
 	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
-	var endDate= new Date((new Date()).getTime() + 22*24*60*60*1000);
+	var endDate= new Date((new Date()).getTime() + 24*24*60*60*1000);
 	$(function() {
 		//daysOfWeekDisabled: [0]
 		$('#preferred-date').datepicker({
