@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,9 +25,12 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.services.LocaleMessagePropertiesServiceImpl;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
+import com.ifwd.fwdhk.utils.services.SendEmailDao;
 
 @Controller
 public class ECommController {
+	@Autowired
+	private SendEmailDao sendEmail;
 	@Autowired
 	private RestServiceDao restService;
 	@Autowired
@@ -185,10 +189,38 @@ public class ECommController {
 		model.addAttribute("ogDescription", WebServiceUtils.getPageTitle("travel.sharing.og.description", UserRestURIConstants.getLanaguage(request)));
 		
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-
-		String Url;
-		JSONObject responseJsonObj;
+		HttpSession session = request.getSession();
+		String choose = (String)session.getAttribute("chooseCampaign");
 		int[] indexs = {6, 5, 4, 7, 8};
+		String Url;
+		String code;
+		JSONObject responseJsonObj;
+		
+		if(!StringUtils.isEmpty(choose) &&
+				(session.getAttribute("authenticate") !=null && session.getAttribute("authenticate").equals("true"))) {
+			Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_ASSIGN 
+					+ "?campaign_id="+choose;
+
+			header.put("userName", request.getSession().getAttribute("username").toString());
+			header.put("token", request.getSession().getAttribute("token").toString());
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url,
+					header, null);
+
+			if (responseJsonObj.get("result").equals("success")) {
+				code = responseJsonObj.get("promoCode").toString();
+				String email = session.getAttribute("emailAddress").toString();
+				sendEmail.sendEmailByDiscover(email, code, header);
+			} else {
+				code = responseJsonObj.get("result").toString(); // failed or duplicated
+			}
+			for(int i = 0; i < indexs.length; i++){
+				if(choose.equals(String.valueOf(indexs[i]))){
+					request.setAttribute("chooseIndex", i);
+					break;
+				}
+			}
+			request.setAttribute("chooseCode", code);
+		}
 		for(int i = 0; i < indexs.length; i++) {
 			Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_GET_COUNT + "?campaign_id=" + indexs[i];
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
@@ -199,8 +231,7 @@ public class ECommController {
 				model.addAttribute("count" + i, 0);
 			} 
 		}
-		
-		
+		session.removeAttribute("chooseCampaign");
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "campaign/fwdiscover");			
 	}	
 }

@@ -450,6 +450,9 @@ public class UserController {
 					loginUserDetails.setOptIn1(checkJsonObjNull(customer, "optIn1"));
 					loginUserDetails.setOptIn2(checkJsonObjNull(customer, "optIn2"));
 					session.setAttribute("userDetails", loginUserDetails);
+					if(session.getAttribute("chooseCampaign") != null) {
+						return "discover";
+					}
 
 					return "success";
 				} else {

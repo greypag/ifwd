@@ -923,7 +923,7 @@
 		
 		
 		//modals
-		<%String username = (String) session.getAttribute("username");%>		
+		<%String username = (String) session.getAttribute("username");%>
 		$('#modal-grab-button').click(function(){
 			if('<%=username%>' == 'null') {
 				$('.modal').modal('hide');
@@ -939,8 +939,7 @@
 	    });
 		$('#modal-grab-button-first').click(function(){
 			if('<%=username%>' == 'null') {
-				$('.modal').modal('hide');
-				$('#loginpopup').modal('show');
+				loginpopup("6");
 			}else {
 				assignPromoCode("6");
 			}
@@ -951,8 +950,7 @@
 	    });
 	    $('#modal-grab-button-second').click(function(){
 			if('<%=username%>' == 'null') {
-				$('.modal').modal('hide');
-				$('#loginpopup').modal('show');
+				loginpopup("5");
 			}else {
 				assignPromoCode("5");
 			}
@@ -963,8 +961,7 @@
 	    });
 	    $('#modal-grab-button-third').click(function(){
 			if('<%=username%>' == 'null') {
-				$('.modal').modal('hide');
-				$('#loginpopup').modal('show');
+				loginpopup("4");
 			}else {
 				assignPromoCode("4");
 			}
@@ -975,8 +972,7 @@
 	    });
 	    $('#modal-grab-button-fourth').click(function(){
 			if('<%=username%>' == 'null') {
-				$('.modal').modal('hide');
-				$('#loginpopup').modal('show');
+				loginpopup("7");
 			}else {
 				assignPromoCode("7");
 			}
@@ -987,8 +983,7 @@
 	    });
 	    $('#modal-grab-button-fifth').click(function(){
 			if('<%=username%>' == 'null') {
-				$('.modal').modal('hide');
-				$('#loginpopup').modal('show');
+				loginpopup("8");
 			}else {
 				assignPromoCode("8");
 			}
@@ -997,6 +992,19 @@
 	    $(".fwdiscover-modal .close-modal").on('click', function(){
 	    	$('.modal').modal('hide');
 	    });
+	    
+	    function loginpopup(campaignId) {
+			$.ajax({
+		        type : "POST",
+		        url : "<%=request.getContextPath()%>/ajax/campaign/setChooseCampaign",
+		        data : {campaignId:campaignId},
+		        async : false,
+		        success : function(data) {
+			    	$('.modal').modal('hide');
+					$('#loginpopup').modal('show');
+		        }
+		    });
+	    }
 	    
 	    function assignPromoCode(campaignId) {
 	    	$.ajax({
@@ -1014,21 +1022,24 @@
 		        	}else{
 		        		$('#offer-details-promotion-code-error-sold').modal('show');
 		        	}
-		        	
-		        	$.ajax({
-				        type : "POST",
-				        url : "<%=request.getContextPath()%>/ajax/campaign/getAllPromoCodeCount",
-				        async : false,
-				        success : function(data) {
-				        	$(".fwdiscover-plan .promo-desc .holder .count").each(function(index,domEle){
-				        		$(this).html(data["count"+index]);
-				        	});
-				        }
-				    });
+		        	updateAllPromoCodeCount();
 		        }
 		    });
 	    }
 
+	    function updateAllPromoCodeCount() {
+	    	$.ajax({
+		        type : "POST",
+		        url : "<%=request.getContextPath()%>/ajax/campaign/getAllPromoCodeCount",
+		        async : false,
+		        success : function(data) {
+		        	$(".fwdiscover-plan .promo-desc .holder .count").each(function(index,domEle){
+		        		$(this).html(data["count"+index]);
+		        	});
+		        }
+		    });
+	    }
+	    
 	    $("#countdown")
 		   .countdown("2015/12/25", function(event) {
 		    $('#countdown-days').text(
@@ -1048,12 +1059,23 @@
 		    );
 
 	   });
-		
+
 		$(window).load(function () {
 			if(msieversion() < 1) {
 				carouselImgHeight();
 			}
 			$("#loginpopup").css("background", "rgba(6, 29, 42, 0.8)");
+			if('<%=username%>' != 'null' && '<%=request.getAttribute("chooseIndex") %>' != 'null') {
+				$('.modal').modal('hide');
+	        	if('<%=request.getAttribute("chooseCode")%>'=="failed" || '<%=request.getAttribute("chooseCode")%>'=="error"){
+	        		$('#offer-details-promotion-code-error-sold').modal('show');
+	        	}else if('<%=request.getAttribute("chooseCode")%>'=="duplicated") {
+	        		$('#offer-details-promotion-code-error-once').modal('show');
+	        	}else{
+					$('.promo-code-holder .code').html('<%=request.getAttribute("chooseCode")%>');
+					$('#offer-details-promotion-code').modal('show');
+	        	}
+			}
 		});
 
 		if(getWidth()>991) {

@@ -104,6 +104,14 @@ public class AjaxCampaignController extends BaseController {
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping(value = "/ajax/campaign/setChooseCampaign")
+	@ResponseBody
+	public void setChooseCampaign(HttpServletRequest request, HttpServletResponse response) {
+		String choose = request.getParameter("campaignId");
+		HttpSession session = request.getSession();
+		session.setAttribute("chooseCampaign", choose);
+	}
 }
 
 
