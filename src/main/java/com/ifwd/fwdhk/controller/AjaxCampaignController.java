@@ -14,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ifwd.fwdhk.services.CampaignService;
@@ -89,5 +88,25 @@ public class AjaxCampaignController extends BaseController {
 			logger.info(e.getMessage());
 			e.printStackTrace();
 		}
-	}	
+	}
+	
+	@RequestMapping(value = "/ajax/campaign/getAllPromoCodeCount")
+	@ResponseBody
+	public void getAllAvailablePromoCodeCountByCampaign(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			if (Methods.isXssAjax(request)) {
+				throw new Exception("invalid AJAX call");
+			}
+			Map<String, String> counts = campaignService.getAllAvailablePromoCodeCountByCampaign(request);
+			ajaxReturn(response, counts);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }
+
+
+
+
+

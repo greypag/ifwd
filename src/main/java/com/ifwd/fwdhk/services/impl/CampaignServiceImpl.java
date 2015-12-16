@@ -3,6 +3,7 @@ package com.ifwd.fwdhk.services.impl;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -81,4 +82,27 @@ public class CampaignServiceImpl implements CampaignService {
 		}
 	}
 	
+	public Map<String,String> getAllAvailablePromoCodeCountByCampaign(HttpServletRequest request) {
+		int[] indexs = {6, 5, 4, 7, 8};
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		Map<String,String> map = new HashMap<String,String>();
+		String Url;
+		JSONObject responseJsonObj;
+		for(int i = 0; i < indexs.length; i++) {
+			Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_GET_COUNT + "?campaign_id=" + indexs[i];
+			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url, header, null);
+			logger.info("CAMPAIGN_PROMO_CODE_GET_COUNT : " + responseJsonObj);
+			if (responseJsonObj.get("errMsgs") == null) {
+				map.put("count" + i, responseJsonObj.get("availableCount").toString());
+			} else {
+				map.put("count" + i, "0");
+			} 
+		}
+		return map;
+	}
 }
+
+
+
+
+

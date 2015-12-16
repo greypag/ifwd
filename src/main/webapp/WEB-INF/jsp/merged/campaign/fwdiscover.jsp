@@ -225,7 +225,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer1.box1" bundle="${msg}" /></p>
-											<p class="value">${count0}</p>
+											<p class="value count">${count0}</p>
 										</div>
 										<div class="holder date">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer1.box2" bundle="${msg}" /></p>
@@ -267,7 +267,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer2.box1" bundle="${msg}" /></p>
-											<p class="value">${count1}</p>
+											<p class="value count">${count1}</p>
 										</div>
 										<div class="holder date">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer2.box2" bundle="${msg}" /></p>
@@ -310,7 +310,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer3.box1" bundle="${msg}" /></p>
-											<p class="value">${count2}</p>
+											<p class="value count">${count2}</p>
 										</div>
 										<div class="holder date">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer3.box2" bundle="${msg}" /></p>
@@ -352,7 +352,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer4.box1" bundle="${msg}" /></p>
-											<p class="value">${count3}</p>
+											<p class="value count">${count3}</p>
 										</div>
 										<div class="holder date">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer4.box2" bundle="${msg}" /></p>
@@ -394,7 +394,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer5.box1" bundle="${msg}" /></p>
-											<p class="value">${count4}</p>
+											<p class="value count">${count4}</p>
 										</div>
 										<div class="holder date">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer5.box2" bundle="${msg}" /></p>
@@ -1014,6 +1014,17 @@
 		        	}else{
 		        		$('#offer-details-promotion-code-error-sold').modal('show');
 		        	}
+		        	
+		        	$.ajax({
+				        type : "POST",
+				        url : "<%=request.getContextPath()%>/ajax/campaign/getAllPromoCodeCount",
+				        async : false,
+				        success : function(data) {
+				        	$(".fwdiscover-plan .promo-desc .holder .count").each(function(index,domEle){
+				        		$(this).html(data["count"+index]);
+				        	});
+				        }
+				    });
 		        }
 		    });
 	    }
@@ -1042,6 +1053,7 @@
 			if(msieversion() < 1) {
 				carouselImgHeight();
 			}
+			$("#loginpopup").css("background", "rgba(6, 29, 42, 0.8)");
 		});
 
 		if(getWidth()>991) {
