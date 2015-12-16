@@ -993,6 +993,17 @@
 	    	$('.modal').modal('hide');
 	    });
 	    
+	    $("#myDropdown").on('click', function(){
+	    	$.ajax({
+		        type : "POST",
+		        url : "<%=request.getContextPath()%>/ajax/campaign/setChooseCampaign",
+		        data : {},
+		        async : false,
+		        success : function(data) {
+		        }
+		    });
+	    });
+	    
 	    function loginpopup(campaignId) {
 			$.ajax({
 		        type : "POST",
