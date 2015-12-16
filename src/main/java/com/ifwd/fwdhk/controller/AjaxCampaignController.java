@@ -108,9 +108,17 @@ public class AjaxCampaignController extends BaseController {
 	@RequestMapping(value = "/ajax/campaign/setChooseCampaign")
 	@ResponseBody
 	public void setChooseCampaign(HttpServletRequest request, HttpServletResponse response) {
-		String choose = request.getParameter("campaignId");
-		HttpSession session = request.getSession();
-		session.setAttribute("chooseCampaign", choose);
+		try {
+			if (Methods.isXssAjax(request)) {
+				throw new Exception("invalid AJAX call");
+			}
+			String choose = request.getParameter("campaignId");
+			HttpSession session = request.getSession();
+			session.setAttribute("chooseCampaign", choose);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 }
 
