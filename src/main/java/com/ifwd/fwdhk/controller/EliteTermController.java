@@ -182,21 +182,6 @@ public class EliteTermController extends BaseController{
 					eliteTermPolicy.setPolicyNo(policyNumber);
 					request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
 				}
-				
-				String sendEmailOrNot = (String) request.getParameter("sendEmailOrNot");
-				logger.info("sendEmailOrNot:"+sendEmailOrNot);
-				if(sendEmailOrNot == null || !sendEmailOrNot.equals("yes")){
-					String creditCaredNo = (String) request.getParameter("creditCaredNo");
-					String expiryDate = (String) request.getParameter("expiryDate");
-					String cardHolderName = (String) request.getParameter("cardHolderName");
-					String policyNo = (String) request.getParameter("policyNumber");
-	         		if(creditCaredNo !=null && !creditCaredNo.equals("") && expiryDate !=null && !expiryDate.equals("") && cardHolderName !=null && !cardHolderName.equals("") && policyNo !=null && !policyNo.equals("")){
-	         			BaseResponse br = eliteTermService.finalizeEliteTermPolicy(request);
-	         			if(br !=null && !br.hasError()){
-	         				eliteTermService.sendEliteTermMail(request);
-	         			}
-	         		 }
-	        	 }
 			}else{
 				request.getSession().setAttribute("policyUserName", null);
 				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
@@ -206,7 +191,28 @@ public class EliteTermController extends BaseController{
 				}
 				policyNumber = eliteTermPolicy.getPolicyNo();
 				eliteTermService.checkIsDocumentUpload(request,policyNumber);
-			}		
+			}	
+			
+			String sendEmailOrNot = (String) request.getSession().getAttribute("sendEmailOrNot");
+			CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+			logger.info("sendEmailOrNot:"+sendEmailOrNot);
+			if(sendEmailOrNot == null || !sendEmailOrNot.equals("yes")){
+				String creditCaredNo = (String) request.getSession().getAttribute("creditCaredNo");
+				String expiryDate = (String) request.getSession().getAttribute("expiryDate");
+				String cardHolderName = (String) request.getSession().getAttribute("cardHolderName");
+				logger.info("creditCaredNo:"+creditCaredNo);
+				logger.info("expiryDate:"+expiryDate);
+				logger.info("cardHolderName:"+cardHolderName);
+				logger.info("policyNo:"+eliteTermPolicy.getPolicyNo());
+         		if(creditCaredNo !=null && !creditCaredNo.equals("") && expiryDate !=null && !expiryDate.equals("") && cardHolderName !=null && !cardHolderName.equals("") && eliteTermPolicy !=null && eliteTermPolicy.getPolicyNo()!=null && !eliteTermPolicy.getPolicyNo().equals("")){
+         			BaseResponse br = eliteTermService.finalizeEliteTermPolicy(request, eliteTermPolicy.getPolicyNo());
+         			logger.info("finalizeEliteTermPolicy errMsgs:"+br.getErrMsgs());
+         			if(br !=null && !br.hasError()){
+         				BaseResponse br2 = eliteTermService.sendEliteTermMail(request);
+         				logger.info("sendEliteTermMail errMsgs:"+br2.getErrMsgs());
+         			}
+         		 }
+        	 }
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

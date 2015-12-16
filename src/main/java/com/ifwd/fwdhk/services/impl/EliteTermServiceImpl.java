@@ -347,17 +347,17 @@ public class EliteTermServiceImpl implements EliteTermService {
 	}
 	
 	@Override
-	public BaseResponse finalizeEliteTermPolicy(HttpServletRequest request)throws ECOMMAPIException{
+	public BaseResponse finalizeEliteTermPolicy(HttpServletRequest request,String policyNo)throws ECOMMAPIException{
 		BaseResponse apiReturn = null;
 		try {
 			final Map<String,String> header = headerUtil.getHeader(request);
 			
 			JSONObject parameters = new JSONObject();
 			parameters.put("planCode", "ET");
-			parameters.put("creditCaredNo", request.getParameter("creditCaredNo"));
-			parameters.put("expiryDate", request.getParameter("expiryDate"));
-			parameters.put("cardHolderName", request.getParameter("cardHolderName"));
-			parameters.put("policyNo", request.getParameter("policyNo"));
+			parameters.put("creditCaredNo", request.getSession().getAttribute("creditCaredNo"));
+			parameters.put("expiryDate", request.getSession().getAttribute("expiryDate"));
+			parameters.put("cardHolderName", request.getSession().getAttribute("cardHolderName"));
+			parameters.put("policyNo", policyNo);
 			apiReturn = connector.finalizeEliteTermPolicy(parameters, header);
 		}catch(Exception e){
 			logger.info("EliteTermServiceImpl finalizeEliteTermPolicy occurs an exception!");

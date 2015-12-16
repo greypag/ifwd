@@ -240,7 +240,8 @@ public class AjaxEliteTermController extends BaseController{
 			return;
 		}
 		try {
-			ajaxReturn(response, eliteTermService.finalizeEliteTermPolicy(request));
+			CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+			ajaxReturn(response, eliteTermService.finalizeEliteTermPolicy(request,eliteTermPolicy.getPolicyNo()));
 		} catch (ECOMMAPIException e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();

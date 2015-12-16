@@ -11,7 +11,7 @@ public interface EliteTermService {
 	public CreateEliteTermPolicyResponse createEliteTermPolicy(HttpServletRequest request)throws ECOMMAPIException;
 	public GetEliteTermPremiumResponse getEliteTermPremium(HttpServletRequest request)throws ECOMMAPIException;
 	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException;
-	public BaseResponse finalizeEliteTermPolicy(HttpServletRequest request)throws ECOMMAPIException;
+	public BaseResponse finalizeEliteTermPolicy(HttpServletRequest request,String policyNo)throws ECOMMAPIException;
 	public BaseResponse getUploadedDocument(HttpServletRequest request)throws ECOMMAPIException;
 	public BaseResponse contactCs(HttpServletRequest request)throws ECOMMAPIException;
 	public BaseResponse setEliteTermPolicyAgentEmail(HttpServletRequest request)throws ECOMMAPIException;
