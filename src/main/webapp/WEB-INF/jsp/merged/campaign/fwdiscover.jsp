@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <%!
@@ -705,8 +706,7 @@
 				<div class="modal fade fwdiscover-modal" id="offer-details-promotion-code" role="dialog" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
-							<p class="title">Annual Travel Plan</p>
-							<p class="promo">now <span class="price">HK$260</span> <span class="italic">(80% off)</span></p>
+							<p class="title"></p>
 
 							<div class="promo-code-holder">
 								<p class="text-center congrats"><fmt:message key="Fanfare.clickdetail.lightbox3.subtitle1" bundle="${msg}" /></p>
@@ -715,7 +715,7 @@
 							</div>
 
 							<div class="details-button-holder text-center">
-								<button class="details-btn"><fmt:message key="Fanfare.clickdetail.lightbox3.button" bundle="${msg}" /></button>
+								<a class="url" href=''><button class="details-btn"><fmt:message key="Fanfare.clickdetail.lightbox3.button" bundle="${msg}" /></button></a>
 							</div>
 
 							<div class="terms-and-condition offer-details">
@@ -728,7 +728,7 @@
 									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
 							</div>
 
-							<p class="close-modal">Close</p>
+							<p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
 						</div>
 					</div>
 				</div>
@@ -832,6 +832,7 @@
 				$('#loginpopup').modal('show');
 			}else {
 				$('.modal').modal('hide');
+				$('#offer-details-promotion-code .title').html('<fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" />');
 				$('#offer-details-promotion-code').modal('show');
 			}
 		});
@@ -918,7 +919,15 @@
 		        }
 		    });
 	    }
-	    
+
+	    function getCampaignName(campaignId) {
+		    return '<fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" />';
+		}
+
+		function getProductUrl(campaignId, promoCode) {
+			return '<%=request.getContextPath()%>/${language}/travel?promo='+promoCode;
+		}
+		
 	    function assignPromoCode(campaignId) {
 	    	$.ajax({
 		        type : "POST",
@@ -929,6 +938,8 @@
 					$('.modal').modal('hide');
 		        	if(data["result"]=="success"){
 						$('.promo-code-holder .code').html(data["promoCode"]);
+						$('#offer-details-promotion-code .title').html(getCampaignName(campaignId));						
+						$('#offer-details-promotion-code .url').attr('href', getProductUrl(campaignId, data["promoCode"]));						
 						$('#offer-details-promotion-code').modal('show');
 		        	}else if(data["result"]=="duplicated") {
 		        		$('#offer-details-promotion-code-error-once').modal('show');
