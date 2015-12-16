@@ -54,7 +54,7 @@
 // 								}, 3000);
 								
 							} else if(data == 'discover'){
-								window.location.href = '<%=request.getContextPath()%>/${language}/discover';
+								window.location.href = '<%=request.getContextPath()%>/${language}/fwdiscover';
 							} else {
 								
 								$('#joinus-err-msg').show();

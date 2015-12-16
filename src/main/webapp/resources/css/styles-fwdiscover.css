@@ -605,6 +605,14 @@
     padding: 18px 0 8px;
     border-radius: 8px;
     border-bottom: 4px solid #d09310;
+    color: #fff;
+    height: 94px;
+}
+
+@media ( min-width : 992px) {
+	.page-fwdiscover .details-btn {
+		height: 47px;
+	}
 }
 
 /*footer carousel*/
@@ -954,7 +962,7 @@
 @media ( min-width : 992px) {
 	.fwdiscover-modal .modal-content {
 		max-width: 400px;
-    	padding: 37px 20px 37px 25px !important;
+    	padding: 45px 20px 37px 25px !important;
 	}
 }
 
@@ -1068,12 +1076,14 @@
     margin-top: 8px;
 }
 
-.fwdiscover-modal .modal-content .terms-and-condition .content {
+.fwdiscover-modal .modal-content .terms-and-condition li {
 	line-height: 21px;
+	font-size: 11px;
+	color: #666666;
 }
 
 @media ( min-width : 992px) {
-	.fwdiscover-modal .modal-content .terms-and-condition .content {
+	.fwdiscover-modal .modal-content .terms-and-condition li {
 		line-height: 14px;
 	}
 }
@@ -1153,6 +1163,7 @@
 	font-size: 27px;
     width: 95%;
     margin: 0 auto;
+    line-height: 28px;
 }
 
 .fwdiscover-modal .modal-content .error-message .lower {
@@ -1212,8 +1223,19 @@
     margin-top: 20px;
 }
 
+#myCarousel-fwdiscover .carousel-inner .item .gray-hover .free {
+	margin-top: 10px;
+}
+
+#myCarousel-fwdiscover .carousel-inner .item .gray-hover .percentage {
+	font-size: 20px;
+}
+
 #myCarousel-fwdiscover .carousel-inner .item .gray-hover .discount {
 	font-size: 12px;
+    padding: 0 5px;
+    line-height: 15px;
+    margin-top: 2px;
 }
 
 @media ( min-width : 992px) {
@@ -1246,7 +1268,7 @@
 	}
 
 	#myCarousel-fwdiscover .carousel-inner .desktop-img-align span p {
-		line-height: 13px;
+		line-height: 15px;
 		margin-top: 8px;
 	    padding: 0 5%;
 	}
