@@ -228,9 +228,7 @@
 											<p class="value">${count0}</p>
 										</div>
 										<div class="holder date">
-											<p class="title"><fmt:message key="Fanfare.landingpage.offer1.box2" bundle="${msg}" /></p>
-											<p class="value date">NOV</p>
-											<p class=" value date day">19</p>
+											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
 										</div>
 									</div>
 								</div>
@@ -270,9 +268,7 @@
 											<p class="value">${count1}</p>
 										</div>
 										<div class="holder date">
-											<p class="title"><fmt:message key="Fanfare.landingpage.offer2.box2" bundle="${msg}" /></p>
-											<p class="value date">NOV</p>
-											<p class=" value date day">19</p>
+											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
 										</div>
 									</div>
 								</div>
@@ -313,9 +309,7 @@
 											<p class="value">${count2}</p>
 										</div>
 										<div class="holder date">
-											<p class="title"><fmt:message key="Fanfare.landingpage.offer3.box2" bundle="${msg}" /></p>
-											<p class="value date">NOV</p>
-											<p class=" value date day">19</p>
+											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
 										</div>
 									</div>
 								</div>
@@ -355,9 +349,7 @@
 											<p class="value">${count3}</p>
 										</div>
 										<div class="holder date">
-											<p class="title"><fmt:message key="Fanfare.landingpage.offer4.box2" bundle="${msg}" /></p>
-											<p class="value date">NOV</p>
-											<p class=" value date day">19</p>
+											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
 										</div>
 									</div>
 								</div>
@@ -397,9 +389,7 @@
 											<p class="value">${count4}</p>
 										</div>
 										<div class="holder date">
-											<p class="title"><fmt:message key="Fanfare.landingpage.offer5.box2" bundle="${msg}" /></p>
-											<p class="value date">NOV</p>
-											<p class=" value date day">19</p>
+											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
 										</div>
 									</div>
 								</div>
@@ -551,36 +541,6 @@
 		            </div>
 		            <!--/myCarousel-->
 
-		            <!-- terms and cond -->
-	            	<div class="terms-and-condition">
-	            		<p class="message">Terms & Conditions 
-	            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/terms-and-cond.png" class="img-responsive mobile">
-	            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/terms-and-cond-desktop.png" class="img-responsive desktop">
-	            		</p>
-	            	</div>
-		            <!-- end terms and cond -->
-
-		            <!-- partners -->
-		            <div class="our-partners">
-		            	<div class="partners-holder">
-		            		<p class="text-center">Our Partners</p>
-		            		<div class="clearfix">
-			            		<div class="partner-image-holder">
-			            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/partner-agoda.png" class="img-responsive agoda hidden">
-			            		</div>
-			            		<div class="partner-image-holder">
-			            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/partner-y5.png" class="img-responsive y5">
-			            		</div>
-			            		<div class="partner-image-holder">
-			            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/partner-boconcept.png" class="img-responsive boconcept hidden">
-			            		</div>
-			            		<div class="partner-image-holder last">
-			            			<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/partner-pricerite.png" class="img-responsive pricerite hidden">
-			            		</div>
-			            	</div>
-		            	</div>
-		            </div>
-		            <!-- end partners -->
 				</div>
 				<!-- end fwdiscover footer -->
 
