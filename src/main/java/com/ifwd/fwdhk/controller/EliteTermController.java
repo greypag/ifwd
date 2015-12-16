@@ -153,6 +153,8 @@ public class EliteTermController extends BaseController{
 			goApp = StringEscapeUtils.escapeJavaScript(goApp);
 			request.getSession().setAttribute("goApp", goApp);
 		}
+		
+		request.getSession().removeAttribute("sendEmailOrNot");
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_SELECT_PLAN);
 	}
 
@@ -161,6 +163,8 @@ public class EliteTermController extends BaseController{
 		String path = request.getRequestURL().toString();
 		model.addAttribute("successUrl", path.replace("payment", "document-upload"));
 		model.addAttribute("failurePath", path);
+		
+		request.getSession().removeAttribute("sendEmailOrNot");
 		return EliteTermsFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_ELITE_TERMS_PAYMENT);
 	}
 	
