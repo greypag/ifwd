@@ -53,8 +53,8 @@
 								<div class="timer-holder month-holder">
 									<div class="bg gray-bg">
 										<div class="clearfix">
-											<span class="number pull-left">25</span>
-											<span class="month pull-right">DEC</span>
+											<span class="number pull-left"><%= java.time.LocalDateTime.now().getDayOfMonth() %></span>
+											<span class="month pull-right"><%= java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("MMM", java.util.Locale.ENGLISH)) %></span>
 										</div>
 										<span class="line line-gray"></span>
 									</div>
@@ -207,7 +207,7 @@
 							<div class="plan-desc">
 								<div class="upper-desc">
 									<p class="title"><fmt:message key="Fanfare.landingpage.offer1" bundle="${msg}" /></p>
-									<p class="promo"><fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer3" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer4" bundle="${msg}" /></span></p>
+									<p class="promo"><fmt:message key="Fanfare.landingpage.offer1.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer1.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer1.subtitle3" bundle="${msg}" /></span><span class="second-line"><fmt:message key="Fanfare.landingpage.offer1.subtitle4" bundle="${msg}" /></span></p>
 								</div>
 								<div class="lower-desc">
 									<ul>
@@ -250,7 +250,7 @@
 							<div class="plan-desc">
 								<div class="upper-desc">
 									<p class="title"><fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" /></p>
-									<p class="promo"><fmt:message key="Fanfare.landingpage.offer2.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer2.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer2.subtitle3" bundle="${msg}" /></span></p>
+									<p class="promo"><fmt:message key="Fanfare.landingpage.offer2.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer2.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer2.subtitle3" bundle="${msg}" /></span><span class="second-line"><fmt:message key="Fanfare.landingpage.offer2.subtitle4" bundle="${msg}" /></span></p>
 								</div>
 								<div class="lower-desc">
 									<ul>
@@ -590,7 +590,7 @@
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<p class="title"><fmt:message key="Fanfare.landingpage.offer1" bundle="${msg}" /></p>
-							<p class="promo"><fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer3" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer4" bundle="${msg}" /></span></p>
+							<p class="promo"><fmt:message key="Fanfare.landingpage.offer1.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer1.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer1.subtitle3" bundle="${msg}" /></span><span class="second-line"><fmt:message key="Fanfare.landingpage.offer1.subtitle4" bundle="${msg}" /></span></p>
 
 							<ul>
 								<li><fmt:message key="Fanfare.landingpage.offer1.bullet1" bundle="${msg}" /></li>
@@ -601,7 +601,7 @@
 							</ul>
 
 							<div class="details-button-holder text-center">
-								<button class="details-btn modal-grab-button" id="modal-grab-button-first">Grab!</button>
+								<button class="details-btn modal-grab-button" id="modal-grab-button-first"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
 							</div>
 
 							<div class="terms-and-condition">
@@ -614,7 +614,7 @@
 									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
 							</div>
 
-							<p class="close-modal">Close</p>
+							<p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
 						</div>
 					</div>
 				</div>
@@ -622,7 +622,7 @@
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<p class="title"><fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" /></p>
-							<p class="promo"><fmt:message key="Fanfare.landingpage.offer2.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer2.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer2.subtitle3" bundle="${msg}" /></span></p>
+							<p class="promo"><fmt:message key="Fanfare.landingpage.offer2.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer2.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer2.subtitle3" bundle="${msg}" /></span> <span class="second-line"><fmt:message key="Fanfare.landingpage.offer2.subtitle4" bundle="${msg}" /></span></p>
 
 							<ul>
 								<li><fmt:message key="Fanfare.landingpage.offer2.bullet1" bundle="${msg}" /></li>
@@ -632,7 +632,7 @@
 							</ul>
 
 							<div class="details-button-holder text-center">
-								<button class="details-btn modal-grab-button" id="modal-grab-button-second">Grab!</button>
+								<button class="details-btn modal-grab-button" id="modal-grab-button-second"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
 							</div>
 
 							<div class="terms-and-condition">
@@ -645,7 +645,7 @@
 									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
 							</div>
 
-							<p class="close-modal">Close</p>
+							<p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
 						</div>
 					</div>
 				</div>
@@ -653,7 +653,7 @@
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<p class="title"><fmt:message key="Fanfare.landingpage.offer3" bundle="${msg}" /></p>
-							<p class="promo"><fmt:message key="Fanfare.landingpage.offer3.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer3.subtitle2" bundle="${msg}" /> <span class="second-line"><fmt:message key="Fanfare.landingpage.offer3.subtitle3" bundle="${msg}" /></span></span> </p>
+							<p class="promo"><fmt:message key="Fanfare.landingpage.offer3.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer3.subtitle2" bundle="${msg}" /></span> <span class="second-line"><fmt:message key="Fanfare.landingpage.offer3.subtitle3" bundle="${msg}" /></span></p>
 
 							<ul>
 								<li><fmt:message key="Fanfare.landingpage.offer3.bullet1" bundle="${msg}" /></li>
@@ -663,7 +663,7 @@
 							</ul>
 
 							<div class="details-button-holder text-center">
-								<button class="details-btn modal-grab-button" id="modal-grab-button-third">Grab!</button>
+								<button class="details-btn modal-grab-button" id="modal-grab-button-third"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
 							</div>
 
 							<div class="terms-and-condition">
@@ -676,7 +676,7 @@
 									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
 							</div>
 
-							<p class="close-modal">Close</p>
+							<p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
 						</div>
 					</div>
 				</div>
@@ -693,7 +693,7 @@
 							</ul>
 
 							<div class="details-button-holder text-center">
-								<button class="details-btn modal-grab-button" id="modal-grab-button-fourth">Grab!</button>
+								<button class="details-btn modal-grab-button" id="modal-grab-button-fourth"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
 							</div>
 
 							<div class="terms-and-condition">
@@ -706,7 +706,7 @@
 									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
 							</div>
 
-							<p class="close-modal">Close</p>
+							<p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
 						</div>
 					</div>
 				</div>
@@ -723,7 +723,7 @@
 							</ul>
 
 							<div class="details-button-holder text-center">
-								<button class="details-btn modal-grab-button" id="modal-grab-button-fifth">Grab!</button>
+								<button class="details-btn modal-grab-button" id="modal-grab-button-fifth"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
 							</div>
 
 							<div class="terms-and-condition">
@@ -736,7 +736,7 @@
 									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
 							</div>
 
-							<p class="close-modal">Close</p>
+							<p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
 						</div>
 					</div>
 				</div>
@@ -776,13 +776,10 @@
 				<div class="modal fade fwdiscover-modal" id="offer-details-promotion-code-error-once" role="dialog" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
-							<p class="title">Annual Travel Plan</p>
-
 							<div class="error-message">
 								<p><fmt:message key="Fanfare.clickdetail.lightbox5.subtitle1" bundle="${msg}" /></p>
 								<p class="lower"><fmt:message key="Fanfare.clickdetail.lightbox5.subtitle2" bundle="${msg}" /></p>
 							</div>
-							
 							<div class="terms-and-condition">
 								<p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
 									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
@@ -793,7 +790,7 @@
 									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
 							</div>
 
-							<p class="close-modal">Close</p>
+							<p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
 						</div>
 					</div>
 				</div>
@@ -801,8 +798,6 @@
 				<div class="modal fade fwdiscover-modal" id="offer-details-promotion-code-error-sold" role="dialog" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
-							<p class="title">Annual Travel Plan</p>
-
 							<div class="error-message">
 								<p><fmt:message key="Fanfare.clickdetail.lightbox4.subtitle1" bundle="${msg}" /></p>
 								<p class="lower"><fmt:message key="Fanfare.clickdetail.lightbox4.subtitle2" bundle="${msg}" /></p>
@@ -818,7 +813,7 @@
 									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6" bundle="${msg}" /></li>
 							</div>
 
-							<p class="close-modal">Close</p>
+							<p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
 						</div>
 					</div>
 				</div>
@@ -999,7 +994,7 @@
 	    }
 	    
 	    $("#countdown")
-		   .countdown("2015/12/25", function(event) {
+		   .countdown("2016/01/01", function(event) {
 		    $('#countdown-days').text(
 		      event.strftime('%D')
 		    );
