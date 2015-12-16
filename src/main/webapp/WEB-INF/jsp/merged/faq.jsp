@@ -37,7 +37,7 @@
 			            <div class="faq-btn-wrapper-bottom">
 	                        <div id="FlightFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'f', false);"><fmt:message key="faq.flight.care" bundle="${msg}" /></div>
 	                        <div id="TravelFaq" class="faq_menu_item" onclick="faqChangeCare(this, 't', false);"><fmt:message key="faq.travel.care" bundle="${msg}" /></div>
-	                        <div id="HomecareFaq" class="faq_menu_item" onclick="faqChangeCare(this, 'h', false);"><fmt:message key="faq.home.care" bundle="${msg}" /></div>			            
+	                        <div id="HomecareFaq" class="faq_menu_item last" onclick="faqChangeCare(this, 'h', false);"><fmt:message key="faq.home.care" bundle="${msg}" /></div>			            
 			            </div>
 			            <div class="clearfix"></div>
 			        </div>
@@ -1182,7 +1182,7 @@
                         </div>
                         <div class="col-md-12 col-lg-12 pad-none faq_content">
                             <div class="col-md-11 col-lg-11 pad-none faq_cat">
-                                <fmt:message key="faq.savie.group4" bundle="${msg}" />
+                                <fmt:message key="faq.savie.oceanpark.group5" bundle="${msg}" />
                             </div>
                             <div class="col-md-1 col-lg-1 pad-none faq_cat_arrow">
                                 <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
@@ -1194,7 +1194,7 @@
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group4.q31" bundle="${msg}" />
+                                        <fmt:message key="faq.savie.oceanpark.group5.q1" bundle="${msg}" />
                                     </div>
                                     <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
                                         <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
@@ -1203,7 +1203,7 @@
                                 </div>
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group4.a31" bundle="${msg}" />
+                                        <fmt:message key="faq.savie.oceanpark.group5.a1" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -1214,7 +1214,7 @@
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group4.q38" bundle="${msg}" />
+                                        <fmt:message key="faq.savie.oceanpark.group5.q2" bundle="${msg}" />
                                     </div>
                                     <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
                                         <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
@@ -1223,7 +1223,7 @@
                                 </div>
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group4.a38" bundle="${msg}" />
+                                        <fmt:message key="faq.savie.oceanpark.group5.a2" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -1233,7 +1233,7 @@
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group4.q39" bundle="${msg}" />
+                                        <fmt:message key="faq.savie.oceanpark.group5.q3" bundle="${msg}" />
                                     </div>
                                     <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
                                         <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
@@ -1242,7 +1242,7 @@
                                 </div>
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group4.a39" bundle="${msg}" />
+                                        <fmt:message key="faq.savie.oceanpark.group5.a3" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -1252,7 +1252,7 @@
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group4.q40" bundle="${msg}" />
+                                        <fmt:message key="faq.savie.oceanpark.group5.q4" bundle="${msg}" />
                                     </div>
                                     <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
                                         <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
@@ -1261,7 +1261,7 @@
                                 </div>
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group4.a40" bundle="${msg}" />
+                                        <fmt:message key="faq.savie.oceanpark.group5.a4" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -1271,7 +1271,7 @@
                             <div class="col-md-12 col-lg-12 pad-none faq_qna">
                                 <div class="col-md-12 col-lg-12 pad-none">
                                     <div class="col-md-11 col-lg-11 pad-none faq_question">
-                                        <fmt:message key="faq.savie.group4.q41" bundle="${msg}" />
+                                        <fmt:message key="faq.savie.oceanpark.group5.q5" bundle="${msg}" />
                                     </div>
                                     <div class="col-md-1 col-lg-1 pad-none faq_question_arrow">
                                         <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
@@ -1280,7 +1280,7 @@
                                 </div>
                                 <div class="col-md-12 col-lg-12 pad-none faq_answer_container" style="display:none;">
                                     <div class="col-md-12 col-lg-12 pad-none faq_answer">
-                                        <fmt:message key="faq.savie.group4.a41" bundle="${msg}" />
+                                        <fmt:message key="faq.savie.oceanpark.group5.a5" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
