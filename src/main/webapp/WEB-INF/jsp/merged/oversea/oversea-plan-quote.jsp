@@ -276,10 +276,12 @@ function coverageToggleGoto(id){
             $('html, body').animate({
                 scrollTop: $('#WorldwideEmergencyAssistanceServicesInnerContent').prev().offset().top
             }, 500);
+            $("#plan-no-more-tables").removeAttr('id');
         }else{
             $('html, body').animate({
                 scrollTop:($('#WorldwideEmergencyAssistanceServicesInnerContent').prev().offset().top-$('.logobox').height())
             }, 500);
+            $('#WorldwideEmergencyAssistanceServicesInnerContent').find('table').parent().attr('id', 'plan-no-more-tables');
         }
         $('#WorldwideEmergencyAssistanceServicesInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#WorldwideEmergencyAssistanceServicesInnerContent').prev());
 		$('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-plus');
@@ -296,15 +298,16 @@ function coverageToggleGoto(id){
         coverageToggle('#TopupInPatientMedicalExpensesInnerContent','close');
         coverageToggle('#WorldwideEmergencyAssistanceServicesInnerContent','close');
         coverageToggle('#PersonalLiabilityInnerContent','close');
-       
         if($('.top-bar').height()>0){
             $('html, body').animate({
                 scrollTop: $('#MedicalExpensesInnerContent').prev().offset().top
             }, 500);
+            $("#plan-no-more-tables").removeAttr('id');
         }else{
             $('html, body').animate({
                 scrollTop:($('#MedicalExpensesInnerContent').prev().offset().top-$('.logobox').height())
             }, 500);
+            $('#MedicalExpensesInnerContent').find('table').parent().attr('id', 'plan-no-more-tables');
         }
         $('#MedicalExpensesInnerContent').parents(".mCustomScrollbar").mCustomScrollbar('scrollTo', $('#MedicalExpensesInnerContent').prev());
         $('#MedicalExpensesInnerContent').prev().children().children().addClass('fa-minus');
