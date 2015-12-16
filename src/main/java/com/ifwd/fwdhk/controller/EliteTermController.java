@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.UserDetails;
@@ -177,6 +178,21 @@ public class EliteTermController extends BaseController{
 					eliteTermPolicy.setPolicyNo(policyNumber);
 					request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
 				}
+				
+				String sendEmailOrNot = (String) request.getParameter("sendEmailOrNot");
+				logger.info("sendEmailOrNot:"+sendEmailOrNot);
+				if(sendEmailOrNot == null || !sendEmailOrNot.equals("yes")){
+					String creditCaredNo = (String) request.getParameter("creditCaredNo");
+					String expiryDate = (String) request.getParameter("expiryDate");
+					String cardHolderName = (String) request.getParameter("cardHolderName");
+					String policyNo = (String) request.getParameter("policyNumber");
+	         		if(creditCaredNo !=null && !creditCaredNo.equals("") && expiryDate !=null && !expiryDate.equals("") && cardHolderName !=null && !cardHolderName.equals("") && policyNo !=null && !policyNo.equals("")){
+	         			BaseResponse br = eliteTermService.finalizeEliteTermPolicy(request);
+	         			if(br !=null && !br.hasError()){
+	         				eliteTermService.sendEliteTermMail(request);
+	         			}
+	         		 }
+	        	 }
 			}else{
 				request.getSession().setAttribute("policyUserName", null);
 				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
