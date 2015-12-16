@@ -178,15 +178,15 @@ public class ECommController {
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "/maintenace");
 	}
 
-	@RequestMapping(value = "/{lang}/discover")
+	@RequestMapping(value = "/{lang}/fwdiscover")
 	public ModelAndView getFanFareHomePage(HttpServletRequest request, Model model)  {
 		model.addAttribute("pageTitle", WebServiceUtils.getPageTitle("page.discover", UserRestURIConstants.getLanaguage(request)));
 		model.addAttribute("pageMetaDataDescription", WebServiceUtils.getPageTitle("meta.discover", UserRestURIConstants.getLanaguage(request)));
-		model.addAttribute("ogTitle", WebServiceUtils.getPageTitle("travel.sharing.og.title", UserRestURIConstants.getLanaguage(request)));
-		model.addAttribute("ogType", WebServiceUtils.getPageTitle("travel.sharing.og.type", UserRestURIConstants.getLanaguage(request)));
-		model.addAttribute("ogUrl", WebServiceUtils.getPageTitle("travel.sharing.og.url", UserRestURIConstants.getLanaguage(request)));
-		model.addAttribute("ogImage", WebServiceUtils.getPageTitle("travel.sharing.og.image", UserRestURIConstants.getLanaguage(request)));
-		model.addAttribute("ogDescription", WebServiceUtils.getPageTitle("travel.sharing.og.description", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogTitle", WebServiceUtils.getPageTitle("discover.og.title", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogType", WebServiceUtils.getPageTitle("discover.og.type", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogUrl", WebServiceUtils.getPageTitle("discover.og.url", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogImage", WebServiceUtils.getPageTitle("discover.og.image", UserRestURIConstants.getLanaguage(request)));
+		model.addAttribute("ogDescription", WebServiceUtils.getPageTitle("discover.og.description", UserRestURIConstants.getLanaguage(request)));
 		
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		HttpSession session = request.getSession();
