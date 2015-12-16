@@ -377,6 +377,25 @@ public class SavieController extends BaseController{
 			}
 			org.json.simple.JSONArray serviceCentresArr = (JSONArray) responseJsonObj.get("serviceCentres");
 			org.json.simple.JSONObject serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
+			if(serviceCentresArr!=null && serviceCentresArr.size()>1){
+				for(int i=1;i<serviceCentresArr.size();i++){
+					org.json.simple.JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
+					org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
+					long date = (long) dateObj.get("date");
+					
+					org.json.simple.JSONObject serviceCentreObjB = (JSONObject) serviceCentresArr.get(i);
+					org.json.simple.JSONArray datesArrB = (JSONArray) serviceCentreObjB.get("dates");
+					org.json.simple.JSONObject dateObjB = (JSONObject) datesArrB.get(0);
+					long dateB = (long) dateObjB.get("date");
+					if(date>dateB){
+						serviceCentreObj = serviceCentreObjB;
+					}
+				}
+			}
+			else{
+				serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
+			}
+			
 			org.json.simple.JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
 			org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
 			if(session.getAttribute("csCenter") == null || session.getAttribute("csCenter") == ""){
