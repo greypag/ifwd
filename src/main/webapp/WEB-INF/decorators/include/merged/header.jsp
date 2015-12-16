@@ -642,9 +642,13 @@ function submitLoginForm(formID) {
                           <li>
                               <ul class="col-lg-12 col-md-12 no-padding">
                                   <li class="menu-link">
+                                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                      <a class="menu-link" href="#"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a>
+                                  </li>  
+                                  <li class="menu-link">
 	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 	                                  <a class="menu-link" href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3.group1.linkname1" bundle="${msg}" /></a>
-                                  </li>
+                                  </li>                                
                              </ul>                            
                           </li>
                          </ul>                      
@@ -899,8 +903,8 @@ function submitLoginForm(formID) {
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type1.group2.title" bundle="${msg}" /></a>
                     <ul class="col-sm-12 dropdown-menu">
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.type1.group2.linkname1" bundle="${msg}" /></a></li>
-                         <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/overseas-study-insurance"><fmt:message key="header.product.type1.group2.linkname2" bundle="${msg}" /></a></li>
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="header.product.type1.group2.linkname3" bundle="${msg}" /></a></li>
+                         <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/overseas-study-insurance"><fmt:message key="header.product.type1.group2.linkname2" bundle="${msg}" /></a></li>
                          <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /></a></li>
                     </ul>
                 </li>
@@ -912,8 +916,12 @@ function submitLoginForm(formID) {
             <li class="pad-none col-sm-12 dropdown link-btn border-bottom fwd-header-navgation-menu">
               <a href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="header.product.type2" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
             </li>
-            <li class="pad-none col-sm-12 dropdown link-btn fwd-header-navgation-menu">
-              <a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
+            <li class="pad-none col-sm-12 dropdown link-btn link-grp fwd-header-navgation-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.product.type3" bundle="${msg}" /><img class="link-arrow" src="<%=request.getContextPath()%>/resources/images/arrow.png"><img class="link-arrow hidden-label" src="<%=request.getContextPath()%>/resources/images/arrow-down.png"></a>
+              <ul class="col-sm-12 dropdown-menu">
+                   <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="#"><fmt:message key="header.product.type3.group1.linkname2" bundle="${msg}" /></a></li> 
+                   <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3.group1.linkname1" bundle="${msg}" /></a></li>
+              </ul>              
             </li>
           </ul>
         </div><!--/.nav-collapse -->
