@@ -83,7 +83,7 @@ public class CampaignServiceImpl implements CampaignService {
 	}
 	
 	public Map<String,String> getAllAvailablePromoCodeCountByCampaign(HttpServletRequest request) {
-		int[] indexs = {6, 5, 4, 7, 8};
+		int[] indexs = {5, 6, 7, 8, 9};
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		Map<String,String> map = new HashMap<String,String>();
 		String Url;

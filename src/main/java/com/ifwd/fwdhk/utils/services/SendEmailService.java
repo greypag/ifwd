@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 
 @Component
 public class SendEmailService implements SendEmailDao {
@@ -46,26 +47,202 @@ public class SendEmailService implements SendEmailDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public boolean sendEmailByDiscover(String username, String planName, String emailId, String discover,
+	public boolean sendEmailByDiscover(HttpServletRequest request, String username,
+			String discount, String planName, String code, String date, String emailId,
 			HashMap<String, String> header) {
 		boolean result = false;
-		String message = "From: Fanny at FWD HK<br>" +  
-				"Subject:A Gift from FWDiscover<br><br>" +
-				"Dear " + username + " ,<br><br>" + 
-				"Congratulations! You have successfully redeemed your promotion code for [offer]  from FWDiscover.<br><br>" +
-				"Discount: [Discount]<br>" +
-				"Designated Product: [" + planName +"]<br>" +
-				"Promotion code: " + discover+ "<br>" + 
-				"Expiry Date: [2015/12/25]<br><br>" +
-				"You may enter the promotion code on i.fwd.com.hkto purchase the designated product during the valid periodon or before the expiry date.Please refer to the Terms and Conditions at [link] .<br><br>" + 
-				"Stay tuned to FWDiscover for more offers.<br><br>" + 
-				"For any enquiries, please contact us at (852) 3123 3123  or via email atiService.hk@fwd.com.<br><br><br>" + 
-				"Yours Sincerely,<br>" +
-				"Fanny<br><br>" +
-				"Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail.<br><br>" + 
-				"This is an automatically generated email, please do not reply.<br><br>" + 
-				"You need Adobe Acrobat Reader to view / print the pdf file, the Reader can be downloaded for free at http://www.adobe.com/products/acrobat/readstep.html.<br><br>"; 
-
+		String planName_ch = WebServiceUtils.getMessage(planName, "tc");
+		String planName_en = WebServiceUtils.getMessage(planName, "EN");
+		String message = "<html>"+
+						 "<head>"+
+						 "  <meta charset=\"UTF-8\">"+
+						 "  <title>FWDiscover優惠 A Gift from FWDiscover </title>"+
+						 "</head>"+
+						 "<body>"+
+						 "  <div marginwidth=\"0\" marginheight=\"0\" style=\"margin:0;padding:0;background-color:#f2f2f2;min-height:100%!important;width:100%!important\">"+
+						 "    <center>"+
+						 "      <table align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" height=\"100%\" width=\"100%\" style=\"border-collapse:collapse;margin:0;padding:0;background-color:#f2f2f2;height:100%!important;width:100%!important\">"+
+						 "        <tbody>"+
+						 "          <tr>"+
+						 "            <td align=\"center\" valign=\"top\" style=\"margin:0;padding:20px;border-top:0;height:100%!important;width:100%!important\">"+
+						 "              <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse;border:0\">"+
+						 "                <tbody>"+
+						 "                  <tr>"+
+						 "                    <td align=\"center\" valign=\"top\">"+
+						 "                      <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse;background-color:#ffffff;border-top:0;border-bottom:0\">"+
+						 "                        <tbody>"+
+						 "                          <tr>"+
+						 "                            <td valign=\"top\" style=\"padding-top:9px\">"+
+						 "                              <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse\">"+
+						 "                                <tbody>"+
+						 "                                  <tr>"+
+						 "                                    <td valign=\"top\">"+
+						 "                                      <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"266\" style=\"border-collapse:collapse\">"+
+						 "                                        <tbody>"+
+						 "                                          <tr>"+
+						 "                                            <td valign=\"top\" style=\"padding-top:9px;padding-left:18px;padding-bottom:9px;padding-right:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left\">"+
+						 "                                              <a href=\"https://i.fwd.com.hk/tc/?utm_source=edm&amp;utm_medium=cpc&amp;utm_campaign=EDM%7CSA%7CP2%7CO2O+Appointment+Confirmation&amp;utm_content=logo\" style=\"word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline\" target=\"_blank\"><img align=\"none\" src=\"https://ci5.googleusercontent.com/proxy/pUUalkIKCfYBNDy3jLrAXaOG3fZKkCgfdmngGJRLq2z16WSbVoolnNEzM6URl0ebkOdGIJZbBsntZA4qwhNGC7iNAiEv_joIenDGsE-Lrv9ddo_wUPLfDJ7x0DolmiB-0r9la_aL9DT2iWAecsFUrfJn1VZqvuVgHQ1NeLw=s0-d-e1-ft#https://gallery.mailchimp.com/e03376087b8f7b09d66ad1fd2/images/c9050e8a-40a3-451c-ad15-4fcd44856132.jpg\" style=\"margin:0px;border:0;outline:none;text-decoration:none;min-height:auto!important\" class=\"CToWUd\"></a>"+
+						 "                                            </td>"+
+						 "                                          </tr>"+
+						 "                                        </tbody>"+
+						 "                                      </table>"+
+						 "                                      <table align=\"right\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"297\" style=\"border-collapse:collapse\">"+
+						 "                                        <tbody>"+
+						 "                                          <tr>"+
+						 "                                            <td valign=\"top\" style=\"padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left\">"+
+						 "                                              <div style=\"text-align:right\"><br>"+
+						 "                                              </div>"+
+						 "                                            </td>"+
+						 "                                          </tr>"+
+						 "                                        </tbody>"+
+						 "                                      </table>"+
+						 "                                    </td>"+
+						 "                                  </tr>"+
+						 "                                </tbody>"+
+						 "                              </table>"+
+						 "                            </td>"+
+						 "                          </tr>"+
+						 "                        </tbody>"+
+						 "                      </table>"+
+						 "                    </td>"+
+						 "                  </tr>"+
+						 "                  <tr>"+
+						 "                    <td align=\"center\" valign=\"top\">"+
+						 "                      <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse;background-color:#ffffff;border-top:0;border-bottom:0\">"+
+						 "                        <tbody>"+
+						 "                          <tr>"+
+						 "                            <td valign=\"top\">"+
+						 "                              <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse\">"+
+						 "                                <tbody>"+
+						 "                                  <tr>"+
+						 "                                    <td valign=\"top\">"+
+						 "                                      <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse\">"+
+						 "                                        <tbody>"+
+						 "                                          <tr>"+
+						 "                                            <td valign=\"top\" style=\"padding:9px 18px;line-height:125%;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px;text-align:left\">"+
+						 "                                              <div style=\"text-align:center\">"+
+						 "                                                <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">Dear " + username +",</span></span></p>"+
+						 "                                                <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">Congratulations! You have successfully redeemed your promotion code for [offer] from FWDiscover.</br></br>Discount: "+ discount +"</br>Designated Product: " + planName_en + "</br>Promotion code: " + code + "</br>Expiry Date: "+ date +
+						 "                                                <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">You may enter the promotion code on <body><a href=\"https://i.fwd.com.hk/en\">i.fwd.com.hk</a> to purchase the designated product on or before the expiry date. Please refer to the <body><a href=\"pdf\">Terms and Conditions</a>. </br></br>Stay tuned to <body><a href=\"http://i.fwd.com.hk/fwdiscover\">FWDiscover</a> for more offers. For any enquiries, please contact us at +85231233123 or via email at <body><a href=\"iService.hk@fwd.com\">iService.hk@fwd.com</a>."+ 
+						 "                                                    <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">恭喜您成功於FWDiscover獲取[offer] 的推廣编號。</br></br>折扣："+ discount +"</br>指定產品：" + planName_ch + "</br>推廣编號： " + code + "</br>有效日期："+ date +
+						 "                                                    <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">您可在有效日期或之前於<body><a href=\"https://i.fwd.com.hk\">i.fwd.com.hk</a>輸入推廣编號以購買指定產品。請瀏覽有關<body><a href=\"pdf\">條款及細則</a>。</br></br>敬請密切留意 <body><a href=\"http://i.fwd.com.hk/fwdiscover\">FWDiscover</a> 以盡享更多優惠。如有任何查詢，請致電富衛客戶服務熱線 (852) 3123 3123 或電郵至 <body><a href=\"mailto:iService.hk@fwd.com\">iService.hk@fwd.com</a>."+
+						 "                                                    <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">此致</br>Fanny"+ 
+						 "                                </tbody>"+
+						 "                              </table>"+
+						 "                              <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse\">"+
+						 "                                <tbody>"+
+						 "                                  <tr>"+
+						 "                                    <td style=\"padding:18px\">"+
+						 "                                      <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-top-width:1px;border-top-style:dotted;border-top-color:#999999;border-collapse:collapse\">"+
+						 "                                        <tbody>"+
+						 "                                          <tr>"+
+						 "                                            <td>"+
+						 "                                            </td>"+
+						 "                                          </tr>"+
+						 "                                        </tbody>"+
+						 "                                      </table>"+
+						 "                                    </td>"+
+						 "                                  </tr>"+
+						 "                                </tbody>"+
+						 "                              </table>"+
+						 "                              <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse\">"+
+						 "                                <tbody>"+
+						 "                                  <tr>"+
+						 "                                    <td valign=\"top\">"+
+						 "                                      <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse\">"+
+						 "                                        <tbody>"+
+						 "                                          <tr>"+
+						 "                                            <td valign=\"top\" style=\"padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px;line-height:150%;text-align:left\">"+
+						 "                                                <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail. </br></br>This is an automatically generated email, please do not reply. </br></br>You need Adobe Acrobat Reader to view / print the pdf file, the Reader can be downloaded for free at <body><a href=\"http://www.adobe.com/products/acrobat/readstep.html\">http://www.adobe.com/products/acrobat/readstep.html</a>. </p>"+
+						 "                                                <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">備註：中英文本如有歧異，概以英文本為準。</br></br>此乃電腦發出之電子郵件，請不要回覆。</br></br>附載文件適用於 Acrobat 7.0 版本軟體瀏覽。請於此網站 <body><a href=\"http://www.adobe.com/products/acrobat/readstep.html\">http://www.adobe.com/products/acrobat/readstep.html</a> 免費下載 Adobe Reader以瀏覽 / 列印此pdf 文件。</p>"+
+						 "                                            </td>"+
+						 "                                          </tr>"+
+						 "                                        </tbody>"+
+						 "                                      </table>"+
+						 "                                    </td>"+
+						 "                                  </tr>"+
+						 "                                </tbody>"+
+						 "                              </table>"+
+						 "                              <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse\">"+
+						 "                                <tbody>"+
+						 "                                  <tr>"+
+						 "                                    <td valign=\"top\">"+
+						 "                                      <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse\">"+
+						 "                                        <tbody>"+
+						 "                                            </td>"+
+						 "                                          </tr>"+
+						 "                                        </tbody>"+
+						 "                                      </table>"+
+						 "                                    </td>"+
+						 "                                  </tr>"+
+						 "                                </tbody>"+
+						 "                              </table>"+
+						 "                              <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse\">"+
+						 "                                <tbody>"+
+						 "                                  <tr>"+
+						 "                                    <td style=\"padding:18px\">"+
+						 "                                      <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-top-width:1px;border-top-style:dotted;border-top-color:#999999;border-collapse:collapse\">"+
+						 "                                        <tbody>"+
+						 "                                          <tr>"+
+						 "                                            <td>"+
+						 "                                              <span></span>"+
+						 "                                            </td>"+
+						 "                                          </tr>"+
+						 "                                        </tbody>"+
+						 "                                      </table>"+
+						 "                                    </td>"+
+						 "                                  </tr>"+
+						 "                                </tbody>"+
+						 "                              </table>"+
+						 "                            </td>"+
+						 "                          </tr>"+
+						 "                        </tbody>"+
+						 "                      </table>"+
+						 "                    </td>"+
+						 "                  </tr>"+
+						 "                  <tr>"+
+						 "                    <td align=\"center\" valign=\"top\">"+
+						 "                      <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse;background-color:#ffffff;border-top:0;border-bottom:0\">"+
+						 "                        <tbody>"+
+						 "                          <tr>"+
+						 "                            <td valign=\"top\" style=\"padding-bottom:9px\">"+
+						 "                              <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse\">"+
+						 "                                <tbody>"+
+						 "                                  <tr>"+
+						 "                                    <td valign=\"top\">"+
+						 "                                      <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"600\" style=\"border-collapse:collapse\">"+
+						 "                                        <tbody>"+
+						 "                                          <tr>"+
+						 "                                            <td valign=\"top\" style=\"padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px;line-height:125%;text-align:left\">"+
+						 "                                              <div style=\"text-align:center\">"+
+						 "                                                <p dir=\"ltr\" style=\"line-height:1.2;margin-top:0pt;margin-bottom:10pt;text-align:center;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">富衛人壽保險(百慕達)有限公司</span></span></p>"+
+						 "                                                <p dir=\"ltr\" style=\"line-height:1.2;margin-top:0pt;margin-bottom:10pt;text-align:center;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px\"><a href=\"http://www.fwd.com/hk/?utm_source=edm&amp;utm_medium=cpc&amp;utm_campaign=EDM%7CSA%7CP2%7CO2O+Access+Code&amp;utm_content=copy\" style=\"word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline\" target=\"_blank\"><span style=\"color:#ff8c00\"><span style=\"font-family:microsoft jhenghei,calibri,sans-serif\"><span><span style=\"background-color:transparent;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">www.fwd.com.hk</span></span></span></span></a></p>"+
+						 "                                              </div>"+
+						 "                                            </td>"+
+						 "                                          </tr>"+
+						 "                                        </tbody>"+
+						 "                                      </table>"+
+						 "                                    </td>"+
+						 "                                  </tr>"+
+						 "                                </tbody>"+
+						 "                              </table>"+
+						 "                            </td>"+
+						 "                          </tr>"+
+						 "                        </tbody>"+
+						 "                      </table>"+
+						 "                    </td>"+
+						 "                  </tr>"+
+						 "                </tbody>"+
+						 "              </table>"+
+						 "            </td>"+
+						 "          </tr>"+
+						 "        </tbody>"+
+						 "      </table>"+
+						 "    </center>"+
+						 "  </div>"+
+						 "</body>"+
+						"</html>";
+								      
 		JSONObject email_params = new JSONObject();
 		email_params.put("to", emailId);
 		email_params.put("message", message);

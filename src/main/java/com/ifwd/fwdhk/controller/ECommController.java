@@ -202,7 +202,7 @@ public class ECommController {
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		HttpSession session = request.getSession();
 		String choose = (String)session.getAttribute("chooseCampaign");
-		int[] indexs = {6, 5, 4, 7, 8};
+		int[] indexs = {5, 6, 7, 8, 9};
 		String Url;
 		String code;
 		JSONObject responseJsonObj;
@@ -217,12 +217,37 @@ public class ECommController {
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url,
 					header, null);
 
-			String planName = WebServiceUtils.getMessage("Fanfare.planname" + choose, UserRestURIConstants.getLanaguage(request));
 			if (responseJsonObj.get("result").equals("success")) {
 				code = responseJsonObj.get("promoCode").toString();
 				String email = session.getAttribute("emailAddress").toString();
 				String username = session.getAttribute("username").toString();
-				sendEmail.sendEmailByDiscover(username, planName, email, code, header);
+				String discount="";
+				String date="";
+				switch (Integer.parseInt(choose)) {
+				case 5:
+					discount="80%";
+					date="31-03-2016";
+					break;
+				case 6:
+					discount="HK$ 218";
+					date="31-03-2016";
+					break;
+				case 7:
+					discount="HK$ 135";
+					date="31-03-2016";
+					break;
+				case 8:
+					discount="50%";
+					date="31-03-2016";
+					break;
+				case 9:
+					discount="40%";
+					date="31-03-2016";
+					break;
+				default:
+					break;
+				}
+				sendEmail.sendEmailByDiscover(request, username, discount, "Fanfare.planname" + choose, code, date, email, header);
 			} else {
 				code = responseJsonObj.get("result").toString(); // failed or duplicated
 			}

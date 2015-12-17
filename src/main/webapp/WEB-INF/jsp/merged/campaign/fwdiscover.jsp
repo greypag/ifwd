@@ -842,9 +842,9 @@
 	    });
 		$('#modal-grab-button-first').click(function(){
 			if('<%=username%>' == 'null') {
-				loginpopup("6");
+				loginpopup("5");
 			}else {
-				assignPromoCode("6");
+				assignPromoCode("5");
 			}
 		});
 		
@@ -853,9 +853,9 @@
 	    });
 	    $('#modal-grab-button-second').click(function(){
 			if('<%=username%>' == 'null') {
-				loginpopup("5");
+				loginpopup("6");
 			}else {
-				assignPromoCode("5");
+				assignPromoCode("6");
 			}
 		});
 	    
@@ -864,9 +864,9 @@
 	    });
 	    $('#modal-grab-button-third').click(function(){
 			if('<%=username%>' == 'null') {
-				loginpopup("4");
+				loginpopup("7");
 			}else {
-				assignPromoCode("4");
+				assignPromoCode("7");
 			}
 		});
 	    
@@ -875,9 +875,9 @@
 	    });
 	    $('#modal-grab-button-fourth').click(function(){
 			if('<%=username%>' == 'null') {
-				loginpopup("7");
+				loginpopup("8");
 			}else {
-				assignPromoCode("7");
+				assignPromoCode("8");
 			}
 		});
 	    
@@ -886,9 +886,9 @@
 	    });
 	    $('#modal-grab-button-fifth').click(function(){
 			if('<%=username%>' == 'null') {
-				loginpopup("8");
+				loginpopup("9");
 			}else {
-				assignPromoCode("8");
+				assignPromoCode("9");
 			}
 		});
 
@@ -947,7 +947,7 @@
 		        		$('#offer-details-promotion-code-error-sold').modal('show');
 		        	}
 		        	updateAllPromoCodeCount();
-		        	setPlanLink(campaignId);
+		        	setPlanLink(campaignId, data["promoCode"]);
 		        }
 		    });
 	    }
@@ -966,22 +966,22 @@
 	    }
 	    
 	    var link="";
-	    function setPlanLink(campaignId) {
+	    function setPlanLink(campaignId, code) {
 	    	switch (campaignId) {
-			case '6':
-				link="travel-insurance";
-				break;
 			case '5':
-				link="travel-insurance";
+				link="travel-insurance?promo="+code;
 				break;
-			case '4':
-				link="travel-insurance";
+			case '6':
+				link="travel-insurance?promo="+code;
 				break;
 			case '7':
-				link="home-insurance";
+				link="travel-insurance?promo="+code;
 				break;
 			case '8':
-				link="working-holiday-insurance";
+				link="home-insurance?promo="+code;
+				break;
+			case '9':
+				link="working-holiday-insurance?promo="+code;
 				break;
 			default:
 				link="";
@@ -1027,7 +1027,7 @@
 	        	}else{
 					$('.promo-code-holder .code').html('<%=request.getAttribute("chooseCode")%>');
 					$('#offer-details-promotion-code').modal('show');
-					setPlanLink('${chooseId}');
+					setPlanLink('${chooseId}', '<%=request.getAttribute("chooseCode")%>');
 	        	}
 			}
 		});

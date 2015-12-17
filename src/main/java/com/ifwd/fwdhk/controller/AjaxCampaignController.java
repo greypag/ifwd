@@ -60,7 +60,6 @@ public class AjaxCampaignController extends BaseController {
 			}
 
 			int campaignId = Integer.parseInt(request.getParameter("campaignId"));
-			String planName = WebServiceUtils.getMessage("Fanfare.planname" + campaignId, UserRestURIConstants.getLanaguage(request));
 			String result = campaignService.assignCampaignPromoCode(request);
 			
 			Map<String,String> map = new HashMap<String,String>();
@@ -81,7 +80,33 @@ public class AjaxCampaignController extends BaseController {
 									.getLanaguage(request)));
 					String email = session.getAttribute("emailAddress").toString();
 					String username = session.getAttribute("username").toString();
-					sendEmail.sendEmailByDiscover(username, planName, email, result, header);
+					String discount="";
+					String date="";
+					switch (campaignId) {
+					case 5:
+						discount="80%";
+						date="31-03-2016";
+						break;
+					case 6:
+						discount="HK$ 218";
+						date="31-03-2016";
+						break;
+					case 7:
+						discount="HK$ 135";
+						date="31-03-2016";
+						break;
+					case 8:
+						discount="50%";
+						date="31-03-2016";
+						break;
+					case 9:
+						discount="40%";
+						date="31-03-2016";
+						break;
+					default:
+						break;
+					}
+					sendEmail.sendEmailByDiscover(request, username, discount, "Fanfare.planname" + campaignId, result, date, email, header);
 					map.put("result", "success");
 					map.put("promoCode", result);
 					break;
