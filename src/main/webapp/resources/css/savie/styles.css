@@ -4300,7 +4300,7 @@ span.explanation {
 .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content {
   	padding: 0;
   	background-color: #f1f3f5;
-  	padding-bottom: 10px;
+  	padding-bottom: 20px;
 }
 @media (min-width: 768px){
 	.fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content {
@@ -16778,9 +16778,23 @@ a:focus {
 		/*margin-top: 125px;*/
 	}
 }
+
 .appointment-back-home .btn-primary{
 	font-size: 28px;
     line-height: 31.5px;
     font-weight: normal;
     padding: 15px 30px;
+}
+
+.fwd-savie-wrapper .disclaimer-center{
+  width: 90%;
+  margin: 20px auto;
+  line-height: 20px;
+  font-size: 12px;
+}
+
+@media(min-width: 992px){
+  .fwd-savie-wrapper .disclaimer-center{
+    width: 50%;
+  }
 }

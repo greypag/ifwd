@@ -85,6 +85,12 @@ var context = "${pageContext.request.contextPath}";
 					<div id="investment-amount">    
 						<div id="desktop-left">
 							<h3 class="saving"><fmt:message key="saviee.planoption.oneoff.premium.amount" bundle="${msg}" /><!--<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="tooltips.savie.premium" bundle="${msg}" />"></button>--></h3>
+							
+							<h3 class="pull-right total"><span id="range">${formatSavingAmount != null && formatSavingAmount != '' ? formatSavingAmount : '200,000'}</span></h3>
+							<label id="hkd" class="pull-right total"><fmt:message key="saviee.planoption.q1.currency" bundle="${msg}" /></label>
+
+							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="${savingAmount != null && savingAmount != '' ? savingAmount : '200000'}" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+
 							<div id="left" class="pull-left">
 								<p><fmt:message key="saviee.planoption.q1.min" bundle="${msg}" /></p>
 								<p>$30,000</p>
@@ -94,11 +100,6 @@ var context = "${pageContext.request.contextPath}";
 								<p><fmt:message key="saviee.planoption.q1.max" bundle="${msg}" /></p>
 								<p>$400,000</p>
 							</div>
-
-							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="${savingAmount != null && savingAmount != '' ? savingAmount : '200000'}" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
-
-							<h3 class="pull-right total"><span id="range">${formatSavingAmount != null && formatSavingAmount != '' ? formatSavingAmount : '200,000'}</span></h3>
-							<label id="hkd" class="pull-right total"><fmt:message key="saviee.planoption.q1.currency" bundle="${msg}" /></label>
 						</div>
 
 						<div id="desktop-right">
