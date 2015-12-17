@@ -2391,7 +2391,7 @@ var home_url = "<%=request.getContextPath()%>";
 								</div>
 							</div>
 							</p>
-							<p>
+							<p class="fwd-authorize">
 								<fmt:message
 									key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks2"
 									bundle="${msg}" />

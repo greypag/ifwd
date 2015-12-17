@@ -439,8 +439,12 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
 .fwd-et-wrapper .policy-replacement-remarks{
 	padding-top: 10px;
 	padding-bottom: 40px;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 16px;
+}
+
+.fwd-authorize {
+	font-size: 14px;
 }
 
 #et-application-second-section .text-red{
