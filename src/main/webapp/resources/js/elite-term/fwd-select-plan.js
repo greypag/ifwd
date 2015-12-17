@@ -362,6 +362,10 @@
       
       // Move to About your self section
       $('#et-btn-before-start').on('click', function(e) {
+    	  
+    	  ga('create', 'UA-60032236-1', 'auto');
+    	  ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-2'); 
+    	  
          var $self = $(this);
          
          if ($self.hasClass('back-to-summary')) {
@@ -427,6 +431,10 @@
    
       // Move to Medical declaration section
       $('#et-brn-proceed-to-application').on('click', function(e) {
+    	 
+    	  ga('create', 'UA-60032236-1', 'auto');
+		  ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-5'); 
+			  
     	 e.preventDefault();
          var $self = $(this);
          
@@ -473,6 +481,9 @@
       $('#et-medical-dec-next').on('click', function(e) {
             var $self = $(this);
             var $target = null;
+            
+            ga('create', 'UA-60032236-1', 'auto');
+            ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-6'); 
             
             if (isMedicAnswered()) {
                // Remve datepicker
@@ -535,8 +546,13 @@
       
       // Move to Declaration section
       $('#et-beneficiary-info-next').on('click', function(e) {
+    	 
          var $self = $(this);
          var $target = '';
+         
+         ga('create', 'UA-60032236-1', 'auto');
+         ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-9'); 
+         
          if (isBeneficaryValid()) {
             // Store beneficiaries data
             storeBeneficiaryInfo();
@@ -634,6 +650,10 @@
       
       // Show Application Summary section
       $('#et-app-sum-proceed-btn').on('click', function(e) { 
+    	  
+    	  ga('create', 'UA-60032236-1', 'auto');
+    	  ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-10'); 
+    	  
     	 if(!checkCheckBoxBySelectPay()){
     		 return false;
     	 }
