@@ -122,7 +122,7 @@ var languageP = "${language}";
 					
                <div class="row">
                   <div class="col-xs-12 text-center">
-                     <a href="<%=request.getContextPath()%>/${language}/term-life-insurance" title="Back to home" class="btn next et-back-home-btn"><fmt:message key="eliteTerms.confirmation.Back.to.home" bundle="${msg}" /></a>
+                     <a id="back-to-home" href="<%=request.getContextPath()%>/${language}/term-life-insurance" title="Back to home" class="btn next et-back-home-btn"><fmt:message key="eliteTerms.confirmation.Back.to.home" bundle="${msg}" /></a>
                   </div>
                </div>
 				</div>
@@ -134,7 +134,12 @@ var languageP = "${language}";
 		<!-- JS INCLUDES -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 		<script>
-         
+        
+		$("#back-to-home").click(function(){
+	    	  ga('create', 'UA-60032236-1', 'auto');
+	    	  ga('send', 'pageview', '/en/term-life-insurance/confirmation'); 
+	      });
+		
          $('#et-confimation-email-form').on('submit', function(e){
             e.preventDefault();
             
