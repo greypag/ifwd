@@ -649,5 +649,41 @@ var home_url = "<%=request.getContextPath()%>";
 				$('.other-benefits-list-mobile').removeClass('hidden-sm');
 				$('#read-more-other-benefits').hide();
 			});
+
+			$(document).ready(function() {
+				if(isMobile){
+					$(".annualTravel_policy_item").click(function(){
+						itemTop = $(this).offset();
+						var html=$(this).children('.hidden-content').children().clone();
+						$("#modal_policy_container").html(html);
+						$("#policyCoveragePopup").modal("show");
+			            $("#policyCoveragePopup").on('show.bs.modal', function () {
+			                $('body').css("position", "inital");
+			                //$('body').css("position", "fixed");
+			                $('body').animate({scrollTop: itemTop.top - 60}, 0);      
+			            });
+			            $("#policyCoveragePopup").on('hide.bs.modal', function () {
+			                //alert(itemTop.top);
+			                $('body').css("position", "initial");
+			                $('body').animate({scrollTop: itemTop.top - 60}, 0);
+			                //$('body').css("position", "relative");
+			            });
+			            $("#policyCoveragePopup").on('hidden.bs.modal', function () {
+			                $('body').attr("style", "");
+			            });			
+					});
+				}
+			});
 		</script>
-		
+
+<div class="modal fade bs-example-modal-lg  in" id="policyCoveragePopup" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content plan-modal">
+        <div class="modal-body">
+            <a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true" style="font-size:30px;">×</span></a>
+            <div id="modal_policy_container" style="padding-top: 10px;text-align: center;">
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
