@@ -231,6 +231,7 @@ public class ECommController {
 				}
 			}
 			request.setAttribute("chooseCode", code);
+			request.setAttribute("chooseId", choose);
 		}
 		for(int i = 0; i < indexs.length; i++) {
 			Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_GET_COUNT + "?campaign_id=" + indexs[i];

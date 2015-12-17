@@ -947,6 +947,7 @@
 		        		$('#offer-details-promotion-code-error-sold').modal('show');
 		        	}
 		        	updateAllPromoCodeCount();
+		        	setPlanLink(campaignId);
 		        }
 		    });
 	    }
@@ -961,6 +962,33 @@
 		        		$(this).html(data["count"+index]);
 		        	});
 		        }
+		    });
+	    }
+	    
+	    var link="";
+	    function setPlanLink(campaignId) {
+	    	switch (campaignId) {
+			case '6':
+				link="travel-insurance";
+				break;
+			case '5':
+				link="travel-insurance";
+				break;
+			case '4':
+				link="travel-insurance";
+				break;
+			case '7':
+				link="home-insurance";
+				break;
+			case '8':
+				link="working-holiday-insurance";
+				break;
+			default:
+				link="";
+				break;
+			}
+	    	$(".modal-content .details-btn").on('click', function(){
+	    		window.location.href = '<%=request.getContextPath()%>/${language}/' + link;
 		    });
 	    }
 	    
@@ -991,6 +1019,7 @@
 			$("#loginpopup").css("background", "rgba(6, 29, 42, 0.8)");
 			if('<%=username%>' != 'null' && '<%=request.getAttribute("chooseIndex") %>' != 'null') {
 				$('.modal').modal('hide');
+	        	$('.modal-content').children(".title").html('<fmt:message key="Fanfare.offername${chooseIndex}" bundle="${msg}" />');
 	        	if('<%=request.getAttribute("chooseCode")%>'=="failed" || '<%=request.getAttribute("chooseCode")%>'=="error"){
 	        		$('#offer-details-promotion-code-error-sold').modal('show');
 	        	}else if('<%=request.getAttribute("chooseCode")%>'=="duplicated") {
@@ -998,6 +1027,7 @@
 	        	}else{
 					$('.promo-code-holder .code').html('<%=request.getAttribute("chooseCode")%>');
 					$('#offer-details-promotion-code').modal('show');
+					setPlanLink('${chooseId}');
 	        	}
 			}
 		});
