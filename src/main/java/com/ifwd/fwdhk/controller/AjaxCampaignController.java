@@ -82,31 +82,37 @@ public class AjaxCampaignController extends BaseController {
 					String username = session.getAttribute("username").toString();
 					String discount="";
 					String date="";
+					String offername = "";
 					switch (campaignId) {
 					case 5:
 						discount="80%";
 						date="31-03-2016";
+						offername="Fanfare.offername0";
 						break;
 					case 6:
 						discount="HK$ 218";
 						date="31-03-2016";
+						offername="Fanfare.offername1";
 						break;
 					case 7:
 						discount="HK$ 135";
 						date="31-03-2016";
+						offername="Fanfare.offername2";
 						break;
 					case 8:
 						discount="50%";
 						date="31-03-2016";
+						offername="Fanfare.offername3";
 						break;
 					case 9:
 						discount="40%";
 						date="31-03-2016";
+						offername="Fanfare.offername4";
 						break;
 					default:
 						break;
 					}
-					sendEmail.sendEmailByDiscover(request, username, discount, "Fanfare.planname" + campaignId, result, date, email, header);
+					sendEmail.sendEmailByDiscover(offername, username, discount, "Fanfare.planname" + campaignId, result, date, email, header);
 					map.put("result", "success");
 					map.put("promoCode", result);
 					break;
