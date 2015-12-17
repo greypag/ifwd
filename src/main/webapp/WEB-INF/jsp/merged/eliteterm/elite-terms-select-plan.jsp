@@ -511,7 +511,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<a href="#" class="et-contact-link"
 											title="Contact customer service" data-toggle="modal"
 											data-target="#cannot-apply-modal"
-											onclick="getCsChannel('ETMD1');"><fmt:message
+											onclick="getCsChannel('ETPPLUS');"><fmt:message
 												key="eliteTerms.selectPlan.Product.highlights.line2.part2"
 												bundle="${msg}" /></a>
 										<fmt:message
