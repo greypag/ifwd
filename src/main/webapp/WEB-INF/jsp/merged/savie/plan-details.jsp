@@ -54,9 +54,9 @@ var context = "${pageContext.request.contextPath}";
 			<div class="fwd-container container-fluid hidden-xs hidden-sm clearfix">
 				<div class="breadcrumbs pull-left">
 					<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
-						<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
-						<li class="divider"><i class="fa fa-play"></i></li>
 						<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
+						<li class="divider"><i class="fa fa-play"></i></li>
+						<li><a href="#"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
 						<li class="divider last"><i class="fa fa-play"></i></li>
 						<li class="active-bc"><fmt:message key="breadcrumb.savie.plan_details" bundle="${msg}" /></li>
 					</ol>
