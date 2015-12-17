@@ -16375,7 +16375,7 @@ body.chin .op-logo {
   .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-header-info-btn.active {
     background-color: #ff8200;
     color: #fff;
-    text-align: left;
+    text-align: center;
     padding-left: 20px;
   }
 }
@@ -16777,4 +16777,10 @@ a:focus {
 	.page-sales-illustration .sales-head {
 		/*margin-top: 125px;*/
 	}
+}
+.appointment-back-home .btn-primary{
+	font-size: 28px;
+    line-height: 31.5px;
+    font-weight: normal;
+    padding: 15px 30px;
 }

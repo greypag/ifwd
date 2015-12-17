@@ -18,8 +18,8 @@ var affiliate = "${affiliate}";
 <%!
       boolean isSaleActiveClass = true;
       boolean isEservicesActiveClass = false;
-    %>
-        <div class="fwd-savie-wrapper">
+    %>         
+<div class="fwd-savie-wrapper">
       <div class="container-fluid fwd-full-container">
                 <div class="application-page-header et-header-browse">
           <div class="et-back-arrow hidden-xs hidden-sm">
@@ -54,18 +54,18 @@ var affiliate = "${affiliate}";
         </div>
       </div>
       
-		<div class="fwd-container container-fluid hidden-xs hidden-sm clearfix">
-			<div class="breadcrumbs pull-left">
-				<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
-					<li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
-					<li class="divider"><i class="fa fa-play"></i></li>
-					<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
-					<li class="divider last"><i class="fa fa-play"></i></li>
-					<li class="active-bc"><fmt:message key="breadcrumb.savie.appointment" bundle="${msg}" /></li>
-				</ol>
-			</div>
-		</div>
-		
+        <div class="fwd-container container-fluid hidden-xs hidden-sm clearfix">
+            <div class="breadcrumbs pull-left">
+                <ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
+                    <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
+                    <li class="divider"><i class="fa fa-play"></i></li>
+                    <li><a href="#"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
+                    <li class="divider last"><i class="fa fa-play"></i></li>
+                    <li class="active-bc"><fmt:message key="breadcrumb.savie.confirmation" bundle="${msg}" /></li>
+                </ol>
+            </div>
+        </div>
+        
       <div class="application-flux thank-you">
         <div class="container-fluid fwd-container thank-you-container">
           <h1><fmt:message key="saviee.appointment.h1" bundle="${msg}" /><!--<br class="visible-xs" /><fmt:message key="savie.confirmation.offline.signing.up" bundle="${msg}" />--></h1>       
@@ -85,11 +85,11 @@ var affiliate = "${affiliate}";
                   <div class="col-xs-12 col-md-4">
                     <div class="offline-procedure text-center">
                       <span class="step">2</span>
-						<p>
-							<fmt:message key="saviee.appointment.doucmenttobring2" bundle="${msg}" />
-							<a href="<%=request.getContextPath()%>/<fmt:message key="saviee.appointment.doucmenttobring2.URL" bundle="${msg}" />" target="_blank"><fmt:message key="savie.confirmation.offline.A.address.link.text" bundle="${msg}" /></a>
-							<fmt:message key="savie.confirmation.offline.A.address.part2" bundle="${msg}" />
-						</p>
+                        <p>
+                            <fmt:message key="saviee.appointment.doucmenttobring2" bundle="${msg}" />
+                            <a href="<%=request.getContextPath()%>/<fmt:message key="saviee.appointment.doucmenttobring2.URL" bundle="${msg}" />" target="_blank"><fmt:message key="savie.confirmation.offline.A.address.link.text" bundle="${msg}" /></a>
+                            <fmt:message key="savie.confirmation.offline.A.address.part2" bundle="${msg}" />
+                        </p>
                       <div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-2.jpg" class="img-responsive" /></div>
                     </div>
                   </div>
@@ -149,19 +149,22 @@ var affiliate = "${affiliate}";
                                         <span class="pull-left">${centreDetails.operationHours }</span>
                                     </div>-->
                                     <div class="appointment-detail clearfix print hidden-xs hidden-sm">
-										<div class="print-image-holder">
-											<img src="<%=request.getContextPath()%>/resources/images/savie/print-logo.png" alt="Print" class="">
-											<p onclick="window.print()"><fmt:message key="savie.confirmation.offline.Print" bundle="${msg}" /></p>
-										</div>
-									</div>
-									<div class = "share-container text-center" >		
-									  <!--<p><fmt:message key="savie.confirmation.offline.Follow.us" bundle="${msg}" /></p>		
-									  < div class = "clearfix" >		
-									  <a href="#"> <i class="fa fa-facebook"></i></a>	
-									  <a href="#"> <i class="fa fa-twitter"></i></a>	
-									  <a href="#"> <i class="fa fa-google-plus"> </i></a>
-									  </div>--> 
-									</div>
+                                        <div class="print-image-holder">
+                                            <img src="<%=request.getContextPath()%>/resources/images/savie/print-logo.png" alt="Print" class="">
+                                            <p onclick="window.print()"><fmt:message key="savie.confirmation.offline.Print" bundle="${msg}" /></p>
+                                        </div>
+                                    </div>
+                                    <div class="appointment-back-home pull-left pad-none">
+                                        <a class="bdr-curve btn btn-primary bck-btn" href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="Overseas.PlanOptions.Back" bundle="${msg}" /></a>
+                                    </div>                                    
+                                    <div class = "share-container text-center" >        
+                                      <!--<p><fmt:message key="savie.confirmation.offline.Follow.us" bundle="${msg}" /></p>     
+                                      < div class = "clearfix" >        
+                                      <a href="#"> <i class="fa fa-facebook"></i></a>   
+                                      <a href="#"> <i class="fa fa-twitter"></i></a>    
+                                      <a href="#"> <i class="fa fa-google-plus"> </i></a>
+                                      </div>--> 
+                                    </div>
                                 </div>
                             </div>
             </div>

@@ -897,6 +897,7 @@
                                             <tr><td style="color: #fff;background-color: #f68a1d;"><fmt:message key="faq.savie.group1.a15.tr2.td1" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group1.a15.tr2.td2" bundle="${msg}" /></td></tr>
                                             <tr><td style="color: #fff;background-color: #f68a1d;"><fmt:message key="faq.savie.group1.a15.tr3.td1" bundle="${msg}" /></td><td><fmt:message key="faq.savie.group1.a15.tr3.td2" bundle="${msg}" /></td></tr>
                                         </table>
+                                        <fmt:message key="faq.savie.group1.a15.2" bundle="${msg}" />
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
