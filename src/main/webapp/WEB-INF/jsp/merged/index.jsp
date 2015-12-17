@@ -185,8 +185,13 @@
     <!--/.carousel-inner--> 
   </div>
   <!--/.carousel--> 
-  <a class="prev" href="#recent-works-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#recent-works-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a> </section>
-
+  <a class="prev" href="#recent-works-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a> <a class="next" href="#recent-works-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+</section>
+<section>
+    <div class="home-disclaimer bottom-disclaimer-wrapper container">
+        <p class="h4-6"><fmt:message key="Home.Landing.Disclaimer" bundle="${msg}" /></p>
+    </div>
+</section>
 
 <!--/#testiomonials-->
 <section id="testimonials" class="hidden-sm hidden-xs">

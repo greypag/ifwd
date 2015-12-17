@@ -10409,7 +10409,10 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 	    position: fixed;
 	    width: 100%;		
 	    overflow: hidden;		
-	}				
+	}
+	.home-disclaimer{
+        padding: 20px 15px;
+    } 				
 }		
 .btn-color-ylw, .btn-color-ylw:focus{		
     background-color:#fdb714 !important;		
@@ -10423,4 +10426,7 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
     .faq_container .faq_menu_item{
         padding: 20px 0;
     }
-}   
+    .home-disclaimer{
+        padding: 20px 0;
+    }  
+} 
