@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component;
 @Component
 public interface SendEmailDao {
 	public boolean sendEmail(String emailId, String promotionalCode, HashMap<String, String> header);
-	public boolean sendEmailByDiscover(String username, String planName, String emailId, String discover, HashMap<String, String> header);
+	public boolean sendEmailByDiscover(HttpServletRequest request, String username,
+			String discount, String planName, String code, String date, String emailId,
+			HashMap<String, String> header);
 	public boolean sendY5buddyEmail(HttpServletRequest request, String recipientEmail, HashMap<String, String> header);
 	public boolean sendPromotionEmail(String emailId, HashMap<String, String> header);
 }
