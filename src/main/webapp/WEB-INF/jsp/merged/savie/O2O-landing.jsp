@@ -42,7 +42,7 @@ var home_url = "<%=request.getContextPath()%>";
 			<div class="text-center o2o-landing banner-widget hunger-selling container-fluid">
 				<img class="mobile-banner" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.mobile" bundle="${msg}" />" />
 				<img class="desktop-banner" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.desktop" bundle="${msg}" />" />
-            <div class="fwd-container container-fluid breadcrumbs op-breadcrumbs-container">
+            <div class="fwd-container container-fluid breadcrumbs op-breadcrumbs-container hidden-xs hidden-sm">
                 <ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing op-breadcrumbs">
 						  <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
                     <li class="divider"><!-- <i class="fa fa-chevron-right"></i> -->></li>
