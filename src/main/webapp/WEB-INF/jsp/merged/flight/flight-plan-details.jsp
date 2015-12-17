@@ -69,6 +69,8 @@ perventRedirect=true;
 
 var namePlaceholder="<fmt:message key="flight.details.applicant.name.placeholder" bundle="${msg}" />";
 var hkidPlaceholder="<fmt:message key="flight.details.applicant.hkid.placeholder" bundle="${msg}" />";
+var appMobilePlaceholder = "";
+var appEmailPlaceholder = "";
 
 var insureNamePlaceholder="<fmt:message key="flight.details.insured.name.placeholder" bundle="${msg}" />";
 var insureHkidPlaceholder="<fmt:message key="flight.details.insured.hkid.placeholder" bundle="${msg}" />";

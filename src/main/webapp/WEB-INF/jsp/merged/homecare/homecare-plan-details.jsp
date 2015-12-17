@@ -64,6 +64,8 @@ perventRedirect=true;
 
 var namePlaceholder="<fmt:message key="home.details.applicant.name.placeholder" bundle="${msg}" />";
 var hkidPlaceholder="<fmt:message key="home.details.applicant.passport.placeholder" bundle="${msg}" />";
+var appMobilePlaceholder = "";
+var appEmailPlaceholder = "";
 
 var roomPlaceholder="<fmt:message key="home.details.registration.insuaddress.room.placeholder" bundle="${msg}" />";
 var floorPlaceholder="<fmt:message key="home.details.registration.insuaddress.floor.placeholder" bundle="${msg}" />";

@@ -43,6 +43,8 @@
 	
 	var namePlaceholder="<fmt:message key="workingholiday.details.applicant.name.placeholder" bundle="${msg}" />";
 	var hkidPlaceholder="<fmt:message key="workingholiday.details.applicant.hkid.placeholder" bundle="${msg}" />";
+	var appMobilePlaceholder = "";
+	var appEmailPlaceholder = "";
 	
 	var benNamePlaceholder="<fmt:message key="workingholiday.details.insured.beneficiary.name.placeholder" bundle="${msg}" />";
 	var benHkidPlaceholder="<fmt:message key="workingholiday.details.insured.beneficiary.hkid.placeholder" bundle="${msg}" />";
