@@ -1,8 +1,6 @@
 package com.ifwd.fwdhk.utils.services;
 
-import java.io.Console;
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -48,10 +46,25 @@ public class SendEmailService implements SendEmailDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public boolean sendEmailByDiscover(String emailId, String discover,
+	public boolean sendEmailByDiscover(String username, String planName, String emailId, String discover,
 			HashMap<String, String> header) {
 		boolean result = false;
-		String message = discover;
+		String message = "From: Fanny at FWD HK<br>" +  
+				"Subject:A Gift from FWDiscover<br><br>" +
+				"Dear " + username + " ,<br><br>" + 
+				"Congratulations! You have successfully redeemed your promotion code for [offer]  from FWDiscover.<br><br>" +
+				"Discount: [Discount]<br>" +
+				"Designated Product: [" + planName +"]<br>" +
+				"Promotion code: " + discover+ "<br>" + 
+				"Expiry Date: [2015/12/25]<br><br>" +
+				"You may enter the promotion code on i.fwd.com.hkto purchase the designated product during the valid periodon or before the expiry date.Please refer to the Terms and Conditions at [link] .<br><br>" + 
+				"Stay tuned to FWDiscover for more offers.<br><br>" + 
+				"For any enquiries, please contact us at (852) 3123 3123  or via email atiService.hk@fwd.com.<br><br><br>" + 
+				"Yours Sincerely,<br>" +
+				"Fanny<br><br>" +
+				"Remarks: In case of discrepancies between the English and Chinese versions, English version shall prevail.<br><br>" + 
+				"This is an automatically generated email, please do not reply.<br><br>" + 
+				"You need Adobe Acrobat Reader to view / print the pdf file, the Reader can be downloaded for free at http://www.adobe.com/products/acrobat/readstep.html.<br><br>"; 
 
 		JSONObject email_params = new JSONObject();
 		email_params.put("to", emailId);

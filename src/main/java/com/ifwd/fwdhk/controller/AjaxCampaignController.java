@@ -59,6 +59,8 @@ public class AjaxCampaignController extends BaseController {
 				throw new Exception("invalid AJAX call");
 			}
 
+			int campaignId = Integer.parseInt(request.getParameter("campaignId"));
+			String planName = WebServiceUtils.getMessage("Fanfare.planname" + campaignId, UserRestURIConstants.getLanaguage(request));
 			String result = campaignService.assignCampaignPromoCode(request);
 			
 			Map<String,String> map = new HashMap<String,String>();
@@ -78,7 +80,8 @@ public class AjaxCampaignController extends BaseController {
 							.transformLanaguage(UserRestURIConstants
 									.getLanaguage(request)));
 					String email = session.getAttribute("emailAddress").toString();
-					sendEmail.sendEmailByDiscover(email, result, header);
+					String username = session.getAttribute("username").toString();
+					sendEmail.sendEmailByDiscover(username, planName, email, result, header);
 					map.put("result", "success");
 					map.put("promoCode", result);
 					break;

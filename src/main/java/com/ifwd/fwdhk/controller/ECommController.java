@@ -217,10 +217,12 @@ public class ECommController {
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url,
 					header, null);
 
+			String planName = WebServiceUtils.getMessage("Fanfare.planname" + choose, UserRestURIConstants.getLanaguage(request));
 			if (responseJsonObj.get("result").equals("success")) {
 				code = responseJsonObj.get("promoCode").toString();
 				String email = session.getAttribute("emailAddress").toString();
-				sendEmail.sendEmailByDiscover(email, code, header);
+				String username = session.getAttribute("username").toString();
+				sendEmail.sendEmailByDiscover(username, planName, email, code, header);
 			} else {
 				code = responseJsonObj.get("result").toString(); // failed or duplicated
 			}
@@ -231,6 +233,7 @@ public class ECommController {
 				}
 			}
 			request.setAttribute("chooseCode", code);
+			request.setAttribute("chooseId", choose);
 		}
 		for(int i = 0; i < indexs.length; i++) {
 			Url = UserRestURIConstants.CAMPAIGN_PROMO_CODE_GET_COUNT + "?campaign_id=" + indexs[i];
