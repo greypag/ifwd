@@ -4010,7 +4010,7 @@ body.chin .fwd-savie-wrapper .banner-widget .buy-now {
 }
 /* line 15, ../sass/partials/_login.scss */
 .fwd-savie-wrapper .modal.fade {
-	font-family: 'Calibri';
+	//font-family: 'Calibri';
 	font-size: 24px;
 	color: #061d2a;
 	padding-right: 0 !important;
