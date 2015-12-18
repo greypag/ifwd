@@ -244,13 +244,16 @@ public class SendEmailService implements SendEmailDao {
 						 "  </div>"+
 						 "</body>"+
 						"</html>";
+		
+		
+		
 								      
 		JSONObject email_params = new JSONObject();
 		email_params.put("to", emailId);
 		email_params.put("message", message);
-		email_params.put("subject", "FWD Promotion Code");
+		email_params.put("subject", "A Gift from FWDiscover ");
 		email_params.put("attachment", null);
-		email_params.put("from", "i-noreply.hk@fwd.com");
+		email_params.put("from", "Fanny at FWD HK <iService.hk@fwd.com>");
 		email_params.put("isHtml", true);
 		
 		JSONObject resp = restService.consumeApi(HttpMethod.POST,
