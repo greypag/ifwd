@@ -1156,7 +1156,13 @@
 }
 
 .fwdiscover-modal .modal-content .error-message {
-    margin-top: 98px;
+    margin-top: 50px;
+}
+
+@media ( min-width : 992px) {
+	.fwdiscover-modal .modal-content .error-message {
+    	margin-top: 0;
+	}
 }
 
 .fwdiscover-modal .modal-content .error-message p {
