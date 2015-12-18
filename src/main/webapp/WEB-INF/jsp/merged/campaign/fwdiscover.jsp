@@ -736,6 +736,7 @@
 				<div class="modal fade fwdiscover-modal" id="offer-details-promotion-code-error-once" role="dialog" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
+						    <p class="title"></p>
 							<div class="error-message">
 								<p><fmt:message key="Fanfare.clickdetail.lightbox5.subtitle1" bundle="${msg}" /></p>
 								<p class="lower"><fmt:message key="Fanfare.clickdetail.lightbox5.subtitle2" bundle="${msg}" /></p>
@@ -758,6 +759,7 @@
 				<div class="modal fade fwdiscover-modal" id="offer-details-promotion-code-error-sold" role="dialog" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
+							<p class="title"></p>
 							<div class="error-message">
 								<p><fmt:message key="Fanfare.clickdetail.lightbox4.subtitle1" bundle="${msg}" /></p>
 								<p class="lower"><fmt:message key="Fanfare.clickdetail.lightbox4.subtitle2" bundle="${msg}" /></p>
@@ -928,16 +930,22 @@
 		        async : false,
 		        success : function(data) {
 					$('.modal').modal('hide');
+					var key = "Fanfare.offername"+data["index"];
+					var fmt = getBundle(getBundleLanguage, key);
 		        	if(data["result"]=="success"){
 						$('.promo-code-holder .code').html(data["promoCode"]);
 						$('#offer-details-promotion-code').modal('show');
+						$('#offer-details-promotion-code .modal-content').children(".title").html(fmt);
+			        	setPlanLink(campaignId, data["promoCode"]);
 		        	}else if(data["result"]=="duplicated") {
 		        		$('#offer-details-promotion-code-error-once').modal('show');
+		        		$('#offer-details-promotion-code-error-once .modal-content').children(".title").html(fmt);
+		        		setPlanLink(campaignId, data["promoCode"]);
 		        	}else{
 		        		$('#offer-details-promotion-code-error-sold').modal('show');
+		        		$('#offer-details-promotion-code-error-sold .modal-content').children(".title").html(fmt);
 		        	}
 		        	updateAllPromoCodeCount();
-		        	setPlanLink(campaignId, data["promoCode"]);
 		        }
 		    });
 	    }
@@ -955,33 +963,25 @@
 		    });
 	    }
 	    
-	    var link="";
 	    function setPlanLink(campaignId, code) {
-	    	switch (campaignId) {
-			case '5':
-				link="travel-insurance?promo="+code;
-				break;
-			case '6':
-				link="travel-insurance?promo="+code;
-				break;
-			case '7':
-				link="travel-insurance?promo="+code;
-				break;
-			case '8':
-				link="home-insurance?promo="+code;
-				break;
-			case '9':
-				link="working-holiday-insurance?promo="+code;
-				break;
-			default:
-				link="";
-				break;
-			}
-	    	$(".modal-content .details-btn").on('click', function(){
-	    		window.location.href = '<%=request.getContextPath()%>/${language}/' + link;
-		    });
+	    	var link="";
+	    	if("5"==campaignId){
+	    		link="travel-insurance?promo="+code;
+	    	}else if("6"==campaignId){
+	    		link="travel-insurance?promo="+code;
+	    	}else if("7"==campaignId){
+	    		link="travel-insurance?promo="+code;
+	    	}else if("8"==campaignId){
+	    		link="home-insurance?promo="+code;
+	    	}else if("9"==campaignId){
+	    		link="working-holiday-insurance?promo="+code;
+	    	}
+	    	$("#offer-details-promotion-code .modal-content .details-btn").on('click', function(){
+	    		<%-- window.location.href = '<%=request.getContextPath()%>/${language}/' + link; --%>
+	    		$('#offer-details-promotion-code .url').attr('href', '<%=request.getContextPath()%>/${language}/' + link);						
+	        });
 	    }
-	    
+
 	    $("#countdown")
 		   .countdown("2016/01/01", function(event) {
 		    $('#countdown-days').text(
@@ -1017,7 +1017,7 @@
 	        	}else{
 					$('.promo-code-holder .code').html('<%=request.getAttribute("chooseCode")%>');
 					$('#offer-details-promotion-code').modal('show');
-					setPlanLink('${chooseId}', '<%=request.getAttribute("chooseCode")%>');
+					setPlanLink("${chooseId}", '<%=request.getAttribute("chooseCode")%>');
 	        	}
 			}
 		});
