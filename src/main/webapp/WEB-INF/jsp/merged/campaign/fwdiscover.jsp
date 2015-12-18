@@ -226,7 +226,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer1.box1" bundle="${msg}" /></p>
-											<p class="value">${count0}</p>
+											<p class="value count">${count0}</p>
 										</div>
 										<div class="holder date">
 											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
@@ -266,7 +266,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer2.box1" bundle="${msg}" /></p>
-											<p class="value">${count1}</p>
+											<p class="value count">${count1}</p>
 										</div>
 										<div class="holder date">
 											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
@@ -307,7 +307,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer3.box1" bundle="${msg}" /></p>
-											<p class="value">${count2}</p>
+											<p class="value count">${count2}</p>
 										</div>
 										<div class="holder date">
 											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
@@ -347,7 +347,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer4.box1" bundle="${msg}" /></p>
-											<p class="value">${count3}</p>
+											<p class="value count">${count3}</p>
 										</div>
 										<div class="holder date">
 											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
@@ -387,7 +387,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer5.box1" bundle="${msg}" /></p>
-											<p class="value">${count4}</p>
+											<p class="value count">${count4}</p>
 										</div>
 										<div class="holder date">
 											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
@@ -976,9 +976,7 @@
 	    	}else if("9"==campaignId){
 	    		link="working-holiday-insurance?promo="+code;
 	    	}
-	    	$("#offer-details-promotion-code .modal-content .details-btn").on('click', function(){
-	    		$('#offer-details-promotion-code .url').attr('href', '<%=request.getContextPath()%>/${language}/' + link);						
-	        });
+	    	$('#offer-details-promotion-code .url').attr('href', "<%=request.getContextPath()%>/${language}/" + link);						
 	    }
 
 	    $("#countdown")

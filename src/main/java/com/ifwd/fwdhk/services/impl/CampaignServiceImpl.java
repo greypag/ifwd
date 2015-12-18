@@ -37,7 +37,7 @@ public class CampaignServiceImpl implements CampaignService {
 			JSONObject responseJsonObj = new JSONObject();
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url,
 					header, null);
-
+			logger.info("CAMPAIGN_PROMO_CODE_GET_COUNT : ", responseJsonObj);
 			if (responseJsonObj.get("errMsgs") == null) {
 				int availableCount = Integer.parseInt(responseJsonObj.get("availableCount").toString());
 				return availableCount;
@@ -70,7 +70,7 @@ public class CampaignServiceImpl implements CampaignService {
 			JSONObject responseJsonObj = new JSONObject();
 			responseJsonObj = restService.consumeApi(HttpMethod.GET, Url,
 					header, null);
-
+			logger.info("CAMPAIGN_PROMO_CODE_ASSIGN : ", responseJsonObj);
 			if (responseJsonObj.get("result").equals("success")) {
 				return responseJsonObj.get("promoCode").toString();				
 			} else {
