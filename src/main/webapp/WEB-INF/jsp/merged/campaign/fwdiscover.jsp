@@ -54,8 +54,8 @@
 								<div class="timer-holder month-holder">
 									<div class="bg gray-bg">
 										<div class="clearfix">
-											<span class="number pull-left"><%= java.time.LocalDateTime.now().getDayOfMonth() %></span>
-											<span class="month pull-right"><%= java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ofPattern("MMM", java.util.Locale.ENGLISH)) %></span>
+											<span class="number pull-left">31</span>
+											<span class="month pull-right">DEC</span>
 										</div>
 										<span class="line line-gray"></span>
 									</div>
