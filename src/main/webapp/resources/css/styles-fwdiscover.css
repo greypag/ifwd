@@ -341,6 +341,10 @@
 }
 
 /*plans*/
+.fwdiscover-plan .desc-and-button-holder .date{
+	cursor: none;
+}
+
 .page-fwdiscover .plans-holder {
 	margin-top: 52px;
 }
