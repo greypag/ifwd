@@ -342,7 +342,7 @@
 
 /*plans*/
 .fwdiscover-plan .desc-and-button-holder .date{
-	cursor: none;
+	cursor: initial;
 }
 
 .page-fwdiscover .plans-holder {
