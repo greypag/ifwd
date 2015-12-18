@@ -190,6 +190,18 @@ var home_url = "<%=request.getContextPath()%>";
 								</div>
 							</div>
 						</div>-->
+
+						<div class="btn-download-section" style="text-align:left;">
+							<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie" bundle="${msg}" />" title="Download product brochure" class="et-btn-download-item" target="_blank">
+								<img src="<%=request.getContextPath()%>/resources/images/elite-terms/download-icon.png" alt="download-icon.png" />
+								<fmt:message key="general.product.brochure" bundle="${msg}" />
+							</a>
+							<a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" title="Download policy provisions" class="et-btn-download-item" target="_blank">
+								<img src="<%=request.getContextPath()%>/resources/images/elite-terms/download-icon.png" alt="download-icon.png" />
+								<fmt:message key="general.product.provisions" bundle="${msg}" />
+							</a>
+						</div>
+						
 						<!--  6 benefit coverage -->
 						<div style="background-color:#FFFFFF;text-align:center;margin-top: 20px;padding-bottom: 20px;">
 						    <div class="container pad-none">
@@ -651,7 +663,7 @@ var home_url = "<%=request.getContextPath()%>";
 			});
 
 			$(document).ready(function() {
-				if(isMobile){
+			if(isMobile){
 					$(".annualTravel_policy_item").click(function(){
 						itemTop = $(this).offset();
 						var html=$(this).children('.hidden-content').children().clone();
