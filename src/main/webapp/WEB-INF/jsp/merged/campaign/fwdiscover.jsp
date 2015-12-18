@@ -977,7 +977,6 @@
 	    		link="working-holiday-insurance?promo="+code;
 	    	}
 	    	$("#offer-details-promotion-code .modal-content .details-btn").on('click', function(){
-	    		<%-- window.location.href = '<%=request.getContextPath()%>/${language}/' + link; --%>
 	    		$('#offer-details-promotion-code .url').attr('href', '<%=request.getContextPath()%>/${language}/' + link);						
 	        });
 	    }
