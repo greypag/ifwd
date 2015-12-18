@@ -191,7 +191,7 @@ var home_url = "<%=request.getContextPath()%>";
 							</div>
 						</div>-->
 
-						<div class="btn-download-section" style="text-align:left;">
+						<div class="btn-download-section hidden-md hidden-lg" style="text-align:left;">
 							<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie" bundle="${msg}" />" title="Download product brochure" class="fwd-btn-download-item" target="_blank">
 								<img src="<%=request.getContextPath()%>/resources/images/elite-terms/download-icon.png" alt="download-icon.png" />
 								<fmt:message key="general.product.brochure" bundle="${msg}" />
