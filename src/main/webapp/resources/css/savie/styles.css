@@ -16806,3 +16806,24 @@ a:focus {
     width: 50%;
   }
 }
+
+/* Download Button Section */
+.btn-download-section{
+  padding: 15px 0;
+}
+
+.fwd-savie-wrapper .fwd-btn-download-item{
+  font-size: 18px;
+}
+
+.fwd-btn-download-item {
+  margin-top: 5px;
+  display: block;
+  text-align: center;
+}
+
+.fwd-btn-download-item img {
+  margin-right: 5px;
+}
+
+

@@ -60,6 +60,8 @@ public class SendEmailService implements SendEmailDao {
 		String tnc_en = WebServiceUtils.getMessage(tnc, "EN");
 		
 		
+		
+		
 		String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
 		String message = "<html>"+
 						 "<head>"+

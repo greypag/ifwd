@@ -1,4 +1,7 @@
 /********* Oversea landing page **********/
+html {
+   -ms-overflow-style: scrollbar;
+}
 #middle.banner-overlay-wrapper{
 	background: none;
 }
@@ -245,7 +248,7 @@ li.sponsor-wrapper+li.sponsor-wrapper{
     width:100px;
 }
 .planOptionCoverageColS{
-    width:100px;
+    width:100%;
     text-align:center;
 }
 @media (min-width: 992px){
@@ -825,7 +828,10 @@ a.at-svc-google_plusone, a.at-svc-google_plusone_share {
 	cursor: default;
 }
 @media only screen and (max-width: 480px){
-#oversea-plan-quote-select-region-container #plan-no-more-tables td {
-    padding-left: 35%;
+	#oversea-plan-quote-select-region-container #plan-no-more-tables td {
+	    padding-left: 35%;
+	}
 }
+#countryOfInstitution{
+	text-transform:capitalize;
 }

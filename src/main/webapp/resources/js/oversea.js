@@ -584,6 +584,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 	asia_country_list =["Abu Dhabi","Dubai","India","Indonesia","Iran","Japan","Korea","Lao, P.D.R.","Macau","Malaysia","Myanmar","Nepal","North Korea","Pakistan","People Republic of China","Philippines","Singapore","Sri Lanka","Sudan","Taiwan","Thailand","Vietnam"];
 	world_wide_country_list = [ "Abu Dhabi", "Australia", "Austria", "Belgium","Brunei", "Canada", "Cuba", "Cyprus", "Denmark", "Dubai", "France", "Germany", "Guam", "Holland", "India", "Indonesia", "Iran","Ireland", "Italy", "Japan", "Korea", "Lao P.D.R.", "Macau","Malaysia", "Monaco", "Myanmar", "Nepal", "New Zealand","North Korea", "Norway", "Pakistan", "People Republic of China","Philippines", "Poland", "Portugal", "Russia", "Singapore","South Africa", "Spain", "Sri Lanka", "Sudan", "Sweden","Switzerland", "Syria", "Taiwan", "Thailand", "Turkey","United Kingdom", "Vietnam" ];
 	var compare_list =[];
+	var isAsia = true;
 	//alert(countryOfInstitution);
 	if (countryOfInstitution.trim() == '')
 	{
@@ -598,20 +599,30 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 	{
 		if($("#"+'selectedPlanName').val()=="basicA" || $("#"+'selectedPlanName').val()=="basicB" || $("#"+'selectedPlanName').val()=="medicalWorldwideA" || $("#"+'selectedPlanName').val()=="medicalWorldwideB"){
 			compare_list = world_wide_country_list;
+			isAsia = false;
 			//console.log("worldwide");
 		}else if($("#"+'selectedPlanName').val()=="medicalAsiaA" || $("#"+'selectedPlanName').val()=="medicalAsiaB"){
 			compare_list = asia_country_list;
+			isAsia = true;
 			//console.log("asia");
 		}
 		//console.log(compare_list);
 		//console.log(compare_list.indexOf(countryOfInstitution));
-		if(compare_list.indexOf(countryOfInstitution) < 0)
-		{
+		if(compare_list.indexOf(countryOfInstitution) < 0){
 			previous_action_link = window.location.href;
 			previous_action_link = previous_action_link.replace("details","quote");
 			$("#"+'countryOfInstitution').addClass("invalid-field");
-			$("#countryOfInstitutionInvalid").html( getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredAsia') );
-			$("#countryOfInstitutionInvalid").append("<a class='error-to-previous-page text-red' href='"+previous_action_link+"'>" + getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredAsia.url') +"</a>" + getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredAsia.end'));
+			console.log(world_wide_country_list.indexOf(countryOfInstitution) > 0);
+			if(isAsia){
+				if(world_wide_country_list.indexOf(countryOfInstitution) > 0){
+					$("#countryOfInstitutionInvalid").html( getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredAsia') );
+					$("#countryOfInstitutionInvalid").append("<a class='error-to-previous-page text-red' href='"+previous_action_link+"'>" + getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredAsia.url') +"</a>" + getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredAsia.end'));
+				}else{
+					$("#countryOfInstitutionInvalid").html( getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredWorldwide') );
+				}
+			}else if(!(isAsia)){
+				$("#countryOfInstitutionInvalid").html( getBundle(getBundleLanguage, 'Overseas.userdetails.Instituation.Country.NotCoveredWorldwide') );
+			}
 			flag = false;
 			if(firstErrorElementId==""){
 				firstErrorElementId="countryOfInstitution";
@@ -966,10 +977,10 @@ $(function () {
 		setAtt("selectCADistHid", $(this).val());
 	});
 });
-function parseDate(dateStr) {
-  var dateParts = dateStr.split("-");
-  return new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
-}
+//function parseDate(dateStr) {
+//  var dateParts = dateStr.split("-");
+//  return new Date(dateParts[2], (dateParts[1] - 1), dateParts[0]);
+//}
 
 //is valid date format
 //function calculateAge (dateOfBirth, dateToCalculate) {

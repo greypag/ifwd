@@ -61,6 +61,44 @@ public class AjaxCampaignController extends BaseController {
 
 			int campaignId = Integer.parseInt(request.getParameter("campaignId"));
 			String result = campaignService.assignCampaignPromoCode(request);
+			String discount="";
+			String date="";
+			String offername = "";
+			String index = "";
+			switch (campaignId) {
+			case 5:
+				discount="80%";
+				date="31-03-2016";
+				offername="Fanfare.offername0";
+				index = "0";
+				break;
+			case 6:
+				discount="HK$ 218";
+				date="31-03-2016";
+				offername="Fanfare.offername1";
+				index = "1";
+				break;
+			case 7:
+				discount="HK$ 135";
+				date="31-03-2016";
+				offername="Fanfare.offername2";
+				index = "2";
+				break;
+			case 8:
+				discount="50%";
+				date="31-03-2016";
+				offername="Fanfare.offername3";
+				index = "3";
+				break;
+			case 9:
+				discount="40%";
+				date="31-03-2016";
+				offername="Fanfare.offername4";
+				index = "4";
+				break;
+			default:
+				break;
+			}
 			
 			Map<String,String> map = new HashMap<String,String>();
 			switch (result) {
@@ -69,6 +107,7 @@ public class AjaxCampaignController extends BaseController {
 				case "error":
 					map.put("result", result);
 					map.put("promoCode", "");
+					map.put("index", index);
 					break;
 				default:
 					HttpSession session = request.getSession();
@@ -80,41 +119,11 @@ public class AjaxCampaignController extends BaseController {
 									.getLanaguage(request)));
 					String email = session.getAttribute("emailAddress").toString();
 					String username = session.getAttribute("username").toString();
-					String discount="";
-					String date="";
-					String offername = "";
-					switch (campaignId) {
-					case 5:
-						discount="80%";
-						date="31-03-2016";
-						offername="Fanfare.offername0";
-						break;
-					case 6:
-						discount="HK$ 218";
-						date="31-03-2016";
-						offername="Fanfare.offername1";
-						break;
-					case 7:
-						discount="HK$ 135";
-						date="31-03-2016";
-						offername="Fanfare.offername2";
-						break;
-					case 8:
-						discount="50%";
-						date="31-03-2016";
-						offername="Fanfare.offername3";
-						break;
-					case 9:
-						discount="40%";
-						date="31-03-2016";
-						offername="Fanfare.offername4";
-						break;
-					default:
-						break;
-					}
+					
 					sendEmail.sendEmailByDiscover(offername, username, discount, "Fanfare.planname" + campaignId, result, date, email, header, request);
 					map.put("result", "success");
 					map.put("promoCode", result);
+					map.put("index", index);
 					break;
 			}			
 			ajaxReturn(response, map);

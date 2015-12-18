@@ -410,7 +410,7 @@ function setDropArea(id) {
                                    <label for="inputMobileNo" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Mobile" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                    <input autocomplete="off" name="mobileNo" type="tel" class="form-control full-control bmg_custom_placeholder" 
+                                    <input autocomplete="off" name="mobileNo" type="tel" class="form-control full-control <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" 
                                        <c:choose>
                                            <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
                                             readonly="readonly" value="${userDetails.mobileNo}"
@@ -433,7 +433,7 @@ function setDropArea(id) {
                                    <label for="inputEmailId" class="field-label bold-500"><fmt:message key="Overseas.userdetails.applicant.Email" bundle="${msg}" /></label>
                                </div>
                                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                   <input autocomplete="off" class="form-control full-control textLower bmg_custom_placeholder" name="emailAddress" type="email"
+                                   <input autocomplete="off" class="form-control full-control textLower <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>" name="emailAddress" type="email"
                                        <c:choose>
                                            <c:when test="${userDetails != null && userDetails.userName != '' && userDetails.userName != '*DIRECTGI'}">
                                             readonly="readonly" value="${userDetails.emailAddress}"
@@ -626,7 +626,7 @@ function setDropArea(id) {
                                                 <label for="txtInsuFullName1" class="field-label bold-500"><fmt:message key="Overseas.userdetails.Insured.Fullname" bundle="${msg}" /></label>
                                            </div>
                                            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                                  <input autocomplete="off" type="text" id="txtInsuFullName1" name="personalName" class="form-control full-control textUpper bmg_custom_placeholder <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
+                                                  <input autocomplete="off" type="text" id="txtInsuFullName1" name="personalName" class="form-control full-control textUpper <c:if test="${!(userDetails != null && userDetails.fullName != '' && userDetails.fullName != '*DIRECTGI')}">bmg_custom_placeholder</c:if>"
                                                       <c:choose>
                                                           <c:when test="${userDetails != null && userDetails.fullName != '' && userDetails.userName != '*DIRECTGI'}">
                                                           value="${userDetails.fullName }" readonly="readonly"

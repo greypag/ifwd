@@ -340,7 +340,7 @@ var language = "${language}";
 			}
 		});
 		$('#back-to-home-btn').click(function(){
-    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/landing");
+    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance");
 	    	$("#serviceCenterForm").submit();
 		});		
 	});
