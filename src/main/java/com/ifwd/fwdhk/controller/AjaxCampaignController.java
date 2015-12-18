@@ -112,7 +112,7 @@ public class AjaxCampaignController extends BaseController {
 					default:
 						break;
 					}
-					sendEmail.sendEmailByDiscover(offername, username, discount, "Fanfare.planname" + campaignId, result, date, email, header);
+					sendEmail.sendEmailByDiscover(offername, username, discount, "Fanfare.planname" + campaignId, result, date, email, header, request);
 					map.put("result", "success");
 					map.put("promoCode", result);
 					break;

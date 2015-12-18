@@ -11,7 +11,7 @@ public interface SendEmailDao {
 	public boolean sendEmail(String emailId, String promotionalCode, HashMap<String, String> header);
 	public boolean sendEmailByDiscover(String offername, String username,
 			String discount, String planName, String code, String date, String emailId,
-			HashMap<String, String> header);
+			HashMap<String, String> header, HttpServletRequest request, String tnc);
 	public boolean sendY5buddyEmail(HttpServletRequest request, String recipientEmail, HashMap<String, String> header);
 	public boolean sendPromotionEmail(String emailId, HashMap<String, String> header);
 }

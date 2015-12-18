@@ -224,36 +224,42 @@ public class ECommController {
 				String discount="";
 				String date="";
 				String offername = "";
+				String tnc = "";
 				switch (Integer.parseInt(choose)) {
 				case 5:
 					discount="80%";
 					date="31-03-2016";
 					offername="Fanfare.offername0";
+					tnc="Fanfare.tnc0";
 					break;
 				case 6:
 					discount="HK$ 218";
 					date="31-03-2016";
 					offername="Fanfare.offername1";
+					tnc="Fanfare.tnc1";
 					break;
 				case 7:
 					discount="HK$ 135";
 					date="31-03-2016";
 					offername="Fanfare.offername2";
+					tnc="Fanfare.tnc2";
 					break;
 				case 8:
 					discount="50%";
 					date="31-03-2016";
 					offername="Fanfare.offername3";
+					tnc="Fanfare.tnc3";
 					break;
 				case 9:
 					discount="40%";
 					date="31-03-2016";
 					offername="Fanfare.offername4";
+					tnc="Fanfare.tnc4";
 					break;
 				default:
 					break;
 				}
-				sendEmail.sendEmailByDiscover(offername, username, discount, "Fanfare.planname" + choose, code, date, email, header);
+				sendEmail.sendEmailByDiscover(offername, username, discount, "Fanfare.planname" + choose, code, date, email, header, request, tnc);
 			} else {
 				code = responseJsonObj.get("result").toString(); // failed or duplicated
 			}
