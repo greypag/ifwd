@@ -418,7 +418,7 @@
 }
 
 .page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .title {
-	font-size: 50px;
+	font-size: 35px;
 	line-height: 53px;
 	width: 85%;
     margin: 0 auto;
@@ -436,7 +436,7 @@
 }
 
 .page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .promo {
-	font-size: 40px;
+	font-size: 25px;
 	margin-top: 10px;
 }
 
@@ -447,7 +447,7 @@
 }
 
 .page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .promo .price {
-	font-size: 80px;
+	font-size: 40px;
 	line-height: 86px;
 }
 
@@ -486,7 +486,7 @@
 .page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .lower-desc ul {
 	padding-left: 20px;
     font-family: arial;
-    font-size: 28px;
+    font-size: 18px;
     line-height: 40px;
 }
 
@@ -540,6 +540,7 @@
 .page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder .title {
 	font-family: 'lato_regular';
     font-size: 28px;
+    padding-bottom: 10px;
 }
 
 @media ( min-width : 992px) {
@@ -562,9 +563,10 @@
 }
 
 .page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder .value.date {
-	padding: 10px 0 0;
+	padding: 0;
+	padding-bottom: 10px;
 	font-size: 36px;
-	line-height: 43px;
+	line-height: 33px;
 }
 
 @media ( min-width : 992px) {
@@ -579,12 +581,14 @@
 .page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder .value.date.day {
     line-height: 30px;
     padding: 0;
+    padding-bottom: 10px;
 }
 
 @media ( min-width : 992px) {
 	.page-fwdiscover .plans-holder .fwdiscover-plan .promo-desc .holder .value.date.day {
 	    font-size: 18px;
     	line-height: 14px;
+    	padding: 0;
 	}
 }
 
