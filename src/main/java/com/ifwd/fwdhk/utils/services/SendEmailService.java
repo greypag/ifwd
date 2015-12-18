@@ -62,6 +62,9 @@ public class SendEmailService implements SendEmailDao {
 		
 		
 		
+		
+		
+		
 		String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
 		String message = "<html>"+
 						 "<head>"+
