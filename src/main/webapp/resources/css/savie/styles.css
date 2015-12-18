@@ -3831,7 +3831,7 @@ body.chin #illustration-filters #investment-amount #hkd {
   font-size: 24px;
   color: white;
   margin-bottom: 0;
-  margin-top: 33px;
+  margin-top: 60px;
   clear: both;
   padding-left: 3px;
   position: relative;
@@ -4300,7 +4300,7 @@ span.explanation {
 .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content {
   	padding: 0;
   	background-color: #f1f3f5;
-  	padding-bottom: 10px;
+  	padding-bottom: 20px;
 }
 @media (min-width: 768px){
 	.fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content {
@@ -4315,8 +4315,16 @@ span.explanation {
 }
 
 .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content img {
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
 }
+
+@media (min-width: 922px) {
+  .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content img {
+    width: 100%;
+  }
+}
+
 .fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
   display: block;
   margin: 20px auto;
@@ -16778,9 +16786,23 @@ a:focus {
 		/*margin-top: 125px;*/
 	}
 }
+
 .appointment-back-home .btn-primary{
 	font-size: 28px;
     line-height: 31.5px;
     font-weight: normal;
     padding: 15px 30px;
+}
+
+.fwd-savie-wrapper .disclaimer-center{
+  width: 90%;
+  margin: 20px auto;
+  line-height: 20px;
+  font-size: 12px;
+}
+
+@media(min-width: 992px){
+  .fwd-savie-wrapper .disclaimer-center{
+    width: 50%;
+  }
 }

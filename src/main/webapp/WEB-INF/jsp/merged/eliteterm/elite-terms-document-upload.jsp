@@ -499,6 +499,10 @@ var languageP = "${language}";
 			
             // Form file validation
             $('#et-upload-doc-submit-btn').on('click', function(e) {
+            	
+            	 ga('create', 'UA-60032236-1', 'auto');
+            	 ga('send', 'pageview', '/en/term-life-insurance/document-upload'); 
+            	
                 var $self = $(this);
                 var isValid = isHkidValidity($self);
                     isValid = isValid && isPassportValidity($self);

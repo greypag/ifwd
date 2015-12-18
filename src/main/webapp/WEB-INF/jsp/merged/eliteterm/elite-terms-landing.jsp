@@ -35,7 +35,7 @@
             	<img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive elite-term-tagline">
             </div>
             <div class="et-banner-label">
-               <a href="<%=request.getContextPath()%>/${language}/term-life-insurance/${nextPageFlow}" class="buy-now et-quote btn-color-ylw" ><fmt:message key="eliteTerms.landing.Get.Quote" bundle="${msg}" /></a>
+               <a id="get-quote-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance/${nextPageFlow}" class="buy-now et-quote btn-color-ylw" ><fmt:message key="eliteTerms.landing.Get.Quote" bundle="${msg}" /></a>
 				</div>
 			</div>
 			
@@ -477,6 +477,13 @@
 		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery.loadImages.1.1.0.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/index.js"></script>
       <script>
+      
+	      $("#get-quote-link").click(function(){
+	    	  ga('create', 'UA-60032236-1', 'auto');
+	    	  ga('send', 'pageview', '/en/term-life-insurance'); 
+	      });
+      
+      
          var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 
          $(window).scroll(function (event) {

@@ -2391,7 +2391,7 @@ var home_url = "<%=request.getContextPath()%>";
 								</div>
 							</div>
 							</p>
-							<p>
+							<p class="fwd-authorize">
 								<fmt:message
 									key="eliteTerms.selectPlan.Policy.replacement.declarations.remarks2"
 									bundle="${msg}" />
@@ -3820,6 +3820,17 @@ var home_url = "<%=request.getContextPath()%>";
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 <script type="text/javascript">
+
+
+	$('#et-employment-info-next').on('click', function(e) {
+		 ga('create', 'UA-60032236-1', 'auto');
+		 ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-8'); 
+	});
+	
+	$('#et-confirm-and-sign-btn').on('click', function(e) {
+		 ga('create', 'UA-60032236-1', 'auto');
+		 ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-11'); 
+	});
       
       //select-plan
       $(document).on('click', '#et-before-no', function(e) {
@@ -3833,6 +3844,9 @@ var home_url = "<%=request.getContextPath()%>";
   			    .data('bootstrapValidator')
   			    .updateStatus('dob','VALID');
   			}
+  			
+  			ga('create', 'UA-60032236-1', 'auto');
+            ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-7'); 
   			
   			/*
          setTimeout(function(){
@@ -4105,6 +4119,9 @@ var home_url = "<%=request.getContextPath()%>";
 		    	  
 		    	  $('#et-btn-ay-self').on('click', function(e) {
 		    		  $etPlanOption.removeClass('hide-element');
+
+		    		  ga('create', 'UA-60032236-1', 'auto');
+    	  			  ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-3'); 
 			      });
 				});
 		      

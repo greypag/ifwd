@@ -53,21 +53,20 @@ var affiliate = "${affiliate}";
           </div>
         </div>
       </div>
-      
-        <div class="fwd-container container-fluid hidden-xs hidden-sm clearfix">
-            <div class="breadcrumbs pull-left">
-                <ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
-                    <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
-                    <li class="divider"><i class="fa fa-play"></i></li>
-                    <li><a href="#"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
-                    <li class="divider last"><i class="fa fa-play"></i></li>
-                    <li class="active-bc"><fmt:message key="breadcrumb.savie.confirmation" bundle="${msg}" /></li>
-                </ol>
-            </div>
-        </div>
         
       <div class="application-flux thank-you">
         <div class="container-fluid fwd-container thank-you-container">
+          <div class="fwd-container hidden-xs hidden-sm clearfix">
+            <div class="breadcrumbs pull-left">
+              <ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
+                <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
+                <li class="divider"><i class="fa fa-play"></i></li>
+                <li><a href="#"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
+                <li class="divider last"><i class="fa fa-play"></i></li>
+                <li class="active-bc"><fmt:message key="breadcrumb.savie.confirmation" bundle="${msg}" /></li>
+              </ol>
+            </div>
+          </div>
           <h1><fmt:message key="saviee.appointment.h1" bundle="${msg}" /><!--<br class="visible-xs" /><fmt:message key="savie.confirmation.offline.signing.up" bundle="${msg}" />--></h1>       
           <div class="details-container details-full" id="printable-area">
             <div class="row">
@@ -154,9 +153,12 @@ var affiliate = "${affiliate}";
                                             <p onclick="window.print()"><fmt:message key="savie.confirmation.offline.Print" bundle="${msg}" /></p>
                                         </div>
                                     </div>
-                                    <div class="appointment-back-home pull-left pad-none">
-                                        <a class="bdr-curve btn btn-primary bck-btn" href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="Overseas.PlanOptions.Back" bundle="${msg}" /></a>
-                                    </div>                                    
+                                    <!--<div class="appointment-back-home pull-left pad-none">
+                                        <a class="bdr-curve btn btn-primary bck-btn" href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="cta.back.to.home" bundle="${msg}" /></a>
+                                    </div>-->
+                                    <div class="text-center">
+                                      <button class="btn next confirm-appointment" type="button" id="btn-back-to-home"><fmt:message key="cta.back.to.home" bundle="${msg}" /></button>
+                                    </div>                                
                                     <div class = "share-container text-center" >        
                                       <!--<p><fmt:message key="savie.confirmation.offline.Follow.us" bundle="${msg}" /></p>     
                                       < div class = "clearfix" >        
@@ -200,5 +202,10 @@ var affiliate = "${affiliate}";
           w.close();
         });
         
+        $('#btn-back-to-home').on('click', function(e) {
+                window.onbeforeunload=null;
+                window.location.href= '<%=request.getContextPath()%>/${language}/savings-insurance';
+        });
+
       });
     </script>

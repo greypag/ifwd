@@ -920,14 +920,6 @@
 		    });
 	    }
 
-	    function getCampaignName(campaignId) {
-		    return '<fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" />';
-		}
-
-		function getProductUrl(campaignId, promoCode) {
-			return '<%=request.getContextPath()%>/${language}/travel?promo='+promoCode;
-		}
-		
 	    function assignPromoCode(campaignId) {
 	    	$.ajax({
 		        type : "POST",
@@ -938,8 +930,6 @@
 					$('.modal').modal('hide');
 		        	if(data["result"]=="success"){
 						$('.promo-code-holder .code').html(data["promoCode"]);
-						$('#offer-details-promotion-code .title').html(getCampaignName(campaignId));						
-						$('#offer-details-promotion-code .url').attr('href', getProductUrl(campaignId, data["promoCode"]));						
 						$('#offer-details-promotion-code').modal('show');
 		        	}else if(data["result"]=="duplicated") {
 		        		$('#offer-details-promotion-code-error-once').modal('show');
