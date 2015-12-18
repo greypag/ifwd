@@ -65,36 +65,42 @@ public class AjaxCampaignController extends BaseController {
 			String date="";
 			String offername = "";
 			String index = "";
+			String tnc = "";
 			switch (campaignId) {
 			case 5:
-				discount="80%";
+				discount="Fanfare.discount0";
 				date="31-03-2016";
 				offername="Fanfare.offername0";
 				index = "0";
+				tnc="Fanfare.tnc0";
 				break;
 			case 6:
-				discount="HK$ 218";
+				discount="Fanfare.discount1";
 				date="31-03-2016";
 				offername="Fanfare.offername1";
 				index = "1";
+				tnc="Fanfare.tnc1";
 				break;
 			case 7:
-				discount="HK$ 135";
+				discount="Fanfare.discount2";
 				date="31-03-2016";
 				offername="Fanfare.offername2";
 				index = "2";
+				tnc="Fanfare.tnc2";
 				break;
 			case 8:
-				discount="50%";
+				discount="Fanfare.discount3";
 				date="31-03-2016";
 				offername="Fanfare.offername3";
 				index = "3";
+				tnc="Fanfare.tnc3";
 				break;
 			case 9:
-				discount="40%";
+				discount="Fanfare.discount4";
 				date="31-03-2016";
 				offername="Fanfare.offername4";
 				index = "4";
+				tnc="Fanfare.tnc4";
 				break;
 			default:
 				break;
@@ -120,7 +126,7 @@ public class AjaxCampaignController extends BaseController {
 					String email = session.getAttribute("emailAddress").toString();
 					String username = session.getAttribute("username").toString();
 					
-					sendEmail.sendEmailByDiscover(offername, username, discount, "Fanfare.planname" + campaignId, result, date, email, header, request);
+					sendEmail.sendEmailByDiscover(offername, username, discount, "Fanfare.planname" + campaignId, result, date, email, header, request, tnc);
 					map.put("result", "success");
 					map.put("promoCode", result);
 					map.put("index", index);
