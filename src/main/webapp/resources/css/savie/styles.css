@@ -16812,17 +16812,17 @@ a:focus {
   padding: 15px 0;
 }
 
-.fwd-savie-wrapper .et-btn-download-item{
+.fwd-savie-wrapper .fwd-btn-download-item{
   font-size: 18px;
 }
 
-.et-btn-download-item {
+.fwd-btn-download-item {
   margin-top: 5px;
   display: block;
   text-align: center;
 }
 
-.et-btn-download-item img {
+.fwd-btn-download-item img {
   margin-right: 5px;
 }
 
