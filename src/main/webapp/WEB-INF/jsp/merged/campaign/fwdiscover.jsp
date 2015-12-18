@@ -129,7 +129,7 @@
 	                            	</span>
 	                            </div>
 	                            <div class="col-xs-4">
-	                            	<a href="#offer2"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/single-trip.png" class="img-responsive"></a>
+	                            	<a href="#offer2"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/single-trip.jpg" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
 	                            		<p class="price"><fmt:message key="Fanfare.landingpage.thumbnail2.price" bundle="${msg}" /></p>
 	                            		<p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail2.copy" bundle="${msg}" /></p>
