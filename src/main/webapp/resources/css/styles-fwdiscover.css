@@ -1017,6 +1017,11 @@
     cursor: pointer;
 }
 
+.close-modal-link{
+	text-decoration: underline;
+	cursor: pointer;
+}
+
 .fwdiscover-modal .modal-content ul {
 	margin-top: 36px;
     //font-family: arial;

@@ -753,7 +753,7 @@
 						<div class="modal-content">
 							<div class="error-message">
 								<p><fmt:message key="Fanfare.clickdetail.lightbox5.subtitle1" bundle="${msg}" /></p>
-								<p class="lower"><fmt:message key="Fanfare.clickdetail.lightbox5.subtitle2" bundle="${msg}" /></p>
+								<p class="lower close-modal-link"><fmt:message key="Fanfare.clickdetail.lightbox5.subtitle2" bundle="${msg}" /></p>
 							</div>
 
 							<p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
@@ -889,6 +889,10 @@
 		});
 
 	    $(".fwdiscover-modal .close-modal").on('click', function(){
+	    	$('.modal').modal('hide');
+	    });
+		
+		$(".close-modal-link").on('click', function(){
 	    	$('.modal').modal('hide');
 	    });
 	    
