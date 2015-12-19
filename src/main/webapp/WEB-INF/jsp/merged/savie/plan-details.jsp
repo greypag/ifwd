@@ -198,6 +198,7 @@ var context = "${pageContext.request.contextPath}";
 										<div class="col-md-6 col-xs-12 after-year-three">
 	                                        <h3><fmt:message key="savie.planDetails.After.year" bundle="${msg}" /></h3>
 											<p class="hidden-xs hidden-sm"><fmt:message key="savie.planDetails.Choose.to.stay" bundle="${msg}" /></p>
+											<p class="hidden-md hidden-lg text-center"><fmt:message key="savie.planDetails.Choose.to.stay" bundle="${msg}" /></p>
 											<p class="hidden-md hidden-lg text-center"><fmt:message key="savie.planDetails.Check.rate" bundle="${msg}" /></p>
 	                                    </div>  
 	                                    <div class="col-md-6 col-xs-12 fwd-chart-col">
