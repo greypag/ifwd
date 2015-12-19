@@ -96,7 +96,7 @@ var affiliate = "${affiliate}";
                     <div class="offline-procedure procedure-3 text-center">
                       <span class="step">3</span>
                       <p><fmt:message key="saviee.appointment.doucmenttobring3" bundle="${msg}" /></p>
-                                            <p class="step3-2"><fmt:message key="oceanpark.confirmation.or.settle" bundle="${msg}" /><p>
+                                            <p class="step3-2"><fmt:message key="oceanpark.confirmation.or.settle" bundle="${msg}" /></p>
                                             <div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-3-mob.png" class="img-responsive hidden-md hidden-lg" /><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-3.png" class="img-responsive hidden-xs hidden-sm" /></div>
                     </div>
                   </div>
