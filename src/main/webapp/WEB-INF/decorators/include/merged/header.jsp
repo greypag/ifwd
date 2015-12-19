@@ -1091,6 +1091,7 @@ function submitLoginForm(formID) {
         style="display: none; background: #000; left: 0; top: 0; bottom: -100px; right: 0; opacity: 0.8; z-index: 1500"
         class="bmg_mobile_login_mask"
         onclick="$('#fwd-login-mob').trigger('click');$('body').removeClass('modal-open');"></div>-->
+
     <div id="myDropdownMob" class="modal-dialog">
         <form name="loginform" id="loginform2">
             <div class="login-form" style="position: absolute;">
@@ -1144,7 +1145,9 @@ function submitLoginForm(formID) {
                         </h3>
                         <div class="clearfix"></div>
                     </div>
-
+                    <p>
+						<fmt:message key="header.login.disclaimer" bundle="${msg}" />
+					</p>
                 </div>
             </div>
         </form>
@@ -1186,9 +1189,10 @@ $(function() {
 	  }
 	
 	var iosChromeAlertMsg = [];
-    iosChromeAlertMsg[0] = '±§Ç¸£¬ÄãµÄžgÓ[Æ÷¬F•rÎ´ÊÜÖ§Ô®¡£';
-    iosChromeAlertMsg[1] = 'ÕˆßxÓÃÒÔÏÂÆäËü½¨×hµÄžgÓ[Æ÷£º';
-    iosChromeAlertMsg[2] = 'êPé]';
+	iosChromeAlertMsg[0] = '抱歉，你的瀏覽器現時未受支援。';
+    iosChromeAlertMsg[1] = '請選用以下其它建議的瀏覽器：';
+    iosChromeAlertMsg[2] = '關閉';
+
     
     function offerMenuActive(){
     	var site_uri = window.location.pathname;
