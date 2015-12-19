@@ -423,7 +423,7 @@
 
 .page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .title {
 	font-size: 35px;
-	line-height: 53px;
+	font-weight: bold;
 	width: 85%;
     margin: 0 auto;
 }
@@ -441,12 +441,12 @@
 
 .page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .promo {
 	font-size: 25px;
-	margin-top: 10px;
 }
 
 @media ( min-width : 992px) {
 	.page-fwdiscover .plans-holder .fwdiscover-plan .plan-desc .upper-desc .promo {
 	    font-size: 20px;
+	    margin-top: 10px;
 	}
 }
 
@@ -976,7 +976,7 @@
 
 .fwdiscover-modal .modal-content p {
     //font-family: 'foco_bold';
-    font-size: 37.5px;
+    font-size: 35px;
     color: #fa8200;
     text-align: center;
 }
@@ -988,12 +988,12 @@
 }
 
 .fwdiscover-modal .modal-content p .price {
-	font-size: 60px;
+	font-size: 30px;
 	line-height: 70px;
 }
 
 .fwdiscover-modal .modal-content .promo {
-	font-size: 30px;
+	font-size: 21px;
 }
 
 @media ( min-width : 992px) {
