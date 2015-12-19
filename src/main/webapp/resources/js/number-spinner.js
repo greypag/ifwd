@@ -9,8 +9,8 @@ $(window).load(function(){
     //document.getElementById("divPersonsDesk").style.visibility = "visible";
       $('#lblCountDesk').show();
       /*$('#lblCountDesk').html(traveller + ' Traveller(s)');*/
-      //$('#lblCountDesk').html(traveller);
-      //$('#lblPeopleDesk').html('' + traveller);      
+      $('#lblCountDesk').html(traveller);
+      $('#lblPeopleDesk').html('' + traveller);      
       
       var startDate = new Date($('#dp1').datepicker("getDate").valueOf());
       var endDate = new Date($('#dp2').datepicker("getDate").valueOf());
