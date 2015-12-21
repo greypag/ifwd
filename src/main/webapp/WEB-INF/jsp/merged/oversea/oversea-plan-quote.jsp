@@ -453,8 +453,7 @@ $(document).ready(function() {
 	                                <div id="region-btn-1" type="button" class="btn-block bdr-curve btn region-box-btn" onClick="changeRegion('region1');regionDefaultPlan('box6','6','medicalAsiaA','0','5500')" style=""  data-toggle="modal" data-target="#myModalAsia"><fmt:message key="Overseas.PlanOptions.Region.Asiaonly" bundle="${msg}" /></div>
                             </div>
                             <div class="clearfix"></div>
-                        </div>
-						
+                        </div>				
 
 
 
@@ -1053,8 +1052,13 @@ $(document).ready(function() {
                                                <tr>
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" />"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.row1" bundle="${msg}" /></td>
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" />" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.planA.1" bundle="${msg}" /></td>
-                                                   <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" class="planOptionCoverageColS" rowspan="2"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.planB.1" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" class="planOptionCoverageColS" rowspan="1"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.planB.1" bundle="${msg}" /></td>
                                                </tr>
+                                               <tr>
+                                                   <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" />"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.row2" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" />" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item3.planA.7.2" bundle="${msg}" /></td>
+                                                   <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" class="planOptionCoverageColS" rowspan="1"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.planB.1" bundle="${msg}" /></td>                                        
+                                               </tr>                                               
                                                <!-- 
                                                <tr>
                                                    <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col1" bundle="${msg}" />"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item7.row1" bundle="${msg}" /></td>
