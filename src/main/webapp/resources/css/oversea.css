@@ -245,10 +245,10 @@ li.sponsor-wrapper+li.sponsor-wrapper{
 	text-align:right;
 }
 .planOptionCoverageColTitleS{
-    width:100px;
+    /*width:100px;*/
 }
 .planOptionCoverageColS{
-    width:100%;
+    /*width:100%;*/
     text-align:center;
 }
 @media (min-width: 992px){
