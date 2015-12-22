@@ -361,11 +361,7 @@
       //});
       
       // Move to About your self section
-      $('#et-btn-before-start').on('click', function(e) {
-    	  
-    	  ga('create', 'UA-60032236-1', 'auto');
-    	  ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-2'); 
-    	  
+      $('#et-btn-before-start').on('click', function(e) {     	  
          var $self = $(this);
          
          if ($self.hasClass('back-to-summary')) {
@@ -480,10 +476,7 @@
       // Move to Application Info section
       $('#et-medical-dec-next').on('click', function(e) {
             var $self = $(this);
-            var $target = null;
-            
-            ga('create', 'UA-60032236-1', 'auto');
-            ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-6'); 
+            var $target = null;            
             
             if (isMedicAnswered()) {
                // Remve datepicker
@@ -550,8 +543,6 @@
          var $self = $(this);
          var $target = '';
          
-         ga('create', 'UA-60032236-1', 'auto');
-         ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-9'); 
          
          if (isBeneficaryValid()) {
             // Store beneficiaries data
@@ -650,9 +641,6 @@
       
       // Show Application Summary section
       $('#et-app-sum-proceed-btn').on('click', function(e) { 
-    	  
-    	  ga('create', 'UA-60032236-1', 'auto');
-    	  ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-10'); 
     	  
     	 if(!checkCheckBoxBySelectPay()){
     		 return false;

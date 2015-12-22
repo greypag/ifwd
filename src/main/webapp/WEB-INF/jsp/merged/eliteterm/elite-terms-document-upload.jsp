@@ -496,12 +496,11 @@ var languageP = "${language}";
             }
             window.onbeforeunload=goodbye; 
 
-			
             // Form file validation
             $('#et-upload-doc-submit-btn').on('click', function(e) {
             	
             	 ga('create', 'UA-60032236-1', 'auto');
-            	 ga('send', 'pageview', '/en/term-life-insurance/document-upload'); 
+            	 ga('send', 'pageview', '/${language}/term-life-insurance/document-upload'); 
             	
                 var $self = $(this);
                 var isValid = isHkidValidity($self);

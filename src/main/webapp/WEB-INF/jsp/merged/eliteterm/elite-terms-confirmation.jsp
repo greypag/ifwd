@@ -137,7 +137,7 @@ var languageP = "${language}";
         
 		$("#back-to-home").click(function(){
 	    	  ga('create', 'UA-60032236-1', 'auto');
-	    	  ga('send', 'pageview', '/en/term-life-insurance/confirmation'); 
+	    	  ga('send', 'pageview', '/${language}/term-life-insurance/confirmation'); 
 	      });
 		
          $('#et-confimation-email-form').on('submit', function(e){

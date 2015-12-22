@@ -477,10 +477,9 @@
 		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery.loadImages.1.1.0.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/css/mini-calcu/js/index.js"></script>
       <script>
-      
 	      $("#get-quote-link").click(function(){
 	    	  ga('create', 'UA-60032236-1', 'auto');
-	    	  ga('send', 'pageview', '/en/term-life-insurance'); 
+	    	  ga('send', 'pageview', '/${language}/term-life-insurance'); 
 	      });
       
       

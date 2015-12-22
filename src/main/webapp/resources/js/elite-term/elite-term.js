@@ -15,9 +15,6 @@ else{
 }
 
 function getEliteTermPremium() {
-	
-	ga('create', 'UA-60032236-1', 'auto');
-	ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-4'); 
 
 	$('#loading-overlay').modal({
        backdrop: 'static',
@@ -124,9 +121,6 @@ function getEliteTermPremium() {
 }
 
 $('#et-signature-proceed-btn').on('click', function(e) {
-	
-	 ga('create', 'UA-60032236-1', 'auto');
-	 ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-12'); 
 	
 	if (!$("#signature").jSignature('getData', 'native').length) {
     	$('#signature-section .fwd-error-red .help-block').html(getBundle(getBundleLanguage, "error.signature.empty")).css('display', 'block');
