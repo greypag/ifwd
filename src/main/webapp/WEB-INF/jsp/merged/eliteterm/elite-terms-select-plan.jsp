@@ -3826,6 +3826,11 @@ var home_url = "<%=request.getContextPath()%>";
   	  	ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-2');
 	});
 	
+	$('#et-btn-ay-self').on('click', function(e) {
+		  ga('create', 'UA-60032236-1', 'auto');
+		  ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-3');  
+    });
+	
 	$('#promocode-hidden-button button').on('click', function(e) {
 		ga('create', 'UA-60032236-1', 'auto');
 		ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-4'); 
@@ -4153,9 +4158,6 @@ var home_url = "<%=request.getContextPath()%>";
 		    	  
 		    	  $('#et-btn-ay-self').on('click', function(e) {
 		    		  $etPlanOption.removeClass('hide-element');
-
-		    		  ga('create', 'UA-60032236-1', 'auto');
-		    		  ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-3');  
 			      });
 				});
 		      
