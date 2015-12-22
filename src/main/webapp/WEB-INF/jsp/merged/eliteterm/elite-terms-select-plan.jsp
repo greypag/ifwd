@@ -3820,16 +3820,50 @@ var home_url = "<%=request.getContextPath()%>";
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 <script type="text/javascript">
-
-
+		
+	$('#et-btn-before-start').on('click', function(e) {
+		ga('create', 'UA-60032236-1', 'auto');
+  	  	ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-2');
+	});
+	
+	$('#promocode-hidden-button button').on('click', function(e) {
+		ga('create', 'UA-60032236-1', 'auto');
+		ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-4'); 
+	});
+	
+	$('#et-brn-proceed-to-application').on('click', function(e) {
+  	  	ga('create', 'UA-60032236-1', 'auto');
+		ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-5'); 
+	});
+	
+	$('#et-medical-dec-next').on('click', function(e) {
+		ga('create', 'UA-60032236-1', 'auto');
+        ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-6'); 
+	});
+	
 	$('#et-employment-info-next').on('click', function(e) {
 		 ga('create', 'UA-60032236-1', 'auto');
-		 ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-8'); 
+		 ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-8'); 
+	});
+	
+	$('#et-beneficiary-info-next').on('click', function(e) {
+		ga('create', 'UA-60032236-1', 'auto');
+        ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-9'); 
+	});
+	
+	$('#et-app-sum-proceed-btn').on('click', function(e) { 
+		ga('create', 'UA-60032236-1', 'auto');
+  	  	ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-10'); 
 	});
 	
 	$('#et-confirm-and-sign-btn').on('click', function(e) {
 		 ga('create', 'UA-60032236-1', 'auto');
-		 ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-11'); 
+		 ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-11'); 
+	});
+	
+	$('#et-signature-proceed-btn').on('click', function(e) {
+		ga('create', 'UA-60032236-1', 'auto');
+		ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-12'); 
 	});
       
       //select-plan
@@ -3846,7 +3880,7 @@ var home_url = "<%=request.getContextPath()%>";
   			}
   			
   			ga('create', 'UA-60032236-1', 'auto');
-            ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-7'); 
+            ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-7'); 
   			
   			/*
          setTimeout(function(){
@@ -4121,7 +4155,7 @@ var home_url = "<%=request.getContextPath()%>";
 		    		  $etPlanOption.removeClass('hide-element');
 
 		    		  ga('create', 'UA-60032236-1', 'auto');
-    	  			  ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-3'); 
+		    		  ga('send', 'pageview', '/${language}/term-life-insurance/select-plan/step-3');  
 			      });
 				});
 		      

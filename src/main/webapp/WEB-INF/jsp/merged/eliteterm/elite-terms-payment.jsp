@@ -286,7 +286,7 @@ var languageP = "${language}";
  	  function confirmTermPayment() {
  		 
  		 ga('create', 'UA-60032236-1', 'auto');
- 		 ga('send', 'pageview', '/en/term-life-insurance/payment'); 
+ 		 ga('send', 'pageview', '/${language}/term-life-insurance/payment'); 
  		 
  		  if(payFormValid() && enablePayment){
               enablePayment=false;
