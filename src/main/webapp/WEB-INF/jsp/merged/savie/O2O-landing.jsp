@@ -265,8 +265,7 @@ var home_url = "<%=request.getContextPath()%>";
 						            </div>
 						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
 						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon6.png">
-						                <h5 class="bold eg-width-22"><a class="eg-link" href="<fmt:message key="evergreen.travel.bocomm.link" bundle="${msg}" />"
-							              target="_blank"><fmt:message key="saviee.landing.coverage6.title" bundle="${msg}" /></a></h5>
+						                <h5 class="bold eg-width-22"><fmt:message key="saviee.landing.coverage6.title" bundle="${msg}" /></h5>
 						                <div class="hidden-content">
 						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon6.png"></div>
 						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="saviee.landing.coverage6.title" bundle="${msg}" /></div>
