@@ -842,7 +842,7 @@ public class WorkingHolidayController {
 		LocalDate dateL1 = new LocalDate(commencementDate);
 		LocalDate dateL2 = new LocalDate(expiryDate);
 		int days = Days.daysBetween(dateL1, dateL2).getDays() + 1;
-		model.addAttribute("totalDays", days + " days");
+		model.addAttribute("totalDays", days);
 		model.addAttribute("path", path.replace("working-holiday-summary", "confirmation"));
 		model.addAttribute("failurePath", path + "?paymentGatewayFlag=true");
 		model.addAttribute("utm_nooverride", 1);
