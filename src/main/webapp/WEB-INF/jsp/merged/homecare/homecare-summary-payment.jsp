@@ -197,7 +197,7 @@ $(document).ready(function(){
 	                                                ${homeCareDetails.aStreetNo} 
 	                                            </c:if>
 	                                            <c:if test="${homeCareDetails.aStreetName != ''}">
-	                                                ${homeCareDetails.aStreetName},
+	                                                ${homeCareDetails.aStreetName}
 	                                            </c:if>
 	                                            
 	                                            <c:if test="${homeCareDetails.aDistrictDesc != ''}">
