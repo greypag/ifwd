@@ -161,7 +161,7 @@ $(document).ready(function(){
 	                                                ${homeCareDetails.applicantStreetNo} 
 	                                            </c:if>
 	                                             <c:if test="${homeCareDetails.applicantStreetName != ''}">
-	                                                ${homeCareDetails.applicantStreetName},
+	                                                ${homeCareDetails.applicantStreetName}
 	                                            </c:if>
 	                                            
 	                                            <c:if test="${homeCareDetails.applicantDistrictDesc != ''}">
