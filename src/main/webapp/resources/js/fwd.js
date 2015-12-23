@@ -1323,7 +1323,7 @@ $('#myFWDropdown .dropdown-menu,#myFWDropdownMob .dropdown-menu,#myFWDropdownBtm
 });
 $('#travelTypeDropdown .dropdown-menu,#travelTypeDropdownMob .dropdown-menu,#travelTypeDropdownBtm .dropdown-menu').on({
 	"click": function (e) {
-		e.stopPropagation();
+		/*e.stopPropagation();*/
 	}
 });
 
