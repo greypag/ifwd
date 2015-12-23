@@ -161,7 +161,7 @@ $(document).ready(function(){
 	                                                ${homeCareDetails.applicantStreetNo} 
 	                                            </c:if>
 	                                             <c:if test="${homeCareDetails.applicantStreetName != ''}">
-	                                                ${homeCareDetails.applicantStreetName},
+	                                                ${homeCareDetails.applicantStreetName}
 	                                            </c:if>
 	                                            
 	                                            <c:if test="${homeCareDetails.applicantDistrictDesc != ''}">
@@ -197,7 +197,7 @@ $(document).ready(function(){
 	                                                ${homeCareDetails.aStreetNo} 
 	                                            </c:if>
 	                                            <c:if test="${homeCareDetails.aStreetName != ''}">
-	                                                ${homeCareDetails.aStreetName},
+	                                                ${homeCareDetails.aStreetName}
 	                                            </c:if>
 	                                            
 	                                            <c:if test="${homeCareDetails.aDistrictDesc != ''}">
