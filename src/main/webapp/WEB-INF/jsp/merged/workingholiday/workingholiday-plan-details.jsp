@@ -937,6 +937,16 @@ function activateUserAccountJoinUs() {
 								</div>
 							</div>
 
+
+
+                            <div class="form-group float">
+                                <div class="form-label col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none">
+                                    <fmt:message key="workingholiday.details.insured.beneficiary.effective.disclaimer" bundle="${msg}" />
+                                </div>
+                            </div>
+                            
+                            
+                            
 						</div>
 						<div class="clearfix"></div>
 						<%
