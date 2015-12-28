@@ -555,10 +555,10 @@ public class EliteTermServiceImpl implements EliteTermService {
 					       + "<p dir='ltr' style='line-height:1.2;margin-top:0pt;margin-bottom:10pt;text-align:center;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:11px'><a href='http://www.fwd.com/hk/' style='word-wrap:break-word;color:#606060;font-weight:normal;text-decoration:underline' target='_blank'><span style='color:#ff8c00'><span style='font-family:microsoft jhenghei,calibri,sans-serif'><span><span style='background-color:transparent;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap'>www.fwd.com.hk</span></span></span></span></a></p></div></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table></center></div></body></html>";
 			String subject = "FWD Elite Term – Pending ["+policyNo+"]";
 			String attachment = "";
-			String from = "Fanny at FWD HK <i-services.hk@fwd.com>";
+			String from = UserRestURIConstants.getProperties("innerMailFrom");
 			boolean isHTML = true;
 
-			String[] emailList = {to, "i-direct.hk@fwd.com"};
+			String[] emailList = {to, UserRestURIConstants.getProperties("innerMailTo")};
 			for (int i=0; i<emailList.length; i++) {
 				org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
 				parameters.put("from", from);
@@ -644,7 +644,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 					       + "*Note: You may unsubscribe at any time.  To unsubscribe, please call us at 3123-3123.";
 			String subject = "FWD Promotion Code";
 			String attachment = "";
-			String from = "Fanny at FWD HK <i-services.hk@fwd.com>";
+			String from = UserRestURIConstants.getProperties("innerMailFrom");
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
@@ -693,7 +693,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 					subject = "FWD Elite Term – Upload Complete["+policyNo+"]";
 				}
 				String attachment = "";
-				String from = "Fanny at FWD HK <i-services.hk@fwd.com>";
+				String from = UserRestURIConstants.getProperties("innerMailFrom");
 				
 				String serverUrl = request.getScheme()+"://"+request.getServerName()+request.getContextPath();
 				if (request.getServerPort() != 80 && request.getServerPort() != 443)
@@ -937,7 +937,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 						"    </div>  "+
 						"  </body>";
 				
-				String[] emailList = {userDetails.getEmailAddress(), "i-direct.hk@fwd.com"};
+				String[] emailList = {userDetails.getEmailAddress(), UserRestURIConstants.getProperties("innerMailTo")};
 				for (int i=0; i<emailList.length; i++) {
 					org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
 					parametersEmail.put("to", emailList[i]);
