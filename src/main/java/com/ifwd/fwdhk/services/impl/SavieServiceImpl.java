@@ -1044,7 +1044,7 @@ public class SavieServiceImpl implements SavieService {
 			String message = "<h1>my testing</h1><u>underline</u>";//request.getParameter("message");//
 			String subject = "html testing";//request.getParameter("subject");//
 			String attachment = request.getParameter("attachment");//
-			String from = UserRestURIConstants.getProperties("innerMailFrom");//request.getParameter("from");//
+			String from = UserRestURIConstants.getProperties("sitFrom");//request.getParameter("from");//
 			//String isHtml = "true";//request.getParameter("isHTML");// 
 			boolean isHTML = true;
 			
