@@ -10431,3 +10431,26 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
         padding: 20px 0;
     }  
 } 
+
+
+/*login*/
+.modal-content .login-info {
+    background-color:#fff;
+    display: inline-block;
+    width: 200px;
+    height: 420px;
+}
+.modal-content .login-form {
+    background-color:#fff;
+    display: inline-block;
+    width: 568px;
+    height: 420px;
+}
+#loginpopup .modal-dialog {
+    width:568px !important;
+}
+#loginpopup2 .modal-dialog {
+    width:768px;
+}
+/*/login*/
+

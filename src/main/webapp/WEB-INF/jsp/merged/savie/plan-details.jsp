@@ -510,7 +510,8 @@ var context = "${pageContext.request.contextPath}";
 						$('#thankYouModal').modal('show');
 					}
 					else{
-						$('#loginpopup').modal('show');
+                        //$('#loginpopup').modal('show');
+                        $('#loginpopup2').modal('show');
 					}
 			    });	
 

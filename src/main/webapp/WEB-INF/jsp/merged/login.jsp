@@ -7,18 +7,22 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 
-
-<div class="modal fade bs-example-modal-lg " id="loginpopup"
-        tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true" style="display: none;">
+<c:forEach var="i" begin="1" end="2">
+<div class="modal fade bs-example-modal-lg" id="loginpopup<c:if test="${i==2}">2</c:if>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-lg">
             <div class="modal-content plan-modal">
             
                        <!-- 登入 -->      
             
+    <%
+        String actionName = "";
+        if (request.getAttribute("controller") != null) {
+            actionName = request.getAttribute("controller").toString();
+        }
+    %>
                             <form name="loginform" id="loginform-pop">
-                                        
-                                        <div class="login-form" >
+                                        <c:if test="${i==2}"><div class="login-info"><%=actionName %></div></c:if>
+                                        <div class="login-form">
                                             <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="login-ajax-loading">
 							                    <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 							                </div>
@@ -26,9 +30,9 @@
                                                 role="alert" style="display: none;"></div>
                                         
                                         
-                                        <a class="close" aria-label="Close" data-dismiss="modal">
-                                        <span aria-hidden="true" style="font-size:30px;">×</span>
-                                        </a>
+	                                        <a class="close" aria-label="Close" data-dismiss="modal">
+	                                        <span aria-hidden="true" style="font-size:30px;">×</span>
+	                                        </a>
                                         
                                             <div class="form-container" >
                                                 <h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
@@ -555,6 +559,10 @@
             </div>
         </div>
     </div>
+</c:forEach>
+
+
+
     <!-- payment error popup  -->
     <!-- Modal -->
 	<div class="modal fade bs-example-modal-lg  in" id="paymentErrorPopup" tabindex="-1" role="dialog" aria-hidden="true">
