@@ -1159,10 +1159,21 @@ function submitLoginForm(formID) {
 <!--/header-->
 <script>
 $(function() {
-    var pageControllerName = "#<%=actionName%>";
+    var pageControllerName = "<%=actionName%>";
+    var loginform = {
+    		image_path:"",
+    		overlay_title: "",
+    		overlay_text: ""
+    };
+    if(pageControllerName=="Savie"){
+    	loginform.image_path="<fmt:message key="oceanpark.landing.hero.mobile" bundle="${msg}" />";
+    	loginform.overlay_title="<fmt:message key="Savie.login.overlay.title" bundle="${msg}" />";
+    	loginform.overlay_text="<fmt:message key="Saive.login.overlay.text" bundle="${msg}" />";
+    }
+    console.log(loginform.overlay_title);
     var faqProductLink = "<%=request.getContextPath()%>/<fmt:message key='footer.menu.faq.link' bundle='${msg}' />";
     //console.log(faqProductLink);
-    $("#faqProductLink").attr("href", ""+ faqProductLink + pageControllerName + "");
+    $("#faqProductLink").attr("href", ""+ faqProductLink +"#"+ pageControllerName + "");
     var faqLinkRe = new RegExp(/^faq/);
     var langFaqProductLink = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
     console.log(faqLinkRe.test(langFaqProductLink));
