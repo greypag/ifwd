@@ -32,7 +32,7 @@ public class SendEmailService implements SendEmailDao {
 		email_params.put("message", message);
 		email_params.put("subject", "FWD Promotion Code");
 		email_params.put("attachment", null);
-		email_params.put("from", UserRestURIConstants.getProperties("noreplyFrom"));
+		email_params.put("from", UserRestURIConstants.getProperties("promoteMailFrom"));
 		email_params.put("isHtml", true);
 		
 		JSONObject resp = restService.consumeApi(HttpMethod.POST,
