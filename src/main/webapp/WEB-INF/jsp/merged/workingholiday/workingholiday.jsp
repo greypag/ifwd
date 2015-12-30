@@ -155,25 +155,6 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
 
 
 </div>
-<div id="special-promotion" class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
-  <h2><fmt:message key="special.promotion.headline" bundle="${msg}" /></h2>
-  <ul class="bullets">
-    <li>
-      <p class="h4-5 "><fmt:message key="working.special.promotion.copy1" bundle="${msg}" />
-      <!--<br/><span class="strike-text"><fmt:message key="special.promotion.copy2" bundle="${msg}" /></span>-->
-      </p>
-    </li>
-    <li>
-      <p class="h4-5"><fmt:message key="workingholiday.main.other.benefit.desc6.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.main.other.benefit.desc6.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.other.benefit.desc6.part3" bundle="${msg}" /></p>
-    </li>
-  </ul>
-  
-  <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
-      <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="special-offer-img-margin">
-      <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="">
-  </div>
-</div>
-
 <div id="other-benefits" class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
   <h2><fmt:message key="other.coverage.headline" bundle="${msg}" /></h2>
   <ul class="bullets">

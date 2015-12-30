@@ -553,12 +553,6 @@ $(document).ready(function() {
 	<div id="special-promotion" class="other-benefits col-lg-12 col-md-12 hidden-sm hidden-xs" style="margin-left:10px;">
 	  <h2><fmt:message key="special.promotion.headline" bundle="${msg}" /></h2>
 	  <ul class="bullets">
-	    <li>
-	      <p class="h4-5 "><fmt:message key="fight.special.promotion.copy1" bundle="${msg}" /></p>     
-	    </li>
-	    <li>
-	      <p class="h4-5"><fmt:message key="workingholiday.main.other.benefit.desc6.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.main.other.benefit.desc6.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.other.benefit.desc6.part3" bundle="${msg}" /></p>
-	    </li>
         <li>
           <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part1" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="flight.main.other.tnc.desc9.part3" bundle="${msg}" /></a> <fmt:message key="flight.main.other.tnc.desc9.part4" bundle="${msg}" /></p> 
         </li>	    
@@ -568,8 +562,6 @@ $(document).ready(function() {
 	  </ul>
 	  
 	  <div class="col-lg-12 col-md-12 col-xs-12 main-partner" style="">
-	      <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="special-offer-img-margin">
-	      <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="special-offer-img-margin">
 	      <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="">
 	  </div>
 	</div>    

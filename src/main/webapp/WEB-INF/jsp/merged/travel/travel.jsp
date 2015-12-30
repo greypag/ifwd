@@ -816,39 +816,7 @@ function getParameterByUrl(name){
   <div class="container pad-none">
 <div class="other-benefits col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <h2><fmt:message key="special.promotion.headline" bundle="${msg}" /></h2>
-  <ul class="bullets">
-    <!-- <li>
-      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc1" bundle="${msg}" /></p>
-    </li>
-    <li>
-      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc2" bundle="${msg}" /></p>
-    </li>
-    <li>
-      <p class="h4-5"><fmt:message key="travel.main.other.benefit.desc3" bundle="${msg}" /></p>
-    </li> -->
-  <li>
-      <p class="h4-5"><fmt:message key="special.promotion.copy1" bundle="${msg}" /></p>
-    </li>
-   <ul class="travel-promo-tnc bullets">
-       <li>
-          <p class="h4-5"><fmt:message key="special.promotion.copy1.1" bundle="${msg}" /> <fmt:message key="special.promotion.copy1.2" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="special.promotion.copy1.2.1.url" bundle="${msg}" />" target="_blank"><fmt:message key="special.promotion.copy1.2.1" bundle="${msg}" /></a> <fmt:message key="special.promotion.copy1.2.2" bundle="${msg}" /></p>
-       </li>
-       <!--<li>
-           <p class="h4-5"><fmt:message key="y5buddy.copy1.2" bundle="${msg}" />
-            <a href="<fmt:message key="y5buddy.copy1.2.1.url" bundle="${msg}" />" target="_blank"><u><fmt:message key="y5buddy.copy1.2.1" bundle="${msg}" /></u></a>
-            <fmt:message key="y5buddy.copy1.2.2" bundle="${msg}" />
-           </p>       
-       </li>-->
-       <li>
-          <p class="h4-5"><fmt:message key="special.promotion.copy1.3" bundle="${msg}" /></p>
-       </li> 
-   </ul>    
-  <li>
-      <p class="h4-5"><fmt:message key="special.promotion.copy2.1" bundle="${msg}" /> <a href="<fmt:message key="special.promotion.copy2.2.url" bundle="${msg}" />" target="_blank"><fmt:message key="special.promotion.copy2.2" bundle="${msg}" /></a> <fmt:message key="special.promotion.copy2.3" bundle="${msg}" /></p>  
-    </li>
-    <li>
-      <p class="h4-5"><fmt:message key="special.promotion.copy3.1" bundle="${msg}" /> <a href="<fmt:message key="special.promotion.copy3.2.url" bundle="${msg}" />" target="_blank"><fmt:message key="special.promotion.copy3.2" bundle="${msg}" /></a> <fmt:message key="special.promotion.copy3.3" bundle="${msg}" /></p>  
-    </li>
+  <ul class="bullets">  
     <li>
       <p class="h4-5"><a href="<fmt:message key="theclub.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc8.part1" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc8.part2" bundle="${msg}" /> <a href="<fmt:message key="theclub.clubpoint.link" bundle="${msg}" />" target="_blank"><fmt:message key="travel.main.other.benefit.desc8.part3" bundle="${msg}" /></a> <fmt:message key="travel.main.other.benefit.desc8.part4" bundle="${msg}" /></p>
     </li>
@@ -862,9 +830,6 @@ function getParameterByUrl(name){
   </ul>
   
   <div class="col-lg-12 col-md-12 hidden-xs hidden-sm main-partner pad-none" style="">
-    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-right:15px;">
-  	<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-right:15px;">
-    <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class="" style="margin-right:15px;">
     <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-right:15px;">
   </div>
   <div class="hidden-lg hidden-md col-xs-12 col-sm-12 main-partner mob" style="text-align:center">

@@ -395,20 +395,11 @@
                 <div style="width:80%;margin-left:10%; margin-top:20px; margin-bottom:20px;">
                 <!-- <div><fmt:message key="travel.confirmation.main.content.copy13" bundle="${msg}" /> <strong><fmt:message key="travel.confirmation.main.content.copy14" bundle="${msg}" /></strong> <fmt:message key="travel.confirmation.main.content.copy15" bundle="${msg}" /></div>
                 -->
-                <div><fmt:message key="travel.confirmation.main.content.copy10" bundle="${msg}" /> <strong><fmt:message key="travel.confirmation.main.content.copy11" bundle="${msg}" /></strong> <fmt:message key="travel.confirmation.main.content.copy12" bundle="${msg}" /></div>
                 <div class="fwd_partner_title"><fmt:message key="fwd.partners" bundle="${msg}" /></div>
                 <div class="hidden-xs hidden-sm">
-                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-right:15px;">
-		            <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-right:15px;">
-               		<img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class=" " style="margin-right:15px;">		            
-		            <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-right:15px;">
 		            <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class=" " style="margin-right:15px;">
                 </div>
                 <div class="hidden-lg hidden-md" style="text-align:center;">
-                    <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class=" " style="margin-bottom:20px;"><br/>
-                    <img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class=" " style="margin-bottom:20px;"><br/>
-                    <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class=" " style="margin-bottom:20px;"><br/>                 
-                    <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class=" " style="margin-bottom:20px;"><br/>
                     <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class=" " style="margin-bottom:20px;"><br/>
                 </div>
                 <div class="clearfix"></div>
