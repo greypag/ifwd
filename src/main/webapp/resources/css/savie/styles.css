@@ -16828,19 +16828,22 @@ a:focus {
 
 /*login*/
 .modal-content .login-info {
-    background-color:#fff;
+	background-size:cover;
+	background-position:center;
+    color:#fff;
     display: inline-block;
-    width: 200px;
-    height: 420px;
+    width:300px;
+    height: 440px;
+    padding:20px;
 }
 .modal-content .login-form {
     background-color:#fff;
     display: inline-block;
-    width: 568px;
-    height: 420px;
+    width: 468px;
+    height: 440px;
 }
 #loginpopup .modal-dialog {
-    width:568px !important;
+    width:468px !important;
 }
 #loginpopup2 .modal-dialog {
     width:768px;

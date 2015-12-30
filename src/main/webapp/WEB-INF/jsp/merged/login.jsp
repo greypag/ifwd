@@ -13,15 +13,15 @@
             <div class="modal-content plan-modal">
             
                        <!-- 登入 -->      
-            
     <%
         String actionName = "";
         if (request.getAttribute("controller") != null) {
             actionName = request.getAttribute("controller").toString();
         }
     %>
+    
                             <form name="loginform" id="loginform-pop">
-                                        <c:if test="${i==2}"><div class="login-info"><%=actionName %></div></c:if>
+                                        <c:if test="${i==2}"><div class="login-info" style="background-image:url(<%if(actionName== "Savie") out.println("/fwdhk/resources/images/savie/o2o-landing/iFWD_savie-evergreen_desktop_hero_universal_cn.jpg");%>);"><h2><fmt:message key="Savie.login.overlay.title" bundle="${msg}" /></h2><p><fmt:message key="Saive.login.overlay.text" bundle="${msg}" /></p></div></c:if>
                                         <div class="login-form">
                                             <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="login-ajax-loading">
 							                    <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
