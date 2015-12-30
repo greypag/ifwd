@@ -16385,6 +16385,7 @@ body.chin .op-logo {
     color: #fff;
     text-align: center;
     padding-left: 20px;
+    cursor: default;
   }
 }
 .fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-header-info-btn.active.no-hover:hover {
@@ -16698,6 +16699,7 @@ a:focus {
 	.application-page-header.et-header-browse .et-back-arrow .et-back-arrow-link {
 	    padding-top: 24px;
 	    font-size: 35px;
+      cursor: default;
 	}
 }
 /* line 82, ../sass/partials/_elite-terms-select-plan.scss */
