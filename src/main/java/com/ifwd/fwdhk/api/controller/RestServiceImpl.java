@@ -368,7 +368,7 @@ public class RestServiceImpl implements RestServiceDao {
 		String message = "<h1>my testing</h1><u>underline</u>";//request.getParameter("message");//
 		String subject = "html testing";//request.getParameter("subject");//
 		String attachment = null;//request.getParameter("attachment");//
-		String from = UserRestURIConstants.getProperties("sitFrom");//request.getParameter("from");//
+		String from = UserRestURIConstants.getConfigs("sitFrom");//request.getParameter("from");//
 		//String isHtml = "true";//request.getParameter("isHTML");// 
 		boolean isHTML = true;
 		

@@ -63,8 +63,6 @@ public class ECommWsConnector {
 
 	private static final String RESPONSE_ENCODING = "UTF-8";
 	
-	private String wsUrl = UserRestURIConstants.getUrl();
-
 	private <T> T parseJson(String response, Class<T> clazz) throws IOException, JsonParseException, JsonMappingException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		return objectMapper.readValue(response, clazz);
@@ -180,7 +178,7 @@ public class ECommWsConnector {
 	
 	public <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {
 		
-		final String url = wsUrl + path;
+		final String url = UserRestURIConstants.SERVICE_URL + path;
 		logger.debug("path:" + url);
 		
 		switch (method) {

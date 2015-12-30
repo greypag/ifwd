@@ -2,18 +2,23 @@ package com.ifwd.fwdhk.controller;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Method;
 import java.util.Properties;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import org.springframework.util.StringUtils;
+
+import com.ifwd.fwdhk.util.SpringUtil;
+
 
 public class UserRestURIConstants {
 
 	/*
 	 * http://10.10.18.11:8080/eCommerce-ws
 	 */
-
-	public static final String SERVICE_URL = getUrl();
+	public static final String SERVICE_URL = getConfigs("url");
 
 	/* validate token */
 	public static final String VALIDATE_TOKEN = "/member/token";
@@ -353,6 +358,28 @@ public class UserRestURIConstants {
 			}
 		}
 		return result;
+	}
+	
+	/**
+	 * 传入key，可获取config文件中对应的值
+	 * @param key
+	 * @return
+	 */
+	public static String getConfigs(String key) {
+		Method method;
+		Object obj;
+		String value = "";
+		if(!StringUtils.isEmpty(key)) {
+			try {
+				obj = SpringUtil.getObject("configBean");
+				key = key.substring(0, 1).toUpperCase() + key.substring(1, key.length());
+				method = obj.getClass().getMethod("get" + key);
+				value = (String)method.invoke(obj);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return value;
 	}
 	
 	public static String getLanaguage(HttpServletRequest request) 
