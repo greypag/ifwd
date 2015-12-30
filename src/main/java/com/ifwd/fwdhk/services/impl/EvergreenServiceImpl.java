@@ -54,7 +54,6 @@ import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.OptionItemDesc;
-import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
@@ -1194,7 +1193,7 @@ public class EvergreenServiceImpl implements EvergreenService {
 		 return br;
 	}
 	
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	@Override
 	public BaseResponse sendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException{
 		BaseResponse br = null;
@@ -1225,7 +1224,7 @@ public class EvergreenServiceImpl implements EvergreenService {
 		}
 
 		 return br;
-	}
+	}*/
 	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -1405,7 +1404,6 @@ public class EvergreenServiceImpl implements EvergreenService {
 					br = connector.uploadDocuments(parameters, header);
 					file.delete();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}finally{
 					try {
