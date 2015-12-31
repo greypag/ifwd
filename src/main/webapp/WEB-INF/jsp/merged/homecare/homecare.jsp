@@ -148,7 +148,7 @@ $(document).ready(function() {
     java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd");
 	long current = System.currentTimeMillis();  
     long start = format.parse("2015-08-03").getTime();
-    long end = format.parse("2015-12-31").getTime() + 86400000;
+    long end = format.parse("2016-12-31").getTime() + 86400000;
     if(start <= current && end >= current) {
 	%>
 	<section id="home_promo_banner">
@@ -172,7 +172,7 @@ $(document).ready(function() {
                         </p>
                     </div>
                     <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare" onclick="showHomePromoHidden();"><fmt:message key="home.cheapest.action1" bundle="${msg}" /></button>
-                    <div class="home_promo_banner_tnc"><span class="special_word"> <fmt:message key="home.cheapest.disclaimer.part1" bundle="${msg}" /> </span><fmt:message key="home.cheapest.disclaimer.part2" bundle="${msg}" /> <span class="special_word"><a href="<%=request.getContextPath()%>/<fmt:message key="home.cheapest.tnc.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="home.cheapest.disclaimer.part3" bundle="${msg}" /></u></a></span> <fmt:message key="home.cheapest.disclaimer.part4" bundle="${msg}" /></div>
+                    <div class="home_promo_banner_tnc"><span class="special_word"> <fmt:message key="home.cheapest.disclaimer.part1" bundle="${msg}" /> </span><fmt:message key="home.cheapest.disclaimer.part2" bundle="${msg}" /> <span class="special_word"><a href="<%=request.getContextPath()%>/<fmt:message key="home.cheapest.tnc.guaranteed" bundle="${msg}" />" target="_blank"><u><fmt:message key="home.cheapest.disclaimer.part3" bundle="${msg}" /></u></a></span> <fmt:message key="home.cheapest.disclaimer.part4" bundle="${msg}" /></div>
                 </div>
                 <div class="home_promo_banner_hidden_content pull-left" style="display:none;">
                     <div class="home_promo_banner_title"><fmt:message key="home.cheapest.h1" bundle="${msg}" /></div>
@@ -192,7 +192,7 @@ $(document).ready(function() {
                     </div>
                     <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare hidden-sm hidden-xs" onclick="homeScrollToElement('home_submit', 400)"><fmt:message key="home.cheapest.action2" bundle="${msg}" /></button>
                     <button type="button" class="bdr-curve btn btn-primary btn-next btn-next2 btn-homecare hidden-md hidden-lg" onclick="homeScrollToElement('getHomeQuoteMob', 100)"><fmt:message key="home.cheapest.action2" bundle="${msg}" /></button>
-                    <div class="home_promo_banner_tnc"><span class="special_word"> <fmt:message key="home.cheapest.disclaimer.part1" bundle="${msg}" /> </span><fmt:message key="home.cheapest.disclaimer.part2" bundle="${msg}" /> <span class="special_word"><a href="<%=request.getContextPath()%>/<fmt:message key="home.cheapest.tnc.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="home.cheapest.disclaimer.part3" bundle="${msg}" /></u></a></span> <fmt:message key="home.cheapest.disclaimer.part4" bundle="${msg}" /></div>
+                    <div class="home_promo_banner_tnc"><span class="special_word"> <fmt:message key="home.cheapest.disclaimer.part1" bundle="${msg}" /> </span><fmt:message key="home.cheapest.disclaimer.part2" bundle="${msg}" /> <span class="special_word"><a href="<%=request.getContextPath()%>/<fmt:message key="home.cheapest.tnc.guaranteed" bundle="${msg}" />" target="_blank"><u><fmt:message key="home.cheapest.disclaimer.part3" bundle="${msg}" /></u></a></span> <fmt:message key="home.cheapest.disclaimer.part4" bundle="${msg}" /></div>
                 </div>
             </div>
             <div class="clearfix"></div>
