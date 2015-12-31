@@ -15,7 +15,6 @@ import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.OptionItemDesc;
-import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
@@ -61,7 +60,7 @@ public interface EvergreenService {
 	
 	public BaseResponse sendLead(HttpServletRequest request)throws ECOMMAPIException;
 	
-	public BaseResponse sendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException;
+	//public BaseResponse sendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException;
 	
 	public BaseResponse sendMessagesEmail(HttpServletRequest request)throws ECOMMAPIException;
 	

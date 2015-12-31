@@ -26,7 +26,7 @@ public class SessionListener implements HttpSessionListener{
 		CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) se.getSession().getAttribute("eliteTermPolicy");
 		if(eliteTermPolicy != null &&  StringUtils.isNotEmpty(eliteTermPolicy.getPolicyNo())){
 			String policyNo = eliteTermPolicy.getPolicyNo();
-			String documentPath = UserRestURIConstants.getProperties("documentPath");
+			String documentPath = UserRestURIConstants.getConfigs("documentPath");
 			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes())+"/"; 
 	        FileUtil.deletFile(uploadDir);
 		}

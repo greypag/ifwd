@@ -8,8 +8,6 @@ import org.json.simple.JSONObject;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
-import com.ifwd.fwdhk.model.SendEmailInfo;
-
 @Component
 public interface RestServiceDao {
 	public JSONObject consumeApi(HttpMethod type, String url,
@@ -17,7 +15,7 @@ public interface RestServiceDao {
 
 	public void consumeLoginApi(HttpServletRequest request);
 	
-	public JSONObject SendEmail(HttpServletRequest request,SendEmailInfo sei);
+	//public JSONObject SendEmail(HttpServletRequest request,SendEmailInfo sei);
 	
 	public JSONObject sendLead(String email,String answer1,String step);
 }

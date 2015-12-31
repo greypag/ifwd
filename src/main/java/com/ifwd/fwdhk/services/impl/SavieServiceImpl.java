@@ -5,7 +5,6 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -24,7 +23,6 @@ import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
-import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,9 +38,7 @@ import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.common.util.NumberTransferUtils;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
-import com.ifwd.fwdhk.connector.request.eliteterm.CreateEliteTermPolicyRequest;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
-import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
@@ -54,7 +50,6 @@ import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.OptionItemDesc;
-import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
@@ -1012,7 +1007,7 @@ public class SavieServiceImpl implements SavieService {
 			
 			String subject = "富衛Savie自助息理財壽險計劃候補名單確認電郵";
 			String attachment = request.getParameter("attachment");
-			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
+			String from = UserRestURIConstants.getConfigs("savieMailFrom");
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
@@ -1034,7 +1029,7 @@ public class SavieServiceImpl implements SavieService {
 		 return br;
 	}
 	
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	@Override
 	public BaseResponse sendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException{
 		BaseResponse br = null;
@@ -1044,7 +1039,7 @@ public class SavieServiceImpl implements SavieService {
 			String message = "<h1>my testing</h1><u>underline</u>";//request.getParameter("message");//
 			String subject = "html testing";//request.getParameter("subject");//
 			String attachment = request.getParameter("attachment");//
-			String from = "sit@ecomm.fwd.com";//request.getParameter("from");//
+			String from = UserRestURIConstants.getConfigs("sitFrom");//request.getParameter("from");//
 			//String isHtml = "true";//request.getParameter("isHTML");// 
 			boolean isHTML = true;
 			
@@ -1065,7 +1060,7 @@ public class SavieServiceImpl implements SavieService {
 		}
 
 		 return br;
-	}
+	}*/
 	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -1772,7 +1767,7 @@ public class SavieServiceImpl implements SavieService {
 			 
 			String subject = "Savie Appointment Acknowledgement email from FWD";
 			String attachment = "";
-			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
+			String from = UserRestURIConstants.getConfigs("savieMailFrom");
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();

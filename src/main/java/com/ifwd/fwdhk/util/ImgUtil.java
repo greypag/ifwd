@@ -40,9 +40,9 @@ public class ImgUtil {
 	public static void changeImageToJPG(File fromFile,File toFile,HttpServletRequest request)throws ECOMMAPIException,Exception{
 		
 			BufferedImage bufferedImage = ImageIO.read(fromFile);
-			String imgMaxWidth = UserRestURIConstants.getProperties("imgMaxWidth");
-			String imgMaxHeight = UserRestURIConstants.getProperties("imgMaxHeight");
-			String imgMaxRatio = UserRestURIConstants.getProperties("imgMaxRatio");
+			String imgMaxWidth = UserRestURIConstants.getConfigs("imgMaxWidth");
+			String imgMaxHeight = UserRestURIConstants.getConfigs("imgMaxHeight");
+			String imgMaxRatio = UserRestURIConstants.getConfigs("imgMaxRatio");
 			int width = bufferedImage.getWidth();   
 		    int height = bufferedImage.getHeight(); 
 		    double ratio = width*1.0/height;
@@ -67,9 +67,9 @@ public class ImgUtil {
 	
 	public static File ImageToPdfToJPG(String imageUr,String mOutputPdfFileName,File toFile,HttpServletRequest request)throws ECOMMAPIException,Exception { 
 		BufferedImage bufferedImage = ImageIO.read(new File(imageUr));
-		String imgMaxWidth = UserRestURIConstants.getProperties("imgMaxWidth");
-		String imgMaxHeight = UserRestURIConstants.getProperties("imgMaxHeight");
-		String imgMaxRatio = UserRestURIConstants.getProperties("imgMaxRatio");
+		String imgMaxWidth = UserRestURIConstants.getConfigs("imgMaxWidth");
+		String imgMaxHeight = UserRestURIConstants.getConfigs("imgMaxHeight");
+		String imgMaxRatio = UserRestURIConstants.getConfigs("imgMaxRatio");
 		int width = bufferedImage.getWidth();   
 	    int height = bufferedImage.getHeight(); 
 	    double ratio = width*1.0/height;

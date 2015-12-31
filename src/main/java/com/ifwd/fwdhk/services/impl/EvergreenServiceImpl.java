@@ -54,7 +54,6 @@ import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.OptionItemDesc;
-import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
@@ -1172,7 +1171,7 @@ public class EvergreenServiceImpl implements EvergreenService {
 			
 			String subject = "富衛Savie自助息理財壽險計劃候補名單確認電郵";
 			String attachment = request.getParameter("attachment");
-			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
+			String from = UserRestURIConstants.getConfigs("savieMailFrom");
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
@@ -1194,7 +1193,7 @@ public class EvergreenServiceImpl implements EvergreenService {
 		 return br;
 	}
 	
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	@Override
 	public BaseResponse sendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException{
 		BaseResponse br = null;
@@ -1204,7 +1203,7 @@ public class EvergreenServiceImpl implements EvergreenService {
 			String message = "<h1>my testing</h1><u>underline</u>";//request.getParameter("message");//
 			String subject = "html testing";//request.getParameter("subject");//
 			String attachment = request.getParameter("attachment");//
-			String from = "sit@ecomm.fwd.com";//request.getParameter("from");//
+			String from = UserRestURIConstants.getConfigs("sitFrom");//request.getParameter("from");//
 			//String isHtml = "true";//request.getParameter("isHTML");// 
 			boolean isHTML = true;
 			
@@ -1225,7 +1224,7 @@ public class EvergreenServiceImpl implements EvergreenService {
 		}
 
 		 return br;
-	}
+	}*/
 	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -1405,7 +1404,6 @@ public class EvergreenServiceImpl implements EvergreenService {
 					br = connector.uploadDocuments(parameters, header);
 					file.delete();
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}finally{
 					try {
@@ -1428,7 +1426,7 @@ public class EvergreenServiceImpl implements EvergreenService {
 			headerEmail.put("language", "ZH");
 			String subject = "FWD Elite Term – Complete[ ]";
 			String attachment = "";
-			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
+			String from = UserRestURIConstants.getConfigs("savieMailFrom");
 			boolean isHTML = true;
 			String  message = "<div> Dear "+customerName+",<br />"+
 							 "Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your documents are well received; your application has been processed. Your policy will be in force in x days. <br />"+
