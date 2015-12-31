@@ -29,7 +29,6 @@ import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
-import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.UserDetails;
 
 @Component
@@ -360,7 +359,7 @@ public class RestServiceImpl implements RestServiceDao {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	@Override
 	public JSONObject SendEmail(HttpServletRequest request,SendEmailInfo sei) {
 		getTokenAndUsername(request);
@@ -368,7 +367,7 @@ public class RestServiceImpl implements RestServiceDao {
 		String message = "<h1>my testing</h1><u>underline</u>";//request.getParameter("message");//
 		String subject = "html testing";//request.getParameter("subject");//
 		String attachment = null;//request.getParameter("attachment");//
-		String from = "sit@ecomm.fwd.com";//request.getParameter("from");//
+		String from = UserRestURIConstants.getConfigs("sitFrom");//request.getParameter("from");//
 		//String isHtml = "true";//request.getParameter("isHTML");// 
 		boolean isHTML = true;
 		
@@ -387,7 +386,7 @@ public class RestServiceImpl implements RestServiceDao {
 		JSONObject jsobj = consumeApi(HttpMethod.POST,UserRestURIConstants.SEND_EMAIL, header, parameters);
 		
 		return jsobj;
-	}
+	}*/
 	
 	
 

@@ -17,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
-import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.services.EvergreenService;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.ValidationUtils;
@@ -63,7 +62,7 @@ public class AjaxEvergreenController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/ajax/savings-evergreen-insurance/miniCaculator/sendEmail"} )
+	/*@RequestMapping(value = {"/ajax/savings-evergreen-insurance/miniCaculator/sendEmail"} )
 	public void sendEmailByAjax(Model model, HttpServletRequest request,
 			HttpServletResponse response,
 			@RequestParam String dreamName,
@@ -103,7 +102,7 @@ public class AjaxEvergreenController extends BaseController{
 		}
 		
 		
-	}
+	}*/
 	
 	
 	@RequestMapping(value = {"/ajax/savings-evergreen-insurance/interestGather/post"} )
