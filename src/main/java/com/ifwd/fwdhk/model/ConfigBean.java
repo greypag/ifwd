@@ -22,6 +22,8 @@ public class ConfigBean {
 	private String innerMailFrom;
 	@Value("#{configProperties['promoteMailFrom']}")
 	private String promoteMailFrom;
+	@Value("#{configProperties['savieMailFrom']}")
+	private String savieMailFrom;
 	@Value("#{configProperties['innerMailTo']}")
 	private String innerMailTo;
 
@@ -95,6 +97,14 @@ public class ConfigBean {
 
 	public void setPromoteMailFrom(String promoteMailFrom) {
 		this.promoteMailFrom = promoteMailFrom;
+	}
+
+	public String getSavieMailFrom() {
+		return savieMailFrom;
+	}
+
+	public void setSavieMailFrom(String savieMailFrom) {
+		this.savieMailFrom = savieMailFrom;
 	}
 
 }

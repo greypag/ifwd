@@ -1171,7 +1171,7 @@ public class EvergreenServiceImpl implements EvergreenService {
 			
 			String subject = "富衛Savie自助息理財壽險計劃候補名單確認電郵";
 			String attachment = request.getParameter("attachment");
-			String from = UserRestURIConstants.getConfigs("innerMailFrom");
+			String from = UserRestURIConstants.getConfigs("savieMailFrom");
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
@@ -1426,7 +1426,7 @@ public class EvergreenServiceImpl implements EvergreenService {
 			headerEmail.put("language", "ZH");
 			String subject = "FWD Elite Term – Complete[ ]";
 			String attachment = "";
-			String from = UserRestURIConstants.getConfigs("innerMailFrom");
+			String from = UserRestURIConstants.getConfigs("savieMailFrom");
 			boolean isHTML = true;
 			String  message = "<div> Dear "+customerName+",<br />"+
 							 "Thank you for purchasing FWD Elite Term Plan Series Insurance Plan via online. Your documents are well received; your application has been processed. Your policy will be in force in x days. <br />"+

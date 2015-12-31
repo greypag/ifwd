@@ -524,7 +524,7 @@ public class SendEmailService implements SendEmailDao {
 		email_params.put("message", message);
 		email_params.put("subject", "Free 3-Day pocket wifi rental from FWD富衛送您3日免费流動Wi-Fi數據機租借服務");
 		email_params.put("attachment", null);
-		email_params.put("from", UserRestURIConstants.getConfigs("innerMailFrom"));
+		email_params.put("from", UserRestURIConstants.getConfigs("savieMailFrom"));
 		email_params.put("isHtml", true);
 
 		JSONObject resp = restService.consumeApi(HttpMethod.POST,

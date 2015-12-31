@@ -1007,7 +1007,7 @@ public class SavieServiceImpl implements SavieService {
 			
 			String subject = "富衛Savie自助息理財壽險計劃候補名單確認電郵";
 			String attachment = request.getParameter("attachment");
-			String from = UserRestURIConstants.getConfigs("innerMailFrom");
+			String from = UserRestURIConstants.getConfigs("savieMailFrom");
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
@@ -1767,7 +1767,7 @@ public class SavieServiceImpl implements SavieService {
 			 
 			String subject = "Savie Appointment Acknowledgement email from FWD";
 			String attachment = "";
-			String from = UserRestURIConstants.getConfigs("innerMailFrom");
+			String from = UserRestURIConstants.getConfigs("savieMailFrom");
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
