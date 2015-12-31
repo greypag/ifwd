@@ -155,7 +155,7 @@ public class SavieServiceImpl implements SavieService {
 			
 			SaviePlanDetailsBean saviePlanDetailsBean = new SaviePlanDetailsBean();
 			saviePlanDetailsBean.setPlanName(planCode.toUpperCase());
-			if(!apiResponse.hasError()){
+			if(apiResponse !=null && !apiResponse.hasError()){
 				List<SaviePlanDetailsRate> planDetails0Rate = apiResponse.getPlanDetails0Rate();
 				List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate();
 				List<SaviePlanDetailsRate> planDetails3Rate = apiResponse.getPlanDetails3Rate();

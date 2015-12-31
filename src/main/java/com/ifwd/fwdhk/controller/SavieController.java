@@ -260,18 +260,18 @@ public class SavieController extends BaseController{
 	}
 	
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/email-submitted","/{lang}/savings-insurance/o2o-landing/email-submitted"})
+	/*@RequestMapping(value = {"/{lang}/savings-insurance/email-submitted","/{lang}/savings-insurance/o2o-landing/email-submitted"})
 	public ModelAndView getSavieEmailSubmitted(Model model, HttpServletRequest request) {
 		String referer = request.getHeader("referer");
-		/*if(referer != null && (referer.endsWith("/savings-insurance/email-submitted") || referer.endsWith("/savings-insurance/o2o-landing/email-submitted")
+		if(referer != null && (referer.endsWith("/savings-insurance/email-submitted") || referer.endsWith("/savings-insurance/o2o-landing/email-submitted")
 				|| referer.endsWith("/savings-insurance/o2o-landing") || referer.endsWith("/savings-insurance/")
 				|| referer.endsWith("/savings-insurance") || referer.indexOf("savings-insurance?affiliate") > 1
 				|| referer.indexOf("/savings-insurance/o2o-landing?affiliate") > 1)) {
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED);
-		}else {*/
+		}else {
 			return getSavieEmailConfirmed(model, request);
 		//}
-	}
+	}*/
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/pdf-show"})
  	public ModelAndView showPdf(Model model, HttpServletRequest request,@RequestParam String pdfName,@RequestParam String requestNo) {
@@ -376,7 +376,10 @@ public class SavieController extends BaseController{
 				logger.info(responseJsonObj.toString());
 			}
 			org.json.simple.JSONArray serviceCentresArr = (JSONArray) responseJsonObj.get("serviceCentres");
-			org.json.simple.JSONObject serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
+			org.json.simple.JSONObject serviceCentreObj = new JSONObject();
+			if(serviceCentresArr!=null && serviceCentresArr.size()>0){
+				serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
+			}
 			if(serviceCentresArr!=null && serviceCentresArr.size()>1){
 				for(int i=1;i<serviceCentresArr.size();i++){
 					org.json.simple.JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
@@ -392,7 +395,7 @@ public class SavieController extends BaseController{
 					}
 				}
 			}
-			else{
+			else if(serviceCentresArr!=null && serviceCentresArr.size()==1){
 				serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
 			}
 			
