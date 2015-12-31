@@ -1123,7 +1123,7 @@ function checkPromoCodePlaceholder(){
 						<fmt:message key="home.main.other.disclaimer.part1"
 							bundle="${msg}" />
 						<a class="sub-link"
-							href="${pageContext.request.contextPath}/<fmt:message key="home.provision.link" bundle="${msg}" />"
+							href="https://home.fwd.com.hk/gidoc/policyprovisions/Easy_HomeCare_JacketLatest.pdf"
 							target="_blank"> <fmt:message
 								key="home.main.other.disclaimer.part2" bundle="${msg}" /></a>
 						<fmt:message key="home.main.other.disclaimer.part5"

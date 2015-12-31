@@ -2232,7 +2232,7 @@ function activateUserAccountJoinUs() {
                         </h4>
                         <h4 class="h4-4 product_landing_download_button pull-left">
                             <i class="fa fa-download"></i> <a
-                                href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />"
+                                href="https://home.fwd.com.hk/gidoc/policyprovisions/TravelCare Insurance (PTTP.2015.11).pdf"
                                 target="_blank"><fmt:message key="annual.common.policyprovisions" bundle="${msg}" />   </a>
                         </h4>
                         <div class="clearfix"></div>

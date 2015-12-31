@@ -96,7 +96,7 @@ function mouseout2div(obj) {
 					<a href="<%=request.getContextPath()%>/<fmt:message key="Overseas.Brochure.Download.URL" bundle="${msg}" />" target="_blank"><fmt:message key="Overseas.Brochure.Download.title" bundle="${msg}" /></a>
 				</h4>
 				<h4 class="product_landing_download_button">
-					<a id="travel_provision_button" href="<%=request.getContextPath()%>/<fmt:message key="Overseas.Provisions.Download.URL" bundle="${msg}" />" target="_blank" style=""><fmt:message key="Overseas.Provisions.Download.title" bundle="${msg}" /></a>
+					<a id="travel_provision_button" href="https://home.fwd.com.hk/gidoc/policyprovisions/Overseas_StudyCare_JacketLatest.pdf" target="_blank" style=""><fmt:message key="Overseas.Provisions.Download.title" bundle="${msg}" /></a>
 				</h4>
 				
 			</div>
