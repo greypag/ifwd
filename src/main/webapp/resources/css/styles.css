@@ -17527,7 +17527,7 @@ button#thank-you-continue {
 */
 /* line 10, ../sass/partials/_teaser.scss */
 .modal-backdrop.in {
-	opacity: 0;
+	/*opacity: 0;*/
 }
 
 /* line 15, ../sass/partials/_teaser.scss */
