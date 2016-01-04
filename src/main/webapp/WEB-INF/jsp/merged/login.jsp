@@ -20,8 +20,13 @@
         }
     %>
     
-                            <form name="loginform" id="loginform-pop">
-                                        <c:if test="${i==2}"><div class="login-info" style="background-image:url(<%if(actionName== "Savie") out.println("/fwdhk/resources/images/savie/o2o-landing/iFWD_savie-evergreen_desktop_hero_universal_cn.jpg");%>);"><h2><fmt:message key="Savie.login.overlay.title" bundle="${msg}" /></h2><p><fmt:message key="Saive.login.overlay.text" bundle="${msg}" /></p></div></c:if>
+                            <form name="loginform" id="loginform-pop<c:if test="${i==2}">2</c:if>">
+                                        <c:if test="${i==2}"><!--<div class="login-info" style="background-image:url(<%if(actionName== "Savie") out.println("/fwdhk/resources/images/savie/o2o-landing/iFWD_savie-evergreen_desktop_hero_universal_cn.jpg");%>);"><h2><fmt:message key="Savie.login.overlay.title" bundle="${msg}" /></h2><p><fmt:message key="Saive.login.overlay.text" bundle="${msg}" /></p></div>-->
+	                                        <div id="loginBackgroundOverlay" class="login-info">
+	                                           <h2 id="loginTitleOverlay"></h2>
+	                                           <p id="loginTextOverlay"></p>
+	                                        </div>
+                                        </c:if>
                                         <div class="login-form">
                                             <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="login-ajax-loading">
 							                    <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
@@ -67,7 +72,7 @@
                                                 <span id="errPass" class="empHide" style="color: red;font-size: 16px;"></span> <br>
                                                 <div class="row">
                                                     <div class="col-lg-6 col-md-6">
-                                                        <button type="button" onclick="submitLoginForm('loginform-pop');"
+                                                        <button type="button" onclick="submitLoginForm('loginform-pop<c:if test="${i==2}">2</c:if>');"
                                                             class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
                                                     </div>
                                                     <h3

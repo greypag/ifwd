@@ -4085,7 +4085,7 @@ var home_url = "<%=request.getContextPath()%>";
 				 else{
 					// Open login modal
 					$('#goApp').val('yes');
-					$('#loginpopup').modal('show');
+					$('#loginpopup2').modal('show');
 				 }
 		      });
 		      

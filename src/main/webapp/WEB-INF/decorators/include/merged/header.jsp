@@ -1169,8 +1169,14 @@ $(function() {
     	loginform.image_path="<fmt:message key="oceanpark.landing.hero.mobile" bundle="${msg}" />";
     	loginform.overlay_title="<fmt:message key="Savie.login.overlay.title" bundle="${msg}" />";
     	loginform.overlay_text="<fmt:message key="Saive.login.overlay.text" bundle="${msg}" />";
+    }else if (pageControllerName=="Elite"){
+        loginform.image_path="<fmt:message key="eliteterms.hero.image.mobile" bundle="${msg}" />";
+        loginform.overlay_title="<fmt:message key="eliteterms.login.overlay.title" bundle="${msg}" />";
+        loginform.overlay_text="<fmt:message key="eliteterms.login.overlay.text" bundle="${msg}" />";
     }
-    console.log(loginform.overlay_title);
+    $('#loginBackgroundOverlay').css('background-image', 'url(<%=request.getContextPath()%>/'+loginform.image_path+')');
+    $('#loginTitleOverlay').html(loginform.overlay_title);
+    $('#loginTextOverlay').html(loginform.overlay_text);
     var faqProductLink = "<%=request.getContextPath()%>/<fmt:message key='footer.menu.faq.link' bundle='${msg}' />";
     //console.log(faqProductLink);
     $("#faqProductLink").attr("href", ""+ faqProductLink +"#"+ pageControllerName + "");
