@@ -610,26 +610,7 @@ $(document).ready(function() {
   <h2 style="text-align: center;"><fmt:message key="special.promotion.headline" bundle="${msg}" /></h2>
   <div class="carousel slide">
     <div class="carousel-inner">
-      <div class="item active">
-          <div class="slide-margin">
-            <div class="other-benefits-wrap text-center">
-              <div class="other-benefits-inner">
-	           <p style="font-size: 21px;"><fmt:message key="fight.special.promotion.copy1" bundle="${msg}" /></p>
-              </div>
-            </div>
-          </div>
-      </div>
-      <!--/.item-->
-      <div class="item" >
-          <div class="slide-margin">
-            <div class="other-benefits-wrap text-center">
-              <div class="other-benefits-inner">
-                <p style="font-size: 21px;"><fmt:message key="workingholiday.main.other.benefit.desc6.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.main.other.benefit.desc6.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.other.benefit.desc6.part3" bundle="${msg}" /></p>
-              </div>
-            </div>
-          </div>
-      </div>
-      <div class="item" >
+      <div class="item active" >
           <div class="slide-margin">
             <div class="other-benefits-wrap text-center">
               <div class="other-benefits-inner">
@@ -640,18 +621,12 @@ $(document).ready(function() {
       </div>      
     </div>
     <!--/.carousel-inner--> 
-    <a class="prev" href="#other-offers-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
-    <a class="next" href="#other-offers-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+    <!--<a class="prev" href="#other-offers-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
+    <a class="next" href="#other-offers-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>-->
   </div>
   <!--/.carousel-->
   <div class="clearfix"></div>
           <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center">
-                <div class="col-sm-12 col-xs-12">
-              <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
-            </div>
-            <div class="col-sm-12 col-xs-12">
-              <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
-            </div>
             <div class="col-sm-12 col-xs-12">
               <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-bottom:15px;">
             </div>

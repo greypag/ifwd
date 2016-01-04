@@ -414,37 +414,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				  <h2 style="text-align: center;"><fmt:message key="workingholiday.main.other.benefit" bundle="${msg}" /></h2>
 				  <div class="carousel slide">
 				    <div class="carousel-inner">
-				      <div class="item active">
-				          <div class="slide-margin">
-				            <div class="other-benefits-wrap text-center">
-				              <div class="other-benefits-inner">
-				                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc1.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc1.part3" bundle="${msg}" /></p>				              
-				              </div>
-				            </div>
-				          </div>
-				      </div>
-				      <!--/.item-->
-				      <div class="item" >
-				          <div class="slide-margin">
-				            <div class="other-benefits-wrap text-center">
-				              <div class="other-benefits-inner">
-				                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc2.part1" bundle="${msg}" /> <a href="<fmt:message key="pricerite.eshop.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc2.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc2.part3" bundle="${msg}" /></p>
-				              </div>
-				            </div>
-				          </div>
-				      </div>
-				      <!--/.item-->
-                      <div class="item" >
-                          <div class="slide-margin">
-                            <div class="other-benefits-wrap text-center">
-                              <div class="other-benefits-inner">
-                                <p style="font-size: 21px;"><fmt:message key="home.main.other.benefit.desc3.part1" bundle="${msg}" /> <a href="<fmt:message key="boconcept.link" bundle="${msg}" />" target="_blank"><fmt:message key="home.main.other.benefit.desc3.part2" bundle="${msg}" /></a> <fmt:message key="home.main.other.benefit.desc3.part3" bundle="${msg}" /></p>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                      <!--/.item-->
-                      <div class="item" >
+                      <div class="item active" >
                           <div class="slide-margin">
                             <div class="other-benefits-wrap text-center">
                               <div class="other-benefits-inner">
@@ -457,22 +427,13 @@ For a complete explanation of the terms and conditions, feel free to contact an 
                       <!--/.item-->
 				    </div>
 				    <!--/.carousel-inner--> 
-				    <a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
-				    <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+				    <!--<a class="prev" href="#other-benefits-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
+				    <a class="next" href="#other-benefits-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>-->
 				  </div>
 				  <!--/.carousel-->
 				  <div class="clearfix"></div>
 				  
 				  <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center;">
-				  	<div class="col-lg-12 col-md-12 col-xs-12">
-				    	<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
-				    </div>
-				    <div class="col-lg-12 col-md-12 col-xs-12">
-				    	<img src="<%=request.getContextPath()%>/resources/images/partner_Boconcept.png" alt="" class="" style="margin-bottom:15px;">
-				    </div>
-                    <div class="col-lg-12 col-md-12 col-xs-12">
-                        <img src="<%=request.getContextPath()%>/resources/images/partner_pricerite.png" alt="" class="" style="margin-bottom:15px;">
-                    </div>
                     <div class="col-lg-12 col-md-12 col-xs-12">
                         <img src="<%=request.getContextPath()%>/resources/images/partner_theclub.png" alt="" class="" style="margin-bottom:15px;">
                     </div>  			    
