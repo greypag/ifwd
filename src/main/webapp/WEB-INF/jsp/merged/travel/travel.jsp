@@ -731,10 +731,10 @@ function getParameterByUrl(name){
 	      <h4 class="product_landing_download_button h4-4 pull-left">
 	          <i class="fa fa-download"></i> 
 	          	  <a
-	              id="travel_provision_button" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />"
+	              id="travel_provision_button" href="https://home.fwd.com.hk/gidoc/policyprovisions/TravelCare_Insurance_JacketLatest.pdf"
 	              target="_blank" style="display:none;" ><fmt:message key="annual.common.policyprovisions" bundle="${msg}" /></a>
 	              <a
-	              id="annual_travel_provision_button" href="<%=request.getContextPath()%>/<fmt:message key="annualtravel.provision.link" bundle="${msg}" />"
+	              id="annual_travel_provision_button" href="https://home.fwd.com.hk/gidoc/policyprovisions/Travelcare_Annual_JacketLatest.pdf"
 	              target="_blank" style="display:none;" ><fmt:message key="annual.common.policyprovisions" bundle="${msg}" /></a>
 	      </h4>
       </div>
@@ -838,7 +838,7 @@ function getParameterByUrl(name){
     </div>
   </div>
   <div class="spacer3"></div>
-  <!--<p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
+  <!--<p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="https://home.fwd.com.hk/gidoc/policyprovisions/TravelCare_Insurance_JacketLatest.pdf" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
   
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p> -->
   <p class="h4-6"><fmt:message key="annual.quote.disclaimer2" bundle="${msg}" /></p>
@@ -909,7 +909,7 @@ function getParameterByUrl(name){
   </div>
 
   <div class="spacer3"></div>
-  <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
+  <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" /> <a href="https://home.fwd.com.hk/gidoc/policyprovisions/TravelCare_Insurance_JacketLatest.pdf" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="travel.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="travel.main.other.disclaimer.part3" bundle="${msg}" /></p>
   
   <p class="h4-6"><fmt:message key="travel.main.other.disclaimer.part4" bundle="${msg}" /></p>
 </div> -->

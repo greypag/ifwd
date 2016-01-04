@@ -5,7 +5,6 @@ import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -24,7 +23,6 @@ import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
-import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,9 +38,7 @@ import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.common.util.NumberTransferUtils;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
-import com.ifwd.fwdhk.connector.request.eliteterm.CreateEliteTermPolicyRequest;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
-import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
@@ -54,7 +50,6 @@ import com.ifwd.fwdhk.model.BankBean;
 import com.ifwd.fwdhk.model.BankBranchBean;
 import com.ifwd.fwdhk.model.DistrictBean;
 import com.ifwd.fwdhk.model.OptionItemDesc;
-import com.ifwd.fwdhk.model.SendEmailInfo;
 import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDeclarationAuthorizationBean;
 import com.ifwd.fwdhk.model.savie.SavieFormDocumentBean;
@@ -155,7 +150,7 @@ public class SavieServiceImpl implements SavieService {
 			
 			SaviePlanDetailsBean saviePlanDetailsBean = new SaviePlanDetailsBean();
 			saviePlanDetailsBean.setPlanName(planCode.toUpperCase());
-			if(!apiResponse.hasError()){
+			if(apiResponse !=null && !apiResponse.hasError()){
 				List<SaviePlanDetailsRate> planDetails0Rate = apiResponse.getPlanDetails0Rate();
 				List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate();
 				List<SaviePlanDetailsRate> planDetails3Rate = apiResponse.getPlanDetails3Rate();
@@ -1012,7 +1007,7 @@ public class SavieServiceImpl implements SavieService {
 			
 			String subject = "富衛Savie自助息理財壽險計劃候補名單確認電郵";
 			String attachment = request.getParameter("attachment");
-			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
+			String from = UserRestURIConstants.getConfigs("savieMailFrom");
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
@@ -1034,7 +1029,7 @@ public class SavieServiceImpl implements SavieService {
 		 return br;
 	}
 	
-	@SuppressWarnings("unchecked")
+	/*@SuppressWarnings("unchecked")
 	@Override
 	public BaseResponse sendEmail(HttpServletRequest request,SendEmailInfo sei)throws ECOMMAPIException{
 		BaseResponse br = null;
@@ -1044,7 +1039,7 @@ public class SavieServiceImpl implements SavieService {
 			String message = "<h1>my testing</h1><u>underline</u>";//request.getParameter("message");//
 			String subject = "html testing";//request.getParameter("subject");//
 			String attachment = request.getParameter("attachment");//
-			String from = "sit@ecomm.fwd.com";//request.getParameter("from");//
+			String from = UserRestURIConstants.getConfigs("sitFrom");//request.getParameter("from");//
 			//String isHtml = "true";//request.getParameter("isHTML");// 
 			boolean isHTML = true;
 			
@@ -1065,7 +1060,7 @@ public class SavieServiceImpl implements SavieService {
 		}
 
 		 return br;
-	}
+	}*/
 	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -1623,7 +1618,7 @@ public class SavieServiceImpl implements SavieService {
 					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span style=\"font-size:13px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\"><strong>客戶服務中心:  </strong></span><span style=\"color:#000000\"><span style=\"background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\">" +scrChi.getServiceCentreName() + "</span></span></span></span></p>\r\n" + 
 					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span style=\"font-size:13px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\"><strong>地址:  </strong></span><span style=\"color:#000000\"><span style=\"background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\">" + scrChi.getAddress() + "</span></span></span></span></p>\r\n" + 
 					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span style=\"font-size:13px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\"><strong>參考編號: </strong></span><span style=\"color:#000000\"><span style=\"line-height:125%;background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\">" + applicationNumber + "</span></span></span></span></p>\r\n" + 
-					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span style=\"font-size:13px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\"><strong>所需文件:</strong></span><br /><span style=\"color:#000000\"><span style=\"line-height:125%;background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\">1. 香港身份證 <br>  <span style=\"line-height:125%;background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap;font-size:12px\">   (如您並非香港永久性居民，您必須出示香港身份證及護照作為證明。)</span><br />2.三個月內的<a style=\"color:#ff8c00\" href=\""+serverUrl+"/resources/policy-provisions-pdf/Savie_Address_Proof.pdf\"><span style=\"background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap;text-decoration:underline;\">有效住址證明</span></a><br />3.申請人之支票或銀行資料以作填寫自動轉賬授權書之用</span></span></span></span></p>\r\n" + 
+					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span style=\"font-size:13px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\"><strong>所需文件:</strong></span><br /><span style=\"color:#000000\"><span style=\"line-height:125%;background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\">1. 香港身份證 <br>  <span style=\"line-height:125%;background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap;font-size:12px\">   (如您並非香港永久性居民，您必須出示香港身份證及護照作為證明。)</span><br />2.三個月內的<a style=\"color:#ff8c00\" href=\""+serverUrl+"/resources/policy-provisions-pdf/Savie_Address_Proof.pdf\"><span style=\"background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap;text-decoration:underline;\">有效住址證明</span></a><br />3.申請人之支票或銀行資料以作填寫自動轉賬授權書之用<br />4.海洋公園所發行的成人金卡或成人銀卡智紛全年入場證正本*(如有)</span></span></span></span></p>\r\n" + 
 					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span style=\"font-size:13px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\"><strong>付款方式:</strong></span><br /><span style=\"color:#000000\"><span style=\"line-height:125%;background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\">1. 申請人之支票；或<br />2. 銀行自動轉帳</span></span></span></span></p>\r\n" + 
 					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span style=\"font-size:13px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\"><strong>保費金額:</strong></span><br /><span style=\"color:#000000\"><span style=\"line-height:125%;background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\">本計劃的一筆過保費為港幣三萬元至四十萬元內。<wbr>客戶可於投保當日因應財務需要分析及個人意願以作決定。</span></span></span></span></p>\r\n" + 
 					"			                                                  &nbsp;\r\n" + 
@@ -1632,12 +1627,14 @@ public class SavieServiceImpl implements SavieService {
 					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span style=\"font-size:13px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\"><strong>Customer service centre:  </strong></span><span style=\"color:#000000\"><span style=\"background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\">" +scrEng.getServiceCentreName() + "</span></span></span></span></p>\r\n" + 
 					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span style=\"font-size:13px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\"><strong>Address:  </strong></span><span style=\"color:#000000\"><span style=\"background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\">" + scrEng.getAddress() + "</span></span></span></span></p>\r\n" + 
 					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span style=\"font-size:13px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\"><strong>Reference number:  </strong></span><span style=\"color:#000000\"><span style=\"background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\">" + applicationNumber + "</span></span></span></span></p>\r\n" + 
-					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span style=\"font-size:13px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\"><strong>Required documents:</strong></span><br /><span style=\"color:#000000\"><span style=\"line-height:125%;background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\">1. HKID card <br>  <span style=\"line-height:125%;background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap;font-size:12px\">   (If you are a non-permanent Hong Kong resident, you must present your HKID Card and your passport for verification.)</span><br />2. <a style=\"color:#ff8c00\" href=\""+serverUrl+"/resources/policy-provisions-pdf/Savie_Address_Proof.pdf\"><span style=\"background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap;text-decoration:underline;\">A valid address proof</span></a> within the last 3 months  <br />3. A cheque in the name of applicant or applicant's bank information for completing  the direct debit authorization form</span></span></span></span></p>\r\n" + 
+					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span style=\"font-size:13px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\"><strong>Required documents:</strong></span><br /><span style=\"color:#000000\"><span style=\"line-height:125%;background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\">1. HKID card <br>  <span style=\"line-height:125%;background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap;font-size:12px\">   (If you are a non-permanent Hong Kong resident, you must present your HKID Card and your passport for verification.)</span><br />2. <a style=\"color:#ff8c00\" href=\""+serverUrl+"/resources/policy-provisions-pdf/Savie_Address_Proof.pdf\"><span style=\"background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap;text-decoration:underline;\">A valid address proof</span></a> within the last 3 months  <br />3. A cheque in the name of applicant or applicant's bank information for completing  the direct debit authorization form<br />4.	Original copy of SmartFun Annual Pass (Gold Pass-Adult) or SmartFun Annual Pass (Silver Pass-Adult)issued by Ocean Park Corporation*(If applicable)</span></span></span></span></p>\r\n" + 
 					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span style=\"font-size:13px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\"><strong>Payment methods: </strong></span><br /><span style=\"color:#000000\"><span style=\"line-height:125%;background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\">1. A cheque in the name of applicant; or<br />2. Bank direct debit</span></span></span></span></p>\r\n" + 
 					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span style=\"font-size:13px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\"><strong>Premium: </strong></span><br /><span style=\"color:#000000\"><span style=\"line-height:125%;background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap\">The one-off payment of the Plan is between HK$30,000 and HK$400,000. Customers have the right to decide the premium amount based on the FNA results or at his/her personal discretion on the day of application.</span></span></span></span></p>\r\n" + 
-					"			                                                  &nbsp;\r\n" + 
+					"			                                                  &nbsp;\r\n" +
+					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">*海洋公園之優惠受其<a style=\"color:#ff8c00\" href=\""+serverUrl+"/resources/policy-provisions-pdf/Ocean_Park_Premium_Discount_T&C.pdf\"><span style=\"background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap;text-decoration:underline;\">條款及細則</span></a>約束，富衛人壽保險（百慕達）有限公司及海洋公園公司保留變更優惠之條款及細則的權利。</span></span>\r\n" +
 					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">如欲更改預約時段或客戶服務中心，請致電富衛24小時客戶服務熱線<span style=\"color:#ff8c00\"><span style=\"font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:13.3333px;line-height:16px;text-align:left;white-space:pre-wrap\">(852) 3123 3123</span></span>。</span></span>\r\n" + 
 					"			                                                  </p>\r\n" + 
+					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">*Ocean Park offer is subject to its terms and conditions and FWD Life Insurance Company (Bermuda) Limited and Ocean Park reserve the right to vary the <a style=\"color:#ff8c00\" href=\""+serverUrl+"/resources/policy-provisions-pdf/Ocean_Park_Premium_Discount_T&C.pdf\"><span style=\"background-color:transparent;font-family:microsoft jhenghei,calibri,sans-serif;vertical-align:baseline;white-space:pre-wrap;text-decoration:underline;\">terms and conditions</span></a> of the offer.</span></span>\r\n" +
 					"			                                                  <p dir=\"ltr\" style=\"line-height:125%;margin-top:0pt;margin-bottom:10pt;text-align:left;margin:1em 0;padding:0;color:#606060;font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:15px\"><span><span style=\"background-color:transparent;color:#000000;font-family:microsoft jhenghei,calibri,sans-serif;font-size:13.3333px;vertical-align:baseline;white-space:pre-wrap\">For questions regarding appointments, please contact our FWD 24 hours Customer Service Hotline at <span style=\"color:#ff8c00\"><span style=\"font-family:Microsoft JhengHei,Calibri,sans-serif;font-size:13.3333px;line-height:16px;text-align:left;white-space:pre-wrap\">(852) 3123 3123</span></span>.</span></span>\r\n" + 
 					"			                                                  </p>\r\n" + 
 					"			                                                  &nbsp;\r\n" + 
@@ -1772,7 +1769,7 @@ public class SavieServiceImpl implements SavieService {
 			 
 			String subject = "Savie Appointment Acknowledgement email from FWD";
 			String attachment = "";
-			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
+			String from = UserRestURIConstants.getConfigs("savieMailFrom");
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();

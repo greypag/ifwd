@@ -362,7 +362,7 @@ class="image-order-status image-order-status-active  img-circle">
                 </script>
                 <!-- Provision Link -->
                 <p class="padding1 workingholiday-plan-disclaimer"><fmt:message key="travel.main.other.disclaimer.part1" bundle="${msg}" />
-				<a class="sub-link" href="<%=request.getContextPath()%>/<fmt:message key="travel.provision.link" bundle="${msg}" />" target="_blank">
+				<a class="sub-link" href="https://home.fwd.com.hk/gidoc/policyprovisions/TravelCare_Insurance_JacketLatest.pdf" target="_blank">
 				<fmt:message key="travel.main.other.disclaimer.part2" bundle="${msg}" /></a> 
 				<fmt:message key="travel.main.other.disclaimer.part5" bundle="${msg}" /> 
 				<a href="<fmt:message key="travel.brochure.link" bundle="${msg}" />" target="_blank"> 

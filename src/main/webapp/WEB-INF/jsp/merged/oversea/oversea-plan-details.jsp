@@ -961,7 +961,7 @@ function setDropArea(id) {
                             <i class="fa fa-download"></i> <a href="<%=request.getContextPath()%>/<fmt:message key="Overseas.Brochure.Download.URL" bundle="${msg}" />" target="_blank"><fmt:message key="Overseas.PlanOptions.Brochure" bundle="${msg}" />   </a>
                         </h4>
                         <h4 class="h4-4 product_landing_download_button pull-left">
-                            <i class="fa fa-download"></i> <a href="<%=request.getContextPath()%>/<fmt:message key="Overseas.Provisions.Download.URL" bundle="${msg}" />" target="_blank"><fmt:message key="Overseas.PlanOptions.Provisions" bundle="${msg}" />   </a>
+                            <i class="fa fa-download"></i> <a href="https://home.fwd.com.hk/gidoc/policyprovisions/Overseas_StudyCare_JacketLatest.pdf" target="_blank"><fmt:message key="Overseas.PlanOptions.Provisions" bundle="${msg}" />   </a>
                         </h4>
                         <div class="clearfix"></div>
                         </div>  

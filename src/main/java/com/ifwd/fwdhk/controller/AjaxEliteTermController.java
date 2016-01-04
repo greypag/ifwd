@@ -64,7 +64,7 @@ public class AjaxEliteTermController extends BaseController{
 		}
 		
 		try {
-				String imgMaxSize = UserRestURIConstants.getProperties("imgMaxSize");
+				String imgMaxSize = UserRestURIConstants.getConfigs("imgMaxSize");
 				long size = file.getSize();
 				if(size/(1024*1024) > Integer.valueOf(imgMaxSize)){
 					throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.greater.than",request)+" "+imgMaxSize+"MB");
@@ -72,7 +72,7 @@ public class AjaxEliteTermController extends BaseController{
 				
 				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
 				String policyNo = eliteTermPolicy.getPolicyNo();
-				String documentPath = UserRestURIConstants.getProperties("documentPath");
+				String documentPath = UserRestURIConstants.getConfigs("documentPath");
 				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes()); 
 		        File dirPath = new File(uploadDir);  
 		        if (!dirPath.exists()) {   
@@ -127,7 +127,7 @@ public class AjaxEliteTermController extends BaseController{
 			}
 		
 			try {
-				String imgMaxSize = UserRestURIConstants.getProperties("imgMaxSize");
+				String imgMaxSize = UserRestURIConstants.getConfigs("imgMaxSize");
 				long size = imageFile.getSize();
 				if(size/(1024*1024) > Integer.valueOf(imgMaxSize)){
 					throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.greater.than",request)+" "+imgMaxSize+"MB");
@@ -135,7 +135,7 @@ public class AjaxEliteTermController extends BaseController{
 				
 				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
 				String policyNo = eliteTermPolicy.getPolicyNo();
-				String documentPath = UserRestURIConstants.getProperties("documentPath");
+				String documentPath = UserRestURIConstants.getConfigs("documentPath");
 				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes()); 
 		        File dirPath = new File(uploadDir);  
 		        if (!dirPath.exists()) {   

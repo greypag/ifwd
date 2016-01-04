@@ -391,7 +391,7 @@ $(document).ready(function() {
 				<p class="col-xs-12 h4-6">
 				<fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" />
 							
-					<a href="<%=request.getContextPath()%>/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank" class=""> 
+					<a href="https://home.fwd.com.hk/gidoc/policyprovisions/Easy_HomeCare_JacketLatest.pdf" target="_blank" class=""> 
 					<u><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></u></a> 
 					<fmt:message key="home.main.other.disclaimer.part5" bundle="${msg}" />
 					<a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank" class=""> 
@@ -403,7 +403,7 @@ $(document).ready(function() {
 				</p>
 				<!-- <p class="h4-6">
 				The features above are indicative only. Please refer to the <a
-						href="policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
+						href="https://home.fwd.com.hk/gidoc/policyprovisions/Easy_HomeCare_JacketLatest.pdf"
 						target="_blank" class="sub-link"> Policy Provisions </a> for details. 
 For a complete explanation of the terms and conditions, feel free to contact an adviser or our 24-hour hotline at 3123 3123 for more details.
 				
@@ -440,7 +440,7 @@ For a complete explanation of the terms and conditions, feel free to contact an 
 				  </div>
 
 				  <div class="spacer3"></div>
-				  <p class="h4-6"><fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="home.provision.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="home.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="home.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /></p>
+				  <p class="h4-6"><fmt:message key="home.main.other.disclaimer.part1" bundle="${msg}" /> <a href="https://home.fwd.com.hk/gidoc/policyprovisions/Easy_HomeCare_JacketLatest.pdf" target="_blank"> <u><fmt:message key="home.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="home.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<fmt:message key="home.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="home.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="home.main.other.disclaimer.part3" bundle="${msg}" /></p>
 				  
 				  <p class="h4-6"><fmt:message key="home.main.other.disclaimer.part4" bundle="${msg}" /></p>
 				<!--/.container-->

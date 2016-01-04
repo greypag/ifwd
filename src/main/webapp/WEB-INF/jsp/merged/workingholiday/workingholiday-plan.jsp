@@ -800,7 +800,7 @@ var promoCodeInsertFlag = true;
 		<p class="padding1 workingholiday-plan-disclaimer">
 			<fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" />
 				<a class="sub-link"
-				href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.provision.link" bundle="${msg}" />"
+				href="https://home.fwd.com.hk/gidoc/policyprovisions/Working_HolidayCare_JacketLatest.pdf"
 				target="_blank"><fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></a>
 				<fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" />
 		</p>

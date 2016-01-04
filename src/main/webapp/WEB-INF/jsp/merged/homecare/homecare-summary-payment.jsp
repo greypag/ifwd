@@ -695,7 +695,7 @@ $(document).ready(function(){
 						<!-\- <div class="checkbox">
 							<input id="checkbox2" type="checkbox"> <label
 								for="checkbox2"> I/We have read and understand the<a
-								href="<%=request.getContextPath()%>/resources/policy-provisions-pdf/Easy_HomeCare_Provisions_Mar_2015.pdf"
+								href="https://home.fwd.com.hk/gidoc/policyprovisions/Easy_HomeCare_JacketLatest.pdf"
 								target="_blank" class="sub-link"> policy coverage</a> and <a href="#" class="sub-link">terms and conditions.</a>
 							</label>
 							<div class="clearfix"></div>
