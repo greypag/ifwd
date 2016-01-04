@@ -555,7 +555,7 @@ public class AnnualTravelController {
 			logger.info("TRAVEL_FINALIZE_POLICY Response " + responsObject);
 			
 			if (responsObject.get("errMsgs") == null) {
-	            sendEmail.sendY5buddyEmail(request, session.getAttribute("emailAddress").toString(), header);
+	            //sendEmail.sendY5buddyEmail(request, session.getAttribute("emailAddress").toString(), header);
 				
 				session.removeAttribute("creditCardNo");
 				session.removeAttribute("expiryDate");
