@@ -12,7 +12,7 @@
   Boolean isMember = !(currUser == null || currUser.equals(Constants.DEFAULT_USERNAME));
 
   /* Temporarily disable the member description since no referral code is currently displayed for annual travel*/
-  isMember = false;
+  //isMember = false;
 
   String userType = (isMember)?"member":"visitor";
 
