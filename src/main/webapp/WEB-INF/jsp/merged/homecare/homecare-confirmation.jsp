@@ -382,7 +382,7 @@
 					                    <div class="disclaimer">
 					                      <p><fmt:message key="<%=key_disclaimer1%>" bundle="${msg}" /></p>
 					                      <p><fmt:message key="<%=key_disclaimer2Part1%>" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="referral.tnc.link" bundle="${msg}" />" class="sub-link" target="_blank"><fmt:message key="<%=key_disclaimer2Part2%>" bundle="${msg}" /></a><fmt:message key="<%=key_disclaimer2Part3%>" bundle="${msg}" /></p>
-					                      <p><fmt:message key="<%=key_disclaimer3Part1%>" bundle="${msg}" /><a href="<fmt:message key="pricerite.eshop.link" bundle="${msg}" />" class="sub-link" target="_blank"><fmt:message key="<%=key_disclaimer3Part2%>" bundle="${msg}" /></a><fmt:message key="<%=key_disclaimer3Part3%>" bundle="${msg}" /></a></p>
+					                      <%-- <p><fmt:message key="<%=key_disclaimer3Part1%>" bundle="${msg}" /><a href="<fmt:message key="pricerite.eshop.link" bundle="${msg}" />" class="sub-link" target="_blank"><fmt:message key="<%=key_disclaimer3Part2%>" bundle="${msg}" /></a><fmt:message key="<%=key_disclaimer3Part3%>" bundle="${msg}" /></a></p> --%>
 					                    </div>
 					              <% } else { %>
 					                    <div class="hidden-xs hidden-sm">
