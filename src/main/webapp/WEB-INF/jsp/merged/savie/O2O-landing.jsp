@@ -464,7 +464,6 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="modal-body hunger-selling-body">
 							<div>
 								<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details" method="post">
-									<input placeholder="<fmt:message key="savie.o2o.landing.Access.code" bundle="${msg}" />" type="text" name="accessCodeConfirm" id="accessCodeConfirm" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" onafterpaste="value=value.replace(/[^\w\.\/]/ig,'')" />
 									<span class="validation-msg hidden-error-msg"><fmt:message key="savie.o2o.landing.The.code" bundle="${msg}" /></span>							
 									<button type="submit" id="hunger-btn" class="btn hunger-btn"><fmt:message key="savie.o2o.landing.Submit" bundle="${msg}" /></button>
 								</form>
@@ -594,8 +593,8 @@ var home_url = "<%=request.getContextPath()%>";
 			// Access Code Confirmation
 			function getAppointmentAccessCode(){
 				$.ajax({
-				        type: "GET",
-				        url:'${pageContext.request.contextPath}/ajax/savings-insurance/getAppointmentAccessCode',
+				        type: "POST",
+				        url:'<%=request.getContextPath()%>/ajax/savings-evergreen-insurance/getAppointmentAccessCode',
 				        async:false,         
 				        success:function(data){
 							if(data.errMsgs != null && data.errMsgs != ''){
