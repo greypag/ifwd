@@ -101,16 +101,13 @@
                                                 <fmt:message key="partner.agoda.tnc1.part1" bundle="${msg}" />
                                                 <a href="<%=request.getContextPath()%>/<fmt:message key="agoda.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.tnc1.part2" bundle="${msg}" /></a>
                                                 <fmt:message key="partner.agoda.tnc1.part3" bundle="${msg}" />
-                                                <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></a>
-                                                <fmt:message key="partner.agoda.tnc1.part5" bundle="${msg}" />
                                             </p>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="partner_link">
-                                <a href="<fmt:message key="agoda.link" bundle="${msg}" />"
-                                    target="_blank"><u><fmt:message key="partner.visit.website" bundle="${msg}" /></u></a>
+                                <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><u><fmt:message key="partner.agoda.tnc1.part4" bundle="${msg}" /></u></a>
                             </div>
                     </div>                              
 	                <div class="clearfix"></div>

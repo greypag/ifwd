@@ -186,48 +186,7 @@ function prepareWorkingHolidayPlan(form, paymentFormId){
   <p class="h4-6"><fmt:message key="workingholiday.main.other.disclaimer.part1" bundle="${msg}" /> <a href="https://home.fwd.com.hk/gidoc/policyprovisions/Working_HolidayCare_JacketLatest.pdf" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part2" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part5" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="workingholiday.brochure.link" bundle="${msg}" />" target="_blank"> <u><fmt:message key="workingholiday.main.other.disclaimer.part6" bundle="${msg}" /></u></a> <fmt:message key="workingholiday.main.other.disclaimer.part3" bundle="${msg}" /><fmt:message key="workingholiday.main.other.disclaimer.part4" bundle="${msg}" />
   </p>
 </div>
-
-<div id="other-offers-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
-  <h2 style="text-align: center;"><fmt:message key="special.promotion.headline" bundle="${msg}" /></h2>
-  <div class="carousel slide">
-    <div class="carousel-inner">
-      <div class="item active">
-          <div class="slide-margin">
-            <div class="other-benefits-wrap text-center">
-              <div class="other-benefits-inner">
-                    <p style="font-size: 21px;"><fmt:message key="working.special.promotion.copy1" bundle="${msg}" /></p>
-              </div>
-            </div>
-          </div>
-      </div>
-      <!--/.item-->
-      <div class="item" >
-          <div class="slide-margin">
-            <div class="other-benefits-wrap text-center">
-              <div class="other-benefits-inner">
-                <p style="font-size: 21px;"><fmt:message key="workingholiday.main.other.benefit.desc6.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo.link" bundle="${msg}" />" target="_blank"><fmt:message key="workingholiday.main.other.benefit.desc6.part2" bundle="${msg}" /></a> <fmt:message key="workingholiday.main.other.benefit.desc6.part3" bundle="${msg}" /></p>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
-    <!--/.carousel-inner--> 
-    <a class="prev" href="#other-offers-mob" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
-    <a class="next" href="#other-offers-mob" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
-  </div>
-  <!--/.carousel-->
-  <div class="clearfix"></div>
-  <div class="col-lg-12 col-md-12 col-xs-12 main-partner mob" style="text-align:center;">
-    <div class="col-lg-12 col-md-12 col-xs-12">
-      <div class="col-sm-12 col-xs-12">
-        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
-      </div>
-      <div class="col-sm-12 col-xs-12">
-        <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
-      </div>
-    </div>
-  </div>  
-</div>  
+ 
 <div id="other-benefits-mob" class="other-benefits col-xs-12 col-sm-12 hidden-lg hidden-md">
   <h2 style="text-align: center;"><fmt:message key="other.coverage.headline" bundle="${msg}" /></h2>
   <div class="carousel slide">
