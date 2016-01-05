@@ -139,11 +139,11 @@
                                       <td><strong><fmt:message key="<%=key_row3col3%>" bundle="${msg}" /></strong></td>
                                       <td><strong><fmt:message key="<%=key_row3col4%>" bundle="${msg}" /></strong></td>
                                   </tr>
-                                  <tr>
+<%--                                   <tr>
                                       <td><strong><fmt:message key="<%=key_row4col2%>" bundle="${msg}" /></strong></td>
                                       <td><strong><fmt:message key="<%=key_row4col3%>" bundle="${msg}" /></strong></td>
                                       <td><strong><fmt:message key="<%=key_row4col4%>" bundle="${msg}" /></strong></td>
-                                  </tr>
+                                  </tr> --%>
                               </tbody>
                           </table>
                       </div>
@@ -249,7 +249,7 @@
                               </div>
                               <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
                               
-                              <div class="confirmation-table-margin">
+                              <%-- <div class="confirmation-table-margin">
                                   <div class="col-sm-12 col-xs-12">
                                       <strong><fmt:message key="<%=key_header2%>" bundle="${msg}" /></strong>
                                   </div>
@@ -299,7 +299,7 @@
                                   </div>
                                   <div class="clearfix"></div>
                               </div>
-                              <div style="border: 1px solid #f5f5f5;width: 100%;"></div>
+                              <div style="border: 1px solid #f5f5f5;width: 100%;"></div>--%>
                           </div>
                       </div>
                       <div class="disclaimer">
