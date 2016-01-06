@@ -39,7 +39,6 @@
     <property name="properties" ref="configProperties" />
 </bean>
 
-
 <!-- <bean id = "props" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer"> -->
 <!-- 	<property name="locations" value="file:${TOMCAT_HOME}/conf/config.properties"/>  -->
 <!-- </bean> -->

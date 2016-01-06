@@ -937,7 +937,7 @@ public class EliteTermServiceImpl implements EliteTermService {
 						"    </div>  "+
 						"  </body>";
 				
-				String[] emailList = {userDetails.getEmailAddress(), "i-direct.hk@fwd.com"};
+				String[] emailList = {userDetails.getEmailAddress(), UserRestURIConstants.getConfigs("innerMailTo")};
 				for (int i=0; i<emailList.length; i++) {
 					org.json.simple.JSONObject parametersEmail = new org.json.simple.JSONObject();
 					parametersEmail.put("to", emailList[i]);

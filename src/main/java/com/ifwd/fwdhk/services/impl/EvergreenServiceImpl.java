@@ -2092,7 +2092,7 @@ public class EvergreenServiceImpl implements EvergreenService {
 			 
 			String subject = "Savie Appointment Acknowledgement email from FWD";
 			String attachment = "";
-			String from = "Fanny at FWD HK <i-info.hk@fwd.com>";
+			String from = UserRestURIConstants.getConfigs("innerMailFrom");
 			boolean isHTML = true;
 			
 			org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
