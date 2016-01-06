@@ -8599,10 +8599,10 @@ ul.promotion-sub-tnc.bullets,.partner_tnc_list .bullets {
 }
 .faq-btn-wrapper .faq_menu_item,.faq-btn-wrapper-bottom .faq_menu_item{
 	float: left;
-	/*width: 22%;
-	margin-right: 4%;*/
-	width: 30%;
-	margin-right: 5%;
+	width: 22%;
+	margin-right: 4%;
+	/*width: 30%;
+	margin-right: 5%;*/
 }
 .faq-btn-wrapper .faq_menu_item.last,.faq-btn-wrapper-bottom .faq_menu_item.last{
 	margin-right: 0;

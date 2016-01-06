@@ -22,6 +22,7 @@
 	                    <div class="col-xs-12 col-sm-12 pad-none faq_menu">
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('e');"><fmt:message key="faq.eliteterm" bundle="${msg}" /></div>
                             <div class="faq_menu_item" onclick="faqChangeCareMob('s');"><fmt:message key="faq.savie.care" bundle="${msg}" /></div>
+                            <div class="faq_menu_item" onclick="faqChangeCareMob('o');"><fmt:message key="faq.overseas" bundle="${msg}" /></div>
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('wh');"><fmt:message key="faq.working.holidayCare" bundle="${msg}" /></div>
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('f');"><fmt:message key="faq.flight.care" bundle="${msg}" /></div>
 	                        <div class="faq_menu_item" onclick="faqChangeCareMob('t');"><fmt:message key="faq.travel.care" bundle="${msg}" /></div>
@@ -29,6 +30,350 @@
 	                        <div class="clearfix"></div>
 	                    </div>
 				    </div>
+                    <!-- oversea start -->
+                    <div id="faq_o_mob" class="col-xs-12 col-sm-12 pad-none faq_care_container" style="display:none;">
+                        <div class="col-xs-12 col-sm-12 hidden-md hidden-lg pad-none faq_title_container">
+                            <div class="faq_back" onclick="faqMainMenuMob('o')">
+                                <i class="fa fa-arrow-left fa-2"></i>
+                            </div>
+                            <div class="faq_title">
+                               <fmt:message key="faq.overseas" bundle="${msg}" />
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 pad-none faq_content">
+                            <div class="col-xs-11 col-sm-11 pad-none faq_cat">
+                               <fmt:message key="faq.overseas.group1" bundle="${msg}" />
+                            </div>
+                            <div class="col-xs-1 col-sm-1 pad-none faq_cat_arrow">
+                                <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.overseas.group1.q1" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.overseas.group1.a1" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.overseas.group1.q2" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.overseas.group1.a2" bundle="${msg}" />
+                                        <ol class="">
+                                            <li><fmt:message key="faq.overseas.group1.a2.li1" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a2.li2" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a2.li3" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a2.li4" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a2.li5" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a2.li6" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a2.li7" bundle="${msg}" /></li>
+                                        </ol>    
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>                               
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.overseas.group1.q3" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.overseas.group1.a3" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.overseas.group1.q4" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.overseas.group1.a4" bundle="${msg}" />
+                                        <ol class="">
+                                            <li><fmt:message key="faq.overseas.group1.a4.li1" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li2" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li3" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li4" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li5" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li6" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li7" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li8" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li9" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li10" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li11" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li12" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li13" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li14" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li15" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li16" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li17" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li18" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li19" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li20" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li21" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group1.a4.li22" bundle="${msg}" /></li>
+                                        </ol>    
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 pad-none faq_content">
+                            <div class="col-xs-11 col-sm-11 pad-none faq_cat">
+                                <fmt:message key="faq.overseas.group2" bundle="${msg}" />
+                            </div>
+                            <div class="col-xs-1 col-sm-1 pad-none faq_cat_arrow">
+                                <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.overseas.group2.q5" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.overseas.group2.a5" bundle="${msg}" />
+                                        <ol>
+                                            <li><fmt:message key="faq.overseas.group2.a5.li1" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group2.a5.li2" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group2.a5.li3" bundle="${msg}" /></li>                                        
+                                        </ol>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.overseas.group2.q6" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.overseas.group2.a6" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 pad-none faq_content">
+                            <div class="col-xs-11 col-sm-11 pad-none faq_cat">
+                                <fmt:message key="faq.overseas.group3" bundle="${msg}" />
+                            </div>
+                            <div class="col-xs-1 col-sm-1 pad-none faq_cat_arrow">
+                                <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.overseas.group3.q7" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.overseas.group3.a7" bundle="${msg}" />
+                                        <ol>
+                                            <li><fmt:message key="faq.overseas.group3.a7.li1" bundle="${msg}" /></li>
+                                            <li><fmt:message key="faq.overseas.group3.a7.li1" bundle="${msg}" /></li>                                        
+                                        </ol>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.overseas.group3.q8" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.overseas.group3.a8" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.overseas.group3.q9" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.overseas.group3.a9" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.overseas.group3.q10" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.overseas.group3.a10" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 pad-none faq_content">
+                            <div class="col-xs-11 col-sm-11 pad-none faq_cat">
+                                <fmt:message key="faq.overseas.group4" bundle="${msg}" />
+                            </div>
+                            <div class="col-xs-1 col-sm-1 pad-none faq_cat_arrow">
+                                <a href="#" class="faq_cat_mini"><i class="fa fa-chevron-down"></i></a>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        
+                        
+                        
+                        
+                        <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.overseas.group4.q11" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.overseas.group4.a11" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                                <div class="col-xs-12 col-sm-12 pad-none">
+                                    <div class="col-xs-11 col-sm-11 pad-none faq_question">
+                                        <fmt:message key="faq.overseas.group4.q12" bundle="${msg}" />
+                                    </div>
+                                    <div class="col-xs-1 col-sm-1 pad-none faq_question_arrow">
+                                        <a href="#" class="faq_qna_mini"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 pad-none faq_answer_container" style="display:none;">
+                                    <div class="col-xs-12 col-sm-12 pad-none faq_answer">
+                                        <fmt:message key="faq.overseas.group4.a12" bundle="${msg}" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        
+                        
+                        
+                        
+                       <div class="clearfix"></div>
+                    </div>
+                    <!-- oversea end -->
                     				    
                     <!-- Elite Term start -->
                     <div id="faq_e_mob" class="col-xs-12 col-sm-12 pad-none faq_care_container" style="display:none;">
