@@ -1848,7 +1848,9 @@ public class TravelController {
 				creditCardNo = "0000000000000000";
 				parameters.put("expiryDate", "122030");
 			} else {
-				creditCardNo = Methods.decryptStr((String)session.getAttribute("creditCardNo")); 
+				if(session.getAttribute("creditCardNo") !=null && session.getAttribute("creditCardNo") != ""){
+					creditCardNo = Methods.decryptStr((String)session.getAttribute("creditCardNo")); 
+				}
 				parameters.put("expiryDate", session.getAttribute("expiryDate"));
 			}
 			
