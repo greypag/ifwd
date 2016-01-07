@@ -857,7 +857,7 @@ var home_url = "<%=request.getContextPath()%>";
 														<div class="col-xs-6 et-pad-left-reduce-7">
 															<a href="#" class="btn et-btn-medic et-btn-medic-no last"
 																title="No" data-current-target="et-medi-question-3"
-																data-next-target=""><fmt:message
+																data-next-target="et-medi-question-3"><fmt:message
 																	key="eliteTerms.selectPlan.No" bundle="${msg}" /></a>
 														</div>
 													</div>
