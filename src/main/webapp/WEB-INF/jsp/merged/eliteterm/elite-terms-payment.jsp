@@ -174,7 +174,7 @@ var languageP = "${language}";
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Security.code" bundle="${msg}" /></label>
 										<div class="clearfix desktop-half">
-											<input type="password" class="form-control gray-textbox card-cvv"  id="card-cvv" autocomplete="off" maxlength="3"  name="securityCode" onblur="chkNotNullCardCvv(this, 'errcode');">
+											<input type="password" class="form-control gray-textbox card-cvv"  id="card-cvv" autocomplete="off" maxlength="3"  name="securityCode" onkeypress="return isNumeric(event);" onblur="chkNotNullCardCvv(this, 'errcode');">
 											<div class="cvv-image-holder">
 												<img src="<%=request.getContextPath()%>/resources/images/elite-terms/cvv-logo.png" class="cvv-image">
 											</div>

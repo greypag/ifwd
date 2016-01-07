@@ -875,8 +875,8 @@ var enablePayment=true;
                                 <input id="seccode" type="password" name="securityCode"
                                             class="input-block-level" autocomplete="off" maxlength="3"
                                             title=""
-                                            onblur="replaceAlphaNumeric(this);"
-                                            onkeypress="return isAlphaNumeric(event);" >
+                                            onblur="replaceNumeric(this);"
+                                            onkeypress="return isNumeric(event);" >
                                 <span id="errcode"
                                     class="error-msg"></span>
                             </div>

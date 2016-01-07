@@ -452,7 +452,8 @@ $(document).ready(function(){
                                 <label class="control-label  h4-5"><fmt:message key="Overseas.Payment.Details.CVV" bundle="${msg}" /></label>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-right: 2% !important;">
-                                <input id="seccode" type="password" name="securityCode" class="input-block-level" autocomplete="off" maxlength="3" title="" onblur="replaceAlphaNumeric(this);" onkeypress="return isAlphaNumeric(event);">
+                                <input id="seccode" type="password" name="securityCode" class="input-block-level" autocomplete="off" maxlength="3" title="" onblur="replaceNumeric(this);"
+                                            onkeypress="return isNumeric(event);">
                                 <span id="errcode" class="error-msg"></span>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 pad-none" style="padding-left: 2% !important;">

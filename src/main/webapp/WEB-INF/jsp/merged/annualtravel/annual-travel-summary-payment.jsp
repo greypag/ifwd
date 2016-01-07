@@ -631,8 +631,8 @@ AnnualDetailsForm planDetailsForm = (AnnualDetailsForm) request.getAttribute("pl
                                 <input id="seccode" type="password" name="securityCode"
                                             class="input-block-level" autocomplete="off" maxlength="3"
                                             title=""
-                                            onblur="replaceAlphaNumeric(this);"
-                                            onkeypress="return isAlphaNumeric(event);" autocomplete="off">
+                                            onblur="replaceNumeric(this);"
+                                            onkeypress="return isNumeric(event);" autocomplete="off">
                                 <span id="errcode"
                                     class="error-msg"></span>
                             </div>
