@@ -726,7 +726,16 @@ var enablePayment=true;
                     <!-- Payment Form -->
                     <div class="col-xs-12 pad-none">
                        <h2 class="from-control" style="padding:0px !important;"><fmt:message key="travel.payment" bundle="${msg}" /></h2>
-                       <span id="paymentGatewayErrorMsg"  class="text-red">${errormsg}</span>
+                       <span id="paymentGatewayErrorMsg"  class="text-red">
+                           <c:choose>
+							   <c:when test="${errormsg=='Invalid Card Verification Number'}">
+							       <fmt:message key="common.payment.errormsg" bundle="${msg}" />
+							   </c:when>
+							   <c:otherwise>
+                                   ${errormsg }
+                               </c:otherwise>
+						   </c:choose>
+                       </span>
                     </div>
                     <input type="hidden" name="merchantId" value="${createPolicy.merchantId}">
                     <input type="hidden" name="amount" value="${dueAmount.trim()}">

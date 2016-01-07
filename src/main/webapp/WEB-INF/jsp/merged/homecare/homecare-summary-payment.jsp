@@ -286,7 +286,16 @@ $(document).ready(function(){
 						<h2 class="from-control" style="padding:0px !important;">
 							<fmt:message key="home.summary.pmtdetail.heading" bundle="${msg}" />
 						</h2>
-						<span id="paymentGatewayErrorMsg" class="text-red">${errormsg}</span>
+						<span id="paymentGatewayErrorMsg" class="text-red">
+                            <c:choose>
+							   <c:when test="${errormsg=='Invalid Card Verification Number'}">
+							       <fmt:message key="common.payment.errormsg" bundle="${msg}" />
+							   </c:when>
+							   <c:otherwise>
+                                   ${errormsg }
+                               </c:otherwise>
+						   </c:choose>
+                       </span>
 					</div>
 					
 					
