@@ -513,7 +513,7 @@ var languageP = "${language}";
                     
                 } else {
                     $self.attr('disabled', 'disabled');
-                    alert(getBundle(getBundleLanguage, 'error.upload.invalid'));
+                    //alert(getBundle(getBundleLanguage, 'error.upload.invalid'));
                 }
             });
             
