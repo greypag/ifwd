@@ -248,10 +248,12 @@ li.sponsor-wrapper+li.sponsor-wrapper{
     /*width:100%;*/
     text-align:center;
 }
-@media (min-width: 992px){
-	.planOptionCoverageColTitleS{
-    width:100px;
-	}	
+@media (min-width: 768px){
+    .planOptionCoverageColTitleS{
+        width:100px;
+    }	
+}
+@media (min-width: 992px){	
 	.pad-left-des{
     width:49%;
     }
