@@ -16544,16 +16544,18 @@ h2.h2-orange {
   border-bottom: #9fb1b2 2px solid;
 }
 
-.annualTravel_policy_item h5.eg-width-33 {
-   padding: 0 33px;
-}
-
-.annualTravel_policy_item h5.eg-width-22 {
-   padding: 0 22px;
-}
-
-.annualTravel_policy_item h5.eg-width-15 {
-   padding: 0 15px;
+@media (min-width: 350px) {
+	.annualTravel_policy_item h5.eg-width-22 {
+	   padding: 0 22px;
+	}
+	
+	.annualTravel_policy_item h5.eg-width-33 {
+	   padding: 0 33px;
+	}
+	
+	.annualTravel_policy_item h5.eg-width-15 {
+	   padding: 0 15px;
+	}
 }
 
 @media ( min-width : 325px) and (max-width: 385px) {
