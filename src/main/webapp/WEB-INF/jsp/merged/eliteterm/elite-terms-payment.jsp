@@ -111,7 +111,7 @@ var languageP = "${language}";
 
 									<div class="page-content-item">
 										<label for="card-num"><fmt:message key="eliteTerms.payment.Credit.card.number" bundle="${msg}" /></label>
-										<input id="card-num" type="tel" class="form-control gray-textbox desktop-half"   autocomplete="off" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardNo').val());">
+										<input id="card-num" tabindex="1" type="tel" class="form-control gray-textbox desktop-half"   autocomplete="off" onkeypress="return isNumeric(event);" onblur="validatecardnumber($('#cardNo').val());">
 										<span id="errcardno" class="error-msg"></span>
 										<input type="hidden" id="cardNo" name="cardNo" maxlength="16" data-min="16">
 					                    <input type="hidden" name="merchantId" value="${eliteTermPolicy.merchantId}">
@@ -137,7 +137,7 @@ var languageP = "${language}";
 										<label for="card-num"><fmt:message key="eliteTerms.payment.Expiry.date" bundle="${msg}" /></label>
 										<div class="clearfix desktop-half">
 											<div class="selectDiv month">
-												<select name="epMonth" id="month" class="form-control gray-dropdown" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
+												<select name="epMonth" tabindex="2" id="month" class="form-control gray-dropdown" onBlur="chkValidCreditCardExpDate(this, 'erryear', 'month', 'errmonth');">
 													<option value="0" selected disabled><fmt:message key="home.summary.pmtdetail.desc3.month" bundle="${msg}" /></option>
 			                                        <option value="01">01</option>
 			                                        <option value="02">02</option>
@@ -154,7 +154,7 @@ var languageP = "${language}";
 												</select>
 											</div>
 											<div class="selectDiv">
-												<select name="epYear" id="year" class="form-control gray-dropdown" onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
+												<select name="epYear" tabindex="3" id="year" class="form-control gray-dropdown" onBlur="chkValidCreditCardExpDate(this, 'erryear', '', '');">
 													<option value="0" selected disabled><fmt:message key="home.summary.pmtdetail.desc3.year" bundle="${msg}" /></option>
 				                                    <c:forEach begin="0" end="10" varStatus="loop">
 				                                        <c:set var="currentYear" value="${year + loop.index}" />
@@ -168,13 +168,13 @@ var languageP = "${language}";
 									</div>
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Name.on.credit.card" bundle="${msg}" /></label>
-										<input type="text" class="form-control gray-textbox desktop-half"  value="" id="card-name" autocomplete="off" name="cardHolder" onblur="replaceAlphaEx2(this); chkNotNullCreditCareNameEx2(this, 'errname');">
+										<input type="text" tabindex="4" class="form-control gray-textbox desktop-half"  value="" id="card-name" autocomplete="off" name="cardHolder" onblur="replaceAlphaEx2(this); chkNotNullCreditCareNameEx2(this, 'errname');">
 									    <span id="errname" class="error-msg"></span>
 									</div>
 									<div class="page-content-item">
 										<label for="card-name"><fmt:message key="eliteTerms.payment.Security.code" bundle="${msg}" /></label>
 										<div class="clearfix desktop-half">
-											<input type="password" class="form-control gray-textbox card-cvv"  id="card-cvv" autocomplete="off" maxlength="3"  name="securityCode" onkeypress="return isNumeric(event);" onblur="chkNotNullCardCvv(this, 'errcode');">
+											<input type="password" tabindex="5" class="form-control gray-textbox card-cvv"  id="card-cvv" autocomplete="off" maxlength="3"  name="securityCode" onkeypress="return isNumeric(event);" onblur="chkNotNullCardCvv(this, 'errcode');">
 											<div class="cvv-image-holder">
 												<img src="<%=request.getContextPath()%>/resources/images/elite-terms/cvv-logo.png" class="cvv-image">
 											</div>
@@ -184,7 +184,7 @@ var languageP = "${language}";
 								</div>
 								<div class="page-content-item">
 									<div class="fwd-checkbox">
-										<input type="checkbox" id="personal-information-statement">
+										<input type="checkbox" tabindex="6" id="personal-information-statement">
 										<label for="personal-information-statement"></label>
 										<p class="notice"><span class="hidden-md hidden-lg"><fmt:message key="eliteTerms.payment.I.hereby.authorize" bundle="${msg}" /></span>
 										<span class="hidden-xs hidden-sm"><fmt:message key="eliteTerms.payment.I.hereby.authorize" bundle="${msg}" /></span>

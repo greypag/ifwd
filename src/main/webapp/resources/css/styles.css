@@ -9831,7 +9831,7 @@ span.dup-error-msg {
 }
 /* line 390, ../sass/partials/_page-application.scss */
 .fwd-savie-wrapper .fwd-checkbox input[type=checkbox] {
-	visibility: hidden;
+	opacity: 0;
 	position: absolute;
 }
 /* line 393, ../sass/partials/_page-application.scss */
