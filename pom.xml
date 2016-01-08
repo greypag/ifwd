@@ -254,9 +254,9 @@
 								<configuration>
 									<tasks>
 										<echo>>>>>>> This is for DEVELOPMENT</echo>
-										<delete file="${project.build.outputDirectory}/config.properties" />
-										<copy file="src/main/resources/config.dev.properties"
-											tofile="${project.build.outputDirectory}/config.properties" />
+<!-- 										<delete file="${project.build.outputDirectory}/config.properties" /> -->
+<!-- 										<copy file="src/main/resources/config.dev.properties" -->
+<!-- 											tofile="${project.build.outputDirectory}/config.properties" /> -->
 									</tasks>
 								</configuration>
 							</execution>
@@ -332,9 +332,9 @@
 								<configuration>
 									<tasks>
 										<echo>>>>>>> This is for SIT</echo>
-										<delete file="${project.build.outputDirectory}/config.properties" />
-										<copy file="src/main/resources/config.sit.properties"
-											tofile="${project.build.outputDirectory}/config.properties" />
+<!-- 										<delete file="${project.build.outputDirectory}/config.properties" /> -->
+<!-- 										<copy file="src/main/resources/config.sit.properties" -->
+<!-- 											tofile="${project.build.outputDirectory}/config.properties" /> -->
 									</tasks>
 								</configuration>
 							</execution>
@@ -410,9 +410,9 @@
 								<configuration>
 									<tasks>
 										<echo>>>>>>> This is for UAT</echo>
-										<delete file="${project.build.outputDirectory}/config.properties" />
-										<copy file="src/main/resources/config.uat.properties"
-											tofile="${project.build.outputDirectory}/config.properties" />
+<!-- 										<delete file="${project.build.outputDirectory}/config.properties" /> -->
+<!-- 										<copy file="src/main/resources/config.uat.properties" -->
+<!-- 											tofile="${project.build.outputDirectory}/config.properties" /> -->
 									</tasks>
 								</configuration>
 							</execution>
@@ -488,9 +488,9 @@
 								<configuration>
 									<tasks>
 										<echo>>>>>>> This is for PRODUCTION</echo>
-										<delete file="${project.build.outputDirectory}/config.properties" />
-										<copy file="src/main/resources/config.prd.properties"
-											tofile="${project.build.outputDirectory}/config.properties" />
+<!-- 										<delete file="${project.build.outputDirectory}/config.properties" /> -->
+<!-- 										<copy file="src/main/resources/config.prd.properties" -->
+<!-- 											tofile="${project.build.outputDirectory}/config.properties" /> -->
 									</tasks>
 								</configuration>
 							</execution>

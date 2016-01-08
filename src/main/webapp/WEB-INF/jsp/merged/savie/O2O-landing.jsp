@@ -53,7 +53,7 @@ var home_url = "<%=request.getContextPath()%>";
 				</div>
 				
 				<div class="hunger-text-section">
-				   <img class="op-logo" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
+				   <img class="op-logo hidden-md hidden-lg" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
 					<p class="hunger-selling-text text-1"><fmt:message key="jumbo.savie.oceanpark" bundle="${msg}" /></p>
 				</div>
 			</div>
@@ -68,6 +68,7 @@ var home_url = "<%=request.getContextPath()%>";
                       <input type="hidden" name="accessCodeConfirm" value=""/>
                       <div class="get-started-holder op-align">
                           <button id="op-buy-now-O2O-mobile" class="get-started"><fmt:message key="cta.start" bundle="${msg}" /></button>
+                          <img class="op-logo-desktop hidden-xs hidden-sm" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
                       </div>
                       <p class="bottom-text lower hidden-md hidden-lg" style="margin-top: 20px">
 	                  	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.provisions.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part3" bundle="${msg}" />
@@ -86,7 +87,7 @@ var home_url = "<%=request.getContextPath()%>";
 				<div class="fwd-container-limit">
 					<div class="row">
 						<div class="col-xs-12 col-md-6">
-							<p class="additional top"><fmt:message key="custom.savie.credit.rate.title" bundle="${msg}" /></p>
+							<p class="additional top enjoy-guaranteed"><fmt:message key="custom.savie.credit.rate.title" bundle="${msg}" /></p>
 						</div>
 						<div class="col-xs-12 col-md-6">
 							<ul class="crediting-rate-list clearfix">
