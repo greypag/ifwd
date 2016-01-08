@@ -546,6 +546,12 @@ $(function () {
 	dob_70_date.setFullYear(dob_70_date.getFullYear()-71);
 	dob_70_date.setDate(dob_70_date.getDate());
 	
+	// 70 year ago date for Annual Travel
+	var dob_69_date = new Date();
+	dob_69_date.setFullYear(dob_69_date.getFullYear()-70);
+	//console.log(dob_69_date);
+	dob_69_date.setDate(dob_69_date.getDate());
+	
 	//Start at 1900
 	var dob_1900_date = new Date();
 	dob_1900_date.setFullYear(1900,0,1);
@@ -643,7 +649,7 @@ $(function () {
 		startView: "decade",
 		autoclose: true,
 		format: "dd-mm-yyyy",
-		startDate: dob_start_date,
+		startDate: dob_69_date,
 		endDate: dob_end_date
 	}).on('changeDate', function (ev) {
 		$('#input_insure_dob1').datepicker('setDate', $("#applicantDob").val());
@@ -658,7 +664,7 @@ $(function () {
 		startView: "decade",
 		autoclose: true,
 		format: "dd-mm-yyyy",
-		startDate: dob_start_date,
+		startDate: dob_69_date,
 		endDate: dob_end_date
 	}).on('changeDate', function (ev) {
 		$(this).next().html("");
