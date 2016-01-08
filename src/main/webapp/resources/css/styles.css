@@ -24393,6 +24393,41 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 	padding-top: 40px;
 	text-align: center;
 }
+
+#etConfirm .social-media-share {
+	font-size: 23px;
+    margin-top: 34px;
+}
+
+#etConfirm .social-media-share p {
+	font-size: 14px;
+    color: #9ba5a7;
+    margin-bottom: 16px;
+}
+
+@media (min-width: 992px) {
+	#etConfirm .social-media-share p {
+		margin-bottom: 5px;
+	}
+}
+
+#etConfirm .social-media-share .fa {
+	background: #355495;
+    color: #fff;
+    width: 48px;
+    padding: 12.5px 0;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+#etConfirm .social-media-share .fa-twitter {
+	background: #00aced;
+}
+
+#etConfirm .social-media-share .fa-google-plus {
+	background: #dd4b39;
+}
+
 /* line 81, ../sass/partials/_et-confirmation.scss */
 #etConfirm .et-input-email {
 	padding-right: 0px;
@@ -24511,6 +24546,12 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 	background-color: #fff;
 	color: #ff8200;
 	width: 100%;
+}
+
+@media (min-width: 992px) {
+	#etConfirm .et-back-home-btn {
+	    margin-top: 38px;
+	}
 }
 /* line 187, ../sass/partials/_et-confirmation.scss */
 #etConfirm .et-back-home-btn:hover, #etConfirm .et-back-home-btn:focus {

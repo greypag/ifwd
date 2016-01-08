@@ -120,6 +120,13 @@ var languageP = "${language}";
 							
 					</div>
 					
+			  <div class="text-center social-media-share">
+			  		<p>Share with your friends</p>
+			  		<a href="#"><i class="fa fa-facebook"></i></a>
+			  		<a href="#"><i class="fa fa-twitter"></i></a>
+			  		<a href="#"><i class="fa fa-google-plus"></i></a>
+			  </div>
+					
                <div class="row">
                   <div class="col-xs-12 text-center">
                      <a id="back-to-home" href="<%=request.getContextPath()%>/${language}/term-life-insurance" title="Back to home" class="btn next et-back-home-btn"><fmt:message key="eliteTerms.confirmation.Back.to.home" bundle="${msg}" /></a>
