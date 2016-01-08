@@ -711,17 +711,19 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 		}
 		flag = false;
 	}
-    var Date1 = moment(InsuDob,"DD-MM-YYYY");
-    var Date2 = moment();
+    var Date1 = moment(InsuDob,"DD-MM-YYYY"); 
+    var Date2 = moment(moment().format("DD-MM-YYYY"),"DD-MM-YYYY");
 	var Date3 =moment(overseaDepartureDate,"DD-MM-YYYY");	
 	//var departAge = Date1.from(Date3).split(" ");
 	//var currAge = Date1.from(Date2).split(" ");
+	//console.log(Date1);
+	//console.log(Date2);
 	var departAge = Date3.diff(Date1,'years',true);
 	var currAge = Date2.diff(Date1,'years',true);
-	console.log("DepartAge= "+departAge);
+	//console.log("DepartAge= "+departAge);
 	//console.log("CurrAge= "+currAge);
 	if(appRelation =="SE"){
-		if(currAge >= 65){
+		if(currAge > 65){
 			//console.log(">65");
 			$("#input_oversea_dob").addClass("invalid-field");
 			$("#dobInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));
@@ -729,7 +731,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));
 			flag = false;
 			if (firstErrorElementId == "") {firstErrorElementId = "input_oversea_dob";}		
-		}else if(departAge >= 64 && departAge < 65){
+		}else if(departAge > 65 && currAge < 65){
 			$("#input_oversea_dob").addClass("invalid-field");
 			$("#dobInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.applicant.DOB.Error.65"));
 			$("#oversea_insure_dob").addClass("invalid-field");
@@ -755,14 +757,14 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			$("#dobInvalid").html( '');			
 		}		
 		//console.log("insured");
-		if(currAge >= 65 && InsuDob!=""){
+		if(currAge > 65 && InsuDob!=""){
 			$("#oversea_insure_dob").addClass("invalid-field");
 			$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.Insured.DOB.Error.12and65"));
 			flag = false;
 			if (firstErrorElementId == "") {firstErrorElementId = "oversea_insure_dob";}		
-		}else if((departAge >= 64 && departAge < 65 && InsuDob!="") || (departAge < 11 && InsuDob!="")){
+		}else if((departAge > 65 && InsuDob!="") || (departAge < 12 && InsuDob!="")){
 			$("#oversea_insure_dob").addClass("invalid-field");
-			if(departAge < 11){
+			if(departAge < 12){
 				$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.insured.DOB.Error.12"));
 			}else{
 				$("#dobInsuredInvalid").html( getBundle(getBundleLanguage, "Overseas.userdetails.insured.DOB.Error.65"));
@@ -871,10 +873,10 @@ function setDropArea(id) {
 			$('#inputCADistrict').removeClass('invalid-field');
 		}
 	}	
-	// 63 year and 9 month ago date
-	var dob_63_date = new Date();
-	dob_63_date.setFullYear(dob_63_date.getFullYear() - 64);		
-	dob_63_date.setDate(dob_63_date.getDate()+ 90);
+	// 65 year ago
+	var dob_65_date = new Date();
+	dob_65_date.setFullYear(dob_65_date.getFullYear() - 65);		
+	dob_65_date.setDate(dob_65_date.getDate());
 	
 	//Start at 1900
 	var dob_1900_date = new Date();
@@ -888,7 +890,7 @@ function setDropArea(id) {
 			document.getElementById("txtInsuFullName1").value = insureNamePlaceholder;
 			document.getElementById("txtInsuHkid1").value = insureHkidPlaceholder;
 			document.getElementById("insuredDob").value = '';
-			$('#oversea_insure_dob').datepicker('setStartDate',dob_63_date);
+			$('#oversea_insure_dob').datepicker('setStartDate',dob_65_date);
 		} else {
 			$('#oversea_insure_dob').datepicker('setStartDate',dob_1900_date);
 			document.getElementById("txtInsuFullName1").value = document
