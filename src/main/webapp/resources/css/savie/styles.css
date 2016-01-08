@@ -14735,8 +14735,24 @@ body.chin button#thank-you-continue {
   max-width: none;
   text-align: left;
   font-size: 40px;
-  padding-left: 25px;
-  margin: auto auto 5px 175px;
+  padding-left: 0;
+  margin: auto auto 5px 160px;
+}
+
+.chin .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
+	margin: auto auto 5px 152px;
+}
+
+@media (min-width: 414px) {
+	.chin .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1, .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
+		margin-left: 175px;
+	}
+}
+
+@media (min-width: 768px) {
+	.chin .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1, .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
+		margin-left: 30%;
+	}
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.banner-widget .hunger-text-section .text-1 {
@@ -14882,7 +14898,6 @@ body.chin button#thank-you-continue {
 @media (min-width: 1400px) {
   .fwd-savie-wrapper .o2o-landing.teaser ul.crediting-rate-list {
   	padding-top: 25px;
-  }
 }
 @media (min-width: 992px) {
   .fwd-savie-wrapper .o2o-landing.teaser .teaser-banner-text {
@@ -14962,6 +14977,15 @@ body.chin button#thank-you-continue {
 .fwd-savie-wrapper .o2o-landing.saving-plans {
   position: relative;
 }
+.fwd-savie-wrapper .o2o-landing.teaser .additional.top.enjoy-guaranteed {
+    	padding-top: 50px;
+    }
+ }
+@media (min-width: 1400px) {
+  .fwd-savie-wrapper .o2o-landing.teaser .additional.top.enjoy-guaranteed {
+    	padding-top: 20px;
+    }
+ }
 .fwd-savie-wrapper .o2o-landing.saving-plans .savings-banner-text {
   padding: 42px 30px 25px;
   text-align: center;
@@ -16202,14 +16226,20 @@ body.chin #btn-cstmr-srvc-cnter {
 }
 .op-logo {
    position: absolute;
-   top: 3%;
+   top: 8%;
    left: 2%;
-   width: 189px;
+   width: 145px;
+}
+
+@media (min-width: 768px) {
+	.op-logo {
+	 	top: 3%;
+	 	width: 189px;
+	}
 }
 body.chin .op-logo {
    top: -80%;
 }
-
 .bottom-text.lower a:hover {
     color: #9fb1b2;
 }
