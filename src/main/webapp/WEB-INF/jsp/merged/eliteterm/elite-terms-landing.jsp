@@ -294,6 +294,19 @@
                </div>
             </section>
 
+            <!-- ADVISORY -->
+            <section class="et-advisory-wrapper">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-xs-12 et-advisory">
+                        <p>
+                           <fmt:message key="eliteTerms.landing.For.a.complete.explanation" bundle="${msg}" />
+                        </p>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            
             <!-- 
                FEATURES PLAN MOBILE VERSION 
             -->
@@ -444,19 +457,6 @@
                  <p>The information provided in the blogs is for reference only. While FWD Life Insurance Company (Bermuda) Limited and its affiliates ("FWD") use all reasonable efforts to ensure the information is accurate, FWD makes no warranties or representations as to the accuracy or completeness of any of the information and assumes no liability for any errors or omissions thereof. FWD shall not be liable for any direct, incidental, consequential, indirect or punitive damages arising out of access to, use of or inability to use the information, or any errors or omissions in the content of this material. Users should carefully evaluate the information.</p>
               </div>
             </section>-->
-            
-            <!-- ADVISORY -->
-            <section class="et-advisory-wrapper">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-xs-12 et-advisory">
-                        <p>
-                           <fmt:message key="eliteTerms.landing.For.a.complete.explanation" bundle="${msg}" />
-                        </p>
-                     </div>
-                  </div>
-               </div>
-            </section>
             
             <a href="#" title="Get Quote" class="et-get-qoute hide-element hidden-md hidden-lg">
                <img src="<%=request.getContextPath()%>/resources/images/elite-terms/get-qoute.png" alt="get-qoute.png" />
