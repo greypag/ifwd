@@ -923,7 +923,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<label for="give-last-name"
 												class="application-page-input-text et-input-label"><fmt:message
 													key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" />
-												<span class="hidden-xs"><fmt:message
+												<span><fmt:message
 														key="eliteTerms.selectPlan.Same.as.HKID" bundle="${msg}" /></span></label>
 										</div>
 										<div class="left-desktop text-box form-group">
@@ -947,7 +947,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<label for="savieApplicantBean.chineseName"
 												class="application-page-input-text et-input-label"><fmt:message
 													key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" />
-												<span class="hidden-xs"><fmt:message
+												<span><fmt:message
 														key="eliteTerms.selectPlan.Same.as.cn.HKID"
 														bundle="${msg}" /></span></label>
 										</div>
