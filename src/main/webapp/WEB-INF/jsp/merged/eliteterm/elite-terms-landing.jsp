@@ -35,7 +35,7 @@
             	<img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive elite-term-tagline">
             </div>
             <div class="et-banner-label">
-               <a id="get-quote-link" href="<%=request.getContextPath()%>/${language}/term-life-insurance/${nextPageFlow}" class="buy-now et-quote btn-color-ylw" ><fmt:message key="eliteTerms.landing.Get.Quote" bundle="${msg}" /></a>
+               <a id="get-quote-link" class="buy-now et-quote btn-color-ylw" href="#" ><fmt:message key="eliteTerms.landing.Get.Quote" bundle="${msg}" /></a>
 				</div>
 			</div>
 			
@@ -480,6 +480,9 @@
 	      $("#get-quote-link").click(function(){
 	    	  ga('create', 'UA-60032236-1', 'auto');
 	    	  ga('send', 'pageview', '/${language}/term-life-insurance'); 
+	    	  setTimeout(function(){
+		    	  window.location = '<%=request.getContextPath()%>/${language}/term-life-insurance/${nextPageFlow}';
+	    	  }, 1000);
 	      });
       
       

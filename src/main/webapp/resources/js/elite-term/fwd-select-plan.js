@@ -426,10 +426,7 @@
       // });
    
       // Move to Medical declaration section
-      $('#et-brn-proceed-to-application').on('click', function(e) {
-    	 
-    	  ga('create', 'UA-60032236-1', 'auto');
-		  ga('send', 'pageview', '/en/term-life-insurance/select-plan/step-5'); 
+      $('#et-brn-proceed-to-application').on('click', function(e) {    	 
 			  
     	 e.preventDefault();
          var $self = $(this);
