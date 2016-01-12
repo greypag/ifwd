@@ -409,7 +409,7 @@ public class SavieController extends BaseController{
 			}
 			logger.info(session.getAttribute("perferredDate").toString());
 			
-			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_SERVICE_CENTER);
+			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CENTRE);
 		} else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
 					+ "/savings-insurance");
@@ -435,7 +435,7 @@ public class SavieController extends BaseController{
 		//savingAmount为空时返回首页
 		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))) {
 			savieService.confirmationOffline(model, request);
-			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE);
+			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION);
 		}else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
 					+ "/savings-insurance");
@@ -462,6 +462,6 @@ public class SavieController extends BaseController{
 		model.addAttribute("affiliate", affiliate);
 		
 		
-		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_O2O_LANDING);
+		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING);
 	}
 }

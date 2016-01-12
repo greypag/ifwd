@@ -175,6 +175,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED = "savie.emailSubmitted";
 	public static final String PAGE_PROPERTIES_SAVIE_PDF = "pdf-show";
 	public static final String PAGE_PROPERTIES_SAVIE_SIGNATURE = "savie.signature";
+	public static final String PAGE_PROPERTIES_SAVIE_CENTRE = "savie.centre";
 	
 	/* Page Flow Control For OverSea */
 	public static final String URL_OVERSEA_LANDING = "overseas-study-insurance";
