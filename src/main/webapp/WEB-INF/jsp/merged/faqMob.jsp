@@ -132,25 +132,13 @@
                                     <div class="col-xs-12 col-sm-12 pad-none faq_answer">
                                         <fmt:message key="faq.overseas.group1.a4" bundle="${msg}" />
                                         <ol class="">
-                                            <li><fmt:message key="faq.overseas.group1.a4.li1" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.overseas.group1.a4.li2" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group1.a4.li3" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.overseas.group1.a4.li4" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.overseas.group1.a4.li5" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group1.a4.li6" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group1.a4.li7" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.overseas.group1.a4.li8" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group1.a4.li9" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group1.a4.li10" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.overseas.group1.a4.li11" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.overseas.group1.a4.li12" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.overseas.group1.a4.li13" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.overseas.group1.a4.li14" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group1.a4.li15" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.overseas.group1.a4.li16" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group1.a4.li17" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.overseas.group1.a4.li18" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.overseas.group1.a4.li19" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group1.a4.li20" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group1.a4.li21" bundle="${msg}" /></li>
                                             <li><fmt:message key="faq.overseas.group1.a4.li22" bundle="${msg}" /></li>

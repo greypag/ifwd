@@ -1083,24 +1083,21 @@ console.log(selectedPlanName);
 var options;
 if("${planName}"=="basicA" || "${planName}"=="basicB" || "${planName}"=="medicalWorldwideA" || "${planName}"=="medicalWorldwideB"){
     options = {       
-          data : [ "Abu Dhabi", "Australia", "Austria", "Belgium",
-                    "Brunei", "Canada", "Cuba", "Cyprus", "Denmark", "Dubai", "France",
-                    "Germany", "Guam", "Holland", "India", "Indonesia", "Iran",
-                    "Ireland", "Italy", "Japan", "Korea", "Lao P.D.R.", "Macau",
-                    "Malaysia", "Monaco", "Myanmar", "Nepal", "New Zealand",
-                    "North Korea", "Norway", "Pakistan", "People Republic of China",
-                    "Philippines", "Poland", "Portugal", "Russia", "Singapore",
-                    "South Africa", "Spain", "Sri Lanka", "Sudan", "Sweden",
-                    "Switzerland", "Syria", "Taiwan", "Thailand", "Turkey",
+          data : [ "Australia", "Austria", "Belgium",
+                    "Canada", "Denmark", "France",
+                    "Germany", "Holland", "India", "Indonesia", 
+                    "Ireland", "Italy", "Japan", "Republic of Korea", "Macau",
+                    "Malaysia", "New Zealand",
+                    "People Republic of China",
+                    "Poland", "Portugal", "Singapore",
+                    "Spain", "Sweden",
+                    "Switzerland", "Taiwan", "Thailand", 
                     "United Kingdom", "Vietnam" ],         
           list: { match: { enabled: true } }
     };
 }else if("${planName}"=="medicalAsiaA" || "${planName}"=="medicalAsiaB"){
 	options = {       
-          data : [ "Abu Dhabi", "Dubai", "India", "Indonesia",
-                    "Iran", "Japan", "Korea", "Lao, P.D.R.", "Macau", "Malaysia", "Myanmar",
-                    "Nepal", "North Korea", "Pakistan", "People Republic of China", "Philippines", "Singapore",
-                    "Sri Lanka", "Sudan", "Taiwan", "Thailand", "Vietnam"],         
+          data : ["India","Japan","Republic of Korea","Macau","Malaysia","People Republic of China","Singapore","Taiwan","Thailand","Vietnam"],         
           list: { match: { enabled: true } }
 	    };	
 }

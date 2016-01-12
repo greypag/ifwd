@@ -467,7 +467,7 @@ $(document).ready(function() {
       </div>
       <div class="modal-body">
         <div class="row plan-display-desktop-only">
-          <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3"><fmt:message key="Overseas.PlanOptions.AsiaCountries.desktop.col1" bundle="${msg}" /></div>
+          <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4"><fmt:message key="Overseas.PlanOptions.AsiaCountries.desktop.col1" bundle="${msg}" /></div>
           <div class="col-lg-5 col-xs-5 col-sm-5 col-md-5"><fmt:message key="Overseas.PlanOptions.AsiaCountries.desktop.col2" bundle="${msg}" /></div>
           <div class="col-lg-3 col-xs-3 col-sm-3 col-md-3"><fmt:message key="Overseas.PlanOptions.AsiaCountries.desktop.col3" bundle="${msg}" /></div>
         </div>
