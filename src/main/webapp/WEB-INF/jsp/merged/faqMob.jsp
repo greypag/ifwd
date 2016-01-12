@@ -100,7 +100,7 @@
                                 </div>                               
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                            <!--<div class="col-xs-12 col-sm-12 pad-none faq_qna">
                                 <div class="col-xs-12 col-sm-12 pad-none">
                                     <div class="col-xs-11 col-sm-11 pad-none faq_question">
                                         <fmt:message key="faq.overseas.group1.q3" bundle="${msg}" />
@@ -117,7 +117,7 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="clearfix"></div>
-                            </div>
+                            </div>-->
                             <div class="col-xs-12 col-sm-12 pad-none faq_qna">
                                 <div class="col-xs-12 col-sm-12 pad-none">
                                     <div class="col-xs-11 col-sm-11 pad-none faq_question">
@@ -232,7 +232,7 @@
                                         <fmt:message key="faq.overseas.group3.a7" bundle="${msg}" />
                                         <ol>
                                             <li><fmt:message key="faq.overseas.group3.a7.li1" bundle="${msg}" /></li>
-                                            <li><fmt:message key="faq.overseas.group3.a7.li1" bundle="${msg}" /></li>                                        
+                                            <li><fmt:message key="faq.overseas.group3.a7.li2" bundle="${msg}" /></li>                                        
                                         </ol>
                                     </div>
                                     <div class="clearfix"></div>
@@ -315,7 +315,7 @@
                         
                         
                         <div class="col-xs-12 col-sm-12 pad-none faq_cat_detail" style="display:none;">
-                            <div class="col-xs-12 col-sm-12 pad-none faq_qna">
+                            <!--<div class="col-xs-12 col-sm-12 pad-none faq_qna">
                                 <div class="col-xs-12 col-sm-12 pad-none">
                                     <div class="col-xs-11 col-sm-11 pad-none faq_question">
                                         <fmt:message key="faq.overseas.group4.q11" bundle="${msg}" />
@@ -333,7 +333,7 @@
                                 </div>
                                 
                                 <div class="clearfix"></div>
-                            </div>
+                            </div>-->
                             <div class="col-xs-12 col-sm-12 pad-none faq_qna">
                                 <div class="col-xs-12 col-sm-12 pad-none">
                                     <div class="col-xs-11 col-sm-11 pad-none faq_question">
