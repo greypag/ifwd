@@ -245,6 +245,15 @@ var languageP = "${language}";
 		<!-- <script src="assets/js/fwd-dropzone.js"></script> -->
 		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
       <script type="text/javascript">
+      
+	      $("#personal-information-statement").focus(function() {
+	    	  $('#personal-information-statement').next('label').addClass('tabbed');
+	      });
+	      
+	      $("#personal-information-statement").focusout(function() {
+	    	  $('#personal-information-statement').next('label').removeClass('tabbed');
+	      });
+      
          $(document).on('click', '.et-header-info-btn', function(e) {
             e.preventDefault();
             

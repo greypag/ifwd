@@ -9829,6 +9829,11 @@ span.dup-error-msg {
 .fwd-savie-wrapper .fwd-checkbox label:hover::after {
 	opacity: 0.5;
 }
+.fwd-savie-wrapper .fwd-checkbox label.tabbed {
+	outline:none;
+    border-color:#9ecaed;
+    box-shadow:0 0 8px #9ecaed;
+}
 /* line 390, ../sass/partials/_page-application.scss */
 .fwd-savie-wrapper .fwd-checkbox input[type=checkbox] {
 	opacity: 0;
