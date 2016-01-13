@@ -571,6 +571,11 @@ public class UserController {
 			return "";
 		}
 	}
+
+	@RequestMapping(value = {"/AGODA", "/agoda", "/Agoda"}, method = RequestMethod.GET)
+	public String agodaRedirect(Model model, HttpServletRequest request) {
+		return UserRestURIConstants.getSitePath(request)+ "agoda_redirect";
+	}
 	
 	@RequestMapping(value = {"/{lang}/offers"}, method = RequestMethod.GET)
 	public String offers(Model model, HttpServletRequest request) {

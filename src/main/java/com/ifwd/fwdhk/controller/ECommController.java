@@ -38,14 +38,6 @@ public class ECommController {
 	@Autowired
 	LocaleMessagePropertiesServiceImpl localeMessagePropertiesService;
 	
-	@RequestMapping(value = {"/AGODA", "/agoda", "/Agoda"}, method = RequestMethod.GET)
-	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
-	{
-		RedirectView rv = new RedirectView("http://www.agoda.com/fwdtravel");
-		rv.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
-		return rv;
-	}
-	
 	@RequestMapping(value = "/changeLang")
 	public ModelAndView changeLang(HttpServletRequest request,
 			@RequestParam String selectLang, @RequestParam String action, HttpServletResponse response) throws IOException {
