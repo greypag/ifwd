@@ -1092,7 +1092,7 @@ if("${planName}"=="basicA" || "${planName}"=="basicB" || "${planName}"=="medical
                     "Poland", "Portugal", "Singapore",
                     "Spain", "Sweden",
                     "Switzerland", "Taiwan", "Thailand", 
-                    "United Kingdom", "Vietnam" ],         
+                    "United Kingdom", "Vietnam", "United States of America" ],         
           list: { match: { enabled: true } }
     };
 }else if("${planName}"=="medicalAsiaA" || "${planName}"=="medicalAsiaB"){
