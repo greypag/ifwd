@@ -258,12 +258,39 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_ELITE_TERMS_DOCUMENT_UPLOAD = "elite.terms.document-upload";
 	public static final String PAGE_PROPERTIES_ELITE_TERMS_CONFIRMATION = "elite.terms.confirmation";
 	
+	/* Page Flow Control For savie online */
+	public static final String PAGE_SAVIEONLINE_LANDING = "savie-landing";
+	public static final String PAGE_SAVIEONLINE_PLANDETAILS = "savie-plan-details";
+	public static final String PAGE_SAVIEONLINE_SALES_ILLUSTRATION = "savie-sales-illustration";
+	public static final String PAGE_SAVIEONLINE_LIFE_FATCA = "life-fatca";
+	public static final String PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS = "life-personal-details";
+	public static final String PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO = "life-employment-info";
+	public static final String PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO = "life-beneficary-info";
+	public static final String PAGE_SAVIEONLINE_LIFE_PAYMENT = "life-payment";
+	public static final String PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY = "life-policy-summary";
+	public static final String PAGE_SAVIEONLINE_LIFE_DECLARATION = "life-declaration";
+	public static final String PAGE_SAVIEONLINE_LIFE_SIGNATURE = "life-signature";
+	public static final String PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD = "life-document-upload";
+	public static final String PAGE_SAVIEONLINE_LIFE_CONFIRMATION = "life-confirmation";
+	
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LANDING = "savie.landing";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_PLANDETAILS = "savie.plan.details";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_SALES_ILLUSTRATION = "savie.sales.illustration";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA = "life.fatca";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS = "life.personal.details";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO = "life.employment.info";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO = "life.beneficary.info";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_PAYMENT = "life.payment";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_POLICY_SUMMARY = "life.policy.summary";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_DECLARATION = "life.declaration";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_SIGNATURE = "life.signature";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD = "life.document.upload";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_CONFIRMATION = "life.confirmation";
+
 	/* for image configuration */
 	public static final String IMAGE_CONFIG = SERVICE_URL + "/ecommerce/configuration";
 	
 	public static final String SERVICE_CENTRE = "/appointment/serviceCentre";
-	
-	
 	
 	/* lang constants */
 	public static final String LANG_TC_SLASH = "/tc/";
