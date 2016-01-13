@@ -816,11 +816,11 @@ $(document).ready(function() {
                                                       <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" />" rowspan="2" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planA.1" bundle="${msg}" /></td>
                                                       <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" rowspan="2" class="planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planB.1" bundle="${msg}" /></td>
                                                   </tr>                                                
-                                                  <tr>
+                                                  <!--<tr>
                                                       <td><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.row2" bundle="${msg}" /></td>
                                                       <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col2" bundle="${msg}" />" rowspan="2" class="mobile-show planOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planA.1" bundle="${msg}" /></td>
                                                       <td data-title="<fmt:message key="Overseas.PlanOptions.Productcoverage.copy.row1.col3" bundle="${msg}" />" rowspan="2" class="mobile-show splanOptionCoverageColS"><fmt:message key="Overseas.PlanOptions.Productcoverage.copy.item1.planB.1" bundle="${msg}" /></td>                                                      
-                                                  </tr>												  
+                                                  </tr>-->												  
                                                   </tbody>
                                                </table>
                                         </div>
