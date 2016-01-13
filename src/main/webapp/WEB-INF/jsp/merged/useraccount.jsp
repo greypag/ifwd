@@ -405,6 +405,7 @@
 	                                   <c:if test="${i.planCode == 'AnnualTravelCare'}"><fmt:message key="plan.annual.travel" bundle="${msg}" /></c:if>
 	                                   <c:if test="${i.planCode == 'WorkingHolidayCare'}"><fmt:message key="plan.working.holiday" bundle="${msg}" /></c:if>
 	                                   <c:if test="${i.planCode == 'EasyHomeCare'}"><fmt:message key="plan.easyhome" bundle="${msg}" /></c:if>
+	                                   <c:if test="${i.planCode == 'OverseasStudyCare'}"><fmt:message key="faq.overseas" bundle="${msg}" /></c:if>
 	                                </p>
 	                            </div>
 	                            <div class="plan-item-cols odd plan-item-cols-top">
@@ -501,6 +502,7 @@
 			                                   <c:if test="${i.planCode == 'AnnualTravelCare'}"><fmt:message key="plan.annual.travel" bundle="${msg}" /></c:if>
 			                                   <c:if test="${i.planCode == 'WorkingHolidayCare'}"><fmt:message key="plan.working.holiday" bundle="${msg}" /></c:if>
 			                                   <c:if test="${i.planCode == 'EasyHomeCare'}"><fmt:message key="plan.easyhome" bundle="${msg}" /></c:if>
+			                                   <c:if test="${i.planCode == 'OverseasStudyCare'}"><fmt:message key="faq.overseas" bundle="${msg}" /></c:if>
 	                                        </td>
 	                                        <td>${i.policyNumber}</td>
 	                                        <td>${i.commencementDate}~<br/>${i.expiryDate}</td>
