@@ -297,35 +297,6 @@ function mouseout2div(obj) {
 <section style="margin-top:40px;margin-bottom:40px;">
   <div class="container">
 <div class="other-benefits col-lg-12 col-md-12 col-sm-12 col-xs-12 pad-none">
-  <h2 class="oversea-sponsor-header"><fmt:message key="Overseas.Landing.Other" bundle="${msg}" /></h2>
-  <ul class="bullets oversea-bullets pad-none">
-  
-    <li class="sponsor-wrapper col-lg-6 col-md-6 hidden-xs hidden-sm pad-none">
-        <!--Refer to key ID Overseas.Landing.Other.Benefit2.Logo for alt value-->
-        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="Y5Buddy" class="" style="margin-right:15px;">
-        <p class="h4-5"><fmt:message key="Overseas.Landing.Other.Benefit1" bundle="${msg}" /></p> 
-    </li>
-	<li class="sponsor-wrapper col-lg-6 col-md-6 hidden-xs hidden-sm pad-none">
-		<!--Refer to key ID Overseas.Landing.Other.Benefit1.Logo for alt value-->
-		<img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="Agoda" class="" style="margin-right:15px;">
-		<p class="h4-5"><fmt:message key="Overseas.Landing.Other.Benefit2" bundle="${msg}" /></p>
-    </li>
-	<li class="clearfix"></li>
-  </ul>
-  
-  <div class="col-lg-12 col-md-12 hidden-xs hidden-sm main-partner pad-none" style="">
-  </div>
-  <div class="hidden-lg hidden-md col-xs-12 col-sm-12 main-partner mob" style="text-align:center">
-    <div class="col-md-12 col-xs-12">
-        <img src="<%=request.getContextPath()%>/resources/images/partner_y5.png" alt="" class="" style="margin-bottom:15px;">
-        <p class="h4-5"><fmt:message key="Overseas.Landing.Other.Benefit1" bundle="${msg}" /></p> 
-    </div>
-    <div class="col-md-12 col-xs-12">
-        <img src="<%=request.getContextPath()%>/resources/images/partner_agoda.png" alt="" class="" style="margin-bottom:15px;">
-		<p class="h4-5"><fmt:message key="Overseas.Landing.Other.Benefit2" bundle="${msg}" /></p>
-    </div>
-  </div>
-  <div class="spacer3"></div>
         <p class="h4-6"><fmt:message key="Overseas.Landing.Disclaimer" bundle="${msg}" /></p>
 </div>
 
