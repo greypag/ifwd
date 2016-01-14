@@ -7,7 +7,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.exception.ValidationExceptions;
 
 public interface SavieOnlineService {
-	public void getPlanDetails(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws ECOMMAPIException;
+	public void getSavieOnlinePlandetail(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws ECOMMAPIException;
+	public void plandetailsValidateFormByAjax(HttpServletRequest request) throws ValidationExceptions;
+	
 }

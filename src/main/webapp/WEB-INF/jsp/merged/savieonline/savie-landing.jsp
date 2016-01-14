@@ -14,8 +14,6 @@
 </div>
 <script type="text/javascript">
 $("#nextPage").click(function(){
-	setTimeout(function(){
-		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
-	}, 1000);
+	window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
 });
 </script>

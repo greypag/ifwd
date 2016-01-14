@@ -69,7 +69,7 @@ public class SavieOnlineController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-online/savie-plan-details"})
-	public ModelAndView getSavieOnlinePlandetail(Model model, HttpServletRequest request) {
+	public ModelAndView getSavieOnlinePlandetails(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS);
 	}
 	

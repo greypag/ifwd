@@ -1,54 +1,45 @@
 package com.ifwd.fwdhk.util;
 
-import java.util.Locale;
-import java.util.ResourceBundle;
-
+import java.io.InputStream;
+import java.util.Properties;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang3.StringUtils;
-
-
-
 public class ErrorMessageUtils {
-
-	
-	public static String getMessage(String key,HttpServletRequest request){
-		String str = "";
-		try {
-			String language = (String) request.getSession().getAttribute("language");
-			if(StringUtils.isEmpty(language)){
-				language = "en";
-			}
-			str = WebServiceUtils.getMessage(key, language);
-//			Locale locale = getLanguage(request);
-//			ResourceBundle res = ResourceBundle.getBundle("messages", locale);
-//			str = res.getString(key);
-		} catch (Exception e) {
-			return "system error";
-		}
-		return str;
+	public static String getMessage(String key,HttpServletRequest request) {
+    	String language = (String) request.getSession().getAttribute("language");
+        try {
+            Properties propEn = new Properties();
+            InputStream stream = null;
+            ClassLoader loader = Thread.currentThread().getContextClassLoader();  
+            if (language.toUpperCase().equals("EN"))
+            	 stream = loader.getResourceAsStream("messages_en_US.properties");
+            else
+            	stream = loader.getResourceAsStream("messages_zh_HK.properties");
+            propEn.load(stream);
+            return  (String)propEn.get(key);
+        } catch (Exception e) {
+        	e.printStackTrace();
+        	return "";
+        }
 	}
+	
 	public static String getMessage(String message,String key,HttpServletRequest request){
-		String str = "";
-		try {
-			Locale locale = getLanguage(request);
-			ResourceBundle res = ResourceBundle.getBundle("messages", locale);
-			str = res.getString(key);
-		} catch (Exception e) {
-			return "system error";
-		}
-		return message+" "+str;
-	}
-	
-	static Locale getLanguage(HttpServletRequest request){
 		String language = (String) request.getSession().getAttribute("language");
-		if(StringUtils.isEmpty(language)){
-			return Locale.US;
-		}else if("en".equals(language.toLowerCase())){
-			return Locale.US;
-		}else if("tc".equals(language.toLowerCase())){
-			return Locale.TAIWAN;
-		}
-		return Locale.US;
+		String str = "";
+        try {
+            Properties propEn = new Properties();
+            InputStream stream = null;
+            ClassLoader loader = Thread.currentThread().getContextClassLoader();  
+            if (language.toUpperCase().equals("EN"))
+            	 stream = loader.getResourceAsStream("messages_en_US.properties");
+            else
+            	stream = loader.getResourceAsStream("messages_zh_HK.properties");
+            propEn.load(stream);
+            str = (String)propEn.get(key);
+        } catch (Exception e) {
+        	e.printStackTrace();
+        	str = "system error";
+        }
+		return message+" "+str;
 	}
 }
