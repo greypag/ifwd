@@ -39,8 +39,7 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			savieOnlineService.getSavieOnlinePlandetails(request);
-			jsonObject.put("apiData", "successfully");
+			jsonObject.put("apiData", savieOnlineService.getSavieOnlinePlandetails(request).toString());
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
