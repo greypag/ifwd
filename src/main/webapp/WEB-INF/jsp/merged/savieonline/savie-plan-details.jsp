@@ -19,12 +19,11 @@ $("#nextPage").click(function(){
 		  type : "POST",
 		  url : "<%=request.getContextPath()%>/ajax/savie-online/plandetails/validateForm",
 		  data : {
-			  insuredAmount : "123456a",
+			  insuredAmount : "123456",
 			  dob : "1996/08-08",
 			  promoCode: "123456a"
 			     },
 		  success : function(data) {
-			  alert(data);
 			  if(data != null && data != ""){
 				  $("#errorMsg").html(data);
 			  }
