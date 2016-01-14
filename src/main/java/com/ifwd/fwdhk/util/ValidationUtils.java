@@ -64,7 +64,7 @@ public class ValidationUtils {
 			}
 		}
 		else if("PROMOCODE".equals(name.toUpperCase())){
-			if(value == null || "".equals(value) || !isPureIntegrer(value)){
+			if(value != null && !isPureIntegrer(value)){
 				throw new ValidationExceptions(ErrorMessageUtils.getMessage("PROMOCODE","validation.failure", request));
 			}
 		}

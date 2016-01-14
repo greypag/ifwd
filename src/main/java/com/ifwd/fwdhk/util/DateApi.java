@@ -2,6 +2,7 @@ package com.ifwd.fwdhk.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -112,6 +113,21 @@ public class DateApi {
 	}
 	
 	/**
+	 * 将date日期格式为yyyy/MM/dd的字符串转化为Date
+	 * @param date
+	 * @return Date
+	 */
+	public static Date formatDate2(String date){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.ENGLISH);
+		try {
+			return dateFormat.parse(date);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/**
 	 * 将date转化为日期格式为dd-MM-yyyy的字符串
 	 * @param date
 	 * @return String
@@ -162,5 +178,23 @@ public class DateApi {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public static int getAge(Date dateOfBirth) {
+		int age = 0;
+		Calendar born = Calendar.getInstance();
+		Calendar now = Calendar.getInstance();
+		if (dateOfBirth != null) {
+		    now.setTime(new Date());
+		    born.setTime(dateOfBirth);
+		    if (born.after(now)) {
+				throw new IllegalArgumentException("Can't be born in the future");
+			}
+		    age = now.get(Calendar.YEAR) - born.get(Calendar.YEAR);
+		    if (now.get(Calendar.DAY_OF_YEAR) < born.get(Calendar.DAY_OF_YEAR)) {
+		        age -= 1;
+		    }
+		}
+		return age;
 	}
 }

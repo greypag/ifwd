@@ -31,6 +31,23 @@ public class AjaxSavieOnlineController extends BaseController{
 	private RestServiceDao restService;
 	@Autowired
 	private SavieOnlineService savieOnlineService;
+	
+	@RequestMapping(value = {"/ajax/savie-online/plandetails/getData"})
+	public void getSavieOnlinePlandetails(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			savieOnlineService.getSavieOnlinePlandetails(request);
+			jsonObject.put("apiData", "successfully");
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
 
 	@RequestMapping(value = {"/ajax/savie-online/plandetails/validateForm"})
 	public void plandetailsValidateFormByAjax(HttpServletRequest request,HttpServletResponse response) {

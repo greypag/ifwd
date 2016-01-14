@@ -7,8 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import net.sf.json.JSONObject;
-
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +23,8 @@ import com.ifwd.fwdhk.exception.ValidationExceptions;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
+import com.ifwd.fwdhk.util.DateApi;
+import com.ifwd.fwdhk.util.ErrorMessageUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.ValidationUtils;
 @Service
@@ -46,12 +47,21 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	protected ClientBrowserUtil clientBrowserUtil;
 
 	@Override
-	public void getSavieOnlinePlandetails(HttpServletRequest request) throws ECOMMAPIException {
+	public JSONObject getSavieOnlinePlandetails(HttpServletRequest request) throws ECOMMAPIException {
 		String insuredAmount = request.getParameter("insuredAmount");
 		String dob = request.getParameter("dob");
 		String promoCode = request.getParameter("promoCode");
+		int issueAge = DateApi.getAge(DateApi.formatDate2(dob));
 		
-		//SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails("savie", issueAge, paymentTerm, premium, referralCode, null);
+		SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails("savie", issueAge, 100-issueAge, insuredAmount, promoCode, null);
+		JSONObject jsonObject = new JSONObject();
+		if(apiResponse.hasError()){
+			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
+		}
+		else{
+			jsonObject.put("planDetails0Rate", apiResponse.getPlanDetails0Rate());
+		}
+		return jsonObject;
 	}
 	
 	@Override
@@ -62,6 +72,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			
 		ValidationUtils.validation("insuredAmount", insuredAmount, request);
 		ValidationUtils.validation("dob", dob, request);
-		ValidationUtils.validation("promoCode", promoCode, request);
+		//ValidationUtils.validation("promoCode", promoCode, request);
 	}
 }

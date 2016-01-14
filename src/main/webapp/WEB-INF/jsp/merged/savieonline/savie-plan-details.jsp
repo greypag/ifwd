@@ -10,6 +10,7 @@
 <fmt:setBundle basename="messages" var="msg" />
 <div style="margin-left: 500px;">
 <div id="errorMsg" style="color: red;"></div>
+<div id="apiData" style="color: black;"></div>
 insuredAmount:<input type="text" id="insuredAmount"/><br/>
 dob:<input type="text" id="dob"/><br/>
 promoCodes:<input type="text" id="promoCodes"/><br/>
@@ -17,9 +18,12 @@ promoCodes:<input type="text" id="promoCodes"/><br/>
 <input type="button" id="nextPage" value="nextPage"/><br/>
 </div>
 <script type="text/javascript">
-$("#nextPage").click(function(){
+$("#calculate").click(function(){
+	$("#errorMsg").html("");
+	$("#apiData").html("");
 	$.ajax({
 		  type : "POST",
+		  async:false, 
 		  url : "<%=request.getContextPath()%>/ajax/savie-online/plandetails/validateForm",
 		  data : {
 			  insuredAmount : $("#insuredAmount").val(),
@@ -31,9 +35,30 @@ $("#nextPage").click(function(){
 				  $("#errorMsg").html(data);
 			  }
 			  else{
-				  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+				  $.ajax({
+					  type : "POST",
+					  async:false, 
+					  url : "<%=request.getContextPath()%>/ajax/savie-online/plandetails/getData",
+					  data : {
+						  insuredAmount : $("#insuredAmount").val(),
+						  dob : $("#dob").val(),
+						  promoCode: $("#promoCodes").val()
+						     },
+					  success : function(data) {
+						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+							  $("#errorMsg").html(data.errorMsg);
+						  }
+						  else{
+							  $("#apiData").html(data.apiData);
+						  }
+					  }
+			     });
 			  }
 		  }
      });
 });
+$("#nextPage").click(function(){
+	window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+});
+
 </script>
