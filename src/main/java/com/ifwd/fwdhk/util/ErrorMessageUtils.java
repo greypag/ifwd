@@ -19,7 +19,7 @@ public class ErrorMessageUtils {
             return  (String)propEn.get(key);
         } catch (Exception e) {
         	e.printStackTrace();
-        	return "";
+        	return "system error";
         }
 	}
 	

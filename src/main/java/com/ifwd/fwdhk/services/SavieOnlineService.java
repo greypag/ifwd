@@ -10,7 +10,7 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidationExceptions;
 
 public interface SavieOnlineService {
-	public void getSavieOnlinePlandetail(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws ECOMMAPIException;
+	public void getSavieOnlinePlandetails(HttpServletRequest request) throws ECOMMAPIException;
 	public void plandetailsValidateFormByAjax(HttpServletRequest request) throws ValidationExceptions;
 	
 }

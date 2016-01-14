@@ -37,7 +37,7 @@ public class ValidationUtils {
 	private static final Logger logger = LoggerFactory.getLogger(ValidationUtils.class);
 	
 	public static boolean validation(String name,String value,HttpServletRequest request) throws ValidationExceptions{
-		if(StringUtils.isEmpty(name) || StringUtils.isEmpty(value)){
+		if(StringUtils.isEmpty(name)){
 			throw new ValidationExceptions(ErrorMessageUtils.getMessage("error.request", request));
 		}
 		if("HKID".equals(name.toUpperCase())){
@@ -54,13 +54,19 @@ public class ValidationUtils {
 			if (!isPassport(value))throw new ValidationExceptions(ErrorMessageUtils.getMessage("PASSPORT","validation.failure", request));
 		}
 		else if("INSUREDAMOUNT".equals(name.toUpperCase())){
-			if (!isPureIntegrer(value))throw new ValidationExceptions(ErrorMessageUtils.getMessage("INSUREDAMOUNT","validation.failure", request));
+			if(value == null || "".equals(value) || !isPureIntegrer(value)){
+				throw new ValidationExceptions(ErrorMessageUtils.getMessage("INSUREDAMOUNT","validation.failure", request));
+			}
 		}
 		else if("DOB".equals(name.toUpperCase())){
-			if (!isValidDate(value))throw new ValidationExceptions(ErrorMessageUtils.getMessage("DOB","validation.failure", request));
+			if(value == null || "".equals(value) || !isValidDate(value)){
+				throw new ValidationExceptions(ErrorMessageUtils.getMessage("DOB","validation.failure", request));
+			}
 		}
 		else if("PROMOCODE".equals(name.toUpperCase())){
-			if (!isPureIntegrer(value))throw new ValidationExceptions(ErrorMessageUtils.getMessage("PROMOCODE","validation.failure", request));
+			if(value == null || "".equals(value) || !isPureIntegrer(value)){
+				throw new ValidationExceptions(ErrorMessageUtils.getMessage("PROMOCODE","validation.failure", request));
+			}
 		}
 		return true;
 	}

@@ -46,77 +46,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	protected ClientBrowserUtil clientBrowserUtil;
 
 	@Override
-	public void getSavieOnlinePlandetail(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession httpSession) throws ECOMMAPIException {
-		try {
-			String planCode = request.getParameter("planCode");
-			int issueAge = Integer.valueOf(request.getParameter("issueAge"))+1;
-			int paymentTerm = 100-issueAge;
-			
-			String premium = request.getParameter("premium");
-			String referralCode = request.getParameter("referralCode");
-			SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails(planCode, issueAge, paymentTerm, premium, referralCode, null);
-			
-			JSONObject resultJsonObject = new JSONObject();
-			if(!apiResponse.hasError()){
-				List<SaviePlanDetailsRate> planDetails0Rate = apiResponse.getPlanDetails0Rate();
-				List<SaviePlanDetailsRate> planDetails2Rate = apiResponse.getPlanDetails2Rate();
-				List<SaviePlanDetailsRate> planDetails3Rate = apiResponse.getPlanDetails3Rate();
-				List<SaviePlanDetailsRate> planDetails4Rate = apiResponse.getPlanDetails4Rate();
-				
-				if(planDetails0Rate !=null && planDetails0Rate.size()>0){
-					List<JSONObject> inputTableList = new ArrayList<JSONObject>();
-					JSONObject inputTable = new JSONObject();
-					inputTable.accumulate("type", planCode);
-					inputTable.accumulate("issueAge", issueAge);
-					inputTable.accumulate("paymode", "monthly");
-					inputTable.accumulate("premium", premium);
-					inputTable.accumulate("paymentMode", "Single");
-					inputTable.accumulate("paymentTerm", paymentTerm);
-					inputTable.accumulate("promoCode", referralCode);
-					inputTableList.add(inputTable);
-					
-					JSONObject planDetailJsonObject = new JSONObject();
-					planDetailJsonObject.accumulate("inputTable", inputTableList);
-					
-					List<JSONObject> yearPlansList = new ArrayList<JSONObject>();
-					
-					for(int i =0;i<planDetails0Rate.size();i++){
-						JSONObject yesrPlan = new JSONObject();
-						yesrPlan.accumulate("year", Integer.valueOf(planDetails0Rate.get(i).getType().substring(1)));
-						
-						List<JSONObject> plansList = new ArrayList<JSONObject>();
-						yesrPlan.accumulate("plans", plansList);
-						yearPlansList.add(yesrPlan);
-					}
-					planDetailJsonObject.accumulate("yearPlans", yearPlansList);
-					resultJsonObject.accumulate("result", "success");
-					resultJsonObject.accumulate("errMsgs", "");
-					resultJsonObject.accumulate("salesIllustration", planDetailJsonObject);
-				}
-				else{
-					resultJsonObject.accumulate("result", "fail");
-					resultJsonObject.accumulate("errMsgs", "Data exception");
-					throw new ECOMMAPIException("Data exception!");
-				}
-			}
-			else{
-				resultJsonObject.accumulate("result", "fail");
-				resultJsonObject.accumulate("errMsgs", apiResponse.getErrMsgs());
-			}
-			
-			response.setContentType("text/json;charset=utf-8");
-			//return data
-			try {
-				logger.info(resultJsonObject.toString());
-				response.getWriter().print(resultJsonObject.toString());
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		} catch (ECOMMAPIException e) {
-			logger.info("SavieServiceImpl getPlanDetails occurs an exception!");
-			logger.info(e.getMessage());
-			e.printStackTrace();
-		}
+	public void getSavieOnlinePlandetails(HttpServletRequest request) throws ECOMMAPIException {
+		String insuredAmount = request.getParameter("insuredAmount");
+		String dob = request.getParameter("dob");
+		String promoCode = request.getParameter("promoCode");
+		
+		//SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails("savie", issueAge, paymentTerm, premium, referralCode, null);
 	}
 	
 	@Override

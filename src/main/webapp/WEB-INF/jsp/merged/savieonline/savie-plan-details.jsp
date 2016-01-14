@@ -8,10 +8,13 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<div align="center">
-<h1 style="color: black;">savie-plan-details.jsp</h1>
+<div style="margin-left: 500px;">
 <div id="errorMsg" style="color: red;"></div>
-<a id="nextPage" class="buy-now et-quote btn-color-ylw" href="#" >next page</a>
+insuredAmount:<input type="text" id="insuredAmount"/><br/>
+dob:<input type="text" id="dob"/><br/>
+promoCodes:<input type="text" id="promoCodes"/><br/>
+<input type="button" id="calculate" value="Calculate"/>
+<input type="button" id="nextPage" value="nextPage"/><br/>
 </div>
 <script type="text/javascript">
 $("#nextPage").click(function(){
@@ -19,9 +22,9 @@ $("#nextPage").click(function(){
 		  type : "POST",
 		  url : "<%=request.getContextPath()%>/ajax/savie-online/plandetails/validateForm",
 		  data : {
-			  insuredAmount : "123456",
-			  dob : "1996/08-08",
-			  promoCode: "123456a"
+			  insuredAmount : $("#insuredAmount").val(),
+			  dob : $("#dob").val(),
+			  promoCode: $("#promoCodes").val()
 			     },
 		  success : function(data) {
 			  if(data != null && data != ""){
