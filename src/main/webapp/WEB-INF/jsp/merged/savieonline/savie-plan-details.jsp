@@ -24,35 +24,18 @@ $("#calculate").click(function(){
 	$.ajax({
 		  type : "POST",
 		  async:false, 
-		  url : "<%=request.getContextPath()%>/ajax/savie-online/plandetails/validateForm",
+		  url : "<%=request.getContextPath()%>/ajax/savie-online/getSavieOnlinePlandetails",
 		  data : {
 			  insuredAmount : $("#insuredAmount").val(),
 			  dob : $("#dob").val(),
 			  promoCode: $("#promoCodes").val()
 			     },
 		  success : function(data) {
-			  if(data != null && data != ""){
-				  $("#errorMsg").html(data);
+			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+				  $("#errorMsg").html(data.errorMsg);
 			  }
 			  else{
-				  $.ajax({
-					  type : "POST",
-					  async:false, 
-					  url : "<%=request.getContextPath()%>/ajax/savie-online/plandetails/getData",
-					  data : {
-						  insuredAmount : $("#insuredAmount").val(),
-						  dob : $("#dob").val(),
-						  promoCode: $("#promoCodes").val()
-						     },
-					  success : function(data) {
-						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  $("#errorMsg").html(data.errorMsg);
-						  }
-						  else{
-							  $("#apiData").html(data.apiData);
-						  }
-					  }
-			     });
+				  $("#apiData").html(data.apiData);
 			  }
 		  }
      });
@@ -60,5 +43,4 @@ $("#calculate").click(function(){
 $("#nextPage").click(function(){
 	window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
 });
-
 </script>
