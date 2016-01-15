@@ -587,7 +587,7 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 	world_wide_country_list = [ "Abu Dhabi", "Australia", "Austria", "Belgium","Brunei", "Canada", "Cuba", "Cyprus", "Denmark", "Dubai", "France", "Germany", "Guam", "Holland", "India", "Indonesia", "Iran","Ireland", "Italy", "Japan", "Korea", "Lao P.D.R.", "Macau","Malaysia", "Monaco", "Myanmar", "Nepal", "New Zealand","North Korea", "Norway", "Pakistan", "People Republic of China","Philippines", "Poland", "Portugal", "Russia", "Singapore","South Africa", "Spain", "Sri Lanka", "Sudan", "Sweden","Switzerland", "Syria", "Taiwan", "Thailand", "Turkey","United Kingdom", "Vietnam" ];
 	*/
 	asia_country_list=["India","Japan","Korea","Macau","Malaysia","People Republic of China","Singapore","Taiwan","Thailand","Vietnam"];
-	world_wide_country_list=["Australia","Austria","Belgium","Canada","Denmark","France","Germany","Holland", "India", "Indonesia","Ireland", "Italy", "Japan", "Korea","Macau","Malaysia","New Zealand","People Republic of China","Poland", "Portugal","Singapore","Spain","Sudan", "Sweden","Switzerland","Taiwan", "Thailand","United Kingdom", "Vietnam" ];
+	world_wide_country_list=["Australia","Austria","Belgium","Canada","Denmark","France","Germany","Holland", "India", "Indonesia","Ireland", "Italy", "Japan", "Korea","Macau","Malaysia","New Zealand","People Republic of China","Poland", "Portugal","Singapore","Spain","Sudan", "Sweden","Switzerland","Taiwan", "Thailand","United Kingdom", "Vietnam", "United States of America" ];
 	
 	var compare_list =[];
 	var isAsia = true;
