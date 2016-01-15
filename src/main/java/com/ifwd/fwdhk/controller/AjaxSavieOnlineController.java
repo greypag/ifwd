@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
-import com.ifwd.fwdhk.exception.ValidationExceptions;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.Methods;
-import com.ifwd.fwdhk.util.ValidationUtils;
+import com.ifwd.utils.ValidationExceptions;
+import com.ifwd.utils.ValidationUtils;
 @Controller
 public class AjaxSavieOnlineController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(AjaxSavieOnlineController.class);
