@@ -37,14 +37,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	protected ClientBrowserUtil clientBrowserUtil;
 
 	@Override
-	public JSONObject getSavieOnlinePlandetails(HttpServletRequest request) throws ValidationExceptions,ECOMMAPIException{
+	public JSONObject getSavieOnlinePlandetails(HttpServletRequest request) throws ECOMMAPIException{
 		String insuredAmount = request.getParameter("insuredAmount");
 		String dob = request.getParameter("dob");
 		String promoCode = request.getParameter("promoCode");
-		
-		ValidationUtils.validation("insuredAmount", insuredAmount, request);
-		ValidationUtils.validation("dob", dob, request);
-		//ValidationUtils.validation("promoCode", promoCode, request);
 		
 		int issueAge = DateApi.getAge(DateApi.formatDate2(dob));
 		
