@@ -340,8 +340,8 @@ public class OverseaServiceImpl implements OverseaService {
 			}
 			beneficiary.put("relationship", planDetailsForm.getPersonalBeneficiary());
 		}else {
-			beneficiary.put("name", "");
-			beneficiary.put("hkId", "");
+			beneficiary.put("name", planDetailsForm.getPersonalName());
+			beneficiary.put("hkId", planDetailsForm.getPersonalHKID());
 			beneficiary.put("passport", "");
 			beneficiary.put("relationship", "SE");
 		}
