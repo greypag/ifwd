@@ -8,14 +8,36 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<div align="center">
-<h1 style="color: black;">life-employment-info.jsp</h1>
-<a id="nextPage" class="buy-now et-quote btn-color-ylw" href="#" >next page</a>
+<div style="margin-left: 500px;">
+<div id="errorMsg" style="color: red;"></div>
+<form id="lifeEmploymentInfoForm" action="">
+employmentStatus:<input type="text" id="employmentStatus" name="employmentStatus"/><br/>
+natureOfBusiness:<input type="text" id="natureOfBusiness" name="natureOfBusiness"/><br/>
+occupation:<input type="text" id="occupation" name="occupation"/><br/>
+employerName:<input type="text" id="employerName" name="employerName"/><br/>
+monthlyPersonalIncome:<input type="text" id="monthlyPersonalIncome" name="monthlyPersonalIncome"/><br/>
+education:<input type="text" id="education" name="education"/><br/>
+amountOfOtherSourceOfIncome:<input type="text" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome"/><br/>
+amountOfLiquidAssets:<input type="text" id="amountOfLiquidAssets" name="amountOfLiquidAssets"/><br/>
+<input type="button" id="nextPage" value="nextPage"/><br/>
+</form>
 </div>
 <script type="text/javascript">
 $("#nextPage").click(function(){
-	setTimeout(function(){
-		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
-	}, 1000);
+	$("#errorMsg").html("");
+	$.ajax({
+		  type : "POST",
+		  async:false, 
+		  url : "<%=request.getContextPath()%>/ajax/savie-online/lifeEmploymentInfo",
+		  data: $("#lifeEmploymentInfoForm").serialize(),
+		  success : function(data) {
+			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+				  $("#errorMsg").html(data.errorMsg);
+			  }
+			  else{
+				  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+			  }
+		  }
+     });
 });
 </script>
