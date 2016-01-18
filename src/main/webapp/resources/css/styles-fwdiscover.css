@@ -312,6 +312,8 @@
 .page-fwdiscover .carousel .carousel-inner {
     width: 82%;
     margin: 0 auto;
+   
+    overflow: hidden;
 }
 
 .page-fwdiscover .carousel .carousel-control {
