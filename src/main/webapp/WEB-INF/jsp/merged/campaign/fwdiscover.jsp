@@ -65,10 +65,10 @@
 
 								<!-- DAY HOUR MINS SECS -->
 								<div class="day-hour-min-sec" id="countdown">
-									<div class="timer-holder right">
+									<div class="timer-holder">
 										<div class="bg">
 											<div class="clearfix">
-												<span class="number pull-left" id="countdown-days">03</span>
+												<span class="number" id="countdown-days">03</span>
 											</div>
 											<span class="line"></span>
 										</div>
@@ -78,7 +78,7 @@
 									<div class="timer-holder right">
 										<div class="bg">
 											<div class="clearfix">
-												<span class="number pull-left" id="countdown-hours">20</span>
+												<span class="number" id="countdown-hours">20</span>
 											</div>
 											<span class="line"></span>
 										</div>
@@ -88,7 +88,7 @@
 									<div class="timer-holder right">
 										<div class="bg">
 											<div class="clearfix">
-												<span class="number pull-left" id="countdown-minutes">42</span>
+												<span class="number" id="countdown-minutes">42</span>
 											</div>
 											<span class="line"></span>
 										</div>
@@ -98,7 +98,7 @@
 									<div class="timer-holder right">
 										<div class="bg">
 											<div class="clearfix">
-												<span class="number pull-left" id="countdown-seconds">28</span>
+												<span class="number" id="countdown-seconds">28</span>
 											</div>
 											<span class="line"></span>
 										</div>
@@ -561,6 +561,14 @@
 				<!-- end fwdiscover footer -->
 
 				<!-- MODALS -->
+                <div class="modal fade fwdiscover-modal" id="offer-announce" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <p class="title"><fmt:message key="Fanfare.offer.announce" bundle="${msg}" /></p>
+                            <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
+                        </div>
+                    </div>
+                </div>				
 				<!-- 5 plans -->
 				<div class="modal fade fwdiscover-modal" id="offer1-details" role="dialog" aria-hidden="true">
 					<div class="modal-dialog">
@@ -1003,6 +1011,7 @@
 	   });
 
 		$(window).load(function () {
+			$('#offer-announce').modal('show');
 			if(msieversion() < 1) {
 				carouselImgHeight();
 			}
@@ -1021,7 +1030,7 @@
 	        	}
 			}
 		});
-
+		
 		if(getWidth()>991) {
 			$('#myCarousel-fwdiscover').removeClass('carousel slide');
 			$('#myCarousel-fwdiscover .carousel-inner .item .row').children().addClass('desktop-img-align');
