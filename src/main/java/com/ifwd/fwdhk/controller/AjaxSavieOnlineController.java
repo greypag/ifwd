@@ -9,8 +9,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
@@ -64,20 +66,13 @@ public class AjaxSavieOnlineController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/ajax/savie-online/lifeEmploymentInfo"})
-	public void lifeEmploymentInfo(HttpServletRequest request,HttpServletResponse response) {
+	public void lifeEmploymentInfo(LifeEmploymentInfoBean lifeEmploymentInfo,HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
-			ValidationUtils.validation("NOTNULL", "employmentStatus", request.getParameter("employmentStatus"), request);
-			ValidationUtils.validation("NOTNULL", "natureOfBusiness", request.getParameter("natureOfBusiness"), request);
-			ValidationUtils.validation("NOTNULL", "occupation", request.getParameter("occupation"), request);
-			ValidationUtils.validation("NOTNULL", "employerName", request.getParameter("employerName"), request);
-			ValidationUtils.validation("NOTNULL", "monthlyPersonalIncome", request.getParameter("monthlyPersonalIncome"), request);
-			ValidationUtils.validation("NOTNULL", "education", request.getParameter("education"), request);
-			ValidationUtils.validation("NOTNULL", "amountOfOtherSourceOfIncome", request.getParameter("amountOfOtherSourceOfIncome"), request);
-			ValidationUtils.validation("NOTNULL", "amountOfLiquidAssets", request.getParameter("amountOfLiquidAssets"), request);
+			lifeEmploymentInfo.validate(request);
 		}
 		catch (ValidationExceptions e) {
 			jsonObject.put("errorMsg", e.getResolvableMessage().getCodes()[0]);
