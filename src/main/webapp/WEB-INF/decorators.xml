@@ -23,6 +23,10 @@
 		<pattern>/*/savings-evergreen-insurance*</pattern>
 	</decorator>
 	
+	<decorator name="fwdsavieonline" page="template_savie_online.jsp">
+		<pattern>/*/savie-online*</pattern>
+	</decorator>
+	
 	<!-- <decorator name="only_body" page="template_anonymous.jsp">
 		<pattern>/content/**</pattern>
 		<pattern>/*</pattern>

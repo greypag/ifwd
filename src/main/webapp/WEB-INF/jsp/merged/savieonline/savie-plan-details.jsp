@@ -12,9 +12,9 @@
 <div id="errorMsg" style="color: red;"></div>
 <div id="apiData" style="color: black;"></div>
 <form id="saviePlanDetailsForm" action="">
-insuredAmount:<input type="text" id="insuredAmount" name="saviePlanDetails.insuredAmount"/><br/>
-dob:<input type="text" id="dob" name="saviePlanDetails.dob"/><br/>
-promoCode:<input type="text" id="promoCode" name="saviePlanDetails.promoCode"/><br/>
+insuredAmount:<input type="text" id="insuredAmount" name="insuredAmount"/><br/>
+dob:<input type="text" id="dob" name="dob"/><br/>
+promoCode:<input type="text" id="promoCode" name="promoCode"/><br/>
 <input type="button" id="calculate" value="Calculate"/>
 <input type="button" id="nextPage" value="nextPage"/><br/>
 </form>

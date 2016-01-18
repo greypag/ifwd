@@ -28,7 +28,7 @@ public class AjaxSavieOnlineController extends BaseController{
 	private SavieOnlineService savieOnlineService;
 	
 	@RequestMapping(value = {"/ajax/savie-online/getSavieOnlinePlandetails"})
-	public void getSavieOnlinePlandetails(@ModelAttribute("saviePlanDetails") SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request,HttpServletResponse response) {
+	public void getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
