@@ -8,11 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.Methods;
@@ -49,23 +48,13 @@ public class AjaxSavieOnlineController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/ajax/savie-online/lifePersonalDetails"})
-	public void lifePersonalDetails(HttpServletRequest request,HttpServletResponse response) {
+	public void lifePersonalDetails(LifePersonalDetailsBean lifePersonalDetails ,HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
-			ValidationUtils.validation("firstname","firstname", request.getParameter("firstname"), request);
-			ValidationUtils.validation("lastname","lastname", request.getParameter("lastname"), request);
-			ValidationUtils.validation("chineseName","chineseName", request.getParameter("chineseName"), request);
-			ValidationUtils.validation("dob","dob", request.getParameter("dob"), request);
-			ValidationUtils.validation("gender","gender", request.getParameter("gender"), request);
-			ValidationUtils.validation("hkid","hkid", request.getParameter("hkid"), request);
-			ValidationUtils.validation("martialStatus","martialStatus", request.getParameter("martialStatus"), request);
-			ValidationUtils.validation("mobile","mobile", request.getParameter("mobileNumber"), request);
-			ValidationUtils.validation("email","email", request.getParameter("emailAddress"), request);
-			ValidationUtils.validation("placeOfBirth","placeOfBirth", request.getParameter("placeOfBirth"), request);
-			ValidationUtils.validation("nationalty","nationalty", request.getParameter("nationalty"), request);
+			lifePersonalDetails.validate(request);
 		}
 		catch (ValidationExceptions e) {
 			jsonObject.put("errorMsg", e.getResolvableMessage().getCodes()[0]);

@@ -15,6 +15,12 @@ public class SaviePlanDetailsBean implements Serializable {
 	private String dob;
 	private String promoCode;
 	
+	public void validate(HttpServletRequest request) throws ValidationExceptions {
+		ValidationUtils.validation("insuredAmount", "insuredAmount", insuredAmount, request);
+		ValidationUtils.validation("dob","dob", dob, request);
+		//ValidationUtils.validation("promoCode", promoCode, request);
+	}
+	
 	public String getInsuredAmount() {
 		return insuredAmount;
 	}
@@ -32,11 +38,5 @@ public class SaviePlanDetailsBean implements Serializable {
 	}
 	public void setPromoCode(String promoCode) {
 		this.promoCode = promoCode;
-	}
-	
-	public void validate(HttpServletRequest request) throws ValidationExceptions {
-		ValidationUtils.validation("insuredAmount", "insuredAmount", insuredAmount, request);
-		ValidationUtils.validation("dob","dob", dob, request);
-		//ValidationUtils.validation("promoCode", promoCode, request);
 	}
 }
