@@ -8,10 +8,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.utils.ValidationExceptions;
@@ -26,21 +28,15 @@ public class AjaxSavieOnlineController extends BaseController{
 	private SavieOnlineService savieOnlineService;
 	
 	@RequestMapping(value = {"/ajax/savie-online/getSavieOnlinePlandetails"})
-	public void getSavieOnlinePlandetails(HttpServletRequest request,HttpServletResponse response) {
+	public void getSavieOnlinePlandetails(@ModelAttribute("saviePlanDetails") SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
-			String insuredAmount = request.getParameter("insuredAmount");
-			String dob = request.getParameter("dob");
-			String promoCode = request.getParameter("promoCode");
+			saviePlanDetails.validate(request);
 			
-			ValidationUtils.validation("insuredAmount", "insuredAmount", insuredAmount, request);
-			ValidationUtils.validation("dob","dob", dob, request);
-			//ValidationUtils.validation("promoCode", promoCode, request);
-			
-			jsonObject.put("apiData", savieOnlineService.getSavieOnlinePlandetails(request).toString());
+			jsonObject.put("apiData", savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request).toString());
 		}
 		catch (ValidationExceptions e) {
 			jsonObject.put("errorMsg", e.getResolvableMessage().getCodes()[0]);

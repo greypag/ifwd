@@ -11,11 +11,14 @@
 <div style="margin-left: 500px;">
 <div id="errorMsg" style="color: red;"></div>
 <div id="apiData" style="color: black;"></div>
-insuredAmount:<input type="text" id="insuredAmount"/><br/>
-dob:<input type="text" id="dob"/><br/>
-promoCodes:<input type="text" id="promoCodes"/><br/>
+<form id="saviePlanDetailsForm" action="">
+insuredAmount:<input type="text" id="insuredAmount" name="saviePlanDetails.insuredAmount"/><br/>
+dob:<input type="text" id="dob" name="saviePlanDetails.dob"/><br/>
+promoCode:<input type="text" id="promoCode" name="saviePlanDetails.promoCode"/><br/>
 <input type="button" id="calculate" value="Calculate"/>
 <input type="button" id="nextPage" value="nextPage"/><br/>
+</form>
+
 </div>
 <script type="text/javascript">
 $("#calculate").click(function(){
@@ -25,11 +28,7 @@ $("#calculate").click(function(){
 		  type : "POST",
 		  async:false, 
 		  url : "<%=request.getContextPath()%>/ajax/savie-online/getSavieOnlinePlandetails",
-		  data : {
-			  insuredAmount : $("#insuredAmount").val(),
-			  dob : $("#dob").val(),
-			  promoCode: $("#promoCodes").val()
-			     },
+		  data: $("#saviePlanDetailsForm").serialize(),
 		  success : function(data) {
 			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 				  $("#errorMsg").html(data.errorMsg);
