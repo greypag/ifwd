@@ -19,6 +19,7 @@ public class SaviePlanDetailsBean implements Serializable {
 		ValidationUtils.validation("insuredAmount", "insuredAmount", insuredAmount, request);
 		ValidationUtils.validation("dob","dob", dob, request);
 		//ValidationUtils.validation("promoCode", promoCode, request);
+		ValidationUtils.sendMsg();
 	}
 	
 	public String getInsuredAmount() {

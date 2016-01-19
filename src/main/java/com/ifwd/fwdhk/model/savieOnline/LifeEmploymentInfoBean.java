@@ -29,6 +29,7 @@ public class LifeEmploymentInfoBean implements Serializable {
 		ValidationUtils.validation("NOTNULL", "education", education, request);
 		ValidationUtils.validation("NOTNULL", "amountOfOtherSourceOfIncome", amountOfOtherSourceOfIncome, request);
 		ValidationUtils.validation("NOTNULL", "amountOfLiquidAssets", amountOfLiquidAssets, request);
+		ValidationUtils.sendMsg();
 	}
 
 	public String getEmploymentStatus() {

@@ -47,6 +47,7 @@ public class LifePersonalDetailsBean implements Serializable {
 		ValidationUtils.validation("email","email", emailAddress, request);
 		ValidationUtils.validation("placeOfBirth","placeOfBirth", placeOfBirth, request);
 		ValidationUtils.validation("nationalty","nationalty", nationalty, request);
+		ValidationUtils.sendMsg();
 	}
 	
 	public String getFirstname() {
