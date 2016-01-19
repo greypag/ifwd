@@ -787,10 +787,10 @@ if ((correspondenceAddressBuildingId.trim() == "" && correspondenceAddressEstate
 			$("#dobInsuredInvalid").html( ''); 		
 		}
 	}
-//	var testDate = new Date();
-//	var testDate2 = parseDate(applicantDob);
-//	console.log(testDate.setDate(testDate2.getDate() + 90));
-//	console.log(testDate.setDate(testDate.getDate() + 90));
+	//	var testDate = new Date();
+	//	var testDate2 = parseDate(applicantDob);
+	//	console.log(testDate.setDate(testDate2.getDate() + 90));
+	//	console.log(testDate.setDate(testDate.getDate() + 90));
 	//console.log(calculateAge((parseDate)(applicantDob), new Date()));
 	if (firstErrorElementId != "") {
 		scrollToElement(firstErrorElementId);

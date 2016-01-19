@@ -529,7 +529,7 @@ $(function () {
 	// 12 year ago date
 	var dob_12_date = new Date();
 	dob_12_date.setFullYear(dob_12_date.getFullYear() - 12);		
-	dob_12_date.setDate(dob_12_date.getDate() + 1);
+	dob_12_date.setDate(dob_12_date.getDate() + 90);
 	
 	// 10 year and 9 month ago date
 	var dob_10_date = new Date();
@@ -610,7 +610,7 @@ $(function () {
 		autoclose: true,
 		format: "dd-mm-yyyy",
 		startDate: dob_1900_date,
-		endDate: dob_10_date
+		endDate: dob_12_date
 		/*language: getBundleLanguage*/
 	}).on('changeDate', function (ev) {
 		$("#dobInsuredInvalid").html("");
@@ -5289,7 +5289,7 @@ function chkTravelHKPass(value) {
 //ie9 placeholder solution
 function placeholderOnFocus(element, placeholderVal){
 	$(element).removeClass("bmg_custom_placeholder");
-	console.log($(element).val().trim());
+	//console.log($(element).val().trim());
 	if($(element).val().trim()==placeholderVal.trim()){
 		$(element).val('');
 	}

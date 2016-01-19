@@ -790,7 +790,27 @@
 		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/fwdiscover/jquery.countdown.min.js"></script>
 		<script type="text/javascript">
-
+        $(document).ready(function() {
+            if(isMobile){
+                $(".fwdiscover-plan .details-btn").click(function(){
+                    itemTop = $(this).parents(".fwdiscover-plan").offset();
+                    $(".fwdiscover-modal").on('show.bs.modal', function () {
+                        $('body').css("position", "inital");
+                        //$('body').css("position", "fixed");
+                        $('body').animate({scrollTop: itemTop.top - 60}, 0);      
+                    });
+                    $(".fwdiscover-modal").on('hide.bs.modal', function () {
+                        //alert(itemTop.top);
+                        $('body').css("position", "initial");
+                        $('body').animate({scrollTop: itemTop.top - 60}, 0);
+                        //$('body').css("position", "relative");
+                    });
+                    $(".fwdiscover-modal").on('hidden.bs.modal', function () {
+                        $('body').attr("style", "");
+                    });         
+                });
+            }
+        });
 		
 		if(getWidth() > 991) {
 			$('.page-fwdiscover .fwdiscover-footer .terms-and-condition .message img.mobile').addClass('hidden');
