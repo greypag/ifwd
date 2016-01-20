@@ -64,35 +64,21 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 
 <!-- Bootstrap -->
-<link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/resources/css/savie/jasny-bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css">
-<link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap-select.min.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/resources/css/savie/styles.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/datepicker3.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/animate.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/font-awesome.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/font-awesome.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/main.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/responsive.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/datepicker.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.mCustomScrollbar.min.css">
 
-<!--Font Awesome Css-->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/bootstrap-slider.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/icomoon.min.css">
-<link rel="stylesheet"  type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/dropzone.css">
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/ZeroClipboard.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
 
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/header.css">
-
-<!--Mini Calculator Css-->
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/jquery-ui.theme.min.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/jquery-ui.min.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/style.css">
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
 <script>
 
 	// handle when console is null/undefined especially in IE
@@ -232,9 +218,9 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 <!--END -Google Code for SEO-->
 	
 	<div class="fwd-savie-wrapper">
-				<%@ include file="include/merged/header.jsp"%>
+				<%@ include file="include/merged/savieonline/header.jsp"%>
 		<dec:body />
-		<%@ include file="include/merged/savie/footer.jsp"%>
+		<%@ include file="include/merged/savieonline/footer.jsp"%>
 	</div>
 	
 

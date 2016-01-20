@@ -8,16 +8,35 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<div align="center">
-<h1 style="color: black;">life-payment.jsp</h1>
-<a id="nextPage" class="buy-now et-quote btn-color-ylw" href="#" >pay online</a><br/>
-<a id="nextPage2" class="buy-now et-quote btn-color-ylw" href="#" >pay offline</a>
+<div style="margin-left: 500px;">
+<div id="errorMsg" style="color: red;"></div>
+<form id="lifePaymentForm" action="">
+<input type="radio" id="payOnline" name="payOnline" value="true"/>pay online
+<input type="radio" id="payOffline" name="payOffline" value="false"/>pay later<br/>
+bankCode:<input type="text" id="bankCode" name="bankCode" value="${lifePayment.bankCode }"/><br/>
+branchCode:<input type="text" id="branchCode" name="branchCode" value="${lifePayment.branchCode }"/><br/>
+accountNumber:<input type="text" id="accountNumber" name="accountNumber" value="${lifePayment.accountNumber }"/><br/>
+accountHolderName:<input type="text" id="accountHolderName" name="accountHolderName" value="${lifePayment.accountHolderName }"/><br/>
+paymentAmount:<input type="text" id="paymentAmount" name="paymentAmount" value="${lifePayment.paymentAmount }"/><br/>
+<input type="button" id="nextPage" value="nextPage"/><br/>
+</form>
 </div>
 <script type="text/javascript">
 $("#nextPage").click(function(){
-		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
-});
-$("#nextPage2").click(function(){
-	window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+	$("#errorMsg").html("");
+	$.ajax({
+		  type : "POST",
+		  async:false, 
+		  url : "<%=request.getContextPath()%>/ajax/savie-online/lifePayment",
+		  data: $("#lifePaymentForm").serialize(),
+		  success : function(data) {
+			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+				  $("#errorMsg").html(data.errorMsg);
+			  }
+			  else{
+				  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+			  }
+		  }
+     });
 });
 </script>
