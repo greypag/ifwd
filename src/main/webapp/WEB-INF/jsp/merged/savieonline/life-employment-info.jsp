@@ -11,14 +11,14 @@
 <div style="margin-left: 500px;">
 <div id="errorMsg" style="color: red;"></div>
 <form id="lifeEmploymentInfoForm" action="">
-employmentStatus:<input type="text" id="employmentStatus" name="employmentStatus"/><br/>
-natureOfBusiness:<input type="text" id="natureOfBusiness" name="natureOfBusiness"/><br/>
-occupation:<input type="text" id="occupation" name="occupation"/><br/>
-employerName:<input type="text" id="employerName" name="employerName"/><br/>
-monthlyPersonalIncome:<input type="text" id="monthlyPersonalIncome" name="monthlyPersonalIncome"/><br/>
-education:<input type="text" id="education" name="education"/><br/>
-amountOfOtherSourceOfIncome:<input type="text" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome"/><br/>
-amountOfLiquidAssets:<input type="text" id="amountOfLiquidAssets" name="amountOfLiquidAssets"/><br/>
+employmentStatus:<input type="text" id="employmentStatus" name="employmentStatus" value="${lifeEmploymentInfo.employmentStatus }"/><br/>
+natureOfBusiness:<input type="text" id="natureOfBusiness" name="natureOfBusiness" value="${lifeEmploymentInfo.natureOfBusiness }"/><br/>
+occupation:<input type="text" id="occupation" name="occupation" value="${lifeEmploymentInfo.occupation }"/><br/>
+employerName:<input type="text" id="employerName" name="employerName" value="${lifeEmploymentInfo.employerName }"/><br/>
+monthlyPersonalIncome:<input type="text" id="monthlyPersonalIncome" name="monthlyPersonalIncome" value="${lifeEmploymentInfo.monthlyPersonalIncome }"/><br/>
+education:<input type="text" id="education" name="education" value="${lifeEmploymentInfo.education }"/><br/>
+amountOfOtherSourceOfIncome:<input type="text" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome" value="${lifeEmploymentInfo.amountOfOtherSourceOfIncome }"/><br/>
+amountOfLiquidAssets:<input type="text" id="amountOfLiquidAssets" name="amountOfLiquidAssets" value="${lifeEmploymentInfo.amountOfLiquidAssets }"/><br/>
 <input type="button" id="nextPage" value="nextPage"/><br/>
 </form>
 </div>
