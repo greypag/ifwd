@@ -10,12 +10,14 @@
 <fmt:setBundle basename="messages" var="msg" />
 <div align="center">
 <h1 style="color: black;">life-document-upload.jsp</h1>
-<a id="nextPage" class="buy-now et-quote btn-color-ylw" href="#" >next page</a>
+<a id="nextPage" class="buy-now et-quote btn-color-ylw" href="#" >upload now</a><br/>
+<a id="nextPage2" class="buy-now et-quote btn-color-ylw" href="#" >upload later</a>
 </div>
 <script type="text/javascript">
 $("#nextPage").click(function(){
-	setTimeout(function(){
 		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
-	}, 1000);
+});
+$("#nextPage2").click(function(){
+	window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
 });
 </script>

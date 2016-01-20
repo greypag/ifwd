@@ -1,56 +1,17 @@
 package com.ifwd.fwdhk.controller;
 
-import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
-
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
-
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.common.document.PDFGeneration;
-import com.ifwd.fwdhk.common.document.PdfAttribute;
-import com.ifwd.fwdhk.model.OptionItemDesc;
-import com.ifwd.fwdhk.model.savie.SavieFormApplicationBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
-import com.ifwd.fwdhk.services.SavieService;
-import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
 import com.ifwd.fwdhk.util.CommonUtils;
-import com.ifwd.fwdhk.util.HeaderUtil;
-import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
-import com.ifwd.fwdhk.util.SaviePageFlowControl;
-import com.ifwd.fwdhk.util.WebServiceUtils;
-
 @Controller
 public class SavieOnlineController extends BaseController{
 	
@@ -71,6 +32,26 @@ public class SavieOnlineController extends BaseController{
 	@RequestMapping(value = {"/{lang}/savie-online/savie-plan-details"})
 	public ModelAndView getSavieOnlinePlandetails(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/savie-fna"}) 
+	public ModelAndView getSavieOnlineFna(Model model, HttpServletRequest request) {
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_FNA);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/savie-product"}) 
+	public ModelAndView getSavieOnlinepProduct(Model model, HttpServletRequest request) {
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/savie-save-fna"}) 
+	public ModelAndView getSavieOnlineSaveFna(Model model, HttpServletRequest request) {
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_FNA);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/savie-save-plan-details"}) 
+	public ModelAndView getSavieOnlineSavePlanDetails(Model model, HttpServletRequest request) {
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_PLANDETAILS);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-online/savie-sales-illustration"})
@@ -113,6 +94,11 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION);
 	}
 	
+	@RequestMapping(value = {"/{lang}/savie-online/life-review4"})
+	public ModelAndView getSavieOnlineLifeReview4(Model model, HttpServletRequest request) {
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4);
+	}
+	
 	@RequestMapping(value = {"/{lang}/savie-online/life-signature"})
 	public ModelAndView getSavieOnlineLifeSignature(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE);
@@ -126,5 +112,10 @@ public class SavieOnlineController extends BaseController{
 	@RequestMapping(value = {"/{lang}/savie-online/life-confirmation"})
 	public ModelAndView getSavieOnlineLifeConfirmation(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_CONFIRMATION);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/service-center"})
+	public ModelAndView getSavieOnlineLifeServiceCenter(Model model, HttpServletRequest request) {
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER);
 	}
 }

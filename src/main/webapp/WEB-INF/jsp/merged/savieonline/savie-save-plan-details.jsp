@@ -9,15 +9,13 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <div align="center">
-<h1 style="color: black;">life-signature.jsp</h1>
-<a id="nextPage" class="buy-now et-quote btn-color-ylw" href="#" >sign online</a><br/>
-<a id="nextPage2" class="buy-now et-quote btn-color-ylw" href="#" >sign offline</a>
+<h1 style="color: black;">savie-save-plan-details.jsp</h1>
+<a id="nextPage" class="buy-now et-quote btn-color-ylw" href="#" >next page</a>
 </div>
 <script type="text/javascript">
 $("#nextPage").click(function(){
+	setTimeout(function(){
 		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
-});
-$("#nextPage2").click(function(){
-	window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+	}, 1000);
 });
 </script>

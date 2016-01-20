@@ -75,6 +75,26 @@ public class SavieOnlinePageFlowControl {
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_FNA;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_FNA;
+			break;
+			
+		case UserRestURIConstants.PAGE_SAVIEONLINE_FNA: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT;
+			break;
+			
+		case UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_FNA;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_FNA;
+			break;
+			
+		case UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_FNA: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_PLANDETAILS;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_PLANDETAILS;
+			break;
+			
+		case UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_PLANDETAILS: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION;
 			break;
@@ -106,7 +126,7 @@ public class SavieOnlinePageFlowControl {
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PAYMENT: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY: 
@@ -115,13 +135,18 @@ public class SavieOnlinePageFlowControl {
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4;
+			break;
+			
+		case UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD: 
@@ -132,6 +157,11 @@ public class SavieOnlinePageFlowControl {
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_CONFIRMATION: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			break;
+			
+		case UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
 			break;
 
 		default:
@@ -160,6 +190,19 @@ public class SavieOnlinePageFlowControl {
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS;
 		}
+		
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_FNA)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_FNA;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_FNA)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_FNA;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_PLANDETAILS)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_PLANDETAILS;
+		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION;
 		}
@@ -184,6 +227,9 @@ public class SavieOnlinePageFlowControl {
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
 		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4;
+		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
 		}
@@ -192,6 +238,9 @@ public class SavieOnlinePageFlowControl {
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_CONFIRMATION)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_CONFIRMATION;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
 		}
 		return "";
 	}
