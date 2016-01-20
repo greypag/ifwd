@@ -8,11 +8,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.ifwd.fwdhk.ajax.request.LifeEmploymentInfoBean;
+import com.ifwd.fwdhk.ajax.request.LifePersonalDetailsBean;
+import com.ifwd.fwdhk.ajax.request.SaviePlanDetailsGetRequest;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
-import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
-import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
-import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.utils.ValidationExceptions;
@@ -26,15 +27,15 @@ public class AjaxSavieOnlineController extends BaseController{
 	private SavieOnlineService savieOnlineService;
 	
 	@RequestMapping(value = {"/ajax/savie-online/getSavieOnlinePlandetails"})
-	public void getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request,HttpServletResponse response) {
+	public void getSavieOnlinePlandetails(SaviePlanDetailsGetRequest saviePlanDetailsGetRequest, HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
-		if(Methods.isXssAjax(request)){
+		if(Methods.isXssAjax((HttpServletRequest)saviePlanDetailsGetRequest)){
 			return;
 		}
 		try {
-			saviePlanDetails.validate(request);
+			saviePlanDetailsGetRequest.validate();
 			
-			jsonObject.put("apiData", savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request).toString());
+			jsonObject.put("apiData", savieOnlineService.getSavieOnlinePlandetails(saviePlanDetailsGetRequest).toString());
 		}
 		catch (ValidationExceptions e) {
 			jsonObject.put("errorMsg", e.getResolvableMessage().getCodes()[0]);
