@@ -10,12 +10,13 @@
 <fmt:setBundle basename="messages" var="msg" />
 <div align="center">
 <h1 style="color: black;">savie-sales-illustration.jsp</h1>
-<a id="nextPage" class="buy-now et-quote btn-color-ylw" href="#" >next page</a>
+<div id="errorMsg" style="color: red;"><c:if test="${pdfName == ''}">${errorMsg }</c:if></div>
+<input type="button" value="${pdfName }→OK" onclick="acceptPdf('${pdfName}','${requestNo}')"/>
+<input type="button" id="nextPage" value="next page"/><br/>
+<iframe src="<%=request.getContextPath()%>/resources/pdf/${pdfName }" width="800" height="1200" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
 </div>
 <script type="text/javascript">
 $("#nextPage").click(function(){
-	setTimeout(function(){
-		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
-	}, 1000);
+	window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
 });
 </script>

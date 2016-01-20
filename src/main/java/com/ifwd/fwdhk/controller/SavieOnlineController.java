@@ -1,6 +1,7 @@
 package com.ifwd.fwdhk.controller;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
+import com.ifwd.utils.ValidationExceptions;
 @Controller
 public class SavieOnlineController extends BaseController{
 	
@@ -44,18 +48,14 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savie-online/savie-save-fna"}) 
-	public ModelAndView getSavieOnlineSaveFna(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_FNA);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savie-online/savie-save-plan-details"}) 
-	public ModelAndView getSavieOnlineSavePlanDetails(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_PLANDETAILS);
-	}
-	
 	@RequestMapping(value = {"/{lang}/savie-online/savie-sales-illustration"})
 	public ModelAndView getSavieOnlineSalesIllustration(Model model, HttpServletRequest request) {
+		try {
+			savieOnlineService.createSalesIllustrationPdf(request);
+		}
+		catch (Exception e) {
+			request.getSession().setAttribute("errorMsg", e.getMessage());
+		}
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION);
 	}
 	

@@ -85,16 +85,6 @@ public class SavieOnlinePageFlowControl {
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_FNA;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_FNA;
-			break;
-			
-		case UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_FNA: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_PLANDETAILS;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_PLANDETAILS;
-			break;
-			
-		case UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_PLANDETAILS: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION;
 			break;
@@ -196,12 +186,6 @@ public class SavieOnlinePageFlowControl {
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT;
-		}
-		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_FNA)) {
-			return UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_FNA;
-		}
-		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_PLANDETAILS)) {
-			return UserRestURIConstants.PAGE_SAVIEONLINE_SAVE_PLANDETAILS;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION;
