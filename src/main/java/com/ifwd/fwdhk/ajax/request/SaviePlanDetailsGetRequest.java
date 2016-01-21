@@ -1,20 +1,8 @@
 package com.ifwd.fwdhk.ajax.request;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.ifwd.ecomm.exception.ValidationException;
-import com.ifwd.utils.ValidationExceptions;
-import com.ifwd.utils.ValidationUtils;
-import com.ifwd.ws.request.AnnualTravelQuoteGetRequest;
-import com.ifwd.ws.request.TravelQuoteGetRequest;
-
 public class SaviePlanDetailsGetRequest implements Serializable {
 	private final static Logger logger = LoggerFactory.getLogger(SaviePlanDetailsGetRequest.class);
 	private static final long serialVersionUID = 1L;
@@ -43,7 +31,7 @@ public class SaviePlanDetailsGetRequest implements Serializable {
 	public void setPromoCode(String promoCode) {
 		this.promoCode = promoCode;
 	}
-	public void validate(String language) throws ValidationException{
+	/*public void validate(String language) throws ValidationException{
 		List<String> list = new ArrayList<String>();
 		
 		
@@ -63,7 +51,7 @@ public class SaviePlanDetailsGetRequest implements Serializable {
 		}
 			
 		
-	}
+	}*/
 	
 	
 }
