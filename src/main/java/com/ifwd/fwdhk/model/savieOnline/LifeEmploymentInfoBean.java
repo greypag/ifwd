@@ -1,4 +1,4 @@
-package com.ifwd.fwdhk.ajax.request;
+package com.ifwd.fwdhk.model.savieOnline;
 
 import java.io.Serializable;
 import java.util.ArrayList;
