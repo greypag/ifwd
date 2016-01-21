@@ -263,6 +263,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIEONLINE_PLANDETAILS = "savie-plan-details";
 	public static final String PAGE_SAVIEONLINE_FNA = "savie-fna";
 	public static final String PAGE_SAVIEONLINE_PRODUCT = "savie-product";
+	public static final String PAGE_SAVIEONLINE_REVIEW = "savie-review";
 	public static final String PAGE_SAVIEONLINE_SALES_ILLUSTRATION = "savie-sales-illustration";
 	public static final String PAGE_SAVIEONLINE_LIFE_FATCA = "life-fatca";
 	public static final String PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS = "life-personal-details";
@@ -281,6 +282,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_PLANDETAILS = "savie.plan.details";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_FNA = "savie.fna";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_PRODUCT = "savie.product";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_REVIEW = "savie.review";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_SALES_ILLUSTRATION = "savie.sales.illustration";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA = "life.fatca";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS = "life.personal.details";

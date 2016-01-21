@@ -48,6 +48,11 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT);
 	}
 	
+	@RequestMapping(value = {"/{lang}/savie-online/savie-review"}) 
+	public ModelAndView getSavieOnlinepReview(Model model, HttpServletRequest request) {
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT);
+	}
+	
 	@RequestMapping(value = {"/{lang}/savie-online/savie-sales-illustration"})
 	public ModelAndView getSavieOnlineSalesIllustration(Model model, HttpServletRequest request) {
 		try {

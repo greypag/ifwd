@@ -1,5 +1,8 @@
-var url_show = "/api/show.php";
-var url_update = "/api/update.php";
+var contextPath = context; //"/fwdhk"
+var UILANGUAGE = language;
+
+var url_show = contextPath+"/ajax/savie-online/show";
+var url_update = contextPath+"/ajax/savie-online/update";
 
 $(document).ready(function(){
 	Review.init();
@@ -706,7 +709,7 @@ var Review = {
 		var postData = fnaData;
 		AjaxManager.fire(url, postData, function(result){
 			if(result.status == 0){
-				window.location.href = "recommendation.html";
+				window.location.href = contextPath + "/" + language + "/savie-online/savie-product";
 			}else if(result.status == 2){
 				//alert("Please login first");
 				$('.login-btn').click();

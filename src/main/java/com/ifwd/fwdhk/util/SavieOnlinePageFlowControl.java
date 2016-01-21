@@ -84,6 +84,11 @@ public class SavieOnlinePageFlowControl {
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT;
 			break;
 			
+		case UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT;
+			break;
+			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION;
@@ -183,6 +188,9 @@ public class SavieOnlinePageFlowControl {
 		
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_FNA)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_FNA;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT;
