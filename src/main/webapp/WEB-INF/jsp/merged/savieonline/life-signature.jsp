@@ -30,9 +30,19 @@
             <!-- show pdf modal -->
 			<div class="modal fade" id="showPdfModal" role="dialog" aria-hidden="true">
 				<div class="modal-dialog">
-					<div class="modal-content thank-you-content">
-					    <iframe src="<%=request.getContextPath()%>/resources/pdf/${pdfName }" width="800" height="600" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+					<div align="center" class="modal-content thank-you-content">
+					    <iframe src="<%=request.getContextPath()%>/resources/pdf/${pdfName }" width="800" height="300" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
 					    <a id="showSign" class="buy-now et-quote btn-color-ylw" href="#" >Confirm and sign</a>
+					</div>
+				</div>
+			</div>
+			
+			<!-- sign div modal -->
+			<div class="modal fade" id="showSignModal" role="dialog" aria-hidden="true">
+				<div class="modal-dialog">
+					<div align="center" class="modal-content thank-you-content">
+					    <div style="width: 500px;height: 200px;">sign here</div>
+					    <a id="nextPage" class="buy-now et-quote btn-color-ylw" href="#" >Confirm</a>
 					</div>
 				</div>
 			</div>
@@ -47,5 +57,10 @@ $("#nextPage2").click(function(){
 $("#reviewNow").click(function(){
 	$('#showPdfModal').modal({backdrop: 'static', keyboard: false});
 	$('#showPdfModal').modal('show');
+});
+$("#showSign").click(function(){
+	$('#showPdfModal').modal('hide');
+	$('#showSignModal').modal({backdrop: 'static', keyboard: false});
+	$('#showSignModal').modal('show');
 });
 </script>
