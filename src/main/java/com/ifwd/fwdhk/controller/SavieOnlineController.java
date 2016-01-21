@@ -15,7 +15,6 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
-import com.ifwd.utils.ValidationExceptions;
 @Controller
 public class SavieOnlineController extends BaseController{
 	

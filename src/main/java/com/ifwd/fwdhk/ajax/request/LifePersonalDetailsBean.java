@@ -1,10 +1,14 @@
 package com.ifwd.fwdhk.ajax.request;
 
 import java.io.Serializable;
-import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.ifwd.utils.ValidationExceptions;
+
+import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.utils.ErrorMessageUtils;
 import com.ifwd.utils.ValidationUtils;
 
 public class LifePersonalDetailsBean implements Serializable {
@@ -35,19 +39,44 @@ public class LifePersonalDetailsBean implements Serializable {
 	private String correspondenceAddress3;
 	private String correspondenceAddressDistrict;
 	
-	public void validate(HttpServletRequest request) throws ValidationExceptions {
-		ValidationUtils.validation("firstname","firstname", firstname, request);
-		ValidationUtils.validation("lastname","lastname", lastname, request);
-		ValidationUtils.validation("chineseName","chineseName", chineseName, request);
-		ValidationUtils.validation("dob","dob", dob, request);
-		ValidationUtils.validation("gender","gender", gender, request);
-		ValidationUtils.validation("hkid","hkid", hkid, request);
-		ValidationUtils.validation("martialStatus","martialStatus", martialStatus, request);
-		ValidationUtils.validation("mobile","mobile", mobileNumber, request);
-		ValidationUtils.validation("email","email", emailAddress, request);
-		ValidationUtils.validation("placeOfBirth","placeOfBirth", placeOfBirth, request);
-		ValidationUtils.validation("nationalty","nationalty", nationalty, request);
-		ValidationUtils.sendMsg();
+	public void validate(String language) throws ValidateExceptions {
+		List<String> list = new ArrayList<String>();
+        if(ValidationUtils.isNullOrEmpty(this.firstname)){
+        	list.add(ErrorMessageUtils.getMessage("firstname", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.lastname)){
+        	list.add(ErrorMessageUtils.getMessage("lastname", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.chineseName)){
+        	list.add(ErrorMessageUtils.getMessage("chineseName", "validation.failure", language));
+        }
+        if(!ValidationUtils.isValidDate(this.dob)){
+        	list.add(ErrorMessageUtils.getMessage("dob", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.gender)){
+        	list.add(ErrorMessageUtils.getMessage("gender", "validation.failure", language));
+        }
+        if(!ValidationUtils.isHkid(this.hkid)){
+        	list.add(ErrorMessageUtils.getMessage("hkid", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.martialStatus)){
+        	list.add(ErrorMessageUtils.getMessage("martialStatus", "validation.failure", language));
+        }
+        if(!ValidationUtils.isMobile(this.mobileNumber)){
+        	list.add(ErrorMessageUtils.getMessage("mobileNumber", "validation.failure", language));
+        }
+        if(!ValidationUtils.isEmail(this.emailAddress)){
+        	list.add(ErrorMessageUtils.getMessage("emailAddress", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.placeOfBirth)){
+        	list.add(ErrorMessageUtils.getMessage("placeOfBirth", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.nationalty)){
+        	list.add(ErrorMessageUtils.getMessage("nationalty", "validation.failure", language));
+        }
+		if (list.size() > 0) {
+			throw new ValidateExceptions(list);
+		}
 	}
 	
 	public String getFirstname() {

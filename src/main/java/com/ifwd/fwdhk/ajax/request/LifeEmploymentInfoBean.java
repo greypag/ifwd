@@ -1,10 +1,14 @@
 package com.ifwd.fwdhk.ajax.request;
 
 import java.io.Serializable;
-import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.ifwd.utils.ValidationExceptions;
+
+import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.utils.ErrorMessageUtils;
 import com.ifwd.utils.ValidationUtils;
 
 public class LifeEmploymentInfoBean implements Serializable {
@@ -20,16 +24,35 @@ public class LifeEmploymentInfoBean implements Serializable {
 	private String amountOfOtherSourceOfIncome;
 	private String amountOfLiquidAssets;
 	
-	public void validate(HttpServletRequest request) throws ValidationExceptions {
-		ValidationUtils.validation("NOTNULL", "employmentStatus", employmentStatus, request);
-		ValidationUtils.validation("NOTNULL", "natureOfBusiness", natureOfBusiness, request);
-		ValidationUtils.validation("NOTNULL", "occupation", occupation, request);
-		ValidationUtils.validation("NOTNULL", "employerName", employerName, request);
-		ValidationUtils.validation("NOTNULL", "monthlyPersonalIncome", monthlyPersonalIncome, request);
-		ValidationUtils.validation("NOTNULL", "education", education, request);
-		ValidationUtils.validation("NOTNULL", "amountOfOtherSourceOfIncome", amountOfOtherSourceOfIncome, request);
-		ValidationUtils.validation("NOTNULL", "amountOfLiquidAssets", amountOfLiquidAssets, request);
-		ValidationUtils.sendMsg();
+	public void validate(String language) throws ValidateExceptions {
+		List<String> list = new ArrayList<String>();
+        if(ValidationUtils.isNullOrEmpty(this.employmentStatus)){
+        	list.add(ErrorMessageUtils.getMessage("employmentStatus", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.natureOfBusiness)){
+        	list.add(ErrorMessageUtils.getMessage("natureOfBusiness", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.occupation)){
+        	list.add(ErrorMessageUtils.getMessage("occupation", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.employerName)){
+        	list.add(ErrorMessageUtils.getMessage("employerName", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.monthlyPersonalIncome)){
+        	list.add(ErrorMessageUtils.getMessage("monthlyPersonalIncome", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.education)){
+        	list.add(ErrorMessageUtils.getMessage("education", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.amountOfOtherSourceOfIncome)){
+        	list.add(ErrorMessageUtils.getMessage("amountOfOtherSourceOfIncome", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.amountOfLiquidAssets)){
+        	list.add(ErrorMessageUtils.getMessage("amountOfLiquidAssets", "validation.failure", language));
+        }
+		if (list.size() > 0) {
+			throw new ValidateExceptions(list);
+		}
 	}
 
 	public String getEmploymentStatus() {

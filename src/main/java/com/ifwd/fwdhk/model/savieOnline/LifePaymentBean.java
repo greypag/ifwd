@@ -1,12 +1,14 @@
 package com.ifwd.fwdhk.model.savieOnline;
 
 import java.io.Serializable;
-import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.ifwd.utils.ValidationExceptions;
+import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.utils.ErrorMessageUtils;
 import com.ifwd.utils.ValidationUtils;
-
 public class LifePaymentBean implements Serializable {
 	private final static Logger logger = LoggerFactory.getLogger(LifePaymentBean.class);
 	private static final long serialVersionUID = 1L;
@@ -18,13 +20,26 @@ public class LifePaymentBean implements Serializable {
 	private String accountHolderName;
 	private String paymentAmount;
 	
-	public void validate(HttpServletRequest request) throws ValidationExceptions {
-		ValidationUtils.validation("NOTNULL", "bankCode", bankCode, request);
-		ValidationUtils.validation("NOTNULL", "branchCode", branchCode, request);
-		ValidationUtils.validation("NOTNULL", "accountNumber", accountNumber, request);
-		ValidationUtils.validation("NOTNULL", "accountHolderName", accountHolderName, request);
-		ValidationUtils.validation("NOTNULL", "paymentAmount", paymentAmount, request);
-		ValidationUtils.sendMsg();
+	public void validate(String language) throws ValidateExceptions {
+		List<String> list = new ArrayList<String>();
+        if(ValidationUtils.isNullOrEmpty(this.bankCode)){
+        	list.add(ErrorMessageUtils.getMessage("bankCode", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.branchCode)){
+        	list.add(ErrorMessageUtils.getMessage("branchCode", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.accountNumber)){
+        	list.add(ErrorMessageUtils.getMessage("accountNumber", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.accountHolderName)){
+        	list.add(ErrorMessageUtils.getMessage("accountHolderName", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.paymentAmount)){
+        	list.add(ErrorMessageUtils.getMessage("paymentAmount", "validation.failure", language));
+        }
+		if (list.size() > 0) {
+			throw new ValidateExceptions(list);
+		}
 	}
 
 	public Boolean getPayOnline() {

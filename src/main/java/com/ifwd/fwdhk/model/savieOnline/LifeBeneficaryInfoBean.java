@@ -1,10 +1,15 @@
 package com.ifwd.fwdhk.model.savieOnline;
 
 import java.io.Serializable;
-import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.ifwd.utils.ValidationExceptions;
+
+import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.fwdhk.exception.ValidationExceptions;
+import com.ifwd.utils.ErrorMessageUtils;
 import com.ifwd.utils.ValidationUtils;
 
 public class LifeBeneficaryInfoBean implements Serializable {
@@ -34,15 +39,32 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	private String beneficaryRelation3;
 	private String beneficaryWeight3;
 	
-	public void validate(HttpServletRequest request) throws ValidationExceptions {
-		ValidationUtils.validation("NOTNULL", "beneficaryFirstName1", beneficaryFirstName1, request);
-		ValidationUtils.validation("NOTNULL", "beneficaryLastName1", beneficaryLastName1, request);
-		ValidationUtils.validation("NOTNULL", "beneficaryChineseName1", beneficaryChineseName1, request);
-		ValidationUtils.validation("NOTNULL", "beneficaryID1", beneficaryID1, request);
-		ValidationUtils.validation("NOTNULL", "beneficaryGender1", beneficaryGender1, request);
-		ValidationUtils.validation("NOTNULL", "beneficaryRelation1", beneficaryRelation1, request);
-		ValidationUtils.validation("NOTNULL", "beneficaryWeight1", beneficaryWeight1, request);
-		ValidationUtils.sendMsg();
+	public void validate(String language) throws ValidateExceptions {
+		List<String> list = new ArrayList<String>();
+        if(ValidationUtils.isNullOrEmpty(this.beneficaryFirstName1)){
+        	list.add(ErrorMessageUtils.getMessage("beneficaryFirstName1", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.beneficaryLastName1)){
+        	list.add(ErrorMessageUtils.getMessage("beneficaryLastName1", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.beneficaryChineseName1)){
+        	list.add(ErrorMessageUtils.getMessage("beneficaryChineseName1", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.beneficaryID1)){
+        	list.add(ErrorMessageUtils.getMessage("beneficaryID1", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.beneficaryGender1)){
+        	list.add(ErrorMessageUtils.getMessage("beneficaryGender1", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.beneficaryRelation1)){
+        	list.add(ErrorMessageUtils.getMessage("beneficaryRelation1", "validation.failure", language));
+        }
+        if(ValidationUtils.isNullOrEmpty(this.beneficaryWeight1)){
+        	list.add(ErrorMessageUtils.getMessage("beneficaryWeight1", "validation.failure", language));
+        }
+		if (list.size() > 0) {
+			throw new ValidateExceptions(list);
+		}
 	}
 
 	public Boolean getIsOwnEstate() {

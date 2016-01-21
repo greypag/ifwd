@@ -1,10 +1,16 @@
 package com.ifwd.fwdhk.model.savieOnline;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.ifwd.utils.ValidationExceptions;
+
+import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.utils.ErrorMessageUtils;
 import com.ifwd.utils.ValidationUtils;
 
 public class SaviePlanDetailsBean implements Serializable {
@@ -15,11 +21,17 @@ public class SaviePlanDetailsBean implements Serializable {
 	private String dob;
 	private String promoCode;
 	
-	public void validate(HttpServletRequest request) throws ValidationExceptions {
-		ValidationUtils.validation("insuredAmount", "insuredAmount", insuredAmount, request);
-		ValidationUtils.validation("dob","dob", dob, request);
-		//ValidationUtils.validation("promoCode", promoCode, request);
-		ValidationUtils.sendMsg();
+	public void validate(String language) throws ValidateExceptions {
+        List<String> list = new ArrayList<String>();
+        if(this.insuredAmount == null || "".equals(this.insuredAmount)){
+        	list.add(ErrorMessageUtils.getMessage("insuredAmount", "validation.failure", language));
+        }
+        if(!ValidationUtils.isValidDate(this.dob)){
+        	list.add(ErrorMessageUtils.getMessage("dob", "validation.failure", language));
+        }
+		if (list.size() > 0) {
+			throw new ValidateExceptions(list);
+		}
 	}
 	
 	public String getInsuredAmount() {
