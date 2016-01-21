@@ -54,7 +54,7 @@ $(document).ready(function() {
 		<img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="home.hero.image.alt" bundle="${msg}" />"
 			class="img-responsive hidden-lg hidden-md" />
         <div class="tagline-holder hidden-lg hidden-md">
-            <img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive">
+            <img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive">
         </div>
 		<!--desktop-->
 		<div class="carousel slide hidden-xs hidden-sm">
@@ -74,7 +74,7 @@ $(document).ready(function() {
 			</div>
 			<!--/.carousel-inner-->
         <div class="tagline-holder">
-            <img src="<%=request.getContextPath()%>/<fmt:message key="eliteterms.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive">
+            <img src="<%=request.getContextPath()%>/<fmt:message key="home.hero.tagline" bundle="${msg}" />" alt="Protection for your family's future" class="img-responsive">
         </div>
 		</div>
 		<div class="homecare hidden-xs hidden-sm" id="homecare-scroll">
