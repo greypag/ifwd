@@ -18,6 +18,8 @@ AjaxManager = {
             if (successCallBack) AjaxManager.callback = successCallBack;
             AjaxManager.url = url;
             AjaxManager.postData = postData;
+            console.log("ajax call url:"+url);
+            console.log("ajax call data:"+postData);
 
             
             $.ajax({

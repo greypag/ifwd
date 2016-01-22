@@ -11,8 +11,8 @@
 <div style="margin-left: 500px;">
 <div id="errorMsg" style="color: red;"></div>
 <form id="lifePaymentForm" action="">
-<input type="radio" id="payOnline" name="payOnline" value="true"/>pay online
-<input type="radio" id="payOffline" name="payOffline" value="false"/>pay later<br/>
+<input type="radio" id="payOnline" name="payOnline" value="0"/>pay online
+<input type="radio" id="payOffline" name="payOnline" value="1"/>pay later<br/>
 bankCode:<input type="text" id="bankCode" name="bankCode" value="${lifePayment.bankCode }"/><br/>
 branchCode:<input type="text" id="branchCode" name="branchCode" value="${lifePayment.branchCode }"/><br/>
 accountNumber:<input type="text" id="accountNumber" name="accountNumber" value="${lifePayment.accountNumber }"/><br/>
@@ -23,20 +23,25 @@ paymentAmount:<input type="text" id="paymentAmount" name="paymentAmount" value="
 </div>
 <script type="text/javascript">
 $("#nextPage").click(function(){
-	$("#errorMsg").html("");
-	$.ajax({
-		  type : "POST",
-		  async:false, 
-		  url : "<%=request.getContextPath()%>/ajax/savie-online/lifePayment",
-		  data: $("#lifePaymentForm").serialize(),
-		  success : function(data) {
-			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-				  $("#errorMsg").html(data.errorMsg);
+	if($('input[name="payOnline"]:checked ').val() == "1"){
+		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+	}
+	else{
+		$("#errorMsg").html("");
+		$.ajax({
+			  type : "POST",
+			  async:false, 
+			  url : "<%=request.getContextPath()%>/ajax/savie-online/lifePayment",
+			  data: $("#lifePaymentForm").serialize(),
+			  success : function(data) {
+				  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+					  $("#errorMsg").html(data.errorMsg);
+				  }
+				  else{
+					  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+				  }
 			  }
-			  else{
-				  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
-			  }
-		  }
-     });
+	     });
+	}
 });
 </script>

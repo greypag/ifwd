@@ -3,17 +3,22 @@ package com.ifwd.fwdhk.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
+import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
+import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.Methods;
@@ -82,6 +87,42 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
+	@RequestMapping(value = {"/ajax/savie-online/lifeBeneficaryInfo"})
+	public void lifeBeneficaryInfo(LifeBeneficaryInfoBean lifeBeneficaryInfo,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		String language = (String) session.getAttribute("language");
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			lifeBeneficaryInfo.validate(language);
+			request.getSession().setAttribute("lifeBeneficaryInfo", lifeBeneficaryInfo);
+		}
+		catch (ValidateExceptions e) {
+			jsonObject.put("errorMsg", e.getList().toString());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savie-online/lifePayment"})
+	public void lifePayment(LifePaymentBean lifePayment,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		String language = (String) session.getAttribute("language");
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			lifePayment.validate(language);
+			request.getSession().setAttribute("lifePayment", lifePayment);
+		}
+		catch (ValidateExceptions e) {
+			jsonObject.put("errorMsg", e.getList().toString());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
 	@RequestMapping(value = {"/ajax/savie-online/show"})
 	public void show(HttpServletRequest request,HttpServletResponse response) {
 		/*JSONObject jsonObject = new JSONObject();
@@ -100,20 +141,23 @@ public class AjaxSavieOnlineController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/ajax/savie-online/update"})
-	public void update(HttpServletRequest request,HttpServletResponse response) {
-		/*JSONObject jsonObject = new JSONObject();
+	public void update(SavieFnaBean savieFna,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		String language = (String) session.getAttribute("language");
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("status", 0);
 		if(Methods.isXssAjax(request)){
 			return;
-		}*/
-		
-		String jsonObject = "{\"status\":0}";
-		logger.info(jsonObject.toString());
-		response.setContentType("text/json;charset=utf-8");
-		try {
-			response.getWriter().print(jsonObject);
-		}catch(Exception e) {
-			e.printStackTrace();
 		}
+		/*try {
+			//lifeEmploymentInfo.validate(language);
+		}
+		catch (ValidateExceptions e) {
+			jsonObject.put("errorMsg", e.getList().toString());
+		}*/
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+		
+		//String jsonObject = "{\"status\":0}";
 	}
 	
 	@RequestMapping(value = {"/ajax/savie-online/product-recommend"})
