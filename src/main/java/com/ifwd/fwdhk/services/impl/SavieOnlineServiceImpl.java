@@ -301,7 +301,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		JSONArray jsonArray = (JSONArray) responseJsonObj.get("result");
-		return (JSONObject) jsonArray.get(0);
+		return (JSONObject) responseJsonObj.get("result");
 	}
 }
