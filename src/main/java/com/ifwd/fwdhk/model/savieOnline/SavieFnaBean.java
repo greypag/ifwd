@@ -14,6 +14,7 @@ public class SavieFnaBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String v;
+	private String name;
 	private String gender;
 	private String dob;
 	private String marital_status;
@@ -41,6 +42,7 @@ public class SavieFnaBean implements Serializable {
 	private String q4_f;
 	private String q4_g;
 	private String q4_g_others;
+	private String last_update;
 	
 	public void validate(String language) throws ValidateExceptions {
         List<String> list = new ArrayList<String>();
@@ -278,4 +280,21 @@ public class SavieFnaBean implements Serializable {
 	public void setQ4_g_others(String q4_g_others) {
 		this.q4_g_others = q4_g_others;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLast_update() {
+		return last_update;
+	}
+
+	public void setLast_update(String last_update) {
+		this.last_update = last_update;
+	}
+	
 }

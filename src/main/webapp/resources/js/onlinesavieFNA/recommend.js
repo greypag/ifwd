@@ -264,7 +264,7 @@ var FNArecommendation = {
 			that.parseUserData(res);
 			//Assign Value to 
 
-			AjaxManager.fire(that.api_product_recommend,null,function(res){
+			AjaxManager.fire(that.api_product_recommend,that.fnaData,function(res){
 				that.fnaResultData = res;
 				that.parseProductRecommend(res);
 				that.setLoading(false);

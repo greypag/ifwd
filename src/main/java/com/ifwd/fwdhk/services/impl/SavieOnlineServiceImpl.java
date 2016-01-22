@@ -1,23 +1,32 @@
 package com.ifwd.fwdhk.services.impl;
 
+import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.common.util.NumberTransferUtils;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
+import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
@@ -25,6 +34,7 @@ import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
+import com.ifwd.fwdhk.util.WebServiceUtils;
 @Service
 public class SavieOnlineServiceImpl implements SavieOnlineService {
 	private final static Logger logger = LoggerFactory.getLogger(SavieOnlineServiceImpl.class);
@@ -181,5 +191,134 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		else{
 			throw new Exception("errorMsg: api data error");
 		}
+	}
+	
+	public JSONObject saveProductFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
+		String Url = "http://172.25.114.78:8080/adminPortal-ws/product/saveProductFna";
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")){
+			lang = "CH";
+		}
+		else{
+			lang = "EN";
+		}
+		
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("name", "Chan Tai Man");
+		jsonObject.put("gender", savieFna.getGender());
+		jsonObject.put("dob", savieFna.getDob());
+		jsonObject.put("marital_status", savieFna.getMarital_status());
+		jsonObject.put("dependents", savieFna.getDependents());
+		jsonObject.put("education", savieFna.getEducation());
+		jsonObject.put("employment_status", savieFna.getEmployment_status());
+		jsonObject.put("nature_of_business", savieFna.getNature_of_business());
+		jsonObject.put("occupation", savieFna.getOccupation());
+		jsonObject.put("occupation_others", savieFna.getOccupation_others());
+		jsonObject.put("q1", savieFna.getQ1());
+		jsonObject.put("q1_others", savieFna.getQ1_others());
+		jsonObject.put("q2", savieFna.getQ2());
+		jsonObject.put("q2_others", savieFna.getQ2_others());
+		jsonObject.put("q3", savieFna.getQ3());
+		jsonObject.put("q4", savieFna.getQ4());
+		jsonObject.put("q4_a", savieFna.getQ4_a());
+		jsonObject.put("q4_a_others", savieFna.getQ4_a_others());
+		jsonObject.put("q4_b", savieFna.getQ4_b());
+		jsonObject.put("q4_b_amount", savieFna.getQ4_b_amount());
+		jsonObject.put("q4_b_others", savieFna.getQ4_b_others());
+		jsonObject.put("q4_c", savieFna.getQ4_c());
+		jsonObject.put("q4_d_1", savieFna.getQ4_d_1());
+		jsonObject.put("q4_d_2", savieFna.getQ4_d_2());
+		jsonObject.put("q4_e", savieFna.getQ4_e());
+		jsonObject.put("q4_f", savieFna.getQ4_f());
+		jsonObject.put("q4_g", savieFna.getQ4_g());
+		jsonObject.put("q4_g_others", savieFna.getQ4_g_others());
+		jsonObject.put("lang", lang);
+		logger.info(jsonObject.toString());
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
+		return responseJsonObj;
+	}
+	
+	public JSONObject getProductrRecommend(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
+		String Url = "http://172.25.114.78:8080/adminPortal-ws/product/getProductrRecommend";
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")){
+			lang = "CH";
+		}
+		else{
+			lang = "EN";
+		}
+		
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("name", "Chan Tai Man");
+		jsonObject.put("gender", savieFna.getGender());
+		jsonObject.put("dob", savieFna.getDob());
+		jsonObject.put("marital_status", savieFna.getMarital_status());
+		jsonObject.put("dependents", savieFna.getDependents());
+		jsonObject.put("education", savieFna.getEducation());
+		jsonObject.put("employment_status", savieFna.getEmployment_status());
+		jsonObject.put("nature_of_business", savieFna.getNature_of_business());
+		jsonObject.put("occupation", savieFna.getOccupation());
+		jsonObject.put("occupation_others", savieFna.getOccupation_others());
+		jsonObject.put("q1", savieFna.getQ1());
+		jsonObject.put("q1_others", savieFna.getQ1_others());
+		jsonObject.put("q2", savieFna.getQ2());
+		jsonObject.put("q2_others", savieFna.getQ2_others());
+		jsonObject.put("q3", savieFna.getQ3());
+		jsonObject.put("q4", savieFna.getQ4());
+		jsonObject.put("q4_a", savieFna.getQ4_a());
+		jsonObject.put("q4_a_others", savieFna.getQ4_a_others());
+		jsonObject.put("q4_b", savieFna.getQ4_b());
+		jsonObject.put("q4_b_amount", savieFna.getQ4_b_amount());
+		jsonObject.put("q4_b_others", savieFna.getQ4_b_others());
+		jsonObject.put("q4_c", savieFna.getQ4_c());
+		jsonObject.put("q4_d_1", savieFna.getQ4_d_1());
+		jsonObject.put("q4_d_2", savieFna.getQ4_d_2());
+		jsonObject.put("q4_e", savieFna.getQ4_e());
+		jsonObject.put("q4_f", savieFna.getQ4_f());
+		jsonObject.put("q4_g", savieFna.getQ4_g());
+		jsonObject.put("q4_g_others", savieFna.getQ4_g_others());
+		jsonObject.put("lang", lang);
+		logger.info(jsonObject.toString());
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
+		return responseJsonObj;
+	}
+	
+	public JSONObject getFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("name", savieFna.getName());
+		jsonObject.put("gender", savieFna.getGender());
+		jsonObject.put("dob", savieFna.getDob());
+		jsonObject.put("marital_status", savieFna.getMarital_status());
+		jsonObject.put("dependents", savieFna.getDependents());
+		jsonObject.put("education", savieFna.getEducation());
+		jsonObject.put("employment_status", savieFna.getEmployment_status());
+		jsonObject.put("nature_of_business", savieFna.getNature_of_business());
+		jsonObject.put("occupation", savieFna.getOccupation());
+		jsonObject.put("occupation_others", savieFna.getOccupation_others());
+		jsonObject.put("q1", savieFna.getQ1());
+		jsonObject.put("q1_others", savieFna.getQ1_others());
+		jsonObject.put("q2", savieFna.getQ2());
+		jsonObject.put("q2_others", savieFna.getQ2_others());
+		jsonObject.put("q3", savieFna.getQ3());
+		jsonObject.put("q4", savieFna.getQ4());
+		jsonObject.put("q4_a", savieFna.getQ4_a());
+		jsonObject.put("q4_a_others", savieFna.getQ4_a_others());
+		jsonObject.put("q4_b", savieFna.getQ4_b());
+		jsonObject.put("q4_b_amount", savieFna.getQ4_b_amount());
+		jsonObject.put("q4_b_others", savieFna.getQ4_b_others());
+		jsonObject.put("q4_c", savieFna.getQ4_c());
+		jsonObject.put("q4_d_1", savieFna.getQ4_d_1());
+		jsonObject.put("q4_d_2", savieFna.getQ4_d_2());
+		jsonObject.put("q4_e", savieFna.getQ4_e());
+		jsonObject.put("q4_f", savieFna.getQ4_f());
+		jsonObject.put("q4_g", savieFna.getQ4_g());
+		jsonObject.put("q4_g_others", savieFna.getQ4_g_others());
+		jsonObject.put("last_update", "2015-12-31 23:52:00");
+		logger.info(jsonObject.toString());
+		return jsonObject;
 	}
 }
