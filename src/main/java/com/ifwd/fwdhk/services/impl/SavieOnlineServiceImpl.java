@@ -320,5 +320,18 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		jsonObject.put("last_update", "2015-12-31 23:52:00");
 		logger.info(jsonObject.toString());
 		return jsonObject;
+		/*String Url = "http://172.25.114.78:8080/adminPortal-ws/product/getProductFna?name=cxy";
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")){
+			lang = "CH";
+		}
+		else{
+			lang = "EN";
+		}
+		
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj;			*/
 	}
 }
