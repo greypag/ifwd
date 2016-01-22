@@ -2,6 +2,7 @@ package com.ifwd.fwdhk.services.impl;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
+import java.net.URLEncoder;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -206,7 +208,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("name", "Chan Tai Man");
+		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
 		jsonObject.put("dob", savieFna.getDob());
 		jsonObject.put("marital_status", savieFna.getMarital_status());
@@ -253,7 +255,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("name", "Chan Tai Man");
+		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
 		jsonObject.put("dob", savieFna.getDob());
 		jsonObject.put("marital_status", savieFna.getMarital_status());
@@ -288,39 +290,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public JSONObject getFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
-		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("name", savieFna.getName());
-		jsonObject.put("gender", savieFna.getGender());
-		jsonObject.put("dob", savieFna.getDob());
-		jsonObject.put("marital_status", savieFna.getMarital_status());
-		jsonObject.put("dependents", savieFna.getDependents());
-		jsonObject.put("education", savieFna.getEducation());
-		jsonObject.put("employment_status", savieFna.getEmployment_status());
-		jsonObject.put("nature_of_business", savieFna.getNature_of_business());
-		jsonObject.put("occupation", savieFna.getOccupation());
-		jsonObject.put("occupation_others", savieFna.getOccupation_others());
-		jsonObject.put("q1", savieFna.getQ1());
-		jsonObject.put("q1_others", savieFna.getQ1_others());
-		jsonObject.put("q2", savieFna.getQ2());
-		jsonObject.put("q2_others", savieFna.getQ2_others());
-		jsonObject.put("q3", savieFna.getQ3());
-		jsonObject.put("q4", savieFna.getQ4());
-		jsonObject.put("q4_a", savieFna.getQ4_a());
-		jsonObject.put("q4_a_others", savieFna.getQ4_a_others());
-		jsonObject.put("q4_b", savieFna.getQ4_b());
-		jsonObject.put("q4_b_amount", savieFna.getQ4_b_amount());
-		jsonObject.put("q4_b_others", savieFna.getQ4_b_others());
-		jsonObject.put("q4_c", savieFna.getQ4_c());
-		jsonObject.put("q4_d_1", savieFna.getQ4_d_1());
-		jsonObject.put("q4_d_2", savieFna.getQ4_d_2());
-		jsonObject.put("q4_e", savieFna.getQ4_e());
-		jsonObject.put("q4_f", savieFna.getQ4_f());
-		jsonObject.put("q4_g", savieFna.getQ4_g());
-		jsonObject.put("q4_g_others", savieFna.getQ4_g_others());
-		jsonObject.put("last_update", "2015-12-31 23:52:00");
-		logger.info(jsonObject.toString());
-		return jsonObject;
-		/*String Url = "http://172.25.114.78:8080/adminPortal-ws/product/getProductFna?name=cxy";
+		String Url = "http://172.25.114.78:8080/adminPortal-ws/product/getProductFna?name="+URLEncoder.encode(savieFna.getName());
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")){
@@ -329,9 +299,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		else{
 			lang = "EN";
 		}
-		
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		return responseJsonObj;			*/
+		JSONArray jsonArray = (JSONArray) responseJsonObj.get("result");
+		return (JSONObject) jsonArray.get(0);
 	}
 }

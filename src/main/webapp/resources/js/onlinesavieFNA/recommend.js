@@ -331,7 +331,9 @@ var FNArecommendation = {
 			if(typeof(data[val]) == "number"){
 				$(selectorPattern.replace("{q}",val).replace("{v}",data[val])).prop("checked",true);
 			}else{
-				var answer = data[val].split(",");
+				if(data[val]!=null){
+					var answer = data[val].split(",");
+				}
 
 				$(answer).each(function(k2,v2){
 					$(selectorPattern.replace("{q}",val).replace("{v}",v2)).prop("checked",true);

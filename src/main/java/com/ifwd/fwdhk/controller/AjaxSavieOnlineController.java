@@ -131,6 +131,7 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
+			savieFna.setName("Chan Tai Man");
 			jsonObject = savieOnlineService.saveProductFna(savieFna, request);
 			session.setAttribute("savieFna", savieFna);
 		}
@@ -149,7 +150,6 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			SavieFnaBean savieFna = (SavieFnaBean) session.getAttribute("savieFna");
-			logger.info(savieFna.getV());
 			jsonObject = savieOnlineService.getFna(savieFna, request);
 		}
 		catch (ECOMMAPIException e) {
