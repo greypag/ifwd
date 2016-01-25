@@ -243,7 +243,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public JSONObject getProductrRecommend(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
-		String Url = "http://172.25.114.78:8080/adminPortal-ws/product/getProductrRecommend";
+		String Url = "http://172.25.114.78:8080/adminPortal-ws/product/getProductRecommend";
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")){

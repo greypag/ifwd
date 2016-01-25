@@ -62,6 +62,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			lifePersonalDetails.validate(language);
+			request.getSession().setAttribute("lifePersonalDetails", lifePersonalDetails);
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
@@ -79,6 +80,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			lifeEmploymentInfo.validate(language);
+			request.getSession().setAttribute("lifeEmploymentInfo", lifeEmploymentInfo);
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
