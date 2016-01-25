@@ -26,6 +26,16 @@ public class ConfigBean {
 	private String savieMailFrom;
 	@Value("#{configProperties['innerMailTo']}")
 	private String innerMailTo;
+	@Value("#{configProperties['Url_SZWS']}")
+	private String Url_SZWS;
+
+	public String getUrl_SZWS() {
+		return Url_SZWS;
+	}
+
+	public void setUrl_SZWS(String url_SZWS) {
+		Url_SZWS = url_SZWS;
+	}
 
 	public String getUrl() {
 		return url;

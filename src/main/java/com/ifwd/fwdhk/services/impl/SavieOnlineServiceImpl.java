@@ -196,7 +196,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public JSONObject saveProductFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
-		String Url = "http://172.25.114.78:8080/adminPortal-ws/product/saveProductFna";
+		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "product/saveProductFna";
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")){
@@ -243,7 +243,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public JSONObject getProductrRecommend(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
-		String Url = "http://172.25.114.78:8080/adminPortal-ws/product/getProductRecommend";
+		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "product/getProductRecommend";
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")){
@@ -290,7 +290,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public JSONObject getFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
-		String Url = "http://172.25.114.78:8080/adminPortal-ws/product/getProductFna?name="+URLEncoder.encode(savieFna.getName());
+		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "product/getProductFna?name="+URLEncoder.encode(savieFna.getName());
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")){
