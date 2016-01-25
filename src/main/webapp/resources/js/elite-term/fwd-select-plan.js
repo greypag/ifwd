@@ -247,8 +247,12 @@
       // Expand next question
       if (nextTarget) {    	  
     	  setTimeout(function() {
-			$('#' + collapseMe).collapse('hide');
-            $('#' + nextTarget).collapse('show');
+			 if(collapseMe==nextTarget) {
+	  			 $('#' + collapseMe).collapse('hide');
+	  		 } else {
+	  			 $('#' + collapseMe).collapse('hide');
+	          	 $('#' + nextTarget).collapse('show');
+	  		 }
          }, 50);
       }
    });

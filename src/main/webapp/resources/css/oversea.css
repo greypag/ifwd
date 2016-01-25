@@ -821,6 +821,9 @@ a.at-svc-google_plusone, a.at-svc-google_plusone_share {
     .tooltip.bottom .tooltip-arrow{
        left:70%;
     }
+    .form-group.auto-complete{
+    height: 78px;
+    }
 }   
 .datepicker table tr td.day.old, 
 .datepicker table tr td.day.old:hover,
@@ -842,4 +845,13 @@ a.at-svc-google_plusone, a.at-svc-google_plusone_share {
 }
 td.mobile-show{
    display:none;
+}
+div.awesomplete{
+	width: 100%;
+}
+div.awesomplete > ul{
+	background: linear-gradient(to bottom right, white, hsla(0,0%,100%,1));
+}
+.form-group.auto-complete{
+	height: 55px;
 }

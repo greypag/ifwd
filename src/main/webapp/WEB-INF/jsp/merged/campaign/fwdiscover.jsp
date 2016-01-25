@@ -54,8 +54,8 @@
 								<div class="timer-holder month-holder">
 									<div class="bg gray-bg">
 										<div class="clearfix">
-											<span class="number pull-left">31</span>
-											<span class="month pull-right">DEC</span>
+											<span class="number pull-left">29</span>
+											<span class="month pull-right">FEB</span>
 										</div>
 										<span class="line line-gray"></span>
 									</div>
@@ -141,7 +141,7 @@
 	                            <div class="col-xs-4">
 	                            	<a href="#offer3"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/4daysingletrave.png" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
-	                            		<p class="price free"><fmt:message key="Fanfare.landingpage.thumbnail3.price" bundle="${msg}" /></p>
+	                            		<p class="price"><fmt:message key="Fanfare.landingpage.thumbnail3.price" bundle="${msg}" /></p>
 	                            		<p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail3.copy" bundle="${msg}" /></p>
 	                            	</div>
 	                            	<span class="text-center">
@@ -157,7 +157,7 @@
 	                            <div class="col-xs-4">
 	                            	<a href="#offer4"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/1yearhomeplan.jpg" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
-	                            		<p class="price free percentage"><fmt:message key="Fanfare.landingpage.thumbnail4.price" bundle="${msg}" /></p>
+	                            		<p class="price percentage"><fmt:message key="Fanfare.landingpage.thumbnail4.price" bundle="${msg}" /></p>
 	                            		<p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail4.copy" bundle="${msg}" /></p>
 	                            	</div>
 	                            	<span class="text-center">
@@ -208,12 +208,11 @@
 							<div class="plan-desc">
 								<div class="upper-desc">
 									<p class="title"><fmt:message key="Fanfare.landingpage.offer1" bundle="${msg}" /></p>
-									<p class="promo"><fmt:message key="Fanfare.landingpage.offer1.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer1.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer1.subtitle3" bundle="${msg}" /></span><span class="second-line"><fmt:message key="Fanfare.landingpage.offer1.subtitle4" bundle="${msg}" /></span></p>
+									<p class="promo"><fmt:message key="Fanfare.landingpage.offer1.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer1.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer1.subtitle3" bundle="${msg}" /></span></p>
 								</div>
 								<div class="lower-desc">
 									<ul>
 										<li><fmt:message key="Fanfare.landingpage.offer1.bullet1" bundle="${msg}" /></li>
-										<li><fmt:message key="Fanfare.landingpage.offer1.bullet2" bundle="${msg}" /></li>
 										<li><fmt:message key="Fanfare.landingpage.offer1.bullet3" bundle="${msg}" /></li>
 										<li><fmt:message key="Fanfare.landingpage.offer1.bullet4" bundle="${msg}" /></li>
 										<li><fmt:message key="Fanfare.landingpage.offer1.bullet5" bundle="${msg}" /></li>
@@ -252,12 +251,11 @@
 							<div class="plan-desc">
 								<div class="upper-desc">
 									<p class="title"><fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" /></p>
-									<p class="promo"><fmt:message key="Fanfare.landingpage.offer2.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer2.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer2.subtitle3" bundle="${msg}" /></span><span class="second-line"><fmt:message key="Fanfare.landingpage.offer2.subtitle4" bundle="${msg}" /></span></p>
+									<p class="promo"><fmt:message key="Fanfare.landingpage.offer2.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer2.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer2.subtitle3" bundle="${msg}" /></span></p>
 								</div>
 								<div class="lower-desc">
 									<ul>
 										<li><fmt:message key="Fanfare.landingpage.offer2.bullet1" bundle="${msg}" /></li>
-										<li><fmt:message key="Fanfare.landingpage.offer2.bullet2" bundle="${msg}" /></li>
 										<li><fmt:message key="Fanfare.landingpage.offer2.bullet3" bundle="${msg}" /></li>
 										<li><fmt:message key="Fanfare.landingpage.offer2.bullet4" bundle="${msg}" /></li>
 									</ul>
@@ -296,12 +294,11 @@
 							<div class="plan-desc">
 								<div class="upper-desc">
 									<p class="title"><fmt:message key="Fanfare.landingpage.offer3" bundle="${msg}" /></p>
-									<p class="promo"><fmt:message key="Fanfare.landingpage.offer3.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer3.subtitle2" bundle="${msg}" /></span> <span class="second-line"><fmt:message key="Fanfare.landingpage.offer3.subtitle3" bundle="${msg}" /></span></p>
+									<p class="promo"><fmt:message key="Fanfare.landingpage.offer3.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer3.subtitle2" bundle="${msg}" /></span> </p>
 								</div>
 								<div class="lower-desc">
 									<ul>
 										<li><fmt:message key="Fanfare.landingpage.offer3.bullet1" bundle="${msg}" /></li>
-										<li><fmt:message key="Fanfare.landingpage.offer3.bullet2" bundle="${msg}" /></li>
 										<li><fmt:message key="Fanfare.landingpage.offer3.bullet3" bundle="${msg}" /></li>
 										<li><fmt:message key="Fanfare.landingpage.offer3.bullet4" bundle="${msg}" /></li>
 									</ul>
@@ -574,11 +571,10 @@
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<p class="title"><fmt:message key="Fanfare.landingpage.offer1" bundle="${msg}" /></p>
-							<p class="promo"><fmt:message key="Fanfare.landingpage.offer1.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer1.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer1.subtitle3" bundle="${msg}" /></span><br><span class="second-line"><fmt:message key="Fanfare.landingpage.offer1.subtitle4" bundle="${msg}" /></span></p>
+							<p class="promo"><fmt:message key="Fanfare.landingpage.offer1.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer1.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer1.subtitle3" bundle="${msg}" /></span></p>
 
 							<ul>
 								<li><fmt:message key="Fanfare.landingpage.offer1.bullet1" bundle="${msg}" /></li>
-								<li><fmt:message key="Fanfare.landingpage.offer1.bullet2" bundle="${msg}" /></li>
 								<li><fmt:message key="Fanfare.landingpage.offer1.bullet3" bundle="${msg}" /></li>
 								<li><fmt:message key="Fanfare.landingpage.offer1.bullet4" bundle="${msg}" /></li>
 								<li><fmt:message key="Fanfare.landingpage.offer1.bullet5" bundle="${msg}" /></li>
@@ -606,11 +602,10 @@
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<p class="title"><fmt:message key="Fanfare.landingpage.offer2" bundle="${msg}" /></p>
-							<p class="promo"><fmt:message key="Fanfare.landingpage.offer2.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer2.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer2.subtitle3" bundle="${msg}" /></span><br> <span class="second-line"><fmt:message key="Fanfare.landingpage.offer2.subtitle4" bundle="${msg}" /></span></p>
+							<p class="promo"><fmt:message key="Fanfare.landingpage.offer2.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer2.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offer2.subtitle3" bundle="${msg}" /></span></p>
 
 							<ul>
 								<li><fmt:message key="Fanfare.landingpage.offer2.bullet1" bundle="${msg}" /></li>
-								<li><fmt:message key="Fanfare.landingpage.offer2.bullet2" bundle="${msg}" /></li>
 								<li><fmt:message key="Fanfare.landingpage.offer2.bullet3" bundle="${msg}" /></li>
 								<li><fmt:message key="Fanfare.landingpage.offer2.bullet4" bundle="${msg}" /></li>
 							</ul>
@@ -637,11 +632,10 @@
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<p class="title"><fmt:message key="Fanfare.landingpage.offer3" bundle="${msg}" /></p>
-							<p class="promo"><fmt:message key="Fanfare.landingpage.offer3.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer3.subtitle2" bundle="${msg}" /></span><br> <span class="second-line"><fmt:message key="Fanfare.landingpage.offer3.subtitle3" bundle="${msg}" /></span></p>
+							<p class="promo"><fmt:message key="Fanfare.landingpage.offer3.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offer3.subtitle2" bundle="${msg}" /></span></p>
 
 							<ul>
 								<li><fmt:message key="Fanfare.landingpage.offer3.bullet1" bundle="${msg}" /></li>
-								<li><fmt:message key="Fanfare.landingpage.offer3.bullet2" bundle="${msg}" /></li>
 								<li><fmt:message key="Fanfare.landingpage.offer3.bullet3" bundle="${msg}" /></li>
 								<li><fmt:message key="Fanfare.landingpage.offer3.bullet4" bundle="${msg}" /></li>
 							</ul>
@@ -1011,7 +1005,7 @@
 	    }
 
 	    $("#countdown")
-		   .countdown("2016/01/01", function(event) {
+		   .countdown("2016/03/01", function(event) {
 		    $('#countdown-days').text(
 		      event.strftime('%D')
 		    );
