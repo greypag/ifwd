@@ -1005,7 +1005,7 @@
 	    }
 
 	    $("#countdown")
-		   .countdown("2016/01/01", function(event) {
+		   .countdown("2016/03/01", function(event) {
 		    $('#countdown-days').text(
 		      event.strftime('%D')
 		    );
