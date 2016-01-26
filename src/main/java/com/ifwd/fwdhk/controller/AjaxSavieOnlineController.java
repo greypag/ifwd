@@ -133,10 +133,10 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			savieFna.setName("Chan Tai Man");
+			savieFna.setName(session.getAttribute("username").toString());
 			jsonObject = savieOnlineService.saveProductFna(savieFna, request);
 			session.setAttribute("savieFna", savieFna);
-		}
+		} 
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
 		}
