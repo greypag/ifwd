@@ -5092,7 +5092,13 @@ function validatecardnumber(cardnumber) {
 		}
 	} else {
 		if( document.getElementById('errcardno') ){
-			document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notValid.message");//'(invalid card number)';
+			
+			if(cardnumber=="") {
+				document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notNull.message")
+			}
+			else {
+				document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notValid.message");//'(invalid card number)';
+			}
 		}
 		$(".cardnumber").addClass("invalid-field");
 		$("#card-num").addClass("invalid-field");
