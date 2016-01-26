@@ -732,7 +732,7 @@
 							</div>
 
 							<div class="details-button-holder text-center">
-								<a class="url" href=''><button class="details-btn"><fmt:message key="Fanfare.clickdetail.lightbox3.button" bundle="${msg}" /></button></a>
+								<a class="url" href="" target="_blank"><button class="details-btn"><fmt:message key="Fanfare.clickdetail.lightbox3.button" bundle="${msg}" /></button></a>
 							</div>
 
 							<div class="terms-and-condition offer-details">
@@ -989,7 +989,7 @@
 	    function setPlanLink(campaignId, code) {
 	    	var link="";
 	    	if("5"==campaignId){
-	    		link="travel-insurance?promo="+code;
+	    		link="travel-insurance?product=annual&promo="+code;
 	    	}else if("6"==campaignId){
 	    		link="travel-insurance?promo="+code;
 	    	}else if("7"==campaignId){
