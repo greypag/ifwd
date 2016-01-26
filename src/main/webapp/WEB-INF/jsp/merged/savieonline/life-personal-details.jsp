@@ -10,35 +10,483 @@
 <fmt:setBundle basename="messages" var="msg" />
 <div style="margin-left: 500px;">
 <div id="errorMsg" style="color: red;"></div>
-<form id="lifePersonalDetailsForm" action="">
-firstname:<input type="text" id="firstname" name="firstname" value="${lifePersonalDetails.firstname }"/><br/>
-lastname:<input type="text" id="lastname" name="lastname" value="${lifePersonalDetails.lastname }"/><br/>
-chineseName:<input type="text" id="chineseName" name="chineseName" value="${lifePersonalDetails.chineseName }"/><br/>
-dob:<input type="text" id="dob" name="dob" value="${lifePersonalDetails.dob }"/><br/>
-gender:<input type="text" id="gender" name="gender" value="${lifePersonalDetails.gender }"/><br/>
-hkid:<input type="text" id="hkid" name="hkid" value="${lifePersonalDetails.hkid }"/><br/>
-martialStatus:<input type="text" id="martialStatus" name="martialStatus" value="${lifePersonalDetails.martialStatus }"/><br/>
-mobileNumber:<input type="text" id="mobileNumber" name="mobileNumber" value="${lifePersonalDetails.mobileNumber }"/><br/>
-emailAddress:<input type="text" id="emailAddress" name="emailAddress" value="${lifePersonalDetails.emailAddress }"/><br/>
-placeOfBirth:<input type="text" id="placeOfBirth" name="placeOfBirth" value="${lifePersonalDetails.placeOfBirth }"/><br/>
-nationalty:<input type="text" id="nationalty" name="nationalty" value="${lifePersonalDetails.nationalty }"/><br/>
-permanetAddress1:<input type="text" id="permanetAddress1" name="permanetAddress1" value="${lifePersonalDetails.permanetAddress1 }"/><br/>
-permanetAddress2:<input type="text" id="permanetAddress2" name="permanetAddress2" value="${lifePersonalDetails.permanetAddress2 }"/><br/>
-permanetAddress3:<input type="text" id="permanetAddress3" name="permanetAddress3" value="${lifePersonalDetails.permanetAddress3 }"/><br/>
-permanetAddressDistrict:<input type="text" id="permanetAddressDistrict" name="permanetAddressDistrict" value="${lifePersonalDetails.permanetAddressDistrict }"/><br/>
-residentialAddress1:<input type="text" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }"/><br/>
-residentialAddress2:<input type="text" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }"/><br/>
-residentialAddress3:<input type="text" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }"/><br/>
-residentialAddressDistrict:<input type="text" id="residentialAddressDistrict" name="residentialAddressDistrict" value="${lifePersonalDetails.residentialAddressDistrict }"/><br/>
-correspondenceAddress1:<input type="text" id="correspondenceAddress1" name="correspondenceAddress1" value="${lifePersonalDetails.correspondenceAddress1 }"/><br/>
-correspondenceAddress2:<input type="text" id="correspondenceAddress2" name="correspondenceAddress2" value="${lifePersonalDetails.correspondenceAddress2 }"/><br/>
-correspondenceAddress3:<input type="text" id="correspondenceAddress3" name="correspondenceAddress3" value="${lifePersonalDetails.correspondenceAddress3 }"/><br/>
-correspondenceAddressDistrict:<input type="text" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" value="${lifePersonalDetails.correspondenceAddressDistrict }"/><br/>
-<input type="button" id="nextPage" value="nextPage"/><br/>
-</form>
+<div class="container-fluid fwd-container et-personal-info">
+	<div id="personal-info"
+		class="personal-info-widget page-application et-application-page">
+		<h2>
+			<fmt:message key="eliteTerms.selectPlan.person.info"
+			bundle="${msg}" />
+		<button type="button" class="tooltip-button btn-app-info-tooltip"
+			title="<fmt:message key="eliteTerms.selectPlan.Applicant.and.the.insured" bundle="${msg}" />">
+			<span class="info-tooltip"></span>
+		</button>
+	</h2>
+
+	<form id="lifePersonalDetailsForm" method="post" class="form-horizontal" action="" onSubmit="return false;">
+		<div class="row margin">
+			<div class="col-sm-12 col-md-6 left">
+
+				<div class="clearfix">
+					<div class="left-desktop description">
+						<label for="give-last-name"
+							class="application-page-input-text et-input-label"><fmt:message
+								key="eliteTerms.selectPlan.Name.in.English" bundle="${msg}" />
+							<span><fmt:message
+									key="eliteTerms.selectPlan.Same.as.HKID" bundle="${msg}" /></span></label>
+					</div>
+					<div class="left-desktop text-box form-group">
+						<input class="form-control gray-textbox" autocomplete="off"
+							id="firstname"
+							name="firstname" type="text"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.Given.Name" bundle="${msg}" />"
+							value="${userDetails.firstName }" readonly="readonly">
+						<span class="error-msg" id="savieApplicantBeanFirstNameMsg"></span>
+						<input class="form-control gray-textbox" autocomplete="off"
+							id="lastname"
+							name="lastname" type="text"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.Last.Name" bundle="${msg}" />"
+							value="${userDetails.lastName }" readonly="readonly">
+						<span class="error-msg" id="savieApplicantBeanlastNameMsg"></span>
+					</div>
+				</div>
+
+				<div class="clearfix">
+					<div class="left-desktop description">
+						<label for="savieApplicantBean.chineseName"
+							class="application-page-input-text et-input-label"><fmt:message
+								key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" />
+							<span><fmt:message
+									key="eliteTerms.selectPlan.Same.as.cn.HKID"
+									bundle="${msg}" /></span></label>
+					</div>
+					<div class="left-desktop text-box">
+						<input class="form-control gray-textbox" autocomplete="off"
+							id="chineseName"
+							name="chineseName" type="text"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" />"
+							value="${lifePersonalDetails.chineseName }"> <span class="error-msg"
+							id="savieApplicantBeanchineseNameMsg"></span>
+					</div>
+				</div>
+
+				<div class="clearfix form-group">
+					<div class="left-desktop description">
+						<label for="sales-illu-dob"
+							class="application-page-input-text et-input-label"><fmt:message
+								key="eliteTerms.selectPlan.Date.of.birth" bundle="${msg}" /></label>
+					</div>
+					<div class="left-desktop text-box et-date-info clearfix">
+						<div class="clearfix">
+							<input type="text"
+								class="form-control gray-textbox pull-left et-80-width"
+								name="dob" id="dob"
+								placeholder="<fmt:message key="eliteTerms.selectPlan.Date.of.birth.placeholder" bundle="${msg}" />"
+								onfocusin="fnSetStyle()" readonly
+								value="${saviePlanDetails.dob }" />
+							<div class="et-app-edit-wrapper">
+								<a href="#" title="Edit Date of birth"
+									class="et-app-sum-edit et-app-edit" id="edit-birthday"
+									data-target="#et-about-yoursel-section"> <span
+									class="text-center"> <fmt:message
+											key="eliteTerms.selectPlan.Edit" bundle="${msg}" />
+								</span>
+								</a>
+							</div>
+						</div>
+						<span class="error-msg" id="sales-illu-dob-msg"></span>
+					</div>
+				</div>
+
+				<div class="clearfix">
+					<div class="left-desktop description">
+						<label for="savieApplicantBean.gender"
+							class="application-page-input-text et-input-label"><fmt:message
+								key="eliteTerms.selectPlan.Gender" bundle="${msg}" /></label>
+					</div>
+					<div class="left-desktop text-box et-date-info clearfix">
+						    <input type="hidden" name="gender" id="gender" value="${userDetails.gender }" /> 
+							<input type="text" name="gender" id="gender" class="form-control gray-textbox pull-left et-80-width"
+							       placeholder="<fmt:message key="eliteTerms.selectPlan.Gender" bundle="${msg}" />"
+							       value="${lifePersonalDetails.chineseName }" />
+						<div class="et-app-edit-wrapper">
+							<a href="#" title="Edit Gender"
+								class="et-app-sum-edit et-app-edit" id="edit-gender"
+								data-target="#et-about-yoursel-section"> <span
+								class="text-center"> <fmt:message
+										key="eliteTerms.selectPlan.Edit" bundle="${msg}" />
+							</span>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="clearfix form-group has-error">
+					<div class="left-desktop description">
+						<label for="savieApplicantBean.hkId"
+							class="application-page-input-text et-input-label"><fmt:message
+								key="eliteTerms.selectPlan.HKID" bundle="${msg}" /></label>
+					</div>
+					<div class="left-desktop text-box">
+						<input class="form-control gray-textbox capitalize"
+							autocomplete="off" id="hkid"
+							name="hkid" type="text" value="${lifePersonalDetails.hkid }"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.HKID.placeholder" bundle="${msg}" />">
+						<span class="error-msg" id="hkidMessage"></span>
+					</div>
+				</div>
+
+				<div class="clearfix  form-group has-error">
+					<div class="left-desktop description">
+						<label for="savieApplicantBean.maritalStatus"
+							class="application-page-input-text et-input-label"><fmt:message
+								key="eliteTerms.selectPlan.Marital.status" bundle="${msg}" /></label>
+					</div>
+					<div class="left-desktop text-box">
+
+						<div class="selectDiv">
+							<span class="icon-chevron-thin-down orange-caret"></span> <select
+								class="form-control gray-dropdown"
+								name="martialStatus"
+								id="martialStatus">
+								<option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+								<c:if test="${language == 'en'}">
+									<c:forEach var="list" items="${maritalStatusesEN}">
+										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.martialStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+								<c:if test="${language == 'tc'}">
+									<c:forEach var="list" items="${maritalStatusesCN}">
+										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.martialStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+							</select>
+						</div>
+						<span class="error-msg" id="maritalStatusMessage"></span>
+					</div>
+				</div>
+
+				<div class="clearfix form-group has-error">
+					<div class="left-desktop description">
+						<label for="savieApplicantBean.placeOfBirth"
+							class="application-page-input-text et-input-label"><fmt:message
+								key="eliteTerms.selectPlan.Place.of.birth" bundle="${msg}" /></label>
+					</div>
+					<div class="left-desktop text-box">
+						<div class="selectDiv">
+							<span class="icon-chevron-thin-down orange-caret"></span> <select
+								class="form-control gray-dropdown"
+								data-style="application-select selection"
+								id="placeOfBirth"
+								name="placeOfBirth">
+								<option value=""><fmt:message
+										key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+								<c:if test="${language == 'en'}">
+									<c:forEach var="list" items="${placeOfBirthEN}">
+										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.placeOfBirth == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+								<c:if test="${language == 'tc'}">
+									<c:forEach var="list" items="${placeOfBirthCN}">
+										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.placeOfBirth == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+							</select>
+						</div>
+						<span class="error-msg" id="placeOfBirthMessage"></span>
+					</div>
+				</div>
+
+				<div class="clearfix form-group has-error">
+					<div class="left-desktop description">
+						<label for="savieApplicantBean.nationality"
+							class="application-page-input-text et-input-label"><fmt:message
+								key="eliteTerms.selectPlan.Nationality" bundle="${msg}" /></label>
+					</div>
+					<div class="left-desktop text-box">
+						<div class="selectDiv">
+							<span class="icon-chevron-thin-down orange-caret"></span> <select
+								class="form-control gray-dropdown"
+								data-style="application-select selection"
+								id="nationalty"
+								name="nationalty">
+								<option value=""><fmt:message
+										key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+								<c:if test="${language == 'en'}">
+									<c:forEach var="list" items="${nationalityEN}">
+										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.nationalty == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+								<c:if test="${language == 'tc'}">
+									<c:forEach var="list" items="${nationalityCN}">
+										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.nationalty == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+							</select>
+						</div>
+						<span class="error-msg" id="nationalityMessage"></span>
+					</div>
+				</div>
+
+				<div class="clearfix form-group has-error">
+					<div class="left-desktop right-description">
+						<label for="savieApplicantBean.mobileNo"
+							class="application-page-input-text et-input-label"><fmt:message
+								key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" /></label>
+					</div>
+					<div class="left-desktop text-box clearfix">
+						<input type="text" class="form-control gray-textbox"
+							name="mobileNumber"
+							id="mobileNumber"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.Mobile.no" bundle="${msg}" />"
+							value="${userDetails.mobileNo }" maxlength="8" /> <span
+							class="error-msg" id="mobileMessage"></span>
+					</div>
+				</div>
+
+				<div class="clearfix form-group has-error">
+					<div class="left-desktop right-description">
+						<label for="savieApplicantBean.emailAddress"
+							class="application-page-input-text et-input-label"><fmt:message
+								key="eliteTerms.selectPlan.Email.address" bundle="${msg}" /></label>
+					</div>
+					<div class="left-desktop text-box">
+						<input class="form-control gray-textbox" autocomplete="off"
+							id="emailAddress"
+							name="emailAddress" type="text"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.Email.address" bundle="${msg}" />"
+							value="${userDetails.emailAddress }" readonly> <span
+							class="error-msg" id="emailMessage"></span>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-6 right">
+				<div class="clearfix form-group has-error">
+					<div class="left-desktop right-description">
+						<label for="inputdefault"
+							class="application-page-input-text et-input-label"><fmt:message
+								key="eliteTerms.selectPlan.Permanent.address"
+								bundle="${msg}" /></label>
+					</div>
+					<div class="left-desktop text-box">
+						<input class="form-control gray-textbox permanent-address"
+							autocomplete="off" id="permanetAddress1"
+							name="permanetAddress1" type="text" value="${lifePersonalDetails.permanetAddress1 }"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
+						<span class="error-msg" id="permanentAddressMessage1"></span>
+						<input
+							class="form-control gray-textbox permanent-address optional-field"
+							autocomplete="off" id="permanetAddress2"
+							name="permanetAddress2" type="text" value="${lifePersonalDetails.permanetAddress2 }"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
+						<span class="error-msg" id="permanentAddressMessage2"></span>
+						<input
+							class="form-control gray-textbox permanent-address optional-field"
+							autocomplete="off" id="permanetAddress3"
+							name="permanetAddress3" type="text" value="${lifePersonalDetails.permanetAddress3 }"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
+						<span class="error-msg" id="permanentAddressMessage3"></span>
+						<div class="selectDiv et-district-wrapper">
+							<span class="icon-chevron-thin-down orange-caret"></span> <select
+								class="form-control gray-dropdown "
+								data-style="application-select selection"
+								name="permanetAddressDistrict"
+								id="permanetAddressDistrict">
+								<option value=""><fmt:message
+										key="eliteTerms.selectPlan.Please.District"
+										bundle="${msg}" /></option>
+								<c:if test="${language == 'en'}">
+									<c:forEach var="list" items="${savieDistrictEN}">
+										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+								<c:if test="${language == 'tc'}">
+									<c:forEach var="list" items="${savieDistrictCN}">
+										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+							</select>
+						</div>
+						<span class="error-msg" id="perAddressMessage"></span> <span
+							class="warning-note"><span class="orange">*</span> <fmt:message
+								key="eliteTerms.selectPlan.No.P.O.Box.address.allowed"
+								bundle="${msg}" /></span>
+					</div>
+				</div>
+
+				<!--start here -->
+				<div class="clearfix">
+					<div class="left-desktop description"></div>
+					<div class="left-desktop check-box">
+						<div class="checkbox-section">
+							<div class="clearfix">
+								<div class="pull-left left-checkbox">
+									<input type="checkbox" value="true"
+										id="savieApplicantBean.isResidential"
+										name="savieApplicantBean.isResidential" /> <label
+										for="savieApplicantBean.isResidential"></label>
+								</div>
+								<div class="pull-left right-checkbox">
+									<span class="checkbox-text"><fmt:message
+											key="eliteTerms.selectPlan.My.residential.address"
+											bundle="${msg}" /></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div
+					class="clearfix form-group has-error hidden et-residential-address"
+					id="residential-address">
+					<div class="left-desktop right-description">
+						<label for="inputdefault"
+							class="application-page-input-text et-input-label"><fmt:message
+								key="eliteTerms.selectPlan.Residential.address"
+								bundle="${msg}" /></label>
+					</div>
+					<div class="left-desktop text-box">
+						<input
+							class="form-control gray-textbox residential residential-address"
+							autocomplete="off"
+							id="residentialAddress1"
+							name="residentialAddress1" type="text" value="${lifePersonalDetails.residentialAddress1 }"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
+						<span class="error-msg" id="residentialAddressMessage1"></span>
+						<input
+							class="form-control gray-textbox residential residential-address optional-field"
+							autocomplete="off"
+							id="residentialAddress2"
+							name="residentialAddress2" type="text" value="${lifePersonalDetails.residentialAddress2 }"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
+						<span class="error-msg" id="residentialAddressMessage2"></span>
+						<input
+							class="form-control gray-textbox residential residential-address optional-field"
+							autocomplete="off"
+							id="residentialAddress3"
+							name="residentialAddress3" type="text" value="${lifePersonalDetails.residentialAddress3 }"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
+						<span class="error-msg" id="residentialAddressMessage3"></span>
+						<div class="selectDiv et-district-wrapper">
+							<span class="icon-chevron-thin-down orange-caret"></span> <select
+								class="form-control gray-dropdown"
+								data-style="application-select selection"
+								name="residentialAddressDistrict"
+								id="residentialAddressDistrict">
+								<option value=""><fmt:message
+										key="eliteTerms.selectPlan.Please.District"
+										bundle="${msg}" /></option>
+								<c:if test="${language == 'en'}">
+									<c:forEach var="list" items="${savieDistrictEN}">
+										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+								<c:if test="${language == 'tc'}">
+									<c:forEach var="list" items="${savieDistrictCN}">
+										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+							</select>
+						</div>
+						<span class="error-msg" id="resDistrictMessage"></span> <span
+							class="warning-note"><span class="orange">*</span> <fmt:message
+								key="eliteTerms.selectPlan.No.P.O.Box.address.allowed"
+								bundle="${msg}" /></span>
+					</div>
+				</div>
+
+				<div class="clearfix">
+					<div class="left-desktop description"></div>
+					<div class="left-desktop check-box">
+						<div class="checkbox-section">
+							<div class="clearfix">
+								<div class="pull-left left-checkbox">
+									<input type="checkbox" value="true"
+										id="savieApplicantBean.addressIsSame"
+										name="savieApplicantBean.addressIsSame" /> <label
+										for="savieApplicantBean.addressIsSame"></label>
+								</div>
+								<div class="pull-left right-checkbox">
+									<span class="checkbox-text"><fmt:message
+											key="eliteTerms.selectPlan.My.correspondence.address"
+											bundle="${msg}" /></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div
+					class="clearfix form-group has-error hidden et-correspondence-address"
+					id="correspondence-address">
+					<div class="left-desktop right-description">
+						<label for="inputdefault"
+							class="application-page-input-text et-input-label"><fmt:message
+								key="eliteTerms.selectPlan.Correspondence.address"
+								bundle="${msg}" /></label>
+					</div>
+					<div class="left-desktop text-box">
+						<input
+							class="form-control gray-textbox  correspondence-address"
+							autocomplete="off"
+							id="correspondenceAddress1"
+							name="correspondenceAddress1" type="text" value="${lifePersonalDetails.correspondenceAddress1 }"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
+						<span class="error-msg" id="corrAddressMessage1"></span> <input
+							class="form-control gray-textbox correspondence-address optional-field"
+							autocomplete="off"
+							id="correspondenceAddress2"
+							name="correspondenceAddress2" type="text" value="${lifePersonalDetails.correspondenceAddress2 }"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
+						<span class="error-msg" id="corrAddressMessage2"></span> <input
+							class="form-control gray-textbox correspondence-address optional-field"
+							autocomplete="off"
+							id="correspondenceAddress3"
+							name="correspondenceAddress3" type="text" value="${lifePersonalDetails.correspondenceAddress3 }"
+							placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
+						<span class="error-msg" id="corrAddressMessage3"></small> </span>
+						<div class="selectDiv et-district-wrapper">
+							<span class="icon-chevron-thin-down orange-caret"></span> <select
+								class="form-control gray-dropdown"
+								data-style="application-select selection"
+								name="correspondenceAddressDistrict"
+								id="correspondenceAddressDistrict">
+								<option value=""><fmt:message
+										key="eliteTerms.selectPlan.Please.District"
+										bundle="${msg}" /></option>
+								<c:if test="${language == 'en'}">
+									<c:forEach var="list" items="${savieDistrictEN}">
+										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+								<c:if test="${language == 'tc'}">
+									<c:forEach var="list" items="${savieDistrictCN}">
+										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+							</select>
+						</div>
+						<span class="error-msg" id="correspondenceDistrictMessage"></span>
+						<span class="warning-note"><span class="orange">*</span>
+							<fmt:message
+								key="eliteTerms.selectPlan.No.P.O.Box.address.allowed"
+								bundle="${msg}" /></span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="next-btn">
+			<button id="et-personal-info-next" class="btn next pi">
+				<fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" />
+			</button>
+		</div>
+	</form>
+	</div>
+</div>
+
 </div>
 <script type="text/javascript">
-$("#nextPage").click(function(){
+$("#et-personal-info-next").click(function(){
 	$("#errorMsg").html("");
 	$.ajax({
 		  type : "POST",

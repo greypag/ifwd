@@ -86,16 +86,96 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savie-online/life-personal-details"})
 	public ModelAndView getSavieOnlineLifePersonalDetails(Model model, HttpServletRequest request) {
+		model.addAttribute("maritalStatusesEN", InitApplicationMessage.maritalStatusesEN);
+		model.addAttribute("maritalStatusesCN", InitApplicationMessage.maritalStatusesCN);
+		model.addAttribute("placeOfBirthEN", InitApplicationMessage.placeOfBirthEN);
+		model.addAttribute("placeOfBirthCN", InitApplicationMessage.placeOfBirthCN);
+		model.addAttribute("nationalityEN", InitApplicationMessage.nationalityEN);
+		model.addAttribute("nationalityCN", InitApplicationMessage.nationalityCN);
+		model.addAttribute("savieDistrictEN", InitApplicationMessage.savieDistrictEN);
+		model.addAttribute("savieDistrictCN", InitApplicationMessage.savieDistrictCN);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-online/life-employment-info"})
 	public ModelAndView getSavieOnlineLifeEmploymentInfo(Model model, HttpServletRequest request) {
+		model.addAttribute("employmentStatusEN", InitApplicationMessage.employmentStatusEN);
+		model.addAttribute("employmentStatusCN", InitApplicationMessage.employmentStatusCN);
+		model.addAttribute("occupationEN", InitApplicationMessage.occupationEN);
+		model.addAttribute("occupationCN", InitApplicationMessage.occupationCN);
+		model.addAttribute("natureOfBusinessEN", InitApplicationMessage.natureOfBusinessEN);
+		model.addAttribute("natureOfBusinessCN", InitApplicationMessage.natureOfBusinessCN);
+		model.addAttribute("monthlyPersonalIncomeEN", InitApplicationMessage.monthlyPersonalIncomeEN);
+		model.addAttribute("monthlyPersonalIncomeCN", InitApplicationMessage.monthlyPersonalIncomeCN);
+		
+		model.addAttribute("etCsContactPreferredDayEN", InitApplicationMessage.etCsContactPreferredDayEN);
+		model.addAttribute("etCsContactPreferredDayCN", InitApplicationMessage.etCsContactPreferredDayCN);
+		model.addAttribute("etCsContactPreferredTimeSlotEN", InitApplicationMessage.etCsContactPreferredTimeSlotEN);
+		model.addAttribute("etCsContactPreferredTimeSlotCN", InitApplicationMessage.etCsContactPreferredTimeSlotCN);
+		model.addAttribute("etEnquiryTypeEN", InitApplicationMessage.etEnquiryTypeEN);
+		model.addAttribute("etEnquiryTypeCN", InitApplicationMessage.etEnquiryTypeCN);
+		model.addAttribute("etLiquidAssetEN", InitApplicationMessage.etLiquidAssetEN);
+		model.addAttribute("etLiquidAssetCN", InitApplicationMessage.etLiquidAssetCN);
+		model.addAttribute("etAmountOtherSourceEN", InitApplicationMessage.etAmountOtherSourceEN);
+		model.addAttribute("etAmountOtherSourceCN", InitApplicationMessage.etAmountOtherSourceCN);
+		model.addAttribute("etEducationLevelEN", InitApplicationMessage.etEducationLevelEN);
+		model.addAttribute("etEducationLevelCN", InitApplicationMessage.etEducationLevelCN);
+		
+		model.addAttribute("occupationEnNoB1", InitApplicationMessage.occupationEnNoB1);
+		model.addAttribute("occupationCnNoB1", InitApplicationMessage.occupationCnNoB1);
+		model.addAttribute("occupationEnNoB2", InitApplicationMessage.occupationEnNoB2);
+		model.addAttribute("occupationCnNoB2", InitApplicationMessage.occupationCnNoB2);
+		model.addAttribute("occupationEnNoB3", InitApplicationMessage.occupationEnNoB3);
+		model.addAttribute("occupationCnNoB3", InitApplicationMessage.occupationCnNoB3);
+		model.addAttribute("occupationEnNoB4", InitApplicationMessage.occupationEnNoB4);
+		model.addAttribute("occupationCnNoB4", InitApplicationMessage.occupationCnNoB4);
+		model.addAttribute("occupationEnNoB5", InitApplicationMessage.occupationEnNoB5);
+		model.addAttribute("occupationCnNoB5", InitApplicationMessage.occupationCnNoB5);
+		model.addAttribute("occupationEnNoB6", InitApplicationMessage.occupationEnNoB6);
+		model.addAttribute("occupationCnNoB6", InitApplicationMessage.occupationCnNoB6);
+		model.addAttribute("occupationEnNoB7", InitApplicationMessage.occupationEnNoB7);
+		model.addAttribute("occupationCnNoB7", InitApplicationMessage.occupationCnNoB7);
+		model.addAttribute("occupationEnNoB8", InitApplicationMessage.occupationEnNoB8);
+		model.addAttribute("occupationCnNoB8", InitApplicationMessage.occupationCnNoB8);
+		model.addAttribute("occupationEnNoB9", InitApplicationMessage.occupationEnNoB9);
+		model.addAttribute("occupationCnNoB9", InitApplicationMessage.occupationCnNoB9);
+		model.addAttribute("occupationEnNoB10", InitApplicationMessage.occupationEnNoB10);
+		model.addAttribute("occupationCnNoB10", InitApplicationMessage.occupationCnNoB10);
+		model.addAttribute("occupationEnNoB11", InitApplicationMessage.occupationEnNoB11);
+		model.addAttribute("occupationCnNoB11", InitApplicationMessage.occupationCnNoB11);
+		model.addAttribute("occupationEnNoB12", InitApplicationMessage.occupationEnNoB12);
+		model.addAttribute("occupationCnNoB12", InitApplicationMessage.occupationCnNoB12);
+		model.addAttribute("occupationEnNoB13", InitApplicationMessage.occupationEnNoB13);
+		model.addAttribute("occupationCnNoB13", InitApplicationMessage.occupationCnNoB13);
+		model.addAttribute("occupationEnNoB14", InitApplicationMessage.occupationEnNoB14);
+		model.addAttribute("occupationCnNoB14", InitApplicationMessage.occupationCnNoB14);
+		model.addAttribute("occupationEnNoB15", InitApplicationMessage.occupationEnNoB15);
+		model.addAttribute("occupationCnNoB15", InitApplicationMessage.occupationCnNoB15);
+		model.addAttribute("occupationEnNoB16", InitApplicationMessage.occupationEnNoB16);
+		model.addAttribute("occupationCnNoB16", InitApplicationMessage.occupationCnNoB16);
+		model.addAttribute("occupationEnNoB17", InitApplicationMessage.occupationEnNoB17);
+		model.addAttribute("occupationCnNoB17", InitApplicationMessage.occupationCnNoB17);
+		model.addAttribute("occupationEnNoB18", InitApplicationMessage.occupationEnNoB18);
+		model.addAttribute("occupationCnNoB18", InitApplicationMessage.occupationCnNoB18);
+		model.addAttribute("occupationEnNoB19", InitApplicationMessage.occupationEnNoB19);
+		model.addAttribute("occupationCnNoB19", InitApplicationMessage.occupationCnNoB19);
+		model.addAttribute("occupationEnNoB20", InitApplicationMessage.occupationEnNoB20);
+		model.addAttribute("occupationCnNoB20", InitApplicationMessage.occupationCnNoB20);
+		model.addAttribute("occupationEnNoB21", InitApplicationMessage.occupationEnNoB21);
+		model.addAttribute("occupationCnNoB21", InitApplicationMessage.occupationCnNoB21);
+		model.addAttribute("occupationEnNoB22", InitApplicationMessage.occupationEnNoB22);
+		model.addAttribute("occupationCnNoB22", InitApplicationMessage.occupationCnNoB22);
+		model.addAttribute("occupationEnNoB23", InitApplicationMessage.occupationEnNoB23);
+		model.addAttribute("occupationCnNoB23", InitApplicationMessage.occupationCnNoB23);
+		model.addAttribute("occupationEnNoB24", InitApplicationMessage.occupationEnNoB24);
+		model.addAttribute("occupationCnNoB24", InitApplicationMessage.occupationCnNoB24);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-online/life-beneficary-info"})
 	public ModelAndView getSavieOnlineLifeBeneficaryInfo(Model model, HttpServletRequest request) {
+		model.addAttribute("savieBeneficiaryRelationshipEN", InitApplicationMessage.savieBeneficiaryRelationshipEN);
+		model.addAttribute("savieBeneficiaryRelationshipCN", InitApplicationMessage.savieBeneficiaryRelationshipCN);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO);
 	}
 	

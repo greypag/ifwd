@@ -40,8 +40,8 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			saviePlanDetails.validate(language);
-			
 			jsonObject.put("apiData", savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request).toString());
+			request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
