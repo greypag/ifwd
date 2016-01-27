@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -28,6 +29,10 @@ import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
+import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
+import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
+import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
@@ -193,6 +198,86 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		else{
 			throw new Exception("errorMsg: api data error");
 		}
+	}
+	
+	public void createApplicationFormPdf(HttpServletRequest request,HttpSession session) throws Exception {
+		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
+		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) session.getAttribute("lifeEmploymentInfo");
+		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
+		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
+		
+	    List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
+	    
+	    attributeList.add(new PdfAttribute("applicationNo", "applicationNo"));
+	    attributeList.add(new PdfAttribute("applicationEnglishName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
+	    attributeList.add(new PdfAttribute("applicationChineseName", lifePersonalDetails.getChineseName()));
+	    attributeList.add(new PdfAttribute("applicationHKID", lifePersonalDetails.getHkid()));
+	    attributeList.add(new PdfAttribute("applicationSex", lifePersonalDetails.getGender()));
+	    attributeList.add(new PdfAttribute("applicationDB", lifePersonalDetails.getDob()));
+	    attributeList.add(new PdfAttribute("applicationMaritalStatus", lifePersonalDetails.getMartialStatus()));
+	    attributeList.add(new PdfAttribute("applicationBirthPlace", lifePersonalDetails.getPlaceOfBirth()));
+	    attributeList.add(new PdfAttribute("applicationNationality", lifePersonalDetails.getNationalty()));
+	    attributeList.add(new PdfAttribute("applicationResidentialPhone", lifePersonalDetails.getMobileNumber()));
+	    attributeList.add(new PdfAttribute("applicationMobile", lifePersonalDetails.getMobileNumber()));
+	    attributeList.add(new PdfAttribute("applicationEmail", lifePersonalDetails.getEmailAddress()));
+	    attributeList.add(new PdfAttribute("applicationResAddress", lifePersonalDetails.getResidentialAddress1()+","+lifePersonalDetails.getResidentialAddress2()+","+lifePersonalDetails.getResidentialAddress3()));
+	    attributeList.add(new PdfAttribute("applicationResDistrict", lifePersonalDetails.getResidentialAddressDistrict()));
+	    attributeList.add(new PdfAttribute("applicationPerAddress", lifePersonalDetails.getPermanetAddress1()+","+lifePersonalDetails.getCorrespondenceAddress2()+","+lifePersonalDetails.getCorrespondenceAddress3()));
+	    attributeList.add(new PdfAttribute("applicationPerDistrict", lifePersonalDetails.getPermanetAddressDistrict()));
+	    attributeList.add(new PdfAttribute("applicationCorrAddress", lifePersonalDetails.getCorrespondenceAddress1()+","+lifePersonalDetails.getCorrespondenceAddress2()+","+lifePersonalDetails.getCorrespondenceAddress3()));
+	    attributeList.add(new PdfAttribute("applicationCorrDistrict", lifePersonalDetails.getCorrespondenceAddressDistrict()));
+	    
+	    attributeList.add(new PdfAttribute("educationLevel", lifeEmploymentInfo.getEducation()));
+	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "applicationEmploymentStatusKey"));
+	    attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatus()));
+	    attributeList.add(new PdfAttribute("currentEmployNameKey/otherIncomKey", "currentEmployNameKey/otherIncomKey"));
+	    attributeList.add(new PdfAttribute("currentEmployName/otherIncome", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome()));
+	    attributeList.add(new PdfAttribute("natureOfBusinessKey/liquidAssetKey", "natureOfBusinessKey/liquidAssetKey"));
+	    attributeList.add(new PdfAttribute("natureOfBusiness/liquidAsset", lifeEmploymentInfo.getNatureOfBusiness()));
+	    attributeList.add(new PdfAttribute("occupationKey", "occupationKey"));
+	    attributeList.add(new PdfAttribute("occupation", lifeEmploymentInfo.getOccupation()));
+	    attributeList.add(new PdfAttribute("personalIncomeKey", "personalIncomeKey"));
+	    attributeList.add(new PdfAttribute("personalIncome", lifeEmploymentInfo.getMonthlyPersonalIncome()));
+	    
+	    attributeList.add(new PdfAttribute("sumInsured", "sumInsured"));
+	    attributeList.add(new PdfAttribute("firstYearPremium", "firstYearPremium"));
+	    attributeList.add(new PdfAttribute("perMonOnethHKD", "perMonOnethHKD"));
+	    attributeList.add(new PdfAttribute("subsequantPremium", "subsequantPremium"));
+	    attributeList.add(new PdfAttribute("perMonthTwoHKD", "perMonthTwoHKD"));
+	    
+	    attributeList.add(new PdfAttribute("beneficiaryEnglishName1", lifeBeneficaryInfo.getBeneficaryFirstName1()+" "+lifeBeneficaryInfo.getBeneficaryLastName1()));
+	    attributeList.add(new PdfAttribute("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()));
+	    attributeList.add(new PdfAttribute("beneficiaryGender1", lifeBeneficaryInfo.getBeneficaryGender1()));
+	    attributeList.add(new PdfAttribute("beneficiaryHKID1", lifeBeneficaryInfo.getBeneficaryID1()));
+	    attributeList.add(new PdfAttribute("relationship1", lifeBeneficaryInfo.getBeneficaryRelation1()));
+	    attributeList.add(new PdfAttribute("entitlement1", lifeBeneficaryInfo.getBeneficaryWeight1()));
+	    attributeList.add(new PdfAttribute("beneficiaryEnglishName2", lifeBeneficaryInfo.getBeneficaryFirstName2()+" "+lifeBeneficaryInfo.getBeneficaryLastName2()));
+	    attributeList.add(new PdfAttribute("beneficiaryChineseName2", lifeBeneficaryInfo.getBeneficaryChineseName2()));
+	    attributeList.add(new PdfAttribute("beneficiaryGender2", lifeBeneficaryInfo.getBeneficaryGender2()));
+	    attributeList.add(new PdfAttribute("beneficiaryHKID2", lifeBeneficaryInfo.getBeneficaryID2()));
+	    attributeList.add(new PdfAttribute("relationship2", lifeBeneficaryInfo.getBeneficaryRelation2()));
+	    attributeList.add(new PdfAttribute("entitlement2", lifeBeneficaryInfo.getBeneficaryWeight2()));
+	    attributeList.add(new PdfAttribute("beneficiaryEnglishName3", lifeBeneficaryInfo.getBeneficaryFirstName3()+" "+lifeBeneficaryInfo.getBeneficaryLastName3()));
+	    attributeList.add(new PdfAttribute("beneficiaryChineseName3", lifeBeneficaryInfo.getBeneficaryChineseName3()));
+	    attributeList.add(new PdfAttribute("beneficiaryGender3", lifeBeneficaryInfo.getBeneficaryGender3()));
+	    attributeList.add(new PdfAttribute("beneficiaryHKID3", lifeBeneficaryInfo.getBeneficaryID3()));
+	    attributeList.add(new PdfAttribute("relationship3", lifeBeneficaryInfo.getBeneficaryRelation3()));
+	    attributeList.add(new PdfAttribute("entitlement3", lifeBeneficaryInfo.getBeneficaryWeight3()));
+	    
+	    attributeList.add(new PdfAttribute("creditCardValue", lifePayment.getAccountNumber()));
+	    attributeList.add(new PdfAttribute("cardExpireDate", "cardExpireDate"));
+	    attributeList.add(new PdfAttribute("creditCardAuthEnglish", lifePayment.getAccountHolderName()));
+	    
+	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+	    attributeList.add(new PdfAttribute("authDate", format.format(new Date())));
+	    attributeList.add(new PdfAttribute("authSign", "authSign"));
+			
+		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"resources/pdf/"+"eliteTerm-applicationForm-0.20.pdf";
+		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"resources\\\\pdf\\\\";
+		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
+		
+		request.getSession().setAttribute("applicationFormPdf", name);
+		logger.info("applicationFormPdf create successfully");
 	}
 	
 	public JSONObject saveProductFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
