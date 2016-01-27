@@ -12,7 +12,7 @@
 <table>
 <tr>
 <td>Personal info</td>
-<td><a class="buy-now et-quote btn-color-ylw" href="<%=request.getContextPath()%>/${language}/savie-online/life-personal-details" >Edit</a></td>
+<td><a class="buy-now et-quote btn-color-ylw" href="<%=request.getContextPath()%>/${language}/savie-online/life-personal-details?backSummary=Y" >Edit</a></td>
 </tr>
 <tr>
 <td>firstname:${lifePersonalDetails.firstname }</td>
@@ -64,7 +64,7 @@
 </tr>
 <tr>
 <td>Employment info</td>
-<td><a class="buy-now et-quote btn-color-ylw" href="<%=request.getContextPath()%>/${language}/savie-online/life-employment-info" >Edit</a></td>
+<td><a class="buy-now et-quote btn-color-ylw" href="<%=request.getContextPath()%>/${language}/savie-online/life-employment-info?backSummary=Y" >Edit</a></td>
 </tr>
 <tr>
 <td>employmentStatus:${lifeEmploymentInfo.employmentStatus }</td>
@@ -84,7 +84,7 @@
 </tr>
 <tr>
 <td>Beneficary info</td>
-<td><a class="buy-now et-quote btn-color-ylw" href="<%=request.getContextPath()%>/${language}/savie-online/life-beneficary-info" >Edit</a></td>
+<td><a class="buy-now et-quote btn-color-ylw" href="<%=request.getContextPath()%>/${language}/savie-online/life-beneficary-info?backSummary=Y" >Edit</a></td>
 </tr>
 <tr>
 <td>beneficaryFirstName1:${lifeBeneficaryInfo.beneficaryFirstName1 }</td>

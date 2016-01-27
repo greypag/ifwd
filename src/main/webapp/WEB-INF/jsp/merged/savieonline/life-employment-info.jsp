@@ -35,7 +35,12 @@ $("#nextPage").click(function(){
 				  $("#errorMsg").html(data.errorMsg);
 			  }
 			  else{
-				  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+				  if('${backSummary}'=="Y"){
+					  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+				  }
+				  else{
+					  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+				  }
 			  }
 		  }
      });

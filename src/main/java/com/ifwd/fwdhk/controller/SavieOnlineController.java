@@ -94,6 +94,11 @@ public class SavieOnlineController extends BaseController{
 		model.addAttribute("nationalityCN", InitApplicationMessage.nationalityCN);
 		model.addAttribute("savieDistrictEN", InitApplicationMessage.savieDistrictEN);
 		model.addAttribute("savieDistrictCN", InitApplicationMessage.savieDistrictCN);
+		
+		String backSummary = request.getParameter("backSummary");
+		if(backSummary!=null && "Y".equals(backSummary)){
+			model.addAttribute("backSummary", backSummary);
+		}
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
 	}
 	
@@ -169,6 +174,11 @@ public class SavieOnlineController extends BaseController{
 		model.addAttribute("occupationCnNoB23", InitApplicationMessage.occupationCnNoB23);
 		model.addAttribute("occupationEnNoB24", InitApplicationMessage.occupationEnNoB24);
 		model.addAttribute("occupationCnNoB24", InitApplicationMessage.occupationCnNoB24);
+		
+		String backSummary = request.getParameter("backSummary");
+		if(backSummary!=null && "Y".equals(backSummary)){
+			model.addAttribute("backSummary", backSummary);
+		}
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
 	}
 	
@@ -176,6 +186,11 @@ public class SavieOnlineController extends BaseController{
 	public ModelAndView getSavieOnlineLifeBeneficaryInfo(Model model, HttpServletRequest request) {
 		model.addAttribute("savieBeneficiaryRelationshipEN", InitApplicationMessage.savieBeneficiaryRelationshipEN);
 		model.addAttribute("savieBeneficiaryRelationshipCN", InitApplicationMessage.savieBeneficiaryRelationshipCN);
+		
+		String backSummary = request.getParameter("backSummary");
+		if(backSummary!=null && "Y".equals(backSummary)){
+			model.addAttribute("backSummary", backSummary);
+		}
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO);
 	}
 	
