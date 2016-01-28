@@ -556,8 +556,13 @@
 
 				</div>
 				<!-- end fwdiscover footer -->
-
-				<!-- MODALS -->
+	<%
+	    java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd");
+		long current = System.currentTimeMillis();  
+	    long start = format.parse("2016-01-31").getTime() + 36000000;
+	    if(current <= start) {
+	%>
+				<!-- MODALS -->				
                 <div class="modal fade fwdiscover-modal" id="offer-announce" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -565,7 +570,10 @@
                             <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
                         </div>
                     </div>
-                </div>				
+                </div>
+	<%
+    	}
+	%>               				
 				<!-- 5 plans -->
 				<div class="modal fade fwdiscover-modal" id="offer1-details" role="dialog" aria-hidden="true">
 					<div class="modal-dialog">
