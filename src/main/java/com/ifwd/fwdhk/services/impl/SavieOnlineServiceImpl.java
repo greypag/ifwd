@@ -426,7 +426,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String Url = UserRestURIConstants.GET_FNA;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		return (JSONObject) responseJsonObj.get("result");
+		return responseJsonObj.get("result") != null ? (JSONObject) responseJsonObj.get("result"):new JSONObject();
 	}
 	
 	public JSONObject getPurchaseHistoryByPlanCode(HttpServletRequest request) throws ECOMMAPIException{
