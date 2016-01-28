@@ -15,6 +15,6 @@ public interface SavieOnlineService {
 	public void createApplicationFormPdf(HttpServletRequest request,HttpSession session) throws Exception;
 	public JSONObject saveProductFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getProductrRecommend(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException;
-	public JSONObject getFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException;
+	public JSONObject getFna(HttpServletRequest request) throws ECOMMAPIException;
 	
 }

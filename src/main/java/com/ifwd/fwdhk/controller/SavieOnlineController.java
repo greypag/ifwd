@@ -211,7 +211,13 @@ public class SavieOnlineController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-online/life-review4"})
-	public ModelAndView getSavieOnlineLifeReview4(Model model, HttpServletRequest request) {
+	public ModelAndView getSavieOnlineLifeReview4(Model model, HttpServletRequest request,HttpSession session) {
+		try {
+			savieOnlineService.createApplicationFormPdf(request, session);
+		}
+		catch (Exception e) {
+			request.getSession().setAttribute("errorMsg", e.getMessage());
+		}
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4);
 	}
 	

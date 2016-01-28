@@ -145,14 +145,13 @@ public class AjaxSavieOnlineController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/ajax/savie-online/show"})
-	public void show(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+	public void show(HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
-			SavieFnaBean savieFna = (SavieFnaBean) session.getAttribute("savieFna");
-			jsonObject = savieOnlineService.getFna(savieFna, request);
+			jsonObject = savieOnlineService.getFna(request);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");

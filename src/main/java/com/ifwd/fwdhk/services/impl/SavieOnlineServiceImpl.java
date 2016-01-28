@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -374,17 +375,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return responseJsonObj;
 	}
 	
-	public JSONObject getFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "product/getProductFna?name="+URLEncoder.encode(savieFna.getName());
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc")){
-			lang = "CH";
-		}
-		else{
-			lang = "EN";
-		}
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
+	public JSONObject getFna(HttpServletRequest request) throws ECOMMAPIException{
+		String Url = UserRestURIConstants.GET_FNA;
+		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return (JSONObject) responseJsonObj.get("result");
 	}
