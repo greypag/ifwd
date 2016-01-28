@@ -143,6 +143,7 @@ public class UserRestURIConstants {
 	
 	/*API For savie online*/
 	public static final String GET_FNA = SERVICE_URL + "/fna";
+	public static final String GET_PURCHASE_HISTORY_BY_PLANCODE = SERVICE_URL + "/policies/retrieve";
 	
 	/* Page Flow Control For Savie */
 	
