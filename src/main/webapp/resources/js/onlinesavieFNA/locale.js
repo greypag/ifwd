@@ -4341,3 +4341,18 @@ var Occupation = {
 		}]
 	}]
 }
+
+
+var RecommendationPageLocale = {
+	"en" : {
+		"errorName" : "Please enter your name.",
+		"errorEmail" : "Your email address is invalid.",
+		"errorMobileNo" : "Please enter your mobile no."
+	},
+
+	"tc" : {
+		"errorName" : "Please enter your name.",
+		"errorEmail" : "Your email address is invalid.",
+		"errorMobileNo" : "Please enter your mobile no."
+	}
+}

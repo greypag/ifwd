@@ -2,7 +2,6 @@ package com.ifwd.fwdhk.services.impl;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
-import java.net.URLEncoder;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -16,16 +15,17 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
-import com.ifwd.fwdhk.common.util.NumberTransferUtils;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
@@ -39,6 +39,7 @@ import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
+import com.ifwd.fwdhk.util.CompareUtil;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
@@ -282,7 +283,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public JSONObject saveProductFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "product/saveProductFna";
+//		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "fna";
+		String Url = UserRestURIConstants.SAVE_FNA;
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")){
@@ -322,16 +324,20 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		jsonObject.put("q4_f", savieFna.getQ4_f());
 		jsonObject.put("q4_g", savieFna.getQ4_g());
 		jsonObject.put("q4_g_others", savieFna.getQ4_g_others());
-		jsonObject.put("lang", lang);
+		jsonObject.put("hash_key", "");
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		return responseJsonObj;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public JSONObject getProductrRecommend(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "product/getProductRecommend";
+		//String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "fna/getProductRecommendation";
+		String Url = UserRestURIConstants.GET_PRODUCTRECOMMENDATION;
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		String lang = UserRestURIConstants.getLanaguage(request);
+		String sort_by = request.getParameter("sort_by");
+		
 		if (lang.equals("tc")){
 			lang = "CH";
 		}
@@ -372,10 +378,51 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		jsonObject.put("lang", lang);
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
+		
+		if(responseJsonObj.get("errMsgs") == null && !StringUtils.isEmpty(sort_by)) {
+			JSONArray productArr = (JSONArray)responseJsonObj.get("product_list");
+			JSONArray sortProductArr = new JSONArray();
+			String sort;
+			JSONObject products;
+			for(int i = 0; i < productArr.size(); i++) {
+				products = (JSONObject) productArr.get(i);
+				sort = products.get("products").toString();
+				switch (sort_by) {
+				case "0":
+					sort = CompareUtil.comparePeriodAsc(sort, "getContribution_period");
+					break;
+				case "1":
+					sort = CompareUtil.compareIntAsc(sort, "getMin_issue_age");
+					break;
+				case "2":
+					sort = CompareUtil.compareIntAsc(sort, "getMax_issue_age");
+					break;
+				case "3":
+					sort = CompareUtil.compareIntAsc(sort, "getProtection_period");
+					break;
+				case "4":
+					sort = CompareUtil.comparePeriodDesc(sort, "getContribution_period");
+					break;
+				case "5":
+					sort = CompareUtil.compareIntDesc(sort, "getMin_issue_age");
+					break;
+				case "6":
+					sort = CompareUtil.compareIntDesc(sort, "getMax_issue_age");
+					break;
+				case "7":
+					sort = CompareUtil.compareIntDesc(sort, "getProtection_period");
+					break;
+				}
+				products.put("products", JSONValue.parse(sort));
+				sortProductArr.add(products);
+			}
+			responseJsonObj.put("product_list", sortProductArr);
+		}
 		return responseJsonObj;
 	}
 	
 	public JSONObject getFna(HttpServletRequest request) throws ECOMMAPIException{
+//		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "fna";
 		String Url = UserRestURIConstants.GET_FNA;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);

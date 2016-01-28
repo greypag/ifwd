@@ -127,7 +127,6 @@ public class AjaxSavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/savie-online/update"})
 	public void update(SavieFnaBean savieFna,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
-		String language = (String) session.getAttribute("language");
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
@@ -193,4 +192,20 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
+	@RequestMapping(value = {"/ajax/savie-online/enquiry"})
+	public void enquiry(HttpServletRequest request,HttpServletResponse response) {
+		/*JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}*/
+		
+		String jsonObject = "{\"status\":0}";
+		logger.info(jsonObject.toString());
+		response.setContentType("text/json;charset=utf-8");
+		try {
+			response.getWriter().print(jsonObject);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
