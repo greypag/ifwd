@@ -9,13 +9,11 @@
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
 <div align="center">
-<h1 style="color: black;">life-confirmation.jsp</h1>
+<h1 style="color: black;">appointment-confirmation.jsp</h1>
 <a id="nextPage" class="buy-now et-quote btn-color-ylw" href="#" >next page</a>
 </div>
 <script type="text/javascript">
 $("#nextPage").click(function(){
-	setTimeout(function(){
-		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
-	}, 1000);
+	window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
 });
 </script>

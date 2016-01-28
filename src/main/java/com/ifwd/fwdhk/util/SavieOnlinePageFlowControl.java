@@ -145,11 +145,31 @@ public class SavieOnlinePageFlowControl {
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_CONFIRMATION;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_CONFIRMATION;
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION;
 			break;
 			
-		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_CONFIRMATION: 
+		case UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			break;
+			
+		case UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			break;
+			
+		case UserRestURIConstants.PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			break;
+			
+		case UserRestURIConstants.PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION: 
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			break;
+			
+		case UserRestURIConstants.PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
 			break;
@@ -228,8 +248,20 @@ public class SavieOnlinePageFlowControl {
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD;
 		}
-		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_CONFIRMATION)) {
-			return UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_CONFIRMATION;
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;

@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.CommonUtils;
@@ -221,12 +222,35 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savie-online/life-document-upload"})
 	public ModelAndView getSavieOnlineLifeDocumentUpload(Model model, HttpServletRequest request) {
+		CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
+		eliteTermPolicy.setPolicyNo("sssssssss01650165");
+		request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savie-online/life-confirmation"})
-	public ModelAndView getSavieOnlineLifeConfirmation(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_CONFIRMATION);
+	@RequestMapping(value = {"/{lang}/savie-online/upload-confirmation"})
+	public ModelAndView getSavieOnlineUploadConfirmation(Model model, HttpServletRequest request) {
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/upload-later-confirmation"})
+	public ModelAndView getSavieOnlineUploadLaterConfirmation(Model model, HttpServletRequest request) {
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/sign-offline-confirmation"})
+	public ModelAndView getSavieOnlineSignOfflineConfirmation(Model model, HttpServletRequest request) {
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/pay-later-confirmation"})
+	public ModelAndView getSavieOnlinePayLaterConfirmation(Model model, HttpServletRequest request) {
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/appointment-confirmation"})
+	public ModelAndView getSavieOnlineAppointmentConfirmation(Model model, HttpServletRequest request) {
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-online/service-center"})

@@ -275,7 +275,11 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIEONLINE_REVIEW4 = "life-review4";
 	public static final String PAGE_SAVIEONLINE_LIFE_SIGNATURE = "life-signature";
 	public static final String PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD = "life-document-upload";
-	public static final String PAGE_SAVIEONLINE_LIFE_CONFIRMATION = "life-confirmation";
+	public static final String PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION = "upload-confirmation";
+	public static final String PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION = "upload-later-confirmation";
+	public static final String PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION = "sign-offline-confirmation";
+	public static final String PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION = "pay-later-confirmation";
+	public static final String PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION = "appointment-confirmation";
 	public static final String PAGE_SAVIEONLINE_SERVICE_CENTER = "service-center";
 	
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LANDING = "savie.landing";
@@ -294,7 +298,11 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_REVIEW4 = "life.review4";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_SIGNATURE = "life.signature";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD = "life.document.upload";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_CONFIRMATION = "life.confirmation";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION = "upload.confirmation";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION = "upload.later.confirmation";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION = "sign.offline.confirmation";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_PAY_LATER_CONFIRMATION = "pay.later.confirmation";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_APPOINTMENT_CONFIRMATION = "appointment.confirmation";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_SERVICE_CENTER = "service.center";
 
 	/* for image configuration */
