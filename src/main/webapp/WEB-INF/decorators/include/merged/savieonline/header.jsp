@@ -1266,3 +1266,4 @@ $(function() {
 </script>
 <jsp:include page="/WEB-INF/jsp/merged/iosChromeAlert.jsp" />
 <jsp:include page="/WEB-INF/jsp/merged/login.jsp" />
+<jsp:include page="/WEB-INF/jsp/merged/session.jsp" />
