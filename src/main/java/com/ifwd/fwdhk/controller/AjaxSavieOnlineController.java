@@ -136,7 +136,8 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			jsonObject = savieOnlineService.createLifePolicy(request, session);
+			savieOnlineService.createLifePolicy(request, session);
+			jsonObject.put("successMsg", "yes");
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
@@ -152,7 +153,7 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			jsonObject = savieOnlineService.finalizeLifePolicy(request, session);
+			savieOnlineService.finalizeLifePolicy(request, session);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());

@@ -79,7 +79,7 @@ $("#nextPage").click(function(){
 	    error:function(){       
 	    },     
 	    success:function(data){
-	    	if(data != null && data.errMsgs == null && data.policyNo !=null){
+	    	if(data != null && data.successMsg !=null){
 	    		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
 	    	}
 	    }  

@@ -28,6 +28,7 @@ import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.request.eliteterm.CreateEliteTermPolicyRequest;
+import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.GetEliteTermPremiumResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
@@ -440,7 +441,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return responseJsonObj;
 	}
 	
-	public JSONObject createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
+	public CreateEliteTermPolicyResponse createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
 		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) session.getAttribute("saviePlanDetails");
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) session.getAttribute("lifeEmploymentInfo");
@@ -453,13 +454,14 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			applicant.put("firstName", lifePersonalDetails.getFirstname());
 			applicant.put("lastName", lifePersonalDetails.getLastname());
 			applicant.put("chineseName", lifePersonalDetails.getChineseName());
-			applicant.put("dob", lifePersonalDetails.getDob());
+			String[] dob = lifePersonalDetails.getDob().split("/");
+			applicant.put("dob", dob[0]+"-"+dob[1]+"-"+dob[2]);
 			applicant.put("gender", lifePersonalDetails.getGender());
 			applicant.put("hkId", lifePersonalDetails.getHkid());
 			applicant.put("passport", "");
-			applicant.put("maritalStatus", lifePersonalDetails.getMartialStatus());
-			applicant.put("placeOfBirth", lifePersonalDetails.getPlaceOfBirth());
-			applicant.put("nationality", lifePersonalDetails.getNationalty());
+			applicant.put("maritalStatus", lifePersonalDetails.getMartialStatus()!=null?lifePersonalDetails.getMartialStatus().split("-")[0]:"");
+			applicant.put("placeOfBirth", lifePersonalDetails.getPlaceOfBirth()!=null?lifePersonalDetails.getPlaceOfBirth().split("-")[0]:"");
+			applicant.put("nationality", lifePersonalDetails.getNationalty()!=null?lifePersonalDetails.getNationalty().split("-")[0]:"");
 			applicant.put("residentialTelNoCountryCode", "852");
 			applicant.put("residentialTelNo", "23886166");
 			applicant.put("mobileNoCountryCode", "852");
@@ -470,7 +472,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				permanentAddress.put("line2", lifePersonalDetails.getPermanetAddress2());
 				permanentAddress.put("line3", lifePersonalDetails.getPermanetAddress3());
 				permanentAddress.put("line4", "SD3");
-				permanentAddress.put("district", lifePersonalDetails.getPermanetAddressDistrict());
+				permanentAddress.put("district", lifePersonalDetails.getPermanetAddressDistrict()!=null?lifePersonalDetails.getPermanetAddressDistrict().split("-")[0]:"");
 			applicant.put("permanentAddress", permanentAddress);
 				
 				JSONObject residentialAddress = new JSONObject();
@@ -478,7 +480,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				residentialAddress.put("line2", lifePersonalDetails.getResidentialAddress2());
 				residentialAddress.put("line3", lifePersonalDetails.getResidentialAddress3());
 				residentialAddress.put("line4", "SD1");
-				residentialAddress.put("district", lifePersonalDetails.getResidentialAddressDistrict());
+				residentialAddress.put("district", lifePersonalDetails.getResidentialAddressDistrict()!=null?lifePersonalDetails.getResidentialAddressDistrict().split("-")[0]:"");
 			applicant.put("residentialAddress", residentialAddress);
 				
 				JSONObject correspondenceAddress = new JSONObject();
@@ -486,7 +488,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				correspondenceAddress.put("line2", lifePersonalDetails.getCorrespondenceAddress2());
 				correspondenceAddress.put("line3", lifePersonalDetails.getCorrespondenceAddress3());
 				correspondenceAddress.put("line4", "SD2");
-				correspondenceAddress.put("district", lifePersonalDetails.getCorrespondenceAddressDistrict());
+				correspondenceAddress.put("district", lifePersonalDetails.getCorrespondenceAddressDistrict()!=null?lifePersonalDetails.getCorrespondenceAddressDistrict().split("-")[0]:"");
 			applicant.put("correspondenceAddress", correspondenceAddress);
 				
 				JSONObject employmentStatus = new JSONObject();
@@ -506,7 +508,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			JSONObject insured = new JSONObject();
 			insured.put("name", applicant.get("firstName")+" "+applicant.get("lastName"));
 			insured.put("hkId", applicant.get("hkId"));
-			insured.put("passport", applicant.get("passport"));
+			insured.put("passport", "");
 			insured.put("relationship", "SE");
 				JSONArray beneficiaries = new JSONArray();
 					JSONObject beneficiarie1 = new JSONObject();
@@ -553,22 +555,19 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("referralCode", saviePlanDetails.getPromoCode());
 		logger.info(parameters.toString());
 		
-		String Url = UserRestURIConstants.CREATE_LIFE_POLICY;
 		final Map<String,String> header = headerUtil.getHeader(request);
-		JSONObject jsonObject = restService.consumeApi(HttpMethod.PUT,Url, header, parameters);
 		CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
-		if(jsonObject.get("errMsgs")==null){
-			eliteTermPolicy.setPolicyNo(jsonObject.get("policyNo").toString());
-			eliteTermPolicy.setReferralCode(jsonObject.get("referralCode").toString());
+		eliteTermPolicy = connector.createLifePolicy(parameters, header);
+		if(!eliteTermPolicy.hasError()){
 			request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
 		}
 		else{
-			throw new ECOMMAPIException(jsonObject.get("errMsgs").toString());
+			throw new ECOMMAPIException(eliteTermPolicy.getErrMsgs()[0]);
 		}
-		return jsonObject;
+		return eliteTermPolicy;
 	}
 	
-	public JSONObject finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
+	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
 		CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
 		JSONObject parameters = new JSONObject();
 		parameters.put("creditCaredNo", "");
@@ -578,12 +577,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("planCode", "SAVIE");
 		logger.info(parameters.toString());
 		
-		String Url = UserRestURIConstants.FINALIZE_LIFE_POLICY;
+		BaseResponse apiReturn = null;
 		final Map<String,String> header = headerUtil.getHeader(request);
-		JSONObject jsonObject = restService.consumeApi(HttpMethod.POST,Url, header, parameters);
-		if(jsonObject.get("errMsgs")!=null){
-			throw new ECOMMAPIException(jsonObject.get("errMsgs").toString());
+		apiReturn = connector.finalizeLifePolicy(parameters, header);
+		if(apiReturn.hasError()){
+			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
 		}
-		return jsonObject;
+		return apiReturn;
 	}
 }
