@@ -480,6 +480,7 @@
 				<fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" />
 			</button>
 		</div>
+		<a href="#" class="et-app-sum-edit et-app-edit">save and continue later</a>
 	</form>
 	</div>
 </div>
