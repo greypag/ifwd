@@ -130,6 +130,14 @@ public class ECommWsConnector {
 		return consumeECommWs(UserRestURIConstants.CREATE_ELITE_TERM_POLICY,HttpMethod.PUT,parameters,CreateEliteTermPolicyResponse.class,header);
 	}
 	
+	public CreateEliteTermPolicyResponse createLifePolicy(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.CREATE_LIFE_POLICY,HttpMethod.PUT,parameters,CreateEliteTermPolicyResponse.class,header);
+	}
+	
+	public BaseResponse finalizeLifePolicy(org.json.simple.JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.FINALIZE_LIFE_POLICY,HttpMethod.POST,parameters,BaseResponse.class,header);
+	}
+	
 	public GetEliteTermPremiumResponse getEliteTermPremium(HttpServletRequest request,final Map<String,String> header)throws ECOMMAPIException{
 		StringBuffer url = new StringBuffer();
 		String[] dob = request.getParameter("dob").toString().split("-");

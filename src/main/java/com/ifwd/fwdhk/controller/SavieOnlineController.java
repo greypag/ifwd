@@ -231,7 +231,7 @@ public class SavieOnlineController extends BaseController{
 	public ModelAndView getSavieOnlineLifeDocumentUpload(Model model, HttpServletRequest request,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		try {
-			jsonObject = savieOnlineService.finalizeLifePolicy(request, session);
+			savieOnlineService.finalizeLifePolicy(request, session);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
