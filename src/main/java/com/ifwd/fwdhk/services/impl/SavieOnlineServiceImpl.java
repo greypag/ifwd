@@ -47,6 +47,7 @@ import com.ifwd.fwdhk.util.CompareUtil;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
+import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 @Service
 public class SavieOnlineServiceImpl implements SavieOnlineService {
@@ -341,7 +342,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String Url = UserRestURIConstants.GET_PRODUCTRECOMMENDATION;
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		String lang = UserRestURIConstants.getLanaguage(request);
-		String sort_by = request.getParameter("sort_by");
+		String sort_by = StringHelper.emptyIfNull(request.getParameter("sort_by"));
 		
 		if (lang.equals("tc")){
 			lang = "CH";
@@ -384,7 +385,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		
-		if(responseJsonObj.get("errMsgs") == null && !StringUtils.isEmpty(sort_by)) {
+		if(responseJsonObj.get("errMsgs") == null) {
 			JSONArray productArr = (JSONArray)responseJsonObj.get("product_list");
 			JSONArray sortProductArr = new JSONArray();
 			String sort;
@@ -394,7 +395,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				sort = products.get("products").toString();
 				switch (sort_by) {
 				case "0":
-					sort = CompareUtil.comparePeriodAsc(sort, "getContribution_period");
+					sort = CompareUtil.comparePeriodAsc(sort);
 					break;
 				case "1":
 					sort = CompareUtil.compareIntAsc(sort, "getMin_issue_age");
@@ -406,7 +407,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					sort = CompareUtil.compareIntAsc(sort, "getProtection_period");
 					break;
 				case "4":
-					sort = CompareUtil.comparePeriodDesc(sort, "getContribution_period");
+					sort = CompareUtil.comparePeriodDesc(sort);
 					break;
 				case "5":
 					sort = CompareUtil.compareIntDesc(sort, "getMin_issue_age");
@@ -416,6 +417,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					break;
 				case "7":
 					sort = CompareUtil.compareIntDesc(sort, "getProtection_period");
+					break;
+				default :
+					sort = CompareUtil.compareCodeDesc(sort);
 					break;
 				}
 				products.put("products", JSONValue.parse(sort));
