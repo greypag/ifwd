@@ -73,7 +73,17 @@ $("#applicationFormPdfBtn").click(function(){
 });
 
 $("#nextPage").click(function(){
-		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+	$.ajax({     
+	    url:'${pageContext.request.contextPath}/ajax/savie-online/createLifePolicy',     
+	    type:'get',     
+	    error:function(){       
+	    },     
+	    success:function(data){
+	    	if(data != null && data.errMsgs == null && data.policyNo !=null){
+	    		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+	    	}
+	    }  
+	});
 });
 $("#nextPage2").click(function(){
 	window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';

@@ -14,6 +14,7 @@ public class SavieFnaBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String v;
+	private String user_name;
 	private String name;
 	private String gender;
 	private String dob;
@@ -295,6 +296,14 @@ public class SavieFnaBean implements Serializable {
 
 	public void setLast_update(String last_update) {
 		this.last_update = last_update;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 	
 }

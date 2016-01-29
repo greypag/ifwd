@@ -299,6 +299,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("user_name", savieFna.getUser_name());
 		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
 		jsonObject.put("dob", savieFna.getDob());
@@ -555,22 +556,34 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String Url = UserRestURIConstants.CREATE_LIFE_POLICY;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject jsonObject = restService.consumeApi(HttpMethod.PUT,Url, header, parameters);
+		CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
+		if(jsonObject.get("errMsgs")==null){
+			eliteTermPolicy.setPolicyNo(jsonObject.get("policyNo").toString());
+			eliteTermPolicy.setReferralCode(jsonObject.get("referralCode").toString());
+			request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
+		}
+		else{
+			throw new ECOMMAPIException(jsonObject.get("errMsgs").toString());
+		}
 		return jsonObject;
 	}
 	
 	public JSONObject finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
-		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
+		CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
 		JSONObject parameters = new JSONObject();
-		parameters.put("creditCaredNo", lifePayment.getAccountNumber());
+		parameters.put("creditCaredNo", "");
 		parameters.put("expiryDate", "");
-		parameters.put("cardHolderName", lifePayment.getAccountHolderName());
-		parameters.put("policyNo", "14112417");
+		parameters.put("cardHolderName", "");
+		parameters.put("policyNo", eliteTermPolicy.getPolicyNo());
 		parameters.put("planCode", "SAVIE");
 		logger.info(parameters.toString());
 		
 		String Url = UserRestURIConstants.FINALIZE_LIFE_POLICY;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject jsonObject = restService.consumeApi(HttpMethod.POST,Url, header, parameters);
+		if(jsonObject.get("errMsgs")!=null){
+			throw new ECOMMAPIException(jsonObject.get("errMsgs").toString());
+		}
 		return jsonObject;
 	}
 }
