@@ -17,5 +17,7 @@ public interface SavieOnlineService {
 	public JSONObject getProductrRecommend(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getFna(HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getPurchaseHistoryByPlanCode(HttpServletRequest request) throws ECOMMAPIException;
+	public JSONObject createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
+	public JSONObject finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
 	
 }

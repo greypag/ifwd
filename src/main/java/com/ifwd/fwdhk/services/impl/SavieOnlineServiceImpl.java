@@ -27,6 +27,9 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
+import com.ifwd.fwdhk.connector.request.eliteterm.CreateEliteTermPolicyRequest;
+import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
+import com.ifwd.fwdhk.connector.response.eliteterm.GetEliteTermPremiumResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
@@ -434,5 +437,140 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		return responseJsonObj;
+	}
+	
+	public JSONObject createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
+		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) session.getAttribute("saviePlanDetails");
+		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
+		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) session.getAttribute("lifeEmploymentInfo");
+		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
+		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
+		
+		JSONObject parameters = new JSONObject();
+		parameters.put("planCode", "SAVIE");
+			JSONObject applicant = new JSONObject();
+			applicant.put("firstName", lifePersonalDetails.getFirstname());
+			applicant.put("lastName", lifePersonalDetails.getLastname());
+			applicant.put("chineseName", lifePersonalDetails.getChineseName());
+			applicant.put("dob", lifePersonalDetails.getDob());
+			applicant.put("gender", lifePersonalDetails.getGender());
+			applicant.put("hkId", lifePersonalDetails.getHkid());
+			applicant.put("passport", "");
+			applicant.put("maritalStatus", lifePersonalDetails.getMartialStatus());
+			applicant.put("placeOfBirth", lifePersonalDetails.getPlaceOfBirth());
+			applicant.put("nationality", lifePersonalDetails.getNationalty());
+			applicant.put("residentialTelNoCountryCode", "852");
+			applicant.put("residentialTelNo", "23886166");
+			applicant.put("mobileNoCountryCode", "852");
+			applicant.put("mobileNo", lifePersonalDetails.getMobileNumber());
+			applicant.put("email", lifePersonalDetails.getEmailAddress());
+				JSONObject permanentAddress = new JSONObject();
+				permanentAddress.put("line1", lifePersonalDetails.getPermanetAddress1());
+				permanentAddress.put("line2", lifePersonalDetails.getPermanetAddress2());
+				permanentAddress.put("line3", lifePersonalDetails.getPermanetAddress3());
+				permanentAddress.put("line4", "SD3");
+				permanentAddress.put("district", lifePersonalDetails.getPermanetAddressDistrict());
+			applicant.put("permanentAddress", permanentAddress);
+				
+				JSONObject residentialAddress = new JSONObject();
+				residentialAddress.put("line1", lifePersonalDetails.getResidentialAddress1());
+				residentialAddress.put("line2", lifePersonalDetails.getResidentialAddress2());
+				residentialAddress.put("line3", lifePersonalDetails.getResidentialAddress3());
+				residentialAddress.put("line4", "SD1");
+				residentialAddress.put("district", lifePersonalDetails.getResidentialAddressDistrict());
+			applicant.put("residentialAddress", residentialAddress);
+				
+				JSONObject correspondenceAddress = new JSONObject();
+				correspondenceAddress.put("line1", lifePersonalDetails.getCorrespondenceAddress1());
+				correspondenceAddress.put("line2", lifePersonalDetails.getCorrespondenceAddress2());
+				correspondenceAddress.put("line3", lifePersonalDetails.getCorrespondenceAddress3());
+				correspondenceAddress.put("line4", "SD2");
+				correspondenceAddress.put("district", lifePersonalDetails.getCorrespondenceAddressDistrict());
+			applicant.put("correspondenceAddress", correspondenceAddress);
+				
+				JSONObject employmentStatus = new JSONObject();
+				employmentStatus.put("employmentStatus", lifeEmploymentInfo.getEmploymentStatus());
+				employmentStatus.put("occupation", lifeEmploymentInfo.getOccupation());
+				employmentStatus.put("educationLevel", lifeEmploymentInfo.getEducation());
+				employmentStatus.put("natureOfBusiness", lifeEmploymentInfo.getNatureOfBusiness());
+				employmentStatus.put("monthlyPersonalIncome", lifeEmploymentInfo.getMonthlyPersonalIncome());
+				employmentStatus.put("liquidAsset", lifeEmploymentInfo.getAmountOfLiquidAssets());
+				employmentStatus.put("amountOtherSource", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome());
+				employmentStatus.put("employerName", lifeEmploymentInfo.getEmployerName());
+			applicant.put("employmentStatus", employmentStatus);
+			applicant.put("smoke", false);
+			applicant.put("optOut1", true);
+			applicant.put("optOut2", true);
+		parameters.put("applicant", applicant);
+			JSONObject insured = new JSONObject();
+			insured.put("name", applicant.get("firstName")+" "+applicant.get("lastName"));
+			insured.put("hkId", applicant.get("hkId"));
+			insured.put("passport", applicant.get("passport"));
+			insured.put("relationship", "SE");
+				JSONArray beneficiaries = new JSONArray();
+					JSONObject beneficiarie1 = new JSONObject();
+					JSONObject beneficiarie2 = new JSONObject();
+					JSONObject beneficiarie3 = new JSONObject();
+					beneficiarie1.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName1());
+					beneficiarie1.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName1());
+					beneficiarie1.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName1());
+					beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID1());
+					beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficaryID1());
+					beneficiarie1.put("gender", lifeBeneficaryInfo.getBeneficaryGender1());
+					beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1());
+					beneficiarie1.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight1());
+				beneficiaries.add(beneficiarie1);
+					beneficiarie2.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName2());
+					beneficiarie2.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName2());
+					beneficiarie2.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName2());
+					beneficiarie2.put("hkId", lifeBeneficaryInfo.getBeneficaryID2());
+					beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficaryID2());
+					beneficiarie2.put("gender", lifeBeneficaryInfo.getBeneficaryGender2());
+					beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2());
+					beneficiarie2.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight2());
+				beneficiaries.add(beneficiarie2);
+					beneficiarie3.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName3());
+					beneficiarie3.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName3());
+					beneficiarie3.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName3());
+					beneficiarie3.put("hkId", lifeBeneficaryInfo.getBeneficaryID3());
+					beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficaryID3());
+					beneficiarie3.put("gender", lifeBeneficaryInfo.getBeneficaryGender3());
+					beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3());
+					beneficiarie3.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight3());
+				beneficiaries.add(beneficiarie3);
+			insured.put("beneficiaries", beneficiaries);
+		parameters.put("insured", insured);
+			JSONObject payment = new JSONObject();
+			payment.put("amount", saviePlanDetails.getInsuredAmount());
+			payment.put("paymentMethod", "CreditCard");
+			payment.put("bankName", "");
+			payment.put("branchName", "");
+			payment.put("accountNo", "");
+			payment.put("expiryDate", "");
+		parameters.put("payment", payment);
+		parameters.put("insuredAmount", saviePlanDetails.getInsuredAmount());
+		parameters.put("referralCode", saviePlanDetails.getPromoCode());
+		logger.info(parameters.toString());
+		
+		String Url = UserRestURIConstants.CREATE_LIFE_POLICY;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject jsonObject = restService.consumeApi(HttpMethod.PUT,Url, header, parameters);
+		return jsonObject;
+	}
+	
+	public JSONObject finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
+		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
+		JSONObject parameters = new JSONObject();
+		parameters.put("creditCaredNo", lifePayment.getAccountNumber());
+		parameters.put("expiryDate", "");
+		parameters.put("cardHolderName", lifePayment.getAccountHolderName());
+		parameters.put("policyNo", "14112417");
+		parameters.put("planCode", "SAVIE");
+		logger.info(parameters.toString());
+		
+		String Url = UserRestURIConstants.FINALIZE_LIFE_POLICY;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject jsonObject = restService.consumeApi(HttpMethod.POST,Url, header, parameters);
+		return jsonObject;
 	}
 }

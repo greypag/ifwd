@@ -64,7 +64,7 @@ var affiliate = "${affiliate}";
 							<div class="hidden-lg hidden-md">
 								<label>Name</label>
 							</div>
-							<input type="text" name="frm-fna-name" value="${username }" class="frm-fna-name" data-mirror-fld="frm-fna-name-mob" data-frm-fld="name" onkeypress=" return alphaOnly(event);" maxlength="50" readonly>
+							<input type="text" name="frm-fna-name" value="${userDetails.fullName }" class="frm-fna-name" data-mirror-fld="frm-fna-name-mob" data-frm-fld="name" onkeypress=" return alphaOnly(event);" maxlength="50" readonly>
 							</div>
 							<a href="javascript:void(0);" class="fna-btn fna-btn-step1-start disabled">Let's get started</a>
 						</div>

@@ -10,10 +10,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.response.BaseResponse;
+import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
@@ -125,6 +129,38 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
+	@RequestMapping(value = {"/ajax/savie-online/createLifePolicy"})
+	public void createLifePolicy(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			jsonObject = savieOnlineService.createLifePolicy(request, session);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+
+	@RequestMapping(value = {"/ajax/savie-online/finalizeLifePolicy"})
+	public void finalizeLifePolicy(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			jsonObject = savieOnlineService.finalizeLifePolicy(request, session);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
 	@RequestMapping(value = {"/ajax/savie-online/update"})
 	public void update(SavieFnaBean savieFna,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
@@ -132,7 +168,8 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			savieFna.setName(session.getAttribute("username").toString());
+			UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
+			savieFna.setName(userDetails.getFullName());
 			jsonObject = savieOnlineService.saveProductFna(savieFna, request);
 			session.setAttribute("savieFna", savieFna);
 		} 
