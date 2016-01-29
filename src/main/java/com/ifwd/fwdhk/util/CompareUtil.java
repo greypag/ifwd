@@ -14,13 +14,18 @@ public class CompareUtil {
 
 	private static Gson g = new Gson();
 	private static String TO_100 = "To age 100";
+	private static String ONE_OFF ="One-Off";
 	private static Comparator<String> sortProductList = new Comparator<String>() {
 		@Override
 		public int compare(String o1, String o2) {
-			if (TO_100.equals(o1)) {
+			if (TO_100.equalsIgnoreCase(o1)) {
 				return -1;
-			} else if (TO_100.equals(o2)) {
+			} else if (ONE_OFF.equalsIgnoreCase(o1)){
 				return 1;
+			} else if (TO_100.equalsIgnoreCase(o2)) {
+				return 1;
+			} else if (ONE_OFF.equalsIgnoreCase(o2)){
+				return -1;
 			} else {
 				return Integer.valueOf(o2) - Integer.valueOf(o1);
 			}
@@ -45,9 +50,13 @@ public class CompareUtil {
 				List<String> periods2 = o2.getContribution_period();
 				periods2.sort(sortProductList);
 
-				if (TO_100.equals(periods1.get(0))) {
+				if (TO_100.equalsIgnoreCase(periods1.get(0))) {
+					return 1;
+				} else if (ONE_OFF.equalsIgnoreCase(periods1.get(0))){
 					return -1;
-				} else if (TO_100.equals(periods2.get(0))) {
+				} else if (TO_100.equalsIgnoreCase(periods2.get(0))) {
+					return -1;
+				} else if (ONE_OFF.equalsIgnoreCase(periods2.get(0))){
 					return 1;
 				} else {
 					return Integer.valueOf(periods1.get(0))
@@ -75,9 +84,13 @@ public class CompareUtil {
 				periods1.sort(sortProductList);
 				List<String> periods2 = o2.getContribution_period();
 				periods2.sort(sortProductList);
-				if (TO_100.equals(periods1.get(0))) {
+				if (TO_100.equalsIgnoreCase(periods1.get(0))) {
+					return -1;
+				} else if (ONE_OFF.equalsIgnoreCase(periods1.get(0))){
 					return 1;
-				} else if (TO_100.equals(periods2.get(0))) {
+				} else if (TO_100.equalsIgnoreCase(periods2.get(0))) {
+					return 1;
+				} else if (ONE_OFF.equalsIgnoreCase(periods2.get(0))){
 					return -1;
 				} else {
 					return Integer.valueOf(periods2.get(0))
