@@ -1,0 +1,430 @@
+//.fwd-savie-wrapper{
+
+	.fna-row {
+		padding: 35px 15px;
+		color: #061d2a;
+		font-family: 'Calibri-Bold';
+		margin-left: -15px;
+		margin-right: -15px;
+		@media(min-width: $screen-md-min) {
+			padding-top: 15px;
+			padding-bottom: 13px;
+			padding-left: 0;
+			background-color: #f1f3f5;
+			margin-left: 0;
+		}
+	
+		.fna-col {
+			font-family: 'Calibri';
+			word-break: break-word;
+			padding-bottom: 5px;
+			@media(min-width: $screen-md-min) {
+				padding-bottom: 7px;
+			}
+	
+			&.chinese {
+				font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+				padding-bottom: 15px;
+			}
+
+			p {
+				margin-bottom: -3px;
+				margin-top: -1px;
+				&.money-left {
+					padding-bottom: 8px;
+				}
+			}
+			
+			.edit-gender {
+				@media(min-width: $screen-md-min) {
+					input[type="radio"] {
+						display: none;
+					}
+					
+					label {
+						font-weight: normal;
+						position: relative;
+						padding-left: 23px;
+						padding-right: 20px;
+						
+						&::before {
+							content: "";
+							width: 15px;
+							height: 15px;
+							border: 1px solid #b7c3cd;
+							display: block;
+							position: absolute;
+							left: 0;
+							border-radius: 50%;
+							top: 5px;
+						}
+						
+						&:hover {
+							.radio-circle {
+								position: absolute;
+								display: block;
+								width: 11px;
+								height: 11px;
+								background: rgba(255, 130, 0, 0.5);
+								border-radius: 50%;
+								top: 7px;
+								left: 2px;
+							}
+						}
+					}
+					
+					input[type="radio"]:checked + label .radio-circle {
+						position: absolute;
+						display: block;
+						width: 11px;
+						height: 11px;
+						background-color: #ff8200;
+						border-radius: 50%;
+						top: 7px;
+						left: 2px;
+					}
+				}
+			}	
+		}
+	
+		&.inner-fna-row {
+			background-color: #fff;		
+			padding-top: 47px;
+			padding-bottom: 0;		
+			@media(min-width: $screen-md-min) {
+				padding: 58px 0 0;
+				background-color: #fff;
+				margin-left: 0;
+				margin-right: 0;
+			}
+	
+			h3 {
+				color: #ff8200;
+				border-bottom: dashed 1px #b0bdbd;
+			}
+	
+			.inner-fna-col {
+				padding: 12px 0 0;
+				@media(min-width: $screen-xs-min) {
+					padding: 12px 15px 0;
+				}
+
+				@media(min-width: $screen-md-min) {
+					padding: 0 0 35px;
+				}
+	
+				.inner-col {
+					border: solid 1px #b0bdbd;
+					margin-bottom: 35px;
+					padding: 0 32px 0;
+					@media(min-width: $screen-md-min) {
+						padding: 0 70px 23px;
+						margin-bottom: 40px;
+						position: relative;
+					}
+
+					form {
+						&#selected-plan {
+							input {
+								border: none;
+								outline: none;
+								box-sizing: border-box;
+								text-align: left;
+								padding-left: 3px;
+							}
+
+							&.invert input {
+								border: none;
+								outline: none;
+								background-color: #ebeded;
+								width: 113px;
+								padding: 8px 12px;
+								margin-left: 19px;
+								margin-bottom: 16px;
+							}
+
+							button:nth-of-type(1) {
+								display: none;
+							}
+
+							button:nth-of-type(2) {
+								display: none;
+							}
+
+							button:nth-of-type(3) {
+								display: block;
+							}
+
+							&.invert button:nth-of-type(1) {
+								display: block;
+							}
+
+							&.invert button:nth-of-type(2) {
+								display: block;
+							}
+
+							&.invert button:nth-of-type(3) {
+								display: none;
+							}
+						}
+
+						&#input-for-sales {
+							input {
+								border: none;
+								outline: none;
+								box-sizing: border-box;
+								background-color: transparent;
+							}
+
+							&.invert input {
+								border: none;
+								outline: none;
+								background-color: #ebeded;
+								width: 100%;
+								padding: 8px 12px;
+								@media(min-width: $screen-md-min) {
+									width: 173px;
+								}
+
+								&.date-icon {									
+									@media(min-width: $screen-md-min) {
+										background-image: url(../images/1fna-cal.png);
+										background-repeat: no-repeat;
+										padding-left: 45px;
+									}
+								}
+							}
+
+							.edit-btn, .cancel-btn, .done-btn {
+								@media(min-width: $screen-md-min) {
+									position: absolute;
+									top: 46px;
+    								left: 382px;
+								}
+							}
+
+							.cancel-btn {
+								@media(min-width: $screen-md-min) {
+									left: 422px;
+    								top: 45px;
+								}
+							}
+
+							button:nth-of-type(1) {
+								display: none;
+							}
+
+							button:nth-of-type(2) {
+								display: none;
+							}
+
+							button:nth-of-type(3) {
+								display: block;
+							}
+
+							&.invert button:nth-of-type(1) {
+								display: block;
+							}
+
+							&.invert button:nth-of-type(2) {
+								display: block;
+							}
+
+							&.invert button:nth-of-type(3) {
+								display: none;
+							}
+						}
+					}
+
+					.no-left {
+						@media(min-width: $screen-md-min) {
+							padding-left: 0;
+						}
+					}
+
+					h3 {
+						font-size: 30px;
+						margin-top: 23px;
+						margin-bottom: 15px;
+						padding-bottom: 15px;
+						@media(min-width: $screen-md-min) {
+							margin-top: 20px;
+							padding-top: 12px;
+							padding-bottom: 10px;
+							text-align: left;
+						}
+
+						&.input-h3 {
+							margin-top: 32px;
+							@media(min-width: $screen-md-min) {
+								margin-top: 30px;
+								padding-bottom: 14px;
+							}
+						}
+
+						a {
+							color: #ff8200;
+							font-size: 14px;
+							text-decoration: underline;
+							font-family: 'Calibri';
+						}
+					}
+
+					.name-break {
+						padding-top: 6px;
+						@media(min-width: $screen-md-min) {
+							margin-top: -10px;
+						}
+					}
+
+					.note {
+						font-family: 'Calibri';
+						padding-top: 5px;
+						padding-left: 15px;
+						margin-bottom: -38px;
+						@media(min-width: $screen-md-min) {
+							padding-bottom: 80px;
+							padding-left: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	.fna-sales-review {
+		background-color: #f1f3f5;
+		overflow-x: hidden !important;
+		@media(min-width: $screen-md-min) {
+			background-color: #fff;
+			max-width: 100% !important;
+			overflow-x: hidden !important;
+		}
+
+		.fna-review {
+			@media(min-width: $screen-md-min) {
+				padding-left: 85px;
+				padding-right: 85px;
+			}
+		}
+	
+		p {
+			@media(min-width: $screen-md-min) {
+				margin-bottom: 9px;
+			}
+
+			span {
+				color: #b0bdbd;
+				font-size: 14px;
+
+				&.orange {
+					color: #ff8200;
+				}
+			}
+		}
+	
+		.btn-style {
+			padding: 47px 29px 40px;
+			background-color: #fff;
+			&.btn-pro {
+				margin-top: -63px;
+				@media(min-width: $screen-md-min) {
+					margin-top: -100px;
+				}
+			}
+
+			&.btn-edit {
+				padding: 47px 0 40px;
+				margin: 0 16px;
+				@media(min-width: $screen-md-min) {
+					padding: 0;
+					margin: 0;
+					height: 1px;
+				}
+			}
+	
+			.btn-next {
+				font-size: 24px;
+				font-family: "Calibri-Bold";
+				color: #ff8200;
+				border: solid 1px #ff8200;
+				background-color: #fff;
+				padding: 7px 0;
+				width: 100%;
+				&:active,
+				&:hover,
+				&:focus {
+					color: #fff;
+					background-color: #ff8200;
+					outline: 0;
+					@include transition_fwd(background .10s ease-in);
+				}
+
+				&.btn-proceed {
+					max-width: 588px;
+					padding: 12px 0;
+					@media(min-width: $screen-md-min) {
+						margin-top: 15px;
+					}
+				}
+	
+				@media(min-width: $screen-md-min) {
+					width: 50%;
+				}		
+
+				&.edit-btn {
+					padding: 7px 0;
+				}
+
+				&.done-btn, &.edit-btn {
+
+					&:focus {
+						outline: none;
+					}
+
+					@media(min-width: $screen-md-min) {
+						font-size: 14px;
+						font-family: "Calibri";
+						color: #ff8200;
+						border: none;
+						background-color: transparent;
+						position: absolute;
+    					top: 36px;
+    					left: 292px;
+						text-decoration: underline;
+						width: 30px;
+					}
+				}
+			}
+
+			.cancel-btn {
+				font-size: 18px;
+				font-family: "Calibri";
+				color: #ff8200;
+				border: none;
+				background-color: #fff;
+				padding: 8px 0 0;
+				width: 100%;
+				text-decoration: underline;	
+				margin-bottom: -4px;
+
+				&:focus {
+					outline: none;
+				}
+
+				@media(min-width: $screen-md-min) {
+					font-size: 14px;
+					font-family: "Calibri";
+					color: #061d2a;
+					border: none;
+					background-color: transparent;
+					position: absolute;
+    				top: 35px;
+					text-decoration: underline;
+					left: 332px;
+					width: 40px;
+				}
+			}
+		}
+	}
+//}

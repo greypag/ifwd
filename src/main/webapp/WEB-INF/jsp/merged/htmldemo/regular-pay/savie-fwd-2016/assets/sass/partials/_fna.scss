@@ -1,0 +1,262 @@
+//.fwd-savie-wrapper {
+	.application-page-header {
+		.scroll-edit {
+			background: #f1f3f5;
+			color: #061d2a;
+			padding: 16px 0 11px 0;
+			
+			p {			
+				margin: 0;
+				
+				i {
+					position: absolute;
+					font-size: 34px;
+					top: -8px;
+					left: 0;
+				}
+				
+				span {
+					padding-left: 30px;
+					position: relative;
+				}
+			}
+		}
+	}
+	.fnas-container {
+		input[type="radio"] {
+			display: none;
+		}
+		
+		input[type="radio"]:checked + label {
+			background: #ff8200;
+			color: #fff;
+			
+			div, p {
+				color: #fff;
+			}
+		}
+		
+		input[type="radio"]:disabled + label {
+			background: #e2e7eb;
+			color: #fff;
+			border: 1px solid #e2e7eb;
+			cursor: not-allowed;
+		}
+	}
+	
+	.fna-container {
+		border: 1px solid #b7c3cd;
+		margin: 60px 0 40px 0;
+		padding: 20px;
+		@media (min-width: $screen-xs) {
+			margin: 60px 15px 40px 15px;
+		}
+		@media (min-width: $screen-md) {
+			margin: 60px auto 2px auto;
+			padding: 20px 88px;
+		}
+		
+		h2 {
+			margin: 12px 0 16px 0;
+			padding-bottom: 16px;
+			font-size: 30px;
+			text-align: center;
+			line-height: 29px;
+			border-bottom: 1px dashed #9ba5a7;
+			color: #ff8200;	
+	
+			@media (min-width: $screen-md) {
+				text-align: left;
+			}
+		}
+		
+		p {
+			color: #061d2a;
+			line-height: 23px;
+			margin-bottom: 15px;
+			
+			a {
+				border-bottom: 1px solid #ff8200;
+				color: #ff8200;
+			}
+		}
+		
+		p.hotline {
+			font-family: 'Calibri-Light';
+			font-size: 14px;
+			margin-bottom: 16px;
+			color: #505759;
+			line-height: 14px;
+			text-align: center;
+			
+			span {
+				font-family: 'Calibri-Bold';
+				color: #ff8200;
+			}
+			
+			@media (min-width: $screen-md) {
+				text-align: left;
+				padding-left: 30px;
+				margin: 0;
+				height: 50px;
+				vertical-align: middle;
+				display: table-cell;
+			}
+		}
+		
+		label {
+			width: 100%;
+			padding: 8px 5px;
+			margin-bottom: 10px;
+			display: block;
+			text-align: center;
+			font-size: 24px;
+			cursor: pointer;
+			
+			@media (min-width: $screen-md) {
+				width: 250px;
+			}
+		}
+		
+		.yes-fna,
+		.no-fna {
+			border: 1px solid #ff8200;
+			color: #ff8200;
+			max-width: 520px;
+			margin-left: auto;
+			margin-right: auto;
+			
+			@media (min-width: $screen-md) {
+				margin-left: 0;
+				margin-right: 0;
+				float: left;
+			}
+			
+			&:hover {
+				background: #ff8200;
+				color: #fff;
+			}
+		}
+		
+		.fwd-checkbox {
+			label {
+				width: 16px;
+			}
+			
+			.checkbox-label {
+				color: #3c4b54;
+				margin-top: 18px;
+				margin-bottom: 13px;
+				line-height: 22px;
+			}
+		}
+	}
+	
+	.fna-next {
+		padding: 0 30px;
+		
+		@media (min-width: $screen-md) {
+			padding-left: 15px;
+		}
+		
+		button {
+			margin-top: 0;
+			margin-bottom: 30px;
+			@media (min-width: $screen-md) {
+				margin-bottom: 59px;
+				margin-top: 38px;
+			}
+		}
+	}
+	
+	#fna-no {
+		.modal-dialog {
+			@media (min-width: $screen-md) {
+				max-width: 500px;
+			}
+		}
+		
+		.modal-content {
+			padding-top: 33px;
+			padding: 33px 30px 30px 35px;
+			
+			.close {
+				right: 20px;
+			}
+			
+			.modal-body {
+				label {
+					font-size: 18px;
+					color: #061d2a;
+					display: block;
+				}
+				
+				p {
+					font-size: 14px;
+					color: #9ba5a7;
+				}
+				
+				textarea {
+					background-color: #e2e7eb;
+					border: 0;
+					width: 100%;
+					height: 203px;
+					padding: 15px 20px;
+					font-size: 18px;
+					font-family: 'Calibri';
+					
+					@media (min-width: $screen-md) {
+						height: 152px;
+					}
+				}
+				
+				input[type="text"] {
+					display: block;
+					width: 100%;
+					border: 0;
+					background-color: #e2e7eb;
+					font-size: 18px;
+					font-family: 'Calibri';
+					padding: 7px 20px;
+				}
+				
+				.next {
+					margin-top: 11px;
+					height: 49px;
+					
+					@media (min-width: $screen-md) {
+						margin-top: 28px;
+					}
+				}
+			}
+		}
+	}
+	
+	#fna-yes {
+		.modal-dialog {
+			max-width: 354px;
+			@media (min-width: $screen-md) {
+				max-width: 580px;
+			}
+			
+			.modal-content {
+				padding: 56px 30px 59px 30px;
+				@media (min-width: $screen-sm) {
+					padding: 56px 55px 59px 55px;
+				}
+				
+				p {
+					color: #061d2a;
+					font-family: 'Calibri-Bold';
+					margin-bottom: 3px;
+				}
+				
+				.next {
+					max-width: 338px;
+					margin-top: 10px;
+					height: 50px;
+				}
+			}
+		}
+	}
+//}

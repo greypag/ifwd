@@ -1,0 +1,259 @@
+#application-registration {
+	padding: 12px 30px 50px 20px;
+	font-family: "Calibri-Bold";
+	@media (min-width: $screen-md-min) {
+		padding-top: 32px;
+		padding-left: 15px;
+	}
+	.gray-textbox {
+		  background-color: #f1f3f5;
+		  border-radius: 0;
+		  height: 40px;
+		  border: 0;
+		  margin-bottom: 9px;
+		  font-family: 'Calibri';
+		  padding-left: 18px;
+		  box-shadow: inset 0 1px 1px rgba(0,0,0,0);
+		  font-size: 18px;
+	}
+
+	.last {
+		margin-bottom: 4px;
+	}
+	span {
+		display: block;
+		width: 100%;
+	}
+
+	h1 {
+		font-size: 30px;
+		color: #ff8200;
+		line-height: 31px;	
+		@media (min-width: $screen-md-min) {
+			text-align: left;
+
+			span {
+				display: inline;
+			}
+		}
+	}
+
+	h2 {
+		font-size: 24px;
+  		color: #061d2a;
+  		margin-top: 32px;
+  		margin-bottom: 9px;
+	}
+
+	form {
+		@media (min-width: $screen-md-min) {
+			padding-top: 0;
+
+			.left, .right {
+				width: 50%;
+				float: left;
+				padding-top: 0;
+			}
+
+			.left {
+				border-right: 1px solid #e1e4e4;
+				padding-bottom: 10px;
+
+				h2 {
+					margin-top: 20px;
+					margin-bottom: 4px;
+				}
+			}
+
+			.right {
+				padding: 35px 20px 35px 40px;
+
+				h2 {
+					margin-top: 5px;
+					color: #ff8200;
+ 				}
+
+ 				h4 {
+ 					color: #061d2a;
+ 				}
+			}
+		}
+		label {
+			margin-bottom: 2px;
+			font-weight: normal;
+			@media (min-width: $screen-md-min) {
+				float: left;
+				width: 35%;
+
+			}
+		}
+		.registration-items {
+			@media (min-width: $screen-md-min) {
+				margin-bottom: 5px;
+				label {
+					padding-top: 8px;
+				}
+			}
+			.i-logo {
+				margin-left: 10px;
+				padding-top: 8px;
+				cursor: pointer;
+			}
+		}
+		.inputs {
+			@media (min-width: $screen-md-min) {
+				width: 55%;
+				float: left;
+			}
+		}
+
+		.mobile-left {
+			width: 24%;
+			margin-right: 4%;
+			float: left;
+			text-align: center;
+			margin-bottom: 5px;
+			@media (min-width: $screen-md-min) {
+				width: 25%;
+				margin-right: 4%;
+			}
+		}
+		.mobile-right {
+			width: 72%;
+			margin-bottom: 5px;
+			@media (min-width: $screen-md-min) {
+				width: 71%;
+			}
+		}
+
+		.notice {
+			font-size: 14px;
+			font-family: "Calibri";
+			color: #9ba5a7;
+			margin-bottom: 3px;
+			margin-top: 5px;
+		}
+
+		.notice-password {
+			@extend .notice;
+			margin-bottom: 0;
+		}
+
+		.page-divider {
+			height: 1px;
+			background: url(../../assets/images/registration-divider.png);
+			width: 100%;
+		}
+
+
+		.statement {
+			margin-top: 32px;
+			padding-bottom: 33px;
+			@media (min-width: $screen-md-min) {
+				padding-bottom: 23px;
+				margin-top: 48px;
+			}
+			.notice {
+				padding-left: 30px;
+				padding-top: 5px;
+				color: #333;
+
+				a {
+					color: #ff8200;
+ 					text-decoration: underline;
+				}
+			}
+		}
+
+		.options {
+			margin-top: 36px;
+			padding-bottom: 29px;
+			@media (min-width: $screen-md-min) {
+				margin-top: 10px;
+				padding-bottom: 49px;
+			}
+			.notice {
+				color: #333;
+				line-height: 20px;
+				padding-bottom: 9px;
+				@media (min-width: $screen-md-min) {
+					padding-bottom: 24px;
+				}
+			}
+
+			.fwd-checkbox {
+				p {
+					color: #333;
+					font-size: 16px;
+					padding-left: 30px;
+					padding-top: 2px;
+				}
+			}
+
+			.option-two {
+				margin-top: 9px;
+				@media (min-width: $screen-md-min) {
+					margin-top: 12px;
+				}
+			}
+		}
+
+		.fwd-checkbox {
+			position: relative;
+			label {
+				width: 20px;
+				height: 20px;
+
+				&:after {
+					width: 11px;
+					height: 6px;
+					top: 4px;
+					left: 4px;
+				}
+			}
+			
+			input[type=checkbox] {
+				visibility: hidden;
+				position: absolute;
+				&:checked + label:after {
+					opacity: 1;
+				}    
+			}
+			
+			.checkbox-label {
+				padding-left: 28px;
+			}
+		}
+	}
+
+	.tooltip-inner {
+		max-width: none;
+		background-color: #ff8200;
+		padding: 16px 20px;
+		margin-left: -90px;
+		margin-top: -13px;
+		font-family: "Calibri";
+		font-size: 14px;
+	}
+	.tooltip.top .tooltip-arrow {
+		margin-left: -6px;
+		transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	    -webkit-transform: rotate(45deg);
+	    -o-transform: rotate(45deg);
+	    -moz-transform: rotate(45deg); 
+	    background-color:#ff8200;
+	    width: 20px;
+		height: 20px;
+		top: 31px;
+	    -moz-border-radius: 5px;
+	    border-radius: 5px;
+	    border-color: transparent;
+	}
+}
+
+.gray {
+	width: 100%;
+	height: 1px;
+	background: #bbbbbb;
+}

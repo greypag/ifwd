@@ -1,0 +1,489 @@
+/*
+* Login 
+* by: RM Nepomocino	
+*/
+
+
+//Login Desktop
+//.fwd-savie-wrapper {
+	.login-modal.in ~ .modal-backdrop.in { 
+		margin-top: 40px;
+		background-color: #061d2a;
+		opacity: 0.8 !important;
+	}
+   
+	.modal.fade{
+		font-family: 'Calibri';
+		font-size: 24px;
+		color: #061d2a;
+		
+      // Override bootstrap modal generated padding-right property 
+      padding-right: 0 !important; 
+      
+   
+		.modal-dialog.plan-details{
+			width: 100%;
+			max-width: 460px;
+			margin: 0 auto;
+			margin-top: 10px;
+			
+			@media(min-width: $screen-md-min){
+				width: 460px;
+				margin-top: 60px;
+			}
+		}
+		
+		.modal-dialog{
+			@media(min-width: $screen-md-min) {
+				margin-top: 150px;
+			}
+			
+			.modal-content.plan-details{
+				padding: 25px 30px 30px 30px;
+				
+				@media(min-width: $screen-md-min){
+					padding: 35px 40px 40px 40px;	
+				}
+				
+			}
+			
+			.modal-content{
+				border-radius: 0;
+				padding: 25px 45px 35px 45px;
+				position: relative;
+				background-clip: padding-box;
+				outline: 0;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+				
+				.modal-header{
+					padding: 0;
+					border: 0;
+					h4{
+						font-family: 'Calibri-Bold';
+						font-size: 36px;
+						color: #f68a1d;
+						
+						&.h4-plan-details{
+							font-size: 24px;
+							color: #f58220;
+							font-family: 'Calibri-Bold';
+						}
+					}
+					
+					.close{
+						font-size: 25px ;
+						
+						&.plan-details{
+								font-size: 24px;
+								position: absolute;
+								top: 13px;
+								right: 10px;
+
+						}
+					}
+				}
+				
+				.modal-body.plan-details{
+					margin-top: -10px;
+					
+					@media(min-width: $screen-md-min){
+						margin-top: 22px;
+					}
+					
+				}
+				
+				
+				.modal-body{
+					padding: 0;
+					margin-top: 20px;
+					margin-bottom: 35px;
+					
+					.pull-left.txt{
+						color: #0a1d29;
+						font-size: 18px;
+						font-family: 'Calibri-Bold';
+						padding-top: 10px;
+					}
+					
+					a{
+						font-size: 18px;
+						color: #f68a1d;
+						border-bottom: 1px solid  #f68a1d;
+						
+						&.link-plan-details{
+							font-size: 14px;
+							color: #f58220;
+							font-family: 'Calibri';
+							border-bottom: 1px solid  #f58220;
+						}
+						
+						&:hover,
+						&:focus{
+							color:#9fb1b2;
+							border-bottom: 1px solid  #9fb1b2;
+						}
+					}
+					
+					.input-orange{
+						height: 65px;
+						margin-top: 5px;
+						font-size: 24px;
+						color: #061d2a;
+					}
+					
+					
+					.input-gray{
+						height: 50px;
+						font-size: 18px;
+						border: 0;
+						color: #9aa4a6;
+						background-color: #ebeded;
+						font-family: 'Calibri';
+						margin-top: 2px;
+						box-shadow: inset 0 0px 0px rgba(0,0,0,0);
+					}
+					
+					input[type="text"],
+					input[type="password"]{
+						&:focus,
+						&:hover{
+							border-color:  #f68a1d;
+							-webkit-box-shadow: none;
+							outline: -webkit-focus-ring-color auto 0px;
+						}
+					}
+					
+				}
+				
+				
+				.modal-footers{
+					border: 0;
+					
+					.mobile-register{
+						text-align: center;
+						
+						@media(min-width: $screen-md-min){
+							text-align: left;
+						}
+						
+						h6{
+							&.new-member{
+								padding-top: 15px;
+								margin-bottom: -7px;
+								text-align: center;
+								
+								@media(min-width: $screen-md-min){
+									text-align: left;
+									padding-top: 10px;
+									margin-bottom: -9px;
+								}
+							}
+						}
+					}
+					
+					.btn-login {
+						width: 150px;
+					}
+					
+					.btn-login-plan-details {
+						width: 100%;
+						height: 52px;
+						margin-top: 20px;
+						
+						@media(min-width: $screen-md-min){
+							margin-top: 0;
+						}
+					}
+					
+					h5 {
+						font-style: italic;
+						font-size: 18px;
+						font-family: 'Calibri';
+						margin: 0;
+					}
+					
+					h6, p {
+						margin: 0;
+						text-align: center;
+						color: #0a1d29;
+						font-family: 'Calibri-Bold';
+						
+						&.plan-details{
+							font-size: 14px;
+							font-family: 'Calibri';
+							color: #0a1d29;
+							padding-top: 4px;
+							margin-bottom: -10px;
+							text-align: left !important;
+							@media(min-width: $screen-md-min){
+								padding-top: 15px;
+							}
+							
+							&.txt{
+								padding-top: 20px;								
+							}
+							
+							&.mobile-txt{
+								margin-bottom: 0;
+								margin-top: -12px;
+							}
+						}
+					}
+					
+					a {
+						color: #f68a1d;
+						font-size: 24px;
+						border-bottom: 1px solid  #f68a1d;
+					
+						&.register{
+							font-size: 18px;
+							color: #f58220;
+							border-bottom: 1px solid  #f58220;
+							
+							@media(min-width: $screen-md-min){
+								font-family: 'Calibri-Bold';
+							}
+							
+							&:hover,
+							&:focus{
+								color:#9fb1b2;
+								border-bottom: 1px solid  #9fb1b2;
+							}
+						}						
+						
+						&:hover,
+						&:focus{
+							color:#9fb1b2;
+							border-bottom: 1px solid  #9fb1b2;
+						}
+
+					}
+
+					p {
+						font-size: 14px;
+						padding-top: 10px;
+						text-align: justify;
+					}
+				}
+			}
+		}
+      
+      &.et-login-modal {
+      
+         .modal-header {
+            position: relative;
+         }
+         
+         .modal-dialog .modal-content .modal-header {
+            
+            h4 {
+               font-size: 24px;
+               
+               @media (min-width: $screen-md-min) {
+                  margin-bottom: 30px;
+               }
+            }
+         }
+         
+         .et-header-notice {
+            margin-bottom: 10px;
+            font: {
+               family: "Calibri-Bold";
+               size: 18px;
+            }
+            color: #373a36;
+            
+            @media (min-width: $screen-md-min) {
+               margin-bottom: 5px;
+            }
+         }
+         
+         .close {
+            position: absolute;
+            top: -20px;
+            right: -25px;
+         }
+         
+         .modal-dialog .modal-content {
+            padding-top: 35px;
+         }
+           
+         .modal-dialog .modal-content .modal-body {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            
+            @media (min-width: $screen-md-min) {
+               margin-bottom: 35px;
+            }
+         }
+         
+         .et-username,
+         .et-password {
+            float: left;
+            font: {
+               family: "Calibri-Bold";
+               size: 18px;
+            }
+         }
+         
+         .modal-dialog .modal-content .modal-body {
+            
+            .et-forgot-username,
+            .et-forgot-password {
+               
+               a {
+                  float: right;
+                  font-size: 14px;
+               }
+            }
+            
+            .input-orange {
+               padding: 20px;
+               border-radius: 0;
+               border: 0;
+               height: auto;
+               background-color: #f1f3f5;
+               box-shadow: none;
+               font-size: 18px;
+            }
+         }
+         
+         .modal-body {
+         
+            form {
+               
+               .form-group {
+                  
+                  &:first-child {
+                     margin-bottom: 30px;
+                  }
+               }
+            }
+         }
+         
+         .modal-dialog .modal-content .modal-footers {
+         
+            .plan-details {
+               margin-bottom: 15px;
+               
+               @media (min-width: $screen-md-min) {
+                  margin-top: 15px;
+               }
+            }
+            
+            .btn-login {
+               width: 100%;
+            } 
+            
+            .et-new-member-notice { 
+               padding: 0;
+               text-align :center;
+               
+               @media (min-width: $screen-md-min) {
+                  text-align: left;
+               }
+            }
+            
+            a {
+               font-size: 18px;
+            }
+         }
+         
+         .et-reg-wrapper {
+            margin-top: 20px;
+            text-align: center;
+            line-height: 15px;
+            
+            @media (min-width: $screen-md-min) {
+               margin-top: 5px;
+               text-align: left;
+            }
+         }
+         
+         .modal-footers {
+            margin-bottom: 15px;
+         }
+      }
+      
+	}
+
+
+
+
+	//Login Mobile
+
+	.login-mobile{
+		font-family: 'Calibri';
+		font-size: 24px;
+		color: #061d2a;
+		width: 100%;
+		
+		.padding-div{
+			padding: 20px 20px 30px 20px;
+		}
+
+		label{
+			font-weight: normal;
+			margin: 0;
+		}
+		
+		input[type="text"],
+		input[type="password"]{
+			&:focus,
+			&:hover{
+				border-color:  #f68a1d;
+				-webkit-box-shadow: none;
+				outline: -webkit-focus-ring-color auto 0px;
+			}
+		}
+		
+		.input-orange {
+			height: 52px;
+			font-size: 24px;
+			color: #061d2a;
+		}
+		
+		a {
+			color: #f68a1d;
+			font-size: 18px;
+			border-bottom: 1px solid  #f68a1d;
+
+			&:hover,
+			&:focus{
+				color:#9fb1b2;
+				border-bottom: 1px solid  #9fb1b2;
+			}
+
+		}
+		
+		.register {
+			font-size: 18px;
+			font-style: italic;
+			font-weight: bold;
+			margin-top: 5px;
+			
+			a{
+				font-style: normal;
+				font-weight: normal;
+			}
+		}
+		
+		.btn-login {
+			width: 150px;
+			margin-top: 15px;
+		}
+		
+		p.plan-details {
+			font-size: 14px;
+			font-family: 'Calibri';
+			color: #0a1d29;
+			padding-top: 15px;
+         
+         @media (min-width: $screen-md-min) {
+            margin-top: 15px;
+         }
+		}
+	}
+//}
+
+

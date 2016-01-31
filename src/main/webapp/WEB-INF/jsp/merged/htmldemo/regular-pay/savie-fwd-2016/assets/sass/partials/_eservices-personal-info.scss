@@ -1,0 +1,308 @@
+//.fwd-savie-wrapper{
+
+	.personal-row {
+		padding: 0 15px 35px;
+		color: #061d2a;
+		font-family: 'Calibri-Bold';
+		margin-left: -15px;
+		margin-right: -15px;
+		@media(min-width: $screen-md-min) {
+			padding-top: 15px;
+			padding-bottom: 13px;
+			padding-left: 0;
+			background-color: #f1f3f5;
+			margin-left: 0;
+		}
+	
+		.personal-col {
+			font-family: 'Calibri';
+			padding-bottom: 5px;
+			@media(min-width: $screen-md-min) {
+				padding-bottom: 7px;
+				padding-left: 40px;
+			}
+
+			&.name-given {
+				@media(min-width: $screen-md-min) {
+					margin-top: -8px;
+				}
+			}
+
+			#emailAddress {
+				width: 100%;
+			}
+	
+			&.chinese {
+				font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+				padding-bottom: 15px;
+			}
+
+			p {
+				margin-bottom: -3px;
+				margin-top: -1px;
+				&.money-left {
+					padding-bottom: 8px;
+				}
+			}
+
+			&.last {
+				@media(min-width: $screen-md-min) {
+					padding-bottom: 15px;
+				}
+			}
+		}
+	
+		&.inner-personal-row {
+			padding-bottom: 0;	
+			background-color: #fff;
+
+			@media(min-width: $screen-md-min) {
+				padding: 0;
+				margin-left: 0;
+				margin-right: 0;
+				background-color: transparent;
+			}
+	
+			.inner-personal-col {
+				padding: 12px 0 31px;
+				@media(min-width: $screen-xs-min) {
+					padding: 12px 15px 0;					
+				}
+
+				@media(min-width: $screen-md-min) {
+					padding: 0 0 35px;
+					margin-left: 33px;
+					margin-right: 18px;
+					position: relative;
+				}
+
+				h3 {
+					font-size: 30px;
+					margin-top: 23px;
+					padding-bottom: 5px;
+					color: #ff8200;
+					@media(min-width: $screen-md-min) {
+						margin-top: 20px;
+						padding-top: 12px;
+						text-align: left;
+					}
+
+					a {
+						color: #ff8200;
+						font-size: 14px;
+						text-decoration: underline;
+						font-family: 'Calibri';
+					}
+				}
+	
+				.inner-col {
+					background-color: #fff;
+					margin-bottom: 35px;
+					padding: 21px 18px 0;
+					@media(min-width: $screen-md-min) {
+						padding: 70px 80px 208px 56px;
+						margin-bottom: 40px;
+						border: solid 1px #b0bdbd;
+					}
+
+					form {
+						&#eservices-personal-info {
+							input {
+								border: none;
+								outline: none;
+								box-sizing: border-box;
+								background-color: transparent;
+								@media(min-width: $screen-md-min) {
+									width: 90%;
+									background-color: #efefef;
+								    padding: 5px 10px;
+								    color: #7b7b7b;
+								}
+								&.mobile {
+									@media(min-width: $screen-md-min) {
+										margin-bottom: 0;
+									}
+								}
+							}
+
+							&.invert input {
+								border: none;
+								outline: none;
+								background-color: #ebeded;
+								width: 100%;
+								padding: 8px 12px;
+
+								&.mobile {
+									@media(min-width: $screen-md-min) {
+										margin-bottom: 50px;
+									}
+								}
+							}
+
+							button:nth-of-type(1) {
+								display: none;
+							}
+
+							button:nth-of-type(2) {
+								display: block;
+							}
+
+							&.invert button:nth-of-type(1) {
+								display: block;
+							}
+
+							&.invert button:nth-of-type(2) {
+								display: none;
+							}
+						}
+					}
+
+					.no-left {
+						@media(min-width: $screen-md-min) {
+							padding-left: 0;
+						}
+
+						&.upper {
+							@media(min-width: $screen-md-min) {
+								padding-top: 0;
+							}
+						}
+
+						&.lower {
+							@media(min-width: $screen-md-min) {
+								padding-bottom: 25px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	.eservices-personal-info {
+		background-color: #f1f3f5;
+		overflow-x: hidden !important;
+		@media(min-width: $screen-md-min) {
+			max-width: 100% !important;
+			overflow-x: hidden !important;
+		}
+
+		.orange-header {
+			background-color: #ff8200;
+			height: 78px;
+
+			.back-arrow {
+				color: #fff;
+				font-size: 35px;
+				border-right: 2px #F1AD67 solid;
+				padding: 13px;
+			}
+
+			.desc-header {
+				font-size: 24px;
+				color: #fff;
+				padding-left: 15px;
+				font-family: 'Calibri-Bold', Arial;
+			}
+		}
+
+		.personal-info {
+			@media(min-width: $screen-md-min) {
+				padding-left: 85px;
+				padding-right: 85px;
+			}
+		}
+	
+		p {
+			&.given-name {
+				margin-top: -3px;
+				@media(min-width: $screen-md-min) {
+					margin-top: -15px;
+					padding-bottom: 25px;
+				}
+			}
+		}
+	
+		.btn-style {
+			padding: 47px 29px 40px;
+			background-color: #fff;
+
+			&.btn-edit {
+				padding: 25px 0 40px;
+			    margin: 75px 16px 0;
+				@media(min-width: $screen-md-min) {
+					padding: 0;
+					margin: 0;
+					height: 1px;
+				}
+			}
+	
+			.btn-next {
+				font-size: 24px;
+				font-family: "Calibri-Bold";
+				color: #ff8200;
+				border: solid 1px #ff8200;
+				background-color: #fff;
+				padding: 7px 0;
+				width: 100%;
+				&:active,
+				&:hover,
+				&:focus {
+					color: #fff;
+					background-color: #ff8200;
+					outline: 0;
+					@include transition_fwd(background .10s ease-in);
+				}
+
+				@media(min-width: $screen-md-min) {
+					width: 50%;
+				}		
+
+				&.edit-btn, &.done-btn {
+					&:focus {
+						outline: none;
+					}
+
+					@media(min-width: $screen-md-min) {
+						font-size: 18px;
+						font-family: "Calibri";
+						color: #ff8200;
+						border: none;
+						background-color: transparent;
+						position: relative;
+						top: -124px;
+						left: 233px;
+						width: 30px;
+						border-bottom: 1px #ff8200 solid;
+						line-height: 4px;
+					}
+				}
+
+				&.edit-btn {
+					padding: 7px 0;
+					@media(min-width: $screen-md-min) {
+						&.input-edit {
+							top: -40px;
+						    left: 185px;
+						    position: absolute;							
+						}
+					}
+				}
+
+				&.done-btn {
+					@media(min-width: $screen-md-min) {
+						top: -153px;
+						left: 238px;
+
+						&.input-done {
+							top: -40px;
+						    left: 185px;
+						    position: absolute;
+						    width: 41px;
+						}
+					}
+				}
+			}
+		}
+	}
+//}

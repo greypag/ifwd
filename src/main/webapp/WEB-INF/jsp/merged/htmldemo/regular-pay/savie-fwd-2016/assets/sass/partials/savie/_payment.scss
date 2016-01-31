@@ -1,0 +1,231 @@
+/** Payment page **/
+#payment-page {
+	.payment-content-wrapper {
+		padding: 26px 30px 25px 30px;
+		
+		.panel-title {
+			color: #ff8200;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		
+		.radio-button-group {
+			margin-bottom: 10px;
+			
+			.below { margin-top: 0; }
+			
+			@media only screen and (min-width: $screen-md) {
+				margin-bottom: 25px;
+				
+				.cstm-md-col {
+					width: 17%;
+					float: left;
+				}
+			}
+		}
+		
+		.info-wrapper,
+		.select-wrapper {
+			background-color: #f5f5f5;
+			margin-bottom: 10px;
+			
+			.bank-info-label {
+				display: none;
+			}
+			
+			@media only screen and (min-width: $screen-md) {
+				.bank-info-label {
+					display: block;
+					font-size: 11px;
+					font-weight: bold;
+				}
+			}
+		}
+		
+		.col-xs-12 {
+			.info-wrapper:first-child {
+				margin-top: 6px;
+				
+				@media only screen and (min-width: $screen-md) {
+					margin-top: 0;
+				}
+			}
+		}
+		
+		.info-wrapper {
+			padding: 1px 15px 4px 15px;
+			
+			.info-label {
+				font-size: 11px;
+				font-weight: bold;
+			}
+			
+			.info-value {
+				font-size: 14px;
+				margin-top: -8px;
+			}
+			
+			.form-control {
+				height: 37px;
+				color: #adaead;
+				font-size: 14px;
+				border: none;
+				padding-left: 0;
+				padding-right: 0;
+			}
+			
+			@media only screen and (min-width: $screen-md) {				
+				.form-control {
+					padding-top: 0;
+					padding-bottom: 0;
+					height: 22px;
+					line-height: 14px;
+					margin-top: -8px;
+				}
+			}
+		}
+		
+		.select-wrapper {
+			position: relative;
+			
+			span {
+				&.form-control { display: none; }
+				&.icon-chevron-thin-down {
+					&.orange-caret {
+						height: 35px;
+						position: absolute;
+						font-size: 11px;
+						font-weight: bold;
+						color: #ff8200;
+						padding-top: 16px;
+						right: 0;
+						padding-right: 17px;
+						background-color: #f1f3f5;
+						cursor: pointer;
+						bottom: 10px;
+						top: 0;
+						z-index: 1;
+					}
+				}
+			}
+			
+			.bank-info-label {
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+			
+			select {
+				cursor: pointer;
+				color: #adaead;
+				font-size: 14px;				
+				padding: 0 11px;
+				height: 40px;
+				
+				&:focus {
+					border-color: transparent;
+				}
+			}
+			
+			@media only screen and (min-width: $screen-md) {
+				padding-bottom: 5px;
+				
+				select {
+					height: 22px;
+					margin-top: -8px;
+				}
+			}
+		}
+		
+		.payment-policy-wrapper {
+			display: table;
+			margin-top: 7px;
+			margin-bottom: 16px;
+			
+			input[type=checkbox] { display: none; }
+			
+			input[type=checkbox]:checked + label:after {
+				opacity: 1;
+			}
+			
+			label {
+				cursor: pointer;
+				position: relative;
+				width: 15px;
+				height: 15px;
+				background: #fff;
+				border: 1px solid #ff8200;
+				
+				&:after {
+					opacity: -0.8;
+					content: '';
+					position: absolute;
+					width: 9px;
+					height: 5px;
+					background: transparent;
+					top: 3px;
+					left: 2px;
+					border: 2px solid #ff8200;
+					border-top: none;
+					border-right: none;
+					-webkit-transform: rotate(-45deg);
+					-moz-transform: rotate(-45deg);
+					-o-transform: rotate(-45deg);
+					-ms-transform: rotate(-45deg);
+					transform: rotate(-45deg);
+				}
+				
+				&:hover::after {
+					opacity: 0.5;
+				}
+			}
+			
+			.policy-text {
+				display: table-cell;
+				vertical-align: top;
+				font-size: 14px;
+				color: #3c4b54;
+				line-height: 18px;				
+				padding-left: 10px;
+				padding-top: 3px;
+			}
+			
+			@media only screen and (min-width: $screen-md) {
+				margin-bottom: 35px;
+				margin-top: 4px;
+				
+				.policy-text { padding-top: 1px; }
+			}
+		}
+		
+		.btn-payment {
+			background-color: #ff8200;
+			border-bottom: 3px solid #c56501;
+			border-radius: 5px;
+			color: #fff;
+			font-size: 18px;
+			font-weight: bold;
+			padding: 5px 60px;
+			margin-bottom: 5px;
+			
+			@media only screen and (min-width: $screen-md) {
+				padding: 9px 35px;
+			}
+		}
+		
+		.save-link {
+			font-size: 14px;
+			color: #ff8c26;
+			text-decoration: underline;
+		}
+		
+		@media only screen and (min-width: $screen-md) {
+			    max-width: 890px;
+				padding-left: 0;
+				padding-right: 0;
+				padding-top: 35px;
+				margin: 0 auto;
+				
+				.col-md-6 { padding-right: 0; }
+		}
+	}
+}

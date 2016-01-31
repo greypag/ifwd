@@ -1,0 +1,233 @@
+$orange-color: #ff8200;
+$gray-color: #9ba5a7;
+
+
+//.fwd-savie-wrapper{
+	.application-page-header {
+		position: absolute;
+		width: 100%;
+		z-index: 5;
+		background-color: $orange-color;
+		
+		&.sticky-bar {
+			position: fixed;
+		}
+		
+		.row{
+			margin: 0;
+		}
+		
+		.orange-section{
+			height: 80px;
+			
+			@media(min-width: $screen-md-min){
+				height: 100px;
+				padding: 0;
+			}
+			
+			.position{
+				position: relative;
+				height: 80px;
+				
+				@media(min-width: $screen-md-min){
+					height: 100px;
+				}
+				
+			}
+			
+			.back-arrow-left{
+				position: absolute;
+				left: 0;
+				border-right: solid 2px #ffb466;
+			}
+			
+			span{
+				&.icon-arrow-left2{
+					vertical-align: middle;
+					line-height: 75px;
+
+					&.arrow-left2 {
+						line-height: 69px;					
+					}
+					
+					@media(min-width: $screen-md-min){
+						line-height: 95px;
+					}
+				}
+			}
+			
+			.orange-menu-desktop{
+				display: none;
+				height: 100px;
+				margin-left: 92px;
+				margin-right: 286px;
+				font-size: 24px;
+				color: #fff;
+				text-align: center;
+				
+				@media(min-width: $screen-md-min){
+					display: block;
+				}
+				
+				
+				.orange-menu-btn{
+					height: 100px;
+					width: 100%;
+					border: 0;
+					background-color: #ff8200;
+					
+					&:focus,
+					&:hover{
+						outline:0;
+					}
+				}
+				
+				.col-md-3{
+					padding: 0;
+					border-right: solid 2px #ffb466;
+					height: 100px;
+					
+					&.right-most{
+						border-right: 0;
+					}
+				}
+			}
+			
+			.dollars-monthly-right{
+				position: absolute;
+				z-index: 5;
+				background-color: $orange-color;			
+				height: 80px;
+				left: 92px;
+				
+				@media(min-width: $screen-md-min){
+					bottom: 0;
+					height: 100px;
+					border-left: solid 2px #ffb466;
+					text-align: center;
+					display: table;
+					right: 0;
+					left: auto;
+					width: 286px;
+				}
+				
+				.figures{
+					height: 80px;
+					display: table-cell;
+					vertical-align: middle;
+					@media(min-width: $screen-md-min){
+						height: 100px;
+					}
+					
+					.single-premium{
+						color: #fff;
+						font-size: 18px;
+						font-family: 'Calibri';
+						margin-bottom: -4px;
+					}
+					
+					.figure-description {
+						display: block;
+						font-family: 'Calibri-Light';
+						line-height: 23px;
+					}
+				}
+				
+				span{
+					color: #fff;
+					&.dollars{
+						font-family: 'Calibri-Bold';
+						font-size: 30px;
+						line-height: 32px;
+					}
+
+					&.dollars2 {
+						font-family: 'Calibri-Bold';
+						font-size: 24px;
+						line-height: 32px;
+					}
+					
+					&.single{
+						display: block;
+					}
+					
+					&.monthly{
+						font-family: 'Calibri';
+						font-size: 18px;
+					}
+					
+					&.desc-desktop{
+						display: none;
+						font-size: 30px;
+						
+						@media(min-width: $screen-md-min){
+							display: block;
+						}
+					}
+				}
+			}
+			
+			.description-order-summary, .description-desktop{
+				display: none;
+				
+				@media(min-width: $screen-md-min){
+					display: table;
+				}
+				height: 100px;
+				width: 93%;
+				text-align: center;
+				color: #fff;
+				font-size: 30px;
+				span{
+					display: table-cell;
+					vertical-align: middle;
+				}
+			}
+			
+			.description-desktop{
+				width: 97%;
+			}
+			
+			.back-arrow-btn{
+				height: 80px;
+				border: 0;
+				margin-left: -15px;
+				width: 70px;
+				background-color: transparent;
+				color: #fff;
+				font-size: 35px;
+				
+				@media(min-width: $screen-md-min){
+					height: 100px;
+					width: 105px;
+				}
+			}
+			
+		}
+		
+		.gray-section{
+			height: 50px;
+			background-color: #373a36;
+			color: #fff;
+			text-align: center;
+			display: table;
+			
+			@media(min-width: $screen-md-min){
+				display: none;
+			}
+			
+			.description{
+				height: 50px;
+				display: table-cell;
+				vertical-align: middle;
+			}
+		}
+	}
+	
+	.application-flux {
+		margin-top: 130px;
+		@media(min-width: $screen-md-min){
+			margin-top: 100px;
+		}
+	}
+//}

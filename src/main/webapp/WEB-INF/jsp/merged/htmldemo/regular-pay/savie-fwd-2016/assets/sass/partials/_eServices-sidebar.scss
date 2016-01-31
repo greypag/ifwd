@@ -1,0 +1,324 @@
+/*
+* E Services Sidebar
+* by: RMN
+*/
+
+$orange-color: #ff8200;
+$blue-color: #061d29;
+
+
+//.fwd-savie-wrapper{
+	.fwd-container-limit.clearfix.sidebar{
+		padding: 0;
+		@media(min-width: $screen-md-min){
+			position: relative;
+			margin-bottom: 37px;
+			padding: 0 30px 0 15px;
+		}
+	}
+	.pull-left.eServices-body{
+		background-color: #f1f3f5;
+		width: 100%;
+		position: relative;
+		@media(min-width: $screen-md-min){			
+			padding-left: 250px;
+			padding-top: 0;
+			min-height: 450px;
+		}
+	}
+	
+	.pull-left.eServices-sidebar{
+		color: #fff;
+		width: 100%;
+		font-family: 'Calibri';
+		
+		@media(min-width: $screen-md-min){
+			padding: 0 15px;
+			position: absolute;
+			top: 0;
+			z-index: 2;
+			background-color: #061d29;
+			height: 100%;
+			overflow: hidden;
+		}
+		
+		.row.reset-margin{
+			margin: 0;
+			
+			@media(min-width: $screen-md-min){
+				margin-left: -15px;
+				margin-right: -15px;
+			}
+		}
+	
+		
+		@media(min-width: $screen-md-min){
+			width: 250px;
+		}
+		
+		.profile{
+			text-align: center;
+			background-color: $orange-color;
+			padding: 40px 0 52px 0;
+			
+			p{
+				&.name{	
+					padding-top: 15px;
+					font-size: 18px;
+					font-family: 'Calibri-Bold';
+					
+					@media(min-width: $screen-md-min){
+						padding-top: 1px;
+					}
+				}
+				
+				&.age{
+					font-size: 14px;
+					line-height: 14px;
+					
+					@media(min-width: $screen-md-min){
+						padding-top: 2px;
+					}
+				}
+			}
+			
+			img{
+				&.avatar{
+					width: 88px;
+					height: 88px;
+				}
+			}
+		}
+		
+		.col-xs-6.col-md-12{
+			padding: 0;
+		}
+		
+		.menu{
+			background-color: $blue-color;
+			text-align: center;
+			
+			.icon{
+				font-size: 34px;
+				line-height: 30px;
+				padding-bottom: 12px;
+				@media(min-width: $screen-md-min){
+					position: absolute;
+					font-size: 23px;
+					line-height: 20px;
+					padding-bottom: 0;
+					display: inline-block;
+					padding-right: 5px;
+				}
+			}
+			
+			span{
+				&.icon-sidebar-menu{
+					display: block;
+					position: relative;
+					font-size: 34px;
+					line-height: 30px;
+					padding-bottom: 12px;
+					@media(min-width: $screen-md-min){
+						position: absolute;
+						font-size: 23px;
+						line-height: 20px;
+						padding-bottom: 0;
+						display: inline-block;
+						padding-right: 5px;
+						padding-left: 30px;
+					}
+				}
+				
+				&.text{
+					@media(min-width: $screen-md-min){
+						padding-left: 61px;
+					}
+					
+				}
+			}
+			
+			a{
+				&.link-menu{
+					position: relative;
+					color: #fff;
+					display: block;
+					padding: 30px 0 26px 0;
+					
+					@media(min-width: $screen-md-min){
+						padding: 10px 0;
+						text-align: left;
+						padding-left: 0;
+					}
+				
+					
+					&.active,
+					&:hover {
+						@media(min-width: $screen-md-min){
+							color: $blue-color;
+							background-color: #f1f3f5;
+							
+							.eServices-icons.profile-setting {
+								background-position: -23px -58px;
+							}
+							
+							.eServices-icons.purchase-history-icon {
+								background-position: -118px -61px;
+							}
+							
+							.eServices-icons.menu-referrals-icon {
+								background-position: -55px -59px;
+							}
+							
+							.eServices-icons.menu-logout-icon {
+								background-position: -87px -62px;
+							}
+						}
+					}
+					
+					span{
+						
+						&.eServices-icons{
+							background: url("../images/eServices-icons.png") no-repeat center center;
+							width: 32px;
+							height: 32px;
+							display: block;
+							margin-left: auto;
+							margin-right: auto;
+							
+							@media(min-width: $screen-md-min){
+								width: 22px;
+								height: 22px;
+								padding: 0;
+							}
+							
+							&.profile-setting{
+								background-position: -20px -13px;
+								@media(min-width: $screen-md-min){
+									background-position: -202px -11px;
+								}
+								
+								&.active{
+									@media(min-width: $screen-md-min){
+										background-position: -23px -58px;
+									}
+									
+								}
+							}
+							
+							&.purchase-history-icon{
+								background-position: -65px -11px;
+								
+								@media(min-width: $screen-md-min){
+									background-position: -232px -11px;
+								}
+								
+								&.active{
+									@media(min-width: $screen-md-min){
+										background-position: -118px -61px;
+									}
+								}
+							}
+							
+							&.menu-referrals-icon{
+								background-position: -109px -11px;
+								@media(min-width: $screen-md-min){
+									background-position: -259px -11px;
+								}
+								
+								&.active{
+									@media(min-width: $screen-md-min){
+										background-position: -55px -59px;
+									}
+								}
+							}
+							
+							&.menu-logout-icon{
+								background-position: -159px -11px;
+								@media(min-width: $screen-md-min){
+									background-position: -285px -11px;
+								}
+								
+								&.active{
+									@media(min-width: $screen-md-min){
+										background-position: -87px -62px;
+									}
+								}
+							}
+						}
+						
+						
+					}
+				}
+			}
+			
+			&.purchase{
+				background-color: #1e333e;
+				@media(min-width: $screen-md-min){
+					background-color: $blue-color;	
+				}
+			}
+			
+			&.referrals{
+				background-color: #384a54;
+				@media(min-width: $screen-md-min){
+					background-color: $blue-color;	
+				}
+			}
+			
+			&.logout{
+				background-color: #506069;
+				@media(min-width: $screen-md-min){
+					background-color: $blue-color;	
+				}
+			}
+		}
+	}
+//}
+
+#eServices-sidebar-mp {
+	width: 100%;
+
+	.btn-default {
+		display: block;
+	    width: 100%;
+	    line-height: 74px;
+	    background: #f6871e;
+	    padding-left: 30px!important;
+	    color: #fff;
+	    -webkit-transition: all 0.08s linear;
+	    -moz-transition: all 0.08s linear;
+	    -o-transition: all 0.08s linear;
+	    transition: all 0.08s linear;
+	    font-size: 24px;
+	    font-weight: bold;
+	    border: 0;
+
+	    &:active, &:focus {
+    	    color: #333;
+			background-color: #ebebeb;
+
+	    }
+
+	    .glyphicon {
+    	    font-size: 8px;
+    		vertical-align: middle;
+	    }
+	
+	}
+
+	.dropdown-menu {
+		width: 100%;
+
+		li {
+			font-size: 24px;
+		}
+
+		li.active, li:hover {
+			a {
+				color: #fff;
+				background-color: #f6871e
+			}
+		}
+	}
+}

@@ -1,0 +1,528 @@
+/*
+* Declaration and Authorization Page
+* by: RMN
+*/
+
+$orange-color: #ff8200;
+$blue-color: #061d2a;
+
+//.fwd-savie-wrapper {
+	.declare-authorize{
+		padding-right: 15px;
+		padding-left: 15px;
+		
+		
+	
+		h2{
+			margin: 0;
+			color: $orange-color;
+			text-align: center;
+			padding-top: 40px;
+			padding-bottom: 40px;
+			line-height: 25px;
+			text-align: left;
+			
+			@media(min-width: $screen-md-min){
+				text-align: left;
+				padding-top: 60px;
+				padding-bottom: 35px;
+			}
+		}
+		
+		h4{
+			margin: 0;
+			color: $blue-color;
+			padding-bottom: 12px;
+			
+			@media(min-width: $screen-md-min){
+				padding-bottom: 13px;
+			}
+			
+			&.policy-replace{
+				padding-top: 16px;
+				padding-bottom: 2px;
+			}
+		}
+		
+		
+		.clearfix.yes-policy{
+			padding-top: 13px;
+			padding-bottom: 25px;
+		}
+			
+		
+		h5{
+			margin: 0;
+			color: $blue-color;
+			font-family: 'Calibri';
+			font-weight: normal;
+			padding-top: 37px;
+			padding-bottom: 15px;
+			line-height: 19px;
+			
+			@media(min-width: $screen-md-min){
+				padding-top: 14px;
+				padding-bottom: 29px;
+			}
+		}
+		
+		.application {
+			padding-bottom: 11px;
+		}
+		
+		.declare-agree {
+			padding: 0 0 13px 0;
+			font-family: 'Calibri-Bold';
+			font-size: 14px;
+		}
+		
+		.agreement-description{
+		
+			.proceed-btn{
+				text-align: center;
+			}
+		
+			.btn.next{
+				margin-top: 18px;
+				margin-bottom: 30px;
+				max-width: 500px;
+				
+				@media(min-width: $screen-md-min){
+					margin-top: 17px;
+					margin-bottom: 60px;
+				}
+			}
+		
+			.page-divider {
+				margin-top: 20px;
+				@media(min-width: $screen-md-min){
+					margin-top: 20px;
+				}
+			}
+			
+			.declaration{
+				padding-bottom: 38px;
+				
+				&.application-declaration {
+					padding-bottom: 16px;
+					
+					span{
+						&.order{
+							font-family: 'Calibri-Bold';
+						}
+					}
+				}
+				
+				&.application-declaration.sub-header{
+					padding-bottom: 0;
+				}
+			}
+			
+			.authorization{
+				padding-bottom: 20px;
+				
+				@media(min-width: $screen-md-min){
+					padding-bottom: 18px;
+				}
+			}
+			
+			.left-desktop{
+				@media(min-width: $screen-md-min){
+					float: left;
+				}
+				
+				&.no{
+					@media(min-width: $screen-md-min){
+						width: 90px;
+					}
+				}
+				
+				&.yes{
+					@media(min-width: $screen-md-min){
+						margin-top: -13px;
+					}
+				}
+			}
+			
+			.pull-left.span{
+				width: 15px;
+			}
+			
+			.pull-left.text{
+				width: 93%;
+			}
+			
+			.yes-policy-replace-desc{
+				font-family: 'Calibri';
+				font-size: 14px;
+				color: #9ba5a7;
+				padding-top: 2px;
+				
+				span{
+					&.orange-number{
+						color: #ff8200;
+						font-family: 'Calibri-Bold';
+					}
+				}
+			}
+			
+			.pull-left.yes-policy-replace-desc{
+				width: 85%;
+				
+				@media(min-width: $screen-md-min){
+					width: initial;
+				}
+			}
+			
+			.bottom-input{
+				padding-bottom: 58px;
+				margin-top: -13px;
+				
+				@media(min-width: $screen-md-min){
+					margin-top: -8px;
+				}
+			}
+			
+			.fna-bottom{
+				padding-bottom: 25px;
+				line-height: 19px !important;
+			}
+			
+			.pull-left.policy-replace-desc{
+				width: 85%;
+				font-size: 14px;
+				font-family: 'Calibri-Bold';
+				color: $blue-color;
+				line-height: 15px;
+				padding-top: 3px;
+				
+				@media(min-width: $screen-sm-min){
+					width: 30%;
+				}
+			}
+			
+			.fatca-desc,
+			.pics-desc,
+			.cancellation-desc,
+			.policy-desc{
+				width: 89%;
+				font-size: 14px;
+				font-family: 'Calibri';
+				color: $blue-color;
+				line-height: 15px;
+				padding-top: 3px;
+				
+				@media(min-width: $screen-sm-min){
+					width: 95%;
+				}
+				
+				&.bottom{
+					padding-bottom: 15px;
+					
+					@media(min-width: $screen-md-min){
+						padding-top: 3px;
+						padding-bottom: 11px;
+					}
+				}
+				
+				a{
+					&.do-not-fna{
+						color: #9ba5a7;
+						border-bottom: solid 1px #9ba5a7;
+					}
+				}
+				
+				.input-gray{
+					height: 40px;
+					font-size: 14px;
+					border: 0;
+					color: #9aa4a6;
+					background-color: #f1f3f5;
+					font-family: 'Calibri';
+					margin-top: 2px;
+					box-shadow: inset 0 0px 0px rgba(0,0,0,0);
+					margin-top: 8px;
+					padding: 6px 19px;
+					width: 100%;
+					max-width: 334px;
+					@media(min-width: $screen-md-min){
+						width: 334px;
+					}
+				}
+			}
+			
+			.marketing-info-desc,
+			.personal-data-desc{
+				width: 89%;
+				color: #9ba5a7;
+				font: {
+               size: 14px;
+               family: 'Calibri-Bold';
+            }
+				line-height: 19px;
+				
+				@media(min-width: $screen-sm-min){
+					width: 95%;
+				}
+			}
+			
+			a{
+				&.link{
+					border-bottom: solid 1px $orange-color;
+					color: $orange-color;
+				}
+			}
+			
+			
+			.pull-left.yes-policy-replace-check{
+				width: 28px;
+				position: relative;
+				margin: 0;
+				height: 18px;
+				top: 72px;
+				label {
+					width: 18px;
+					height: 18px;
+					cursor: not-allowed;
+					position: absolute;
+					left: 0;
+					bottom: 65px;
+					border: solid 1px #c5cfd7;
+					background-color: #c5cfd7;
+					border-radius: 50%;
+						&:after {
+							content: '';
+							width: 14px;
+							height: 14px;
+							position: absolute;
+							background-color: $orange-color;
+							border-radius: 50%;
+							top: 1px;
+							left: 1px;
+							border: solid 1px #fff;
+							opacity: 0;
+						}
+					&:hover::after {
+						opacity: 0;
+					}
+				}
+				
+				input[type=checkbox] {
+					visibility: hidden;
+					&:checked + label:after {
+						opacity: 0;
+					}    
+				}
+			}
+			
+			.pull-left.policy-replace-check{
+				width: 28px;
+				position: relative;
+				margin: 0;
+				height: 18px;
+				top: 72px;
+				label {
+					width: 18px;
+					height: 18px;
+					cursor: pointer;
+					position: absolute;
+					left: 0;
+					bottom: 65px;
+					border: solid 1px #c5cfd7;
+					border-radius: 50%;
+						&:after {
+							content: '';
+							width: 14px;
+							height: 14px;
+							position: absolute;
+							background-color: $orange-color;
+							border-radius: 50%;
+							top: 1px;
+							left: 1px;
+							border: solid 1px #fff;
+							opacity: 0;
+						}
+					&:hover::after {
+						opacity: 0.5;
+					}
+				}
+				
+				input[type=checkbox] {
+					visibility: hidden;
+					&:checked + label:after {
+						opacity: 1;
+					}    
+				}
+			}
+			
+			.fatca-check,
+			.pics-check,
+			.cancellation-check,
+			.marketing-info-check,
+			.personal-data-check{
+				width: 28px;
+				position: relative;
+				margin: 0;
+				height: 18px;
+				top: 72px;
+				label {
+					width: 18px;
+					height: 18px;
+					cursor: pointer;
+					position: absolute;
+					//top: 0;
+					left: 0;
+					bottom: 65px;
+					border: solid 1px #b7c3cd;
+						&:after {
+							content: '';
+							width: 12px;
+							height: 6px;
+							position: absolute;
+							top: 3px;
+							left: 2px;
+							border: 2px solid $orange-color;
+							border-top: none;
+							border-right: none;
+							background: transparent;
+							opacity: 0;
+							transform: rotate(-45deg);
+							-moz-transform:rotate(-45deg);  
+							-webkit-transform:rotate(-45deg);  
+							-o-transform:rotate(-45deg);  
+							-ms-transform:rotate(-45deg);  
+						}
+					&:hover::after {
+						opacity: 0.5;
+					}
+				}
+				
+				input[type=checkbox] {
+					visibility: hidden;
+					&:checked + label:after {
+						opacity: 1;
+					}    
+				}
+			}
+		}
+      
+      // Elite Terms Declaration
+      &.et-declaration-section {
+         padding-left: 5px;
+         margin-top: -10px;
+         
+         @media (min-width: $screen-md-min) {
+            margin-bottom: 60px;
+            margin-top: 0;
+            padding-left: 0;
+         }
+         
+         h2 {
+            padding-top: 0;
+            padding-bottom: 30px;
+            text-align: center;
+            
+            @media (min-width: $screen-md-min) {
+               padding-top: 20px;
+               text-align: left;
+            }
+         }
+         
+         .pics-desc,
+         .cancellation-desc,
+         .marketing-info-desc,
+         .personal-data-desc {
+            width: 85%;
+         }
+         
+         .marketing-info-desc,
+         .personal-data-desc {
+            font-family: "Calibri";
+         }
+         
+         .marketing-info-check, 
+         .personal-data-check {
+         
+            .et-dec-mkc-label,
+            .et-dec-pdc-label {
+               border-color: #c5cfd7;
+               background-color: #c5cfd7;
+            }
+         }
+         
+         .declaration {
+            padding-bottom: 20px;
+         }
+         
+         .authorization {
+            padding-bottom: 30px;
+         }
+         
+         .agreement-description{ 
+            
+            .pull-left.text {
+               width: 92%;
+            }
+            
+            .et-btn-view-summary,
+            .et-btn-confirm-sign {
+               width: 100%;
+               max-width: 520px;
+               height: 60px;
+               border: solid 1px #ff8200;
+               font-size: 24px;
+               font-family: 'Calibri-bold';
+               
+               @media (min-width: $screen-md-min) {
+               }
+            }
+            
+            .et-btn-view-summary {
+               margin: 0;
+               background: #fff;
+               color: #ff8200;
+               
+               &:hover {
+                  background: #ff8200;
+                  color: #fff;
+               }
+            } 
+            
+            .et-selected {
+               margin-bottom: 30px;
+               
+               @media (min-width: $screen-md-min) {
+                  margin-bottom: 0;
+                  padding-left: 25px;
+               }
+               
+               .et-btn-view-summary {
+                  max-width: 500px
+               }
+            }
+            
+            .et-proceed-btn-wrapper {
+               
+               @media (min-width: $screen-md-min) {
+                  margin-top: 15px;
+               }
+            }
+            
+            .et-btn-confirm-sign {
+               //margin-bottom: 0;
+               
+               @media (min-width: $screen-md-min) {
+                  margin: 0;
+               }
+            }
+            
+            .left-desktop.yes{
+               @media(min-width: $screen-md-min){
+                  width: 85%;
+               }
+            }
+         }
+      }
+	}
+   
+//}

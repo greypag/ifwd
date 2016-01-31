@@ -1,0 +1,334 @@
+//.fwd-savie-wrapper{
+	.table-review {
+		background-color: #fff;
+		
+		.table>tbody>tr>td {
+			padding: 8px 4px;
+		}
+	}
+	
+	.plan-row {
+		padding: 35px 45px 45px;
+		color: #061d2a;
+		font-family: 'Calibri-Bold';
+		margin-left: -15px;
+		margin-right: -15px;
+		@media(min-width: $screen-md-min) {
+			padding-top: 15px;
+			padding-bottom: 13px;
+			padding-left: 0;
+			background-color: #f1f3f5;
+			margin-left: 0;
+		}
+	
+		.left-border {
+			@media(min-width: $screen-md-min) {
+				padding-left: 0;
+			}
+		}
+	
+		.credit-p {
+			padding-left: 15px;
+			line-height: 21px;
+			@media(min-width: $screen-md-min) {
+				padding-left: 0;
+				padding-top: 28px;
+			}
+		}
+	
+		.plan-col {
+			font-family: 'Calibri';
+			word-break: break-word;
+	
+			&.chinese {
+				font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+			}
+		}
+	
+		&.inner-plan-row {
+			background-color: #fff;		
+			padding-top: 0;
+			padding-bottom: 0;		
+			@media(min-width: $screen-md-min) {
+				padding-left: 0;
+				padding-right: 0;
+				background-color: #fff;
+				margin-left: 0;
+			}
+	
+			h3 {
+				color: #ff8200;
+				padding-left: 15px
+			}
+	
+			.inner-plan-col {
+				border: solid 1px #b0bdbd;
+				padding: 12px 15px 100px 15px;
+				@media(min-width: $screen-md-min) {
+					padding: 0 0 35px 0;
+					border: none;
+				}
+	
+				.inner-col {
+					padding: 0;
+					h3 {
+						margin-top: 23px;
+						margin-bottom: 7px;
+						@media(min-width: $screen-md-min) {
+							margin-top: 20px;
+							padding-top: 12px;
+							margin-bottom: 5px;
+						}
+	
+						span {
+							color: #b0bdbd;
+						}
+
+						a {
+							color: #ff8200;
+							font-size: 14px;
+							text-decoration: underline;
+							font-family: 'Calibri';
+						}
+
+						&.h3-pad {
+							padding-top: 50px;
+							@media(min-width: $screen-md-min) {
+								padding-top: 0;
+							}
+						}
+					}
+
+					.name-pad {
+						margin-top: -10px;
+					}
+
+					.col-xs-6 {
+						padding-top: 10px;
+						@media(min-width: $screen-md-min) {
+							padding-top: 0;
+						}
+					}
+	
+					p {
+						line-height: 28px;
+						@media(min-width: $screen-md-min) {
+							line-height: 32px;
+						}
+	
+						.p-monthly {
+							display: block;
+							line-height: 20px;
+							@media(min-width: $screen-md-min) {
+								padding-bottom: 25px;
+							}
+						}
+	
+						&.line {
+							line-height: 22px;
+	
+							.tung-hip {
+								@media(min-width: $screen-md-min) {
+									display: block;
+								}
+							}
+						}
+	
+					}
+				}
+			}
+		}
+	}
+	
+	.illustration-review {
+		background-color: #f1f3f5;
+		overflow-x: hidden !important;
+		@media(min-width: $screen-md-min) {
+			background-color: #fff;
+			padding-top: 60px;
+			max-width: 100% !important;
+			overflow-x: hidden !important;
+		}
+	
+		#application-review-container, .fna-review {
+			@media(min-width: $screen-md-min) {
+				border: solid 1px #b0bdbd;
+				padding-left: 85px;
+				padding-right: 85px;
+			}
+		}
+
+		#application-review-container {
+			@media(min-width: $screen-md-min) {
+				border: solid 1px #b0bdbd;
+			}
+		}
+	
+		.illustrate {
+			@media(min-width: $screen-md-min) {
+				padding-left: 65px;
+				padding-right: 65px;	
+			}
+		}	
+	
+		p {
+			@media(min-width: $screen-md-min) {
+				margin-bottom: 5px;
+			}
+		}
+	
+		.illustration-head {
+			background-color: #fff;
+	
+			h2 {
+				margin: 0;
+				padding: 19px 0 14px 0;
+				font-size: 30px;			
+				&.appli {
+					padding-top: 30px;
+					padding-bottom: 30px;
+					@media(min-width: $screen-md-min) {
+						padding-top: 50px;
+						border-bottom: dashed 1px #b0bdbd;
+						text-align: left;
+						padding-bottom: 13px;
+					}
+				}
+	
+				&.ill {
+					@media(min-width: $screen-md-min){
+						background-color: #f1f3f5;
+						text-align: left;
+						padding-top: 33px;
+						border-bottom: dashed 1px #b0bdbd;
+					}
+				}
+			}
+		}
+	
+		.btn-style {
+			padding: 47px 29px 40px 29px;
+			background-color: #fff;
+			&.btn-pro {
+				padding-top: 20px;
+				border: none;
+				@media(min-width: $screen-md-min) {
+					padding-top: 47px;
+				}
+			}
+	
+			&.next-btn {
+				@media(min-width: $screen-md-min) {
+					padding-top: 71px;
+					padding-bottom: 60px;
+				}
+			}
+	
+			.btn-next {
+				font-size: 24px;
+				font-family: "Calibri-Bold";
+				color: #ff8200;
+				border: solid 1px #ff8200;
+				background-color: #fff;
+				padding: 12px 0;
+				width: 100%;
+				max-width: 520px;
+				&:active,
+				&:hover,
+				&:focus {
+					outline: 0;
+					color: #fff;
+					background-color: #ff8200;
+					@include transition_fwd(background .10s ease-in);
+				}
+	
+				@media(min-width: $screen-md-min) {
+					width: 50%;
+				}		
+			}	
+		}
+	
+		hr  {
+			border-top: dashed 1px #b0bdbd;
+			margin: 0;
+			@media(min-width: $screen-md-min) {
+				padding-bottom: 60px;
+				margin-left: -1000px;
+				margin-right: -1000px;
+			}
+		}
+	}
+	
+	.modal.application-modal {	
+		.modal-dialog {
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 354px;
+			width: 100%;
+			
+			@media(min-width: $screen-md-min) {
+				max-width: 604px;
+			}
+			
+			.modal-content {
+				padding-left: 20px;
+				padding-right: 20px;
+				@media(min-width: $screen-md-min) {
+					padding: 25px 82px 40px 82px;
+				}
+				
+				.close {
+					position: absolute;
+					right: 30px;
+					top: 20px;
+					z-index: 1;
+				}
+				
+				.modal-body {
+					margin: 0;
+					
+					h2 {
+						color: #ff8200;
+						font-size: 30px;
+						line-height: 35px;
+						margin-top: 6px;
+						margin-bottom: 30px;
+						@media(min-width: $screen-md-min) {
+							margin-bottom: 10px;
+						}
+					}
+					
+					p {
+						font-size: 18px;
+						line-height: 23px;
+						color: #373a36;
+					}
+					
+					.single-premium {
+						margin-bottom: 0px;
+					}
+					
+					.amount {
+						color: #ff8200;
+						font-family: 'Calibri-Bold';
+						margin-top: -6px;
+						display: block;
+						margin-bottom: 4px;
+						
+						@media(min-width: $screen-md-min) {
+							margin-bottom: 5px;
+						}
+					}
+					
+					.next {
+						margin-top: 3px;
+						height: 54px;
+						@media(min-width: $screen-md-min) {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+//}

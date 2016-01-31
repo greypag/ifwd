@@ -1,0 +1,73 @@
+//#bdayModal {
+.fwd-generic-modal {
+
+   .modal-header {
+      position: relative;
+      
+      button {
+         position: absolute;
+         right: 0;
+         top: -15px;
+      }
+   }
+   
+	.modal-content{
+		@media(max-width: 768px) {
+			padding-left: 19px;
+			padding-right: 19px;
+		} 
+	}
+	
+	
+	.modal-title{
+		text-align: center;
+		color: #fc6d08;
+		font-family: 'Calibri-Bold';
+		font-size: 30px;
+	}
+	
+	
+	.modal-body{
+		text-align: center; 
+		font-size: 18px;
+		color: #3f4547;
+		margin-top: 10px;
+		margin-bottom: 15px;
+	}
+	
+	.modal-footer {
+      border-top-width: 0px;
+      padding: 0;
+   }
+   
+	.btn-block {
+		color: #fff;
+		background: #fc6d08;
+		font-family: 'Calibri-Bold';
+		font-size: 24px;
+		border: 1px solid #fc6d08;
+		height: 50px;
+		&:hover,
+		&:focus {
+			color: #fff;
+			background: #fc6d08;
+			border: 1px solid #fc6d08;
+			@include transition_fwd(background .10s ease-in);
+		}
+	}	
+}
+
+.back-to-home {
+    
+    .btn-block {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        height: auto;
+        text-align: center;
+        
+        @media (min-width: $screen-md-min) {
+            width: 70%;
+            margin: auto;
+        }
+    }
+}

@@ -1,0 +1,111 @@
+#savie-online-footer {
+	
+	.menu-footer {
+		background-color: #222;
+		.footer-hotline-max-width {
+			padding-top: 28px;
+	    	padding-bottom: 16px;
+	    	@media (max-width: $screen-md) {
+	    		padding-left: 30px;
+  				padding-right: 30px;
+	    	}
+	    	@media (min-width: $screen-md) {
+	    		padding-top: 35px;
+	    		padding-bottom: 25px;
+	    	}
+			#hotline-info {
+				color: #FFF;
+				font-weight: bold;
+				.fa-caret-right {
+					vertical-align: middle;
+					margin-left: 6px;
+				}
+				#contact-us {
+					margin-bottom: 14px;
+					font-size: 19px;
+				}
+				#hotline-number {
+					color: #ff8200;
+				    font-size: 30px;
+				    margin-top: 8px;
+				    margin-bottom: 13px;
+				    @media (min-width: $screen-md) {
+				    	margin-bottom: 0;
+				    }
+				}
+			}
+			
+			.nav {
+				li {
+					padding-bottom: 12px;
+					font-weight: bold;
+				}
+			}
+			.social-icon-list {
+				margin-top: -10px;
+				@media (min-width: $screen-md) {
+					float: right;
+					margin-top: 0;
+				}	
+				li {
+					padding-right: 15px;
+					@media (min-width: $screen-md) {
+						padding-right: 0;
+						padding-left: 15px;
+					}
+					a {
+						color: #bcbcbc;
+						font-size: 27px;
+					}
+				}
+			}
+		}	
+	}
+	
+	.footer-tm {
+		background-color: #020202;
+		height: auto;
+		padding-top: 15px;
+    	padding-bottom: 15px;
+		color: #c1c1c1;
+		@media (min-width: $screen-md) {
+			background-color: #040404;
+		}
+		a {
+			color: #c1c1c1;
+		}
+		.disclaimer-holder {
+			/*display: table;
+			margin: 0 auto;
+			.disclaimer-menu {
+				li {
+					padding-right: 4px;
+				}
+			}*/
+			#disclaimers {
+				text-align: center;
+			    font-size: 14px;
+			    line-height: 18px;
+			    @media (min-width: $screen-md) {
+			    	text-align: left;
+			    }
+				.separator {
+					padding-left: 8px;
+					padding-right: 8px;
+				}
+			}
+		}	
+		#copyright {
+			text-align: center;
+			font-size: 14px;
+			font-weight: bold;
+			@media (max-width: $screen-md) {
+				margin-top: 5px;
+			}
+			@media (min-width: $screen-md) {
+				text-align: none;
+				float: right;
+			}
+		}
+	}	
+}

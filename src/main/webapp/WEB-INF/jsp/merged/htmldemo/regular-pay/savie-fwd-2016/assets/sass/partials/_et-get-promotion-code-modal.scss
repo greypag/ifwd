@@ -1,0 +1,82 @@
+#get-promotion-code {
+	
+	.modal-dialog {
+		position: relative;
+		@media (min-width: $screen-md) {
+			max-width: 800px;
+		}
+		.modal-content {
+		    padding: 0;
+    		padding-top: 30px;
+    		@media (min-width: $screen-md) {
+    			padding: 50px 20px 40px;
+    		}
+			.form-container {
+			    padding: 2px 20px;
+
+				h2 {
+				    color: #f68a1d;
+				    font-size: 24px;
+				    text-align: left;
+				}
+
+				h4 {
+				    font-weight: normal;
+    				font-family: 'Calibri';
+				}
+
+				.form-control {
+					border-radius: 5px;
+				    height: 52px;
+				    box-shadow: none;
+
+				    &:focus {
+				    	border-color: #ccc;
+				    }
+
+				    &:focus:invalid:focus {
+			    	    border-color: #f68a1d;
+					    -webkit-box-shadow: 0 0 6px #f68a1d;
+					    -moz-box-shadow: 0 0 6px #f68a1d;
+					    box-shadow: 0 0 6px #f68a1d;
+				    }
+
+				    &:focus:invalid {
+					    color: #b94a48;
+					    border-color: #f68a1d;
+					}
+				}
+
+				button {
+				    height: 57px;
+				    font-size: 30px;
+				    font-family: 'calibri';
+				    margin-top: 8px;
+				}
+
+				p {
+					color: #000;
+				    font-size: 18px;
+				    text-align: left;
+				    font-weight: 300;
+				    line-height: 20px;
+				    margin-top: 88px;
+				    margin-bottom: 10px;
+				    @media (min-width: $screen-md) {
+				    	margin-top: 20px;
+				    }
+				}
+			}
+		}
+	}
+
+	#getPromotionClose {
+		position: absolute;
+	    top: 0;
+	    right: 0;
+	    @media (min-width: $screen-md) {
+	    	top: 15px;
+	    	right: 15px;
+	    }
+	}
+}

@@ -1,0 +1,22 @@
+// Core variables and mixins
+//@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "partials/variables";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+#et-select-plan-date-input {
+   font-family: arial;
+} 
+
+.fwd-savie-wrapper #ET .slider-selection, .fwd-savie-wrapper #RC2 .slider-selection {
+   background-image: -webkit-linear-gradient(top, #89cdef 0%, #81bfde 100%);
+   background-image: -o-linear-gradient(top, #89cdef 0%, #81bfde 100%);
+   background-image: linear-gradient(to bottom, #89cdef 0%, #81bfde 100%);
+   background-repeat: repeat-x;
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8200', endColorstr='#ff8200', GradientType=0);
+}
+
+.fwd-savie-wrapper .page-application .et-half-width {
+   @media (min-width: $screen-md-min) {
+      width: 40%; 
+   }
+}
