@@ -10,6 +10,8 @@
 <c:set var="captchaLang" value="${language == 'tc' ? 'zh-TW' : 'en'}" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
@@ -20,8 +22,8 @@ var home_url = "<%=request.getContextPath()%>";
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
 		%>
-		<div class="fwd-savie-wrapper fwd-savie-eg-wrapper">			
-			<div class="teaser-container">
+		<div class="fwd-savie-wrapper ">			
+			<!--<div class="teaser-container">-->
 			<!-- Access Code Cover Div -->
 			<!--<div class="hunger-selling-container container-fluid" id="myAccessCode">
 				<div class="hunger-selling-content">
@@ -39,415 +41,457 @@ var home_url = "<%=request.getContextPath()%>";
 				</div>
 			</div>-->
 			
-			<div class="text-center o2o-landing banner-widget hunger-selling container-fluid">
-				<img class="mobile-banner" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.mobile" bundle="${msg}" />" />
-				<img class="desktop-banner" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.desktop" bundle="${msg}" />" />
-            <div class="fwd-container container-fluid breadcrumbs op-breadcrumbs-container hidden-xs hidden-sm">
-                <ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing op-breadcrumbs">
-						  <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
-                    <li class="divider"><!-- <i class="fa fa-chevron-right"></i> -->></li>
-						  <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
-                    <li class="divider">></li>
-                    <li><a href="#" class="active"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
+			<div class="fwd-container container-fluid breadcrumbs savie-regular-pay-breadcrumbs">
+				<div class="breadcrumb-container">
+	                <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
+	                  <li><a href="#"><fmt:message key="breadcrumb.home" bundle="${msg}" /></a></li>
+	                  <li class="divider"><i class="fa fa-angle-right"></i></li>
+	                  <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /> </a></li>
+	                  <li class="divider"><i class="fa fa-angle-right"></i></li>
+	                  <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></li>
 					 </ol>
 				</div>
+			</div>
+			
+			<div class="savie-regular-container savie-regular-landing">
+				<div class="whole-banner">
+		        	<div class="page-banner">
+						<img class="mobile-banner hidden-md hidden-lg" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.mobile" bundle="${msg}" />" />
+						<img id="hero-img-desktop" src="" class="img-responsive hidden-xs hidden-sm" />
+						<div class="img-banner-text hidden-md hidden-lg">
+		        			<h2><fmt:message key="oceanpark.landing.save.while" bundle="${msg}" /> <fmt:message key="oceanpark.landing.you.play" bundle="${msg}" /></h2>
+		        			<h5 class="hidden-md hidden-lg">
+								<a href="#">Product brochure</a> | <a href="#">Product provisions</a>
+							</h5>
+		        		</div>
+					</div>
+					<div class="fwd-container-limit">
+			        	<div class="landing-promotion text-center">
+			        		<img class="hidden-md hidden-lg" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
+			        		<div class="promo-section">
+			        			<h2 class="hidden-xs hidden-sm"><fmt:message key="oceanpark.landing.save.while" bundle="${msg}" /> <fmt:message key="oceanpark.landing.you.play" bundle="${msg}" /></h2>
+			        			<h4>Exclusive offer for Ocean Park SmartFun Adult Pass Members</h4>
+			        			<p class="description">Gold & Silver members now enjoy Premium discount of HK$960 (Gold) and HK$740 (Silver), respectively upon a successful application of Savie Insurance Plan^ with lump sum payment not less than HK$100,000.</p>
+			        			<div class="clearfix">
+			        				<button class="savie-regular-btn" id="op-buy-now-O2O-mobile">Start</button>
+			        				<img src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" class="hidden-xs hidden-sm desktop-op">
+			        			</div>
+			        			<p class="terms-condition">Please refer to details of <a href="#">Ocean Park SmartFun Annual Pass</a>.
+								<span>This offer is subject to its <a href="#">terms and conditions</a>, and FWD Life Insurance Company </span><span>Limited and Ocean Park reserve the right to vary the terms and conditions of the offer.</span>
+								</p>
+			        		</div>
+			        	</div>
+		        	</div>
+				</div>
+								
+				<div class="payment-mode">
+	        		<div class="desktop-inline">
+		        		<div class="payment-inline">
+			        		<h4 class="text-center">Payment mode:</h4>
+			        		<div class="payment-options clearfix">
+			        			<div class="left">
+			        				<button class="active">Regular payment</button>
+			        			</div>
+			        			<div class="right">
+			        				<button>One-off premium</button>
+			        			</div>
+			        		</div>
+			        	</div>
+		        	</div>
+		        	<div class="desktop-inline rate-holder">
+		        		<div class="rate">
+		        			<h4 class="text-center">GUARANTEED <span>annual crediting rate:</span></h4>
+		        			<ul class="clearfix">
+		        				<li><span class="percent">3%</span> [1st year]</li>
+		        				<li class="with-padding"><span class="percent">3%</span> [2nd year]</li>
+		        				<li class="with-padding"><span class="percent">2.5%</span> [3rd year]</li>
+		        			</ul>
+		        		</div>
+	        		</div>
+	        		<div class="gray-divide"></div>
+	        		<p class="availability-notice text-center">^This plan is only applicable to Hong Kong Identity card holders. <span>^The aggregate lump sum payment for each applicant cannot exceed HK$2,000,000 under all Savie Insurance Plan.</span>
+	        		</p>
+
+	        		<h5 class="hidden-sm hidden-xs product-options text-center">
+						<a href="#">Product brochure</a> | <a href="#">Product provisions</a>
+					</h5>
+				</div>
 				
-				<div class="hunger-text-section">
-				   <img class="op-logo hidden-md hidden-lg" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
-					<p class="hunger-selling-text text-1"><fmt:message key="jumbo.savie.oceanpark" bundle="${msg}" /></p>
-				</div>
-			</div>
-						
-			<div class="fwd-full-container container-fluid o2o-landing teaser op-div">
-				<div class="fwd-container-limit">
-					<div class="teaser-banner-text">
-						<p class="additional top hidden-md hidden-lg"><fmt:message key="jumbo.savie.oceanpark.copy1.mobile" bundle="${msg}" /></p>
-						<p class="additional top desktop hidden-xs hidden-sm"><fmt:message key="jumbo.savie.oceanpark.copy1" bundle="${msg}" /></p>
-						<p class="bottom-text"><fmt:message key="jumbo.savie.oceanpark.copy2" bundle="${msg}" /></p>
-                  <form action="${pageContext.request.contextPath}/${language}/savings-insurance/${nextPageFlow}" method="post">
-                      <input type="hidden" name="accessCodeConfirm" value=""/>
-                      <div class="get-started-holder op-align">
-                          <button id="op-buy-now-O2O-mobile" class="get-started"><fmt:message key="cta.start" bundle="${msg}" /></button>
-                      	  <img class="op-logo-desktop hidden-xs hidden-sm" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
-                      </div>
-                      <p class="bottom-text lower hidden-md hidden-lg" style="margin-top: 20px">
-	                  	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.provisions.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part3" bundle="${msg}" />
-	                  	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part3" bundle="${msg}" />
-	                  </p>
-                  </form>
-                  <p class="bottom-text lower hidden-sm hidden-xs">
-                  	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.provisions.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy1.part3" bundle="${msg}" />
-                  	<fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.oceanpark" bundle="${msg}" />" target="_blank"> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part2" bundle="${msg}" /></a> <fmt:message key="disclaimer.jumbo.savie.oceanpark.copy2.part3" bundle="${msg}" />
-                  </p>
-					</div>
-				</div>
-			</div>
-			
-			<div class="fwd-full-container container-fluid o2o-landing teaser">
-				<div class="fwd-container-limit">
-					<div class="row">
-						<div class="col-xs-12 col-md-6">
-							<p class="additional top enjoy-guaranteed"><fmt:message key="custom.savie.credit.rate.title" bundle="${msg}" /></p>
-						</div>
-						<div class="col-xs-12 col-md-6">
-							<ul class="crediting-rate-list clearfix">
-								<li><span class="percent"><fmt:message key="custom.savie.credit.rate.rate1" bundle="${msg}" /></span><span class="year"><fmt:message key="custom.savie.credit.rate.year1" bundle="${msg}" /></span></li>
-								<li class="middle"><div class="white"></div><span class="percent"><fmt:message key="custom.savie.credit.rate.rate2" bundle="${msg}" /></span><span class="year"><fmt:message key="custom.savie.credit.rate.year2" bundle="${msg}" /></span><div class="white right"></div></li>
-								<li><span class="percent gold"><fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></span><span class="year gold"><fmt:message key="custom.savie.credit.rate.year3" bundle="${msg}" /></li>
-							</ul>
-						</div>
-						<div class="col-xs-12">
-							<p class="disclaimer-center">
-								<fmt:message key="disclaimer.savie.oceanpark.credit.rate.copy1" bundle="${msg}" />
-								<br>
-								<fmt:message key="disclaimer.savie.oceanpark.credit.rate.copy2" bundle="${msg}" />
-							</p>
-						</div >
-						<div class="download-pdf hidden-xs hidden-sm col-md-12">
-							<ul class="crediting-rate-list pdf">
-								<li class="middle"><a class="year" href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie" bundle="${msg}" />" target="_blank"><fmt:message key="general.product.brochure" bundle="${msg}" /></a></li>
-								<li><a class="year" href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="general.product.provisions" bundle="${msg}" /></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-	        <div class="teaser-three-column O2O-landing">
-					<div id="landing-three-column" class="fwd-container container-fluid three-column-widget O2O-landing">
-						<div class="row row-top text-center">
-							<div class="col-xs-12 col-md-4 fwd-col">
-								<div class="col-content col-content-teaser">
-									<div class="clearfix">
-										<div class="pull-left mobile-image hidden-md hidden-lg">
-											<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings-mobile" bundle="${msg}" />" width="150" class="img-responsive">
-										</div>
-										<div class="right">
-											<h2><fmt:message key="usp.savie1.title.part1" bundle="${msg}" /></h2>
-											<h3><fmt:message key="usp.savie1.title.part2" bundle="${msg}" /></h3>
-											<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings" bundle="${msg}" />" height="170" class="hidden-xs hidden-sm">
-											<p><fmt:message key="usp.savie1.copy" bundle="${msg}" /></p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-12 col-md-4 fwd-col">
-								<div class="col-content col-content-teaser">
-									<div class="clearfix">
-										<div class="pull-left mobile-image hidden-md hidden-lg">
-											<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment-mobile" bundle="${msg}" />" width="150" class="img-responsive">
-										</div>
-										<div class="right">
-											<h2><fmt:message key="usp.savie2.title.part1" bundle="${msg}" /></h2>
-											<h3><fmt:message key="usp.savie2.title.part2" bundle="${msg}" /></h3>
-											<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment" bundle="${msg}" />" height="170"  class="hidden-xs hidden-sm">
-											<p><fmt:message key="usp.savie2.copy" bundle="${msg}" /></p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-12 col-md-4 fwd-col">
-								<div class="col-content col-content-teaser">
-									<div class="clearfix">
-										<div class="pull-left mobile-image hidden-md hidden-lg">
-											<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional-mobile" bundle="${msg}" />" width="150" class="img-responsive">
-										</div>
-										<div class="right">
-											<h2><fmt:message key="usp.savie3.title.part1" bundle="${msg}" /></h2>
-											<h3><fmt:message key="usp.savie3.title.part2" bundle="${msg}" /></h3>
-											<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional" bundle="${msg}" />" height="170" class="hidden-xs hidden-sm">
-											<p><fmt:message key="usp.savie3.copy" bundle="${msg}" /></p>
-											<p class="info-asterisk"><fmt:message key="usp.savie3.disclaimer" bundle="${msg}" /><p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-	          
-					<div class="fwd-container container-fluid other-benefits-teaser O2O-landing">
-						<!--<div id="other-benefits" class="row">
-							<div class="clearfix">
-								<div class="pull-left mobile-image hidden-md hidden-lg">
-									<img src="<%=request.getContextPath()%><fmt:message key="img.other.benefits-mobile" bundle="${msg}" />">
-								</div>
-								<div class="right">
-									<div class="col-xs-12 col-md-8 pull-right">
-										<h2 class="text-center"><fmt:message key="feature.savie.title" bundle="${msg}" /></h2>
-									</div>
-									<div class="col-xs-12 col-md-4 fwd-col text-center left-clear">
-										<img src="<%=request.getContextPath()%><fmt:message key="img.other.benefits" bundle="${msg}" />" class="hidden-xs hidden-sm">
-									</div>
-									<div class="col-xs-12 col-md-8 fwd-col">
-										<ul>
-											<li><p><fmt:message key="feature.savie.copy1" bundle="${msg}" /></p></li>
-											<a class="read-more hidden-md hidden-lg" id="read-more-other-benefits"><fmt:message key="savie.landing.hidden.readmore" bundle="${msg}" /></a>
-											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-0"><p><fmt:message key="feature.savie.copy2" bundle="${msg}" /></p></li>
-											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-1"><p><fmt:message key="feature.savie.copy3" bundle="${msg}" /></p></li>
-											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-2"><p><fmt:message key="feature.savie.copy4" bundle="${msg}" /></p></li>
-											<li class="hidden-xs hidden-sm other-benefits-list-mobile" id="other-benefits-list-3"><p><fmt:message key="feature.savie.copy5" bundle="${msg}" /></p></li>
+		        <div class="fwd-container-limit">
+		        		<div class="usp row">
+		        			<div class="usp-item clearfix col-xs-12 col-md-4">
+		        				<h5 class="hidden-xs hidden-sm">Flexible payment options</h5>
+		        				<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings-mobile" bundle="${msg}" />" class="">
+		        				<div class="item-desc">
+		        					<h5 class="hidden-md hidden-lg">Flexible payment options</h5>
+		        					<p>Savie is now available in one-off premium payment and regular payment, you may choose your preferred payment option depends on your saving habit. We accept cheque or bank direct debit and Bank of Communication FWD Credits Card for one off payment; accept only bank direct debit for regular payment.</p>
+		        				</div>
+		        			</div>
+		        			<div class="usp-item clearfix col-xs-12 col-md-4">
+		        				<h5 class="hidden-xs hidden-sm">Flexible and free</h5>
+		        				<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment-mobile" bundle="${msg}" />" class="">
+		        				<div class="item-desc">
+		        					<h5 class="hidden-md hidden-lg">Flexible and free</h5>
+		        					<p class="padded">Enjoy flexibility when you need it most - you can withdraw from your Savie account at NO charge!</p>
+		        				</div>
+		        			</div>
+		        			<div class="usp-item clearfix col-xs-12 col-md-4">
+		        				<h5 class="hidden-xs hidden-sm">Extra protection</h5>
+		        				<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional-mobile" bundle="${msg}" />" class="">
+		        				<div class="item-desc">
+		        					<h5 class="hidden-md hidden-lg">Extra protection</h5>
+		        					<p class="padded">Receive death benefits at 105% of your account value* and accidental death benefit at 100%, until age 70 and up to a maximum amount of HK$400,000.</p>
+		        					<p class="accumulation padded">* The accumulation of total premium paid plus interest, less partial withdrawal(s) if any.</p>
+		        				</div>
+		        			</div>
+		        		</div>
+		        	</div>
+		        <div class="hidden-xs hidden-sm">
+		        		<h3 class="benefits-desktop text-center">Benefits</h3>
+		        		<div class="gray-divide"></div>
+		        	</div>
+	        		<div class="regular-benefit">
+	        			<div class="hidden-md hidden-lg">
+		        			<h4 class="text-center">Benefits</h4>
+		        			<div class="gray-divide"></div>
+		        		</div>
+	        			<div class="fwd-container-limit">
+		        			<div class="benefits-holder">
+		        				<div class="hidden-md hidden-lg">
+				        			<div class="row">
+				        				<div class="col-xs-6 text-center annualTravel_policy_item">
+				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png">
+				        					<span>Partnership offer</span>
+											<div class="hidden-benefits benefits-content">
+												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png" />
+												<div class="info hidden-benefits-info">
+													<h3 class="hidden-benefits-info">Partnership offer</h3>
+													<p class="hidden-benefits-info">Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+												</div>
+											</div>
+				        				</div>
+				        				<div class="col-xs-6 text-center annualTravel_policy_item">
+				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png">
+				        					<span>19 to 70 issue age</span>
+											<div class="hidden-benefits benefits-content">
+												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png" />
+												<div class="info hidden-benefits-info">
+													<h3 class="hidden-benefits-info">Partnership offer</h3>
+													<p class="hidden-benefits-info">Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+												</div>
+											</div>
+				        				</div>
+				        			</div>
+				        			<div class="row">
+				        				<div class="col-xs-6 text-center annualTravel_policy_item">
+				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png">
+				        					<span class="two-lines">Withdrawal without charges</span>
+											<div class="hidden-benefits benefits-content">
+												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png" />
+												<div class="info hidden-benefits-info">
+													<h3 class="hidden-benefits-info">Partnership offer</h3>
+													<p class="hidden-benefits-info">Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+												</div>
+											</div>
+				        				</div>
+				        				<div class="col-xs-6 text-center annualTravel_policy_item">
+				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png">
+				        					<span class="two-lines">Earning after 3 years</span>
+											<div class="hidden-benefits benefits-content">
+												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png" />
+												<div class="info hidden-benefits-info">
+													<h3 class="hidden-benefits-info">Partnership offer</h3>
+													<p class="hidden-benefits-info">Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+												</div>
+											</div>
+				        				</div>
+				        			</div>
+				        			<div class="row">
+				        				<div class="col-xs-6 text-center annualTravel_policy_item">
+				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png">
+				        					<span class="two-lines">24 hours service hotline</span>
+											<div class="hidden-benefits benefits-content">
+												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png" />
+												<div class="info hidden-benefits-info">
+													<h3 class="hidden-benefits-info">Partnership offer</h3>
+													<p class="hidden-benefits-info">Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+												</div>
+											</div>
+				        				</div>
+				        				<div class="col-xs-6 text-center annualTravel_policy_item">
+				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png">
+				        					<span class="two-lines">Payment options</span>
+											<div class="hidden-benefits benefits-content">
+												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png" />
+												<div class="info">
+													<h3 class="hidden-benefits-info">Partnership offer</h3>
+													<p class="hidden-benefits-info">Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+												</div>
+											</div>
+				        				</div>
+				        			</div>
+				        		</div>
+				        		<div class="hidden-xs hidden-sm">
+				        			<div class="" id="benefits-nav-holder">
+										<ul class="nav nav-tabs row so-fna-row" role="tablist">
+											<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li active" id="benefits-nav-title-1">
+												<a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link text-center">Partnership <span>offer</span></a>
+											</li>
+											<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li" id="benefits-nav-title-2">
+												<a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center">19 to 70 <span>issue age</span></a>
+											</li>
+											<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li" id="benefits-nav-title-3">
+												<a href="#benefits-navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center">Withdrawal <span>without charges</span></a>
+											</li>
+											<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-4">
+												<a href="#benefits-navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center">Earning after <span>3 years</span></a>
+											</li>
+											<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-5">
+												<a href="#benefits-navtabs-5" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center">24 hours <span>service hotline</span></a>
+											</li>
+											<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-6">
+												<a href="#benefits-navtabs-6" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center">Payment <span>options</span></a>
+											</li>
 										</ul>
+										<div class="fna-carousel carousel slide" id="benefits-carousel" data-ride="carousel" data-interval="false">
+											<div class="tab-content carousel-inner clearfix" role="listbox">
+												<div role="tabpanel" class="fna-tab-content tab-pane item active" id="benefits-navtabs-1">
+													<div class="benefits-content clearfix">
+														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/new-benefit-1.png">
+														<div class="info">
+															<h3>Partnership offer</h3>
+															<p>Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+														</div>
+													</div>
+												</div>
+												<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-2">
+													<div class="benefits-content clearfix">
+														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png">
+														<div class="info">
+															<h3>Partnership offer</h3>
+															<p>Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+														</div>
+													</div>
+												</div>
+												<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-3">
+													<div class="benefits-content clearfix">
+														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png">
+														<div class="info">
+															<h3>Partnership offer</h3>
+															<p>Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+														</div>
+													</div>
+												</div>
+												<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-4">
+													<div class="benefits-content clearfix">
+														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png">
+														<div class="info">
+															<h3>Partnership offer</h3>
+															<p>Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+														</div>
+													</div>
+												</div>
+												<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-5">
+													<div class="benefits-content clearfix">
+														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png">
+														<div class="info">
+															<h3>Partnership offer</h3>
+															<p>Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+														</div>
+													</div>
+												</div>
+												<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-6">
+													<div class="benefits-content clearfix">
+														<img src="assets/images/savie-regular/benefit-6.png">
+														<div class="info">
+															<h3>Partnership offer</h3>
+															<p>Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- Carousel -->
+											<a class="left carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="prev">
+											</a>
+											<a class="right carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="next">
+											</a>
+										</div>
+									</div>
+				        		</div>
+		        			</div>
+		        		</div>
+	        		</div>
+	        		
+	        		<div class="ice-cream-banner hidden-xs hidden-sm">
+	        				<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/crediting_rates-en-1.jpg">
+	        		</div>
+
+	        		<div class="partners">
+	        			<h4 class="text-center">Exclusive partner offers</h4>
+	        			<div class="gray-divide" id="bar-exclusive"></div>
+	        			<div class="row partners-holder">
+	        				<div class="col-xs-6 text-center">
+	        					<div class="desktop-center clearfix">
+		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_agoda.png">
+		        					<a href="#" class="hidden-md hidden-lg">Enjoy 8% discount</a>
+		        					<p class="hidden-xs hidden-sm">Enjoy 8% <a href="#">Agoda</a> discount on all travel products upon successful registration of FWD online membership.</p>
+	        					</div>
+	        				</div>
+	        				<div class="col-xs-6 text-center">
+	        					<div class="desktop-center clearfix">
+		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_pricerite.png">
+		        					<a href="#" class="hidden-md hidden-lg">HK$ 50 e-coupon</a>
+		        					<p class="hidden-xs hidden-sm">HK$ 50 e-coupon from <a href="#">Pricerite</a> for every successful referral.</p>
+	        					</div>
+	        				</div>
+	        			</div>
+	        		</div>
+	        		<div class="fna-icons-body text-center clearfix">
+						<div class="fwd-container-limit" id="nav-holder">
+							<ul class="nav nav-tabs row so-fna-row visible-xs visible-sm" role="tablist">
+								<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="nav-title-1">
+									<a href="#navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link">Here when you need us</a>
+								</li>
+								<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-2">
+									<a href="#navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link">Convenience to reach</a>
+								</li>
+								<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-3">
+									<a href="#navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link">Make claims easy</a>
+								</li>
+								<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="nav-title-4">
+									<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link">eService app available</a>
+								</li>
+							</ul>
+							<div class="fna-carousel carousel slide" id="so-carousel" data-ride="carousel" data-interval="false">
+								<div class="tab-content carousel-inner clearfix" role="listbox">
+									<div role="tabpanel" class="fna-tab-content tab-pane item active" id="navtabs-1">
+										<div class="so-fna-content">
+											<div class="fna-icon-circle">
+												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-1.png">
+											</div>
+											<h3 class="visible-md visible-lg  tab-head">Here when you need us</h3>
+											 <p>Our 24 x 7 call centre support, to assistant you anytime you want! <!--<a href="#" class="eserv-link ui-link">eServices</a>--></p>
+										</div>
+									</div>
+									<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-2">
+										<div class="so-fna-content">
+											<div class="fna-icon-circle">
+												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-2.png">
+											</div>
+											<h3 class="visible-md visible-lg tab-head">Convenience to reach</h3>
+											<p> Our  5 drop-in location across Hong Kong, Kowloon & New Territories!</p>
+										</div>
+									</div>
+									<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-3">
+										<div class="so-fna-content">
+											<div class="fna-icon-circle">
+												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-3.png">
+											</div>
+											<h3 class="visible-md visible-lg tab-head">Make claims easy</h3>
+											<p>Simply send the completed claim form to our office within 30 days of the expiry of the policy (except personal liability related claims). Refer to claims section, or you can download the claim form here.</p>
+										</div>
+									</div>
+									<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4">
+										<div class="so-fna-content">
+											<div class="fna-icon-circle">
+												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png">
+											</div>
+											<h3 class="visible-md visible-lg  tab-head">eService app available</h3>
+											<p>Download our <a href="#" class="eserv-link ui-link">eServices</a> App and get the support you need, when you need it.</p>
+										</div>
+									</div>
+								</div>
+								<!-- Carousel -->
+								<a class="left carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="prev">
+								</a>
+								<a class="right carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="next">
+								</a>
+							</div>
+						</div>
+					</div>
+				
+				<!-- OUR BLOG -->
+				<div class="blog">
+						<div class="hidden-md hidden-lg">
+							<div class="mini-banner-holder">
+								<img src="<%=request.getContextPath()%>/resources/images/savie-regular/read-our-blog.jpg" class="img-responsive">
+								<div class="black-overlay"></div>
+								<h5 class="text-center">Save before you spend</h5>
+							</div>
+							<div class="btn-holder">
+								<button class="savie-regular-btn">Read more from our blog</button>
+							</div>
+						</div>
+						<div class="hidden-xs hidden-sm">
+							<h3 class="text-center">Read more from our blog</h3>
+							<div class="gray-divide"></div>
+							<p class="definition text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit pretium metus. Suspendisse sagittis mi id iaculis eleifend. <span>Integer ullamcorper nisi eget elit molestie mattis.</span></p>
+
+							<div class="blogs-holder clearfix fwd-container-limit">
+								<div class="blogs first">
+									<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-1.jpg" class="img-responsive">
+									<div class="orange-overlay text-center">
+										<p class="title">Saving is easier than you think!</p>
+										<span>SAVE</span>
+										<p class="definition">Spending yourself into a hole? You are not the only one</p>
+										<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2016/01/11/power-start-up/">Read now</a>
+									</div>
+								</div>
+								<div class="blogs">
+									<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-2.jpg" class="img-responsive">
+									<div class="orange-overlay text-center">
+										<p class="title">Saving is easier than you think!</p>
+										<span>SAVE</span>
+										<p class="definition">Spending yourself into a hole? You are not the only one</p>
+										<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/30/do-holidays-have-to-be-saving-traps/">Read now</a>
+									</div>
+								</div>
+								<div class="blogs">
+									<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-3.jpg" class="img-responsive">
+									<div class="orange-overlay text-center">
+										<p class="title">Saving is easier than you think!</p>
+										<span>SAVE</span>
+										<p class="definition">Spending yourself into a hole? You are not the only one</p>
+										<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/17/busting-the-myths-of-saving-traps/">Read now</a>
+									</div>
+								</div>
+								<div class="blogs last">
+									<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-4.jpg" class="img-responsive">
+									<div class="orange-overlay text-center">
+										<p class="title">Saving is easier than you think!</p>
+										<span>SAVE</span>
+										<p class="definition">Spending yourself into a hole? You are not the only one</p>
+										<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/09/%E9%80%99%E6%A8%A3%E5%81%9A%E5%B0%B1%E5%B0%8D%E4%BA%86%E3%80%80coupon%E5%B9%AB%E6%82%A8%E6%85%B3%E5%A4%A7%E9%8C%A2/">Read now</a>
 									</div>
 								</div>
 							</div>
-						</div>-->
 
-						<div class="btn-download-section hidden-md hidden-lg" style="text-align:left;">
-							<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie" bundle="${msg}" />" title="Download product brochure" class="fwd-btn-download-item" target="_blank">
-								<img src="<%=request.getContextPath()%>/resources/images/elite-terms/download-icon.png" alt="download-icon.png" />
-								<fmt:message key="general.product.brochure" bundle="${msg}" />
-							</a>
-							<a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" title="Download policy provisions" class="fwd-btn-download-item" target="_blank">
-								<img src="<%=request.getContextPath()%>/resources/images/elite-terms/download-icon.png" alt="download-icon.png" />
-								<fmt:message key="general.product.provisions" bundle="${msg}" />
-							</a>
-						</div>
-
-						<!--  6 benefit coverage -->
-						<div style="background-color:#FFFFFF;text-align:center;margin-top: 20px;padding-bottom: 20px;">
-						    <div class="container pad-none">
-						        <h2><fmt:message key="saviee.landing.coverage.headline" bundle="${msg}" /></h2>
-						        <h4><strong></strong></h4>
-						        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 eg-benefits-col">
-						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon1.png">
-						                <h5 class="bold eg-width-33"><fmt:message key="saviee.landing.coverage1.title" bundle="${msg}" /></h5>
-						                <div class="hidden-content">
-						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon1.png"></div>
-						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="saviee.landing.coverage1.title" bundle="${msg}" /></div>
-						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="saviee.landing.coverage1.copy" bundle="${msg}" /></p></div>
-						                    <div class="col-xs-12 hidden-content-a"></div>
-						                    <div class="clearfix"></div>
-						                </div>
-						            </div>
-						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon2.png">
-						                <h5 class="bold eg-width-33"><fmt:message key="saviee.landing.coverage2.title" bundle="${msg}" /></h5>
-						                <div class="hidden-content">
-						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon2.png"></div>
-						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="saviee.landing.coverage2.title" bundle="${msg}" /></div>
-						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="saviee.landing.coverage2.copy" bundle="${msg}" /></p></div>
-						                    <div class="col-xs-12 hidden-content-a"></div>
-						                    <div class="clearfix"></div>
-						                </div>
-						            </div>
-						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon3.png">
-						                <h5 class="bold"><fmt:message key="saviee.landing.coverage3.title" bundle="${msg}" /></h5>
-						                <div class="hidden-content">
-						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon3.png"></div>
-						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="saviee.landing.coverage3.title" bundle="${msg}" /></div>
-						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="saviee.landing.coverage3.copy" bundle="${msg}" /></p></div>
-						                    <div class="col-xs-12 hidden-content-a"></div>
-						                    <div class="clearfix"></div>
-						                </div>
-						            </div>
-						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon4.png">
-						                <h5 class="bold eg-width-22"><fmt:message key="saviee.landing.coverage4.title" bundle="${msg}" /></h5>
-						                <div class="hidden-content">
-						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon4.png"></div>
-						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="saviee.landing.coverage4.title" bundle="${msg}" /></div>
-						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="saviee.landing.coverage4.copy" bundle="${msg}" /></p></div>
-						                    <div class="col-xs-12 hidden-content-a"></div>
-						                    <div class="clearfix"></div>
-						                </div>
-						            </div>
-						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon5.png">
-						                <h5 class="bold eg-width-15"><fmt:message key="saviee.landing.coverage5.title" bundle="${msg}" /></h5>
-						                <div class="hidden-content">
-						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon5.png"></div>
-						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="saviee.landing.coverage5.title" bundle="${msg}" /></div>
-						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="saviee.landing.coverage5.copy" bundle="${msg}" /></p></div>
-						                    <div class="col-xs-12 hidden-content-a"></div>
-						                    <div class="clearfix"></div>
-						                </div>
-						            </div>
-						            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 annualTravel_policy_item">
-						                <img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon6.png">
-						                <h5 class="bold eg-width-22"><fmt:message key="saviee.landing.coverage6.title" bundle="${msg}" /></h5>
-						                <div class="hidden-content">
-						                    <div class="col-xs-12 hidden-md hidden-lg"><img class="eg-img" src="<%=request.getContextPath()%>/resources/images/annual_travel/eg-icon6.png"></div>
-						                    <div class="col-xs-12 hidden-content-title"><fmt:message key="saviee.landing.coverage6.title" bundle="${msg}" /></div>
-						                    <div class="col-xs-12 hidden-content-p"><p><fmt:message key="saviee.landing.coverage6.copy" bundle="${msg}" /></p></div>
-						                    <div class="col-xs-12 hidden-content-a"><a href="<fmt:message key="evergreen.travel.learn.more.link" bundle="${msg}" />" target="_blank"><fmt:message key="evergreen.travel.learn.more" bundle="${msg}" /></a></div>
-						                    <div class="clearfix"></div>
-						                </div>
-						            </div>
-						            <div class="clearfix"></div>
-						        </div>
-						    </div>
-						</div>
-						<!-- Disclaimer and Policy Provisions -->
-						<div class="disclaimer-policy-teaser teaser-policy">
-							<!-- <p class="h4-6"><fmt:message key="saviee.landing.disclaimer.1" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="saviee.landing.disclaimer.2.url" bundle="${msg}" />" target="_blank"> <u><fmt:message key="saviee.landing.disclaimer.2" bundle="${msg}" /></u></a> <fmt:message key="saviee.landing.disclaimer.3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="saviee.landing.disclaimer.4.url" bundle="${msg}" />" target="_blank"> <u><fmt:message key="saviee.landing.disclaimer.4" bundle="${msg}" /></u></a> <fmt:message key="saviee.landing.disclaimer.5" bundle="${msg}" /></p>-->
-						</div>
-					</div>
-	            
-	            <div class="hidden-xs hidden-sm fwd-full-container container-fluid o2o-landing saving-plans">
-					<div id="savings-carousel" class="carousel slide" data-ride="carousel">
-						<!-- Wrapper for slides -->
-						<div class="carousel-inner" role="listbox">
-							<div class="item active">
-								<!--<div class="savings-banner-text">
-									<p><fmt:message key="savie.o2o.landing.Guaranteed.crediting" bundle="${msg}" /></p>
-								</div>-->
-								<div class="savings-banner">
-									<img class="mobile" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.infographic.slides.path" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide1.image.mobile" bundle="${msg}" />" />
-									<img class="desktop" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.infographic.slides.path" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide1.image.desktop" bundle="${msg}" />" />
-								</div>
-							</div>
-							<div class="item">
-								<div class="savings-banner">
-									<img class="mobile" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.infographic.slides.path" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide2.image.mobile" bundle="${msg}" />" />
-									<img class="desktop" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.infographic.slides.path" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide2.image.desktop" bundle="${msg}" />" />
-								</div>
-							</div>
-							<div class="item">
-								<div class="savings-banner">
-									<img class="mobile" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.infographic.slides.path" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide3.image.mobile" bundle="${msg}" />" />
-									<img class="desktop" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.infographic.slides.path" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide3.image.desktop" bundle="${msg}" />" />
-								</div>
-							</div>
-							<div class="item">
-								<div class="savings-banner">
-									<img class="mobile" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.infographic.slides.path" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide4.image.mobile" bundle="${msg}" />" />
-									<img class="desktop" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.infographic.slides.path" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide4.image.desktop" bundle="${msg}" />" />
-								</div>
-							</div>
-							<div class="item">
-								<div class="savings-banner">
-									<img class="mobile" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.infographic.slides.path" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide5.image.mobile" bundle="${msg}" />" />
-									<img class="desktop" src="<%=request.getContextPath()%><fmt:message key="savie.o2o.landing.infographic.slides.path" bundle="${msg}" /><fmt:message key="savie.o2o.landing.infographic.slide5.image.desktop" bundle="${msg}" />" />
-								</div>
+							<div class="fwd-container-limit">
+								<p class="blog-notice">The information provided in the blog is for reference only. While FWD Life Insurance Company (Bermuda) Limited and its affiliates ("FWD") use all reasonable efforts to ensure the information is accurate, FWD makes no warranties or representations as to the accuracy or completeness of any of the information and assumes no liability for any errors or omissions thereof. FWD shall not be liable for any direct, incidental, consequential, indirect or punitive damages arising out of access to, use of or inability to use the information, or any errors or omissions in the content of this material. Users should carefully evaluate the information.</p>
 							</div>
 						</div>
 					</div>
-					
-					<div class="savings-nav">
-						<div class="prev">
-							<a class="pull-right disabled" href="#savings-carousel" role="button" data-slide="prev">
-							<span class="icon icon-chevron-thin-left">
-								<span class="sr-only"><fmt:message key="savie.o2o.landing.Previous" bundle="${msg}" /></span>
-							</span>
-							</a>
-						</div>
-						
-						<div class="next">
-							<a class="pull-left active" href="#savings-carousel" role="button" data-slide="next">
-							<span class="icon icon-chevron-thin-right">
-								<span class="sr-only"><fmt:message key="savie.o2o.landing.Next" bundle="${msg}" /></span>
-							</span>
-							</a>
-						</div>
-					</div>
-					
-					<!--<div class="savings-menu row">
-						<div class="col-xs-6 download">
-							<a href="#">
-								<div class="action-icon">
-									<img src="assets/images/download-brochure-icon.png">
+				
+				<!-- Customer Center Modal -->
+				<div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h2><fmt:message key="savie.o2o.landing.Getting.started" bundle="${msg}" /><br><fmt:message key="savie.o2o.landing.Just.follow" bundle="${msg}" /><br><fmt:message key="savie.o2o.landing.complete.your" bundle="${msg}" /></h2>
+							</div>
+							<div class="modal-body">
+								<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/infographic-steps.jpg" />
+							</div>
+							<div class="modal-footer">
+								<div class="top-section">
+									<h2><fmt:message key="savie.o2o.landing.Congratulations" bundle="${msg}" /></h2>
+									<h4><fmt:message key="savie.o2o.landing.Your.application" bundle="${msg}" /></h4>
+									<p><fmt:message key="savie.o2o.landing.Can't.make" bundle="${msg}" /></p>
 								</div>
 								
-								<div class="action-text">
-									<h2>Download brochure</h2>
-									<p>View product brochure for more details.</p>
+								<div class="bottom-section">
+									<button type="button" class="btn" data-dismiss="modal"><fmt:message key="savie.o2o.landing.Continue" bundle="${msg}" /></button>
 								</div>
-							</a>
-						</div>
-						
-						<div class="col-xs-6 sign-up">
-							<a href="#">
-								<div class="action-icon">
-									<img src="assets/images/signup-now-icon.png">
-								</div>
-								
-								<div class="action-text">
-									<h2>Sign up now</h2>
-									<p>To get our limited offer</p>
-								</div>
-							</a>
-						</div>
-					</div>-->
-					
-					<!--<div class="fwd-action o2o-landing">
-						<div class="fwd-action-container fwd-action-two">
-							<button class="action-one talk-to-experts">
-								<img src="assets/images/download-brochure-icon.png" class="img-responsive" />
-								<div class="action-text">
-									<h2>Download brochure</h2>
-									<p>View product brochure for more details.</p>
-								</div>
-							</button>
-							<button class="action-two download-brochure">
-								<img src="assets/images/signup-now-icon.png" class="img-responsive" />
-								<div class="action-text">
-									<h2>Sign up now</h2>
-									<p>To get our limited offer</p>
-								</div>
-							</button>
-						</div>
-					</div>-->
-					
-				</div>
-	           
-	        </div>
-			
-			<!-- OUR BLOG -->
-			<div id="landing-page-blog" class="fwd-container blog-widget container-fluid text-center">
-				<div class="read-blog-desktop three-column-widget O2O-landing">
-					<h2 class="hidden-xs hidden-sm"><fmt:message key="blog.headline" bundle="${msg}" /></h2>
-					<h2 class="hidden-md hidden-lg"><fmt:message key="blog.headline.mobile" bundle="${msg}" /></h2>
-					<div class="row text-left">
-						<div class="col-xs-12 col-md-4 fwd-col">
-							<a href="<fmt:message key="link.blog.savie.post1" bundle="${msg}" />" target="_blank">
-								<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/power-1-percent-savings-interest.jpg"/>
-							</a>
-							<h3><a href="<fmt:message key="link.blog.savie.post1" bundle="${msg}" />" target="_blank"><fmt:message key="blog.savie.post1" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
-						</div>
-						<div class="col-md-4 fwd-col hidden-xs hidden-sm">
-							<a href="<fmt:message key="link.blog.savie.post2" bundle="${msg}" />" target="_blank">
-								<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/saving-is-easier-than-you-think.jpg"/>
-							</a>
-							<h3><a href="<fmt:message key="link.blog.savie.post2" bundle="${msg}" />" target="_blank"><fmt:message key="blog.savie.post2" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
-						</div>
-						<div class="col-md-4 fwd-col hidden-xs hidden-sm">
-							<a href="<fmt:message key="link.blog.savie.post3" bundle="${msg}" />" target="_blank">
-								<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/3-saving-tips-smart-parents.jpg"/>
-							</a>
-							<h3><a href="<fmt:message key="link.blog.savie.post3" bundle="${msg}" />" target="_blank"><fmt:message key="blog.savie.post3" bundle="${msg}" /><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></h3>
-						</div>
-					</div>
-					<p class="text-left hidden-xs hidden-sm"><fmt:message key="disclaimer.blog" bundle="${msg}" /></p>
-				</div>			
-			</div>
-
-
-			<a class="btn btn-full hidden-md hidden-lg" href="<fmt:message key="fwd.blog.save.link" bundle="${msg}" />" target="_blank"><fmt:message key="savie.landing.hidden.readmore.mobile" bundle="${msg}" /></a>	
-			<div class="mobile-disclaimer">
-				<p class="text-left hidden-md hidden-lg"><fmt:message key="savie.o2o.landing.The.information" bundle="${msg}" /></p>
-			</div>
-			
-			<!-- Customer Center Modal -->
-			<div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h2><fmt:message key="savie.o2o.landing.Getting.started" bundle="${msg}" /><br><fmt:message key="savie.o2o.landing.Just.follow" bundle="${msg}" /><br><fmt:message key="savie.o2o.landing.complete.your" bundle="${msg}" /></h2>
-						</div>
-						<div class="modal-body">
-							<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/infographic-steps.jpg" />
-						</div>
-						<div class="modal-footer">
-							<div class="top-section">
-								<h2><fmt:message key="savie.o2o.landing.Congratulations" bundle="${msg}" /></h2>
-								<h4><fmt:message key="savie.o2o.landing.Your.application" bundle="${msg}" /></h4>
-								<p><fmt:message key="savie.o2o.landing.Can't.make" bundle="${msg}" /></p>
-							</div>
-							
-							<div class="bottom-section">
-								<button type="button" class="btn" data-dismiss="modal"><fmt:message key="savie.o2o.landing.Continue" bundle="${msg}" /></button>
 							</div>
 						</div>
 					</div>
@@ -574,6 +618,27 @@ var home_url = "<%=request.getContextPath()%>";
 		
 		<script type="text/javascript">
 			var language = "en";
+			
+			$( window ).resize(function() {
+				bannerimg();
+			});
+
+			function bannerimg() {
+				if(getWidth() >= 992 && getWidth() <= 1350) {
+					$('#hero-img-desktop').attr('src','<%=request.getContextPath()%>/resources/images/savie/o2o-landing/landing-md-bg-desktopss.jpg');
+				}
+				else {
+					$('#hero-img-desktop').attr('src','<%=request.getContextPath()%>/resources/images/savie/o2o-landing/landing-bg-desktop.jpg')
+				}
+			}
+			function preventSwipe() {
+				if(getWidth() > 991) {
+					$("#so-carousel").on('swipeleft swiperight', '.selector', function(event) {
+					 	event.stopPropagation();
+					 	event.preventDefault();
+					});
+				}
+			}
 
 			// Access Code Cover
 			$('#hunger-selling-buy-now-O2O').click(function(e){
@@ -662,15 +727,16 @@ var home_url = "<%=request.getContextPath()%>";
 			});
 
 			$(document).ready(function() {
-			if(isMobile){
+				if(isMobile) {
 					$(".annualTravel_policy_item").click(function(){
 						itemTop = $(this).offset();
-						var html=$(this).children('.hidden-content').children().clone();
+						var html=$(this).children('.hidden-benefits').children().clone();
 						$("#modal_policy_container").html(html);
 						$("#policyCoveragePopup").modal("show");
 			            $("#policyCoveragePopup").on('show.bs.modal', function () {
 			                $('body').css("position", "inital");
-			                //$('body').css("position", "fixed");
+			                $('.hidden-benefits-info').css("font-family", "Calibri");
+							$('.hidden-benefits-info').css("font-size", "14px");
 			                $('body').animate({scrollTop: itemTop.top - 60}, 0);      
 			            });
 			            $("#policyCoveragePopup").on('hide.bs.modal', function () {
@@ -685,6 +751,7 @@ var home_url = "<%=request.getContextPath()%>";
 					});
 				}
 			});
+		
 		</script>
 
 <div class="modal fade bs-example-modal-lg  in" id="policyCoveragePopup" tabindex="-1" role="dialog" aria-hidden="true">

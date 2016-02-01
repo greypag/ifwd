@@ -8,6 +8,8 @@
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 </script>
@@ -47,100 +49,111 @@ var context = "${pageContext.request.contextPath}";
 			</div>
 		</div>
 	
-		<div class="page-sales-illustration application-flux">
+		<div class="application-flux savie-regular-plan-details">
 			<span id="username" data-userid="<%=session.getAttribute("username")%>"></span>
-	
+			<div class="fwd-container-limit">
+				<ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs hidden-sm hidden-xs">
+	               <li><a href="#">Save</a></li>
+	               <li class="divider"><i class="fa fa-play"></i></li>
+	               <li><a href="#">Save Insurance Plan </a></li>
+	               <li class="divider last"><i class="fa fa-play"></i></li>
+	               <li class="active-bc" id="et-active-bc-menu">Plan details</li>
+            	</ol>
+            </div>
 			<!--Sales Illustration Block-->
-			<div class="fwd-container container-fluid hidden-xs hidden-sm clearfix">
-				<div class="breadcrumbs pull-left">
-					<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
-						<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
-						<li class="divider"><i class="fa fa-play"></i></li>
-						<li><a href="#"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
-						<li class="divider last"><i class="fa fa-play"></i></li>
-						<li class="active-bc"><fmt:message key="breadcrumb.savie.plan_details" bundle="${msg}" /></li>
-					</ol>
-				</div>
-				<!--  <div id="questions" class="text-center pull-right">
-					<img src="<%=request.getContextPath()%>/resources/images/savie/question.png">              
-					<a href="${nextPageFlow}">
-						<div class="right">                 
-							<h3><fmt:message key="savie.planDetails.Questions" bundle="${msg}" /></h3> <p><fmt:message key="savie.planDetails.Talk.us" bundle="${msg}" /><i class="glyphicon glyphicon-play"></i></p> 
-						</div>
-					</a>
-				</div>
-				-->
-			</div>
-
-			<div class="fwd-full-container container-fluid text-center sales-head">
-				<h1><fmt:message key="section.header.plan_details" bundle="${msg}" /></h1>
-			</div>
 			
+			<h2 class="text-center hidden-xs hidden-sm desktop-title"><fmt:message key="section.header.plan_details" bundle="${msg}" /></h2>
 			<div id="illustration-filters" class="fwd-full-container container-fluid">
-
+				
 				<form class="fwd-container-limit">
-				    <input type="hidden" id="language" value="${language }"/>
-					<div id="triangle"></div>
-					<img class="money" src="<%=request.getContextPath()%>/resources/images/savie/money-logo.png">
-					<div id="investment-amount">    
-						<div id="desktop-left">
-							<h3 class="saving"><fmt:message key="saviee.planoption.oneoff.premium.amount" bundle="${msg}" /><!--<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="tooltips.savie.premium" bundle="${msg}" />"></button>--></h3>
-							
-							<h3 class="pull-right total"><span id="range">${formatSavingAmount != null && formatSavingAmount != '' ? formatSavingAmount : '200,000'}</span></h3>
-							<label id="hkd" class="pull-right total"><fmt:message key="saviee.planoption.q1.currency" bundle="${msg}" /></label>
-
-							<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="${savingAmount != null && savingAmount != '' ? savingAmount : '200000'}" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
-
-							<div id="left" class="pull-left">
-								<p><fmt:message key="saviee.planoption.q1.min" bundle="${msg}" /></p>
-								<p>$30,000</p>
-							</div>
-
-							<div id="right" class="pull-right">
-								<p><fmt:message key="saviee.planoption.q1.max" bundle="${msg}" /></p>
-								<p>$400,000</p>
-							</div>
-						</div>
-
-						<div id="desktop-right">
-							<img class="promo-code hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie/bday-icon.png">
-							<h2 id="promo"><fmt:message key="saviee.planoption.dob" bundle="${msg}" /><!--
-								<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="savie.planDetails.birth.above" bundle="${msg}" />"></button>-->
-							</h2>
-							<div id="birthday">
-							<!-- 
-								<div class="hidden-md hidden-lg">
-									<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date" value="${savingDob!=null ? savingDob:defaultDOB }"/> 
+						<div id="triangle"></div>
+						<img class="money" src="<%=request.getContextPath()%>/resources/images/savie/money-logo.png">
+						<div id="investment-amount" class="one-off">    
+							<div id="desktop-left">
+								<h3 class="saving">Payment mode<button id="payment-button-tooltip" type="button" class="btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="" data-original-title=" ">
+										<img src="<%=request.getContextPath()%>/resources/images/savie/sprite-icons-info-2.png">
+									</button></h3>
+								<div class="selectDiv centreDiv gray-text-bg payment-select">
+			                        <select class="form-control gray-dropdown" id="payment-mode">
+			                           <option value="one-off" selected>One-off premium</option>
+			                           <option value="regular">Regular payment</option>
+			                        </select>
+			                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" />
+			                    </div>
+			                    <div class="one-off-premium">
+				                    <div class="clearfix">
+										<h3 class="pull-right total"><span id="range">200,000</span></h3>
+										<label id="hkd" class="pull-right total">HK$</label>
+									</div>
+									<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="100" data-slider-value="60000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+									
+									<div class="clearfix min-max">
+										<div class="pull-left text-center">
+											<p>Min</p>
+											<p>$30,000</p>
+										</div>
+			
+										<div class="pull-right text-center">
+											<p>Max</p>
+											<p>$400,000</p>
+										</div>
+									</div>
 								</div>
-								hidden-xs hidden-sm
-								 -->
-								<div class="input-group input-append date" id="datePicker">
-									<input type="text" class="date" value="${savingDob!=null ? savingDob:defaultDOB }" name="dob" id="sales-illu-dob" placeholder="" readonly />
-									<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>                        
+								<div class="regular-payment amount hidden">
+									<h3 class="saving">Amount (HK$)</h3>
+									<div class="selectDiv centreDiv gray-text-bg payment-select">
+				                        <select class="form-control gray-dropdown">
+				                           <option value="" selected>1,000</option>
+				                           <option value="">2,000</option>
+				                        </select>
+				                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" />
+				                    </div>
 								</div>
-								<span class="error-msg-dob hideSpan" id="promo-code-dateOfBirth"><fmt:message key="savie.planDetails.birth.above" bundle="${msg}" /></span>
-								<span class="error-msg-promo hideSpan" id="promo-code-dateOfBirthEmpty"><fmt:message key="savie.planDetails.birth.empty" bundle="${msg}" /></span>
 							</div>
+	
+							<div id="desktop-right">
+								<img class="promo-code hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie/bday-icon.png">
+								<h2 id="promo">Date of birth</h2>
+								<div id="birthday">
+									<!-- <div class="hidden-md hidden-lg">
+										<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date"/> 
+									</div> -->
+									<div class="input-group input-append date" id="datePicker">
+										<input type="text" class="date" name="dob" id="sales-illu-dob" placeholder="15-10-1997" onfocusin="" readonly />
+										<span class="input-group-addon add-on"><img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" /></span>                        
+									</div>
+									<!-- <span class="error-msg-dob hideSpan" id="promo-code-dateOfBirth">Invalid date of birth. You must be 19 and above to apply.</span>
+									<span class="error-msg-promo hideSpan" id="promo-code-dateOfBirthEmpty">Please input date of birth.</span> -->
+								</div>
+								<div class="regular-payment hidden last" id="total-payment-years">
+									<h3 class="saving">Total payment years</h3>
+									<div class="selectDiv centreDiv gray-text-bg payment-select last">
+				                        <select class="form-control gray-dropdown">
+				                           <option value="" selected>7</option>
+				                           <option value="">8</option>
+				                        </select>
+				                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" />
+				                    </div>
+								</div>
+							</div>
+	
+						<!-- <p id="crediting-rate">Guaranteed crediting rates: 3%, 3%, 4%</p> -->
 						</div>
-
-					  <!--  <p id="crediting-rate"><fmt:message key="savie.planDetails.Guaranteed.rate" bundle="${msg}" /></p>-->
-					</div>
-
-					<div id="information">
-						<div id="pictures">
-							<img id="birthday" src="<%=request.getContextPath()%>/resources/images/savie/promo-img.png">
+	
+						<div id="information">							
+							<div id="pictures">
+								<img id="birthday" src="<%=request.getContextPath()%>/resources/images/savie/promo-img.png">
+							</div>
+	
+							<h2>Promo code</h2>
+							<input name="promocode" type="text" placeholder="IF APPLICABLE" class="promocode" id="promocode">
+							<span class="error-msg-promo promo-code-error hideSpan" id="promo-code-errmsg">Invalid promo code. Try again?</span>
 						</div>
-
-						<h2><fmt:message key="saviee.planoption.promocode" bundle="${msg}" /><!--
-							<button type="button" class="info-tip btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="<fmt:message key="tooltips.savie.promo_code" bundle="${msg}" />"></button>-->
-						</h2>
-						<input value="${savingPromocode }" name="promocode" type="text" placeholder="<fmt:message key="saviee.planoption.promocode.placeholder" bundle="${msg}" />" class="promocode" id="promocode">
-						<span class="error-msg-promo hideSpan" id="promo-code-errmsg">Invalid promo code. Try again?</span>
-					</div>
-					<div class="apply">
-						<button onclick='getSaviePlanDetails()' class="btn btn-orange calculate" type="button" id="sales-illu-apply-now"><fmt:message key="saviee.planoption.calculate.button" bundle="${msg}" /><span class="icon icon-chevron-thin-right"></span></button>
-					</div>
-				</form>
+						
+						<div class="calculate-holder">
+							<button class="btn btn-orange calculate" type="button" id="sales-illu-apply-now">Calculate<span class="icon icon-chevron-thin-right"></span></button>
+						</div>
+					</form>
 			</div>
 			
 			<!-- Investment Summary and Table Block-->
@@ -156,6 +169,7 @@ var context = "${pageContext.request.contextPath}";
 	                                	</button>-->
 	                                </h2>
 	                                <h3><fmt:message key="saviee.planoption.summarytable1.first3years" bundle="${msg}" /></h3>
+	                                <br class="hidden-lg hidden-md" />
 	                                <h3 class="desktop-right"><fmt:message key="savie.planDetails.End.of.3rd.years.part1" bundle="${msg}" /><span id="3rd_policy_year">0</span><fmt:message key="savie.planDetails.End.of.3rd.years.part2" bundle="${msg}" /></h3>
 	                            </div>
 	                            <div class="rate-table">
@@ -456,6 +470,38 @@ var context = "${pageContext.request.contextPath}";
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 		<script type="text/javascript">	
 		        $(function() {
+	        	$("#payment-button-tooltip").tooltip().on('show.bs.tooltip', function() { 
+					setTimeout(function(){
+						$("#payment-button-tooltip").next().html('<div class="tooltip-arrow"></div><div class="tooltip-inner"><p class="title">One-off premium</p><p class="content">You may have a one-off premium payment on savie insurance</p><p class="title below">Regular payment</p><p class="content">You may have set up direct debit to pay premium on a monthly basis</p></div>'); 
+						var css = $("#payment-button-tooltip").next().attr('style')+"top:-65px;";
+						$("#payment-button-tooltip").next().removeAttr('style');
+						$("#payment-button-tooltip").next().attr('style',css);
+					}, 1);
+				});	
+	        	$(document).on('change','#payment-mode',function(){
+					console.log($(this).val());
+
+					if($(this).val()=="regular") {
+						$('.regular-payment').removeClass('hidden');
+						$('.one-off-premium').addClass('hidden');
+						$('#promo').addClass('dob-reg-payment');
+						$('#investment-amount').removeClass('one-off');
+					}
+					else {
+						$('.regular-payment').addClass('hidden');
+						$('.one-off-premium').removeClass('hidden');
+						$('#promo').removeClass('dob-reg-payment');
+						$('#investment-amount').addClass('one-off');
+					}
+				});
+	        	$(document).on('change','#sales-illu-dob',function(){
+					if($(this).val()!="" && $('#payment-mode').val()=="regular") {
+						$('#total-payment-years').css('display','block');
+					}
+				});
+	        	if(getWidth() < 992) {
+		        	$('body').css('margin-top','98px');
+	        	}
 				$('#datePicker').datepicker({
 					format: "dd-mm-yyyy",
 					startDate: '${startDOB }',
