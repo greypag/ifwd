@@ -296,6 +296,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lang = "EN";
 		}
 		
+		header.put("userName", savieFna.getUser_name());
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("user_name", savieFna.getUser_name());
