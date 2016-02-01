@@ -64,7 +64,7 @@ var affiliate = "${affiliate}";
 							<div class="hidden-lg hidden-md">
 								<label>Name</label>
 							</div>
-							<input type="text" name="frm-fna-name" value="${username }" class="frm-fna-name" data-mirror-fld="frm-fna-name-mob" data-frm-fld="name" onkeypress=" return alphaOnly(event);" maxlength="50" readonly>
+							<input type="text" name="frm-fna-name" value="${userDetails.fullName }" class="frm-fna-name" data-mirror-fld="frm-fna-name-mob" data-frm-fld="name" onkeypress=" return alphaOnly(event);" maxlength="50" readonly>
 							</div>
 							<a href="javascript:void(0);" class="fna-btn fna-btn-step1-start disabled">Let's get started</a>
 						</div>
@@ -82,7 +82,7 @@ var affiliate = "${affiliate}";
 							<div class="lbl">Date of Birth<span class="fna-error-msg text-red"></span></div>
 							<div class="fld">
 								<div class="round-box date frm-fna-dob" data-mirror-fld="frm-fna-dob-mob" data-frm-fld="dob">
-									<span class="txt_dob"></span>
+									<span class="txt_dob">Please select</span>
 										 <span class="input-group-addon"></span>
 										<input type="hidden" class="datepicker form-control "value="" readonly>
 
@@ -165,7 +165,7 @@ var affiliate = "${affiliate}";
 						</div>
 
 						<div class="hidden-lg hidden-md clearfix mob-btn-gp">
-							<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a>
+							<!-- <a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back">Back</a> -->
 							<a href="javascript:void(0);" class="fna-btn-basic fna-btn-arrow fna-btn-step-next-inside disabled">Next</a>
 						</div>
 						<div class="hidden-sm hidden-xs clearfix desktop-btn-gp">
@@ -239,6 +239,9 @@ var affiliate = "${affiliate}";
 									<div class="q-head">
 										<h4 class="clearfix">What type(s) of insurance products you are looking for to meet your objectives above? <span>(tick one or more)</span></h4>
 									</div>
+									<div class="fna-error-box">
+										<span class="fna-error-msg text-red"></span>
+									</div>
 									<ul class="fna-checkbox-gp frm-fna-q2" data-mirror-fld="frm-fna-q2-mob" data-frm-fld="q2">
 										<li class="fna-checkbox-btn" data-val="0">Pure insurance product <br><span>-without any savings or investment element <br>(e.g. term insurance)</span></li>
 										<li class="fna-checkbox-btn" data-val="1">Insurance product with savings element <br><span>-with savings but without investment element<br>(e.g. non-participating policy)</span></li>
@@ -280,7 +283,9 @@ var affiliate = "${affiliate}";
 								</div>
 								<div class="q3">
 									<h4>What is your target benefit / protection period for insurance policy and/or investment plan? <span>(tick one)</span></h4>
-
+									<div class="fna-error-box">
+										<span class="fna-error-msg text-red"></span>
+									</div>
 									<div class="fna-radio-gp frm-fna-q3" data-mirror-fld="frm-fna-q3-mob" data-frm-fld="q3">
 										<div class="fna-radio-btn" data-val="0"><span>&lt; 1 year</span></div>
 										<div class="fna-radio-btn" data-val="1"><span>1-5 years</span></div>
@@ -293,6 +298,9 @@ var affiliate = "${affiliate}";
 
 								<div class="q4">
 									<h4>Your ability to pay premiums:<br>Is the source of income regular?</h4>
+									<div class="fna-error-box">
+										<span class="fna-error-msg text-red"></span>
+									</div>
 									<div class="fna-radio-gp frm-fna-q4" data-mirror-fld="frm-fna-q4-mob" data-frm-fld="q4">
 										<div class="fna-radio-btn" data-val="0"><span>Yes</span></div>
 										<div class="fna-radio-btn" data-val="1"><span>No</span></div>
@@ -332,7 +340,9 @@ var affiliate = "${affiliate}";
 								</div>
 								<div class="q4a mob-view">
 										<h4>What is your average monthly income from<br>all sources in the past 2 years? <span>(tick one or more)</span></h4>
-
+										<div class="fna-error-box">
+											<span class="fna-error-msg text-red"></span>
+										</div>
 										<p>Speciﬁc amount:<br>Not less than HK$ <input type="text" class="frm-fna-q4a-others" onkeypress=" return isNumeric(event);" maxlength="6" data-mirror-fld="frm-fna-others-mob" data-frm-fld="q4_a_others" data-type="int"> per month<br>or In the following range:</p>
 
 										<ul class="fna-radio-gp-indv clearfix frm-fna-q4a" data-mirror-fld="frm-fna-q4a-mob" data-frm-fld="q4_a">
@@ -366,6 +376,9 @@ var affiliate = "${affiliate}";
 									</div>
 
 									<h4>What is your approximate current accumulative<br>amount of liquid assets?  <span>Please specify type(s) and total amount</span></h4>
+									<div class="fna-error-box">
+										<span class="err_q4b1 fna-error-msg text-red"></span>
+									</div>
 									<ul class="fna-checkbox-gp no-line clearfix frm-fna-q4b" data-mirror-fld="frm-fna-q4b-mob" data-frm-fld="q4_b">
 										<li class="fna-checkbox-btn" data-val="0">Cash</li>
 										<li class="fna-checkbox-btn" data-val="1">Money market accounts</li>
@@ -375,6 +388,9 @@ var affiliate = "${affiliate}";
 										<li class="fna-checkbox-btn" data-val="5">US Treasury bills</li>
 										<li class="fna-checkbox-btn fna-cb-others" data-val="6">Others</li>
 									</ul>
+									<div class="fna-error-box">
+										<span class="err_q4b2 fna-error-msg text-red"></span>
+									</div>
 									Amount: HK$ <input type="text" class="frm-fna-q4b-amount" onkeypress=" return isNumeric(event);" maxlength="9" data-mirror-fld="frm-fna-q4b-amount-mob" data-frm-fld="q4_b_amount" data-type="int">
 									<p class="note">Note: Liquid assets are assets which may be easily turned into cash.<br>Real estate, coin collection and artwork are not considered to be liquid assets.</p>
 
@@ -402,6 +418,9 @@ var affiliate = "${affiliate}";
 
 								<div class="q4c mob-view">
 									<h4><span class="q-num">4c</span>What is your average monthly expenses<br>including but not limited to living expenses,<br>household expenses, including dependent’s<br>expenses mortgage payment and regular<br>payment in the past 2 years?</h4>
+									<div class="fna-error-box">
+										<span class="fna-error-msg text-red"></span>
+									</div>
 									Total Expenses not less than <br class="mob-ignore">
 									HK$<input type="text" class="frm-fna-q4c" data-mirror-fld="frm-fna-q4c-mob" data-frm-fld="q4_c" data-type="int" onkeypress=" return isNumeric(event);" maxlength="9" > per month
 
@@ -420,9 +439,15 @@ var affiliate = "${affiliate}";
 								</div>
 								<div class="q4d mob-view mob-hide">
 									<h4><span class="q-num">4d</span><span class="q-sub-num">i:</span>What is your total liabilities and estimated<br>ﬁnal expenses including but not limited to<br>the outstanding mortgage loan,<br>loans/debts, estate duties, funeral and<br>associated expenses and emergency fund? </h4>
+									<div class="fna-error-box">
+										<span class="err_q4d1 fna-error-msg text-red"></span>
+									</div>
 									<p>Total not less than HK$<input type="text" class="frm-fna-q4d-1" data-mirror-fld="frm-fna-q4d-1-mob" data-frm-fld="q4_d_1" data-type="int" onkeypress=" return isNumeric(event);" maxlength="9"></p>
 
 									<h4><span class="q-sub-num">ii:</span>What is your total financial targets including<br>but not limited to the education fund for<br>yourself or dependents and estimated marr<br>-iage expenses?</h4>
+									<div class="fna-error-box">
+										<span class="err_q4d2 fna-error-msg text-red"></span>
+									</div>
 									<p>Total not less than HK$<input type="text" class="frm-fna-q4d-2" data-mirror-fld="frm-fna-q4d-2-mob" data-frm-fld="q4_d_2" data-type="int" onkeypress=" return isNumeric(event);" maxlength="9"></p>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
@@ -447,6 +472,9 @@ var affiliate = "${affiliate}";
 								<div class="q4e mob-view">
 									<div class="inner-cont">
 										<h4><span class="q-num">4e</span>For how long are you able and willing to contribute to an insurance policy and/or investment plan?<span>(tick one)</span></h4>
+										<div class="fna-error-box">
+											<span class="fna-error-msg text-red"></span>
+										</div>
 										<div class="fna-radio-gp frm-fna-q4e" data-mirror-fld="frm-fna-q4e-mob" data-frm-fld="q4_e">
 											<div class="fna-radio-btn" data-val="0"><span>&lt; 1 year</span></div>
 											<div class="fna-radio-btn" data-val="1"><span>1-5 years</span></div>
@@ -471,6 +499,9 @@ var affiliate = "${affiliate}";
 								<div class="q4f mob-view mob-hide">
 									<div class="inner-cont">
 										<h4><span class="q-num">4f</span>Approximately what percentage of your disposable income would you be able to use to pay your monthly<br>premium for the entire term of the insurance policy / investment plan in (4e) above? <span>(tick one)</span></h4>
+										<div class="fna-error-box">
+											<span class="fna-error-msg text-red"></span>
+										</div>
 										<div class="answer-wrapper">
 											<ul class="fna-radio-gp-cb floating no-line clearfix frm-fna-q4f" data-mirror-fld="frm-fna-q4f-mob" data-frm-fld="q4_f">
 												<li class="fna-radio-btn rgt a0" data-val="0"><span>&lt;10%</span></li>
@@ -507,7 +538,9 @@ var affiliate = "${affiliate}";
 								</div>
 								<div class="q4g">
 									<h4><span class="q-num">4g</span>In considering your ability to make payments,<br>what are your sources of funds? <span>(tick one or more)</span></h4>
-
+									<div class="fna-error-box">
+										<span class="fna-error-msg text-red"></span>
+									</div>
 									<ul class="fna-checkbox-gp no-line frm-fna-q4g" data-mirror-fld="frm-fna-q4g-mob" data-frm-fld="q4_g">
 										<li class="fna-checkbox-btn" data-val="0">Salary</li>
 										<li class="fna-checkbox-btn" data-val="1">Income</li>
@@ -551,11 +584,12 @@ var affiliate = "${affiliate}";
 							<span aria-hidden="true" style="font-size:30px;">×</span>
 						</a>
 						<h4>Sorry, you cannot proceed further on the Financial Needs Analysis</h4>
-						<div class="d-cont">Please call our Customer Service Hotline 3123 3123 to specify your needs with our Customer Service in order to give you more accurate product recommendations.</div>
+						<div class="d-cont"><p>Please call our Customer Service Hotline 3123 3123 to specify your needs with our Customer Service in order to give you more accurate product recommendations.</p></div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
 <!--   Main Content End -->

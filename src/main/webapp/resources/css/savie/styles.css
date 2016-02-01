@@ -16832,6 +16832,7 @@ a:focus {
   margin-right: 5px;
 }
 
+<<<<<<< HEAD
 
 /* style ben 160201 */
 /* heading */
@@ -16874,10 +16875,58 @@ a:focus {
 	font-size: 18px;
 	-webkit-border-radius: 4px;
     -moz-border-radius: 4px;
+=======
+/******** session pop up for scss later ********/
+#session-alert .fwd-modal-wrapper{
+    width: 435px;
+}
+.fwd-modal-wrapper .modal-body{
+    padding: 40px;
+}
+.fwd-modal-wrapper .modal-body button.close{
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.fwd-modal-wrapper .separator{
+    padding-bottom: 40px;
+}
+@media all and (max-width: 767px){
+    #session-alert .fwd-modal-wrapper{
+        width: 100%;
+        margin: 0 auto;
+    }
+    button#session-extend{
+       margin-bottom: 10px;
+    }   
+}
+@media all and (min-width: 768px) and (max-width: 991px){
+    #session-alert .fwd-modal-wrapper{
+        width: 354px;
+        margin: 0 auto;
+    }
+    button#session-extend{
+       margin-bottom: 10px;
+    }   
+} 
+.gary{
+    color: #505759;
+}
+.orange{
+    color: #ff8200;
+}
+#session-alert-counter * {
+    display: inline;
+}
+.cta-font{
+    font-size: 18px;
+>>>>>>> a41f6f3e7941db29314ba5f8dbd4a1e4fa8dc269
     border-radius: 4px;
     color: #ffffff;  
 }
 .cta-confirm{
+<<<<<<< HEAD
    padding: 10px 60px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -16902,19 +16951,37 @@ a:focus {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
+=======
+    padding: 10px 60px;
+}
+.cta-apply{
+    padding: 10px 40px;
+}
+.cta-link{
+    padding: 10px 30px;
+}
+.cta-gary,.cta-gary:hover{
+    background-color: #9ba5a7;
+    border: 1px #9ba5a7 solid;
+    border-bottom: 3px #676f70 solid;
+>>>>>>> a41f6f3e7941db29314ba5f8dbd4a1e4fa8dc269
 }
 .cta-orange,.cta-orange:hover{
     background-color: #ff8200;
     border: 1px #ff8200 solid;
     border-bottom: 3px #ff8200 solid;
+<<<<<<< HEAD
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
+=======
+>>>>>>> a41f6f3e7941db29314ba5f8dbd4a1e4fa8dc269
 }
 .cta-yellow,.cta-yellow:hover{
     background-color: #fdb714;
     border: 1px #fdb714 solid;
     border-bottom: 3px #cf9611 solid;
+<<<<<<< HEAD
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
@@ -17147,3 +17214,18 @@ a:focus {
 }
 /* /login */
 /* /style ben 160201 */
+=======
+}
+.cta-gary:hover{
+    color:#9ba5a7;
+    background-color: #ffffff;
+}
+.cta-orange:hover{
+    color: #ff8200;
+    background-color: #ffffff;
+}
+.cta-yellow:hover{
+    color: #fdb714;
+    background-color: #ffffff;
+}
+>>>>>>> a41f6f3e7941db29314ba5f8dbd4a1e4fa8dc269

@@ -111,11 +111,29 @@ var affiliate = "${affiliate}";
 		<div class="row">
 			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;</div>
 			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+				<span class="headline">Employment Status</span>
+				<span class="displayMode status content">&nbsp;</span>
+				<span class="editMode content">
+					<select id="status" name="status" class="form-control select-label"></select>
+				</span>
+			</div>
+		</div>
+		<div class="row NatureRow">
+			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;</div>
+			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+				<span class="headline">Nature of Business</span>
+				<span class="displayMode nature content">&nbsp;</span>
+				<span class="editMode content">
+					<select id="nature" name="nature" class=""></select>
+				</span>
+			</div>
+		</div>
+		<div class="row OccupationRow">
+			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">&nbsp;</div>
+			<div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
 				<span class="headline">Occupation</span>
 				<span class="displayMode occupation content">&nbsp;</span>
 				<span class="editMode content">
-					<select id="status" name="status" class=""></select>
-					<select id="nature" name="nature" class=""></select>
 					<select id="occupation" name="occupation" class=""></select>
 					<p class="occupation_others">Please specify: <input type="text" id="occupation_others" name="occupation_others" value="" maxlength="100"/></p>
 				</span>
@@ -127,7 +145,7 @@ var affiliate = "${affiliate}";
 			<a href="javascript:void(0);" class="bdr-curve btn btn-primary bck-btn btn_cancel" rel="personal_info">CANCEL</a>
 			<a href="javascript:void(0);" class="bdr-curve btn btn-primary nxt-btn btn_ok" rel="personal_info">OK</a>
 		</div>
-		<a class="btn_edit" href="javascript:void(0);" rel="personal_info">Edit</a>
+		<a class="bdr-curve btn btn-primary bck-btn btn_edit" href="javascript:void(0);" rel="personal_info" >Edit</a>
 	</div>
 
 	<div id="question-list"></div>
@@ -149,7 +167,7 @@ var affiliate = "${affiliate}";
 				<a href="javascript:void(0);" class="bdr-curve btn btn-primary bck-btn btn_cancel">CANCEL</a>
 				<a href="javascript:void(0);" class="bdr-curve btn btn-primary nxt-btn btn_ok">OK</a>
 			</div>
-			<a class="btn_edit" href="javascript:void(0);" rel="">Edit</a>
+			<a class="bdr-curve btn btn-primary bck-btn btn_edit" href="javascript:void(0);" rel="">Edit</a>
 		</div>
 
 		<div id="template_op" class="row">
@@ -166,6 +184,7 @@ var affiliate = "${affiliate}";
 	</div>
 
 
+	
 	<div class="modal modal-vcenter fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="fnaPopupEnquiry">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content plan-modal">
@@ -174,9 +193,9 @@ var affiliate = "${affiliate}";
 							<span aria-hidden="true" style="font-size:30px;">×</span>
 						</a>
 						<div class="modal-body">
-							<h4>Customer Services</h4>
-							<div class="cont">
-								<p>Please call our Customer Service Hotline <span>3123 3123</span> to find out more or leave your contact and let us call you back.</p>
+							<h4>Sorry, you cannot proceed further on the Financial Needs Analysis</h4>
+							<div class="d-cont">
+								<p>Please call our Customer Service Hotline 3123 3123 to specify your needs with our Customer Service in order to give you more accurate product recommendations.</p>
 							</div>
 						</div>
 					</div>

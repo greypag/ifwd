@@ -141,6 +141,14 @@ public class UserRestURIConstants {
 	public static final String CAMPAIGN_PROMO_CODE_GET_COUNT = SERVICE_URL + "/leads/campaign/promoCodeCount";
 	public static final String CAMPAIGN_PROMO_CODE_ASSIGN = SERVICE_URL + "/leads/campaign/assignPromoCode";
 	
+	/*API For savie online*/
+	public static final String GET_FNA = SERVICE_URL + "/fna";
+	public static final String GET_PURCHASE_HISTORY_BY_PLANCODE = SERVICE_URL + "/policies/retrieve";
+	public static final String SAVE_FNA = SERVICE_URL + "/fna";
+	public static final String GET_PRODUCTRECOMMENDATION = SERVICE_URL + "/fna/getProductRecommendation";
+	public static final String CREATE_LIFE_POLICY = "/life/policies";
+	public static final String FINALIZE_LIFE_POLICY = "/life/policies";
+	
 	/* Page Flow Control For Savie */
 	
 	//public static final String PAGE_SAVIE_LANDING = "landing";

@@ -8,6 +8,8 @@ AjaxManager = {
     timeout:5000,
 
     fire:function(url, postData, successCallBack, _timeout, _method) {
+    	console.log("ajax call url:"+url);
+        console.log("ajax call data:"+postData);
         if (!isCalling) {
             isCalling = true;
             
@@ -18,8 +20,6 @@ AjaxManager = {
             if (successCallBack) AjaxManager.callback = successCallBack;
             AjaxManager.url = url;
             AjaxManager.postData = postData;
-            console.log("ajax call url:"+url);
-            console.log("ajax call data:"+postData);
 
             
             $.ajax({

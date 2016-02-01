@@ -12,8 +12,8 @@
 <link rel="icon" type="image/x-icon"
 	href="<%=request.getContextPath()%>/resources/images/favicon.ico" />
 <!-- <a href="javascript:void(0)" id="testajax" >Press</a> -->
-
 <script src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/jquery.countdown.min.js"></script>
 <script>
 
 var getBundleLanguage = "";
@@ -1203,7 +1203,7 @@ $(function() {
     		$( ".enjoy" ).addClass( "active" );
     	}
     }
-	$(document).ready(function() {
+	$(document).ready(function() {	
 		offerMenuActive();
 		//console.log(window.location.pathname.substring(-5));
 		//$("#loginform2").appendTo("body");
@@ -1266,3 +1266,4 @@ $(function() {
 </script>
 <jsp:include page="/WEB-INF/jsp/merged/iosChromeAlert.jsp" />
 <jsp:include page="/WEB-INF/jsp/merged/login.jsp" />
+<jsp:include page="/WEB-INF/jsp/merged/session.jsp" />

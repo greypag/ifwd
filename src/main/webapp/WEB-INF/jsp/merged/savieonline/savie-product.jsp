@@ -17,6 +17,7 @@ var affiliate = "${affiliate}";
 
 <!--   Main Content Start -->
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/uifn.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/locale.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/onlinesavieFNA/recommend.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/onlinesavieFNA/onlinesavieFNARecommend.css">
 <section>
@@ -197,6 +198,7 @@ var affiliate = "${affiliate}";
 							</label>
 						</div>
 					</div>
+					<div class="floating-marker"></div>
 					<div class="fna-btn-gp row hidden-lg hidden-md">
 						<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
 							<a href="javascript:void(0);" class="fna-btn-mob-cancel">Cancel</a>
@@ -213,7 +215,7 @@ var affiliate = "${affiliate}";
 						</div>
 					</div> -->
 
-					<a href="<%=request.getContextPath()%>/${language}/savie-online/savie-review" class="fna-btn-review">Back to My FNA Review<i class="fa fa-caret-right"></i></a>
+					<a href="review.html" class="fna-btn-review">Back to My FNA Review<i class="fa fa-caret-right"></i></a>
 				</div>
 				<div  class="col-lg-9 col-md-9 col-sm-12 col-xs-12 fna-col-recommend">
 					<div class="amended-overlayer hidden-sm hidden-xs"></div>
@@ -289,7 +291,7 @@ var affiliate = "${affiliate}";
 		<!--#Start# Template for dynamic content-->
 		<div class="template">
 			<div class="fna-product-gp">
-				<h5><span class="fna-product-type"></span> <span class="fna-tooltips fna-product-type-tooltips show-inline-md" data-placement="bottom" data-original-title="">i</span><a href="javascript:void(0);" class="glyphicon glyphicon-plus fna-btn-expand-gp"></a></h5>
+				<h5 class="fna-btn-expand-gp-row"><span class="fna-product-gp-name"></span><a href="javascript:void(0);" class="glyphicon glyphicon-plus fna-btn-expand-gp"></a></h5>
 
 				<div class="expander">
 					
@@ -299,9 +301,15 @@ var affiliate = "${affiliate}";
 				</div>
 			</div>
 
+			<div class="fna-product-type">
+				<span class="fna-product-type-name"></span>
+				<span class="fna-tooltips fna-product-type-tooltips show-inline-md" data-placement="bottom" data-original-title="">i</span>
+			</div>
 			<div class="fna-product">
-				<div class="sort-header clearfix">
-					<div class="product"></div>
+
+				<div class="product-mobile-display hidden-lg hidden-md"></div>
+				<div class="sort-header clearfix withdata">
+					<div class="product hidden-sm hidden-xs"></div>
 					<div class="con_prd"></div>
 					<div class="min_age"></div>
 					<div class="max_age"></div>
@@ -309,7 +317,7 @@ var affiliate = "${affiliate}";
 				</div>
 
 				<div class="fna-product-cont">
-					<div class="row">
+					<div class="row fna-btn-show-detail-row">
 						<div class="col-lg-10 col-md-10 col-sm-11 col-xs-11">
 							<hr>
 						</div>
@@ -364,8 +372,15 @@ var affiliate = "${affiliate}";
 				</div>
 			</div>
 
+			<div class="fna-other-product">
+				<p class="subject">This product type meets your FNA objective:</p>
+				<p class="desc"></p>
+				<p class="no-product-match">However, no products can be recommended since the results of your FNA do not meet the affordability requirement of our products.</p>
+
+			</div>
+
 			<div class="sort-header clearfix fna-product-lv-header">
-				<div class="product"></div>
+				<div class="product hidden-sm hidden-xs"></div>
 				<div class="con_prd">Contribution period</div>
 				<div class="min_age">Min issue age<br>( year )</div>
 				<div class="max_age">Max issue age<br>( year )</div>
@@ -392,7 +407,7 @@ var affiliate = "${affiliate}";
 		</div>
 
 		<div class="modal modal-vcenter fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="fnaPopupEnquiry">
-			<div class="modal-dialog modal-lg">
+			<div class="container-fluid modal-dialog">
 				<div class="modal-content plan-modal">
 					<div class="fna-popup-cont">
 						<a class="close" aria-label="Close" data-dismiss="modal">
@@ -403,86 +418,88 @@ var affiliate = "${affiliate}";
 							<h4>Customer Services</h4>
 							<div class="cont">
 								<p>Please call our Customer Service Hotline <span>3123 3123</span> to find out more or leave your contact and let us call you back.</p>
-
+								<input type="hidden" id="productCode">
 								<div class="form-group float">
 									<div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-										<label for="inputFullName" class="field-label">Name:</label>
+										<label for="FNAinputCustomerName" class="field-label">Name</label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-										<input type="text" name="fullName" class="form-control full-control textUpper bmg_custom_placeholder" id="inputFullName" value="" onkeypress="return alphaOnly(event);" maxlength="50">
-										<span id="fullnameinvalid" class="text-red"></span>
+										<input type="text" name="fullName" class="form-control full-control textUpper bmg_custom_placeholder" id="FNAinputCustomerName" value="" onkeypress="return alphaOnly(event);" maxlength="50">
+										<span id="errFNAinputCustomerName" class="text-red"></span>
 									</div>
 								</div>
 								<div class="form-group float">
 									<div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-										<label for="inputEmailId" class="field-label">Email Address:</label>
+										<label for="FNAinputEmail" class="field-label">Email address</label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-										<input class="form-control full-control textLower" name="emailAddress" type="email" value="" id="inputEmailId" maxlength="50" onblur="validateEmail('inputEmailId','emailid');"> <span id="emailid" class="text-red"></span>
+										<input class="form-control full-control textLower" name="emailAddress" type="email" value="" id="FNAinputEmail" maxlength="50" onblur=""> <span id="errFNAinputEmail" class="text-red"></span>
 									</div>
 								</div>
 								<div class="form-group float">
 									<div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-										<label for="inputMobileNo" class="field-label">Telephone No.:</label>
+										<label for="FNAinputMobileNo" class="field-label">Mobile Number</label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-										<input name="mobileNo" type="tel" class="form-control full-control" value="" id="inputMobileNo" onkeypress="return isNumeric(event)" onblur="replaceNumeric(this); validateMobile('inputMobileNo','errMobileNo');" maxlength="8"> 
-									<span id="errMobileNo" class="text-red"></span>
+										<input name="mobileNo" type="tel" class="form-control full-control" value="" id="FNAinputMobileNo" onkeypress="return isNumeric(event)" maxlength="8"> 
+									<span id="errFNAinputMobileNo" class="text-red"></span>
 									</div>
 								</div>
 								<div class="form-group float">
 									<div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-										<label class="field-label">Preferred Date:</label>
+										<label class="field-label">Preferred day</label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 										<div class="styled-select">
-											<select name="personalAgeRange" class="form-control soflow select-label" id="preferred_date">
+											<select name="preferred_date" class="form-control soflow select-label" id="preferred_date">
 												<option value="0" selected>Monday - Friday</option>
 												<option value="1">Saturday – Sunday</option>
 											</select>
 										</div>
-										<span id="errselectAgeRange1" class="text-red"></span>
+										<span id="errpreferred_date" class="text-red"></span>
 									</div>
 								</div>
 								<div class="form-group float">
 									<div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-										<label class="field-label">Perferred Timeslot:</label>
+										<label class="field-label">Perferred timeslot</label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 										<div class="styled-select">
-											<select name="personalAgeRange" class="form-control soflow select-label" id="preferred_time">
+											<select name="preferred_time" class="form-control soflow select-label" id="preferred_time">
 												<option value="0" selected>Morning (after 9am)</option>
 												<option value="1">Afternoon</option>
 												<option value="2">Evening (before 9pm)</option>
 											</select>
 										</div>
-										<span id="errselectAgeRange1" class="text-red"></span>
+										<span id="errpreferred_time" class="text-red"></span>
 									</div>
 								</div>
 								<div class="form-group float">
 									<div class="form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
-										<label class="field-label">Enquiry Type:</label>
+										<label class="field-label">Enquiry Type</label>
 									</div>
 									<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
 										<div class="styled-select">
-											<select name="personalAgeRange" class="form-control soflow select-label" id="enquiry_type">
+											<select name="enquiry_type" class="form-control soflow select-label" id="enquiry_type">
 												<option value="0" selected>Product features</option>
 												<option value="1">Application</option>
 												<option value="2">Policy services</option>
 												<option value="3">Not Specified</option>
 											</select>
 										</div>
-										<span id="errselectAgeRange1" class="text-red"></span>
+										<span id="errenquiry_type" class="text-red"></span>
 									</div>
 								</div>
-								<input type="button" onclick="" class="bdr-curve btn btn-primary fna-btn-submit" value="Submit">
+								
 								<p class="remark">* This information will not be used as direct marketing.</p>
+								<input type="button" onclick="" class="bdr-curve btn btn-primary fna-btn-submit" value="Submit">
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 		<!--#End# Template for dynamic content-->
 	</div>
 </section>	

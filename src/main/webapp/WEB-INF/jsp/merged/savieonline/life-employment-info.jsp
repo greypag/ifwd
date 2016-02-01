@@ -20,6 +20,7 @@ education:<input type="text" id="education" name="education" value="${lifeEmploy
 amountOfOtherSourceOfIncome:<input type="text" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome" value="${lifeEmploymentInfo.amountOfOtherSourceOfIncome }"/><br/>
 amountOfLiquidAssets:<input type="text" id="amountOfLiquidAssets" name="amountOfLiquidAssets" value="${lifeEmploymentInfo.amountOfLiquidAssets }"/><br/>
 <input type="button" id="nextPage" value="nextPage"/><br/>
+<a href="#" class="et-app-sum-edit et-app-edit">save and continue later</a>
 </form>
 </div>
 <script type="text/javascript">

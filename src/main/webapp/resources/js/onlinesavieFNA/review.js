@@ -85,9 +85,13 @@ var Review = {
 				$("#occupation").select2('destroy'); 
 				$("#nature").empty().prop("disabled", true).addClass("disabled");
 				$("#occupation").empty().prop("disabled", true).addClass("disabled");
+				$(".NatureRow").hide()
+				$(".OccupationRow").hide()
 			}else if(!$("#nature").is(":visible")){
 				$("#nature").prop("disabled", false).removeClass("disabled");
 				$("#occupation").prop("disabled", false).removeClass("disabled");
+				$(".NatureRow").show()
+				$(".OccupationRow").show()
 				that.constructSelection(status, null, null);
 			}
 			$("#occupation").change();
@@ -192,7 +196,7 @@ var Review = {
 		$("#occupation option[value='"+occ+"']").prop("selected", true);
 		
 
-		$("#status").select2();
+		//$("#status").select2();
 		$("#nature").select2();
 		$("#occupation").select2();
 	},
@@ -245,6 +249,20 @@ var Review = {
 		//special treatment for "Total Amount"
 		var hr = $("<hr/>");
 		$("#q4_b_r7").prepend(hr);
+
+		$("#q4_a_others").blur(function(){
+			var val = $(this).val();
+			if(!FormValidate.isEmpty(val)){
+				$(".row.rq4_a").removeClass("selected");
+				$("#q4_a").find("input[type='checkbox']").prop("checked", false);
+
+				$("#q4_a_r0").addClass("selected");
+				$("#q4_a_c0").prop("checked", true);
+			}else{
+				$("#q4_a_r0").removeClass("selected");
+				$("#q4_a_c0").prop("checked", false);
+			}
+		});
 	},
 
 	constructInfo:function(data){
@@ -286,14 +304,23 @@ var Review = {
 				
 				that.constructSelection(fnaData.employment_status, fnaData.nature_of_business, fnaData.occupation);
 				
+				var status = $("#status option[value='"+fnaData.employment_status+"']").text();
+				var nature = $("#nature option[value='"+fnaData.nature_of_business+"']").text();
 				var occupation = $("#occupation option[value='"+fnaData.occupation+"']").text();
 				if(fnaData.nature_of_business == fnaOccOther.nature && fnaData.occupation == fnaOccOther.occupation){
 					occupation = fnaData.occupation_others;
 					$(".occupation_others").show();
 					$(".occupation_others input").val(occupation);
 				}
+				
+				if(fnaData.nature_of_business == null && fnaData.occupation == null){
+					$(".NatureRow").hide();
+					$(".OccupationRow").hide();
+				}
 
-				$(".occupation").text( occupation);
+				$(".status").text(status);
+				$(".nature").text(nature);
+				$(".occupation").text(occupation);
 				$("#marital_status option[value='"+fnaData.marital_status+"']").prop("selected", true);
 				$("#dependents option[value='"+fnaData.dependents+"']").prop("selected", true);
 				$("#education option[value='"+fnaData.education+"']").prop("selected", true);
@@ -437,26 +464,31 @@ var Review = {
 		var answer = "";
 		var other = null;
 		var amount = null;
+		var answerArr = [];
 		$("#"+qid+" .option .row").each(function(){
 			var rid = $(this).attr("id");
 			if($("#"+rid).find("input[type='checkbox']").prop("checked")){
 				answer += $("#"+rid).find("input[type='checkbox']").val();
+				answerArr.push($("#"+rid).find("input[type='checkbox']").val());
 			}
 		});
+		answer = (answerArr.length > 0)?answerArr.join():"";
 
 		var isError = false;
 		
 		if(qid == "personal_info"){
 			var status = $("#status").val();
+			var statusText = $("#status option[value='"+status+"']").text();
 			var special_status = Boolean($("#status option[value='"+status+"']").attr("data-type")=="true");
+			
 			var nature = (special_status)? null : $("#nature").val();
+			var natureText = (nature == null)? "" : $("#nature option[value='"+nature+"']").text();
+			
 			var occ = (special_status)? null : $("#occupation").val();
-			var occText = (special_status)? $("#status option[value='"+status+"']").text(): $("#occupation option[value='"+occ+"']").text();
-			var occ_others = (special_status)? null: $("#occupation_others").val();
+			var occText = (special_status)? "" : $("#occupation option[value='"+occ+"']").text();
+			var occ_others = (special_status)? null : $("#occupation_others").val();
 			occ = (FormValidate.isEmpty(occ))? null : occ;
 			occ_others = (FormValidate.isEmpty(occ_others))? null : occ_others;
-
-			console.log(occ_others);
 
 			if(!special_status && occ == null ){
 				$("#"+qid+ " .error").text(ReviewPageLocale[UILANGUAGE].select_empty);
@@ -480,11 +512,13 @@ var Review = {
 				$(".marital_status").text($("#marital_status option[value='"+fnaData.marital_status+"']").text());
 				$(".dependents").text($("#dependents option[value='"+fnaData.dependents+"']").text());
 				$(".education").text($("#education option[value='"+fnaData.education+"']").text());
+				$(".status").text(statusText);
+				$(".nature").text(natureText);
 				$(".occupation").text(occText);
 			}
 		}
 		
-
+		
 		if(qid == "q4_a"){
 			other = $("#q4_a_others").val();
 			if(answer=="0" && other == ""){
@@ -605,6 +639,7 @@ var Review = {
 	},
 
 	okClicked:function(evt){
+
 		evt.preventDefault();
 		var that = Review;
 		var id = $(this).attr("rel");
@@ -637,8 +672,15 @@ var Review = {
 		evt.preventDefault();
 		var that = Review;
 		var id = $(this).attr("rel");
-		$("#"+id+ " .error").text("");
 		that.constructAnswer(id);
+
+		var target = $("#"+id);
+		target.find(".error").text("");
+		target.addClass("display")
+		target.find(".btn_edit").removeClass("selected")
+		target.find("input[type='checkbox']").attr("disabled", "disabled");	
+		target.find("input[type='text']").attr("readonly", "readonly");
+		target.find(".btn-action").hide();
 	},
 
 	checkboxChanged:function(evt){
@@ -702,8 +744,7 @@ var Review = {
 
 	submitFNA:function(){
 		var txt = JSON.stringify(fnaData);
-		console.log("Handle API post with below data:\n" + txt);
-
+		
 		//Get review result
 		var url = url_update;
 		var postData = fnaData;

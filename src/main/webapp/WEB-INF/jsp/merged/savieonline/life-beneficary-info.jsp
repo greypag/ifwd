@@ -34,6 +34,7 @@ beneficaryGender3:<input type="text" id="beneficaryGender3" name="beneficaryGend
 beneficaryRelation3:<input type="text" id="beneficaryRelation3" name="beneficaryRelation3" value="${lifeBeneficaryInfo.beneficaryRelation3 }"/><br/>
 beneficaryWeight3:<input type="text" id="beneficaryWeight3" name="beneficaryWeight3" value="${lifeBeneficaryInfo.beneficaryWeight3 }"/><br/>
 <input type="button" id="nextPage" value="nextPage"/><br/>
+<a href="#" class="et-app-sum-edit et-app-edit">save and continue later</a>
 </form>
 </div>
 <script type="text/javascript">

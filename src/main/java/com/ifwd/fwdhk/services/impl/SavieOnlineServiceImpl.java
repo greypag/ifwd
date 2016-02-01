@@ -2,19 +2,20 @@ package com.ifwd.fwdhk.services.impl;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
-import java.net.URLEncoder;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,9 @@ import org.springframework.stereotype.Service;
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.common.document.PDFGeneration;
 import com.ifwd.fwdhk.common.document.PdfAttribute;
-import com.ifwd.fwdhk.common.util.NumberTransferUtils;
 import com.ifwd.fwdhk.connector.ECommWsConnector;
+import com.ifwd.fwdhk.connector.response.BaseResponse;
+import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
@@ -38,9 +40,11 @@ import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
+import com.ifwd.fwdhk.util.CompareUtil;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
+import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 @Service
 public class SavieOnlineServiceImpl implements SavieOnlineService {
@@ -281,7 +285,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public JSONObject saveProductFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "product/saveProductFna";
+//		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "fna";
+		String Url = UserRestURIConstants.SAVE_FNA;
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")){
@@ -291,8 +296,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			lang = "EN";
 		}
 		
+		header.put("userName", savieFna.getUser_name());
 		header.put("language", WebServiceUtils.transformLanaguage(lang));
 		JSONObject jsonObject = new JSONObject();
+//		jsonObject.put("user_name", savieFna.getUser_name());
 		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
 		jsonObject.put("dob", savieFna.getDob());
@@ -321,16 +328,20 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		jsonObject.put("q4_f", savieFna.getQ4_f());
 		jsonObject.put("q4_g", savieFna.getQ4_g());
 		jsonObject.put("q4_g_others", savieFna.getQ4_g_others());
-		jsonObject.put("lang", lang);
+		jsonObject.put("hash_key", "");
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		return responseJsonObj;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public JSONObject getProductrRecommend(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "product/getProductRecommend";
+		//String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "fna/getProductRecommendation";
+		String Url = UserRestURIConstants.GET_PRODUCTRECOMMENDATION;
 		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
 		String lang = UserRestURIConstants.getLanaguage(request);
+		String sort_by = StringHelper.emptyIfNull(request.getParameter("sort_by"));
+		
 		if (lang.equals("tc")){
 			lang = "CH";
 		}
@@ -371,21 +382,209 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		jsonObject.put("lang", lang);
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
+		
+		if(responseJsonObj.get("errMsgs") == null) {
+			JSONArray productArr = (JSONArray)responseJsonObj.get("product_list");
+			JSONArray sortProductArr = new JSONArray();
+			String sort;
+			JSONObject products;
+			for(int i = 0; i < productArr.size(); i++) {
+				products = (JSONObject) productArr.get(i);
+				sort = products.get("products").toString();
+				switch (sort_by) {
+				case "0":
+					sort = CompareUtil.comparePeriodAsc(sort);
+					break;
+				case "1":
+					sort = CompareUtil.compareIntAsc(sort, "getMin_issue_age");
+					break;
+				case "2":
+					sort = CompareUtil.compareIntAsc(sort, "getMax_issue_age");
+					break;
+				case "3":
+					sort = CompareUtil.compareIntAsc(sort, "getProtection_period");
+					break;
+				case "4":
+					sort = CompareUtil.comparePeriodDesc(sort);
+					break;
+				case "5":
+					sort = CompareUtil.compareIntDesc(sort, "getMin_issue_age");
+					break;
+				case "6":
+					sort = CompareUtil.compareIntDesc(sort, "getMax_issue_age");
+					break;
+				case "7":
+					sort = CompareUtil.compareIntDesc(sort, "getProtection_period");
+					break;
+				default :
+					sort = CompareUtil.compareCodeDesc(sort);
+					break;
+				}
+				products.put("products", JSONValue.parse(sort));
+				sortProductArr.add(products);
+			}
+			responseJsonObj.put("product_list", sortProductArr);
+		}
 		return responseJsonObj;
 	}
 	
-	public JSONObject getFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "product/getProductFna?name="+URLEncoder.encode(savieFna.getName());
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		String lang = UserRestURIConstants.getLanaguage(request);
-		if (lang.equals("tc")){
-			lang = "CH";
+	public JSONObject getFna(HttpServletRequest request) throws ECOMMAPIException{
+//		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "fna";
+		String Url = UserRestURIConstants.GET_FNA;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj.get("result") != null ? (JSONObject) responseJsonObj.get("result"):new JSONObject();
+	}
+	
+	public JSONObject getPurchaseHistoryByPlanCode(HttpServletRequest request) throws ECOMMAPIException{
+		String Url = UserRestURIConstants.GET_PURCHASE_HISTORY_BY_PLANCODE+"?planCode=sv";
+		final Map<String,String> header = headerUtil.getHeader(request);
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		return responseJsonObj;
+	}
+	
+	public CreateEliteTermPolicyResponse createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
+		SaviePlanDetailsBean saviePlanDetails = (SaviePlanDetailsBean) session.getAttribute("saviePlanDetails");
+		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
+		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) session.getAttribute("lifeEmploymentInfo");
+		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
+		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
+		
+		JSONObject parameters = new JSONObject();
+		parameters.put("planCode", "SAVIE");
+			JSONObject applicant = new JSONObject();
+			applicant.put("firstName", lifePersonalDetails.getFirstname());
+			applicant.put("lastName", lifePersonalDetails.getLastname());
+			applicant.put("chineseName", lifePersonalDetails.getChineseName());
+			String[] dob = lifePersonalDetails.getDob().split("/");
+			applicant.put("dob", dob[0]+"-"+dob[1]+"-"+dob[2]);
+			applicant.put("gender", lifePersonalDetails.getGender());
+			applicant.put("hkId", lifePersonalDetails.getHkid());
+			applicant.put("passport", "");
+			applicant.put("maritalStatus", lifePersonalDetails.getMartialStatus()!=null?lifePersonalDetails.getMartialStatus().split("-")[0]:"");
+			applicant.put("placeOfBirth", lifePersonalDetails.getPlaceOfBirth()!=null?lifePersonalDetails.getPlaceOfBirth().split("-")[0]:"");
+			applicant.put("nationality", lifePersonalDetails.getNationalty()!=null?lifePersonalDetails.getNationalty().split("-")[0]:"");
+			applicant.put("residentialTelNoCountryCode", "852");
+			applicant.put("residentialTelNo", "23886166");
+			applicant.put("mobileNoCountryCode", "852");
+			applicant.put("mobileNo", lifePersonalDetails.getMobileNumber());
+			applicant.put("email", lifePersonalDetails.getEmailAddress());
+				JSONObject permanentAddress = new JSONObject();
+				permanentAddress.put("line1", lifePersonalDetails.getPermanetAddress1());
+				permanentAddress.put("line2", lifePersonalDetails.getPermanetAddress2());
+				permanentAddress.put("line3", lifePersonalDetails.getPermanetAddress3());
+				permanentAddress.put("line4", "SD3");
+				permanentAddress.put("district", lifePersonalDetails.getPermanetAddressDistrict()!=null?lifePersonalDetails.getPermanetAddressDistrict().split("-")[0]:"");
+			applicant.put("permanentAddress", permanentAddress);
+				
+				JSONObject residentialAddress = new JSONObject();
+				residentialAddress.put("line1", lifePersonalDetails.getResidentialAddress1());
+				residentialAddress.put("line2", lifePersonalDetails.getResidentialAddress2());
+				residentialAddress.put("line3", lifePersonalDetails.getResidentialAddress3());
+				residentialAddress.put("line4", "SD1");
+				residentialAddress.put("district", lifePersonalDetails.getResidentialAddressDistrict()!=null?lifePersonalDetails.getResidentialAddressDistrict().split("-")[0]:"");
+			applicant.put("residentialAddress", residentialAddress);
+				
+				JSONObject correspondenceAddress = new JSONObject();
+				correspondenceAddress.put("line1", lifePersonalDetails.getCorrespondenceAddress1());
+				correspondenceAddress.put("line2", lifePersonalDetails.getCorrespondenceAddress2());
+				correspondenceAddress.put("line3", lifePersonalDetails.getCorrespondenceAddress3());
+				correspondenceAddress.put("line4", "SD2");
+				correspondenceAddress.put("district", lifePersonalDetails.getCorrespondenceAddressDistrict()!=null?lifePersonalDetails.getCorrespondenceAddressDistrict().split("-")[0]:"");
+			applicant.put("correspondenceAddress", correspondenceAddress);
+				
+				JSONObject employmentStatus = new JSONObject();
+				employmentStatus.put("employmentStatus", lifeEmploymentInfo.getEmploymentStatus());
+				employmentStatus.put("occupation", lifeEmploymentInfo.getOccupation());
+				employmentStatus.put("educationLevel", lifeEmploymentInfo.getEducation());
+				employmentStatus.put("natureOfBusiness", lifeEmploymentInfo.getNatureOfBusiness());
+				employmentStatus.put("monthlyPersonalIncome", lifeEmploymentInfo.getMonthlyPersonalIncome());
+				employmentStatus.put("liquidAsset", lifeEmploymentInfo.getAmountOfLiquidAssets());
+				employmentStatus.put("amountOtherSource", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome());
+				employmentStatus.put("employerName", lifeEmploymentInfo.getEmployerName());
+			applicant.put("employmentStatus", employmentStatus);
+			applicant.put("smoke", false);
+			applicant.put("optOut1", true);
+			applicant.put("optOut2", true);
+		parameters.put("applicant", applicant);
+			JSONObject insured = new JSONObject();
+			insured.put("name", applicant.get("firstName")+" "+applicant.get("lastName"));
+			insured.put("hkId", applicant.get("hkId"));
+			insured.put("passport", "");
+			insured.put("relationship", "SE");
+				JSONArray beneficiaries = new JSONArray();
+					JSONObject beneficiarie1 = new JSONObject();
+					JSONObject beneficiarie2 = new JSONObject();
+					JSONObject beneficiarie3 = new JSONObject();
+					beneficiarie1.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName1());
+					beneficiarie1.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName1());
+					beneficiarie1.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName1());
+					beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID1());
+					beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficaryID1());
+					beneficiarie1.put("gender", lifeBeneficaryInfo.getBeneficaryGender1());
+					beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1());
+					beneficiarie1.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight1());
+				beneficiaries.add(beneficiarie1);
+					beneficiarie2.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName2());
+					beneficiarie2.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName2());
+					beneficiarie2.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName2());
+					beneficiarie2.put("hkId", lifeBeneficaryInfo.getBeneficaryID2());
+					beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficaryID2());
+					beneficiarie2.put("gender", lifeBeneficaryInfo.getBeneficaryGender2());
+					beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2());
+					beneficiarie2.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight2());
+				beneficiaries.add(beneficiarie2);
+					beneficiarie3.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName3());
+					beneficiarie3.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName3());
+					beneficiarie3.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName3());
+					beneficiarie3.put("hkId", lifeBeneficaryInfo.getBeneficaryID3());
+					beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficaryID3());
+					beneficiarie3.put("gender", lifeBeneficaryInfo.getBeneficaryGender3());
+					beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3());
+					beneficiarie3.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight3());
+				beneficiaries.add(beneficiarie3);
+			insured.put("beneficiaries", beneficiaries);
+		parameters.put("insured", insured);
+			JSONObject payment = new JSONObject();
+			payment.put("amount", saviePlanDetails.getInsuredAmount());
+			payment.put("paymentMethod", "CreditCard");
+			payment.put("bankName", "");
+			payment.put("branchName", "");
+			payment.put("accountNo", "");
+			payment.put("expiryDate", "");
+		parameters.put("payment", payment);
+		parameters.put("insuredAmount", saviePlanDetails.getInsuredAmount());
+		parameters.put("referralCode", saviePlanDetails.getPromoCode());
+		logger.info(parameters.toString());
+		
+		final Map<String,String> header = headerUtil.getHeader(request);
+		CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
+		eliteTermPolicy = connector.createLifePolicy(parameters, header);
+		if(!eliteTermPolicy.hasError()){
+			request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
 		}
 		else{
-			lang = "EN";
+			throw new ECOMMAPIException(eliteTermPolicy.getErrMsgs()[0]);
 		}
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
-		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		return (JSONObject) responseJsonObj.get("result");
+		return eliteTermPolicy;
+	}
+	
+	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
+		CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+		JSONObject parameters = new JSONObject();
+		parameters.put("creditCaredNo", "");
+		parameters.put("expiryDate", "");
+		parameters.put("cardHolderName", "");
+		parameters.put("policyNo", eliteTermPolicy.getPolicyNo());
+		parameters.put("planCode", "SAVIE");
+		logger.info(parameters.toString());
+		
+		BaseResponse apiReturn = null;
+		final Map<String,String> header = headerUtil.getHeader(request);
+		apiReturn = connector.finalizeLifePolicy(parameters, header);
+		if(apiReturn.hasError()){
+			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
+		}
+		return apiReturn;
 	}
 }

@@ -106,19 +106,15 @@ var fnaSavieGame = {
 
 		$(".fna-btn-step-next").click(function(){
 			//Validate Current Step
-			if(that.currentStep < 8 || that.debug){
-
+			if(that.currentStep < 8 || that.currentStep > 3){
+				var validate = that.validator(that.currentStep);
 				if(!$(this).hasClass("disabled")){
 					$("html, body").stop().animate({scrollTop:0});
-					var validate = that.validator(that.currentStep);
 					if(validate){
 						that.backNextBtnHdlr(1);
 						that.checkData();
 					}
-					
 				}
-				
-				
 			}
 		});
 
@@ -145,17 +141,23 @@ var fnaSavieGame = {
 
 		$(".fna-btn-step-finish").click(function(){
 
-			window.onbeforeunload = null;
-			$('#loading-overlay').modal({
-				   backdrop: 'static',
-				   keyboard: false
-			});
-			that.submitForm();
+			var validate = that.validator(that.currentStep);
+			if(!$(this).hasClass("disabled") && validate){
+				window.onbeforeunload = null;
+				$('#loading-overlay').modal({
+					   backdrop: 'static',
+					   keyboard: false
+				});
+				that.submitForm();	
+			}
+
+			
 		});
 
 		/*Mobile Buttons*/
 
 		$(".fna-btn-step-back-inside").click(function(){
+
 			$("html, body").stop().animate({scrollTop:0});
 			var p = $(this).parents(".mob-view");
 			p.addClass("mob-hide");
@@ -163,12 +165,16 @@ var fnaSavieGame = {
 			p.prev().removeClass("mob-hide");			
 		});
 		$(".fna-btn-step-next-inside").click(function(){
-			$("html, body").stop().animate({scrollTop:0});
-			if(!$(this).hasClass("disabled")){
+
+			$(".fna-error-msg").text("");
+			var validate = that.validator(that.currentStep,true);
+
+			if(!$(this).hasClass("disabled") && validate){
 				var p = $(this).parents(".mob-view");
 				p.addClass("mob-hide");
 
 				p.next().removeClass("mob-hide");
+				$("html, body").stop().animate({scrollTop:0});
 			}
 		});
 
@@ -184,7 +190,6 @@ var fnaSavieGame = {
 		//Init Watch Step1 
 		that.currentStep++;
 		that.observeData();
-		$(".desktop-btn-gp .fna-btn-step-back").fadeOut();
 	},
 
 	backNextBtnHdlr:function(needle){
@@ -196,7 +201,7 @@ var fnaSavieGame = {
 			that.currentStep+=needle;
 
 			$(".desktop-btn-gp .fna-btn-step-back, .desktop-btn-gp .fna-btn-step-next").fadeOut();
-			if(that.currentStep > 3){
+			if(that.currentStep >= 3){
 				$(".desktop-btn-gp .fna-btn-step-back").delay(600).fadeIn();
 			}
 			if(that.currentStep < 8){
@@ -383,10 +388,13 @@ var fnaSavieGame = {
 		});
 
 		$(".frm-fna-employment-status").change(function(){
-			
+			that.postData.employment_status = null;
+			that.postData.nature_of_business = null;
+			that.postData.occupation = null;
+			that.postData.occupation_others = null;
 			
 			if($(this).val() == ""){
-				$(".frm-fna-nob").parents(".fna-row").addClass("hide");
+				$(".frm-fna-nob, .frm-fna-occupation, .frm-fna-occupation-others").parents(".fna-row").addClass("hide");
 			}else{
 				var optionSelected = $("option:selected", this);
 				that.postData.employment_status = $(this).val();
@@ -459,7 +467,7 @@ var fnaSavieGame = {
 			
 		});
 
-		$(".frm-fna-employment-status").select2();
+		
 		$(".frm-fna-nob").select2();
 		$(".frm-fna-occupation").select2();
 	},
@@ -804,7 +812,7 @@ var fnaSavieGame = {
 
 	},
 
-	validator:function(step){
+	validator:function(step,mobileSplit){
 		var that = this;
 		var result = true;
 		$(".fna-error-msg").text("");
@@ -868,11 +876,73 @@ var fnaSavieGame = {
 
 				break;
 			case 3:
-				if(that.postData.q1.indexOf(5) >= 0 && that.postData.q1_others == null){
-					$(".q1 .fna-error-msg").text("Please specify other objective.");
+				if(that.postData.q1 == null){
+					$(".q1 .fna-error-msg").text("(Please select)");
+					result = false;
+				}
+				if(mobileSplit) break;
+				if(that.postData.q2 == null){
+					$(".q2 .fna-error-msg").text("(Please select)");
 					result = false;
 				}
 				break;
+			case 4:
+				if(that.postData.q3 == null){
+					$(".q3 .fna-error-msg").text("(Please select)");
+					result = false;
+				}
+				if(mobileSplit) break;
+				if(that.postData.q4 == null){
+					$(".q4 .fna-error-msg").text("(Please select)");
+					result = false;
+				}
+				break;
+			case 5:
+				if(that.postData.q4_a == null && that.postData.q4_a_others == null){
+					$(".q4a .fna-error-msg").text("(Please select or enter specific amount)");
+					result = false;
+				}
+				if(mobileSplit) break;
+				if(that.postData.q4_b == null){
+					$(".q4b .err_q4b1.fna-error-msg").text("(Please select)");
+					result = false;
+				}
+				if(that.postData.q4_b_amount == null){
+					$(".q4b .err_q4b2.fna-error-msg").text("(Please enter)");
+					result = false;
+				}
+				break;
+			case 6:
+				if(that.postData.q4_c == null){
+					$(".q4c .fna-error-msg").text("(Please enter)");
+					result = false;
+				}
+				if(mobileSplit) break;
+				if(that.postData.q4_d_1 == null){
+					$(".q4d .err_q4d1.fna-error-msg").text("(Please enter)");	
+					result = false;
+				}
+				if(that.postData.q4_d_2 == null){
+					$(".q4d .err_q4d2.fna-error-msg").text("(Please enter)");	
+					result = false;
+				}
+				break;
+			case 7:
+				if(that.postData.q4_e == null){
+					$(".q4e .fna-error-msg").text("(Please select)");
+					result = false;
+				}
+				if(mobileSplit) break;
+				if(that.postData.q4_f == null){
+					$(".q4f .fna-error-msg").text("(Please select)");
+					result = false;
+				}
+				break;
+			case 8:
+				if(that.postData.q4_g == null){
+					$(".q4g .fna-error-msg").text("(Please select)");
+					result = false;
+				}
 		}
 
 		return result;

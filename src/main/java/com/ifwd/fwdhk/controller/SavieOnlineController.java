@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.services.SavieOnlineService;
@@ -211,7 +212,13 @@ public class SavieOnlineController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-online/life-review4"})
-	public ModelAndView getSavieOnlineLifeReview4(Model model, HttpServletRequest request) {
+	public ModelAndView getSavieOnlineLifeReview4(Model model, HttpServletRequest request,HttpSession session) {
+		try {
+			savieOnlineService.createApplicationFormPdf(request, session);
+		}
+		catch (Exception e) {
+			request.getSession().setAttribute("errorMsg", e.getMessage());
+		}
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4);
 	}
 	
@@ -221,10 +228,14 @@ public class SavieOnlineController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/{lang}/savie-online/life-document-upload"})
-	public ModelAndView getSavieOnlineLifeDocumentUpload(Model model, HttpServletRequest request) {
-		CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
-		eliteTermPolicy.setPolicyNo("sssssssss01650165");
-		request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
+	public ModelAndView getSavieOnlineLifeDocumentUpload(Model model, HttpServletRequest request,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		try {
+			savieOnlineService.finalizeLifePolicy(request, session);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
 	}
 	

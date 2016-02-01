@@ -19,6 +19,7 @@ accountNumber:<input type="text" id="accountNumber" name="accountNumber" value="
 accountHolderName:<input type="text" id="accountHolderName" name="accountHolderName" value="${lifePayment.accountHolderName }"/><br/>
 paymentAmount:<input type="text" id="paymentAmount" name="paymentAmount" value="${lifePayment.paymentAmount }"/><br/>
 <input type="button" id="nextPage" value="nextPage"/><br/>
+<a href="#" class="et-app-sum-edit et-app-edit">save and continue later</a>
 </form>
 </div>
 <script type="text/javascript">

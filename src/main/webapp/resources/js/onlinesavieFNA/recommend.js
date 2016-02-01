@@ -4,6 +4,7 @@ var FNArecommendation = {
 	api_show : contextPath+'/ajax/savie-online/show',
 	api_update : contextPath+'/ajax/savie-online/update',
 	api_product_recommend : contextPath+'/ajax/savie-online/product-recommend',
+	api_enquiry : contextPath+'/ajax/savie-online/enquiry',
 	fnaOriginalData : null,
 	fnaData : null,
 	fnaResultData : null,
@@ -19,7 +20,8 @@ var FNArecommendation = {
 		var that = this;
 		that.setLoading(true);
 
-		$(".fna-btn-show-detail").click(function(){
+		$(".fna-btn-show-detail").click(function(e){
+			e.stopPropagation();
 			if($(this).hasClass("isOpened")){
 				$(this).parents(".fna-product-cont").find(".expander").slideUp();
 				$(this).removeClass("isOpened");
@@ -30,7 +32,12 @@ var FNArecommendation = {
 			
 		});
 
-		$(".fna-btn-expand-gp").click(function(){
+		$(".fna-btn-show-detail-row").click(function(e){
+			$(this).find(".fna-btn-show-detail").trigger("click");
+		});
+
+		$(".fna-btn-expand-gp").click(function(e){
+			e.stopPropagation();
 			if($(this).hasClass("isOpened")){
 				$(this).parents(".fna-product-gp").find("> .expander").slideUp();
 				
@@ -42,8 +49,16 @@ var FNArecommendation = {
 				$(this).addClass("isOpened glyphicon-minus");
 			}
 		});
+		$(".fna-btn-expand-gp-row").click(function(e){
+			$(this).find(".fna-btn-expand-gp").trigger("click");
+		});
 
 		$(".fna-btn-call-details").click(function(){
+
+			var productCode = $(this).parents(".fna-product").data("productCode");
+			
+			
+
 			$('#fnaPopupEnquiry').modal({
 			   backdrop: 'static',
 			   keyboard: false
@@ -190,6 +205,33 @@ var FNArecommendation = {
 			}
 		});
 
+		$(".q4_b_amount input").keypress(function(){
+			var q = $(this).parents(".fna-sel-grid").data();
+			var val = parseInt($(this).val(),10);
+			var isDifferent = q.originalVal != val;
+			if(isDifferent){
+				that.fnaData[q.qName] = val;
+			}
+
+			$(this).parents(".fna-sel-grid").data("isDifferent",isDifferent);
+
+			//Check any question amended for the overlay display
+			var filter = $(".fna-sel-grid").filter(function(){
+				return $(this).data("isDifferent");
+			});
+
+			var ttlAmended = filter.length > 0;
+			that.showHideAmendOverlayer(isDifferent || ttlAmended);
+			
+			if(isDifferent || ttlAmended){
+				
+				$(".fna-sel-floating-panel").animate({"top":$(this).position().top},250);
+				$(".fna-sel-floating-panel").fadeIn();
+			}else{
+				$(".fna-sel-floating-panel").fadeOut();
+			}
+		});
+
 		//Sorting Button
 		$(".fna-col-recommend > .sort-header > div").click(function(){
 
@@ -248,6 +290,50 @@ var FNArecommendation = {
 			that.parseUserData(that.fnaOriginalData);
 		});
 
+
+		var stickyTop = $(".fna-sel-cont").offset().top;
+		
+		$(window).scroll(function(){ // scroll event  
+ 
+		var windowTop = $(window).scrollTop(); // returns number
+			
+			if (windowTop < $(".floating-marker").offset().top - $(window).height() + $(".fna-sel-title").offset().top) {
+				$('.fna-btn-gp').css({ 'position': 'fixed'});
+			}
+			else {
+				$('.fna-btn-gp').css('position','static');
+			}
+
+		});
+
+
+		$(".fna-btn-submit").click(function(){
+			
+			if(that.validateCallForm()){
+
+				var enquiryObj = {
+					'product_code' : $("#productCode").val(),
+					'customer_name' : $("#FNAinputCustomerName").val(),
+					'email' : $("#FNAinputEmail").val(),
+					'telephone' : $("#FNAinputMobileNo").val(),
+					'preferred_date' : parseInt($("#preferred_date").val(),10),
+					'preferred_time' : parseInt($("#preferred_time").val(),10),
+					'enquiry_type' : parseInt($("#enquiry_type").val(),10)
+
+				};
+				AjaxManager.fire(that.api_enquiry,enquiryObj,function(res){
+					// console.log(res);
+					if(res.status == 0){
+						$('#fnaPopupEnquiry').modal('hide');
+					}else if(res.status == 1){
+
+					}else{
+						//Session timeout
+					}
+					
+				},null,"POST");
+			}
+		});
 		
 		that.initLoad();
 
@@ -282,7 +368,9 @@ var FNArecommendation = {
 	loadProductRecommendSorting:function(){
 		var that = this;
 		var sort_by = that.sortFld + (that.sortAsc ? 0 : 4);
-		AjaxManager.fire(that.api_product_recommend,{sort_by:sort_by},function(res){
+		var fnaDatas = that.fnaData;
+		fnaDatas.sort_by=sort_by
+		AjaxManager.fire(that.api_product_recommend,fnaDatas,function(res){
 			that.fnaResultData = res;
 			that.parseProductRecommend(res);
 			that.setLoading(false);
@@ -293,7 +381,7 @@ var FNArecommendation = {
 		var that = this;
 		if(morePage != undefined) that.fnaPopupData = [];
 		var url = morePage ? morePage : that.api_product_recommend; 
-		AjaxManager.fire(url,null,function(res){
+		AjaxManager.fire(url,that.fnaData,function(res){
 			that.fnaResultData = res;
 			that.parseProductRecommend(res, morePage != undefined);
 			that.setLoading(false);
@@ -331,13 +419,13 @@ var FNArecommendation = {
 			if(typeof(data[val]) == "number"){
 				$(selectorPattern.replace("{q}",val).replace("{v}",data[val])).prop("checked",true);
 			}else{
-				if(data[val]!=null){
+				if(data[val] != null) {
 					var answer = data[val].split(",");
+					$(answer).each(function(k2,v2){
+						$(selectorPattern.replace("{q}",val).replace("{v}",v2)).prop("checked",true);
+					});	
 				}
 
-				$(answer).each(function(k2,v2){
-					$(selectorPattern.replace("{q}",val).replace("{v}",v2)).prop("checked",true);
-				});	
 			}
 
 			$("."+ val).data({"originalVal":data[val],"qName":val,"isDifferent":false});
@@ -345,20 +433,26 @@ var FNArecommendation = {
 		});
 
 		$(".q4_b_amount input").val(data.q4_b_amount);
+		$(".q4_b_amount input").data({"originalVal":data.q4_b_amount,"isDifferent":false});
 
 		/*$(".fna-sel-grid input[type='checkbox']:checked").each(function(){
 			$(this).parent().show();
 		});*/
 
-		$(".fna-sel-grid:not(.editing)").each(function(){
+		$(".fna-sel-grid").each(function(){
+
 			$(this).find("input[type='checkbox']").each(function(){
 				if($(this).prop("checked")){
 					$(this).parent().show();
 				}else{
 					$(this).parent().hide();
 				}
-			});			
-		})
+			});	
+
+			if($(this).find(".fna-btn-sel-expand").hasClass("glyphicon-minus")){
+				$(this).find(".fna-btn-sel-expand").trigger("click");
+			}
+		});
 
 
 	},
@@ -370,8 +464,8 @@ var FNArecommendation = {
 			var gp_data = data.product_list[i];
 			var gp = $(".fna-recommend .template .fna-product-gp").clone(true,true);
 			if(that.sortFld > -1) gp.addClass("sort" + that.sortFld);
-			gp.find(".fna-product-type").text(gp_data.type);
-			gp.find(".fna-product-type-tooltips").attr("data-original-title",gp_data.type_desc);
+			gp.find(".fna-product-gp-name").text(gp_data.group);
+			
 
 			var prodWrapper = gp.find(".fna-product-wrapper");
 			
@@ -387,11 +481,23 @@ var FNArecommendation = {
 					var prod_data = gp_data.products[j];
 					var prod = $(".fna-recommend .template .fna-product").clone(true,true);
 
-					prod.find(".sort-header .product").text(prod_data.name);
-					prod.find(".sort-header .con_prd").html(prod_data.contribution_period.join(", "));
-					prod.find(".sort-header .min_age").text(prod_data.min_issue_age);
-					prod.find(".sort-header .max_age").text(prod_data.max_issue_age);
-					prod.find(".sort-header .prd_age").text(prod_data.protection_period);
+					prod.data("productCode",prod_data.product_code);
+
+					if(prod_data.type){
+						var product_type = $(".fna-recommend .template .fna-product-type").clone(true,true);
+
+						product_type.find(".fna-product-type-name").text(prod_data.type);
+						product_type.find(".fna-product-type-tooltips").attr("data-original-title",prod_data.type_desc);
+					}
+
+					prod.find(".sort-header").before(product_header);
+
+					prod.find(".product-mobile-display").text(prod_data.name);
+					prod.find(".sort-header.withdata .product").text(prod_data.name);
+					prod.find(".sort-header.withdata .con_prd").html(prod_data.contribution_period.join(", "));
+					prod.find(".sort-header.withdata .min_age").text(prod_data.min_issue_age);
+					prod.find(".sort-header.withdata .max_age").text(prod_data.max_issue_age);
+					prod.find(".sort-header.withdata .prd_age").text(prod_data.protection_period);
 
 					var key_feature_ul = $("<ul/>");
 
@@ -462,13 +568,32 @@ var FNArecommendation = {
 						$(".fna-btn-load-products-more").hide();
 					}
 					
-					prodWrapper.append(product_header);
+					//prodWrapper.append(product_header);
+					prodWrapper.append(product_type);
 					prodWrapper.append(prod);
 
 					if(prod_data.show){
 
 						animateList.push(prod);
 					}
+				}
+			}
+
+			if(gp_data.other_types){
+				for(var j = 0; j < gp_data.other_types.length; j++){
+					var other_data = gp_data.other_types[j];
+
+					
+					var product_type = $(".fna-recommend .template .fna-product-type").clone(true,true);
+
+					product_type.find(".fna-product-type-name").text(other_data.type);
+					product_type.find(".fna-product-type-tooltips").hide();
+
+					var other_product = $(".fna-recommend .template .fna-other-product").clone();
+					other_product.find(".desc").html(other_data.type + " " + other_data.description);
+
+					prodWrapper.append(product_type);
+					prodWrapper.append(other_product);
 				}
 			}
 			// console.log(gp.find(".fna-product-type-tooltips").("originalTitle"));
@@ -491,6 +616,36 @@ var FNArecommendation = {
 		}
 		//$('.fna-col-recommend .tool-tip').tooltip('destroy');
 		$(".fna-product-gp-wrapper .fna-tooltips").tooltip();
+	},
+
+	validateCallForm:function(){
+		$(".fnaPopupEnquiry .text-red").text("");
+		var result = true;
+		var name = $.trim($("#FNAinputCustomerName").val());
+		var email = $.trim($("#FNAinputEmail").val());
+		var mobileno = $.trim($("#FNAinputMobileNo").val());
+		if(name == ""){
+			$("#errFNAinputCustomerName").text(RecommendationPageLocale[UILANGUAGE].errorName);
+			result = false;
+		}
+		if(email == ""){
+			$("#errFNAinputEmail").text(RecommendationPageLocale[UILANGUAGE].errorEmail);
+			result = false;
+		}else if (!emailreg.test(email)){
+			$("#errFNAinputEmail").text(RecommendationPageLocale[UILANGUAGE].errorEmail);
+			result = false;
+			
+		}
+
+		if(mobileno == ""){
+			$("#errFNAinputMobileNo").text(RecommendationPageLocale[UILANGUAGE].errorMobileNo);
+			result = false;
+		}else if(!mobile_pattern.test(mobileno)){
+			$("#errFNAinputMobileNo").text(RecommendationPageLocale[UILANGUAGE].errorMobileNo);
+			result = false;
+		}
+
+		return result;		
 	}
 
 };

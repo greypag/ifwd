@@ -10,10 +10,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.response.BaseResponse;
+import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
@@ -125,15 +129,49 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/update"})
-	public void update(SavieFnaBean savieFna,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
-		String language = (String) session.getAttribute("language");
+	@RequestMapping(value = {"/ajax/savie-online/createLifePolicy"})
+	public void createLifePolicy(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
-			savieFna.setName(session.getAttribute("username").toString());
+			savieOnlineService.createLifePolicy(request, session);
+			jsonObject.put("successMsg", "yes");
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+
+	@RequestMapping(value = {"/ajax/savie-online/finalizeLifePolicy"})
+	public void finalizeLifePolicy(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			savieOnlineService.finalizeLifePolicy(request, session);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savie-online/update"})
+	public void update(SavieFnaBean savieFna,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
+			savieFna.setName(userDetails.getFullName());
+			savieFna.setUser_name(userDetails.getUserName());
 			jsonObject = savieOnlineService.saveProductFna(savieFna, request);
 			session.setAttribute("savieFna", savieFna);
 		} 
@@ -145,14 +183,13 @@ public class AjaxSavieOnlineController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/ajax/savie-online/show"})
-	public void show(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+	public void show(HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
-			SavieFnaBean savieFna = (SavieFnaBean) session.getAttribute("savieFna");
-			jsonObject = savieOnlineService.getFna(savieFna, request);
+			jsonObject = savieOnlineService.getFna(request);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
@@ -178,4 +215,36 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
+	@RequestMapping(value = {"/ajax/savie-online/getPurchaseHistoryByPlanCode"})
+	public void getPurchaseHistoryByPlanCode(HttpServletRequest request,HttpServletResponse response) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			jsonObject = savieOnlineService.getPurchaseHistoryByPlanCode(request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savie-online/enquiry"})
+	public void enquiry(HttpServletRequest request,HttpServletResponse response) {
+		/*JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}*/
+		
+		String jsonObject = "{\"status\":0}";
+		logger.info(jsonObject.toString());
+		response.setContentType("text/json;charset=utf-8");
+		try {
+			response.getWriter().print(jsonObject);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
