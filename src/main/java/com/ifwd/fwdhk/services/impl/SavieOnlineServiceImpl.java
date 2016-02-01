@@ -328,7 +328,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		jsonObject.put("q4_f", savieFna.getQ4_f());
 		jsonObject.put("q4_g", savieFna.getQ4_g());
 		jsonObject.put("q4_g_others", savieFna.getQ4_g_others());
-		jsonObject.put("hash_key", "");
+		//jsonObject.put("hash_key", "");
+		jsonObject.put("hash_key", request.getSession().getAttribute("hashKey")!=null?request.getSession().getAttribute("hashKey"):"");
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		return responseJsonObj;
@@ -433,6 +434,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String Url = UserRestURIConstants.GET_FNA;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		HttpSession hashSession = request.getSession();
+		if (responseJsonObj.get("result") != null){
+			hashSession.setAttribute("hashKey", responseJsonObj.get("hash_key"));
+		}
 		return responseJsonObj.get("result") != null ? (JSONObject) responseJsonObj.get("result"):new JSONObject();
 	}
 	
