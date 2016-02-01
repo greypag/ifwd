@@ -787,7 +787,7 @@ function submitLoginForm(formID) {
                     || !"true".equals(session.getAttribute("authenticate")
                             .toString())) {
         %>
-        <div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob" data-toggle="modal" data-target="#myModal">       
+        <div class="dropdown login-btn btn btn-lg wd2" id="myDropdown" data-toggle="modal" data-target="#loginpopup">       
         <a href="#" class="dropdown-toggle color-wht log-to-acc"
             id="fwd-login-mob"><i
             class="fa fa-lock"></i> <fmt:message key="header.login.heading"

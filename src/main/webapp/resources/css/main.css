@@ -1866,8 +1866,6 @@ h3.btn-box-3 span {
 	width: 100%;
 	background-color: #fff;
 	position: absolute;
-	margin-bottom: 20px;
-	margin-right: 10%;
 	padding: 20px;
 }
 
@@ -10431,3 +10429,319 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
         padding: 20px 0;
     }  
 } 
+
+
+/* style ben 160201 */
+/* heading */
+.heading-h1{font-size:36px;display:inline;font-weight: bold;margin:0;padding:0;}
+.heading-h2{font-size:30px;display:inline;font-weight: bold;margin:0;padding:0;}
+.heading-h3{font-size:24px;display:inline;font-weight: bold;margin:0;padding:0;}
+.heading-h4{font-size:18px;display:inline;font-weight: bold;margin:0;padding:0;}
+.heading-h5{font-size:14px;display:inline;margin:0;padding:0;}
+.heading-h6{font-size:12px;display:inline;margin:0;padding:0;}
+/* /heading */
+/* links */
+.links-default{
+    color:#ff8200;
+    text-decoration: none;
+}
+.links:hover{
+    color:#ff8200;
+    text-decoration: underline;
+}
+.links-italic{
+    color:#ff8200;
+    text-decoration: none;
+    font-style: italic;
+}
+/* links */
+/* color */
+.color-orange{color:#ff8200 !important;}
+.color-red{color:#e4002b !important;}
+.color-yellow{color:#efdb714 !important;}
+.color-darkgray{color:#373a36 !important;}
+.color-deepdarkgray{color:#222 !important;}
+.color-gray{color:#505759 !important;}
+.color-lightgray{color:#9ba5a7 !important;}
+.color-lightgray{color:#061d29 !important;}
+.color-darkblue{color:#061d29 !important;}
+.color-black{color:#000 !important;}
+/* /color */
+/* cta */
+.cta-font{
+    font-size: 18px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: #ffffff;  
+}
+.cta-confirm{
+   padding: 10px 60px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.cta-apply{
+   padding: 10px 40px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.cta-link{
+   padding: 10px 30px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.cta-gray,.cta-gray:hover{
+    background-color: #9ba5a7;
+    border: 1px #9ba5a7 solid;
+    border-bottom: 3px #676f70 solid;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.cta-orange,.cta-orange:hover{
+    background-color: #ff8200;
+    border: 1px #ff8200 solid;
+    border-bottom: 3px #ff8200 solid;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.cta-yellow,.cta-yellow:hover{
+    background-color: #fdb714;
+    border: 1px #fdb714 solid;
+    border-bottom: 3px #cf9611 solid;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.cta-gray:hover{
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    filter: alpha(opacity=90);
+    -moz-opacity: 0.9;
+    opacity: 0.9;
+}
+.cta-orange:hover{
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    filter: alpha(opacity=90);
+    -moz-opacity: 0.9;
+    opacity: 0.9;
+}
+.cta-yellow:hover{
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    filter: alpha(opacity=90);
+    -moz-opacity: 0.9;
+    opacity: 0.9;
+}
+.cta-padding-30{padding: 10px 30px !important;}
+.cta-padding-40{padding: 10px 40px !important;}
+.cta-padding-60{padding: 10px 60px !important;}
+/* /cta */
+
+/* login */
+#loginpopup h1,
+#loginpopup h2,
+#loginpopup h3,
+#loginpopup h4,
+#loginpopup h5{
+    margin:0;
+    padding:0;
+}
+#loginpopup .alert-danger{
+    background-color:#fff;
+    border:0;
+    color:#e4002b;
+    display:inline;
+    font-size:14px;
+}
+#loginpopup .form-container{
+    padding:0;
+}
+#loginpopup .heading-h4{
+    margin-top:0;
+}
+
+#loginpopup .modal-dialog{
+    width:428px!important
+}
+#loginpopup .loginpopupext{
+    width:708px !important;
+}
+#loginpopup .modal-content.plan-modal,
+#loginpopup .login-form,
+#loginpopup .login-info{
+    height:344px;
+}
+#loginpopup .login-form {
+    width: 428px !important;
+    padding:40px 30px 30px 30px;
+    float: right;
+    position: relative !important;
+}
+#loginpopup .login-info {
+    color:#fff;
+    width: 280px;
+    display: inline-block;
+    float: left;
+    padding:30px;
+}
+#loginpopup .login-info-savie{background-image:url(/fwdhk/resources/images/login/savie-destop.png)}
+#loginpopup .modal-content{border:none}
+#loginpopup .login-form .form-group{
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border: none;
+    display: block;
+    margin-top: 10px;
+    clear: both;
+}
+#loginpopup .login-input {
+    border: 1px solid #ebebeb;
+    color:#9ba5a7 !important;
+    font-size:14px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    width:260px;
+    height:33px;
+    display:inline;
+}
+#loginpopup .login-input-error, #loginpopup .invalid-field {
+    border: 1px solid #e4002b !important;
+    color:#9ba5a7 !important;
+    font-size:14px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+#loginpopup .login-button-group{padding:20px 0}
+#loginpopup .login-form .form-group a{
+    margin-left:10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-style: italic;
+    line-height:33px;
+    height:33px;
+}
+#loginpopup .login-form .form-group a:hover{
+    color:#ff8200;
+    font-style: italic; 
+    text-decoration: underline;
+}
+#loginpopup .login-form-footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    width: 428px;
+    background-color: #ebebeb;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 30px;
+    font-size: 14px;
+    z-index: 1;
+}
+#loginpopup .login-form-footer h5 {
+    height: 38px;
+    line-height: 38px;
+    font-size:14px;
+}
+#loginpopup .login-close-wrapper {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    top: 5px;
+    right: 10px;
+    z-index: 1;
+}
+#loginform-pop .close {
+    position: absolute;
+    text-align: center;
+    top: 30px;
+    right: 30px;
+}
+
+#loginform-pop .close span, .login-form .close, .login-form .close span {
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 22px !important;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display:inline-block;
+}
+#loginpopup .login-title-wrapper{display:none;}
+#loginform-pop .login-error-wrapper{display:inline;padding-left:20px;}
+@media (max-width:991px) {
+    #loginpopup .login-title-wrapper{
+    display: block;
+    line-height: 50px;
+    height: 50px;
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    color: #000;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+}
+    #loginpopup .modal-dialog:before{
+        content:" ";
+        height:100%;
+        max-height:100%;
+    }
+    #loginpopup .modal-dialog{
+        height: 100%;
+        margin: auto;
+        padding-top: 96px;
+    }
+    #loginpopup .form-container{margin-top:50px;}
+    #loginpopup .login-close-wrapper {
+        height: 50px;
+        top: 0;
+        right: 0;
+        z-index:9999999;
+    }
+    #loginpopup .close {
+        vertical-align: middle;
+        line-height: 50px;
+        right: 15px;
+        position: absolute;
+        background-color:#fff;
+    }
+    #loginpopup .login-info,#loginpopup .loginpopupext,#loginpopup .modal-dialog,#loginpopup .login-form,#loginpopup .login-form-footer{margin:auto;width:414px !important;z-index:9999}
+    #loginpopup .login-info{height:235px !important;padding:20px 30px;text-align:center;margin-top:50px;}
+    #loginpopup .login-info-savie{background-image:url(/fwdhk/resources/images/login/savie-mobile.png);}
+    #loginpopup .login-info .heading-h4,#loginpopup .login-info .heading-h5{display:block;padding-bottom:20px}
+    #loginpopup .login-form, #loginpopup .modal-content.plan-modal,#loginpopup .login-form{height:432px;}
+    #loginpopup .loginpopupext{padding-top:0;}
+    #loginpopup .loginpopupext.modal-dialog .modal-content,#loginpopup .loginpopupext{height:717px;}
+    #loginpopup .login-input{height:40px;width:355px;}
+    #loginpopup .login-button-group{padding:20px 0 20px;}
+    #loginpopup .login-form{padding:20px 30px 30px 30px;}
+    #loginpopup .login-form h4{margin:0 0 10px 0;display: block;}
+    #loginpopup .login-form .form-control{padding: 0 20px;}
+    #loginpopup .login-form .form-group a{
+        display: block;
+        height:30px;
+        line-height:30px;
+        margin-left: 0;
+        text-align: right;
+        width: 100%;
+    }
+    #loginpopup #loginform-pop .form-group{margin:0;}
+    #loginpopup #forgotPasswordForm .form-group{margin-top:10px;}
+    #loginpopup #forgotPasswordForm .login-form h4{margin-top:0;}
+    #loginpopup #forgotUserNameForm .form-group{margin-top:10px;}
+    #loginpopup #forgotUserNameForm .login-form h4{margin-top:0;}
+    #loginpopup .modal.fade .modal-dialog{height:100%;margin: auto;}
+    
+}
+/* /login */
+/* /style ben 160201 */

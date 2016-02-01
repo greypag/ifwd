@@ -3,217 +3,242 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-
-
-<div class="modal fade bs-example-modal-lg " id="loginpopup"
-        tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true" style="display: none;">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content plan-modal">
-            
-                       <!-- 登入 -->      
-            
-                            <form name="loginform" id="loginform-pop">
-                                        
-                                        <div class="login-form" >
-                                            <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="login-ajax-loading">
-							                    <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
-							                </div>
-                                            <div id="login-err-msg" class="alert alert-danger empHide"
-                                                role="alert" style="display: none;"></div>
-                                        
-                                        
-                                        <a class="close" aria-label="Close" data-dismiss="modal">
-                                        <span aria-hidden="true" style="font-size:30px;">×</span>
-                                        </a>
-                                        
-                                            <div class="form-container" >
-                                                <h2><fmt:message key="header.login.heading" bundle="${msg}" /></h2>
-                                                <h4 class="margin-shift">
-                                                <!--使用者名 -->
-                                                    <fmt:message key="header.login.username" bundle="${msg}" /> 
-                                                    
-                                                    <!-- 忘記使用者名 -->
-                                                    <a id="forgotUserName" style="cursor:pointer"
-                                                        class="pull-right sub-link"><fmt:message key="header.login.username.forget" bundle="${msg}" /></a>
-                                                </h4>
-
-                                                <div class="form-group">
-                                                    <input type="text" name="userName" class="form-control check-emp"
-                                                        placeholder="" id="headerUserName" onkeypress="return validationUsername(event);">
-                                                </div>
-                                                <span id="errUserName" class="empHide" style="color: red;font-size: 16px;"></span>
-                                                
-                                                
-                                                
-                                                <h4 class="margin-shift">
-                                                    <fmt:message key="header.login.password" bundle="${msg}" /> 
-                                                    
-                                                    <!--忘記密碼 -->                                                    
-                                                    <a id="link-forgotPassword" style="cursor:pointer" 
-                                                        class="pull-right sub-link"><fmt:message key="header.login.password.forget" bundle="${msg}" /></a>
-                                                        
-                                                </h4>
-                                                <div class="form-group">
-                                                    <input type="password" name="password" class="form-control check-emp-forgotusername" autocomplete="off" id="headerPassword">
-                                                </div>
-                                                <span id="errPass" class="empHide" style="color: red;font-size: 16px;"></span> <br>
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-md-6">
-                                                        <button type="button" onclick="submitLoginForm('loginform-pop');"
-                                                            class="bdr-curve btn btn-primary btn-lg wd5"><fmt:message key="header.login.action" bundle="${msg}" /></button>
-                                                    </div>
-                                                    <h3
-                                                        class="text-left col-lg-6 col-md-6 pad-none margin-none">
-                                                        <span> <fmt:message key="header.login.registration.heading" bundle="${msg}" /></span><br> <a href="${pageContext.request.contextPath}/${language}/joinus">
-                                                            <fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
-                                                    </h3>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                                <p>
-                                                    <h6><fmt:message key="header.login.disclaimer" bundle="${msg}" /></h6>
-                                                </p>
-                                            </div>
-                                        </div>
-                    </form>
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    <!-- ======================================== 忘記使用者   ============================================================ -->
-                                    <!-- ======================================== 忘記使用者   ============================================================ -->
-                                    
-                                    
-                                    
-                        <form name="forgotUserNameForm" id="forgotUserNameForm"
-                    action="forgotUserNameFields" method="post"
-                    commandName="forgotUserName" style="display:none">
-                        
-                        
+<div class="modal fade bs-example-modal-lg " id="loginpopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content plan-modal">
+		<div class="login-close-wrapper"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
+			<!-- 登入 -->
+			<%
+         String actionName="";
                  
+         if (request.getAttribute("controller") != null) {
+             actionName = request.getAttribute("controller").toString();
+         }
+     %>
+                <%if(actionName== "Savie"){%>
+                <div class="login-info hidden login-info-savie">
+                    <h4 class="heading-h4">
+                        <fmt:message key="Savie.login.overlay.title" bundle="${msg}" />
+                    </h4>
+                    <h5 class="heading-h5">
+                        <fmt:message key="Saive.login.overlay.text" bundle="${msg}" />
+                    </h5>
+                </div>
+                <%}%>
+        <div class="login-title-wrapper"><h4 class="color-darkgray heading-h4"><fmt:message key="header.login.action" bundle="${msg}" /></h4></div>
+			<form name="loginform" id="loginform-pop">
+				<div class="login-form">
+					<div
+						style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+						class="login-ajax-loading">
+						<img
+							style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
+							src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+					</div>
+
+
+					<div class="form-container">
+						<h4 class="heading-h4 color-orange">
+							<fmt:message key="header.login.heading" bundle="${msg}" />
+						</h4>
+						<div class="form-group">
+							<!--使用者名 -->
+							<input type="text" name="userName"
+								class="form-control check-emp login-input"
+								placeholder="<fmt:message key="header.login.username" bundle="${msg}" />"
+								id="headerUserName"
+								onkeypress="return validationUsername(event);">
+							<!-- 忘記使用者名 -->
+							<h6 class="heading-h6">
+								<a id="forgotUserName" class="heading-h6"><fmt:message
+										key="header.login.username.forget" bundle="${msg}" /></a>
+							</h6>
+						</div>
+
+						<div class="form-group">
+							<input type="password" name="password"
+								class="form-control check-emp-forgotusername login-input"
+								placeholder="<fmt:message key="header.login.password" bundle="${msg}" />"
+								autocomplete="off" id="headerPassword">
+							<!--忘記密碼 -->
+							<h6 class="heading-h6">
+								<a id="link-forgotPassword" class="heading-h6"><fmt:message
+										key="header.login.password.forget" bundle="${msg}" /></a>
+						</div>
+						<div class="login-button-group">
+							<button type="button" onclick="submitLoginForm('loginform-pop');"
+								class="cta-confirm cta-font cta-orange cta-padding-40">
+								<fmt:message key="header.login.action" bundle="${msg}" />
+							</button>
+							
+							<div class="login-error-wrapper">
+                        <span id="errUserName" class="empHide color-red heading-h5"></span>
+                        <span id="errPass" class="empHide color-red heading-h5"></span> 
                         
-                            <div class="login-form"  >
-                                <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="login-ajax-loading">
-                                    <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
-                                </div>
-                <div id="forgotusername-err-msg" class="alert alert-danger"
-                        role="alert" style="display: none;">
-                        <P id="error-mobile-no"></P>
-                        <P id="error-email-id"></P>
-                    </div>
+                    <div id="login-err-msg" class="color-red heading-h5"
+                        role="alert" style="display: none;"></div>
+                        </div>
+                        
+						</div>
+						<h6 class="heading-h6 color-gray"><fmt:message key="header.login.disclaimer" bundle="${msg}" /></h6>
+					</div>
+					
+					
+					
 
-                    <div id="success-message" class="alert alert-success empHide" role="alert"
-                        style="display: none;">
-                        <P id="error1"></P>
-                    </div>
-                            
-                            
-                            
-                                            
-                                            <div id="login-err-msg" class="alert alert-danger"
-                                                role="alert" style="display: none;"></div>
-                                        
-                                                                           <a class="close" aria-label="Close" data-dismiss="modal">
-                                        <span aria-hidden="true" style="font-size:30px;">×</span>
-                                        </a>                                                                                                         
-                                            <div class="form-container" >
-                                                <h2>
-                                                  <!--Message 忘記用戶名稱 -->
-                                                  <fmt:message key="header.login.username.forget.part1" bundle="${msg}" />                                                                                                                                           
-                                                </h2>
-                                                
+					
+				</div>
+			</form>
 
-                                                <!--電話 text-------->                                                
-                                                <h4 class="margin-shift">
-                                                   <fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" />                                                    
-                                                </h4>
-                                                
-                                                
-                                                <!-- 電話 inout -->
-                                                <div class="form-group">                                                   
-                                                        <input type="tel" name="mobileNo" class="form-control  check-emp-forgotusername" id="mobileNo" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
-                                                        onkeypress="return isNumeric(event)"
-                                                        onblur="forgotUserName();">                                                                                                                
-                                                </div>
-                                                                                        
-                                               <!--  phone erro message -->
-                                                                    <span id="errorEmptyMob" class="hide1 empHide"> <label
-                                            class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorEmptyMob" bundle="${msg}" /></label>
-                                            
-                                            
-                                    </span> <span id="errorInvalidMob" class="hide1 empHide"> <label
-                                            class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorInvalidMob" bundle="${msg}" /></label>
-                                    </span>
-                                       
-                                       
-                                                                                                                   
-                                          <!-- -======================================================================- -->
-                                                                                                                                                                  
-                                                
-                                                <!-- 電郵 text-->                                                
-                                                <h4 class="margin-shift">                                                    
-                                                    <fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" />                                                                                                                                                                                                         
-                                                </h4>
-                                              
-                                              
-                                                                                                                      
-                                                 <!-- 電郵 input-->                                                
-                                                <div class="form-group">
-                                             <input type="email"
-                                        name="emailAddress" class="form-control check-emp-forgotusername" id="emailAddress"
-                                        onkeypress="return validationEmail(event);"
-                                        onblur="forgotUserName();"
-                                        placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />"> 
-                                             
-                                                </div>
-                                                
 
-                                                
-                                                <!-- 電郵 Errror message -->   
-                                                                                            
-                                                <span id="errorEmptyEmailId" class="hide1 empHide"><label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label></span> 
 
-                                    
-                                                 <span id="errorInvalidEmailId" class="hide1 empHide"> 
-                                                     <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorInvalidEmailId" bundle="${msg}" /></label>
-                                                 </span>
-                                                
-                                                
-                                                 <br> 
-                                                
-                                  
-                                                <div class="row">
-                                                    <div class="col-xs-6 col-sm-6 col-lg-4 col-md-4">
-                                                                <button type="button" onclick="backToLogin()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.back" bundle="${msg}" /></button>
-                                                    </div>
-                                                
-                                                    <div class="col-xs-6 col-sm-6 col-lg-4 col-md-4">                                           
-                                                                <button type="button" onclick="getForgotUserName()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.action2" bundle="${msg}" /></button>                                                    
-                                                    </div>
-                                                    
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                             
-                                            </div>
-                             </div> 
-                                   
-                                </form>    
-                                    
-                                    <!-- 忘記使用者END -->
-                                    
 
-    <script>
+
+
+
+
+
+
+
+
+			<!-- ======================================== 忘記使用者   ============================================================ -->
+			<!-- ======================================== 忘記使用者   ============================================================ -->
+
+
+
+			<form name="forgotUserNameForm" id="forgotUserNameForm"
+				action="forgotUserNameFields" method="post"
+				commandName="forgotUserName" style="display: none">
+
+
+
+
+				<div class="login-form">
+					<div
+						style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+						class="login-ajax-loading">
+						<img
+							style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
+							src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+					</div>
+					<div id="forgotusername-err-msg" class="alert alert-danger"
+						role="alert" style="display: none;">
+						<P id="error-mobile-no"></P>
+						<P id="error-email-id"></P>
+					</div>
+
+					<div id="success-message" class="alert alert-success empHide"
+						role="alert" style="display: none;">
+						<P id="error1"></P>
+					</div>
+
+
+
+
+					<div id="login-err-msg" class="alert alert-danger" role="alert"
+						style="display: none;"></div>
+
+					<div class="form-container">
+						<h4 class="heading-h4 color-orange">
+							<!--Message 忘記用戶名稱 -->
+							<fmt:message key="header.login.username.forget.part1"
+								bundle="${msg}" />
+						</h4>
+
+
+						<!--電話 text-------->
+						
+
+						<!-- 電話 inout -->
+						<div class="form-group">
+							<input type="tel" name="mobileNo"
+								class="form-control check-emp-forgotusername login-input"
+								id="mobileNo"
+								placeholder="<fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" />"
+								onkeypress="return isNumeric(event)" onblur="forgotUserName();">
+						</div>
+
+
+
+
+						<!-- -======================================================================- -->
+
+
+						<!-- 電郵 text-->
+					
+
+
+
+						<!-- 電郵 input-->
+						<div class="form-group">
+							<input type="email" name="emailAddress"
+                                class="form-control check-emp-forgotusername login-input"
+								id="emailAddress"
+								onkeypress="return validationEmail(event);"
+								onblur="forgotUserName();"
+								placeholder="<fmt:message key="member.registration.details.label.emailAddress"
+                                bundle="${msg}" />">
+
+						</div>
+
+
+						<div class="login-button-group">
+							<button type="button" onclick="backToLogin()"
+								class="cta-confirm cta-font cta-gray cta-padding-40">
+								<fmt:message key="header.login.back" bundle="${msg}" />
+							</button>
+
+							<button type="button" onclick="getForgotUserName()"
+								class="cta-confirm cta-font cta-orange cta-padding-40">
+								<fmt:message key="header.login.action2" bundle="${msg}" />
+							</button>
+
+						</div>
+
+                        <!--  phone erro message -->
+                        <span id="errorEmptyMob" class="hide1 empHide"> <label
+                            class="color-red heading-h5"><fmt:message
+                                    key="member.registration.details.label.mobileNo.errorEmptyMob"
+                                    bundle="${msg}" /></label>
+
+
+                        </span>
+                        
+                        <span id="errorInvalidMob" class="hide1 empHide"> <label
+                            class="color-red heading-h5"><fmt:message
+                                    key="member.registration.details.label.mobileNo.errorInvalidMob"
+                                    bundle="${msg}" /></label>
+                        </span>
+
+
+                        <!-- 電郵 Errror message -->
+
+                        <span id="errorEmptyEmailId" class="hide1 empHide"><label
+                            class="color-red heading-h5"><fmt:message
+                                    key="member.registration.details.label.emailAddress.errorEmptyEmailId"
+                                    bundle="${msg}" /></label></span> <span id="errorInvalidEmailId"
+                            class="hide1 empHide"> <label class="color-red heading-h5"><fmt:message
+                                    key="member.registration.details.label.emailAddress.errorInvalidEmailId"
+                                    bundle="${msg}" /></label>
+                        </span> 
+
+					</div>
+					
+					
+                    
+			
+					
+				</div>
+
+			</form>
+
+			<!-- 忘記使用者END -->
+
+
+			<script>
         function getForgotUserName() {
         	$('#forgotusername-err-msg').hide();
         	$('#success-message').hide();
@@ -257,185 +282,202 @@
             }
         }
     </script>
-                                                   
-                                    
-                                <!-- ===================================================================================================== -->
-                                <!-- ========================================忘記密碼===================================================== -->
-                                <!-- ===================================================================================================== -->                                                                  
-                                    
-                              
-             <form name="forgotPasswordForm" id="forgotPasswordForm"
-                        action="forgotPassword" method="post"
-                        commandName="forgotUserPassword" style="display:none">
+
+
+			<!-- ===================================================================================================== -->
+			<!-- ========================================忘記密碼===================================================== -->
+			<!-- ===================================================================================================== -->
+
+
+			<form name="forgotPasswordForm" id="forgotPasswordForm"
+				action="forgotPassword" method="post"
+				commandName="forgotUserPassword" style="display: none">
+
+
+
+
+
+				<div class="login-form">
+					<div
+						style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000"
+						class="login-ajax-loading">
+						<img
+							style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
+							src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
+					</div>
+
+					<div id="hide-field"></div>
+					<div id="forgotpassword-err-msg" class="color-red heading-h5"
+						role="alert" style="display: none;">
+						<P id="error1"></P>
+					</div>
+					<div id="success-message-password" class="alert alert-success"
+						role="alert" style="display: none;">
+						<P id="error1"></P>
+					</div>
+
+
+					<div id="login-err-msg" class="alert alert-danger" role="alert"
+						style="display: none;"></div>
+
+
+
+					<div class="form-container">
+						<h4 class="heading-h4 color-orange">
+							<!--Message 忘記密碼 -->
+							<fmt:message key="header.login.password.forget.part1"
+								bundle="${msg}" />
+						</h4>
+
+
+
+
+
+
+						<!-- 電話 inout -->
+						<div class="form-group">
+							<input type="tel" name="mobileNo"
+								class="form-control check-emp-forgotuserpassoword login-input"
+								id="mobileNo-forgotpassowrd"
+								placeholder="<fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" />"
+								onkeypress="return isNumeric(event)"
+								onblur="validForgetUserPassword();">
+
+
+						</div>
+
+
+
+
+						<!-- -======================================================================- -->
+
+
+
+
+						<!-- 電郵 input-->
+						<div class="form-group">
+							<input type="email" name="emailAddress"
+								class="form-control check-emp-forgotuserpassoword login-input"
+								id="emailAddress-forgotpassowrd"
+								onkeypress="return validationEmail(event);"
+								onblur="validForgetUserPassword();"
+								placeholder="<fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" />">
+						</div>
+
+
+
+
+
+
+
+						<!-- 使用者input -->
+
+						<div class="form-group">
+							<input type="text" name="userName"
+								class="form-control check-emp-forgotuserpassoword login-input"
+								id="userName"
+								placeholder="<fmt:message key="member.registration.details.label.userName" bundle="${msg}" />"
+								onkeypress="return validationUsername(event);"
+								onblur="validForgetUserPassword();">
+						</div>
+
+
+
+
+
+						<div class="login-button-group">
+
+							<button type="button" onclick="backToLogin()"
+								class="cta-confirm cta-font cta-gray cta-padding-40">
+								<fmt:message key="header.login.back" bundle="${msg}" />
+							</button>
+
+
+							<button type="button" onclick="forgotUserPassword()"
+								class="cta-confirm cta-font cta-orange cta-padding-40">
+								<fmt:message key="member.registration.details.action"
+									bundle="${msg}" />
+							</button>
+
+						</div>
+
+
+
+
+
+
+
+
+                        <!--  phone erro message -->
+                        <span id="errorEmptyMob-forgotPassword" class="hide1 empHide color-red heading-h5">
+                            <label class="color-red heading-h5"><fmt:message
+                                    key="member.registration.details.label.mobileNo.errorEmptyMob"
+                                    bundle="${msg}" /></label>
+
+
+                        </span> <span id="errorInvalidMob-forgotPassword" class="hide1 empHide color-red heading-h5">
+                            <label class="color-red heading-h5"><fmt:message
+                                    key="member.registration.details.label.mobileNo.errorInvalidMob"
+                                    bundle="${msg}" /></label>
+                        </span>
+                        <!-- 電郵 Errror message -->
+                        <span id="errorEmptyEmailId" class="hide1 empHide color-red heading-h5"> <label
+                            class="color-red heading-h5"><fmt:message
+                                    key="member.registration.details.label.emailAddress.errorEmptyEmailId"
+                                    bundle="${msg}" /></label></span> <span id="errorEmptyEmailId-forgotpassword"
+                            class="hide1 empHide color-red heading-h5"> <label class="color-red heading-h5"><fmt:message
+                                    key="member.registration.details.label.emailAddress.errorEmptyEmailId"
+                                    bundle="${msg}" /></label>
+                        </span> <span id="errorInvalidEmailId-forgotpassword"
+                            class="hide1 empHide color-red heading-h5"> <label class="color-red heading-h5"><fmt:message
+                                    key="member.registration.details.label.emailAddress.errorInvalidEmailId"
+                                    bundle="${msg}" /></label>
+                        </span>
+
+
+                        <!-- 使用者ERROR -->
+
+                        <span id="errorEmptyUName" class="hide1 empHide color-red heading-h5"> <label
+                            class="color-red heading-h5"><fmt:message
+                                    key="member.registration.details.label.userName.errorEmptyUName"
+                                    bundle="${msg}" /></label>
+                        </span> <span id="errorInvalidUName" class="hide1 empHide color-red heading-h5"> <label
+                            class="color-red heading-h5"><fmt:message
+                                    key="member.registration.details.label.userName.errorInvalidUName"
+                                    bundle="${msg}" /></label>
+                        </span> 
                         
                         
-           
                         
                         
                         
-                            <div class="login-form"  >
-                                <div style="display: none; position: absolute; left: 0; top: 0; bottom: 0; right: 0; background: #000; opacity: 0.8; z-index: 1000" class="login-ajax-loading">
-                                    <img style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%" src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
-                                </div>
-                                                                                           
-                                                                           <div id="hide-field"></div>
-                        <div id="forgotpassword-err-msg" class="alert alert-danger empHide"
-                            role="alert" style="display: none;">
-                            <P id="error1"></P>
-                        </div>
-                        <div id="success-message-password" class="alert alert-success" role="alert"
-                            style="display: none;">
-                            <P id="error1"></P>
-                        </div>
+					</div>
+
+
+
+                    
+
                             
-                                            
-                                            <div id="login-err-msg" class="alert alert-danger"
-                                                role="alert" style="display: none;"></div>
-                                        
-                                                    <a class="close" aria-label="Close" data-dismiss="modal">
-                                        <span aria-hidden="true" style="font-size:30px;">×</span>
-                                        </a>                                         
-                                        
-                                                                                                                                                           
-                                            <div class="form-container" >
-                                                <h2>
-                                                  <!--Message 忘記密碼 -->
-                                                 <fmt:message key="header.login.password.forget.part1" bundle="${msg}" />                                                                                                                                       
-                                                </h2>
-                                                
-                                                
-                                                
-                                                     
-                                                
-                                                
-                                                <!--電話 text-------->                                                
-                                                <h4 class="margin-shift">
-                                                   <fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" />                                                    
-                                                </h4>
-                                                
-                                                
-                                                <!-- 電話 inout -->
-                                                <div class="form-group">                                                   
-                                                        <input type="tel" name="mobileNo" class="form-control check-emp-forgotuserpassoword" id="mobileNo-forgotpassowrd" placeholder="<fmt:message key="member.registration.details.label.mobileNo.placeholder" bundle="${msg}" />"
-                                                        onkeypress="return isNumeric(event)"
-                                                        onblur="validForgetUserPassword();">                                                                                                                
-                                               
-                                               
-                                                </div>
-                                                                                        
-                                               <!--  phone erro message -->
-                                                                    <span id="errorEmptyMob-forgotPassword" class="hide1 empHide"> <label
-                                            class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorEmptyMob" bundle="${msg}" /></label>
-                                            
-                                            
-                                    </span> <span id="errorInvalidMob-forgotPassword" class="hide1 empHide"> <label
-                                            class="text-red"><fmt:message key="member.registration.details.label.mobileNo.errorInvalidMob" bundle="${msg}" /></label>
-                                    </span>
-                                       
-                                       
-                                                    
-                                                                                                                   
-                                          <!-- -======================================================================- -->
-                                                                                                                                                               
-                                                
-                                                <!-- 電郵 text-->                                                
-                                                <h4 class="margin-shift">                                                    
-                                                    <fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" />                                                                                                                                                                                                         
-                                                </h4>
-                                              
-                                              
-                                                                                                                      
-                                                 <!-- 電郵 input-->                                                
-                                                <div class="form-group">
-                                                    <input type="email"
-                                                name="emailAddress" class="form-control check-emp-forgotuserpassoword" id="emailAddress-forgotpassowrd"
-                                                onkeypress="return validationEmail(event);"
-												onblur="validForgetUserPassword();"
-                                                placeholder="<fmt:message key="member.registration.details.label.emailAddress.placeholder" bundle="${msg}" />">
-                                                </div>
-                                                
-                                                
-                                                
+                            
+				</div>
 
-                                                
-                                                <!-- 電郵 Errror message -->
-                                                <span id="errorEmptyEmailId" class="hide1 empHide"> <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label></span>                                             
-                                                <span id="errorEmptyEmailId-forgotpassword" class="hide1 empHide">
-                                                     <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorEmptyEmailId" bundle="${msg}" /></label>
-                                                </span>
+			</form>
+        <div class="login-form-footer">
+            <h5>
+                <span class="color-gray heading-h5"><fmt:message key="header.login.registration.heading" bundle="${msg}" /></span>
+                <a href="${pageContext.request.contextPath}/${language}/joinus" class="color-orange heading-h5"><fmt:message key="header.login.registration.action" bundle="${msg}" /></a>
+            </h5>
+        </div>
 
-                                    
-                                                 <span id="errorInvalidEmailId-forgotpassword" class="hide1 empHide"> 
-                                                     <label class="text-red"><fmt:message key="member.registration.details.label.emailAddress.errorInvalidEmailId" bundle="${msg}" /></label>
-                                                 </span>
-                                                
-                                                
-                                                
-                                                <!-- 使用者text -->
-                                                   <h4 class="margin-shift">                                                    
-                                                   <fmt:message key="member.registration.details.label.userName" bundle="${msg}" />                                                                                                                                                                                                     
-                                                </h4>
-                                                
-                                                
-                                                
-                                                
-                                                
-                                                <!-- 使用者input -->
-                                                
-                                                    <div class="form-group">
-                                                <input type="text" name="userName"
-                                                class="form-control check-emp-forgotuserpassoword" id="userName" placeholder="<fmt:message key="member.registration.details.label.userName.placeholder" bundle="${msg}" />"
-                                                onkeypress="return validationUsername(event);"
-                                                onblur="validForgetUserPassword();">
-                                                </div>
-                                                
-                                                
-                                                <!-- 使用者ERROR -->
-                                                
-                                                 <span id="errorEmptyUName" class="hide1 empHide"> <label
-                                                    class="text-red"><fmt:message key="member.registration.details.label.userName.errorEmptyUName" bundle="${msg}" /></label>
-                                                 </span> 
-                                            
-                                            
-                                            <span id="errorInvalidUName" class="hide1 empHide"> <label
-                                                    class="text-red"><fmt:message key="member.registration.details.label.userName.errorInvalidUName" bundle="${msg}" /></label>
-                                            </span>
-                                                
-                                                
-                                                 <br> 
-                                                
-                                  
-                                                <div class="row">
-                                                    <div class="col-xs-6 col-sm-6 col-lg-4 col-md-4">
-                                                                                                              
-                                                       <button type="button" onclick="backToLogin()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="header.login.back" bundle="${msg}" /></button>                                                    
-                                                    
-                                                    </div>
-                                                
-                                                    <div class="col-xs-6 col-sm-6 col-lg-4 col-md-4">
-                                                                                                              
-                                                       <button type="button" onclick="forgotUserPassword()" class="bdr-curve btn btn-primary btn-lg "><fmt:message key="member.registration.details.action" bundle="${msg}" /></button>                                                    
-                                                    
-                                                    </div>
-                                                    
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                             
-                                            </div>
-                             </div> 
-                                   
-                                </form>    
-                                    
-            
-                                    
-                                    
-                                
-                                
-                                
-                                
-                        
 
-    <script>
+
+
+
+
+
+
+
+			<script>
 	    function validForgetUserPassword(){
 	    	$('#forgotpassword-err-msg').hide();
 	        $('#success-message-password').hide();
@@ -550,41 +592,57 @@
                         });
             }
         }
-    </script>               
-                                    
-            </div>
-        </div>
-    </div>
-    <!-- payment error popup  -->
-    <!-- Modal -->
-	<div class="modal fade bs-example-modal-lg  in" id="paymentErrorPopup" tabindex="-1" role="dialog" aria-hidden="true">
-	  <div class="modal-dialog modal-lg">
-	    <div class="modal-content plan-modal">
-            <div class="modal-body">
-                <a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true" style="font-size:30px;">×</span></a>
-                <div class="form-container" style="padding-top: 10px;">
-                    <br/>
-                    <fmt:message key="payment.duplicate.error" bundle="${msg}" />
-                    <br/>
-                    <br/>
-                    <br/>
-                </div>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-	
-	<div id="loading-overlay" class="modal fade bs-loading-modal-lg" tabindex="-1" role="dialog"  aria-hidden="true" style="display: none;" >
-	    <div class="modal-dialog modal-lg loading-dialog">
-	        <div class="modal-content plan-modal loading-modal">
-	           <img src="<%=request.getContextPath()%>/resources/images/loading.gif" width="300"/>
-	        </div>
-	    </div>
-	</div>
-    
+    </script>
 
-    
-    <script>
+		</div>
+		
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- payment error popup  -->
+<!-- Modal -->
+<div class="modal fade bs-example-modal-lg  in" id="paymentErrorPopup"
+	tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content plan-modal">
+			<div class="modal-body">
+				<a class="close" aria-label="Close" data-dismiss="modal"><span
+					aria-hidden="true" style="font-size: 30px;">×</span></a>
+				<div class="form-container" style="padding-top: 10px;">
+					<br />
+					<fmt:message key="payment.duplicate.error" bundle="${msg}" />
+					<br /> <br /> <br />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="loading-overlay" class="modal fade bs-loading-modal-lg"
+	tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog modal-lg loading-dialog">
+		<div class="modal-content plan-modal loading-modal">
+			<img src="<%=request.getContextPath()%>/resources/images/loading.gif"
+				width="300" />
+		</div>
+	</div>
+</div>
+
+
+
+<script>
     
     function backToLogin(){
     	$('#loginform-pop').fadeIn();
@@ -695,6 +753,10 @@
                $("#mobileNo-forgotpassowrd").removeClass("invalid-field");
                $("#emailAddress-forgotpassowrd").removeClass("invalid-field");
                $("#userName").removeClass("invalid-field");
+               
+
+               $('.login-info').addClass('hidden');
+               $('#loginpopup .modal-dialog').removeClass('loginpopupext');
            })
            
            
@@ -741,7 +803,7 @@
 
 
 
-    <!--/ Get promotion code popup-->
+<!--/ Get promotion code popup-->
 
 <script>
     function activeDiv(id, selected) {
