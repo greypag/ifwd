@@ -31,7 +31,7 @@
 <bean id="configProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
     <property name="locations">
         <list>
-            <value>file:${TOMCAT_HOME}/conf/ROOT/config.properties</value>
+            <value>file:${TOMCAT_HOME}/conf/fna/config.properties</value>
         </list>
     </property>
 </bean>
