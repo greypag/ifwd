@@ -436,7 +436,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		HttpSession hashSession = request.getSession();
 		if (responseJsonObj.get("result") != null){
-			hashSession.setAttribute("hashKey", responseJsonObj.get("hash_key"));
+			JSONObject jobject = (JSONObject)responseJsonObj.get("result");
+			hashSession.setAttribute("hashKey", jobject.get("hash_key"));
 		}
 		return responseJsonObj.get("result") != null ? (JSONObject) responseJsonObj.get("result"):new JSONObject();
 	}
