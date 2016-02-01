@@ -291,10 +291,13 @@ a {
   width: 100%;
   background-color: #fff;
   position: absolute;
+  /*ben160129
   margin-bottom: 20px;
   margin-right: 10%;
+  */
   padding: 20px;
 }
+/*
 #loginform2 #login-err-msg {
   white-space: normal;
 }
@@ -302,6 +305,7 @@ a {
   float: left;
   width: 100%;
 }
+*/
 .form-container {
   padding: 2px 20px 20px;
 }
@@ -324,14 +328,12 @@ h4.margin-shift {
 .login-form h4 {
   color: #061d2a;
   font-size: 18px;
-  font-weight: normal !important;
   font-family: Calibri, sans-serif;
 }
 .login-form h4 a {
   color: #f68a1d;
   font-size: 18px;
   padding: 4px 0px;
-  font-weight: 500 !important;
 }
 .fwd-savie-wrapper .sub-link {
 	text-decoration: underline;
@@ -541,13 +543,13 @@ ul.maintabs li a:hover {
 	  line-height: 31.5px;
 	}
 }
-
+/*
 @media screen and (min-width: 768px) {
 	#loginpopup .modal-dialog {
 	  width: 600px;
 	}
 }
-
+*/
 @media screen and (max-width: 991px) {
 	.navbar-header {
 	  float: none;
@@ -821,3 +823,5 @@ h6 {
 .empHide .text-red{
 	font-weight: normal;
 }
+
+

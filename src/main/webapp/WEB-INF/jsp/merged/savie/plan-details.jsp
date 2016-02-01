@@ -225,7 +225,6 @@ var context = "${pageContext.request.contextPath}";
 	                                </div>                                
 	                            </div>
 	                     <!--   <div class="investment-summary">
-									<p class="surrender-benefit"><fmt:message key="savie.planDetails.Surrender" bundle="${msg}" /> <span><fmt:message key="savie.planDetails.benefit" bundle="${msg}" /></span> (HK$ ‘000)</p>
 									<div id="illustration-chart"></div>
 									<div class="drag-more">
 										<div>
@@ -508,9 +507,15 @@ var context = "${pageContext.request.contextPath}";
 					if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
 						$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
 						$('#thankYouModal').modal('show');
-					}
-					else{
-						$('#loginpopup').modal('show');
+					}else{
+                        $('#loginpopup').modal('show');
+                        
+                        //$('.login-info').css('display','block');
+                        $('.login-info').removeClass('hidden');
+                        $('#loginpopup .modal-dialog').addClass('loginpopupext');
+
+
+                        //$('#loginpopup2').modal('show');
 					}
 			    });	
 
