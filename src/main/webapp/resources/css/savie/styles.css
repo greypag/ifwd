@@ -17004,6 +17004,7 @@ a:focus {
     bottom:auto;
     left:auto;
     right:auto;
+    outline-color:transparent;
 }
 #loginpopup .close{opacity: 1;filter: alpha(opacity=100);}
 #loginpopup .close span{color:#ebebeb}
