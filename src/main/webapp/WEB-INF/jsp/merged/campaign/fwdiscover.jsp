@@ -118,6 +118,16 @@
 	                <div class="carousel-inner clearfix">
 	                    <div class="item active">
 	                        <div class="row">
+                                <div class="col-xs-4">
+                                    <a href="#offerCny"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/annualtravel.png" class="img-responsive"></a>
+                                    <div class="gray-hover hidden hidden-xs hidden-sm">
+                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail0.price" bundle="${msg}" /></p>
+                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail0.copy" bundle="${msg}" /></p>
+                                    </div>
+                                    <span class="text-center">
+                                        <p><fmt:message key="Fanfare.landingpage.thumbnail0" bundle="${msg}" /></p>
+                                    </span>
+                                </div>	                        
 	                            <div class="col-xs-4">
 	                            	<a href="#offer1"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/annualtravel.png" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
@@ -138,22 +148,22 @@
 	                            		<p><fmt:message key="Fanfare.landingpage.thumbnail2" bundle="${msg}" /></p>
 	                            	</span>
 	                            </div>
-	                            <div class="col-xs-4">
-	                            	<a href="#offer3"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/4daysingletrave.png" class="img-responsive"></a>
-	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
-	                            		<p class="price"><fmt:message key="Fanfare.landingpage.thumbnail3.price" bundle="${msg}" /></p>
-	                            		<p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail3.copy" bundle="${msg}" /></p>
-	                            	</div>
-	                            	<span class="text-center">
-	                            		<p><fmt:message key="Fanfare.landingpage.thumbnail3" bundle="${msg}" /></p>
-	                            	</span>
-	                            </div>
 	                        </div>
 	                        <!--/row-->
 	                    </div>	
 
 	                    <div class="item">
 	                        <div class="row">
+                                <div class="col-xs-4">
+                                    <a href="#offer3"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/4daysingletrave.png" class="img-responsive"></a>
+                                    <div class="gray-hover hidden hidden-xs hidden-sm">
+                                        <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail3.price" bundle="${msg}" /></p>
+                                        <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail3.copy" bundle="${msg}" /></p>
+                                    </div>
+                                    <span class="text-center">
+                                        <p><fmt:message key="Fanfare.landingpage.thumbnail3" bundle="${msg}" /></p>
+                                    </span>
+                                </div>	                        
 	                            <div class="col-xs-4">
 	                            	<a href="#offer4"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/1yearhomeplan.jpg" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
@@ -199,6 +209,50 @@
 				
 				<!-- PLANS -->
 				<div class="plans-holder fwdiscover-container">
+                <!-- CNY PROMOTION START -->
+                    <div class="fwdiscover-plan">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+
+                        <div class="plan-details-box gray-bg left">
+                            <div class="plan-desc">
+                                <div class="upper-desc">
+                                    <p class="title"><fmt:message key="Fanfare.landingpage.offerCny" bundle="${msg}" /></p>
+                                    <p class="promo"><fmt:message key="Fanfare.landingpage.offerCny.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offerCny.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerCny.subtitle3" bundle="${msg}" /></span></p>
+                                </div>
+                                <div class="lower-desc">
+                                    <ul>
+                                        <li><fmt:message key="Fanfare.landingpage.offerCny.bullet1" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offerCny.bullet2" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offerCny.bullet3" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offerCny.bullet4" bundle="${msg}" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="desc-and-button-holder clearfix">
+                                <div class="promo-desc text-center">
+                                    <div class="clearfix">
+                                        <div class="holder">
+                                            <p class="title"><fmt:message key="Fanfare.landingpage.offerCny.box1" bundle="${msg}" /></p>
+                                            <p class="value">${count0}</p>
+                                        </div>
+                                        <div class="holder date hidden-xs hidden-sm">
+                                            <fmt:message key="Fanfare.enddate" bundle="${msg}" />
+                                        </div>
+                                        <div class="holder date hidden-md hidden-lg">
+                                            <fmt:message key="Fanfare.enddate.mobile" bundle="${msg}" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="details-button-holder text-center" name="offerCny">
+                                    <button class="details-btn" id="cny-plan-button" data-target="offerCny-details"><fmt:message key="Fanfare.landingpage.offerCny.button" bundle="${msg}" /></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end CNY PROMOTION -->				
 					<!-- first plan -->
 					<div class="fwdiscover-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
@@ -567,6 +621,39 @@
                     </div>
                 </div>				
 				<!-- 5 plans -->
+				<!-- CNY PROMOTION -->
+                <div class="modal fade fwdiscover-modal" id="offerCny-details" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <p class="title"><fmt:message key="Fanfare.landingpage.offerCny" bundle="${msg}" /></p>
+                            <p class="promo"><fmt:message key="Fanfare.landingpage.offerCny.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offerCny.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerCny.subtitle3" bundle="${msg}" /></span></p>
+
+                            <ul>
+                                <li><fmt:message key="Fanfare.landingpage.offerCny.bullet1" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offerCny.bullet2" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offerCny.bullet3" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offerCny.bullet4" bundle="${msg}" /></li>
+                            </ul>
+
+                            <div class="details-button-holder text-center">
+                                <button class="details-btn modal-grab-button" id="modal-grab-button-cny"><fmt:message key="Fanfare.grab" bundle="${msg}" /></button>
+                            </div>
+
+                            <div class="terms-and-condition">
+                                <p class="title"><fmt:message key="Fanfare.clickdetail.lightbox.terms" bundle="${msg}" /></p>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer1" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
+                            </div>
+
+                            <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- END OF CNY PROMOTION -->				
 				<div class="modal fade fwdiscover-modal" id="offer1-details" role="dialog" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
@@ -854,7 +941,18 @@
 				$('#offer-details-promotion-code').modal('show');
 			}
 		});
-
+		
+	    $("#cny-plan-button").on('click', function(){
+            $('#offerCny-details').modal('show');
+        });
+        $('#modal-grab-button-cny').click(function(){
+            if('<%=username%>' == 'null') {
+                loginpopup("5");
+            }else {
+                assignPromoCode("5");
+            }
+        });		
+		
 		$("#first-plan-button").on('click', function(){
 			$('#offer1-details').modal('show');
 	    });
