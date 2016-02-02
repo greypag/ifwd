@@ -1,6 +1,8 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.*,com.ifwd.fwdhk.model.UserDetails" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-
 <div class="modal fade" id="session-alert"
         tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true" style="display: none;">
@@ -27,54 +29,82 @@
 
  
 <div class="session-debug hidden-xs hidden-sm hidden-md hidden-lg"> 
-${(pageContext.session.lastAccessedTime-pageContext.session.creationTime)/1000}   
-<c:out value="${pageContext.session.id}"/>
-
-<h3>Session date values formatted as Dates</h3>
-
-<jsp:useBean id="timeValues" class="java.util.Date"/>
-
-<c:set target="${timeValues}" value="${pageContext.session.creationTime}" property="time"/>
-The creation time: <fmt:formatDate value="${timeValues}" type="both" dateStyle="medium" />
-
-<br><br>
-
-<c:set target="${timeValues}" value="${pageContext.session.lastAccessedTime}" property="time"/>
-The last accessed time:
-<fmt:formatDate value="${timeValues}" type="both" dateStyle="short" />
-
-<c:out value="${timeValues}"/>
-<%
-HttpSession sessionHEHE = request.getSession(true);
-//sessionHEHE.setMaxInactiveInterval(60);
-out.println(sessionHEHE.getMaxInactiveInterval());
-%>
+    <h3>Session ID:<c:out value="${pageContext.session.id}"/></h3>
+    <h3>Session date values formatted as Dates</h3>
+    
+    <jsp:useBean id="timeValues" class="java.util.Date"/>
+    
+    <c:set target="${timeValues}" value="${pageContext.session.creationTime}" property="time"/>
+    The creation time: <fmt:formatDate value="${timeValues}" type="both" dateStyle="medium" />
+    
+    <br><br>
+    
+    <c:set target="${timeValues}" value="${pageContext.session.lastAccessedTime}" property="time"/>
+    The last accessed time:
+    <fmt:formatDate value="${timeValues}" type="both" dateStyle="short" />
+    
+    <c:out value="${timeValues}"/>
+	<%
+/*     UserDetails currUser = new UserDetails();
+    if (session.getAttribute("userDetails") != null) {
+    	currUser = (UserDetails) session.getAttribute("userDetails");
+    } */
+	long creationTime = session.getCreationTime() + (session.getMaxInactiveInterval()* 1000);
+	long now = new Date().getTime();
+	if (session.getAttribute("userDetails") != null) {
+		if ((int)(creationTime - now) < 0) {            
+		    //session.invalidate();
+		    //request.getSession();
+		}
+		  out.println(creationTime);
+		    out.println(now);
+	}
+	 %>
+	 <%=creationTime%>
+	 <%=now%>
+<%-- 	 <%=currUser.getFullName()%>  --%>  
 </div>
 
 
 <script type="text/javascript">
-   //console.log(${pageContext.session.creationTime/1000});
-   var sessionTimer = ${pageContext.session.creationTime} + ${pageContext.session.maxInactiveInterval * 1000};
-   
-   /*$("#session-alert-counter").countdown(new Date(sessionTimer), function(event) {
-       $(this).html(
-         event.strftime('<div class="h1 orange">%M</div> <div class="h6 gary">min</div> ' + '<div class="h1 orange">%S</div> <div class="h6 gary">sec</div> ')
-       );
-     });*/
-   $("#session-alert-counter").countdown(new Date(sessionTimer),{elapse: true}).on('update.countdown', function(event) {
-       if(event.elapsed){
-    	   <%-- window.location = "<%=request.getContextPath()%>"; --%>
-    	   $(this).html(event.strftime('Expired after<div class="h1 orange">%M</div> <div class="h6 gary">min</div> ' + '<div class="h1 orange">%S</div> <div class="h6 gary">sec</div> ')); 
-       }else{
-    	   $(this).html(event.strftime('Expire in<div class="h1 orange">%M</div> <div class="h6 gary">min</div> ' + '<div class="h1 orange">%S</div> <div class="h6 gary">sec</div> ')); 
-       }
-   });     
-   $( document ).ready(function() {
-	   console.log((new Date(sessionTimer).getTime() - new Date().getTime())/1000);
-	   if((new Date(sessionTimer).getTime() - new Date().getTime())/1000 <= 500){
-		    $('#session-alert').modal('show');
-	   }
-   });
+   console.log(${pageContext.session.maxInactiveInterval});
+   var sessionTimer = <%=creationTime%>;
+   <% if (session.getAttribute("userDetails") != null && request.getAttribute("controller") == "Savie") {%>
+	   $("#session-alert-counter").countdown(new Date(sessionTimer),{elapse: true}).on('update.countdown', function(event) {
+	       if(event.elapsed){
+	           //$(this).html('Expired');
+	           $( "#session-save" ).on( "click", function() {
+	                <%-- location.replace("<%=request.getContextPath()%>/${language}"); --%>
+	                $.ajax({
+	                   url: "",
+	                   context: document.body
+	                 }).done(function() {
+	                     //location.reload(true);
+	                 });               
+	           });
+	           //$(this).html(event.strftime('Expired after<div class="h1 orange">%M</div> <div class="h6 gary">min</div> ' + '<div class="h1 orange">%S</div> <div class="h6 gary">sec</div> '));
+	       }else{
+	           $( "#session-save" ).on( "click", function() {
+	                /*$.ajax({
+	                   url: "",
+	                   context: document.body
+	                 }).done(function() {
+	                     location.reload(true);
+	                 }); */                
+	               <%-- location.replace("<%=request.getContextPath()%>/${language}"); --%>
+	           });             
+	           $(this).html(event.strftime('Expire in<div class="h1 orange">%M</div> <div class="h6 gary">min</div> ' + '<div class="h1 orange">%S</div> <div class="h6 gary">sec</div> ')); 
+	           //console.log("hehe");
+	       }
+	   });
+	   $(function() {    	 
+		    //console.log((new Date(sessionTimer).getTime() - new Date().getTime())/1000); 
+	       if((new Date(sessionTimer).getTime() - new Date().getTime())/1000 <= 540){
+	    	   $('#session-alert').modal('show');
+	       }
+	   });
+	   <% } %>
+   <%-- <%HttpSession mySession = request.getSession(); %> --%>
    /*function isSessionExpire(mySession){
 	   var timeDiff = (new Date(mySession).getTime() - new Date().getTime())/1000;
 	   if( timeDiff <= 500 && timeDiff >= 1 ){

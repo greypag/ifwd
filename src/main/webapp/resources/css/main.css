@@ -10745,3 +10745,47 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 }
 /* /login */
 /* /style ben 160201 */
+
+/******** session pop up for scss later ********/
+#session-alert .fwd-modal-wrapper{
+    width: 435px;
+}
+.fwd-modal-wrapper .modal-body{
+    padding: 40px;
+}
+.fwd-modal-wrapper .modal-body button.close{
+    font-weight: bold;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.fwd-modal-wrapper .separator{
+    padding-bottom: 40px;
+}
+@media all and (max-width: 767px){
+    #session-alert .fwd-modal-wrapper{
+        width: 100%;
+        margin: 0 auto;
+    }
+    button#session-extend{
+       margin-bottom: 10px;
+    }   
+}
+@media all and (min-width: 768px) and (max-width: 991px){
+    #session-alert .fwd-modal-wrapper{
+        width: 354px;
+        margin: 0 auto;
+    }
+    button#session-extend{
+       margin-bottom: 10px;
+    }   
+} 
+.gary{
+    color: #505759;
+}
+.orange{
+    color: #ff8200;
+}
+#session-alert-counter * {
+    display: inline;
+}
