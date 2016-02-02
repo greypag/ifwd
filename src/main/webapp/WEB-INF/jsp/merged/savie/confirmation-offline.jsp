@@ -10,8 +10,6 @@
 <c:set var="captchaLang" value="${language == 'tc' ? 'zh-TW' : 'en'}" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
@@ -21,7 +19,7 @@ var affiliate = "${affiliate}";
       boolean isSaleActiveClass = true;
       boolean isEservicesActiveClass = false;
     %>         
-<div class="fwd-savie-wrapper fwd-evergreen-wrapper">
+<div class="fwd-savie-wrapper">
       <div class="container-fluid fwd-full-container">
                 <div class="application-page-header et-header-browse">
           <div class="et-back-arrow hidden-xs hidden-sm">
@@ -57,22 +55,23 @@ var affiliate = "${affiliate}";
       </div>
         
       <div class="application-flux thank-you">
-      <div class="fwd-container-limit">
-		<ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs hidden-sm hidden-xs">
-             <li><a href="#">Save</a></li>
-             <li class="divider"><i class="fa fa-play"></i></li>
-             <li><a href="#">Save Insurance Plan </a></li>
-             <li class="divider last"><i class="fa fa-play"></i></li>
-             <li class="active-bc" id="et-active-bc-menu">Plan details</li>
-       	 </ol>
-        </div>
-        <div class="container-fluid fwd-container thank-you-container savie-regular-confirmation">
+        <div class="container-fluid fwd-container thank-you-container">
+          <div class="fwd-container hidden-xs hidden-sm clearfix">
+            <div class="breadcrumbs pull-left">
+              <ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
+                <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
+                <li class="divider"><i class="fa fa-play"></i></li>
+                <li><a href="#"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
+                <li class="divider last"><i class="fa fa-play"></i></li>
+                <li class="active-bc"><fmt:message key="breadcrumb.savie.confirmation" bundle="${msg}" /></li>
+              </ol>
+            </div>
+          </div>
           <h1><fmt:message key="saviee.appointment.h1" bundle="${msg}" /><!--<br class="visible-xs" /><fmt:message key="savie.confirmation.offline.signing.up" bundle="${msg}" />--></h1>       
           <div class="details-container details-full" id="printable-area">
             <div class="row">
               <div class="col-xs-12">
-                <h2 class="bring-things"><span class="hidden-md hidden-lg">Things to bring</span><span class="hidden-xs hidden-sm">Offline procedure</span></h2>
-								<div class="gray-divider hidden-md hidden-lg"></div>
+                <h2 class="bring-things"><fmt:message key="oceanpark.confirmation.please.bring" bundle="${msg}" /></h2>
                 <div class="row offline-procedure-row">
                   <div class="col-xs-12 col-md-4">
                     <div class="offline-procedure text-center">
@@ -97,59 +96,53 @@ var affiliate = "${affiliate}";
                     <div class="offline-procedure procedure-3 text-center">
                       <span class="step">3</span>
                       <p><fmt:message key="saviee.appointment.doucmenttobring3" bundle="${msg}" /></p>
-                                            <!--  <p class="step3-2"><fmt:message key="oceanpark.confirmation.or.settle" bundle="${msg}" /></p>-->
-                                            <div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/confirmation-3.png" class="img-responsive" /></div>
+                                            <p class="step3-2"><fmt:message key="oceanpark.confirmation.or.settle" bundle="${msg}" /></p>
+                                            <div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-3-mob.png" class="img-responsive hidden-md hidden-lg" /><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-3.png" class="img-responsive hidden-xs hidden-sm" /></div>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- <div class="col-xs-12">
+              <div class="col-xs-12">
                                 <div class="oceanpark-foot-message">
                                     <p><fmt:message key="oceanpark.confirmation.foot.part1" bundle="${msg}" /> <b><fmt:message key="oceanpark.confirmation.foot.part2" bundle="${msg}" /></b> <fmt:message key="oceanpark.confirmation.foot.part3" bundle="${msg}" /></p>
                 </div>
-              </div>  -->
+              </div>
                             <div class="col-xs-12">
-								<h2 class="what-next"><fmt:message key="saviee.appointment.nexstep.title" bundle="${msg}" /></h2>
-                                <div class="gray-divider hidden-md hidden-lg"></div>
+                            <h2 class="h2-orange"><fmt:message key="saviee.appointment.nexstep.title" bundle="${msg}" /></h2>
                                 <div class="whats-next">
-                                    <ol>	
-										<li>You will receive a confirmation email from us regarding your appointment details.</li>
-										<li>Visit the selected Customer Service Centre at the scheduled date and time.</li>
-										<li>Bring along the required documents for the application purpose.</li>
-										<li>We accept bank direct debit for regular monthly premium payments. You can decide how much lump sum premium to apply during the application process.</li>
-									</ol>
+                                    <p><fmt:message key="saviee.appointment.nextstep.1" bundle="${msg}" /></p>
+                                    <p><fmt:message key="saviee.appointment.nextstep.2" bundle="${msg}" /></p>
+                                    <p><fmt:message key="saviee.appointment.nextstep.3" bundle="${msg}" /></p>
+                                    <p><fmt:message key="saviee.appointment.nextstep.4" bundle="${msg}" /></p>
                                 </div>
                             </div>
                             <div class="col-xs-12">
                                 <div class="detail">
-                                    <h2><fmt:message key="saviee.appointment.appointmentdescription.title" bundle="${msg}" /></h2>
-                                    <div class="gray-divider hidden-md hidden-lg"></div>
-                                    <div class="appointment-detail-holder">
-	                                    <div class="appointment-detail clearfix">
-	                                        <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription1" bundle="${msg}" /></label>
-	                                        <span class="pull-left">${preferred_date }</span>
-	                                    </div>
-	                                    <div class="appointment-detail clearfix">
-	                                        <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription2" bundle="${msg}" /></label>
-	                                        <span class="pull-left">${preferred_time }</span>
-	                                    </div>
-	                                    <div class="appointment-detail clearfix">
-	                                        <label class="pull-left">Branch</label>
-	                                        <span class="pull-left">${centreDetails.serviceCentreName }</span>
-	                                    </div>
-	                                    <div class="appointment-detail clearfix">
-	                                        <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription4" bundle="${msg}" /></label>
-	                                        <span class="pull-left">${centreDetails.address }</span>
-	                                    </div>
-	                                    <div class="appointment-detail clearfix">
-	                                        <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription5" bundle="${msg}" /></label>
-	                                        <span class="pull-left">${applicationNumber }</span>
-	                                    </div>
-	                                    <div class="appointment-detail clearfix">
-	                                        <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription6" bundle="${msg}" /></label>
-	                                        <span class="pull-left">${centreDetails.phone }</span>
-	                                    </div>
-	                                   </div>
+                                    <h2 class="h2-orange"><fmt:message key="saviee.appointment.appointmentdescription.title" bundle="${msg}" /></h2>
+                                    <div class="appointment-detail clearfix">
+                                        <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription1" bundle="${msg}" /></label>
+                                        <span class="pull-left">${preferred_date }</span>
+                                    </div>
+                                    <div class="appointment-detail clearfix">
+                                        <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription2" bundle="${msg}" /></label>
+                                        <span class="pull-left">${preferred_time }</span>
+                                    </div>
+                                    <div class="appointment-detail clearfix">
+                                        <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription3" bundle="${msg}" /></label>
+                                        <span class="pull-left">${centreDetails.serviceCentreName }</span>
+                                    </div>
+                                    <div class="appointment-detail clearfix">
+                                        <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription4" bundle="${msg}" /></label>
+                                        <span class="pull-left">${centreDetails.address }</span>
+                                    </div>
+                                    <div class="appointment-detail clearfix">
+                                        <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription5" bundle="${msg}" /></label>
+                                        <span class="pull-left">${applicationNumber }</span>
+                                    </div>
+                                    <div class="appointment-detail clearfix">
+                                        <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription6" bundle="${msg}" /></label>
+                                        <span class="pull-left">${centreDetails.phone }</span>
+                                    </div>
                                     <!--<div class="appointment-detail clearfix">
                                         <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription6" bundle="${msg}" /></label>
                                         <span class="pull-left">${centreDetails.operationHours }</span>
@@ -157,29 +150,27 @@ var affiliate = "${affiliate}";
                                     <div class="appointment-detail clearfix print hidden-xs hidden-sm">
                                         <div class="print-image-holder">
                                             <img src="<%=request.getContextPath()%>/resources/images/savie/print-logo.png" alt="Print" class="">
-                                            <p id="print-this-page"><fmt:message key="savie.confirmation.offline.Print" bundle="${msg}" /></p>
+                                            <p onclick="window.print()"><fmt:message key="savie.confirmation.offline.Print" bundle="${msg}" /></p>
                                         </div>
-                                        <div id="img-append"></div>
                                     </div>
                                     <!--<div class="appointment-back-home pull-left pad-none">
                                         <a class="bdr-curve btn btn-primary bck-btn" href="<%=request.getContextPath()%>/${language}/savings-insurance"><fmt:message key="cta.back.to.home" bundle="${msg}" /></a>
-                                    </div>
+                                    </div>-->
                                     <div class="text-center">
                                       <button class="btn next confirm-appointment" type="button" id="btn-back-to-home"><fmt:message key="cta.back.to.home" bundle="${msg}" /></button>
-                                    </div>     -->                            
-                                    <!-- <div class = "share-container text-center" >        
-                                      <p><fmt:message key="savie.confirmation.offline.Follow.us" bundle="${msg}" /></p>     
+                                    </div>                                
+                                    <div class = "share-container text-center" >        
+                                      <!--<p><fmt:message key="savie.confirmation.offline.Follow.us" bundle="${msg}" /></p>     
                                       < div class = "clearfix" >        
                                       <a href="#"> <i class="fa fa-facebook"></i></a>   
                                       <a href="#"> <i class="fa fa-twitter"></i></a>    
                                       <a href="#"> <i class="fa fa-google-plus"> </i></a>
-                                      </div>
-                                    </div>--> 
+                                      </div>--> 
+                                    </div>
                                 </div>
                             </div>
             </div>
           </div>
-          <button id="back-home-btn" type="button" class="btn next">Back to home</button>
         </div>
       </div>
             <!-- BACK TO TOP -->
@@ -201,27 +192,14 @@ var affiliate = "${affiliate}";
     <script src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/savie/date.format.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/jquery.timepicker.min.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/html2canvas.js"></script>
-    <script src="<%=request.getContextPath()%>/resources/js/jquery.plugin.html2canvas.js"></script>
     
     <script type="text/javascript">
       $(function() {
-   	  	if(getWidth() < 992) {
-        	$('body').css('margin-top','98px');
-      	}
         $('#print-this-page').click(function(){
-        	html2canvas($('#printable-area'), {
-			    onrendered: function(canvas) {
-			    	$('#img-append').append(canvas);				    	
-			    }
-			});
-			setTimeout(function(){ 
-				w=window.open();
-				w.document.write($('#img-append'));
-				w.print();
-				w.close();
-			}, 2000);
-			
+          w=window.open();
+          w.document.write($('#printable-area').html());
+          w.print();
+          w.close();
         });
         
         $('#btn-back-to-home').on('click', function(e) {
