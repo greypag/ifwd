@@ -254,7 +254,7 @@
                     </div>
                     <!-- end CNY PROMOTION -->				
 					<!-- first plan -->
-					<div class="fwdiscover-plan">
+					<div class="fwdiscover-plan paused-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -298,7 +298,7 @@
 					</div>
 					<!-- end first plan -->
 					<!-- second plan -->
-					<div class="fwdiscover-plan">
+					<div class="fwdiscover-plan paused-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-14dayssingletrip.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-14dayssingletrip-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 						<div class="plan-details-box red-bg right">
@@ -340,7 +340,7 @@
 					</div>
 					<!-- end second plan -->
 					<!-- third plan -->
-					<div class="fwdiscover-plan">
+					<div class="fwdiscover-plan paused-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-4daysingletravel.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-4daysingletravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -383,7 +383,7 @@
 					</div>
 					<!-- end third plan -->
 					<!-- fourth plan -->
-					<div class="fwdiscover-plan">
+					<div class="fwdiscover-plan paused-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -426,7 +426,7 @@
 					</div>
 					<!-- end fourth plan -->
 					<!-- fiffth plan -->
-					<div class="fwdiscover-plan">
+					<div class="fwdiscover-plan paused-plan">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
