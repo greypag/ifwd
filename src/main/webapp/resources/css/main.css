@@ -10429,8 +10429,6 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
         padding: 20px 0;
     }  
 } 
-
-
 /* style ben 160202 */
 /* heading */
 .heading-h1{font-size:36px;display:inline;font-weight: bold;margin:0;padding:0;}
@@ -10550,6 +10548,7 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
     padding:0;
 }
 #loginpopup {
+    display:table;
     position: absolute;
     height: 100%;
     width:100%;
@@ -10690,6 +10689,9 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
     text-align: center;
     display:inline-block;
 }
+#loginpopup .modal-open {
+    overflow: auto;
+}
 #loginpopup .login-title-wrapper{display:none;}
 #loginform-pop .login-error-wrapper{display:inline;padding-left:20px;}
 @media (max-width:991px) {
@@ -10705,7 +10707,7 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
     top: 0;
     width: 100%;
     z-index: 999999;
-}
+    }
     #loginpopup .modal-dialog{
         height: 100%;
         margin: auto;
@@ -10759,4 +10761,3 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 }
 /* /login */
 /* /style ben 160202 */
-

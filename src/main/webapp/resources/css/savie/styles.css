@@ -16996,6 +16996,7 @@ a:focus {
     padding:0;
 }
 #loginpopup {
+	display:table;
     position: absolute;
     height: 100%;
     width:100%;
@@ -17136,6 +17137,9 @@ a:focus {
     text-align: center;
     display:inline-block;
 }
+#loginpopup .modal-open {
+    overflow: auto;
+}
 #loginpopup .login-title-wrapper{display:none;}
 #loginform-pop .login-error-wrapper{display:inline;padding-left:20px;}
 @media (max-width:991px) {
@@ -17151,7 +17155,7 @@ a:focus {
     top: 0;
     width: 100%;
     z-index: 999999;
-}
+    }
     #loginpopup .modal-dialog{
         height: 100%;
         margin: auto;
