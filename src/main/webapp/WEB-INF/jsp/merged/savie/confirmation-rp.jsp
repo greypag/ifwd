@@ -12,6 +12,8 @@
 <fmt:setBundle basename="messages" var="msg" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/print.css" media="print">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var language = "${language}";
@@ -210,17 +212,7 @@ var affiliate = "${affiliate}";
         	$('body').css('margin-top','98px');
       	}
         $('#print-this-page').click(function(){
-        	html2canvas($('#printable-area'), {
-			    onrendered: function(canvas) {
-			    	$('#img-append').append(canvas);				    	
-			    }
-			});
-			setTimeout(function(){ 
-				w=window.open();
-				w.document.write($('#img-append'));
-				w.print();
-				w.close();
-			}, 2000);
+        	window.print();
 			
         });
         
