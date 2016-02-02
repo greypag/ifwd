@@ -17185,7 +17185,7 @@ a:focus {
     #loginpopup .login-info-savie{background-image:url(/fwdhk/resources/images/login/savie-mobile.png);}
     #loginpopup .login-info .heading-h4,#loginpopup .login-info .heading-h5{display:block;padding-bottom:20px}
     #loginpopup .login-form, #loginpopup .modal-content.plan-modal,#loginpopup .login-form{height:432px;}
-    #loginpopup .loginpopupext{padding-top:0;}
+    #loginpopup .loginpopupext{padding-top:0;top:-58px;}
     #loginpopup .loginpopupext.modal-dialog .modal-content,#loginpopup .loginpopupext{height:717px;}
     #loginpopup .login-input{height:40px;width:100%;}
     #loginpopup .login-button-group{padding:20px 0 20px;}
