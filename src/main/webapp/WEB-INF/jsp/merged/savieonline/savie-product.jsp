@@ -215,7 +215,7 @@ var affiliate = "${affiliate}";
 						</div>
 					</div> -->
 
-					<a href="review.html" class="fna-btn-review">Back to My FNA Review<i class="fa fa-caret-right"></i></a>
+					<a href="<%=request.getContextPath()%>/${language}/savie-online/savie-review" class="fna-btn-review">Back to My FNA Review<i class="fa fa-caret-right"></i></a>
 				</div>
 				<div  class="col-lg-9 col-md-9 col-sm-12 col-xs-12 fna-col-recommend">
 					<div class="amended-overlayer hidden-sm hidden-xs"></div>
