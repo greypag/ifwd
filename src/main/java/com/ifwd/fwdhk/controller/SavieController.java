@@ -46,6 +46,7 @@ import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
+import com.ifwd.fwdhk.util.SaintsPageFlowControl;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
@@ -73,6 +74,12 @@ public class SavieController extends BaseController{
 	public ModelAndView getSavieLanding(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING);
 	}
+	
+	@RequestMapping(value = {"/{lang}/saints-insurance/saints-insurance-rp"})
+	public ModelAndView getLanding(Model model, HttpServletRequest request) {
+		return SaintsPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAINTS_LANDING_RP);
+	}
+	
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details"})
 	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request, HttpSession httpSession) {	

@@ -6,13 +6,7 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
 	prefix="dec"%>
 
-<%-- <%
-	session.setAttribute("language", "EN");
-	session.setAttribute("page", request.getServletPath());
-%> --%>
-<!DOCTYPE HTML>
 <html>
-
 <head>
 <script type="text/javascript">
 	window.status = "Loading: Document body...";
@@ -238,7 +232,6 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 		<%@ include file="include/merged/savie/footer.jsp"%>
 	</div>
 	
-
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
@@ -253,8 +246,6 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	<script type="text/javascript">
 		window.status = "Done";
 	</script>
-
-
 
 </body>
 </html>

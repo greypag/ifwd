@@ -25,6 +25,10 @@
 		<pattern>/*/savings-insurance*</pattern>
 	</decorator>
 	
+	<decorator name="fwdsaints" page="template_saints.jsp">
+		<pattern>/*/saints-insurance*</pattern>
+	</decorator>
+	
 	<decorator name="fwdevergreen" page="template_evergreen.jsp">
 		<pattern>/*/savings-evergreen-insurance*</pattern>
 	</decorator>
