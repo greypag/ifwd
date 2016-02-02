@@ -128,7 +128,7 @@ var context = "${pageContext.request.contextPath}";
 								<div class="regular-payment hidden last" id="total-payment-years">
 									<h3 class="saving">Total payment years</h3>
 									<div class="selectDiv centreDiv gray-text-bg payment-select last">
-				                        <select class="form-control gray-dropdown">
+				                        <select class="form-control gray-dropdown" id="payment-years">
 				                           <option value="" selected>7</option>
 				                           <option value="">8</option>
 				                        </select>
@@ -497,6 +497,20 @@ var context = "${pageContext.request.contextPath}";
 	        	$(document).on('change','#sales-illu-dob',function(){
 					if($(this).val()!="" && $('#payment-mode').val()=="regular") {
 						$('#total-payment-years').css('display','block');
+						
+						var from = $(this).val().split("-");
+						var birthdate = new Date(from[2], from[1] - 1, from[0]);
+						var cur = new Date();
+						var diff = cur-birthdate;
+						var age = Math.floor(diff/31536000000); //the age val
+						var max = 99;
+						var looplimit = max - Number(age);
+						
+						//console.log(looplimit);
+						$('#payment-years').html('');
+						for(var i = 1; i <= looplimit; i++ ) {
+							$('#payment-years').append('<option>'+i+'</option>');
+						}
 					}
 				});
 	        	if(getWidth() < 992) {
