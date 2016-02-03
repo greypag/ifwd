@@ -210,8 +210,13 @@ function getSaviePlanDetails() {
 							}
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
 								
-								if (((70 > issueAge && issueAge > 60) && i == (74 - issueAge)) || ((issueAge < 60) && i == (64 - issueAge))) {
-									$('#policy-year-3-2').html(i+1)
+								if ((70 > issueAge && issueAge > 60) && i == (74 - issueAge)) {
+									$('#policy-year-3-2').html(75)
+									$('#premium-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
+									$('#account-value-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
+									$('#surrender-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
+								}else if ((issueAge < 60) && i == (64 - issueAge)) {
+									$('#policy-year-3-2').html(65)
 									$('#premium-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 									$('#account-value-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 									$('#surrender-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
