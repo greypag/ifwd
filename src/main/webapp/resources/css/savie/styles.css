@@ -16878,5 +16878,7 @@ a:focus {
 .fwd-btn-download-item img {
   margin-right: 5px;
 }
-
+.cs-hotline-mob,.cs-hotline-mob:hover{
+    color: #f5f5f5;
+} 
 

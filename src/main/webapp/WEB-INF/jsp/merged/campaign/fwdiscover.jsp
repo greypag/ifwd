@@ -55,8 +55,8 @@
 								<div class="timer-holder month-holder">
 									<div class="bg gray-bg">
 										<div class="clearfix">
-											<span class="number pull-left">29</span>
-											<span class="month pull-right">FEB</span>
+											<span class="number pull-left">15</span>
+											<span class="month pull-right">MAR</span>
 										</div>
 										<span class="line line-gray"></span>
 									</div>
@@ -1120,6 +1120,7 @@
 
 	    $("#countdown")
 		   .countdown("2016/01/01", function(event) {
+		   //.countdown("2016/03/15", function(event) {	   
 		    $('#countdown-days').text(
 		      event.strftime('%D')
 		    );

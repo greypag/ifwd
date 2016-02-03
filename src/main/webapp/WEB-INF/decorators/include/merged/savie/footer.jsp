@@ -34,8 +34,10 @@
 								</ul>
 							</div>
 							<div class="pull-right hotline-info-number">
-								<div class="hotline-info"><fmt:message key="footer.hotline.part1" bundle="${msg}" /></div>
-								<div class="hotline-number"><fmt:message key="footer.hotline.part2" bundle="${msg}" /></div>
+								<a class="cs-hotline-mob" href="tel:3123-3123">
+								    <div class="hotline-info"><fmt:message key="footer.hotline.part1" bundle="${msg}" /></div>
+								    <div class="hotline-number"><fmt:message key="footer.hotline.part2" bundle="${msg}" /></div>
+								</a>
 							</div>
 						</div>
 					</div>

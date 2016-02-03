@@ -270,7 +270,7 @@ function submitLoginForm(formID) {
 			<div class="row">
 				<div class="col-lg-5 col-md-5 pad-none">
 					<div class="top-number">
-						<span class="callus"> <fmt:message key="header.hotline"
+						<span class="callus"><fmt:message key="header.hotline"
 								bundle="${msg}" /></span>
 					</div>
 				</div>
