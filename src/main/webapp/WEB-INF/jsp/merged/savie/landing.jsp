@@ -40,7 +40,7 @@
 	        			<h2 class="savie-sweeter"><fmt:message key="saints.landing.banner" bundle="${msg}" /> <span><fmt:message key="saints.landing.always" bundle="${msg}" /></span></h2>
 	        			<button class="savie-regular-btn start-btn"><fmt:message key="saints.landing.start" bundle="${msg}" /></button>
         			<div class="savie-product text-center">
-						<a><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
+						<a><fmt:message key="savie.interestGather.banner.product.brochure" bundle="${msg}" /></a> | <a><fmt:message key="savie.interestGather.banner.product.provisions" bundle="${msg}" /></a>
 					</div>
 	        		</div>
 	        	</div>
@@ -76,7 +76,7 @@
        		</p>
 
        		<h5 class="hidden-sm hidden-xs product-options text-center">
-				<a href="#"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="#"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
+				<a href="#"><fmt:message key="savie.interestGather.banner.product.brochure" bundle="${msg}" /></a> | <a href="#"><fmt:message key="savie.interestGather.banner.product.provisions" bundle="${msg}" /></a>
 			</h5>
 		</div>
 		
@@ -139,7 +139,7 @@
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png" />
 										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info"><fmt:message key="product details.savie.group1.section1.title" bundle="${msg}" /></h3>
+											<h3 class="hidden-benefits-info"><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
 											<p class="hidden-benefits-info"><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
 										</div>
 									</div>
@@ -148,7 +148,7 @@
 		        			<div class="row">
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png">
-		        					<span class="two-lines"><fmt:message key="product details.savie.group3.section1.title" bundle="${msg}" /></span>
+		        					<span class="two-lines"><fmt:message key="saints.landing.partnership" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png" />
 										<div class="info hidden-benefits-info">
@@ -322,7 +322,7 @@
 							<a href="#navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link"><fmt:message key="saints.landing.presentation.make" bundle="${msg}" /></a>
 						</li>
 						<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="nav-title-4">
-							<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link"><fmt:message key="pillar.eservice.app..title" bundle="${msg}" /></a>
+							<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link"><fmt:message key="saints.landing.presentation.eservice" bundle="${msg}" /></a>
 						</li>
 					</ul>
 					<div class="fna-carousel carousel slide" id="so-carousel" data-ride="carousel" data-interval="false">
@@ -359,7 +359,7 @@
 									<div class="fna-icon-circle">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png">
 									</div>
-									<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eservice.app..title" bundle="${msg}" /></h3>
+									<h3 class="visible-md visible-lg  tab-head"><fmt:message key="saints.landing.presentation.eservice" bundle="${msg}" /></h3>
 									<p><fmt:message key="saints.landing.presentation.eservice.content1" bundle="${msg}" /> <a href="#" class="eserv-link ui-link"><fmt:message key="saints.landing.presentation.eservice.content2" bundle="${msg}" /></a> <fmt:message key="saints.landing.presentation.eservice.content3" bundle="${msg}" /></p>
 								</div>
 							</div>

@@ -70,7 +70,7 @@ var context = "${pageContext.request.contextPath}";
 						<img class="money" src="<%=request.getContextPath()%>/resources/images/savie/money-logo.png">
 						<div id="investment-amount" class="one-off">    
 							<div id="desktop-left">
-								<h3 class="saving"><fmt:message key="label.savie.payment.mode.savie.oneoffpremium" bundle="${msg}" /><button id="payment-button-tooltip" type="button" class="btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="" data-original-title=" ">
+								<h3 class="saving"><fmt:message key="saints.landing.payment.mode" bundle="${msg}" /><button id="payment-button-tooltip" type="button" class="btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="" data-original-title=" ">
 										<img src="<%=request.getContextPath()%>/resources/images/savie/sprite-icons-info-2.png">
 									</button></h3>
 								<div class="selectDiv centreDiv gray-text-bg payment-select">
