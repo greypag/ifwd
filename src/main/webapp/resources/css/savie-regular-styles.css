@@ -151,7 +151,7 @@ body {
 .fwd-savie-wrapper .breadcrumbs .breadcrumb.breadcrumbs-product-details {
   padding: 4px 0 0 0;
   margin-bottom: 0;
-  margin-top: 0;
+  margin-top: 15px;
 }
 
 /* line 77, ../sass/partials/savie/_common.scss */
@@ -4032,7 +4032,7 @@ header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li a {
 }
 /* line 220, ../sass/partials/_header.scss */
 header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li.top-menu-chinese {
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei','å¾®è½¯é›…é»‘ä½“', 'STXihei', 'å�Žæ–‡ç´°é»‘', Arial, Helvetica, sans-serif;
 }
 /* line 225, ../sass/partials/_header.scss */
 header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li.reset-padding-menu {
@@ -4129,7 +4129,7 @@ header .navbar-fixed-top .buttons-and-chat .btn-eServices-my-account:hover, head
 header .navbar-fixed-top .buttons-and-chat .btn-chinese {
   float: left;
   background-color: #000;
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei','å¾®è½¯é›…é»‘ä½“', 'STXihei', 'å�Žæ–‡ç´°é»‘', Arial, Helvetica, sans-serif;
   font-size: 16px;
   padding: 6px 10px;
   height: 33px;
@@ -5089,6 +5089,14 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 	    font-size: 18px;
 	    padding-left: 15px;
 	    font-family: 'Calibri-Bold';
+	}
+	
+	.fwd-savie-wrapper .container-fluid.proceed-block.text-center p {
+		margin-top: -12px;
+	}
+	
+	.fwd-savie-wrapper header .navbar {
+		border-bottom: 1px solid #d7d8d7;
 	}
 }
 @media (min-width: 1400px) {
