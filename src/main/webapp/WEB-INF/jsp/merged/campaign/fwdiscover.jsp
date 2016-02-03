@@ -215,7 +215,7 @@
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
-                        <div class="plan-details-box gray-bg left">
+                        <div class="plan-details-box red-bg right">
                             <div class="plan-desc">
                                 <div class="upper-desc">
                                     <p class="title"><fmt:message key="Fanfare.landingpage.offerCny" bundle="${msg}" /></p>
