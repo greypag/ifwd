@@ -210,7 +210,7 @@ function getSaviePlanDetails() {
 							}
 							if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
 								
-								if ((issueAge == 60 && i == 4) || ((70 > issueAge && issueAge > 60) && i == (74-issueAge)) || ((issueAge < 60 || issueAge == -1) && i == 9)) {
+								if (((70 > issueAge && issueAge > 60) && i == (74 - issueAge)) || ((issueAge < 60) && i == (64 - issueAge))) {
 									$('#policy-year-3-2').html(i+1)
 									$('#premium-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 									$('#account-value-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
