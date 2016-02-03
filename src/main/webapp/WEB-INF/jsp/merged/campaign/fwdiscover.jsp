@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" import="java.util.Date" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
@@ -9,6 +9,7 @@
 %>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-fwdiscover.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css" />
+        <div id="paused-Clock"></div>
 		<div class="fwd-savie-wrapper fwdiscover-wrapper">			
 			<!--Top Header-->
 			<div class="page-fwdiscover">
@@ -872,6 +873,21 @@
 		<script src="<%=request.getContextPath()%>/resources/js/fwdiscover/jquery.countdown.min.js"></script>
 		<script type="text/javascript">
         $(document).ready(function() {
+        	//var serverTime = new Date("2016-02-03 11:58:00");
+        	var serverTime = new Date();
+            serverTime = serverTime.setMinutes(serverTime.getMinutes()+1);
+            console.log(serverTime);
+            $('#paused-Clock').countdown(serverTime)
+            .on('finish.countdown', function(event){
+            	//alert("hehe");
+            	$( ".fwdiscover-plan" ).each(function() {
+            		   $( this ).removeClass( "paused-plan" );
+            	});
+            })
+            .on('update.countdown', function(event){
+            	$(this).html(event.strftime('%H:%M:%S'));
+            	console.log("ticking");           	
+            });            
             if(isMobile){
                 $(".fwdiscover-plan .details-btn").click(function(){
                     itemTop = $(this).parents(".fwdiscover-plan").offset();
