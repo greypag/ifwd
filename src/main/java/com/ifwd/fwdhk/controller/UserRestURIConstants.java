@@ -173,7 +173,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIE_CS = "savie.cs";
 	public static final String PAGE_PROPERTIES_SAVIE_DOCUMENT_UPLOAD = "savie.documentUplaod";
 	public static final String PAGE_PROPERTIES_SAVIE_CONFIRMATION = "savie.confirmation";
-	public static final String PAGE_PROPERTIES_SAVIE_CONFIRMATION_RP = "savie.confirmation.rp";
+	public static final String PAGE_PROPERTIES_SAVIE_CONFIRMATION_RP = "savierp.confirmation.rp";
 	public static final String PAGE_PROPERTIES_SAVIE_DECLARATION = "savie.declaration";
 	public static final String PAGE_PROPERTIES_SAVIE_INTEREST_GATHERING = "savie.interestGathering";
 	public static final String PAGE_PROPERTIES_SAVIE_EMAIL_SUBMITTED = "savie.emailSubmitted";
@@ -183,7 +183,7 @@ public class UserRestURIConstants {
 	
 	public static final String URL_SAVIE_LANDING_RP = "regular-premium";
 	public static final String PAGE_SAVIE_LANDING_RP = "savings-insurance-rp";
-	public static final String PAGE_PROPERTIES_SAVIE_LANDING_RP = "savie.landing.rp";
+	public static final String PAGE_PROPERTIES_SAVIE_LANDING_RP = "savierp.landing.rp";
 	
 	
 	/* Page Flow Control For OverSea */
