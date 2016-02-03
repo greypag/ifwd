@@ -66,13 +66,23 @@ function getSaviePlanDetails() {
 	$('#rate-table-4').addClass('hidden');
 	
 	var amount = $('#R').val();
+	var amount_rp = $('#amount-rp').val();
 	var promocode = $('#promocode').val();
 	var promocodePlaceholder = $('#promocode[placeholder]').attr('placeholder');
 	var birthOfDay = $('#sales-illu-dob').val();
 	
+	var paymentMode = $('#payment-mode').val();
+	var premium = amount;
+	if('one-off' == paymentMode) {
+		paymentMode='SP';
+		premium = amount;
+	}else {
+		paymentMode='RP';
+		premium = amount_rp;
+	}
+	
 	var planCode = "savie";
 	var issueAge = jsGetAge(birthOfDay);
-	var premium = amount;
 	var referralCode = promocode;
 	var referralCode = (promocode!=promocodePlaceholder)?promocode:'';
 	
@@ -81,10 +91,9 @@ function getSaviePlanDetails() {
 			$('#promo-code-dateOfBirth').removeClass('hideSpan');
 		}
 	}*/
-	if(premium ==null || premium <30000 || premium > 400000){
-		console.log("Invalid Savings amount!");
-	}
-	else{
+	if(paymentMode == 'SP' && (amount ==null || amount <30000 || amount > 400000)){
+		console.log("Invalid Savings amount!"); 
+	}else{
 		// display loading mask
 		$('.loading-mask').toggle();
 		$('body').addClass('modal-open');
@@ -97,7 +106,8 @@ function getSaviePlanDetails() {
 			issueAge: issueAge,
 			premium: premium,
 			referralCode: referralCode,
-			birthOfDay:birthOfDay
+			birthOfDay:birthOfDay,
+			paymentMode:paymentMode
 		},
 		function(data) {
 			// hide loading mask

@@ -317,8 +317,14 @@ var language = "${language}";
 							    success:function(data){
 							    	if(data.errMsgs == null){
 							    		console.log("send email success");
+							    		<%
+										String type = (String)session.getAttribute("savieType");
+									    if("SP".equals(type)) {%>
 							    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation");
-								    	$("#serviceCenterForm").submit();
+							    		<% }else if("RP".equals(type)) {%>
+							    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation-rp");
+							    		<% } %>
+							    		$("#serviceCenterForm").submit();
 							    	}else{
 							    		console.log(data.errMsgs);
 							    	}

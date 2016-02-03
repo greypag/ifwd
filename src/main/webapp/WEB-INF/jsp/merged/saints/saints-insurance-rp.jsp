@@ -1,8 +1,6 @@
-<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="context" value="<%=request.getContextPath()%>"/>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
@@ -38,13 +36,16 @@ var home_url = "<%=request.getContextPath()%>";
         		<img src="<%=request.getContextPath()%>/resources/images/savie-regular/sav-landing-bg-mobile.jpg" class="img-responsive hidden-md hidden-lg">
         		<img src="<%=request.getContextPath()%>/resources/images/savie-regular/sav-landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
         		<div class="fwd-container-limit">
-	        		<div class="img-banner-text savie-landing">
-	        			<h2 class="savie-sweeter"><fmt:message key="saints.landing.banner" bundle="${msg}" /> <span><fmt:message key="saints.landing.always" bundle="${msg}" /></span></h2>
-	        			<button class="savie-regular-btn start-btn"><fmt:message key="saints.landing.start" bundle="${msg}" /></button>
-        			<div class="savie-product text-center">
-						<a><fmt:message key="saints.landing.brochure" bundle="${msg}" /></a> | <a><fmt:message key="saints.landing.provisions" bundle="${msg}" /></a>
-					</div>
-	        		</div>
+        		
+	        		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" method="post">
+		        		<div class="img-banner-text savie-landing">
+		        			<h2 class="savie-sweeter"><fmt:message key="saints.landing.banner" bundle="${msg}" /> <span><fmt:message key="saints.landing.always" bundle="${msg}" /></span></h2>
+		        			<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="saints.landing.start" bundle="${msg}" /></button>
+	        			<div class="savie-product text-center">
+							<a><fmt:message key="saints.landing.brochure" bundle="${msg}" /></a> | <a><fmt:message key="saints.landing.provisions" bundle="${msg}" /></a>
+						</div>
+		        		</div>
+	        		</form>
 	        	</div>
         	</div>
         </div>
@@ -491,5 +492,28 @@ var home_url = "<%=request.getContextPath()%>";
 			});
 		}
 	});
+	
+	$('#op-buy-now-O2O-mobile').click(function(e){
+		getAppointmentAccessCode();
+	});
+
+	// Access Code Confirmation
+	function getAppointmentAccessCode(){
+		$.ajax({
+		        type: "POST",
+		        url:'<%=request.getContextPath()%>/ajax/savings-evergreen-insurance/getAppointmentAccessCode',
+		        async:false,         
+		        success:function(data){
+					if(data.errMsgs != null && data.errMsgs != ''){
+					}
+					else{
+						$('#o2o-landing-form').submit();
+					}
+		        },
+				error:function(){
+				    console.log('error');     
+			    }
+		    });
+	};
 </script>
 		

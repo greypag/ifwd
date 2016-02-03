@@ -44,6 +44,10 @@
 <meta itemprop="name" content="${ogTitle}" />
 <meta itemprop="description" content="${ogDescription}"/>
 <meta itemprop="image" content="${ogImage}" />
+<% String requestUri = request.getRequestURI(); %>
+<% if(!requestUri.endsWith("saints-insurance-rp")) { %>
+<meta name="robots" content="noindex">
+<% }%>
 
 <!-- Open Graph data -->
 <meta property="og:title" content="${ogTitle}" />
@@ -222,7 +226,8 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 <!--END -Google Code for SEO-->
 	
 	<div class="fwd-savie-wrapper">
-		<%@ include file="include/merged/saints/header.jsp"%>
+		<%-- <%@ include file="include/merged/saints/header.jsp"%> --%>
+		<%@ include file="include/merged/header.jsp"%>
 		<dec:body />
 		<%@ include file="include/merged/saints/footer.jsp"%>
 	</div>

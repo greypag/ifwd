@@ -80,7 +80,7 @@ public class SaviePageFlowControl {
 		switch (current) {
 
 		case UserRestURIConstants.PAGE_SAVIE_O2O_LANDING:
-			to = UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS;
+			to = UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS_SP;
 			break;
 
 		case UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS: 
@@ -166,6 +166,9 @@ public class SaviePageFlowControl {
 		case UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF:
 			to = UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF;
 			break;
+		/*case UserRestURIConstants.PAGE_SAINTS_LANDING_RP:
+			to = UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS_RP;
+			break;*/
 			
 		default:
 			to = UserRestURIConstants.PAGE_SAVIE_O2O_LANDING;
@@ -196,7 +199,13 @@ public class SaviePageFlowControl {
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_O2O_LANDING)) {
 			return UserRestURIConstants.PAGE_SAVIE_O2O_LANDING;
 		}
-		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS)) {
+		/*if (url.endsWith(UserRestURIConstants.PAGE_SAINTS_LANDING_RP)) {
+			return UserRestURIConstants.PAGE_SAINTS_LANDING_RP;
+		}*/
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS_SP)) {
+			return UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS_RP)) {
 			return UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_ACCOUNT_ACTIVATION)) {
@@ -233,6 +242,9 @@ public class SaviePageFlowControl {
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_CONFIRMATION)) {
 			return UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_OFFLINE;
+		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_RP)) {
+			return UserRestURIConstants.PAGE_SAVIE_CONFIRMATION_RP;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF)) {
 			return UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PDF;
