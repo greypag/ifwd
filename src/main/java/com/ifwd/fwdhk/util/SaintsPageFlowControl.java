@@ -82,11 +82,11 @@ public class SaintsPageFlowControl {
 
 		switch (current) {
 
-		case UserRestURIConstants.PAGE_SAINTS_LANDING_RP:
+		case UserRestURIConstants.PAGE_SAVIE_LANDING_RP:
 			//to = UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS;
 			break;
 		default:
-			to = UserRestURIConstants.PAGE_SAINTS_LANDING_RP;
+			to = UserRestURIConstants.PAGE_SAVIE_LANDING_RP;
 
 		}
 
@@ -107,8 +107,8 @@ public class SaintsPageFlowControl {
 	}
 
 	public static String getSaviePage(String url) {
-		if (url.endsWith(UserRestURIConstants.PAGE_SAINTS_LANDING_RP)) {
-			return UserRestURIConstants.PAGE_SAINTS_LANDING_RP;
+		if (url.endsWith(UserRestURIConstants.URL_SAVIE_LANDING_RP)) {
+			return UserRestURIConstants.PAGE_SAVIE_LANDING_RP;
 		}
 		return "";
 

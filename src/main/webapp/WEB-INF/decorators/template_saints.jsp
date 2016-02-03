@@ -45,7 +45,7 @@
 <meta itemprop="description" content="${ogDescription}"/>
 <meta itemprop="image" content="${ogImage}" />
 <% String requestUri = request.getRequestURI(); %>
-<% if(!requestUri.endsWith("saints-insurance-rp")) { %>
+<% if(!requestUri.endsWith("regular-premium")) { %>
 <meta name="robots" content="noindex">
 <% }%>
 
