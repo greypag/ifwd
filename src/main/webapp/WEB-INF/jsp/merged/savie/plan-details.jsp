@@ -75,8 +75,8 @@ var context = "${pageContext.request.contextPath}";
 									</button></h3>
 								<div class="selectDiv centreDiv gray-text-bg payment-select">
 			                        <select class="form-control gray-dropdown" id="payment-mode">
-			                           <option value="one-off" selected>One-off premium</option>
-			                           <option value="regular">Regular payment</option>
+			                           <option value="one-off" <c:if test="${savieType=='SP' }">selected</c:if>>One-off premium</option>
+			                           <option value="regular" <c:if test="${savieType=='RP' }">selected</c:if>>Regular payment</option>
 			                        </select>
 			                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" />
 			                    </div>
@@ -102,9 +102,17 @@ var context = "${pageContext.request.contextPath}";
 								<div class="regular-payment amount hidden">
 									<h3 class="saving">Amount (HK$)</h3>
 									<div class="selectDiv centreDiv gray-text-bg payment-select">
-				                        <select class="form-control gray-dropdown">
-				                           <option value="" selected>1,000</option>
-				                           <option value="">2,000</option>
+				                        <select id="amount-rp" class="form-control gray-dropdown">
+				                           <option value="1000">1,000</option>
+				                           <option value="2000">2,000</option>
+				                           <option value="3000" selected>3,000</option>
+				                           <option value="4000">4,000</option>
+				                           <option value="5000">5,000</option>
+				                           <option value="6000">6,000</option>
+				                           <option value="7000">7,000</option>
+				                           <option value="8000">8,000</option>
+				                           <option value="9000">9,000</option>
+				                           <option value="10000">10,000</option>
 				                        </select>
 				                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" />
 				                    </div>
@@ -151,7 +159,7 @@ var context = "${pageContext.request.contextPath}";
 						</div>
 						
 						<div class="calculate-holder">
-							<button class="btn btn-orange calculate" type="button" id="sales-illu-apply-now">Calculate<span class="icon icon-chevron-thin-right"></span></button>
+							<button onclick="getSaviePlanDetails()" class="btn btn-orange calculate" type="button" id="sales-illu-apply-now">Calculate<span class="icon icon-chevron-thin-right"></span></button>
 						</div>
 					</form>
 			</div>
@@ -469,7 +477,7 @@ var context = "${pageContext.request.contextPath}";
 		<script src="<%=request.getContextPath()%>/resources/js/savie/savie.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 		<script type="text/javascript">	
-		        $(function() {
+			$(function() {
 	        	$("#payment-button-tooltip").tooltip().on('show.bs.tooltip', function() { 
 					setTimeout(function(){
 						$("#payment-button-tooltip").next().html('<div class="tooltip-arrow"></div><div class="tooltip-inner"><p class="title">One-off premium</p><p class="content">You may have a one-off premium payment on savie insurance</p><p class="title below">Regular payment</p><p class="content">You may have set up direct debit to pay premium on a monthly basis</p></div>'); 
@@ -480,7 +488,6 @@ var context = "${pageContext.request.contextPath}";
 				});	
 	        	$(document).on('change','#payment-mode',function(){
 					console.log($(this).val());
-
 					if($(this).val()=="regular") {
 						$('.regular-payment').removeClass('hidden');
 						$('.one-off-premium').addClass('hidden');
@@ -570,4 +577,17 @@ var context = "${pageContext.request.contextPath}";
 			function goServiceCenter(){
 				window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-insurance/'+'${nextPageFlow2 }'; 
 			}
+			<%
+			String type = (String)session.getAttribute("savieType");
+		    if("RP".equals(type)) {%>
+		    	$('.regular-payment').removeClass('hidden');
+				$('.one-off-premium').addClass('hidden');
+				$('#promo').addClass('dob-reg-payment');
+				$('#investment-amount').removeClass('one-off');
+		    <% }else if("SP".equals(type)) {%>
+		    	$('.regular-payment').addClass('hidden');
+				$('.one-off-premium').removeClass('hidden');
+				$('#promo').removeClass('dob-reg-payment');
+				$('#investment-amount').addClass('one-off');
+		    <% } %>
 		</script>

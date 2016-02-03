@@ -134,11 +134,18 @@ public class SavieServiceImpl implements SavieService {
 		try {
 			String planCode = request.getParameter("planCode");
 			int issueAge = Integer.valueOf(request.getParameter("issueAge"))+1;
-			int paymentTerm = 100-issueAge;
+			int paymentTerm = 0;
 			
 			String premium = request.getParameter("premium");
 			String referralCode = request.getParameter("referralCode");
-			SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails(planCode, issueAge, paymentTerm, premium, referralCode, null);
+			String paymentMode = request.getParameter("paymentMode");
+			if("SP".equals(paymentMode)) {
+				paymentTerm = 100-issueAge;
+			}else if("RP".equals(paymentMode)) {
+				paymentTerm = 3;
+			}
+			
+			SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails(planCode, issueAge, paymentTerm, premium, referralCode, paymentMode, null);
 			
 			httpSession.setAttribute("planDetailData", apiResponse);
             httpSession.setAttribute("birthOfDay", request.getParameter("birthOfDay"));

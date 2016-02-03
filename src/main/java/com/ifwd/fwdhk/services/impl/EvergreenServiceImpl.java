@@ -1664,6 +1664,12 @@ public class EvergreenServiceImpl implements EvergreenService {
 		session.setAttribute("applicationNumber", applicationNumber);
 		
 		if(appJsonObj != null) {
+			String savieType = (String)session.getAttribute("savieType");
+			if("SP".equals(savieType)) {
+				planCode="SAVIE-SP";
+			}else if("RP".equals(savieType)) {
+				planCode="SAVIE-RP";
+			}
 			parameters = new org.json.simple.JSONObject();
 			parameters.put("serviceCentreCode", csCenter);
 			parameters.put("date", perferredDate);

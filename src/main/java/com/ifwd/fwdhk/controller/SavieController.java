@@ -75,17 +75,19 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saints-insurance/saints-insurance-rp"})
-	public ModelAndView getLanding(Model model, HttpServletRequest request) {
-		return SaintsPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAINTS_LANDING_RP);
-	}
-	
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details-sp", "/{lang}/savings-insurance/plan-details-rp"})
 	public ModelAndView getSaviePlanDetails(Model model, HttpServletRequest request, HttpSession httpSession) {	
 		HttpSession session = request.getSession();
 		String accessCode = (String) httpSession.getAttribute("accessCode");
 		logger.info(accessCode);
+		
+		/*String current = request.getServletPath();
+		if(current.endsWith("plan-details-sp")) {
+			model.addAttribute("planType", "sp");
+		}else if (current.endsWith("plan-details-rp")) {
+			model.addAttribute("planType", "rp");
+		}*/
+		
 		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))
 				|| org.apache.commons.lang.StringUtils.isNotBlank(accessCode)) {
 			httpSession.setAttribute("accessCode", accessCode);
@@ -99,11 +101,11 @@ public class SavieController extends BaseController{
 			startDOB.add(startDOB.YEAR, -70);
 			startDOB.add(startDOB.DATE, 1);
 			model.addAttribute("startDOB", format.format(startDOB.getTime()));
-			
 			Calendar defaultDOB = new GregorianCalendar();
 			defaultDOB.setTime(date); 
 			defaultDOB.add(defaultDOB.YEAR, -18);
 			model.addAttribute("defaultDOB", format.format(defaultDOB.getTime()));
+			
 			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
 		}else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
@@ -450,13 +452,34 @@ public class SavieController extends BaseController{
 		
 	}
 	
+	/**
+	 * 预约成功跳转页面
+	 * @param model
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-rp"})
+	public ModelAndView confirmationOfflinePp(Model model, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		//savingAmount为空时返回首页
+		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))) {
+			savieService.confirmationOffline(model, request);
+			return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION_RP);
+		}else {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+					+ "/savings-insurance");
+		}
+		
+	}
+	
 	@RequestMapping(value = {"/{lang}/savings-insurance","/{lang}/savings-insurance/"})
-	public ModelAndView o2OLanding(Model model, HttpServletRequest request) {
+	public ModelAndView o2OLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		String affiliate = (String) request.getParameter("affiliate");
 		if(affiliate == null){
 			affiliate = "";
 		}
-		
+		httpSession.setAttribute("savieType", "SP");
 		String lang = UserRestURIConstants.getLanaguage(request);
 		List<OptionItemDesc> savieAns;
 		if(lang.equals("tc")){
@@ -470,5 +493,25 @@ public class SavieController extends BaseController{
 		
 		
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING);
+	}
+	
+	@RequestMapping(value = {"/{lang}/saints-insurance-rp"})
+	public ModelAndView getLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
+		String affiliate = (String) request.getParameter("affiliate");
+		if(affiliate == null){
+			affiliate = "";
+		}
+		httpSession.setAttribute("savieType", "RP");
+		String lang = UserRestURIConstants.getLanaguage(request);
+		List<OptionItemDesc> savieAns;
+		if(lang.equals("tc")){
+			lang = "CN";
+			savieAns=InitApplicationMessage.savieAnsCN;
+		}else{
+			savieAns=InitApplicationMessage.savieAnsEN;
+		}
+		model.addAttribute("savieAns", savieAns);
+		model.addAttribute("affiliate", affiliate);
+		return SaintsPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAINTS_LANDING_RP);
 	}
 }
