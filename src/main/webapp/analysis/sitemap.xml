@@ -42,6 +42,18 @@
   <changefreq>weekly</changefreq>
 </url>
 <url>
+  <loc>https://i.fwd.com.hk/tc/fwdiscover</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/tc/overseas-study-insurance</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/tc/travel-insurance?product=annual</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
   <loc>https://i.fwd.com.hk/en</loc>
   <changefreq>weekly</changefreq>
 </url>
@@ -75,6 +87,18 @@
 </url>
 <url>
   <loc>https://i.fwd.com.hk/en/offers</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/en/fwdiscover</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/en/overseas-study-insurance</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://i.fwd.com.hk/en/travel-insurance?product=annual</loc>
   <changefreq>weekly</changefreq>
 </url>
 </urlset>
