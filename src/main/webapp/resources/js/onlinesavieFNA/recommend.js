@@ -179,7 +179,7 @@ var FNArecommendation = {
 			var q = $(this).parents(".fna-sel-grid").data();
 			var vals = $("." + q.qName + " input:checkbox:checked").map(function(){
       			return $(this).val();
-    		}).get();
+    		}).get().join(",");
 
 			var isDifferent = q.originalVal != vals;
 
