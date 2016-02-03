@@ -473,7 +473,7 @@ public class SavieController extends BaseController{
 		
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance","/{lang}/savings-insurance/"})
+	@RequestMapping(value = {"/{lang}/savings-insurance" ,"/{lang}/savings-insurance/single-premium"})
 	public ModelAndView o2OLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		String affiliate = (String) request.getParameter("affiliate");
 		if(affiliate == null){
@@ -495,7 +495,7 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING);
 	}
 	
-	@RequestMapping(value = {"/{lang}/saints-insurance-rp"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/regular-premium"})
 	public ModelAndView getLanding(Model model, HttpServletRequest request, HttpSession httpSession) {
 		String affiliate = (String) request.getParameter("affiliate");
 		if(affiliate == null){
@@ -512,6 +512,6 @@ public class SavieController extends BaseController{
 		}
 		model.addAttribute("savieAns", savieAns);
 		model.addAttribute("affiliate", affiliate);
-		return SaintsPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAINTS_LANDING_RP);
+		return SaintsPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING_RP);
 	}
 }

@@ -127,7 +127,7 @@ var context = "${pageContext.request.contextPath}";
 										<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date"/> 
 									</div> -->
 									<div class="input-group input-append date" id="datePicker">
-										<input type="text" class="date" name="dob" id="sales-illu-dob" placeholder="15-10-1997" onfocusin="" readonly />
+										<input type="text" class="date" name="dob" id="sales-illu-dob" value="15-10-1997" placeholder="15-10-1997" onfocusin="" readonly />
 										<span class="input-group-addon add-on"><img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" /></span>                        
 									</div>
 									<!-- <span class="error-msg-dob hideSpan" id="promo-code-dateOfBirth">Invalid date of birth. You must be 19 and above to apply.</span>
@@ -136,9 +136,9 @@ var context = "${pageContext.request.contextPath}";
 								<div class="regular-payment hidden last" id="total-payment-years">
 									<h3 class="saving">Total payment years</h3>
 									<div class="selectDiv centreDiv gray-text-bg payment-select last">
-				                        <select class="form-control gray-dropdown">
-				                           <option value="" selected>7</option>
-				                           <option value="">8</option>
+				                        <select id="payment-years" class="form-control gray-dropdown">
+				                           <option value="7" selected>7</option>
+				                           <option value="8">8</option>
 				                        </select>
 				                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" />
 				                    </div>
