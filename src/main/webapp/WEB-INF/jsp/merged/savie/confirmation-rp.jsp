@@ -61,11 +61,11 @@ var affiliate = "${affiliate}";
       <div class="application-flux thank-you">
       <div class="fwd-container-limit">
 		<ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs hidden-sm hidden-xs">
-             <li><a href="#">Save</a></li>
+             <li><a href="#"><fmt:message key="savie.landing.save" bundle="${msg}" /></a></li>
              <li class="divider"><i class="fa fa-play"></i></li>
              <li><a href="#">Save Insurance Plan </a></li>
              <li class="divider last"><i class="fa fa-play"></i></li>
-             <li class="active-bc" id="et-active-bc-menu">Plan details</li>
+             <li class="active-bc" id="et-active-bc-menu"><fmt:message key="savie.planDetails.plan.details" bundle="${msg}" /></li>
        	 </ol>
         </div>
         <div class="container-fluid fwd-container thank-you-container savie-regular-confirmation">
@@ -73,7 +73,7 @@ var affiliate = "${affiliate}";
           <div class="details-container details-full" id="printable-area">
             <div class="row">
               <div class="col-xs-12">
-                <h2 class="bring-things"><span class="hidden-md hidden-lg">Things to bring</span><span class="hidden-xs hidden-sm">Offline procedure</span></h2>
+                <h2 class="bring-things"><span class="hidden-md hidden-lg"><fmt:message key="savie.confirmation.offline.Things.bring" bundle="${msg}" /></span><span class="hidden-xs hidden-sm"><fmt:message key="savie.confirmation.offline.Offline.procedure" bundle="${msg}" /></span></h2>
 								<div class="gray-divider hidden-md hidden-lg"></div>
                 <div class="row offline-procedure-row">
                   <div class="col-xs-12 col-md-4">
@@ -115,10 +115,10 @@ var affiliate = "${affiliate}";
                                 <div class="gray-divider hidden-md hidden-lg"></div>
                                 <div class="whats-next">
                                     <ol>	
-										<li>You will receive a confirmation email from us regarding your appointment details.</li>
-										<li>Visit the selected Customer Service Centre at the scheduled date and time.</li>
-										<li>Bring along the required documents for the application purpose.</li>
-										<li>We accept bank direct debit for regular monthly premium payments. You can decide how much lump sum premium to apply during the application process.</li>
+										<li><fmt:message key="savie.confirmation.offline.1.You.will" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.confirmation.offline.2.Visit" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.confirmation.offline.3.Bring" bundle="${msg}" /></li>
+										<li><fmt:message key="savie.confirmation.offline.4.Only" bundle="${msg}" /></li>
 									</ol>
                                 </div>
                             </div>
@@ -181,7 +181,7 @@ var affiliate = "${affiliate}";
                             </div>
             </div>
           </div>
-          <button id="back-home-btn" type="button" class="btn next">Back to home</button>
+          <button id="back-home-btn" type="button" class="btn next"><fmt:message key="savie.emailSubmit.back.home" bundle="${msg}" /></button>
         </div>
       </div>
             <!-- BACK TO TOP -->
