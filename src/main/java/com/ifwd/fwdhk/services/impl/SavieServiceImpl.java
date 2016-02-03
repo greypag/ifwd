@@ -259,7 +259,7 @@ public class SavieServiceImpl implements SavieService {
 						
 						JSONObject plan0 = new JSONObject();
 						plan0.accumulate("accountBalance", formartNumber(planDetails0Rate.get(i).getAccountEOP()));
-						plan0.accumulate("totalPremium", premium);
+						plan0.accumulate("totalPremium", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
 						plan0.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan0.accumulate("guaranteedDeathBenefit", formartNumber(planDetails0Rate.get(i).getGuranteedDeathBenefit()));
 						plan0.accumulate("rate","zero");
@@ -267,7 +267,7 @@ public class SavieServiceImpl implements SavieService {
 						
 						JSONObject plan2 = new JSONObject();
 						plan2.accumulate("accountBalance", formartNumber(planDetails2Rate.get(i).getAccountEOP()));
-						plan2.accumulate("totalPremium", premium);
+						plan2.accumulate("totalPremium", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
 						plan2.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan2.accumulate("guaranteedDeathBenefit", formartNumber(planDetails2Rate.get(i).getGuranteedDeathBenefit()));
 						plan2.accumulate("rate","two");
@@ -275,7 +275,7 @@ public class SavieServiceImpl implements SavieService {
 						
 						JSONObject plan3 = new JSONObject();
 						plan3.accumulate("accountBalance", formartNumber(planDetails3Rate.get(i).getAccountEOP()));
-						plan3.accumulate("totalPremium", premium);
+						plan3.accumulate("totalPremium", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
 						plan3.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan3.accumulate("guaranteedDeathBenefit", formartNumber(planDetails3Rate.get(i).getGuranteedDeathBenefit()));
 						plan3.accumulate("rate","three");
@@ -283,7 +283,7 @@ public class SavieServiceImpl implements SavieService {
 						
 						JSONObject plan4 = new JSONObject();
 						plan4.accumulate("accountBalance", formartNumber(planDetails4Rate.get(i).getAccountEOP()));
-						plan4.accumulate("totalPremium", premium);
+						plan4.accumulate("totalPremium", formartNumber(planDetails0Rate.get(i).getTotalPremium()));
 						plan4.accumulate("guaranteedSurrenderBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedSurrenderBenefit()));
 						plan4.accumulate("guaranteedDeathBenefit", formartNumber(planDetails4Rate.get(i).getGuranteedDeathBenefit()));
 						plan4.accumulate("rate","four");
