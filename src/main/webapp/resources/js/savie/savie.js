@@ -156,7 +156,7 @@ function getSaviePlanDetails() {
 										$('#surrender-change-0-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 									}
 								}else {
-									if(($('#payment-years').val() == 3 && i == 4)
+									if(($('#payment-years').val() <= 3 && i == 4)
 											|| $('#payment-years').val() == 4 && i == 3
 											|| $('#payment-years').val() > 4 && $('#payment-years').val() == (i + 1)){
 										$('#policy-year-0-1').html(i+1);
@@ -197,7 +197,7 @@ function getSaviePlanDetails() {
 										$('#surrender-change-2-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 									}
 								}else {
-									if(($('#payment-years').val() == 3 && i == 4)
+									if(($('#payment-years').val() <= 3 && i == 4)
 											|| $('#payment-years').val() == 4 && i == 3
 											|| $('#payment-years').val() > 4 && $('#payment-years').val() == (i + 1)){
 										$('#policy-year-2-1').html(i+1);
@@ -237,7 +237,7 @@ function getSaviePlanDetails() {
 										$('#surrender-change-3-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 									}
 								}else {
-									if(($('#payment-years').val() == 3 && i == 4)
+									if(($('#payment-years').val() <= 3 && i == 4)
 											|| $('#payment-years').val() == 4 && i == 3
 											|| $('#payment-years').val() > 4 && $('#payment-years').val() == (i + 1)){
 										$('#policy-year-3-1').html(i+1);
@@ -277,7 +277,7 @@ function getSaviePlanDetails() {
 										$('#surrender-change-4-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 									}
 								}else {
-									if(($('#payment-years').val() == 3 && i == 4)
+									if(($('#payment-years').val() <= 3 && i == 4)
 											|| $('#payment-years').val() == 4 && i == 3
 											|| $('#payment-years').val() > 4 && $('#payment-years').val() == (i + 1)){
 										$('#policy-year-4-1').html(i+1);
