@@ -182,7 +182,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIE_CENTRE = "savie.centre";
 	
 	public static final String URL_SAVIE_LANDING_RP = "regular-premium";
-	public static final String PAGE_SAVIE_LANDING_RP = "savie-insurance-rp";
+	public static final String PAGE_SAVIE_LANDING_RP = "savings-insurance-rp";
 	public static final String PAGE_PROPERTIES_SAVIE_LANDING_RP = "savie.landing.rp";
 	
 	

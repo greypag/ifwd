@@ -26,7 +26,7 @@
 	</decorator>
 	
 	<decorator name="fwdsaints" page="template_saints.jsp">
-		<pattern>/*/saints-insurance*</pattern>
+		<pattern>/*/savings-insurance/regular-premium</pattern>
 	</decorator>
 	
 	<decorator name="fwdevergreen" page="template_evergreen.jsp">
