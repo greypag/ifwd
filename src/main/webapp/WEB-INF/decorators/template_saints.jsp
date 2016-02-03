@@ -44,6 +44,10 @@
 <meta itemprop="name" content="${ogTitle}" />
 <meta itemprop="description" content="${ogDescription}"/>
 <meta itemprop="image" content="${ogImage}" />
+<% String requestUri = request.getRequestURI(); %>
+<% if(!requestUri.endsWith("saints-insurance-rp")) { %>
+<meta name="robots" content="noindex">
+<% }%>
 
 <!-- Open Graph data -->
 <meta property="og:title" content="${ogTitle}" />

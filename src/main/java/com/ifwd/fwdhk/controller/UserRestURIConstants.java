@@ -182,7 +182,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIE_CENTRE = "savie.centre";
 	
 	public static final String PAGE_SAINTS_LANDING_RP = "saints-insurance-rp";
-	public static final String PAGE_PROPERTIES_SAINTS_LANDING_RP = "saints.landing.rp ";
+	public static final String PAGE_PROPERTIES_SAINTS_LANDING_RP = "saints.landing.rp";
 	
 	
 	/* Page Flow Control For OverSea */
