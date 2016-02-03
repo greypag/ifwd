@@ -142,7 +142,8 @@ public class SavieServiceImpl implements SavieService {
 			if("SP".equals(paymentMode)) {
 				paymentTerm = 100-issueAge;
 			}else if("RP".equals(paymentMode)) {
-				paymentTerm = 3;
+				String paymentYear = request.getParameter("paymentYear");
+				paymentTerm = paymentYear == null ? 3 : Integer.valueOf(paymentYear);
 			}
 			
 			SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails(planCode, issueAge, paymentTerm, premium, referralCode, paymentMode, null);
