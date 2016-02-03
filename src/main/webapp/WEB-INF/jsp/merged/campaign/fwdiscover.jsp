@@ -873,6 +873,7 @@
 		<script src="<%=request.getContextPath()%>/resources/js/fwdiscover/jquery.countdown.min.js"></script>
 		<script type="text/javascript">
         $(document).ready(function() {
+        	$(".plan-details-box").css("display","block")
         	//var serverTime = new Date("2016-02-03 11:58:00");
         	var serverTime = new Date();
             serverTime = serverTime.setMinutes(serverTime.getMinutes()+1);
