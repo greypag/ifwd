@@ -68,14 +68,14 @@ var home_url = "<%=request.getContextPath()%>";
 			        		<img class="hidden-md hidden-lg" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
 			        		<div class="promo-section">
 			        			<h2 class="hidden-xs hidden-sm"><fmt:message key="oceanpark.landing.save.while" bundle="${msg}" /> <fmt:message key="oceanpark.landing.you.play" bundle="${msg}" /></h2>
-			        			<h4>Exclusive offer for Ocean Park SmartFun Adult Pass Members</h4>
+			        			<h4><fmt:message key="jumbo.savie.oceanpark.copy1.mobile" bundle="${msg}" /></h4>
 			        			<p class="description">Gold & Silver members now enjoy Premium discount of HK$960 (Gold) and HK$740 (Silver), respectively upon a successful application of Savie Insurance Plan^ with lump sum payment not less than HK$100,000.</p>
 			        			<div class="clearfix">
 			        				<button class="savie-regular-btn" id="op-buy-now-O2O-mobile"><fmt:message key="cta.start" bundle="${msg}" /></button>
 			        				<img src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" class="hidden-xs hidden-sm desktop-op">
 			        			</div>
 			        			<p class="terms-condition"><fmt:message key="oceanpark.landing.please.refer.part1" bundle="${msg}" /> <a href="#"><fmt:message key="oceanpark.landing.please.refer.part2" bundle="${msg}" /></a>.
-								<span><fmt:message key="oceanpark.landing.please.refer.part3" bundle="${msg}" /> <a href="#"><fmt:message key="oceanpark.landing.please.refer.part4" bundle="${msg}" /> </a>, and FWD Life Insurance Company </span><span>Limited and Ocean Park reserve the right to vary the terms and conditions of the offer.</span>
+								<span><fmt:message key="oceanpark.landing.please.refer.part3" bundle="${msg}" /> <a href="#"><fmt:message key="oceanpark.landing.please.refer.part4" bundle="${msg}" /> </a><fmt:message key="oceanpark.landing.please.refer.part5" bundle="${msg}" /></span>
 								</p>
 			        		</div>
 			        	</div>
@@ -122,7 +122,7 @@ var home_url = "<%=request.getContextPath()%>";
 		        				<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings-mobile" bundle="${msg}" />" class="">
 		        				<div class="item-desc">
 		        					<h5 class="hidden-md hidden-lg"><fmt:message key="saints.landing.payment.options" bundle="${msg}" /></h5>
-		        					<p><fmt:message key="saints.landing.payment.options.content" bundle="${msg}" /></p>
+		        					<p><fmt:message key="usp.savie1.copy" bundle="${msg}" /></p>
 		        				</div>
 		        			</div>
 		        			<div class="usp-item clearfix col-xs-12 col-md-4">
@@ -130,7 +130,7 @@ var home_url = "<%=request.getContextPath()%>";
 		        				<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment-mobile" bundle="${msg}" />" class="">
 		        				<div class="item-desc">
 		        					<h5 class="hidden-md hidden-lg"><fmt:message key="saints.landing.free" bundle="${msg}" /></h5>
-		        					<p class="padded"><fmt:message key="saints.landing.free.content" bundle="${msg}" /></p>
+		        					<p class="padded"><fmt:message key="usp.savie2.copy" bundle="${msg}" /></p>
 		        				</div>
 		        			</div>
 		        			<div class="usp-item clearfix col-xs-12 col-md-4">
@@ -138,8 +138,8 @@ var home_url = "<%=request.getContextPath()%>";
 		        				<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional-mobile" bundle="${msg}" />" class="">
 		        				<div class="item-desc">
 		        					<h5 class="hidden-md hidden-lg"><fmt:message key="saints.landing.extra" bundle="${msg}" /></h5>
-		        					<p class="padded"><fmt:message key="saints.landing.extra.content" bundle="${msg}" /></p>
-		        					<p class="accumulation padded"><fmt:message key="saints.landing.extra.accumulation" bundle="${msg}" /></p>
+		        					<p class="padded"><fmt:message key="usp.savie3.copy" bundle="${msg}" /></p>
+		        					<p class="accumulation padded"><fmt:message key="usp.savie3.disclaimer" bundle="${msg}" /></p>
 		        				</div>
 		        			</div>
 		        		</div>

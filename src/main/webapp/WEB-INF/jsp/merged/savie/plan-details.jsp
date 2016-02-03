@@ -146,7 +146,7 @@ var context = "${pageContext.request.contextPath}";
 							</div>
 	
 							<h2><fmt:message key="label.promo_code" bundle="${msg}" /></h2>
-							<input name="promocode" type="text" placeholder="IF APPLICABLE" class="promocode" id="promocode">
+							<input name="promocode" type="text" placeholder="<fmt:message key="savie.planDetails.promo.code.placeholder" bundle="${msg}" />" class="promocode" id="promocode">
 							<span class="error-msg-promo promo-code-error hideSpan" id="promo-code-errmsg">Invalid promo code. Try again?</span>
 						</div>
 						
