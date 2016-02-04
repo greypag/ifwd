@@ -42,7 +42,7 @@ var home_url = "<%=request.getContextPath()%>";
 		        			<h2 class="savie-sweeter"><fmt:message key="savierp.landing.banner" bundle="${msg}" /> <span><fmt:message key="savierp.landing.always" bundle="${msg}" /></span></h2>
 		        			<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="savierp.landing.start" bundle="${msg}" /></button>
 	        			<div class="savie-product text-center">
-							<a><fmt:message key="general.product.brochure" bundle="${msg}" /></a> | <a><fmt:message key="general.product.provisions" bundle="${msg}" /></a>
+							<a href="https://i.fwd.com.hk/resources/brochure-pdf/savie_brochure.pdf"><fmt:message key="general.product.brochure" bundle="${msg}" /></a> | <a href="https://i.fwd.com.hk/resources/policy-provisions-pdf/Savie_En_Provisions.pdf"><fmt:message key="general.product.provisions" bundle="${msg}" /></a>
 						</div>
 		        		</div>
 	        		</form>
