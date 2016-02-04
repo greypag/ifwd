@@ -151,7 +151,7 @@ body {
 .fwd-savie-wrapper .breadcrumbs .breadcrumb.breadcrumbs-product-details {
   padding: 4px 0 0 0;
   margin-bottom: 0;
-  margin-top: 0;
+  margin-top: 15px;
 }
 
 /* line 77, ../sass/partials/savie/_common.scss */
@@ -1277,7 +1277,7 @@ body {
   /* line 198, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .landing-promotion .promo-section .terms-condition {
     margin-left: 0;
-    max-width: none;
+    max-width: 425px;
     margin-top: 20px;
   }
   /* line 207, ../sass/partials/savie/_landing-page.scss */
@@ -1326,6 +1326,10 @@ body {
   font-size: 18px;
   margin-bottom: 0;
 }
+body.chin .savie-regular-landing .payment-mode h4 {
+	font-size: 14px;
+    padding-top: 12px;
+}
 @media (min-width: 992px) {
   /* line 247, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .payment-mode .payment-inline {
@@ -1362,6 +1366,9 @@ body {
   padding-bottom: 8px;
   width: 100%;
   font-size: 18px;
+}
+body.chin .savie-regular-landing .payment-mode .payment-options button {
+	    font-size: 16px;
 }
 /* line 276, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .payment-mode .payment-options button:focus {
@@ -1443,10 +1450,14 @@ body {
   float: left;
   font-size: 11px;
 }
-@media (min-width: 400pxpx) {
+@media (min-width: 400px) {
   /* line 336, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .payment-mode .rate ul li {
-    padding-left: 15px;
+    //padding-left: 15px;
+  }
+  
+  body.chin .savie-regular-landing .payment-mode .rate ul li {
+  	font-size: 12px;
   }
 }
 @media (min-width: 400px) {
@@ -1472,6 +1483,9 @@ body {
   /* line 348, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .payment-mode .rate ul li span {
     font-size: 30px;
+  }
+  body.chin .savie-regular-landing .payment-mode .rate ul li span {
+  	font-size: 26px;
   }
 }
 @media (min-width: 435px) {
@@ -1666,6 +1680,9 @@ body {
   padding: 15px 0;
   border-color: transparent;
   font-size: 18px;
+}
+body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav-holder .so-fna-row .navtabs-li .navtabs-title {
+	    font-size: 16px;
 }
 /* line 499, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav-holder .so-fna-row .navtabs-li .navtabs-title:after {
@@ -4032,7 +4049,7 @@ header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li a {
 }
 /* line 220, ../sass/partials/_header.scss */
 header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li.top-menu-chinese {
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei','å¾®è½¯é›…é»‘ä½“', 'STXihei', 'å�Žæ–‡ç´°é»‘', Arial, Helvetica, sans-serif;
 }
 /* line 225, ../sass/partials/_header.scss */
 header .navbar-fixed-top .desktop-add-menu .header-top-menu ul li.reset-padding-menu {
@@ -4129,7 +4146,7 @@ header .navbar-fixed-top .buttons-and-chat .btn-eServices-my-account:hover, head
 header .navbar-fixed-top .buttons-and-chat .btn-chinese {
   float: left;
   background-color: #000;
-  font-family: 'Microsoft Yahei','微软雅黑体', 'STXihei', '华文細黑', Arial, Helvetica, sans-serif;
+  font-family: 'Microsoft Yahei','å¾®è½¯é›…é»‘ä½“', 'STXihei', 'å�Žæ–‡ç´°é»‘', Arial, Helvetica, sans-serif;
   font-size: 16px;
   padding: 6px 10px;
   height: 33px;
@@ -5090,6 +5107,14 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 	    padding-left: 15px;
 	    font-family: 'Calibri-Bold';
 	}
+	
+	.fwd-savie-wrapper .container-fluid.proceed-block.text-center p {
+		margin-top: -12px;
+	}
+	
+	.fwd-savie-wrapper header .navbar {
+		border-bottom: 1px solid #d7d8d7;
+	}
 }
 @media (min-width: 1400px) {
 	.fwd-savie-wrapper .breadcrumb.breadcrumbs-product-details {
@@ -5097,3 +5122,6 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 	}
 }
 
+.fwd-savie-wrapper .go-top {
+  padding: 0;
+}

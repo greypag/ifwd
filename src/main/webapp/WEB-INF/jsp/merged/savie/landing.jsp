@@ -37,10 +37,10 @@
         		<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/sav-landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
         		<div class="fwd-container-limit">
 	        		<div class="img-banner-text savie-landing">
-	        			<h2 class="savie-sweeter">Savie is <span>always sweeter</span></h2>
-	        			<button class="savie-regular-btn start-btn">Start</button>
+	        			<h2 class="savie-sweeter"><fmt:message key="saints.landing.banner" bundle="${msg}" /> <span><fmt:message key="saints.landing.always" bundle="${msg}" /></span></h2>
+	        			<button class="savie-regular-btn start-btn"><fmt:message key="saints.landing.start" bundle="${msg}" /></button>
         			<div class="savie-product text-center">
-						<a>Product brochure</a> | <a>Product provisions</a>
+						<a><fmt:message key="savie.interestGather.banner.product.brochure" bundle="${msg}" /></a> | <a><fmt:message key="savie.interestGather.banner.product.provisions" bundle="${msg}" /></a>
 					</div>
 	        		</div>
 	        	</div>
@@ -50,20 +50,20 @@
 		<div class="payment-mode">
        		<div class="desktop-inline">
         		<div class="payment-inline">
-	        		<h4 class="text-center">Payment mode:</h4>
+	        		<h4 class="text-center"><fmt:message key="saints.landing.payment.mode" bundle="${msg}" /></h4>
 	        		<div class="payment-options clearfix">
 	        			<div class="left">
-	        				<button class="active">Regular payment</button>
+	        				<button class="active"><fmt:message key="saints.landing.regular" bundle="${msg}" /></button>
 	        			</div>
 	        			<div class="right">
-	        				<button>One-off premium</button>
+	        				<button><fmt:message key="saints.landing.oneoff" bundle="${msg}" /></button>
 	        			</div>
 	        		</div>
 	        	</div>
         	</div>
         	<div class="desktop-inline rate-holder">
         		<div class="rate">
-        			<h4 class="text-center">GUARANTEED <span>annual crediting rate:</span></h4>
+        			<h4 class="text-center"><fmt:message key="saints.landing.guaranteed" bundle="${msg}" /> <span><fmt:message key="saints.landing.annual" bundle="${msg}" /></span></h4>
         			<ul class="clearfix">
         				<li><span class="percent">3%</span> [1st year]</li>
         				<li class="with-padding"><span class="percent">3%</span> [2nd year]</li>
@@ -72,50 +72,50 @@
         		</div>
        		</div>
        		<div class="gray-divide"></div>
-       		<p class="availability-notice text-center">^This plan is only applicable to Hong Kong Identity card holders. <span>^The aggregate lump sum payment for each applicant cannot exceed HK$2,000,000 under all Savie Insurance Plan.</span>
+       		<p class="availability-notice text-center"><fmt:message key="saints.landing.holders" bundle="${msg}" /> <span><fmt:message key="saints.landing.Insurance" bundle="${msg}" /></span>
        		</p>
 
-       		<h5 class="hidden-sm hidden-xs product-options text-center">
-				<a href="#">Product brochure</a> | <a href="#">Product provisions</a>
-			</h5>
+       		<!-- <h5 class="hidden-sm hidden-xs product-options text-center">
+				<a href="#"><fmt:message key="savie.interestGather.banner.product.brochure" bundle="${msg}" /></a> | <a href="#"><fmt:message key="savie.interestGather.banner.product.provisions" bundle="${msg}" /></a>
+			</h5> -->
 		</div>
 		
         <div class="fwd-container-limit">
         		<div class="usp row">
         			<div class="usp-item clearfix col-xs-12 col-md-4">
-        				<h5 class="hidden-xs hidden-sm">Flexible payment options</h5>
+        				<h5 class="hidden-xs hidden-sm"><fmt:message key="saints.landing.payment.options" bundle="${msg}" /></h5>
         				<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings-mobile" bundle="${msg}" />" class="">
         				<div class="item-desc">
-        					<h5 class="hidden-md hidden-lg">Flexible payment options</h5>
-        					<p>Savie is now available in one-off premium payment and regular payment, you may choose your preferred payment option depends on your saving habit. We accept cheque or bank direct debit and Bank of Communication FWD Credits Card for one off payment; accept only bank direct debit for regular payment.</p>
+        					<h5 class="hidden-md hidden-lg"><fmt:message key="saints.landing.payment.options" bundle="${msg}" /></h5>
+        					<p><fmt:message key="saints.landing.payment.options.content" bundle="${msg}" /></p>
         				</div>
         			</div>
         			<div class="usp-item clearfix col-xs-12 col-md-4">
-        				<h5 class="hidden-xs hidden-sm">Flexible and free</h5>
+        				<h5 class="hidden-xs hidden-sm"><fmt:message key="saints.landing.free" bundle="${msg}" /></h5>
         				<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment-mobile" bundle="${msg}" />" class="">
         				<div class="item-desc">
-        					<h5 class="hidden-md hidden-lg">Flexible and free</h5>
-        					<p class="padded">Enjoy flexibility when you need it most - you can withdraw from your Savie account at NO charge!</p>
+        					<h5 class="hidden-md hidden-lg"><fmt:message key="saints.landing.free" bundle="${msg}" /></h5>
+        					<p class="padded"><fmt:message key="saints.landing.free.content" bundle="${msg}" /></p>
         				</div>
         			</div>
         			<div class="usp-item clearfix col-xs-12 col-md-4">
-        				<h5 class="hidden-xs hidden-sm">Extra protection</h5>
+        				<h5 class="hidden-xs hidden-sm"><fmt:message key="saints.landing.extra" bundle="${msg}" /></h5>
         				<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional-mobile" bundle="${msg}" />" class="">
         				<div class="item-desc">
-        					<h5 class="hidden-md hidden-lg">Extra protection</h5>
-        					<p class="padded">Receive death benefits at 105% of your account value* and accidental death benefit at 100%, until age 70 and up to a maximum amount of HK$400,000.</p>
-        					<p class="accumulation padded">* The accumulation of total premium paid plus interest, less partial withdrawal(s) if any.</p>
+        					<h5 class="hidden-md hidden-lg"><fmt:message key="saints.landing.extra" bundle="${msg}" /></h5>
+        					<p class="padded"><fmt:message key="saints.landing.extra.content" bundle="${msg}" /></p>
+        					<p class="accumulation padded"><fmt:message key="saints.landing.extra.accumulation" bundle="${msg}" /></p>
         				</div>
         			</div>
         		</div>
         	</div>
         <div class="hidden-xs hidden-sm">
-        		<h3 class="benefits-desktop text-center">Benefits</h3>
+        		<h3 class="benefits-desktop text-center"><fmt:message key="saints.landing.benefits" bundle="${msg}" /></h3>
         		<div class="gray-divide"></div>
         	</div>
        		<div class="regular-benefit">
        			<div class="hidden-md hidden-lg">
-        			<h4 class="text-center">Benefits</h4>
+        			<h4 class="text-center"><fmt:message key="saints.landing.benefits" bundle="${msg}" /></h4>
         			<div class="gray-divide"></div>
         		</div>
        			<div class="fwd-container-limit">
@@ -124,23 +124,23 @@
 		        			<div class="row">
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png">
-		        					<span>Partnership offer</span>
+		        					<span><fmt:message key="saints.landing.partnership" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png" />
 										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info">Partnership offer</h3>
-											<p class="hidden-benefits-info">Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+											<h3 class="hidden-benefits-info"><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
 										</div>
 									</div>
 		        				</div>
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png">
-		        					<span>19 to 70 issue age</span>
+		        					<span><fmt:message key="saints.landing.issue.age" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png" />
 										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info">Partnership offer</h3>
-											<p class="hidden-benefits-info">Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+											<h3 class="hidden-benefits-info"><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
 										</div>
 									</div>
 		        				</div>
@@ -148,23 +148,23 @@
 		        			<div class="row">
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png">
-		        					<span class="two-lines">Withdrawal without charges</span>
+		        					<span class="two-lines"><fmt:message key="saints.landing.partnership" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png" />
 										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info">Partnership offer</h3>
-											<p class="hidden-benefits-info">Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+											<h3 class="hidden-benefits-info"><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
 										</div>
 									</div>
 		        				</div>
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png">
-		        					<span class="two-lines">Earning after 3 years</span>
+		        					<span class="two-lines"><fmt:message key="saints.landing.earning" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png" />
 										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info">Partnership offer</h3>
-											<p class="hidden-benefits-info">Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+											<h3 class="hidden-benefits-info"><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
 										</div>
 									</div>
 		        				</div>
@@ -172,23 +172,23 @@
 		        			<div class="row">
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png">
-		        					<span class="two-lines">24 hours service hotline</span>
+		        					<span class="two-lines"><fmt:message key="saints.landing.hotline" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png" />
 										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info">Partnership offer</h3>
-											<p class="hidden-benefits-info">Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+											<h3 class="hidden-benefits-info"><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
 										</div>
 									</div>
 		        				</div>
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png">
-		        					<span class="two-lines">Payment options</span>
+		        					<span class="two-lines"><fmt:message key="saints.landing.payment.mode" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png" />
 										<div class="info">
-											<h3 class="hidden-benefits-info">Partnership offer</h3>
-											<p class="hidden-benefits-info">Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+											<h3 class="hidden-benefits-info"><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
 										</div>
 									</div>
 		        				</div>
@@ -198,22 +198,22 @@
 		        			<div class="" id="benefits-nav-holder">
 								<ul class="nav nav-tabs row so-fna-row" role="tablist">
 									<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li active" id="benefits-nav-title-1">
-										<a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link text-center">Partnership <span>offer</span></a>
+										<a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link text-center"><fmt:message key="saints.landing.navtabs.partnership" bundle="${msg}" /> <span><fmt:message key="saints.landing.navtabs.offer" bundle="${msg}" /></span></a>
 									</li>
 									<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li" id="benefits-nav-title-2">
-										<a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center">19 to 70 <span>issue age</span></a>
+										<a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="saints.landing.navtabs.to" bundle="${msg}" /> <span><fmt:message key="saints.landing.navtabs.issue" bundle="${msg}" /></span></a>
 									</li>
 									<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li" id="benefits-nav-title-3">
-										<a href="#benefits-navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center">Withdrawal <span>without charges</span></a>
+										<a href="#benefits-navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="saints.landing.navtabs.withdrawal" bundle="${msg}" /> <span><fmt:message key="saints.landing.navtabs.without" bundle="${msg}" /></span></a>
 									</li>
 									<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-4">
-										<a href="#benefits-navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center">Earning after <span>3 years</span></a>
+										<a href="#benefits-navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="saints.landing.navtabs.earning" bundle="${msg}" /> <span><fmt:message key="saints.landing.navtabs.years" bundle="${msg}" /></span></a>
 									</li>
 									<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-5">
-										<a href="#benefits-navtabs-5" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center">24 hours <span>service hotline</span></a>
+										<a href="#benefits-navtabs-5" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="saints.landing.navtabs.hours" bundle="${msg}" /> <span><fmt:message key="saints.landing.navtabs.hotline" bundle="${msg}" /></span></a>
 									</li>
 									<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-6">
-										<a href="#benefits-navtabs-6" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center">Payment <span>options</span></a>
+										<a href="#benefits-navtabs-6" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="saints.landing.navtabs.payment" bundle="${msg}" /> <span><fmt:message key="saints.landing.navtabs.options" bundle="${msg}" /></span></a>
 									</li>
 								</ul>
 								<div class="fna-carousel carousel slide" id="benefits-carousel" data-ride="carousel" data-interval="false">
@@ -222,8 +222,8 @@
 											<div class="benefits-content clearfix">
 												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/new-benefit-1.png">
 												<div class="info">
-													<h3>Partnership offer</h3>
-													<p>Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+													<h3><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
+													<p><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
 												</div>
 											</div>
 										</div>
@@ -231,8 +231,8 @@
 											<div class="benefits-content clearfix">
 												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png">
 												<div class="info">
-													<h3>Partnership offer</h3>
-													<p>Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+													<h3><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
+													<p><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
 												</div>
 											</div>
 										</div>
@@ -240,8 +240,8 @@
 											<div class="benefits-content clearfix">
 												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png">
 												<div class="info">
-													<h3>Partnership offer</h3>
-													<p>Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+													<h3><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
+													<p><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
 												</div>
 											</div>
 										</div>
@@ -249,8 +249,8 @@
 											<div class="benefits-content clearfix">
 												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png">
 												<div class="info">
-													<h3>Partnership offer</h3>
-													<p>Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+													<h3><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
+													<p><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
 												</div>
 											</div>
 										</div>
@@ -258,8 +258,8 @@
 											<div class="benefits-content clearfix">
 												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png">
 												<div class="info">
-													<h3>Partnership offer</h3>
-													<p>Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+													<h3><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
+													<p><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
 												</div>
 											</div>
 										</div>
@@ -267,8 +267,8 @@
 											<div class="benefits-content clearfix">
 												<img src="assets/images/savie-regular/benefit-6.png">
 												<div class="info">
-													<h3>Partnership offer</h3>
-													<p>Savie while you play! <span>Gold & Silver members could enjoy premium discount of HK$560 & 740, respectively.</span></p>
+													<h3><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
+													<p><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
 												</div>
 											</div>
 										</div>
@@ -290,21 +290,21 @@
        		</div>
 
        		<div class="partners">
-       			<h4 class="text-center">Exclusive partner offers</h4>
+       			<h4 class="text-center"><fmt:message key="saints.landing.partners" bundle="${msg}" /></h4>
        			<div class="gray-divide" id="bar-exclusive"></div>
        			<div class="row partners-holder">
        				<div class="col-xs-6 text-center">
        					<div class="desktop-center clearfix">
         					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_agoda.png">
-        					<a href="#" class="hidden-md hidden-lg">Enjoy 8% discount</a>
-        					<p class="hidden-xs hidden-sm">Enjoy 8% <a href="#">Agoda</a> discount on all travel products upon successful registration of FWD online membership.</p>
+        					<a href="#" class="hidden-md hidden-lg"><fmt:message key="saints.landing.discount" bundle="${msg}" /></a>
+        					<p class="hidden-xs hidden-sm"><fmt:message key="saints.landing.enjoy" bundle="${msg}" /> <a href="#"><fmt:message key="saints.landing.agoda" bundle="${msg}" /></a> <fmt:message key="saints.landing.membership" bundle="${msg}" /></p>
        					</div>
        				</div>
        				<div class="col-xs-6 text-center">
        					<div class="desktop-center clearfix">
         					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_pricerite.png">
-        					<a href="#" class="hidden-md hidden-lg">HK$ 50 e-coupon</a>
-        					<p class="hidden-xs hidden-sm">HK$ 50 e-coupon from <a href="#">Pricerite</a> for every successful referral.</p>
+        					<a href="#" class="hidden-md hidden-lg"><fmt:message key="saints.landing.coupon" bundle="${msg}" /></a>
+        					<p class="hidden-xs hidden-sm"><fmt:message key="saints.landing.from" bundle="${msg}" /> <a href="#"><fmt:message key="saints.landing.pricerite" bundle="${msg}" /></a> <fmt:message key="saints.landing.saints.landing.referral" bundle="${msg}" /></p>
        					</div>
        				</div>
        			</div>
@@ -313,16 +313,16 @@
 				<div class="fwd-container-limit" id="nav-holder">
 					<ul class="nav nav-tabs row so-fna-row visible-xs visible-sm" role="tablist">
 						<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="nav-title-1">
-							<a href="#navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link">Here when you need us</a>
+							<a href="#navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link"><fmt:message key="saints.landing.presentation.here" bundle="${msg}" /></a>
 						</li>
 						<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-2">
-							<a href="#navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link">Convenience to reach</a>
+							<a href="#navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link"><fmt:message key="saints.landing.presentation.convenience" bundle="${msg}" /></a>
 						</li>
 						<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-3">
-							<a href="#navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link">Make claims easy</a>
+							<a href="#navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link"><fmt:message key="saints.landing.presentation.make" bundle="${msg}" /></a>
 						</li>
 						<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="nav-title-4">
-							<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link">eService app available</a>
+							<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link"><fmt:message key="saints.landing.presentation.eservice" bundle="${msg}" /></a>
 						</li>
 					</ul>
 					<div class="fna-carousel carousel slide" id="so-carousel" data-ride="carousel" data-interval="false">
@@ -332,8 +332,8 @@
 									<div class="fna-icon-circle">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-1.png">
 									</div>
-									<h3 class="visible-md visible-lg  tab-head">Here when you need us</h3>
-									 <p>Our 24 x 7 call centre support, to assistant you anytime you want! <!--<a href="#" class="eserv-link ui-link">eServices</a>--></p>
+									<h3 class="visible-md visible-lg  tab-head"><fmt:message key="saints.landing.presentation.here" bundle="${msg}" /></h3>
+									 <p><fmt:message key="saints.landing.presentation.here.content" bundle="${msg}" /> <!--<a href="#" class="eserv-link ui-link">eServices</a>--></p>
 								</div>
 							</div>
 							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-2">
@@ -341,8 +341,8 @@
 									<div class="fna-icon-circle">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-2.png">
 									</div>
-									<h3 class="visible-md visible-lg tab-head">Convenience to reach</h3>
-									<p> Our  5 drop-in location across Hong Kong, Kowloon & New Territories!</p>
+									<h3 class="visible-md visible-lg tab-head"><fmt:message key="saints.landing.presentation.convenience" bundle="${msg}" /></h3>
+									<p> <fmt:message key="saints.landing.presentation.convenience.content" bundle="${msg}" /></p>
 								</div>
 							</div>
 							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-3">
@@ -350,8 +350,8 @@
 									<div class="fna-icon-circle">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-3.png">
 									</div>
-									<h3 class="visible-md visible-lg tab-head">Make claims easy</h3>
-									<p>Simply send the completed claim form to our office within 30 days of the expiry of the policy (except personal liability related claims). Refer to claims section, or you can download the claim form here.</p>
+									<h3 class="visible-md visible-lg tab-head"><fmt:message key="Overseas.Landing.Platformpillar2.headline" bundle="${msg}" /></h3>
+									<p><fmt:message key="saints.landing.presentation.make.content" bundle="${msg}" /></p>
 								</div>
 							</div>
 							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4">
@@ -359,8 +359,8 @@
 									<div class="fna-icon-circle">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png">
 									</div>
-									<h3 class="visible-md visible-lg  tab-head">eService app available</h3>
-									<p>Download our <a href="#" class="eserv-link ui-link">eServices</a> App and get the support you need, when you need it.</p>
+									<h3 class="visible-md visible-lg  tab-head"><fmt:message key="saints.landing.presentation.eservice" bundle="${msg}" /></h3>
+									<p><fmt:message key="saints.landing.presentation.eservice.content1" bundle="${msg}" /> <a href="#" class="eserv-link ui-link"><fmt:message key="saints.landing.presentation.eservice.content2" bundle="${msg}" /></a> <fmt:message key="saints.landing.presentation.eservice.content3" bundle="${msg}" /></p>
 								</div>
 							</div>
 						</div>
@@ -379,61 +379,63 @@
 					<div class="mini-banner-holder">
 						<img src="<%=request.getContextPath()%>/resources/images/savie-regular/read-our-blog.jpg" class="img-responsive">
 						<div class="black-overlay"></div>
-						<h5 class="text-center">Save before you spend</h5>
+						<h5 class="text-center"><fmt:message key="saints.landing.blog.save" bundle="${msg}" /></h5>
 					</div>
 					<div class="btn-holder">
-						<button class="savie-regular-btn">Read more from our blog</button>
+						<button class="savie-regular-btn"><fmt:message key="blog.headline" bundle="${msg}" /></button>
 					</div>
 				</div>
 				<div class="hidden-xs hidden-sm">
-					<h3 class="text-center">Read more from our blog</h3>
+					<h3 class="text-center"><fmt:message key="blog.headline" bundle="${msg}" /></h3>
 					<div class="gray-divide"></div>
-					<p class="definition text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit pretium metus. Suspendisse sagittis mi id iaculis eleifend. <span>Integer ullamcorper nisi eget elit molestie mattis.</span></p>
+					<p class="definition text-center"><fmt:message key="saints.landing.blog.lorem" bundle="${msg}" /> <span><fmt:message key="saints.landing.blog.integer" bundle="${msg}" /></span></p>
 
 					<div class="blogs-holder clearfix fwd-container-limit">
 						<div class="blogs first">
 							<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-1.jpg" class="img-responsive">
 							<div class="orange-overlay text-center">
-								<p class="title">Saving is easier than you think!</p>
-								<span>SAVE</span>
-								<p class="definition">Spending yourself into a hole? You are not the only one</p>
-								<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2016/01/11/power-start-up/">Read now</a>
+								<p class="title"><fmt:message key="saints.landing.blog.title3" bundle="${msg}" /></p>
+								<span><fmt:message key="saints.landing.blog.span3" bundle="${msg}" /></span>
+								<p class="definition"><fmt:message key="saints.landing.blog.definition3" bundle="${msg}" /></p>
+								<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2016/01/11/power-start-up/"><fmt:message key="saints.landing.blog.read.now" bundle="${msg}" /></a>
 							</div>
 						</div>
 						<div class="blogs">
 							<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-2.jpg" class="img-responsive">
 							<div class="orange-overlay text-center">
-								<p class="title">Saving is easier than you think!</p>
-								<span>SAVE</span>
-								<p class="definition">Spending yourself into a hole? You are not the only one</p>
-								<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/30/do-holidays-have-to-be-saving-traps/">Read now</a>
+								<p class="title"><fmt:message key="saints.landing.blog.title2" bundle="${msg}" /></p>
+								<span><fmt:message key="saints.landing.blog.span2" bundle="${msg}" /></span>
+								<p class="definition"><fmt:message key="saints.landing.blog.definition3" bundle="${msg}" /></p>
+								<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/30/do-holidays-have-to-be-saving-traps/"><fmt:message key="saints.landing.blog.read.now" bundle="${msg}" /></a>
 							</div>
 						</div>
 						<div class="blogs">
 							<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-3.jpg" class="img-responsive">
 							<div class="orange-overlay text-center">
-								<p class="title">Saving is easier than you think!</p>
-								<span>SAVE</span>
-								<p class="definition">Spending yourself into a hole? You are not the only one</p>
-								<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/17/busting-the-myths-of-saving-traps/">Read now</a>
+								<p class="title"><fmt:message key="saints.landing.blog.title2" bundle="${msg}" /></p>
+								<span><fmt:message key="saints.landing.blog.span2" bundle="${msg}" /></span>
+								<p class="definition"><fmt:message key="saints.landing.blog.definition3" bundle="${msg}" /></p>
+								<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/17/busting-the-myths-of-saving-traps/"><fmt:message key="saints.landing.blog.read.now" bundle="${msg}" /></a>
 							</div>
 						</div>
 						<div class="blogs last">
 							<img src="<%=request.getContextPath()%>/resources/images/savie-regular/blog-4.jpg" class="img-responsive">
 							<div class="orange-overlay text-center">
-								<p class="title">Saving is easier than you think!</p>
-								<span>SAVE</span>
-								<p class="definition">Spending yourself into a hole? You are not the only one</p>
-								<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/09/%E9%80%99%E6%A8%A3%E5%81%9A%E5%B0%B1%E5%B0%8D%E4%BA%86%E3%80%80coupon%E5%B9%AB%E6%82%A8%E6%85%B3%E5%A4%A7%E9%8C%A2/">Read now</a>
+								<p class="title"><fmt:message key="saints.landing.blog.title2" bundle="${msg}" /></p>
+								<span><fmt:message key="saints.landing.blog.span2" bundle="${msg}" /></span>
+								<p class="definition"><fmt:message key="saints.landing.blog.definition3" bundle="${msg}" /></p>
+								<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/09/%E9%80%99%E6%A8%A3%E5%81%9A%E5%B0%B1%E5%B0%8D%E4%BA%86%E3%80%80coupon%E5%B9%AB%E6%82%A8%E6%85%B3%E5%A4%A7%E9%8C%A2/"><fmt:message key="saints.landing.blog.read.now" bundle="${msg}" /></a>
 							</div>
 						</div>
 					</div>
 
 					<div class="fwd-container-limit">
-						<p class="blog-notice">The information provided in the blog is for reference only. While FWD Life Insurance Company (Bermuda) Limited and its affiliates ("FWD") use all reasonable efforts to ensure the information is accurate, FWD makes no warranties or representations as to the accuracy or completeness of any of the information and assumes no liability for any errors or omissions thereof. FWD shall not be liable for any direct, incidental, consequential, indirect or punitive damages arising out of access to, use of or inability to use the information, or any errors or omissions in the content of this material. Users should carefully evaluate the information.</p>
+						<p class="blog-notice"><fmt:message key="saints.landing.blog.notice" bundle="${msg}" /></p>
 					</div>
 				</div>
 			</div>
+			
+			<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
 		
 		<!-- Customer Center Modal -->
 		<div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">
