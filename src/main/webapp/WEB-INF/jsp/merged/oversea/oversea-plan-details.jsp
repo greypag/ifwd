@@ -773,12 +773,12 @@ function setDropArea(id) {
                                         </div>
                                     </div>
                                     
-                                    <div class="form-group">
+                                    <div class="form-group auto-complete">
                                         <div class="field-label form-label col-lg-5 col-md-5 col-sm-12 col-xs-12 pad-none">
                                             <label for="countryOfInstitution" class="field-label bold-500"><fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" /></label>
                                         </div>
                                         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 pad-none">
-                                            <input autocomplete="off" name="countryOfInstitution" type="text" class="form-control full-control bmg_custom_placeholder" value="<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />" id="countryOfInstitution" onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />');validatecountryOfInstitution();" onkeypress="return isAlphaNumeric(event);" maxlength="50">                                              
+                                            <input autocapitalize="none" autocomplete="off" name="countryOfInstitution" type="text" class="form-control full-control bmg_custom_placeholder" value="<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />" id="countryOfInstitution" onfocus="placeholderOnFocus(this,'<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />');" onblur="placeholderOnBlur(this,'<fmt:message key="Overseas.userdetails.Instituation.Country" bundle="${msg}" />');validatecountryOfInstitution();" onkeypress="return isAlphaNumeric(event);" maxlength="50">                                              
                                             <span id="countryOfInstitutionInvalid" class="text-red"></span><br>
                                         </div>
                                     </div>
@@ -1074,15 +1074,17 @@ function setDropArea(id) {
 <!--/.container-->
 
 </section>
-<link href="<%=request.getContextPath()%>/resources/css/easy-autocomplete.min.css" rel="stylesheet">
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.easy-autocomplete.min.js"></script>
+<!--<link href="<%=request.getContextPath()%>/resources/css/easy-autocomplete.min.css" rel="stylesheet">-->
+<!--<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.easy-autocomplete.min.js"></script>-->
+<link href="<%=request.getContextPath()%>/resources/css/awesomplete.css" rel="stylesheet">
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/awesomplete.min.js"></script>
 <script>
 var selectedPlanName = $('#selectedPlanName').val();
 console.log(selectedPlanName);
 
 var options;
 if("${planName}"=="basicA" || "${planName}"=="basicB" || "${planName}"=="medicalWorldwideA" || "${planName}"=="medicalWorldwideB"){
-    options = {       
+    /*options = {       
           data : [ "Australia", "Austria", "Belgium",
                     "Canada", "Denmark", "France",
                     "Germany", "Holland", "India", "Indonesia", 
@@ -1094,14 +1096,34 @@ if("${planName}"=="basicA" || "${planName}"=="basicB" || "${planName}"=="medical
                     "Switzerland", "Taiwan", "Thailand", 
                     "United Kingdom", "Vietnam", "United States of America" ],         
           list: { match: { enabled: true } }
-    };
+    };*/
+    options = {       
+	    list : [ "Australia", "Austria", "Belgium",
+	              "Canada", "Denmark", "France",
+	              "Germany", "Holland", "India", "Indonesia", 
+	              "Ireland", "Italy", "Japan", "Republic of Korea", "Macau",
+	              "Malaysia", "New Zealand",
+	              "People Republic of China",
+	              "Poland", "Portugal", "Singapore",
+	              "Spain", "Sweden",
+	              "Switzerland", "Taiwan", "Thailand", 
+	              "United Kingdom", "Vietnam", "United States of America" ],
+	    minChars: 1,          
+    };   
 }else if("${planName}"=="medicalAsiaA" || "${planName}"=="medicalAsiaB"){
-	options = {       
+	/*options = {       
           data : ["India","Japan","Republic of Korea","Macau","Malaysia","People Republic of China","Singapore","Taiwan","Thailand","Vietnam"],         
           list: { match: { enabled: true } }
-	    };	
+	    };*/
+	    options = {       
+   	      list : ["India","Japan","Republic of Korea","Macau","Malaysia","People Republic of China","Singapore","Taiwan","Thailand","Vietnam"],
+   	      minChars: 1,
+	    };	    
 }
-$("#countryOfInstitution").easyAutocomplete(options);
+var countryInput = document.getElementById("countryOfInstitution");
+var awesompleteTest = new Awesomplete(countryInput,options);
+//awesompleteTest.list = ["India","Japan","Republic of Korea","Macau","Malaysia","People Republic of China","Singapore","Taiwan","Thailand","Vietnam"];
+//$("#countryOfInstitution").easyAutocomplete(options);
 </script>
 <link href="<%=request.getContextPath()%>/resources/css/oversea.css" rel="stylesheet">
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/moment.min.js"></script>

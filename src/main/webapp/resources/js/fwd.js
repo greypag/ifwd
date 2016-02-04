@@ -553,8 +553,13 @@ $(function () {
 	dob_69_date.setDate(dob_69_date.getDate());
 	
 	//Start at 1900
-	var dob_1900_date = new Date();
-	dob_1900_date.setFullYear(1900,0,1);
+	/*var dob_1900_date = new Date();
+	dob_1900_date.setFullYear(1900,0,1);*/
+	
+	//one day before 71 year old date
+	var dob_70_99_date = new Date();
+	dob_70_99_date.setFullYear(dob_70_99_date.getFullYear()-71);
+	dob_70_99_date.setDate(dob_70_99_date.getDate() + 1);
 	
 	// birthday datepicker, only 18-85 year-old users can buy the insurance
 	$('#input_dob').datepicker({
@@ -587,7 +592,7 @@ $(function () {
 		startView: "decade",
 		autoclose: true,
 		format: "dd-mm-yyyy",
-		startDate: dob_1900_date,
+		startDate: dob_70_99_date,
 		endDate: dob_end_date
 	}).on('changeDate', function (ev) {
 		if (document.getElementById("applicantRelationship").value == 'SE'){
@@ -609,7 +614,7 @@ $(function () {
 		startView: "decade",
 		autoclose: true,
 		format: "dd-mm-yyyy",
-		startDate: dob_1900_date,
+		startDate: dob_70_99_date,
 		endDate: dob_12_date
 		/*language: getBundleLanguage*/
 	}).on('changeDate', function (ev) {
@@ -5087,7 +5092,13 @@ function validatecardnumber(cardnumber) {
 		}
 	} else {
 		if( document.getElementById('errcardno') ){
-			document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notValid.message");//'(invalid card number)';
+			
+			if(cardnumber=="") {
+				document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notNull.message")
+			}
+			else {
+				document.getElementById('errcardno').innerHTML = getBundle(getBundleLanguage, "applicant.creditcard.notValid.message");//'(invalid card number)';
+			}
 		}
 		$(".cardnumber").addClass("invalid-field");
 		$("#card-num").addClass("invalid-field");
