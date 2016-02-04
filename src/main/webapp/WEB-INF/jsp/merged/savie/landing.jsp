@@ -53,10 +53,10 @@
 	        		<h4 class="text-center"><fmt:message key="saints.landing.payment.mode" bundle="${msg}" /></h4>
 	        		<div class="payment-options clearfix">
 	        			<div class="left">
-	        				<button class="active"><fmt:message key="saints.landing.regular" bundle="${msg}" /></button>
+	        				<button><fmt:message key="saints.landing.regular" bundle="${msg}" /></button>
 	        			</div>
 	        			<div class="right">
-	        				<button><fmt:message key="saints.landing.oneoff" bundle="${msg}" /></button>
+	        				<button class="active"><fmt:message key="saints.landing.oneoff" bundle="${msg}" /></button>
 	        			</div>
 	        		</div>
 	        	</div>

@@ -63,7 +63,7 @@ var affiliate = "${affiliate}";
 		<ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs hidden-sm hidden-xs">
              <li><a href="#"><fmt:message key="savie.landing.save" bundle="${msg}" /></a></li>
              <li class="divider"><i class="fa fa-play"></i></li>
-             <li><a href="#">Save Insurance Plan </a></li>
+             <li><a href="#"><fmt:message key="header.product.type2" bundle="${msg}" /> </a></li>
              <li class="divider last"><i class="fa fa-play"></i></li>
              <li class="active-bc" id="et-active-bc-menu"><fmt:message key="savie.planDetails.plan.details" bundle="${msg}" /></li>
        	 </ol>
@@ -185,7 +185,7 @@ var affiliate = "${affiliate}";
         </div>
       </div>
             <!-- BACK TO TOP -->
-            <a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
+            <a href="#" id="gotop-rp" class="go-top go-top-default rp"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
       
       <!-- FOOTER -->
     </div>
