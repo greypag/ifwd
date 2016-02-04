@@ -185,7 +185,7 @@ var affiliate = "${affiliate}";
         </div>
       </div>
             <!-- BACK TO TOP -->
-            <a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie/back-to-top.png"></a>
+            <a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
       
       <!-- FOOTER -->
     </div>

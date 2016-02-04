@@ -75,9 +75,9 @@
        		<p class="availability-notice text-center"><fmt:message key="saints.landing.holders" bundle="${msg}" /> <span><fmt:message key="saints.landing.Insurance" bundle="${msg}" /></span>
        		</p>
 
-       		<h5 class="hidden-sm hidden-xs product-options text-center">
+       		<!-- <h5 class="hidden-sm hidden-xs product-options text-center">
 				<a href="#"><fmt:message key="savie.interestGather.banner.product.brochure" bundle="${msg}" /></a> | <a href="#"><fmt:message key="savie.interestGather.banner.product.provisions" bundle="${msg}" /></a>
-			</h5>
+			</h5> -->
 		</div>
 		
         <div class="fwd-container-limit">
@@ -434,6 +434,8 @@
 					</div>
 				</div>
 			</div>
+			
+			<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
 		
 		<!-- Customer Center Modal -->
 		<div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">

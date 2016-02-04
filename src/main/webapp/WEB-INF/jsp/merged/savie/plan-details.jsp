@@ -85,7 +85,7 @@ var context = "${pageContext.request.contextPath}";
 										<h3 class="pull-right total"><span id="range">200,000</span></h3>
 										<label id="hkd" class="pull-right total"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /></label>
 									</div>
-									<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="100" data-slider-value="60000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+									<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="200000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 									
 									<div class="clearfix min-max">
 										<div class="pull-left text-center">
@@ -438,7 +438,7 @@ var context = "${pageContext.request.contextPath}";
 				</div>
 			</div>			
 
-			<!-- <a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie/back-to-top.png"></a>--> 
+			<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
 			
 			<!-- Thank you -->
 			<div class="modal fade thank-you-modal" id="thankYouModal" role="dialog" aria-hidden="true">

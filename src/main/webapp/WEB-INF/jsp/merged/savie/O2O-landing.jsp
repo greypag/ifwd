@@ -59,7 +59,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="img-banner-text hidden-md hidden-lg">
 		        			<h2><fmt:message key="oceanpark.landing.save.while" bundle="${msg}" /> <fmt:message key="oceanpark.landing.you.play" bundle="${msg}" /></h2>
 		        			<h5 class="hidden-md hidden-lg">
-								<a href="#"><fmt:message key="savie.interestGather.banner.product.brochure" bundle="${msg}" /></a> | <a href="#"><fmt:message key="savie.interestGather.banner.product.provisions" bundle="${msg}" /></a>
+								<a href="https://i.fwd.com.hk/resources/brochure-pdf/savie_brochure.pdf"><fmt:message key="savie.interestGather.banner.product.brochure" bundle="${msg}" /></a> | <a href="https://i.fwd.com.hk/resources/policy-provisions-pdf/Savie_En_Provisions.pdf"><fmt:message key="savie.interestGather.banner.product.provisions" bundle="${msg}" /></a>
 							</h5>
 		        		</div>
 					</div>
@@ -88,10 +88,10 @@ var home_url = "<%=request.getContextPath()%>";
 			        		<h4 class="text-center"><fmt:message key="saints.landing.payment.mode" bundle="${msg}" /></h4>
 			        		<div class="payment-options clearfix">
 			        			<div class="left">
-			        				<button class="active"><fmt:message key="saints.landing.regular" bundle="${msg}" /></button>
+			        				<button><fmt:message key="saints.landing.regular" bundle="${msg}" /></button>
 			        			</div>
 			        			<div class="right">
-			        				<button><fmt:message key="saints.landing.oneoff" bundle="${msg}" /></button>
+			        				<button class="active"><fmt:message key="saints.landing.oneoff" bundle="${msg}" /></button>
 			        			</div>
 			        		</div>
 			        	</div>
@@ -111,7 +111,7 @@ var home_url = "<%=request.getContextPath()%>";
 	        		</p>
 
 	        		<h5 class="hidden-sm hidden-xs product-options text-center">
-						<a href="#"><fmt:message key="savie.interestGather.banner.product.brochure" bundle="${msg}" /></a> | <a href="#"><fmt:message key="savie.interestGather.banner.product.provisions" bundle="${msg}" /></a>
+						<a href="https://i.fwd.com.hk/resources/brochure-pdf/savie_brochure.pdf"><fmt:message key="savie.interestGather.banner.product.brochure" bundle="${msg}" /></a> | <a href="https://i.fwd.com.hk/resources/policy-provisions-pdf/Savie_En_Provisions.pdf"><fmt:message key="savie.interestGather.banner.product.provisions" bundle="${msg}" /></a>
 					</h5>
 				</div>
 				
@@ -470,6 +470,7 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 					</div>
 				
+				<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
 				<!-- Customer Center Modal -->
 				<div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">
 					<div class="modal-dialog" role="document">
