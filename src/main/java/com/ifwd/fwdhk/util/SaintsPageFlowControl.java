@@ -96,13 +96,13 @@ public class SaintsPageFlowControl {
 		model.addAttribute("nextPageFlow", to);
 		model.addAttribute("nextPageFlow2", to2);
 
-		logger.debug(UserRestURIConstants.getSitePath(request) + "saints/"
+		logger.debug(UserRestURIConstants.getSitePath(request) + "savie-online/"
 				+ current);
 
 		logger.debug("-----------------------------------page flow end--------------------------------------------");
 
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "saints/" + current);
+				+ "savie-online/" + current);
 
 	}
 

@@ -140,8 +140,10 @@ public class SavieServiceImpl implements SavieService {
 			String referralCode = request.getParameter("referralCode");
 			String paymentMode = request.getParameter("paymentMode");
 			if("SP".equals(paymentMode)) {
+				httpSession.setAttribute("savieType", "SP");
 				paymentTerm = 100-issueAge;
 			}else if("RP".equals(paymentMode)) {
+				httpSession.setAttribute("savieType", "RP");
 				String paymentYear = request.getParameter("paymentYear");
 				paymentTerm = paymentYear == null ? 3 : Integer.valueOf(paymentYear);
 			}
