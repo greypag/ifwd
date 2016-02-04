@@ -53,7 +53,7 @@ var context = "${pageContext.request.contextPath}";
 			<span id="username" data-userid="<%=session.getAttribute("username")%>"></span>
 			<div class="fwd-container-limit">
 				<ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs hidden-sm hidden-xs">
-	               <li><a href="#"><fmt:message key="saints.landing.blog.span1" bundle="${msg}" /></a></li>
+	               <li><a href="#"><fmt:message key="header.product.type2" bundle="${msg}" /></a></li>
 	               <li class="divider"><i class="fa fa-play"></i></li>
 	               <li><a href="#"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /> </a></li>
 	               <li class="divider last"><i class="fa fa-play"></i></li>
@@ -70,7 +70,7 @@ var context = "${pageContext.request.contextPath}";
 						<img class="money" src="<%=request.getContextPath()%>/resources/images/savie/money-logo.png">
 						<div id="investment-amount" class="one-off">    
 							<div id="desktop-left">
-								<h3 class="saving"><fmt:message key="saints.landing.payment.mode" bundle="${msg}" /><button id="payment-button-tooltip" type="button" class="btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="" data-original-title=" ">
+								<h3 class="saving">Payment mode:<button id="payment-button-tooltip" type="button" class="btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="" data-original-title=" ">
 										<img src="<%=request.getContextPath()%>/resources/images/savie/sprite-icons-info-2.png">
 									</button></h3>
 								<div class="selectDiv centreDiv gray-text-bg payment-select">
