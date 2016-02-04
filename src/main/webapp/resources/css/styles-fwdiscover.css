@@ -1279,7 +1279,7 @@
 
 @media ( min-width : 992px) {   	
 	#myCarousel-fwdiscover .carousel-inner {
-	    width: 70%;
+	    width: 60%;
     	margin: 11px auto 0;
 	}
 
@@ -1295,7 +1295,7 @@
 	}
 
 	#myCarousel-fwdiscover .carousel-inner .desktop-img-align {
-		width: 16.6%;
+		width: 20%;
 		float: left;
 		text-align: center;
 	}

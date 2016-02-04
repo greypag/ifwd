@@ -368,7 +368,7 @@ var languageP = "${language}";
  		}
  		if(!validateCardNumber(cardNum.replace(/\s+/g,""))){
  			flag=false;
- 			$('#errcardno').html("invalid card type");
+ 			$('#errcardno').html(getBundle(getBundleLanguage, "applicant.creditcard.notNull.message"));
  			$("#card-num").addClass("invalid-field");
  			if(firstErrorElementId==""){
  				firstErrorElementId="card-num";

@@ -20,6 +20,8 @@
 	href="<%=request.getContextPath()%>/resources/css/styles.css">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/styles-et.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/css/styles2.css">
 <script type="text/javascript">
 var context = "${pageContext.request.contextPath}";
 var signatureFileSize = "${signatureFileSize}";

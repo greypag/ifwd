@@ -121,7 +121,7 @@ var languageP = "${language}";
 					</div>
 					
 			  <div class="text-center social-media-share">
-			  		<p>Share with your friends</p>
+			  		<p><fmt:message key="eliteTerms.confirmation.Share" bundle="${msg}" /></p>
 			  		<a class="share-social" href="https://www.facebook.com/sharer/sharer.php?u=http://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/${language}/term-life-insurance"><i class="fa fa-facebook"></i></a>
 			  		<a class="share-social" href="https://twitter.com/intent/tweet?url=http://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/${language}/term-life-insurance"><i class="fa fa-twitter"></i></a>
 			  		<a class="share-social" href="https://plus.google.com/share?url=http://<%=request.getServerName()%>:<%=request.getServerPort()%><%=request.getContextPath()%>/${language}/term-life-insurance"><i class="fa fa-google-plus"></i></a>

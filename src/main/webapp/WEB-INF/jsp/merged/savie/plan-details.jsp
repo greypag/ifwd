@@ -53,11 +53,11 @@ var context = "${pageContext.request.contextPath}";
 			<span id="username" data-userid="<%=session.getAttribute("username")%>"></span>
 			<div class="fwd-container-limit">
 				<ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs hidden-sm hidden-xs">
-	               <li><a href="#">Save</a></li>
+	               <li><a href="#"><fmt:message key="saints.landing.blog.span1" bundle="${msg}" /></a></li>
 	               <li class="divider"><i class="fa fa-play"></i></li>
-	               <li><a href="#">Save Insurance Plan </a></li>
+	               <li><a href="#"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /> </a></li>
 	               <li class="divider last"><i class="fa fa-play"></i></li>
-	               <li class="active-bc" id="et-active-bc-menu">Plan details</li>
+	               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.plan_details" bundle="${msg}" /></li>
             	</ol>
             </div>
 			<!--Sales Illustration Block-->
@@ -70,37 +70,37 @@ var context = "${pageContext.request.contextPath}";
 						<img class="money" src="<%=request.getContextPath()%>/resources/images/savie/money-logo.png">
 						<div id="investment-amount" class="one-off">    
 							<div id="desktop-left">
-								<h3 class="saving">Payment mode<button id="payment-button-tooltip" type="button" class="btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="" data-original-title=" ">
+								<h3 class="saving"><fmt:message key="saints.landing.payment.mode" bundle="${msg}" /><button id="payment-button-tooltip" type="button" class="btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="" data-original-title=" ">
 										<img src="<%=request.getContextPath()%>/resources/images/savie/sprite-icons-info-2.png">
 									</button></h3>
 								<div class="selectDiv centreDiv gray-text-bg payment-select">
 			                        <select class="form-control gray-dropdown" id="payment-mode">
-			                           <option value="one-off" <c:if test="${savieType=='SP' }">selected</c:if>>One-off premium</option>
-			                           <option value="regular" <c:if test="${savieType=='RP' }">selected</c:if>>Regular payment</option>
+			                           <option value="one-off" <c:if test="${savieType=='SP' }">selected</c:if>><fmt:message key="savie.planDetails.Savings.amount" bundle="${msg}" /></option>
+			                           <option value="regular" <c:if test="${savieType=='RP' }">selected</c:if>><fmt:message key="saints.landing.regular" bundle="${msg}" /></option>
 			                        </select>
 			                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" />
 			                    </div>
 			                    <div class="one-off-premium">
 				                    <div class="clearfix">
 										<h3 class="pull-right total"><span id="range">200,000</span></h3>
-										<label id="hkd" class="pull-right total">HK$</label>
+										<label id="hkd" class="pull-right total"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /></label>
 									</div>
-									<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="100" data-slider-value="60000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+									<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="200000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 									
 									<div class="clearfix min-max">
 										<div class="pull-left text-center">
-											<p>Min</p>
+											<p><fmt:message key="eliteTerms.selectPlan.Min" bundle="${msg}" /></p>
 											<p>$30,000</p>
 										</div>
 			
 										<div class="pull-right text-center">
-											<p>Max</p>
+											<p><fmt:message key="eliteTerms.selectPlan.Max" bundle="${msg}" /></p>
 											<p>$400,000</p>
 										</div>
 									</div>
 								</div>
 								<div class="regular-payment amount hidden">
-									<h3 class="saving">Amount (HK$)</h3>
+									<h3 class="saving"><fmt:message key="eliteTerms.selectPlan.Amount" bundle="${msg}" /> (HK$)</h3>
 									<div class="selectDiv centreDiv gray-text-bg payment-select">
 				                        <select id="amount-rp" class="form-control gray-dropdown">
 				                           <option value="1000">1,000</option>
@@ -121,7 +121,7 @@ var context = "${pageContext.request.contextPath}";
 	
 							<div id="desktop-right">
 								<img class="promo-code hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie/bday-icon.png">
-								<h2 id="promo">Date of birth</h2>
+								<h2 id="promo"><fmt:message key="eliteTerms.selectPlan.Date.of.birth" bundle="${msg}" /></h2>
 								<div id="birthday">
 									<!-- <div class="hidden-md hidden-lg">
 										<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date"/> 
@@ -153,13 +153,13 @@ var context = "${pageContext.request.contextPath}";
 								<img id="birthday" src="<%=request.getContextPath()%>/resources/images/savie/promo-img.png">
 							</div>
 	
-							<h2>Promo code</h2>
-							<input name="promocode" type="text" placeholder="IF APPLICABLE" class="promocode" id="promocode">
+							<h2><fmt:message key="label.promo_code" bundle="${msg}" /></h2>
+							<input name="promocode" type="text" placeholder="<fmt:message key="savie.planDetails.promo.code.placeholder" bundle="${msg}" />" class="promocode" id="promocode">
 							<span class="error-msg-promo promo-code-error hideSpan" id="promo-code-errmsg">Invalid promo code. Try again?</span>
 						</div>
 						
 						<div class="calculate-holder">
-							<button onclick="getSaviePlanDetails()" class="btn btn-orange calculate" type="button" id="sales-illu-apply-now">Calculate<span class="icon icon-chevron-thin-right"></span></button>
+							<button onclick="getSaviePlanDetails()" class="btn btn-orange calculate" type="button" id="sales-illu-apply-now"><fmt:message key="cta.calculate" bundle="${msg}" /><span class="icon icon-chevron-thin-right"></span></button>
 						</div>
 					</form>
 			</div>
@@ -446,7 +446,7 @@ var context = "${pageContext.request.contextPath}";
 				</div>
 			</div>			
 
-			<!-- <a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie/back-to-top.png"></a>--> 
+			<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
 			
 			<!-- Thank you -->
 			<div class="modal fade thank-you-modal" id="thankYouModal" role="dialog" aria-hidden="true">

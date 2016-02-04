@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@page import="java.util.*"%>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -84,8 +85,21 @@ var language = "${language}";
 										<div class="col-xs-12 col-md-4"><label for="preferred-date"><fmt:message key="savie.customerServiceCentre.date" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div id="date" class="selectDiv preferred-date">
-												<input type="text" class="date" name="preferred-date" id="preferred-date" value="${perferredDate }" readonly>
+												<%-- <input type="text" class="date" name="preferred-date" id="preferred-date" value="${perferredDate }" readonly> --%>
+												<%
+												Map results = (Map)request.getAttribute("datesMap");
+												Iterator i = results.entrySet().iterator();
+												Map.Entry<String, List> entry; 
+												while(i.hasNext()){
+													entry=(Map.Entry<String, List>)i.next();
+												%>
+												<input type="text" class="date" name="preferred-date-<%=entry.getKey()%>" id="preferred-date-<%=entry.getKey()%>" value="${perferredDate }" readonly style="display: none;">
+												<%
+												}
+												%>
+												
 												<input type="hidden" id="preferred-date-mirror" value="${perferredDate }">
+												<input type="hidden" id="preferred-date" value="${perferredDate }">
 											</div>
 										</div>
 									</div>
@@ -228,22 +242,36 @@ var language = "${language}";
 <script>
 	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
 	var endDate= new Date((new Date()).getTime() + 24*24*60*60*1000);
+	
 	$(function() {
-		//daysOfWeekDisabled: [0]
-		$('#preferred-date').datepicker({
-			format: "dd-mm-yyyy",
+		<%
+		results = (Map)request.getAttribute("datesMap");
+		i = results.entrySet().iterator();         
+		while(i.hasNext()){
+			entry=(Map.Entry<String, List>)i.next();
+		%>
+		var data<%=entry.getKey()%>='<%=entry.getValue()%>';
+		$('#preferred-date-<%=entry.getKey()%>').datepicker({
+		 	format: "dd-mm-yyyy",
 			container: "#date",
 			startDate: startDate,
 			endDate: endDate,
-			autoclose: true
+			autoclose: true,
+			beforeShowDay:function(Date){
+			    var curr_date = Date.toJSON().substring(0,10);
+			    if (data<%=entry.getKey()%>.indexOf(curr_date)>-1){
+			    	return false;        
+			    }
+			}
 		}).on('changeDate', function (ev) {
 			if(ev.date != null){
-				$("#preferred-date-mirror").val($("#preferred-date").val().trim());
+				$("#preferred-date-mirror").val($("#preferred-date-<%=entry.getKey()%>").val().trim());
+				$("#preferred-date").val($("#preferred-date-<%=entry.getKey()%>").val().trim());
 			}
 			else{
 				$('#preferred-date').datepicker('update', $("#preferred-date-mirror").val().trim());
 			}
-			if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
+			if($("#centre").val().trim() != "" && $("#preferred-date-<%=entry.getKey()%>").val().trim() != ""){
 				getTimeSlot('${perferredTime }');
 			}
 			else{
@@ -251,6 +279,10 @@ var language = "${language}";
 				$("#preferred-time").prepend("<option value=''></option>");
 			}
 		});
+		<%
+		}
+		%>
+		$("#preferred-date-${csCenter}").show();
 		
 		var serviceCentreCode = '${csCenter }';
 		//var perDate = '${perferredDate }';
@@ -258,7 +290,7 @@ var language = "${language}";
 		
 		$('.centre-info').addClass('hidden');
 		$('#centre-' + serviceCentreCode).removeClass('hidden');
-		if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
+		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
 			getTimeSlot('${perferredTime }');
 		}
 		
@@ -280,7 +312,8 @@ var language = "${language}";
 			// display corresponding info
 			$('.centre-info').addClass('hidden');
 			$('#centre-' + centre).removeClass('hidden');
-			if($("#centre").val().trim() != "" && $("#preferred-date").val().trim() != ""){
+			togglePreferred('preferred-date-'+ centre)
+			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
 				getTimeSlot('${perferredTime }');
 			}
 		});
@@ -364,6 +397,11 @@ var language = "${language}";
 	   		error:function(){       
 		    }
 		});
+	}
+	
+	function togglePreferred(id) {
+		$(".col-xs-12 .preferred-date .date").hide();
+		$("#"+ id).show();
 	}
 </script>
 		
