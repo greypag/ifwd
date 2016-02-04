@@ -46,7 +46,7 @@ import com.ifwd.fwdhk.util.CommonEnum.GenderEnum;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
-import com.ifwd.fwdhk.util.SaintsPageFlowControl;
+import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
@@ -512,6 +512,6 @@ public class SavieController extends BaseController{
 		}
 		model.addAttribute("savieAns", savieAns);
 		model.addAttribute("affiliate", affiliate);
-		return SaintsPageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING_RP);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING_RP);
 	}
 }

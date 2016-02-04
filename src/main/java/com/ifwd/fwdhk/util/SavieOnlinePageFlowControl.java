@@ -9,10 +9,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 
-public class SaintsPageFlowControl {
+public class SavieOnlinePageFlowControl {
 
 	private final static Logger logger = LoggerFactory
-			.getLogger(SaintsPageFlowControl.class);
+			.getLogger(SavieOnlinePageFlowControl.class);
 
 	public static ModelAndView pageFlow(Model model,
 			HttpServletRequest request, String key) {
@@ -96,13 +96,13 @@ public class SaintsPageFlowControl {
 		model.addAttribute("nextPageFlow", to);
 		model.addAttribute("nextPageFlow2", to2);
 
-		logger.debug(UserRestURIConstants.getSitePath(request) + "savie-online/"
+		logger.debug(UserRestURIConstants.getSitePath(request) + "savie/"
 				+ current);
 
 		logger.debug("-----------------------------------page flow end--------------------------------------------");
 
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
-				+ "savie-online/" + current);
+				+ "savie/" + current);
 
 	}
 
