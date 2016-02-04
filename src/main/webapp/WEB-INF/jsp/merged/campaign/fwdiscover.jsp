@@ -7,9 +7,36 @@
 	boolean isSaleActiveClass = true;
 	boolean isEservicesActiveClass = false;
 %>
+
+<%
+    java.text.SimpleDateFormat cformat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	long cCurrent = System.currentTimeMillis();  
+	//cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
+	//cCurrent = cformat.parse("2016-02-29 10:00:00").getTime();
+    long cStart = cformat.parse("2016-02-29 09:59:59").getTime();
+    String disableOfferClass = "";
+    String countDownDate = "";
+    String countDownDD = "15";
+    String countDownMM = "Feb";
+    boolean isCNYOffer = false;
+    if( cCurrent<= cStart ){
+    	disableOfferClass = "paused-plan";
+    	countDownDate = "2016-02-29 23:59:59";
+    	countDownDD = "29";
+    	countDownMM = "FEB";
+    	isCNYOffer = true;
+    } else {
+    	disableOfferClass = "";
+    	countDownDate = "2016-03-15 23:59:59";
+    	countDownDD = "15";
+    	countDownMM = "MAR";
+    	isCNYOffer = false;
+    }
+
+%>
+
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-fwdiscover.css" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css" />
-        <div id="paused-Clock"></div>
 		<div class="fwd-savie-wrapper fwdiscover-wrapper">			
 			<!--Top Header-->
 			<div class="page-fwdiscover">
@@ -55,8 +82,8 @@
 								<div class="timer-holder month-holder">
 									<div class="bg gray-bg">
 										<div class="clearfix">
-											<span class="number pull-left">15</span>
-											<span class="month pull-right">FEB</span>
+											<span class="number pull-left"><%=countDownDD%></span>
+											<span class="month pull-right"><%=countDownMM%></span>
 										</div>
 										<span class="line line-gray"></span>
 									</div>
@@ -119,7 +146,7 @@
 	                <div class="carousel-inner clearfix">
 	                    <div class="item active">
 	                        <div class="row">
-                                <div class="col-xs-4">
+                               	<div class="col-xs-4">
                                     <a href="#offerCny"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/annualtravel.png" class="img-responsive"></a>
                                     <div class="gray-hover hidden hidden-xs hidden-sm">
                                         <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail0.price" bundle="${msg}" /></p>
@@ -128,7 +155,7 @@
                                     <span class="text-center">
                                         <p><fmt:message key="Fanfare.landingpage.thumbnail0" bundle="${msg}" /></p>
                                     </span>
-                                </div>	                        
+                                </div>	
 	                            <div class="col-xs-4">
 	                            	<a href="#offer1"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/annualtravel.png" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
@@ -211,6 +238,9 @@
 				<!-- PLANS -->
 				<div class="plans-holder fwdiscover-container">
                 <!-- CNY PROMOTION START -->
+                <%
+                	if (isCNYOffer) {
+               	%>
                     <div class="fwdiscover-plan">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
                         <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
@@ -253,9 +283,12 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end CNY PROMOTION -->				
+                    <!-- end CNY PROMOTION -->
+                <%
+                	} 
+                %>		
 					<!-- first plan -->
-					<div class="fwdiscover-plan paused-plan">
+					<div class="fwdiscover-plan <%=disableOfferClass%>">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -299,7 +332,7 @@
 					</div>
 					<!-- end first plan -->
 					<!-- second plan -->
-					<div class="fwdiscover-plan paused-plan">
+					<div class="fwdiscover-plan <%=disableOfferClass%>">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-14dayssingletrip.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-14dayssingletrip-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 						<div class="plan-details-box red-bg right">
@@ -341,7 +374,7 @@
 					</div>
 					<!-- end second plan -->
 					<!-- third plan -->
-					<div class="fwdiscover-plan paused-plan">
+					<div class="fwdiscover-plan <%=disableOfferClass%>">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-4daysingletravel.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-4daysingletravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -384,7 +417,7 @@
 					</div>
 					<!-- end third plan -->
 					<!-- fourth plan -->
-					<div class="fwdiscover-plan paused-plan">
+					<div class="fwdiscover-plan <%=disableOfferClass%>">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-1yearhome-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -427,7 +460,7 @@
 					</div>
 					<!-- end fourth plan -->
 					<!-- fiffth plan -->
-					<div class="fwdiscover-plan paused-plan">
+					<div class="fwdiscover-plan <%=disableOfferClass%>">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-workingholiday-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
@@ -883,7 +916,7 @@
         $(document).ready(function() {
         	$(".plan-details-box").css("display","block")
         	//var serverTime = new Date("2016-02-03 11:58:00");
-        	var serverTime = new Date();
+        	/*var serverTime = new Date();
             serverTime = serverTime.setMinutes(serverTime.getMinutes()+1);
             console.log(serverTime);
             $('#paused-Clock').countdown(serverTime)
@@ -896,7 +929,7 @@
             .on('update.countdown', function(event){
             	$(this).html(event.strftime('%H:%M:%S'));
             	console.log("ticking");           	
-            });            
+            });*/          
             if(isMobile){
                 $(".fwdiscover-plan .details-btn").click(function(){
                     itemTop = $(this).parents(".fwdiscover-plan").offset();
@@ -915,6 +948,12 @@
                         $('body').attr("style", "");
                     });         
                 });
+            }
+
+            //adjust CNY offer carousel-inner
+            if (<%=(isCNYOffer)?true:false%>){
+            	$('#myCarousel-fwdiscover .carousel-inner').css('width', '70%');
+            	$('#myCarousel-fwdiscover .carousel-inner .desktop-img-align').css('width', '16.6%');
             }
         });
 		
@@ -1128,7 +1167,8 @@
 	    }
 
 	    $("#countdown")
-		   .countdown("2016/02/16", function(event) {
+		   .countdown("<%=countDownDate%>", function(event) {
+		   //.countdown("2016/02/16", function(event) {
 		   //.countdown("2016/03/15", function(event) {	   
 		    $('#countdown-days').text(
 		      event.strftime('%D')
