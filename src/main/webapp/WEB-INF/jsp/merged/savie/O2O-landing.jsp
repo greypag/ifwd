@@ -88,10 +88,10 @@ var home_url = "<%=request.getContextPath()%>";
 			        		<h4 class="text-center"><fmt:message key="saints.landing.payment.mode" bundle="${msg}" /></h4>
 			        		<div class="payment-options clearfix">
 			        			<div class="left">
-			        				<button><fmt:message key="saints.landing.regular" bundle="${msg}" /></button>
+			        				<button id="regular-button"><fmt:message key="saints.landing.regular" bundle="${msg}" /></button>
 			        			</div>
 			        			<div class="right">
-			        				<button class="active"><fmt:message key="saints.landing.oneoff" bundle="${msg}" /></button>
+			        				<button id="one-off-button" class="active"><fmt:message key="saints.landing.oneoff" bundle="${msg}" /></button>
 			        			</div>
 			        		</div>
 			        	</div>
@@ -181,7 +181,7 @@ var home_url = "<%=request.getContextPath()%>";
 				        				</div>
 				        			</div>
 				        			<div class="row">
-				        				<div class="col-xs-6 text-center annualTravel_policy_item">
+				        				<!-- <div class="col-xs-6 text-center annualTravel_policy_item">
 				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png">
 				        					<span class="two-lines"><fmt:message key="saints.landing.charges" bundle="${msg}" /></span>
 											<div class="hidden-benefits benefits-content">
@@ -191,25 +191,12 @@ var home_url = "<%=request.getContextPath()%>";
 													<p class="hidden-benefits-info"><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
 												</div>
 											</div>
-				        				</div>
+				        				</div>-->
 				        				<div class="col-xs-6 text-center annualTravel_policy_item">
 				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png">
 				        					<span class="two-lines"><fmt:message key="saints.landing.partnership" bundle="${msg}" /></span>
 											<div class="hidden-benefits benefits-content">
 												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png" />
-												<div class="info hidden-benefits-info">
-													<h3 class="hidden-benefits-info"><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
-													<p class="hidden-benefits-info"><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
-												</div>
-											</div>
-				        				</div>
-				        			</div>
-				        			<div class="row">
-				        				<div class="col-xs-6 text-center annualTravel_policy_item">
-				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png">
-				        					<span class="two-lines"><fmt:message key="saints.landing.hotline" bundle="${msg}" /></span>
-											<div class="hidden-benefits benefits-content">
-												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png" />
 												<div class="info hidden-benefits-info">
 													<h3 class="hidden-benefits-info"><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
 													<p class="hidden-benefits-info"><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
@@ -228,26 +215,40 @@ var home_url = "<%=request.getContextPath()%>";
 											</div>
 				        				</div>
 				        			</div>
+				        			<!--<div class="row">
+				        			 	<div class="col-xs-6 text-center annualTravel_policy_item">
+				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png">
+				        					<span class="two-lines"><fmt:message key="saints.landing.hotline" bundle="${msg}" /></span>
+											<div class="hidden-benefits benefits-content">
+												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png" />
+												<div class="info hidden-benefits-info">
+													<h3 class="hidden-benefits-info"><fmt:message key="saints.landing.partnership" bundle="${msg}" /></h3>
+													<p class="hidden-benefits-info"><fmt:message key="saints.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="saints.landing.partnership.content2" bundle="${msg}" /></span></p>
+												</div>
+											</div>
+				        				</div>
+				        				
+				        			</div>-->
 				        		</div>
 				        		<div class="hidden-xs hidden-sm">
 				        			<div class="" id="benefits-nav-holder">
 										<ul class="nav nav-tabs row so-fna-row" role="tablist">
-											<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li active" id="benefits-nav-title-1">
+											<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="benefits-nav-title-1">
 												<a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link text-center"><fmt:message key="saints.landing.navtabs.partnership" bundle="${msg}" /> <span><fmt:message key="saints.landing.navtabs.offer" bundle="${msg}" /></span></a>
 											</li>
-											<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li" id="benefits-nav-title-2">
+											<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="benefits-nav-title-2">
 												<a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="saints.landing.navtabs.to" bundle="${msg}" /> <span><fmt:message key="saints.landing.navtabs.issue" bundle="${msg}" /></span></a>
 											</li>
-											<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li" id="benefits-nav-title-3">
+											<!--<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li" id="benefits-nav-title-3">
 												<a href="#benefits-navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="saints.landing.navtabs.withdrawal" bundle="${msg}" /> <span><fmt:message key="saints.landing.navtabs.without" bundle="${msg}" /></span></a>
-											</li>
-											<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-4">
+											</li>-->
+											<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-4">
 												<a href="#benefits-navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="saints.landing.navtabs.earning" bundle="${msg}" /> <span><fmt:message key="saints.landing.navtabs.years" bundle="${msg}" /></span></a>
 											</li>
-											<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-5">
+											<!--<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-5">
 												<a href="#benefits-navtabs-5" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="saints.landing.navtabs.hours" bundle="${msg}" /> <span><fmt:message key="saints.landing.navtabs.hotline" bundle="${msg}" /></span></a>
-											</li>
-											<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-6">
+											</li>-->
+											<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-6">
 												<a href="#benefits-navtabs-6" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="saints.landing.navtabs.payment" bundle="${msg}" /> <span><fmt:message key="saints.landing.navtabs.options" bundle="${msg}" /></span></a>
 											</li>
 										</ul>
@@ -470,7 +471,7 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 					</div>
 				
-				<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
+				<a href="#" id="gotop-rp" class="go-top go-top-default rp"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
 				<!-- Customer Center Modal -->
 				<div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">
 					<div class="modal-dialog" role="document">
@@ -609,6 +610,7 @@ var home_url = "<%=request.getContextPath()%>";
 		<script src="<%=request.getContextPath()%>/resources/js/evergreen/jquery.touchSwipe.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrapValidator.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie/custom.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/fwd-validation.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/placeholders.min.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/evergreen/date.format.js"></script>
@@ -617,6 +619,13 @@ var home_url = "<%=request.getContextPath()%>";
 		
 		<script type="text/javascript">
 			var language = "en";
+			
+			$("#one-off-button").click(function(){
+				window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance";
+			});
+			$("#regular-button").click(function(){
+				window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/regular-premium";
+			});
 			
 			$( window ).resize(function() {
 				bannerimg();
