@@ -108,6 +108,8 @@ public class SavieController extends BaseController{
 			defaultDOB.setTime(date); 
 			defaultDOB.add(defaultDOB.YEAR, -18);
 			model.addAttribute("defaultDOB", format.format(defaultDOB.getTime()));
+			model.addAttribute("nextPageFlow2", "customer-service-centre");
+			
 			return new ModelAndView("/merged/savie/plan-details");
 			//return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
 		}else {
