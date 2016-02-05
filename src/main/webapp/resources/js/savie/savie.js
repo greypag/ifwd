@@ -445,6 +445,7 @@ function getSaviePlanDetails() {
 								}
 								if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
 									if (i == 9) {
+										$('#policy-year-3-2').html("10");
 										$('#premium-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 										$('#surrender-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
