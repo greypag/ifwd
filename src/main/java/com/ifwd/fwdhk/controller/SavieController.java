@@ -88,6 +88,31 @@ public class SavieController extends BaseController{
 		} else {
 			httpSession.setAttribute("savieType", "SP");
 		}
+		String key = "savie.planDetails";
+		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
+				UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+				"meta." + key, UserRestURIConstants.getLanaguage(request));
+		String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
+				UserRestURIConstants.getLanaguage(request));
+		String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
+				UserRestURIConstants.getLanaguage(request));
+		String ogUrl = WebServiceUtils.getPageTitle(key + ".og.url",
+				UserRestURIConstants.getLanaguage(request));
+		String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
+				UserRestURIConstants.getLanaguage(request));
+		String ogDescription = WebServiceUtils.getPageTitle(
+				key + ".og.description",
+				UserRestURIConstants.getLanaguage(request));
+
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		model.addAttribute("ogTitle", ogTitle);
+		model.addAttribute("ogType", ogType);
+		model.addAttribute("ogUrl", ogUrl);
+		model.addAttribute("ogImage", ogImage);
+		model.addAttribute("ogDescription", ogDescription);
+		
 		/*String current = request.getServletPath();
 		if(current.endsWith("plan-details-sp")) {
 			model.addAttribute("planType", "sp");
@@ -484,6 +509,32 @@ public class SavieController extends BaseController{
 				session.setAttribute("perferredDate", formatter.format(date));
 			}
 			logger.info(session.getAttribute("perferredDate").toString());
+			
+			String key = "savie.centre";
+			String pageTitle = WebServiceUtils.getPageTitle("page." + key,
+					UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+					"meta." + key, UserRestURIConstants.getLanaguage(request));
+			String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
+					UserRestURIConstants.getLanaguage(request));
+			String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
+					UserRestURIConstants.getLanaguage(request));
+			String ogUrl = WebServiceUtils.getPageTitle(key + ".og.url",
+					UserRestURIConstants.getLanaguage(request));
+			String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
+					UserRestURIConstants.getLanaguage(request));
+			String ogDescription = WebServiceUtils.getPageTitle(
+					key + ".og.description",
+					UserRestURIConstants.getLanaguage(request));
+
+			model.addAttribute("pageTitle", pageTitle);
+			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+			model.addAttribute("ogTitle", ogTitle);
+			model.addAttribute("ogType", ogType);
+			model.addAttribute("ogUrl", ogUrl);
+			model.addAttribute("ogImage", ogImage);
+			model.addAttribute("ogDescription", ogDescription);
+			
 			return new ModelAndView("/merged/savie/customer-service-centre");
 			//return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CENTRE);
 		} else {
@@ -511,6 +562,32 @@ public class SavieController extends BaseController{
 		//savingAmount为空时返回首页
 		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))) {
 			savieService.confirmationOffline(model, request);
+			
+			
+			String key = "savie.confirmation";
+			String pageTitle = WebServiceUtils.getPageTitle("page." + key,
+					UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+					"meta." + key, UserRestURIConstants.getLanaguage(request));
+			String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
+					UserRestURIConstants.getLanaguage(request));
+			String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
+					UserRestURIConstants.getLanaguage(request));
+			String ogUrl = WebServiceUtils.getPageTitle(key + ".og.url",
+					UserRestURIConstants.getLanaguage(request));
+			String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
+					UserRestURIConstants.getLanaguage(request));
+			String ogDescription = WebServiceUtils.getPageTitle(
+					key + ".og.description",
+					UserRestURIConstants.getLanaguage(request));
+
+			model.addAttribute("pageTitle", pageTitle);
+			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+			model.addAttribute("ogTitle", ogTitle);
+			model.addAttribute("ogType", ogType);
+			model.addAttribute("ogUrl", ogUrl);
+			model.addAttribute("ogImage", ogImage);
+			model.addAttribute("ogDescription", ogDescription);
 			return new ModelAndView("/merged/savie/confirmation-offline");
 			//return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION);
 			
@@ -534,6 +611,32 @@ public class SavieController extends BaseController{
 		//savingAmount为空时返回首页
 		if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount"))) {
 			savieService.confirmationOffline(model, request);
+			String key = "savierp.confirmation.rp";
+			String pageTitle = WebServiceUtils.getPageTitle("page." + key,
+					UserRestURIConstants.getLanaguage(request));
+			String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+					"meta." + key, UserRestURIConstants.getLanaguage(request));
+			String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
+					UserRestURIConstants.getLanaguage(request));
+			String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
+					UserRestURIConstants.getLanaguage(request));
+			String ogUrl = WebServiceUtils.getPageTitle(key + ".og.url",
+					UserRestURIConstants.getLanaguage(request));
+			String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
+					UserRestURIConstants.getLanaguage(request));
+			String ogDescription = WebServiceUtils.getPageTitle(
+					key + ".og.description",
+					UserRestURIConstants.getLanaguage(request));
+
+			model.addAttribute("pageTitle", pageTitle);
+			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+			model.addAttribute("ogTitle", ogTitle);
+			model.addAttribute("ogType", ogType);
+			model.addAttribute("ogUrl", ogUrl);
+			model.addAttribute("ogImage", ogImage);
+			model.addAttribute("ogDescription", ogDescription);
+			
+			
 			return new ModelAndView("/merged/savie/confirmation-rp");
 			//return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION_RP);
 		}else {
@@ -560,6 +663,31 @@ public class SavieController extends BaseController{
 		}
 		model.addAttribute("savieAns", savieAns);
 		model.addAttribute("affiliate", affiliate);
+		String key = "savie.landing";
+		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
+				UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+				"meta." + key, UserRestURIConstants.getLanaguage(request));
+		String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
+				UserRestURIConstants.getLanaguage(request));
+		String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
+				UserRestURIConstants.getLanaguage(request));
+		String ogUrl = WebServiceUtils.getPageTitle(key + ".og.url",
+				UserRestURIConstants.getLanaguage(request));
+		String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
+				UserRestURIConstants.getLanaguage(request));
+		String ogDescription = WebServiceUtils.getPageTitle(
+				key + ".og.description",
+				UserRestURIConstants.getLanaguage(request));
+
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		model.addAttribute("ogTitle", ogTitle);
+		model.addAttribute("ogType", ogType);
+		model.addAttribute("ogUrl", ogUrl);
+		model.addAttribute("ogImage", ogImage);
+		model.addAttribute("ogDescription", ogDescription);
+		
 		return new ModelAndView("/merged/savie/savings-insurance-sp");
 
 		
@@ -583,6 +711,31 @@ public class SavieController extends BaseController{
 		}
 		model.addAttribute("savieAns", savieAns);
 		model.addAttribute("affiliate", affiliate);
+		String key = "savierp.landing.rp";
+		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
+				UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
+				"meta." + key, UserRestURIConstants.getLanaguage(request));
+		String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
+				UserRestURIConstants.getLanaguage(request));
+		String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
+				UserRestURIConstants.getLanaguage(request));
+		String ogUrl = WebServiceUtils.getPageTitle(key + ".og.url",
+				UserRestURIConstants.getLanaguage(request));
+		String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
+				UserRestURIConstants.getLanaguage(request));
+		String ogDescription = WebServiceUtils.getPageTitle(
+				key + ".og.description",
+				UserRestURIConstants.getLanaguage(request));
+
+		model.addAttribute("pageTitle", pageTitle);
+		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		model.addAttribute("ogTitle", ogTitle);
+		model.addAttribute("ogType", ogType);
+		model.addAttribute("ogUrl", ogUrl);
+		model.addAttribute("ogImage", ogImage);
+		model.addAttribute("ogDescription", ogDescription);
+		
 		return new ModelAndView("/merged/savie/savings-insurance-rp");
 		//return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING_RP);
 	}
