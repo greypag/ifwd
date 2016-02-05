@@ -185,14 +185,17 @@ public class SaviePageFlowControl {
 
 		model.addAttribute("nextPageFlow", to);
 		model.addAttribute("nextPageFlow2", to2);
-
-		logger.debug("page resolved " + UserRestURIConstants.getSitePath(request) + "savie/"
+//		to = getSaviePage(to);
+		logger.debug(UserRestURIConstants.getSitePath(request) + "savie/"
 				+ current);
 
 		logger.debug("-----------------------------------page flow end--------------------------------------------");
 
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
 				+ "savie/" + current);
+//		
+//		return new ModelAndView(UserRestURIConstants.getSitePath(request)
+//				+ "savie/" + to);
 
 	}
 	
