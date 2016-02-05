@@ -83,7 +83,11 @@ public class SavieController extends BaseController{
 		HttpSession session = request.getSession();
 		String accessCode = (String) httpSession.getAttribute("accessCode");
 		logger.info(accessCode);
-		
+		if (request.getRequestURL().toString().contains("-rp")) {
+			httpSession.setAttribute("savieType", "RP");
+		} else {
+			httpSession.setAttribute("savieType", "SP");
+		}
 		/*String current = request.getServletPath();
 		if(current.endsWith("plan-details-sp")) {
 			model.addAttribute("planType", "sp");
