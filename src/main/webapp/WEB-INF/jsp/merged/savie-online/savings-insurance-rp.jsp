@@ -42,7 +42,7 @@ var home_url = "<%=request.getContextPath()%>";
 		        			<h2 class="savie-sweeter"><fmt:message key="savierp.landing.banner" bundle="${msg}" /> <span><fmt:message key="savierp.landing.always" bundle="${msg}" /></span></h2>
 		        			<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="savierp.landing.start" bundle="${msg}" /></button>
 	        			<div class="savie-product text-center">
-							<a><fmt:message key="savierp.landing.brochure" bundle="${msg}" /></a> | <a><fmt:message key="savierp.landing.provisions" bundle="${msg}" /></a>
+							<a href="https://i.fwd.com.hk/resources/brochure-pdf/savie_brochure.pdf"><fmt:message key="savierp.landing.brochure" bundle="${msg}" /></a> | <a href="https://i.fwd.com.hk/resources/policy-provisions-pdf/Savie_En_Provisions.pdf"><fmt:message key="savierp.landing.provisions" bundle="${msg}" /></a>
 						</div>
 		        		</div>
 	        		</form>
@@ -55,10 +55,10 @@ var home_url = "<%=request.getContextPath()%>";
 	        		<h4 class="text-center"><fmt:message key="savierp.landing.payment.mode" bundle="${msg}" /></h4>
 	        		<div class="payment-options clearfix">
 	        			<div class="left">
-	        				<button class="active"><fmt:message key="savierp.landing.regular" bundle="${msg}" /></button>
+                            <button id="regular-button" class="active"><fmt:message key="saints.landing.regular" bundle="${msg}" /></button>
 	        			</div>
 	        			<div class="right">
-	        				<button><fmt:message key="savierp.landing.oneoff" bundle="${msg}" /></button>
+                            <button id="one-off-button"><fmt:message key="saints.landing.oneoff" bundle="${msg}" /></button>
 	        			</div>
 	        		</div>
 	        	</div>
@@ -459,6 +459,12 @@ var home_url = "<%=request.getContextPath()%>";
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript">
 	var language = "en";
+    $("#one-off-button").click(function(){
+        window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance";
+    });
+    $("#regular-button").click(function(){
+        window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/regular-premium";
+    });
 	$(function() {
 		/* $("#so-carousel").swiperight(function() {
 		   $(this).carousel('prev');
