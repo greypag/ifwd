@@ -242,6 +242,7 @@ function getSaviePlanDetails() {
 									if($('#total-payment-years').is(":hidden")){
 										if (i == 4) {//total-payment-years
 											$('#policy-year-3-1').html(i+1);
+											
 											$('#premium-change-3-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 											$('#account-value-change-3-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 											$('#surrender-change-3-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
@@ -445,6 +446,7 @@ function getSaviePlanDetails() {
 								}
 								if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
 									if (i == 9) {
+										
 										$('#policy-year-3-2').html("10");
 										$('#premium-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-change-3-2').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
