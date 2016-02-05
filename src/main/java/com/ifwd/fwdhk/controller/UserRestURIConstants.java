@@ -157,7 +157,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIE_DOCUMENT_UPLOAD = "document-upload";	
 	public static final String PAGE_SAVIE_CONFIRMATION = "confirmation";
 	public static final String PAGE_SAVIE_CONFIRMATION_RP = "confirmation-rp";
-	public static final String PAGE_SAVIE_O2O_LANDING = "O2O-landing";
+	public static final String PAGE_SAVIE_O2O_LANDING = "savings-insurance-sp";
 	public static final String PAGE_SAVIE_INTEREST_GATHERING = "interest-gathering";
 	public static final String PAGE_SAVIE_EMAIL_SUBMITTED = "email-submitted";
 	public static final String PAGE_SAVIE_SERVICE_CENTER = "customer-service-centre";
@@ -217,7 +217,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_EVERGREEN_SIGNATURE = "signature";
 	public static final String PAGE_EVERGREEN_DOCUMENT_UPLOAD = "document-upload";	
 	public static final String PAGE_EVERGREEN_CONFIRMATION = "confirmation";
-	public static final String PAGE_EVERGREEN_O2O_LANDING = "O2O-landing";
+	public static final String PAGE_EVERGREEN_O2O_LANDING = "savings-insurance-sp";
 	public static final String PAGE_EVERGREEN_INTEREST_GATHERING = "interest-gathering";
 	public static final String PAGE_EVERGREEN_EMAIL_SUBMITTED = "email-submitted";
 	public static final String PAGE_EVERGREEN_SERVICE_CENTER = "customer-service-centre";

@@ -49,22 +49,28 @@ public class SaviePageFlowControl {
 		String current = request.getServletPath();
 		if (referer != null) {
 			//referer = referer.substring(referer.lastIndexOf("/") + 1);
-			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("single-premium")
-					|| referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("savings-insurance")){
+			if(referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("single-premium")){
 				referer = UserRestURIConstants.PAGE_SAVIE_O2O_LANDING;
-			} else {
+			} else if (referer.substring(referer.lastIndexOf("/") + 1).equalsIgnoreCase("savings-insurance")) {
+				referer = UserRestURIConstants.PAGE_SAVIE_LANDING_RP;
+			}
+			else {
 				referer = getSaviePage(referer);
 			}
 		}
 
 		if (current != null) {
 			//current = current.substring(current.lastIndexOf("/") + 1);
-			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("single-premium")
-					|| current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("savings-insurance")){
+
+			if(current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("single-premium")){
 				current = UserRestURIConstants.PAGE_SAVIE_O2O_LANDING;
-			} else {
+			} else if (current.substring(current.lastIndexOf("/") + 1).equalsIgnoreCase("savings-insurance")) {
+				current = UserRestURIConstants.PAGE_SAVIE_LANDING_RP;
+			}
+			else {
 				current = getSaviePage(current);
 			}
+			
 		}
 
 		// Landing Page
@@ -173,7 +179,7 @@ public class SaviePageFlowControl {
 			break;*/
 			
 		default:
-			to = UserRestURIConstants.PAGE_SAVIE_O2O_LANDING;
+			to = UserRestURIConstants.PAGE_SAVIE_PLAN_DETAILS_RP;
 
 		}
 
