@@ -5146,3 +5146,9 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
   bottom: 0;
   right: 1px;
 }
+
+.clicked-button, .clicked-button:hover {
+	background: #fff !important;
+    border: solid 1px #ff8200 !important;
+    color: #ff8200 !important;
+}

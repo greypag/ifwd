@@ -663,9 +663,11 @@ var home_url = "<%=request.getContextPath()%>";
 			var language = "en";
 			
 			$("#one-off-button").click(function(){
+				$("#one-off-button").addClass('clicked-button');
 				window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/single-premium";
 			});
 			$("#regular-button").click(function(){
+				$("#regular-button").addClass('clicked-button');
 				window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/regular-premium";
 			});
 			
