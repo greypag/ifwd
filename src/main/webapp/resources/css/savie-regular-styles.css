@@ -2137,12 +2137,13 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
   background: rgba(255, 130, 0, 0.75);
   display: none;
   color: #fff;
-  padding: 12px 35px 0;
+  padding: 4px 0 0;
 }
+
 @media (min-width: 1200px) {
   /* line 873, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .blog .blogs .orange-overlay {
-    padding: 21% 35px 0;
+    padding: 4% 35px 0;
   }
 }
 /* line 886, ../sass/partials/savie/_landing-page.scss */
@@ -2156,7 +2157,12 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
   margin-top: 12px;
   font-size: 16px;
   line-height: 18px;
-  padding-bottom: 15px;
+  padding-bottom: 2px;
+}
+@media (min-width: 1200px) {
+	.savie-regular-landing .blog .blogs .orange-overlay .definition {
+		padding-bottom: 15px;
+	}
 }
 /* line 897, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .blog .blogs .orange-overlay span {
@@ -5124,4 +5130,19 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 
 .fwd-savie-wrapper .go-top {
   padding: 0;
+  bottom: 0 !important;
+  z-index: 10;
+}
+@media (min-width: 992px) {
+	.fwd-savie-wrapper .go-top {
+		display: none !important;
+	}
+}
+.fwd-savie-wrapper .o2o-landing.saving-plans #savings-carousel .savings-banner {
+  padding: 0;
+}
+
+.fwd-savie-wrapper .o2o-landing.saving-plans .savings-nav.rp-nav {
+  bottom: 0;
+  right: 1px;
 }
