@@ -405,7 +405,7 @@ var home_url = "<%=request.getContextPath()%>";
 							</ul>
 							<div class="fna-carousel carousel slide" id="so-carousel" data-ride="carousel" data-interval="false">
 								<div class="tab-content carousel-inner clearfix" role="listbox">
-									<div role="tabpanel" class="fna-tab-content tab-pane item active" id="navtabs-1">
+									<div role="tabpanel" class="fna-tab-content tab-pane item active" id="navtabs-1" next-target="nav-title-2">
 										<div class="so-fna-content">
 											<div class="fna-icon-circle">
 												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-1.png">
@@ -414,7 +414,7 @@ var home_url = "<%=request.getContextPath()%>";
 											 <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /> <!--<a href="#" class="eserv-link ui-link">eServices</a>--></p>
 										</div>
 									</div>
-									<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-2">
+									<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-2" next-target="nav-title-3">
 										<div class="so-fna-content">
 											<div class="fna-icon-circle">
 												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-2.png">
@@ -423,7 +423,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<p> <fmt:message key="pillar.convenience.copy1" bundle="${msg}" /></p>
 										</div>
 									</div>
-									<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-3">
+									<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-3" next-target="nav-title-4">
 										<div class="so-fna-content">
 											<div class="fna-icon-circle">
 												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-3.png">
@@ -432,7 +432,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<p><fmt:message key="pillar.claim.easy.copy1" bundle="${msg}" /></p>
 										</div>
 									</div>
-									<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4">
+									<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4" next-target="nav-title-1">
 										<div class="so-fna-content">
 											<div class="fna-icon-circle">
 												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png">
@@ -669,6 +669,12 @@ var home_url = "<%=request.getContextPath()%>";
 			$("#regular-button").click(function(){
 				$("#regular-button").addClass('clicked-button');
 				window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/regular-premium";
+			});
+			
+			$('#so-carousel').bind('slide.bs.carousel', function (e) {
+			    var slideFrom = $(this).find('.active');
+				$('#nav-holder .so-fna-row li').removeClass('active')
+			    $('#'+slideFrom.attr('next-target')).addClass('active');
 			});
 			
 			$( window ).resize(function() {

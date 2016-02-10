@@ -1042,15 +1042,8 @@ body {
   left: 30px;
   color: #fff;
 }
-/* line 29, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .page-banner .img-banner-text.savie-landing {
-  bottom: 32px;
-}
-@media (min-width: 320px) and (max-width: 337px) {
-  /* line 29, ../sass/partials/savie/_landing-page.scss */
-  .savie-regular-landing .page-banner .img-banner-text.savie-landing {
-    bottom: -1px;
-  }
+  bottom: 14px;
 }
 @media (min-width: 992px) {
   /* line 29, ../sass/partials/savie/_landing-page.scss */
