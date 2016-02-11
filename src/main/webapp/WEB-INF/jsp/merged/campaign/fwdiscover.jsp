@@ -13,15 +13,16 @@
 	long cCurrent = System.currentTimeMillis();  
 	//cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
 	//cCurrent = cformat.parse("2016-02-29 10:00:00").getTime();
-    long cStart = cformat.parse("2016-02-29 09:59:59").getTime();
+    
+	long cStart = cformat.parse("2016-02-29 09:59:59").getTime();
     String disableOfferClass = "";
     String countDownDate = "";
-    String countDownDD = "15";
+    String countDownDD = "29";
     String countDownMM = "Feb";
     boolean isCNYOffer = false;
     if( cCurrent<= cStart ){
-    	disableOfferClass = "paused-plan";
-    	countDownDate = "2016-02-29 23:59:59";
+    	//disableOfferClass = "paused-plan";
+        countDownDate = "2016-02-29 09:59:59";
     	countDownDD = "29";
     	countDownMM = "FEB";
     	isCNYOffer = true;
@@ -146,6 +147,10 @@
 	                <div class="carousel-inner clearfix">
 	                    <div class="item active">
 	                        <div class="row">
+                               	
+                               	
+                               	
+                               	<% if(isCNYOffer==true){ %>
                                	<div class="col-xs-4">
                                     <a href="#offerCny"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/annualtravel.png" class="img-responsive"></a>
                                     <div class="gray-hover hidden hidden-xs hidden-sm">
@@ -155,7 +160,10 @@
                                     <span class="text-center">
                                         <p><fmt:message key="Fanfare.landingpage.thumbnail0" bundle="${msg}" /></p>
                                     </span>
-                                </div>	
+                                </div>
+                                <% } %>
+                                
+                                
 	                            <div class="col-xs-4">
 	                            	<a href="#offer1"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/annualtravel.png" class="img-responsive"></a>
 	                            	<div class="gray-hover hidden hidden-xs hidden-sm">
@@ -256,7 +264,6 @@
                                         <li><fmt:message key="Fanfare.landingpage.offerCny.bullet1" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offerCny.bullet2" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offerCny.bullet3" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offerCny.bullet4" bundle="${msg}" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -316,10 +323,10 @@
 											<p class="value">${count0}</p>
 										</div>
 										<div class="holder date hidden-xs hidden-sm">
-											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
+											<fmt:message key="Fanfare.enddate1" bundle="${msg}" />
 										</div>
 										<div class="holder date hidden-md hidden-lg">
-											<fmt:message key="Fanfare.enddate.mobile" bundle="${msg}" />
+											<fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
 										</div>
 									</div>
 								</div>
@@ -358,10 +365,10 @@
 											<p class="value">${count1}</p>
 										</div>
 										<div class="holder date hidden-xs hidden-sm">
-											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
+											<fmt:message key="Fanfare.enddate1" bundle="${msg}" />
 										</div>
 										<div class="holder date hidden-md hidden-lg">
-											<fmt:message key="Fanfare.enddate.mobile" bundle="${msg}" />
+											<fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
 										</div>
 									</div>
 								</div>
@@ -401,10 +408,10 @@
 											<p class="value">${count2}</p>
 										</div>
 										<div class="holder date hidden-xs hidden-sm">
-											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
+											<fmt:message key="Fanfare.enddate1" bundle="${msg}" />
 										</div>
 										<div class="holder date hidden-md hidden-lg">
-											<fmt:message key="Fanfare.enddate.mobile" bundle="${msg}" />
+											<fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
 										</div>
 									</div>
 								</div>
@@ -444,10 +451,10 @@
 											<p class="value">${count3}</p>
 										</div>
 										<div class="holder date hidden-xs hidden-sm">
-											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
+											<fmt:message key="Fanfare.enddate1" bundle="${msg}" />
 										</div>
 										<div class="holder date hidden-md hidden-lg">
-											<fmt:message key="Fanfare.enddate.mobile" bundle="${msg}" />
+											<fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
 										</div>
 									</div>
 								</div>
@@ -487,10 +494,10 @@
 											<p class="value">${count4}</p>
 										</div>
 										<div class="holder date hidden-xs hidden-sm">
-											<fmt:message key="Fanfare.enddate" bundle="${msg}" />
+											<fmt:message key="Fanfare.enddate1" bundle="${msg}" />
 										</div>
 										<div class="holder date hidden-md hidden-lg">
-											<fmt:message key="Fanfare.enddate.mobile" bundle="${msg}" />
+											<fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
 										</div>
 									</div>
 								</div>
@@ -672,9 +679,8 @@
 
                             <ul>
                                 <li><fmt:message key="Fanfare.landingpage.offerCny.bullet1" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerCny.bullet2" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offerCny.bullet2" bundle="${msg}" /><a href="<fmt:message key="Fanfare.landingpage.offerCny.bullet2.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerCny.bullet2.linktext" bundle="${msg}" /></a></li>
                                 <li><fmt:message key="Fanfare.landingpage.offerCny.bullet3" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerCny.bullet4" bundle="${msg}" /></li>
                             </ul>
 
                             <div class="details-button-holder text-center">
