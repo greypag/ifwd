@@ -14,14 +14,14 @@
 	//cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
 	//cCurrent = cformat.parse("2016-02-29 10:00:00").getTime();
     
-	long cStart = cformat.parse("2016-02-29 09:59:59").getTime();
+    long cStart = cformat.parse("2016-02-29 09:59:59").getTime();
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "29";
     String countDownMM = "Feb";
     boolean isCNYOffer = false;
     if( cCurrent<= cStart ){
-    	//disableOfferClass = "paused-plan";
+    	disableOfferClass = "paused-plan";
         countDownDate = "2016-02-29 09:59:59";
     	countDownDD = "29";
     	countDownMM = "FEB";
@@ -919,8 +919,11 @@
 		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/fwdiscover/jquery.countdown.min.js"></script>
 		<script type="text/javascript">
+		$(window).load(function() {
+			$('body').css("display","block");
+		});
         $(document).ready(function() {
-        	$(".plan-details-box").css("display","block")
+        	//$(".plan-details-box").css("display","block")
         	//var serverTime = new Date("2016-02-03 11:58:00");
         	/*var serverTime = new Date();
             serverTime = serverTime.setMinutes(serverTime.getMinutes()+1);

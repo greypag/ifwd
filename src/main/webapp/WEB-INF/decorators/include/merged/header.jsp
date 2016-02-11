@@ -596,7 +596,7 @@ function submitLoginForm(formID) {
                     <li class="col-lg-4 col-md-4 pad-none main-tab dropdown <%if (actionName.equals("WorkingHoliday") | actionName.equals("Flight") | actionName.equals("Travel") | actionName.equals("Homecare") | actionName.equals("Oversea") | actionName.equals("Eliteterm")) {%> active <%}%>">
                         <a class="protect-save-enjoy-tab"><fmt:message key="header.product.type1" bundle="${msg}" /></a>
 		                <ul class="col-lg-12 col-md-12 dropdown-menu protect-tab">
-			                  <li class="col-lg-3 col-md-3 no-padding">
+			                  <li class="nav-group no-padding">
 		                          <ul class="col-lg-12 col-md-12 no-padding">
 		                          <li class="menu-subtitle"><fmt:message key="header.product.type1.group1.title" bundle="${msg}" /></li>
 			                          <li class="menu-link">
@@ -605,7 +605,7 @@ function submitLoginForm(formID) {
 			                          </li>
 		                         </ul> 		                      
 			                  </li>
-	                          <li class="col-lg-5 col-md-5 no-padding middle-group">
+	                          <li class="nav-group no-padding middle-group">
 	                              <ul class="col-lg-12 col-md-12">
 	                              <li class="menu-subtitle"><fmt:message key="header.product.type1.group2.title" bundle="${msg}" /></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.type1.group2.linkname1" bundle="${msg}" /></a></li>
@@ -614,7 +614,7 @@ function submitLoginForm(formID) {
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/working-holiday-insurance"><fmt:message key="header.product.type1.group2.linkname4" bundle="${msg}" /></a></li>
 	                             </ul>                            
 	                          </li>
-	                          <li class="col-lg-3 col-md-3 no-padding">
+	                          <li class="nav-group no-padding">
 	                              <ul class="col-lg-12 col-md-12 no-padding">
 	                              <li class="menu-subtitle"><fmt:message key="header.product.type1.group3.title" bundle="${msg}" /></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/home-insurance"><fmt:message key="header.product.type1.group3.linkname1" bundle="${msg}" /></a></li>
