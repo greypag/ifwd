@@ -76,8 +76,8 @@ var context = "${pageContext.request.contextPath}";
 								<div class="selectDiv centreDiv gray-text-bg payment-select">
 			                        <select class="form-control gray-dropdown" id="payment-mode">
 			                        	
-			                           <option value="one-off" <c:if test="${savieType=='SP' }">selected</c:if>><fmt:message key="savie.planDetails.Savings.amount" bundle="${msg}" /></option>
-			                           <option value="regular" <c:if test="${savieType=='RP' }">selected</c:if>><fmt:message key="saints.landing.regular" bundle="${msg}" /></option>
+			                           <option value="one-off" <c:if test="${savieType=='SP' }">selected</c:if>><fmt:message key="savierp.landing.oneoff" bundle="${msg}" /></option>
+			                           <option value="regular" <c:if test="${savieType=='RP' }">selected</c:if>><fmt:message key="savierp.landing.regular" bundle="${msg}" /></option>
 			                        </select>
 			                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" />
 			                    </div>
@@ -138,8 +138,7 @@ var context = "${pageContext.request.contextPath}";
 									<h3 class="saving">Total payment years</h3>
 									<div class="selectDiv centreDiv gray-text-bg payment-select last">
 				                        <select class="form-control gray-dropdown" id="payment-years">
-				                           <option value="" selected>7</option>
-				                           <option value="">8</option>
+				                           <option value="" selected>3</option>
 				                        </select>
 				                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" />
 				                    </div>
@@ -494,17 +493,22 @@ var context = "${pageContext.request.contextPath}";
 						$('.one-off-premium').addClass('hidden');
 						$('#promo').addClass('dob-reg-payment');
 						$('#investment-amount').removeClass('one-off');
+						$('#total-payment-years').css('display','block');
 					}
 					else {
 						$('.regular-payment').addClass('hidden');
 						$('.one-off-premium').removeClass('hidden');
 						$('#promo').removeClass('dob-reg-payment');
 						$('#investment-amount').addClass('one-off');
+						$('#total-payment-years').removeAttr('style');
 					}
 				});
+	        	
+	        	if($('#payment-mode').val()=="regular") {
+	        		$('#total-payment-years').css('display','block');
+	        	}
 	        	$(document).on('change','#sales-illu-dob',function(){
 					if($(this).val()!="" && $('#payment-mode').val()=="regular") {
-						$('#total-payment-years').css('display','block');
 						
 						var from = $(this).val().split("-");
 						var birthdate = new Date(from[2], from[1] - 1, from[0]);
