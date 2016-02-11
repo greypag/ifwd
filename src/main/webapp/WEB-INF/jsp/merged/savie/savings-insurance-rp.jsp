@@ -56,10 +56,10 @@
 	        		<h4 class="text-center"><fmt:message key="savierp.landing.payment.mode" bundle="${msg}" /></h4>
 	        		<div class="payment-options clearfix">
 	        			<div class="left">
-	        				<button><fmt:message key="savierp.landing.regular" bundle="${msg}" /></button>
+	        				<button id="regular-button" class="active"><fmt:message key="savierp.landing.regular" bundle="${msg}" /></button>
 	        			</div>
 	        			<div class="right">
-	        				<button class="active"><fmt:message key="savierp.landing.oneoff" bundle="${msg}" /></button>
+	        				<button id="one-off-button"><fmt:message key="savierp.landing.oneoff" bundle="${msg}" /></button>
 	        			</div>
 	        		</div>
 	        	</div>
@@ -70,7 +70,7 @@
         			<ul class="clearfix">
         				<li><span class="percent">3%</span> [1st year]</li>
         				<li class="with-padding"><span class="percent">3%</span> [2nd year]</li>
-        				<li class="with-padding"><span class="percent">2.5%</span> [3rd year]</li>
+        				<li class="with-padding"><span class="percent">3.3%</span> [3rd year]</li>
         			</ul>
         		</div>
        		</div>
@@ -112,7 +112,7 @@
         			</div>
         		</div>
         	</div>
-        <div class="hidden-xs hidden-sm">
+        	<div class="hidden-xs hidden-sm">
         		<h3 class="benefits-desktop text-center"><fmt:message key="savierp.landing.benefits" bundle="${msg}" /></h3>
         		<div class="gray-divide"></div>
         	</div>
@@ -149,7 +149,7 @@
 		        				</div>
 		        			</div>
 		        			<div class="row">
-		        				<div class="col-xs-6 text-center annualTravel_policy_item">
+	        				<!--<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png">
 		        					<span class="two-lines"><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
@@ -159,25 +159,12 @@
 											<p class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
 										</div>
 									</div>
-		        				</div>
+		        				</div>-->
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png">
 		        					<span class="two-lines"><fmt:message key="savierp.landing.earning" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png" />
-										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
-											<p class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
-										</div>
-									</div>
-		        				</div>
-		        			</div>
-		        			<div class="row">
-		        				<div class="col-xs-6 text-center annualTravel_policy_item">
-		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png">
-		        					<span class="two-lines"><fmt:message key="savierp.landing.hotline" bundle="${msg}" /></span>
-									<div class="hidden-benefits benefits-content">
-										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png" />
 										<div class="info hidden-benefits-info">
 											<h3 class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
 											<p class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
@@ -196,26 +183,40 @@
 									</div>
 		        				</div>
 		        			</div>
+		        			<!-- <div class="row">
+		        				<div class="col-xs-6 text-center annualTravel_policy_item">
+		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png">
+		        					<span class="two-lines"><fmt:message key="savierp.landing.hotline" bundle="${msg}" /></span>
+									<div class="hidden-benefits benefits-content">
+										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png" />
+										<div class="info hidden-benefits-info">
+											<h3 class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
+										</div>
+									</div>
+		        				</div>
+		        			</div>
+		        			-->
 		        		</div>
 		        		<div class="hidden-xs hidden-sm">
 		        			<div class="" id="benefits-nav-holder">
 								<ul class="nav nav-tabs row so-fna-row" role="tablist">
-									<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li active" id="benefits-nav-title-1">
+									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="benefits-nav-title-1">
 										<a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link text-center"><fmt:message key="savierp.landing.navtabs.partnership" bundle="${msg}" /> <span><fmt:message key="savierp.landing.navtabs.offer" bundle="${msg}" /></span></a>
 									</li>
-									<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li" id="benefits-nav-title-2">
+									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="benefits-nav-title-2">
 										<a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="savierp.landing.navtabs.to" bundle="${msg}" /> <span><fmt:message key="savierp.landing.navtabs.issue" bundle="${msg}" /></span></a>
 									</li>
-									<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li" id="benefits-nav-title-3">
+									<!--  <li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li" id="benefits-nav-title-3">
 										<a href="#benefits-navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="savierp.landing.navtabs.withdrawal" bundle="${msg}" /> <span><fmt:message key="savierp.landing.navtabs.without" bundle="${msg}" /></span></a>
-									</li>
-									<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-4">
+									</li> -->
+									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-4">
 										<a href="#benefits-navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="savierp.landing.navtabs.earning" bundle="${msg}" /> <span><fmt:message key="savierp.landing.navtabs.years" bundle="${msg}" /></span></a>
 									</li>
-									<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-5">
+									<!-- <li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-5">
 										<a href="#benefits-navtabs-5" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="savierp.landing.navtabs.hours" bundle="${msg}" /> <span><fmt:message key="savierp.landing.navtabs.hotline" bundle="${msg}" /></span></a>
-									</li>
-									<li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-6">
+									</li>-->
+									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-6">
 										<a href="#benefits-navtabs-6" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="savierp.landing.navtabs.payment" bundle="${msg}" /> <span><fmt:message key="savierp.landing.navtabs.options" bundle="${msg}" /></span></a>
 									</li>
 								</ul>
@@ -289,8 +290,48 @@
        		</div>
        		
        		<div class="ice-cream-banner hidden-xs hidden-sm">
-       				<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/crediting_rates-en-1.jpg">
-       		</div>
+        				<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/crediting_rates-en-1.jpg" class="hidden">
+	        				<div class="hidden-xs hidden-sm fwd-full-container container-fluid o2o-landing saving-plans">
+							<div id="savings-carousel" class="carousel slide" data-ride="carousel">
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner" role="listbox">
+									<div class="item active">
+										<div class="savings-banner">
+											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-eng-1.jpg" class="img-responsive">
+										</div>
+									</div>
+									<div class="item">
+										<div class="savings-banner">
+											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-eng-4.jpg" class="img-responsive">
+										</div>
+									</div>
+									<div class="item">
+										<div class="savings-banner">
+											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-eng-5.jpg" class="img-responsive">
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="savings-nav rp-nav">
+								<div class="prev">
+									<a class="pull-right disabled" href="#savings-carousel" role="button" data-slide="prev">
+									<span class="icon icon-chevron-thin-left">
+										<span class="sr-only">Previous</span>
+									</span>
+									</a>
+								</div>
+								
+								<div class="next">
+									<a class="pull-left active" href="#savings-carousel" role="button" data-slide="next">
+									<span class="icon icon-chevron-thin-right">
+										<span class="sr-only">Next</span>
+									</span>
+									</a>
+								</div>
+							</div>
+						</div>
+	        		</div>
 
        		<div class="partners">
        			<h4 class="text-center"><fmt:message key="savierp.landing.partners" bundle="${msg}" /></h4>
@@ -330,7 +371,7 @@
 					</ul>
 					<div class="fna-carousel carousel slide" id="so-carousel" data-ride="carousel" data-interval="false">
 						<div class="tab-content carousel-inner clearfix" role="listbox">
-							<div role="tabpanel" class="fna-tab-content tab-pane item active" id="navtabs-1">
+							<div role="tabpanel" class="fna-tab-content tab-pane item active" id="navtabs-1" next-target="nav-title-2">
 								<div class="so-fna-content">
 									<div class="fna-icon-circle">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-1.png">
@@ -339,7 +380,7 @@
 									 <p><fmt:message key="savierp.landing.presentation.here.content" bundle="${msg}" /> <!--<a href="#" class="eserv-link ui-link">eServices</a>--></p>
 								</div>
 							</div>
-							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-2">
+							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-2" next-target="nav-title-3">
 								<div class="so-fna-content">
 									<div class="fna-icon-circle">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-2.png">
@@ -348,7 +389,7 @@
 									<p> <fmt:message key="savierp.landing.presentation.convenience.content" bundle="${msg}" /></p>
 								</div>
 							</div>
-							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-3">
+							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-3" next-target="nav-title-4">
 								<div class="so-fna-content">
 									<div class="fna-icon-circle">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-3.png">
@@ -357,13 +398,13 @@
 									<p><fmt:message key="savierp.landing.presentation.make.content" bundle="${msg}" /></p>
 								</div>
 							</div>
-							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4">
+							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4" next-target="nav-title-1">
 								<div class="so-fna-content">
 									<div class="fna-icon-circle">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png">
 									</div>
 									<h3 class="visible-md visible-lg  tab-head"><fmt:message key="savierp.landing.presentation.eservice" bundle="${msg}" /></h3>
-									<p><fmt:message key="savierp.landing.presentation.eservice.content1" bundle="${msg}" /> <a href="#" class="eserv-link ui-link"><fmt:message key="savierp.landing.presentation.eservice.content2" bundle="${msg}" /></a> <fmt:message key="savierp.landing.presentation.eservice.content3" bundle="${msg}" /></p>
+									<p><fmt:message key="savierp.landing.presentation.eservice.content1" bundle="${msg}" /> <a href="http://http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" class="eserv-link ui-link"><fmt:message key="savierp.landing.presentation.eservice.content2" bundle="${msg}" /></a> <fmt:message key="savierp.landing.presentation.eservice.content3" bundle="${msg}" /></p>
 								</div>
 							</div>
 						</div>
@@ -438,7 +479,7 @@
 				</div>
 			</div>
 			
-			<a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
+			<a href="#" id="gotop-rp" class="go-top go-top-default rp"><img src="<%=request.getContextPath()%>/resources/images/savie-regular/to-top.jpg"></a>
 		
 		<!-- Customer Center Modal -->
 		<div class="modal fade" role="dialog" aria-labelledby="customerCenter" id="customerCenter">
@@ -467,6 +508,19 @@
 	</div>
 	<script type="text/javascript">
 		var language = "en";
+		$("#one-off-button").click(function(){
+			$("#one-off-button").addClass('clicked-button');
+			window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/single-premium";
+		});
+		$("#regular-button").click(function(){
+			$("#regular-button").addClass('clicked-button');
+			window.location = "<%=request.getContextPath()%>/" + lang +"/savings-insurance/regular-premium";
+		});
+		$('#so-carousel').bind('slide.bs.carousel', function (e) {
+		    var slideFrom = $(this).find('.active');
+			$('#nav-holder .so-fna-row li').removeClass('active')
+		    $('#'+slideFrom.attr('next-target')).addClass('active');
+		});
 		$(document).ready(function() {
 			if(isMobile) {
 				$(".annualTravel_policy_item").click(function(){
@@ -516,6 +570,18 @@
 			    });
 		};
 	</script>
+<div class="modal fade bs-example-modal-lg  in" id="policyCoveragePopup" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content plan-modal">
+        <div class="modal-body">
+            <a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true" style="font-size:30px;">×</span></a>
+            <div id="modal_policy_container" style="padding-top: 10px;text-align: center;">
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+	<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.animateSprite.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery-ui.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.ui.touch-punch.min.js"></script>
