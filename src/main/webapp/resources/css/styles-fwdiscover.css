@@ -1552,7 +1552,7 @@
 #offer-announce .title{
    line-height: 1.5;
 }
-.plan-details-box{display:none}
+/*.plan-details-box{display:none}*/
 .paused-plan{
    opacity: 0.4;
    pointer-events: none;
