@@ -404,7 +404,7 @@
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png">
 									</div>
 									<h3 class="visible-md visible-lg  tab-head"><fmt:message key="savierp.landing.presentation.eservice" bundle="${msg}" /></h3>
-									<p><fmt:message key="savierp.landing.presentation.eservice.content1" bundle="${msg}" /> <a href="http://http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" class="eserv-link ui-link"><fmt:message key="savierp.landing.presentation.eservice.content2" bundle="${msg}" /></a> <fmt:message key="savierp.landing.presentation.eservice.content3" bundle="${msg}" /></p>
+									<p><fmt:message key="savierp.landing.presentation.eservice.content1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" class="eserv-link ui-link"><fmt:message key="savierp.landing.presentation.eservice.content2" bundle="${msg}" /></a> <fmt:message key="savierp.landing.presentation.eservice.content3" bundle="${msg}" /></p>
 								</div>
 							</div>
 						</div>
