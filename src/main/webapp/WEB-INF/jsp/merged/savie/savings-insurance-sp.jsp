@@ -59,7 +59,7 @@ var home_url = "<%=request.getContextPath()%>";
 						<div class="img-banner-text hidden-md hidden-lg">
 		        			<h2><fmt:message key="oceanpark.landing.save.while" bundle="${msg}" /> <fmt:message key="oceanpark.landing.you.play" bundle="${msg}" /></h2>
 		        			<h5 class="hidden-md hidden-lg">
-								<a href="https://i.fwd.com.hk/resources/brochure-pdf/savie_brochure.pdf"><fmt:message key="general.product.brochure" bundle="${msg}" /></a> | <a href="https://i.fwd.com.hk/resources/policy-provisions-pdf/Savie_En_Provisions.pdf"><fmt:message key="general.product.provisions" bundle="${msg}" /></a>
+								<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie" bundle="${msg}" />" target="_blank"><fmt:message key="general.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="general.product.provisions" bundle="${msg}" /></a>
 							</h5>
 		        		</div>
 					</div>
@@ -111,7 +111,7 @@ var home_url = "<%=request.getContextPath()%>";
 	        		</p>
 
 	        		<h5 class="hidden-sm hidden-xs product-options text-center">
-						<a href="https://i.fwd.com.hk/resources/brochure-pdf/savie_brochure.pdf"><fmt:message key="general.product.brochure" bundle="${msg}" /></a> | <a href="https://i.fwd.com.hk/resources/policy-provisions-pdf/Savie_En_Provisions.pdf"><fmt:message key="general.product.provisions" bundle="${msg}" /></a>
+						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie" bundle="${msg}" />" target="_blank"><fmt:message key="general.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="general.product.provisions" bundle="${msg}" /></a>
 					</h5>
 				</div>
 				
