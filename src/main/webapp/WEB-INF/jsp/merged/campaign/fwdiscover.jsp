@@ -14,15 +14,17 @@
 	//cCurrent = cformat.parse("2016-02-29 09:59:59").getTime();
 	//cCurrent = cformat.parse("2016-02-29 10:00:00").getTime();
     
-	long cStart = cformat.parse("2016-02-29 09:59:59").getTime();
+    //long cStart = cformat.parse("2016-02-29 09:59:59").getTime();
+    long cStart = cformat.parse("2016-02-11 16:03:00").getTime();
     String disableOfferClass = "";
     String countDownDate = "";
     String countDownDD = "29";
     String countDownMM = "Feb";
     boolean isCNYOffer = false;
     if( cCurrent<= cStart ){
-    	//disableOfferClass = "paused-plan";
-        countDownDate = "2016-02-29 09:59:59";
+    	disableOfferClass = "paused-plan";
+        //countDownDate = "2016-02-29 09:59:59";
+        countDownDate = "2016-02-11 16:03:00";
     	countDownDD = "29";
     	countDownMM = "FEB";
     	isCNYOffer = true;
