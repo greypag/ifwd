@@ -438,7 +438,7 @@ var home_url = "<%=request.getContextPath()%>";
 												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png">
 											</div>
 											<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eservice.app..title" bundle="${msg}" /></h3>
-											<p>Download our <a href="http://http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" class="eserv-link ui-link"><fmt:message key="eliteTerms.landing.eServices.App" bundle="${msg}" /></a> App and get the support you need, when you need it.</p>
+											<p>Download our <a href="http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" class="eserv-link ui-link"><fmt:message key="eliteTerms.landing.eServices.App" bundle="${msg}" /></a> App and get the support you need, when you need it.</p>
 										</div>
 									</div>
 								</div>
