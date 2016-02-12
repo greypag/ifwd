@@ -219,10 +219,10 @@ public class ECommController {
 				String tnc = "";
 				switch (Integer.parseInt(choose)) {
 				case 13:
-					discount="Fanfare.discount0";
+					discount="Fanfare.discount5";
 					date="31-05-2016";
-					offername="Fanfare.offername0";
-					tnc="Fanfare.tnc0";
+					offername="Fanfare.offername5";
+					tnc="Fanfare.tnc5";
 					break;
 				case 5:
 					discount="Fanfare.discount0";
@@ -231,25 +231,25 @@ public class ECommController {
 					tnc="Fanfare.tnc0";
 					break;
 				case 6:
-					discount="Fanfare.discount1";;
+					discount="Fanfare.discount1";
 					date="31-05-2016";
 					offername="Fanfare.offername1";
 					tnc="Fanfare.tnc1";
 					break;
 				case 7:
-					discount="Fanfare.discount2";;
+					discount="Fanfare.discount2";
 					date="31-05-2016";
 					offername="Fanfare.offername2";
 					tnc="Fanfare.tnc2";
 					break;
 				case 8:
-					discount="Fanfare.discount3";;
+					discount="Fanfare.discount3";
 					date="31-05-2016";
 					offername="Fanfare.offername3";
 					tnc="Fanfare.tnc3";
 					break;
 				case 9:
-					discount="Fanfare.discount4";;
+					discount="Fanfare.discount4";
 					date="31-05-2016";
 					offername="Fanfare.offername4";
 					tnc="Fanfare.tnc4";
