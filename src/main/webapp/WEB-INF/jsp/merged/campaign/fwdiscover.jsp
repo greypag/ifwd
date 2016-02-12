@@ -273,7 +273,7 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offerCny.box1" bundle="${msg}" /></p>
-                                            <p class="value">${count0}</p>
+                                            <p class="value">${count5}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
                                             <fmt:message key="Fanfare.enddate" bundle="${msg}" />
@@ -1020,9 +1020,9 @@
         });
         $('#modal-grab-button-cny').click(function(){
             if('<%=username%>' == 'null') {
-                loginpopup("5");
+                loginpopup("13");
             }else {
-                assignPromoCode("5");
+                assignPromoCode("13");
             }
         });		
 		
@@ -1169,6 +1169,8 @@
 	    		link="home-insurance?promo="+code;
 	    	}else if("9"==campaignId){
 	    		link="working-holiday-insurance?promo="+code;
+	    	}else if("13"==campaignId){
+	    		link="savings-insurance";
 	    	}
 	    	$("#offer-details-promotion-code .modal-content .details-btn").on('click', function(){
 	    		$('#offer-details-promotion-code .url').attr('href', '<%=request.getContextPath()%>/${language}/' + link);						
