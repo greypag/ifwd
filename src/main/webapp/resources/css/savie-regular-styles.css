@@ -4510,7 +4510,7 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 @media (min-width: 992px) {
   /* line 1, ../sass/partials/savie/_plan-details.scss */
   .savie-regular-plan-details {
-    margin-top: 125px !important;
+    margin-top: 110px !important;
   }
 }
 /* line 6, ../sass/partials/savie/_plan-details.scss */
@@ -5091,16 +5091,16 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 
 @media (min-width: 992px) {
 	.fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse {
-		height: 100px;
+		height: 80px;
 	}
 	.fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-mobile-header-info .et-back-arrow, .application-page-header.et-header-browse .et-back-arrow {
-		height: 100px;
+		height: 80px;
 	}
 	.application-page-header.et-header-browse .et-back-arrow .et-back-arrow-link {
-		padding-top: 35px;
+		//padding-top: 35px;
 	}
 	.fwd-savie-wrapper .container-fluid.fwd-full-container .et-header-browse .et-header-info-btn {
-		height: 100px;
+		height: 80px;
 	}
 	.fwd-savie-wrapper .breadcrumb.breadcrumbs-product-details {
 	    font-size: 18px;
