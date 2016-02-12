@@ -240,8 +240,11 @@ var language = "${language}";
 <script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 
 <script>
-	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
-	var endDate= new Date((new Date()).getTime() + 24*24*60*60*1000);
+// var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
+// var endDate= new Date((new Date()).getTime() + 24*24*60*60*1000);
+
+	var startDate= new Date((new Date()).getTime());
+	var endDate= new Date(2016,1,29);
 	
 	$(function() {
 		<%
