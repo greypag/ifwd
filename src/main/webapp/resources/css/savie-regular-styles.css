@@ -1309,9 +1309,35 @@ body {
 }
 /* line 239, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .payment-mode {
-  padding-top: 16px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 16px 30px 32px;
+  background-color: #061d29;
+  color: #fff;
+}
+
+@media (min-width: 992px) {
+	.savie-regular-landing .payment-sp {
+	    padding-top: 160px;
+	}
+}
+@media (min-width: 1100px) {
+	.savie-regular-landing .payment-sp {
+		padding-top: 130px;
+	}
+}
+@media (min-width: 1200px) {
+	.savie-regular-landing .payment-sp {
+		padding-top: 100px;
+	}
+}
+@media (min-width: 1400px) {
+	.savie-regular-landing .payment-sp {
+		padding-top: 30px;
+	}
+}
+@media (min-width: 1500px) {
+	.savie-regular-landing .payment-sp {
+		padding-top: 16px;
+	}
 }
 /* line 241, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .payment-mode h4 {
@@ -1409,8 +1435,9 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
 /* line 314, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .payment-mode .rate h4 {
   margin-top: 28px;
-  color: #373a36;
+  color: #ff8200;
 }
+
 @media (min-width: 992px) {
   /* line 314, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .payment-mode .rate h4 {
@@ -1526,7 +1553,7 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
 @media (min-width: 992px) {
   /* line 392, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .usp {
-    margin-top: 56px;
+    margin-top: 24px;
   }
 }
 /* line 398, ../sass/partials/savie/_landing-page.scss */
