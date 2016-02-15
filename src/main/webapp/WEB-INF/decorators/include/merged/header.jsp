@@ -606,7 +606,7 @@ function submitLoginForm(formID) {
 		                         </ul> 		                      
 			                  </li>
 	                          <li class="nav-group no-padding middle-group">
-	                              <ul class="col-lg-12 col-md-12">
+	                              <ul class="col-lg-12 col-md-12 no-padding">
 	                              <li class="menu-subtitle"><fmt:message key="header.product.type1.group2.title" bundle="${msg}" /></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/flight-insurance"><fmt:message key="header.product.type1.group2.linkname1" bundle="${msg}" /></a></li>
 	                              <li class="menu-link"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span><a href="<%=request.getContextPath()%>/${language}/travel-insurance"><fmt:message key="header.product.type1.group2.linkname3" bundle="${msg}" /></a></li>
