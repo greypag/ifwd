@@ -4,63 +4,51 @@
 <fmt:setBundle basename="messages" var="msg" />
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <footer>	
-	<div class="footer-whole">
-		<div class="fwd-full-container container-fluid menu-footer">
-			<div class="fwd-container-limit footer-hotline-max-width">
-				<div class="clearfix">
-					<div class="pull-left footer-orange-menu">
-						<ul class="nav clearfix">
-							<li class="fwd-home"><a href="<fmt:message key="footer.menu.home.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.home" bundle="${msg}" /></a></li>
-							<li class="reset-padding">|</li>
-							<li><a href="<fmt:message key="header.menu.about.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.about" bundle="${msg}" /></a></li>
-							<li class="reset-padding">|</li>
-							<li class="blog"><a href="<fmt:message key="footer.menu.blog.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a></li>
-							<li class="reset-padding">|</li>
-							<li class="faq"><a href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.faq.link" bundle="${msg}" />"><fmt:message key="footer.menu.faq" bundle="${msg}" /></a></li>
-							<li class="reset-padding">|</li>
-							<li class="faq"><a href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.partners.link" bundle="${msg}" />"><fmt:message key="footer.menu.partners" bundle="${msg}" /></a></li>
-						</ul>
-					</div>
-					<div class="footer-menu-right">
-						<div class="clearfix">
-							<div class="pull-left">
-								<ul class="nav footer-hotline">
-									<li><a href="https://www.facebook.com/FWD.HK.MO" target="blank">
-											<div class="circle"><i class="fa fa-facebook"></i></div>
-										</a></li>
-									<li class="padding-left"><a href="https://www.youtube.com/user/FWDHK" target="_blank">
-										<div class="circle"><i class="fa fa-youtube"></i></div>
-									</a></li>
-								</ul>
-							</div>
-							<div class="pull-right hotline-info-number">
-								<div class="hotline-info"><fmt:message key="footer.hotline.part1" bundle="${msg}" /></div>
-								<div class="hotline-number"><fmt:message key="footer.hotline.part2" bundle="${msg}" /></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		
-		<div class="fwd-full-container container-fluid footer-tm">
-			<div class="fwd-container-limit footer-max-width clearfix">
-				<div class="footer-trade">
-					<ul class="footer-list">
-						<li><a href="<fmt:message key="footer.menu.security.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.security" bundle="${msg}" /></a></li>
-						<li class="rst-padding">|</li>
-						<li><a href="<fmt:message key="footer.menu.disclaimer.link" bundle="${msg}" />" target="_blank"> <fmt:message key="footer.menu.disclaimer" bundle="${msg}" /> </a></li>
-						<li class="rst-padding">|</li>
-						<li><a href="<fmt:message key="footer.menu.privacy.link" bundle="${msg}" />" target="_blank"> <fmt:message key="footer.menu.privacy" bundle="${msg}" /></a></li>
-					</ul>
-				</div>
-				<div class="footer-copyright">
-					<fmt:message key="footer.copyright" bundle="${msg}" />
-				</div>
-			</div>
-		</div>
+	<!--mob bottom-->
+	<div class="footer-container">
+	    <div class="upper-footer-wrapper">
+	        <div class="bottom-contact-wrapper">
+	            <div class="contact-label">
+	               Contact us<i class="fa fa-caret-right" aria-hidden="true"></i><br/><br/>
+	               <fmt:message key="footer.hotline.part1" bundle="${msg}" />
+	            </div>
+	            <a class="contact-number" href="tel:31233123"><fmt:message key="footer.hotline.part2" bundle="${msg}" /></a>
+	        </div>
+	        <div class="bottom-link-wrapper">
+	           <div class="bottom-link">
+	               <a href="" target="_blank"><fmt:message key="header.product.type1" bundle="${msg}" /></a>
+	               <a href="" target="_blank"><fmt:message key="header.product.type2" bundle="${msg}" /></a>
+	               <a href="" target="_blank"><fmt:message key="header.product.type3" bundle="${msg}" /></a>           
+	           </div>
+	           <div class="bottom-link">
+	               <a href="" target="_blank">Support & Claims</a>
+	               <a href="<%=request.getContextPath()%>/<fmt:message key="footer.menu.faq.link" bundle="${msg}" />"><fmt:message key="footer.menu.faq" bundle="${msg}" /></a>
+	               <a href="<fmt:message key="footer.menu.blog.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.blog" bundle="${msg}" /></a>        
+	           </div>
+	           <div class="clearfix"></div>          
+	        </div>
+	        <div class="social-link-wrapper">
+	           <div class="social-link">
+	               <a href="https://www.youtube.com/user/FWDHK " target="_blank"><i class="fa fa-share-alt"></i></a>
+	               <a href="https://www.facebook.com/FWD.HK.MO" target="_blank"><i class="fa fa-facebook-official"></i></a>
+	               <a href="https://www.youtube.com/user/FWDHK " target="_blank"><i class="fa fa-youtube-play"></i></a>        
+	           </div>
+	           <div class="clearfix"></div>          
+	        </div>
+	        <div class="clearfix"></div>                        
+	    </div>
+	    <div class="bottom-footer-wrapper">
+	        <div class="bottom-footer-link">
+	            <a href="<fmt:message key="footer.menu.security.link" bundle="${msg}" />" target="_blank"><fmt:message key="footer.menu.security" bundle="${msg}" /></a> |
+	            <a href="<fmt:message key="footer.menu.disclaimer.link" bundle="${msg}" />" target="_blank"> <fmt:message key="footer.menu.disclaimer" bundle="${msg}" /> </a> |
+	            <a href="<fmt:message key="footer.menu.privacy.link" bundle="${msg}" />" target="_blank"> <fmt:message key="footer.menu.privacy" bundle="${msg}" /></a>
+	            <div class="copy-right"><fmt:message key="footer.copyright" bundle="${msg}" /></div>
+	            <div class="clearfix"></div>
+	        </div>   
+	    </div>
+	  <div>
 	</div>
+	<!--/mob bottom--> 
 </footer>
 <c:choose>
 	<c:when test="${language=='en'}">
