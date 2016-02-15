@@ -77,7 +77,7 @@ var context = "${pageContext.request.contextPath}";
 			                        <select class="form-control gray-dropdown" id="payment-mode">
 			                        	
 			                           <option value="one-off" <c:if test="${savieType=='SP' }">selected</c:if>><fmt:message key="savie.planDetails.Savings.amount" bundle="${msg}" /></option>
-			                           <option value="regular" <c:if test="${savieType=='RP' }">selected</c:if>><fmt:message key="saints.landing.regular" bundle="${msg}" /></option>
+			                           <option value="regular" <c:if test="${savieType=='RP' }">selected</c:if>><fmt:message key="savierp.landing.regular" bundle="${msg}" /></option>
 			                        </select>
 			                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" />
 			                    </div>
