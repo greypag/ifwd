@@ -1220,6 +1220,11 @@ body {
     text-align: left;
   }
 }
+@media screen and (min-width: 1920px) {
+  .savie-regular-landing .landing-promotion .promo-section {
+    padding-top: 3px;
+  }
+}
 /* line 163, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .landing-promotion .promo-section h4 {
   font-size: 18px;
@@ -5177,4 +5182,8 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 	background: #fff !important;
     border: solid 1px #ff8200 !important;
     color: #ff8200 !important;
+}
+
+#o2o-landing-form {
+	margin: 0;
 }
