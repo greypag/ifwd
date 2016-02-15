@@ -55,10 +55,10 @@ var home_url = "<%=request.getContextPath()%>";
 	        		<h4 class="text-center"><fmt:message key="savierp.landing.payment.mode" bundle="${msg}" /></h4>
 	        		<div class="payment-options clearfix">
 	        			<div class="left">
-                            <button id="regular-button" class="active"><fmt:message key="saints.landing.regular" bundle="${msg}" /></button>
+                            <button id="regular-button" class="active"><fmt:message key="savierp.landing.regular" bundle="${msg}" /></button>
 	        			</div>
 	        			<div class="right">
-                            <button id="one-off-button"><fmt:message key="saints.landing.oneoff" bundle="${msg}" /></button>
+                            <button id="one-off-button"><fmt:message key="savierp.landing.oneoff" bundle="${msg}" /></button>
 	        			</div>
 	        		</div>
 	        	</div>
