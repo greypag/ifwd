@@ -2167,7 +2167,7 @@ public class EvergreenServiceImpl implements EvergreenService {
 						  "                                      <tbody>\r\n" + 
 						  "                                        <tr>\r\n" + 
 						  "                                          <td valign=\"top\" style=\"padding-right:0px;padding-left:0px;padding-top:0;padding-bottom:0;text-align:center\">\r\n" + 
-						  "                                            <img align=\"center\" alt=\"\" src=\"https://i.fwd.com.hk/resources/images/FWD_Hero-images_Savie-OP.jpg\" width=\"600\" style=\"max-width:600px;padding-bottom:0;display:inline!important;vertical-align:bottom;border:0;outline:none;text-decoration:none\" class=\"CToWUd a6T\" tabindex=\"0\">\r\n" + 
+						  "                                            <img align=\"center\" alt=\"\" src=\"https://i.fwd.com.hk/resources/images/savie-regular/savie-regular_cn.png\" width=\"600\" style=\"max-width:600px;padding-bottom:0;display:inline!important;vertical-align:bottom;border:0;outline:none;text-decoration:none\" class=\"CToWUd a6T\" tabindex=\"0\">\r\n" + 
 						  "                                            <div class=\"a6S\" dir=\"ltr\" style=\"opacity: 0.01; left: 572px; top: 311px;\">\r\n" + 
 						  "                                              <div id=\":sw\" class=\"T-I J-J5-Ji aQv T-I-ax7 L3 a5q\" role=\"button\" tabindex=\"0\" aria-label=\"Download attachment \" data-tooltip-class=\"a1V\" data-tooltip=\"Download\">\r\n" + 
 						  "                                                <div class=\"aSK J-J5-Ji aYr\"></div>\r\n" + 
