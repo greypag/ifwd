@@ -879,7 +879,7 @@ var home_url = "<%=request.getContextPath()%>";
 											for="et-medi-question-4"></label>
 									</div>
 									<div class="pull-left right-checkbox">
-										<span class="checkbox-text"><fmt:message
+										<span class="checkbox-text" id="et-medi-question-4-text"><fmt:message
 												key="eliteTerms.selectPlan.acknowledgement.copy"
 												bundle="${msg}" /></span>
 									</div>
@@ -3822,6 +3822,15 @@ var home_url = "<%=request.getContextPath()%>";
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resources/js/elite-term/elite-term.js"></script>
 <script type="text/javascript">
+
+	$('#et-medi-question-4-text').on('click', function(e) {
+		if($('#et-medi-question-4').prop('checked')==false) {
+			$('#et-medi-question-4').prop('checked', true);
+		}
+		else {
+			$('#et-medi-question-4').prop('checked', false);
+		}
+	});
 		
 	$('#et-btn-before-start').on('click', function(e) {
 		ga('create', 'UA-60032236-1', 'auto');
