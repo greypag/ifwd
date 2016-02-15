@@ -2269,7 +2269,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<input type="checkbox" value="pics" id="pics-check" name="isPics" />
 							<label for="pics-check"></label>
 						</div>
-						<div class="pull-left pics-desc">
+						<div class="pull-left pics-desc checkbox-description">
 							<fmt:message key="eliteTerms.selectPlan.PICS.part1"
 								bundle="${msg}" />
 							<a href="<fmt:message key="PICS.life.link" bundle="${msg}" />"
@@ -2413,7 +2413,7 @@ var home_url = "<%=request.getContextPath()%>";
 								id="cancellation-check" name="isCancel" /> <label
 								for="cancellation-check"></label>
 						</div>
-						<div class="pull-left cancellation-desc">
+						<div class="pull-left cancellation-desc checkbox-description">
 							<fmt:message key="eliteTerms.selectPlan.I.understand.that"
 								bundle="${msg}" />
 						</div>
@@ -2471,7 +2471,7 @@ var home_url = "<%=request.getContextPath()%>";
 								id="application-declaration" name="isCancel" /> <label
 								for="application-declaration"></label>
 						</div>
-						<div class="pull-left cancellation-desc">
+						<div class="pull-left cancellation-desc checkbox-description">
 							<h5 class="declare-agree">
 								<fmt:message key="eliteTerms.selectPlan.I.hereby.DECLARE"
 									bundle="${msg}" />
@@ -2556,7 +2556,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<input type="checkbox" value="true" id="marketing-info-check"
 									name="isMarketingInfo" /> <label for="marketing-info-check"></label>
 							</div>
-							<div class="pull-left marketing-info-desk">
+							<div class="pull-left marketing-info-desk checkbox-description">
 								<fmt:message key="eliteTerms.selectPlan.Please.do.not.send"
 									bundle="${msg}" />
 							</div>
@@ -2567,7 +2567,7 @@ var home_url = "<%=request.getContextPath()%>";
 								<input type="checkbox" value="true" id="personal-data-check"
 									name="isPersonalData" /> <label for="personal-data-check"></label>
 							</div>
-							<div class="pull-left personal-data-desc">
+							<div class="pull-left personal-data-desc checkbox-description">
 								<fmt:message key="eliteTerms.selectPlan.Please.do.not.provide"
 									bundle="${msg}" />
 							</div>
@@ -3826,9 +3826,20 @@ var home_url = "<%=request.getContextPath()%>";
 	$('#et-medi-question-4-text').on('click', function(e) {
 		if($('#et-medi-question-4').prop('checked')==false) {
 			$('#et-medi-question-4').prop('checked', true);
+			$('#et-medical-dec-next').prop('disabled', false);
 		}
 		else {
 			$('#et-medi-question-4').prop('checked', false);
+			$('#et-medical-dec-next').prop('disabled', true);
+		}
+	});
+	
+	$('.checkbox-description').on('click', function(e) {
+		if($(this).parent().find(':checkbox').prop('checked')==false) {
+			$(this).parent().find(':checkbox').prop('checked',true);
+		}
+		else {
+			$(this).parent().find(':checkbox').prop('checked',false);
 		}
 	});
 		

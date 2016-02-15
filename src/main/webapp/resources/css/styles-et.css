@@ -650,3 +650,7 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
 		min-height: 110px;
 	}
 }
+
+.checkbox-description, #et-medi-question-4-text {
+	cursor: pointer;
+}
