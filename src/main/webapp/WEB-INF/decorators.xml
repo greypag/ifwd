@@ -25,10 +25,6 @@
 		<pattern>/*/savings-insurance*</pattern>
 	</decorator>
 	
-	<decorator name="fwdsaints" page="template_saints.jsp">
-		<pattern>/*/savings-insurance/regular-premium</pattern>
-	</decorator>
-	
 	<decorator name="fwdevergreen" page="template_evergreen.jsp">
 		<pattern>/*/savings-evergreen-insurance*</pattern>
 	</decorator>
