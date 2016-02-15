@@ -259,6 +259,13 @@ body.chin #etConfirm .et-submit button
 		width: 100%;
 		padding: 0;
 		margin: 0;
+		max-width: 470px;
+	}
+}
+
+@media ( min-width : 1100px) {
+	.fwd-et-wrapper .banner-widget .tagline-holder img{
+		max-width: 550px;
 	}
 }
 
@@ -625,4 +632,21 @@ body.chin .fwd-et-wrapper .container-fluid.fwd-container .et-plan-option .et-min
 
 .et-valid-proof {
 	color: #f6871e;	
+}
+
+@media ( min-width : 992px) {
+	/* line 212, ../sass/partials/_three-column-widget.scss */
+	.fwd-savie-wrapper .three-column-widget .fwd-col .et-desc-col h2 {
+		min-height: 175px;
+	}
+}
+@media ( min-width : 1100px) {
+	.fwd-savie-wrapper .three-column-widget .fwd-col .et-desc-col h2 {
+		min-height: 155px;
+	}
+}
+@media ( min-width : 1200px) {
+	.fwd-savie-wrapper .three-column-widget .fwd-col .et-desc-col h2 {
+		min-height: 110px;
+	}
 }
