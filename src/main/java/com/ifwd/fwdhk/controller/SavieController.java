@@ -522,8 +522,7 @@ public class SavieController extends BaseController{
 			}
 			if(session.getAttribute("perferredDate") == null || session.getAttribute("perferredDate") == ""){
 		        Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
-		        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
-		        logger.info(formatter.format(date));
+		        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 				session.setAttribute("perferredDate", formatter.format(date));
 			}
 			logger.info(session.getAttribute("perferredDate").toString());
