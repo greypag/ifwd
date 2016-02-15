@@ -708,6 +708,13 @@
          var $self = $(this);
          var $target = $($self.data('target'));
          
+         if(getWidth()>=992){
+              $('.et-collapse-link[aria-expanded="true"]').parent()
+                 .next()
+                 .find('.et-panel-body')
+                 .jScrollPane({showArrows: true});
+           }
+         
          if ($self.hasClass('et-app-edit')) {
 	         var backText = $('#et-brn-proceed-to-application').data('back-text');
 	         $('#et-brn-proceed-to-application').text(backText);
