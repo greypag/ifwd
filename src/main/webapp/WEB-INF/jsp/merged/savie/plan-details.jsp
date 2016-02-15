@@ -582,7 +582,7 @@ var context = "${pageContext.request.contextPath}";
 					}
 			    });	
 
-				var thankyou = "${thankyou }";
+				var thankyou = "${thankyou}";
 				if(thankyou == "thankyou" && "${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
 					$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
 					$('#thankYouModal').modal('show');
@@ -590,6 +590,8 @@ var context = "${pageContext.request.contextPath}";
 			});
 			
 			function goServiceCenter(){
+				$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
+				$('#thankYouModal').modal('show');
 				window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-insurance/'+'${nextPageFlow2 }'; 
 			}
 			<%
