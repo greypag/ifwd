@@ -959,7 +959,9 @@ body {
 .fwd-savie-wrapper #header .dropdown:hover .dropdown-menu{
   display: none;  	
 }
-
+.fwd-savie-wrapper #header .menutab-V2 .dropdown:hover .dropdown-menu{
+  display: block;	
+}
 /* line 203, ../sass/partials/savie/_header.scss */
 .fwd-savie-wrapper header .navbar-menu .header-menu li .dropdown-menu.protect-drop {
   width: 70%;
