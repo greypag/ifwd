@@ -82,7 +82,7 @@ var home_url = "<%=request.getContextPath()%>";
 		        	</div>
 				</div>
 								
-				<div class="payment-mode">
+				<div class="payment-mode payment-sp">
 	        		<div class="desktop-inline">
 		        		<div class="payment-inline">
 			        		<h4 class="text-center">Payment mode:</h4>
