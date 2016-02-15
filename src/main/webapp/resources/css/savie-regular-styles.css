@@ -956,6 +956,9 @@ body {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+.fwd-savie-wrapper #header .dropdown:hover .dropdown-menu{
+  display: none;  	
+}
 
 /* line 203, ../sass/partials/savie/_header.scss */
 .fwd-savie-wrapper header .navbar-menu .header-menu li .dropdown-menu.protect-drop {
