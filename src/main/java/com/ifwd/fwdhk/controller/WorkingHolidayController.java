@@ -189,6 +189,22 @@ public class WorkingHolidayController {
 		model.addAttribute("googleRickSnippetDescription1", googleRickSnippetDescription1);
 		model.addAttribute("googleRickSnippetDescription2", googleRickSnippetDescription2);
 		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.working.holiday.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.working.holiday.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.working.holiday.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.working.holiday.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.working.holiday",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
+		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday");			
 	}
 	
@@ -318,6 +334,23 @@ public class WorkingHolidayController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayQuote", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.working.holiday.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.working.holiday.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.working.holiday.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.working.holiday.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.working.holiday",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
+		
 		session.removeAttribute("workingHolidayPlanDetailsForm");
 		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request)
@@ -600,6 +633,23 @@ public class WorkingHolidayController {
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta.workingholidayPlanSummary", UserRestURIConstants.getLanaguage(request));
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.working.holiday.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.working.holiday.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.working.holiday.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.working.holiday.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.working.holiday",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
+		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-plan-details");
 	}
 	
@@ -857,6 +907,23 @@ public class WorkingHolidayController {
 		model.addAttribute("errormsg", errorMsg);
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.working.holiday.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.working.holiday.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.working.holiday.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.working.holiday.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.working.holiday",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
+		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday-payment");
 	}
 	
@@ -987,6 +1054,23 @@ public class WorkingHolidayController {
 				
 				model.addAttribute("pageTitle", pageTitle);
 				model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
+				
+				String twitterCard = WebServiceUtils.getPageTitle("twitter.working.holiday.card",
+						UserRestURIConstants.getLanaguage(request));
+				String twitterImage = WebServiceUtils.getPageTitle("twitter.working.holiday.image",
+						UserRestURIConstants.getLanaguage(request));
+				String twitterSite = WebServiceUtils.getPageTitle("twitter.working.holiday.site",
+						UserRestURIConstants.getLanaguage(request));
+				String twitterUrl = WebServiceUtils.getPageTitle("twitter.working.holiday.url",
+						UserRestURIConstants.getLanaguage(request));
+				String canonical = WebServiceUtils.getPageTitle("canonical.working.holiday",
+						UserRestURIConstants.getLanaguage(request));
+				model.addAttribute("twitterCard", twitterCard);
+				model.addAttribute("twitterImage", twitterImage);
+				model.addAttribute("twitterSite", twitterSite);
+				model.addAttribute("twitterUrl", twitterUrl);
+				model.addAttribute("canonical", canonical);
+				
 				return UserRestURIConstants.getSitePath(request)
 						+ "workingholiday/workingholiday-confirmation";
 			} else {
@@ -1138,38 +1222,6 @@ public class WorkingHolidayController {
 			return "";
 		}
 	}
-	
-	
-/*	
-	 * if("hkId".equalsIgnoreCase(planDetailsForm.getSelectedAdHkidPass()[inx])){
-	 * adult.put("hkId", planDetailsForm.getAdultHKID()[inx]); }else{
-	 * adult.put("hkId", ""); }
-	 * 
-	 * if("Passport".equalsIgnoreCase(planDetailsForm.getSelectedAdHkidPass()[inx
-	 * ])){ adult.put("passport", planDetailsForm.getAdultHKID()[inx]); }else{
-	 * adult.put("passport", ""); }
-	 
-
-	private String checkPasswortAndHkid(String check, String selected,
-			String selectedHkidOrPassport) {
-		String response = "";
-		switch (check) {
-		case "hkId":
-			if ("hkId".equalsIgnoreCase(selected)) {
-				response = selectedHkidOrPassport;
-			}
-			return response;
-
-		case "passport":
-			if ("passport".equalsIgnoreCase(selected)) {
-				response = selectedHkidOrPassport;
-			}
-			return response;
-
-		}
-
-		return response;
-	}*/
 	
 	@RequestMapping(value = "/saveAtt", method=RequestMethod.POST)
 	@ResponseBody
