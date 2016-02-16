@@ -219,6 +219,7 @@ public class SavieOnlineController extends BaseController{
 	public ModelAndView getSavieOnlineLifeReview4(Model model, HttpServletRequest request,HttpSession session) {
 		try {
 			savieOnlineService.createApplicationFormPdf(request, session);
+			savieOnlineService.createFnaFormPdf(request, session);
 		}
 		catch (Exception e) {
 			request.getSession().setAttribute("errorMsg", e.getMessage());

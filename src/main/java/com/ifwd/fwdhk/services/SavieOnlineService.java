@@ -20,6 +20,7 @@ public interface SavieOnlineService {
 	public JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request) throws ECOMMAPIException;
 	public void createSalesIllustrationPdf(HttpServletRequest request) throws Exception;
 	public void createApplicationFormPdf(HttpServletRequest request,HttpSession session) throws Exception;
+	public void createFnaFormPdf(HttpServletRequest request,HttpSession session) throws Exception;
 	public JSONObject saveProductFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getProductrRecommend(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getFna(HttpServletRequest request) throws ECOMMAPIException;

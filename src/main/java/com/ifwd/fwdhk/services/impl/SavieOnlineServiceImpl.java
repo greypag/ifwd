@@ -287,6 +287,96 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		logger.info("applicationFormPdf create successfully");
 	}
 	
+	public void createFnaFormPdf(HttpServletRequest request,HttpSession session) throws Exception {
+		SavieFnaBean savieFna = (SavieFnaBean) session.getAttribute("savieFna");
+		
+		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
+		attributeList.add(new PdfAttribute("PolicyNo", "15123456"));
+		attributeList.add(new PdfAttribute("LifeInsuredName", "LifeInsuredName"));
+		attributeList.add(new PdfAttribute("ApplicantName", "ApplicantName"));
+		attributeList.add(new PdfAttribute("AOB", savieFna.getDob()));
+		attributeList.add(new PdfAttribute("TelephoneNo", "138999999"));
+		attributeList.add(new PdfAttribute("group_1", savieFna.getMarital_status()));
+		attributeList.add(new PdfAttribute("group_2", savieFna.getDependents()));
+		attributeList.add(new PdfAttribute("Applicant Occupation", savieFna.getOccupation()));
+		attributeList.add(new PdfAttribute("group_3", savieFna.getEducation()));
+		
+		attributeList.add(new PdfAttribute("1b)chi", "On"));
+		attributeList.add(new PdfAttribute("1b)eng", "On"));
+		attributeList.add(new PdfAttribute("1f)chi", "On"));
+		attributeList.add(new PdfAttribute("1f)eng", "On"));
+		attributeList.add(new PdfAttribute("1others)chi", "1others)chi"));
+		attributeList.add(new PdfAttribute("1others)eng", "1others)eng"));
+		
+		attributeList.add(new PdfAttribute("2b)chi", "On"));
+		attributeList.add(new PdfAttribute("2b)eng", "On"));
+		attributeList.add(new PdfAttribute("2e)chi", "On"));
+		attributeList.add(new PdfAttribute("2e)eng", "On"));
+		attributeList.add(new PdfAttribute("2others)chi", "2others)chi"));
+		attributeList.add(new PdfAttribute("2otherseng", "2otherseng"));
+		
+		
+		
+		attributeList.add(new PdfAttribute("group_3a_chi", "3c)chi"));
+		attributeList.add(new PdfAttribute("group_3a_eng", "3c)eng"));
+		
+		attributeList.add(new PdfAttribute("group_4", "Yes"));
+		attributeList.add(new PdfAttribute("group_4a_chi", "4ai)chi"));
+		attributeList.add(new PdfAttribute("group_4a_eng", "4ai)eng"));
+		attributeList.add(new PdfAttribute("AverageMonthlyIncome(chi)", "22222"));
+		attributeList.add(new PdfAttribute("AverageMonthlyIncome(eng)", "22222"));
+		
+		attributeList.add(new PdfAttribute("Cash1", "On"));
+		attributeList.add(new PdfAttribute("Cash2", "On"));
+		attributeList.add(new PdfAttribute("Activelytradedstocks1", "On"));
+		attributeList.add(new PdfAttribute("Activelytradedstocks2", "On"));
+		attributeList.add(new PdfAttribute("LiquidAssets", "2,000,000"));
+		
+		attributeList.add(new PdfAttribute("Personalreason", "Personalreason"));
+		attributeList.add(new PdfAttribute("TotalExpensespermonth(chi)", "121212"));
+		attributeList.add(new PdfAttribute("TotalExpensespermonth(eng)", "1212121"));
+		attributeList.add(new PdfAttribute("Liabilityandfinalexpense1", "1212121"));
+		attributeList.add(new PdfAttribute("Liabilityandfinalexpense2", "1212121"));
+		attributeList.add(new PdfAttribute("Fintarget1", "121212"));
+		attributeList.add(new PdfAttribute("Fintarget2", "121212"));
+		
+		attributeList.add(new PdfAttribute("group_4e_chi", "4ec)chi"));
+		attributeList.add(new PdfAttribute("group_4e_eng", "4ec)eng"));
+		
+		attributeList.add(new PdfAttribute("group_4f_chi", "4fc)chi"));
+		attributeList.add(new PdfAttribute("group_4f_eng", "4fc)eng"));
+		
+		attributeList.add(new PdfAttribute("Income1", "On"));
+		attributeList.add(new PdfAttribute("Income2", "On"));
+		attributeList.add(new PdfAttribute("Investements1", "On"));
+		attributeList.add(new PdfAttribute("Investements2", "On"));
+		
+		attributeList.add(new PdfAttribute("Q1a1", "On"));
+		attributeList.add(new PdfAttribute("Q1d1", "On"));
+		attributeList.add(new PdfAttribute("Q2a1", "On"));
+		attributeList.add(new PdfAttribute("Q2b1", "On"));
+		attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced1", "NameofInsuranceProduct(s)Introduced1"));
+		attributeList.add(new PdfAttribute("Product(s)Selected1", "Product(s)Selected1"));
+		
+		attributeList.add(new PdfAttribute("Q1a2", "On"));
+		attributeList.add(new PdfAttribute("Q1e2", "On"));
+		attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced2", "NameofInsuranceProduct(s)Introduced2"));
+		attributeList.add(new PdfAttribute("Product(s)Selected2", "Product(s)Selected2"));
+		
+		attributeList.add(new PdfAttribute("SignatureofApplicant", "SignatureofApplicant"));
+		attributeList.add(new PdfAttribute("Date1", "1980-10-13"));
+		attributeList.add(new PdfAttribute("Date2", "1980-10-13"));
+		attributeList.add(new PdfAttribute("Product(s)Selected2", "Product(s)Selected2"));
+		attributeList.add(new PdfAttribute("Product(s)Selected2", "Product(s)Selected2"));
+			
+		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"resources/pdf/"+"FinancialNeedsAndInvestorProfileAnalysisForm.pdf";
+		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"resources\\\\pdf\\\\";
+		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
+		
+		request.getSession().setAttribute("fnaPdfName", name);
+		logger.info("fnaFormPdf create successfully");
+	}
+	
 	public JSONObject saveProductFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException{
 //		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "fna";
 		String Url = UserRestURIConstants.SAVE_FNA;
