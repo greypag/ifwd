@@ -279,7 +279,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("authDate", format.format(new Date())));
 	    attributeList.add(new PdfAttribute("authSign", "authSign"));
 			
-		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"resources/pdf/"+"eliteTerm-applicationForm-0.20.pdf";
+		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"resources/pdf/"+"SavieOnlineApplicationForm.pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"resources\\\\pdf\\\\";
 		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 		
