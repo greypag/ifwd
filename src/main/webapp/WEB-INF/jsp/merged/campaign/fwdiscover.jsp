@@ -20,7 +20,7 @@
     String countDownDD = "29";
     String countDownMM = "Feb";
     boolean isCNYOffer = false;
-    if( cCurrent<= cStart ){
+    if( cCurrent<= cStart && request.getParameter("test") != null && request.getParameter("test").equals("redpacket")){
     	disableOfferClass = "paused-plan";
         countDownDate = "2016-02-29 09:59:59";
     	countDownDD = "29";
