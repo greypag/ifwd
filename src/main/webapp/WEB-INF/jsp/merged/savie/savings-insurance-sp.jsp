@@ -374,15 +374,15 @@ var home_url = "<%=request.getContextPath()%>";
 		       				<div class="col-xs-6 text-center">
 		       					<div class="desktop-center clearfix">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_agoda.png">
-		        					<a href="#" class="hidden-md hidden-lg"><fmt:message key="savierp.landing.discount" bundle="${msg}" /></a>
-		        					<p class="hidden-xs hidden-sm"><fmt:message key="savierp.landing.enjoy" bundle="${msg}" /> <a href="#"><fmt:message key="savierp.landing.agoda" bundle="${msg}" /></a> <fmt:message key="savierp.landing.membership" bundle="${msg}" /></p>
+		        					<!--  <a href="#" class="hidden-md hidden-lg"><fmt:message key="savierp.landing.discount" bundle="${msg}" /></a>-->
+		        					<p><fmt:message key="partner.offer.agoda.copy" bundle="${msg}" /></p>
 		       					</div>
 		       				</div>
 		       				<div class="col-xs-6 text-center">
 		       					<div class="desktop-center clearfix">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_pricerite.png">
-		        					<a href="#" class="hidden-md hidden-lg"><fmt:message key="savierp.landing.coupon" bundle="${msg}" /></a>
-		        					<p class="hidden-xs hidden-sm"><fmt:message key="savierp.landing.from" bundle="${msg}" /> <a href="#"><fmt:message key="savierp.landing.pricerite" bundle="${msg}" /></a> <fmt:message key="partner.offer.pricerite.copy" bundle="${msg}" /></p>
+		        					<!-- <a href="#" class="hidden-md hidden-lg"><fmt:message key="savierp.landing.coupon" bundle="${msg}" /></a>-->
+		        					<p><fmt:message key="partner.offer.pricerite.copy" bundle="${msg}" /></p>
 		       					</div>
 		       				</div>
 		       			</div>

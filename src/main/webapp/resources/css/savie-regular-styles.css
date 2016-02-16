@@ -1556,7 +1556,7 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
 @media (min-width: 992px) {
   /* line 378, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .payment-mode .availability-notice {
-    max-width: none;
+    max-width: 700px;
     margin-top: 18px;
   }
   /* line 386, ../sass/partials/savie/_landing-page.scss */
