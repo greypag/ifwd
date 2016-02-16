@@ -61,7 +61,7 @@
 					</div>
 					<div class="left-desktop text-box">
 						<input class="form-control gray-textbox" autocomplete="off"
-							id="chineseName"
+							id=""
 							name="chineseName" type="text"
 							placeholder="<fmt:message key="eliteTerms.selectPlan.Name.in.Chinese" bundle="${msg}" />"
 							value="${lifePersonalDetails.chineseName }"> <span class="error-msg"
@@ -82,7 +82,7 @@
 								name="dob" id="dob"
 								placeholder="<fmt:message key="eliteTerms.selectPlan.Date.of.birth.placeholder" bundle="${msg}" />"
 								onfocusin="fnSetStyle()" readonly
-								value="${saviePlanDetails.dob }" />
+								value="<c:choose><c:when test="${lifePersonalDetails.dob == ''}">${savieFna.dob }</c:when><c:otherwise>${lifePersonalDetails.dob }</c:otherwise></c:choose>" />
 							<div class="et-app-edit-wrapper">
 								<a href="#" title="Edit Date of birth"
 									class="et-app-sum-edit et-app-edit" id="edit-birthday"
@@ -104,10 +104,10 @@
 								key="eliteTerms.selectPlan.Gender" bundle="${msg}" /></label>
 					</div>
 					<div class="left-desktop text-box et-date-info clearfix">
-						    <input type="hidden" name="gender" id="gender" value="${userDetails.gender }" /> 
-							<input type="text" name="gender" id="gender" class="form-control gray-textbox pull-left et-80-width"
+						    <input type="hidden" name="gender" id="gender" value="<c:choose><c:when test="${lifePersonalDetails.gender == ''}">${savieFna.gender }</c:when><c:otherwise>${lifePersonalDetails.gender }</c:otherwise></c:choose>" /> 
+							<input type="text" id="gender" class="form-control gray-textbox pull-left et-80-width"
 							       placeholder="<fmt:message key="eliteTerms.selectPlan.Gender" bundle="${msg}" />"
-							       value="${lifePersonalDetails.chineseName }" />
+							       value="<c:choose><c:when test="${lifePersonalDetails.gender == ''}">${savieFna.gender }</c:when><c:otherwise>${lifePersonalDetails.gender }</c:otherwise></c:choose>" />
 						<div class="et-app-edit-wrapper">
 							<a href="#" title="Edit Gender"
 								class="et-app-sum-edit et-app-edit" id="edit-gender"
