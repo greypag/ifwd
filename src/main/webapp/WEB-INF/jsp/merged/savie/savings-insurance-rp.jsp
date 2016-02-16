@@ -41,7 +41,7 @@
 	        		<div class="img-banner-text savie-landing">
 	        			<h2 class="savie-sweeter"><fmt:message key="savierp.landing.banner" bundle="${msg}" /> <span><fmt:message key="savierp.landing.always" bundle="${msg}" /></span></h2>
 	        			<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="savierp.landing.start" bundle="${msg}" /></button>
-        			<div class="savie-product text-center">
+        			<div class="savie-product">
 						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie" bundle="${msg}" />" target="_blank"><fmt:message key="general.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="general.product.provisions" bundle="${msg}" /></a>
 					</div>
 	        		</div>
