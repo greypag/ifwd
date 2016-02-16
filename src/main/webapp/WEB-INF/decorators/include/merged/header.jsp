@@ -113,7 +113,7 @@ function submitLoginForm(formID) {
 														'Click',
 														'Login success');
 												//location.reload();
-												window.location.href = window.location.href;
+											    window.location.href = window.location.href;
 											}
 										} else if (data == 'Provided User Account Details Does Not Exist') {
 											try {
@@ -788,7 +788,7 @@ function submitLoginForm(formID) {
                             .toString())) {
         %>
         <div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob" data-toggle="modal" data-target="#myModal">       
-        <a href="#" class="dropdown-toggle color-wht log-to-acc"
+        <a class="dropdown-toggle color-wht log-to-acc"
             id="fwd-login-mob"><i
             class="fa fa-lock"></i> <fmt:message key="header.login.heading"
                 bundle="${msg}" /> </a>
@@ -866,7 +866,7 @@ function submitLoginForm(formID) {
 
 
         <div class="dropdown login-btn btn btn-lg wd2" id="myDropdownMob">
-        <a href="#" class="dropdown-toggle" id="fwd-login"
+        <a class="dropdown-toggle" id="fwd-login"
             data-toggle="dropdown"><fmt:message key="header.login.welcome"
                 bundle="${msg}" />&nbsp;&nbsp;&nbsp;<%=session.getAttribute("username")%>
             <i class="fa fa-caret-right"> </i> </a>
