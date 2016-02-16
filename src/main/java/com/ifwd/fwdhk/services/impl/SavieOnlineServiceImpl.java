@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
@@ -21,6 +22,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.common.document.PDFGeneration;
@@ -31,6 +33,7 @@ import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
@@ -592,5 +595,49 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			throw new ECOMMAPIException(apiReturn.getErrMsgs()[0]);
 		}
 		return apiReturn;
+	}
+	
+	public List<OptionItemDesc> getBranchCode(HttpServletRequest request) throws ECOMMAPIException {
+        List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
+        JSONArray jsonOptionItemDescs = null;
+        String value = request.getParameter("value");
+        String language = request.getParameter("language");
+        String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+value.split("-")[0];
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", "*DIRECTGI");
+		header.put("token", commonUtils.getToken("reload"));
+		header.put("language", WebServiceUtils.transformLanaguage(language));
+		
+		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		
+		logger.info("***********responseJsonObj****************:"+responseJsonObj);
+		
+		if(responseJsonObj==null){
+			throw new ECOMMAPIException("data error");
+		}
+		else{
+			if (responseJsonObj.get("errMsgs") == null) {
+				jsonOptionItemDescs = (JSONArray)responseJsonObj.get("optionItemDesc");
+				if(jsonOptionItemDescs.size()>0){
+					for(int i = 0; i<jsonOptionItemDescs.size(); i++){
+						
+						org.json.simple.JSONObject maritalStatusObj=(org.json.simple.JSONObject)jsonOptionItemDescs.get(i);
+						
+						OptionItemDesc optionItemDesc = new OptionItemDesc();				
+						
+						optionItemDesc.setItemTable((String)maritalStatusObj.get("itemTable"));
+						optionItemDesc.setItemDesc((String)maritalStatusObj.get("itemDesc"));
+						optionItemDesc.setItemCode((String)maritalStatusObj.get("itemCode"));
+						optionItemDesc.setItemLang((String)maritalStatusObj.get("itemLang"));
+						OptionItemDescList.add(optionItemDesc);
+					}
+				}
+				
+			}
+			else{
+				throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
+			}
+		}
+	return OptionItemDescList;
 	}
 }

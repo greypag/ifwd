@@ -1,5 +1,8 @@
 package com.ifwd.fwdhk.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,6 +21,7 @@ import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
@@ -249,5 +254,20 @@ public class AjaxSavieOnlineController extends BaseController{
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@RequestMapping(value = {"/ajax/savie-online/getBranchCode"})
+	public void getOccupationByAjax(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
+		List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			OptionItemDescList = savieOnlineService.getBranchCode(request);
+		}
+		catch (ECOMMAPIException e) {
+		}
+		logger.info(OptionItemDescList.toString());
+		ajaxReturn(response, OptionItemDescList);
 	}
 }

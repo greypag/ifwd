@@ -198,6 +198,10 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savie-online/life-payment"})
 	public ModelAndView getSavieOnlineLifePayment(Model model, HttpServletRequest request) {
+		model.addAttribute("bankCodeEN", InitApplicationMessage.bankCodeEN);
+		model.addAttribute("bankCodeCN", InitApplicationMessage.bankCodeCN);
+		model.addAttribute("branchCodeEN", InitApplicationMessage.branchCodeEN);
+		model.addAttribute("branchCodeCN", InitApplicationMessage.branchCodeCN);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PAYMENT);
 	}
 	
