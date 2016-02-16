@@ -155,7 +155,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIE_DECLARATIONS = "declarations";
 	public static final String PAGE_SAVIE_SIGNATURE = "signature";
 	public static final String PAGE_SAVIE_DOCUMENT_UPLOAD = "document-upload";	
-	public static final String PAGE_SAVIE_CONFIRMATION = "confirmation";
+	public static final String PAGE_SAVIE_CONFIRMATION = "confirmation-sp";
 	public static final String PAGE_SAVIE_CONFIRMATION_RP = "confirmation-rp";
 	public static final String PAGE_SAVIE_O2O_LANDING = "savings-insurance-sp";
 	public static final String PAGE_SAVIE_INTEREST_GATHERING = "interest-gathering";

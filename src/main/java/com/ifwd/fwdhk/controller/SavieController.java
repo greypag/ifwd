@@ -592,7 +592,7 @@ public class SavieController extends BaseController{
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-sp"})
 	public ModelAndView confirmationOffline(Model model, HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();

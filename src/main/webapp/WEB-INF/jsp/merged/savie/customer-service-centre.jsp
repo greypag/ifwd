@@ -356,7 +356,7 @@ var language = "${language}";
 							    		<%
 										String type = (String)session.getAttribute("savieType");
 									    if("SP".equals(type)) {%>
-							    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation");
+							    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation-sp");
 							    		<% }else if("RP".equals(type)) {%>
 							    		$("#serviceCenterForm").attr("action", context + "/" + language + "/savings-insurance/confirmation-rp");
 							    		<% } %>
