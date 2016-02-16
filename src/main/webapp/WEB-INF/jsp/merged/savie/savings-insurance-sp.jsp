@@ -69,13 +69,13 @@ var home_url = "<%=request.getContextPath()%>";
 			        		<div class="promo-section">
 			        			<h2 class="hidden-xs hidden-sm"><fmt:message key="oceanpark.landing.save.while" bundle="${msg}" /> <fmt:message key="oceanpark.landing.you.play" bundle="${msg}" /></h2>
 			        			<h4><fmt:message key="jumbo.savie.oceanpark.copy1.mobile" bundle="${msg}" /></h4>
-			        			<p class="description">Gold & Silver members now enjoy Premium discount of HK$960 (Gold) and HK$740 (Silver), respectively upon a successful application of Savie Insurance Plan^ with lump sum payment not less than HK$100,000.</p>
+			        			<p class="description"><fmt:message key="jumbo.savie.oceanpark.copy1.mobile" bundle="${msg}" /></p>
 			        			<div class="clearfix">
 			        				<button class="savie-regular-btn" id="op-buy-now-O2O-mobile"><fmt:message key="cta.start" bundle="${msg}" /></button>
 			        				<img src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" class="hidden-xs hidden-sm desktop-op">
 			        			</div>
-			        			<p class="terms-condition"><fmt:message key="oceanpark.landing.please.refer.part1" bundle="${msg}" /> <a href="#"><fmt:message key="oceanpark.landing.please.refer.part2" bundle="${msg}" /></a>.
-								<span><fmt:message key="oceanpark.landing.please.refer.part3" bundle="${msg}" /> <a href="#"><fmt:message key="oceanpark.landing.please.refer.part4" bundle="${msg}" /> </a><fmt:message key="oceanpark.landing.please.refer.part5" bundle="${msg}" /></span>
+			        			<p class="terms-condition"><fmt:message key="disclaimer.partner.oceanpark.copy1" bundle="${msg}" />
+								<span><fmt:message key="disclaimer.partner.oceanpark.copy2" bundle="${msg}" /></span>
 								</p>
 			        		</div>
 			        	</div>
@@ -85,20 +85,20 @@ var home_url = "<%=request.getContextPath()%>";
 				<div class="payment-mode payment-sp">
 	        		<div class="desktop-inline">
 		        		<div class="payment-inline">
-			        		<h4 class="text-center">Payment mode:</h4>
+			        		<h4 class="text-center"><fmt:message key="label.savie.payment.mode.savie.oneoffpremium" bundle="${msg}" /></h4>
 			        		<div class="payment-options clearfix">
 			        			<div class="left">
-			        				<button id="regular-button"><fmt:message key="savierp.landing.regular" bundle="${msg}" /></button>
+			        				<button id="regular-button"><fmt:message key="label.savie.payment.mode.savie.regular.monthly" bundle="${msg}" /></button>
 			        			</div>
 			        			<div class="right">
-			        				<button id="one-off-button" class="active"><fmt:message key="savierp.landing.oneoff" bundle="${msg}" /></button>
+			        				<button id="one-off-button" class="active"><fmt:message key="label.savie.payment.mode.savie.regular.pay" bundle="${msg}" /></button>
 			        			</div>
 			        		</div>
 			        	</div>
 		        	</div>
 		        	<div class="desktop-inline rate-holder">
 		        		<div class="rate">
-		        			<h4 class="text-center"><fmt:message key="savierp.landing.guaranteed" bundle="${msg}" /> <span><fmt:message key="savierp.landing.annual" bundle="${msg}" /></span></h4>
+		        			<h4 class="text-center"><fmt:message key="custom.save.credit.rate.title" bundle="${msg}" /></h4>
 		        			<ul class="clearfix">
 		        				<li><span class="percent">3%</span> [1st year]</li>
 		        				<li class="with-padding"><span class="percent">3%</span> [2nd year]</li>
@@ -107,7 +107,7 @@ var home_url = "<%=request.getContextPath()%>";
 		        		</div>
 	        		</div>
 	        		<div class="gray-divide"></div>
-	        		<p class="availability-notice text-center"><fmt:message key="savierp.landing.holders" bundle="${msg}" /> <span><fmt:message key="savierp.landing.Insurance" bundle="${msg}" /></span>
+	        		<p class="availability-notice text-center"><fmt:message key="product.detail.savie.remark.copy1" bundle="${msg}" /> <span><fmt:message key="disclaimer.savie.oceanpark.credit.rate.copy2" bundle="${msg}" /></span>
        				</p>
 
 	        		<h5 class="hidden-sm hidden-xs product-options text-center">
@@ -115,153 +115,151 @@ var home_url = "<%=request.getContextPath()%>";
 					</h5>
 				</div>
 				
-		        <div class="fwd-container-limit">
-		        		<div class="usp row">
-		        			<div class="usp-item clearfix col-xs-12 col-md-4">
-		        				<h5 class="hidden-xs hidden-sm"><fmt:message key="savierp.landing.payment.options" bundle="${msg}" /></h5>
-		        				<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings-mobile" bundle="${msg}" />" class="">
-		        				<div class="item-desc">
-		        					<h5 class="hidden-md hidden-lg"><fmt:message key="savierp.landing.payment.options" bundle="${msg}" /></h5>
-		        					<p><fmt:message key="savierp.landing.payment.options.content" bundle="${msg}" /></p>
+		         <div class="fwd-container-limit">
+	        		<div class="usp row">
+	        			<div class="usp-item clearfix col-xs-12 col-md-4">
+	        				<h5 class="hidden-xs hidden-sm"><fmt:message key="usp.savie1.title" bundle="${msg}" /></h5>
+	        				<img src="<%=request.getContextPath()%><fmt:message key="img.big.savings-mobile" bundle="${msg}" />" class="">
+	        				<div class="item-desc">
+	        					<h5 class="hidden-md hidden-lg"><fmt:message key="usp.savie1.title" bundle="${msg}" /></h5>
+	        					<p><fmt:message key="usp.savie1.copy" bundle="${msg}" /></p>
+	        				</div>
+	        			</div>
+	        			<div class="usp-item clearfix col-xs-12 col-md-4">
+	        				<h5 class="hidden-xs hidden-sm"><fmt:message key="usp.savie2.title" bundle="${msg}" /></h5>
+	        				<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment-mobile" bundle="${msg}" />" class="">
+	        				<div class="item-desc">
+	        					<h5 class="hidden-md hidden-lg"><fmt:message key="usp.savie2.title" bundle="${msg}" /></h5>
+	        					<p class="padded"><fmt:message key="usp.savie2.copy" bundle="${msg}" /></p>
+	        				</div>
+	        			</div>
+	        			<div class="usp-item clearfix col-xs-12 col-md-4">
+	        				<h5 class="hidden-xs hidden-sm"><fmt:message key="usp.savie3.title" bundle="${msg}" /></h5>
+	        				<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional-mobile" bundle="${msg}" />" class="">
+	        				<div class="item-desc">
+	        					<h5 class="hidden-md hidden-lg"><fmt:message key="usp.savie3.title" bundle="${msg}" /></h5>
+	        					<p class="padded"><fmt:message key="usp.savie3.copy" bundle="${msg}" /></p>
+	        					<p class="accumulation padded"><fmt:message key="usp.savie3.copy2" bundle="${msg}" /></p>
+	        				</div>
+	        			</div>
+	        		</div>
+	        	</div>
+	        	<div class="hidden-xs hidden-sm">
+	        		<h3 class="benefits-desktop text-center"><fmt:message key="savierp.landing.benefits" bundle="${msg}" /></h3>
+	        		<div class="gray-divide"></div>
+	        	</div>
+	        		<div class="regular-benefit">-
+       			<div class="hidden-md hidden-lg">
+        			<h4 class="text-center"><fmt:message key="savierp.landing.benefits" bundle="${msg}" /></h4>
+        			<div class="gray-divide"></div>
+        		</div>
+       			<div class="fwd-container-limit">
+        			<div class="benefits-holder">
+        				<div class="hidden-md hidden-lg">
+		        			<div class="row">
+		        				<div class="col-xs-6 text-center annualTravel_policy_item">
+		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png">
+		        					<span><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /></span>
+									<div class="hidden-benefits benefits-content">
+										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png" />
+										<div class="info hidden-benefits-info">
+											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="product.details.savie1.summary" bundle="${msg}" />  </p>
+										</div>
+									</div>
+		        				</div>
+		        				<div class="col-xs-6 text-center annualTravel_policy_item">
+		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png">
+		        					<span><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /></span>
+									<div class="hidden-benefits benefits-content">
+										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png" />
+										<div class="info hidden-benefits-info">
+											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="product.details.savie2.summary" bundle="${msg}" />  </p>
+										</div>
+									</div>
 		        				</div>
 		        			</div>
-		        			<div class="usp-item clearfix col-xs-12 col-md-4">
-		        				<h5 class="hidden-xs hidden-sm"><fmt:message key="savierp.landing.free" bundle="${msg}" /></h5>
-		        				<img src="<%=request.getContextPath()%><fmt:message key="img.no.commitment-mobile" bundle="${msg}" />" class="">
-		        				<div class="item-desc">
-		        					<h5 class="hidden-md hidden-lg"><fmt:message key="savierp.landing.free" bundle="${msg}" /></h5>
-		        					<p class="padded"><fmt:message key="savierp.landing.free.content" bundle="${msg}" /></p>
+		        			<div class="row">
+	        				<!--<div class="col-xs-6 text-center annualTravel_policy_item">
+		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png">
+		        					<span class="two-lines"><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></span>
+									<div class="hidden-benefits benefits-content">
+										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png" />
+										<div class="info hidden-benefits-info">
+											<h3 class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" />  </p>
+										</div>
+									</div>
+		        				</div>-->
+		        				<div class="col-xs-6 text-center annualTravel_policy_item">
+		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png">
+		        					<span class="two-lines"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></span>
+									<div class="hidden-benefits benefits-content">
+										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png" />
+										<div class="info hidden-benefits-info">
+											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="product.details.savie4.summary" bundle="${msg}" />  </p>
+										</div>
+									</div>
+		        				</div>
+		        				<div class="col-xs-6 text-center annualTravel_policy_item">
+		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png">
+		        					<span class="two-lines"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></span>
+									<div class="hidden-benefits benefits-content">
+										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png" />
+										<div class="info">
+											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="product.details.savie6.summary" bundle="${msg}" />  </p>
+										</div>
+									</div>
 		        				</div>
 		        			</div>
-		        			<div class="usp-item clearfix col-xs-12 col-md-4">
-		        				<h5 class="hidden-xs hidden-sm"><fmt:message key="savierp.landing.extra" bundle="${msg}" /></h5>
-		        				<img src="<%=request.getContextPath()%><fmt:message key="img.free.additional-mobile" bundle="${msg}" />" class="">
-		        				<div class="item-desc">
-		        					<h5 class="hidden-md hidden-lg"><fmt:message key="savierp.landing.extra" bundle="${msg}" /></h5>
-		        					<p class="padded"><fmt:message key="savierp.landing.extra.content" bundle="${msg}" /></p>
-		        					<p class="accumulation padded"><fmt:message key="savierp.landing.extra.accumulation" bundle="${msg}" /></p>
+		        			<!-- <div class="row">
+		        				<div class="col-xs-6 text-center annualTravel_policy_item">
+		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png">
+		        					<span class="two-lines"><fmt:message key="savierp.landing.hotline" bundle="${msg}" /></span>
+									<div class="hidden-benefits benefits-content">
+										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png" />
+										<div class="info hidden-benefits-info">
+											<h3 class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" />  </p>
+										</div>
+									</div>
 		        				</div>
 		        			</div>
+		        			-->
 		        		</div>
-		        	</div>
-		        	<div class="hidden-xs hidden-sm">
-		        		<h3 class="benefits-desktop text-center"><fmt:message key="savierp.landing.benefits" bundle="${msg}" /></h3>
-		        		<div class="gray-divide"></div>
-		        	</div>
-	        		<div class="regular-benefit">
-		       			<div class="hidden-md hidden-lg">
-		        			<h4 class="text-center"><fmt:message key="savierp.landing.benefits" bundle="${msg}" /></h4>
-		        			<div class="gray-divide"></div>
-		        		</div>
-		       			<div class="fwd-container-limit">
-		        			<div class="benefits-holder">
-		        				<div class="hidden-md hidden-lg">
-				        			<div class="row">
-				        				<div class="col-xs-6 text-center annualTravel_policy_item">
-				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png">
-				        					<span><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /></span>
-											<div class="hidden-benefits benefits-content">
-												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png" />
-												<div class="info hidden-benefits-info">
-													<h3 class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
-													<p class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
-												</div>
-											</div>
-				        				</div>
-				        				<div class="col-xs-6 text-center annualTravel_policy_item">
-				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png">
-				        					<span><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /></span>
-											<div class="hidden-benefits benefits-content">
-												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png" />
-												<div class="info hidden-benefits-info">
-													<h3 class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
-													<p class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
-												</div>
-											</div>
-				        				</div>
-				        			</div>
-				        			<div class="row">
-				        				<!-- <div class="col-xs-6 text-center annualTravel_policy_item">
-				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png">
-				        					<span class="two-lines"><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></span>
-											<div class="hidden-benefits benefits-content">
-												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png" />
-												<div class="info hidden-benefits-info">
-													<h3 class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
-													<p class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
-												</div>
-											</div>
-				        				</div> -->
-				        				<div class="col-xs-6 text-center annualTravel_policy_item">
-				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png">
-				        					<span class="two-lines"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></span>
-											<div class="hidden-benefits benefits-content">
-												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png" />
-												<div class="info hidden-benefits-info">
-													<h3 class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
-													<p class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
-												</div>
-											</div>
-				        				</div>
-				        				<div class="col-xs-6 text-center annualTravel_policy_item">
-				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png">
-				        					<span class="two-lines"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></span>
-											<div class="hidden-benefits benefits-content">
-												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png" />
-												<div class="info">
-													<h3 class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
-													<p class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
-												</div>
-											</div>
-				        				</div>
-				        			</div>
-				        			<!--  
-				        			<div class="row">
-				        				<div class="col-xs-6 text-center annualTravel_policy_item">
-				        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png">
-				        					<span class="two-lines"><fmt:message key="savierp.landing.hotline" bundle="${msg}" /></span>
-											<div class="hidden-benefits benefits-content">
-												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png" />
-												<div class="info hidden-benefits-info">
-													<h3 class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
-													<p class="hidden-benefits-info"><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
-												</div>
-											</div>
-				        				</div>
-	
-				        			</div>
-				        			-->
-				        		</div>
-				        		<div class="hidden-xs hidden-sm">
-				        			<div class="" id="benefits-nav-holder">
-										<ul class="nav nav-tabs row so-fna-row" role="tablist">
-											<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="benefits-nav-title-1">
-												<a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link text-center"><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /></a>
-											</li>
-											<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="benefits-nav-title-2">
-												<a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /></a>
-											</li>
-											<!--  <li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li" id="benefits-nav-title-3">
-												<a href="#benefits-navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="savierp.landing.navtabs.withdrawal" bundle="${msg}" /> <span><fmt:message key="savierp.landing.navtabs.without" bundle="${msg}" /></span></a>
-											</li> -->
-											<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-4">
-												<a href="#benefits-navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></a>
-											</li>
-											<!-- <li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-5">
-												<a href="#benefits-navtabs-5" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="savierp.landing.navtabs.hours" bundle="${msg}" /> <span><fmt:message key="savierp.landing.navtabs.hotline" bundle="${msg}" /></span></a>
-											</li>-->
-											<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-6">
-												<a href="#benefits-navtabs-6" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /> </a>
-											</li>
-										</ul>
-										<div class="fna-carousel carousel slide" id="benefits-carousel" data-ride="carousel" data-interval="false">
-											<div class="tab-content carousel-inner clearfix" role="listbox">
+		        		<div class="hidden-xs hidden-sm">
+		        			<div class="" id="benefits-nav-holder">
+								<ul class="nav nav-tabs row so-fna-row" role="tablist">
+									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="benefits-nav-title-1">
+										<a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link text-center"><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /> </a>
+									</li>
+									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="benefits-nav-title-2">
+										<a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /> </a>
+									</li>
+									<!--  <li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li" id="benefits-nav-title-3">
+										<a href="#benefits-navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="savierp.landing.navtabs.withdrawal" bundle="${msg}" /> <span><fmt:message key="savierp.landing.navtabs.without" bundle="${msg}" /></span></a>
+									</li> -->
+									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-4">
+										<a href="#benefits-navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /> </a>
+									</li>
+									<!-- <li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-5">
+										<a href="#benefits-navtabs-5" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="savierp.landing.navtabs.hours" bundle="${msg}" /> <span><fmt:message key="savierp.landing.navtabs.hotline" bundle="${msg}" /></span></a>
+									</li>-->
+									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-6">
+										<a href="#benefits-navtabs-6" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></a>
+									</li>
+								</ul>
+								<div class="fna-carousel carousel slide" id="benefits-carousel" data-ride="carousel" data-interval="false">
+									<div class="tab-content carousel-inner clearfix" role="listbox">
 												<div role="tabpanel" class="fna-tab-content tab-pane item active" id="benefits-navtabs-1">
 													<div class="benefits-content clearfix">
 														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/new-benefit-1.png">
 														<div class="info">
-															<h3><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
-															<p><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
+															<h3><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /></h3>
+															<p><fmt:message key="product.details.savie1.summary" bundle="${msg}" />  </p>
 														</div>
 													</div>
 												</div>
@@ -269,59 +267,59 @@ var home_url = "<%=request.getContextPath()%>";
 													<div class="benefits-content clearfix">
 														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png">
 														<div class="info">
-															<h3><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
-															<p><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
+															<h3><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /></h3>
+															<p><fmt:message key="product.details.savie2.summary" bundle="${msg}" />  </p>
 														</div>
 													</div>
 												</div>
-												<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-3">
+												<!--  <div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-3">
 													<div class="benefits-content clearfix">
 														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-3.png">
 														<div class="info">
-															<h3><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
-															<p><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
+															<h3><fmt:message key="savierp.landing.earning" bundle="${msg}" /></h3>
+															<p><fmt:message key="savierp.landing.earning.content1" bundle="${msg}" />  </p>
 														</div>
 													</div>
-												</div>
+												</div> -->
 												<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-4">
 													<div class="benefits-content clearfix">
 														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png">
 														<div class="info">
-															<h3><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
-															<p><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
+															<h3><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></h3>
+															<p><fmt:message key="product.details.savie4.summary" bundle="${msg}" />  </p>
 														</div>
 													</div>
 												</div>
-												<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-5">
+												<!-- <div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-5">
 													<div class="benefits-content clearfix">
 														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-5.png">
 														<div class="info">
-															<h3><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
-															<p><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
+															<h3><fmt:message key="savierp.landing.payment" bundle="${msg}" /></h3>
+															<p><fmt:message key="savierp.landing.payment.content1" bundle="${msg}" />  </p>
 														</div>
 													</div>
-												</div>
+												</div> -->
 												<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-6">
 													<div class="benefits-content clearfix">
-														<img src="assets/images/savie-regular/benefit-6.png">
+														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png">
 														<div class="info">
-															<h3><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
-															<p><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
+															<h3><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></h3>
+															<p><fmt:message key="product.details.savie6.summary" bundle="${msg}" />  </p>
 														</div>
 													</div>
 												</div>
 											</div>
-											<!-- Carousel -->
-											<a class="left carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="prev">
-											</a>
-											<a class="right carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="next">
-											</a>
-										</div>
-									</div>
-				        		</div>
-		        			</div>
+									<!-- Carousel -->
+									<a class="left carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="prev">
+									</a>
+									<a class="right carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="next">
+									</a>
+								</div>
+							</div>
 		        		</div>
-		       		</div>
+        			</div>
+        		</div>
+       		</div>
 	        		
 	        		<div class="ice-cream-banner hidden-xs hidden-sm">
         				<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/crediting_rates-en-1.jpg" class="hidden">
@@ -370,88 +368,88 @@ var home_url = "<%=request.getContextPath()%>";
 	        		</div>
 
 	        		<div class="partners">
-	        			<h4 class="text-center">Exclusive partner offers</h4>
-	        			<div class="gray-divide" id="bar-exclusive"></div>
-	        			<div class="row partners-holder">
-	        				<div class="col-xs-6 text-center">
-	        					<div class="desktop-center clearfix">
+		       			<h4 class="text-center"><fmt:message key="partner.offer.exclusive" bundle="${msg}" /></h4>
+		       			<div class="gray-divide" id="bar-exclusive"></div>
+		       			<div class="row partners-holder">
+		       				<div class="col-xs-6 text-center">
+		       					<div class="desktop-center clearfix">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_agoda.png">
-		        					<a href="#" class="hidden-md hidden-lg"><fmt:message key="special.promotion.copy2.1" bundle="${msg}" /></a>
-		        					<p class="hidden-xs hidden-sm"><fmt:message key="special.promotion.copy2.1" bundle="${msg}" /> <a href="#">Agoda</a> <fmt:message key="special.promotion.copy2.3" bundle="${msg}" /></p>
-	        					</div>
-	        				</div>
-	        				<div class="col-xs-6 text-center">
-	        					<div class="desktop-center clearfix">
+		        					<a href="#" class="hidden-md hidden-lg"><fmt:message key="savierp.landing.discount" bundle="${msg}" /></a>
+		        					<p class="hidden-xs hidden-sm"><fmt:message key="savierp.landing.enjoy" bundle="${msg}" /> <a href="#"><fmt:message key="savierp.landing.agoda" bundle="${msg}" /></a> <fmt:message key="savierp.landing.membership" bundle="${msg}" /></p>
+		       					</div>
+		       				</div>
+		       				<div class="col-xs-6 text-center">
+		       					<div class="desktop-center clearfix">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_pricerite.png">
-		        					<a href="#" class="hidden-md hidden-lg"><fmt:message key="special.promotion.copy3.1" bundle="${msg}" /></a>
-		        					<p class="hidden-xs hidden-sm"><fmt:message key="special.promotion.copy3.1" bundle="${msg}" /> <a href="#"><fmt:message key="special.promotion.copy3.2" bundle="${msg}" /></a> <fmt:message key="special.promotion.copy3.3" bundle="${msg}" /></p>
-	        					</div>
-	        				</div>
-	        			</div>
-	        		</div>
+		        					<a href="#" class="hidden-md hidden-lg"><fmt:message key="savierp.landing.coupon" bundle="${msg}" /></a>
+		        					<p class="hidden-xs hidden-sm"><fmt:message key="savierp.landing.from" bundle="${msg}" /> <a href="#"><fmt:message key="savierp.landing.pricerite" bundle="${msg}" /></a> <fmt:message key="partner.offer.pricerite.copy" bundle="${msg}" /></p>
+		       					</div>
+		       				</div>
+		       			</div>
+		       		</div>
 	        		<div class="fna-icons-body text-center clearfix">
-						<div class="fwd-container-limit" id="nav-holder">
-							<ul class="nav nav-tabs row so-fna-row visible-xs visible-sm" role="tablist">
-								<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="nav-title-1">
-									<a href="#navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link"><fmt:message key="Overseas.Landing.Platformpillar1.headline" bundle="${msg}" /></a>
-								</li>
-								<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-2">
-									<a href="#navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link"><fmt:message key="pillar.convenience.title" bundle="${msg}" /></a>
-								</li>
-								<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-3">
-									<a href="#navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link"><fmt:message key="Overseas.Landing.Platformpillar2.headline" bundle="${msg}" /></a>
-								</li>
-								<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="nav-title-4">
-									<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link"><fmt:message key="pillar.eservice.app..title" bundle="${msg}" /></a>
-								</li>
-							</ul>
-							<div class="fna-carousel carousel slide" id="so-carousel" data-ride="carousel" data-interval="false">
-								<div class="tab-content carousel-inner clearfix" role="listbox">
-									<div role="tabpanel" class="fna-tab-content tab-pane item active" id="navtabs-1" next-target="nav-title-2">
-										<div class="so-fna-content">
-											<div class="fna-icon-circle">
-												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-1.png">
-											</div>
-											<h3 class="visible-md visible-lg  tab-head"><fmt:message key="Overseas.Landing.Platformpillar1.headline" bundle="${msg}" /></h3>
-											 <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /> <!--<a href="#" class="eserv-link ui-link">eServices</a>--></p>
-										</div>
+				<div class="fwd-container-limit" id="nav-holder">
+					<ul class="nav nav-tabs row so-fna-row visible-xs visible-sm" role="tablist">
+						<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="nav-title-1">
+							<a href="#navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link"><fmt:message key="pillar.support.title" bundle="${msg}" /></a>
+						</li>
+						<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-2">
+							<a href="#navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link"><fmt:message key="pillar.convenience.title" bundle="${msg}" /></a>
+						</li>
+						<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="nav-title-3">
+							<a href="#navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link"><fmt:message key="pillar.claim.easy.title" bundle="${msg}" /></a>
+						</li>
+						<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="nav-title-4">
+							<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link"><fmt:message key="pillar.eservice.app..title" bundle="${msg}" /></a>
+						</li>
+					</ul>
+					<div class="fna-carousel carousel slide" id="so-carousel" data-ride="carousel" data-interval="false">
+						<div class="tab-content carousel-inner clearfix" role="listbox">
+							<div role="tabpanel" class="fna-tab-content tab-pane item active" id="navtabs-1" next-target="nav-title-2">
+								<div class="so-fna-content">
+									<div class="fna-icon-circle">
+										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-1.png">
 									</div>
-									<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-2" next-target="nav-title-3">
-										<div class="so-fna-content">
-											<div class="fna-icon-circle">
-												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-2.png">
-											</div>
-											<h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.convenience.title" bundle="${msg}" /></h3>
-											<p> <fmt:message key="pillar.convenience.copy1" bundle="${msg}" /></p>
-										</div>
-									</div>
-									<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-3" next-target="nav-title-4">
-										<div class="so-fna-content">
-											<div class="fna-icon-circle">
-												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-3.png">
-											</div>
-											<h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.claim.easy.title" bundle="${msg}" /></h3>
-											<p><fmt:message key="pillar.claim.easy.copy1" bundle="${msg}" /></p>
-										</div>
-									</div>
-									<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4" next-target="nav-title-1">
-										<div class="so-fna-content">
-											<div class="fna-icon-circle">
-												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png">
-											</div>
-											<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eservice.app..title" bundle="${msg}" /></h3>
-											<p>Download our <a href="http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" class="eserv-link ui-link"><fmt:message key="eliteTerms.landing.eServices.App" bundle="${msg}" /></a> App and get the support you need, when you need it.</p>
-										</div>
-									</div>
+									<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.support.title" bundle="${msg}" /></h3>
+									 <p><fmt:message key="pillar.support.copy1" bundle="${msg}" /> <!--<a href="#" class="eserv-link ui-link">eServices</a>--></p>
 								</div>
-								<!-- Carousel -->
-								<a class="left carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="prev">
-								</a>
-								<a class="right carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="next">
-								</a>
+							</div>
+							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-2" next-target="nav-title-3">
+								<div class="so-fna-content">
+									<div class="fna-icon-circle">
+										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-2.png">
+									</div>
+									<h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.convenience.title" bundle="${msg}" /></h3>
+									<p> <fmt:message key="pillar.convenience.copy1" bundle="${msg}" /></p>
+								</div>
+							</div>
+							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-3" next-target="nav-title-4">
+								<div class="so-fna-content">
+									<div class="fna-icon-circle">
+										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-3.png">
+									</div>
+									<h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.claim.easy.title" bundle="${msg}" /></h3>
+									<p><fmt:message key="pillar.claim.easy.copy1" bundle="${msg}" /></p>
+								</div>
+							</div>
+							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4" next-target="nav-title-1">
+								<div class="so-fna-content">
+									<div class="fna-icon-circle">
+										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png">
+									</div>
+									<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eservice.app..title" bundle="${msg}" /></h3>
+									<p><fmt:message key="pillar.eservice.app..copy1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" class="eserv-link ui-link"><fmt:message key="savierp.landing.presentation.eservice.content2" bundle="${msg}" /></a> <fmt:message key="savierp.landing.presentation.eservice.content3" bundle="${msg}" /></p>
+								</div>
 							</div>
 						</div>
+						<!-- Carousel -->
+						<a class="left carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="prev">
+						</a>
+						<a class="right carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="next">
+						</a>
 					</div>
+				</div>
+			</div>
 				
 				<!-- OUR BLOG -->
 				<div class="blog">
@@ -510,7 +508,7 @@ var home_url = "<%=request.getContextPath()%>";
 						</div>
 	
 						<div class="fwd-container-limit">
-							<p class="blog-notice"><fmt:message key="savierp.landing.blog.notice" bundle="${msg}" /></p>
+							<p class="blog-notice"><fmt:message key="disclaimer.blog" bundle="${msg}" /></p>
 						</div>
 					</div>
 				</div>
