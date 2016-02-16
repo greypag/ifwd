@@ -380,7 +380,7 @@ var context = "${pageContext.request.contextPath}";
 	                                    </thead>
 	                                    <tbody>
 	                                        <tr>    
-												<td class="left-border" id='policy-year-4-1'>5</td>  
+												<td class="left-border" id='policy-year-4-1'>5 </td>  
 												<td class="black-text desktop-only" id="credit-rate-4-1">4%</td> 
 												<td class="black-text" id="premium-change-4-1"><span>$</span> 0</td> 
 												<td class="black-text desktop-only" id="account-value-change-4-1"><span>$</span> 0</td>    
@@ -478,6 +478,18 @@ var context = "${pageContext.request.contextPath}";
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 		<script type="text/javascript">	
 			$(function() {
+				
+				var value = $('#policy-year-3-1').html();
+				$(document).on('change','#payment-years',function(){
+					$('#policy-year-3-1').html('');
+					if($(this).val() > 65) {
+						$('#policy-year-3-1').html(value+"<span class='payment-ends'><fmt:message key='label.final.payment.year' bundle='${msg}' /></span>");
+					}
+					else {
+						$('#policy-year-3-1').html(value);
+					}
+				});
+				
 	        	$("#payment-button-tooltip").tooltip().on('show.bs.tooltip', function() { 
 					setTimeout(function(){
 						$("#payment-button-tooltip").next().html('<div class="tooltip-arrow"></div><div class="tooltip-inner"><p class="title">One-off premium</p><p class="content">You may have a one-off premium payment on savie insurance</p><p class="title below">Regular payment</p><p class="content">You may have set up direct debit to pay premium on a monthly basis</p></div>'); 
