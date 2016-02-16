@@ -956,8 +956,14 @@ body {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-.fwd-savie-wrapper #header .dropdown:hover .dropdown-menu{
+.fwd-savie-wrapper #header #myDropdown:hover .dropdown-menu{
   display: none;  	
+}
+.fwd-savie-wrapper #header #myDropdown:hover .dropdown-menu{
+  display: none;    
+}
+.fwd-savie-wrapper #header #myDropdown.logout-btn:hover .dropdown-menu{
+  display: block;    
 }
 .fwd-savie-wrapper #header .menutab-V2 .dropdown:hover .dropdown-menu{
   display: block;	
