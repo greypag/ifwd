@@ -118,6 +118,7 @@ public class AjaxCampaignController extends BaseController {
 				case "duplicated":
 				case "failed":
 				case "error":
+				case "notlogin":
 					map.put("result", result);
 					map.put("promoCode", "");
 					map.put("index", index);
