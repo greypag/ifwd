@@ -65,6 +65,8 @@ public class CampaignServiceImpl implements CampaignService {
 								.toString());
 				header.put("token", request.getSession().getAttribute("token")
 						.toString());
+			}else {
+				return "notlogin";
 			}
 			
 			JSONObject responseJsonObj = new JSONObject();

@@ -1135,6 +1135,8 @@
 		        		$('#offer-details-promotion-code-error-once').modal('show');
 		        		$('#offer-details-promotion-code-error-once .modal-content').children(".title").html(fmt);
 		        		setPlanLink(campaignId, data["promoCode"]);
+		        	}else if(data["result"]=="notlogin") {
+		        		loginpopup(campaignId);
 		        	}else{
 		        		$('#offer-details-promotion-code-error-sold').modal('show');
 		        		$('#offer-details-promotion-code-error-sold .modal-content').children(".title").html(fmt);
