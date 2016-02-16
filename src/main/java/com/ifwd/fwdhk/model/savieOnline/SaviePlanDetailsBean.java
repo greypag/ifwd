@@ -21,6 +21,8 @@ public class SaviePlanDetailsBean implements Serializable {
 	private String insuredAmount;
 	private String dob;
 	private String promoCode;
+	private String dob1;
+	private String dob2;
 	
 	public void validate(String language) throws ValidateExceptions {
         List<String> list = new ArrayList<String>();
@@ -62,4 +64,21 @@ public class SaviePlanDetailsBean implements Serializable {
 	public void setPromoCode(String promoCode) {
 		this.promoCode = promoCode;
 	}
+
+	public String getDob1() {
+		return dob1;
+	}
+
+	public void setDob1(String dob1) {
+		this.dob1 = dob1;
+	}
+
+	public String getDob2() {
+		return dob2;
+	}
+
+	public void setDob2(String dob2) {
+		this.dob2 = dob2;
+	}
+	
 }

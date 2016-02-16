@@ -45,6 +45,9 @@ public class AjaxSavieOnlineController extends BaseController{
 		try {
 			saviePlanDetails.validate(language);
 			jsonObject.put("apiData", savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request).toString());
+			String[] dob = saviePlanDetails.getDob().split("/");
+			saviePlanDetails.setDob1(dob[2]+"·"+dob[1]+"·"+dob[0]);
+			saviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
 			request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
 		}
 		catch (ValidateExceptions e) {
@@ -170,7 +173,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
-			savieFna.setName(userDetails.getFullName());
+			savieFna.setName(userDetails.getUserName());
 			savieFna.setUser_name(userDetails.getUserName());
 			jsonObject = savieOnlineService.saveProductFna(savieFna, request);
 			session.setAttribute("savieFna", savieFna);
