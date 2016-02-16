@@ -269,7 +269,7 @@
 										</div>
 										<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-6">
 											<div class="benefits-content clearfix">
-												<img src="assets/images/savie-regular/benefit-6.png">
+												<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png">
 												<div class="info">
 													<h3><fmt:message key="savierp.landing.partnership" bundle="${msg}" /></h3>
 													<p><fmt:message key="savierp.landing.partnership.content1" bundle="${msg}" /> <span><fmt:message key="savierp.landing.partnership.content2" bundle="${msg}" /></span></p>
