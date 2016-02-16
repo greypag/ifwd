@@ -1881,13 +1881,20 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 }
 /* line 611, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .partners .partners-holder p {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
   font-size: 14px;
-  float: left;
-  text-align: left;
   max-width: 145px;
   overflow: hidden;
   line-height: 18px;
   padding-top: 8px;
+}
+@media (min-width: 992px) {
+	.savie-regular-landing .partners .partners-holder p {
+		float: left;
+  		text-align: left;
+	}
 }
 /* line 623, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .fna-icons-body {
