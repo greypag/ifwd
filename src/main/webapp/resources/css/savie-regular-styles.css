@@ -5205,3 +5205,8 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 #o2o-landing-form {
 	margin: 0;
 }
+
+.payment-ends {
+    display: block;
+    line-height: 0px;
+}
