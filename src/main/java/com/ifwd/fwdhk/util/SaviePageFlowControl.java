@@ -36,6 +36,27 @@ public class SaviePageFlowControl {
 		String ogDescription = WebServiceUtils.getPageTitle(
 				key + ".og.description",
 				UserRestURIConstants.getLanaguage(request));
+		
+		if("RP".equals(request.getSession().getAttribute("savieType"))) {
+			key = "rp";
+		}else {
+			key = "sp";
+		}
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.savie." + key + ".card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.savie." + key + ".image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.savie." + key + ".site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.savie." + key + ".url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.savie." + key + "",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
 
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);

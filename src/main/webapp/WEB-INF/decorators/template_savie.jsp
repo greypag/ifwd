@@ -51,16 +51,19 @@
 <!-- Twitter Card data -->     
 <meta property="twitter:title" content="${ogTitle}" />
 <meta property="twitter:description" content="${ogDescription}"/>
-<meta property="twitter:card" content="${ogImage}" />
-<meta property="twitter:image:src" content="${ogImage}" />
-     
- 
+<meta property="twitter:card" content="${twitterCard}" />
+<meta property="twitter:image" content="${twitterImage}" />
+<meta name="twitter:site" content="${twitterSite}" />
+<meta name="twitter:url" content="${twitterUrl}" />
+
 <meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="canonical" href="${canonical}"/>
 
 <!-- Bootstrap -->
 <link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/resources/css/savie/jasny-bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jasny-bootstrap.min.css">
 <link href="<%=request.getContextPath()%>/resources/css/savie/bootstrap-select.min.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/resources/css/savie/styles.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/datepicker3.min.css">
@@ -71,7 +74,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/icomoon.min.css">
 <link rel="stylesheet"  type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/dropzone.css">
 
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/header.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/header.css">
 
 <!--Mini Calculator Css-->
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/jquery-ui.theme.min.css">

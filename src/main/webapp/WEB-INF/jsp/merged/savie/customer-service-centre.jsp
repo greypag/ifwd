@@ -99,7 +99,7 @@ var language = "${language}";
 												%>
 												
 												<input type="hidden" id="preferred-date-mirror" value="${perferredDate }">
-												<input type="hidden" id="preferred-date" value="${perferredDate }">
+												<input type="hidden" name="preferred-date" id="preferred-date" value="${perferredDate }">
 											</div>
 										</div>
 									</div>

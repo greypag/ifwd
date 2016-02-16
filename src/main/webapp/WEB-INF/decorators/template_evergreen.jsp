@@ -57,10 +57,13 @@
 <!-- Twitter Card data -->     
 <meta property="twitter:title" content="${ogTitle}" />
 <meta property="twitter:description" content="${ogDescription}"/>
-<meta property="twitter:card" content="${ogImage}" />
-<meta property="twitter:image:src" content="${ogImage}" />
+<meta property="twitter:card" content="${twitterCard}" />
+<meta property="twitter:image" content="${twitterImage}" />
+<meta name="twitter:site" content="${twitterSite}" />
+<meta name="twitter:url" content="${twitterUrl}" />
+
+<link rel="canonical" href="${canonical}"/>
      
- 
 <meta name="apple-mobile-web-app-capable" content="yes" />
 
 <!-- Bootstrap -->

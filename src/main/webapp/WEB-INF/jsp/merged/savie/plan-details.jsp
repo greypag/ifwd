@@ -415,7 +415,7 @@ var context = "${pageContext.request.contextPath}";
 			<div class="fwd-container container-fluid proceed-block text-center">
 				<!--<h2><fmt:message key="savie.planDetails.login.create" bundle="${msg}" /></h2> -->
 				<button id="create-account" type="button" class="btn btn-orange proceed-btn"><fmt:message key="saviee.planoption.createaccount.button" bundle="${msg}" /></button>
-				<button id="proceed" type="button" class="btn btn-orange proceed-btn hidden" onclick="goServiceCenter();"><fmt:message key="saviee.planoption.proceed" bundle="${msg}" /></button>
+				<button id="proceed" type="button" class="btn btn-orange proceed-btn hidden" onclick="showThankYouPopUp();"><fmt:message key="saviee.planoption.proceed" bundle="${msg}" /></button>
 				<div class="login-holder">
 					<p><fmt:message key="saviee.planoption.login.1" bundle="${msg}" /></p>
 					<button id="made-decision-next-btn" type="button" class="login-button"><fmt:message key="saviee.planoption.login.2" bundle="${msg}" /></button>
@@ -594,10 +594,14 @@ var context = "${pageContext.request.contextPath}";
 			});
 			
 			function goServiceCenter(){
-				$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
-				$('#thankYouModal').modal('show');
 				window.location.href= '${pageContext.request.contextPath}'+'/'+'${language}'+'/'+'savings-insurance/'+'${nextPageFlow2 }'; 
 			}
+
+			function showThankYouPopUp(){
+				$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
+				$('#thankYouModal').modal('show');
+			}
+			
 			<%
 			String type = (String)session.getAttribute("savieType");
 		    if("RP".equals(type)) {%>

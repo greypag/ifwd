@@ -44,8 +44,13 @@
 <!-- Twitter Card data -->     
 <meta property="twitter:title" content="${ogTitle}" />
 <meta property="twitter:description" content="${ogDescription}"/>
-<meta property="twitter:card" content="${ogImage}" />
-<meta property="twitter:image:src" content="${ogImage}" />
+<meta property="twitter:card" content="${twitterCard}" />
+<meta property="twitter:image" content="${twitterImage}" />
+<meta name="twitter:site" content="${twitterSite}" />
+<meta name="twitter:url" content="${twitterUrl}" />
+
+<link rel="canonical" href="${canonical}"/>
+
 <% String requestUri = request.getRequestURI(); %>
 <% 
 	if(!requestUri.endsWith("-insurance") 
@@ -63,12 +68,10 @@
 		   || requestUri.endsWith("/tc") || requestUri.endsWith("/tc/")) {
 %>
 <link rel="alternate" hreflang="en" href="https://i.fwd.com.hk/en" />
-<link rel="canonical" href=https://i.fwd.com.hk>
 <% } else if(requestUri.endsWith("/en/home") || requestUri.endsWith("/en/home/") 
 		   || requestUri.endsWith("/en") || requestUri.endsWith("/en/")) {
 %>
 <link rel="alternate" hreflang="zh-HK" href="https://i.fwd.com.hk/tc" />
-<link rel="canonical" href="https://i.fwd.com.hk/en" />
 <% 
     } else if (requestUri.indexOf("/en/") >= 0) { 
 %>

@@ -49,7 +49,6 @@ import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
-import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
 import com.ifwd.fwdhk.util.SaviePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 
@@ -83,11 +82,6 @@ public class SavieController extends BaseController{
 		HttpSession session = request.getSession();
 		String accessCode = (String) httpSession.getAttribute("accessCode");
 		logger.info(accessCode);
-		if (request.getRequestURL().toString().contains("-rp")) {
-			httpSession.setAttribute("savieType", "RP");
-		} else {
-			httpSession.setAttribute("savieType", "SP");
-		}
 		String key = "savie.planDetails";
 		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
 				UserRestURIConstants.getLanaguage(request));
@@ -105,6 +99,25 @@ public class SavieController extends BaseController{
 				key + ".og.description",
 				UserRestURIConstants.getLanaguage(request));
 
+		if (request.getRequestURL().toString().contains("-rp")) {
+			httpSession.setAttribute("savieType", "RP");
+			key = "rp";
+		} else {
+			httpSession.setAttribute("savieType", "SP");
+			key = "sp";
+		}
+		
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.savie." + key + ".card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.savie." + key + ".image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.savie." + key + ".site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.savie." + key + ".url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.savie." + key + "",
+				UserRestURIConstants.getLanaguage(request));
+		
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		model.addAttribute("ogTitle", ogTitle);
@@ -112,6 +125,11 @@ public class SavieController extends BaseController{
 		model.addAttribute("ogUrl", ogUrl);
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
 		
 		/*String current = request.getServletPath();
 		if(current.endsWith("plan-details-sp")) {
@@ -504,8 +522,7 @@ public class SavieController extends BaseController{
 			}
 			if(session.getAttribute("perferredDate") == null || session.getAttribute("perferredDate") == ""){
 		        Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
-		        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
-		        logger.info(formatter.format(date));
+		        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
 				session.setAttribute("perferredDate", formatter.format(date));
 			}
 			logger.info(session.getAttribute("perferredDate").toString());
@@ -526,6 +543,21 @@ public class SavieController extends BaseController{
 			String ogDescription = WebServiceUtils.getPageTitle(
 					key + ".og.description",
 					UserRestURIConstants.getLanaguage(request));
+			if("RP".equals(session.getAttribute("savieType"))) {
+				key = "rp";
+			}else {
+				key = "sp";
+			}
+			String twitterCard = WebServiceUtils.getPageTitle("twitter.savie." + key + ".card",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterImage = WebServiceUtils.getPageTitle("twitter.savie." + key + ".image",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterSite = WebServiceUtils.getPageTitle("twitter.savie." + key + ".site",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterUrl = WebServiceUtils.getPageTitle("twitter.savie." + key + ".url",
+					UserRestURIConstants.getLanaguage(request));
+			String canonical = WebServiceUtils.getPageTitle("canonical.savie." + key + "",
+					UserRestURIConstants.getLanaguage(request));
 
 			model.addAttribute("pageTitle", pageTitle);
 			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
@@ -534,6 +566,11 @@ public class SavieController extends BaseController{
 			model.addAttribute("ogUrl", ogUrl);
 			model.addAttribute("ogImage", ogImage);
 			model.addAttribute("ogDescription", ogDescription);
+			model.addAttribute("twitterCard", twitterCard);
+			model.addAttribute("twitterImage", twitterImage);
+			model.addAttribute("twitterSite", twitterSite);
+			model.addAttribute("twitterUrl", twitterUrl);
+			model.addAttribute("canonical", canonical);
 			
 			return new ModelAndView("/merged/savie/customer-service-centre");
 			//return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CENTRE);
@@ -580,6 +617,16 @@ public class SavieController extends BaseController{
 			String ogDescription = WebServiceUtils.getPageTitle(
 					key + ".og.description",
 					UserRestURIConstants.getLanaguage(request));
+			String twitterCard = WebServiceUtils.getPageTitle("twitter.savie.sp.card",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterImage = WebServiceUtils.getPageTitle("twitter.savie.sp.image",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterSite = WebServiceUtils.getPageTitle("twitter.savie.sp.site",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterUrl = WebServiceUtils.getPageTitle("twitter.savie.sp.url",
+					UserRestURIConstants.getLanaguage(request));
+			String canonical = WebServiceUtils.getPageTitle("canonical.savie.sp",
+					UserRestURIConstants.getLanaguage(request));
 
 			model.addAttribute("pageTitle", pageTitle);
 			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
@@ -588,6 +635,11 @@ public class SavieController extends BaseController{
 			model.addAttribute("ogUrl", ogUrl);
 			model.addAttribute("ogImage", ogImage);
 			model.addAttribute("ogDescription", ogDescription);
+			model.addAttribute("twitterCard", twitterCard);
+			model.addAttribute("twitterImage", twitterImage);
+			model.addAttribute("twitterSite", twitterSite);
+			model.addAttribute("twitterUrl", twitterUrl);
+			model.addAttribute("canonical", canonical);
 			return new ModelAndView("/merged/savie/confirmation-offline");
 			//return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION);
 			
@@ -627,6 +679,16 @@ public class SavieController extends BaseController{
 			String ogDescription = WebServiceUtils.getPageTitle(
 					key + ".og.description",
 					UserRestURIConstants.getLanaguage(request));
+			String twitterCard = WebServiceUtils.getPageTitle("twitter.savie.rp.card",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterImage = WebServiceUtils.getPageTitle("twitter.savie.rp.image",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterSite = WebServiceUtils.getPageTitle("twitter.savie.rp.site",
+					UserRestURIConstants.getLanaguage(request));
+			String twitterUrl = WebServiceUtils.getPageTitle("twitter.savie.rp.url",
+					UserRestURIConstants.getLanaguage(request));
+			String canonical = WebServiceUtils.getPageTitle("canonical.savie.rp",
+					UserRestURIConstants.getLanaguage(request));
 
 			model.addAttribute("pageTitle", pageTitle);
 			model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
@@ -635,6 +697,11 @@ public class SavieController extends BaseController{
 			model.addAttribute("ogUrl", ogUrl);
 			model.addAttribute("ogImage", ogImage);
 			model.addAttribute("ogDescription", ogDescription);
+			model.addAttribute("twitterCard", twitterCard);
+			model.addAttribute("twitterImage", twitterImage);
+			model.addAttribute("twitterSite", twitterSite);
+			model.addAttribute("twitterUrl", twitterUrl);
+			model.addAttribute("canonical", canonical);
 			
 			
 			return new ModelAndView("/merged/savie/confirmation-rp");
@@ -679,6 +746,16 @@ public class SavieController extends BaseController{
 		String ogDescription = WebServiceUtils.getPageTitle(
 				key + ".og.description",
 				UserRestURIConstants.getLanaguage(request));
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.savie.sp.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.savie.sp.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.savie.sp.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.savie.sp.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.savie.sp",
+				UserRestURIConstants.getLanaguage(request));
 
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
@@ -687,6 +764,11 @@ public class SavieController extends BaseController{
 		model.addAttribute("ogUrl", ogUrl);
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
 		
 		return new ModelAndView("/merged/savie/savings-insurance-sp");
 
@@ -714,8 +796,8 @@ public class SavieController extends BaseController{
 		String key = "savierp.landing.rp";
 		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
 				UserRestURIConstants.getLanaguage(request));
-		String pageMetaDataDescription = WebServiceUtils.getPageTitle(
-				"meta." + key, UserRestURIConstants.getLanaguage(request));
+		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta."
+				+ key, UserRestURIConstants.getLanaguage(request));
 		String ogTitle = WebServiceUtils.getPageTitle(key + ".og.title",
 				UserRestURIConstants.getLanaguage(request));
 		String ogType = WebServiceUtils.getPageTitle(key + ".og.type",
@@ -724,8 +806,18 @@ public class SavieController extends BaseController{
 				UserRestURIConstants.getLanaguage(request));
 		String ogImage = WebServiceUtils.getPageTitle(key + ".og.image",
 				UserRestURIConstants.getLanaguage(request));
-		String ogDescription = WebServiceUtils.getPageTitle(
-				key + ".og.description",
+		String ogDescription = WebServiceUtils
+				.getPageTitle(key + ".og.description",
+						UserRestURIConstants.getLanaguage(request));
+		String twitterCard = WebServiceUtils.getPageTitle("twitter.savie.rp.card",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterImage = WebServiceUtils.getPageTitle("twitter.savie.rp.image",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterSite = WebServiceUtils.getPageTitle("twitter.savie.rp.site",
+				UserRestURIConstants.getLanaguage(request));
+		String twitterUrl = WebServiceUtils.getPageTitle("twitter.savie.rp.url",
+				UserRestURIConstants.getLanaguage(request));
+		String canonical = WebServiceUtils.getPageTitle("canonical.savie.rp",
 				UserRestURIConstants.getLanaguage(request));
 
 		model.addAttribute("pageTitle", pageTitle);
@@ -735,8 +827,12 @@ public class SavieController extends BaseController{
 		model.addAttribute("ogUrl", ogUrl);
 		model.addAttribute("ogImage", ogImage);
 		model.addAttribute("ogDescription", ogDescription);
+		model.addAttribute("twitterCard", twitterCard);
+		model.addAttribute("twitterImage", twitterImage);
+		model.addAttribute("twitterSite", twitterSite);
+		model.addAttribute("twitterUrl", twitterUrl);
+		model.addAttribute("canonical", canonical);
 		
 		return new ModelAndView("/merged/savie/savings-insurance-rp");
-		//return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING_RP);
 	}
 }
