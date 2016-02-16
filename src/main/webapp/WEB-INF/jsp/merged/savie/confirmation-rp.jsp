@@ -33,13 +33,13 @@ var affiliate = "${affiliate}";
             </div>
           <div class="row reset-margin hidden-xs hidden-sm">
                       <div class="col-md-4 reset-padding">
-                          <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="plan-detail" data-et-section-target="et-select-plan-section"><fmt:message key="stepindicator.plan_details" bundle="${msg}" /></button>
+                          <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="plan-detail" data-et-section-target="et-select-plan-section"><fmt:message key="stepindicator.savie.plandetails" bundle="${msg}" /></button>
                       </div>
                       <div class="col-md-4 reset-padding">
-                          <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="make-appointment" data-et-section-target="et-application-section"><fmt:message key="stepindicator.appointment" bundle="${msg}" /></button>
+                          <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="make-appointment" data-et-section-target="et-application-section"><fmt:message key="stepindicator.savie.make.appointment" bundle="${msg}" /></button>
                       </div>
                       <div class="col-md-4 reset-padding">
-                          <button type="button" class="et-header-info-btn et-bind-btn-header active" id="confirmation" data-et-section-target="et-dec-sign-section"><fmt:message key="stepindicator.confirmation" bundle="${msg}" /></button>
+                          <button type="button" class="et-header-info-btn et-bind-btn-header active" id="confirmation" data-et-section-target="et-dec-sign-section"><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button>
                       </div>
                   </div>
 
@@ -51,7 +51,7 @@ var affiliate = "${affiliate}";
                 </a>
               </div>
               <div class="et-header-tex">
-                <h3 id="et-active-section-label"><fmt:message key="section.header.confirmation" bundle="${msg}" /></h3>
+                <h3 id="et-active-section-label"><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></h3>
               </div>
             </div>
           </div>
@@ -61,11 +61,11 @@ var affiliate = "${affiliate}";
       <div class="application-flux thank-you">
       <div class="fwd-container-limit">
 		<ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs hidden-sm hidden-xs">
-             <li><a href="#"><fmt:message key="savie.landing.save" bundle="${msg}" /></a></li>
+             <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
              <li class="divider"><i class="fa fa-play"></i></li>
-             <li><a href="#"><fmt:message key="header.product.type2" bundle="${msg}" /> </a></li>
+             <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
              <li class="divider last"><i class="fa fa-play"></i></li>
-             <li class="active-bc" id="et-active-bc-menu"><fmt:message key="savie.planDetails.plan.details" bundle="${msg}" /></li>
+             <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.confirmation" bundle="${msg}" /></li>
        	 </ol>
         </div>
         <div class="container-fluid fwd-container thank-you-container savie-regular-confirmation">
@@ -73,7 +73,7 @@ var affiliate = "${affiliate}";
           <div class="details-container details-full" id="printable-area">
             <div class="row">
               <div class="col-xs-12">
-                <h2 class="bring-things"><span class="hidden-md hidden-lg"><fmt:message key="savie.confirmation.offline.Things.bring" bundle="${msg}" /></span><span class="hidden-xs hidden-sm"><fmt:message key="savie.confirmation.offline.Offline.procedure" bundle="${msg}" /></span></h2>
+                <h2 class="bring-things"><fmt:message key="label.savie.confirmation.success.booking" bundle="${msg}" /></h2>
 								<div class="gray-divider hidden-md hidden-lg"></div>
                 <div class="row offline-procedure-row">
                   <div class="col-xs-12 col-md-4">
@@ -115,10 +115,10 @@ var affiliate = "${affiliate}";
                                 <div class="gray-divider hidden-md hidden-lg"></div>
                                 <div class="whats-next">
                                     <ol>	
-										<li><fmt:message key="savie.confirmation.offline.1.You.will" bundle="${msg}" /></li>
-										<li><fmt:message key="savie.confirmation.offline.2.Visit" bundle="${msg}" /></li>
-										<li><fmt:message key="savie.confirmation.offline.3.Bring" bundle="${msg}" /></li>
-										<li><fmt:message key="savie.confirmation.offline.4.Only" bundle="${msg}" /></li>
+										<li><fmt:message key="info.savie.confirmation.next.step1" bundle="${msg}" /></li>
+										<li><fmt:message key="info.savie.confirmation.next.step2" bundle="${msg}" /></li>
+										<li><fmt:message key="label.savie.confirmation.next.step3" bundle="${msg}" /></li>
+										<li><fmt:message key="info.savie.confirmation.next.step4" bundle="${msg}" /></li>
 									</ol>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@ var affiliate = "${affiliate}";
 	                                        <span class="pull-left">${preferred_time }</span>
 	                                    </div>
 	                                    <div class="appointment-detail clearfix">
-	                                        <label class="pull-left">Branch</label>
+	                                        <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription3" bundle="${msg}" /></label>
 	                                        <span class="pull-left">${centreDetails.serviceCentreName }</span>
 	                                    </div>
 	                                    <div class="appointment-detail clearfix">

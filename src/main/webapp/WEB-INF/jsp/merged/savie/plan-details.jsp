@@ -25,13 +25,13 @@ var context = "${pageContext.request.contextPath}";
 			    </div>
 				<div class="row reset-margin hidden-xs hidden-sm">
 	                  <div class="col-md-4 reset-padding">
-	                      <button type="button" class="et-header-info-btn et-bind-btn-header active" id="plan-detail" data-et-section-target="et-select-plan-section"><fmt:message key="stepindicator.plan_details" bundle="${msg}" /></button>
+	                      <button type="button" class="et-header-info-btn et-bind-btn-header active" id="plan-detail" data-et-section-target="et-select-plan-section"><fmt:message key="stepindicator.savie.plandetails" bundle="${msg}" /></button>
 	                  </div>
 	                  <div class="col-md-4 reset-padding">
-	                      <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="make-appointment" data-et-section-target="et-application-section"><fmt:message key="stepindicator.appointment" bundle="${msg}" /></button>
+	                      <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="make-appointment" data-et-section-target="et-application-section"><fmt:message key="stepindicator.savie.make.appointment" bundle="${msg}" /></button>
 	                  </div>
 	                  <div class="col-md-4 reset-padding">
-	                      <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="confirmation" data-et-section-target="et-dec-sign-section"><fmt:message key="stepindicator.confirmation" bundle="${msg}" /></button>
+	                      <button type="button" class="et-header-info-btn et-bind-btn-header no-hover" id="confirmation" data-et-section-target="et-dec-sign-section"><fmt:message key="stepindicator.savie.confirmation" bundle="${msg}" /></button>
 	                  </div>
 	            		</div>
 				<div class="et-mobile-header-info hidden-md hidden-lg">
@@ -42,7 +42,7 @@ var context = "${pageContext.request.contextPath}";
 							</a>
 						</div>
 						<div class="et-header-tex">
-							<h3 id="et-active-section-label"><fmt:message key="section.header.plan_details" bundle="${msg}" /></h3>
+							<h3 id="et-active-section-label"><fmt:message key="stepindicator.savie.plandetails" bundle="${msg}" /></h3>
 						</div>
 					</div>
 				</div>
@@ -53,16 +53,16 @@ var context = "${pageContext.request.contextPath}";
 			<span id="username" data-userid="<%=session.getAttribute("username")%>"></span>
 			<div class="fwd-container-limit">
 				<ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs hidden-sm hidden-xs">
-	               <li><a href="#"><fmt:message key="header.product.type2" bundle="${msg}" /></a></li>
+	               <li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
 	               <li class="divider"><i class="fa fa-play"></i></li>
-	               <li><a href="#"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /> </a></li>
+	               <li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /> </a></li>
 	               <li class="divider last"><i class="fa fa-play"></i></li>
-	               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.plan_details" bundle="${msg}" /></li>
+	               <li class="active-bc" id="et-active-bc-menu"><fmt:message key="breadcrumb.savie.plandetails" bundle="${msg}" /></li>
             	</ol>
             </div>
 			<!--Sales Illustration Block-->
 			
-			<h2 class="text-center hidden-xs hidden-sm desktop-title"><fmt:message key="section.header.plan_details" bundle="${msg}" /></h2>
+			<h2 class="text-center hidden-xs hidden-sm desktop-title"><fmt:message key="label.savie.plandetails.title" bundle="${msg}" /></h2>
 			<div id="illustration-filters" class="fwd-full-container container-fluid">
 				
 				<form class="fwd-container-limit">
@@ -70,38 +70,36 @@ var context = "${pageContext.request.contextPath}";
 						<img class="money" src="<%=request.getContextPath()%>/resources/images/savie/money-logo.png">
 						<div id="investment-amount" class="one-off">    
 							<div id="desktop-left">
-								<h3 class="saving">Payment mode:<button id="payment-button-tooltip" type="button" class="btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="" data-original-title=" ">
+								<h3 class="saving"><fmt:message key="label.savie.payment.mode" bundle="${msg}" /> <button id="payment-button-tooltip" type="button" class="btn-tooltip-clear" data-toggle="tooltip" data-placement="right" title="" data-original-title=" ">
 										<img src="<%=request.getContextPath()%>/resources/images/savie/sprite-icons-info-2.png">
 									</button></h3>
 								<div class="selectDiv centreDiv gray-text-bg payment-select">
 			                        <select class="form-control gray-dropdown" id="payment-mode">
 			                        	
-			                           <option value="one-off" <c:if test="${savieType=='SP' }">selected</c:if>><fmt:message key="savierp.landing.oneoff" bundle="${msg}" /></option>
-			                           <option value="regular" <c:if test="${savieType=='RP' }">selected</c:if>><fmt:message key="savierp.landing.regular" bundle="${msg}" /></option>
+			                           <option value="one-off" <c:if test="${savieType=='SP' }">selected</c:if>><fmt:message key="label.savie.oneoffpremium" bundle="${msg}" /></option>
+			                           <option value="regular" <c:if test="${savieType=='RP' }">selected</c:if>><fmt:message key="label.savie.regular.pay" bundle="${msg}" /></option>
 			                        </select>
 			                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" />
 			                    </div>
 			                    <div class="one-off-premium">
 				                    <div class="clearfix">
 										<h3 class="pull-right total"><span id="range">200,000</span></h3>
-										<label id="hkd" class="pull-right total"><fmt:message key="eliteTerms.selectPlan.HK$" bundle="${msg}" /></label>
+										<label id="hkd" class="pull-right total"><fmt:message key="label.hkd" bundle="${msg}" /></label>
 									</div>
 									<input type="text" class="span2" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="200000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 									
 									<div class="clearfix min-max">
 										<div class="pull-left text-center">
-											<p><fmt:message key="eliteTerms.selectPlan.Min" bundle="${msg}" /></p>
-											<p>$30,000</p>
+											<fmt:message key="label.min" bundle="${msg}" />
 										</div>
 			
 										<div class="pull-right text-center">
-											<p><fmt:message key="eliteTerms.selectPlan.Max" bundle="${msg}" /></p>
-											<p>$400,000</p>
+											<fmt:message key="label.max" bundle="${msg}" />
 										</div>
 									</div>
 								</div>
 								<div class="regular-payment amount hidden">
-									<h3 class="saving"><fmt:message key="eliteTerms.selectPlan.Amount" bundle="${msg}" /> (HK$)</h3>
+									<h3 class="saving"><fmt:message key="label.savie.amount" bundle="${msg}" /></h3>
 									<div class="selectDiv centreDiv gray-text-bg payment-select">
 				                        <select id="amount-rp" class="form-control gray-dropdown">
 				                           <option value="1000">1,000</option>
@@ -122,7 +120,7 @@ var context = "${pageContext.request.contextPath}";
 	
 							<div id="desktop-right">
 								<img class="promo-code hidden-xs hidden-sm" src="<%=request.getContextPath()%>/resources/images/savie/bday-icon.png">
-								<h2 id="promo"><fmt:message key="eliteTerms.selectPlan.Date.of.birth" bundle="${msg}" /></h2>
+								<h2 id="promo"><fmt:message key="label.dob" bundle="${msg}" /></h2>
 								<div id="birthday">
 									<!-- <div class="hidden-md hidden-lg">
 										<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date"/> 
@@ -135,7 +133,7 @@ var context = "${pageContext.request.contextPath}";
 									<span class="error-msg-promo hideSpan" id="promo-code-dateOfBirthEmpty">Please input date of birth.</span> -->
 								</div>
 								<div class="regular-payment hidden last" id="total-payment-years">
-									<h3 class="saving">Total payment years</h3>
+									<h3 class="saving"><fmt:message key="label.payment.year" bundle="${msg}" /></h3>
 									<div class="selectDiv centreDiv gray-text-bg payment-select last">
 				                        <select class="form-control gray-dropdown" id="payment-years">
 				                           <option value="3" selected>3</option>
@@ -153,13 +151,13 @@ var context = "${pageContext.request.contextPath}";
 								<img id="birthday" src="<%=request.getContextPath()%>/resources/images/savie/promo-img.png">
 							</div>
 	
-							<h2><fmt:message key="label.promo_code" bundle="${msg}" /></h2>
+							<h2><fmt:message key="label.promocode" bundle="${msg}" /></h2>
 							<input name="promocode" type="text" placeholder="<fmt:message key="savie.planDetails.promo.code.placeholder" bundle="${msg}" />" class="promocode" id="promocode">
 							<span class="error-msg-promo promo-code-error hideSpan" id="promo-code-errmsg">Invalid promo code. Try again?</span>
 						</div>
 						
 						<div class="calculate-holder">
-							<button onclick="getSaviePlanDetails()" class="btn btn-orange calculate" type="button" id="sales-illu-apply-now"><fmt:message key="cta.calculate" bundle="${msg}" /><span class="icon icon-chevron-thin-right"></span></button>
+							<button onclick="getSaviePlanDetails()" class="btn btn-orange calculate" type="button" id="sales-illu-apply-now"><fmt:message key="button.calculate" bundle="${msg}" /><span class="icon icon-chevron-thin-right"></span></button>
 						</div>
 					</form>
 			</div>
@@ -492,7 +490,7 @@ var context = "${pageContext.request.contextPath}";
 				
 	        	$("#payment-button-tooltip").tooltip().on('show.bs.tooltip', function() { 
 					setTimeout(function(){
-						$("#payment-button-tooltip").next().html('<div class="tooltip-arrow"></div><div class="tooltip-inner"><p class="title">One-off premium</p><p class="content">You may have a one-off premium payment on savie insurance</p><p class="title below">Regular payment</p><p class="content">You may have set up direct debit to pay premium on a monthly basis</p></div>'); 
+						$("#payment-button-tooltip").next().html('<div class="tooltip-arrow"></div><div class="tooltip-inner"><fmt:message key="tooltip.savie.payment.method" bundle="${msg}" /></div>'); 
 						var css = $("#payment-button-tooltip").next().attr('style')+"top:-65px;";
 						$("#payment-button-tooltip").next().removeAttr('style');
 						$("#payment-button-tooltip").next().attr('style',css);

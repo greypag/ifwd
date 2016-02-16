@@ -4654,6 +4654,7 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 /* line 54, ../sass/partials/savie/_plan-details.scss */
 .savie-regular-plan-details #illustration-filters #investment-amount h3, .savie-regular-plan-details #illustration-filters #investment-amount #promo {
   padding-left: 0;
+  margin-bottom: 7px;
 }
 @media (min-width: 992px) {
   /* line 54, ../sass/partials/savie/_plan-details.scss */
@@ -4706,7 +4707,7 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 /* line 86, ../sass/partials/savie/_plan-details.scss */
 .savie-regular-plan-details #illustration-filters #investment-amount #hkd {
   font-family: 'Calibri-Bold';
-  margin-top: 7px;
+  margin-top: 9px;
 }
 /* line 91, ../sass/partials/savie/_plan-details.scss */
 .savie-regular-plan-details #illustration-filters #investment-amount .slider.slider-horizontal .slider-track {
@@ -4714,7 +4715,7 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 }
 /* line 96, ../sass/partials/savie/_plan-details.scss */
 .savie-regular-plan-details #illustration-filters #investment-amount .min-max {
-  margin-top: 6px;
+  margin-top: 8px;
 }
 /* line 98, ../sass/partials/savie/_plan-details.scss */
 .savie-regular-plan-details #illustration-filters #investment-amount .min-max p {
