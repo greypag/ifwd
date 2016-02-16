@@ -138,7 +138,7 @@ var context = "${pageContext.request.contextPath}";
 									<h3 class="saving">Total payment years</h3>
 									<div class="selectDiv centreDiv gray-text-bg payment-select last">
 				                        <select class="form-control gray-dropdown" id="payment-years">
-				                           <option value="" selected>3</option>
+				                           <option value="3" selected>3</option>
 				                        </select>
 				                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" />
 				                    </div>
@@ -521,7 +521,7 @@ var context = "${pageContext.request.contextPath}";
 						//console.log(looplimit);
 						$('#payment-years').html('');
 						for(var i = 1; i <= looplimit; i++ ) {
-							$('#payment-years').append('<option>'+i+'</option>');
+							$('#payment-years').append('<option value='+i+'>'+i+'</option>');
 						}
 					}
 				});
