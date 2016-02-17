@@ -5266,9 +5266,30 @@ body.chin .ch-banner-img {
     max-width: 302px;
     
 }
+#clearfix-height{
+	height: 63px;
+}
+@media (min-width: 992px) {
+	#clearfix-height{
+	height: 69px;
+	}
+}
+
 
 .navbar-no-scroll {
     top: 0;
     position: fixed;
     width: 100%;
+}
+
+#clearfix-height-rp{
+	height: 43px;
+}
+@media (min-width: 992px) {
+		#clearfix-height-rp{
+		height: 50px;
+	}
+}
+
+	}
 }
