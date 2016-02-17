@@ -1159,6 +1159,12 @@ function submitLoginForm(formID) {
 <!--/header-->
 <script>
 $(function() {
+	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i))) {  
+	    $(".fwd-savie-wrapper .menutab-V2 li").click(function(){  
+	        // Update '.change-this-class' to the class of your menu
+	        // Leave this empty, that's the magic sauce
+	    });
+	}	
     var pageControllerName = "#<%=actionName%>";
     var faqProductLink = "<%=request.getContextPath()%>/<fmt:message key='footer.menu.faq.link' bundle='${msg}' />";
     //console.log(faqProductLink);

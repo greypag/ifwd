@@ -70,9 +70,9 @@
 	        		<div class="rate">
 	        			<h4 class="text-center"><fmt:message key="custom.save.credit.rate.title" bundle="${msg}" /></h4>
 	        			<ul class="clearfix">
-	        				<li><span class="percent"><fmt:message key="custom.savie.credit.rate.rate1" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate1.year" bundle="${msg}" /></li>
-	        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.rate2" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate2.year" bundle="${msg}" /></li>
-	        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></li>
+	        				<li><span class="percent"><fmt:message key="custom.savie.credit.rate.regular.rate1" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate1.year" bundle="${msg}" /></li>
+	        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.regular.rate2" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate2.year" bundle="${msg}" /></li>
+	        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.regular.rate3" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></li>
 	        			</ul>
 	        		</div>
 	        </div>
@@ -342,19 +342,17 @@
        			<h4 class="text-center"><fmt:message key="partner.offer.exclusive" bundle="${msg}" /></h4>
        			<div class="gray-divide" id="bar-exclusive"></div>
        			<div class="row partners-holder">
-       				<div class="col-xs-6 text-center">
+       				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
+       				</div>
+       				<div class="col-xs-6 col-md-6 col-lg-6 text-center">
        					<div class="desktop-center clearfix">
-        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_agoda.png">
-        					<!--  <a href="#" class="hidden-md hidden-lg"><fmt:message key="savierp.landing.discount" bundle="${msg}" /></a>-->
-        					<p><fmt:message key="partner.offer.agoda.copy" bundle="${msg}" /></p>
+							<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_agoda.png">
+        					<div class="partner-desc">
+        						<fmt:message key="partner.agoda.desc1.part1" bundle="${msg}" /> <a href="<fmt:message key="agoda.promo2.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.desc1.part2" bundle="${msg}" /></a> <fmt:message key="partner.agoda.desc1.part3" bundle="${msg}" /> <a href="<%=request.getContextPath()%>/<fmt:message key="agoda.tnc.link" bundle="${msg}" />" target="_blank"><fmt:message key="partner.agoda.desc1.part4" bundle="${msg}" /></a> <fmt:message key="partner.agoda.desc1.part5" bundle="${msg}" />
+        					</div>
        					</div>
        				</div>
-       				<div class="col-xs-6 text-center">
-       					<div class="desktop-center clearfix">
-        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/partner_pricerite.png">
-        					<!-- <a href="#" class="hidden-md hidden-lg"><fmt:message key="savierp.landing.coupon" bundle="${msg}" /></a>-->
-        					<p><fmt:message key="partner.offer.pricerite.copy" bundle="${msg}" /></p>
-       					</div>
+       				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 text-center">
        				</div>
        			</div>
        		</div>

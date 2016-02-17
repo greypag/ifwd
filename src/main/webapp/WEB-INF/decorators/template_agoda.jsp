@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
 <head>
-<meta http-equiv="refresh" content="1; url=http://www.agoda.com/fwdtravel">
+<meta http-equiv="refresh" content="3; url=http://www.agoda.com/fwdtravel">
 </head>
 <body>
 <noscript>

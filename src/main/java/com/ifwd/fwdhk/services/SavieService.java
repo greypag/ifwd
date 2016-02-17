@@ -75,13 +75,9 @@ public interface SavieService {
 	
 	public void getTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
-	public void upsertAppointment(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
-	
 	public void saveAmount(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
 	public void confirmationOffline(Model model, HttpServletRequest request);
-	public BaseResponse sendAppointmentAcknowledgeMail(HttpServletRequest request)throws ECOMMAPIException;
-	public void getAppointmentAccessCode(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception;	
 	//fileUpload?
 	//signature?	
 	//1/check session, and redirect to savie landing page if session expired
