@@ -522,6 +522,8 @@ var context = "${pageContext.request.contextPath}";
 						$('#promo').removeClass('dob-reg-payment');
 						$('#investment-amount').addClass('one-off');
 						$('#total-payment-years').removeAttr('style');
+						
+		        		$('#policy-year-3-1').html('5');
 					}
 				});
 	        	
@@ -529,7 +531,7 @@ var context = "${pageContext.request.contextPath}";
 	        		$('#total-payment-years').css('display','block');
 	        	}
 	        	$(document).on('change','#sales-illu-dob',function(){
-					if($(this).val()!="" && $('#payment-mode').val()=="regular") {
+					if($(this).val()!="") {
 						
 						var from = $(this).val().split("-");
 						var birthdate = new Date(from[2], from[1] - 1, from[0]);
