@@ -474,7 +474,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<p class="title"><fmt:message key="savierp.landing.blog.title3" bundle="${msg}" /></p>
 									<span><fmt:message key="savierp.landing.blog.span3" bundle="${msg}" /></span>
 									<p class="definition"><fmt:message key="savierp.landing.blog.definition3" bundle="${msg}" /></p>
-									<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2016/01/11/power-start-up/"><fmt:message key="savierp.landing.blog.read.now" bundle="${msg}" /></a>
+									<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2016/01/11/power-start-up/"><fmt:message key="button.read.more.article" bundle="${msg}" /></a>
 								</div>
 							</div>
 							<div class="blogs">
@@ -483,7 +483,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<p class="title"><fmt:message key="savierp.landing.blog.title2" bundle="${msg}" /></p>
 									<span><fmt:message key="savierp.landing.blog.span2" bundle="${msg}" /></span>
 									<p class="definition"><fmt:message key="savierp.landing.blog.definition3" bundle="${msg}" /></p>
-									<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/30/do-holidays-have-to-be-saving-traps/"><fmt:message key="savierp.landing.blog.read.now" bundle="${msg}" /></a>
+									<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/30/do-holidays-have-to-be-saving-traps/"><fmt:message key="button.read.more.article" bundle="${msg}" /></a>
 								</div>
 							</div>
 							<div class="blogs">
@@ -492,7 +492,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<p class="title"><fmt:message key="savierp.landing.blog.title2" bundle="${msg}" /></p>
 									<span><fmt:message key="savierp.landing.blog.span2" bundle="${msg}" /></span>
 									<p class="definition"><fmt:message key="savierp.landing.blog.definition3" bundle="${msg}" /></p>
-									<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/17/busting-the-myths-of-saving-traps/"><fmt:message key="savierp.landing.blog.read.now" bundle="${msg}" /></a>
+									<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/17/busting-the-myths-of-saving-traps/"><fmt:message key="button.read.more.article" bundle="${msg}" /></a>
 								</div>
 							</div>
 							<div class="blogs last">
@@ -501,7 +501,7 @@ var home_url = "<%=request.getContextPath()%>";
 									<p class="title"><fmt:message key="savierp.landing.blog.title2" bundle="${msg}" /></p>
 									<span><fmt:message key="savierp.landing.blog.span2" bundle="${msg}" /></span>
 									<p class="definition"><fmt:message key="savierp.landing.blog.definition3" bundle="${msg}" /></p>
-									<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/09/%E9%80%99%E6%A8%A3%E5%81%9A%E5%B0%B1%E5%B0%8D%E4%BA%86%E3%80%80coupon%E5%B9%AB%E6%82%A8%E6%85%B3%E5%A4%A7%E9%8C%A2/"><fmt:message key="savierp.landing.blog.read.now" bundle="${msg}" /></a>
+									<a class="btn-read-now" href="http://blog.fwd.com.hk/zh_HK/2015/12/09/%E9%80%99%E6%A8%A3%E5%81%9A%E5%B0%B1%E5%B0%8D%E4%BA%86%E3%80%80coupon%E5%B9%AB%E6%82%A8%E6%85%B3%E5%A4%A7%E9%8C%A2/"><fmt:message key="button.read.more.article" bundle="${msg}" /></a>
 								</div>
 							</div>
 						</div>
