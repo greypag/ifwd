@@ -1477,7 +1477,7 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
 .savie-regular-landing .payment-mode .rate ul {
   padding: 0;
   list-style-type: none;
-  max-width: 355px;
+  /*max-width: 355px;*/
   margin: 10px auto 28px;
 }
 @media (min-width: 992px) {
