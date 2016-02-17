@@ -919,6 +919,9 @@
 		<script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/fwdiscover/jquery.countdown.min.js"></script>
 		<script type="text/javascript">
+		$( document ).ajaxComplete(function() {
+			$('body').css("display","block");
+		});
 		$(window).load(function() {
 			$('body').css("display","block");
 		});
@@ -1109,6 +1112,9 @@
 		        success : function(data) {
 			    	$('.modal').modal('hide');
 					$('#loginpopup').modal('show');
+                    if((navigator.userAgent.match(/iPad/i))) { 
+                        $('body').addClass("hidden-show");
+                    }
 		        }
 		    });
 	    }
@@ -1155,6 +1161,9 @@
 		        	$(".fwdiscover-plan .promo-desc .holder .count").each(function(index,domEle){
 		        		$(this).html(data["count"+index]);
 		        	});
+		        	if((navigator.userAgent.match(/iPad/i))) { 
+		        	    $('body').addClass("hidden-show");
+		        	}
 		        }
 		    });
 	    }

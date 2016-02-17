@@ -1559,6 +1559,6 @@
 }
 @media ( min-width : 992px) {
 	body{
-		/*display: none;*/
+		display: none;
 	}
 }
