@@ -1865,12 +1865,17 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
     float: left;
     max-width: 110px;
   }
+
+  .savie-regular-landing .partners-holder .partner-desc{
+    margin-left: 110px;
+    text-align: left;
+  }
 }
 /* line 602, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .partners .partners-holder a {
   font-size: 14px;
   text-decoration: underline;
-  display: block;
+  display: inline;
 }
 @media (min-width: 992px) {
   /* line 602, ../sass/partials/savie/_landing-page.scss */
