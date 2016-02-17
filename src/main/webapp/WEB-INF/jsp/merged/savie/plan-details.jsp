@@ -452,7 +452,7 @@ var context = "${pageContext.request.contextPath}";
 					<div class="modal-content thank-you-content">
 						<img src="<%=request.getContextPath()%><fmt:message key="savie.planDetails.thank.you.image.desktop" bundle="${msg}" />" class="img-responsive hidden-xs">
 						<img src="<%=request.getContextPath()%><fmt:message key="savie.planDetails.thank.you.image.mobile" bundle="${msg}" />" class="img-responsive visible-xs">
-						<div class="text-right">
+						<div class="text-right continue-holder">
 							<button id="thank-you-continue" class="btn next" onclick="goServiceCenter();"><fmt:message key="savie.planDetails.thank.you.btn.text" bundle="${msg}" /></button>
 						</div>
 					</div>
