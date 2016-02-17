@@ -70,8 +70,8 @@ var home_url = "<%=request.getContextPath()%>";
 			        			<h2 class="hidden-xs hidden-sm"><fmt:message key="jumbo.savie.oceanpark" bundle="${msg}" /></h2>
 			        			<h4><fmt:message key="jumbo.savie.oceanpark.copy1" bundle="${msg}" /></h4>
 			        			<p class="description"><fmt:message key="jumbo.savie.oceanpark.copy2" bundle="${msg}" /></p>
-			        			<div class="clearfix">
-			        				<button class="savie-regular-btn" id="op-buy-now-O2O-mobile"><fmt:message key="cta.start" bundle="${msg}" /></button>
+			        			<div class="clearfix" id="clearfix-height">
+			        				<button class="savie-regular-btn" id="op-buy-now-O2O-mobile"><fmt:message key="button.start" bundle="${msg}" /></button>
 			        				<img src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" class="hidden-xs hidden-sm desktop-op">
 			        			</div>
 			        			<p class="terms-condition"><fmt:message key="disclaimer.partner.oceanpark.copy1" bundle="${msg}" />
