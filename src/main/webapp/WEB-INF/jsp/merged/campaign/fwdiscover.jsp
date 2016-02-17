@@ -20,7 +20,7 @@
     String countDownDD = "29";
     String countDownMM = "Feb";
     boolean isCNYOffer = false;
-    if( cCurrent<= cStart && request.getParameter("test") != null && request.getParameter("test").equals("redpacket")){
+    if( cCurrent<= cStart ){
     	disableOfferClass = "paused-plan";
         countDownDate = "2016-02-29 09:59:59";
     	countDownDD = "29";
@@ -250,8 +250,8 @@
                 	if (isCNYOffer) {
                	%>
                     <div class="fwdiscover-plan">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel.jpg" class="img-responsive hidden-lg hidden-md">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-annualtravel-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-redpacket.jpg" class="img-responsive hidden-lg hidden-md">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-redpacket-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 
                         <div class="plan-details-box red-bg right">
                             <div class="plan-desc">
@@ -694,7 +694,7 @@
                                     <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
                                     <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
                                     <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
-                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer1" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
+                                    <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.redpacket" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
                             </div>
 
                             <p class="close-modal"><fmt:message key="Fanfare.close" bundle="${msg}" /></p>
