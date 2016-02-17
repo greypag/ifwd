@@ -82,9 +82,9 @@ var affiliate = "${affiliate}";
 							<div class="lbl">Date of Birth<span class="fna-error-msg text-red"></span></div>
 							<div class="fld">
 								<div class="round-box date frm-fna-dob" data-mirror-fld="frm-fna-dob-mob" data-frm-fld="dob">
-									<span class="txt_dob">Please select</span>
+									<span class="txt_dob">${saviePlanDetails.dob1 }</span>
 										 <span class="input-group-addon"></span>
-										<input type="hidden" class="datepicker form-control "value="" readonly>
+										<input type="hidden" class="datepicker form-control "value="${saviePlanDetails.dob2 }" readonly>
 
 								</div>
 							</div>

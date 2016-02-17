@@ -1,5 +1,8 @@
 package com.ifwd.fwdhk.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -17,6 +21,7 @@ import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
@@ -45,6 +50,9 @@ public class AjaxSavieOnlineController extends BaseController{
 		try {
 			saviePlanDetails.validate(language);
 			jsonObject.put("apiData", savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request).toString());
+			String[] dob = saviePlanDetails.getDob().split("/");
+			saviePlanDetails.setDob1(dob[2]+"·"+dob[1]+"·"+dob[0]);
+			saviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
 			request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
 		}
 		catch (ValidateExceptions e) {
@@ -170,7 +178,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
-			savieFna.setName(userDetails.getFullName());
+			savieFna.setName(userDetails.getUserName());
 			savieFna.setUser_name(userDetails.getUserName());
 			jsonObject = savieOnlineService.saveProductFna(savieFna, request);
 			session.setAttribute("savieFna", savieFna);
@@ -246,5 +254,52 @@ public class AjaxSavieOnlineController extends BaseController{
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@RequestMapping(value = {"/ajax/savie-online/getBranchCode"})
+	public void getOccupationByAjax(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
+		List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			OptionItemDescList = savieOnlineService.getBranchCode(request);
+		}
+		catch (ECOMMAPIException e) {
+		}
+		logger.info(OptionItemDescList.toString());
+		ajaxReturn(response, OptionItemDescList);
+	}
+	
+	@RequestMapping(value = {"/ajax/savie-online/createPolicyApplicationSaveforLater"})
+	public void createPolicyApplicationSaveforLater(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			jsonObject = savieOnlineService.createPolicyApplicationSaveforLater(request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savie-online/getPolicyApplicationSaveforLater"})
+	public void getPolicyApplicationSaveforLater(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			jsonObject = savieOnlineService.getPolicyApplicationSaveforLater(request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", "api error");
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
 	}
 }

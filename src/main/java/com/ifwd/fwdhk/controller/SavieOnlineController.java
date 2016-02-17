@@ -67,17 +67,17 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savie-online/savie-review"}) 
 	public ModelAndView getSavieOnlinepReview(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savie-online/savie-sales-illustration"})
-	public ModelAndView getSavieOnlineSalesIllustration(Model model, HttpServletRequest request) {
 		try {
 			savieOnlineService.createSalesIllustrationPdf(request);
 		}
 		catch (Exception e) {
 			request.getSession().setAttribute("errorMsg", e.getMessage());
 		}
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/savie-sales-illustration"})
+	public ModelAndView getSavieOnlineSalesIllustration(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION);
 	}
 	
@@ -198,6 +198,10 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savie-online/life-payment"})
 	public ModelAndView getSavieOnlineLifePayment(Model model, HttpServletRequest request) {
+		model.addAttribute("bankCodeEN", InitApplicationMessage.bankCodeEN);
+		model.addAttribute("bankCodeCN", InitApplicationMessage.bankCodeCN);
+		model.addAttribute("branchCodeEN", InitApplicationMessage.branchCodeEN);
+		model.addAttribute("branchCodeCN", InitApplicationMessage.branchCodeCN);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PAYMENT);
 	}
 	
@@ -215,6 +219,7 @@ public class SavieOnlineController extends BaseController{
 	public ModelAndView getSavieOnlineLifeReview4(Model model, HttpServletRequest request,HttpSession session) {
 		try {
 			savieOnlineService.createApplicationFormPdf(request, session);
+			savieOnlineService.createFnaFormPdf(request, session);
 		}
 		catch (Exception e) {
 			request.getSession().setAttribute("errorMsg", e.getMessage());

@@ -11,7 +11,8 @@
 <div style="margin-left: 500px;">
 <div id="errorMsg" style="color: red;"></div>
 <form id="lifeBeneficaryInfoForm" action="">
-isOwnEstate:<input type="radio" id="isOwnEstate1" name="isOwnEstate" value="true"/><input type="radio" id="isOwnEstate2" name="isOwnEstate" value="false"/>
+isOwnEstate:<input type="radio" id="isOwnEstate1" name="isOwnEstate" value="true"/>YES<input type="radio" id="isOwnEstate2" name="isOwnEstate" value="false" checked="checked"/>NO<br/>
+<div id="beneficaryDiv">
 beneficaryFirstName1:<input type="text" id="beneficaryFirstName1" name="beneficaryFirstName1" value="${lifeBeneficaryInfo.beneficaryFirstName1 }"/><br/>
 beneficaryLastName1:<input type="text" id="beneficaryLastName1" name="beneficaryLastName1" value="${lifeBeneficaryInfo.beneficaryLastName1 }"/><br/>
 beneficaryChineseName1:<input type="text" id="beneficaryChineseName1" name="beneficaryChineseName1" value="${lifeBeneficaryInfo.beneficaryChineseName1 }"/><br/>
@@ -33,6 +34,7 @@ beneficaryID3:<input type="text" id="beneficaryID3" name="beneficaryID3" value="
 beneficaryGender3:<input type="text" id="beneficaryGender3" name="beneficaryGender3" value="${lifeBeneficaryInfo.beneficaryGender3 }"/><br/>
 beneficaryRelation3:<input type="text" id="beneficaryRelation3" name="beneficaryRelation3" value="${lifeBeneficaryInfo.beneficaryRelation3 }"/><br/>
 beneficaryWeight3:<input type="text" id="beneficaryWeight3" name="beneficaryWeight3" value="${lifeBeneficaryInfo.beneficaryWeight3 }"/><br/>
+</div>
 <input type="button" id="nextPage" value="nextPage"/><br/>
 <a href="#" class="et-app-sum-edit et-app-edit">save and continue later</a>
 </form>
@@ -59,5 +61,12 @@ $("#nextPage").click(function(){
 			  }
 		  }
      });
+});
+
+$("#isOwnEstate1").click(function(){
+	$("#beneficaryDiv").hide();
+});
+$("#isOwnEstate2").click(function(){
+	$("#beneficaryDiv").show();
 });
 </script>

@@ -13,8 +13,34 @@
 <form id="lifePaymentForm" action="">
 <input type="radio" id="payOnline" name="payOnline" value="0"/>pay online
 <input type="radio" id="payOffline" name="payOnline" value="1"/>pay later<br/>
-bankCode:<input type="text" id="bankCode" name="bankCode" value="${lifePayment.bankCode }"/><br/>
-branchCode:<input type="text" id="branchCode" name="branchCode" value="${lifePayment.branchCode }"/><br/>
+bankCode:
+<select class="form-control gray-dropdown" name="bankCode" id="bankCode" onchange="getBranchCode(this.value,'${language }');"> 
+	<option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+	<c:if test="${language == 'en'}">
+		<c:forEach var="list" items="${bankCodeEN}">
+			<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+		</c:forEach>
+	</c:if>
+	<c:if test="${language == 'tc'}">
+		<c:forEach var="list" items="${bankCodeCN}">
+			<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+		</c:forEach>
+	</c:if>
+</select><br/>
+branchCode:
+<select class="form-control gray-dropdown" name="branchCode" id="branchCode">
+	<option value=""><fmt:message key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
+	<c:if test="${language == 'en'}">
+		<c:forEach var="list" items="${branchCodeEN}">
+			<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+		</c:forEach>
+	</c:if>
+	<c:if test="${language == 'tc'}">
+		<c:forEach var="list" items="${branchCodeCN}">
+			<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+		</c:forEach>
+	</c:if>
+</select><br/>
 accountNumber:<input type="text" id="accountNumber" name="accountNumber" value="${lifePayment.accountNumber }"/><br/>
 accountHolderName:<input type="text" id="accountHolderName" name="accountHolderName" value="${lifePayment.accountHolderName }"/><br/>
 paymentAmount:<input type="text" id="paymentAmount" name="paymentAmount" value="${lifePayment.paymentAmount }"/><br/>
@@ -45,4 +71,22 @@ $("#nextPage").click(function(){
 	     });
 	}
 });
+
+function getBranchCode(value,language) {
+	$.get('<%=request.getContextPath()%>/ajax/savie-online/getBranchCode',
+	{ 
+		value : value,
+		language : language
+	},
+	function(data) {
+		$("#branchCode").empty();
+		if(data != null){
+			for(var i = 0; i < data.length; i++) {
+				$("#branchCode").append("<option value='"+data[i].itemCode+"-"+data[i].itemDesc+"'>"+data[i].itemDesc+"</option>");
+			}
+		}
+	})
+	.fail(function(data) {
+	});
+}
 </script>

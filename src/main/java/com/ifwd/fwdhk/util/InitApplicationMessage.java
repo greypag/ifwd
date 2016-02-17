@@ -128,6 +128,11 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static List<OptionItemDesc> occupationEnNoB24;
 	public static List<OptionItemDesc> occupationCnNoB24;
 	
+	public static List<OptionItemDesc> bankCodeEN;
+	public static List<OptionItemDesc> bankCodeCN;
+	public static List<OptionItemDesc> branchCodeEN;
+	public static List<OptionItemDesc> branchCodeCN;
+	
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
@@ -972,5 +977,44 @@ public class InitApplicationMessage implements ApplicationListener{
 			}
 		}
 		logger.info("occupationCnNoB24 : " + occupationCnNoB24);
+		
+		try {
+			bankCodeEN = commonUtils.getOptionItemDescList("BankCode","EN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("bankCodeEN : " + bankCodeEN);
+		
+		try {
+			bankCodeCN = commonUtils.getOptionItemDescList("BankCode","CH",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("bankCodeCN : " + bankCodeCN);
+		try {
+			branchCodeEN = commonUtils.getOptionItemDescList("Branchcode","EN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("branchCodeEN : " + branchCodeEN);
+		
+		try {
+			branchCodeCN = commonUtils.getOptionItemDescList("Branchcode","CH",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("branchCodeCN : " + branchCodeCN);
 	}
 }
