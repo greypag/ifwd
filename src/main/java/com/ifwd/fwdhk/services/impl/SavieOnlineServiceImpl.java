@@ -368,7 +368,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		jsonObject.put("q2_others", savieFna.getQ2_others());
 		jsonObject.put("q3", savieFna.getQ3());
 		jsonObject.put("q4", savieFna.getQ4());
-		jsonObject.put("q4_a", savieFna.getQ4_a());
+		jsonObject.put("q4_a", (savieFna.getQ4_a() != null)?savieFna.getQ4_a():0 );
 		jsonObject.put("q4_a_others", savieFna.getQ4_a_others());
 		jsonObject.put("q4_b", savieFna.getQ4_b());
 		jsonObject.put("q4_b_amount", savieFna.getQ4_b_amount());
