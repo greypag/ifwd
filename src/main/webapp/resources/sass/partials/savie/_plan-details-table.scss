@@ -1,0 +1,416 @@
+.pd-calculate-content {
+	background-color: #061d29;
+}
+
+#plan-details-wrapper {
+	padding:0;
+	
+	@media screen and (min-width: 992px) {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+
+.white-btn {
+	color: #ff8200;
+	background-color: #fff;
+	border: 2px solid #ff8200;
+	outline: none;
+	padding: 10px 35px;
+	font-size: 18px;
+	font-family: 'Calibri-Bold';
+	border-radius: 4px;
+	
+	@media screen and (min-width: 992px) {
+		border: 1px solid #ff8200;
+	}
+}
+
+.default-pointer {
+	cursor: pointer;
+}
+
+.pd-summary-table {
+	.summary-table {
+		.glyphicon.glyphicon-info-sign {
+			font-size: 12px;
+			
+			@media screen and (min-width: 992px) {
+				display: inline-block !important;
+			}
+		}
+		
+		.summary-table-head {
+			padding: 0 0 0 20px;
+			
+			@media screen and (min-width: 400px) {
+				padding: 0 0 0 30px;
+			}
+			
+			@media screen and (min-width: 992px) {
+				margin: 30px auto 5px;
+				padding-right: 30px;
+			}
+			
+			.summary-note-title {
+				font-size: 18px;
+				padding-top: 30px;
+				color: #ff8200;
+				margin: 0;
+				
+				@media screen and (min-width: 992px) {
+					float: left;
+					padding: 0;
+				}
+			}
+			
+			.summary-note {
+				color: #ff8200;
+				font-size: 14px;
+				margin: 10px auto;
+				
+				@media screen and (min-width: 992px) {
+					float: right;
+					margin: 0 auto;
+				}
+				
+				.received-money {
+					font-family: 'Calibri-Bold';
+				}
+			}
+		}
+		
+		.rate-btn {
+			color: #ff8200;
+			background-color: #fff;
+			border: 1px solid #ff8200;
+			outline: none;
+			height: 30px;
+			width: 60px;
+			font-size: 18px;
+			font-family: 'Calibri-Bold';
+			margin-right: 5px;
+			
+			&.active {
+				color: #fff;
+				background-color: #ff8200;
+				border: 0;
+			}
+		}
+		
+		.table-content {
+			@media screen and (min-width: 992px) {
+				padding: 0 30px;
+			}
+			
+			.table {
+				font-size: 14px;
+				margin-bottom: 20px;
+				width: 100%;
+				
+				.pinkish-shade {
+					background-color: #f3f4f5;
+				}
+				
+				thead {
+					border-top: solid 2px #b7b8b7;
+					border-bottom: solid 2px #b7b8b7;
+					
+					tr {
+						height: 54px;
+						
+						th {
+							padding: 8px;
+							border-bottom: none;
+							
+							&.first-head {
+								padding-left: 20px;
+								
+								@media screen and (min-width: 400px) {
+									padding-left: 30px;
+								}
+								
+								@media screen and (min-width: 992px) {
+									padding-left: 8px;
+								}
+							}
+						}
+					}
+				}
+				
+				tbody {
+					tr {
+						td {
+							border: none;
+							padding: 8px;
+							
+							&.policy-number {
+								padding-left: 35px;
+								
+								@media screen and (min-width: 400px) {
+									padding-left: 45px;
+								}
+								
+								@media screen and (min-width: 992px) {
+									padding-left: 30px;
+								}
+							}
+							
+							&.policy-credit {
+								@media screen and (min-width: 992px) {
+									padding-left: 30px;
+								}
+							}
+							
+							#payment-ends {
+								display: block;
+								margin-left: -30px;
+								font-size: 12px;
+							}
+						}
+					}
+				}
+			}
+		}
+		
+		.after-3-years-btn {
+			text-align: center;
+		}
+		
+		.crediting-rate {
+			padding: 0 0 0 30px;
+			
+			.crediting-rate-title {
+				color: #ff8200;
+				
+				@media screen and (min-width: 992px) {
+					float: left;
+					margin: 5px auto;
+					padding-right: 5px;
+				}
+			}
+			
+			.rate-buttons {
+				margin: 20px auto;
+				
+				@media screen and (min-width: 992px) {
+					margin: 20px auto 10px;
+				}
+			}
+		}
+	}		
+}
+
+.plan-details-note-container {
+	padding: 0 30px;
+	font-size: 12px;
+	color: #373a36;
+	margin-top: 20px;
+	
+	ul {
+		padding-left: 15px;
+		
+		li {
+			line-height: 15px;
+			margin-bottom: 15px;
+		}
+	}
+}
+
+.pd-date {
+	width: 100%;
+	border: 0;
+	background: transparent;
+	padding: 6px 12px 6px 15px;
+	height: 40px;
+	font-size: 14px;
+	color: #9ba5a7;
+}
+
+#plan-details-sample-and-faq {
+	margin-top: 20px;
+	
+	@media screen and (min-width: 992px) {
+		margin-top: 30px;
+	}
+	
+	.pd-sf-tabs-content {
+		padding: 0 15px;
+		
+		@media screen and (min-width: 992px) {
+			padding: 0 30px;
+		}
+	}
+	
+	.faq-key-content {
+		padding: 0 20px;
+		
+		.tab-content {
+			padding: 0 10px 10px;
+		}
+		
+	}
+	
+	.next-btn {
+		margin-bottom: 30px;
+		
+		.plan-details-btn {
+			padding: 8px 30px;
+			
+			@media screen and (min-width: 330px) {
+				padding: 8px 37px;
+			}
+		}
+		
+		.pd-link {
+			display: block;
+			font-size: 14px;
+			margin-top: 15px;
+			color: #ff8200;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	
+	#pd-sf-nav-tabs {  // ul
+		border-bottom: none;
+		border: none;
+	  
+		.pd-sf-tab {  // li
+			min-width: 95px;
+			border: none;
+			
+			@media screen and (min-width: 400px) {
+				min-width: 110px;
+			}
+		 
+			&.active {
+				a {
+				   border-bottom: 3px solid #ff8500;
+				   background: none;
+				}
+			}
+			 
+			a {
+				padding: 5px;
+				font-size: 13px;
+				color: #373a36;
+				border: 0;
+				background: transparent;
+				
+				@media screen and (min-width: 400px) {
+					padding: 10px;
+					font-size: 14px;
+				}
+				
+				&:after {
+					border: none;
+				}
+			}
+			
+			&.pd-sf-tab-right {
+				border-left: 1px solid #e6e6e6;
+				
+				@media screen and (min-width: 992px) {
+					border-left: none;
+				}
+			}
+		}
+	}
+   
+   #pd-sf-faq-and-glossary-group {
+	  margin: 30px 0 20px;
+	  
+	  .pd-sf-faq-and-glossary-panel {
+		 margin-top: 2px;
+		 border: 0;
+		 border-radius: 0;
+		 
+		 .panel-heading {
+			border-radius: 0;
+			background-color: #e1e4e4;
+		 }
+		 
+		 .panel-collapse {
+			.panel-body {
+				font-size: 14px;
+				line-height: 20px;
+			}
+		 }
+		 
+		 .panel-title {
+			a {
+			   display: inline-block;
+			   width: 100%;
+			   font-size: 14px;
+			   color: #ffffff;
+			   text-decoration: none;
+			}
+		 }
+	  }
+   }
+   
+   .pd-sf-divider {
+	  height: 2px;
+	  background-color: #e9edf0;
+   }
+}
+
+#plan-details-page, #plan-details-b-page {
+	.tooltip {
+		background-color: transparent;
+		color: #000;
+		opacity: 1;
+		.tooltip-arrow {
+			border-right-color: #fbfbfb;
+			border-width: 10px 10px 10px 0;
+			top: 46%;
+		}
+		.tooltip-inner {
+			background-color: #fbfbfb;
+			margin-left: 5px;
+			width: 285px;
+			max-width: 285px;
+			padding: 15px;
+			color: #000;
+			-webkit-box-shadow: 0px 0px 4px 0px rgba(131,139,143,1);
+			-moz-box-shadow: 0px 0px 4px 0px rgba(131,139,143,1);
+			box-shadow: 0px 0px 4px 0px rgba(131,139,143,1);
+			p {
+				line-height: 18px;
+				&.info-content {
+					color: #9c9c9c;
+					font-family: 'Calibri';
+				}
+				&:nth-child(3) {
+					margin-top: 13px;
+				}
+			}	
+		}
+	}	
+}
+
+#table-content-pd {
+	.tooltip {
+		.tooltip-arrow {
+			transform: rotate(-45deg);
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);                               
+			width: 15px;
+			height: 15px;
+			border-left: 1px solid #e1e1e1;
+			background: #fbfbfb;                               
+			left: 1px !important;
+			border-top: 1px solid #e1e1e1;
+			border-right: 0;
+			border-bottom: 0;
+			border-width: 1px !important;
+		}
+		
+		.tooltip-inner {
+			width: inherit;
+			max-width: none;
+		}
+	}
+}

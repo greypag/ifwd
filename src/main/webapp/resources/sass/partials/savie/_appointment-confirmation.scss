@@ -1,0 +1,373 @@
+/** APPOINTMENT CONFIRMATION PAGE AND OFFLINE SIGNATURE CONFIRMATION PAGE  **/
+
+#appointment-confirmation-page-top {
+	.breadcrumbs {
+		@media (max-width: $screen-md) {
+			padding-top: 50px;
+		}
+	}	
+	.browse-holder {
+		@media (max-width: $screen-md) {
+			margin-top: 18px;
+		}
+	}
+}
+#appointment-confirmation-page,
+#offline-signature-confirmation-page {
+	font-family: Calibri;
+	margin-bottom: 10px;
+	@media (max-width: $screen-md) {
+		padding: 10px 30px;
+	}
+	
+	p {
+		font-size: 14px;
+		line-height: 16px;
+		color: #373a36;
+	}
+	#review-line {
+		padding-top: 12px;
+    	padding-bottom: 5px;
+	}
+	hr { 
+		border-top-color: #dbe1e6;
+		margin-top: 21px;
+		margin-bottom: 10px;
+	}
+
+	.panel-title {
+		font-size: 16px;
+		font-weight: bold;
+		color: #ff8200;
+		margin-top: 18px;
+		margin-bottom: 19px;
+	}
+	
+	.policy-number-panel {
+		.cstm-md-col-3 { padding-top: 0; }
+		> div { border-right: none; }
+		> div:last-child { border: none; }
+	
+		.policy-number-wrapper {
+			margin-bottom: 17px;
+			margin-top: -2px;
+		
+			.policy-number-label,
+			.policy-number {
+				font-size: 16px;
+				line-height: 18px;
+				padding: 0;
+			}
+		}
+	
+		.policy-number-label,
+		.policy-number {
+			font-size: 24px;
+			font-weight: bold;
+			line-height: 21px;
+			padding-bottom: 8px;
+		}
+		
+		.policy-number {
+			color: #ff8200;
+		}
+		
+		@media only screen and (max-width: ($screen-md - 1)) {
+			> div:first-child { border: none; }
+		}
+		
+		@media only screen and (min-width: $screen-md) {
+			margin-bottom: 20px;
+			
+			> div { border-right: 1px solid #dbe1e6; }
+			
+			.panel-title {
+				font-size: 18px;
+				margin-top: 0;
+			}
+			> div:last-child { margin-top: -20px; }
+			
+			.cstm-md-col-1,
+			.cstm-md-col-2 {
+				width: 61.5%;
+			}
+			
+			.cstm-md-col-3 {
+				width: 38.5%;
+				padding-left: 35px;
+			}
+			
+			.policy-number-label {
+				margin-bottom: 0;
+				margin-top: 7px;
+			}
+		}
+	}
+	.cstm-md-col-3 {
+		@media (max-width: $screen-md) {
+			padding-top: 15px;
+			padding-bottom: 5px;
+		}
+	}
+	.appointment-details-panel {
+		margin-bottom: 24px;
+		
+		p,
+		.details-label { 
+			display: inline-block;
+			vertical-align: top;
+		}
+	
+		.details-label {
+			font-weight: bold;
+			font-size: 14px;
+			padding-right: 10px;
+			margin-bottom: 14px;
+			width: 100px;
+		}
+		
+		.branch-address { display: block; }
+		
+		.phone-num {
+			margin-top: 6px;
+			display: block;
+			
+			.glyphicon-earphone {
+				color: #9ba5a7;
+				font-size: 11px;
+			}
+		}		
+		
+		@media only screen and (max-width: 380px) {
+			> div {
+				display: table;
+				
+				> div {
+					display: table;
+					margin-bottom: 10px;
+				}
+				
+				p {
+					display: table-cell;
+					
+					.branch-address { margin-bottom: 10px; }
+				}
+				
+				.appointment-details-note {
+					p { display: inline-block; }
+				}
+			}
+			
+			.panel-title { 
+				display: block;
+				margin-bottom: 9px;
+			}
+		}
+		
+		@media only screen and (min-width: $screen-md) {
+			.cstm-md-col-1 { width: 27%; }
+			.cstm-md-col-2 { width: 38%; }
+			.cstm-md-col-3 { width: 35%; }
+			
+			.panel-title { margin-top: 14px; }
+			
+			.details-label {				
+				margin-bottom: 0;
+				width: 100%;
+			}
+			
+			.details-label + p {
+				margin-bottom: 10px;
+			}
+			
+			.branch-address { margin-top: 10px; }
+		}
+	}
+	
+	.requirements-panel {
+		p {
+			color: #636466;			
+		}
+	
+		.requirements-panel-title {
+			color: #373a36;
+			font-weight: bold;
+			font-size: 14px;
+			margin-top: 28px;
+			margin-bottom: 18px;
+		}
+		
+		.requirements-list {
+			background-color: #f3f4f5;
+			border-radius: 7px;
+			margin-left: 0;
+			margin-right: 0;
+			
+			> div {
+				display: table;
+			
+				.requirment-img-wrapper {
+					float: left;
+					width: 150px;
+					text-align: center;
+					padding: 22px 0;
+					margin-left: -15px;
+					margin-right: 12px;
+					
+					img { margin: auto; }
+				}
+				
+				.requirement-text-wrapper {
+					display: table-cell;
+					padding: 22px 0;
+					vertical-align: middle;
+					width: 100%;
+				}
+					
+				@media only screen and (max-width: 320px) {
+					.requirment-img-wrapper { width: 130px; }
+				}
+				
+				@media only screen and (min-width: $screen-md) {
+					display: block;
+					text-align: center;
+					
+					.requirment-img-wrapper {
+						float: none;
+						width: auto;
+						margin-right: 0;
+						padding-top: 20px;
+						padding-bottom: 20px;
+					}
+					
+					.requirement-text-wrapper { 
+						display: block;
+						padding-top: 0;
+						padding-bottom: 0;
+					}
+				}
+				
+				@media only screen and (min-width: $screen-md) {
+					display: table-cell;
+				}
+			}
+			
+			span {
+				&.small { font-size: 12px; }
+				
+				&.orange-note { 
+					color: #ff8200;
+					font-size: 14px;
+				}
+			}
+			
+			hr {				
+				border-top-color: #fff;
+				clear: both;
+				margin: 0 40px;
+				border-bottom: 0;
+			}
+			
+			.cstm-md-col-3 { padding-top: 8px; }
+			
+			@media only screen and (min-width: $screen-md) {
+				background-color: transparent;
+				
+				.cstm-md-col-1,
+				.cstm-md-col-2 {
+					position: relative;
+					
+					&:after {
+						content: ' ';
+						height: 152px;
+						width: 1px;
+						position: absolute;
+						right: 0;
+						top: 24px;
+						background-color: #dbe1e6;
+					}
+				}
+				
+				.cstm-md-col-1 {					
+					text-align: left;
+					padding-left: 4px;
+					width: 31%;
+					
+					.requirment-img-wrapper {
+						text-align: left;
+						padding-left: 39px;
+					}					
+				}
+				.cstm-md-col-2 { width: 27%; }
+				
+				.cstm-md-col-3 {
+					padding-top: 0;
+					width: 42%;
+				}
+				
+				> div:last-child {
+					.requirment-img-wrapper {
+						padding-bottom: 10px;
+						padding-top: 8px;
+					}
+				}
+			}
+		}
+		 
+		.note {
+			background-color: #ff8200;
+			border-radius: 7px;
+			color: #fff;
+			font-size: 14px;
+			line-height: 17px;
+			margin-top: 12px;
+			margin-bottom: 18px;
+			padding: 11px 20px 11px 20px;
+		}
+		
+		@media only screen and (min-width: $screen-md) {			
+			.note { margin-top: 15px; }
+		}
+	}
+	
+	.print-doc-link {
+		color: #ff8200;
+		margin-top: 21px;
+		font-size: 14px;
+		&:hover { text-decoration: none; }
+		
+		span {
+			&:hover {
+				text-decoration: underline;
+			} 
+		}
+	}
+	
+	.btn-home {
+		font-size: 18px;
+		font-weight: bold;
+		margin-top: 8px;
+		margin-bottom: 8px;
+		padding: 5px 30px;
+	}
+	    
+	@media only screen and (min-width: $screen-md) {
+		max-width: 710px;
+		margin: auto;
+		padding: 38px 0 0 0;
+		
+		.panel-title { margin-bottom: 13px; }
+		
+		.btn-home {
+			margin-bottom: 6px;
+			margin-top: 41px;
+			padding-left: 40px;
+			padding-right: 40px;
+			
+			&.btn-home-pay-later {
+				margin-top: 25px;
+				margin-bottom: -3px;
+			}
+		}
+	}
+}

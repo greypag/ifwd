@@ -1,0 +1,17 @@
+/* line 2, ../sass/common-ie9.scss */
+.selectDiv:before {
+  display: block;
+  position: absolute;
+  content: '';
+  right: 0px;
+  top: 0px;
+  height: 2em;
+  width: 2em;
+  margin: 2px;
+  background: url("../images/orange-caret.png") no-repeat;
+  background-position: 12px 18px;
+  background-size: 11px;
+  background-color: #f5f5f5;
+  z-index: 2;
+  cursor: pointer;
+}

@@ -1,0 +1,64 @@
+/** Save and Continue style**/
+
+#save-and-continue-modal {
+	.modal-content.save-con-modal-content {
+		padding: 25px 25px 35px;
+		
+		@media screen and (min-width: 992px) {
+			max-width: 425px;
+			margin: auto;
+		}
+		
+		.welcome-msg {
+			font-family: 'Calibri-Bold';
+		}
+		
+		.save-con-btns {
+			margin-top: 15px;
+			
+			@media screen and (min-width: 992px) {
+				margin: 15px 9% 0;
+			}
+			
+			.savie-common-btn {				
+				&.save-exit-btn1 {
+					max-width: 145px;
+					padding: 5px 0;
+					margin-right: 10px;
+				}
+				
+				&.save-exit-btn2 {
+					background: #9ba5a7;
+					border-bottom: 3px solid #676f70;
+					max-width: 145px;
+					padding: 5px 0;
+					
+					&:hover {
+						opacity: 0.9;
+					}
+				}
+			}
+		}
+	}
+}
+.save-con-modal-b5 {
+	.modal-content {
+		padding: 35px 25px 35px 25px !important;
+		.save-con-btns {
+			margin: 15px 0 0 0 !important;
+			#keep-going-btn {
+				@media screen and (min-width: $screen-md) {
+					margin-right: 5px;
+				}	
+			}
+			#save-exit-btn {
+				@media screen and (min-width: $screen-md) {
+					margin-left: 5px;
+				}	
+				@media screen and (max-width: $screen-md) {
+					margin-top: 10px;
+				}
+			}
+		}
+	}		
+}

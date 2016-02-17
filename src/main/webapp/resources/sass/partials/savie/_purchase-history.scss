@@ -1,0 +1,256 @@
+.purchase-history-bc {
+	background: none !important;
+	@media (max-width: $screen-md) {
+		padding-top: 50px;
+	}
+}
+#savie-online-purchase-history {
+	.fwd-container-limit {
+		@media (min-width: $screen-md) {
+			margin-bottom: 8px;
+		}
+	}
+	#purchase-history-page {
+		margin-left: 0;
+		margin-right: 0;
+		.account-dropdown {
+			button {
+				line-height: 36px;
+				font-size: 18px;
+				.fa-angle-down {
+					margin-top: 2px;
+					vertical-align: middle;
+				}
+			}
+			li {
+				font-size: 18px;
+			}
+		}
+		h2 {
+			color: #ff8200;
+			font-size: 24px;
+    		margin-left: 25px;
+    		margin-top: 0;
+    		@media screen and (min-width: $screen-md ) {
+    			font-size: 30px;
+    			margin-left: 0;
+    			margin-bottom: 30px;
+    		}
+		}
+		.side-menu {
+			border: 1px solid #d4d5d4;
+    		padding: 0;
+    		background: #fafafb;
+    		.nav {
+    			font-weight: bold;
+    			li {
+    				a{
+    					padding: 15px 0 15px 0;
+    					border-radius: 0;
+    					padding-left: 23px;
+    					color: #373a36;
+    					.side-menu-icon {
+    						width: 25px;
+    						height: 25px;
+    						background: url('../images/savie-2016/side-menu-icons.png') no-repeat;
+    						display: inline-block;
+    						margin-right: 15px;
+    						float: left;
+    						&#insurance-plan {
+    							background-position: -39px 0;
+    						}
+    						&#promo-offers {
+    							background-position: -75px 0;
+    						}
+    					}
+    				}
+    				&.active {
+    					a {
+    						background-color: #fc6d08;
+    						color: #FFF;
+    					}
+    				}
+    			}
+    		}
+		}
+		.right-side-content {
+			padding-left: 0;
+			padding-right: 0;
+			.nav-tabs {
+				border-top:  1px solid #d4d5d4;
+				border-right:  1px solid #d4d5d4;
+				border-bottom:  1px solid #d4d5d4;
+				border-left:  1px solid #d4d5d4;
+				@media screen and (min-width: $screen-md ) {
+					border-left: 0;
+				}
+				font-weight: bold;
+				li {
+					border-right: 1px solid #d4d5d4;
+					border-bottom: 0;
+    				@media screen and (max-width: $screen-md ) {
+    					float: left;
+    					width: 33%;
+    				}
+					&#past-tab {
+						border-right: 0;
+					}
+					a {
+						border-radius: 0;
+						color: #373a36;
+						background: #FFF;
+						padding: 14px;
+						border: none;
+						@media screen and (max-width: $screen-md ) {
+							margin-bottom: 0;
+							padding: 12px;
+						}
+						&:hover {
+							background: #FFF;
+						}	
+					}
+					&.active {
+						a {
+							background: none;
+							color: #373a36;
+							border-bottom: 3px solid #ff8200;
+							@media screen and (min-width: $screen-md ) {
+								border-bottom: 2px solid #ff8200;
+							}
+							&:after {
+								border-width: 0;
+							}
+						}
+					}
+				}
+			}
+			.tab-content {
+				padding: 0px 40px 0 40px;
+				
+				@media screen and (min-width: $screen-md ) {
+					border-right: 1px solid #d4d5d4;
+					border-bottom: 1px solid #d4d5d4;
+					border-left: 1px solid #d4d5d4;
+					padding: 0px 40px 30px 40px;
+				}
+				.category-title {
+					color: #ff9500;
+    				font-size: 16px;
+    				@media (min-width: $screen-md) {
+    					font-size: 18px;
+    				}
+				}
+				.category-holder {
+					padding-top:30px;
+					.category-head {
+						padding: 0;
+						@media (min-width: $screen-md) {
+							padding: 17px 0;
+						    border-top: 2px solid #DDD;
+						    border-bottom: 2px solid #DDD;
+						}    
+						#last-col-head {
+							padding-left: 0;
+							padding-right: 0;
+						}
+						.fa-info-circle {
+							cursor: pointer;
+						}
+						.tooltip {
+							background-color: transparent;
+							color: #000;
+							opacity: 1 !important;
+							.tooltip-arrow {
+								transform: rotate(-45deg);
+							    -webkit-transform: rotate(-45deg);
+							    -moz-transform: rotate(-45deg);							   
+							    width: 15px;
+							    height: 15px;
+							    border-left: 1px solid #e1e1e1;
+							    background: #fbfbfb;							   
+							    left: 1px !important;
+							    border-top: 1px solid #e1e1e1;
+							    border-right: 0;
+							    border-bottom: 0;
+							    border-width: 1px !important;
+							}
+							.tooltip-inner {
+								background-color: #fbfbfb !important;
+								margin-left: 5px;
+								width: 110px;
+								max-width: 285px;
+								padding: 10px;
+								color: #000;
+								-webkit-box-shadow: 0px 0px 1px 0px rgba(131,139,143,1);
+								-moz-box-shadow: 0px 0px 1px 0px rgba(131,139,143,1);
+								box-shadow: 0px 0px 1px 0px rgba(131,139,143,1);
+							}
+						}
+					}
+					.info-head, .info-data {
+						margin-bottom: 0;
+						font-size: 14px;
+						&.pls-visit {
+							line-height: 18px;
+						}
+						&.acc-val {
+							@media (min-width: $screen-md) {
+								font-size: 13px;
+							}
+						}
+					}
+					.category-info-row {
+						padding: 20px 20px 0 20px;
+						@media (min-width: $screen-md) {
+							@media (min-width: $screen-md) {
+	    						padding: 10px 0 10px 15px;
+	    					}
+						}
+						a {
+							color: #ff9500;
+							&:hover {
+								color: #ff9500;
+								text-decoration: underline;
+							}
+						}
+						.plan-name{
+							@media (min-width: $screen-md) {
+								font-weight: bold;
+							}	
+						}
+						.mbview-category-info {
+							padding-bottom: 10px;
+							padding-left: 0;
+	    					padding-right: 0;
+	    					@media (min-width: $screen-md) {
+	    						padding-bottom: 0;
+	    					}
+						}
+					}
+				}
+			}
+			#note {
+				font-size: 12px;
+			    line-height: 14px;
+			    margin-left: 25px;
+			    margin-top: 8px;
+			    padding-right: 23px;
+			    @media (max-width: $screen-md) {
+			    	padding-bottom: 100px;
+			    }
+			    @media (min-width: $screen-md) {
+			    	margin-left: 0;
+			    	margin-top: 18px;
+			    	padding-right: 0;
+			    }	
+				#orange-ast {
+					color: #ff8200;
+				    height: 25px;
+				    display: inline-block;
+				    float: left;
+				    margin-right: 5px;
+				}
+			}		
+		}
+	}
+}

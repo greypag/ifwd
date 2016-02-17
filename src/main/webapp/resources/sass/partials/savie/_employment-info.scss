@@ -1,0 +1,35 @@
+//other styles located on unemployed.scss because they share the same styles.
+.employment-info-page {
+	#next-btn {
+		@media (min-width: $screen-md) {
+			font-size: 24px;
+			padding: 5px 100px !important;
+			margin-top: 10px !important;
+		}	
+	}
+	
+	.so-mdl-textfield {
+		margin-bottom: 0;
+	
+		.gray-textbox {
+			border: none;
+			background: #F5F5F5;
+			padding: 11px 15px 5px 15px !important;
+			color: #9DA7A7;
+			font-size: 14px;
+			width: 100%;
+		}
+		
+		label { padding-left: 15px; }
+		
+		&.is-not-active,
+		&.is-focused,
+		&.is-dirty {
+			label { padding-top: 2px; }
+		}
+	}
+	
+	.has-error {
+		.gray-textbox { margin-bottom: 5px; }
+	}
+}

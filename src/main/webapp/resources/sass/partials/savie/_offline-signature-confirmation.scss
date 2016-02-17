@@ -1,0 +1,109 @@
+/** OFFLINE SIGNATURE CONFIRMATION PAGE **/
+
+#offline-signature-confirmation-page {
+	.appointment-details-panel {
+		margin-bottom: 29px;
+	
+		.appointment-details-note {
+			background-color: #f8f9fa;
+			margin-top: 12px;
+			padding: 20px 13px;
+			
+			p:first-child { margin-bottom: 11px; }
+			
+			@media only screen and (min-width: $screen-md) {
+				margin-top: 3px;
+				padding: 18px 20px;
+			}
+		}
+		
+		@media only screen and (min-width: $screen-md) {
+			margin-bottom: 20px;
+		}
+	}
+	
+	.requirements-panel {
+		.requirements-list {
+			> div {
+				padding-left: 20px;
+				padding-right: 20px;
+				
+				.requirement-text-wrapper p { margin-top: 7px; }
+				
+				/*&:first-child .requirement-text-wrapper p { margin-top: 7px; }
+				&:last-child {
+					.requirement-text-wrapper p { margin-top: -5px; }
+				}*/
+				
+				.requirement-text-wrapper { vertical-align: top; }
+				
+				@media only screen and (min-width: $screen-md) {
+					&:first-child {
+						&:after {
+							content: ' ';
+							height: 114px;
+							width: 1px;
+							position: absolute;
+							right: 0;
+							top: 31px;
+							background-color: #dbe1e6;
+						}
+					
+						.requirment-img-wrapper { padding-top: 10px; }
+						.requirement-text-wrapper p {
+							 margin-top: -3px; 
+							 @media (min-width: $screen-md) {
+							 	padding: 0 35px;
+							 }
+						}
+					}
+					
+					&:last-child {
+						.requirment-img-wrapper {
+							padding-top: 20px;
+							padding-bottom: 20px;
+						}
+						
+						.requirement-text-wrapper p { margin-top: 5px; }
+					}
+				}
+			}
+		}
+		
+		.note {
+			margin-top: 22px;
+			margin-bottom: -4px;
+		}
+		
+		@media only screen and (min-width: $screen-md) {
+			.requirements-panel-title {
+				color: #ff8200;
+				font-size: 16px;
+				font-weight: bold;
+				margin-top: 23px;
+				margin-bottom: 0;
+			}
+			
+			.note { margin-top: 18px; }
+		}
+	}
+	
+	.btn-home {
+		padding-top: 4px;
+		padding-bottom: 4px;
+		margin-bottom: 10px;
+	}
+	
+	@media only screen and (min-width: $screen-md) {
+		.print-doc-link { margin-top: 14px; }
+		
+		.btn-home {
+			font-size: 24px;
+			padding: 6px 55px;
+			margin-bottom: 0;
+			margin-top: 17px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+		}
+	}
+}

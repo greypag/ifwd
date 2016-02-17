@@ -1,0 +1,26 @@
+#application-after-days {
+	.modal-dialog {
+		@media (min-width: $screen-md) {
+			max-width: 430px;
+		}	
+		.modal-content {
+			padding: 12px 38px 30px 38px;
+			@media (min-width: $screen-md) {
+				padding: 25px 30px 30px 30px;
+			}	
+			.description-msg {
+				padding-top: 20px;
+			}
+			.close {
+				position: absolute;
+			    right: 22px;
+			    top: 10px;
+			    font-size: 25px;
+			    margin-top: 0;
+			}
+			#back-to-home-btn {
+				margin-top: 15px;
+			}
+		}
+	}	
+}

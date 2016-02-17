@@ -1,0 +1,15 @@
+#prev-savie-app-modal {
+	.modal-dialog {
+		max-width: 354px;
+		@media (min-width: $screen-md) {
+			max-width: 430px;
+		}	
+		.modal-content {
+			padding: 25px;
+			#make-appointment-btn {
+				padding: 5px 31px;
+				margin-top: 18px;
+			}
+		}
+	}
+}
