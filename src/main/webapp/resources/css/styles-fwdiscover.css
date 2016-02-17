@@ -1561,4 +1561,7 @@
 	body{
 		display: none;
 	}
+	.hidden-show{
+	   display: block;
+	}
 }
