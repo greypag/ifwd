@@ -5244,3 +5244,12 @@ body.chin .en-banner-img {
 body.chin .ch-banner-img {
 	display: block;
 }
+
+.fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
+    position: initial;
+    display: initial;
+    margin: 0;
+    margin-right: 34px;
+    max-width: 302px;
+    
+}

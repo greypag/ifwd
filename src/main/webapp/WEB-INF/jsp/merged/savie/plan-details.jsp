@@ -452,7 +452,9 @@ var context = "${pageContext.request.contextPath}";
 					<div class="modal-content thank-you-content">
 						<img src="<%=request.getContextPath()%><fmt:message key="savie.planDetails.thank.you.image.desktop" bundle="${msg}" />" class="img-responsive hidden-xs">
 						<img src="<%=request.getContextPath()%><fmt:message key="savie.planDetails.thank.you.image.mobile" bundle="${msg}" />" class="img-responsive visible-xs">
-						<button id="thank-you-continue" class="btn next" onclick="goServiceCenter();"><fmt:message key="savie.planDetails.thank.you.btn.text" bundle="${msg}" /></button>
+						<div class="text-right">
+							<button id="thank-you-continue" class="btn next" onclick="goServiceCenter();"><fmt:message key="savie.planDetails.thank.you.btn.text" bundle="${msg}" /></button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -476,6 +478,10 @@ var context = "${pageContext.request.contextPath}";
 		<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 		<script type="text/javascript">	
 			$(function() {
+				
+				$('#thankYouModal').on('shown.bs.modal', function() {
+				    $('body').addClass('modal-open');
+				})
 				
 				var value = $('#policy-year-3-1').html();
 				$(document).on('change','#payment-years',function(){
