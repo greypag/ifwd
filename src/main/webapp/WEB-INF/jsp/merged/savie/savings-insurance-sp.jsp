@@ -67,11 +67,11 @@ var home_url = "<%=request.getContextPath()%>";
 			        	<div class="landing-promotion text-center">
 			        		<img class="hidden-md hidden-lg" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
 			        		<div class="promo-section">
-			        			<h2 class="hidden-xs hidden-sm"><fmt:message key="oceanpark.landing.save.while" bundle="${msg}" /> <fmt:message key="oceanpark.landing.you.play" bundle="${msg}" /></h2>
-			        			<h4><fmt:message key="jumbo.savie.oceanpark.copy1.mobile" bundle="${msg}" /></h4>
-			        			<p class="description"><fmt:message key="jumbo.savie.oceanpark.copy1.mobile" bundle="${msg}" /></p>
-			        			<div class="clearfix">
-			        				<button class="savie-regular-btn" id="op-buy-now-O2O-mobile"><fmt:message key="cta.start" bundle="${msg}" /></button>
+			        			<h2 class="hidden-xs hidden-sm"><fmt:message key="jumbo.savie.oceanpark" bundle="${msg}" /></h2>
+			        			<h4><fmt:message key="jumbo.savie.oceanpark.copy1" bundle="${msg}" /></h4>
+			        			<p class="description"><fmt:message key="jumbo.savie.oceanpark.copy2" bundle="${msg}" /></p>
+			        			<div class="clearfix" id="clearfix-height">
+			        				<button class="savie-regular-btn" id="op-buy-now-O2O-mobile"><fmt:message key="button.start" bundle="${msg}" /></button>
 			        				<img src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" class="hidden-xs hidden-sm desktop-op">
 			        			</div>
 			        			<p class="terms-condition"><fmt:message key="disclaimer.partner.oceanpark.copy1" bundle="${msg}" />
@@ -341,7 +341,8 @@ var home_url = "<%=request.getContextPath()%>";
 									</div>
 									<div class="item">
 										<div class="savings-banner">
-											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-eng-5.jpg" class="img-responsive">
+											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-eng-5.jpg" class="img-responsive en-banner-img">
+											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-chi-5.jpg" class="img-responsive ch-banner-img">
 										</div>
 									</div>
 								</div>
@@ -464,7 +465,7 @@ var home_url = "<%=request.getContextPath()%>";
 					<div class="hidden-xs hidden-sm">
 						<h3 class="text-center"><fmt:message key="blog.headline" bundle="${msg}" /></h3>
 						<div class="gray-divide"></div>
-						<p class="definition text-center"><fmt:message key="savierp.landing.blog.lorem" bundle="${msg}" /> <span><fmt:message key="savierp.landing.blog.integer" bundle="${msg}" /></span></p>
+						<p class="definition text-center"><fmt:message key="blog.home.description" bundle="${msg}" /></p>
 	
 						<div class="blogs-holder clearfix fwd-container-limit">
 							<div class="blogs first">

@@ -1143,6 +1143,7 @@ body {
 @media (min-width: 992px) {
 	.savie-regular-landing .page-banner .img-banner-text .savie-product a {
 		font-size: 16px;
+		font-weight: bold;
 	}
 }
 /* line 92, ../sass/partials/savie/_landing-page.scss */
@@ -1153,12 +1154,14 @@ body {
   max-width: 120px;
   padding: 4.5px 0 5.5px;
   margin-top: 8px;
+  //border: 1px #fdb714 solid;
 }
 /* line 99, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .page-banner .img-banner-text .start-btn:hover, .savie-regular-landing .page-banner .img-banner-text .start-btn:focus {
   background-color: #fff;
   color: #fdb714;
   border: 1px #fdb714  solid;
+ /* border-bottom: 1px #fff solid;*/
 }
 @media (min-width: 992px) {
   /* line 92, ../sass/partials/savie/_landing-page.scss */
@@ -1212,7 +1215,9 @@ body {
 @media screen and (min-width: 1900px) {
   /* line 132, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .landing-promotion {
-    padding-top: 160px;
+    
+   padding-top: 75px;
+  
   }
 }
 /* line 152, ../sass/partials/savie/_landing-page.scss */
@@ -1338,27 +1343,27 @@ body {
 
 @media (min-width: 992px) {
 	.savie-regular-landing .payment-sp {
-	    padding-top: 160px;
+	    padding-top: 200px;
 	}
 }
 @media (min-width: 1100px) {
 	.savie-regular-landing .payment-sp {
-		padding-top: 130px;
+		padding-top: 180px;
 	}
 }
 @media (min-width: 1200px) {
 	.savie-regular-landing .payment-sp {
-		padding-top: 100px;
+		padding-top: 130px;
 	}
 }
 @media (min-width: 1400px) {
 	.savie-regular-landing .payment-sp {
-		padding-top: 30px;
+		padding-top: 80px;
 	}
 }
 @media (min-width: 1500px) {
 	.savie-regular-landing .payment-sp {
-		padding-top: 16px;
+		padding-top: 30px;
 	}
 }
 /* line 241, ../sass/partials/savie/_landing-page.scss */
@@ -1476,7 +1481,7 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
 .savie-regular-landing .payment-mode .rate ul {
   padding: 0;
   list-style-type: none;
-  max-width: 355px;
+  /*max-width: 355px;*/
   margin: 10px auto 28px;
 }
 @media (min-width: 992px) {
@@ -1534,6 +1539,9 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
   /* line 348, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .payment-mode .rate ul li span {
     padding-right: 5px;
+  }
+  body.chin .savie-regular-landing .payment-mode .rate ul li span {
+  	padding-right: 0;
   }
 }
 /* line 367, ../sass/partials/savie/_landing-page.scss */
@@ -5258,9 +5266,30 @@ body.chin .ch-banner-img {
     max-width: 302px;
     
 }
+#clearfix-height{
+	height: 63px;
+}
+@media (min-width: 992px) {
+	#clearfix-height{
+	height: 69px;
+	}
+}
+
 
 .navbar-no-scroll {
     top: 0;
     position: fixed;
     width: 100%;
+}
+
+#clearfix-height-rp{
+	height: 43px;
+}
+@media (min-width: 992px) {
+		#clearfix-height-rp{
+		height: 50px;
+	}
+}
+
+	}
 }

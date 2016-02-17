@@ -40,7 +40,9 @@
         		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" method="post">
 	        		<div class="img-banner-text savie-landing">
 	        			<h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2>
-	        			<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
+	        			<div id="clearfix-height-rp">
+	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
+	        			</div>	        			
         			<div class="savie-product">
 						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie.rp" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
 					</div>
@@ -65,15 +67,15 @@
 	        	</div>
         	</div>
         	<div class="desktop-inline rate-holder">
-        		<div class="rate">
-        			<h4 class="text-center"><fmt:message key="custom.save.credit.rate.title" bundle="${msg}" /></h4>
-        			<ul class="clearfix">
-        				<li><span class="percent"><fmt:message key="custom.savie.credit.rate.rate1" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate1.year" bundle="${msg}" /></li>
-        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.rate2" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate2.year" bundle="${msg}" /></li>
-        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate3.year" bundle="${msg}" /></li>
-        			</ul>
-        		</div>
-       		</div>
+	        		<div class="rate">
+	        			<h4 class="text-center"><fmt:message key="custom.save.credit.rate.title" bundle="${msg}" /></h4>
+	        			<ul class="clearfix">
+	        				<li><span class="percent"><fmt:message key="custom.savie.credit.rate.regular.rate1" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate1.year" bundle="${msg}" /></li>
+	        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.regular.rate2" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate2.year" bundle="${msg}" /></li>
+	        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.regular.rate3" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></li>
+	        			</ul>
+	        		</div>
+	        </div>
        		<div class="gray-divide"></div>
        		<p class="availability-notice text-center"><fmt:message key="product.detail.savie.remark.copy1" bundle="${msg}" /> <span><fmt:message key="disclaimer.savie.oceanpark.credit.rate.copy2" bundle="${msg}" /></span>
        		</p>
@@ -309,7 +311,8 @@
 									</div>
 									<div class="item">
 										<div class="savings-banner">
-											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-eng-5.jpg" class="img-responsive">
+											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-eng-5.jpg" class="img-responsive en-banner-img">
+											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-chi-5.jpg" class="img-responsive ch-banner-img">
 										</div>
 									</div>
 								</div>
@@ -432,7 +435,7 @@
 				<div class="hidden-xs hidden-sm">
 						<h3 class="text-center"><fmt:message key="blog.headline" bundle="${msg}" /></h3>
 						<div class="gray-divide"></div>
-						<p class="definition text-center"><fmt:message key="savierp.landing.blog.lorem" bundle="${msg}" /> <span><fmt:message key="savierp.landing.blog.integer" bundle="${msg}" /></span></p>
+						<p class="definition text-center"><fmt:message key="blog.home.description" bundle="${msg}" /></p>
 	
 						<div class="blogs-holder clearfix fwd-container-limit">
 							<div class="blogs first">
