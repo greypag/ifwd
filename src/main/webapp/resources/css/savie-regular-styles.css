@@ -1143,6 +1143,7 @@ body {
 @media (min-width: 992px) {
 	.savie-regular-landing .page-banner .img-banner-text .savie-product a {
 		font-size: 16px;
+		font-weight: bold;
 	}
 }
 /* line 92, ../sass/partials/savie/_landing-page.scss */
