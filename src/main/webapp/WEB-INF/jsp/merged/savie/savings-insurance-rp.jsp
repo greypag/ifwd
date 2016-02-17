@@ -65,15 +65,15 @@
 	        	</div>
         	</div>
         	<div class="desktop-inline rate-holder">
-        		<div class="rate">
-        			<h4 class="text-center"><fmt:message key="custom.save.credit.rate.title" bundle="${msg}" /></h4>
-        			<ul class="clearfix">
-        				<li><span class="percent"><fmt:message key="custom.savie.credit.rate.rate1" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate1.year" bundle="${msg}" /></li>
-        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.rate2" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate2.year" bundle="${msg}" /></li>
-        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate3.year" bundle="${msg}" /></li>
-        			</ul>
-        		</div>
-       		</div>
+	        		<div class="rate">
+	        			<h4 class="text-center"><fmt:message key="custom.save.credit.rate.title" bundle="${msg}" /></h4>
+	        			<ul class="clearfix">
+	        				<li><span class="percent"><fmt:message key="custom.savie.credit.rate.rate1" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate1.year" bundle="${msg}" /></li>
+	        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.rate2" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate2.year" bundle="${msg}" /></li>
+	        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></li>
+	        			</ul>
+	        		</div>
+	        </div>
        		<div class="gray-divide"></div>
        		<p class="availability-notice text-center"><fmt:message key="product.detail.savie.remark.copy1" bundle="${msg}" /> <span><fmt:message key="disclaimer.savie.oceanpark.credit.rate.copy2" bundle="${msg}" /></span>
        		</p>
@@ -435,7 +435,7 @@
 				<div class="hidden-xs hidden-sm">
 						<h3 class="text-center"><fmt:message key="blog.headline" bundle="${msg}" /></h3>
 						<div class="gray-divide"></div>
-						<p class="definition text-center"><fmt:message key="savierp.landing.blog.lorem" bundle="${msg}" /> <span><fmt:message key="savierp.landing.blog.integer" bundle="${msg}" /></span></p>
+						<p class="definition text-center"><fmt:message key="blog.home.description" bundle="${msg}" /></p>
 	
 						<div class="blogs-holder clearfix fwd-container-limit">
 							<div class="blogs first">
