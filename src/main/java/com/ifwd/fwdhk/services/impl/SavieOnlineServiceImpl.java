@@ -730,4 +730,125 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	return OptionItemDescList;
 	}
+	
+	public JSONObject createPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException{
+		String Url = UserRestURIConstants.CREATE_POLICY_APPLICATION_SAVE_FOR_LATER;
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		String lang = UserRestURIConstants.getLanaguage(request);
+		
+		if (lang.equals("tc")){
+			lang = "CH";
+		}
+		else{
+			lang = "EN";
+		}
+		
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		JSONObject jsonObject = new JSONObject();
+		
+		jsonObject.put("planCode", "SAVIE-SP");
+		jsonObject.put("applicantFirstName", "applicantFirstName");
+		jsonObject.put("applicantLastName", "applicantLastName");
+		jsonObject.put("applicantChineseName", "applicantChineseName");
+		jsonObject.put("applicantDob", "applicantDob");
+		jsonObject.put("applicantGender", "applicantGender");
+		jsonObject.put("applicantHkId", "applicantHkId");
+		jsonObject.put("applicantPassport", "applicantPassport");
+		jsonObject.put("applicantMaritalStatus", "applicantMaritalStatus");
+		jsonObject.put("applicantPlaceOfBirth", "applicantPlaceOfBirth");
+		jsonObject.put("applicantNationality", "applicantNationality");
+		jsonObject.put("applicantResidentialTelNoCountryCode", "applicantResidentialTelNoCountryCode");
+		jsonObject.put("applicantResidentialTelNo", "applicantResidentialTelNo");
+		jsonObject.put("applicantMobileNoCountryCode", "applicantMobileNoCountryCode");
+		jsonObject.put("applicantMobileNo", "applicantMobileNo");
+		jsonObject.put("applicantEmail", "applicantEmail");
+		jsonObject.put("residentialAddress1", "residentialAddress1");
+		jsonObject.put("residentialAddress2", "residentialAddress2");
+		jsonObject.put("residentialAddress3", "residentialAddress3");
+		jsonObject.put("residentialAddress4", "residentialAddress4");
+		jsonObject.put("residentialDistrict", "residentialDistrict");
+		jsonObject.put("correspondenceAddress1", "correspondenceAddress1");
+		jsonObject.put("correspondenceAddress2", "correspondenceAddress2");
+		jsonObject.put("correspondenceAddress3", "correspondenceAddress3");
+		jsonObject.put("correspondenceAddress4", "correspondenceAddress4");
+		jsonObject.put("correspondenceDistrict", "correspondenceDistrict");
+		jsonObject.put("permanentAddress1", "permanentAddress1");
+		jsonObject.put("permanentAddress2", "permanentAddress2");
+		jsonObject.put("permanentAddress3", "permanentAddress3");
+		jsonObject.put("permanentAddress4", "permanentAddress4");
+		jsonObject.put("permanentDistrict", "permanentDistrict");
+		jsonObject.put("employmentStatus", "employmentStatus");
+		jsonObject.put("occupation", "occupation");
+		jsonObject.put("educationLevel", "educationLevel");
+		jsonObject.put("natureOfBusiness", "natureOfBusiness");
+		jsonObject.put("monthlyPersonalIncome", "monthlyPersonalIncome");
+		jsonObject.put("liquidAssest", "liquidAssest");
+		jsonObject.put("amountOtherSource", "amountOtherSource");
+		jsonObject.put("employerName", "employerName");
+		jsonObject.put("smoke", "smoke");
+		jsonObject.put("optOut1", "optOut1");
+		jsonObject.put("optOut2", "optOut2");
+		jsonObject.put("insuredName", "insuredName");
+		jsonObject.put("insuredHkId", "insuredHkId");
+		jsonObject.put("insuredPassport", "insuredPassport");
+		jsonObject.put("insuredRelationship", "insuredRelationship");
+		jsonObject.put("beneficiaryFirstName1", "beneficiaryFirstName1");
+		jsonObject.put("beneficiaryLastName1", "beneficiaryLastName1");
+		jsonObject.put("beneficiaryChineseName1", "beneficiaryChineseName1");
+		jsonObject.put("beneficiaryHkId1", "beneficiaryHkId1");
+		jsonObject.put("beneficiaryPassport1", "beneficiaryPassport1");
+		jsonObject.put("beneficiaryGender1", "beneficiaryGender1");
+		jsonObject.put("beneficiaryRelationship1", "beneficiaryRelationship1");
+		jsonObject.put("beneficiaryEntitlement1", "32");
+		jsonObject.put("beneficiaryFirstName2", "beneficiaryFirstName2");
+		jsonObject.put("beneficiaryLastName2", "beneficiaryLastName2");
+		jsonObject.put("beneficiaryChineseName2", "beneficiaryChineseName2");
+		jsonObject.put("beneficiaryHkId2", "beneficiaryHkId2");
+		jsonObject.put("beneficiaryPassport2", "beneficiaryPassport2");
+		jsonObject.put("beneficiaryGender2", "beneficiaryGender2");
+		jsonObject.put("beneficiaryRelationship2", "beneficiaryRelationship2");
+		jsonObject.put("beneficiaryEntitlement2", "33");
+		jsonObject.put("beneficiaryFirstName3", "beneficiaryFirstName3");
+		jsonObject.put("beneficiaryLastName3", "beneficiaryLastName3");
+		jsonObject.put("beneficiaryChineseName3", "beneficiaryChineseName3");
+		jsonObject.put("beneficiaryHkId3", "beneficiaryHkId3");
+		jsonObject.put("beneficiaryPassport3", "beneficiaryPassport3");
+		jsonObject.put("beneficiaryGender3", "beneficiaryGender3");
+		jsonObject.put("beneficiaryRelationship3", "beneficiaryRelationship3");
+		jsonObject.put("beneficiaryEntitlement3", "35");
+		jsonObject.put("referralCode", "referralCode");
+		jsonObject.put("insuredAmount", "insuredAmount");
+		jsonObject.put("paymentMethod", "paymentMethod");
+		jsonObject.put("bankName", "bankName");
+		jsonObject.put("branchName", "branchName");
+		jsonObject.put("accountNo", "accountNo");
+		logger.info(jsonObject.toString());
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
+		
+		if(responseJsonObj.get("errMsgs") != null) {
+			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
+		}
+		return responseJsonObj;
+	}
+	
+	public JSONObject getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException{
+		String Url = UserRestURIConstants.GET_POLICY_APPLICATION_SAVE_FOR_LATER;
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		String lang = UserRestURIConstants.getLanaguage(request);
+		
+		if (lang.equals("tc")){
+			lang = "CH";
+		}
+		else{
+			lang = "EN";
+		}
+		
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		
+		if(responseJsonObj.get("errMsgs") != null) {
+			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
+		}
+		return responseJsonObj;
+	}
 }

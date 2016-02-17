@@ -28,5 +28,7 @@ public interface SavieOnlineService {
 	public CreateEliteTermPolicyResponse createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
 	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
 	public List<OptionItemDesc> getBranchCode(HttpServletRequest request) throws ECOMMAPIException;
+	public JSONObject createPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;
+	public JSONObject getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;
 	
 }

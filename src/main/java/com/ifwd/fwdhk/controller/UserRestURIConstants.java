@@ -149,6 +149,9 @@ public class UserRestURIConstants {
 	public static final String CREATE_LIFE_POLICY = "/life/policies";
 	public static final String FINALIZE_LIFE_POLICY = "/life/policies";
 	
+	public static final String CREATE_POLICY_APPLICATION_SAVE_FOR_LATER = SERVICE_URL + "/policies/application/saveForLater";
+	public static final String GET_POLICY_APPLICATION_SAVE_FOR_LATER = SERVICE_URL + "/policies/application/saveForLater?planCode=SAVIE-SP";
+	
 	/* Page Flow Control For Savie */
 	
 	//public static final String PAGE_SAVIE_LANDING = "landing";
