@@ -5286,10 +5286,17 @@ body.chin .ch-banner-img {
 	height: 43px;
 }
 @media (min-width: 992px) {
-		#clearfix-height-rp{
+	#clearfix-height-rp {
 		height: 50px;
 	}
 }
 
+@media (min-width: 768px) {
+	.fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content .continue-holder {
+		text-align: center;
+	}
+	
+	.fwd-savie-wrapper #thankYouModal .modal-dialog .modal-content button {
+		margin: 0;
 	}
 }
