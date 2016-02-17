@@ -481,7 +481,12 @@ var context = "${pageContext.request.contextPath}";
 				
 				$('#thankYouModal').on('shown.bs.modal', function() {
 				    $('body').addClass('modal-open');
+				    $('.navbar.navbar-default.navbar-fixed-top.hidden-lg.hidden-md.pad-none').removeClass('navbar-fixed-top').addClass('navbar-no-scroll');
 				})
+				$('#thankYouModal').on('hidden.bs.modal', function() {
+					$('body').removeClass('modal-open');
+					$('.navbar.navbar-default.navbar-no-scroll.hidden-lg.hidden-md.pad-none').addClass('navbar-fixed-top').removeClass('navbar-no-scroll');
+				});
 				
 				var value = $('#policy-year-3-1').html();
 				$(document).on('change','#payment-years',function(){
