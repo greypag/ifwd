@@ -433,7 +433,7 @@ public class SavieController extends BaseController{
 			
 			//serviceCentreResponse 没有可以预约的中心不要显示在下拉列中
 			ServiceCentreResponse serviceCentreResponse;
-			if (lang.equals("tc")) {
+			if (lang.equals("CN")) {
 				serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
 			}else {
 				serviceCentreResponse =InitApplicationMessage.serviceCentreEN;
