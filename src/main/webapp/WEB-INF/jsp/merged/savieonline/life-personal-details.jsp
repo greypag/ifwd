@@ -479,8 +479,10 @@
 			<button id="et-personal-info-next" class="btn next pi">
 				<fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" />
 			</button>
+			<button id="saveLater" class="btn next pi">
+				save and continue later
+			</button>
 		</div>
-		<a href="#" class="et-app-sum-edit et-app-edit">save and continue later</a>
 	</form>
 	</div>
 </div>
@@ -505,6 +507,24 @@ $("#et-personal-info-next").click(function(){
 				  else{
 					  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
 				  }
+			  }
+		  }
+     });
+});
+
+$("#saveLater").click(function(){
+	$("#errorMsg").html("");
+	$.ajax({
+		  type : "POST",
+		  async:false, 
+		  url : "<%=request.getContextPath()%>/ajax/savie-online/createPolicyApplicationSaveforLater",
+		  data: $("#lifePersonalDetailsForm").serialize(),
+		  success : function(data) {
+			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+				  $("#errorMsg").html(data.errorMsg);
+			  }
+			  else{
+				  alert("save later success");
 			  }
 		  }
      });

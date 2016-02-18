@@ -1095,6 +1095,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		
 		if(responseJsonObj.get("errMsgs") != null) {
+			logger.info(responseJsonObj.get("errMsgs").toString());
 			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
 		}
 		return responseJsonObj;
