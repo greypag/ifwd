@@ -34,6 +34,7 @@ import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
+import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
@@ -49,6 +50,7 @@ import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
+import com.sun.xml.internal.fastinfoset.util.StringArray;
 @Service
 public class SavieOnlineServiceImpl implements SavieOnlineService {
 	private final static Logger logger = LoggerFactory.getLogger(SavieOnlineServiceImpl.class);
@@ -289,17 +291,29 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	public void createFnaFormPdf(HttpServletRequest request,HttpSession session) throws Exception {
 		SavieFnaBean savieFna = (SavieFnaBean) session.getAttribute("savieFna");
+		CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) session.getAttribute("eliteTermPolicy");
+		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
+		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
 		
 		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
-		attributeList.add(new PdfAttribute("PolicyNo", "15123456"));
-		attributeList.add(new PdfAttribute("LifeInsuredName", "LifeInsuredName"));
-		attributeList.add(new PdfAttribute("ApplicantName", "ApplicantName"));
+		//attributeList.add(new PdfAttribute("PolicyNo", eliteTermPolicy.getPolicyNo()));
+		attributeList.add(new PdfAttribute("PolicyNo", "14121303"));
+		String LifeInsuredName = lifeBeneficaryInfo.getBeneficaryFirstName1()+" "+lifeBeneficaryInfo.getBeneficaryLastName1()+
+				                 lifeBeneficaryInfo.getBeneficaryFirstName2()+" "+lifeBeneficaryInfo.getBeneficaryLastName2()+
+				                 lifeBeneficaryInfo.getBeneficaryFirstName3()+" "+lifeBeneficaryInfo.getBeneficaryLastName3();
+		attributeList.add(new PdfAttribute("LifeInsuredName", LifeInsuredName));
+		
+		attributeList.add(new PdfAttribute("ApplicantName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
+		
+		int AOB = DateApi.getAge(DateApi.formatDate1(savieFna.getDob()))+1;
 		attributeList.add(new PdfAttribute("AOB", savieFna.getDob()));
-		attributeList.add(new PdfAttribute("TelephoneNo", "138999999"));
-		attributeList.add(new PdfAttribute("group_1", savieFna.getMarital_status()));
-		attributeList.add(new PdfAttribute("group_2", savieFna.getDependents()));
-		attributeList.add(new PdfAttribute("Applicant Occupation", savieFna.getOccupation()));
-		attributeList.add(new PdfAttribute("group_3", savieFna.getEducation()));
+		
+		attributeList.add(new PdfAttribute("TelephoneNo", lifePersonalDetails.getMobileNumber()));
+		
+		/*attributeList.add(new PdfAttribute("group_1", "Married"));
+		attributeList.add(new PdfAttribute("group_2", "Nil"));
+		attributeList.add(new PdfAttribute("Applicant Occupation", "Applicant Occupation"));
+		attributeList.add(new PdfAttribute("group_3", "Vocational"));
 		
 		attributeList.add(new PdfAttribute("1b)chi", "On"));
 		attributeList.add(new PdfAttribute("1b)eng", "On"));
@@ -367,8 +381,246 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		attributeList.add(new PdfAttribute("Date1", "1980-10-13"));
 		attributeList.add(new PdfAttribute("Date2", "1980-10-13"));
 		attributeList.add(new PdfAttribute("Product(s)Selected2", "Product(s)Selected2"));
+		attributeList.add(new PdfAttribute("Product(s)Selected2", "Product(s)Selected2"));*/
+		String group_1 = "";
+		if("0".equals(savieFna.getMarital_status())){
+			group_1 = "Single";
+		}
+		else if("1".equals(savieFna.getMarital_status())){
+			group_1 = "Married";
+		}
+		else if("2".equals(savieFna.getMarital_status())){
+			group_1 = "Married";
+		}
+		else if("3".equals(savieFna.getMarital_status())){
+			group_1 = "Divorced";
+		}
+		else if("4".equals(savieFna.getMarital_status())){
+			group_1 = "Widowed";
+		}
+		attributeList.add(new PdfAttribute("group_1", group_1));
+		
+		String group_2 = "";
+		if("0".equals(savieFna.getDependents())){
+			group_2 = "Nil";
+		}
+		else if("1".equals(savieFna.getDependents())){
+			group_2 = "1-3";
+		}
+		else if("2".equals(savieFna.getDependents())){
+			group_2 = "4-6";
+		}
+		else if("3".equals(savieFna.getDependents())){
+			group_2 = ">=7";
+		}
+		attributeList.add(new PdfAttribute("group_2", group_2));
+		attributeList.add(new PdfAttribute("Applicant Occupation", savieFna.getOccupation()));
+		
+		String group_3 = "";
+		if("0".equals(savieFna.getEducation())){
+			group_3 = "Primary";
+		}
+		else if("1".equals(savieFna.getEducation())){
+			group_3 = "Secondary";
+		}
+		else if("2".equals(savieFna.getEducation())){
+			group_3 = "Vocational";
+		}
+		else if("3".equals(savieFna.getEducation())){
+			group_3 = "University";
+		}
+		attributeList.add(new PdfAttribute("group_3", group_3));
+		
+		String[] q1= savieFna.getQ1().split(",");
+		for(String i :q1){
+			if("0".equals(i)){
+				attributeList.add(new PdfAttribute("1a)chi", "On"));
+			}
+			if("1".equals(i)){
+				attributeList.add(new PdfAttribute("1b)chi", "On"));
+			}
+			if("2".equals(i)){
+				attributeList.add(new PdfAttribute("1c)chi", "On"));
+			}
+			if("3".equals(i)){
+				attributeList.add(new PdfAttribute("1d)chi", "On"));
+			}
+			if("4".equals(i)){
+				attributeList.add(new PdfAttribute("1e)chi", "On"));
+			}
+			if("5".equals(i)){
+				attributeList.add(new PdfAttribute("1f)chi", "On"));
+				attributeList.add(new PdfAttribute("1others)chi", savieFna.getQ1_others()));
+			}
+		}
+		
+		String[] q2= savieFna.getQ2().split(",");
+		for(String i :q2){
+			if("0".equals(i)){
+				attributeList.add(new PdfAttribute("2a)chi", "On"));
+			}
+			if("1".equals(i)){
+				attributeList.add(new PdfAttribute("2b)chi", "On"));
+			}
+			if("2".equals(i)){
+				attributeList.add(new PdfAttribute("2c)chi", "On"));
+			}
+			if("3".equals(i)){
+				attributeList.add(new PdfAttribute("2d)chi", "On"));
+			}
+			if("4".equals(i)){
+				attributeList.add(new PdfAttribute("2e)chi", "On"));
+				attributeList.add(new PdfAttribute("2others)chi", savieFna.getQ2_others()));
+			}
+		}
+		
+		String group_3a_chi = "";
+		if("0".equals(savieFna.getQ3())){
+			group_3a_chi = "3a)chi";
+		}
+		else if("1".equals(savieFna.getQ3())){
+			group_3a_chi = "3b)chi";
+		}
+		else if("2".equals(savieFna.getQ3())){
+			group_3a_chi = "3c)chi";
+		}
+		else if("3".equals(savieFna.getQ3())){
+			group_3a_chi = "3d)chi";
+		}
+		else if("4".equals(savieFna.getQ3())){
+			group_3a_chi = "3e)chi";
+		}
+		else if("5".equals(savieFna.getQ3())){
+			group_3a_chi = "3f)chi";
+		}
+		attributeList.add(new PdfAttribute("group_3a_chi", group_3a_chi));
+		
+		attributeList.add(new PdfAttribute("group_4", "Yes"));
+		attributeList.add(new PdfAttribute("group_4a_chi", "4ai)chi"));
+		attributeList.add(new PdfAttribute("group_4a_eng", "4ai)eng"));
+		attributeList.add(new PdfAttribute("AverageMonthlyIncome(chi)", savieFna.getQ4_a_others()));
+		attributeList.add(new PdfAttribute("AverageMonthlyIncome(eng)", savieFna.getQ4_a_others()));
+		
+		String[] q4_b= savieFna.getQ4_b().split(",");
+		for(String i :q4_b){
+			if("0".equals(i)){
+				attributeList.add(new PdfAttribute("Cash1", "On"));
+			}
+			if("1".equals(i)){
+				attributeList.add(new PdfAttribute("Moneyinbankaccounts1", "On"));
+			}
+			if("2".equals(i)){
+				attributeList.add(new PdfAttribute("Moneymarketaccounts1", "On"));
+			}
+			if("3".equals(i)){
+				attributeList.add(new PdfAttribute("Activelytradedstocks1", "On"));
+			}
+			if("4".equals(i)){
+				attributeList.add(new PdfAttribute("Bondsandmutualfunds1", "On"));
+			}
+			if("5".equals(i)){
+				attributeList.add(new PdfAttribute("Bondsandmutualfunds1", "On"));
+			}
+			if("6".equals(i)){
+				attributeList.add(new PdfAttribute("4biio)chi", "On"));
+				attributeList.add(new PdfAttribute("4biiothers)chi", savieFna.getQ4_b_others()));
+			}
+		}
+		attributeList.add(new PdfAttribute("LiquidAssets", savieFna.getQ4_b_amount()));
+		
+		attributeList.add(new PdfAttribute("Personalreason", "Personalreason"));
+		
+		attributeList.add(new PdfAttribute("TotalExpensespermonth(chi)", savieFna.getQ4_c()));
+		attributeList.add(new PdfAttribute("TotalExpensespermonth(eng)", savieFna.getQ4_c()));
+		
+		attributeList.add(new PdfAttribute("Liabilityandfinalexpense1", savieFna.getQ4_d_1()));
+		attributeList.add(new PdfAttribute("Liabilityandfinalexpense2", savieFna.getQ4_d_1()));
+		
+		attributeList.add(new PdfAttribute("Fintarget1", savieFna.getQ4_d_2()));
+		attributeList.add(new PdfAttribute("Fintarget2", savieFna.getQ4_d_2()));
+		
+		String group_4e_chi = "";
+		if("0".equals(savieFna.getQ4_e())){
+			group_4e_chi = "4ea)chi";
+		}
+		else if("1".equals(savieFna.getQ4_e())){
+			group_4e_chi = "4eb)chi";
+		}
+		else if("2".equals(savieFna.getQ4_e())){
+			group_4e_chi = "4ec)chi";
+		}
+		else if("3".equals(savieFna.getQ4_e())){
+			group_4e_chi = "4ed)chi";
+		}
+		else if("4".equals(savieFna.getQ4_e())){
+			group_4e_chi = "4ee)chi";
+		}
+		else if("5".equals(savieFna.getQ4_e())){
+			group_4e_chi = "4ef)chi";
+		}
+		attributeList.add(new PdfAttribute("group_4e_chi", group_4e_chi));
+		attributeList.add(new PdfAttribute("group_4e_eng", group_4e_chi));
+		
+		String group_4f_chi = "";
+		if("0".equals(savieFna.getQ4_f())){
+			group_4f_chi = "4fa)chi";
+		}
+		else if("1".equals(savieFna.getQ4_f())){
+			group_4f_chi = "4fb)chi";
+		}
+		else if("2".equals(savieFna.getQ4_f())){
+			group_4f_chi = "4fc)chi";
+		}
+		else if("3".equals(savieFna.getQ4_f())){
+			group_4f_chi = "4fd)chi";
+		}
+		else if("4".equals(savieFna.getQ4_f())){
+			group_4f_chi = "4fe)chi";
+		}
+		else if("5".equals(savieFna.getQ4_f())){
+			group_4f_chi = "4ff)chi";
+		}
+		attributeList.add(new PdfAttribute("group_4f_chi", group_4f_chi));
+		attributeList.add(new PdfAttribute("group_4f_eng", group_4f_chi));
+		
+		String[] q4_g= savieFna.getQ4_g().split(",");
+		for(String i :q4_g){
+			if("0".equals(i)){
+				attributeList.add(new PdfAttribute("Salary1", "On"));
+			}
+			if("1".equals(i)){
+				attributeList.add(new PdfAttribute("Income1", "On"));
+			}
+			if("2".equals(i)){
+				attributeList.add(new PdfAttribute("Savings1", "On"));
+			}
+			if("3".equals(i)){
+				attributeList.add(new PdfAttribute("Investements1", "On"));
+			}
+			if("4".equals(i)){
+				attributeList.add(new PdfAttribute("4go)chi", "On"));
+				attributeList.add(new PdfAttribute("4go)chi", savieFna.getQ4_g_others()));
+			}
+		}
+		
+		attributeList.add(new PdfAttribute("Q1a1", "On"));
+		attributeList.add(new PdfAttribute("Q1d1", "On"));
+		attributeList.add(new PdfAttribute("Q2a1", "On"));
+		attributeList.add(new PdfAttribute("Q2b1", "On"));
+		attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced1", "NameofInsuranceProduct(s)Introduced1"));
+		attributeList.add(new PdfAttribute("Product(s)Selected1", "Product(s)Selected1"));
+		
+		attributeList.add(new PdfAttribute("Q1a2", "On"));
+		attributeList.add(new PdfAttribute("Q1e2", "On"));
+		attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced2", "NameofInsuranceProduct(s)Introduced2"));
 		attributeList.add(new PdfAttribute("Product(s)Selected2", "Product(s)Selected2"));
-			
+		
+		attributeList.add(new PdfAttribute("SignatureofApplicant", "SignatureofApplicant"));
+		attributeList.add(new PdfAttribute("Date1", "1980-10-13"));
+		attributeList.add(new PdfAttribute("Date2", "1980-10-13"));
+		attributeList.add(new PdfAttribute("Product(s)Selected2", "Product(s)Selected2"));
+		attributeList.add(new PdfAttribute("Product(s)Selected2", "Product(s)Selected2"));
+		
 		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"resources/pdf/"+"FinancialNeedsAndInvestorProfileAnalysisForm.pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"resources\\\\pdf\\\\";
 		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
@@ -531,6 +783,39 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		if (responseJsonObj.get("result") != null){
 			JSONObject jobject = (JSONObject)responseJsonObj.get("result");
 			hashSession.setAttribute("hashKey", jobject.get("hash_key"));
+			
+			SavieFnaBean savieFna = new SavieFnaBean();
+			UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+			savieFna.setName(userDetails.getUserName());
+			savieFna.setUser_name(userDetails.getUserName());
+			savieFna.setGender(jobject.get("gender").toString());
+			savieFna.setDob(jobject.get("dob").toString());
+			savieFna.setMarital_status(jobject.get("marital_status").toString());
+			savieFna.setDependents(jobject.get("dependents").toString());
+			savieFna.setEducation(jobject.get("education").toString());
+			savieFna.setEmployment_status(jobject.get("employment_status").toString());
+			savieFna.setNature_of_business(jobject.get("nature_of_business").toString());
+			savieFna.setOccupation(jobject.get("occupation").toString());
+			savieFna.setOccupation_others(jobject.get("occupation_others")!=null?jobject.get("occupation_others").toString():"");
+			savieFna.setQ1(jobject.get("q1")!=null?jobject.get("q1").toString():"");
+			savieFna.setQ1_others(jobject.get("q1_others")!=null?jobject.get("q1_others").toString():"");
+			savieFna.setQ2(jobject.get("q2")!=null?jobject.get("q2").toString():"");
+			savieFna.setQ2_others(jobject.get("q2_others")!=null?jobject.get("q2_others").toString():"");
+			savieFna.setQ3(jobject.get("q3")!=null?jobject.get("q3").toString():"");
+			savieFna.setQ4(jobject.get("q4")!=null?jobject.get("q4").toString():"");
+			savieFna.setQ4_a(jobject.get("q4_a")!=null?jobject.get("q4_a").toString():"");
+			savieFna.setQ4_a_others(jobject.get("q4_a_others")!=null?jobject.get("q4_a_others").toString():"");
+			savieFna.setQ4_b(jobject.get("q4_b")!=null?jobject.get("q4_b").toString():"");
+			savieFna.setQ4_b_amount(jobject.get("q4_b_amount")!=null?jobject.get("q4_b_amount").toString():"");
+			savieFna.setQ4_b_others(jobject.get("q4_b_others")!=null?jobject.get("q4_b_others").toString():"");
+			savieFna.setQ4_c(jobject.get("q4_c")!=null?jobject.get("q4_c").toString():"");
+			savieFna.setQ4_d_1(jobject.get("q4_d_1")!=null?jobject.get("q4_d_1").toString():"");
+			savieFna.setQ4_d_2(jobject.get("q4_d_2")!=null?jobject.get("q4_d_2").toString():"");
+			savieFna.setQ4_e(jobject.get("q4_e")!=null?jobject.get("q4_e").toString():"");
+			savieFna.setQ4_f(jobject.get("q4_f")!=null?jobject.get("q4_f").toString():"");
+			savieFna.setQ4_g(jobject.get("q4_g")!=null?jobject.get("q4_g").toString():"");
+			savieFna.setQ4_g_others(jobject.get("q4_g_others")!=null?jobject.get("q4_g_others").toString():"");
+			request.getSession().setAttribute("savieFna", savieFna);
 		}
 		return responseJsonObj.get("result") != null ? (JSONObject) responseJsonObj.get("result"):new JSONObject();
 	}

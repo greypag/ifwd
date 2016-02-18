@@ -50,9 +50,9 @@ public class LifePersonalDetailsBean implements Serializable {
         if(ValidationUtils.isNullOrEmpty(this.chineseName)){
         	list.add(ErrorMessageUtils.getMessage("chineseName", "validation.failure", language));
         }
-        if(!ValidationUtils.isValidDate(this.dob)){
+        /*if(!ValidationUtils.isNullOrEmpty(this.dob)){
         	list.add(ErrorMessageUtils.getMessage("dob", "validation.failure", language));
-        }
+        }*/
         if(ValidationUtils.isNullOrEmpty(this.gender)){
         	list.add(ErrorMessageUtils.getMessage("gender", "validation.failure", language));
         }
