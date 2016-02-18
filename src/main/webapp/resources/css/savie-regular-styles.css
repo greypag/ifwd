@@ -5300,3 +5300,18 @@ body.chin .ch-banner-img {
 		margin: 0;
 	}
 }
+
+@media (min-width: 992px) {
+	.fwd-savie-wrapper .after-year-three, .fwd-savie-wrapper .investment .tab-content.credits .percent-buttons .fwd-chart-col {
+		width: 50%;
+	}
+	
+	.savie-regular-plan-details .investment .tab-content.credits .percent-buttons .fwd-chart-col .right-side {
+		margin-right: 0;
+	}
+	
+	.chart-button-holder {
+		float: right;
+		margin-top: 10px;
+	}
+}

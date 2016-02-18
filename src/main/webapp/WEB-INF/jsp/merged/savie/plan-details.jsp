@@ -224,9 +224,9 @@ var context = "${pageContext.request.contextPath}";
 	                                    <div class="col-md-6 col-xs-12 fwd-chart-col">
 	                                        <div class="clearfix right-side">
 	                                        	<div class="check-rate-box text-right hidden-xs hidden-sm">
-		                                            <fmt:message key="savie.planDetails.Check.rate" bundle="${msg}" />
+		                                            <span class="check-rate-holder"><fmt:message key="savie.planDetails.Check.rate" bundle="${msg}" /></span>
 		                                        </div>
-		                                        <div>
+		                                        <div class="chart-button-holder">
 		                                            <div class="left-side chart-button-left">
 		                                                <button id="rate-0" type="button">0%</button>
 		                                            </div>
