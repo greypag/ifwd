@@ -296,8 +296,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
 		
 		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
-		//attributeList.add(new PdfAttribute("PolicyNo", eliteTermPolicy.getPolicyNo()));
-		attributeList.add(new PdfAttribute("PolicyNo", "14121303"));
+		attributeList.add(new PdfAttribute("PolicyNo", eliteTermPolicy.getPolicyNo()));
 		String LifeInsuredName = "";
 		if(lifeBeneficaryInfo.getIsOwnEstate()){
 			LifeInsuredName = lifePersonalDetails.getFirstname()+" "+
