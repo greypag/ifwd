@@ -54,8 +54,10 @@ var home_url = "<%=request.getContextPath()%>";
 			<div class="savie-regular-container savie-regular-landing">
 				<div class="whole-banner">
 		        	<div class="page-banner">
-						<img class="mobile-banner hidden-md hidden-lg" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.mobile" bundle="${msg}" />" />
-						<img id="hero-img-desktop" src="<%=request.getContextPath()%>/resources/images/savie-regular/landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm" />
+						<!--  <img class="mobile-banner hidden-md hidden-lg" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.hero.mobile" bundle="${msg}" />" />
+						<img id="hero-img-desktop" src="<%=request.getContextPath()%>/resources/images/savie-regular/landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm" /> -->
+						<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/sav-landing-bg-mobile.jpg" class="img-responsive hidden-md hidden-lg">
+        				<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/sav-landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
 						<div class="img-banner-text hidden-md hidden-lg">
 		        			<h2><fmt:message key="oceanpark.landing.save.while" bundle="${msg}" /> <fmt:message key="oceanpark.landing.you.play" bundle="${msg}" /></h2>
 		        			<h5 class="hidden-md hidden-lg">
