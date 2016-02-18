@@ -298,9 +298,17 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
 		//attributeList.add(new PdfAttribute("PolicyNo", eliteTermPolicy.getPolicyNo()));
 		attributeList.add(new PdfAttribute("PolicyNo", "14121303"));
-		String LifeInsuredName = lifeBeneficaryInfo.getBeneficaryFirstName1()+" "+lifeBeneficaryInfo.getBeneficaryLastName1()+
-				                 lifeBeneficaryInfo.getBeneficaryFirstName2()+" "+lifeBeneficaryInfo.getBeneficaryLastName2()+
-				                 lifeBeneficaryInfo.getBeneficaryFirstName3()+" "+lifeBeneficaryInfo.getBeneficaryLastName3();
+		String LifeInsuredName = "";
+		if(lifeBeneficaryInfo.getIsOwnEstate()){
+			LifeInsuredName = lifePersonalDetails.getFirstname()+" "+
+		                      lifePersonalDetails.getLastname()+" "+
+					          lifePersonalDetails.getChineseName();
+		}
+		else{
+			LifeInsuredName = lifeBeneficaryInfo.getBeneficaryFirstName1()+" "+lifeBeneficaryInfo.getBeneficaryLastName1()+
+	                          lifeBeneficaryInfo.getBeneficaryFirstName2()+" "+lifeBeneficaryInfo.getBeneficaryLastName2()+
+	                          lifeBeneficaryInfo.getBeneficaryFirstName3()+" "+lifeBeneficaryInfo.getBeneficaryLastName3();
+		}
 		attributeList.add(new PdfAttribute("LifeInsuredName", LifeInsuredName));
 		
 		attributeList.add(new PdfAttribute("ApplicantName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
@@ -492,7 +500,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		attributeList.add(new PdfAttribute("LiquidAssets", savieFna.getQ4_b_amount()));
 		
-		attributeList.add(new PdfAttribute("Personalreason", "Personalreason"));
+		attributeList.add(new PdfAttribute("Personalreason", "p"));
 		
 		attributeList.add(new PdfAttribute("TotalExpensespermonth(chi)", savieFna.getQ4_c()));
 		attributeList.add(new PdfAttribute("TotalExpensespermonth(eng)", savieFna.getQ4_c()));
@@ -768,38 +776,40 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			JSONObject jobject = (JSONObject)responseJsonObj.get("result");
 			hashSession.setAttribute("hashKey", jobject.get("hash_key"));
 			
-			SavieFnaBean savieFna = new SavieFnaBean();
-			UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
-			savieFna.setName(userDetails.getUserName());
-			savieFna.setUser_name(userDetails.getUserName());
-			savieFna.setGender(jobject.get("gender").toString());
-			savieFna.setDob(jobject.get("dob").toString());
-			savieFna.setMarital_status(jobject.get("marital_status").toString());
-			savieFna.setDependents(jobject.get("dependents").toString());
-			savieFna.setEducation(jobject.get("education").toString());
-			savieFna.setEmployment_status(jobject.get("employment_status").toString());
-			savieFna.setNature_of_business(jobject.get("nature_of_business").toString());
-			savieFna.setOccupation(jobject.get("occupation").toString());
-			savieFna.setOccupation_others(jobject.get("occupation_others")!=null?jobject.get("occupation_others").toString():"");
-			savieFna.setQ1(jobject.get("q1")!=null?jobject.get("q1").toString():"");
-			savieFna.setQ1_others(jobject.get("q1_others")!=null?jobject.get("q1_others").toString():"");
-			savieFna.setQ2(jobject.get("q2")!=null?jobject.get("q2").toString():"");
-			savieFna.setQ2_others(jobject.get("q2_others")!=null?jobject.get("q2_others").toString():"");
-			savieFna.setQ3(jobject.get("q3")!=null?jobject.get("q3").toString():"");
-			savieFna.setQ4(jobject.get("q4")!=null?jobject.get("q4").toString():"");
-			savieFna.setQ4_a(jobject.get("q4_a")!=null?jobject.get("q4_a").toString():"");
-			savieFna.setQ4_a_others(jobject.get("q4_a_others")!=null?jobject.get("q4_a_others").toString():"");
-			savieFna.setQ4_b(jobject.get("q4_b")!=null?jobject.get("q4_b").toString():"");
-			savieFna.setQ4_b_amount(jobject.get("q4_b_amount")!=null?jobject.get("q4_b_amount").toString():"");
-			savieFna.setQ4_b_others(jobject.get("q4_b_others")!=null?jobject.get("q4_b_others").toString():"");
-			savieFna.setQ4_c(jobject.get("q4_c")!=null?jobject.get("q4_c").toString():"");
-			savieFna.setQ4_d_1(jobject.get("q4_d_1")!=null?jobject.get("q4_d_1").toString():"");
-			savieFna.setQ4_d_2(jobject.get("q4_d_2")!=null?jobject.get("q4_d_2").toString():"");
-			savieFna.setQ4_e(jobject.get("q4_e")!=null?jobject.get("q4_e").toString():"");
-			savieFna.setQ4_f(jobject.get("q4_f")!=null?jobject.get("q4_f").toString():"");
-			savieFna.setQ4_g(jobject.get("q4_g")!=null?jobject.get("q4_g").toString():"");
-			savieFna.setQ4_g_others(jobject.get("q4_g_others")!=null?jobject.get("q4_g_others").toString():"");
-			request.getSession().setAttribute("savieFna", savieFna);
+			if(jobject.get("name")!=null&&jobject.get("gender")!=null){
+				SavieFnaBean savieFna = new SavieFnaBean();
+				UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
+				savieFna.setName(userDetails.getUserName());
+				savieFna.setUser_name(userDetails.getUserName());
+				savieFna.setGender(jobject.get("gender").toString());
+				savieFna.setDob(jobject.get("dob").toString());
+				savieFna.setMarital_status(jobject.get("marital_status").toString());
+				savieFna.setDependents(jobject.get("dependents").toString());
+				savieFna.setEducation(jobject.get("education").toString());
+				savieFna.setEmployment_status(jobject.get("employment_status").toString());
+				savieFna.setNature_of_business(jobject.get("nature_of_business").toString());
+				savieFna.setOccupation(jobject.get("occupation").toString());
+				savieFna.setOccupation_others(jobject.get("occupation_others")!=null?jobject.get("occupation_others").toString():"");
+				savieFna.setQ1(jobject.get("q1")!=null?jobject.get("q1").toString():"");
+				savieFna.setQ1_others(jobject.get("q1_others")!=null?jobject.get("q1_others").toString():"");
+				savieFna.setQ2(jobject.get("q2")!=null?jobject.get("q2").toString():"");
+				savieFna.setQ2_others(jobject.get("q2_others")!=null?jobject.get("q2_others").toString():"");
+				savieFna.setQ3(jobject.get("q3")!=null?jobject.get("q3").toString():"");
+				savieFna.setQ4(jobject.get("q4")!=null?jobject.get("q4").toString():"");
+				savieFna.setQ4_a(jobject.get("q4_a")!=null?jobject.get("q4_a").toString():"");
+				savieFna.setQ4_a_others(jobject.get("q4_a_others")!=null?jobject.get("q4_a_others").toString():"");
+				savieFna.setQ4_b(jobject.get("q4_b")!=null?jobject.get("q4_b").toString():"");
+				savieFna.setQ4_b_amount(jobject.get("q4_b_amount")!=null?jobject.get("q4_b_amount").toString():"");
+				savieFna.setQ4_b_others(jobject.get("q4_b_others")!=null?jobject.get("q4_b_others").toString():"");
+				savieFna.setQ4_c(jobject.get("q4_c")!=null?jobject.get("q4_c").toString():"");
+				savieFna.setQ4_d_1(jobject.get("q4_d_1")!=null?jobject.get("q4_d_1").toString():"");
+				savieFna.setQ4_d_2(jobject.get("q4_d_2")!=null?jobject.get("q4_d_2").toString():"");
+				savieFna.setQ4_e(jobject.get("q4_e")!=null?jobject.get("q4_e").toString():"");
+				savieFna.setQ4_f(jobject.get("q4_f")!=null?jobject.get("q4_f").toString():"");
+				savieFna.setQ4_g(jobject.get("q4_g")!=null?jobject.get("q4_g").toString():"");
+				savieFna.setQ4_g_others(jobject.get("q4_g_others")!=null?jobject.get("q4_g_others").toString():"");
+				request.getSession().setAttribute("savieFna", savieFna);
+			}
 		}
 		return responseJsonObj.get("result") != null ? (JSONObject) responseJsonObj.get("result"):new JSONObject();
 	}
