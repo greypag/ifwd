@@ -45,6 +45,9 @@ public class SavieOnlineController extends BaseController{
 	private SavieOnlineService savieOnlineService;
 	@Autowired
 	private CommonUtils commonUtils;
+	
+	@Autowired
+	protected HeaderUtil headerUtil;
 
 	@RequestMapping(value = {"/{lang}/savie-online/savie-landing"})
 	public ModelAndView getSavieOnlineLanding(Model model, HttpServletRequest request) {
@@ -275,18 +278,13 @@ public class SavieOnlineController extends BaseController{
 	@RequestMapping(value = {"/{lang}/savie-online/service-center"})
 	public ModelAndView getSavieOnlineLifeServiceCenter(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		session.setAttribute("savingAmount", "200000");
-		session.setAttribute("username", "savie online");
 		response.setContentType("text/json;charset=utf-8");
 		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/accessCode";
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")) {
 			lang = "CN";
 		}
-		
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		header.put("userName", "*DIRECTGI");
-		header.put("token", commonUtils.getToken("reload"));
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		final Map<String,String> header = headerUtil.getHeader(request);
 		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		if(responseJsonObj.get("errMsgs")==null){
 			request.getSession().setAttribute("accessCode", responseJsonObj.get("accessCode"));
