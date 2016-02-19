@@ -70,9 +70,9 @@
 	        		<div class="rate">
 	        			<h4 class="text-center"><fmt:message key="custom.save.credit.rate.title" bundle="${msg}" /></h4>
 	        			<ul class="clearfix">
-	        				<li><span class="percent"><fmt:message key="custom.savie.credit.rate.regular.rate1" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate1.year" bundle="${msg}" /></li>
-	        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.regular.rate2" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate2.year" bundle="${msg}" /></li>
-	        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.regular.rate3" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></li>
+	        				<li><fmt:message key="custom.savie.credit.rate.regular.rate1" bundle="${msg}" /></li>
+	        				<li class="with-padding"><fmt:message key="custom.savie.credit.rate.regular.rate2" bundle="${msg}" /></li>
+	        				<li class="with-padding"><fmt:message key="custom.savie.credit.rate.regular.rate3" bundle="${msg}" /></li>
 	        			</ul>
 	        		</div>
 	        </div>
@@ -300,13 +300,25 @@
 									<div class="item active">
 										<div class="savings-banner">
 											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-eng-1.jpg" class="img-responsive en-banner-img">
-											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-chi-4.jpg" class="img-responsive ch-banner-img">
+											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-chi-1.jpg" class="img-responsive ch-banner-img">
+										</div>
+									</div>
+									<div class="item">
+										<div class="savings-banner">
+											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner-3_fwd-Savie-icon-en-2.jpg" class="img-responsive en-banner-img">
+											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner-3_fwd-Savie-icon-chi-2.jpg" class="img-responsive ch-banner-img">
+										</div>
+									</div>
+									<div class="item">
+										<div class="savings-banner">
+											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner-3_fwd-Savie-icon-eng-3.jpg" class="img-responsive en-banner-img">
+											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner-3_fwd-Savie-icon-chi-3.jpg" class="img-responsive ch-banner-img">
 										</div>
 									</div>
 									<div class="item">
 										<div class="savings-banner">
 											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-eng-4.jpg" class="img-responsive en-banner-img">
-											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-chi-1.jpg" class="img-responsive ch-banner-img">
+											<img src="<%=request.getContextPath()%>/resources/images/savie-regular/FWD_savie_banner_fwd-Savie-icon-chi-4.jpg" class="img-responsive ch-banner-img">
 										</div>
 									</div>
 									<div class="item">
