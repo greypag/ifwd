@@ -4,20 +4,21 @@ import java.util.List;
 
 public class Products {
 	private String name;
+	private String type;
 	private Boolean show;
+	private List<String> features;
+	private List<String> objectives;
+	private String type_desc;
 	private String product_code;
 	private List<String> contribution_period;
 	private Integer min_issue_age;
 	private Integer max_issue_age;
 	private Integer protection_period;
-	private List<String> features;
-	private String type;
-	private List<String> objectives;
 	private String key_product_risks;
 	private String key_exclusions;
 	private String brochure_url;
 	private String product_url;
-	private String type_desc;
+	
 
 	public String getType_desc() {
 		return type_desc;

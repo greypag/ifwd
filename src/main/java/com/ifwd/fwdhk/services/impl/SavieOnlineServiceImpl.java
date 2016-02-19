@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import net.sf.ezmorph.bean.MorphDynaBean;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -39,6 +41,8 @@ import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
+import com.ifwd.fwdhk.model.savieOnline.ProductList;
+import com.ifwd.fwdhk.model.savieOnline.ProductRecommendation;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
@@ -349,7 +353,33 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			group_2 = ">=7";
 		}
 		attributeList.add(new PdfAttribute("group_2", group_2));
-		attributeList.add(new PdfAttribute("Applicant Occupation", savieFna.getOccupation()));
+		
+		String occupation = "";
+		if("NoBD1".equals(savieFna.getOccupation())){
+			occupation = "Farmer -- General Farming";
+		}
+		else if("NoBD2".equals(savieFna.getOccupation())){
+			occupation = "Farmer -- Poultry";
+		}
+		else if("NoBD3".equals(savieFna.getOccupation())){
+			occupation = "Fisherman -- Pond, Lake & River";
+		}
+		else if("NoBD4".equals(savieFna.getOccupation())){
+			occupation = "Fisherman -- Coming Ashore Daily";
+		}
+		else if("NoBD5".equals(savieFna.getOccupation())){
+			occupation = "Fisherman -- Not Coming Ashore Daily";
+		}
+		else if("NoBD6".equals(savieFna.getOccupation())){
+			occupation = "Gardener";
+		}
+		else if("NoBD7".equals(savieFna.getOccupation())){
+			occupation = "Labourer -- Farm";
+		}
+		else if("NoBD8".equals(savieFna.getOccupation())){
+			occupation = "Proprietor -- Farm";
+		}
+		attributeList.add(new PdfAttribute("Applicant Occupation", occupation));
 		
 		String group_3 = "";
 		if("0".equals(savieFna.getEducation())){
@@ -499,7 +529,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		attributeList.add(new PdfAttribute("LiquidAssets", savieFna.getQ4_b_amount()));
 		
-		attributeList.add(new PdfAttribute("Personalreason", "p"));
+		//attributeList.add(new PdfAttribute("Personalreason", "p"));
 		
 		attributeList.add(new PdfAttribute("TotalExpensespermonth(chi)", savieFna.getQ4_c()));
 		attributeList.add(new PdfAttribute("TotalExpensespermonth(eng)", savieFna.getQ4_c()));
@@ -594,23 +624,70 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 		}
 		
-		attributeList.add(new PdfAttribute("Q1a1", "On"));
-		attributeList.add(new PdfAttribute("Q1d1", "On"));
-		attributeList.add(new PdfAttribute("Q2a1", "On"));
-		attributeList.add(new PdfAttribute("Q2b1", "On"));
-		attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced1", "NameofInsuranceProduct(s)Introduced1"));
-		attributeList.add(new PdfAttribute("Product(s)Selected1", "Product(s)Selected1"));
+		ProductRecommendation productRecommendation = (ProductRecommendation) session.getAttribute("productRecommendation");
+		String selectProductName = "AeconoSmart";//session.getAttribute("selectProductName").toString();
+		if(productRecommendation!=null&&productRecommendation.getProduct_list()!=null&productRecommendation.getProduct_list().size()>0){
+			int i = 1;
+			for(int a=0;a<productRecommendation.getProduct_list().size();a++){
+				List<MorphDynaBean> productLists = productRecommendation.getProduct_list();
+				List<MorphDynaBean> products = (List<MorphDynaBean>) productLists.get(a).get("products");
+				for(int b=0;b<products.size();b++){
+					for(String j :q1){
+						if("0".equals(j)){
+							attributeList.add(new PdfAttribute("Q1a"+i, "On"));
+						}
+						if("1".equals(j)){
+							attributeList.add(new PdfAttribute("Q1b"+i, "On"));
+						}
+						if("2".equals(j)){
+							attributeList.add(new PdfAttribute("Q1c"+i, "On"));
+						}
+						if("3".equals(j)){
+							attributeList.add(new PdfAttribute("Q1d"+i, "On"));
+						}
+						if("4".equals(j)){
+							attributeList.add(new PdfAttribute("Q1e"+i, "On"));
+						}
+						if("5".equals(j)){
+							attributeList.add(new PdfAttribute("Q1f"+i, "On"));
+							attributeList.add(new PdfAttribute("Q1others"+i, savieFna.getQ1_others()));
+						}
+					}
+					
+					for(String k :q2){
+						if("0".equals(k)){
+							attributeList.add(new PdfAttribute("Q2a"+i, "On"));
+						}
+						if("1".equals(k)){
+							attributeList.add(new PdfAttribute("Q2b"+i, "On"));
+							
+						}
+						if("2".equals(k)){
+							attributeList.add(new PdfAttribute("Q2c"+i, "On"));
+						}
+						if("3".equals(k)){
+							attributeList.add(new PdfAttribute("Q2d"+i, "On"));
+						}
+						if("4".equals(k)){
+							attributeList.add(new PdfAttribute("Q2e"+i, "On"));
+							attributeList.add(new PdfAttribute("Q2others"+i, savieFna.getQ2_others()));
+						}
+					}
+					
+					String productName = products.get(b).get("name").toString();
+					attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced"+i, productName));
+					if(selectProductName!=null&&selectProductName.equals(productName)){
+						attributeList.add(new PdfAttribute("Product(s)Selected"+i, "Yes"));
+					}
+					i = i+1;
+				}
+			}
+			logger.info("产品数："+i);
+		}
 		
-		attributeList.add(new PdfAttribute("Q1a2", "On"));
-		attributeList.add(new PdfAttribute("Q1e2", "On"));
-		attributeList.add(new PdfAttribute("NameofInsuranceProduct(s)Introduced2", "NameofInsuranceProduct(s)Introduced2"));
-		attributeList.add(new PdfAttribute("Product(s)Selected2", "Product(s)Selected2"));
 		
-		attributeList.add(new PdfAttribute("SignatureofApplicant", "SignatureofApplicant"));
-		attributeList.add(new PdfAttribute("Date1", "1980-10-13"));
-		attributeList.add(new PdfAttribute("Date2", "1980-10-13"));
-		attributeList.add(new PdfAttribute("Product(s)Selected2", "Product(s)Selected2"));
-		attributeList.add(new PdfAttribute("Product(s)Selected2", "Product(s)Selected2"));
+		attributeList.add(new PdfAttribute("Date1", DateApi.formatString2(new Date())));
+		attributeList.add(new PdfAttribute("Date2", DateApi.formatString2(new Date())));
 		
 		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"resources/pdf/"+"FinancialNeedsAndInvestorProfileAnalysisForm.pdf";
 		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"resources\\\\pdf\\\\";
@@ -721,6 +798,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
 		
 		if(responseJsonObj.get("errMsgs") == null) {
+			net.sf.json.JSONObject json = net.sf.json.JSONObject.fromObject(responseJsonObj.toString());
+			ProductRecommendation productRecommendation = (ProductRecommendation) net.sf.json.JSONObject.toBean(json, ProductRecommendation.class);
+			request.getSession().setAttribute("productRecommendation", productRecommendation);
 			JSONArray productArr = (JSONArray)responseJsonObj.get("product_list");
 			JSONArray sortProductArr = new JSONArray();
 			String sort;

@@ -224,6 +224,7 @@ public class SavieOnlineController extends BaseController{
 			savieOnlineService.createFnaFormPdf(request, session);
 		}
 		catch (Exception e) {
+			logger.info(e.getMessage());
 			request.getSession().setAttribute("errorMsg", e.getMessage());
 		}
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4);
