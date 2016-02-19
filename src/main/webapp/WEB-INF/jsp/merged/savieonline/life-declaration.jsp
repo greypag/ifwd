@@ -14,8 +14,16 @@
 </div>
 <script type="text/javascript">
 $("#nextPage").click(function(){
-	setTimeout(function(){
-		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
-	}, 1000);
+	$.ajax({     
+	    url:'${pageContext.request.contextPath}/ajax/savie-online/createLifePolicy',     
+	    type:'get',     
+	    error:function(){       
+	    },     
+	    success:function(data){
+	    	if(data != null && data.successMsg !=null){
+	    		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+	    	}
+	    }  
+	});
 });
 </script>

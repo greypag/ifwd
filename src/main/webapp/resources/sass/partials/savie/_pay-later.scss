@@ -1,0 +1,43 @@
+#pay-later-page {
+
+	.radio-group {
+	    padding: 0 15px 18px;
+  
+    	@media (min-width: 992px) {
+    		padding: 0 0 30px;
+
+    		.desktop-align {
+    			float: left;
+
+    			&.left {
+    				width: 152px;
+    			}
+    		}
+    	}
+	    
+		h4 {
+			color: #ff8200;
+
+			@media (min-width: 992px) {
+				margin-top: 7px;
+			}
+		}
+	}
+
+	.make-an-appointment {
+		@media (min-width: 992px) {
+			padding-bottom: 30px;
+		}
+		h5 {
+
+			@media(min-width: 992px){
+				margin-bottom: 8px;
+			}
+		}
+	}
+	#back-to-application-btn {
+		width: auto;
+		max-width: none;
+	}
+	
+}

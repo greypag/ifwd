@@ -1,0 +1,259 @@
+/** DECLARATION PAGE **/
+
+#declaration-page {
+	.declaration-content-wrapper {
+		padding: 27px 30px 25px 30px;
+		max-width: 952px;
+		margin: auto;
+		
+		a {
+			color: #ff8200;
+
+			&:hover { text-decoration: underline; }
+		}
+		
+		p,
+		ol li {
+			color: #373a36;
+			font-size: 14px;
+			line-height: 16px;
+		}
+		
+		hr {
+			border-bottom: 1px solid #e9edf0;
+			margin-top: 7px;
+			margin-bottom: 9px;
+		}
+		
+		hr + p { padding-top: 5px; }
+		
+		.title {
+			font-size: 18px;
+			font-weight: bold;
+			color: #ff8200;
+			margin-bottom: 15px;
+		}
+		
+		.err-msg {
+			color: #ff0000;
+			margin-bottom: 15px;
+		}
+		
+		.cstm-panel {
+			margin-bottom: 56px;
+			
+			.panel-title {
+				color: #ff8200;
+				font-size: 18px;
+				font-weight: bold;
+				margin-bottom: 15px;
+			}
+			
+			.checkbox-wrapper {
+				margin-bottom: 10px;
+			
+				input[type=checkbox] { display: none; }
+			
+				label {
+					cursor: pointer;
+					position: relative;
+					width: 15px;
+					height: 15px;
+					background: #fff;
+					border: 1px solid #ff8200;
+					float: left;
+					
+					&:after {
+						opacity: -0.8;
+						content: '';
+						position: absolute;
+						width: 9px;
+						height: 5px;
+						background: transparent;
+						top: 3px;
+						left: 2px;
+						border: 2px solid #ff8200;
+						border-top: none;
+						border-right: none;
+						-webkit-transform: rotate(-45deg);
+						-moz-transform: rotate(-45deg);
+						-o-transform: rotate(-45deg);
+						-ms-transform: rotate(-45deg);
+						transform: rotate(-45deg);
+					}
+					
+					&:hover::after {
+						opacity: 0.5;
+					}
+				}
+				
+				input[type=checkbox]:checked + label:after {
+					opacity: 1;
+				}
+				
+				p {
+					color: #061d2a;
+					font-weight: bold;
+					margin-left: 25px;
+				}
+				
+				.personal-info-link-parent { cursor: pointer; }
+				
+				@media only screen and (min-width: $screen-md) {
+					.desktop-left {
+						float: left;
+						margin-left: 10px;
+					}
+					
+					.personal-info-link-parent {
+						margin-left: 3px;
+					}
+				}
+			}
+			
+			.checkbox-gray {
+				label { border-color: #cfd7de; }
+				p { color: #b2b9bb; }
+			}
+				
+			nav {
+				max-height: 315px;
+				overflow-y: scroll;
+				padding: 20px;
+				background-color: #f1f3f5;
+				
+				ol {
+					padding-left: 20px;
+					margin-bottom: -15px;
+					
+					li {
+						margin-bottom: 15px;
+						font-weight: bold;
+						
+						p { font-weight: normal; }
+					}
+				}
+			}
+			
+			.radio-group {
+				margin-bottom: 15px;
+				
+				.gray-text {
+					color: #9ba5a7;
+					font-family: Calibri;
+					
+					@media only screen and (max-width: 991px) {
+						margin-left: 27px;
+						float: none !important;
+					}
+				}							
+				
+				.hotline {
+					color: #ff8200;
+					display: inline;
+					font-weight: bold;
+				}
+				
+				@media only screen and (min-width: $screen-md) {
+					.radio-button-group {
+						margin-top: 0;
+						
+						.desktop-align {
+							float: left;
+							margin-right: 20px;
+						}
+					}
+				}
+			}
+			
+			.replacement-declarations {
+				p {
+					color: #000;
+					margin-bottom: 10px;
+				}
+					
+				@media only screen and (min-width: $screen-md) {
+					margin-top: 10px;
+				}
+			}
+			
+			.with-margin-bottom { margin-bottom: 10px; }
+			
+			@media only screen and (min-width: $screen-md) {
+				margin-bottom: 52px;
+			
+				.desktop-inline { display: inline; }
+			}
+		}
+		
+		.recommendation-note {
+			color: #ff8200;
+			font-size: 14px;
+			line-height: 20px;
+			text-align: center;
+			padding-left: 45px;
+			padding-right: 45px;
+			margin-bottom: 12px;
+			margin-top: -18px;
+			
+			.glyphicon {
+				font-size: 11px;
+			}
+		}
+		
+		.save-link {
+			color: #ff8c26;
+			display: block;
+			font-size: 14px;
+			margin-top: 12px;
+			width: 140px;
+			
+			&:hover { text-decoration: underline; }
+		}
+		
+		@media only screen and (min-width: $screen-md) {
+			padding-top: 32px;
+			padding-bottom: 0;
+		
+			.title { margin-bottom: 29px; }
+		
+			.btn-proceed {
+				padding: 6px 30px;
+				font-size: 24px;
+				margin-top: 21px;
+			}
+			
+			.save-link { margin-top: 3px; }
+		}
+	}
+	
+	/** modal **/
+	#yes-radio-popup {
+		.modal-dialog {
+			max-width: 500px;
+			margin-left: auto;
+			margin-right: auto;
+			
+			.modal-content {
+				p {
+					font-size: 14px;
+					line-height: 18px;
+					margin-top: 20px;
+					
+					.hotline {
+						color: #ff8200;
+						font-weight: bold;
+					}
+				}
+			
+				.close {
+					position: absolute;
+					right: 22px;
+					top: 10px;
+					font-size: 25px;
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}

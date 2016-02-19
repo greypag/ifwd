@@ -1,0 +1,97 @@
+/** SIGNATURE BOX **/
+
+.signature-box {
+	.modal-dialog {
+		max-width: 415px;
+		margin: auto;
+		
+		.modal-content {
+			p {
+				font-size: 14px;
+				color: #474a46;
+			}
+			
+			.modal-title {
+				color: #373a36;				
+				font-family: 'Calibri-bold';
+				font-size: 18px;
+				text-align: center;				
+				margin-bottom: 0;
+				
+				@media only screen and (min-width: $screen-md) {
+					color: #ff8200;
+					text-align: left;
+				}
+			}
+			
+			.modal-header {
+				padding: 12px 20px 12px 30px;
+				
+				@media only screen and (min-width: $screen-md) {
+					border-bottom: none;
+				}
+			}
+			
+			.modal-body {
+				padding: 17px 30px 42px 30px;
+			
+				.signature-parent {					
+					height: 254px;
+					margin: 23px -30px 5px -30px;
+					
+					.signature-img {
+						background-color: #f7f7f7;
+						width: 100%;
+					}
+				}
+				
+				.correct-signature {
+					text-align: right;
+					margin-bottom: 5px;
+					
+					span {
+						color: #474a46;
+						font-size: 14px;
+					}
+				}
+				
+				.link-clear {
+					color: #abb4b6;
+					cursor: pointer;
+					font-size: 14px;
+					text-decoration: underline;
+					border-bottom: none !important;
+				}
+				
+				.btn-confirm {
+					margin-top: 7px;
+					padding-left: 60px;
+					padding-right: 60px;
+				}
+					
+				@media only screen and (min-width: $screen-md) {
+					padding-top: 2px;
+					padding-bottom: 30px;
+					
+					.signature-parent {
+						height: 274px;
+						width: 532px;
+						margin-left: 0;
+						margin-right: 0;
+					}
+					
+					.btn-confirm {
+						font-size: 24px;
+						margin-top: 5px;
+						padding-left: 84px;
+						padding-right: 84px;
+					}
+				}
+			}
+		}
+		
+		@media only screen and (min-width: $screen-md) {
+			max-width: 592px;
+		}
+	}
+}

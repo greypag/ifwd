@@ -1,0 +1,48 @@
+#dialog-us-person{
+	max-width: 355px;
+	margin: 150px auto;
+	@media (min-width: $screen-md) {
+			max-width: 407px;
+	}
+	#modal-content-usperson{
+		padding: 24px 54px 24px 54px;
+		
+		@media (min-width: $screen-md) {
+			padding: 25px 30px 25px 30px;
+		}
+		.modal-header{
+			#close-usopen{
+				margin-right: -34px;
+				margin-top: -11px;
+				@media (min-width: $screen-md) {
+					margin-right: -20px;
+					margin-top: -22px;
+
+				}
+			}
+		}
+			#modal-body-usperson{
+				font-size: 14px;
+				margin-top: -12px;
+				margin-bottom: 0;
+					p{
+						text-align: center;
+						line-height: 17px;
+						@media (min-width: $screen-md) {
+							text-align: left;
+						}
+					}
+					span{
+						color: #aab3b4;
+						display: block;
+						white-space: nowrap;
+						margin-left: 0px;
+						margin-top: -4px;
+						text-align: center;
+						@media (min-width: $screen-md) {
+							text-align: left;
+						}
+					}
+			}
+	}
+}

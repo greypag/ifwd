@@ -1,0 +1,106 @@
+.hk-residence-page {
+	#so-upload-document-section {
+		max-width: none !important;
+		@media (min-width: $screen-md) {
+			padding-top: 10px;
+			width: 965px;
+   			max-width: 965px !important;
+			margin: auto;
+		}
+		.radio-group {
+			@media (min-width: $screen-md) {
+				margin-top: 7px;
+			}
+		}
+		.upload-now-section {
+			@media (min-width: $screen-md) {
+				padding-bottom: 5px;
+			}
+		}
+	}
+	#radio-checkbox-holder {
+		@media (min-width: $screen-md) {
+			margin-left: -10px;
+		}
+	}
+	#step-holder {
+		margin-top: 22px;
+		.bold-label {
+			font-size: 14px;
+		}
+		 #valid-address-link {
+		 	font-size: 12px;
+		 	a {
+		 		color: #ff8200;
+
+				&:hover { text-decoration: underline; }
+		 	}
+		 }
+		.small-gray {
+			font-size: 12px;
+			font-family: 'Calibri';
+			color: #9ba5a7;
+		}
+		p {
+			line-height: 15px;
+		}
+		.step-container {
+			@media (min-width: $screen-md) {
+				padding-left: 7px;
+				padding-right: 7px;
+			}
+			.completed-step {
+				background-color: #ff8200;
+				height: 136px;
+				max-height: 136px;
+				margin-top: 9px;
+	   			margin-bottom: 17px;
+	   			@media (min-width: $screen-md) {
+	   				height: 166px;
+	   				max-height: 166px;
+	   			}
+	   			.done-upload-check {
+	   				padding-top: 40px;
+	   				@media (min-width: $screen-md) {
+	   					padding-top: 58px;
+	   				}
+	   				img {
+	   					margin: 0 auto;
+					    width: 50px;
+					    height: 50px;
+					    display: block;	
+	   				}
+	   			}
+	   			&#your-hkid {
+	   				@media (min-width: $screen-md) {
+	   					margin-top: 30px;
+	   				}
+	   			}
+	   			&#your-passport {
+	   				@media (min-width: $screen-md) {
+	   					margin-top: 30px;
+	   				}
+	   			}
+	   			&#address-proof {
+		   			@media (min-width: $screen-md) {
+		   				margin-top: 15px;
+		   			}
+	   			}
+			}
+		}	
+	}
+	#upload-note {
+		@media (min-width: $screen-md) {
+			margin-top: 6px;
+		}
+	}
+	#complete-btn {
+		margin-top: 2px;
+		@media (min-width: $screen-md) {
+		    font-size: 24px;
+		    padding: 5px 67px;
+		    margin-top: 61px;
+		    margin-bottom: 11px;
+		}
+	}
+}

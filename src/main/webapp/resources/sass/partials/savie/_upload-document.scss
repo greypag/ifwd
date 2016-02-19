@@ -1,0 +1,306 @@
+h4.so-h4 {
+	font-size: 18px;
+    padding-bottom: 20px;
+    text-align: left;
+    color: #ff8200;
+}
+
+h5.so-h5 {
+	font-size: 14px;
+}
+
+h6.so-h6 {
+	color: #9ba5a7;
+	font-family: 'Calibri';
+	font-size: 12px;
+}
+
+.orange {
+	color: #ff8200;
+}
+
+#upload-document-page {
+	.next-btn {
+		margin-top: 20px;
+		
+		@media screen and (min-width: $screen-md) {
+			margin-top: 0;
+		}
+	}
+	
+	.help-block {
+		margin: 0;
+		color: #e4002b;
+		font-family: 'Calibri';
+		margin-top: 5px;
+	}
+	
+	h4.so-h4 {
+		padding: 25px 0 0;
+		margin-bottom: 0;
+		
+		@media screen and (min-width: $screen-md) {
+			padding: 35px 0 0;
+		}
+	}
+	
+	h5.so-h5 {
+		color: #373a36;
+		font-family: 'Calibri-Bold';
+		text-align: left;
+		padding-bottom: 0;
+	}
+	
+	h6 {
+		&.so-h6 {
+			@media screen and (min-width: $screen-md) {
+				margin-bottom: 18px;
+			}
+			
+			&.upload-bottom {
+				@media screen and (min-width: $screen-md) {
+					margin-bottom: 30px;
+				}
+			}
+		}
+	}
+	
+	.radio-button-group {
+		@media screen and (min-width: $screen-md) {
+			margin-top: 12px;
+		}
+	}
+	
+	.upload-h6 {
+		color: #373a36;
+		font-family: 'Calibri-Bold';
+		display: block;
+	}
+	
+	.upload-now-section {
+		padding: 10px 0 0;
+		
+		@media screen and (min-width: $screen-md) {
+			padding: 10px 0 15px;
+		}
+		
+		.document-upload-progress {
+			font-size: 14px;
+			margin: 18px auto;
+			
+			.progress {
+				margin: 5px auto;
+				
+				@media screen and (min-width: $screen-md) {
+					margin-top: 10px;
+				}
+			}
+			
+			p.upload-text {
+				font-size: 12px;
+			}
+		}
+	}
+	
+	.document-upload {
+		.description {
+			font-size: 14px;
+			padding: 25px 0 5px;
+			
+			@media screen and (min-width: $screen-md) {
+				padding: 40px 0 25px;
+			}
+			
+			.first-desc {
+				font-family: 'Calibri-Bold';
+				line-height: 17px;
+			}
+			
+			ol {
+				padding: 0 0 0 15px;
+				
+				@media screen and (min-width: $screen-md) {
+					padding: 6px 0 0 15px;
+				}
+				
+				li.second-desc {
+					padding: 9px 0;
+					line-height: 17px;
+					
+					@media screen and (min-width: $screen-md) {
+						padding: 5px 0 0;
+					}
+				}
+			}
+		}
+	}
+	
+	span.checkbox-text {
+		font-size: 14px;
+		color: #373a36;
+		font-family: 'Calibri-Bold';
+		padding-top: 8px;
+		display: inline-block;
+	}
+	
+	.checkbox-section {
+		margin-bottom: 0;
+		padding-left: 0;
+	}
+	
+	span.input-file-text {
+	    background: #ff8200;
+		color: #FFF;
+		font-size: 14px;
+		font-weight: bold;
+		padding: 5px;
+		border-radius: 4px !important;
+		border-bottom: 3px solid #c56501;
+		
+		&:hover {
+			opacity: 0.9;
+		}
+	}
+	
+	label.orange-select-file {
+		border: 0;
+		height: inherit;
+		
+		&:hover {
+			background-color: transparent;
+		}
+	}
+	
+	.upload-link {
+		font-family: 'Calibri-Bold';
+		color: #ff8200;
+
+		&:hover { text-decoration: underline; }
+	}
+	
+	.drag-down {
+		display: block;
+	}
+	
+	.drag-cam {
+		font-size: 25px;
+		color: #9ba5a7;
+	}
+	
+	.mob-desk.or {
+		padding-bottom: 5px;
+	}
+	
+	.upload-form {
+		height: 140px;
+		
+		@media screen and (min-width: $screen-md) {
+			height: 165px;
+		}
+		
+		.finish-upload {
+			height: 142px;
+			
+			@media screen and (min-width: $screen-md) {
+				height: 167px;
+			}
+			
+			span.finish-upload-check {
+				top: 35%;
+			}
+		}
+		
+		.select-file-hkid.select-zone,
+		.select-file-passport.select-zone,
+		.select-file.select-zone {
+			height: inherit;
+		}
+		
+		.select-file-section {
+			height: inherit;
+		}
+	}
+	
+	#so-upload-document-section {
+		//max-width: 900px;
+		//margin: auto;
+		
+		@media screen and (min-width: $screen-md) {
+			padding-left: 50px;
+		}
+		
+		.up-doc-page {
+			padding: 0 20px;
+			
+			@media screen and (min-width: 414px) {
+				padding: 0 30px;
+			}
+		}
+	}
+	
+	.fwd-container-limit.clearfix.sidebar {
+		margin-bottom: 30px;
+		
+		@media screen and (min-width: $screen-md) {
+			margin-bottom: 31px;
+		}
+	}
+	
+	.so-upload {
+		padding: 20px 7px 0 0;
+		
+		@media screen and (min-width: $screen-md) {
+			padding: 25px 7px 0;
+		}
+		
+		&.upload-hkid {
+			padding-left: 0;
+		}
+	}
+	
+	.upload-p {
+		font-family: 'Calibri';
+		font-size: 14px;
+	}
+	
+	.clearfix.desktop-align.left {
+		@media screen and (min-width: $screen-md) {
+			float: left;
+			margin-right: 40px;
+		}
+	}
+	
+	.desc {
+		max-width: 230px;
+		
+		@media screen and (min-width: 355px) {
+			max-width: none;
+		}
+		
+		span {
+			display: block;
+			padding-left: 0;
+		}
+	}
+	
+	.btn.savie-common-btn {
+		&.upload-btn {
+			padding-left: 40px;
+			padding-right: 40px;
+			
+			@media screen and (min-width: $screen-md) {
+				margin-top: 11px;
+			}
+		}
+	}
+	
+	.upload-now-row {
+		margin: auto;
+	}
+	
+	.document-upload-progress {
+		.progress {
+			box-shadow: none;
+		}
+	}
+}

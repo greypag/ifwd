@@ -1,0 +1,56 @@
+#dialog-address-prof{
+	max-width: 355px;
+	margin: 30px auto;
+	@media screen and (min-width: $screen-md){
+		max-width: 648px;
+		width: 648px;
+		margin: 150px auto;
+	}
+	#modal-content-addressprof{
+		padding-right: 25px;
+		padding-left: 25px;
+		padding-bottom: 13px;
+		padding-top: 25px;
+			@media screen and (min-width: $screen-md){
+			padding-left: 35px;
+			}
+		
+		#close-address-prof {
+		   margin-top: -13px;
+		   margin-right: -5px;
+		}
+		
+		.modal-header > p{	
+			font-size: 18px;
+			font-weight: bold;
+			color: #ff8200;
+			margin-top: 1px;
+			@-moz-document url-prefix(){
+				font-size: 17px;
+			}
+		}
+		.modal-body{
+					ol{
+					padding-left: 17px;
+						li{
+							font-size: 14px;
+							line-height: 17px;
+							padding-bottom: 14px;
+						}
+						
+					}
+					#thrid-li{
+						padding-bottom: 5px;
+					}
+		}
+		#modal-body-addressprof{
+			margin-top: 10px;
+			margin-bottom: 0;
+			padding-right: 15px;
+			@media screen and (min-width: $screen-md){
+			padding-right: 0;
+			}
+		}
+		
+	}
+}

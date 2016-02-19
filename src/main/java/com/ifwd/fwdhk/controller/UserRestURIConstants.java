@@ -142,7 +142,7 @@ public class UserRestURIConstants {
 	public static final String CAMPAIGN_PROMO_CODE_ASSIGN = SERVICE_URL + "/leads/campaign/assignPromoCode";
 	
 	/*API For savie online*/
-	public static final String GET_FNA = SERVICE_URL + "/fna";
+	public static final String GET_FNA = SERVICE_URL + "/fna/history";
 	public static final String GET_PURCHASE_HISTORY_BY_PLANCODE = SERVICE_URL + "/policies/retrieve";
 	public static final String SAVE_FNA = SERVICE_URL + "/fna";
 	public static final String GET_PRODUCTRECOMMENDATION = SERVICE_URL + "/fna/getProductRecommendation";

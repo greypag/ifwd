@@ -26,6 +26,7 @@ import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.HeaderUtil;
@@ -67,17 +68,17 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savie-online/savie-review"}) 
 	public ModelAndView getSavieOnlinepReview(Model model, HttpServletRequest request) {
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/savie-sales-illustration"})
+	public ModelAndView getSavieOnlineSalesIllustration(Model model, HttpServletRequest request) {
 		try {
 			savieOnlineService.createSalesIllustrationPdf(request);
 		}
 		catch (Exception e) {
 			request.getSession().setAttribute("errorMsg", e.getMessage());
 		}
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savie-online/savie-sales-illustration"})
-	public ModelAndView getSavieOnlineSalesIllustration(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION);
 	}
 	
@@ -101,6 +102,7 @@ public class SavieOnlineController extends BaseController{
 		if(backSummary!=null && "Y".equals(backSummary)){
 			model.addAttribute("backSummary", backSummary);
 		}
+		SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
 	}
 	
@@ -222,6 +224,7 @@ public class SavieOnlineController extends BaseController{
 			savieOnlineService.createFnaFormPdf(request, session);
 		}
 		catch (Exception e) {
+			logger.info(e.getMessage());
 			request.getSession().setAttribute("errorMsg", e.getMessage());
 		}
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4);

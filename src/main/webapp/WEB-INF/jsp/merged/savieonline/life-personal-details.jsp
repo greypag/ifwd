@@ -82,7 +82,7 @@
 								name="dob" id="dob"
 								placeholder="<fmt:message key="eliteTerms.selectPlan.Date.of.birth.placeholder" bundle="${msg}" />"
 								onfocusin="fnSetStyle()" readonly
-								value="<c:choose><c:when test="${lifePersonalDetails.dob == ''}">${savieFna.dob }</c:when><c:otherwise>${lifePersonalDetails.dob }</c:otherwise></c:choose>" />
+								value="${savieFna.dob }" />
 							<div class="et-app-edit-wrapper">
 								<a href="#" title="Edit Date of birth"
 									class="et-app-sum-edit et-app-edit" id="edit-birthday"
@@ -104,10 +104,10 @@
 								key="eliteTerms.selectPlan.Gender" bundle="${msg}" /></label>
 					</div>
 					<div class="left-desktop text-box et-date-info clearfix">
-						    <input type="hidden" name="gender" id="gender" value="<c:choose><c:when test="${lifePersonalDetails.gender == ''}">${savieFna.gender }</c:when><c:otherwise>${lifePersonalDetails.gender }</c:otherwise></c:choose>" /> 
+						    <input type="hidden" name="gender" id="gender" value="${savieFna.gender }" /> 
 							<input type="text" id="gender" class="form-control gray-textbox pull-left et-80-width"
 							       placeholder="<fmt:message key="eliteTerms.selectPlan.Gender" bundle="${msg}" />"
-							       value="<c:choose><c:when test="${lifePersonalDetails.gender == ''}">${savieFna.gender }</c:when><c:otherwise>${lifePersonalDetails.gender }</c:otherwise></c:choose>" />
+							       value="${savieFna.gender }" />
 						<div class="et-app-edit-wrapper">
 							<a href="#" title="Edit Gender"
 								class="et-app-sum-edit et-app-edit" id="edit-gender"
@@ -479,8 +479,10 @@
 			<button id="et-personal-info-next" class="btn next pi">
 				<fmt:message key="eliteTerms.selectPlan.Next" bundle="${msg}" />
 			</button>
+			<button id="saveLater" class="btn next pi">
+				save and continue later
+			</button>
 		</div>
-		<a href="#" class="et-app-sum-edit et-app-edit">save and continue later</a>
 	</form>
 	</div>
 </div>
@@ -505,6 +507,24 @@ $("#et-personal-info-next").click(function(){
 				  else{
 					  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
 				  }
+			  }
+		  }
+     });
+});
+
+$("#saveLater").click(function(){
+	$("#errorMsg").html("");
+	$.ajax({
+		  type : "POST",
+		  async:false, 
+		  url : "<%=request.getContextPath()%>/ajax/savie-online/createPolicyApplicationSaveforLater",
+		  data: $("#lifePersonalDetailsForm").serialize(),
+		  success : function(data) {
+			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+				  $("#errorMsg").html(data.errorMsg);
+			  }
+			  else{
+				  alert("save later success");
 			  }
 		  }
      });

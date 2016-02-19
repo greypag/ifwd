@@ -1,0 +1,172 @@
+#upload-later-confirmation-page {
+	p {
+		font-size: 13.5px;
+		line-height: 18px;
+	}
+	
+	#upload-later-confirmation-content {
+		padding: 3px 30px 30px 30px;
+		
+		a {
+			color: #ff8200;
+
+			&:hover { text-decoration: underline; }
+		}
+		
+		@media (min-width: $screen-md) {
+			padding: 15px 0px;
+		}
+		@media (min-width: $screen-md) {
+			max-width: 710px;
+			width: 710px;
+			margin: auto;
+		}
+
+		#thankyou-message {
+			@media (min-width: $screen-md) {
+				width: 440px;
+			}
+			p{
+				line-height: 18px;
+				padding-bottom: 9px;
+				@media (min-width: $screen-md) {
+					padding-right: 20px;
+				}
+				&#success-purchase {
+					padding-bottom: 12px;
+				}
+			}
+			#policy-no-mb {
+				font-size: 16px;
+			    color: #373a36;
+			    margin-top: 0;
+			    margin-bottom: 14px;
+				span {
+					color: #ff8200;
+				}
+			}
+			#reminder {
+				font-weight: bold;
+				a {
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+
+		#policy-no-holder {
+			padding-top: 8px;
+		    border-left: 1px solid #dbe1e6;
+		    margin-top: 35px;
+		    padding-bottom: 70px;
+			h2 {
+				font-size: 24px;
+				margin: 2px 15px;
+				&#policy-no {
+					color: #ff8200;
+				}
+			}
+		}
+		#partner-care-holder {
+			@media (min-width: $screen-md) {
+				margin-top: 35px;
+			}
+			#care-holder {
+				.heading-title {
+					margin-left: 15px;
+					@media (max-width: $screen-md) {
+						margin-left: 15px;
+	    				margin-top: 25px;
+	    				margin-bottom: 16px;
+					}
+				}
+				.care-img-mb {
+					width: 100%;
+				}
+				.care-title {
+					font-size: 18px;
+					color: #373a36;
+					margin: 3px 0 3px 0; 
+				}
+				.care {
+					@media (min-width: $screen-md) {
+						width: 270px;
+						padding-right: 0;
+						padding-bottom: 20px;
+					}
+					&#care-1 {
+						@media (max-width: $screen-md) {
+							padding-right: 5px;
+						}
+						.get-quote-btn {
+							margin-top: 5px;
+						}
+					}
+					&#care-2 {
+						@media (max-width: $screen-md) {
+							padding-left: 5px;
+						}
+						.get-quote-btn {
+							margin-top: 10px;
+						}
+					}
+				}	
+				.border-gray {
+					margin-top: 30px;
+				}
+				#get-btns-holder {
+					margin-top: 10px;
+				}
+			}
+			.partners {
+				.heading-title {
+					@media (max-width: $screen-md) {
+						margin-bottom: 20px;
+					}
+				}
+				.partner {
+					padding-bottom: 22px;
+					@media (min-width: $screen-md) {
+						padding-bottom: 30px;
+					}
+					.logo-holder {
+						padding-right: 0;
+					}
+				}
+				.border-gray {
+					margin-top: 18px;
+				}	
+			}
+		}	
+	}
+	#border-desktop {
+		margin-left: 15px;
+		margin-right: 15px;
+		width: 710px;
+	}
+	.border-gray {
+		height: 1px;
+		background: #dbe1e6;
+		margin-top: 8px;
+		
+	}
+	#back-to-home-btn {
+		margin-top: 20px;
+		@media (min-width: $screen-md) {
+			padding: 6px 50px; 
+			font-size: 24px;
+		}
+	}
+}
+//confirmation full online page - same layout
+.confirmation-full-online {
+	#thankyou-message {
+		.border-gray {
+			margin-top: 20px !important;
+		}
+	}
+	#policy-no-holder {
+		padding-bottom: 30px !important;
+	}
+}

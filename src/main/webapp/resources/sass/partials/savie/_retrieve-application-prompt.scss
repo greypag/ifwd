@@ -1,0 +1,34 @@
+#retrieve-application-modal {
+	.modal-content {
+		padding: 25px 20px 30px 20px;
+		@media (min-width: $screen-md) {
+			padding: 25px 45px 30px 45px;
+		}
+		.close {
+			position: absolute;
+		    right: 22px;
+		    top: 10px;
+		    font-size: 25px;
+		    margin-top: 0;
+		}	
+		.welcome-msg {
+			font-family: 'Calibri-Bold';
+		}
+		.description-msg {
+			padding-top: 7px;
+    		line-height: 18px;
+    		padding-bottom: 18px;
+		}
+		#resume-btn {
+			margin-right: 5px;
+			padding: 5px 33px;
+			@media (min-width: $screen-md) {
+			    padding: 5px 39px;
+			} 
+		}
+		#start-over-btn {
+			margin-left: 5px;
+			padding: 5px 30px;
+		}
+	}	
+}
