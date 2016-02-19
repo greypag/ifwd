@@ -102,9 +102,9 @@ var home_url = "<%=request.getContextPath()%>";
 		        		<div class="rate">
 		        			<h4 class="text-center"><fmt:message key="custom.save.credit.rate.title" bundle="${msg}" /></h4>
 		        			<ul class="clearfix">
-		        				<li><span class="percent"><fmt:message key="custom.savie.credit.rate.rate1" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate1.year" bundle="${msg}" /></li>
-		        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.rate2" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate2.year" bundle="${msg}" /></li>
-		        				<li class="with-padding"><span class="percent"><fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></span> <fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></li>
+		        				<li><fmt:message key="custom.savie.credit.rate.rate1" bundle="${msg}" /></li>
+		        				<li class="with-padding"><fmt:message key="custom.savie.credit.rate.rate2" bundle="${msg}" /></li>
+		        				<li class="with-padding"><fmt:message key="custom.savie.credit.rate.rate3" bundle="${msg}" /></li>
 		        			</ul>
 		        		</div>
 	        		</div>
