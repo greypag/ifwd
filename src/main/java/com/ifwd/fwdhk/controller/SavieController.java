@@ -446,7 +446,7 @@ public class SavieController extends BaseController{
 			Map<String, List<String>> datesMap = new HashMap<String, List<String>>();
 			List<String> datesList;
 			List<String> calendarList;
-			long beforeDay = 86400000;
+			long beforeDay = 86400000;//1天
 			
 			if(serviceCentresArr!=null && serviceCentresArr.size()>0){
 				serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
