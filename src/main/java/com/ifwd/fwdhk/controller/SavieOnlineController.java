@@ -242,9 +242,13 @@ public class SavieOnlineController extends BaseController{
 	public ModelAndView getSavieOnlineLifeDocumentUpload(Model model, HttpServletRequest request,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		try {
+			savieOnlineService.uploadSavieOnlineDocument(request);
 			savieOnlineService.finalizeLifePolicy(request, session);
 		}
 		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		catch (Exception e) {
 			jsonObject.put("errorMsg", e.getMessage());
 		}
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
