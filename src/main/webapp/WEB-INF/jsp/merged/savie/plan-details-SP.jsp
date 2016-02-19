@@ -182,7 +182,7 @@
 										<td id="premium-1">100,000</td>
 										<td class="hidden-sm hidden-xs" id="account-value-1">102,991</td>
 										<td id="surrender-1">102,991</td>
-										<td class="hidden-sm hidden-xs" id="death-1">108,141 / 211,132</td>
+										<td class="hidden-sm hidden-xs" id="death-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">108,141 / 211,132</span></td>
 									</tr>
 									<tr>
 										<td class="policy-credit policy-number bold">2</td>
@@ -190,7 +190,7 @@
 										<td id="premium-2">100,000</td>
 										<td class="hidden-sm hidden-xs" id="account-value-2">106,081</td>
 										<td id="surrender-2">106,081</td>
-										<td class="hidden-sm hidden-xs" id="death-2">111,385 / 217,466</td>
+										<td class="hidden-sm hidden-xs" id="death-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">111,385 / 217,466</span></td>
 									</tr>
 									<tr class="pinkish-shade">
 										<td class="policy-credit policy-number bold">3</td>
@@ -198,7 +198,7 @@
 										<td id="premium-3">100,000</td>
 										<td class="hidden-sm hidden-xs" id="account-value-3">110,324</td>
 										<td id="surrender-3">110,324</td>
-										<td class="hidden-sm hidden-xs" id="death-3">115,841 / 226,165</td>
+										<td class="hidden-sm hidden-xs" id="death-3"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -228,13 +228,13 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr class="hidden" id="new-table-added">
-											<td class="policy-credit policy-number bold" id="policy-year-0-0">5</td>
+										<tr id="new-table-added">
+											<td class="policy-credit policy-number bold" id="policy-year-0-0">1</td>
 											<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-0">0</td> 
 											<td id="premium-change-0-1">100,000</td> 
 											<td class="hidden-sm hidden-xs" id="account-value-change-0-0">110,324</td>    
 											<td id="surrender-change-0-0">110,324</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-0">115,841 / 226,165</td>
+											<td class="hidden-sm hidden-xs" id="death-change-0-0"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 										</tr>
 										<tr class="pinkish-shade">    
 											<td class="policy-credit policy-number bold" id="policy-year-0-1">5</td>  
@@ -242,7 +242,7 @@
 											<td id="premium-change-0-1">100,000</td> 
 											<td class="hidden-sm hidden-xs" id="account-value-change-0-1">110,324</td>    
 											<td id="surrender-change-0-1">110,324</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-1">115,841 / 226,165</td>
+											<td class="hidden-sm hidden-xs" id="death-change-0-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 										</tr>
 										<tr>
 											<td class="policy-credit policy-number bold" id="policy-year-0-2">10</td> 
@@ -250,7 +250,7 @@
 											<td id="premium-change-0-2">100,000</td> 
 											<td class="hidden-sm hidden-xs" id="account-value-change-0-2">110,324</td>    
 											<td id="surrender-change-0-2">110,324</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-2">115,841 / 226,165</td>
+											<td class="hidden-sm hidden-xs" id="death-change-0-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 										</tr>
 										<tr class="pinkish-shade">
 											<td class="policy-credit policy-number bold" id="policy-year-0-3">20</td> 
@@ -258,7 +258,7 @@
 											<td id="premium-change-0-3">100,000</td> 
 											<td class="hidden-sm hidden-xs" id="account-value-change-0-3">110,324</td>    
 											<td id="surrender-change-0-3">110,324</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-3">115,841 / 226,165</td>
+											<td class="hidden-sm hidden-xs" id="death-change-0-3"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 										</tr>
 										<tr>
 											<td class="policy-credit policy-number bold" id="policy-year-0-4">55</td> 
@@ -266,7 +266,7 @@
 											<td id="premium-change-0-4">100,000</td> 
 											<td class="hidden-sm hidden-xs" id="account-value-change-0-4">110,324</td>    
 											<td id="surrender-change-0-4">110,324</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-4">115,841 / 226,165</td>
+											<td class="hidden-sm hidden-xs" id="death-change-0-4"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 										</tr>
 										<tr class="pinkish-shade">
 											<td class="policy-credit policy-number bold" id="policy-year-0-5">60</td> 
@@ -274,7 +274,7 @@
 											<td id="premium-change-0-5">100,000</td> 
 											<td class="hidden-sm hidden-xs" id="account-value-change-0-5">110,324</td>    
 											<td id="surrender-change-0-5">110,324</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-5">115,841 / 226,165</td>
+											<td class="hidden-sm hidden-xs" id="death-change-0-5"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 										</tr>
 										<tr>
 											<td class="policy-credit policy-number bold" id="policy-year-0-6">100</td>
@@ -282,7 +282,7 @@
 											<td id="premium-change-0-6">100,000</td> 
 											<td class="hidden-sm hidden-xs" id="account-value-change-0-6">110,324</td>    
 											<td id="surrender-change-0-6">110,324</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-6">115,841 / 226,165</td>
+											<td class="hidden-sm hidden-xs" id="death-change-0-6"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 										</tr>
 									</tbody>
 								</table>

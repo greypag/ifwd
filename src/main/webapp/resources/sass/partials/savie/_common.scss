@@ -186,12 +186,12 @@ a {
 		text-indent: 1px;
 		text-overflow: '';
 		margin-bottom: 0;
-		width: 100%;
+		width: 100% !important;
 		border: none;
 		font-size: 14px;
 		color: #9ba5a7;
 		height: 40px;
-		padding: 3px 20px 3px 8px;
+		padding: 3px 10px !important;
 		cursor: pointer;
 		&::-ms-expand {
 			display: none;
@@ -215,6 +215,37 @@ a {
 			right: 20px;
 		}
 	}
+	
+	.gray-textbox {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	
+	.cstm-textfield-label	{
+		padding-left: 15px;
+		top: 10px;
+		font-size: 14px;
+	}
+	
+	.cstm-dropdown-label { display: none; }
+	
+	&.is-not-active {
+		.cstm-textfield-label,
+		.cstm-dropdown-label {
+			font-size: 12px;
+			top: 1px;
+			color: #373a36;
+			padding-left: 15px;
+		}
+		
+		.cstm-dropdown-label { display: block; }
+		
+		.gray-dropdown {
+			color: #000 !important;
+			padding-top: 10px !important;
+		}
+	}
+	
 }
 
 .centreDiv {
@@ -588,7 +619,7 @@ h6 {
     padding: 0;
     margin-bottom: 10px;
 	input {
-		padding: 2px 5px 2px 10px !important;
+		padding: 12px 15px 0 15px !important;
 		height: 40px !important;
 		margin-bottom: 0;
 	}
@@ -596,7 +627,7 @@ h6 {
 		font-size: 14px;
 		left: 0;
 		top: 10px;
-		padding-left: 10px;
+		padding-left: 15px;
 		font-family: 'Calibri-Bold';
 		&:after {
 			width: 97%;
@@ -607,7 +638,7 @@ h6 {
 	&.is-focused, &.is-dirty {
 		label {
 			color: #ff8200 !important;
-			top: -4px !important;
+			top: 1px !important;
 		}
 	}
 	&.is-active {
@@ -615,8 +646,8 @@ h6 {
 	}
 	&.is-not-active {
 		label {
-			top: -4px !important;
 			color: #373a36  !important;
+			top: 1px !important;
 		}
 	}	
 }

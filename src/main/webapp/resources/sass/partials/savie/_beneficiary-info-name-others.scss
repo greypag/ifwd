@@ -300,12 +300,5 @@
 				width: 100%;
 			}
 		}
-		
-		&.is-focused, &.is-dirty {
-			label {
-				top: -2px !important;
-				bottom: 0;
-			}
-		}
 	}
 }

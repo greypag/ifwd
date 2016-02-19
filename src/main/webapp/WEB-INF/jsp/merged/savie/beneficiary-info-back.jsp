@@ -133,9 +133,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
+												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
 												  <span class="icon-chevron-thin-down orange-caret"></span>
 												  <select class="form-control gray-dropdown" name="hkid[0]" id="hkid[0]">
-													 <option selected disabled value="">HKID / Passport</option>
+													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
 												  </select>
@@ -153,9 +154,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
+													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown" name="gender[0]" id="gender[0]">
-														<option selected disabled value="">Gender</option>
+														<option value="" selected="selected" disabled="disabled">Gender</option>
 														<option value="male">MALE</option>
 														<option value="female">FEMALE</option>
 													</select>
@@ -167,9 +169,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
+													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown"  id="relationship[0]" name="relationship[0]">
-														<option selected disabled value="">Relationship with you</option>
+														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<option value="father">FATHER</option>
 														<option value="mother">MOTHER</option>
 													</select>
@@ -227,9 +230,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
+												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
 												  <span class="icon-chevron-thin-down orange-caret"></span>
 												  <select class="form-control gray-dropdown" name="hkid[1]" id="hkid[1]">
-													 <option selected disabled value="">HKID / Passport</option>
+													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
 												  </select>
@@ -247,9 +251,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
+													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown" name="gender[1]" id="gender[1]">
-														<option selected disabled value="">Gender</option>
+														<option value="" selected="selected" disabled="disabled">Gender</option>
 														<option value="male">MALE</option>
 														<option value="female">FEMALE</option>
 													</select>
@@ -261,9 +266,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
+													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown"  id="relationship[1]" name="relationship[1]">
-														<option selected disabled value="">Relationship with you</option>
+														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<option value="father">FATHER</option>
 														<option value="mother">MOTHER</option>
 													</select>
@@ -321,9 +327,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
+												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
 												  <span class="icon-chevron-thin-down orange-caret"></span>
 												  <select class="form-control gray-dropdown" name="hkid[2]" id="hkid[2]">
-													 <option selected disabled value="">HKID / Passport</option>
+													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
 												  </select>
@@ -341,9 +348,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
+													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown" name="gender[2]" id="gender[2]">
-														<option selected disabled value="">Gender</option>
+														<option value="" selected="selected" disabled="disabled">Gender</option>
 														<option value="male">MALE</option>
 														<option value="female">FEMALE</option>
 													</select>
@@ -355,9 +363,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
+													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown"  id="relationship[2]" name="relationship[2]">
-														<option selected disabled value="">Relationship with you</option>
+														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<option value="father">FATHER</option>
 														<option value="mother">MOTHER</option>
 													</select>
@@ -397,6 +406,8 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				var language = "en";
+				
+				$('.selectDiv').removeClass('is-not-active');
 			});
 		</script>
 		
