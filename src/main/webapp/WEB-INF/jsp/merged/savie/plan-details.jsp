@@ -479,6 +479,13 @@ var context = "${pageContext.request.contextPath}";
 		<script type="text/javascript">	
 			$(function() {
 				
+				var current_date = new Date();
+				var month_now = (parseInt((current_date.getMonth()+1), 10) + 100).toString().substr(1);
+				var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);
+				$('#sales-illu-dob').attr('placeholder',day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
+				$('#sales-illu-dob').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
+				
+				
 				$('#thankYouModal').on('shown.bs.modal', function() {
 				    $('body').addClass('modal-open');
 				    $('.navbar.navbar-default.navbar-fixed-top.hidden-lg.hidden-md.pad-none').removeClass('navbar-fixed-top').addClass('navbar-no-scroll');
