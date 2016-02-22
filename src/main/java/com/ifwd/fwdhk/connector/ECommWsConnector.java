@@ -189,6 +189,10 @@ public class ECommWsConnector {
 		return consumeECommWs(UserRestURIConstants.GET_POLICY_APPLICATION_SAVE_FOR_LATER,HttpMethod.GET,null,GetPolicyApplicationResponse.class,header);
 	}
 	
+	public BaseResponse createPolicyApplication(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.CREATE_POLICY_APPLICATION_SAVE_FOR_LATER,HttpMethod.POST,parameters,BaseResponse.class,header);
+	}
+	
 	public <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {
 		
 		final String url = UserRestURIConstants.SERVICE_URL + path;

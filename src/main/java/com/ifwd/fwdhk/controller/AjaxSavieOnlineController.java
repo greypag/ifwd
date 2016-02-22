@@ -272,14 +272,14 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, OptionItemDescList);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/createPolicyApplicationSaveforLater"})
-	public void createPolicyApplicationSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+	@RequestMapping(value = {"/ajax/savie-online/lifePersonalDetailsSaveforLater"})
+	public void lifePersonalDetailsSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
-			jsonObject = savieOnlineService.createPolicyApplicationSaveforLater(request);
+			savieOnlineService.lifePersonalDetailsSaveforLater(lifePersonalDetails, request);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());

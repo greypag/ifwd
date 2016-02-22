@@ -1098,105 +1098,51 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	return OptionItemDescList;
 	}
 	
-	public JSONObject createPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.CREATE_POLICY_APPLICATION_SAVE_FOR_LATER;
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		String lang = UserRestURIConstants.getLanaguage(request);
+	public void lifePersonalDetailsSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request) throws ECOMMAPIException{
+		final Map<String,String> header = headerUtil.getHeader(request);
+		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+		parameters.accumulate("planCode", "SAVIE-SP");
+		parameters.accumulate("applicantFirstName", lifePersonalDetails.getFirstname()!=null?lifePersonalDetails.getFirstname():"");
+		parameters.accumulate("applicantLastName", lifePersonalDetails.getLastname()!=null?lifePersonalDetails.getLastname():"");
+		parameters.accumulate("applicantChineseName", lifePersonalDetails.getChineseName()!=null?lifePersonalDetails.getChineseName():"");
+		parameters.accumulate("applicantDob", lifePersonalDetails.getDob()!=null?lifePersonalDetails.getDob():"");
+		parameters.accumulate("applicantGender", lifePersonalDetails.getGender()!=null?lifePersonalDetails.getGender():"");
+		parameters.accumulate("applicantHkId", lifePersonalDetails.getHkid()!=null?lifePersonalDetails.getHkid():"");
+		parameters.accumulate("applicantPassport", lifePersonalDetails.getPassport()!=null?lifePersonalDetails.getPassport():"");
+		parameters.accumulate("applicantMaritalStatus", lifePersonalDetails.getMartialStatus()!=null?lifePersonalDetails.getMartialStatus():"");
+		parameters.accumulate("applicantPlaceOfBirth", lifePersonalDetails.getPlaceOfBirth()!=null?lifePersonalDetails.getPlaceOfBirth():"");
+		parameters.accumulate("applicantNationality", lifePersonalDetails.getNationalty()!=null?lifePersonalDetails.getNationalty():"");
+		parameters.accumulate("applicantResidentialTelNoCountryCode", lifePersonalDetails.getResidentialTelNoCountryCode()!=null?lifePersonalDetails.getResidentialTelNoCountryCode():"");
+		parameters.accumulate("applicantResidentialTelNo", lifePersonalDetails.getResidentialTelNo()!=null?lifePersonalDetails.getResidentialTelNo():"");
+		parameters.accumulate("applicantMobileNoCountryCode", lifePersonalDetails.getMobileNoCountryCode()!=null?lifePersonalDetails.getMobileNoCountryCode():"");
+		parameters.accumulate("applicantMobileNo", lifePersonalDetails.getMobileNumber()!=null?lifePersonalDetails.getMobileNumber():"");
+		parameters.accumulate("applicantEmail", lifePersonalDetails.getEmailAddress()!=null?lifePersonalDetails.getEmailAddress():"");
+		parameters.accumulate("residentialAddress1", lifePersonalDetails.getResidentialAddress1()!=null?lifePersonalDetails.getResidentialAddress1():"");
+		parameters.accumulate("residentialAddress2", lifePersonalDetails.getResidentialAddress2()!=null?lifePersonalDetails.getResidentialAddress2():"");
+		parameters.accumulate("residentialAddress3", lifePersonalDetails.getResidentialAddress3()!=null?lifePersonalDetails.getResidentialAddress3():"");
+		parameters.accumulate("residentialAddress4", lifePersonalDetails.getResidentialAddress4()!=null?lifePersonalDetails.getResidentialAddress4():"");
+		parameters.accumulate("residentialDistrict", lifePersonalDetails.getResidentialAddressDistrict()!=null?lifePersonalDetails.getResidentialAddressDistrict():"");
+		parameters.accumulate("correspondenceAddress1", lifePersonalDetails.getCorrespondenceAddress1()!=null?lifePersonalDetails.getCorrespondenceAddress1():"");
+		parameters.accumulate("correspondenceAddress2", lifePersonalDetails.getCorrespondenceAddress2()!=null?lifePersonalDetails.getCorrespondenceAddress2():"");
+		parameters.accumulate("correspondenceAddress3", lifePersonalDetails.getCorrespondenceAddress3()!=null?lifePersonalDetails.getCorrespondenceAddress3():"");
+		parameters.accumulate("correspondenceAddress4", lifePersonalDetails.getCorrespondenceAddress4()!=null?lifePersonalDetails.getCorrespondenceAddress4():"");
+		parameters.accumulate("correspondenceDistrict", lifePersonalDetails.getCorrespondenceAddressDistrict()!=null?lifePersonalDetails.getCorrespondenceAddressDistrict():"");
+		parameters.accumulate("permanentAddress1", lifePersonalDetails.getPermanetAddress1()!=null?lifePersonalDetails.getPermanetAddress1():"");
+		parameters.accumulate("permanentAddress2", lifePersonalDetails.getPermanetAddress2()!=null?lifePersonalDetails.getPermanetAddress2():"");
+		parameters.accumulate("permanentAddress3", lifePersonalDetails.getPermanetAddress3()!=null?lifePersonalDetails.getPermanetAddress3():"");
+		parameters.accumulate("permanentAddress4", lifePersonalDetails.getPermanetAddress4()!=null?lifePersonalDetails.getPermanetAddress4():"");
+		parameters.accumulate("permanentDistrict", lifePersonalDetails.getPermanetAddressDistrict()!=null?lifePersonalDetails.getPermanetAddressDistrict():"");
+		parameters.accumulate("lastViewPage", "page1");
 		
-		if (lang.equals("tc")){
-			lang = "CH";
+		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
+		if(apiResponse==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
 		}
-		else{
-			lang = "EN";
+		else if(apiResponse.hasError()) {
+			logger.info(apiResponse.getErrMsgs()[0]);
+			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
 		}
-		
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
-		JSONObject jsonObject = new JSONObject();
-		
-		jsonObject.put("planCode", "SAVIE-SP");
-		jsonObject.put("applicantFirstName", "applicantFirstName");
-		jsonObject.put("applicantLastName", "applicantLastName");
-		jsonObject.put("applicantChineseName", "applicantChineseName");
-		jsonObject.put("applicantDob", "applicantDob");
-		jsonObject.put("applicantGender", "applicantGender");
-		jsonObject.put("applicantHkId", "applicantHkId");
-		jsonObject.put("applicantPassport", "applicantPassport");
-		jsonObject.put("applicantMaritalStatus", "applicantMaritalStatus");
-		jsonObject.put("applicantPlaceOfBirth", "applicantPlaceOfBirth");
-		jsonObject.put("applicantNationality", "applicantNationality");
-		jsonObject.put("applicantResidentialTelNoCountryCode", "applicantResidentialTelNoCountryCode");
-		jsonObject.put("applicantResidentialTelNo", "applicantResidentialTelNo");
-		jsonObject.put("applicantMobileNoCountryCode", "applicantMobileNoCountryCode");
-		jsonObject.put("applicantMobileNo", "applicantMobileNo");
-		jsonObject.put("applicantEmail", "applicantEmail");
-		jsonObject.put("residentialAddress1", "residentialAddress1");
-		jsonObject.put("residentialAddress2", "residentialAddress2");
-		jsonObject.put("residentialAddress3", "residentialAddress3");
-		jsonObject.put("residentialAddress4", "residentialAddress4");
-		jsonObject.put("residentialDistrict", "residentialDistrict");
-		jsonObject.put("correspondenceAddress1", "correspondenceAddress1");
-		jsonObject.put("correspondenceAddress2", "correspondenceAddress2");
-		jsonObject.put("correspondenceAddress3", "correspondenceAddress3");
-		jsonObject.put("correspondenceAddress4", "correspondenceAddress4");
-		jsonObject.put("correspondenceDistrict", "correspondenceDistrict");
-		jsonObject.put("permanentAddress1", "permanentAddress1");
-		jsonObject.put("permanentAddress2", "permanentAddress2");
-		jsonObject.put("permanentAddress3", "permanentAddress3");
-		jsonObject.put("permanentAddress4", "permanentAddress4");
-		jsonObject.put("permanentDistrict", "permanentDistrict");
-		jsonObject.put("employmentStatus", "employmentStatus");
-		jsonObject.put("occupation", "occupation");
-		jsonObject.put("educationLevel", "educationLevel");
-		jsonObject.put("natureOfBusiness", "natureOfBusiness");
-		jsonObject.put("monthlyPersonalIncome", "monthlyPersonalIncome");
-		jsonObject.put("liquidAssest", "liquidAssest");
-		jsonObject.put("amountOtherSource", "amountOtherSource");
-		jsonObject.put("employerName", "employerName");
-		jsonObject.put("smoke", "smoke");
-		jsonObject.put("optOut1", "optOut1");
-		jsonObject.put("optOut2", "optOut2");
-		jsonObject.put("insuredName", "insuredName");
-		jsonObject.put("insuredHkId", "insuredHkId");
-		jsonObject.put("insuredPassport", "insuredPassport");
-		jsonObject.put("insuredRelationship", "insuredRelationship");
-		jsonObject.put("beneficiaryFirstName1", "beneficiaryFirstName1");
-		jsonObject.put("beneficiaryLastName1", "beneficiaryLastName1");
-		jsonObject.put("beneficiaryChineseName1", "beneficiaryChineseName1");
-		jsonObject.put("beneficiaryHkId1", "beneficiaryHkId1");
-		jsonObject.put("beneficiaryPassport1", "beneficiaryPassport1");
-		jsonObject.put("beneficiaryGender1", "beneficiaryGender1");
-		jsonObject.put("beneficiaryRelationship1", "beneficiaryRelationship1");
-		jsonObject.put("beneficiaryEntitlement1", "32");
-		jsonObject.put("beneficiaryFirstName2", "beneficiaryFirstName2");
-		jsonObject.put("beneficiaryLastName2", "beneficiaryLastName2");
-		jsonObject.put("beneficiaryChineseName2", "beneficiaryChineseName2");
-		jsonObject.put("beneficiaryHkId2", "beneficiaryHkId2");
-		jsonObject.put("beneficiaryPassport2", "beneficiaryPassport2");
-		jsonObject.put("beneficiaryGender2", "beneficiaryGender2");
-		jsonObject.put("beneficiaryRelationship2", "beneficiaryRelationship2");
-		jsonObject.put("beneficiaryEntitlement2", "33");
-		jsonObject.put("beneficiaryFirstName3", "beneficiaryFirstName3");
-		jsonObject.put("beneficiaryLastName3", "beneficiaryLastName3");
-		jsonObject.put("beneficiaryChineseName3", "beneficiaryChineseName3");
-		jsonObject.put("beneficiaryHkId3", "beneficiaryHkId3");
-		jsonObject.put("beneficiaryPassport3", "beneficiaryPassport3");
-		jsonObject.put("beneficiaryGender3", "beneficiaryGender3");
-		jsonObject.put("beneficiaryRelationship3", "beneficiaryRelationship3");
-		jsonObject.put("beneficiaryEntitlement3", "35");
-		jsonObject.put("referralCode", "referralCode");
-		jsonObject.put("insuredAmount", "insuredAmount");
-		jsonObject.put("paymentMethod", "paymentMethod");
-		jsonObject.put("bankName", "bankName");
-		jsonObject.put("branchName", "branchName");
-		jsonObject.put("accountNo", "accountNo");
-		logger.info(jsonObject.toString());
-		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
-		
-		if(responseJsonObj.get("errMsgs") != null) {
-			logger.info(responseJsonObj.get("errMsgs").toString());
-			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
-		}
-		return responseJsonObj;
 	}
 	
 	public JSONObject uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception{
@@ -1688,13 +1634,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		final Map<String,String> header = headerUtil.getHeader(request);
 		Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
 		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
-		parameters.put("clientBrowserInfo", clientBrowserInfo);
-		parameters.put("planCode", "ET");
-		parameters.put("fileType", "jpg");
-		parameters.put("documentType", "signature");
-		parameters.put("originalFilePath", "");
-		parameters.put("base64", image);
-		parameters.put("policyNo", eliteTermPolicy.getPolicyNo());
+		parameters.accumulate("clientBrowserInfo", clientBrowserInfo);
+		parameters.accumulate("planCode", "ET");
+		parameters.accumulate("fileType", "jpg");
+		parameters.accumulate("documentType", "signature");
+		parameters.accumulate("originalFilePath", "");
+		parameters.accumulate("base64", image);
+		parameters.accumulate("policyNo", eliteTermPolicy.getPolicyNo());
 		connector.uploadSignature(parameters, header);
 		return null;
 	}
