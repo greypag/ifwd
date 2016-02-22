@@ -159,7 +159,7 @@
 										<div class="selectDiv" id="date">
 											<label class="mdl-textfield__label cstm-textfield-label">Date of birth</label>
 											<span class="icon-chevron-thin-down orange-caret"></span>
-											<input type="text" class="form-control gray-textbox" name="so-calendar-dob" id="so-calendar-dob" readonly />
+											<input type="text" class="form-control gray-textbox" name="so-calendar-dob" id="so-calendar-dob"  />
 										</div>
 										<span class="error-msg" id="so-calendar-dob-msg"></span>
                                     </div>
@@ -204,7 +204,7 @@
                                  </div>
 								 <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="emailAddress" name="emailAddress" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="emailAddress" name="emailAddress" type="email" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="emailAddress">Email address</label>
                                     </div>
 									<span class="error-msg" id="emailErMsg"></span>
@@ -325,12 +325,27 @@
                            </div>
                            <div class="next-btn">
                               <button class="btn savie-common-btn applicant-btn">Next</button>
+							  <!--<a href="#" class="link-btn" data-toggle="modal" data-target="#save-and-continue-modal">Save and continue later</a>-->
 							  <a href="#" class="link-btn">Save and continue later</a>
+							   <button type="button" class="btn hidden beneficiary-btn-back savie-common-btn">Back to application summary</button>
                            </div>
                         </form>
                      </div>
                   </div>
 				</div>
+			</div>
+			<div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
+			  <div class="modal-dialog">
+				<div class="modal-content save-con-modal-content">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
+					<p class="text-center description-msg">You may save your application progress up to (previous page). You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+					<div class="save-con-btns clearfix">
+						<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6">Keep going</button>
+						<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6">Save and exit</button>
+					</div>
+				</div>
+			  </div>
 			</div>
 			<!-- FOOTER -->
 			<%@include file="includes/footer-block.jsp" %>
@@ -343,6 +358,16 @@
 			$(document).ready(function() {
 				soFormValidation();
 				
+				var dummy = true;
+				//dummy condition for displaying the back / next button 
+				if(dummy) {
+					$('.applicant-btn, .link-btn').removeClass('hidden');
+					$('.beneficiary-btn-back').addClass('hidden');
+				} else {
+					$('.applicant-btn, .link-btn').addClass('hidden');
+					$('.beneficiary-btn-back').removeClass('hidden');
+				}
+
 				// on change
 				$('#so-calendar-dob').on('changeDate show', function(e) {
 					$(this).parent('.selectDiv').addClass('is-not-active');
@@ -350,8 +375,16 @@
 					   $(this).parent('.selectDiv').removeClass('is-not-active');
 					}
 					
-					$('#soInsuredInfoForm').data('bootstrapValidator').updateStatus('so-calendar-dob', 'NOT_VALIDATED', null).validateField('so-calendar-dob');
-			   });
+					//$('#soInsuredInfoForm').data('bootstrapValidator').updateStatus('so-calendar-dob', 'NOT_VALIDATED', null).validateField('so-calendar-dob');
+			   }).datepicker({
+						format: "dd-mm-yyyy",
+						startView: "decade",
+						startDate: dob_start_date,
+						endDate: dob_end_date,
+						autoclose: true,
+						startView: 2
+					});
+			
 			   
 			   $('.cstm-number-field').on('change', function() {
 				   $(this).parent().parent().parent('so-mdl-textfield').addClass('is-not-active');
@@ -375,6 +408,16 @@
 					 if($(this).val() == '') {
 					   $(this).parent().parent().parent('.so-mdl-textfield').removeClass('is-not-active');
 					}
+				});
+				$('.link-btn').on('click', function (e) {
+					$('#soInsuredInfoForm').submit();
+				});
+				$('#soInsuredInfoForm').validator().on('submit', function (e) {
+				  if (e.isDefaultPrevented()) {
+				    console.log('Display first modal');
+				  } else {
+				    console.log('Display second modal');
+				  }
 				});
 		    });
 		</script>
