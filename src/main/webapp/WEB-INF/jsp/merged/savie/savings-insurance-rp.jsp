@@ -77,7 +77,7 @@
 	        		</div>
 	        </div>
        		<div class="gray-divide"></div>
-       		<p class="availability-notice text-center"><fmt:message key="product.detail.savie.remark.copy1" bundle="${msg}" /> <span><fmt:message key="disclaimer.savie.oceanpark.credit.rate.copy2" bundle="${msg}" /></span>
+       		<p class="availability-notice text-center"><fmt:message key="product.detail.savie.remark.copy1" bundle="${msg}" /> <span></span>
        		</p>
 
        		<!-- <h5 class="hidden-sm hidden-xs product-options text-center">
@@ -206,6 +206,9 @@
 									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="benefits-nav-title-1">
 										<a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link text-center"><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /> </a>
 									</li>
+                                    <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-6">
+                                        <a href="#benefits-navtabs-6" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></a>
+                                    </li>									
 									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="benefits-nav-title-2">
 										<a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /> </a>
 									</li>
@@ -218,9 +221,6 @@
 									<!-- <li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-5">
 										<a href="#benefits-navtabs-5" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="savierp.landing.navtabs.hours" bundle="${msg}" /> <span><fmt:message key="savierp.landing.navtabs.hotline" bundle="${msg}" /></span></a>
 									</li>-->
-									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-6">
-										<a href="#benefits-navtabs-6" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></a>
-									</li>
 								</ul>
 								<div class="fna-carousel carousel slide" id="benefits-carousel" data-ride="carousel" data-interval="false">
 									<div class="tab-content carousel-inner clearfix" role="listbox">

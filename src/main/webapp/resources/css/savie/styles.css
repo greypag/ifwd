@@ -14311,6 +14311,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 
 .fwd-savie-wrapper .container-fluid.proceed-block.text-center .login-button {
   font-size: 24px;
+  padding-top:5px;
   background: none;
   border: none;
   color: #f28000;
@@ -14330,7 +14331,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
   }
 	
   .fwd-savie-wrapper .container-fluid.proceed-block.text-center .login-holder {
-    display: inline;
+    display: inline-block;
   }
 }
 
