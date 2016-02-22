@@ -3,7 +3,9 @@ package com.ifwd.fwdhk.controller;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,16 +25,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.connector.response.BaseResponse;
-import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.CommonUtils;
+import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
-import com.ifwd.fwdhk.util.SaviePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
 public class SavieOnlineController extends BaseController{
@@ -56,6 +56,19 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savie-online/savie-plan-details"})
 	public ModelAndView getSavieOnlinePlandetails(Model model, HttpServletRequest request) {
+		
+		Date date = new Date();
+		Calendar startDOB = new GregorianCalendar();
+		startDOB.setTime(date); 
+		startDOB.add(startDOB.YEAR, -70);
+		startDOB.add(startDOB.DATE, 1);
+		model.addAttribute("startDOB", DateApi.formatString(startDOB.getTime()));
+		
+		Calendar defaultDOB = new GregorianCalendar();
+		defaultDOB.setTime(date); 
+		defaultDOB.add(defaultDOB.YEAR, -18);
+		model.addAttribute("defaultDOB", DateApi.formatString(defaultDOB.getTime()));
+		
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS);
 	}
 	

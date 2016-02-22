@@ -64,6 +64,7 @@ public class SavieOnlinePageFlowControl {
 		// Landing Page
 		String to = "";
 		String to2 = "";
+		String filePath = "savieonline/";
 
 		logger.debug("referer : " + referer);
 		logger.debug("current : " + current);
@@ -77,6 +78,8 @@ public class SavieOnlinePageFlowControl {
 		case UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_FNA;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_FNA;
+			filePath = "savie/";
+			current = "plan-details-b-SP";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_FNA: 
@@ -190,11 +193,11 @@ public class SavieOnlinePageFlowControl {
 		model.addAttribute("nextPageFlow", to);
 		model.addAttribute("nextPageFlow2", to2);
 
-		logger.debug(UserRestURIConstants.getSitePath(request) + "savieonline/" + current);
+		logger.debug(UserRestURIConstants.getSitePath(request) + filePath + current);
 
 		logger.debug("-----------------------------------page flow end--------------------------------------------");
 
-		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "savieonline/" + current);
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + filePath + current);
 
 	}
 	

@@ -40,6 +40,7 @@ public class AjaxSavieOnlineController extends BaseController{
 	@Autowired
 	private SavieOnlineService savieOnlineService;
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/ajax/savie-online/getSavieOnlinePlandetails"})
 	public void getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String language = (String) session.getAttribute("language");
@@ -50,7 +51,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		try {
 			saviePlanDetails.validate(language);
 			jsonObject.put("apiData", savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request).toString());
-			String[] dob = saviePlanDetails.getDob().split("/");
+			String[] dob = saviePlanDetails.getDob().split("-");
 			saviePlanDetails.setDob1(dob[2]+"·"+dob[1]+"·"+dob[0]);
 			saviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
 			request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
