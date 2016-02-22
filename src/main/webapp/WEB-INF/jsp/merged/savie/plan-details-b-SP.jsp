@@ -33,10 +33,10 @@ var context = "${pageContext.request.contextPath}";
     </div>
     <!-- STEPS -->
 	<div class="container-fluid fwd-full-container browse-holder">
-		<div class="application-page-header et-header-browse">
+		<div class="application-page-header et-header-browse sticky-mobile-header">
 		   <div class="browse-container">
 			  <div class="row reset-margin hidden-xs hidden-sm">
-				 <ul class="common-steps-list six-steps nav nav-pills">
+				 <ul class="common-steps-list nav nav-pills six-steps">
 					<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn active"><span class="status">1</span></i>Select plan</button></li>
 					<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 					<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">2</span>Application &amp; payment</button></li>
@@ -53,15 +53,17 @@ var context = "${pageContext.request.contextPath}";
 		   </div>  
 		   <div class="et-mobile-header-info hidden-md hidden-lg">
 			  <div class="clearfix">
+                     <div class="pull-left">
 				 <div class="et-back-arrow">
 					<a href="#" class="back-arrow-link">
 					   <span class="icon-arrow-left2 arrow-left"></span>
 					</a>
 				 </div>
 				 <div class="et-header-tex">
-					<h3 id="">Select Plan</h3>
+					<h3 id="">Plan details</h3>
 				 </div>
-				 <p id="step-of">1 of 6</p>
+                     </div>
+				 <span id="step-of">1 out of 6</span>
 			  </div>
 		   </div>
 		</div>
@@ -69,7 +71,7 @@ var context = "${pageContext.request.contextPath}";
 	<div class="container-fluid fwd-full-container mobile-step-indicator visible-xs visible-sm">
 		<div class="step-indicator-container clearfix">
 			<ul class="common-step-indicator six-steps nav nav-pills">
-				 <li id="first-step"><a href="#" class="active"><span class="step-no">1</span></a></li>
+				 <li><a href="#" class="active"><span class="step-no">1</span></a></li>
 				 <li><a href="#"><span class="step-no">2</span></a></li>
 				 <li><a href="#"><span class="step-no">3</span></a></li>
 				 <li><a href="#"><span class="step-no">4</span></a></li>
@@ -80,7 +82,6 @@ var context = "${pageContext.request.contextPath}";
 		</div>
 	</div>
 	
-	<div class="container-fluid fwd-full-container headerStick">
 		<div class="plan-calculator-holder">
 			<div class="fwd-container-limit container-fluid clearfix sidebar plan-form-holder">
 				<div class="row">
@@ -151,135 +152,8 @@ var context = "${pageContext.request.contextPath}";
 				           	<label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3">Promo code</label> 
 			           	</div>
 					</div>
-					<div class="table-content">					
-						<div class="rate-table">
-							<table class="table table-hover">
-								<thead>
-									<tr>
-										<th class="first-head">End of<br />policy year</th>
-										<th class="hidden-sm hidden-xs">Crediting<br />Rate (%) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Crediting Rate (%)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-										<th>Total Premium<br />Paid (HK$) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Total Premium Paid (HK$)" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-										<th class="hidden-sm hidden-xs">Account<br />value (HK$) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Account value (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-										<th>Surrender<br />Benefit (HK$) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Surrender Benefit (HK$)" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-										<th class="hidden-sm hidden-xs">Death Benefit (HK$) / <span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span><br />Accidental Death Benefit (HK$) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Accidental Death Benefit (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr class="pinkish-shade">
-										<td class="policy-credit policy-number bold">1</td>
-										<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-change-1">3</td>
-										<td id="premium-1">100,000</td>
-										<td class="hidden-sm hidden-xs" id="account-value-1">102,991</td>
-										<td id="surrender-1">102,991</td>
-										<td class="hidden-sm hidden-xs" id="death-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">108,141 / 211,132</span></td>
-									</tr>
-									<tr>
-										<td class="policy-credit policy-number bold">2</td>
-										<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-change-2">3</td>
-										<td id="premium-2">100,000</td>
-										<td class="hidden-sm hidden-xs" id="account-value-2">106,081</td>
-										<td id="surrender-2">106,081</td>
-										<td class="hidden-sm hidden-xs" id="death-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">111,385 / 217,466</span></td>
-									</tr>
-									<tr class="pinkish-shade">
-										<td class="policy-credit policy-number bold">3</td>
-										<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-change-3">3.3</td>
-										<td id="premium-3">100,000</td>
-										<td class="hidden-sm hidden-xs" id="account-value-3">110,324</td>
-										<td id="surrender-3">110,324</td>
-										<td class="hidden-sm hidden-xs" id="death-3"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
-					<div class="after-3-years-container" id="after-3-years-container" style="display:none">
-						<div class="crediting-rate">
-							<h4 class="crediting-rate-title">Crediting rate : </h4>
-							<div class="rate-buttons">
-								<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">Conservative Basis</p><p class="info-content">Most adverse investment return scenario</p>' class="rate-btn active" id="rate-0" type="button">0%</button>
-								<button class="rate-btn" id="rate-2" type="button">2%</button>
-								<button id="rate-3" class="rate-btn" type="button">3%</button>
-								<button class="rate-btn" id="rate-4" type="button">3.3%</button>
-							</div>
-						</div>
-						<div class="table-content" id="after-3-years">
-							<div id="rate-table-0" class="rate-table">
-								<table class="table table-hover">
-									<thead>
-										<tr>
-											<th class="first-head">End of<br />policy year</th>
-											<th class="hidden-xs hidden-sm credit-rate">Crediting<br />Rate (%) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Crediting Rate (%)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-											<th class="premium">Total Premium<br />Paid (HK$) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Total Premium Paid (HK$)" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-											<th class="hidden-sm hidden-xs">Account<br />value (HK$) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Account value (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-											<th>Surrender<br />Benefit (HK$) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Surrender Benefit (HK$)" class="glyphicon glyphicon-info-sign hidden-sm hidden-xs default-pointer"></span></th>
-											<th class="hidden-sm hidden-xs">Death Benefit (HK$) / <span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span><br />Accidental Death Benefit (HK$) <span data-toggle="tooltip" data-html="true" data-placement="right" title="Accidental Death Benefit (HK$)" class="glyphicon glyphicon-info-sign default-pointer"></span></th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr id="new-table-added">
-											<td class="policy-credit policy-number bold" id="policy-year-0-0">1</td>
-											<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-0">0</td> 
-											<td id="premium-change-0-1">100,000</td> 
-											<td class="hidden-sm hidden-xs" id="account-value-change-0-0">110,324</td>    
-											<td id="surrender-change-0-0">110,324</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-0"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
-										</tr>
-										<tr class="pinkish-shade">    
-											<td class="policy-credit policy-number bold" id="policy-year-0-1">5</td>
-											<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-1">0</td> 
-											<td id="premium-change-0-1">100,000</td> 
-											<td class="hidden-sm hidden-xs" id="account-value-change-0-1">110,324</td>    
-											<td id="surrender-change-0-1">110,324</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
-										</tr>
-										<tr>
-											<td class="policy-credit policy-number bold" id="policy-year-0-2">10</td> 
-											<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-2">0</td>
-											<td id="premium-change-0-2">100,000</td> 
-											<td class="hidden-sm hidden-xs" id="account-value-change-0-2">110,324</td>    
-											<td id="surrender-change-0-2">110,324</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
-										</tr>
-										<tr class="pinkish-shade">
-											<td class="policy-credit policy-number bold" id="policy-year-0-3">20</td> 
-											<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-3">0</td>
-											<td id="premium-change-0-3">100,000</td> 
-											<td class="hidden-sm hidden-xs" id="account-value-change-0-3">110,324</td>    
-											<td id="surrender-change-0-3">110,324</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-3"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
-										</tr>
-										<tr>
-											<td class="policy-credit policy-number bold" id="policy-year-0-4">55</td> 
-											<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-4">0</td>
-											<td id="premium-change-0-4">100,000</td> 
-											<td class="hidden-sm hidden-xs" id="account-value-change-0-4">110,324</td>    
-											<td id="surrender-change-0-4">110,324</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-4"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
-										</tr>
-										<tr class="pinkish-shade">
-											<td class="policy-credit policy-number bold" id="policy-year-0-5">60</td> 
-											<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-5">0</td>
-											<td id="premium-change-0-5">100,000</td> 
-											<td class="hidden-sm hidden-xs" id="account-value-change-0-5">110,324</td>    
-											<td id="surrender-change-0-5">110,324</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-5"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
-										</tr>
-										<tr>
-											<td class="policy-credit policy-number bold" id="policy-year-0-6">100</td>
-											<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-6">0</td>
-											<td id="premium-change-0-6">100,000</td> 
-											<td class="hidden-sm hidden-xs" id="account-value-change-0-6">110,324</td>    
-											<td id="surrender-change-0-6">110,324</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-6"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-					<div class="after-3-years-btn">
-						<button type="button" class="white-btn up" id="first-3-years-btn" onclick="toggleImg()"><span id="after-3">After 3 years </span><span id="first-3" class="hidden">First 3 years </span><img id="arrow-img-years" src="assets/images/savie-2016/arrow-down2.png" /></button>
+					<div class="col-xs-12 col-md-2 plan-calculate">
+						<button type="button" class="btn savie-common-btn" id="plan-calculate-btn">Calculate</button>
 					</div>
 				</div>
 			</div>
@@ -311,7 +185,7 @@ var context = "${pageContext.request.contextPath}";
 								<td id="premium-1">100,000</td>
 								<td class="hidden-sm hidden-xs" id="account-value-1">102,991</td>
 								<td id="surrender-1">102,991</td>
-								<td class="hidden-sm hidden-xs" id="death-1">108,141 / 211,132</td>
+										<td class="hidden-sm hidden-xs" id="death-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">108,141 / 211,132</span></td>
 							</tr>
 							<tr>
 								<td class="policy-credit policy-number bold">2</td>
@@ -319,7 +193,7 @@ var context = "${pageContext.request.contextPath}";
 								<td id="premium-2">100,000</td>
 								<td class="hidden-sm hidden-xs" id="account-value-2">106,081</td>
 								<td id="surrender-2">106,081</td>
-								<td class="hidden-sm hidden-xs" id="death-2">111,385 / 217,466</td>
+										<td class="hidden-sm hidden-xs" id="death-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">111,385 / 217,466</span></td>
 							</tr>
 							<tr class="pinkish-shade">
 								<td class="policy-credit policy-number bold">3</td>
@@ -327,7 +201,7 @@ var context = "${pageContext.request.contextPath}";
 								<td id="premium-3">100,000</td>
 								<td class="hidden-sm hidden-xs" id="account-value-3">110,324</td>
 								<td id="surrender-3">110,324</td>
-								<td class="hidden-sm hidden-xs" id="death-3">115,841 / 226,165</td>
+										<td class="hidden-sm hidden-xs" id="death-3"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 							</tr>
 						</tbody>
 					</table>
@@ -343,7 +217,7 @@ var context = "${pageContext.request.contextPath}";
 						<button class="rate-btn" id="rate-4" type="button">3.3%</button>
 					</div>
 				</div>
-				<div class="table-content" id="after-3-years">
+				<div class="table-content">
 					<div id="rate-table-0" class="rate-table">
 						<table class="table table-hover">
 							<thead>
@@ -357,13 +231,13 @@ var context = "${pageContext.request.contextPath}";
 								</tr>
 							</thead>
 							<tbody>
-								<tr class="hidden" id="new-table-added">
-									<td class="policy-credit policy-number bold" id="policy-year-0-0">5</td>
+								<tr id="new-table-added">
+									<td class="policy-credit policy-number bold" id="policy-year-0-0">1</td>
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-0">0</td> 
 									<td id="premium-change-0-1">100,000</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-0-0">110,324</td>    
 									<td id="surrender-change-0-0">110,324</td>
-									<td class="hidden-sm hidden-xs" id="death-change-0-0">115,841 / 226,165</td>
+											<td class="hidden-sm hidden-xs" id="death-change-0-0"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 								</tr>
 								<tr class="pinkish-shade">    
 									<td class="policy-credit policy-number bold" id="policy-year-0-1">5</td>
@@ -371,7 +245,7 @@ var context = "${pageContext.request.contextPath}";
 									<td id="premium-change-0-1">100,000</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-0-1">110,324</td>    
 									<td id="surrender-change-0-1">110,324</td>
-									<td class="hidden-sm hidden-xs" id="death-change-0-1">115,841 / 226,165</td>
+											<td class="hidden-sm hidden-xs" id="death-change-0-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 								</tr>
 								<tr>
 									<td class="policy-credit policy-number bold" id="policy-year-0-2">10</td> 
@@ -379,7 +253,7 @@ var context = "${pageContext.request.contextPath}";
 									<td id="premium-change-0-2">100,000</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-0-2">110,324</td>    
 									<td id="surrender-change-0-2">110,324</td>
-									<td class="hidden-sm hidden-xs" id="death-change-0-2">115,841 / 226,165</td>
+											<td class="hidden-sm hidden-xs" id="death-change-0-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 								</tr>
 								<tr class="pinkish-shade">
 									<td class="policy-credit policy-number bold" id="policy-year-0-3">20</td> 
@@ -387,7 +261,7 @@ var context = "${pageContext.request.contextPath}";
 									<td id="premium-change-0-3">100,000</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-0-3">110,324</td>    
 									<td id="surrender-change-0-3">110,324</td>
-									<td class="hidden-sm hidden-xs" id="death-change-0-3">115,841 / 226,165</td>
+											<td class="hidden-sm hidden-xs" id="death-change-0-3"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 								</tr>
 								<tr>
 									<td class="policy-credit policy-number bold" id="policy-year-0-4">55</td> 
@@ -395,7 +269,7 @@ var context = "${pageContext.request.contextPath}";
 									<td id="premium-change-0-4">100,000</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-0-4">110,324</td>    
 									<td id="surrender-change-0-4">110,324</td>
-									<td class="hidden-sm hidden-xs" id="death-change-0-4">115,841 / 226,165</td>
+											<td class="hidden-sm hidden-xs" id="death-change-0-4"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 								</tr>
 								<tr class="pinkish-shade">
 									<td class="policy-credit policy-number bold" id="policy-year-0-5">60</td> 
@@ -403,7 +277,7 @@ var context = "${pageContext.request.contextPath}";
 									<td id="premium-change-0-5">100,000</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-0-5">110,324</td>    
 									<td id="surrender-change-0-5">110,324</td>
-									<td class="hidden-sm hidden-xs" id="death-change-0-5">115,841 / 226,165</td>
+											<td class="hidden-sm hidden-xs" id="death-change-0-5"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 								</tr>
 								<tr>
 									<td class="policy-credit policy-number bold" id="policy-year-0-6">100</td>
@@ -411,7 +285,7 @@ var context = "${pageContext.request.contextPath}";
 									<td id="premium-change-0-6">100,000</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-0-6">110,324</td>    
 									<td id="surrender-change-0-6">110,324</td>
-									<td class="hidden-sm hidden-xs" id="death-change-0-6">115,841 / 226,165</td>
+											<td class="hidden-sm hidden-xs" id="death-change-0-6"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">115,841 / 226,165</span></td>
 								</tr>
 							</tbody>
 						</table>
@@ -432,7 +306,7 @@ var context = "${pageContext.request.contextPath}";
 		</ul>
 	</div>
 	<div id="plan-details-sample-and-faq">
-		<div id="pd-sf-tabs-container" class="container-fluid content-container-fluid">
+		<div id="pd-sf-tabs-container" class="container-fluid pd-sf-tabs-content">
 		   <ul id="pd-sf-nav-tabs" class="nav nav-tabs" role="tablist">
 				<li class="pd-sf-tab text-center" role="presentation">
 					<a href="#sale-illustration-sample" class="bold" aria-controls="sale-illustration-sample" role="tab" data-toggle="tab">Key Product Risks &amp; Exclusions</a>
@@ -443,7 +317,7 @@ var context = "${pageContext.request.contextPath}";
 		   </ul>
 		</div>
 		<div class="pd-sf-divider"></div>
-		<div id="pd-sf-tab-content-container" class="container-fluid content-container-fluid">
+		<div id="pd-sf-tab-content-container" class="container-fluid faq-key-content">
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane" id="pd-sf-sale-illustration-sample"></div>
 				<div role="tabpanel" class="tab-pane active" id="pd-sf-faq-and-glossary-pane">
@@ -522,11 +396,11 @@ var context = "${pageContext.request.contextPath}";
 		</div>
 		<div class="next-btn text-center">
 			<button id="proceed-btn" type="button" class="btn plan-details-btn savie-common-btn">Proceed to your sales illustration</button>
-			<a href="#" class="pd-link">Apply at Customer Service Centre</a>
+					<!-- <a href="#" class="pd-link">Apply at Customer Service Centre</a> -->
 		</div>
 	</div>
       </div>
-	</div>
+
 	<!-- FOOTER -->
 </div>
 
