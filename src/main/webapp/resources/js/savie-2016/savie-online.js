@@ -53,6 +53,22 @@ $(document).ready(function() {
 	};
 	$(window).resize();
 	
+	// PDF lightbox resizing
+	var browWidth = $(window).width();
+	var browHeight = $(window).height();
+	var heightToSet =  browHeight - 300;
+	if(browWidth >= 992) {
+		$('#fna-signature-modal, .sales-illustration-modal, .signature-offline-modal').find('iframe').css('cssText', 'height:'+ heightToSet +'px !important');
+	}
+	window.onresize = function() {
+		browWidth = $(window).width();
+		if(browWidth >= 992) {
+			$('#fna-signature-modal, .sales-illustration-modal, .signature-offline-modal').find('iframe').css('cssText', 'height:'+ heightToSet +'px !important');
+		} else {
+			$('#fna-signature-modal, .sales-illustration-modal, .signature-offline-modal').find('iframe').removeAttr('style');
+		}
+	};
+
 	$('#see-all-product-btn').on('click', function () {
 		$('.psa-link-content').slideDown('fast');
 	});
@@ -68,7 +84,6 @@ $(document).ready(function() {
 	 
 	// Placeholder	 
 	$('input[placeholder]').placeholder();
-			
 	$('[placeholder]').focus(function() {
 		var input = $(this);
 		if (input.val() == input.attr('placeholder')) {
@@ -91,7 +106,7 @@ $(document).ready(function() {
 		})
 	});
 	
-	// Permanent Address showing the additional 2 lines
+	// Permanent Address showing the additional 3 lines
 	$('.res-textfield-hidden').css("margin-bottom", "0");
 	$('#permanentAddress1').focus(function() {
 		if ($('.res-additional').hasClass('hidden')) {
@@ -110,7 +125,6 @@ $(document).ready(function() {
 		$('#upload-later-section').removeClass('hidden');
 		$('#upload-now-section').addClass('hidden');
 	}
-
 	$('#upload-now-radio').click(function () {
 		var $self = $(this);
 		if ($self.is(':checked')) {
@@ -118,7 +132,6 @@ $(document).ready(function() {
 			$('#upload-later-section').addClass('hidden');
 		}
 	});
-
 	$('#upload-later-radio').click(function () {
 		var $self = $(this);
 		if ($self.is(':checked')) {
@@ -128,17 +141,24 @@ $(document).ready(function() {
 	});
 	
 	// Radio button
+	if ($('#own-estate-id').is(':checked')) {
+		$('#beneficiary-contents').addClass('hidden');
+		$('.add-on-beneficiary').addClass('hidden');
+		$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
+	}
 	$('#own-estate-id').click(function () {
 		if ($(this).is(':checked')) {
 			$('#beneficiary-contents').addClass('hidden');
 			$('.add-on-beneficiary').addClass('hidden');
+			$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
 		}
 	});
-
 	$('#name-others-id').click(function () {
 		if ($(this).is(':checked')) {
 			$('#beneficiary-contents').removeClass('hidden');
 			$('.add-on-beneficiary').removeClass('hidden');
+			$('#bf-save-and-con-later').attr('data-target','#save-and-continue-modal');
+			$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').resetForm(true);
 		}
 	});
 	
@@ -148,7 +168,6 @@ $(document).ready(function() {
 		$('#beneficiary-header\\[1\\]').removeClass('hidden');
 		$('#beneficiary-info-form\\[1\\]').removeClass('hidden');
 	});
-	
 	$('#add-beneficiary-btn-2').click(function () {
 		$('#beneficiary2').addClass('hidden');
 		$('#beneficiary-header\\[2\\]').removeClass('hidden');
@@ -161,7 +180,6 @@ $(document).ready(function() {
 		$('#beneficiary-header\\[1\\]').addClass('hidden');
 		$('#beneficiary-info-form\\[1\\]').addClass('hidden');
 	});
-	
 	$('#remove-beneficiary\\[2\\]').click(function () {
 		$('#beneficiary2').removeClass('hidden');
 		$('#beneficiary-header\\[2\\]').addClass('hidden');
@@ -169,8 +187,6 @@ $(document).ready(function() {
 	});
 
    var open = false;
-   
-  
     function isOpen(){
        if(open)
           return true;
@@ -206,11 +222,25 @@ $(document).ready(function() {
    			$(this).parent('div').find('label').removeClass('active-checkbox');
    		}
    });
+   
+   // to display dropdown label
+   $('.gray-dropdown').on('change', function() {
+	   $(this).parent('.selectDiv').addClass('is-not-active');
+	   if($(this).val() == '') {
+		   $(this).parent('.selectDiv').removeClass('is-not-active');
+		}
+   })
+   
+   // to change dropdown label color
+   $('.gray-dropdown').focus(function() {
+		$(this).siblings('label').attr('style', 'color: #ff8200;');
+	}).on('blur', function () {
+		$(this).siblings('label').removeAttr('style');
+	})
 	
 	// Submitting beneficiary form
 	$('#beneficiary-next-btn').on('click', function(e) {
         var $self = $(this);
-         
         if (isBeneficaryFormValid()) {
             $('#name-others-id').on('click', function(e) {
             	$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').resetForm(true);
@@ -356,7 +386,6 @@ $(document).ready(function() {
 	});
 	$('#plan-dob-datepicker').on('change', function() {
 		if($(this).val() != '') {
-
 			var from = $(this).val().split("-");
 			var birthday = new Date(from[2], from[1] - 1, from[0]);
 			var current_date = new Date();
@@ -373,7 +402,6 @@ $(document).ready(function() {
 			} else {
 				$('#total-years-holder').addClass('hidden');
 			}
-			
 		} else {
 			$('#total-years-holder').addClass('hidden');
 		}
@@ -398,7 +426,7 @@ $(document).ready(function() {
 // Checkbox
 function correspondenceCheckbox() {
 	// Different to permanent is checked
-	if (document.getElementById('diffToPermanent').checked) {			  
+	if (document.getElementById('diffToPermanent').checked) {
 		if ($('#diffToPermanentShow').hasClass('hidden')) {
 			$('#diffToPermanentShow').removeClass('hidden');
 		}
@@ -518,8 +546,7 @@ function maxLengthCheck(object){
 //Applicant Info form validation
 function soFormValidation() {
   $('#soInsuredInfoForm').bootstrapValidator({
-	 excluded: [':disabled', ':hidden', ':not(:visible)'
-			  ],
+	 excluded: [':disabled', ':hidden', ':not(:visible)'],
 	 fields: {
 		"firstName": {
 		   container: '#firstNameErMsg',
@@ -680,7 +707,55 @@ function soFormValidation() {
 				  message: "Please enter a valid address."
 				}
 			}
-		 }
+		 },
+		 "permanentDistrict": {
+		   container: '#permanentDistrictErMsg',
+		   validators: {
+			  notEmpty: {
+				 message: "Please select a district."
+			  }
+		   }
+		},
+		 "residentialAddress1": {
+			container: '#residentialAddErMsg',
+			validators: {
+				notEmpty: {
+				  message: "Please enter your address."
+				},
+				regexp: {
+				  regexp: /^[a-zA-Z0-9\s,-\/]*$/,
+				  message: "Please enter a valid address."
+				}
+			}
+		 },
+		 "residentialDistrict": {
+		   container: '#residentialDistrictErMsg',
+		   validators: {
+			  notEmpty: {
+				 message: "Please select a district."
+			  }
+		   }
+		},
+		 "correspondenceAddress1": {
+			container: '#correspondenceAddErMsg',
+			validators: {
+				notEmpty: {
+				  message: "Please enter your address."
+				},
+				regexp: {
+				  regexp: /^[a-zA-Z0-9\s,-\/]*$/,
+				  message: "Please enter a valid address."
+				}
+			}
+		 },
+		 "correspondenceDistrict": {
+		   container: '#correspondenceDistrictErMsg',
+		   validators: {
+			  notEmpty: {
+				 message: "Please select a district."
+			  }
+		   }
+		}
 	}
   }).on('success.form.bv', function(e) {
 	 e.preventDefault();
@@ -737,11 +812,7 @@ function soFirstBFormValidation() {
 						regexp: /^[\s\u4e00-\u9eff]*$/,
 						message: "Please enter a valid Chinese name."
 					},
-					callback: {
-						callback: function (value, validator) {
-							return true;		                	  
-						}
-				    }
+					trigger: 'change keyup'
 				}
 			},
 			'beneficiaryHkidPassport[0]':{
@@ -836,6 +907,9 @@ function soFirstBFormValidation() {
 				}
 			}
 		}
+	}).on('success.form.bv', function(e) {
+		e.preventDefault();
+	}).on('error.form.bv', function(e) {
 	});
 	
 	$( "#beneficiaryEntitlement\\[0\\]" ).on('change', function() {
@@ -908,7 +982,7 @@ function soFirstBFormValidation() {
 						callback: function (value, validator) {
 							return true;		                	  
 						}
-				    }
+					}
 				}
 			},
 			'beneficiaryHkidPassport[1]':{
@@ -1024,6 +1098,9 @@ function soFirstBFormValidation() {
 				}
 			}
 		}
+	}).on('success.form.bv', function(e) {
+		e.preventDefault();
+	}).on('error.form.bv', function(e) {
 	});
 	 
 	$( "#beneficiaryEntitlement\\[1\\]" ).on('change', function() {
@@ -1093,10 +1170,10 @@ function soFirstBFormValidation() {
 						 message: "Beneficiary's Chinese name is invalid."
 					  },
 					  callback: {
-							callback: function (value, validator) {
-								return true;		                	  
-							}
+						callback: function (value, validator) {
+							return true;		                	  
 						}
+					  }
 					}
 				},
 				'beneficiaryHkidPassport[2]':{
@@ -1170,6 +1247,9 @@ function soFirstBFormValidation() {
 					}
 				}
 			}
+		}).on('success.form.bv', function(e) {
+			e.preventDefault();
+		}).on('error.form.bv', function(e) {
 		});
 		 
 		 $( "#beneficiaryEntitlement\\[2\\]" ).on('change', function() {
