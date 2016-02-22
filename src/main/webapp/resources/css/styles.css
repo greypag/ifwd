@@ -10644,7 +10644,8 @@ span.dup-error-msg {
     padding-right: 5px;
 }
 /* line 672, ../sass/partials/_personal_info.scss */
-.fwd-savie-wrapper .personal-info-widget .checkbox-section .pull-left.right-checkbox span.checkbox-text
+.fwd-savie-wrapper .personal-info-widget .checkbox-section .pull-left.right-checkbox span.checkbox-text,
+.fwd-savie-wrapper .personal-info-widget .checkbox-section .pull-left.right-checkbox label.checkbox-text
 	{
 	color: #061d2a;
 	font-family: 'Calibri';
@@ -25441,4 +25442,23 @@ body.chin .fwd-savie-wrapper .teaser-confirmation .wa_btn, body.chin .fwd-savie-
 		{
 		width: 25%;
 	}
+}
+#eliteTermsInsuredInfoForm .checkbox-text,
+#beneficiary-info .upper-radio-buttons .description,
+label.et-bene-radio,#et-application-second-section label,
+#paymentForm p.notice,.et-document-upload label{
+	cursor: pointer;
+}
+.beneficiary-info-row label.description{
+	vertical-align: top;
+}
+.fwd-savie-wrapper #beneficiary-info .content .beneficiary-info-row .radio-buttons label.et-bene-radio{
+    position: inherit;
+    color: #061d2a;
+    margin-top: -2px;
+    padding-top: 0;
+    border: 0;	
+}
+#paymentForm p.notice{
+	
 }
