@@ -38,6 +38,7 @@ import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
 import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
+import com.ifwd.fwdhk.connector.response.savieonline.PolicyApplication;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
@@ -1702,90 +1703,100 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		final Map<String,String> header = headerUtil.getHeader(request);
 		GetPolicyApplicationResponse apiResponse = connector.getPolicyApplication(header);
 		
-		if(apiResponse.hasError()) {
+		if(apiResponse!=null&&apiResponse.hasError()) {
 			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
 		}
-		else{
-			LifePersonalDetailsBean lifePersonalDetails = new LifePersonalDetailsBean();
-			lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
-			lifePersonalDetails.setFirstname(apiResponse.getPolicyApplication().getApplicantFirstName());
-			lifePersonalDetails.setLastname(apiResponse.getPolicyApplication().getApplicantLastName());
-			lifePersonalDetails.setChineseName(apiResponse.getPolicyApplication().getApplicantChineseName());
-			lifePersonalDetails.setDob(apiResponse.getPolicyApplication().getApplicantDob());
-			lifePersonalDetails.setGender(apiResponse.getPolicyApplication().getApplicantGender());
-			lifePersonalDetails.setHkid(apiResponse.getPolicyApplication().getApplicantHkId());
-			lifePersonalDetails.setPassport(apiResponse.getPolicyApplication().getApplicantPassport());
-			lifePersonalDetails.setMartialStatus(apiResponse.getPolicyApplication().getApplicantMaritalStatus());
-			lifePersonalDetails.setPlaceOfBirth(apiResponse.getPolicyApplication().getApplicantPlaceOfBirth());
-			lifePersonalDetails.setNationalty(apiResponse.getPolicyApplication().getApplicantNationality());
-			lifePersonalDetails.setResidentialTelNoCountryCode(apiResponse.getPolicyApplication().getApplicantResidentialTelNoCountryCode());
-			lifePersonalDetails.setResidentialTelNo(apiResponse.getPolicyApplication().getApplicantResidentialTelNo());
-			lifePersonalDetails.setMobileNoCountryCode(apiResponse.getPolicyApplication().getApplicantMobileNoCountryCode());
-			lifePersonalDetails.setMobileNumber(apiResponse.getPolicyApplication().getApplicantMobileNo());
-			lifePersonalDetails.setEmailAddress(apiResponse.getPolicyApplication().getApplicantEmail());
-			lifePersonalDetails.setResidentialAddress1(apiResponse.getPolicyApplication().getResidentialAddress1());
-			lifePersonalDetails.setResidentialAddress2(apiResponse.getPolicyApplication().getResidentialAddress2());
-			lifePersonalDetails.setResidentialAddress3(apiResponse.getPolicyApplication().getResidentialAddress3());
-			lifePersonalDetails.setResidentialAddress4(apiResponse.getPolicyApplication().getResidentialAddress4());
-			lifePersonalDetails.setResidentialAddressDistrict(apiResponse.getPolicyApplication().getResidentialDistrict());
-			lifePersonalDetails.setCorrespondenceAddress1(apiResponse.getPolicyApplication().getCorrespondenceAddress1());
-			lifePersonalDetails.setCorrespondenceAddress2(apiResponse.getPolicyApplication().getCorrespondenceAddress2());
-			lifePersonalDetails.setCorrespondenceAddress3(apiResponse.getPolicyApplication().getCorrespondenceAddress3());
-			lifePersonalDetails.setCorrespondenceAddress4(apiResponse.getPolicyApplication().getCorrespondenceAddress4());
-			lifePersonalDetails.setCorrespondenceAddressDistrict(apiResponse.getPolicyApplication().getCorrespondenceDistrict());
-			lifePersonalDetails.setPermanetAddress1(apiResponse.getPolicyApplication().getPermanentAddress1());
-			lifePersonalDetails.setPermanetAddress2(apiResponse.getPolicyApplication().getPermanentAddress2());
-			lifePersonalDetails.setPermanetAddress3(apiResponse.getPolicyApplication().getPermanentAddress3());
-			lifePersonalDetails.setPermanetAddress4(apiResponse.getPolicyApplication().getPermanentAddress4());
-			lifePersonalDetails.setPermanetAddressDistrict(apiResponse.getPolicyApplication().getPermanentDistrict());
+		else if(apiResponse!=null&&apiResponse.getPolicyApplication()!=null){
+			PolicyApplication policyApplication = apiResponse.getPolicyApplication();
+			
+			LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
+			if(lifePersonalDetails==null){
+				lifePersonalDetails = new LifePersonalDetailsBean();
+			}
+			lifePersonalDetails.setFirstname(policyApplication.getApplicantFirstName()!=null?policyApplication.getApplicantFirstName():"");
+			lifePersonalDetails.setLastname(policyApplication.getApplicantLastName()!=null?policyApplication.getApplicantLastName():"");
+			lifePersonalDetails.setChineseName(policyApplication.getApplicantChineseName()!=null?policyApplication.getApplicantChineseName():"");
+			lifePersonalDetails.setDob(policyApplication.getApplicantDob()!=null?policyApplication.getApplicantDob():"");
+			lifePersonalDetails.setGender(policyApplication.getApplicantGender()!=null?policyApplication.getApplicantGender():"");
+			lifePersonalDetails.setHkid(policyApplication.getApplicantHkId()!=null?policyApplication.getApplicantHkId():"");
+			lifePersonalDetails.setPassport(policyApplication.getApplicantPassport()!=null?policyApplication.getApplicantPassport():"");
+			lifePersonalDetails.setMartialStatus(policyApplication.getApplicantMaritalStatus()!=null?policyApplication.getApplicantMaritalStatus():"");
+			lifePersonalDetails.setPlaceOfBirth(policyApplication.getApplicantPlaceOfBirth()!=null?policyApplication.getApplicantPlaceOfBirth():"");
+			lifePersonalDetails.setNationalty(policyApplication.getApplicantNationality()!=null?policyApplication.getApplicantNationality():"");
+			lifePersonalDetails.setResidentialTelNoCountryCode(policyApplication.getApplicantResidentialTelNoCountryCode()!=null?policyApplication.getApplicantResidentialTelNoCountryCode():"");
+			lifePersonalDetails.setResidentialTelNo(policyApplication.getApplicantResidentialTelNo()!=null?policyApplication.getApplicantResidentialTelNo():"");
+			lifePersonalDetails.setMobileNoCountryCode(policyApplication.getApplicantMobileNoCountryCode()!=null?policyApplication.getApplicantMobileNoCountryCode():"");
+			lifePersonalDetails.setMobileNumber(policyApplication.getApplicantMobileNo()!=null?policyApplication.getApplicantMobileNo():"");
+			lifePersonalDetails.setEmailAddress(policyApplication.getApplicantEmail()!=null?policyApplication.getApplicantEmail():"");
+			lifePersonalDetails.setResidentialAddress1(policyApplication.getResidentialAddress1()!=null?policyApplication.getResidentialAddress1():"");
+			lifePersonalDetails.setResidentialAddress2(policyApplication.getResidentialAddress2()!=null?policyApplication.getResidentialAddress2():"");
+			lifePersonalDetails.setResidentialAddress3(policyApplication.getResidentialAddress3()!=null?policyApplication.getResidentialAddress3():"");
+			lifePersonalDetails.setResidentialAddress4(policyApplication.getResidentialAddress4()!=null?policyApplication.getResidentialAddress4():"");
+			lifePersonalDetails.setResidentialAddressDistrict(policyApplication.getResidentialDistrict()!=null?policyApplication.getResidentialDistrict():"");
+			lifePersonalDetails.setCorrespondenceAddress1(policyApplication.getCorrespondenceAddress1()!=null?policyApplication.getCorrespondenceAddress1():"");
+			lifePersonalDetails.setCorrespondenceAddress2(policyApplication.getCorrespondenceAddress2()!=null?policyApplication.getCorrespondenceAddress2():"");
+			lifePersonalDetails.setCorrespondenceAddress3(policyApplication.getCorrespondenceAddress3()!=null?policyApplication.getCorrespondenceAddress3():"");
+			lifePersonalDetails.setCorrespondenceAddress4(policyApplication.getCorrespondenceAddress4()!=null?policyApplication.getCorrespondenceAddress4():"");
+			lifePersonalDetails.setCorrespondenceAddressDistrict(policyApplication.getCorrespondenceDistrict()!=null?policyApplication.getCorrespondenceDistrict():"");
+			lifePersonalDetails.setPermanetAddress1(policyApplication.getPermanentAddress1()!=null?policyApplication.getPermanentAddress1():"");
+			lifePersonalDetails.setPermanetAddress2(policyApplication.getPermanentAddress2()!=null?policyApplication.getPermanentAddress2():"");
+			lifePersonalDetails.setPermanetAddress3(policyApplication.getPermanentAddress3()!=null?policyApplication.getPermanentAddress3():"");
+			lifePersonalDetails.setPermanetAddress4(policyApplication.getPermanentAddress4()!=null?policyApplication.getPermanentAddress4():"");
+			lifePersonalDetails.setPermanetAddressDistrict(policyApplication.getPermanentDistrict()!=null?policyApplication.getPermanentDistrict():"");
 			request.getSession().setAttribute("lifePersonalDetails", lifePersonalDetails);
 			
-			LifeEmploymentInfoBean lifeEmploymentInfo = new LifeEmploymentInfoBean();
-			lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
-			lifeEmploymentInfo.setEmploymentStatus(apiResponse.getPolicyApplication().getEmploymentStatus());
-			lifeEmploymentInfo.setOccupation(apiResponse.getPolicyApplication().getOccupation());
-			lifeEmploymentInfo.setEducation(apiResponse.getPolicyApplication().getEducationLevel());
-			lifeEmploymentInfo.setNatureOfBusiness(apiResponse.getPolicyApplication().getNatureOfBusiness());
-			lifeEmploymentInfo.setMonthlyPersonalIncome(apiResponse.getPolicyApplication().getMonthlyPersonalIncome());
-			lifeEmploymentInfo.setAmountOfLiquidAssets(apiResponse.getPolicyApplication().getLiquidAssest());
-			lifeEmploymentInfo.setAmountOfOtherSourceOfIncome(apiResponse.getPolicyApplication().getAmountOtherSource());
-			lifeEmploymentInfo.setEmployerName(apiResponse.getPolicyApplication().getEmployerName());
+			LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
+			if(lifeEmploymentInfo==null){
+				lifeEmploymentInfo = new LifeEmploymentInfoBean();
+			}
+			lifeEmploymentInfo.setEmploymentStatus(policyApplication.getEmploymentStatus()!=null?policyApplication.getEmploymentStatus():"");
+			lifeEmploymentInfo.setOccupation(policyApplication.getOccupation()!=null?policyApplication.getOccupation():"");
+			lifeEmploymentInfo.setEducation(policyApplication.getEducationLevel()!=null?policyApplication.getEducationLevel():"");
+			lifeEmploymentInfo.setNatureOfBusiness(policyApplication.getNatureOfBusiness()!=null?policyApplication.getNatureOfBusiness():"");
+			lifeEmploymentInfo.setMonthlyPersonalIncome(policyApplication.getMonthlyPersonalIncome()!=null?policyApplication.getMonthlyPersonalIncome():"");
+			lifeEmploymentInfo.setAmountOfLiquidAssets(policyApplication.getLiquidAssest()!=null?policyApplication.getLiquidAssest():"");
+			lifeEmploymentInfo.setAmountOfOtherSourceOfIncome(policyApplication.getAmountOtherSource()!=null?policyApplication.getAmountOtherSource():"");
+			lifeEmploymentInfo.setEmployerName(policyApplication.getEmployerName()!=null?policyApplication.getEmployerName():"");
 			request.getSession().setAttribute("lifeEmploymentInfo", lifeEmploymentInfo);
 			
-			LifeBeneficaryInfoBean lifeBeneficaryInfo = new LifeBeneficaryInfoBean();
-			lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
-			lifeBeneficaryInfo.setBeneficaryFirstName1(apiResponse.getPolicyApplication().getBeneficiaryFirstName1());
-			lifeBeneficaryInfo.setBeneficaryLastName1(apiResponse.getPolicyApplication().getBeneficiaryLastName1());
-			lifeBeneficaryInfo.setBeneficaryChineseName1(apiResponse.getPolicyApplication().getBeneficiaryChineseName1());
-			lifeBeneficaryInfo.setBeneficaryID1(apiResponse.getPolicyApplication().getBeneficiaryHkId1());
-			lifeBeneficaryInfo.setBeneficiaryPassport1(apiResponse.getPolicyApplication().getBeneficiaryPassport1());
-			lifeBeneficaryInfo.setBeneficaryGender1(apiResponse.getPolicyApplication().getBeneficiaryGender1());
-			lifeBeneficaryInfo.setBeneficaryRelation1(apiResponse.getPolicyApplication().getBeneficiaryRelationship1());
-			lifeBeneficaryInfo.setBeneficaryWeight1(apiResponse.getPolicyApplication().getBeneficiaryEntitlement1());
-			lifeBeneficaryInfo.setBeneficaryFirstName2(apiResponse.getPolicyApplication().getBeneficiaryFirstName2());
-			lifeBeneficaryInfo.setBeneficaryLastName2(apiResponse.getPolicyApplication().getBeneficiaryLastName2());
-			lifeBeneficaryInfo.setBeneficaryChineseName2(apiResponse.getPolicyApplication().getBeneficiaryChineseName2());
-			lifeBeneficaryInfo.setBeneficaryID2(apiResponse.getPolicyApplication().getBeneficiaryHkId2());
-			lifeBeneficaryInfo.setBeneficiaryPassport2(apiResponse.getPolicyApplication().getBeneficiaryPassport2());
-			lifeBeneficaryInfo.setBeneficaryGender2(apiResponse.getPolicyApplication().getBeneficiaryGender2());
-			lifeBeneficaryInfo.setBeneficaryRelation2(apiResponse.getPolicyApplication().getBeneficiaryRelationship2());
-			lifeBeneficaryInfo.setBeneficaryWeight2(apiResponse.getPolicyApplication().getBeneficiaryEntitlement2());
-			lifeBeneficaryInfo.setBeneficaryFirstName3(apiResponse.getPolicyApplication().getBeneficiaryFirstName3());
-			lifeBeneficaryInfo.setBeneficaryLastName3(apiResponse.getPolicyApplication().getBeneficiaryLastName3());
-			lifeBeneficaryInfo.setBeneficaryChineseName3(apiResponse.getPolicyApplication().getBeneficiaryChineseName3());
-			lifeBeneficaryInfo.setBeneficaryID3(apiResponse.getPolicyApplication().getBeneficiaryHkId3());
-			lifeBeneficaryInfo.setBeneficiaryPassport3(apiResponse.getPolicyApplication().getBeneficiaryPassport3());
-			lifeBeneficaryInfo.setBeneficaryGender3(apiResponse.getPolicyApplication().getBeneficiaryGender3());
-			lifeBeneficaryInfo.setBeneficaryRelation3(apiResponse.getPolicyApplication().getBeneficiaryRelationship3());
-			lifeBeneficaryInfo.setBeneficaryWeight3(apiResponse.getPolicyApplication().getBeneficiaryEntitlement3());
+			LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
+			if(lifeBeneficaryInfo==null){
+				lifeBeneficaryInfo = new LifeBeneficaryInfoBean();
+			}
+			lifeBeneficaryInfo.setBeneficaryFirstName1(policyApplication.getBeneficiaryFirstName1()!=null?policyApplication.getBeneficiaryFirstName1():"");
+			lifeBeneficaryInfo.setBeneficaryLastName1(policyApplication.getBeneficiaryLastName1()!=null?policyApplication.getBeneficiaryLastName1():"");
+			lifeBeneficaryInfo.setBeneficaryChineseName1(policyApplication.getBeneficiaryChineseName1()!=null?policyApplication.getBeneficiaryChineseName1():"");
+			lifeBeneficaryInfo.setBeneficaryID1(policyApplication.getBeneficiaryHkId1()!=null?policyApplication.getBeneficiaryHkId1():"");
+			lifeBeneficaryInfo.setBeneficiaryPassport1(policyApplication.getBeneficiaryPassport1()!=null?policyApplication.getBeneficiaryPassport1():"");
+			lifeBeneficaryInfo.setBeneficaryGender1(policyApplication.getBeneficiaryGender1()!=null?policyApplication.getBeneficiaryGender1():"");
+			lifeBeneficaryInfo.setBeneficaryRelation1(policyApplication.getBeneficiaryRelationship1()!=null?policyApplication.getBeneficiaryRelationship1():"");
+			lifeBeneficaryInfo.setBeneficaryWeight1(policyApplication.getBeneficiaryEntitlement1()!=null?policyApplication.getBeneficiaryEntitlement1():"");
+			lifeBeneficaryInfo.setBeneficaryFirstName2(policyApplication.getBeneficiaryFirstName2()!=null?policyApplication.getBeneficiaryFirstName2():"");
+			lifeBeneficaryInfo.setBeneficaryLastName2(policyApplication.getBeneficiaryLastName2()!=null?policyApplication.getBeneficiaryLastName2():"");
+			lifeBeneficaryInfo.setBeneficaryChineseName2(policyApplication.getBeneficiaryChineseName2()!=null?policyApplication.getBeneficiaryChineseName2():"");
+			lifeBeneficaryInfo.setBeneficaryID2(policyApplication.getBeneficiaryHkId2()!=null?policyApplication.getBeneficiaryHkId2():"");
+			lifeBeneficaryInfo.setBeneficiaryPassport2(policyApplication.getBeneficiaryPassport2()!=null?policyApplication.getBeneficiaryPassport2():"");
+			lifeBeneficaryInfo.setBeneficaryGender2(policyApplication.getBeneficiaryGender2()!=null?policyApplication.getBeneficiaryGender2():"");
+			lifeBeneficaryInfo.setBeneficaryRelation2(policyApplication.getBeneficiaryRelationship2()!=null?policyApplication.getBeneficiaryRelationship2():"");
+			lifeBeneficaryInfo.setBeneficaryWeight2(policyApplication.getBeneficiaryEntitlement2()!=null?policyApplication.getBeneficiaryEntitlement2():"");
+			lifeBeneficaryInfo.setBeneficaryFirstName3(policyApplication.getBeneficiaryFirstName3()!=null?policyApplication.getBeneficiaryFirstName3():"");
+			lifeBeneficaryInfo.setBeneficaryLastName3(policyApplication.getBeneficiaryLastName3()!=null?policyApplication.getBeneficiaryLastName3():"");
+			lifeBeneficaryInfo.setBeneficaryChineseName3(policyApplication.getBeneficiaryChineseName3()!=null?policyApplication.getBeneficiaryChineseName3():"");
+			lifeBeneficaryInfo.setBeneficaryID3(policyApplication.getBeneficiaryHkId3()!=null?policyApplication.getBeneficiaryHkId3():"");
+			lifeBeneficaryInfo.setBeneficiaryPassport3(policyApplication.getBeneficiaryPassport3()!=null?policyApplication.getBeneficiaryPassport3():"");
+			lifeBeneficaryInfo.setBeneficaryGender3(policyApplication.getBeneficiaryGender3()!=null?policyApplication.getBeneficiaryGender3():"");
+			lifeBeneficaryInfo.setBeneficaryRelation3(policyApplication.getBeneficiaryRelationship3()!=null?policyApplication.getBeneficiaryRelationship3():"");
+			lifeBeneficaryInfo.setBeneficaryWeight3(policyApplication.getBeneficiaryEntitlement3()!=null?policyApplication.getBeneficiaryEntitlement3():"");
 			request.getSession().setAttribute("lifeBeneficaryInfo", lifeBeneficaryInfo);
 			
-			LifePaymentBean lifePayment = new LifePaymentBean();
-			lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
-			lifePayment.setPaymentMethod(apiResponse.getPolicyApplication().getPaymentMethod());
-			lifePayment.setBankCode(apiResponse.getPolicyApplication().getBankName());
-			lifePayment.setBranchCode(apiResponse.getPolicyApplication().getBranchName());
-			lifePayment.setAccountNumber(apiResponse.getPolicyApplication().getAccountNo());
+			LifePaymentBean lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
+			if(lifePayment==null){
+				lifePayment = new LifePaymentBean();
+			}
+			lifePayment.setPaymentMethod(policyApplication.getPaymentMethod()!=null?policyApplication.getPaymentMethod():"");
+			lifePayment.setBankCode(policyApplication.getBankName()!=null?policyApplication.getBankName():"");
+			lifePayment.setBranchCode(policyApplication.getBranchName()!=null?policyApplication.getBranchName():"");
+			lifePayment.setAccountNumber(policyApplication.getAccountNo()!=null?policyApplication.getAccountNo():"");
 			request.getSession().setAttribute("lifePayment", lifePayment);
 		}
 	}
