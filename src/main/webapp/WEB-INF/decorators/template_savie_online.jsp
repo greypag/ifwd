@@ -74,6 +74,14 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/datepicker.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.mCustomScrollbar.min.css">
 
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/icomoon.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-slider.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.jscrollpane.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-styles.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/datepicker3.min.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.timepicker.css">
+
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/ZeroClipboard.js"></script>
