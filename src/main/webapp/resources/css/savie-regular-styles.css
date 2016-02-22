@@ -2929,7 +2929,7 @@ button#thank-you-continue {
 
 /* line 3, ../sass/partials/_investment.scss */
 .modal.fade.thank-you-modal .modal-content.thank-you-content {
-  max-height: 400px;
+  max-height: 80% !important;
   overflow: scroll;
 }
 @media (min-width: 768px) {
