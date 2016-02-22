@@ -488,17 +488,6 @@ var context = "${pageContext.request.contextPath}";
 					$('.navbar.navbar-default.navbar-no-scroll.hidden-lg.hidden-md.pad-none').addClass('navbar-fixed-top').removeClass('navbar-no-scroll');
 				});
 				
-				var value = $('#policy-year-3-1').html();
-				$(document).on('change','#payment-years',function(){
-					$('#policy-year-3-1').html('');
-					if($(this).val() > 65) {
-						$('#policy-year-3-1').html(value+"<span class='payment-ends'><fmt:message key='label.final.payment.year' bundle='${msg}' /></span>");
-					}
-					else {
-						$('#policy-year-3-1').html(value);
-					}
-				});
-				
 	        	$("#payment-button-tooltip").tooltip().on('show.bs.tooltip', function() { 
 					setTimeout(function(){
 						$("#payment-button-tooltip").next().html('<div class="tooltip-arrow"></div><div class="tooltip-inner"><fmt:message key="tooltip.savie.payment.method" bundle="${msg}" /></div>'); 
@@ -638,4 +627,8 @@ var context = "${pageContext.request.contextPath}";
 				$('#promo').removeClass('dob-reg-payment');
 				$('#investment-amount').addClass('one-off');
 		    <% } %>
+		    
+		    function appendPaymentEnds() {
+		    	$('#policy-year-3-1 .payment-ends').append('<fmt:message key="label.final.payment.year" bundle="${msg}" />');
+		    }
 		</script>
