@@ -14,6 +14,7 @@ public class LifePaymentBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Boolean payOnline;
+	private String paymentMethod;
 	private String bankCode;
 	private String branchCode;
 	private String accountNumber;
@@ -89,4 +90,13 @@ public class LifePaymentBean implements Serializable {
 	public void setPaymentAmount(String paymentAmount) {
 		this.paymentAmount = paymentAmount;
 	}
+
+	public String getPaymentMethod() {
+		return paymentMethod;
+	}
+
+	public void setPaymentMethod(String paymentMethod) {
+		this.paymentMethod = paymentMethod;
+	}
+	
 }

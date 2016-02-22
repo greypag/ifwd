@@ -231,6 +231,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			jsonObject = savieOnlineService.getPurchaseHistoryByPlanCode(request);
+			savieOnlineService.getPolicyApplicationSaveforLater(request);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
@@ -282,22 +283,6 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
-		}
-		logger.info(jsonObject.toString());
-		ajaxReturn(response, jsonObject);
-	}
-	
-	@RequestMapping(value = {"/ajax/savie-online/getPolicyApplicationSaveforLater"})
-	public void getPolicyApplicationSaveforLater(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
-		JSONObject jsonObject = new JSONObject();
-		if(Methods.isXssAjax(request)){
-			return;
-		}
-		try {
-			jsonObject = savieOnlineService.getPolicyApplicationSaveforLater(request);
-		}
-		catch (ECOMMAPIException e) {
-			jsonObject.put("errorMsg", "api error");
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);

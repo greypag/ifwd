@@ -29,7 +29,7 @@ public interface SavieOnlineService {
 	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
 	public List<OptionItemDesc> getBranchCode(HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject createPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;
-	public JSONObject getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;
+	public void getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception;
 	
 }

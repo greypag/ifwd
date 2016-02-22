@@ -21,6 +21,7 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	private String beneficaryLastName1;
 	private String beneficaryChineseName1;
 	private String beneficaryID1;
+	private String beneficiaryPassport1;
 	private String beneficaryGender1;
 	private String beneficaryRelation1;
 	private String beneficaryWeight1;
@@ -28,6 +29,7 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	private String beneficaryLastName2;
 	private String beneficaryChineseName2;
 	private String beneficaryID2;
+	private String beneficiaryPassport2;
 	private String beneficaryGender2;
 	private String beneficaryRelation2;
 	private String beneficaryWeight2;
@@ -35,6 +37,7 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	private String beneficaryLastName3;
 	private String beneficaryChineseName3;
 	private String beneficaryID3;
+	private String beneficiaryPassport3;
 	private String beneficaryGender3;
 	private String beneficaryRelation3;
 	private String beneficaryWeight3;
@@ -244,6 +247,30 @@ public class LifeBeneficaryInfoBean implements Serializable {
 
 	public void setBeneficaryWeight3(String beneficaryWeight3) {
 		this.beneficaryWeight3 = beneficaryWeight3;
+	}
+
+	public String getBeneficiaryPassport1() {
+		return beneficiaryPassport1;
+	}
+
+	public void setBeneficiaryPassport1(String beneficiaryPassport1) {
+		this.beneficiaryPassport1 = beneficiaryPassport1;
+	}
+
+	public String getBeneficiaryPassport2() {
+		return beneficiaryPassport2;
+	}
+
+	public void setBeneficiaryPassport2(String beneficiaryPassport2) {
+		this.beneficiaryPassport2 = beneficiaryPassport2;
+	}
+
+	public String getBeneficiaryPassport3() {
+		return beneficiaryPassport3;
+	}
+
+	public void setBeneficiaryPassport3(String beneficiaryPassport3) {
+		this.beneficiaryPassport3 = beneficiaryPassport3;
 	}
 
 	

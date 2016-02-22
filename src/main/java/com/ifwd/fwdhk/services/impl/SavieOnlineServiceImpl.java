@@ -37,6 +37,7 @@ import com.ifwd.fwdhk.connector.ECommWsConnector;
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
+import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
@@ -1197,27 +1198,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return responseJsonObj;
 	}
 	
-	public JSONObject getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException{
-		String Url = UserRestURIConstants.GET_POLICY_APPLICATION_SAVE_FOR_LATER;
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		String lang = UserRestURIConstants.getLanaguage(request);
-		
-		if (lang.equals("tc")){
-			lang = "CH";
-		}
-		else{
-			lang = "EN";
-		}
-		
-		header.put("language", WebServiceUtils.transformLanaguage(lang));
-		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		
-		if(responseJsonObj.get("errMsgs") != null) {
-			throw new ECOMMAPIException(responseJsonObj.get("errMsgs").toString());
-		}
-		return responseJsonObj;
-	}
-	
 	public JSONObject uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception{
 		//fna pdf
 		SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
@@ -1716,5 +1696,97 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("policyNo", eliteTermPolicy.getPolicyNo());
 		connector.uploadSignature(parameters, header);
 		return null;
+	}
+	
+	public void getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException{
+		final Map<String,String> header = headerUtil.getHeader(request);
+		GetPolicyApplicationResponse apiResponse = connector.getPolicyApplication(header);
+		
+		if(apiResponse.hasError()) {
+			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
+		}
+		else{
+			LifePersonalDetailsBean lifePersonalDetails = new LifePersonalDetailsBean();
+			lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
+			lifePersonalDetails.setFirstname(apiResponse.getPolicyApplication().getApplicantFirstName());
+			lifePersonalDetails.setLastname(apiResponse.getPolicyApplication().getApplicantLastName());
+			lifePersonalDetails.setChineseName(apiResponse.getPolicyApplication().getApplicantChineseName());
+			lifePersonalDetails.setDob(apiResponse.getPolicyApplication().getApplicantDob());
+			lifePersonalDetails.setGender(apiResponse.getPolicyApplication().getApplicantGender());
+			lifePersonalDetails.setHkid(apiResponse.getPolicyApplication().getApplicantHkId());
+			lifePersonalDetails.setPassport(apiResponse.getPolicyApplication().getApplicantPassport());
+			lifePersonalDetails.setMartialStatus(apiResponse.getPolicyApplication().getApplicantMaritalStatus());
+			lifePersonalDetails.setPlaceOfBirth(apiResponse.getPolicyApplication().getApplicantPlaceOfBirth());
+			lifePersonalDetails.setNationalty(apiResponse.getPolicyApplication().getApplicantNationality());
+			lifePersonalDetails.setResidentialTelNoCountryCode(apiResponse.getPolicyApplication().getApplicantResidentialTelNoCountryCode());
+			lifePersonalDetails.setResidentialTelNo(apiResponse.getPolicyApplication().getApplicantResidentialTelNo());
+			lifePersonalDetails.setMobileNoCountryCode(apiResponse.getPolicyApplication().getApplicantMobileNoCountryCode());
+			lifePersonalDetails.setMobileNumber(apiResponse.getPolicyApplication().getApplicantMobileNo());
+			lifePersonalDetails.setEmailAddress(apiResponse.getPolicyApplication().getApplicantEmail());
+			lifePersonalDetails.setResidentialAddress1(apiResponse.getPolicyApplication().getResidentialAddress1());
+			lifePersonalDetails.setResidentialAddress2(apiResponse.getPolicyApplication().getResidentialAddress2());
+			lifePersonalDetails.setResidentialAddress3(apiResponse.getPolicyApplication().getResidentialAddress3());
+			lifePersonalDetails.setResidentialAddress4(apiResponse.getPolicyApplication().getResidentialAddress4());
+			lifePersonalDetails.setResidentialAddressDistrict(apiResponse.getPolicyApplication().getResidentialDistrict());
+			lifePersonalDetails.setCorrespondenceAddress1(apiResponse.getPolicyApplication().getCorrespondenceAddress1());
+			lifePersonalDetails.setCorrespondenceAddress2(apiResponse.getPolicyApplication().getCorrespondenceAddress2());
+			lifePersonalDetails.setCorrespondenceAddress3(apiResponse.getPolicyApplication().getCorrespondenceAddress3());
+			lifePersonalDetails.setCorrespondenceAddress4(apiResponse.getPolicyApplication().getCorrespondenceAddress4());
+			lifePersonalDetails.setCorrespondenceAddressDistrict(apiResponse.getPolicyApplication().getCorrespondenceDistrict());
+			lifePersonalDetails.setPermanetAddress1(apiResponse.getPolicyApplication().getPermanentAddress1());
+			lifePersonalDetails.setPermanetAddress2(apiResponse.getPolicyApplication().getPermanentAddress2());
+			lifePersonalDetails.setPermanetAddress3(apiResponse.getPolicyApplication().getPermanentAddress3());
+			lifePersonalDetails.setPermanetAddress4(apiResponse.getPolicyApplication().getPermanentAddress4());
+			lifePersonalDetails.setPermanetAddressDistrict(apiResponse.getPolicyApplication().getPermanentDistrict());
+			request.getSession().setAttribute("lifePersonalDetails", lifePersonalDetails);
+			
+			LifeEmploymentInfoBean lifeEmploymentInfo = new LifeEmploymentInfoBean();
+			lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
+			lifeEmploymentInfo.setEmploymentStatus(apiResponse.getPolicyApplication().getEmploymentStatus());
+			lifeEmploymentInfo.setOccupation(apiResponse.getPolicyApplication().getOccupation());
+			lifeEmploymentInfo.setEducation(apiResponse.getPolicyApplication().getEducationLevel());
+			lifeEmploymentInfo.setNatureOfBusiness(apiResponse.getPolicyApplication().getNatureOfBusiness());
+			lifeEmploymentInfo.setMonthlyPersonalIncome(apiResponse.getPolicyApplication().getMonthlyPersonalIncome());
+			lifeEmploymentInfo.setAmountOfLiquidAssets(apiResponse.getPolicyApplication().getLiquidAssest());
+			lifeEmploymentInfo.setAmountOfOtherSourceOfIncome(apiResponse.getPolicyApplication().getAmountOtherSource());
+			lifeEmploymentInfo.setEmployerName(apiResponse.getPolicyApplication().getEmployerName());
+			request.getSession().setAttribute("lifeEmploymentInfo", lifeEmploymentInfo);
+			
+			LifeBeneficaryInfoBean lifeBeneficaryInfo = new LifeBeneficaryInfoBean();
+			lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
+			lifeBeneficaryInfo.setBeneficaryFirstName1(apiResponse.getPolicyApplication().getBeneficiaryFirstName1());
+			lifeBeneficaryInfo.setBeneficaryLastName1(apiResponse.getPolicyApplication().getBeneficiaryLastName1());
+			lifeBeneficaryInfo.setBeneficaryChineseName1(apiResponse.getPolicyApplication().getBeneficiaryChineseName1());
+			lifeBeneficaryInfo.setBeneficaryID1(apiResponse.getPolicyApplication().getBeneficiaryHkId1());
+			lifeBeneficaryInfo.setBeneficiaryPassport1(apiResponse.getPolicyApplication().getBeneficiaryPassport1());
+			lifeBeneficaryInfo.setBeneficaryGender1(apiResponse.getPolicyApplication().getBeneficiaryGender1());
+			lifeBeneficaryInfo.setBeneficaryRelation1(apiResponse.getPolicyApplication().getBeneficiaryRelationship1());
+			lifeBeneficaryInfo.setBeneficaryWeight1(apiResponse.getPolicyApplication().getBeneficiaryEntitlement1());
+			lifeBeneficaryInfo.setBeneficaryFirstName2(apiResponse.getPolicyApplication().getBeneficiaryFirstName2());
+			lifeBeneficaryInfo.setBeneficaryLastName2(apiResponse.getPolicyApplication().getBeneficiaryLastName2());
+			lifeBeneficaryInfo.setBeneficaryChineseName2(apiResponse.getPolicyApplication().getBeneficiaryChineseName2());
+			lifeBeneficaryInfo.setBeneficaryID2(apiResponse.getPolicyApplication().getBeneficiaryHkId2());
+			lifeBeneficaryInfo.setBeneficiaryPassport2(apiResponse.getPolicyApplication().getBeneficiaryPassport2());
+			lifeBeneficaryInfo.setBeneficaryGender2(apiResponse.getPolicyApplication().getBeneficiaryGender2());
+			lifeBeneficaryInfo.setBeneficaryRelation2(apiResponse.getPolicyApplication().getBeneficiaryRelationship2());
+			lifeBeneficaryInfo.setBeneficaryWeight2(apiResponse.getPolicyApplication().getBeneficiaryEntitlement2());
+			lifeBeneficaryInfo.setBeneficaryFirstName3(apiResponse.getPolicyApplication().getBeneficiaryFirstName3());
+			lifeBeneficaryInfo.setBeneficaryLastName3(apiResponse.getPolicyApplication().getBeneficiaryLastName3());
+			lifeBeneficaryInfo.setBeneficaryChineseName3(apiResponse.getPolicyApplication().getBeneficiaryChineseName3());
+			lifeBeneficaryInfo.setBeneficaryID3(apiResponse.getPolicyApplication().getBeneficiaryHkId3());
+			lifeBeneficaryInfo.setBeneficiaryPassport3(apiResponse.getPolicyApplication().getBeneficiaryPassport3());
+			lifeBeneficaryInfo.setBeneficaryGender3(apiResponse.getPolicyApplication().getBeneficiaryGender3());
+			lifeBeneficaryInfo.setBeneficaryRelation3(apiResponse.getPolicyApplication().getBeneficiaryRelationship3());
+			lifeBeneficaryInfo.setBeneficaryWeight3(apiResponse.getPolicyApplication().getBeneficiaryEntitlement3());
+			request.getSession().setAttribute("lifeBeneficaryInfo", lifeBeneficaryInfo);
+			
+			LifePaymentBean lifePayment = new LifePaymentBean();
+			lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
+			lifePayment.setPaymentMethod(apiResponse.getPolicyApplication().getPaymentMethod());
+			lifePayment.setBankCode(apiResponse.getPolicyApplication().getBankName());
+			lifePayment.setBranchCode(apiResponse.getPolicyApplication().getBranchName());
+			lifePayment.setAccountNumber(apiResponse.getPolicyApplication().getAccountNo());
+			request.getSession().setAttribute("lifePayment", lifePayment);
+		}
 	}
 }
