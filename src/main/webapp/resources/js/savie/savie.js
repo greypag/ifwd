@@ -121,6 +121,7 @@ function getSaviePlanDetails() {
 			// hide loading mask
 			$('.loading-mask').toggle();
 			$('body').removeClass('modal-open');
+			
 
 			if(data.result == "success"){
 				var json = $.parseJSON(JSON.stringify(data));
@@ -256,6 +257,16 @@ function getSaviePlanDetails() {
 											$('#account-value-change-3-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 											$('#surrender-change-3-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										}
+									}
+									
+									var value_rp = $('#policy-year-3-1').html();
+									$('#policy-year-3-1').html('');
+									if(value_rp > 65) {
+										$('#policy-year-3-1').html(value_rp+"<span class='payment-ends'></span>");
+										appendPaymentEnds();
+									}
+									else {
+										$('#policy-year-3-1').html(value_rp);
 									}
 								}
 								if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
