@@ -1,6 +1,41 @@
 /*************************
 *******Header******
 **************************/
+@font-face {
+    font-family: 'Calibri';
+    src: url("../fonts/Calibri_gdi.eot");
+    /* IE9 Compat Modes */
+    src: url("../../fonts/Calibri_gdi.eot?#iefix") format("embedded-opentype"),
+        url("../../fonts/Calibri_gdi.woff") format("woff"),
+        url("../../fonts/Calibri_gdi.ttf") format("truetype"),
+        url("../../fonts/Calibri_gdi.svg#svgFontName") format("svg");
+    /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Calibri-Bold';
+    src: url("../../fonts/Calibri-Bold_gdi.eot");
+    /* IE9 Com@media screen and (min-width: 768px) and (max-width: 991px) {pat Modes */
+    src: url("../../fonts/Calibri-Bold_gdi.eot?#iefix")
+        format("embedded-opentype"), url("../../fonts/Calibri-Bold_gdi.woff")
+        format("woff"), url("../../fonts/Calibri-Bold_gdi.ttf")
+        format("truetype"), url("../../fonts/Calibri-Bold_gdi.svg#svgFontName")
+        format("svg");
+    /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Calibri-Light';
+    src: url("../fonts/Calibri-Light_gdi.eot");
+    /* IE9 Compat Modes */
+    src: url("../../fonts/Calibri-Light_gdi.eot?#iefix")
+        format("embedded-opentype"), url("../../fonts/Calibri-Light_gdi.woff")
+        format("woff"), url("../../fonts/Calibri-Light_gdi.ttf")
+        format("truetype"), url("../../fonts/Calibri-Light_gdi.svg#svgFontName")
+        format("svg");
+    /* Legacy iOS */
+}
+
 body {
     background: #fff;
     font-family: Calibri, sans-serif !important;
