@@ -1211,7 +1211,116 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("permanentAddress3", lifePersonalDetails.getPermanetAddress3()!=null?lifePersonalDetails.getPermanetAddress3():"");
 		parameters.accumulate("permanentAddress4", lifePersonalDetails.getPermanetAddress4()!=null?lifePersonalDetails.getPermanetAddress4():"");
 		parameters.accumulate("permanentDistrict", lifePersonalDetails.getPermanetAddressDistrict()!=null?lifePersonalDetails.getPermanetAddressDistrict():"");
-		parameters.accumulate("lastViewPage", "page1");
+		parameters.accumulate("lastViewPage", "life-personal-details");
+		
+		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
+		if(apiResponse==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
+		}
+		else if(apiResponse.hasError()) {
+			logger.info(apiResponse.getErrMsgs()[0]);
+			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
+		}
+	}
+	
+	public void lifeEmploymentInfoSaveforLater(LifeEmploymentInfoBean lifeEmploymentInfo,HttpServletRequest request) throws ECOMMAPIException{
+		final Map<String,String> header = headerUtil.getHeader(request);
+		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+		parameters.accumulate("planCode", "SAVIE-SP");
+		parameters.accumulate("employmentStatus", lifeEmploymentInfo.getEmploymentStatus()!=null?lifeEmploymentInfo.getEmploymentStatus():"");
+		parameters.accumulate("occupation", lifeEmploymentInfo.getOccupation()!=null?lifeEmploymentInfo.getOccupation():"");
+		parameters.accumulate("educationLevel", lifeEmploymentInfo.getEducation()!=null?lifeEmploymentInfo.getEducation():"");
+		parameters.accumulate("natureOfBusiness", lifeEmploymentInfo.getNatureOfBusiness()!=null?lifeEmploymentInfo.getNatureOfBusiness():"");
+		parameters.accumulate("monthlyPersonalIncome", lifeEmploymentInfo.getMonthlyPersonalIncome()!=null?lifeEmploymentInfo.getMonthlyPersonalIncome():"");
+		parameters.accumulate("liquidAssest", lifeEmploymentInfo.getAmountOfLiquidAssets()!=null?lifeEmploymentInfo.getAmountOfLiquidAssets():"");
+		parameters.accumulate("amountOtherSource", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome()!=null?lifeEmploymentInfo.getAmountOfOtherSourceOfIncome():"");
+		parameters.accumulate("employerName", lifeEmploymentInfo.getEmployerName()!=null?lifeEmploymentInfo.getEmployerName():"");
+		parameters.accumulate("lastViewPage", "life-employment-info");
+		
+		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
+		if(apiResponse==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
+		}
+		else if(apiResponse.hasError()) {
+			logger.info(apiResponse.getErrMsgs()[0]);
+			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
+		}
+	}
+	
+	public void lifeBeneficaryInfoSaveforLater(LifeBeneficaryInfoBean lifeBeneficaryInfo,HttpServletRequest request) throws ECOMMAPIException{
+		final Map<String,String> header = headerUtil.getHeader(request);
+		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+		parameters.accumulate("planCode", "SAVIE-SP");
+		parameters.accumulate("beneficiaryFirstName1", lifeBeneficaryInfo.getBeneficaryFirstName1()!=null?lifeBeneficaryInfo.getBeneficaryFirstName1():"");
+		parameters.accumulate("beneficiaryLastName1", lifeBeneficaryInfo.getBeneficaryLastName1()!=null?lifeBeneficaryInfo.getBeneficaryLastName1():"");
+		parameters.accumulate("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()!=null?lifeBeneficaryInfo.getBeneficaryChineseName1():"");
+		parameters.accumulate("beneficiaryHkId1", lifeBeneficaryInfo.getBeneficaryID1()!=null?lifeBeneficaryInfo.getBeneficaryID1():"");
+		parameters.accumulate("beneficiaryPassport1", lifeBeneficaryInfo.getBeneficiaryPassport1()!=null?lifeBeneficaryInfo.getBeneficiaryPassport1():"");
+		parameters.accumulate("beneficiaryGender1", lifeBeneficaryInfo.getBeneficaryGender1()!=null?lifeBeneficaryInfo.getBeneficaryGender1():"");
+		parameters.accumulate("beneficiaryRelationship1", lifeBeneficaryInfo.getBeneficaryRelation1()!=null?lifeBeneficaryInfo.getBeneficaryRelation1():"");
+		parameters.accumulate("beneficiaryEntitlement1", lifeBeneficaryInfo.getBeneficaryWeight1()!=null?lifeBeneficaryInfo.getBeneficaryWeight1():"");
+		parameters.accumulate("beneficiaryFirstName2", lifeBeneficaryInfo.getBeneficaryFirstName2()!=null?lifeBeneficaryInfo.getBeneficaryFirstName2():"");
+		parameters.accumulate("beneficiaryLastName2", lifeBeneficaryInfo.getBeneficaryLastName2()!=null?lifeBeneficaryInfo.getBeneficaryLastName2():"");
+		parameters.accumulate("beneficiaryChineseName2", lifeBeneficaryInfo.getBeneficaryChineseName2()!=null?lifeBeneficaryInfo.getBeneficaryChineseName2():"");
+		parameters.accumulate("beneficiaryHkId2", lifeBeneficaryInfo.getBeneficaryID2()!=null?lifeBeneficaryInfo.getBeneficaryID2():"");
+		parameters.accumulate("beneficiaryPassport2", lifeBeneficaryInfo.getBeneficiaryPassport2()!=null?lifeBeneficaryInfo.getBeneficiaryPassport2():"");
+		parameters.accumulate("beneficiaryGender2", lifeBeneficaryInfo.getBeneficaryGender2()!=null?lifeBeneficaryInfo.getBeneficaryGender2():"");
+		parameters.accumulate("beneficiaryRelationship2", lifeBeneficaryInfo.getBeneficaryRelation2()!=null?lifeBeneficaryInfo.getBeneficaryRelation2():"");
+		parameters.accumulate("beneficiaryEntitlement2", lifeBeneficaryInfo.getBeneficaryWeight2()!=null?lifeBeneficaryInfo.getBeneficaryWeight2():"");
+		parameters.accumulate("beneficiaryFirstName3", lifeBeneficaryInfo.getBeneficaryFirstName3()!=null?lifeBeneficaryInfo.getBeneficaryFirstName3():"");
+		parameters.accumulate("beneficiaryLastName3", lifeBeneficaryInfo.getBeneficaryLastName3()!=null?lifeBeneficaryInfo.getBeneficaryLastName3():"");
+		parameters.accumulate("beneficiaryChineseName3", lifeBeneficaryInfo.getBeneficaryChineseName3()!=null?lifeBeneficaryInfo.getBeneficaryChineseName3():"");
+		parameters.accumulate("beneficiaryHkId3", lifeBeneficaryInfo.getBeneficaryID3()!=null?lifeBeneficaryInfo.getBeneficaryID3():"");
+		parameters.accumulate("beneficiaryPassport3", lifeBeneficaryInfo.getBeneficiaryPassport3()!=null?lifeBeneficaryInfo.getBeneficiaryPassport3():"");
+		parameters.accumulate("beneficiaryGender3", lifeBeneficaryInfo.getBeneficaryGender3()!=null?lifeBeneficaryInfo.getBeneficaryGender3():"");
+		parameters.accumulate("beneficiaryRelationship3", lifeBeneficaryInfo.getBeneficaryRelation3()!=null?lifeBeneficaryInfo.getBeneficaryRelation3():"");
+		parameters.accumulate("beneficiaryEntitlement3", lifeBeneficaryInfo.getBeneficaryWeight3()!=null?lifeBeneficaryInfo.getBeneficaryWeight3():"");
+		parameters.accumulate("lastViewPage", "life-beneficary-info");
+		
+		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
+		if(apiResponse==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
+		}
+		else if(apiResponse.hasError()) {
+			logger.info(apiResponse.getErrMsgs()[0]);
+			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
+		}
+	}
+	
+	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException{
+		final Map<String,String> header = headerUtil.getHeader(request);
+		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+		parameters.accumulate("planCode", "SAVIE-SP");
+		parameters.accumulate("paymentMethod", lifePayment.getPaymentMethod()!=null?lifePayment.getPaymentMethod():"");
+		parameters.accumulate("bankName", lifePayment.getBankCode()!=null?lifePayment.getBankCode():"");
+		parameters.accumulate("branchName", lifePayment.getBranchCode()!=null?lifePayment.getBranchCode():"");
+		parameters.accumulate("accountNo", lifePayment.getAccountNumber()!=null?lifePayment.getAccountNumber():"");
+		parameters.accumulate("lastViewPage", "life-payment");
+		
+		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
+		if(apiResponse==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
+		}
+		else if(apiResponse.hasError()) {
+			logger.info(apiResponse.getErrMsgs()[0]);
+			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
+		}
+	}
+	
+	public void lifeDeclarationSaveforLater(lifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException{
+		final Map<String,String> header = headerUtil.getHeader(request);
+		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+		parameters.accumulate("planCode", "SAVIE-SP");
+		parameters.accumulate("declaration1", lifeDeclaration.getDeclaration1()!=null?lifeDeclaration.getDeclaration1():"false");
+		parameters.accumulate("declaration2", lifeDeclaration.getDeclaration2()!=null?lifeDeclaration.getDeclaration2():"false");
+		parameters.accumulate("declaration3", lifeDeclaration.getDeclaration3()!=null?lifeDeclaration.getDeclaration3():"false");
+		parameters.accumulate("declaration4", lifeDeclaration.getDeclaration4()!=null?lifeDeclaration.getDeclaration4():"false");
+		parameters.accumulate("declaration5", lifeDeclaration.getDeclaration5()!=null?lifeDeclaration.getDeclaration5():"false");
+		parameters.accumulate("lastViewPage", "life-declaration");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -1833,34 +1942,4 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return num;
 	}
 
-	@Override
-	public void lifeEmploymentInfoSaveforLater(
-			LifeEmploymentInfoBean lifeEmploymentInfo,
-			HttpServletRequest request) throws ECOMMAPIException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void lifeBeneficaryInfoSaveforLater(
-			LifeBeneficaryInfoBean lifeBeneficaryInfo,
-			HttpServletRequest request) throws ECOMMAPIException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,
-			HttpServletRequest request) throws ECOMMAPIException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void lifeDeclarationSaveforLater(
-			lifeDeclarationBean lifeDeclaration, HttpServletRequest request)
-			throws ECOMMAPIException {
-		// TODO Auto-generated method stub
-		
-	}
 }
