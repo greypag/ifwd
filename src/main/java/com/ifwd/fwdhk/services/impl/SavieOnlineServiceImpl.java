@@ -51,6 +51,7 @@ import com.ifwd.fwdhk.model.savieOnline.ProductList;
 import com.ifwd.fwdhk.model.savieOnline.ProductRecommendation;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
+import com.ifwd.fwdhk.model.savieOnline.lifeDeclarationBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
@@ -1220,6 +1221,28 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("branchName", lifePayment.getBranchCode()!=null?lifePayment.getBranchCode():"");
 		parameters.accumulate("accountNo", lifePayment.getAccountNumber()!=null?lifePayment.getAccountNumber():"");
 		parameters.accumulate("lastViewPage", "life-payment");
+		
+		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
+		if(apiResponse==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
+		}
+		else if(apiResponse.hasError()) {
+			logger.info(apiResponse.getErrMsgs()[0]);
+			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
+		}
+	}
+	
+	public void lifeDeclarationSaveforLater(lifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException{
+		final Map<String,String> header = headerUtil.getHeader(request);
+		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+		parameters.accumulate("planCode", "SAVIE-SP");
+		parameters.accumulate("declaration1", lifeDeclaration.getDeclaration1()!=null?lifeDeclaration.getDeclaration1():"false");
+		parameters.accumulate("declaration2", lifeDeclaration.getDeclaration2()!=null?lifeDeclaration.getDeclaration2():"false");
+		parameters.accumulate("declaration3", lifeDeclaration.getDeclaration3()!=null?lifeDeclaration.getDeclaration3():"false");
+		parameters.accumulate("declaration4", lifeDeclaration.getDeclaration4()!=null?lifeDeclaration.getDeclaration4():"false");
+		parameters.accumulate("declaration5", lifeDeclaration.getDeclaration5()!=null?lifeDeclaration.getDeclaration5():"false");
+		parameters.accumulate("lastViewPage", "life-declaration");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
