@@ -78,8 +78,8 @@ public class SavieOnlinePageFlowControl {
 		case UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_FNA;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_FNA;
-			/*filePath = "savie/";
-			current = "plan-details-b-SP";*/
+			filePath = "savie/";
+			current = "plan-details-b-SP";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_FNA: 
