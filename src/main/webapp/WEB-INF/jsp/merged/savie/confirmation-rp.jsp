@@ -98,7 +98,7 @@ var affiliate = "${affiliate}";
                   <div class="col-xs-12 col-md-4">
                     <div class="offline-procedure procedure-3 text-center">
                       <span class="step">3</span>
-                      <p><fmt:message key="saviee.appointment.doucmenttobring3" bundle="${msg}" /></p>
+                      <p><fmt:message key="info.savie.confirmation.bank.authorisation" bundle="${msg}" /></p>
                                             <!--  <p class="step3-2"><fmt:message key="oceanpark.confirmation.or.settle" bundle="${msg}" /></p>-->
                                             <div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/confirmation-3.png" class="img-responsive" /></div>
                     </div>
@@ -156,7 +156,7 @@ var affiliate = "${affiliate}";
                                         <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription6" bundle="${msg}" /></label>
                                         <span class="pull-left">${centreDetails.operationHours }</span>
                                     </div>-->
-                                    <div class="appointment-detail clearfix print hidden-xs hidden-sm">
+                                    <div class="appointment-detail clearfix print ">
                                         <div class="print-image-holder">
                                             <img src="<%=request.getContextPath()%>/resources/images/savie/print-logo.png" alt="Print" class="">
                                             <p id="print-this-page"><fmt:message key="savie.confirmation.offline.Print" bundle="${msg}" /></p>

@@ -67,7 +67,7 @@ var affiliate = "${affiliate}";
               </ol>
             </div>
           </div>
-          <h1><fmt:message key="saviee.appointment.h1" bundle="${msg}" /><!--<br class="visible-xs" /><fmt:message key="savie.confirmation.offline.signing.up" bundle="${msg}" />--></h1>       
+          <h1><fmt:message key="saviee.appointment.h1.rp" bundle="${msg}" /><!--<br class="visible-xs" /><fmt:message key="savie.confirmation.offline.signing.up" bundle="${msg}" />--></h1>       
           <div class="details-container details-full" id="printable-area">
             <div class="row">
               <div class="col-xs-12">
@@ -102,18 +102,18 @@ var affiliate = "${affiliate}";
                   </div>
                 </div>
               </div>
-              <div class="col-xs-12">
+              <!--<div class="col-xs-12">
                                 <div class="oceanpark-foot-message">
                                     <p><fmt:message key="oceanpark.confirmation.foot.part1" bundle="${msg}" /> <b><fmt:message key="oceanpark.confirmation.foot.part2" bundle="${msg}" /></b> <fmt:message key="oceanpark.confirmation.foot.part3" bundle="${msg}" /></p>
                 </div>
-              </div>
+              </div>-->
                             <div class="col-xs-12">
                             <h2 class="h2-orange"><fmt:message key="saviee.appointment.nexstep.title" bundle="${msg}" /></h2>
                                 <div class="whats-next">
                                     <p><fmt:message key="saviee.appointment.nextstep.1" bundle="${msg}" /></p>
                                     <p><fmt:message key="saviee.appointment.nextstep.2" bundle="${msg}" /></p>
                                     <p><fmt:message key="saviee.appointment.nextstep.3" bundle="${msg}" /></p>
-                                    <p><fmt:message key="saviee.appointment.nextstep.4" bundle="${msg}" /></p>
+                                    <p><fmt:message key="saviee.appointment.nextstep.4.rp" bundle="${msg}" /></p>
                                 </div>
                             </div>
                             <div class="col-xs-12">
@@ -147,7 +147,7 @@ var affiliate = "${affiliate}";
                                         <label class="pull-left"><fmt:message key="saviee.appointment.appointmentdescription6" bundle="${msg}" /></label>
                                         <span class="pull-left">${centreDetails.operationHours }</span>
                                     </div>-->
-                                    <div class="appointment-detail clearfix print hidden-xs hidden-sm">
+                                    <div class="appointment-detail clearfix print">
                                         <div class="print-image-holder">
                                             <img src="<%=request.getContextPath()%>/resources/images/savie/print-logo.png" alt="Print" class="">
                                             <p onclick="window.print()"><fmt:message key="savie.confirmation.offline.Print" bundle="${msg}" /></p>
