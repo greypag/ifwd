@@ -15,6 +15,7 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
+import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
@@ -35,6 +36,7 @@ public interface SavieOnlineService {
 	public void lifeEmploymentInfoSaveforLater(LifeEmploymentInfoBean lifeEmploymentInfo,HttpServletRequest request) throws ECOMMAPIException;
 	public void getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;
 	public void lifeBeneficaryInfoSaveforLater(LifeBeneficaryInfoBean lifeBeneficaryInfo,HttpServletRequest request) throws ECOMMAPIException;
+	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception;
 	
 }

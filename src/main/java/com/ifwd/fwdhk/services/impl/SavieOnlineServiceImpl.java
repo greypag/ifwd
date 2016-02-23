@@ -1211,6 +1211,27 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	}
 	
+	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException{
+		final Map<String,String> header = headerUtil.getHeader(request);
+		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+		parameters.accumulate("planCode", "SAVIE-SP");
+		parameters.accumulate("paymentMethod", lifePayment.getPaymentMethod()!=null?lifePayment.getPaymentMethod():"");
+		parameters.accumulate("bankName", lifePayment.getBankCode()!=null?lifePayment.getBankCode():"");
+		parameters.accumulate("branchName", lifePayment.getBranchCode()!=null?lifePayment.getBranchCode():"");
+		parameters.accumulate("accountNo", lifePayment.getAccountNumber()!=null?lifePayment.getAccountNumber():"");
+		parameters.accumulate("lastViewPage", "life-payment");
+		
+		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
+		if(apiResponse==null){
+			logger.info("api error");
+			throw new ECOMMAPIException("api error");
+		}
+		else if(apiResponse.hasError()) {
+			logger.info(apiResponse.getErrMsgs()[0]);
+			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
+		}
+	}
+	
 	public JSONObject uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception{
 		//fna pdf
 		SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
