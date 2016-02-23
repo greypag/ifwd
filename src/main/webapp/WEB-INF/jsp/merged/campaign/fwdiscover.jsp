@@ -21,7 +21,8 @@
     String countDownMM = "Feb";
     boolean isCNYOffer = false;
     if( cCurrent<= cStart ){
-    	disableOfferClass = "paused-plan";
+    	//disableOfferClass = "paused-plan";
+    	disableOfferClass = "";
         countDownDate = "2016-02-29 09:59:59";
     	countDownDD = "29";
     	countDownMM = "FEB";
@@ -31,7 +32,8 @@
     	countDownDate = "2016-03-15 23:59:59";
     	countDownDD = "15";
     	countDownMM = "MAR";
-    	isCNYOffer = false;
+    	//isCNYOffer = false;
+    	isCNYOffer = true;
     }
 
 %>
