@@ -100,6 +100,8 @@ public class SavieOnlinePageFlowControl {
 		case UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA;
+			filePath = "savie/";
+			current = "sales-illustration";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA: 
