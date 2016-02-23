@@ -154,40 +154,53 @@
                      <span class="info">CHANTAIMAN@GMAIL.COM</span>
                   </div>
                   <div class="gray-holder">
-                     <h6 class="info-label">Permanent address (No P.O box address allowed)</h6>
+                     <h6 class="info-label permanent-top">Permanent address (No P.O box address allowed)</h6>
+					 <h6 class="info-label">Permanent address line 1</h6>
                      <span class="info">ROOM 601</span>
                   </div>
 				  <div class="gray-holder">
-                     <h6 class="info-label">Line 2</h6>
+                     <h6 class="info-label">Permanent address line 2</h6>
                      <span class="info">TUNG HIP BUILDING</span>
                   </div>
 				  <div class="gray-holder">
-                     <h6 class="info-label">Line 3</h6>
+                     <h6 class="info-label">Permanent address line 3</h6>
                      <span class="info">248 DES VOEUX ROAD, SHEUNG WAN.</span>
+                  </div>
+				  <div class="gray-holder">
+                     <h6 class="info-label">District</h6>
+                     <span class="info">US</span>
                   </div>
                   <div class="gray-holder">
-                     <h6 class="info-label">Residential address (No P.O box address allowed)</h6>
+                     <h6 class="info-label">Residential address line 1</h6>
                      <span class="info">ROOM 601</span>
                   </div>
 				  <div class="gray-holder">
-                     <h6 class="info-label">Line 2</h6>
+                     <h6 class="info-label">Residential address line 2</h6>
                      <span class="info">TUNG HIP BUILDING</span>
                   </div>
 				  <div class="gray-holder">
-                     <h6 class="info-label">Line 3</h6>
+                     <h6 class="info-label">Residential address line 3</h6>
                      <span class="info">248 DES VOEUX ROAD, SHEUNG WAN.</span>
+                  </div>
+				  <div class="gray-holder">
+                     <h6 class="info-label">District</h6>
+                     <span class="info">US</span>
                   </div>
                   <div class="gray-holder">
-                     <h6 class="info-label">Correspondence address (No P.O box address allowed)</h6>
+                     <h6 class="info-label">Correspondence address line 1</h6>
                      <span class="info">ROOM 601</span>
                   </div>
 				  <div class="gray-holder">
-                     <h6 class="info-label">Line 2</h6>
+                     <h6 class="info-label">Correspondence address line 2</h6>
                      <span class="info">TUNG HIP BUILDING</span>
                   </div>
 				  <div class="gray-holder">
-                     <h6 class="info-label">Line 3</h6>
+                     <h6 class="info-label">Correspondence address line 3</h6>
                      <span class="info">248 DES VOEUX ROAD, SHEUNG WAN.</span>
+                  </div>
+				  <div class="gray-holder">
+                     <h6 class="info-label">District</h6>
+                     <span class="info">US</span>
                   </div>
                </div>
             </div>

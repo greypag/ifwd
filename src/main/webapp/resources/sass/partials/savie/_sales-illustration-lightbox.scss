@@ -1,6 +1,7 @@
-#sales-illustration-modal {
+#sales-illustration-modal, #fna-signature-modal {
 	.modal-dialog {
 		max-width: 415px;
+		margin-top: 30px !important;
 		@media (max-width: $screen-md) {
 			margin: 30px auto;
 		}

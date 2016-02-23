@@ -219,8 +219,9 @@
 							
 							<center>
 								<!--<button type="button" class="btn btn-payment">Back to application summary</button>-->
-								<button type="submit" class="btn btn-payment">Next</button>
-								<a href="#" class="save-link visible-xs visible-sm">Save and continue later</a>
+								<button type="submit" id="btn-next" class="btn btn-payment">Next</button>
+								<br /><a href="#" class="save-link" id="payment-save-and-con">Save and continue later</a>
+								<button type="button" id="btn-back" class="btn btn-payment hidden">Back to application summary</button>
 							</center>
 						</form>
 					</div>
@@ -229,13 +230,49 @@
 			<!-- FOOTER -->
 			<%@include file="includes/footer-block.jsp" %>
 		</div>
-		
+		<!-- Save and continue modal -->
+		<div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content save-con-modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
+				<p class="text-center description-msg">You may save your application progress up to (previous page). You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+				<div class="save-con-btns clearfix">
+					<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6">Keep going</button>
+					<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6">Save and exit</button>
+				</div>
+			</div>
+		  </div>
+		</div>
+		<!-- Save and continue batch 5 modal -->
+		<div class="modal fade common-welcome-modal save-con-modal-b5" id="save-and-continue-batch5-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content save-con-modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
+				<p class="text-center description-msg">You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+				<div class="save-con-btns clearfix">
+					<center><button class="btn savie-common-btn" id="keep-going-btn">Keep going</button><button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn">Save and exit</button></center>
+				</div>
+			</div>
+		  </div>
+		</div>
 		<!-- JS INCLUDES -->
 		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 			var language = "en";
 			
 			$(document).ready(function() {
+				
+				// button to show
+				// dummy condition
+				if(true) {
+					$('#btn-back').addClass('hidden');
+					$('#btn-next').removeClass('hidden');
+				} else {
+					$('#btn-next').addClass('hidden');
+					$('#btn-back').removeClass('hidden');
+				}
 				
 				paymentFormValidation();
 				
@@ -255,6 +292,14 @@
 					var selectId = $(this).attr('data-selectId');
 					open($('#' + selectId));
 				});
+				
+				$('#payment-save-and-con').on('click', function (e) {
+                    if($('#paymentForm').data('bootstrapValidator').isValid()) {
+						$('#save-and-continue-batch5-modal').modal('show');
+                    } else {
+						$('#save-and-continue-modal').modal('show');
+                    }
+                });
 				
 				$('.form-control.gray-dropdown').focus(function() {
 					$(this).parent('.selectDiv').siblings('.bank-info-select-label').attr('style', 'color: #ff8200;');

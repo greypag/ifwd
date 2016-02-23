@@ -517,14 +517,14 @@ $("#saveLater").click(function(){
 	$.ajax({
 		  type : "POST",
 		  async:false, 
-		  url : "<%=request.getContextPath()%>/ajax/savie-online/createPolicyApplicationSaveforLater",
+		  url : "<%=request.getContextPath()%>/ajax/savie-online/lifePersonalDetailsSaveforLater",
 		  data: $("#lifePersonalDetailsForm").serialize(),
 		  success : function(data) {
 			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 				  $("#errorMsg").html(data.errorMsg);
 			  }
 			  else{
-				  alert("save later success");
+				  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
 			  }
 		  }
      });

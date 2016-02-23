@@ -40,6 +40,7 @@ public class AjaxSavieOnlineController extends BaseController{
 	@Autowired
 	private SavieOnlineService savieOnlineService;
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/ajax/savie-online/getSavieOnlinePlandetails"})
 	public void getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String language = (String) session.getAttribute("language");
@@ -50,7 +51,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		try {
 			saviePlanDetails.validate(language);
 			jsonObject.put("apiData", savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request).toString());
-			String[] dob = saviePlanDetails.getDob().split("/");
+			String[] dob = saviePlanDetails.getDob().split("-");
 			saviePlanDetails.setDob1(dob[2]+"·"+dob[1]+"·"+dob[0]);
 			saviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
 			request.getSession().setAttribute("saviePlanDetails", saviePlanDetails);
@@ -231,6 +232,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			jsonObject = savieOnlineService.getPurchaseHistoryByPlanCode(request);
+			savieOnlineService.getPolicyApplicationSaveforLater(request);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", "api error");
@@ -271,33 +273,17 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, OptionItemDescList);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/createPolicyApplicationSaveforLater"})
-	public void createPolicyApplicationSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+	@RequestMapping(value = {"/ajax/savie-online/lifePersonalDetailsSaveforLater"})
+	public void lifePersonalDetailsSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
-			jsonObject = savieOnlineService.createPolicyApplicationSaveforLater(request);
+			savieOnlineService.lifePersonalDetailsSaveforLater(lifePersonalDetails, request);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
-		}
-		logger.info(jsonObject.toString());
-		ajaxReturn(response, jsonObject);
-	}
-	
-	@RequestMapping(value = {"/ajax/savie-online/getPolicyApplicationSaveforLater"})
-	public void getPolicyApplicationSaveforLater(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
-		JSONObject jsonObject = new JSONObject();
-		if(Methods.isXssAjax(request)){
-			return;
-		}
-		try {
-			jsonObject = savieOnlineService.getPolicyApplicationSaveforLater(request);
-		}
-		catch (ECOMMAPIException e) {
-			jsonObject.put("errorMsg", "api error");
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);

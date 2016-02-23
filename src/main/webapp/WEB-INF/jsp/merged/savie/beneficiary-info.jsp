@@ -127,7 +127,7 @@
 										<span class="error-msg" id="beneficiaryFirstErMsg[0]"></span>
 										<span class="dup-error-msg hidden" id="beneficiaryDupNameErMsg[0]">Duplicate english name</span>
 									</div>
-									<div class="form-group has-error beneficiary-info-row">
+									<div class="form-group beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
 											<input type="text" id="beneficiaryChineseName[0]" name="beneficiaryChineseName[0]" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[0]">Name in Chinese (optional)</label>
@@ -139,9 +139,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
+												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
 												  <span class="icon-chevron-thin-down orange-caret"></span>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[0]" id="beneficiaryHkidPassport[0]">
-													 <option selected disabled value="">HKID / Passport</option>
+													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
 												  </select>
@@ -167,9 +168,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
+													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown" name="beneficiaryGender[0]" id="beneficiaryGender[0]">
-														<option selected disabled value="">Gender</option>
+														<option value="" selected="selected" disabled="disabled">Gender</option>
 														<option value="male">MALE</option>
 														<option value="female">FEMALE</option>
 													</select>
@@ -182,9 +184,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
+													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[0]" name="beneficiaryRelationship[0]">
-														<option selected disabled value="">Relationship with you</option>
+														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<option value="father">FATHER</option>
 														<option value="mother">MOTHER</option>
 													</select>
@@ -250,9 +253,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
+												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
 												  <span class="icon-chevron-thin-down orange-caret"></span>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[1]" id="beneficiaryHkidPassport[1]">
-													 <option selected disabled value="">HKID / Passport</option>
+													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
 												  </select>
@@ -278,9 +282,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
+													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown" name="beneficiaryGender[1]" id="beneficiaryGender[1]">
-														<option selected disabled value="">Gender</option>
+														<option value="" selected="selected" disabled="disabled">Gender</option>
 														<option value="male">MALE</option>
 														<option value="female">FEMALE</option>
 													</select>
@@ -293,9 +298,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
+													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[1]" name="beneficiaryRelationship[1]">
-														<option selected disabled value="">Relationship with you</option>
+														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<option value="father">FATHER</option>
 														<option value="mother">MOTHER</option>
 													</select>
@@ -361,9 +367,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
+												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
 												  <span class="icon-chevron-thin-down orange-caret"></span>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[2]" id="beneficiaryHkidPassport[2]">
-													 <option selected disabled value="">HKID / Passport</option>
+													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
 												  </select>
@@ -389,9 +396,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
+													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown" name="beneficiaryGender[2]" id="beneficiaryGender[2]">
-														<option selected disabled value="">Gender</option>
+														<option value="" selected="selected" disabled="disabled">Gender</option>
 														<option value="male">MALE</option>
 														<option value="female">FEMALE</option>
 													</select>
@@ -404,9 +412,10 @@
 										<div class="clearfix">
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
+													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[2]" name="beneficiaryRelationship[2]">
-														<option selected disabled value="">Relationship with you</option>
+														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<option value="father">FATHER</option>
 														<option value="mother">MOTHER</option>
 													</select>
@@ -431,8 +440,8 @@
 							Customer Service Centers. </p>
 							<div id="beneficiary-btn">
 								<button type="submit" class="btn beneficiary-btn-next savie-common-btn" id="beneficiary-next-btn">Next</button>
-								<button type="button" class="btn beneficiary-btn-back hidden savie-common-btn">Back to application summary</button>
-								<a href="#" class="span-save-continue">
+								<button type="button" class="btn beneficiary-btn-back savie-common-btn hidden">Back to application summary</button>
+								<a href="#" class="span-save-continue" id="bf-save-and-con-later">
 									<span>Save and continue later</span>
 								</a>
 							</div>
@@ -442,14 +451,84 @@
 			<!-- FOOTER -->
 			<%@include file="includes/footer-block.jsp" %>
 		</div>
-		
+		<!-- Save and continue modal -->
+		<div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content save-con-modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
+				<p class="text-center description-msg">You may save your application progress up to (previous page). You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+				<div class="save-con-btns clearfix">
+					<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6">Keep going</button>
+					<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6">Save and exit</button>
+				</div>
+			</div>
+		  </div>
+		</div>
+		<!-- Save and continue batch 5 modal -->
+		<div class="modal fade common-welcome-modal save-con-modal-b5" id="save-and-continue-batch5-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content save-con-modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
+				<p class="text-center description-msg">You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+				<div class="save-con-btns clearfix">
+					<center><button class="btn savie-common-btn" id="keep-going-btn">Keep going</button><button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn">Save and exit</button></center>
+				</div>
+			</div>
+		  </div>
+		</div>
 		<!-- JS INCLUDES -->
 		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				var language = "en";
 				
+				// button to show
+				if(true) {
+					$('.beneficiary-btn-back').addClass('hidden');
+					$('.beneficiary-btn-next').removeClass('hidden');
+				} else {
+					$('.beneficiary-btn-next').addClass('hidden');
+					$('.beneficiary-btn-back').removeClass('hidden');
+				}
+				
 				soFirstBFormValidation();
+				$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validate();
+				
+				$('.selectDiv').removeClass('is-not-active');
+				
+				$('#bf-save-and-con-later').on('click', function (e) {
+					if($('#beneficiaryChineseName\\[0\\]').val() == undefined ) {
+						$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').enableFieldValidators('beneficiaryChineseName[0]', false);
+					}
+					$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validateField('beneficiaryChineseName[0]');
+					if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()) {
+					   $('#save-and-continue-batch5-modal').modal('show');           
+					} else {
+						$('#save-and-continue-modal').modal('show');
+					}
+					// second form
+					if($('#beneficiaryInfoForm\\[1\\]').length == 0) {
+						$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').enableFieldValidators('beneficiaryChineseName[1]', false);
+					}
+					$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').validateField('beneficiaryChineseName[1]');
+					if($('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').isValid()) {
+					   $('#save-and-continue-batch5-modal').modal('show');           
+					} else {
+						$('#save-and-continue-modal').modal('show');
+					}
+					// third form
+					if($('#beneficiaryInfoForm\\[2\\]').length == 0) {
+						$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').enableFieldValidators('beneficiaryChineseName[2]', false);
+					}
+					$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').validateField('beneficiaryChineseName[2]');
+					if($('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').isValid()) {
+					   $('#save-and-continue-batch5-modal').modal('show');           
+					} else {
+						$('#save-and-continue-modal').modal('show');
+					}
+                });
 			});
 		</script>
 		

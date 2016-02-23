@@ -88,8 +88,9 @@
 									<div class="col-xs-12 col-md-6" id="left-side">
 										<div class="form-group">
 											<div class="selectDiv centreDiv gray-text-bg">
+												<label class="mdl-textfield__label cstm-dropdown-label">Employment Status</label>
 												<select name="employmentStatus" id="employmentStatus" class="form-control gray-dropdown">
-												   <option value="" disabled selected>Employment Status</option>
+												   <option value="" disabled="disabled" selected="selected">Employment Status</option>
 												   <option value="Self Employed">Self Employed</option>
 												   <option value="Unemployed">Unemployed</option>
 												   <option value="Housewife">Housewife</option>
@@ -102,8 +103,9 @@
 										</div>
 										<div class="form-group">
 											<div class="selectDiv centreDiv gray-text-bg">
+												<label class="mdl-textfield__label cstm-dropdown-label">Nature of business</label>
 												<select name="businessNature" id="businessNature" class="form-control gray-dropdown">
-												   <option value="" disabled selected>Nature of business</option>
+												   <option value="" disabled="disabled" selected="selected">Nature of business</option>
 												   <option value="1">Production</option>
 												   <option value="2">Community Education</option>				                     
 												</select>
@@ -113,8 +115,9 @@
 										</div>
 										<div class="form-group">
 											<div class="selectDiv centreDiv gray-text-bg">
+												<label class="mdl-textfield__label cstm-dropdown-label">Occupation</label>
 												<select name="occupation" id="occupation" class="form-control gray-dropdown occupation">
-												   <option value="" disabled selected>Occupation</option>
+												   <option value="" disabled="disabled" selected="selected">Occupation</option>
 												   <option value="1">Teacher</option>
 												   <option value="2">Fireman</option>
 												   <option value="3">Policeman</option>
@@ -143,8 +146,9 @@
 										</div>
 										<div class="form-group">
 											<div class="selectDiv centreDiv gray-text-bg">
+												<label class="mdl-textfield__label cstm-dropdown-label">Monthly personal income (HK$)</label>
 												<select name="monthlyPersonalIncome" id="monthlyPersonalIncome" class="form-control gray-dropdown">
-												   <option value="" disabled selected>Monthly personal income (HK$)</option>
+												   <option value="" disabled="disabled" selected="selected">Monthly personal income (HK$)</option>
 												   <option value="1">HK$10000</option>
 												   <option value="2">HK$20000</option>
 												   <option value="3">HK$30000</option>
@@ -156,8 +160,9 @@
 										</div>
 										<div class="form-group">
 											<div class="selectDiv centreDiv gray-text-bg">
+												<label class="mdl-textfield__label cstm-dropdown-label">Education level</label>
 												<select name="educationLevel" id="educationLevel" class="form-control gray-dropdown">
-												   <option value="" disabled selected>Education level</option>
+												   <option value="" disabled="disabled" selected="selected">Education level</option>
 												   <option value="1">Vocational</option>
 												   <option value="2">Bachelor</option>
 												   <option value="3">Doctorate</option>
@@ -174,8 +179,9 @@
 									<div class="col-xs-12 col-md-6" id="left-side">
 										<div class="form-group">
 											<div class="selectDiv centreDiv gray-text-bg">
+												<label class="mdl-textfield__label cstm-dropdown-label">Employment Status</label>
 												<select name="employmentStatus2" id="employmentStatus2" class="form-control gray-dropdown">
-												   <option value="" disabled>Employment Status</option>
+												   <option value="" disabled="disabled">Employment Status</option>
 												   <option value="Self Employed">Self Employed</option>
 												   <option value="Unemployed">Unemployed</option>
 												   <option value="Housewife">Housewife</option>
@@ -188,6 +194,7 @@
 										</div>
 										<div class="form-group">
 											<div class="selectDiv centreDiv gray-text-bg">
+												<label class="mdl-textfield__label cstm-dropdown-label">Amount of other source of income</label>
 												<select name="otherIncomeAmount" id="otherIncomeAmount" class="form-control gray-dropdown">
 												   <option value="" disabled="disabled" selected="selected">Amount of other source of income</option>
 												   <option value="1">HK$10000</option>
@@ -203,6 +210,7 @@
 									<div class="col-xs-12 col-md-6" id="right-side">
 										<div class="form-group">
 											<div class="selectDiv centreDiv gray-text-bg">
+												<label class="mdl-textfield__label cstm-dropdown-label">Education level</label>
 												<select name="educationLevel2" id="educationLevel2" class="form-control gray-dropdown">
 												   <option value="" disabled="disabled" selected="selected">Education level</option>
 												   <option value="1">Bachelor</option>
@@ -214,6 +222,7 @@
 										</div>
 										<div class="form-group">
 											<div class="selectDiv centreDiv gray-text-bg">
+												<label class="mdl-textfield__label cstm-dropdown-label">Amount of liquid assets (HK$)</label>
 												<select name="liquidAssetsAmount" id="liquidAssetsAmount" class="form-control gray-dropdown">
 												   <option value="" disabled selected>Amount of liquid assets (HK$)</option>
 												   <option value="1">HK$10000</option>
@@ -227,12 +236,11 @@
 										</div>
 									</div>
 								</div>
-								
 	  							<div class="col-xs-12 text-center">
-	  								<button type="submit" class="btn savie-common-btn" id="next-btn">Next</button><br/>
-	  								<a href="#" id="save-cont-link">Save and continue later</a>
-	  								<button class="btn savie-common-btn hidden" id="back-summary-btn">Back to application summary</button> <!-- This button to be displayed when its not the first time for the user to fill in this form -->
-	  							</div>	
+	  								<button type="submit" class="btn savie-common-btn" id="next-btn">Next</button><br />
+	  								<button type="button" class="btn savie-common-btn hidden" id="back-summary-btn">Back to application summary</button>
+									<a href="#" id="save-cont-link">Save and continue later</a>
+								</div>	
 	  						</form>
 	  					</div>
 	  				</div>		        	
@@ -241,11 +249,47 @@
 			<!-- FOOTER -->
 			<%@include file="includes/footer-block.jsp" %>
 		</div>
+		<!-- Save and continue modal -->
+		<div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content save-con-modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
+				<p class="text-center description-msg">You may save your application progress up to (previous page). You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+				<div class="save-con-btns clearfix">
+					<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6">Keep going</button>
+					<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6">Save and exit</button>
+				</div>
+			</div>
+		  </div>
+		</div>
+		<!-- Save and continue batch 5 modal -->
+		<div class="modal fade common-welcome-modal save-con-modal-b5" id="save-and-continue-batch5-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content save-con-modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
+				<p class="text-center description-msg">You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+				<div class="save-con-btns clearfix">
+					<center><button class="btn savie-common-btn" id="keep-going-btn">Keep going</button><button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn">Save and exit</button></center>
+				</div>
+			</div>
+		  </div>
+		</div>
 		<!-- JS INCLUDES -->
 		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 			$(document).ready(function () {
 				
+				// button to show
+				// dummy condition
+				if(true) {
+					$('#back-summary-btn').addClass('hidden');
+					$('#next-btn').removeClass('hidden');
+				} else {
+					$('#next-btn').addClass('hidden');
+					$('#back-summary-btn').removeClass('hidden');
+				}
 				// Form validation
 				$('#employmentInfoForm').bootstrapValidator({
 					excluded: [':disabled', ':hidden', ':not(:visible)'],
@@ -332,9 +376,17 @@
 						}
 					}
 				}).on('success.form.bv', function(e) {
-						e.preventDefault();
+					e.preventDefault();
 				}).on('error.form.bv', function(e) {
 				});
+				
+				$('#save-cont-link').on('click', function (e) {
+                    if($('#employmentInfoForm').data('bootstrapValidator').isValid()) {
+						$('#save-and-continue-batch5-modal').modal('show');
+                    } else {
+						$('#save-and-continue-modal').modal('show');
+                    }
+                });
 				
 				$('.occupation').on('change', function () {
 					if($(this).val() == 'other') {
@@ -354,6 +406,7 @@
 						$('#employed-panel').addClass('hidden');
 						$('#unemployed-panel').removeClass('hidden');
 						$('#employmentStatus2').val(tmpEmploymentStatus);
+						$('#employmentStatus2').parent('.selectDiv').addClass('is-not-active');
 					}
 				});
 				
@@ -363,6 +416,7 @@
 						$('#employed-panel').removeClass('hidden');
 						$('#unemployed-panel').addClass('hidden');
 						$('#employmentStatus').val(tmpEmploymentStatus);
+						$('#employmentStatus').parent('.selectDiv').addClass('is-not-active');
 					} else {
 						$('#employed-panel').addClass('hidden');
 						$('#unemployed-panel').removeClass('hidden');

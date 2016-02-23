@@ -244,21 +244,17 @@
 		.form-control.gray-dropdown {
 				font-family: 'Calibri';
 				font-size: 14px;
-			width: 100%;
+				width: 100%;
 				margin-bottom: 0;
-				padding-left: 9px;
-				padding-bottom: 5px;
+				padding-left: 10px !important;
+				padding-bottom: 0 !important;
+				padding-top: 12px !important;
 				height: 45px;
 				width: 100%;
-				padding-top: 12px;
-				
-				/*@media only screen and (min-width: $screen-md) {
-					padding-top: 12px;
-				}*/
 				
 				&.preferred-date,
 				&.ui-timepicker-input {
-					padding-left: 13px;
+					padding-left: 15px !important;
 				}
 		}
 		
@@ -269,7 +265,7 @@
 			z-index: 1;
 			left: 18px;
 			margin-top: 1px;
-			margin-left: -4px;
+			margin-left: -3px;
 		}
 		
 		.icon-chevron-thin-down.orange-caret {
@@ -292,14 +288,9 @@
 		&.is-not-active {
 			.mdl-textfield__label {
 				font-size: 11px;
+				padding-top: 2px;
 			}
 		}
-		
-		&.is-focused {
-			.mdl-textfield__label {
-				margin-top: 2px;
-			}
-		}			
 	}
 	
 	/** Pay later panel **/
@@ -337,10 +328,15 @@
 		
 		&.is-focused,
 		&.is-dirty {
-			.mdl-textfield__label { padding-top: 5px; }
+			.mdl-textfield__label {
+				font-size: 11px;
+				padding-top: 2px;
+			}
 		}
 		
-		.mdl-textfield__label { padding-left: 15px; }
+		.mdl-textfield__label {
+			padding-left: 15px;
+		}
 	}
 	
 	#direct-debit-panel {

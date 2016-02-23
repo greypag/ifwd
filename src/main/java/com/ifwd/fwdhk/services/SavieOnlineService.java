@@ -13,6 +13,7 @@ import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
+import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 
@@ -28,7 +29,8 @@ public interface SavieOnlineService {
 	public CreateEliteTermPolicyResponse createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
 	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
 	public List<OptionItemDesc> getBranchCode(HttpServletRequest request) throws ECOMMAPIException;
-	public JSONObject createPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;
-	public JSONObject getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;
+	public void lifePersonalDetailsSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request) throws ECOMMAPIException;
+	public void getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;
+	public JSONObject uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception;
 	
 }

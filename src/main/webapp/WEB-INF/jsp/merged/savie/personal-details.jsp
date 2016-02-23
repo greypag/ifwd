@@ -108,9 +108,10 @@
 								 <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
+										  <label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" name="gender" id="gender">
-                                             <option selected disabled value="">Gender</option>
+                                             <option value="" selected="selected" disabled="disabled">Gender</option>
                                              <option value="male">MALE</option>
                                              <option value="female">FEMALE</option>
                                           </select>
@@ -128,9 +129,10 @@
 								 <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
+										  <label class="mdl-textfield__label cstm-dropdown-label">Place of birth</label>
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" name="placeOfBirth" id="placeOfBirth">
-                                             <option selected disabled value="">Place of birth</option>
+                                             <option value="" selected="selected" disabled="disabled">Place of birth</option>
                                              <option value="US">US</option>
                                              <option value="Hongkong">HONGKONG</option>	
                                           </select>
@@ -141,9 +143,10 @@
 								 <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
+										  <label class="mdl-textfield__label cstm-dropdown-label">Nationality</label>
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" name="nationality" id="nationality">
-                                             <option selected disabled value="">Nationality</option>
+                                             <option value="" selected="selected" disabled="disabled">Nationality</option>
                                              <option value="US">US</option>
                                              <option value="Hongkong">HONGKONG</option>	
                                           </select>
@@ -154,8 +157,9 @@
                                  <div class="clearfix form-group has-error dob-content">
                                     <div class="left-desktop text-box et-date-info">
 										<div class="selectDiv" id="date">
+											<label class="mdl-textfield__label cstm-textfield-label">Date of birth</label>
 											<span class="icon-chevron-thin-down orange-caret"></span>
-											<input type="text" class="form-control gray-textbox" name="so-calendar-dob" id="so-calendar-dob" placeholder="Date of birth" readonly />
+											<input type="text" class="form-control gray-textbox" name="so-calendar-dob" id="so-calendar-dob"  />
 										</div>
 										<span class="error-msg" id="so-calendar-dob-msg"></span>
                                     </div>
@@ -166,7 +170,7 @@
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <div class="clearfix form-group">
                                           <div class="residential-num">
-                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="residentialNo" name="residentialNo" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
+                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="residentialNo" name="residentialNo" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
 											 <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialNo">Residential tel no. (eg. 1234-5678)</label>
                                           </div>
                                        </div>
@@ -177,7 +181,7 @@
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <div class="clearfix form-group">
                                           <div class="mobile-num">
-                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="mobileNo" name="mobileNo" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
+                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="mobileNo" name="mobileNo" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
 											 <label class="mdl-textfield__label so-mdl-textfield-label" for="mobileNo">Mobile no. (eg. 1234-5678)</label>
                                           </div>
                                        </div>
@@ -187,9 +191,10 @@
                                  <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
+									      <label class="mdl-textfield__label cstm-dropdown-label">Marital status</label>
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" name="maritalStatus"  id="maritalStatus">
-                                             <option selected disabled value="">Marital status</option>
+                                             <option value="" selected="selected" disabled="disabled">Marital status</option>
                                              <option value="single">SINGLE</option>
                                              <option value="married">MARRIED</option>
                                           </select>
@@ -199,7 +204,7 @@
                                  </div>
 								 <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="emailAddress" name="emailAddress" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="emailAddress" name="emailAddress" type="email" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="emailAddress">Email address</label>
                                     </div>
 									<span class="error-msg" id="emailErMsg"></span>
@@ -208,16 +213,28 @@
 									<span class="warning-note">Permanent address (No P.O. Box address allowed)</span>
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="permanentAddress1" name="permanentAddress1" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress1">Line 1</label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress1">Permanent address line 1</label>
 									</div>
 									<span class="error-msg" id="permanentAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress2" name="permanentAddress2" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress2">Line 2</label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress2">Permanent address line 2</label>
 									</div>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress3" name="permanentAddress3" type="text" />
-									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress3">Line 3</label>
+									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress3">Permanent address line 3</label>
+                                    </div>
+									<div class="left-desktop text-box res-additional hidden">
+                                       <div class="selectDiv">
+										  <label class="mdl-textfield__label cstm-dropdown-label">District</label>
+                                          <span class="icon-chevron-thin-down orange-caret"></span>
+                                          <select class="form-control gray-dropdown" name="permanentDistrict" id="permanentDistrict">
+                                             <option value="" selected="selected" disabled="disabled">District</option>
+                                             <option value="us">US</option>
+                                             <option value="germany">GERMANY</option>
+                                          </select>
+                                       </div>
+									   <span class="error-msg" id="permanentDistrictErMsg"></span>
                                     </div>
                                  </div>
 								 <div class="clearfix">
@@ -240,6 +257,7 @@
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress1" name="residentialAddress1" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress1">Residential address line 1</label>
 									</div>
+									<span class="error-msg" id="residentialAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress2" name="residentialAddress2" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress2">Residential address line 2</label>
@@ -247,6 +265,18 @@
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress3" name="residentialAddress3" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress3">Residential address line 3</label>
+                                    </div>
+									<div class="left-desktop text-box">
+                                       <div class="selectDiv">
+										 <label class="mdl-textfield__label cstm-dropdown-label">District</label>
+                                          <span class="icon-chevron-thin-down orange-caret"></span>
+                                          <select class="form-control gray-dropdown" name="residentialDistrict" id="residentialDistrict">
+                                             <option value="" selected="selected" disabled="disabled">District</option>
+                                             <option value="us">US</option>
+                                             <option value="germany">GERMANY</option>
+                                          </select>
+                                       </div>
+									   <span class="error-msg" id="residentialDistrictErMsg"></span>
                                     </div>
                                  </div>
 								 <div class="clearfix">
@@ -269,6 +299,7 @@
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress1" name="correspondenceAddress1" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress1">Correspondence address line 1</label>
 									</div>
+									<span class="error-msg" id="correspondenceAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress2" name="correspondenceAddress2" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress2">Correspondence address line 2</label>
@@ -277,17 +308,44 @@
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress3" name="correspondenceAddress3" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3">Correspondence address line 3</label>
                                     </div>
+									<div class="left-desktop text-box">
+                                       <div class="selectDiv">
+										  <label class="mdl-textfield__label cstm-dropdown-label">District</label>
+                                          <span class="icon-chevron-thin-down orange-caret"></span>
+                                          <select class="form-control gray-dropdown" name="correspondenceDistrict" id="correspondenceDistrict">
+                                             <option value="" selected="selected" disabled="disabled">District</option>
+                                             <option value="us">US</option>
+                                             <option value="germany">GERMANY</option>
+                                          </select>
+                                       </div>
+									   <span class="error-msg" id="correspondenceDistrictErMsg"></span>
+                                    </div>
                                  </div>
                               </div>
                            </div>
                            <div class="next-btn">
                               <button class="btn savie-common-btn applicant-btn">Next</button>
+							  <!--<a href="#" class="link-btn" data-toggle="modal" data-target="#save-and-continue-modal">Save and continue later</a>-->
 							  <a href="#" class="link-btn">Save and continue later</a>
+							   <button type="button" class="btn hidden beneficiary-btn-back savie-common-btn">Back to application summary</button>
                            </div>
                         </form>
                      </div>
                   </div>
 				</div>
+			</div>
+			<div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
+			  <div class="modal-dialog">
+				<div class="modal-content save-con-modal-content">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+					<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
+					<p class="text-center description-msg">You may save your application progress up to (previous page). You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+					<div class="save-con-btns clearfix">
+						<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6">Keep going</button>
+						<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6">Save and exit</button>
+					</div>
+				</div>
+			  </div>
 			</div>
 			<!-- FOOTER -->
 			<%@include file="includes/footer-block.jsp" %>
@@ -300,27 +358,67 @@
 			$(document).ready(function() {
 				soFormValidation();
 				
-				 $('#so-calendar-dob').on('changeDate show', function(e) {
-					$(this).parent('.selectDiv').parent('.et-date-info').addClass('is-not-active');
+				var dummy = true;
+				//dummy condition for displaying the back / next button 
+				if(dummy) {
+					$('.applicant-btn, .link-btn').removeClass('hidden');
+					$('.beneficiary-btn-back').addClass('hidden');
+				} else {
+					$('.applicant-btn, .link-btn').addClass('hidden');
+					$('.beneficiary-btn-back').removeClass('hidden');
+				}
+
+				// on change
+				$('#so-calendar-dob').on('changeDate show', function(e) {
+					$(this).parent('.selectDiv').addClass('is-not-active');
 					 if($(this).val() == '') {
-					   $(this).parent('.selectDiv').parent('.et-date-info').removeClass('is-not-active');
+					   $(this).parent('.selectDiv').removeClass('is-not-active');
 					}
 					
-					$('#soInsuredInfoForm').data('bootstrapValidator').updateStatus('so-calendar-dob', 'NOT_VALIDATED', null).validateField('so-calendar-dob');
-			   });
+					//$('#soInsuredInfoForm').data('bootstrapValidator').updateStatus('so-calendar-dob', 'NOT_VALIDATED', null).validateField('so-calendar-dob');
+			   }).datepicker({
+						format: "dd-mm-yyyy",
+						startView: "decade",
+						startDate: dob_start_date,
+						endDate: dob_end_date,
+						autoclose: true,
+						startView: 2
+					});
+			
 			   
-			   $('#so-calendar-dob').on('change', function() {
-				   $('#soInsuredInfoForm').data('bootstrapValidator').updateStatus('so-calendar-dob', 'NOT_VALIDATED', null).validateField('so-calendar-dob');
-			   });
-				
-				function onchangeDate(val) {
-					 $(val).parent('.selectDiv').parent('.et-date-info').addClass('is-not-active');
-					 if(val.value == '') {
-					   $(val).parent('.selectDiv').parent('.et-date-info').removeClass('is-not-active');
+			   $('.cstm-number-field').on('change', function() {
+				   $(this).parent().parent().parent('so-mdl-textfield').addClass('is-not-active');
+				   if($(this).val() == '') {
+					   $(this).parent().parent().parent('so-mdl-textfield').removeClass('is-not-active');
 					}
-				}
-				
-			    //soFormValidation();
+			   })
+			   			   
+
+				// on focus
+				$('#so-calendar-dob').focus(function() {
+					$(this).parent('.is-not-active').find('label').attr('style', 'color: #ff8200;');
+				}).on('blur', function () {
+					$(this).parent('.is-not-active').find('label').removeAttr('style');
+				})
+			   
+			   $('.cstm-number-field').focus(function() {
+					$(this).parent().parent().parent().removeClass('is-not-active');
+				}).on('blur', function () {
+					$(this).parent().parent().parent('.so-mdl-textfield').addClass('is-not-active');
+					 if($(this).val() == '') {
+					   $(this).parent().parent().parent('.so-mdl-textfield').removeClass('is-not-active');
+					}
+				});
+				$('.link-btn').on('click', function (e) {
+					$('#soInsuredInfoForm').submit();
+				});
+				$('#soInsuredInfoForm').validator().on('submit', function (e) {
+				  if (e.isDefaultPrevented()) {
+				    console.log('Display first modal');
+				  } else {
+				    console.log('Display second modal');
+				  }
+				});
 		    });
 		</script>
 	</body>

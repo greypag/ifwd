@@ -260,9 +260,7 @@
 				</div>
 			</div>
 			
-			<!-- MODAL -->
-			<button type="button" class="btn hidden" id="btn-show-modal" data-toggle="modal" data-target="#yes-radio-popup"></button>
-			
+			<!-- Modal for yes radio button -->
 			<div class="modal fade" id="yes-radio-popup" tabindex="-1" role="dialog">
 			  <div class="modal-dialog">
 			    <div class="modal-content">
@@ -323,9 +321,10 @@
 			
 			$(document).ready(function() {
 				$(".radio-yes").click(function(){
-					$radio_yes_elem = $(this);
+					// these variables will be used when closing yes-radio-popup
+					$radio_yes_elem = $(this); 
 					$radio_no_elem = $(this).parent().parent().siblings('.left').find('.radio-no');
-					$('#btn-show-modal').click();
+					$('#yes-radio-popup').modal('show');
 				});
 				
 				$('.close').click(function() {
@@ -340,6 +339,8 @@
 					}
 				});
 				
+				
+				// set back checked to No radio button
 				function updateRadioStatus() {
 					$radio_yes_elem.prop("checked", false);
 					$radio_no_elem.prop("checked", true);

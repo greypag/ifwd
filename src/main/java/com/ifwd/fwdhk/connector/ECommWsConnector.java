@@ -43,6 +43,7 @@ import com.ifwd.fwdhk.connector.response.savie.AccountBalanceResponse;
 import com.ifwd.fwdhk.connector.response.savie.PurchaseHistoryResponse;
 import com.ifwd.fwdhk.connector.response.savie.SalesIllustrationResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
+import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 
@@ -182,6 +183,14 @@ public class ECommWsConnector {
 	
 	public BaseResponse uploadDocument(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
 		return consumeECommWs(UserRestURIConstants.UPLOAD_DOCUMENTS,HttpMethod.POST,parameters,BaseResponse.class,header);
+	}
+	
+	public GetPolicyApplicationResponse getPolicyApplication(final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.GET_POLICY_APPLICATION_SAVE_FOR_LATER,HttpMethod.GET,null,GetPolicyApplicationResponse.class,header);
+	}
+	
+	public BaseResponse createPolicyApplication(JSONObject parameters,final Map<String,String> header)throws ECOMMAPIException{
+		return consumeECommWs(UserRestURIConstants.CREATE_POLICY_APPLICATION_SAVE_FOR_LATER,HttpMethod.POST,parameters,BaseResponse.class,header);
 	}
 	
 	public <T extends BaseResponse> T consumeECommWs(String path, HttpMethod method, Object requestBody, Class<T> responseClazz, Map<String,String> header) {

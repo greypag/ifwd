@@ -528,10 +528,16 @@ var FNArecommendation = {
 
 					if(prod_data.product_url){
 						prod.find(".fna-btn-details").attr("href",prod_data.product_url)
-						prod.find(".fna-btn-sel-product").css("display","block");
+						//prod.find(".fna-btn-sel-product").css("display","block");
 						
 					}else{
 						prod.find(".fna-btn-details").hide();
+						//prod.find(".fna-btn-call-details").css("display","block");
+					}
+					
+					if(prod_data.product_code=='SAVIE'){
+						prod.find(".fna-btn-sel-product").css("display","block");
+					}else{
 						prod.find(".fna-btn-call-details").css("display","block");
 					}
 

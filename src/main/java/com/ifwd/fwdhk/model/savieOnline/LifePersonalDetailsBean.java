@@ -21,7 +21,11 @@ public class LifePersonalDetailsBean implements Serializable {
 	private String dob;
 	private String gender;
 	private String hkid;
+	private String passport;
 	private String martialStatus;
+	private String residentialTelNoCountryCode;
+	private String residentialTelNo;
+	private String mobileNoCountryCode;
 	private String mobileNumber;
 	private String emailAddress;
 	private String placeOfBirth;
@@ -29,14 +33,17 @@ public class LifePersonalDetailsBean implements Serializable {
 	private String permanetAddress1;
 	private String permanetAddress2;
 	private String permanetAddress3;
+	private String permanetAddress4;
 	private String permanetAddressDistrict;
 	private String residentialAddress1;
 	private String residentialAddress2;
 	private String residentialAddress3;
+	private String residentialAddress4;
 	private String residentialAddressDistrict;
 	private String correspondenceAddress1;
 	private String correspondenceAddress2;
 	private String correspondenceAddress3;
+	private String correspondenceAddress4;
 	private String correspondenceAddressDistrict;
 	
 	public void validate(String language) throws ValidateExceptions {
@@ -353,4 +360,61 @@ public class LifePersonalDetailsBean implements Serializable {
 			String correspondenceAddressDistrict) {
 		this.correspondenceAddressDistrict = correspondenceAddressDistrict;
 	}
+
+	public String getPassport() {
+		return passport;
+	}
+
+	public void setPassport(String passport) {
+		this.passport = passport;
+	}
+
+	public String getResidentialTelNoCountryCode() {
+		return residentialTelNoCountryCode;
+	}
+
+	public void setResidentialTelNoCountryCode(String residentialTelNoCountryCode) {
+		this.residentialTelNoCountryCode = residentialTelNoCountryCode;
+	}
+
+	public String getResidentialTelNo() {
+		return residentialTelNo;
+	}
+
+	public void setResidentialTelNo(String residentialTelNo) {
+		this.residentialTelNo = residentialTelNo;
+	}
+
+	public String getMobileNoCountryCode() {
+		return mobileNoCountryCode;
+	}
+
+	public void setMobileNoCountryCode(String mobileNoCountryCode) {
+		this.mobileNoCountryCode = mobileNoCountryCode;
+	}
+
+	public String getPermanetAddress4() {
+		return permanetAddress4;
+	}
+
+	public void setPermanetAddress4(String permanetAddress4) {
+		this.permanetAddress4 = permanetAddress4;
+	}
+
+	public String getResidentialAddress4() {
+		return residentialAddress4;
+	}
+
+	public void setResidentialAddress4(String residentialAddress4) {
+		this.residentialAddress4 = residentialAddress4;
+	}
+
+	public String getCorrespondenceAddress4() {
+		return correspondenceAddress4;
+	}
+
+	public void setCorrespondenceAddress4(String correspondenceAddress4) {
+		this.correspondenceAddress4 = correspondenceAddress4;
+	}
+	
 }
