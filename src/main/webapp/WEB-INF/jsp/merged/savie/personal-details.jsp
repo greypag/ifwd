@@ -1,9 +1,14 @@
-<%@page pageEncoding="UTF-8" %>
+<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<link rel="stylesheet" href="assets/css/savie/material.min.css" />
-		<%@include file="includes/head.jsp" %>
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
 	<body>
@@ -13,7 +18,6 @@
 		%>
 		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="applicant-info-page">
 			<!-- HEADER -->
-			<%@include file="includes/header-block.jsp" %>
 			
 			<div id="savie-online">
 				<!-- BREADCRUMBS -->
@@ -37,15 +41,15 @@
 						  <div class="row reset-margin hidden-xs hidden-sm">
 							 <ul class="common-steps-list six-steps nav nav-pills">
 								<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
-								<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 								<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span>Application &amp; payment</button></li>
-								<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Summary &amp; declaration</button></li>
-								<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Signature</button></li>
-								<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document upload</button></li>
-								<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
 							 </ul>
 						 </div>
@@ -88,19 +92,19 @@
                               <div class="col-sm-12 col-md-6 left">
 								<div class="clearfix form-group has-error">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="firstName" name="firstName" type="text" value="" autocomplete="off" />
+										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="firstname" name="firstname" type="text" value="${userDetails.firstName }" autocomplete="off" readonly="readonly" />
 										<label class="mdl-textfield__label so-mdl-textfield-label" for="firstName">Given Name</label>
 									</div>
 									<span class="error-msg" id="firstNameErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="lastName" name="lastName" type="text" value="" autocomplete="off" />
+										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="lastname" name="lastname" type="text" value="${userDetails.lastName }" autocomplete="off" readonly="readonly" />
 										<label class="mdl-textfield__label so-mdl-textfield-label" for="lastName">Last Name</label>
 									</div>
 									<span class="error-msg" id="lastNameErMsg"></span>
 								</div>
                                  <div class="clearfix form-group has-error">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="chineseName" name="chineseName" type="text" value="" autocomplete="off" />
+										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="chineseName" name="chineseName" type="text" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
 										<label class="mdl-textfield__label so-mdl-textfield-label" for="chineseName">Name in Chinese</label>
 									</div>
 									<span class="error-msg" id="chineseNameErMsg"></span>
@@ -112,8 +116,8 @@
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" name="gender" id="gender">
                                              <option value="" selected="selected" disabled="disabled">Gender</option>
-                                             <option value="male">MALE</option>
-                                             <option value="female">FEMALE</option>
+                                             <option value="male" <c:if test="${savieFna.gender == '0'}">selected="selected"</c:if>>MALE</option>
+                                             <option value="female" <c:if test="${savieFna.gender == '1'}">selected="selected"</c:if>>FEMALE</option>
                                           </select>
                                        </div>
 									   <span class="error-msg" id="genderErMsg"></span>
@@ -121,7 +125,7 @@
                                  </div>
 								 <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="hkId" name="hkId" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="hkId" name="hkid" type="text" value="${lifePersonalDetails.hkid }" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="hkId">HKID</label>
                                     </div>
 									<span class="error-msg" id="hkidErMsg"></span>
@@ -133,8 +137,16 @@
                                           <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" name="placeOfBirth" id="placeOfBirth">
                                              <option value="" selected="selected" disabled="disabled">Place of birth</option>
-                                             <option value="US">US</option>
-                                             <option value="Hongkong">HONGKONG</option>	
+                                             <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${placeOfBirthEN}">
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.placeOfBirth == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${placeOfBirthCN}">
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.placeOfBirth == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												</c:forEach>
+											</c:if>
                                           </select>
                                        </div>
 									   <span class="error-msg" id="placeOfBirthErMsg"></span>
@@ -145,10 +157,18 @@
                                        <div class="selectDiv">
 										  <label class="mdl-textfield__label cstm-dropdown-label">Nationality</label>
                                           <span class="icon-chevron-thin-down orange-caret"></span>
-                                          <select class="form-control gray-dropdown" name="nationality" id="nationality">
+                                          <select class="form-control gray-dropdown" name="nationalty" id="nationalty">
                                              <option value="" selected="selected" disabled="disabled">Nationality</option>
-                                             <option value="US">US</option>
-                                             <option value="Hongkong">HONGKONG</option>	
+                                             <c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${nationalityEN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.nationalty == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${nationalityCN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.nationalty == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
                                           </select>
                                        </div>
 									   <span class="error-msg" id="nationalityErMsg"></span>
@@ -159,7 +179,7 @@
 										<div class="selectDiv" id="date">
 											<label class="mdl-textfield__label cstm-textfield-label">Date of birth</label>
 											<span class="icon-chevron-thin-down orange-caret"></span>
-											<input type="text" class="form-control gray-textbox" name="so-calendar-dob" id="so-calendar-dob" />
+											<input type="text" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${savieFna.dob }" readonly="readonly" />
 										</div>
 										<span class="error-msg" id="so-calendar-dob-msg"></span>
                                     </div>
@@ -193,10 +213,18 @@
                                        <div class="selectDiv">
 									      <label class="mdl-textfield__label cstm-dropdown-label">Marital status</label>
                                           <span class="icon-chevron-thin-down orange-caret"></span>
-                                          <select class="form-control gray-dropdown" name="maritalStatus"  id="maritalStatus">
+                                          <select class="form-control gray-dropdown" name="martialStatus"  id="martialStatus">
                                              <option value="" selected="selected" disabled="disabled">Marital status</option>
-                                             <option value="single">SINGLE</option>
-                                             <option value="married">MARRIED</option>
+                                             <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${maritalStatusesEN}">
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.martialStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${maritalStatusesCN}">
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.martialStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												</c:forEach>
+											</c:if>
                                           </select>
                                        </div>
 									   <span class="error-msg" id="maritalStatErMsg"></span>
@@ -334,7 +362,6 @@
 				</div>
 			</div>
 			<!-- FOOTER -->
-			<%@include file="includes/footer-block.jsp" %>
 		</div>
 		
 		<!-- Save and continue modal -->
@@ -388,7 +415,6 @@
 		
 		
 		<!-- JS INCLUDES -->
-		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 			var language = "en";
 			
