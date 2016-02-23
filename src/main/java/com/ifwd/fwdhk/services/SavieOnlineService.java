@@ -3,11 +3,9 @@ package com.ifwd.fwdhk.services;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
-import org.springframework.ui.Model;
 
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
@@ -22,7 +20,7 @@ import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.lifeDeclarationBean;
 
 public interface SavieOnlineService {
-	public JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request) throws ECOMMAPIException;
+	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request) throws ECOMMAPIException;
 	public void createSalesIllustrationPdf(HttpServletRequest request) throws Exception;
 	public void createApplicationFormPdf(HttpServletRequest request,HttpSession session) throws Exception;
 	public void createFnaFormPdf(HttpServletRequest request,HttpSession session) throws Exception;

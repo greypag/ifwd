@@ -14,11 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.connector.response.BaseResponse;
-import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.model.OptionItemDesc;
@@ -41,17 +38,16 @@ public class AjaxSavieOnlineController extends BaseController{
 	@Autowired
 	private SavieOnlineService savieOnlineService;
 	
-	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/ajax/savie-online/getSavieOnlinePlandetails"})
 	public void getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String language = (String) session.getAttribute("language");
-		JSONObject jsonObject = new JSONObject();
+		net.sf.json.JSONObject jsonObject = new net.sf.json.JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
 			saviePlanDetails.validate(language);
-			jsonObject.put("apiData", savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request).toString());
+			jsonObject = savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request);
 			String[] dob = saviePlanDetails.getDob().split("-");
 			saviePlanDetails.setDob1(dob[2]+"·"+dob[1]+"·"+dob[0]);
 			saviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
