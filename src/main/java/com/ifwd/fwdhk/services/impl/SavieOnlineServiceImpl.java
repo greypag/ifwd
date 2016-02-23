@@ -3,8 +3,6 @@ package com.ifwd.fwdhk.services.impl;
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.sf.ezmorph.bean.MorphDynaBean;
@@ -27,7 +24,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
@@ -48,23 +44,19 @@ import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
-import com.ifwd.fwdhk.model.savieOnline.ProductList;
 import com.ifwd.fwdhk.model.savieOnline.ProductRecommendation;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
+import com.ifwd.fwdhk.model.savieOnline.lifeDeclarationBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
 import com.ifwd.fwdhk.util.CompareUtil;
 import com.ifwd.fwdhk.util.DateApi;
-import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.HeaderUtil;
-import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
 import com.ifwd.fwdhk.util.StringHelper;
 import com.ifwd.fwdhk.util.WebServiceUtils;
-import com.itextpdf.text.DocumentException;
-import com.sun.xml.internal.fastinfoset.util.StringArray;
 @Service
 public class SavieOnlineServiceImpl implements SavieOnlineService {
 	private final static Logger logger = LoggerFactory.getLogger(SavieOnlineServiceImpl.class);
@@ -1839,5 +1831,36 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			num = num.split("\\.")[0];
 		}
 		return num;
+	}
+
+	@Override
+	public void lifeEmploymentInfoSaveforLater(
+			LifeEmploymentInfoBean lifeEmploymentInfo,
+			HttpServletRequest request) throws ECOMMAPIException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void lifeBeneficaryInfoSaveforLater(
+			LifeBeneficaryInfoBean lifeBeneficaryInfo,
+			HttpServletRequest request) throws ECOMMAPIException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,
+			HttpServletRequest request) throws ECOMMAPIException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void lifeDeclarationSaveforLater(
+			lifeDeclarationBean lifeDeclaration, HttpServletRequest request)
+			throws ECOMMAPIException {
+		// TODO Auto-generated method stub
+		
 	}
 }
