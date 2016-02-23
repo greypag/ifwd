@@ -1064,6 +1064,29 @@ body {
     left: initial;
     padding-left: 15px;
   }
+  
+}
+@media screen and (min-width:992px) and (min-resolution: +72dpi) {
+  .savie-regular-landing .page-banner .img-banner-text {
+    top: 78px;
+   }
+}
+@media screen and (min-width:1300px) and (min-resolution: +72dpi) {
+  .savie-regular-landing .page-banner .img-banner-text {
+    top: 178px ;
+   }
+}
+@media screen and (min-width:1400px) and (min-resolution: +72dpi) {
+  .savie-regular-landing .page-banner .img-banner-text {
+    top: 212px ;
+    left: 110px;
+   }
+}
+@media screen and (min-width:1500px) and (min-resolution: +72dpi) {
+  .savie-regular-landing .page-banner .img-banner-text {
+    top: 244px ;
+    left: 156px;
+   }
 }
 @media (min-width: 1400px) {
   /* line 24, ../sass/partials/savie/_landing-page.scss */
