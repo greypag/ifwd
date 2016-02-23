@@ -485,6 +485,24 @@ var context = "${pageContext.request.contextPath}";
 				$('#sales-illu-dob').attr('placeholder',day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
 				$('#sales-illu-dob').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
 				
+				var from = $('#sales-illu-dob').val().split("-");
+				var birthdate = new Date(from[2], from[1] - 1, from[0]);
+				var cur = new Date();
+				var diff = cur-birthdate;
+				var age = Math.floor(diff/31536000000); //the age val
+				var max = 99;
+				var looplimit = max - Number(age);
+				
+				//console.log(looplimit);
+				$('#payment-years').html('');
+				for(var i = 1; i <= looplimit; i++ ) {
+					if(i == 3) {
+						$('#payment-years').append('<option value='+i+' selected>'+i+'</option>');
+					} else {
+						$('#payment-years').append('<option value='+i+'>'+i+'</option>');
+					}
+				}
+				
 				
 				$('#thankYouModal').on('shown.bs.modal', function() {
 				    $('body').addClass('modal-open');
