@@ -85,7 +85,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 
 	@Override
 	public JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request) throws ECOMMAPIException{
-		int issueAge = DateApi.getAge(DateApi.formatDate(saviePlanDetails.getDob()));
+		int issueAge = DateApi.getAge(DateApi.formatDate1(saviePlanDetails.getDob()));
 		
 		SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails("savie", issueAge, 100-issueAge, saviePlanDetails.getInsuredAmount(), saviePlanDetails.getPromoCode(), null);
 		
@@ -1132,7 +1132,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("permanentAddress3", lifePersonalDetails.getPermanetAddress3()!=null?lifePersonalDetails.getPermanetAddress3():"");
 		parameters.accumulate("permanentAddress4", lifePersonalDetails.getPermanetAddress4()!=null?lifePersonalDetails.getPermanetAddress4():"");
 		parameters.accumulate("permanentDistrict", lifePersonalDetails.getPermanetAddressDistrict()!=null?lifePersonalDetails.getPermanetAddressDistrict():"");
-		parameters.accumulate("lastViewPage", "page1");
+		parameters.accumulate("lastViewPage", "life-personal-details");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
