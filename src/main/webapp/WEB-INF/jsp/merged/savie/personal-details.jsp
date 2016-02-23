@@ -336,6 +336,7 @@
 			<!-- FOOTER -->
 			<%@include file="includes/footer-block.jsp" %>
 		</div>
+		
 		<!-- Save and continue modal -->
 		<div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
@@ -350,6 +351,7 @@
 			</div>
 		  </div>
 		</div>
+		
 		<!-- Save and continue batch 5 modal -->
 		<div class="modal fade common-welcome-modal save-con-modal-b5" id="save-and-continue-batch5-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
@@ -362,6 +364,7 @@
 				</div>
 			</div>
 		  </div>
+		 </div>
 		
 		<!-- Application saved modal -->
 		<div class="modal fade common-welcome-modal modal-app-save" id="application-saved-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -409,8 +412,7 @@
 					$(this).closest('.modal').modal('hide');
 					$('#application-saved-modal').modal('show');
 				});
-				
-				
+
 				// on change
 				$('#so-calendar-dob').on('changeDate show', function(e) {
 					$(this).parent('.selectDiv').parent('.et-date-info').addClass('is-not-active');
@@ -455,10 +457,8 @@
 					$('#soInsuredInfoForm').data('bootstrapValidator').validateField('residentialNo');
 					if($('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
 					   $('#save-and-continue-batch5-modal').modal('show');
-					   console.log('valid');
 					} else {
 						$('#save-and-continue-modal').modal('show');
-						console.log('not valid');
 					}
                 });
 		    });
