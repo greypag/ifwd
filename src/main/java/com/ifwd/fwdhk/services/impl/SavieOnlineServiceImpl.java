@@ -83,7 +83,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		
 		SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails("savie", issueAge, paymentTerm, saviePlanDetails.getInsuredAmount(), saviePlanDetails.getPromoCode(), null);
 		
-		//request.getSession().setAttribute("planDetailData", apiResponse);
+		request.getSession().setAttribute("planDetailData", apiResponse);
 		
 		if(apiResponse.hasError()){
 			throw new ECOMMAPIException(apiResponse.getErrMsgs()[0]);
