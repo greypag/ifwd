@@ -56,7 +56,7 @@ var language = "${language}";
 									<ol class="breadcrumb breadcrumbs-product-details breadcrumbs-landing">
 										<li><a href="#"><fmt:message key="breadcrumb.savie.category" bundle="${msg}" /></a></li>
 										<li class="divider"><i class="fa fa-play"></i></li>
-										<li><a href="#"><fmt:message key="breadcrumb.savie.product" bundle="${msg}" /></a></li>
+										<li><a href="#"><fmt:message key="breadcrumb.savie.insurance.plan" bundle="${msg}" /></a></li>
 										<li class="divider last"><i class="fa fa-play"></i></li>
 										<li class="active-bc"><fmt:message key="breadcrumb.savie.appointment" bundle="${msg}" /></li>
 									</ol>
