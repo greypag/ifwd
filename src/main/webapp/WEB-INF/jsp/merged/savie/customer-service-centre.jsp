@@ -322,6 +322,22 @@ var language = "${language}";
 			var csCenter = $("#centre").val();
 			var perferredDate = $("#preferred-date").val();
 			var perferredTime = $("#preferred-time").val();
+			
+			if($('body').hasClass('chin')) {
+				var perferredDate_temp = $("#preferred-date").val().split("-");;
+				var perferredTime_temp = $("#preferred-time").val().split(":");
+				
+				var perferredDate = perferredDate_temp[2]+'\u5e74'+perferredDate_temp[1]+'\u6708'+(parseInt(perferredDate_temp[0], 10) + 100).toString().substr(1)+'\u65e5';
+				if(perferredTime_temp[0]>12) {
+					perferredTime_temp[0] = perferredTime_temp[0]-10;
+				}
+				var perferredTime = '\u4e0b\u5348'+(parseInt(perferredTime_temp[0], 10) + 100).toString().substr(1)+'\u6642'+(parseInt(perferredTime_temp[1], 10) + 100).toString().substr(1)+'\u5206';
+			}
+			else {
+				var perferredDate = $("#preferred-date").val();
+				var perferredTime = $("#preferred-time").val();
+			}
+			
 			if(perferredTime == null || perferredTime.trim() == ""){
 				$('#perferredTimeIsNull').modal('show');
 			}

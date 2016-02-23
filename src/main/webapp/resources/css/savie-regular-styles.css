@@ -2382,6 +2382,12 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
     padding: 0 22px;
   }
 }
+@media (min-width: 992px) {
+  /* line 44, ../sass/partials/savie/_confirmation.scss */
+  .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row .offline-procedure p {
+    line-height: 20px;
+  }
+}
 /* line 51, ../sass/partials/savie/_confirmation.scss */
 .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row .offline-procedure .small-text {
   font-size: 14px;
@@ -2390,7 +2396,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 @media (min-width: 992px) {
   /* line 55, ../sass/partials/savie/_confirmation.scss */
   .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row .offline-procedure.procedure-3 {
-    padding-top: 60px;
+    padding-top: 55px;
   }
 }
 /* line 62, ../sass/partials/savie/_confirmation.scss */
