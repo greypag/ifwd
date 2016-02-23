@@ -260,13 +260,10 @@ function getSaviePlanDetails() {
 									}
 									
 									var value_rp = $('#policy-year-3-1').html();
-									$('#policy-year-3-1').html('');
-									if(value_rp > 65) {
-										$('#policy-year-3-1').html(value_rp+"<span class='payment-ends'></span>");
+									//$('#policy-year-3-1').html('');
+									if(value_rp > 0) {
+										$('#policy-year-3-1').html($('#payment-years').val()+"<span class='payment-ends'></span>");
 										appendPaymentEnds();
-									}
-									else {
-										$('#policy-year-3-1').html(value_rp);
 									}
 								}
 								if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
