@@ -16882,4 +16882,6 @@ a:focus {
 .cs-hotline-mob,.cs-hotline-mob:hover{
     color: #f5f5f5;
 } 
-
+body.chin #header .dot-font{
+    font-family: Calibri !important;
+} 
