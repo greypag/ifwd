@@ -301,6 +301,14 @@ public class TravelController {
 		model.addAttribute("twitterUrl", twitterUrl);
 		model.addAttribute("canonical", canonical);
 		
+		
+		String travelScriptName = WebServiceUtils.getPageTitle("travel.script.name",
+				UserRestURIConstants.getLanaguage(request));
+		String travelScriptDescription = WebServiceUtils.getPageTitle("travel.script.description",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("travelScriptName", travelScriptName);
+		model.addAttribute("travelScriptDescription", travelScriptDescription);
+		
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "travel/travel");			
 	}
 

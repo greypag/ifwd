@@ -42,6 +42,31 @@ $(document).ready(function() {
     $(".navbar-inverse").addClass("product-header");
 });
 </script>
+
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Product",
+  "name":"${scriptName}",
+  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_easy-homecare_en.jpg",
+  "description":"${scriptDescription}",
+  "brand":{
+    "@type":"Insurance",
+    "name":"${scriptChildName}"
+  },
+  "offers":{
+    "@type":"Offer",
+    "priceCurrency":"HKD",
+    "price":"420",
+    "priceValidUntil":"2016-12-31",
+    "availability":"http://schema.org/InStock",
+    "seller":{
+      "@type":"Organization",
+      "name":"${scriptChildName}"
+    }
+  }
+}
+</script>
 <!-- End fixed header -->
 </head>
 <body class="chin">

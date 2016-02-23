@@ -253,6 +253,16 @@ public class HomeCareController {
 			model.addAttribute("twitterUrl", twitterUrl);
 			model.addAttribute("canonical", canonical);
 			
+			String scriptName = WebServiceUtils.getPageTitle("homeCare.script.name",
+					UserRestURIConstants.getLanaguage(request));
+			String scriptDescription = WebServiceUtils.getPageTitle("homeCare.script.description",
+					UserRestURIConstants.getLanaguage(request));
+			String scriptChildName = WebServiceUtils.getPageTitle("homeCare.script.child.name",
+					UserRestURIConstants.getLanaguage(request));
+			model.addAttribute("scriptName", scriptName);
+			model.addAttribute("scriptDescription", scriptDescription);
+			model.addAttribute("scriptChildName", scriptChildName);
+			
 			return UserRestURIConstants.getSitePath(request)
 					+ "homecare/homecare";
 

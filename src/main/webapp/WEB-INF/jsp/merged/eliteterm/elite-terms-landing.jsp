@@ -13,6 +13,25 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mini-calcu/js/jquery-ui-1.11.4.custom/jquery-ui.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/mini-calcu/css/style.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles-et.css">
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Product",
+  "name":"${scriptName }",
+  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_elite-term_en.jpg",
+  "description":"${scriptDescription }",
+  "brand":{
+    "@type":"Insurance",
+    "name":"${scriptChildName }"
+  },
+  "offers":{
+    "@type":"AggregateOffer",
+    "lowPrice":"67",
+    "highPrice":"1075",
+    "priceCurrency":"HKD"
+  }
+}
+</script>
 		<%!
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;

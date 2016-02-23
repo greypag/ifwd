@@ -24,7 +24,30 @@
         $("[data-toggle='tooltip']").tooltip();
     });
 </script>
-
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Product",
+  "name":"${flightScriptName}",
+  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_flightcare_en.jpg",
+  "description":"${flightScriptDescription}",
+  "brand":{
+    "@type":"Insurance",
+    "name":"${flightScriptChildName}"
+  },
+  "offers":{
+    "@type":"Offer",
+    "priceCurrency":"HKD",
+    "price":"0",
+    "priceValidUntil":"2016-12-31",
+    "availability":"http://schema.org/InStock",
+    "seller":{
+      "@type":"Organization",
+      "name":"${flightScriptChildName}"
+    }
+  }
+}
+</script>
 <script type="text/javascript">
 
   // personal or family
