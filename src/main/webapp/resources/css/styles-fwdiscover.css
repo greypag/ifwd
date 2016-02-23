@@ -1565,3 +1565,7 @@
 	   display: block;
 	}
 }
+.fwdiscover-modal .terms-and-condition ul{
+	margin-top: 0;
+	padding-left: 15px;
+}
