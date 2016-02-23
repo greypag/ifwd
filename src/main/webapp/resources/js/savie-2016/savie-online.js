@@ -622,10 +622,19 @@ function soFormValidation() {
 				 message: "Please enter your HKID no."
 			  },
 			  callback: {
-				 message: "Your HKID no. is invalid.",
+				 /* message: "Your HKID no. is invalid.",
 				 callback: function(value, validator) {
 					//return isValidHKID(value);
-				 }
+				 } */
+				 callback: function(value, validator) {
+					if(!isValidHKID(value)) {
+						return {
+							valid: false,
+							message: "Your HKID no. is invalid.",
+						}
+					}
+					return true;
+				  }
 			  }
 		   }
 		},
@@ -1010,48 +1019,25 @@ function soFirstBFormValidation() {
 	               }
 				}
 			},
-			/* 'beneficiaryHkidPassport[1]':{
-			   container: '#beneficiaryHkidPassportErMsg\\[1\\]',
-			   validators: {
-					stringLength: {
-						min: 5,
-						max: 15,
-						message: getBundle(getBundleLanguage, "form.beneficiary.passport.length")
-					},
+			'beneficiaryHkid[1]':{
+				container: '#beneficiaryHkidPassErMsg\\[1\\]',
+				validators: {
 					notEmpty: {
-						message: "Please select HKID or Passport no."
-					},
-					regexp: {
-						regexp: /^[a-zA-Z0-9\-]*$/,
-						message: getBundle(getBundleLanguage, "form.beneficiary.passport.invalid")
-					}
-				}
-			},
-			'savieBeneficiaryBean[1].hkId':{
-			   container: '#hkidOrPassportMessage\\[1\\]',
-			   validators: {
-					notEmpty: {
-						message: getBundle(getBundleLanguage, "form.beneficiary.hkid.empty")
+						message: "Please enter beneficiary's HKID no."
 					},
 					callback: {
-						callback: function(value, validator) {
-							if( value.toUpperCase() == $('#savieApplicantBean\\.hkId').val().toUpperCase()) {
-								return {
-									valid: false,
-									message: getBundle(getBundleLanguage, "error.beneficiary.equal.applicant")
-								}
+	                  callback: function(value, validator) {
+						if(!isValidHKID(value)) {
+							return {
+								valid: false,
+								message: "Beneficiary's HKID cannot be the same as applicant's HKID.",
 							}
-							if( !isValidHKID(value) ){
-								return {
-									valid: false,
-									message: getBundle(getBundleLanguage, "form.beneficiary.hkid.invalid")
-								}
-							}
-							return true;
 						}
-					}
-			   }
-			}, */
+						return true;
+	                  }
+	                }
+				}
+			},
 			"beneficiaryGender[1]": {
 			   container: '#beneficiaryGenderErMsg\\[1\\]',
 			   validators: {
@@ -1201,6 +1187,25 @@ function soFirstBFormValidation() {
 					   }
 					}
 				},
+				'beneficiaryHkid[2]':{
+				container: '#beneficiaryHkidPassErMsg\\[2\\]',
+				validators: {
+					notEmpty: {
+						message: "Please enter beneficiary's HKID no."
+					},
+					callback: {
+	                  callback: function(value, validator) {
+						if(!isValidHKID(value)) {
+							return {
+								valid: false,
+								message: "Beneficiary's HKID cannot be the same as applicant's HKID.",
+							}
+						}
+						return true;
+	                  }
+	                }
+				}
+			},
 				"beneficiaryGender[2]": {
 				   container: '#beneficiaryGenderErMsg\\[2\\]',
 				   validators: {
