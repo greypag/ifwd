@@ -190,7 +190,7 @@
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <div class="clearfix form-group">
                                           <div class="residential-num">
-                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="residentialNo" name="residentialNo" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
+                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="residentialNo" name="residentialTelNo" value="${lifePersonalDetails.residentialTelNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
 											 <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialNo">Residential tel no. (eg. 1234-5678)</label>
                                           </div>
                                        </div>
@@ -201,7 +201,7 @@
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <div class="clearfix form-group">
                                           <div class="mobile-num">
-                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="mobileNo" name="mobileNo" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
+                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="mobileNo" name="mobileNumber" value="${lifePersonalDetails.mobileNumber }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
 											 <label class="mdl-textfield__label so-mdl-textfield-label" for="mobileNo">Mobile no. (eg. 1234-5678)</label>
                                           </div>
                                        </div>
@@ -232,7 +232,7 @@
                                  </div>
 								 <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="emailAddress" name="emailAddress" type="email" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="emailAddress" name="emailAddress" value="${userDetails.emailAddress }" readonly="readonly" type="email" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="emailAddress">Email address</label>
                                     </div>
 									<span class="error-msg" id="emailErMsg"></span>
@@ -240,26 +240,34 @@
                                  <div class="clearfix form-group has-error">
 									<span class="warning-note">Permanent address (No P.O. Box address allowed)</span>
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="permanentAddress1" name="permanentAddress1" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="permanentAddress1" name="permanetAddress1" value="${lifePersonalDetails.permanetAddress1 }" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress1">Permanent address line 1</label>
 									</div>
 									<span class="error-msg" id="permanentAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress2" name="permanentAddress2" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress2" name="permanetAddress2" value="${lifePersonalDetails.permanetAddress2 }" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress2">Permanent address line 2</label>
 									</div>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield res-textfield-hidden">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress3" name="permanentAddress3" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress3" name="permanetAddress3" value="${lifePersonalDetails.permanetAddress3 }" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress3">Permanent address line 3</label>
                                     </div>
 									<div class="left-desktop text-box res-additional hidden">
                                        <div class="selectDiv">
 										  <label class="mdl-textfield__label cstm-dropdown-label">District</label>
                                           <span class="icon-chevron-thin-down orange-caret"></span>
-                                          <select class="form-control gray-dropdown" name="permanentDistrict" id="permanentDistrict">
+                                          <select class="form-control gray-dropdown" name="permanetAddressDistrict" id="permanentDistrict">
                                              <option value="" selected="selected" disabled="disabled">District</option>
-                                             <option value="us">US</option>
-                                             <option value="germany">GERMANY</option>
+                                             <c:if test="${language == 'en'}">
+									<c:forEach var="list" items="${savieDistrictEN}">
+										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
+								<c:if test="${language == 'tc'}">
+									<c:forEach var="list" items="${savieDistrictCN}">
+										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+									</c:forEach>
+								</c:if>
                                           </select>
                                        </div>
 									   <span class="error-msg" id="permanentDistrictErMsg"></span>
@@ -270,7 +278,7 @@
                                        <div class="checkbox-section">
                                           <div class="clearfix">
                                              <div class="pull-left left-checkbox">
-                                                <input type="checkbox" value="None" id="diffToPermanent" name="diffToPermanent" onclick="return correspondenceCheckbox();" />
+                                                <input type="checkbox" value="None" id="diffToPermanent" name="diffToPermanent" <c:if test="${lifePersonalDetails.diffToPermanent == 'None'}">checked="checked"</c:if> onclick="return correspondenceCheckbox();" />
                                                 <label for="diffToPermanent"></label>
                                              </div>
                                              <div class="pull-left right-checkbox">
@@ -282,26 +290,34 @@
                                  </div>
                                  <div class="clearfix form-group has-error hidden" id="diffToPermanentShow">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress1" name="residentialAddress1" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress1">Residential address line 1</label>
 									</div>
 									<span class="error-msg" id="residentialAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress2" name="residentialAddress2" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress2">Residential address line 2</label>
 									</div>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress3" name="residentialAddress3" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialAddress3">Residential address line 3</label>
                                     </div>
 									<div class="left-desktop text-box">
                                        <div class="selectDiv">
 										 <label class="mdl-textfield__label cstm-dropdown-label">District</label>
                                           <span class="icon-chevron-thin-down orange-caret"></span>
-                                          <select class="form-control gray-dropdown" name="residentialDistrict" id="residentialDistrict">
+                                          <select class="form-control gray-dropdown" name="residentialAddressDistrict" id="residentialDistrict">
                                              <option value="" selected="selected" disabled="disabled">District</option>
-                                             <option value="us">US</option>
-                                             <option value="germany">GERMANY</option>
+                                             <c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${savieDistrictEN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${savieDistrictCN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
                                           </select>
                                        </div>
 									   <span class="error-msg" id="residentialDistrictErMsg"></span>
@@ -312,7 +328,7 @@
                                        <div class="checkbox-section">
                                           <div class="clearfix">
                                              <div class="pull-left left-checkbox">
-                                                <input type="checkbox" value="None" id="diffToResidential" name="diffToResidential" onclick="return correspondenceCheckbox();" />
+                                                <input type="checkbox" value="None" id="diffToResidential" name="diffToResidential" <c:if test="${lifePersonalDetails.diffToResidential == 'None'}">checked="checked"</c:if> onclick="return correspondenceCheckbox();" />
                                                 <label for="diffToResidential"></label>
                                              </div>
                                              <div class="pull-left right-checkbox">
@@ -324,26 +340,34 @@
                                  </div>
 								 <div class="clearfix form-group has-error hidden" id="diffToResidentialShow">
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress1" name="correspondenceAddress1" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress1" name="correspondenceAddress1" value="${lifePersonalDetails.correspondenceAddress1 }" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress1">Correspondence address line 1</label>
 									</div>
 									<span class="error-msg" id="correspondenceAddErMsg"></span>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress2" name="correspondenceAddress2" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress2" name="correspondenceAddress2" value="${lifePersonalDetails.correspondenceAddress2 }" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress2">Correspondence address line 2</label>
 									</div>
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress3" name="correspondenceAddress3" type="text" />
+                                       <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential" id="correspondenceAddress3" name="correspondenceAddress3" value="${lifePersonalDetails.correspondenceAddress3 }" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3">Correspondence address line 3</label>
                                     </div>
 									<div class="left-desktop text-box">
                                        <div class="selectDiv">
 										  <label class="mdl-textfield__label cstm-dropdown-label">District</label>
                                           <span class="icon-chevron-thin-down orange-caret"></span>
-                                          <select class="form-control gray-dropdown" name="correspondenceDistrict" id="correspondenceDistrict">
+                                          <select class="form-control gray-dropdown" name="correspondenceAddressDistrict" id="correspondenceDistrict">
                                              <option value="" selected="selected" disabled="disabled">District</option>
-                                             <option value="us">US</option>
-                                             <option value="germany">GERMANY</option>
+                                             <c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${savieDistrictEN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${savieDistrictCN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
                                           </select>
                                        </div>
 									   <span class="error-msg" id="correspondenceDistrictErMsg"></span>
@@ -352,7 +376,7 @@
                               </div>
                            </div>
                            <div class="next-btn">
-                              <button class="btn savie-common-btn applicant-btn">Next</button>
+                              <button id="et-personal-info-next" class="btn savie-common-btn applicant-btn">Next</button>
 							  <a href="#" class="link-btn" id="pd-save-con-later">Save and continue later</a>
 							   <button type="button" class="btn hidden beneficiary-btn-back savie-common-btn">Back to application summary</button>
                            </div>
@@ -488,6 +512,47 @@
 					}
                 });
 		    });
+			
+			$("#et-personal-info-next").click(function(){
+				$("#errorMsg").html("");
+				$.ajax({
+					  type : "POST",
+					  async:false, 
+					  url : "<%=request.getContextPath()%>/ajax/savie-online/lifePersonalDetails",
+					  data: $("#soInsuredInfoForm").serialize(),
+					  success : function(data) {
+						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+							  $("#errorMsg").html(data.errorMsg);
+						  }
+						  else{
+							  if('${backSummary}'=="Y"){
+								  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+							  }
+							  else{
+								  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+							  }
+						  }
+					  }
+			     });
+			});
+
+			$("#save-exit-btn").click(function(){
+				$("#errorMsg").html("");
+				$.ajax({
+					  type : "POST",
+					  async:false, 
+					  url : "<%=request.getContextPath()%>/ajax/savie-online/lifePersonalDetailsSaveforLater",
+					  data: $("#soInsuredInfoForm").serialize(),
+					  success : function(data) {
+						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+							  $("#errorMsg").html(data.errorMsg);
+						  }
+						  else{
+							  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+						  }
+					  }
+			     });
+			});
 		</script>
 	</body>
 </html>
