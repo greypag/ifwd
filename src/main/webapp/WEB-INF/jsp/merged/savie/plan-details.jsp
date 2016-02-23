@@ -479,6 +479,31 @@ var context = "${pageContext.request.contextPath}";
 		<script type="text/javascript">	
 			$(function() {
 				
+				var current_date = new Date();
+				var month_now = (parseInt((current_date.getMonth()+1), 10) + 100).toString().substr(1);
+				var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);
+				$('#sales-illu-dob').attr('placeholder',day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
+				$('#sales-illu-dob').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
+				
+				var from = $('#sales-illu-dob').val().split("-");
+				var birthdate = new Date(from[2], from[1] - 1, from[0]);
+				var cur = new Date();
+				var diff = cur-birthdate;
+				var age = Math.floor(diff/31536000000); //the age val
+				var max = 99;
+				var looplimit = max - Number(age);
+				
+				//console.log(looplimit);
+				$('#payment-years').html('');
+				for(var i = 1; i <= looplimit; i++ ) {
+					if(i == 3) {
+						$('#payment-years').append('<option value='+i+' selected>'+i+'</option>');
+					} else {
+						$('#payment-years').append('<option value='+i+'>'+i+'</option>');
+					}
+				}
+				
+				
 				$('#thankYouModal').on('shown.bs.modal', function() {
 				    $('body').addClass('modal-open');
 				    $('.navbar.navbar-default.navbar-fixed-top.hidden-lg.hidden-md.pad-none').removeClass('navbar-fixed-top').addClass('navbar-no-scroll');
