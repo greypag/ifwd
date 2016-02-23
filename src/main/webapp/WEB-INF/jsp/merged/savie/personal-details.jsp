@@ -155,15 +155,15 @@
                                     </div>
                                  </div>
                                  <div class="clearfix form-group has-error dob-content">
-                                    <div class="left-desktop text-box et-date-info">
+                                    <div class="left-desktop text-box et-date-info so-mdl-textfield">
 										<div class="selectDiv" id="date">
 											<label class="mdl-textfield__label cstm-textfield-label">Date of birth</label>
 											<span class="icon-chevron-thin-down orange-caret"></span>
-											<input type="text" class="form-control gray-textbox" name="so-calendar-dob" id="so-calendar-dob"  />
+											<input type="text" class="form-control gray-textbox" name="so-calendar-dob" id="so-calendar-dob" />
 										</div>
 										<span class="error-msg" id="so-calendar-dob-msg"></span>
                                     </div>
-                                 </div>								 
+                                 </div>
                               </div>
                               <div class="col-sm-12 col-md-6 right">
 								<div class="clearfix form-group has-error">
@@ -325,8 +325,7 @@
                            </div>
                            <div class="next-btn">
                               <button class="btn savie-common-btn applicant-btn">Next</button>
-							  <!--<a href="#" class="link-btn" data-toggle="modal" data-target="#save-and-continue-modal">Save and continue later</a>-->
-							  <a href="#" class="link-btn">Save and continue later</a>
+							  <a href="#" class="link-btn" id="pd-save-con-later">Save and continue later</a>
 							   <button type="button" class="btn hidden beneficiary-btn-back savie-common-btn">Back to application summary</button>
                            </div>
                         </form>
@@ -334,22 +333,57 @@
                   </div>
 				</div>
 			</div>
-			<div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
-			  <div class="modal-dialog">
-				<div class="modal-content save-con-modal-content">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-					<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
-					<p class="text-center description-msg">You may save your application progress up to (previous page). You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
-					<div class="save-con-btns clearfix">
-						<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6">Keep going</button>
-						<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6">Save and exit</button>
-					</div>
-				</div>
-			  </div>
-			</div>
 			<!-- FOOTER -->
 			<%@include file="includes/footer-block.jsp" %>
 		</div>
+		<!-- Save and continue modal -->
+		<div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content save-con-modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
+				<p class="text-center description-msg">You may save your application progress up to (previous page). You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+				<div class="save-con-btns clearfix">
+					<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6">Keep going</button>
+					<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6">Save and exit</button>
+				</div>
+			</div>
+		  </div>
+		</div>
+		<!-- Save and continue batch 5 modal -->
+		<div class="modal fade common-welcome-modal save-con-modal-b5" id="save-and-continue-batch5-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content save-con-modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
+				<p class="text-center description-msg">You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+				<div class="save-con-btns clearfix">
+					<center><button class="btn savie-common-btn" id="keep-going-btn">Keep going</button><button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn">Save and exit</button></center>
+				</div>
+			</div>
+		  </div>
+		
+		<!-- Application saved modal -->
+		<div class="modal fade common-welcome-modal modal-app-save" id="application-saved-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		  <div class="modal-dialog" id="modal-save-app">
+			<div class="modal-content modal-content-appsave common-welcome-modal">	
+				 <div class="modal-header" id="modal-header-appsave">
+				 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<p class="text-center">Your application has been saved. </p>
+				 </div>
+				 <div class="modal-body" id="moda-body-appsave">
+					<p class="text-center">A saved application email has been sent to you, you may continue the application through 
+					the application link embedded in the email or you may retrieve your progress from your eService 
+					purchase history. </p>
+					<div class="btn-appsave">
+						<button href="#" class="center-block btn savie-common-btn" id="btn-app-save">Back to home</button>
+					</div>
+				 </div>
+			 </div>
+		  </div>
+		</div>
+		
+		
 		<!-- JS INCLUDES -->
 		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
@@ -359,47 +393,46 @@
 				soFormValidation();
 				
 				var dummy = true;
-				//dummy condition for displaying the back / next button 
-				if(dummy) {
-					$('.applicant-btn, .link-btn').removeClass('hidden');
-					$('.beneficiary-btn-back').addClass('hidden');
-				} else {
-					$('.applicant-btn, .link-btn').addClass('hidden');
-					$('.beneficiary-btn-back').removeClass('hidden');
-				}
-
+                //dummy condition for displaying the back / next button 
+                if(dummy) { 
+                    // hide the back button and display the Next button
+                    $('.applicant-btn, .link-btn').removeClass('hidden');
+                    $('.beneficiary-btn-back').addClass('hidden');
+                } else {
+                    // display the back button and hide the Next button
+                    $('.applicant-btn, .link-btn').addClass('hidden');
+                    $('.beneficiary-btn-back').removeClass('hidden');
+                }
+				
+				// application saved modal will show after clicking 'Save and exit' button 
+				$('.save-exit-btn2, #save-exit-btn').click(function() {
+					$(this).closest('.modal').modal('hide');
+					$('#application-saved-modal').modal('show');
+				});
+				
+				
 				// on change
 				$('#so-calendar-dob').on('changeDate show', function(e) {
-					$(this).parent('.selectDiv').addClass('is-not-active');
+					$(this).parent('.selectDiv').parent('.et-date-info').addClass('is-not-active');
 					 if($(this).val() == '') {
-					   $(this).parent('.selectDiv').removeClass('is-not-active');
+					   $(this).parent('.selectDiv').parent('.et-date-info').removeClass('is-not-active');
 					}
-					
-					//$('#soInsuredInfoForm').data('bootstrapValidator').updateStatus('so-calendar-dob', 'NOT_VALIDATED', null).validateField('so-calendar-dob');
-			   }).datepicker({
-						format: "dd-mm-yyyy",
-						startView: "decade",
-						startDate: dob_start_date,
-						endDate: dob_end_date,
-						autoclose: true,
-						startView: 2
-					});
-			
+					$('#soInsuredInfoForm').data('bootstrapValidator').updateStatus('so-calendar-dob', 'NOT_VALIDATED', null).validateField('so-calendar-dob');
+			   });
 			   
 			   $('.cstm-number-field').on('change', function() {
 				   $(this).parent().parent().parent('so-mdl-textfield').addClass('is-not-active');
 				   if($(this).val() == '') {
 					   $(this).parent().parent().parent('so-mdl-textfield').removeClass('is-not-active');
 					}
-			   })
-			   			   
+			   })		   
 
 				// on focus
 				$('#so-calendar-dob').focus(function() {
 					$(this).parent('.is-not-active').find('label').attr('style', 'color: #ff8200;');
 				}).on('blur', function () {
 					$(this).parent('.is-not-active').find('label').removeAttr('style');
-				})
+				});
 			   
 			   $('.cstm-number-field').focus(function() {
 					$(this).parent().parent().parent().removeClass('is-not-active');
@@ -409,16 +442,25 @@
 					   $(this).parent().parent().parent('.so-mdl-textfield').removeClass('is-not-active');
 					}
 				});
-				$('.link-btn').on('click', function (e) {
-					$('#soInsuredInfoForm').submit();
-				});
-				$('#soInsuredInfoForm').validator().on('submit', function (e) {
-				  if (e.isDefaultPrevented()) {
-				    console.log('Display first modal');
-				  } else {
-				    console.log('Display second modal');
-				  }
-				});
+				
+				// For displaying the lightbox save and continue later
+				$('#pd-save-con-later').on('click', function (e) {
+					if($('#chineseName').val() == undefined) {
+						$('#soInsuredInfoForm').data('bootstrapValidator').enableFieldValidators('chineseName', false);
+					}
+					$('#soInsuredInfoForm').data('bootstrapValidator').validateField('chineseName');
+					if($('#residentialNo').val() == undefined) {
+						$('#soInsuredInfoForm').data('bootstrapValidator').enableFieldValidators('residentialNo', false);
+					}
+					$('#soInsuredInfoForm').data('bootstrapValidator').validateField('residentialNo');
+					if($('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
+					   $('#save-and-continue-batch5-modal').modal('show');
+					   console.log('valid');
+					} else {
+						$('#save-and-continue-modal').modal('show');
+						console.log('not valid');
+					}
+                });
 		    });
 		</script>
 	</body>

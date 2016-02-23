@@ -167,6 +167,7 @@
 					<div class="read-blog text-center fwd-container-limit">
 						<div class="blog-img-container hidden-lg hidden-md">
 							<img class="img-responsive blog-img" src="assets/images/savie-2016/blog-img.png" />
+							<div class="transparent-overlay"></div>
 							<p class="blog-img-text">7 musts before a long vacation</p>
 						</div>
 						<p class="savie-common-btn visible-md visible-lg read-more-btn">Read more from our blog</p>

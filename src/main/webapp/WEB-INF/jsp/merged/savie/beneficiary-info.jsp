@@ -451,6 +451,7 @@
 			<!-- FOOTER -->
 			<%@include file="includes/footer-block.jsp" %>
 		</div>
+		
 		<!-- Save and continue modal -->
 		<div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
@@ -465,6 +466,7 @@
 			</div>
 		  </div>
 		</div>
+		
 		<!-- Save and continue batch 5 modal -->
 		<div class="modal fade common-welcome-modal save-con-modal-b5" id="save-and-continue-batch5-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
@@ -478,20 +480,50 @@
 			</div>
 		  </div>
 		</div>
+		
+		<!-- Application saved modal -->
+		<div class="modal fade common-welcome-modal modal-app-save" id="application-saved-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		  <div class="modal-dialog" id="modal-save-app">
+			<div class="modal-content modal-content-appsave common-welcome-modal">	
+				 <div class="modal-header" id="modal-header-appsave">
+				 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<p class="text-center">Your application has been saved. </p>
+				 </div>
+				 <div class="modal-body" id="moda-body-appsave">
+					<p class="text-center">A saved application email has been sent to you, you may continue the application through 
+					the application link embedded in the email or you may retrieve your progress from your eService 
+					purchase history. </p>
+					<div class="btn-appsave">
+						<button href="#" class="center-block btn savie-common-btn" id="btn-app-save">Back to home</button>
+					</div>
+				 </div>
+			 </div>
+		  </div>
+		</div>
+		
 		<!-- JS INCLUDES -->
 		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				var language = "en";
 				
-				// button to show
-				if(true) {
+				var dummy = true;
+				// dummy condition for displaying the back / next button
+				if(dummy) {
+					// hide the back button and display the Next button
+					$('.beneficiary-btn-next, #bf-save-and-con-later').removeClass('hidden');
 					$('.beneficiary-btn-back').addClass('hidden');
-					$('.beneficiary-btn-next').removeClass('hidden');
 				} else {
-					$('.beneficiary-btn-next').addClass('hidden');
+					// display the back button and hide the Next button
+					$('.beneficiary-btn-next, #bf-save-and-con-later').addClass('hidden');
 					$('.beneficiary-btn-back').removeClass('hidden');
 				}
+				
+				// application saved modal will show after clicking 'Save and exit' button 
+				$('.save-exit-btn2, #save-exit-btn').click(function() {
+					$(this).closest('.modal').modal('hide');
+					$('#application-saved-modal').modal('show');
+				});
 				
 				soFirstBFormValidation();
 				$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validate();

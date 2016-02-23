@@ -218,7 +218,6 @@
 							</div>
 							
 							<center>
-								<!--<button type="button" class="btn btn-payment">Back to application summary</button>-->
 								<button type="submit" id="btn-next" class="btn btn-payment">Next</button>
 								<br /><a href="#" class="save-link" id="payment-save-and-con">Save and continue later</a>
 								<button type="button" id="btn-back" class="btn btn-payment hidden">Back to application summary</button>
@@ -230,6 +229,7 @@
 			<!-- FOOTER -->
 			<%@include file="includes/footer-block.jsp" %>
 		</div>
+		
 		<!-- Save and continue modal -->
 		<div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
@@ -244,6 +244,7 @@
 			</div>
 		  </div>
 		</div>
+		
 		<!-- Save and continue batch 5 modal -->
 		<div class="modal fade common-welcome-modal save-con-modal-b5" id="save-and-continue-batch5-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
@@ -251,10 +252,31 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
 				<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
 				<p class="text-center description-msg">You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
-				<div class="save-con-btns clearfix">
-					<center><button class="btn savie-common-btn" id="keep-going-btn">Keep going</button><button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn">Save and exit</button></center>
+				<div class="save-con-btns text-center clearfix">
+					<button class="btn savie-common-btn" id="keep-going-btn">Keep going</button>
+					<button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn">Save and exit</button>
 				</div>
 			</div>
+		  </div>
+		</div>
+		
+		<!-- Application saved modal -->
+		<div class="modal fade common-welcome-modal modal-app-save" id="application-saved-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+		  <div class="modal-dialog" id="modal-save-app">
+			<div class="modal-content modal-content-appsave common-welcome-modal">	
+				 <div class="modal-header" id="modal-header-appsave">
+				 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<p class="text-center">Your application has been saved. </p>
+				 </div>
+				 <div class="modal-body" id="moda-body-appsave">
+					<p class="text-center">A saved application email has been sent to you, you may continue the application through 
+					the application link embedded in the email or you may retrieve your progress from your eService 
+					purchase history. </p>
+					<div class="btn-appsave">
+						<button href="#" class="center-block btn savie-common-btn" id="btn-app-save">Back to home</button>
+					</div>
+				 </div>
+			 </div>
 		  </div>
 		</div>
 		<!-- JS INCLUDES -->
@@ -264,15 +286,23 @@
 			
 			$(document).ready(function() {
 				
-				// button to show
-				// dummy condition
-				if(true) {
+				var dummy = true;
+				// dummy condition for displaying the back / next button
+				if(dummy) {
+					// hide the back button and display the Next button
+					$('#btn-next, .save-link').removeClass('hidden');
 					$('#btn-back').addClass('hidden');
-					$('#btn-next').removeClass('hidden');
 				} else {
-					$('#btn-next').addClass('hidden');
+					// display the back button and hide the Next button
+					$('#btn-next, .save-link').addClass('hidden');
 					$('#btn-back').removeClass('hidden');
 				}
+				
+				// application saved modal will show after clicking 'Save and exit' button 
+				$('.save-exit-btn2, #save-exit-btn').click(function() {
+					$(this).closest('.modal').modal('hide');
+					$('#application-saved-modal').modal('show');
+				});
 				
 				paymentFormValidation();
 				
@@ -474,16 +504,6 @@
 				   $('#right-centre').html('');
 				}
 			 }
-			 
-			 function onchangeDate(val) {
-				 $(val).parent('.selectDiv').parent('.so-mdl-textfield').addClass('is-not-active');
-				 if(val.value == '') {
-				   $(val).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
-				}
-				
-				// Revalidate it
-				//$('#paymentForm').bootstrapValidator('revalidateField', 'preferred-date');
-			}
 		</script>
 	</body>
 </html>
