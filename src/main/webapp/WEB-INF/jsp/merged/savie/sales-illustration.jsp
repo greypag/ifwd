@@ -1,9 +1,17 @@
-<%@page pageEncoding="UTF-8" %>
+<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
+<fmt:setBundle basename="messages" var="msg" />
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<%@include file="includes/head.jsp" %>
-        <script type="text/javascript" src="assets/js/pdfobject.js"></script>
+        <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/pdfobject.js"></script>
         
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
@@ -13,7 +21,6 @@
 			boolean isEservicesActiveClass = false;
 		%>
 		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="sales-illustration-page">
-			<%@include file="includes/header-block.jsp" %>
 			<!--BREADCRUMBS-->
 			<div class="fwd-container container-fluid breadcrumbs">
 	            <div class="breadcrumb-container">
@@ -35,15 +42,15 @@
 	                  <div class="row reset-margin hidden-xs hidden-sm">
 	                     <ul class="common-steps-list six-steps nav nav-pills">
 	                        <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn active"><span class="status">1</span>Select plan</button></li>
-	                        <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 	                        <li class="step-number"><button type="button" class="et-header-info-btn"><span class="status">2</span>Application &amp; payment</button></li>
-	                        <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Summary &amp; declaration</button></li>
-	                        <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Signature</button></li>
-	                        <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document upload</button></li>
-	                        <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+	                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 	                        <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
 	                     </ul>
 	                 </div>
@@ -88,7 +95,7 @@
   							</div>
   							<div class="gray-bg-data-info">
   								<label class="data-label">Saving amount</label>
-  								<p class="data-info">HK$ 100,000</p>
+  								<p class="data-info">HK$ ${saviePlanDetails.insuredAmount }</p>
   							</div>
   						</div>
   						<div class="col-xs-12 col-md-6 right-side-form">
@@ -104,11 +111,11 @@
   						<div class="col-xs-12 col-md-6 left-side-form">
   							<div class="gray-bg-data-info">
   								<label class="data-label">Last name(same as HKID)</label>
-  								<p class="data-info">Chan</p>
+  								<p class="data-info">${userDetails.firstName }</p>
   							</div>
   							<div class="gray-bg-data-info">
   								<label class="data-label">Given name(same as HKID)</label>
-  								<p class="data-info">Tai Man</p>
+  								<p class="data-info">${userDetails.lastName }</p>
   							</div>
   							<div class="gray-bg-data-info hidden">
   								<label class="data-label">Name in Chinese(same as HKID)</label>
@@ -118,11 +125,11 @@
   						<div class="col-xs-12 col-md-6 right-side-form">
   							<div class="gray-bg-data-info">
   								<label class="data-label">Date of birth</label>
-  								<p class="data-info">01-10-1981</p>
+  								<p class="data-info">${saviePlanDetails.dob }</p>
   							</div>
   							<div class="gray-bg-data-info">
   								<label class="data-label">Gender</label>
-  								<p class="data-info">Male</p>
+  								<p class="data-info">${savieFna.gender=='0'?"Male":"Female" }</p>
   							</div>
   						</div>       	
 		       		 </div>
@@ -148,29 +155,31 @@
 	        	<div class="fwd-container-limit clearfix sidebar" id="pdf-holder">
 
 	        		<div id="pdf">
-	        			<iframe src="http://docs.google.com/gview?url=http://52.74.209.219:8080/savie-fwd-2016/assets/pdf/SavieProposalTemplateEng20150810.pdf&embedded=true"  frameborder="0"></iframe>
+	        			<iframe src="<%=request.getContextPath()%>/resources/pdf/${pdfName }"  frameborder="0"></iframe>
 	        			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
 	        				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
 	        				<embed id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
 						</object>-->
 	        		</div>
 	        		<div class="text-center">
-	        			<p id="print-docu" class="visible-md visible-lg hidden"><span id="print-icon"><img src="assets/images/savie-2016/print-icon.png" /></span><a href="#">Print this document</a></p>
+	        			<p id="print-docu" class="visible-md visible-lg hidden"><span id="print-icon"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png" /></span><a href="#">Print this document</a></p>
 	        			<button type="" class="btn savie-common-btn" id="accept-btn">Accept</button>
 	        		</div>
 	        	</div>
 	        </div>
 			<!-- FOOTER -->
-			<%@include file="includes/footer-block.jsp" %>
 		</div>
 		<!-- JS INCLUDES -->
-		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 
 			window.onload = function (){
 				var pdfFile = $('#pdf-object').attr('data');
 				var success = new PDFObject({ url: pdfFile }).embed();
 			};
+			
+			$("#accept-btn").click(function(){
+				window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+			});
 
 
         </script> 
