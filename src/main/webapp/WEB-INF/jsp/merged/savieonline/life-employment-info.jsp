@@ -19,8 +19,9 @@ monthlyPersonalIncome:<input type="text" id="monthlyPersonalIncome" name="monthl
 education:<input type="text" id="education" name="education" value="${lifeEmploymentInfo.education }"/><br/>
 amountOfOtherSourceOfIncome:<input type="text" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome" value="${lifeEmploymentInfo.amountOfOtherSourceOfIncome }"/><br/>
 amountOfLiquidAssets:<input type="text" id="amountOfLiquidAssets" name="amountOfLiquidAssets" value="${lifeEmploymentInfo.amountOfLiquidAssets }"/><br/>
-<input type="button" id="nextPage" value="nextPage"/><br/>
-<a href="#" class="et-app-sum-edit et-app-edit">save and continue later</a>
+<input type="button" id="nextPage" value="nextPage"/>
+<input type="button" id="saveLater" value="saveLater"/>
+
 </form>
 </div>
 <script type="text/javascript">
@@ -42,6 +43,24 @@ $("#nextPage").click(function(){
 				  else{
 					  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
 				  }
+			  }
+		  }
+     });
+});
+
+$("#saveLater").click(function(){
+	$("#errorMsg").html("");
+	$.ajax({
+		  type : "POST",
+		  async:false, 
+		  url : "<%=request.getContextPath()%>/ajax/savie-online/lifeEmploymentInfoSaveforLater",
+		  data: $("#lifeEmploymentInfoForm").serialize(),
+		  success : function(data) {
+			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+				  $("#errorMsg").html(data.errorMsg);
+			  }
+			  else{
+				  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
 			  }
 		  }
      });
