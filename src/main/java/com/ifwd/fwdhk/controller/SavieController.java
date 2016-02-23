@@ -98,7 +98,13 @@ public class SavieController extends BaseController{
 		String ogDescription = WebServiceUtils.getPageTitle(
 				key + ".og.description",
 				UserRestURIConstants.getLanaguage(request));
-
+		
+		if (request.getRequestURI().indexOf("plan-details-rp") != -1) {
+			key = "savierp.planDetails.rp";
+			pageTitle = WebServiceUtils.getPageTitle("page." + key,
+					UserRestURIConstants.getLanaguage(request));
+		} 
+		
 		if (request.getRequestURL().toString().contains("-rp")) {
 			httpSession.setAttribute("savieType", "RP");
 			key = "rp";
@@ -270,7 +276,7 @@ public class SavieController extends BaseController{
 	/*@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
 	public ModelAndView getSavieThankyou(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION);
-	}*/
+	}*/  
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/declarations"})
 	public ModelAndView getSavieDeclarationAuthorization(Model model, HttpServletRequest request) {
@@ -793,7 +799,7 @@ public class SavieController extends BaseController{
 		}
 		model.addAttribute("savieAns", savieAns);
 		model.addAttribute("affiliate", affiliate);
-		String key = "savierp.landing.rp";
+		String	key = "savierp.landing.rp";
 		String pageTitle = WebServiceUtils.getPageTitle("page." + key,
 				UserRestURIConstants.getLanaguage(request));
 		String pageMetaDataDescription = WebServiceUtils.getPageTitle("meta."
@@ -819,7 +825,13 @@ public class SavieController extends BaseController{
 				UserRestURIConstants.getLanaguage(request));
 		String canonical = WebServiceUtils.getPageTitle("canonical.savie.rp",
 				UserRestURIConstants.getLanaguage(request));
-
+		
+		if (request.getRequestURI().indexOf("regular-premium") == -1) {
+			key = "savie.landing.index";
+			pageTitle = WebServiceUtils.getPageTitle("page." + key,
+					UserRestURIConstants.getLanaguage(request));
+		}
+		
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
 		model.addAttribute("ogTitle", ogTitle);
