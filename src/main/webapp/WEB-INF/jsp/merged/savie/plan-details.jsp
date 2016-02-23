@@ -49,7 +49,7 @@ var context = "${pageContext.request.contextPath}";
 			</div>
 		</div>
 	
-		<div class="application-flux savie-regular-plan-details">
+		<div class="application-flux savie-regular-plan-details" data-savie-type="${savieType}">
 			<span id="username" data-userid="<%=session.getAttribute("username")%>"></span>
 			<div class="fwd-container-limit">
 				<ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs hidden-sm hidden-xs">
