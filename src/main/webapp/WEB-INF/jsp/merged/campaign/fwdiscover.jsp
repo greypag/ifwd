@@ -60,7 +60,6 @@
 					<div class="fwd-full-container container-fluid fwdiscover-banner clearfix">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/page-banner-mobile.jpg" class="img-responsive hidden-md hidden-lg">
 						<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/page-banner-desktop.jpg" class="img-responsive hidden-sm hidden-xs">
-
 						<div class="banner-title">
 							<p class="welcome"><fmt:message key="jumbo.fwdiscover1" bundle="${msg}" /></p>
 							<p class="fwdiscover"><fmt:message key="jumbo.fwdiscover2" bundle="${msg}" /></p>
@@ -154,7 +153,7 @@
                                	
                                	<% if(isCNYOffer==true){ %>
                                	<div class="col-xs-4">
-                                    <a href="#offerCny"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/annualtravel.png" class="img-responsive"></a>
+                                    <a href="#offerCny"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero_thumbnail.jpg" class="img-responsive"></a>
                                     <div class="gray-hover hidden hidden-xs hidden-sm">
                                         <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail0.price" bundle="${msg}" /></p>
                                         <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail0.copy" bundle="${msg}" /></p>
@@ -252,20 +251,19 @@
                 	if (isCNYOffer) {
                	%>
                     <div class="fwdiscover-plan">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-redpacket.jpg" class="img-responsive hidden-lg hidden-md">
-                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/plan-redpacket-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
-
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero_mobile.jpg" class="img-responsive hidden-lg hidden-md">
+                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero.jpg" class="img-responsive hidden-xs hidden-sm">
                         <div class="plan-details-box red-bg right">
                             <div class="plan-desc">
                                 <div class="upper-desc">
-                                    <p class="title"><fmt:message key="Fanfare.landingpage.offerCny" bundle="${msg}" /></p>
-                                    <p class="promo"><fmt:message key="Fanfare.landingpage.offerCny.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offerCny.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerCny.subtitle3" bundle="${msg}" /></span></p>
+                                    <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
+                                    <p class="promo"><span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
                                 </div>
                                 <div class="lower-desc">
                                     <ul>
-                                        <li><fmt:message key="Fanfare.landingpage.offerCny.bullet1" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offerCny.bullet2" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offerCny.bullet3" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet2" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /></li>
                                     </ul>
                                 </div>
                             </div>
@@ -274,7 +272,7 @@
                                 <div class="promo-desc text-center">
                                     <div class="clearfix">
                                         <div class="holder">
-                                            <p class="title"><fmt:message key="Fanfare.landingpage.offerCny.box1" bundle="${msg}" /></p>
+                                            <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.box1" bundle="${msg}" /></p>
                                             <p class="value">${count5}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
@@ -287,7 +285,7 @@
                                 </div>
 
                                 <div class="details-button-holder text-center" name="offerCny">
-                                    <button class="details-btn" id="cny-plan-button" data-target="offerCny-details"><fmt:message key="Fanfare.landingpage.offerCny.button" bundle="${msg}" /></button>
+                                    <button class="details-btn" id="cny-plan-button" data-target="offerCny-details"><fmt:message key="Fanfare.landingpage.offerPermium.button" bundle="${msg}" /></button>
                                 </div>
                             </div>
                         </div>
@@ -676,13 +674,14 @@
                 <div class="modal fade fwdiscover-modal" id="offerCny-details" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <p class="title"><fmt:message key="Fanfare.landingpage.offerCny" bundle="${msg}" /></p>
-                            <p class="promo"><fmt:message key="Fanfare.landingpage.offerCny.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offerCny.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerCny.subtitle3" bundle="${msg}" /></span></p>
+                            <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium" bundle="${msg}" /></p>
+                            <p class="promo"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle1" bundle="${msg}" /> <span class="price"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle2" bundle="${msg}" /></span> <span class="italic"><fmt:message key="Fanfare.landingpage.offerPermium.subtitle3" bundle="${msg}" /></span></p>
 
                             <ul>
-                                <li><fmt:message key="Fanfare.landingpage.offerCny.bullet1" bundle="${msg}" /></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerCny.bullet2" bundle="${msg}" /><a href="<fmt:message key="Fanfare.landingpage.offerCny.bullet2.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerCny.bullet2.linktext" bundle="${msg}" /></a></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerCny.bullet3" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet2" bundle="${msg}" /></li>
+                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /><a href="<fmt:message key="Fanfare.landingpage.offerPermium.bullet3.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerPermium.bullet3.linktext" bundle="${msg}" /></a></li>
+                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet4" bundle="${msg}" /></li>
                             </ul>
 
                             <div class="details-button-holder text-center">
