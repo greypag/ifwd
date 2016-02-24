@@ -456,6 +456,11 @@ body {
   cursor: pointer;
   background: #fff;
 }
+@media (min-width: 992px) {
+	.selectDiv .gray-dropdown {
+		padding: 3px 10px;
+	}
+}
 /* line 342, ../sass/partials/savie/_common.scss */
 .selectDiv .gray-dropdown::-ms-expand {
   display: none;
@@ -4697,6 +4702,11 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 .savie-regular-plan-details #illustration-filters #investment-amount .orange-caret-bg {
   right: 15px;
 }
+@media (min-width: 992px) {
+	.savie-regular-plan-details #illustration-filters #investment-amount .orange-caret-bg {
+		right: 10px;
+	}
+}
 /* line 51, ../sass/partials/savie/_plan-details.scss */
 .savie-regular-plan-details #illustration-filters #investment-amount.one-off {
   padding-bottom: 30px;
@@ -4827,6 +4837,11 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
   top: 5px;
 }
 @media (min-width: 992px) {
+	.savie-regular-plan-details #illustration-filters #investment-amount #birthday .add-on {
+		right: 10px;
+    	top: 38%;
+    	padding: 0;
+	}
   /* line 153, ../sass/partials/savie/_plan-details.scss */
   .savie-regular-plan-details #illustration-filters #investment-amount .regular-payment.amount h3 {
     padding-top: 4px;
@@ -4867,6 +4882,7 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
   /* line 181, ../sass/partials/savie/_plan-details.scss */
   .savie-regular-plan-details #illustration-filters #information .promocode {
     margin-top: 4px;
+    padding: 0 10px;
   }
 }
 /* line 187, ../sass/partials/savie/_plan-details.scss */
