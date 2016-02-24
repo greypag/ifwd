@@ -154,7 +154,7 @@
                                	<% if(isCNYOffer==true){ %>
                                	<div class="col-xs-4">
                                     <a href="#offerCny"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/PremiumDiscount_hero_thumbnail.jpg" class="img-responsive"></a>
-                                    <div class="gray-hover hidden hidden-xs hidden-sm">
+                                    <div class="gray-hover hidden hidden-xs hidden-sm long-text">
                                         <p class="price"><fmt:message key="Fanfare.landingpage.thumbnail0.price" bundle="${msg}" /></p>
                                         <p class="discount"><fmt:message key="Fanfare.landingpage.thumbnail0.copy" bundle="${msg}" /></p>
                                     </div>

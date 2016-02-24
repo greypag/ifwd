@@ -1261,7 +1261,9 @@
     line-height: 20px;
     margin-top: 20px;
 }
-
+#myCarousel-fwdiscover .carousel-inner .item .gray-hover.long-text .price{
+	margin-top: 10px;
+}
 #myCarousel-fwdiscover .carousel-inner .item .gray-hover .free {
 	margin-top: 10px;
 }
