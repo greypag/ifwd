@@ -1094,36 +1094,6 @@ function getSavieOnlinePlandetails() {
     });
 }
 
-function goServiceCenter(){
-	$.ajax({     
-	    url:'${pageContext.request.contextPath}/ajax/savie-online/getPurchaseHistoryByPlanCode',     
-	    type:'get',     
-	    error:function(){       
-	    },     
-	    success:function(data){
-	    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
-	    	     window.location = '<%=request.getContextPath()%>/${language}/savie-online/service-center';
-	    	}
-	    	else{
-	    		$.ajax({     
-	    		    url:'${pageContext.request.contextPath}/ajax/savie-online/show',     
-	    		    type:'get',     
-	    		    error:function(){       
-	    		    },     
-	    		    success:function(data){
-	    		    	if(data != null && data.errMsgs == null && data.name !=null){
-	    		    	    window.location = '<%=request.getContextPath()%>/${language}/savie-online/savie-review';
-	    		    	}
-	    		    	else{
-	    		    	    window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
-	    		    	}
-	    		    }  
-	    		});
-	    	}
-	    }  
-	});
-}
-
 function fmoney(s) {
 	   s = parseFloat((s + "").replace(/[^\d\.-]/g, "")).toFixed(0) + "";   
 	   var l = s.split(".")[0].split("").reverse(),   
