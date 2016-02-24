@@ -1,8 +1,13 @@
-<%@page pageEncoding="UTF-8" %>
+<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<%@include file="includes/head.jsp" %>
       
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
@@ -12,7 +17,6 @@
 			boolean isEservicesActiveClass = false;
 		%>
 		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="application-summary-page">			
-			<%@include file="includes/header-block.jsp" %>
 
          <div class="fwd-container container-fluid breadcrumbs">
             <div class="breadcrumb-container">
@@ -34,15 +38,15 @@
                   <div class="row reset-margin hidden-xs hidden-sm">
                      <ul class="common-steps-list nav nav-pills six-steps">
                         <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
-                        <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
                         <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Application &amp; payment</button></li>
-                        <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
                         <li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">3</span>Summary &amp; declaration</button></li>
-                        <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
                         <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Signature</button></li>
-                        <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
                         <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document upload</button></li>
-                        <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
                         <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
                      </ul>
                  </div>
@@ -81,7 +85,7 @@
             <h5 class="title">Application summary</h5>
 
             <div class="summary-section clearfix">
-               <h5>Your selected plan <a href="#">Edit</a></h5>
+               <h5>Your selected plan <a href="<%=request.getContextPath()%>/${language}/savie-online/savie-plan-details?backSummary=Y">Edit</a></h5>
                <div class="desktop-left">
                   <div class="gray-holder">
                      <h6 class="info-label">Plan name</h6>
@@ -89,7 +93,7 @@
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Saving amount</h6>
-                     <span class="info">HK$ 100,000</span>
+                     <span class="info">HK$ ${saviePlanDetails.insuredAmount }</span>
                   </div>
                </div>
                <div class="desktop-right">
@@ -101,177 +105,177 @@
             </div>
 
             <div class="summary-section below clearfix">
-               <h5>Personal info <a href="#">Edit</a></h5>
+               <h5>Personal info <a href="<%=request.getContextPath()%>/${language}/savie-online/life-personal-details?backSummary=Y">Edit</a></h5>
                <div class="desktop-left">
                   <div class="gray-holder">
                      <h6 class="info-label">Last name (same as HKID)</h6>
-                     <span class="info">CHAN</span>
+                     <span class="info">${lifePersonalDetails.lastname }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">First name (same as HKID)</h6>
-                     <span class="info">TAI MAN</span>
+                     <span class="info">${lifePersonalDetails.firstname }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Name in Chinese (same as HKID)</h6>
-                     <span class="info ch">陳大文</span>
+                     <span class="info ch">${lifePersonalDetails.chineseName }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Gender</h6>
-                     <span class="info">MALE</span>
+                     <span class="info">${lifePersonalDetails.gender }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">HKID</h6>
-                     <span class="info">A0123456</span>
+                     <span class="info">${lifePersonalDetails.hkid }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Place of birth</h6>
-                     <span class="info">HONG KONG</span>
+                     <span class="info">${lifePersonalDetails.placeOfBirth }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Nationality</h6>
-                     <span class="info">HONG KONG</span>
+                     <span class="info">${lifePersonalDetails.nationalty }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Date of birth</h6>
-                     <span class="info">01-10-1981</span>
+                     <span class="info">${lifePersonalDetails.dob }</span>
                   </div>
                </div>
                <div class="desktop-right">
 				  <div class="gray-holder">
                      <h6 class="info-label">Residential telephone no.</h6>
-                     <span class="info">+85 9876 5432</span>
+                     <span class="info">+${lifePersonalDetails.residentialTelNo }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Telephone no.</h6>
-                     <span class="info">+85 9876 5432</span>
+                     <span class="info">+${lifePersonalDetails.mobileNumber }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Marital status</h6>
-                     <span class="info">MARRIED</span>
+                     <span class="info">${lifePersonalDetails.martialStatus }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Email address</h6>
-                     <span class="info">CHANTAIMAN@GMAIL.COM</span>
+                     <span class="info">${lifePersonalDetails.emailAddress }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label permanent-top">Permanent address (No P.O box address allowed)</h6>
 					 <h6 class="info-label">Permanent address line 1</h6>
-                     <span class="info">ROOM 601</span>
+                     <span class="info">${lifePersonalDetails.permanetAddress1 }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Permanent address line 2</h6>
-                     <span class="info">TUNG HIP BUILDING</span>
+                     <span class="info">${lifePersonalDetails.permanetAddress2 }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Permanent address line 3</h6>
-                     <span class="info">248 DES VOEUX ROAD, SHEUNG WAN.</span>
+                     <span class="info">${lifePersonalDetails.permanetAddress3 }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">District</h6>
-                     <span class="info">US</span>
+                     <span class="info">${lifePersonalDetails.permanetAddressDistrict }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Residential address line 1</h6>
-                     <span class="info">ROOM 601</span>
+                     <span class="info">${lifePersonalDetails.residentialAddress1 }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Residential address line 2</h6>
-                     <span class="info">TUNG HIP BUILDING</span>
+                     <span class="info">${lifePersonalDetails.residentialAddress2 }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Residential address line 3</h6>
-                     <span class="info">248 DES VOEUX ROAD, SHEUNG WAN.</span>
+                     <span class="info">${lifePersonalDetails.residentialAddress3 }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">District</h6>
-                     <span class="info">US</span>
+                     <span class="info">${lifePersonalDetails.residentialAddressDistrict }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Correspondence address line 1</h6>
-                     <span class="info">ROOM 601</span>
+                     <span class="info">${lifePersonalDetails.correspondenceAddress1 }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Correspondence address line 2</h6>
-                     <span class="info">TUNG HIP BUILDING</span>
+                     <span class="info">${lifePersonalDetails.correspondenceAddress2 }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Correspondence address line 3</h6>
-                     <span class="info">248 DES VOEUX ROAD, SHEUNG WAN.</span>
+                     <span class="info">${lifePersonalDetails.correspondenceAddress3 }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">District</h6>
-                     <span class="info">US</span>
+                     <span class="info">${lifePersonalDetails.correspondenceAddressDistrict }</span>
                   </div>
                </div>
             </div>
             <div class="summary-section below-employment clearfix">
-               <h5>Employment info <a href="#">Edit</a></h5>
+               <h5>Employment info <a href="<%=request.getContextPath()%>/${language}/savie-online/life-employment-info?backSummary=Y">Edit</a></h5>
                <div class="desktop-left">
                   <div class="gray-holder">
                      <h6 class="info-label">Employment status</h6>
-                     <span class="info">EMPLOYED</span>
+                     <span class="info">${lifeEmploymentInfo.employmentStatus }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Nature of business</h6>
-                     <span class="info">OTHERS</span>
+                     <span class="info">${lifeEmploymentInfo.natureOfBusiness }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Occupation</h6>
-                     <span class="info">OTHERS</span>
+                     <span class="info">${lifeEmploymentInfo.occupation }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Please specify</h6>
-                     <span class="info">ARTIST</span>
+                     <span class="info">${lifeEmploymentInfo.amountOfOtherSourceOfIncome }${lifeEmploymentInfo.amountOfLiquidAssets }</span>
                   </div>
                </div>
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Current employer's name</h6>
-                     <span class="info">FWD</span>
+                     <span class="info">${lifeEmploymentInfo.employerName }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Monthly personal income (HK$)</h6>
-                     <span class="info">100,000,000</span>
+                     <span class="info">${lifeEmploymentInfo.monthlyPersonalIncome }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Education level</h6>
-                     <span class="info">POST-SECONDARY / UNIVERSITY OR ABOVE</span>
+                     <span class="info">${lifeEmploymentInfo.education }</span>
                   </div>
                </div>
             </div>
             <div class="summary-section below-beneficiary clearfix">
-               <h5>Beneficiary info <a href="#">Edit</a></h5>
+               <h5>Beneficiary info <a href="<%=request.getContextPath()%>/${language}/savie-online/life-beneficary-info?backSummary=Y">Edit</a></h5>
                <span class="person-count first-person">Person 1</span>
                <div class="desktop-left">
                   <div class="gray-holder">
                      <h6 class="info-label">Last name (same as HKID)</h6>
-                     <span class="info">CHAN</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryLastName1 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">First name (same as HKID)</h6>
-                     <span class="info">MARY</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryFirstName1 }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Name in Chinese (optional)</h6>
-                     <span class="info chinese-temp"></span>
+                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName1 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">HKID</h6>
-                     <span class="info">A234567</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryID1 }</span>
                   </div>
                </div>
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Relationship</h6>
-                     <span class="info">SPOUSE</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryRelation1 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Gender</h6>
-                     <span class="info">FEMALE</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryGender1 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Entitlement (%)</h6>
-                     <span class="info">Person 1: 100%</span>
+                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight1 }%</span>
                   </div>
                </div>
 			</div>
@@ -280,33 +284,33 @@
                <div class="desktop-left">
                   <div class="gray-holder">
                      <h6 class="info-label">Last name (same as HKID)</h6>
-                     <span class="info">CHAN</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryLastName2 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">First name (same as HKID)</h6>
-                     <span class="info">AH KAO</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryFirstName2 }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Name in Chinese (optional)</h6>
-                     <span class="info chinese-temp"></span>
+                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName2 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">HKID</h6>
-                     <span class="info">A234567</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryID2 }</span>
                   </div>
                </div>
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Relationship</h6>
-                     <span class="info">SON</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryRelation2 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Gender</h6>
-                     <span class="info">MALE</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryGender2 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Entitlement (%)</h6>
-                     <span class="info">Person 1: 100%</span>
+                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight2 }%</span>
                   </div>
                </div>
 			</div>
@@ -315,80 +319,82 @@
                <div class="desktop-left">
                   <div class="gray-holder">
                      <h6 class="info-label">Last name (same as HKID)</h6>
-                     <span class="info">CHAN</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryLastName3 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">First name (same as HKID)</h6>
-                     <span class="info">AH KAM</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryFirstName3 }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Name in Chinese (optional)</h6>
-                     <span class="info chinese-temp"></span>
+                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName3 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">HKID</h6>
-                     <span class="info">A234567</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryID3 }</span>
                   </div>
                </div>
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Relationship</h6>
-                     <span class="info">DAUGHTER</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryRelation3 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Gender</h6>
-                     <span class="info">FEMALE</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryGender3 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Entitlement (%)</h6>
-                     <span class="info">Person 1: 100%</span>
+                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight3 }%</span>
                   </div>
                </div>
             </div>
             <div class="summary-section below-payment clearfix">
-               <h5>Payment info <a href="#">Edit</a></h5>
+               <h5>Payment info <a href="<%=request.getContextPath()%>/${language}/savie-online/life-payment">Edit</a></h5>
                <div class="desktop-left">
 				  <div class="gray-holder">
                      <h6 class="info-label">Amount</h6>
-                     <span class="info">HK$ 100,000</span>
+                     <span class="info">HK$ ${lifePayment.paymentAmount }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Payment method</h6>
-                     <span class="info">DIRECT DEBIT</span>
+                     <span class="info">${lifePayment.paymentMethod }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Bank account holder name</h6>
-                     <span class="info">CHAN TAI MAN</span>
+                     <span class="info">${lifePayment.accountHolderName }</span>
                   </div>
                </div>
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Bank name (code)</h6>
-                     <span class="info">CHINA CITIBANK (002)</span>
+                     <span class="info">${lifePayment.bankCode }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Account no.</h6>
-                     <span class="info">467823423</span>
+                     <span class="info">${lifePayment.accountNumber }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Branch name</h6>
-                     <span class="info">SHEUNG WAN</span>
+                     <span class="info">${lifePayment.branchCode }</span>
                   </div>
                </div>
             </div>
 
             <div class="text-center clearfix">
-               <button class="btn savie-common-btn" type="button">Next</button>
+               <button class="btn savie-common-btn" type="button" onclick="goNext()">Next</button>
             </div>
          </div>
 			<!-- FOOTER -->
-			<%@include file="includes/footer-block.jsp" %>
 		</div>
 		
 		<!-- JS INCLUDES -->
-		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 			var language = "en";
+			
+			function goNext(){
+					window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+			}
 		</script>
 		
 		
