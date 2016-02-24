@@ -11,7 +11,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
 	
-<scripttype="application/ld+json">
+<script type="application/ld+json">
 {
   "@context":"http://schema.org/",
   "@type":"Product",
