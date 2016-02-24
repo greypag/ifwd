@@ -11,7 +11,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
 	
-<scripttype="application/ld+json">
+<script type="application/ld+json">
 {
   "@context":"http://schema.org/",
   "@type":"Product",
@@ -147,7 +147,7 @@
         			<div class="benefits-holder">
         				<div class="hidden-md hidden-lg">
 		        			<div class="row">
-		        				<div class="col-xs-6 text-center annualTravel_policy_item">
+		        				<!-- <div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png">
 		        					<span><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
@@ -157,7 +157,7 @@
 											<p class="hidden-benefits-info"><fmt:message key="product.details.savie1.summary" bundle="${msg}" />  </p>
 										</div>
 									</div>
-		        				</div>
+		        				</div>-->
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png">
 		        					<span><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /></span>
@@ -166,6 +166,18 @@
 										<div class="info hidden-benefits-info">
 											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /></h3>
 											<p class="hidden-benefits-info"><fmt:message key="product.details.savie2.summary" bundle="${msg}" />  </p>
+										</div>
+									</div>
+		        				</div>
+		        				
+		        				<div class="col-xs-6 text-center annualTravel_policy_item">
+		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png">
+		        					<span class="two-lines"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></span>
+									<div class="hidden-benefits benefits-content">
+										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png" />
+										<div class="info hidden-benefits-info">
+											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="product.details.savie4.summary" bundle="${msg}" />  </p>
 										</div>
 									</div>
 		        				</div>
@@ -182,17 +194,6 @@
 										</div>
 									</div>
 		        				</div>-->
-		        				<div class="col-xs-6 text-center annualTravel_policy_item">
-		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png">
-		        					<span class="two-lines"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></span>
-									<div class="hidden-benefits benefits-content">
-										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png" />
-										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></h3>
-											<p class="hidden-benefits-info"><fmt:message key="product.details.savie4.summary" bundle="${msg}" />  </p>
-										</div>
-									</div>
-		        				</div>
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png">
 		        					<span class="two-lines"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></span>
@@ -223,19 +224,19 @@
 		        		<div class="hidden-xs hidden-sm">
 		        			<div class="" id="benefits-nav-holder">
 								<ul class="nav nav-tabs row so-fna-row" role="tablist">
-									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="benefits-nav-title-1">
+									<!-- <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li active" id="benefits-nav-title-1">
 										<a href="#benefits-navtabs-1" role="tab" data-toggle="tab" class="navtabs-title first-fna ui-link text-center"><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /> </a>
-									</li>
-                                    <li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-6">
+									</li>-->
+                                    <li role="presentation" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 navtabs-li active" id="benefits-nav-title-6">
                                         <a href="#benefits-navtabs-6" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></a>
                                     </li>									
-									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li" id="benefits-nav-title-2">
+									<li role="presentation" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 navtabs-li" id="benefits-nav-title-2">
 										<a href="#benefits-navtabs-2" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /> </a>
 									</li>
 									<!--  <li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li" id="benefits-nav-title-3">
 										<a href="#benefits-navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link text-center"><fmt:message key="savierp.landing.navtabs.withdrawal" bundle="${msg}" /> <span><fmt:message key="savierp.landing.navtabs.without" bundle="${msg}" /></span></a>
 									</li> -->
-									<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="benefits-nav-title-4">
+									<li role="presentation" class="col-lg-4 col-md-4 col-sm-4 col-xs-4 navtabs-li last" id="benefits-nav-title-4">
 										<a href="#benefits-navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link text-center"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /> </a>
 									</li>
 									<!-- <li role="presentation" class="col-lg-2 col-md-2 col-sm-2 col-xs-2 navtabs-li last" id="benefits-nav-title-5">
@@ -244,7 +245,7 @@
 								</ul>
 								<div class="fna-carousel carousel slide" id="benefits-carousel" data-ride="carousel" data-interval="false">
 									<div class="tab-content carousel-inner clearfix" role="listbox">
-												<div role="tabpanel" class="fna-tab-content tab-pane item active" id="benefits-navtabs-1">
+												<!--  <div role="tabpanel" class="fna-tab-content tab-pane item active" id="benefits-navtabs-1">
 													<div class="benefits-content clearfix">
 														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/new-benefit-1.png">
 														<div class="info">
@@ -252,7 +253,7 @@
 															<p><fmt:message key="product.details.savie1.summary" bundle="${msg}" />  </p>
 														</div>
 													</div>
-												</div>
+												</div>-->
 												<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-2">
 													<div class="benefits-content clearfix">
 														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png">
@@ -289,7 +290,7 @@
 														</div>
 													</div>
 												</div> -->
-												<div role="tabpanel" class="fna-tab-content tab-pane item" id="benefits-navtabs-6">
+												<div role="tabpanel" class="fna-tab-content tab-pane item active" id="benefits-navtabs-6">
 													<div class="benefits-content clearfix">
 														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png">
 														<div class="info">
@@ -299,11 +300,12 @@
 													</div>
 												</div>
 											</div>
-									<!-- Carousel -->
+									<!-- Carousel 
 									<a class="left carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="prev">
 									</a>
 									<a class="right carousel-control hidden-lg hidden-md ui-link" href="#so-carousel" role="button" data-slide="next">
 									</a>
+									-->
 								</div>
 							</div>
 		        		</div>
