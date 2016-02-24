@@ -44,12 +44,12 @@ public class LifeEmploymentInfoBean implements Serializable {
         if(ValidationUtils.isNullOrEmpty(this.education)){
         	list.add(ErrorMessageUtils.getMessage("education", "validation.failure", language));
         }
-        if(ValidationUtils.isNullOrEmpty(this.amountOfOtherSourceOfIncome)){
+        /*if(ValidationUtils.isNullOrEmpty(this.amountOfOtherSourceOfIncome)){
         	list.add(ErrorMessageUtils.getMessage("amountOfOtherSourceOfIncome", "validation.failure", language));
         }
         if(ValidationUtils.isNullOrEmpty(this.amountOfLiquidAssets)){
         	list.add(ErrorMessageUtils.getMessage("amountOfLiquidAssets", "validation.failure", language));
-        }
+        }*/
 		if (list.size() > 0) {
 			throw new ValidateExceptions(list);
 		}
