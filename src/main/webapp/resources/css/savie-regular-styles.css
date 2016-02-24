@@ -1728,6 +1728,7 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
   display: block;
   font-size: 14px;
   margin-top: 4px;
+  
 }
 /* line 481, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .regular-benefit .benefits-holder .row .two-lines {
@@ -1790,7 +1791,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 }
 /* line 516, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav-holder .benefits-content {
-  max-width: 820px;
+  max-width: 1000px;
   margin: 0 auto;
   padding-top: 10px;
 }
@@ -1816,7 +1817,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav-holder .benefits-content .info p {
   font-size: 14px;
   line-height: 18px;
-  max-width: 660px;
+  max-width: 705px;
 }
 /* line 538, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav-holder .benefits-content .info p span {
