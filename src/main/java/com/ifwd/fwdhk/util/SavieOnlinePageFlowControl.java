@@ -149,6 +149,8 @@ public class SavieOnlinePageFlowControl {
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4;
+			filePath = "savie/";
+			current = "declaration";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4: 
