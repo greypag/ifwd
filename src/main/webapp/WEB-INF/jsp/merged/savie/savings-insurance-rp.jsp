@@ -149,7 +149,7 @@
 		        			<div class="row">
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png">
-		        					<span><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /></span>
+		        					<span><fmt:message key="product.details.savie.group1.section1.title.ocean" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png" />
 										<div class="info hidden-benefits-info">
@@ -248,7 +248,7 @@
 													<div class="benefits-content clearfix">
 														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/new-benefit-1.png">
 														<div class="info">
-															<h3><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /></h3>
+															<h3><fmt:message key="product.details.savie.group1.section1.title.ocean" bundle="${msg}" /></h3>
 															<p><fmt:message key="product.details.savie1.summary" bundle="${msg}" />  </p>
 														</div>
 													</div>
