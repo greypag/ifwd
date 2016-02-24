@@ -1752,6 +1752,12 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
   min-height: 84px;
 }
 
+@media screen and (min-width:992px) and (min-resolution: +72dpi) {
+	.savie-regular-landing .regular-benefit .benefits-holder #benefits-nav-holder .so-fna-row .navtabs-li {
+		  min-height: 86px;
+	}
+}
+
 body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav-holder .so-fna-row .navtabs-li {
 	padding: 0;
 	min-height: initial;
