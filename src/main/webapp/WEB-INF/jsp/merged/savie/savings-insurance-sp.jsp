@@ -169,7 +169,7 @@ var home_url = "<%=request.getContextPath()%>";
 	        		<h3 class="benefits-desktop text-center"><fmt:message key="savierp.landing.benefits" bundle="${msg}" /></h3>
 	        		<div class="gray-divide"></div>
 	        	</div>
-	        		<div class="regular-benefit">-
+	        		<div class="regular-benefit">
        			<div class="hidden-md hidden-lg">
         			<h4 class="text-center"><fmt:message key="savierp.landing.benefits" bundle="${msg}" /></h4>
         			<div class="gray-divide"></div>
