@@ -20,12 +20,15 @@
      %>
                 <%if(actionName== "Savie"){%>
                 <div class="login-info hidden login-info-savie">
-                    <h4 class="heading-h4">
-                        <fmt:message key="Savie.login.overlay.title" bundle="${msg}" />
-                    </h4>
-                    <h5 class="heading-h5">
-                        <fmt:message key="Saive.login.overlay.text" bundle="${msg}" />
-                    </h5>
+                    <div class="upper-overlay">
+	                    <h4 class="heading-h4">
+	                        <fmt:message key="Savie.login.overlay.title" bundle="${msg}" />
+	                    </h4>
+	                    <h5 class="heading-h5">
+	                        <fmt:message key="Saive.login.overlay.text" bundle="${msg}" />
+	                    </h5>
+                    </div>
+                    <img src="<%=request.getContextPath()%>/<fmt:message key="Savie.login.overlay.image" bundle="${msg}" />" alt="Saive" class="hidden-xs hidden-sm img-responsive">
                 </div>
                 <%}%>
         <div class="login-title-wrapper"><h4 class="color-darkgray heading-h4"><fmt:message key="header.login.action" bundle="${msg}" /></h4></div>

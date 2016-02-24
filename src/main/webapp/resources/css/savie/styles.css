@@ -17050,7 +17050,10 @@ a:focus {
     float: left;
     padding:30px;
 }
-#loginpopup .login-info-savie{background-image:url(/fwdhk/resources/images/login/savie-destop.png)}
+#loginpopup .login-info-savie{
+    /*background-image:url(/fwdhk/resources/images/login/savie-destop.png)*/
+    background-color:#16ab95;
+}
 #loginpopup .modal-content{border:none}
 #loginpopup .login-form .form-group{
     -webkit-border-radius: 0;
@@ -17106,6 +17109,24 @@ a:focus {
     padding: 0 30px;
     font-size: 14px;
     z-index: 1;
+}
+@media all and (min-width: 992px){
+	#loginpopup .login-form-footer{
+	   height: 39px;
+	   line-height: 39px;
+	   float:right;
+	   position: relative;
+	}
+}
+.login-info-savie .upper-overlay{
+	padding: 30px 50px 0 30px;
+}
+#loginpopup .login-info-savie .heading-h4{
+	display: block;
+	margin-bottom: 10px;
+}
+#loginpopup .login-info-savie.login-info{
+	padding: 0;
 }
 #loginpopup .login-form-footer h5 {
     height: 38px;
