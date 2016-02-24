@@ -243,6 +243,16 @@ public class FlightController {
 					"flight.googleRickSnippetDescription2",
 					UserRestURIConstants.getLanaguage(request));
 		}
+		String flightScriptName = WebServiceUtils.getPageTitle("flight.script.name",
+				UserRestURIConstants.getLanaguage(request));
+		String flightScriptDescription = WebServiceUtils.getPageTitle("flight.script.description",
+				UserRestURIConstants.getLanaguage(request));
+		String flightScriptChildName = WebServiceUtils.getPageTitle("flight.script.child.name",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("flightScriptName", flightScriptName);
+		model.addAttribute("flightScriptDescription", flightScriptDescription);
+		model.addAttribute("flightScriptChildName", flightScriptChildName);
+		
 		String twitterCard = WebServiceUtils.getPageTitle("twitter.flight.card",
 				UserRestURIConstants.getLanaguage(request));
 		String twitterImage = WebServiceUtils.getPageTitle("twitter.flight.image",

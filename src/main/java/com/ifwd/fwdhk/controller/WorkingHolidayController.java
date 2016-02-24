@@ -205,6 +205,16 @@ public class WorkingHolidayController {
 		model.addAttribute("twitterUrl", twitterUrl);
 		model.addAttribute("canonical", canonical);
 		
+		
+		String scriptName = WebServiceUtils.getPageTitle("workingholiday.script.name",
+				UserRestURIConstants.getLanaguage(request));
+		String scriptDescription = WebServiceUtils.getPageTitle("workingholiday.script.description",
+				UserRestURIConstants.getLanaguage(request));
+		String scriptChildName = WebServiceUtils.getPageTitle("workingholiday.script.child.name",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("scriptName", scriptName);
+		model.addAttribute("scriptDescription", scriptDescription);
+		model.addAttribute("scriptChildName", scriptChildName);
 		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "workingholiday/workingholiday");			
 	}
 	

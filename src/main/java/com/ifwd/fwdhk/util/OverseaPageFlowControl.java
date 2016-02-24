@@ -61,6 +61,16 @@ public class OverseaPageFlowControl {
 		model.addAttribute("twitterUrl", twitterUrl);
 		model.addAttribute("canonical", canonical);
 
+		String scriptName = WebServiceUtils.getPageTitle(key +".script.name",
+				UserRestURIConstants.getLanaguage(request));
+		String scriptDescription = WebServiceUtils.getPageTitle(key +".script.description",
+				UserRestURIConstants.getLanaguage(request));
+		String scriptChildName = WebServiceUtils.getPageTitle(key +".script.child.name",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("scriptName", scriptName);
+		model.addAttribute("scriptDescription", scriptDescription);
+		model.addAttribute("scriptChildName", scriptChildName);
+		
 		String referer = request.getHeader("referer");
 		String current = request.getServletPath();
 		String to = "";

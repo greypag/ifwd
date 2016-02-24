@@ -40,7 +40,25 @@ function mouseout2div(obj) {
 	return result;
 }
 </script>
-
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Product",
+  "name":"${scriptName}",
+  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_overseas-studycare_en.jpg",
+  "description":"${scriptDescription}",
+  "brand":{
+    "@type":"Insurance",
+    "name":"${scriptChildName}"
+  },
+  "offers":{
+    "@type":"AggregateOffer",
+    "lowPrice":"2000",
+    "highPrice":"8000",
+    "priceCurrency":"HKD"
+  }
+}
+</script>
 <section id="main-slider" class="p_oversea no-margin"> 
   <!--Mobilebanner--> 
   <img src="<%=request.getContextPath()%>/<fmt:message key="oversea.hero.image.mobile" bundle="${msg}" />" alt="<fmt:message key="Overseas.Landing.Hero.Image.Alt" bundle="${msg}" />" class="img-responsive hidden-lg hidden-md">

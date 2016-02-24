@@ -11,6 +11,26 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/savie-regular-styles.css">
 	
+<scripttype="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Product",
+  "name":"${scriptName}",
+  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_savie-rp_en.jpg",
+  "description":"${scriptDescription}",
+  "brand":{
+    "@type":"Insurance",
+    "name":"${scriptChildName}"
+  },
+  "offers":{
+    "@type":"AggregateOffer",
+    "lowPrice":"1000",
+    "highPrice":"10000",
+    "priceCurrency":"HKD"
+  }
+}
+</script>
+	
 	<div class="fwd-savie-wrapper ">
 		<div class="fwd-container container-fluid breadcrumbs savie-regular-pay-breadcrumbs">
 				<div class="breadcrumb-container">

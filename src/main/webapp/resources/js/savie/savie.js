@@ -260,13 +260,10 @@ function getSaviePlanDetails() {
 									}
 									
 									var value_rp = $('#policy-year-3-1').html();
-									$('#policy-year-3-1').html('');
-									if(value_rp > 65) {
-										$('#policy-year-3-1').html(value_rp+"<span class='payment-ends'></span>");
+									//$('#policy-year-3-1').html('');
+									if(value_rp > 0) {
+										$('#policy-year-3-1').html($('#payment-years').val()+"<span class='payment-ends'></span>");
 										appendPaymentEnds();
-									}
-									else {
-										$('#policy-year-3-1').html(value_rp);
 									}
 								}
 								if(json.salesIllustration.yearPlans[i].plans[j].rate == "three"){
@@ -344,8 +341,7 @@ function getSaviePlanDetails() {
 										if(i == 2) {
 											$("#3rd_policy_year").html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance))
 										}
-										
-										$('#credit-rate-change-'+rowCtr).html(fmoney(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate))+"%");
+										$('#credit-rate-change-'+rowCtr).html("3%");//fmoney(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate))
 										$('#premium-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 										$('#surrender-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
@@ -370,7 +366,7 @@ function getSaviePlanDetails() {
 										json.salesIllustration.yearPlans[i].plans[j].rate = 'three';
 										
 										console.log(json.salesIllustration.yearPlans[i].plans[j].rate);
-										$('#credit-rate-change-'+rowCtr).html("3.5%");
+										$('#credit-rate-change-'+rowCtr).html("3%");//3.5%
 										$('#premium-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 										$('#surrender-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
@@ -505,7 +501,7 @@ function getSaviePlanDetails() {
 											$("#3rd_policy_year").html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance))
 										}
 										
-										$('#credit-rate-change-'+rowCtr).html(fmoney(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate))+"%");
+										$('#credit-rate-change-'+rowCtr).html("2%");//fmoney(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate))
 										$('#premium-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 										$('#surrender-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
@@ -530,7 +526,7 @@ function getSaviePlanDetails() {
 										json.salesIllustration.yearPlans[i].plans[j].rate = 'three';
 										
 										console.log(json.salesIllustration.yearPlans[i].plans[j].rate);
-										$('#credit-rate-change-'+rowCtr).html("3.3%");
+										$('#credit-rate-change-'+rowCtr).html("2%");//3.3%
 										$('#premium-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].totalPremium));
 										$('#account-value-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 										$('#surrender-'+rowCtr).html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));

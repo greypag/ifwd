@@ -762,6 +762,16 @@ public class SavieController extends BaseController{
 				UserRestURIConstants.getLanaguage(request));
 		String canonical = WebServiceUtils.getPageTitle("canonical.savie.sp",
 				UserRestURIConstants.getLanaguage(request));
+		
+		String scriptName = WebServiceUtils.getPageTitle(key +".script.name",
+				UserRestURIConstants.getLanaguage(request));
+		String scriptDescription = WebServiceUtils.getPageTitle(key +".script.description",
+				UserRestURIConstants.getLanaguage(request));
+		String scriptChildName = WebServiceUtils.getPageTitle(key +".script.child.name",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("scriptName", scriptName);
+		model.addAttribute("scriptDescription", scriptDescription);
+		model.addAttribute("scriptChildName", scriptChildName);
 
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);
@@ -831,6 +841,16 @@ public class SavieController extends BaseController{
 			pageTitle = WebServiceUtils.getPageTitle("page." + key,
 					UserRestURIConstants.getLanaguage(request));
 		}
+		
+		String scriptName = WebServiceUtils.getPageTitle(key +".script.name",
+				UserRestURIConstants.getLanaguage(request));
+		String scriptDescription = WebServiceUtils.getPageTitle(key +".script.description",
+				UserRestURIConstants.getLanaguage(request));
+		String scriptChildName = WebServiceUtils.getPageTitle(key +".script.child.name",
+				UserRestURIConstants.getLanaguage(request));
+		model.addAttribute("scriptName", scriptName);
+		model.addAttribute("scriptDescription", scriptDescription);
+		model.addAttribute("scriptChildName", scriptChildName);
 		
 		model.addAttribute("pageTitle", pageTitle);
 		model.addAttribute("pageMetaDataDescription", pageMetaDataDescription);

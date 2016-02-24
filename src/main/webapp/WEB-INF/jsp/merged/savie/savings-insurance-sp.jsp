@@ -16,6 +16,25 @@ var language = "${language}";
 var affiliate = "${affiliate}";
 var home_url = "<%=request.getContextPath()%>";
 </script>
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Product",
+  "name":"${scriptName}",
+  "image":"https://i.fwd.com.hk/resources/images/sharing/iFWD_fb-sharing_savie-sp_en.jpg",
+  "description":"${scriptDescription}",
+  "brand":{
+    "@type":"Insurance",
+    "name":"${scriptChildName}"
+  },
+  "offers":{
+    "@type":"AggregateOffer",
+    "lowPrice":"3000",
+    "highPrice":"400000",
+    "priceCurrency":"HKD"
+  }
+}
+</script>
 <%!
 			boolean isSaleActiveClass = false;
 			boolean isEservicesActiveClass = false;
