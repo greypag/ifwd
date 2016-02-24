@@ -97,13 +97,13 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.jscrollpane.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-styles.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/datepicker3.min.css">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/datepicker3.min.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.timepicker.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css">
 
 
+<%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.js"></script> --%>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/ZeroClipboard.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.i18n.properties-min-1.0.9.js"></script>
 

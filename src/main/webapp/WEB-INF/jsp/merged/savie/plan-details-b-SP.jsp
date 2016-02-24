@@ -131,10 +131,14 @@ var languageP = "${language}";
 					<div class="col-md-4 plan-dob">
 						<div class="row">
 							<div class="col-xs-12">
-								<div class="input-group input-append date" id="plan-dob">
+								<div class="selectDiv centreDiv gray-text-bg" id="plan-dob">
+									<input type="text" name="plan-dob" id="plan-dob-datepicker" value="${savingDob!=null ? savingDob:defaultDOB }" placeholder="Date of birth" class="form-control" />
+									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+								</div>
+								<%-- <div class="input-group input-append date" id="plan-dob">
 									<input readonly value="${savingDob!=null ? savingDob:defaultDOB }" type="text" name="plan-dob" id="plan-dob-datepicker" placeholder="Date of birth" class="date" />
 									<span class="input-group-addon add-on"><img class="arrow" src="<%=request.getContextPath()%>/resources/images/savie/arrow-down.png"></span>
-								</div>
+								</div> --%>
 							</div>
 							<div class="col-xs-12 hidden" id="total-years-holder">
 								<div class="selectDiv centreDiv gray-text-bg">
@@ -650,13 +654,13 @@ var languageP = "${language}";
 			}
 		});
 		
-		$('#plan-dob').datepicker({
+		/* $('#plan-dob').datepicker({
 			format: "dd-mm-yyyy",
 			startDate: '${startDOB }',
 			endDate: '${defaultDOB }',
 			autoclose: true,
 			startView: 2
-		});
+		}); */
 
 		$("#plan-calculate-btn").click(function(){
 			$('.loading-mask').toggle();
@@ -705,6 +709,7 @@ var languageP = "${language}";
 	    
 		getSavieOnlinePlandetails();
 	});
+	
 	// changing first/after 3 years button content
 	function toggleImg() {
 		if($('#first-3-years-btn').hasClass('up')) {
@@ -764,5 +769,5 @@ var languageP = "${language}";
 		});
 	}
 </script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/bootstrap-slider.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script>
+<%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/bootstrap-slider.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script> --%>
