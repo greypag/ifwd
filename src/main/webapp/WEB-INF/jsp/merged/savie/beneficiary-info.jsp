@@ -1,9 +1,14 @@
-<%@page pageEncoding="UTF-8" %>
+<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<link rel="stylesheet" href="assets/css/savie/material.min.css" />
-		<%@include file="includes/head.jsp" %>
+	    <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
 	<body>
@@ -13,7 +18,6 @@
 		%>
 		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="beneficiary-name-others-page">
 			<!-- HEADER -->
-			<%@include file="includes/header-block.jsp" %>
 			
 			<div id="savie-online">
 				<!-- BREADCRUMBS -->
@@ -37,15 +41,15 @@
 						  <div class="row reset-margin hidden-xs hidden-sm">
 							 <ul class="common-steps-list six-steps nav nav-pills">
 								<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
-								<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 								<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span>Application &amp; payment</button></li>
-								<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Summary &amp; declaration</button></li>
-								<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Signature</button></li>
-								<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document upload</button></li>
-								<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+								<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 								<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
 							 </ul>
 						 </div>
@@ -88,7 +92,7 @@
 								   <div class="radio-button-group">
 									  <div class="clearfix desktop-align left">
 										 <div class="pull-left radio-holder">
-											<input type="radio" id="own-estate-id" name="beneficiary-info" checked /> <label for="own-estate-id"></label>
+											<input type="radio" id="own-estate-id" name="isOwnEstate" value="true" checked /> <label for="own-estate-id"></label>
 										 </div>
 										 <div class="pull-left desc">
 											Own estate
@@ -96,7 +100,7 @@
 									  </div>
 									  <div class="clearfix below desktop-align">
 										 <div class="pull-left radio-holder">
-											<input type="radio" id="name-others-id" name="beneficiary-info" /> <label for="name-others-id"></label>
+											<input type="radio" id="name-others-id" name="isOwnEstate" value="false" /> <label for="name-others-id"></label>
 										 </div>
 										 <div class="pull-left desc">
 											Name others
@@ -113,14 +117,14 @@
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryLastName[0]" name="beneficiaryLastName[0]" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
+											<input type="text" id="beneficiaryLastName[0]" name="beneficaryLastName1" value="${lifeBeneficaryInfo.beneficaryLastName1 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryLastName[0]">Last name (same as HKID)</label>
 										</div>
 										<span class="error-msg" id="beneficiaryLastErMsg[0]"></span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryFirstName[0]" name="beneficiaryFirstName[0]" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
+											<input type="text" id="beneficiaryFirstName[0]" name="beneficaryFirstName1" value="${lifeBeneficaryInfo.beneficaryFirstName1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryFirstName[0]">First name (same as HKID)</label>
 										</div>
 										<input type="text" autocomplete="off" id="beneficiaryFullName[0]" hidden />
@@ -129,7 +133,7 @@
 									</div>
 									<div class="form-group beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryChineseName[0]" name="beneficiaryChineseName[0]" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" id="beneficiaryChineseName[0]" name="beneficaryChineseName1" value="${lifeBeneficaryInfo.beneficaryChineseName1 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[0]">Name in Chinese (optional)</label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[0]"></span>
@@ -153,11 +157,11 @@
 									 </div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="hkid-inputfield-0">
-											<input type="text" id="beneficiaryHkid[0]" name="beneficiaryHkid[0]" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" id="beneficiaryHkid[0]" name="beneficaryID1" value="${lifeBeneficaryInfo.beneficaryID1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryHkid[0]">HKID / Passport no.</label>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield hidden" id="passport-inputfield-0">
-											<input type="text" id="beneficiaryPassport[0]" name="beneficiaryPassport[0]" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" id="beneficiaryPassport[0]" name="beneficiaryPassport1" value="${lifeBeneficaryInfo.beneficiaryPassport1 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[0]">HKID / Passport no.</label>
 										</div>
 										<span class="error-msg" id="beneficiaryHkidPassErMsg[0]"></span>
@@ -170,10 +174,10 @@
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
-													<select class="form-control gray-dropdown" name="beneficiaryGender[0]" id="beneficiaryGender[0]">
+													<select class="form-control gray-dropdown" name="beneficaryGender1" id="beneficiaryGender[0]">
 														<option value="" selected="selected" disabled="disabled">Gender</option>
-														<option value="male">MALE</option>
-														<option value="female">FEMALE</option>
+														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'male'}">selected="selected"</c:if>>MALE</option>
+														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'female'}">selected="selected"</c:if>>FEMALE</option>
 													</select>
 												</div>
 												<span class="error-msg" id="beneficiaryGenderErMsg[0]"></span>
@@ -186,10 +190,18 @@
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
-													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[0]" name="beneficiaryRelationship[0]">
+													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[0]" name="beneficaryRelation1">
 														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
-														<option value="father">FATHER</option>
-														<option value="mother">MOTHER</option>
+														<c:if test="${language == 'en'}">
+															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															</c:forEach>
+														</c:if>
+														<c:if test="${language == 'tc'}">
+															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															</c:forEach>
+														</c:if>
 													</select>
 												</div>
 												<span class="error-msg" id="beneficiaryRelationErMsg[0]"></span>
@@ -198,7 +210,7 @@
 									 </div>
 									 <div class="form-group has-error beneficiary-info-row entitle">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryEntitlement[0]" name="beneficiaryEntitlement[0]" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input" value="" />
+											<input type="text" id="beneficiaryEntitlement[0]" name="beneficaryWeight1" value="${lifeBeneficaryInfo.beneficaryWeight1 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[0]">Entitlement (%)</label>
 										</div>
 										<span class="error-msg" id="beneficiaryEntitlementErMsg[0]"></span>
@@ -209,7 +221,7 @@
 							<div id="add-beneficiary-1" class="text-center add-on-beneficiary col-md-4 col-lg-4 col-sm-12 col-xs-12 hidden">
 								<div class="add-beneficiary" id="beneficiary1">
 									<button id="add-beneficiary-btn-1" value="1" class="circle" type="button">
-										<img src="assets/images/savie-2016/orange-plus.png" />
+										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/orange-plus.png" />
 									</button>
 									<div class="add-beneficiary-text">
 										<h5>Add beneficiary</h5>
@@ -227,14 +239,14 @@
 								<form id="beneficiary-info-form[1]" class="beneficiary-form-content hidden" method="post" action="">
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryLastName[1]" name="beneficiaryLastName[1]" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
+											<input type="text" id="beneficiaryLastName[1]" name="beneficaryLastName2" value="${lifeBeneficaryInfo.beneficaryLastName2 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryLastName[1]">Last name (same as HKID)</label>
 										</div>
 										<span class="error-msg" id="beneficiaryLastErMsg[1]"></span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryFirstName[1]" name="beneficiaryFirstName[1]" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
+											<input type="text" id="beneficiaryFirstName[1]" name="beneficaryFirstName2" value="${lifeBeneficaryInfo.beneficaryFirstName2 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryFirstName[1]">First name (same as HKID)</label>
 										</div>
 										<input type="text" autocomplete="off" id="beneficiaryFullName[1]" hidden />
@@ -243,7 +255,7 @@
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryChineseName[1]" name="beneficiaryChineseName[1]" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" id="beneficiaryChineseName[1]" name="beneficaryChineseName2" value="${lifeBeneficaryInfo.beneficaryChineseName2 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[1]">Name in Chinese (optional)</label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[1]"></span>
@@ -267,11 +279,11 @@
 									 </div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="hkid-inputfield-1">
-											<input type="text" id="beneficiaryHkid[1]" name="beneficiaryHkid[1]" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" id="beneficiaryHkid[1]" name="beneficaryID2" value="${lifeBeneficaryInfo.beneficaryID2 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryHkid[1]">HKID / Passport no.</label>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield hidden" id="passport-inputfield-1">
-											<input type="text" id="beneficiaryPassport[1]" name="beneficiaryPassport[1]" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" id="beneficiaryPassport[1]" name="beneficiaryPassport2" value="${lifeBeneficaryInfo.beneficiaryPassport2 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[1]">HKID / Passport no.</label>
 										</div>
 										<span class="error-msg" id="beneficiaryHkidPassErMsg[1]"></span>
@@ -284,10 +296,10 @@
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
-													<select class="form-control gray-dropdown" name="beneficiaryGender[1]" id="beneficiaryGender[1]">
+													<select class="form-control gray-dropdown" name="beneficaryGender2" id="beneficiaryGender[1]">
 														<option value="" selected="selected" disabled="disabled">Gender</option>
-														<option value="male">MALE</option>
-														<option value="female">FEMALE</option>
+														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender2 == 'male'}">selected="selected"</c:if>>MALE</option>
+														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender2 == 'female'}">selected="selected"</c:if>>FEMALE</option>
 													</select>
 												</div>
 												<span class="error-msg" id="beneficiaryGenderErMsg[1]"></span>
@@ -300,10 +312,18 @@
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
-													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[1]" name="beneficiaryRelationship[1]">
+													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[1]" name="beneficaryRelation2">
 														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
-														<option value="father">FATHER</option>
-														<option value="mother">MOTHER</option>
+														<c:if test="${language == 'en'}">
+															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															</c:forEach>
+														</c:if>
+														<c:if test="${language == 'tc'}">
+															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															</c:forEach>
+														</c:if>
 													</select>
 												</div>
 												<span class="error-msg" id="beneficiaryRelationErMsg[1]"></span>
@@ -312,7 +332,7 @@
 									 </div>
 									 <div class="form-group has-error beneficiary-info-row entitle">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryEntitlement[1]" name="beneficiaryEntitlement[1]" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input" value="" />
+											<input type="text" id="beneficiaryEntitlement[1]" name="beneficaryWeight2" value="${lifeBeneficaryInfo.beneficaryWeight2 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[1]">Entitlement (%)</label>
 										</div>
 										<span class="error-msg" id="beneficiaryEntitlementErMsg[1]"></span>
@@ -323,7 +343,7 @@
 							<div id="add-beneficiary-2" class="text-center add-on-beneficiary col-md-4 col-lg-4 col-sm-12 col-xs-12 last-row hidden">
 								<div class="add-beneficiary" id="beneficiary2">
 									<button id="add-beneficiary-btn-2" value="2" class="circle" type="button">
-										<img src="assets/images/savie-2016/orange-plus.png" />
+										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/orange-plus.png" />
 									</button>
 									<div class="add-beneficiary-text">
 										<h5>Add beneficiary</h5>
@@ -341,14 +361,14 @@
 								<form id="beneficiary-info-form[2]" class="beneficiary-form-content hidden" method="post" action="">
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryLastName[2]" name="beneficiaryLastName[2]" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
+											<input type="text" id="beneficiaryLastName[2]" name="beneficaryLastName3" value="${lifeBeneficaryInfo.beneficaryLastName3 }" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryLastName[2]">Last name (same as HKID)</label>
 										</div>
 										<span class="error-msg" id="beneficiaryLastErMsg[2]"></span>
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryFirstName[2]" name="beneficiaryFirstName[2]" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
+											<input type="text" id="beneficiaryFirstName[2]" name="beneficaryFirstName3" value="${lifeBeneficaryInfo.beneficaryFirstName3 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" maxlength="25" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryFirstName[2]">First name (same as HKID)</label>
 										</div>
 										<input type="text" autocomplete="off" id="beneficiaryFullName[2]" hidden />
@@ -357,7 +377,7 @@
 									</div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryChineseName[2]" name="beneficiaryChineseName[2]" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" id="beneficiaryChineseName[2]" name="beneficaryChineseName3" value="${lifeBeneficaryInfo.beneficaryChineseName3 }" class="form-control gray-textbox form-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryChineseName[2]">Name in Chinese (optional)</label>
 										</div>
 										<span class="error-msg" id="beneficiaryChineseNameErMsg[2]"></span>
@@ -381,11 +401,11 @@
 									 </div>
 									<div class="form-group has-error beneficiary-info-row">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="hkid-inputfield-2">
-											<input type="text" id="beneficiaryHkid[2]" name="beneficiaryHkid[2]" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" id="beneficiaryHkid[2]" name="beneficaryID3" value="${lifeBeneficaryInfo.beneficaryID3 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryHkid[2]">HKID / Passport no.</label>
 										</div>
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield hidden" id="passport-inputfield-2">
-											<input type="text" id="beneficiaryPassport[2]" name="beneficiaryPassport[2]" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
+											<input type="text" id="beneficiaryPassport[2]" name="beneficiaryPassport3" value="${lifeBeneficaryInfo.beneficiaryPassport3 }" class="form-control gray-textbox form-textbox mdl-textfield__input so-mdl-textfield-input" />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryPassport[2]">HKID / Passport no.</label>
 										</div>
 										<span class="error-msg" id="beneficiaryHkidPassErMsg[2]"></span>
@@ -398,10 +418,10 @@
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
-													<select class="form-control gray-dropdown" name="beneficiaryGender[2]" id="beneficiaryGender[2]">
+													<select class="form-control gray-dropdown" name="beneficaryGender3" id="beneficiaryGender[2]">
 														<option value="" selected="selected" disabled="disabled">Gender</option>
-														<option value="male">MALE</option>
-														<option value="female">FEMALE</option>
+														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender3 == 'male'}">selected="selected"</c:if>>MALE</option>
+														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender3 == 'female'}">selected="selected"</c:if>>FEMALE</option>
 													</select>
 												</div>
 												<span class="error-msg" id="beneficiaryGenderErMsg[2]"></span>
@@ -414,10 +434,18 @@
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
 													<span class="icon-chevron-thin-down orange-caret"></span>
-													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[2]" name="beneficiaryRelationship[2]">
+													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[2]" name="beneficaryRelation3">
 														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
-														<option value="father">FATHER</option>
-														<option value="mother">MOTHER</option>
+														<c:if test="${language == 'en'}">
+															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															</c:forEach>
+														</c:if>
+														<c:if test="${language == 'tc'}">
+															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															</c:forEach>
+														</c:if>
 													</select>
 												</div>
 												<span class="error-msg" id="beneficiaryRelationErMsg[2]"></span>
@@ -426,7 +454,7 @@
 									 </div>
 									 <div class="form-group has-error beneficiary-info-row entitle">
 										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-											<input type="text" id="beneficiaryEntitlement[2]" name="beneficiaryEntitlement[2]" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input" value="" />
+											<input type="text" id="beneficiaryEntitlement[2]" name="beneficaryWeight3" value="${lifeBeneficaryInfo.beneficaryWeight3 }" class="form-control gray-textbox percentage mdl-textfield__input so-mdl-textfield-input"  />
 											<label class="mdl-textfield__label so-mdl-textfield-label" for="beneficiaryEntitlement[2]">Entitlement (%)</label>
 										</div>
 										<span class="error-msg" id="beneficiaryEntitlementErMsg[2]"></span>
@@ -449,7 +477,6 @@
 					</div>
 				</div>
 			<!-- FOOTER -->
-			<%@include file="includes/footer-block.jsp" %>
 		</div>
 		
 		<!-- Save and continue modal -->
@@ -502,7 +529,6 @@
 		</div>
 		
 		<!-- JS INCLUDES -->
-		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				var language = "en";
@@ -531,7 +557,7 @@
 				$('.selectDiv').removeClass('is-not-active');
 				
 				$('#bf-save-and-con-later').on('click', function (e) {
-					if($('#beneficiaryChineseName\\[0\\]').val() == undefined ) {
+					if($('#beneficiary-info-form\\[0\\]').val() == undefined ) {
 						$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').enableFieldValidators('beneficiaryChineseName[0]', false);
 					}
 					$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validateField('beneficiaryChineseName[0]');
@@ -541,7 +567,7 @@
 						$('#save-and-continue-modal').modal('show');
 					}
 					// second form
-					if($('#beneficiaryInfoForm\\[1\\]').length == 0) {
+					if($('#beneficiary-info-form\\[1\\]').length == 0) {
 						$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').enableFieldValidators('beneficiaryChineseName[1]', false);
 					}
 					$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').validateField('beneficiaryChineseName[1]');
@@ -551,7 +577,7 @@
 						$('#save-and-continue-modal').modal('show');
 					}
 					// third form
-					if($('#beneficiaryInfoForm\\[2\\]').length == 0) {
+					if($('#beneficiary-info-form\\[2\\]').length == 0) {
 						$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').enableFieldValidators('beneficiaryChineseName[2]', false);
 					}
 					$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').validateField('beneficiaryChineseName[2]');
@@ -561,6 +587,53 @@
 						$('#save-and-continue-modal').modal('show');
 					}
                 });
+			});
+			
+			$("#beneficiary-next-btn").click(function(){
+				$("#errorMsg").html("");
+				var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
+							   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
+							   $('#beneficiary-info-form\\[2\\]').serialize();
+				$.ajax({
+					  type : "POST",
+					  async:false, 
+					  url : "<%=request.getContextPath()%>/ajax/savie-online/lifeBeneficaryInfo",
+					  data: formdata,
+					  success : function(data) {
+						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+							  $("#errorMsg").html(data.errorMsg);
+						  }
+						  else{
+							  if('${backSummary}'=="Y"){
+								  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+							  }
+							  else{
+								  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+							  }
+						  }
+					  }
+			     });
+			});
+			
+			$("#save-exit-btn").click(function(){
+				$("#errorMsg").html("");
+				var formdata1 = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
+				   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
+				   $('#beneficiary-info-form\\[2\\]').serialize();
+				$.ajax({
+					  type : "POST",
+					  async:false, 
+					  url : "<%=request.getContextPath()%>/ajax/savie-online/lifeBeneficaryInfoSaveforLater",
+					  data: formdata1,
+					  success : function(data) {
+						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+							  $("#errorMsg").html(data.errorMsg);
+						  }
+						  else{
+							  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+						  }
+					  }
+			     });
 			});
 		</script>
 		
