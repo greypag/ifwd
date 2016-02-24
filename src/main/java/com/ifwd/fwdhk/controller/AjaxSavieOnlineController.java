@@ -14,11 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.connector.response.BaseResponse;
-import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.model.OptionItemDesc;
@@ -29,6 +26,7 @@ import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
+import com.ifwd.fwdhk.model.savieOnline.lifeDeclarationBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.Methods;
 @Controller
@@ -40,17 +38,16 @@ public class AjaxSavieOnlineController extends BaseController{
 	@Autowired
 	private SavieOnlineService savieOnlineService;
 	
-	@SuppressWarnings("unchecked")
 	@RequestMapping(value = {"/ajax/savie-online/getSavieOnlinePlandetails"})
 	public void getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String language = (String) session.getAttribute("language");
-		JSONObject jsonObject = new JSONObject();
+		net.sf.json.JSONObject jsonObject = new net.sf.json.JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
 			saviePlanDetails.validate(language);
-			jsonObject.put("apiData", savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request).toString());
+			jsonObject = savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request);
 			String[] dob = saviePlanDetails.getDob().split("-");
 			saviePlanDetails.setDob1(dob[2]+"·"+dob[1]+"·"+dob[0]);
 			saviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
@@ -281,6 +278,70 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			savieOnlineService.lifePersonalDetailsSaveforLater(lifePersonalDetails, request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savie-online/lifeEmploymentInfoSaveforLater"})
+	public void lifeEmploymentInfoSaveforLater(LifeEmploymentInfoBean lifeEmploymentInfo,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			savieOnlineService.lifeEmploymentInfoSaveforLater(lifeEmploymentInfo, request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savie-online/lifeBeneficaryInfoSaveforLater"})
+	public void lifeBeneficaryInfoSaveforLater(LifeBeneficaryInfoBean lifeBeneficaryInfo,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			savieOnlineService.lifeBeneficaryInfoSaveforLater(lifeBeneficaryInfo, request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savie-online/lifePaymentSaveforLater"})
+	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			savieOnlineService.lifePaymentSaveforLater(lifePayment, request);
+		}
+		catch (ECOMMAPIException e) {
+			jsonObject.put("errorMsg", e.getMessage());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savie-online/lifeDeclarationSaveforLater"})
+	public void lifeDeclarationSaveforLater(lifeDeclarationBean lifeDeclaration,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			savieOnlineService.lifeDeclarationSaveforLater(lifeDeclaration, request);
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());

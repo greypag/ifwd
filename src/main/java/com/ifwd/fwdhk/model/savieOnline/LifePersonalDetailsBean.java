@@ -35,11 +35,13 @@ public class LifePersonalDetailsBean implements Serializable {
 	private String permanetAddress3;
 	private String permanetAddress4;
 	private String permanetAddressDistrict;
+	private String diffToPermanent;
 	private String residentialAddress1;
 	private String residentialAddress2;
 	private String residentialAddress3;
 	private String residentialAddress4;
 	private String residentialAddressDistrict;
+	private String diffToResidential;
 	private String correspondenceAddress1;
 	private String correspondenceAddress2;
 	private String correspondenceAddress3;
@@ -415,6 +417,22 @@ public class LifePersonalDetailsBean implements Serializable {
 
 	public void setCorrespondenceAddress4(String correspondenceAddress4) {
 		this.correspondenceAddress4 = correspondenceAddress4;
+	}
+
+	public String getDiffToPermanent() {
+		return diffToPermanent;
+	}
+
+	public void setDiffToPermanent(String diffToPermanent) {
+		this.diffToPermanent = diffToPermanent;
+	}
+
+	public String getDiffToResidential() {
+		return diffToResidential;
+	}
+
+	public void setDiffToResidential(String diffToResidential) {
+		this.diffToResidential = diffToResidential;
 	}
 	
 }

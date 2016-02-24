@@ -35,8 +35,8 @@ beneficaryGender3:<input type="text" id="beneficaryGender3" name="beneficaryGend
 beneficaryRelation3:<input type="text" id="beneficaryRelation3" name="beneficaryRelation3" value="${lifeBeneficaryInfo.beneficaryRelation3 }"/><br/>
 beneficaryWeight3:<input type="text" id="beneficaryWeight3" name="beneficaryWeight3" value="${lifeBeneficaryInfo.beneficaryWeight3 }"/><br/>
 </div>
-<input type="button" id="nextPage" value="nextPage"/><br/>
-<a href="#" class="et-app-sum-edit et-app-edit">save and continue later</a>
+<input type="button" id="nextPage" value="nextPage"/>
+<input type="button" id="saveLater" value="saveLater"/>
 </form>
 </div>
 <script type="text/javascript">
@@ -68,5 +68,23 @@ $("#isOwnEstate1").click(function(){
 });
 $("#isOwnEstate2").click(function(){
 	$("#beneficaryDiv").show();
+});
+
+$("#saveLater").click(function(){
+	$("#errorMsg").html("");
+	$.ajax({
+		  type : "POST",
+		  async:false, 
+		  url : "<%=request.getContextPath()%>/ajax/savie-online/lifeBeneficaryInfoSaveforLater",
+		  data: $("#lifeBeneficaryInfoForm").serialize(),
+		  success : function(data) {
+			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+				  $("#errorMsg").html(data.errorMsg);
+			  }
+			  else{
+				  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+			  }
+		  }
+     });
 });
 </script>

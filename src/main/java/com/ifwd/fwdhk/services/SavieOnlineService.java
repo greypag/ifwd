@@ -3,25 +3,27 @@ package com.ifwd.fwdhk.services;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
-import org.springframework.ui.Model;
 
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
+import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
+import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
+import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
+import com.ifwd.fwdhk.model.savieOnline.lifeDeclarationBean;
 
 public interface SavieOnlineService {
-	public JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request) throws ECOMMAPIException;
+	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request) throws ECOMMAPIException;
 	public void createSalesIllustrationPdf(HttpServletRequest request) throws Exception;
-	public void createApplicationFormPdf(HttpServletRequest request,HttpSession session) throws Exception;
-	public void createFnaFormPdf(HttpServletRequest request,HttpSession session) throws Exception;
+	public void createApplicationFormPdf(String type,HttpServletRequest request,HttpSession session) throws Exception;
+	public void createFnaFormPdf(String type,HttpServletRequest request,HttpSession session) throws Exception;
 	public JSONObject saveProductFna(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getProductrRecommend(SavieFnaBean savieFna,HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject getFna(HttpServletRequest request) throws ECOMMAPIException;
@@ -30,7 +32,11 @@ public interface SavieOnlineService {
 	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
 	public List<OptionItemDesc> getBranchCode(HttpServletRequest request) throws ECOMMAPIException;
 	public void lifePersonalDetailsSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request) throws ECOMMAPIException;
+	public void lifeEmploymentInfoSaveforLater(LifeEmploymentInfoBean lifeEmploymentInfo,HttpServletRequest request) throws ECOMMAPIException;
 	public void getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;
+	public void lifeBeneficaryInfoSaveforLater(LifeBeneficaryInfoBean lifeBeneficaryInfo,HttpServletRequest request) throws ECOMMAPIException;
+	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException;
+	public void lifeDeclarationSaveforLater(lifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception;
 	
 }

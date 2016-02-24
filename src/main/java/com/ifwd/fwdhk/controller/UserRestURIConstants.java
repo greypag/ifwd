@@ -149,7 +149,7 @@ public class UserRestURIConstants {
 	public static final String CREATE_LIFE_POLICY = "/life/policies";
 	public static final String FINALIZE_LIFE_POLICY = "/life/policies";
 	
-	public static final String CREATE_POLICY_APPLICATION_SAVE_FOR_LATER = SERVICE_URL + "/policies/application/saveForLater";
+	public static final String CREATE_POLICY_APPLICATION_SAVE_FOR_LATER = "/policies/application/saveForLater";
 	public static final String GET_POLICY_APPLICATION_SAVE_FOR_LATER = "/policies/application/saveForLater?planCode=SAVIE-SP";
 	/* Page Flow Control For Savie */
 	
@@ -285,6 +285,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIEONLINE_REVIEW4 = "life-review4";
 	public static final String PAGE_SAVIEONLINE_LIFE_SIGNATURE = "life-signature";
 	public static final String PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD = "life-document-upload";
+	public static final String PAGE_SAVIE_LIFE_DOCUMENT_UPLOAD = "document-upload";
 	public static final String PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION = "upload-confirmation";
 	public static final String PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION = "upload-later-confirmation";
 	public static final String PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION = "sign-offline-confirmation";

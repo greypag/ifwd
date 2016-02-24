@@ -32,11 +32,11 @@ public class SaviePlanDetailsBean implements Serializable {
         else if(Integer.valueOf(this.insuredAmount)<30000 || Integer.valueOf(this.insuredAmount)>400000){
         	list.add(ErrorMessageUtils.getMessage("insuredAmount", "validation.failure", language));
         }
-        if(ValidationUtils.isValidDate(DateApi.pickDate1(this.dob))){
+        if(ValidationUtils.isValidDate(this.dob)){
         	list.add(ErrorMessageUtils.getMessage("dob", "validation.failure", language));
         }
         else if(DateApi.getAge(DateApi.formatDate(this.dob))<18 || DateApi.getAge(DateApi.formatDate(this.dob))>100){
-        	int age = DateApi.getAge(DateApi.formatDate2(this.dob));
+        	int age = DateApi.getAge(DateApi.formatDate(this.dob));
             logger.info(age+"");
         	list.add(ErrorMessageUtils.getMessage("dob", "validation.failure", language));
         }

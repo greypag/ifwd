@@ -236,8 +236,8 @@ public class SavieOnlineController extends BaseController{
 	@RequestMapping(value = {"/{lang}/savie-online/life-review4"})
 	public ModelAndView getSavieOnlineLifeReview4(Model model, HttpServletRequest request,HttpSession session) {
 		try {
-			savieOnlineService.createApplicationFormPdf(request, session);
-			savieOnlineService.createFnaFormPdf(request, session);
+			savieOnlineService.createApplicationFormPdf("1", request, session);
+			savieOnlineService.createFnaFormPdf("1", request, session);
 		}
 		catch (Exception e) {
 			logger.info(e.getMessage());
@@ -375,4 +375,5 @@ public class SavieOnlineController extends BaseController{
 			logger.info(session.getAttribute("perferredDate").toString());
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER);
 	}
+	
 }
