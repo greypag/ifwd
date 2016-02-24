@@ -13,7 +13,7 @@ public class LifePaymentBean implements Serializable {
 	private final static Logger logger = LoggerFactory.getLogger(LifePaymentBean.class);
 	private static final long serialVersionUID = 1L;
 
-	private Boolean payOnline;
+	private Boolean payment;
 	private String paymentMethod;
 	private String bankCode;
 	private String branchCode;
@@ -43,13 +43,19 @@ public class LifePaymentBean implements Serializable {
 		}
 	}
 
-	public Boolean getPayOnline() {
-		return payOnline;
+	
+
+	public Boolean getPayment() {
+		return payment;
 	}
 
-	public void setPayOnline(Boolean payOnline) {
-		this.payOnline = payOnline;
+
+
+	public void setPayment(Boolean payment) {
+		this.payment = payment;
 	}
+
+
 
 	public String getBankCode() {
 		return bankCode;

@@ -1,9 +1,14 @@
-<%@page pageEncoding="UTF-8" %>
+<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<link rel="stylesheet" href="assets/css/material.min.css" />
-		<%@include file="includes/head.jsp" %>
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
 	<body>
@@ -13,7 +18,6 @@
 		%>
 		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="payment-page">
 			<!-- HEADER -->
-			<%@include file="includes/header-block.jsp" %>
 			<div class="fwd-container container-fluid breadcrumbs">
 				<div class="breadcrumb-container">
 		            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
@@ -34,15 +38,15 @@
 					  <div class="row reset-margin hidden-xs hidden-sm">
 						 <ul class="common-steps-list six-steps nav nav-pills">
 							<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
-							<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 							<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span>Application &amp; payment</button></li>
-							<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 							<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Summary &amp; declaration</button></li>
-							<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 							<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">4</span>Signature</button></li>
-							<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 							<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">5</span>Document upload</button></li>
-							<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 							<li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">6</span>Confirmation</button></li>
 						 </ul>
 					 </div>
@@ -85,7 +89,7 @@
 							   <div class="radio-button-group">
 								  <div class="clearfix desktop-align left cstm-md-col">
 									 <div class="pull-left radio-holder">
-										<input type="radio" id="payment-debit" name="payment" checked="checked"> <label for="payment-debit"></label>
+										<input type="radio" id="payment-debit" name="payment" value="true" checked="checked"> <label for="payment-debit"></label>
 									 </div>
 									 <div class="pull-left desc">
 										Direct debit
@@ -93,7 +97,7 @@
 								  </div>
 								  <div class="clearfix below desktop-align">
 									 <div class="pull-left radio-holder">
-										<input type="radio" id="payment-later" name="payment"> <label for="payment-later"></label>
+										<input type="radio" id="payment-later" name="payment" value="false"> <label for="payment-later"></label>
 									 </div>
 									 <div class="pull-left desc">
 										Pay later
@@ -107,32 +111,49 @@
 									<div class="col-xs-12 col-md-6">
 										<div class="info-wrapper">
 											<p class="info-label">Amount</p>
-											<p class="info-value">HK$ 100.00</p>
+											<p class="info-value">
+											   HK$ ${saviePlanDetails.insuredAmount }
+											   <input type="hidden" name="paymentAmount" value="${saviePlanDetails.insuredAmount }">
+											</p>
 										</div>
 										<div class="info-wrapper">
 											<p class="info-label">Payment method</p>
-											<p class="info-value">Direct debit</p>
+											<p class="info-value">
+											   Direct debit
+											   <input type="hidden" name="paymentMethod" value="Direct debit">
+											</p>
 										</div>
 										<div class="info-wrapper">
 											<p class="info-label">Bank account holder name</p>
-											<p class="info-value">CHAN TAI MAN</p>
+											<p class="info-value">
+											   ${userDetails.fullName }
+											   <input type="hidden" name="accountHolderName" value="${userDetails.fullName }">
+											</p>
 										</div>
 									</div>
 									<div class="col-xs-12 col-md-6">
 										<div class="payment-select-wrapper">
 											<p class="bank-info-select-label">Bank name (code)</p>
 										   <div class="selectDiv centreDiv gray-text-bg">
-												<select name="bank_code" id="bank_code" class="form-control gray-dropdown">
+												<select name="bankCode" id="bank_code" onchange="getBranchCode(this.value,'${language }');" class="form-control gray-dropdown">
 													<option selected disabled value="">Bank name (code)</option>
-													<option value="001">001</option>
-													<option value="002">002</option>
+													<c:if test="${language == 'en'}">
+														<c:forEach var="list" items="${bankCodeEN}">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+														<c:forEach var="list" items="${bankCodeCN}">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</c:forEach>
+													</c:if>
 												</select>
-												<img src="assets/images/orange-caret.png" class="orange-caret-bg">
+												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											 </div>
 										</div>
 										<div class="form-group">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="bankAccountNo" name="bankAccountNo">
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="bankAccountNo" name="accountNumber" value="${lifePayment.accountNumber }">
 												<label class="mdl-textfield__label" for="bankAccountNo">Account no.</label>
 											</div>
 											<span class="error-msg" id="bankAccountNoErMsg"></span>
@@ -140,12 +161,20 @@
 										<div class="payment-select-wrapper">
 											<p class="bank-info-select-label">Branch name (code)</p>
 											<div class="selectDiv centreDiv gray-text-bg">
-												<select name="bank_name" id="bank_name" class="form-control gray-dropdown">
+												<select name="branchCode" id="bank_name" class="form-control gray-dropdown">
 													<option selected disabled value="">Branch name (code)</option>
-													<option value="option1">Option 1</option>
-													<option value="option2">Option 2</option>
+													<c:if test="${language == 'en'}">
+														<c:forEach var="list" items="${branchCodeEN}">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+														<c:forEach var="list" items="${branchCodeCN}">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</c:forEach>
+													</c:if>
 												</select>
-												<img src="assets/images/orange-caret.png" class="orange-caret-bg">
+												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											</div>
 										</div>
 									</div>
@@ -175,14 +204,14 @@
 														<option value="4">Kwun Tong</option>
 														<option value="5">Shatin</option>
 													</select>
-													<img src="assets/images/orange-caret.png" class="orange-caret-bg">
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 											</div>
 											<span class="error-msg" id="customerServiceCentreErMsg"></span>
 										</div>
 										
 										<div class="centre-info visible-xs visible-sm" id="centre-info">
-											<img src="assets/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
+											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
 											<a class="address-link" href="#">View map</a>
 										</div>
 										
@@ -191,7 +220,7 @@
 												<label class="mdl-textfield__label">Date</label>
 												<div id="date" class="selectDiv preferred-date gray-text-bg">
 													<input type="text" class="date preferred-date form-control gray-dropdown" name="preferredDate" id="preferredDate" value="">
-													<img src="assets/images/orange-caret.png" class="orange-caret-bg">
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 											</div>
 											<span class="error-msg" id="preferredDateErMsg"></span>
@@ -202,7 +231,7 @@
 												<label class="mdl-textfield__label">Time</label>
 												<div class="selectDiv timeslot gray-text-bg">
 													<input type="text" class="form-control gray-dropdown" name="preferred-time" id="preferred-time" value="">
-													<img src="assets/images/orange-caret.png" class="orange-caret-bg">
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 											</div>
 											<span class="error-msg" id="preferredTimeErMsg"></span>
@@ -210,7 +239,7 @@
 									</div>
 									<div class="col-xs-12 col-md-6" id="right-side-form">
 										<div class="centre-info visible-md visible-lg" id="centre-info">
-											<img src="assets/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
+											<img src="<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
 											<a class="address-link" href="#">View map</a>
 										</div>
 									</div>
@@ -218,7 +247,7 @@
 							</div>
 							
 							<center>
-								<button type="submit" id="btn-next" class="btn btn-payment">Next</button>
+								<button type="submit" id="btn-next" class="btn btn-payment" onclick="goNext();">Next</button>
 								<br /><a href="#" class="save-link" id="payment-save-and-con">Save and continue later</a>
 								<button type="button" id="btn-back" class="btn btn-payment hidden">Back to application summary</button>
 							</center>
@@ -227,7 +256,6 @@
 				</div>
 			</div>
 			<!-- FOOTER -->
-			<%@include file="includes/footer-block.jsp" %>
 		</div>
 		
 		<!-- Save and continue modal -->
@@ -280,7 +308,6 @@
 		  </div>
 		</div>
 		<!-- JS INCLUDES -->
-		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 			var language = "en";
 			
@@ -453,11 +480,11 @@
 				autoclose: true
 			 });
 
-			 var img1 = "assets/images/savie-2016/timshatsui.jpg";
-			 var img2 = "assets/images/savie-2016/quarry_bay.jpg";
-			 var img3 = "assets/images/savie-2016/sheung_wan.jpg";
-			 var img4 = "assets/images/savie-2016/kwuntong.jpg";
-			 var img5 = "assets/images/savie-2016/shatin.jpg";
+			 var img1 = "<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg";
+			 var img2 = "<%=request.getContextPath()%>/resources/images/savie-2016/quarry_bay.jpg";
+			 var img3 = "<%=request.getContextPath()%>/resources/images/savie-2016/sheung_wan.jpg";
+			 var img4 = "<%=request.getContextPath()%>/resources/images/savie-2016/kwuntong.jpg";
+			 var img5 = "<%=request.getContextPath()%>/resources/images/savie-2016/shatin.jpg";
 			 var addr1 = "G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui";
 			 var addr2 = "13/F, Devon House, Taikoo Place, 979 King’s Road, Quarry Bay";
 			 var addr3 = "1/F, FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan";
@@ -504,6 +531,66 @@
 				   $('#right-centre').html('');
 				}
 			 }
+			 
+			 function getBranchCode(value,language) {
+					$.get('<%=request.getContextPath()%>/ajax/savie-online/getBranchCode',
+					{ 
+						value : value,
+						language : language
+					},
+					function(data) {
+						$("#bank_name").empty();
+						if(data != null){
+							for(var i = 0; i < data.length; i++) {
+								$("#bank_name").append("<option value='"+data[i].itemCode+"-"+data[i].itemDesc+"'>"+data[i].itemDesc+"</option>");
+							}
+						}
+					})
+					.fail(function(data) {
+					});
+				}
+			 
+			 function goNext(){
+					if($('input[name="payment"]:checked ').val() == "false"){
+						window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+					}
+					else{
+						$("#errorMsg").html("");
+						$.ajax({
+							  type : "POST",
+							  async:false, 
+							  url : "<%=request.getContextPath()%>/ajax/savie-online/lifePayment",
+							  data: $("#paymentForm").serialize(),
+							  success : function(data) {
+								  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+									  $("#errorMsg").html(data.errorMsg);
+								  }
+								  else{
+									  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+								  }
+							  }
+					     });
+					}
+				}
+			 
+			 
+			 $("#save-exit-btn").click(function(){
+					$("#errorMsg").html("");
+					$.ajax({
+						  type : "POST",
+						  async:false, 
+						  url : "<%=request.getContextPath()%>/ajax/savie-online/lifePaymentSaveforLater",
+						  data: $("#paymentForm").serialize(),
+						  success : function(data) {
+							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+								  $("#errorMsg").html(data.errorMsg);
+							  }
+							  else{
+								  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+							  }
+						  }
+				     });
+				});
 		</script>
 	</body>
 </html>
