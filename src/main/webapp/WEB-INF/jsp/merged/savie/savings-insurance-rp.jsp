@@ -96,7 +96,7 @@
 	        			</ul>
 	        		</div>
 	        </div>
-       		<div class="gray-divide"></div>
+       		
        		<p class="availability-notice text-center"><fmt:message key="product.detail.savie.remark.copy1" bundle="${msg}" /> <span></span>
        		</p>
 
