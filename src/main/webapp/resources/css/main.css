@@ -10326,6 +10326,9 @@ ul.promotion-sub-tnc.bullets {
         color: #ff8201;
         padding-left:25px;
     }
+    .mobile-menu-V2 .navbar-nav .dropdown-menu>li.menu-link span.dot-font{
+        padding-left: 0;
+    }
     li.menu-link-grp-title>ul.dropdown-menu,li.link-btn>ul.dropdown-menu{
         padding:0;
     }
