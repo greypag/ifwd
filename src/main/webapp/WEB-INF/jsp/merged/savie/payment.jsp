@@ -158,9 +158,9 @@
 											</div>
 											<span class="error-msg" id="bankAccountNoErMsg"></span>
 										</div>
-										<div class="payment-select-wrapper">
-											<p class="bank-info-select-label">Branch name (code)</p>
+										<div class="form-group">
 											<div class="selectDiv centreDiv gray-text-bg">
+												<label class="mdl-textfield__label cstm-dropdown-label">Branch name (code)</label>
 												<select name="branchCode" id="bank_name" class="form-control gray-dropdown">
 													<option selected disabled value="">Branch name (code)</option>
 													<c:if test="${language == 'en'}">
@@ -176,6 +176,7 @@
 												</select>
 												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											</div>
+											<span class="error-msg" id="branchNameErMsg"></span>
 										</div>
 									</div>
 								</div>
@@ -410,6 +411,14 @@
 					//excluded: [':disabled', ':hidden', ':not(:visible)'],
 					excluded: [':disabled'],
 					fields: {
+						bankCode: {
+							container: '#bankCodeErMsg',
+							validators: {
+							  notEmpty: {
+								 message: "Please select bank code."
+							  }
+							}
+						},
 						bankAccountNo: {
 						   container: '#bankAccountNoErMsg',
 						   validators: {
@@ -421,6 +430,14 @@
 								  message: "Bank account number is invalid."
 							   }
 						   }
+						},
+						branchName: {
+							container: '#branchNameErMsg',
+							validators: {
+							  notEmpty: {
+								 message: "Please select branch name."
+							  }
+							}
 						},
 						customerServiceCentre: {
 						   container: '#customerServiceCentreErMsg',

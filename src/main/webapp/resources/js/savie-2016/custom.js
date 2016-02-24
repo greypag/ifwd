@@ -19,7 +19,24 @@ $(function() {
              $self.css('color', '#9ba5a7');
           }
        }
-    }); 
+    });
+		
+	$('#so-calendar-dob').on('change', function(e) {
+	   var $self = $(this);
+	   
+	   $self.removeAttr('style');
+	   
+	   if(msieversion() > 0) {
+		  $('#so-calendar-dob').css('font-family','Arial');
+
+		  //IE9 placeholder color fix
+		  if( $self.val() == '' || $self.val()==$self.attr('placeholder') ){
+			 $self.css('color', '#ccc');
+		  } else {
+			 $self.css('color', '#9ba5a7');
+		  }
+	   }
+	});
 });
 
 function stickHeaderBrowse() {
