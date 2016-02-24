@@ -217,13 +217,18 @@
 										<div class="form-group">
 											<div class="selectDiv centreDiv gray-text-bg">
 												<label class="mdl-textfield__label cstm-dropdown-label">Employment Status</label>
-												<select name="employmentStatus2" id="employmentStatus2" class="form-control gray-dropdown">
-												   <option value="" disabled="disabled">Employment Status</option>
-												   <option value="Self Employed">Self Employed</option>
-												   <option value="Unemployed">Unemployed</option>
-												   <option value="Housewife">Housewife</option>
-												   <option value="Student">Student</option>
-												   <option value="Retired">Retired</option>
+												<select name="employmentStatus" id="employmentStatus2" class="form-control gray-dropdown">
+												   <option value="" disabled="disabled" selected="selected">Employment Status</option>
+												   <c:if test="${language == 'en'}">
+														<c:forEach var="list" items="${employmentStatusEN}">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.employmentStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+														<c:forEach var="list" items="${employmentStatusCN}">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.employmentStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</c:forEach>
+													</c:if>
 												</select>
 												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											</div>
@@ -490,7 +495,7 @@
 				});
 				
 				$('#employmentStatus2').on('change', function() {
-					if($(this).val() == 'Self Employed') {
+					if($(this).val() == 'ES3-Self Employed') {
 						tmpEmploymentStatus = $(this).val();
 						$('#employed-panel').removeClass('hidden');
 						$('#unemployed-panel').addClass('hidden');
