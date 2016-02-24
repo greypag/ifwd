@@ -338,7 +338,7 @@
 		</div>
 		
 		<!-- JS INCLUDES -->
-		<script src="assets/js/savie-2016/so-fwd-dropzone.js"></script>
+		<script src="<%=request.getContextPath()%>/resources/js/savie-2016/so-fwd-dropzone.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				var language = "en";

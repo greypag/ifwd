@@ -285,6 +285,7 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIEONLINE_REVIEW4 = "life-review4";
 	public static final String PAGE_SAVIEONLINE_LIFE_SIGNATURE = "life-signature";
 	public static final String PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD = "life-document-upload";
+	public static final String PAGE_SAVIE_LIFE_DOCUMENT_UPLOAD = "document-upload";
 	public static final String PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION = "upload-confirmation";
 	public static final String PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION = "upload-later-confirmation";
 	public static final String PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION = "sign-offline-confirmation";

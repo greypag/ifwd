@@ -163,11 +163,10 @@ public class SavieOnlinePageFlowControl {
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
 			break;
 			
-		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD: 
+		case UserRestURIConstants.PAGE_SAVIE_LIFE_DOCUMENT_UPLOAD: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION;
 			filePath = "savie/";
-			current = "document-upload";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION: 
@@ -267,7 +266,7 @@ public class SavieOnlinePageFlowControl {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD)) {
-			return UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD;
+			return UserRestURIConstants.PAGE_SAVIE_LIFE_DOCUMENT_UPLOAD;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION;
