@@ -176,6 +176,12 @@ function getSaviePlanDetails() {
 											$('#surrender-change-0-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										}
 									}
+									
+									var value_rp = $('#policy-year-0-1').html();
+									if(value_rp > 0) {
+										$('#policy-year-0-1').html($('#payment-years').val()+"<span class='payment-ends'></span>");
+										appendPaymentEnds();
+									}
 								}
 								
 								if(json.salesIllustration.yearPlans[i].plans[j].rate == "zero"){
@@ -216,6 +222,12 @@ function getSaviePlanDetails() {
 											$('#account-value-change-2-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 											$('#surrender-change-2-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										}
+									}
+									
+									var value_rp = $('#policy-year-2-1').html();
+									if(value_rp > 0) {
+										$('#policy-year-2-1').html($('#payment-years').val()+"<span class='payment-ends'></span>");
+										appendPaymentEnds();
 									}
 								}
 								if(json.salesIllustration.yearPlans[i].plans[j].rate == "two"){
@@ -304,6 +316,12 @@ function getSaviePlanDetails() {
 											$('#account-value-change-4-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance));
 											$('#surrender-change-4-1').html('<span>$</span> '+fmoney(json.salesIllustration.yearPlans[i].plans[j].guaranteedSurrenderBenefit));
 										}
+									}
+									
+									var value_rp = $('#policy-year-4-1').html();
+									if(value_rp > 0) {
+										$('#policy-year-4-1').html($('#payment-years').val()+"<span class='payment-ends'></span>");
+										appendPaymentEnds();
 									}
 								}
 								if(json.salesIllustration.yearPlans[i].plans[j].rate == "four"){

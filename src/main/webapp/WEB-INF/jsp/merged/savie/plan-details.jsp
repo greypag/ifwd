@@ -654,6 +654,9 @@ var context = "${pageContext.request.contextPath}";
 		    <% } %>
 		    
 		    function appendPaymentEnds() {
+		    	$('#policy-year-0-1 .payment-ends').append('<fmt:message key="label.final.payment.year" bundle="${msg}" />');
+		    	$('#policy-year-2-1 .payment-ends').append('<fmt:message key="label.final.payment.year" bundle="${msg}" />');
 		    	$('#policy-year-3-1 .payment-ends').append('<fmt:message key="label.final.payment.year" bundle="${msg}" />');
+		    	$('#policy-year-4-1 .payment-ends').append('<fmt:message key="label.final.payment.year" bundle="${msg}" />');
 		    }
 		</script>
