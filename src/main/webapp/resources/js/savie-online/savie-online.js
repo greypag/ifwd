@@ -229,14 +229,14 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 	}
 });
 
-$('#et-upload-doc-submit-btn').on('click', function(e) {
+function documentUpload(){
 	if(!checkLogin()){
 		return false;
 	}
-	var uploadNow = $("input[name='upload-doc']:checked").val();
+	var uploadNow = $("input[name='upload']:checked").val();
 	var passportFlage = true;
 	var uploadLaterFlage = false;
-	if(uploadNow == 'upload-now'){
+	if(uploadNow == 'true'){
 		var display = $('.passport-holder').css("display");
 		var hkidflage = $('#hkid-copy-progress').css("display");
 		var passportflage = $('#passport-copy-progress').css("display");
@@ -255,7 +255,7 @@ $('#et-upload-doc-submit-btn').on('click', function(e) {
 		uploadLaterFlage = true;
 	}
 	sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage);
-});
+}
 
 $('#iframe-et-upload-doc-submit-btn').on('click', function(e) {
     var $self = $(this);
@@ -336,10 +336,10 @@ function isFProfAddValidity() {
 }
 
 function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
-	$('#et-upload-doc-submit-btn').attr('disabled', 'disabled');
+	$('#updoc-complete-btn').attr('disabled', 'disabled');
 	$.ajax({
 		        type: "POST",
-		        url:contextPath+'/ajax/eliteTerm/getEliteTermSendImageFlage',
+		        url:contextPath+'/ajax/savie-online/getEliteTermSendImageFlage',
 		        data: {
 					"passportFlage":passportFlage,
 					"uploadLaterFlage":uploadLaterFlage

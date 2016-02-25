@@ -206,28 +206,43 @@ function cancelUpload(progressBarID,doneID,progressBarReset){
 	$('#'+progressBarReset.toString()).css("width",'0%');
 }
 
+var errorMsgCons ;
 function uploadFile(inputID,forDragAndDrop) {
    // Remove this snippet
    // and update the rest of the function to enable AJAX file upload
    $('#'+progressBarUIId.toString()).css("width", '100%');
    uploadComplete();
-   return;
+   //return;
    // End of snippet
    
-	var fd = new FormData();	
-	if(forDragAndDrop!='') {
-		fd.append(inputID.toString(),forDragAndDrop );
-	} else {
-		fd.append(inputID.toString(), document.getElementById(inputID.toString()).files[0]);
+   var fd = new FormData();	
+	if(forDragAndDrop!=''){
+		fd.append("img",forDragAndDrop );
+	}else{
+		fd.append("img", document.getElementById(inputID.toString()).files[0]);
 	}
-	
+	fd.append("name",inputID.toString());
 	xhr.upload.addEventListener("progress", uploadProgress, false);
-	xhr.addEventListener("load", uploadComplete, false);
+	//xhr.addEventListener("load", uploadComplete, false);
 	xhr.addEventListener("error", uploadFailed, false);
 	xhr.addEventListener("abort", uploadCanceled, false);
-	xhr.open("POST", "http://murielle.php-staging.smartdrop.com.hk/pms/product/uploadfile");
+	xhr.onreadystatechange = xhrReturn;
+	xhr.open("POST", context+"/ajax/savie-online/getEliteTermImage");
 	xhr.send(fd);
 }
+
+//回调函数    
+function xhrReturn(){    
+    if(xhr.readyState == 4 && xhr.status == 200){    
+        var b = xhr.responseText;
+        if(b != "true"){ 
+        	addFormFieldError(errorMsgCons, b);
+        	cancelUpload(deleteProgressDivBarID,deleteUploadCompleteId,deleteProgressBarId);
+        } else {
+        	uploadComplete();
+        }        
+    }    
+}  
 
 function uploadProgress(evt) {
 	if (evt.lengthComputable) {

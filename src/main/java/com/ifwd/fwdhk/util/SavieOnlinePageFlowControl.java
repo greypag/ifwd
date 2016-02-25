@@ -172,11 +172,15 @@ public class SavieOnlinePageFlowControl {
 		case UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			filePath = "savie/";
+			current = "confirmation";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			filePath = "savie/";
+			current = "confirmation-upload-later";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION: 
