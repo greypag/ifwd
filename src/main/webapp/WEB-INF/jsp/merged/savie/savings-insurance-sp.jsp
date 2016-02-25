@@ -89,15 +89,15 @@ var home_url = "<%=request.getContextPath()%>";
 			        		<img class="hidden-md hidden-lg" src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" />
 			        		<div class="promo-section">
 			        			<h2 class="hidden-xs hidden-sm"><fmt:message key="jumbo.savie.oceanpark" bundle="${msg}" /></h2>
-			        			<h4><fmt:message key="jumbo.savie.oceanpark.copy1" bundle="${msg}" /></h4>
-			        			<p class="description"><fmt:message key="jumbo.savie.oceanpark.copy2" bundle="${msg}" /></p>
+			        			<!--  <h4><fmt:message key="jumbo.savie.oceanpark.copy1" bundle="${msg}" /></h4>
+			        			<p class="description"><fmt:message key="jumbo.savie.oceanpark.copy2" bundle="${msg}" /></p> -->
 			        			<div class="clearfix" id="clearfix-height">
 			        				<button class="savie-regular-btn" id="op-buy-now-O2O-mobile"><fmt:message key="button.start" bundle="${msg}" /></button>
-			        				<img src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" class="hidden-xs hidden-sm desktop-op">
+			        				<!-- <img src="<%=request.getContextPath()%><fmt:message key="oceanpark.landing.logo" bundle="${msg}" />" class="hidden-xs hidden-sm desktop-op"> -->
 			        			</div>
-			        			<p class="terms-condition"><fmt:message key="disclaimer.partner.oceanpark.copy1" bundle="${msg}" />
+			        			<!-- <p class="terms-condition"><fmt:message key="disclaimer.partner.oceanpark.copy1" bundle="${msg}" />
 								<span><fmt:message key="disclaimer.partner.oceanpark.copy2" bundle="${msg}" /></span>
-								</p>
+								</p> -->
 			        		</div>
 			        	</div>
 		        	</div>
@@ -127,7 +127,7 @@ var home_url = "<%=request.getContextPath()%>";
 		        			</ul>
 		        		</div>
 	        		</div>
-	        		<div class="gray-divide"></div>
+	        	
 	        		<p class="availability-notice text-center"><fmt:message key="product.detail.savie.remark.copy1" bundle="${msg}" /> <span></span>
        				</p>
 
@@ -169,7 +169,7 @@ var home_url = "<%=request.getContextPath()%>";
 	        		<h3 class="benefits-desktop text-center"><fmt:message key="savierp.landing.benefits" bundle="${msg}" /></h3>
 	        		<div class="gray-divide"></div>
 	        	</div>
-	        		<div class="regular-benefit">-
+	        		<div class="regular-benefit">
        			<div class="hidden-md hidden-lg">
         			<h4 class="text-center"><fmt:message key="savierp.landing.benefits" bundle="${msg}" /></h4>
         			<div class="gray-divide"></div>
@@ -180,7 +180,7 @@ var home_url = "<%=request.getContextPath()%>";
 		        			<div class="row">
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png">
-		        					<span><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /></span>
+		        					<span><fmt:message key="product.details.savie.group1.section1.title.ocean" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png" />
 										<div class="info hidden-benefits-info">
@@ -279,7 +279,7 @@ var home_url = "<%=request.getContextPath()%>";
 													<div class="benefits-content clearfix">
 														<img src="<%=request.getContextPath()%>/resources/images/savie-regular/new-benefit-1.png">
 														<div class="info">
-															<h3><fmt:message key="product.details.savie.group1.section1.title" bundle="${msg}" /></h3>
+															<h3><fmt:message key="product.details.savie.group1.section1.title.ocean" bundle="${msg}" /></h3>
 															<p><fmt:message key="product.details.savie1.summary" bundle="${msg}" />  </p>
 														</div>
 													</div>
