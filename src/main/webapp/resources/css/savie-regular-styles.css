@@ -961,8 +961,18 @@ body {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-#myDropdown.dropdown:hover .dropdown-menu {
-   display:none; 	
+@media screen and (max-width: 991px) {
+	.mobile-menu-V2 .dropdown.open:hover ul.dropdown-menu {
+	   display: block;
+	}
+    .mobile-menu-V2 .dropdown:hover ul.dropdown-menu {
+       display: none;
+    }	
+}
+@media screen and (min-width: 992px) {
+	#myDropdown.dropdown:hover .dropdown-menu {
+	   display: none; 	
+	}
 }
 .fwd-savie-wrapper #header #myDropdown.logout-btn:hover .dropdown-menu{
   display: block;    
