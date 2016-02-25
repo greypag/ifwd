@@ -1376,7 +1376,7 @@ body {
   color: #fff;
 }
 
-@media (min-width: 992px) {
+/*@media (min-width: 992px) {
 	.savie-regular-landing .payment-sp {
 	    padding-top: 200px;
 	}
@@ -1400,7 +1400,7 @@ body {
 	.savie-regular-landing .payment-sp {
 		padding-top: 30px;
 	}
-}
+}*/
 /* line 241, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .payment-mode h4 {
   color: #ff8200;
