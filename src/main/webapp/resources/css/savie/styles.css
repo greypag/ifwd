@@ -14305,6 +14305,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 @media (min-width: 992px) {
   .fwd-savie-wrapper .container-fluid.proceed-block.text-center h2 {
     font-size: 36px;
+    line-height: 36px;
     margin-bottom: 21px;
   }
 }
@@ -14356,6 +14357,7 @@ body.chin .fwd-savie-wrapper .container-fluid.proceed-block.text-center .btn.btn
 		display: inline-block;
 		margin-top: 30px;
 		font-size: 36px;
+    line-height: 36px;
 	}
 }
 

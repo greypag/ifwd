@@ -4657,7 +4657,7 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 @media (min-width: 992px) {
   /* line 6, ../sass/partials/savie/_plan-details.scss */
   .savie-regular-plan-details .btn-tooltip-clear {
-    display: inline-block;
+    display: inline;
     border: none;
     background: transparent;
   }
@@ -5140,7 +5140,7 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
   /* line 372, ../sass/partials/savie/_plan-details.scss */
   .savie-regular-plan-details .proceed-block p {
     display: inline-block;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
     font-size: 24px;
     vertical-align: middle;
     margin-top: 22px;
@@ -5258,7 +5258,7 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 	}
 	
 	.fwd-savie-wrapper .container-fluid.proceed-block.text-center p {
-		margin-top: -12px;
+		margin-top: -19px;
 	}
 	
 	.fwd-savie-wrapper header .navbar {
