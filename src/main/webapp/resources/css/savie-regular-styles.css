@@ -961,6 +961,9 @@ body {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+#myDropdown.dropdown:hover .dropdown-menu {
+   display:none; 	
+}
 .fwd-savie-wrapper #header #myDropdown.logout-btn:hover .dropdown-menu{
   display: block;    
 }
