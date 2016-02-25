@@ -1714,7 +1714,7 @@ function getSavieOnlinePlandetails() {
 		type : "POST",
 		async: true,
 		url : context + "/ajax/savie-online/getSavieOnlinePlandetails",
-		data: {insuredAmount : $("#R").val(), dob : $("#plan-dob-datepicker").val(), promoCode : "" },
+		data: {insuredAmount : $("#R").val(), paymentType : $("#type-of-payment").val(), dob : $("#plan-dob-datepicker").val(), promoCode : "" },
 		success : function(data) {
 			/* if(data != null && data.errorMsg != null && data.errorMsg != ""){
 				$("#errorMsg").html(data.errorMsg);

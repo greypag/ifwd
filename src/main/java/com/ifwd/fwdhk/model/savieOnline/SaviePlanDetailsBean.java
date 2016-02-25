@@ -19,6 +19,8 @@ public class SaviePlanDetailsBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private String insuredAmount;
+	private String insuredAmount1;
+	private String paymentType;
 	private String dob;
 	private String promoCode;
 	private String dob1;
@@ -78,6 +80,22 @@ public class SaviePlanDetailsBean implements Serializable {
 
 	public void setDob2(String dob2) {
 		this.dob2 = dob2;
+	}
+
+	public String getInsuredAmount1() {
+		return insuredAmount1;
+	}
+
+	public void setInsuredAmount1(String insuredAmount1) {
+		this.insuredAmount1 = insuredAmount1;
+	}
+
+	public String getPaymentType() {
+		return paymentType;
+	}
+
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
 	}
 	
 }
