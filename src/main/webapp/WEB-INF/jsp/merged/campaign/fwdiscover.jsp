@@ -276,10 +276,10 @@
                                             <p class="value">${count5}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
                                         </div>
                                         <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate.mobile" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
                                         </div>
                                     </div>
                                 </div>
