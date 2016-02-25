@@ -73,9 +73,16 @@ var language = "${language}";
 												<span class="icon-chevron-thin-down orange-caret"></span>
                                                 <div class="centre-holder">
                                                     <select name="centre" id="centre" class="form-control gray-dropdown">
-                                                        <c:forEach var="list" items="${serviceCentre.serviceCentres}">
-                                                            <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
-                                                        </c:forEach>
+                                                        <c:choose>
+													        <c:when test="${serviceCentre.serviceCentres.size() > 0}">
+													            <c:forEach var="list" items="${serviceCentre.serviceCentres}">
+		                                                            <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
+		                                                        </c:forEach>
+													        </c:when>
+													        <c:otherwise>
+															    <option value="" ></option>
+															</c:otherwise>
+													    </c:choose>
                                                     </select>
                                                 </div>
 											</div>
@@ -85,15 +92,25 @@ var language = "${language}";
 										<div class="col-xs-12 col-md-4"><label for="preferred-date"><fmt:message key="savie.customerServiceCentre.date" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div id="date" class="selectDiv preferred-date">
-												<%-- <input type="text" class="date" name="preferred-date" id="preferred-date" value="${perferredDate }" readonly> --%>
+												
+												<input type="text" class="date" id="full-date-1" value="" readonly>
+												
 												<%
 												Map results = (Map)request.getAttribute("datesMap");
-												Iterator i = results.entrySet().iterator();
 												Map.Entry<String, List> entry; 
-												while(i.hasNext()){
-													entry=(Map.Entry<String, List>)i.next();
+												Iterator i;
+												Boolean result = results.size() > 0; 
+												if(result) {
+													i = results.entrySet().iterator();
+													while(i.hasNext()){
+														entry=(Map.Entry<String, List>)i.next();
 												%>
 												<input type="text" class="date" name="preferred-date-<%=entry.getKey()%>" id="preferred-date-<%=entry.getKey()%>" value="${perferredDate }" readonly style="display: none;">
+												<%
+													}
+												}else {
+												%>
+												<input type="text" class="date" id="full-date" value="${perferredDate }" readonly>
 												<%
 												}
 												%>
@@ -121,27 +138,29 @@ var language = "${language}";
 								</div>
 								
 								<div class="col-xs-12 col-md-6">
-									<c:forEach varStatus="l" var="list" items="${serviceCentre.serviceCentres}">
-							            <div id="centre-${list.serviceCentreCode }" class="centre-info ${l.first?'':'hidden' }">
-										    <c:choose>
-										        <c:when test="${list.photo != null && list.photo.toLowerCase().startsWith('http')}">
-										            <img src="${list.photo}" class="img-responsive" />
-										        </c:when>
-										        <c:otherwise>
-												    <img src="<%=request.getContextPath()%>/resources/images/savie/${list.photo}" class="img-responsive" />
-												</c:otherwise>
-										    </c:choose>
-										    
-										    <h4><fmt:message key="savie.servicecenter.address" bundle="${msg}" /></h4>
-										    <p>${list.address }</p>
-										    <p><a href="${list.map }" title="" class="et-btn-download-item" target="_blank"><fmt:message key="general.view.map" bundle="${msg}" /></a></p>
-									    </div>
-							        </c:forEach>
+								    <c:if test="${serviceCentre != null }">
+										<c:forEach varStatus="l" var="list" items="${serviceCentre.serviceCentres}">
+								            <div id="centre-${list.serviceCentreCode }" class="centre-info ${l.first?'':'hidden' }">
+											    <c:choose>
+											        <c:when test="${list.photo != null && list.photo.toLowerCase().startsWith('http')}">
+											            <img src="${list.photo}" class="img-responsive" />
+											        </c:when>
+											        <c:otherwise>
+													    <img src="<%=request.getContextPath()%>/resources/images/savie/${list.photo}" class="img-responsive" />
+													</c:otherwise>
+											    </c:choose>
+											    
+											    <h4><fmt:message key="savie.servicecenter.address" bundle="${msg}" /></h4>
+											    <p>${list.address }</p>
+											    <p><a href="${list.map }" title="" class="et-btn-download-item" target="_blank"><fmt:message key="general.view.map" bundle="${msg}" /></a></p>
+										    </div>
+								        </c:forEach>
+							        </c:if>
 								</div>
 							</div>
 							
 							<div class="text-center">
-								<button class="btn next confirm-appointment" type="button" id="btn-cstmr-srvc-cnter"><fmt:message key="saviee.appointment.submit" bundle="${msg}" /></button>
+								<button class="btn next confirm-appointment" type="button" id="btn-cstmr-srvc-cnter" disabled><fmt:message key="saviee.appointment.submit" bundle="${msg}" /></button>
 							</div>
 						</form>
 					</div>
@@ -242,13 +261,47 @@ var language = "${language}";
 <script>
 	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
 	var endDate= new Date((new Date()).getTime() + 24*24*60*60*1000);
-
+	var sFullDate= new Date();
+	var eFullDate= new Date((new Date()).getTime() - 24*60*60*1000);
 	$(function() {
+		var csCenter = $("#centre").val();
+		var perferredDate = $("#preferred-date").val();
+		var perferredTime = $("#preferred-time").val();
+		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+			$('#fullyBooked').modal('show');
+		}
+		
+		$('#fullyBooked').modal('show');
+		$('#full-date-1').datepicker({
+		 	format: "dd-mm-yyyy",
+			container: "#date",
+			startDate: sFullDate,
+			endDate: eFullDate,
+			autoclose: true,
+		}).on('changeDate', function (ev) {
+		});
+		
+		<%
+		if(!result) {
+		%>
+		$('#full-date').datepicker({
+		 	format: "dd-mm-yyyy",
+			container: "#date",
+			startDate: sFullDate,
+			endDate: eFullDate,
+			autoclose: true,
+		}).on('changeDate', function (ev) {
+		});
+		<%
+		}
+		%>
+		
 		<%
 		results = (Map)request.getAttribute("datesMap");
-		i = results.entrySet().iterator();         
-		while(i.hasNext()){
-			entry=(Map.Entry<String, List>)i.next();
+		if(results != null) {
+			i = results.entrySet().iterator();         
+			while(i.hasNext()){
+				entry=(Map.Entry<String, List>)i.next();
 		%>
 		var data<%=entry.getKey()%>='<%=entry.getValue()%>';
 		$('#preferred-date-<%=entry.getKey()%>').datepicker({
@@ -280,18 +333,16 @@ var language = "${language}";
 			}
 		});
 		<%
+			}
 		}
 		%>
-		$("#preferred-date-${csCenter}").show();
 		
+		//$("#preferred-date-${csCenter}").show();
 		var serviceCentreCode = '${csCenter }';
-		//var perDate = '${perferredDate }';
-		//$("#preferred-date").datepicker("setDate", perDate.split('-')[0] +'-'+ perDate.split('-')[1] + '-' + perDate.split('-')[2]);
-		
 		$('.centre-info').addClass('hidden');
 		$('#centre-' + serviceCentreCode).removeClass('hidden');
 		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
-			getTimeSlot('${perferredTime }');
+			//getTimeSlot('${perferredTime }');
 		}
 		
 		$('#pick-another-centre-btn').click(function(){
@@ -309,13 +360,12 @@ var language = "${language}";
 		
 		$('#centre').on('change', function() {
 			var centre = $('#centre option:selected').val();
-			// display corresponding info
 			$('.centre-info').addClass('hidden');
 			$('#centre-' + centre).removeClass('hidden');
-			togglePreferred('preferred-date-'+ centre)
+			/* togglePreferred('preferred-date-'+ centre)
 			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
 				getTimeSlot('${perferredTime }');
-			}
+			} */
 		});
 		
 		$('#btn-cstmr-srvc-cnter').click(function(){
@@ -338,10 +388,11 @@ var language = "${language}";
 				var perferredTime = $("#preferred-time").val();
 			}
 			
-			if(perferredTime == null || perferredTime.trim() == ""){
+			if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+				$('#fullyBooked').modal('show');
+			}else if(perferredTime == null || perferredTime.trim() == ""){
 				$('#perferredTimeIsNull').modal('show');
-			}
-			else{
+			}else{
 				$.ajax({     
 				    url:context+'/ajax/savings-evergreen-insurance/upsertAppointment',     
 				    type:'post',     
@@ -381,12 +432,10 @@ var language = "${language}";
 							    error:function(){       
 							    }
 							});
-				    	}
-				    	else if(data.errMsgs == "Access code has already been used"){
+				    	}else if(data.errMsgs == "Access code has already been used"){
 				    		$('#accessCodeUsed').modal('show');
 				    		console.log(data.errMsgs);
-				    	}
-				    	else if(data.errMsgs == "Reservation is invalid"){
+				    	}else if(data.errMsgs == "Reservation is invalid"){
 				    		$('#reservationInvalid').modal('show');
 				    		console.log(data.errMsgs);
 				    	}
