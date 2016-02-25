@@ -623,19 +623,16 @@ var languageP = "${language}";
 		</div>
 	</div>
       </div>
-</div>
-	<div class="loading-mask">
-		<div class="content">
-			<img src="<%=request.getContextPath()%>/resources/images/savie/iFWD_O2O_payment-in-progress.gif" class="img-responsive">
-		</div>
-	</div>
+<div id="loadingDiv" class="waitingDiv" style="display: none; margin-left:auto; margin-right:auto;">
+    <img style="width: 300px; height: 300px;"
+        src="<%=request.getContextPath()%>/resources/images/ajax-loader2.gif">
 </div>
 <!-- FOOTER -->
 
 <script type="text/javascript">
 	var language = "en";
 	$(document).ready(function () {
-	    $('.loading-mask').toggle();
+	    $('#loadingDiv').toggle();
 		$('body').addClass('modal-open');
 		
 		$('#first-3-years-btn').on('click', function () {
@@ -663,7 +660,7 @@ var languageP = "${language}";
 		}); */
 
 		$("#plan-calculate-btn").click(function(){
-			$('.loading-mask').toggle();
+			$('#loadingDiv').toggle();
 			$('body').addClass('modal-open');
 			
 			$("#errorMsg").html("");

@@ -94,7 +94,7 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi blandit pretium metus. Suspendisse sagittis mi id iaculis eleifend. Integer ullamcorper nisi eget elit molestie mattis.</p>
 							<button class="btn savie-common-btn get-btn">Get Started</button>
 						</div>-->
-						<button class="btn common-yellow-btn get-btn">Let's get started</button>
+						<button id="btn-fna-cta" class="btn common-yellow-btn get-btn">Let's get started</button>
 					</div>
 					<div class="fna-icons-body text-center clearfix">
 						<div class="fwd-container-limit" id="nav-holder">
@@ -299,12 +299,35 @@
 			<%@include file="includes/footer-block.jsp" %>
 		</div>
 		
+		<!-- Review FNA modal  -->
+		<div class="modal fade common-welcome-modal" id="review-fna-modal" tabindex="-1" role="dialog">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+				<h4 class="text-center welcome-msg">Welcome back! Chan Tai Man</h4>
+				<p class="text-center description-msg">You have already completed a Financial Needs Analysis previously, you may review and edit your FNA for an updated Product Recommendation.</p>
+				<center><button class="btn savie-common-btn" id="review-fna-btn">Review FNA</button></center>
+			</div>
+		  </div>
+		</div>
+		
 		<!-- JS INCLUDES -->
 		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript" src="assets/js/savie-2016/jquery.mobile-1.4.5.min.js"></script>
 		<script type="text/javascript">
 			var language = "en";
 			$(function() {
+				
+				// To show review fna modal when clicking FNA CTA button
+				$('#btn-fna-cta').click(function() {
+					var hasDoneFNA = true;
+					
+					// Review FNA modal will only show if a user has done FNA before
+					if(hasDoneFNA) {
+						$('#review-fna-modal').modal('show');
+					}
+				});
+				
 				$("#so-carousel").swiperight(function() {
 				   $(this).carousel('prev');
 				});

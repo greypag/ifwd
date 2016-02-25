@@ -76,10 +76,13 @@ $(document).ready(function() {
 	// Datepicker
 	$('#so-calendar-dob').datepicker({
 		format: "mm-dd-yyyy",
-		//format: 'yy-mm-dd',
 		container: "#date",
-		startDate: new Date(),
-		autoclose: true
+		//startDate: new Date()
+		startView: "decade",
+		startDate: dob_start_date,
+		endDate: dob_end_date,
+		autoclose: true,
+		startView: 2
 	 });
 	 
 	// Placeholder	 
@@ -196,12 +199,12 @@ $(document).ready(function() {
    $('.gray-dropdown').on('click', function() {
          open = !open;
         if(isOpen()) {
-          $(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', context + '/resources/images/orange-caret-inv.png');
+          $(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', 'assets/images/orange-caret-inv.png');
         }  else {
-        	$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', context + '/resources/images/orange-caret.png');
+        	$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', 'assets/images/orange-caret.png');
         }
    }).on('blur', function () {
-   		$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', context + '/resources/images/orange-caret.png');
+   		$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', 'assets/images/orange-caret.png');
    });
 
    $('.so-mdl-textfield-input').focus(function () {
@@ -1706,13 +1709,12 @@ function duplicateBeneficiaryEnglishName() {
 	}
 }
 
-//
 function getSavieOnlinePlandetails() {
 	$.ajax({
 		type : "POST",
 		async: true,
 		url : context + "/ajax/savie-online/getSavieOnlinePlandetails",
-		data: {insuredAmount : $("#R").val(), dob : $("#plan-dob-datepicker").val(), promoCode : "" },
+		data: {insuredAmount : $("#R").val(), paymentType : $("#type-of-payment").val(), dob : $("#plan-dob-datepicker").val(), promoCode : "" },
 		success : function(data) {
 			/* if(data != null && data.errorMsg != null && data.errorMsg != ""){
 				$("#errorMsg").html(data.errorMsg);
@@ -2072,7 +2074,7 @@ function getSavieOnlinePlandetails() {
 					}
 				}
 			}
-			$('.loading-mask').toggle();
+			$('#loadingDiv').toggle();
 			$('body').removeClass('modal-open');
 		}
     });

@@ -29,6 +29,7 @@ import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.lifeDeclarationBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.Methods;
+import com.ifwd.fwdhk.util.NumberFormatUtils;
 @Controller
 public class AjaxSavieOnlineController extends BaseController{
 	private final static Logger logger = LoggerFactory.getLogger(AjaxSavieOnlineController.class);
@@ -47,6 +48,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			saviePlanDetails.validate(language);
+			saviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount()));
 			jsonObject = savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request);
 			String[] dob = saviePlanDetails.getDob().split("-");
 			saviePlanDetails.setDob1(dob[2]+"·"+dob[1]+"·"+dob[0]);

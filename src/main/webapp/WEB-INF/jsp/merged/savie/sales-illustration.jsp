@@ -95,13 +95,13 @@
   							</div>
   							<div class="gray-bg-data-info">
   								<label class="data-label">Saving amount</label>
-  								<p class="data-info">HK$ ${saviePlanDetails.insuredAmount }</p>
+  								<p class="data-info">HK$ ${saviePlanDetails.insuredAmount1 }</p>
   							</div>
   						</div>
   						<div class="col-xs-12 col-md-6 right-side-form">
   							<div class="gray-bg-data-info">
   								<label class="data-label">Premium mode</label>
-  								<p class="data-info">One time off</p>
+  								<p class="data-info">${saviePlanDetails.paymentType }</p>
   							</div>
   						</div>
   					</div>
