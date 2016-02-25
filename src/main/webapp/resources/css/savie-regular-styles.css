@@ -1076,6 +1076,13 @@ body {
   }
 }
 @media (min-width: 992px) {
+  /* line 29, ../sass/partials/savie/_landing-page.scss */
+  .savie-regular-landing.rp-only .page-banner .img-banner-text.savie-landing {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (min-width: 992px) {
   /* line 24, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .page-banner .img-banner-text {
     top: 22px;
@@ -1168,6 +1175,12 @@ body {
     font-size: 18px;
     margin-top: 18px;
     margin-right: 47px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 80, ../sass/partials/savie/_landing-page.scss */
+  .savie-regular-landing.rp-only .page-banner .img-banner-text .savie-product {
+    margin-right: 0;
   }
 }
 /* line 87, ../sass/partials/savie/_landing-page.scss */

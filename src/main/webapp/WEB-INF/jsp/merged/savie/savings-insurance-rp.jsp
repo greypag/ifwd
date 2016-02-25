@@ -50,7 +50,7 @@
 		<img class="img-responsive hidden-sm hidden-md hidden-lg" src="assets/images/mini-mobile.png" />
 	</div>-->
 	<!--<iframe src="http://192.168.1.128:8080/mini-calculator/" class="full-calcu"></iframe>-->
-	<div class="savie-regular-container savie-regular-landing">
+	<div class="savie-regular-container savie-regular-landing rp-only">
 		<div class="whole-banner">
         	<div class="page-banner">
         		<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/sav-landing-bg-mobile.jpg" class="img-responsive hidden-md hidden-lg">
