@@ -338,11 +338,11 @@ var language = "${language}";
 		%>
 		
 		//$("#preferred-date-${csCenter}").show();
-		//var serviceCentreCode = '${csCenter }';
-		$('#centre-' + serviceCentreCode).removeClass('hidden');
+		var serviceCentreCode = '${csCenter }';
 		$('.centre-info').addClass('hidden');
+		$('#centre-' + serviceCentreCode).removeClass('hidden');
 		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
-			getTimeSlot('${perferredTime }');
+			//getTimeSlot('${perferredTime }');
 		}
 		
 		$('#pick-another-centre-btn').click(function(){
@@ -360,13 +360,12 @@ var language = "${language}";
 		
 		$('#centre').on('change', function() {
 			var centre = $('#centre option:selected').val();
-			// display corresponding info
 			$('.centre-info').addClass('hidden');
 			$('#centre-' + centre).removeClass('hidden');
-			togglePreferred('preferred-date-'+ centre)
+			/* togglePreferred('preferred-date-'+ centre)
 			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
 				getTimeSlot('${perferredTime }');
-			}
+			} */
 		});
 		
 		$('#btn-cstmr-srvc-cnter').click(function(){
