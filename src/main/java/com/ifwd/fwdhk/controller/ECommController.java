@@ -158,6 +158,9 @@ public class ECommController {
 			model.addAttribute("ogUrl", ogUrl);
 			model.addAttribute("ogImage", ogImage);
 			model.addAttribute("ogDescription", ogDescription);
+			model.addAttribute("canonical", WebServiceUtils.getPageTitle("canonical.main",
+					UserRestURIConstants.getLanaguage(req)));
+
 			// String lang = "CN";
 	//		session.setAttribute("language", lang);
 	//		// default locale
