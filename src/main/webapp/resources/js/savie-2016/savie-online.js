@@ -2074,7 +2074,7 @@ function getSavieOnlinePlandetails() {
 					}
 				}
 			}
-			$('.loading-mask').toggle();
+			$('#loadingDiv').toggle();
 			$('body').removeClass('modal-open');
 		}
     });
