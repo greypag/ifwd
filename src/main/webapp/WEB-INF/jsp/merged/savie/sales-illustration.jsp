@@ -125,7 +125,7 @@
   						<div class="col-xs-12 col-md-6 right-side-form">
   							<div class="gray-bg-data-info">
   								<label class="data-label">Date of birth</label>
-  								<p class="data-info">${saviePlanDetails.dob }</p>
+  								<p class="data-info">${savieFna.dob }</p>
   							</div>
   							<div class="gray-bg-data-info">
   								<label class="data-label">Gender</label>

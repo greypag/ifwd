@@ -190,7 +190,7 @@
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <div class="clearfix form-group">
                                           <div class="residential-num">
-                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="residentialNo" name="residentialTelNo" value="${lifePersonalDetails.residentialTelNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
+                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="residentialNo" name="residentialTelNo" value="${userDetails.mobileNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
 											 <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialNo">Residential tel no. (eg. 1234-5678)</label>
                                           </div>
                                        </div>
@@ -201,7 +201,7 @@
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <div class="clearfix form-group">
                                           <div class="mobile-num">
-                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="mobileNo" name="mobileNumber" value="${lifePersonalDetails.mobileNumber }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
+                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="mobileNo" name="mobileNumber" value="${userDetails.mobileNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
 											 <label class="mdl-textfield__label so-mdl-textfield-label" for="mobileNo">Mobile no. (eg. 1234-5678)</label>
                                           </div>
                                        </div>
@@ -259,15 +259,15 @@
                                           <select class="form-control gray-dropdown" name="permanetAddressDistrict" id="permanentDistrict">
                                              <option value="" selected="selected" disabled="disabled">District</option>
                                              <c:if test="${language == 'en'}">
-									<c:forEach var="list" items="${savieDistrictEN}">
-										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-									</c:forEach>
-								</c:if>
-								<c:if test="${language == 'tc'}">
-									<c:forEach var="list" items="${savieDistrictCN}">
-										<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-									</c:forEach>
-								</c:if>
+												<c:forEach var="list" items="${savieDistrictEN}">
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${savieDistrictCN}">
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												</c:forEach>
+											</c:if>
                                           </select>
                                        </div>
 									   <span class="error-msg" id="permanentDistrictErMsg"></span>
