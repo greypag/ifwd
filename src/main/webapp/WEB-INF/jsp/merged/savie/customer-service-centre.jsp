@@ -92,9 +92,6 @@ var language = "${language}";
 										<div class="col-xs-12 col-md-4"><label for="preferred-date"><fmt:message key="savie.customerServiceCentre.date" bundle="${msg}" /></label></div>
 										<div class="col-xs-12 col-md-8">
 											<div id="date" class="selectDiv preferred-date">
-												
-												<input type="text" class="date" id="full-date-1" value="" readonly>
-												
 												<%
 												Map results = (Map)request.getAttribute("datesMap");
 												Map.Entry<String, List> entry; 
@@ -160,7 +157,7 @@ var language = "${language}";
 							</div>
 							
 							<div class="text-center">
-								<button class="btn next confirm-appointment" type="button" id="btn-cstmr-srvc-cnter" disabled><fmt:message key="saviee.appointment.submit" bundle="${msg}" /></button>
+								<button class="btn next confirm-appointment" type="button" id="btn-cstmr-srvc-cnter" ><fmt:message key="saviee.appointment.submit" bundle="${msg}" /></button>
 							</div>
 						</form>
 					</div>
@@ -271,16 +268,6 @@ var language = "${language}";
 			$('#fullyBooked').modal('show');
 		}
 		
-		$('#fullyBooked').modal('show');
-		$('#full-date-1').datepicker({
-		 	format: "dd-mm-yyyy",
-			container: "#date",
-			startDate: sFullDate,
-			endDate: eFullDate,
-			autoclose: true,
-		}).on('changeDate', function (ev) {
-		});
-		
 		<%
 		if(!result) {
 		%>
@@ -337,12 +324,12 @@ var language = "${language}";
 		}
 		%>
 		
-		//$("#preferred-date-${csCenter}").show();
+		$("#preferred-date-${csCenter}").show();
 		var serviceCentreCode = '${csCenter }';
 		$('.centre-info').addClass('hidden');
 		$('#centre-' + serviceCentreCode).removeClass('hidden');
 		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
-			//getTimeSlot('${perferredTime }');
+			getTimeSlot('${perferredTime }');
 		}
 		
 		$('#pick-another-centre-btn').click(function(){
@@ -362,10 +349,10 @@ var language = "${language}";
 			var centre = $('#centre option:selected').val();
 			$('.centre-info').addClass('hidden');
 			$('#centre-' + centre).removeClass('hidden');
-			/* togglePreferred('preferred-date-'+ centre)
+			togglePreferred('preferred-date-'+ centre)
 			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
 				getTimeSlot('${perferredTime }');
-			} */
+			}
 		});
 		
 		$('#btn-cstmr-srvc-cnter').click(function(){
@@ -373,7 +360,7 @@ var language = "${language}";
 			var perferredDate = $("#preferred-date").val();
 			var perferredTime = $("#preferred-time").val();
 			
-			if($('body').hasClass('chin')) {
+			/* if($('body').hasClass('chin')) {
 				var perferredDate_temp = $("#preferred-date").val().split("-");;
 				var perferredTime_temp = $("#preferred-time").val().split(":");
 				
@@ -386,7 +373,7 @@ var language = "${language}";
 			else {
 				var perferredDate = $("#preferred-date").val();
 				var perferredTime = $("#preferred-time").val();
-			}
+			} */
 			
 			if(csCenter == "" && perferredDate == "" && perferredTime == "") {
 				$('#fullyBooked').modal('show');
