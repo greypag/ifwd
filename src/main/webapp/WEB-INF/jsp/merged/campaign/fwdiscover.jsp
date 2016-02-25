@@ -1233,7 +1233,7 @@
 			$("#loginpopup").css("background", "rgba(6, 29, 42, 0.8)");
 			if('<%=username%>' != 'null' && '<%=request.getAttribute("chooseIndex") %>' != 'null') {
 				$('.modal').modal('hide');
-	        	$('.modal-content').children(".title").html('<fmt:message key="Fanfare.offername${chooseIndex}" bundle="${msg}" />');
+	        	$('#offer-details-promotion-code').find(".title:first").html('<fmt:message key="Fanfare.offername${chooseIndex}" bundle="${msg}" />');
 	        	if('<%=request.getAttribute("chooseCode")%>'=="failed" || '<%=request.getAttribute("chooseCode")%>'=="error"){
 	        		$('#offer-details-promotion-code-error-sold').modal('show');
 	        	}else if('<%=request.getAttribute("chooseCode")%>'=="duplicated") {
