@@ -521,17 +521,18 @@ public class SavieController extends BaseController{
 			model.addAttribute("datesMap", datesMap);
 			model.addAttribute("results", results);
 			
-			org.json.simple.JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
-			org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
-			if(session.getAttribute("csCenter") == null || session.getAttribute("csCenter") == ""){
+			if(serviceCentreObj != null){
 				session.setAttribute("csCenter", serviceCentreObj.get("serviceCentreCode"));
 			}
-			if(session.getAttribute("perferredDate") == null || session.getAttribute("perferredDate") == ""){
-		        Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
-		        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+			org.json.simple.JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
+			if(datesArr != null) {
+				org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
+				Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
+				SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
+				logger.info(formatter.format(date));
 				session.setAttribute("perferredDate", formatter.format(date));
 			}
-			logger.info(session.getAttribute("perferredDate").toString());
+			//logger.info(session.getAttribute("perferredDate").toString());
 			
 			String key = "savie.centre";
 			String pageTitle = WebServiceUtils.getPageTitle("page." + key,
