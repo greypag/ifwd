@@ -962,10 +962,10 @@ body {
   display: block;
 }
 @media screen and (max-width: 991px) {
-	.mobile-menu-V2 .dropdown.open:hover ul.dropdown-menu {
+	.mobile-menu-V2 .dropdown.open:hover ul.dropdown-menu,.mobile-menu-V2 .dropdown.open:hover div.dropdown-menu {
 	   display: block;
 	}
-    .mobile-menu-V2 .dropdown:hover ul.dropdown-menu {
+    .mobile-menu-V2 .dropdown:hover ul.dropdown-menu, .mobile-menu-V2 .dropdown:hover div.dropdown-menu{
        display: none;
     }	
 }
@@ -974,8 +974,8 @@ body {
 	   display: none; 	
 	}
 }
-.fwd-savie-wrapper #header #myDropdown.logout-btn:hover .dropdown-menu{
-  display: block;    
+.fwd-savie-wrapper #header #myDropdown.logout-btn.open>.dropdown-menu{
+	display: block;
 }
 .fwd-savie-wrapper #header .menutab-V2 .dropdown:hover .dropdown-menu{
   display: block;	
