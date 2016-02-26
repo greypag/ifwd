@@ -1072,33 +1072,40 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					JSONObject beneficiarie1 = new JSONObject();
 					JSONObject beneficiarie2 = new JSONObject();
 					JSONObject beneficiarie3 = new JSONObject();
-					beneficiarie1.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName1());
-					beneficiarie1.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName1());
-					beneficiarie1.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName1());
-					beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID1());
-					beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficaryID1());
-					beneficiarie1.put("gender", lifeBeneficaryInfo.getBeneficaryGender1());
-					beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1());
-					beneficiarie1.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight1());
-				beneficiaries.add(beneficiarie1);
-					beneficiarie2.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName2());
-					beneficiarie2.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName2());
-					beneficiarie2.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName2());
-					beneficiarie2.put("hkId", lifeBeneficaryInfo.getBeneficaryID2());
-					beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficaryID2());
-					beneficiarie2.put("gender", lifeBeneficaryInfo.getBeneficaryGender2());
-					beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2());
-					beneficiarie2.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight2());
-				beneficiaries.add(beneficiarie2);
-					beneficiarie3.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName3());
-					beneficiarie3.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName3());
-					beneficiarie3.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName3());
-					beneficiarie3.put("hkId", lifeBeneficaryInfo.getBeneficaryID3());
-					beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficaryID3());
-					beneficiarie3.put("gender", lifeBeneficaryInfo.getBeneficaryGender3());
-					beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3());
-					beneficiarie3.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight3());
-				beneficiaries.add(beneficiarie3);
+					if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName1())){
+						beneficiarie1.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName1());
+						beneficiarie1.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName1());
+						beneficiarie1.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName1());
+						beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID1());
+						beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficaryID1());
+						beneficiarie1.put("gender", lifeBeneficaryInfo.getBeneficaryGender1());
+						beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1());
+						beneficiarie1.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight1());
+					beneficiaries.add(beneficiarie1);
+					}
+					if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName2())){
+						beneficiarie2.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName2());
+						beneficiarie2.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName2());
+						beneficiarie2.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName2());
+						beneficiarie2.put("hkId", lifeBeneficaryInfo.getBeneficaryID2());
+						beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficaryID2());
+						beneficiarie2.put("gender", lifeBeneficaryInfo.getBeneficaryGender2());
+						beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2());
+						beneficiarie2.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight2());
+					beneficiaries.add(beneficiarie2);
+					}
+					if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName3())){
+						beneficiarie3.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName3());
+						beneficiarie3.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName3());
+						beneficiarie3.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName3());
+						beneficiarie3.put("hkId", lifeBeneficaryInfo.getBeneficaryID3());
+						beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficaryID3());
+						beneficiarie3.put("gender", lifeBeneficaryInfo.getBeneficaryGender3());
+						beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3());
+						beneficiarie3.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight3());
+					beneficiaries.add(beneficiarie3);
+					}
+					
 			insured.put("beneficiaries", beneficiaries);
 		parameters.put("insured", insured);
 			JSONObject payment = new JSONObject();
