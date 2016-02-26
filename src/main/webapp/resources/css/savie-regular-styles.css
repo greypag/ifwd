@@ -2477,7 +2477,7 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
 }
 @media (min-width: 992px) {
   /* line 62, ../sass/partials/savie/_confirmation.scss */
-  .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row .icon {
+  .chin .thank-you-container.savie-regular-confirmation .details-container.details-full .offline-procedure-row .icon {
     bottom: 30px;
   }
 }
@@ -5412,4 +5412,10 @@ body.chin .ch-banner-img {
     .savie-regular-landing .payment-mode .rate ul li.with-padding{
         padding-left: 0;
     }   
+}
+
+/*Temporarily Fix for Savie Regular Confirmation */
+@media (min-width: 992px) {
+  .fwd-savie-wrapper .thank-you-container .offline-procedure{ height: 310px; }
+  .chin .fwd-savie-wrapper .thank-you-container .offline-procedure{ height: 277px; }
 }
