@@ -39,5 +39,6 @@ public interface SavieOnlineService {
 	public void lifeDeclarationSaveforLater(lifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception;
 	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException;
+	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException;
 	
 }

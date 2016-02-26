@@ -57,6 +57,7 @@ import com.ifwd.fwdhk.util.CompareUtil;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.HeaderUtil;
+import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
 import com.ifwd.fwdhk.util.StringHelper;
@@ -1483,7 +1484,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		BaseResponse br = null;
 		try {
 			CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
-			String policyNo = "1222222";//eliteTermPolicy.getPolicyNo();
+			String policyNo = eliteTermPolicy.getPolicyNo();
 			String documentPath = UserRestURIConstants.getConfigs("documentPath");
 			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes())+"/"; 
 			File file = new File(uploadDir);
@@ -1571,5 +1572,51 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		return apiReturn;
 	}
+	
+	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException{		
+		BaseResponse br = null;
+		try {
+			CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+			String documentPath = UserRestURIConstants.getConfigs("documentPath");
+			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(eliteTermPolicy.getPolicyNo().getBytes()); 
+	        File dirPath = new File(uploadDir);  
+	        if (!dirPath.exists()) {   
+	            dirPath.mkdirs();  
+	        } 
+	        String sep = System.getProperty("file.separator"); 
+	        File uploadedFile = new File(uploadDir + sep  
+	                + "JSignature.png");
+	        byte[] bytes = new sun.misc.BASE64Decoder().decodeBuffer(image);
+	        FileCopyUtils.copy(bytes, uploadedFile);
+	        File toFile = new File(uploadDir + sep  
+	                + "JSignature.jpg");
+	        ImgUtil.changeImageToJPG(uploadedFile, toFile,request);
+	        
+	        byte[] toFileBytes= FileCopyUtils.copyToByteArray(toFile);
+	        image = new sun.misc.BASE64Encoder().encode(toFileBytes);
 
+	        FileUtil.deletFile(uploadDir);
+	        
+			final Map<String,String> header = headerUtil.getHeader(request);
+			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
+			net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+			parameters.put("clientBrowserInfo", clientBrowserInfo);
+			parameters.put("planCode", "ET");
+			parameters.put("fileType", "jpg");
+			parameters.put("documentType", "signature");
+			parameters.put("originalFilePath", "");
+			parameters.put("base64", image);
+			parameters.put("policyNo", eliteTermPolicy.getPolicyNo());
+			br = connector.uploadSignature(parameters, header);
+		} catch (ECOMMAPIException e) {
+			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		} catch (Exception e) {
+			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		return br;
+	}
 }
