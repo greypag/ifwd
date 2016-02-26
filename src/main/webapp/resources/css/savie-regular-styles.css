@@ -5378,3 +5378,14 @@ body.chin .ch-banner-img {
 		margin-top: 10px;
 	}
 }
+@media (max-width: 991px) {
+    .savie-regular-landing .payment-mode .rate ul{
+       text-align: center;
+    }
+    .savie-regular-landing .payment-mode .rate ul li {
+        float: none;
+    }
+    .savie-regular-landing .payment-mode .rate ul li.with-padding{
+        padding-left: 0;
+    }   
+}
