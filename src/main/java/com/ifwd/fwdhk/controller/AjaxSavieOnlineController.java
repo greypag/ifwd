@@ -379,8 +379,8 @@ public class AjaxSavieOnlineController extends BaseController{
 					throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.greater.than",request)+" "+imgMaxSize+"MB");
 				}
 				
-				//CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
-				String policyNo = "1222222";//eliteTermPolicy.getPolicyNo();
+				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+				String policyNo = eliteTermPolicy.getPolicyNo();
 				String documentPath = UserRestURIConstants.getConfigs("documentPath");
 				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes()); 
 		        File dirPath = new File(uploadDir);  
@@ -434,5 +434,18 @@ public class AjaxSavieOnlineController extends BaseController{
 				logger.info(e.getMessage());
 				e.printStackTrace();
 			}
+	}
+	
+	@RequestMapping(value = {"/ajax/savie-online/uploadSignature"})
+	public void uploadSignature(HttpServletRequest request,HttpServletResponse response,@RequestParam String image){
+		if (Methods.isXssAjax(request)) {
+			return;
+		}
+		try {
+			ajaxReturn(response,savieOnlineService.uploadSignature(request,image));
+		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
 	}
 }

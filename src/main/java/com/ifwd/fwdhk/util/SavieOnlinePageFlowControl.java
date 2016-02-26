@@ -162,7 +162,7 @@ public class SavieOnlinePageFlowControl {
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
 			filePath = "savie/";
-			current = "digital-signature";
+			current = "signature";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIE_LIFE_DOCUMENT_UPLOAD: 

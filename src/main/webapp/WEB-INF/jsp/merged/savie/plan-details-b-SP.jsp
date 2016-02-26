@@ -132,7 +132,7 @@ var languageP = "${language}";
 						<div class="row">
 							<div class="col-xs-12">
 								<div class="selectDiv centreDiv gray-text-bg" id="plan-dob">
-									<input type="text" name="plan-dob" id="plan-dob-datepicker" value="${savingDob!=null ? savingDob:defaultDOB }" placeholder="Date of birth" class="form-control" />
+									<input type="text" name="plan-dob" id="plan-dob-datepicker" value="${savingDob!=null && type != '2' ? savingDob:defaultDOB }" <c:if test="${type == '2' }">readonly="readonly"</c:if> placeholder="Date of birth" class="form-control" />
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 								</div>
 								<%-- <div class="input-group input-append date" id="plan-dob">
@@ -634,6 +634,17 @@ var languageP = "${language}";
 	$(document).ready(function () {
 	    $('#loadingDiv').toggle();
 		$('body').addClass('modal-open');
+		
+		if('2'!='${type }'){
+			$('#plan-dob-datepicker').datepicker({
+				format: "yyyy-mm-dd",
+				startView: "decade",
+				startDate: dob_start_date,
+				endDate: dob_end_date,
+				autoclose: true,
+				startView: 2
+			});
+		}
 		
 		$('#first-3-years-btn').on('click', function () {
 			$('#after-3-years-container').toggle();

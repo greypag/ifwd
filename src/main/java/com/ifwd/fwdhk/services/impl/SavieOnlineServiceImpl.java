@@ -57,6 +57,7 @@ import com.ifwd.fwdhk.util.CompareUtil;
 import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.HeaderUtil;
+import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
 import com.ifwd.fwdhk.util.StringHelper;
@@ -82,7 +83,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 
 	@Override
 	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request) throws ECOMMAPIException{
-		int issueAge = DateApi.getAge(DateApi.formatDate(saviePlanDetails.getDob()));
+		int issueAge = DateApi.getAge(DateApi.formatDate1(saviePlanDetails.getDob()));
 		int paymentTerm = 100-issueAge;
 		
 		SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails("savie", issueAge, paymentTerm, saviePlanDetails.getInsuredAmount(), saviePlanDetails.getPromoCode(), null);
@@ -1071,33 +1072,40 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 					JSONObject beneficiarie1 = new JSONObject();
 					JSONObject beneficiarie2 = new JSONObject();
 					JSONObject beneficiarie3 = new JSONObject();
-					beneficiarie1.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName1());
-					beneficiarie1.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName1());
-					beneficiarie1.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName1());
-					beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID1());
-					beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficaryID1());
-					beneficiarie1.put("gender", lifeBeneficaryInfo.getBeneficaryGender1());
-					beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1());
-					beneficiarie1.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight1());
-				beneficiaries.add(beneficiarie1);
-					beneficiarie2.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName2());
-					beneficiarie2.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName2());
-					beneficiarie2.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName2());
-					beneficiarie2.put("hkId", lifeBeneficaryInfo.getBeneficaryID2());
-					beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficaryID2());
-					beneficiarie2.put("gender", lifeBeneficaryInfo.getBeneficaryGender2());
-					beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2());
-					beneficiarie2.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight2());
-				beneficiaries.add(beneficiarie2);
-					beneficiarie3.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName3());
-					beneficiarie3.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName3());
-					beneficiarie3.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName3());
-					beneficiarie3.put("hkId", lifeBeneficaryInfo.getBeneficaryID3());
-					beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficaryID3());
-					beneficiarie3.put("gender", lifeBeneficaryInfo.getBeneficaryGender3());
-					beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3());
-					beneficiarie3.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight3());
-				beneficiaries.add(beneficiarie3);
+					if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName1())){
+						beneficiarie1.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName1());
+						beneficiarie1.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName1());
+						beneficiarie1.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName1());
+						beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID1());
+						beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficaryID1());
+						beneficiarie1.put("gender", lifeBeneficaryInfo.getBeneficaryGender1());
+						beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1());
+						beneficiarie1.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight1());
+					beneficiaries.add(beneficiarie1);
+					}
+					if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName2())){
+						beneficiarie2.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName2());
+						beneficiarie2.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName2());
+						beneficiarie2.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName2());
+						beneficiarie2.put("hkId", lifeBeneficaryInfo.getBeneficaryID2());
+						beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficaryID2());
+						beneficiarie2.put("gender", lifeBeneficaryInfo.getBeneficaryGender2());
+						beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2());
+						beneficiarie2.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight2());
+					beneficiaries.add(beneficiarie2);
+					}
+					if(!"".equals(lifeBeneficaryInfo.getBeneficaryFirstName3())){
+						beneficiarie3.put("firstName", lifeBeneficaryInfo.getBeneficaryFirstName3());
+						beneficiarie3.put("lastName", lifeBeneficaryInfo.getBeneficaryLastName3());
+						beneficiarie3.put("chineseName", lifeBeneficaryInfo.getBeneficaryChineseName3());
+						beneficiarie3.put("hkId", lifeBeneficaryInfo.getBeneficaryID3());
+						beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficaryID3());
+						beneficiarie3.put("gender", lifeBeneficaryInfo.getBeneficaryGender3());
+						beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3());
+						beneficiarie3.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight3());
+					beneficiaries.add(beneficiarie3);
+					}
+					
 			insured.put("beneficiaries", beneficiaries);
 		parameters.put("insured", insured);
 			JSONObject payment = new JSONObject();
@@ -1149,10 +1157,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
         String value = request.getParameter("value");
         String language = request.getParameter("language");
         String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+value.split("-")[0];
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		header.put("userName", "*DIRECTGI");
-		header.put("token", commonUtils.getToken("reload"));
-		header.put("language", WebServiceUtils.transformLanaguage(language));
+		final Map<String,String> header = headerUtil.getHeader(request);
 		
 		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		
@@ -1486,7 +1491,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		BaseResponse br = null;
 		try {
 			CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
-			String policyNo = "1222222";//eliteTermPolicy.getPolicyNo();
+			String policyNo = eliteTermPolicy.getPolicyNo();
 			String documentPath = UserRestURIConstants.getConfigs("documentPath");
 			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes())+"/"; 
 			File file = new File(uploadDir);
@@ -1574,5 +1579,51 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 		return apiReturn;
 	}
+	
+	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException{		
+		BaseResponse br = null;
+		try {
+			CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+			String documentPath = UserRestURIConstants.getConfigs("documentPath");
+			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(eliteTermPolicy.getPolicyNo().getBytes()); 
+	        File dirPath = new File(uploadDir);  
+	        if (!dirPath.exists()) {   
+	            dirPath.mkdirs();  
+	        } 
+	        String sep = System.getProperty("file.separator"); 
+	        File uploadedFile = new File(uploadDir + sep  
+	                + "JSignature.png");
+	        byte[] bytes = new sun.misc.BASE64Decoder().decodeBuffer(image);
+	        FileCopyUtils.copy(bytes, uploadedFile);
+	        File toFile = new File(uploadDir + sep  
+	                + "JSignature.jpg");
+	        ImgUtil.changeImageToJPG(uploadedFile, toFile,request);
+	        
+	        byte[] toFileBytes= FileCopyUtils.copyToByteArray(toFile);
+	        image = new sun.misc.BASE64Encoder().encode(toFileBytes);
 
+	        FileUtil.deletFile(uploadDir);
+	        
+			final Map<String,String> header = headerUtil.getHeader(request);
+			Map<String,Object> clientBrowserInfo = ClientBrowserUtil.getClientInfo(request);
+			net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+			parameters.put("clientBrowserInfo", clientBrowserInfo);
+			parameters.put("planCode", "ET");
+			parameters.put("fileType", "jpg");
+			parameters.put("documentType", "signature");
+			parameters.put("originalFilePath", "");
+			parameters.put("base64", image);
+			parameters.put("policyNo", eliteTermPolicy.getPolicyNo());
+			br = connector.uploadSignature(parameters, header);
+		} catch (ECOMMAPIException e) {
+			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		} catch (Exception e) {
+			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+		return br;
+	}
 }

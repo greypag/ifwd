@@ -37,8 +37,8 @@ public class SaviePlanDetailsBean implements Serializable {
         if(ValidationUtils.isValidDate(this.dob)){
         	list.add(ErrorMessageUtils.getMessage("dob", "validation.failure", language));
         }
-        else if(DateApi.getAge(DateApi.formatDate(this.dob))<18 || DateApi.getAge(DateApi.formatDate(this.dob))>100){
-        	int age = DateApi.getAge(DateApi.formatDate(this.dob));
+        else if(DateApi.getAge(DateApi.formatDate1(this.dob))<18 || DateApi.getAge(DateApi.formatDate1(this.dob))>100){
+        	int age = DateApi.getAge(DateApi.formatDate1(this.dob));
             logger.info(age+"");
         	list.add(ErrorMessageUtils.getMessage("dob", "validation.failure", language));
         }
