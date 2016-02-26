@@ -51,7 +51,7 @@ $(function () {
 		//setAtt("birthday", $('#birthday').val())
 		$('#birthdayMsg').html('');
 	});
-	getSaviePlanDetails();
+	
 });
 
 function getSaviePlanDetails() {

@@ -126,7 +126,7 @@ var context = "${pageContext.request.contextPath}";
 										<input placeholder="yyyy-mm-dd" type="date" name="mobile-date" id="mobile-date"/> 
 									</div> -->
 									<div class="input-group input-append date" id="datePicker">
-										<input type="text" class="date" name="dob" id="sales-illu-dob" value="15-10-1997" placeholder="15-10-1997" onfocusin="" readonly />
+										<input type="text" class="date" name="dob" id="sales-illu-dob" value="" onfocusin="" readonly />
 										<span class="input-group-addon add-on"><img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" /></span>                        
 									</div>
 									<!-- <span class="error-msg-dob hideSpan" id="promo-code-dateOfBirth">Invalid date of birth. You must be 19 and above to apply.</span>
@@ -482,7 +482,7 @@ var context = "${pageContext.request.contextPath}";
 				var current_date = new Date();
 				var month_now = (parseInt((current_date.getMonth()+1), 10) + 100).toString().substr(1);
 				var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);
-				$('#sales-illu-dob').attr('placeholder',day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
+				/* $('#sales-illu-dob').attr('placeholder',day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18)); */
 				$('#sales-illu-dob').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
 				
 				var from = $('#sales-illu-dob').val().split("-");
@@ -521,7 +521,7 @@ var context = "${pageContext.request.contextPath}";
 						$("#payment-button-tooltip").next().attr('style',css);
 					}, 1);
 				});	
-	        	$(document).on('change','#payment-mode',function(){
+	        	/* $(document).on('change','#payment-mode',function(){
 					console.log($(this).val());
 					if($(this).val()=="regular") {
 						$('.regular-payment').removeClass('hidden');
@@ -539,7 +539,7 @@ var context = "${pageContext.request.contextPath}";
 						
 		        		$('#policy-year-3-1').html('5');
 					}
-				});
+				}); */
 	        	
 	        	if($('#payment-mode').val()=="regular") {
 	        		$('#total-payment-years').css('display','block');
@@ -569,8 +569,22 @@ var context = "${pageContext.request.contextPath}";
 					format: "dd-mm-yyyy",
 					startDate: '${startDOB }',
 					endDate: '${defaultDOB }',
-					autoclose: true,
-					startView: 2
+					startView: "decade",
+					autoclose: true
+				}).on('changeDate', function (ev) {
+					var from = $("#sales-illu-dob").val().split("-");
+					var birthdate = new Date(from[2], from[1] - 1, from[0]);
+					var cur = new Date();
+					var diff = cur-birthdate;
+					var age = Math.floor(diff/31536000000); //the age val
+					var max = 99;
+					var looplimit = max - Number(age);
+					
+					//console.log(looplimit);
+					$('#payment-years').html('');
+					for(var i = 1; i <= looplimit; i++ ) {
+						$('#payment-years').append('<option value='+i+'>'+i+'</option>');
+					}
 				});
 				
 				$('#see-more-3-years').click(function(){
@@ -628,6 +642,7 @@ var context = "${pageContext.request.contextPath}";
 					$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
 					$('#thankYouModal').modal('show');
 				}
+				getSaviePlanDetails();
 			});
 			
 			function goServiceCenter(){

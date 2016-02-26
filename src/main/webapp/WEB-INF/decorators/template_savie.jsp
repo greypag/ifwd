@@ -237,7 +237,8 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 	
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script> -->
+	<script src="<%=request.getContextPath()%>/resources/js/bootstrap-datepicker.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jasny-bootstrap.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/bootstrap-select.min.js"></script>
 	<script src="<%=request.getContextPath()%>/resources/js/savie/jquery.touchSwipe.min.js"></script>
