@@ -62,18 +62,23 @@ public class SavieOnlineController extends BaseController{
 		startDOB.setTime(date); 
 		startDOB.add(startDOB.YEAR, -70);
 		startDOB.add(startDOB.DATE, 1);
-		model.addAttribute("startDOB", DateApi.formatString(startDOB.getTime()));
+		model.addAttribute("startDOB", DateApi.formatString1(startDOB.getTime()));
 		
 		Calendar defaultDOB = new GregorianCalendar();
-		defaultDOB.setTime(date); 
-		defaultDOB.add(defaultDOB.YEAR, -18);
-		model.addAttribute("defaultDOB", DateApi.formatString(defaultDOB.getTime()));
-		
+		Date date1 = new Date();
 		String type = request.getParameter("type");
 		if("2".equals(type)){
 			model.addAttribute("type", type);
+			SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
+			date1 = DateApi.formatDate1(savieFna.getDob());
+			defaultDOB.setTime(date1); 
+		}
+		else{
+			defaultDOB.setTime(date1); 
+			defaultDOB.add(defaultDOB.YEAR, -18);
 		}
 		
+		model.addAttribute("defaultDOB", DateApi.formatString1(defaultDOB.getTime()));
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS);
 	}
 	

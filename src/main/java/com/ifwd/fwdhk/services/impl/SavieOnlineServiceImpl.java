@@ -82,7 +82,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 
 	@Override
 	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request) throws ECOMMAPIException{
-		int issueAge = DateApi.getAge(DateApi.formatDate(saviePlanDetails.getDob()));
+		int issueAge = DateApi.getAge(DateApi.formatDate1(saviePlanDetails.getDob()));
 		int paymentTerm = 100-issueAge;
 		
 		SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails("savie", issueAge, paymentTerm, saviePlanDetails.getInsuredAmount(), saviePlanDetails.getPromoCode(), null);
