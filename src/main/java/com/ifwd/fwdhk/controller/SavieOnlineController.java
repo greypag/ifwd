@@ -258,6 +258,7 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savie-online/life-signature"})
 	public ModelAndView getSavieOnlineLifeSignature(Model model, HttpServletRequest request) {
+		model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE);
 	}
 	
