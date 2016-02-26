@@ -263,7 +263,7 @@
                                     <ul>
                                         <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
                                         <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet2" bundle="${msg}" /></li>
-                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /></li>
+                                        <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /> <a href="<fmt:message key="Fanfare.landingpage.offerPermium.bullet3.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerPermium.bullet3.linktext" bundle="${msg}" /></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -681,7 +681,6 @@
                                 <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet1" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet2" bundle="${msg}" /></li>
                                 <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet3" bundle="${msg}" /><a href="<fmt:message key="Fanfare.landingpage.offerPermium.bullet3.link" bundle="${msg}" />"><fmt:message key="Fanfare.landingpage.offerPermium.bullet3.linktext" bundle="${msg}" /></a></li>
-                                <li><fmt:message key="Fanfare.landingpage.offerPermium.bullet4" bundle="${msg}" /></li>
                             </ul>
 
                             <div class="details-button-holder text-center">
@@ -694,8 +693,6 @@
 	                                <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet1" bundle="${msg}" /></li>
 	                                <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet2" bundle="${msg}" /></li>
 	                                <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet3" bundle="${msg}" /></li>
-	                                <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet4" bundle="${msg}" /></li>
-	                                <li><fmt:message key="Fanfare.landingpage.offerPermium.terms.bullet5" bundle="${msg}" /></li>
 	                                <li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a href="<%=request.getContextPath()%>/<fmt:message key="link.tnc.fwdiscover.offer.special.redpacket" bundle="${msg}" />" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
                                 </ul>
                             </div>
@@ -889,8 +886,6 @@
 									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet1" bundle="${msg}" /></li>
 									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet2" bundle="${msg}" /></li>
 									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet3" bundle="${msg}" /></li>
-									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet4" bundle="${msg}" /></li>
-									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet5" bundle="${msg}" /></li>
 									<li><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part1" bundle="${msg}" /><a class="offer-details-tnc" href="" target="_blank"><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part2" bundle="${msg}" /></a><fmt:message key="Fanfare.clickdetail.lightbox.terms.bullet6.offer.part3" bundle="${msg}" /></li>
 							     </ul>
 							</div>
