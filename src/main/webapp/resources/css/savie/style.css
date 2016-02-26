@@ -1846,12 +1846,10 @@ body{
        margin-top: 35%;
     }
     .modal-open {
-        position: fixed;
+        /*position: fixed;*/
         width: 100%;
-        overflow: hidden;
+        /*overflow: hidden;*/
+        overflow-y: scroll;
     }   
-<<<<<<< HEAD
-}
-=======
 }
 

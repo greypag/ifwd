@@ -17006,6 +17006,7 @@ a:focus {
     right:auto;
     outline-color:transparent;
 }
+
 #loginpopup .close{opacity: 1;filter: alpha(opacity=100);}
 #loginpopup .close span{color:#ebebeb}
 #loginpopup .modal-content.plan-modal{
@@ -17163,7 +17164,7 @@ a:focus {
     overflow: auto;
 }
 #loginpopup .login-title-wrapper{display:none;}
-#loginform-pop .login-error-wrapper{display:inline;padding-left:20px;}
+#loginform-pop .login-error-wrapper{/*display:inline;padding-left:20px;*/padding-top:20px;}
 @media (max-width:991px) {
     #loginpopup .login-title-wrapper{
     color: #000;
@@ -17182,18 +17183,19 @@ a:focus {
         height: 100%;
         margin: auto;
     }
-    #loginpopup .form-container{margin-top:50px;}
+    #loginpopup .form-container{/*margin-top:50px;*/}
     #loginpopup .login-close-wrapper {
         height: 50px;
+        /*top: 20px;
+        right: 20px;*/
         top: 0;
-        right: 0;
         z-index:9999999;
     }
     #loginpopup .close {
         background-color:#fff;
         line-height: 50px;
         position: absolute;
-        right: 15px;
+        /*right: 15px;*/
         vertical-align: middle;
     }
     #loginpopup .login-info,#loginpopup .loginpopupext,#loginpopup .modal-dialog,#loginpopup .login-form,#loginpopup .login-form-footer{
@@ -17202,12 +17204,12 @@ a:focus {
         max-width:414px !important;
         z-index:9999
     }
-    #loginpopup .login-info{height:235px !important;margin-top:50px;padding:20px 30px;text-align:center;}
-    #loginpopup .login-info-savie{background-image:url(/fwdhk/resources/images/login/savie-mobile.png);}
+    #loginpopup .login-info{height:auto !important;margin-top:50px;/*padding:20px 30px;*/padding-top:30px;text-align:center;}
+    #loginpopup .login-info-savie{/*background-image:url(/fwdhk/resources/images/login/savie-mobile.png);*/}
     #loginpopup .login-info .heading-h4,#loginpopup .login-info .heading-h5{display:block;padding-bottom:20px}
-    #loginpopup .login-form, #loginpopup .modal-content.plan-modal,#loginpopup .login-form{height:432px;}
-    #loginpopup .loginpopupext{padding-top:0;top:-58px;}
-    #loginpopup .loginpopupext.modal-dialog .modal-content,#loginpopup .loginpopupext{height:717px;}
+    #loginpopup .login-form, #loginpopup .modal-content.plan-modal,#loginpopup .login-form{/*height:432px;*/height: auto;}
+    #loginpopup .loginpopupext{padding-top:0;/*top:-58px;*/}
+    #loginpopup .loginpopupext.modal-dialog .modal-content,#loginpopup .loginpopupext{height:auto;}
     #loginpopup .login-input{height:40px;width:100%;}
     #loginpopup .login-button-group{padding:20px 0 20px;}
     #loginpopup .login-form{padding:20px 30px 30px 30px;}
@@ -17228,6 +17230,18 @@ a:focus {
     #loginpopup #forgotUserNameForm .login-form h4{margin-top:0;}
     #loginpopup .modal.fade .modal-dialog{height:100%;margin: auto;}
     
+    #loginpopup .login-form .form-group a#forgotUserName,#loginpopup .login-form .form-group a#link-forgotPassword{
+        display: inline-block;
+        width: auto;
+        float: right;
+    }
+    #errUserName,#errPass{
+        line-height: 30px;
+    }
+    .login-disclaimer{
+        display: block;
+        padding-bottom: 30px;
+    }
 }
 /* /login */
 /* /style ben 160202 */
@@ -17334,4 +17348,12 @@ a:focus {
 .social-link a:hover{
     font-size: 25px;
     color: #f6871e;
-}  
+}
+@media screen and (max-width: 991px){
+    .savie-modal-wrapper .modal-content{
+        overflow: hidden;
+    }
+    .login-info-savie .upper-overlay{
+    
+    }   
+}
