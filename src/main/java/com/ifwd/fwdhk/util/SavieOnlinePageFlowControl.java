@@ -147,22 +147,17 @@ public class SavieOnlinePageFlowControl {
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4;
-			filePath = "savie/";
-			current = "declaration";
-			break;
-			
-		case UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
+			filePath = "savie/";
+			current = "declaration";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
 			filePath = "savie/";
-			current = "digital-signature";
+			current = "signature";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIE_LIFE_DOCUMENT_UPLOAD: 
@@ -264,9 +259,6 @@ public class SavieOnlinePageFlowControl {
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
-		}
-		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4)) {
-			return UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4;
 		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;

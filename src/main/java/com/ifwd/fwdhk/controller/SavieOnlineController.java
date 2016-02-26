@@ -48,6 +48,21 @@ public class SavieOnlineController extends BaseController{
 	
 	@Autowired
 	protected HeaderUtil headerUtil;
+	
+	@RequestMapping(value = {"/{lang}/savie-online/game"})
+	public ModelAndView game(Model model, HttpServletRequest request) {
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "savieonline/game" );
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/review"})
+	public ModelAndView review(Model model, HttpServletRequest request) {
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "savieonline/review" );
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/recommendation"})
+	public ModelAndView recommendation(Model model, HttpServletRequest request) {
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "savieonline/recommendation" );
+	}
 
 	@RequestMapping(value = {"/{lang}/savie-online/savie-landing"})
 	public ModelAndView getSavieOnlineLanding(Model model, HttpServletRequest request) {
@@ -243,9 +258,10 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savie-online/life-review4"})
-	public ModelAndView getSavieOnlineLifeReview4(Model model, HttpServletRequest request,HttpSession session) {
+	@RequestMapping(value = {"/{lang}/savie-online/life-signature"})
+	public ModelAndView getSavieOnlineLifeSignature(Model model, HttpServletRequest request,HttpSession session) {
 		try {
+			model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
 			savieOnlineService.createApplicationFormPdf("1", request, session);
 			savieOnlineService.createFnaFormPdf("1", request, session);
 		}
@@ -253,11 +269,6 @@ public class SavieOnlineController extends BaseController{
 			logger.info(e.getMessage());
 			request.getSession().setAttribute("errorMsg", e.getMessage());
 		}
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_REVIEW4);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savie-online/life-signature"})
-	public ModelAndView getSavieOnlineLifeSignature(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE);
 	}
 	
