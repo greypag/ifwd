@@ -1,8 +1,13 @@
-<%@page pageEncoding="UTF-8" %>
+<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<%@include file="includes/head.jsp" %>
         <script type="text/javascript" src="assets/js/pdfobject.js"></script>
         
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -13,7 +18,6 @@
 			boolean isEservicesActiveClass = false;
 		%>
 		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="upload-later-confirmation-page">
-			<%@include file="includes/header-block.jsp" %>
 			<!--BREADCRUMBS-->
 			<div class="fwd-container container-fluid breadcrumbs">
 	            <div class="breadcrumb-container">
@@ -35,15 +39,15 @@
 	                  <div class="row reset-margin hidden-xs hidden-sm">
 	                     <ul class="common-steps-list six-steps nav nav-pills">
 	                       	<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
-							<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 							<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Applicaton &amp; payment</button></li>
-							<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 							<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Summary &amp; declaration</button></li>
-							<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 							<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Signature</button></li>
-							<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 							<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Document upload</button></li>
-							<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 							<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">6</span>Confirmation</button></li>
 	                     </ul>
 	                 </div>
@@ -99,8 +103,8 @@
 	        					<div class="row">
 	        						<h3 class="heading-title">You may also be interesed in</h3>
 	        						<div class="col-xs-6 col-md-12 care" id="care-1">
-	        							<img src="assets/images/savie-2016/travel-care.jpg" class="img-responsive visible-md visible-lg" />
-	        							<img src="assets/images/savie-2016/travel-care-mb.jpg" class="img-responsive visible-xs visible-sm care-img-mb" />
+	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/travel-care.jpg" class="img-responsive visible-md visible-lg" />
+	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/travel-care-mb.jpg" class="img-responsive visible-xs visible-sm care-img-mb" />
 	        							<h3 class="care-title">TravelCare (Annual Cover)</h3>
 	        							<p>Embark on an adventure abroad with a comprehensive travel protection companion.</p>
 	        							<div class="clearfix"></div>
@@ -109,8 +113,8 @@
 	        							</div>
 	        						</div>
 	        						<div class="col-xs-6 col-md-12 care" id="care-2">
-	        							<img src="assets/images/savie-2016/homecare.jpg" class="img-responsive visible-md visible-lg" />
-	        							<img src="assets/images/savie-2016/homecare-mb.jpg" class="img-responsive visible-xs visible-sm care-img-mb" />
+	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/homecare.jpg" class="img-responsive visible-md visible-lg" />
+	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/homecare-mb.jpg" class="img-responsive visible-xs visible-sm care-img-mb" />
 	        							<h3 class="care-title">Easy HomeCare</h3>
 	        							<p>Protect your home for around HK$1 a day, against loss or damage from fire, flood, bursting pipes.</p>
 	        							<div class="clearfix"></div>
@@ -137,7 +141,7 @@
 	        					<h3 class="heading-title">Exclusive partner offers</h3>
 	        					<div class="row partner">
 	        						<div class="col-xs-4 logo-holder">
-	        							<img src="assets/images/savie-2016/agoda-logo.png" class="img-responsive" /> 
+	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/agoda-logo.png" class="img-responsive" /> 
 	        						</div>
 	        						<div class="col-xs-8">
 	        							<p>Enjoy 8% <a href="#">Agoda</a> discount on all travel products upon successful registration of FWD online membership.</p>
@@ -145,7 +149,7 @@
 	        					</div>
 	        					<div class="row partner">
 	        						<div class="col-xs-4 logo-holder">
-	        							<img src="assets/images/savie-2016/buddy-logo.png" class="img-responsive" /> 
+	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/buddy-logo.png" class="img-responsive" /> 
 	        						</div>
 	        						<div class="col-xs-8">
 	        							<p>15% off pocket wifi rental with <a href="#">Y5Buddy</a></p>
@@ -153,7 +157,7 @@
 	        					</div>
 	        					<div class="row partner">
 	        						<div class="col-xs-4 logo-holder">
-	        							<img src="assets/images/savie-2016/boconcept-logo.png" class="img-responsive" /> 
+	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/boconcept-logo.png" class="img-responsive" /> 
 	        						</div>
 	        						<div class="col-xs-8">
 	        							<p>Enjoy 5% discount from BoConcept when you purchase an FWD Easy HomeCare Insurance Plan.</p>
@@ -161,7 +165,7 @@
 	        					</div>
 	        					<div class="row partner">
 	        						<div class="col-xs-4 logo-holder">
-	        							<img src="assets/images/savie-2016/price-rite-logo.png" class="img-responsive" /> 
+	        							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/price-rite-logo.png" class="img-responsive" /> 
 	        						</div>
 	        						<div class="col-xs-8">
 	        							<p>HK$ 50 e-coupon from <a href="#">Pricerite</a> for every successful referral.</p>
@@ -179,10 +183,8 @@
 	        		</div>
 	        	</div>
 	        </div>
-	  		 <%@include file="includes/footer-block.jsp" %>
 		</div>
 		<!-- JS INCLUDES -->
-		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 
 			window.onload = function (){

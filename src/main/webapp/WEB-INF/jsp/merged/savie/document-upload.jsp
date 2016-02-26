@@ -1,5 +1,17 @@
-<%@page pageEncoding="UTF-8" %>
+<%@page import="com.ifwd.fwdhk.model.DistrictBean"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
+
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+var documentUploadNextPageFlow = "${nextPageFlow}";
+var languageP = "${language}";
+</script>
 
 <html lang="en">
 	<head>
@@ -85,7 +97,7 @@
 						  <div class="radio-button-group">
 							 <div class="clearfix desktop-align left">
 								<div class="pull-left radio-holder">
-								   <input type="radio" id="upload-now-radio" name="upload" checked /> <label for="upload-now-radio"></label>
+								   <input type="radio" id="upload-now-radio" name="upload" value="true" checked /> <label for="upload-now-radio"></label>
 								</div>
 								<div class="pull-left desc">
 								   Upload now
@@ -94,7 +106,7 @@
 							 </div>
 							 <div class="clearfix below desktop-align">
 								<div class="pull-left radio-holder">
-								   <input type="radio" id="upload-later-radio" name="upload" /> <label for="upload-later-radio"></label>
+								   <input type="radio" id="upload-later-radio" name="upload" value="false" /> <label for="upload-later-radio"></label>
 								</div>
 								<div class="pull-left desc">
 								   Upload later
@@ -338,6 +350,7 @@
 		</div>
 		
 		<!-- JS INCLUDES -->
+		<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script>
 		<script src="<%=request.getContextPath()%>/resources/js/savie-2016/so-fwd-dropzone.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -350,16 +363,22 @@
 				
 				// Uploading file validation
 				$('#updoc-complete-btn').on('click', function(e) {
-					var $self = $(this);
-					var isValid = isHkidValidity($self);
-						isValid = isPassportValidity($self);
-						isValid = isProfAddValidity($self);
-					
-					if (isValid) {
-						console.log('Proceed');
-						$self.removeAttr('disabled');
-					} else {
-						$self.attr('disabled', 'disabled');
+					if($("input[name='upload']:checked").val()=="true"){
+						var $self = $(this);
+						var isValid = isHkidValidity($self);
+							isValid = isPassportValidity($self);
+							isValid = isProfAddValidity($self);
+						
+						if (isValid) {
+							console.log('Proceed');
+							$self.removeAttr('disabled');
+							documentUpload();
+						} else {
+							$self.attr('disabled', 'disabled');
+						}
+					}
+					else{
+						window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
 					}
 				});
 				
@@ -429,6 +448,15 @@
 					return isValid;
 				}
 			});
+			
+			function checkLogin() {
+            	if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
+					return true;
+				}else{
+					$('#loginpopup').modal('show');
+					return false;
+				}
+			}
 		</script>
 		
 	</body>

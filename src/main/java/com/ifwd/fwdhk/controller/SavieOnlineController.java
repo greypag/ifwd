@@ -69,6 +69,11 @@ public class SavieOnlineController extends BaseController{
 		defaultDOB.add(defaultDOB.YEAR, -18);
 		model.addAttribute("defaultDOB", DateApi.formatString(defaultDOB.getTime()));
 		
+		String type = request.getParameter("type");
+		if("2".equals(type)){
+			model.addAttribute("type", type);
+		}
+		
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS);
 	}
 	

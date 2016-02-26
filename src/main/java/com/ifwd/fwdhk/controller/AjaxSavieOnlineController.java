@@ -1,5 +1,6 @@
 package com.ifwd.fwdhk.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,15 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.exception.ExceptionUtils;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.exception.ValidateExceptions;
 import com.ifwd.fwdhk.model.OptionItemDesc;
@@ -28,6 +35,8 @@ import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.lifeDeclarationBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
+import com.ifwd.fwdhk.util.ErrorMessageUtils;
+import com.ifwd.fwdhk.util.ImgUtil;
 import com.ifwd.fwdhk.util.Methods;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
 @Controller
@@ -38,6 +47,8 @@ public class AjaxSavieOnlineController extends BaseController{
 	private RestServiceDao restService;
 	@Autowired
 	private SavieOnlineService savieOnlineService;
+	
+	private static final String WATERMARK = "/resources/images/elite-terms/Watermark.png";
 	
 	@RequestMapping(value = {"/ajax/savie-online/getSavieOnlinePlandetails"})
 	public void getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
@@ -350,5 +361,78 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		logger.info(jsonObject.toString());
 		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savie-online/getEliteTermImage"},method = RequestMethod.POST)
+	  public void doAddImageByGroupId(HttpServletRequest request, HttpServletResponse response,
+	            @RequestParam(value = "name", required = true) String name,
+	            @RequestParam(value = "img", required = true) MultipartFile imageFile
+	            ) throws Exception {
+			if (Methods.isXssAjax(request)) {
+				return;
+			}
+		
+			try {
+				String imgMaxSize = UserRestURIConstants.getConfigs("imgMaxSize");
+				long size = imageFile.getSize();
+				if(size/(1024*1024) > Integer.valueOf(imgMaxSize)){
+					throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.greater.than",request)+" "+imgMaxSize+"MB");
+				}
+				
+				//CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+				String policyNo = "1222222";//eliteTermPolicy.getPolicyNo();
+				String documentPath = UserRestURIConstants.getConfigs("documentPath");
+				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes()); 
+		        File dirPath = new File(uploadDir);  
+		        if (!dirPath.exists()) {   
+		            dirPath.mkdirs();  
+		        } 
+		        String fileName = imageFile.getOriginalFilename();
+		        String realName = name+".jpg";
+				request.getSession().setAttribute(name, realName);
+				request.getSession().setAttribute(name+"Type", "jpg");
+		        byte[] bytes = imageFile.getBytes();
+		        String sep = System.getProperty("file.separator");  
+		        File uploadedFile = new File(uploadDir + sep  
+		                + fileName);  
+		        FileCopyUtils.copy(bytes, uploadedFile); 
+		        String toPath = uploadDir + sep + realName;
+		        logger.debug("toPath: " + toPath);
+				File toFile = new File(toPath);
+		        ImgUtil.ImageToPdfToJPG(uploadDir + sep+ fileName, uploadDir + sep + name + ".pdf", toFile , request);
+				String copyImagePath = request.getRealPath(WATERMARK);
+				logger.debug("copyImagePath: " + copyImagePath);
+				File copyImageFile = new File(copyImagePath);
+				ImgUtil.pressImage(copyImageFile, toFile, 0, 0);
+		        response.getWriter().write("true");
+			} catch (ECOMMAPIException e) {
+				logger.error(ExceptionUtils.getStackTrace(e));
+				String error = e.getMessage();
+				response.setCharacterEncoding("utf-8");  //这里不设置编码会有乱码
+	            response.setContentType("text/plain;charset=utf-8");
+	            response.setHeader("Cache-Control", "no-cache");  
+				response.getWriter().write(error);
+			}catch (Exception e) {
+				logger.error(ExceptionUtils.getStackTrace(e));
+				response.getWriter().write("system error");
+			}
+	}
+	
+	@RequestMapping(value = {"/ajax/savie-online/getEliteTermSendImageFlage"},method = RequestMethod.POST)
+	  public void getEliteTermSendImageFlage(HttpServletRequest request, HttpServletResponse response,
+	            @RequestParam String passportFlage,
+	            @RequestParam String uploadLaterFlage
+	            ) throws Exception {
+			if (Methods.isXssAjax(request)) {				
+				return;
+			}
+		
+			try {
+				request.getSession().setAttribute("uploadLaterFlage", uploadLaterFlage);
+				ajaxReturn(response, savieOnlineService.sendImage(request, passportFlage));
+			} catch (Exception e) {
+				logger.info(e.getMessage());
+				e.printStackTrace();
+			}
 	}
 }

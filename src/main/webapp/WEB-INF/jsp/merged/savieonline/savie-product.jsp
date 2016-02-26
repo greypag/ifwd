@@ -363,7 +363,7 @@ var affiliate = "${affiliate}";
 									<a href="javascript:void(0);" class="fna-link-key-risk">Key product risks</a>
 								</div>
 
-								<a href="<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}" class="fna-btn-sel-product"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png">Select This Product</a>
+								<a href="<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}?type=2" class="fna-btn-sel-product"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png">Select This Product</a>
 
 								<a href="javascript:void(0);" class="fna-btn-call-details"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon02.png">Call Me For Details</a>
 							</div>

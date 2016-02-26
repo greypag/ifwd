@@ -362,7 +362,7 @@ var languageP = "${language}";
 				return false;
 			}else {
 				$.ajax({     
-				    url:'${pageContext.request.contextPath}/ajax/savie-online/createLifePolicy',     
+				    url:'<%=request.getContextPath()%>/ajax/savie-online/createLifePolicy',     
 				    type:'get',     
 				    error:function(){       
 				    },     
