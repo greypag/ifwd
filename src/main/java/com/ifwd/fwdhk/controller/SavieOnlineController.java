@@ -48,6 +48,21 @@ public class SavieOnlineController extends BaseController{
 	
 	@Autowired
 	protected HeaderUtil headerUtil;
+	
+	@RequestMapping(value = {"/{lang}/savie-online/game"})
+	public ModelAndView game(Model model, HttpServletRequest request) {
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "savieonline/game" );
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/review"})
+	public ModelAndView review(Model model, HttpServletRequest request) {
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "savieonline/review" );
+	}
+	
+	@RequestMapping(value = {"/{lang}/savie-online/recommendation"})
+	public ModelAndView recommendation(Model model, HttpServletRequest request) {
+		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "savieonline/recommendation" );
+	}
 
 	@RequestMapping(value = {"/{lang}/savie-online/savie-landing"})
 	public ModelAndView getSavieOnlineLanding(Model model, HttpServletRequest request) {
