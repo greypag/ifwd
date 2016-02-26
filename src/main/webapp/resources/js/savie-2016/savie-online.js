@@ -366,14 +366,6 @@ $(document).ready(function() {
 	});
 
 	//plan details - plan calculator
-	$('#plan-dob-datepicker').datepicker({
-		format: "dd-mm-yyyy",
-		startView: "decade",
-		startDate: dob_start_date,
-		endDate: dob_end_date,
-		autoclose: true,
-		startView: 2
-	});
 	$('#type-of-payment').on('change', function () {
 		if($(this).val() == 'regular-payment') {
 			$('#plan-amount-holder').removeClass('hidden');

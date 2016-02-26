@@ -1149,10 +1149,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
         String value = request.getParameter("value");
         String language = request.getParameter("language");
         String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+value.split("-")[0];
-		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
-		header.put("userName", "*DIRECTGI");
-		header.put("token", commonUtils.getToken("reload"));
-		header.put("language", WebServiceUtils.transformLanaguage(language));
+		final Map<String,String> header = headerUtil.getHeader(request);
 		
 		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
 		
