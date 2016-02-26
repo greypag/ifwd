@@ -53,8 +53,8 @@
 	<div class="savie-regular-container savie-regular-landing rp-only">
 		<div class="whole-banner">
         	<div class="page-banner">
-        		<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/sav-landing-bg-mobile.jpg" class="img-responsive hidden-md hidden-lg">
-        		<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/sav-landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+        		<img src="<%=request.getContextPath()%>/<fmt:message key="savie.rp.hero.image.mobile" bundle="${msg}" />" class="img-responsive hidden-md hidden-lg">
+        		<img src="<%=request.getContextPath()%>/<fmt:message key="savie.rp.hero.image" bundle="${msg}" />" class="img-responsive hidden-xs hidden-sm">
         		<div class="fwd-container-limit">
         		
         		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" method="post">

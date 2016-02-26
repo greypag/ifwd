@@ -158,7 +158,6 @@ body {
 .savie-regular-btn {
   color: white;
   font-size: 24px;
-  font-family: 'Calibri-bold';
   width: 100%;
   margin-top: 16px;
   background: #f3bc3a;
@@ -1072,6 +1071,7 @@ body {
   /* line 29, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .page-banner .img-banner-text.savie-landing {
     bottom: 35px;
+    top: auto; //IE Fix
     top: initial;
   }
 }
@@ -1079,6 +1079,7 @@ body {
   /* line 29, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing.rp-only .page-banner .img-banner-text.savie-landing {
     width: 100%;
+    left: 0;
     text-align: center;
   }
 }
