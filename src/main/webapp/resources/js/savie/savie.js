@@ -397,6 +397,17 @@ function getSaviePlanDetails() {
 						}
 					}
 				}else {
+
+					/* Reset Policy Year Label */
+					$('#policy-year-0-1').html("5");
+					$('#policy-year-2-1').html("5");
+					$('#policy-year-3-1').html("5");
+					$('#policy-year-4-1').html("5");
+					$('#policy-year-0-2').html("10");
+					$('#policy-year-2-2').html("10");
+					$('#policy-year-3-2').html("10");
+					$('#policy-year-4-2').html("10");
+
 					for(var i = 0; i < $total_years; i++) {
 						if (json.salesIllustration.yearPlans[i].year <= 100) { // do not include year 100 data from their response
 							for(var j = 0; j < 4; j++){
