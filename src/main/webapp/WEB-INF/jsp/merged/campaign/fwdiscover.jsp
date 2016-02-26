@@ -273,13 +273,13 @@
                                     <div class="clearfix">
                                         <div class="holder">
                                             <p class="title"><fmt:message key="Fanfare.landingpage.offerPermium.box1" bundle="${msg}" /></p>
-                                            <p class="value">${count5}</p>
+                                            <p class="value count">${count5}</p>
                                         </div>
                                         <div class="holder date hidden-xs hidden-sm">
-                                            <fmt:message key="Fanfare.enddate" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.enddate1" bundle="${msg}" />
                                         </div>
                                         <div class="holder date hidden-md hidden-lg">
-                                            <fmt:message key="Fanfare.enddate.mobile" bundle="${msg}" />
+                                            <fmt:message key="Fanfare.enddate1.mobile" bundle="${msg}" />
                                         </div>
                                     </div>
                                 </div>
@@ -320,7 +320,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer1.box1" bundle="${msg}" /></p>
-											<p class="value">${count0}</p>
+											<p class="value count">${count0}</p>
 										</div>
 										<div class="holder date hidden-xs hidden-sm">
 											<fmt:message key="Fanfare.enddate1" bundle="${msg}" />
@@ -362,7 +362,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer2.box1" bundle="${msg}" /></p>
-											<p class="value">${count1}</p>
+											<p class="value count">${count1}</p>
 										</div>
 										<div class="holder date hidden-xs hidden-sm">
 											<fmt:message key="Fanfare.enddate1" bundle="${msg}" />
@@ -405,7 +405,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer3.box1" bundle="${msg}" /></p>
-											<p class="value">${count2}</p>
+											<p class="value count">${count2}</p>
 										</div>
 										<div class="holder date hidden-xs hidden-sm">
 											<fmt:message key="Fanfare.enddate1" bundle="${msg}" />
@@ -448,7 +448,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer4.box1" bundle="${msg}" /></p>
-											<p class="value">${count3}</p>
+											<p class="value count">${count3}</p>
 										</div>
 										<div class="holder date hidden-xs hidden-sm">
 											<fmt:message key="Fanfare.enddate1" bundle="${msg}" />
@@ -491,7 +491,7 @@
 									<div class="clearfix">
 										<div class="holder">
 											<p class="title"><fmt:message key="Fanfare.landingpage.offer5.box1" bundle="${msg}" /></p>
-											<p class="value">${count4}</p>
+											<p class="value count">${count4}</p>
 										</div>
 										<div class="holder date hidden-xs hidden-sm">
 											<fmt:message key="Fanfare.enddate1" bundle="${msg}" />
@@ -1233,7 +1233,7 @@
 			$("#loginpopup").css("background", "rgba(6, 29, 42, 0.8)");
 			if('<%=username%>' != 'null' && '<%=request.getAttribute("chooseIndex") %>' != 'null') {
 				$('.modal').modal('hide');
-	        	$('.modal-content').children(".title").html('<fmt:message key="Fanfare.offername${chooseIndex}" bundle="${msg}" />');
+	        	$('#offer-details-promotion-code').find(".title:first").html('<fmt:message key="Fanfare.offername${chooseIndex}" bundle="${msg}" />');
 	        	if('<%=request.getAttribute("chooseCode")%>'=="failed" || '<%=request.getAttribute("chooseCode")%>'=="error"){
 	        		$('#offer-details-promotion-code-error-sold').modal('show');
 	        	}else if('<%=request.getAttribute("chooseCode")%>'=="duplicated") {

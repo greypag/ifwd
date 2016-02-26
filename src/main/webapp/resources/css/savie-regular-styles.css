@@ -158,7 +158,6 @@ body {
 .savie-regular-btn {
   color: white;
   font-size: 24px;
-  font-family: 'Calibri-bold';
   width: 100%;
   margin-top: 16px;
   background: #f3bc3a;
@@ -1072,7 +1071,16 @@ body {
   /* line 29, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .page-banner .img-banner-text.savie-landing {
     bottom: 35px;
+    top: auto; //IE Fix
     top: initial;
+  }
+}
+@media (min-width: 992px) {
+  /* line 29, ../sass/partials/savie/_landing-page.scss */
+  .savie-regular-landing.rp-only .page-banner .img-banner-text.savie-landing {
+    width: 100%;
+    left: 0;
+    text-align: center;
   }
 }
 @media (min-width: 992px) {
@@ -1168,6 +1176,12 @@ body {
     font-size: 18px;
     margin-top: 18px;
     margin-right: 47px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 80, ../sass/partials/savie/_landing-page.scss */
+  .savie-regular-landing.rp-only .page-banner .img-banner-text .savie-product {
+    margin-right: 0;
   }
 }
 /* line 87, ../sass/partials/savie/_landing-page.scss */
@@ -1376,7 +1390,7 @@ body {
   color: #fff;
 }
 
-@media (min-width: 992px) {
+/*@media (min-width: 992px) {
 	.savie-regular-landing .payment-sp {
 	    padding-top: 200px;
 	}
@@ -1400,7 +1414,7 @@ body {
 	.savie-regular-landing .payment-sp {
 		padding-top: 30px;
 	}
-}
+}*/
 /* line 241, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .payment-mode h4 {
   color: #ff8200;
@@ -4657,7 +4671,7 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 @media (min-width: 992px) {
   /* line 6, ../sass/partials/savie/_plan-details.scss */
   .savie-regular-plan-details .btn-tooltip-clear {
-    display: inline-block;
+    display: inline;
     border: none;
     background: transparent;
   }
@@ -5140,7 +5154,7 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
   /* line 372, ../sass/partials/savie/_plan-details.scss */
   .savie-regular-plan-details .proceed-block p {
     display: inline-block;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
     font-size: 24px;
     vertical-align: middle;
     margin-top: 22px;
@@ -5258,7 +5272,7 @@ header .navbar-menu.teaser-header .header-menu li.active .orange-header-menu, he
 	}
 	
 	.fwd-savie-wrapper .container-fluid.proceed-block.text-center p {
-		margin-top: -12px;
+		margin-top: -19px;
 	}
 	
 	.fwd-savie-wrapper header .navbar {

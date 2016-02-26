@@ -50,16 +50,15 @@
 		<img class="img-responsive hidden-sm hidden-md hidden-lg" src="assets/images/mini-mobile.png" />
 	</div>-->
 	<!--<iframe src="http://192.168.1.128:8080/mini-calculator/" class="full-calcu"></iframe>-->
-	<div class="savie-regular-container savie-regular-landing">
+	<div class="savie-regular-container savie-regular-landing rp-only">
 		<div class="whole-banner">
         	<div class="page-banner">
-        		<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/sav-landing-bg-mobile.jpg" class="img-responsive hidden-md hidden-lg">
-        		<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/sav-landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
+        		<img src="<%=request.getContextPath()%>/<fmt:message key="savie.rp.hero.image.mobile" bundle="${msg}" />" class="img-responsive hidden-md hidden-lg">
+        		<img src="<%=request.getContextPath()%>/<fmt:message key="savie.rp.hero.image" bundle="${msg}" />" class="img-responsive hidden-xs hidden-sm">
         		<div class="fwd-container-limit">
         		
         		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-rp" method="post">
 	        		<div class="img-banner-text savie-landing">
-	        			<h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2>
 	        			<div id="clearfix-height-rp">
 	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
 	        			</div>	        			

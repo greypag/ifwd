@@ -1614,7 +1614,7 @@
                             <div class="clearfix"></div>
                         </div>                       
                         
-                        <div class="col-md-12 col-lg-12 pad-none faq_content">
+                        <!--<div class="col-md-12 col-lg-12 pad-none faq_content">
                             <div class="col-md-11 col-lg-11 pad-none faq_cat">
                                 <fmt:message key="faq.savie.oceanpark.group5" bundle="${msg}" />
                             </div>
@@ -1722,7 +1722,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
-                        </div>                        
+                        </div>-->                        
                         <div class="clearfix"></div>
                     </div>
                     <!-- Savie end -->
