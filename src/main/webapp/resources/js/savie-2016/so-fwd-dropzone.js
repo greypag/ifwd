@@ -25,6 +25,7 @@ hkidDropZone.ondrop = function(e) {
 	$('#updoc-complete-btn').removeAttr('disabled');
 	if(getWidth()>=992) {
 		this.className = 'select-file-hkid';
+		$('#fileToUpload-hkid-dragAndDrop').get(0).files=e.dataTransfer.files;
 		startUploadHkid(e.dataTransfer.files);		
 	}
 };
@@ -61,6 +62,7 @@ passportDropZone.ondrop = function(e) {
 	$('#updoc-complete-btn').removeAttr('disabled');
 	if(getWidth()>=992) {
 		this.className = 'select-file-passport';
+		$('#fileToUpload-passport-dragAndDrop').get(0).files=e.dataTransfer.files;
 		startUploadPassport(e.dataTransfer.files);		
 	}
 };
@@ -99,6 +101,7 @@ dropZone.ondrop = function(e) {
 	$('#updoc-complete-btn').removeAttr('disabled');
 	if(getWidth()>=992) {
 		this.className = 'select-file';
+		$('#fileToUpload-addr-dragAndDrop').get(0).files=e.dataTransfer.files;
 		startUploadAddress(e.dataTransfer.files);
 	}
 };
