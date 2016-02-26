@@ -17240,7 +17240,7 @@ a:focus {
     }
     .login-disclaimer{
         display: block;
-        padding: 30px;
+        padding-bottom: 30px;
     }
 }
 /* /login */
