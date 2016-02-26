@@ -282,7 +282,6 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIEONLINE_LIFE_PAYMENT = "life-payment";
 	public static final String PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY = "life-policy-summary";
 	public static final String PAGE_SAVIEONLINE_LIFE_DECLARATION = "life-declaration";
-	public static final String PAGE_SAVIEONLINE_REVIEW4 = "life-review4";
 	public static final String PAGE_SAVIEONLINE_LIFE_SIGNATURE = "life-signature";
 	public static final String PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD = "life-document-upload";
 	public static final String PAGE_SAVIE_LIFE_DOCUMENT_UPLOAD = "document-upload";
@@ -306,7 +305,6 @@ public class UserRestURIConstants {
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_PAYMENT = "life.payment";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_POLICY_SUMMARY = "life.policy.summary";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_DECLARATION = "life.declaration";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_REVIEW4 = "life.review4";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_SIGNATURE = "life.signature";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD = "life.document.upload";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION = "upload.confirmation";
