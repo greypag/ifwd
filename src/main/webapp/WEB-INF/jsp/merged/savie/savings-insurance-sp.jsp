@@ -163,7 +163,7 @@ var home_url = "<%=request.getContextPath()%>";
         			<div class="benefits-holder">
         				<div class="hidden-md hidden-lg">
 		        			<div class="row">
-		        				<div class="col-xs-6 text-center annualTravel_policy_item">
+		        				<!--<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-1.png">
 		        					<span><fmt:message key="product.details.savie.group1.section1.title.ocean" bundle="${msg}" /></span>
 									<div class="hidden-benefits benefits-content">
@@ -173,7 +173,7 @@ var home_url = "<%=request.getContextPath()%>";
 											<p class="hidden-benefits-info"><fmt:message key="product.details.savie1.summary" bundle="${msg}" />  </p>
 										</div>
 									</div>
-		        				</div>
+		        				</div>-->
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-2.png">
 		        					<span><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /></span>
@@ -182,6 +182,17 @@ var home_url = "<%=request.getContextPath()%>";
 										<div class="info hidden-benefits-info">
 											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group2.section1.title" bundle="${msg}" /></h3>
 											<p class="hidden-benefits-info"><fmt:message key="product.details.savie2.summary" bundle="${msg}" />  </p>
+										</div>
+									</div>
+		        				</div>
+		        				<div class="col-xs-6 text-center annualTravel_policy_item">
+		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png">
+		        					<span class="two-lines"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></span>
+									<div class="hidden-benefits benefits-content">
+										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png" />
+										<div class="info hidden-benefits-info">
+											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></h3>
+											<p class="hidden-benefits-info"><fmt:message key="product.details.savie4.summary" bundle="${msg}" />  </p>
 										</div>
 									</div>
 		        				</div>
@@ -198,17 +209,6 @@ var home_url = "<%=request.getContextPath()%>";
 										</div>
 									</div>
 		        				</div>-->
-		        				<div class="col-xs-6 text-center annualTravel_policy_item">
-		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png">
-		        					<span class="two-lines"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></span>
-									<div class="hidden-benefits benefits-content">
-										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-4.png" />
-										<div class="info hidden-benefits-info">
-											<h3 class="hidden-benefits-info"><fmt:message key="product.details.savie.group4.section1.title" bundle="${msg}" /></h3>
-											<p class="hidden-benefits-info"><fmt:message key="product.details.savie4.summary" bundle="${msg}" />  </p>
-										</div>
-									</div>
-		        				</div>
 		        				<div class="col-xs-6 text-center annualTravel_policy_item">
 		        					<img src="<%=request.getContextPath()%>/resources/images/savie-regular/benefit-6.png">
 		        					<span class="two-lines"><fmt:message key="product.details.savie.group6.section1.title" bundle="${msg}" /></span>
