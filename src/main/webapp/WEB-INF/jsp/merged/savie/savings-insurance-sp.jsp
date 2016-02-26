@@ -477,7 +477,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<h5 class="text-center"><fmt:message key="savierp.landing.blog.save" bundle="${msg}" /></h5>
 						</div>
 						<div class="btn-holder">
-							<button class="savie-regular-btn"><fmt:message key="blog.headline" bundle="${msg}" /></button>
+							<button id="btn-blog-link" class="savie-regular-btn"><fmt:message key="blog.headline" bundle="${msg}" /></button>
 						</div>
 					</div>
 					<div class="hidden-xs hidden-sm">
@@ -824,7 +824,13 @@ var home_url = "<%=request.getContextPath()%>";
 			                $('body').attr("style", "");
 			            });			
 					});
+
 				}
+
+				$('#btn-blog-link').click(function(){
+					window.location.href='<fmt:message key="link.blog" bundle="${msg}" />';
+				});
+
 			});
 		
 		</script>
