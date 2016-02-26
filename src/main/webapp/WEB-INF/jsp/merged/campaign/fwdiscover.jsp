@@ -1101,6 +1101,13 @@
 		$(".close-modal-link").on('click', function(){
 	    	$('.modal').modal('hide');
 	    });
+
+	    $(".close-modal").on('click', function(){
+	    	if((navigator.userAgent.match(/iPad/i))) { 
+        	    $('body').addClass("hidden-show");
+        	    
+        	}
+	    })
 	    
 	    $("#myDropdown").on('click', function(){
 	    	$.ajax({
