@@ -1190,6 +1190,12 @@ body {
   font-family: 'Calibri-bold';
   font-size: 14px;
 }
+.savie-regular-landing.rp-only .page-banner .img-banner-text .savie-product a {
+  color: #fff;
+}
+.savie-regular-landing.rp-only .page-banner .img-banner-text .savie-product a:hover {
+  color: #f68a1d;
+}
 @media (min-width: 992px) {
 	.savie-regular-landing .page-banner .img-banner-text .savie-product a {
 		font-size: 16px;
