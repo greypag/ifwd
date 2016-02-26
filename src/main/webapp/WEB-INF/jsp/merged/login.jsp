@@ -6,18 +6,18 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
+<%
+	String actionName="";
+	        
+	if (request.getAttribute("controller") != null) {
+	    actionName = request.getAttribute("controller").toString();
+	}
+%>
 <div class="modal fade bs-example-modal-lg " id="loginpopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-	<div class="modal-dialog modal-lg">
+	<div class="modal-dialog modal-lg <%if(actionName== "Savie"){%>savie-modal-wrapper<%}%>">
 		<div class="modal-content plan-modal">
 		<div class="login-close-wrapper"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
 			<!-- 登入 -->
-			<%
-         String actionName="";
-                 
-         if (request.getAttribute("controller") != null) {
-             actionName = request.getAttribute("controller").toString();
-         }
-     %>
                 <%if(actionName== "Savie"){%>
                 <div class="login-info hidden login-info-savie">
                     <div class="upper-overlay">
@@ -29,6 +29,7 @@
 	                    </h5>
                     </div>
                     <img src="<%=request.getContextPath()%>/<fmt:message key="Savie.login.overlay.image" bundle="${msg}" />" alt="Saive" class="hidden-xs hidden-sm img-responsive">
+                    <img src="<%=request.getContextPath()%>/<fmt:message key="Savie.login.overlay.image.mobile" bundle="${msg}" />" alt="Saive" class="hidden-lg hidden-md img-responsive">
                 </div>
                 <%}%>
         <div class="login-title-wrapper"><h4 class="color-darkgray heading-h4"><fmt:message key="header.login.action" bundle="${msg}" /></h4></div>
@@ -67,26 +68,25 @@
 								placeholder="<fmt:message key="header.login.password" bundle="${msg}" />"
 								autocomplete="off" id="headerPassword">
 							<!--忘記密碼 -->
-							<h6 class="heading-h6">
+							<h6 class="heading-h6"></h6>  
 								<a id="link-forgotPassword" class="heading-h6"><fmt:message
 										key="header.login.password.forget" bundle="${msg}" /></a>
 						</div>
+                        <div class="login-error-wrapper">
+                            <span id="errUserName" class="empHide color-red heading-h5"></span>
+                            <span id="errPass" class="empHide color-red heading-h5"></span>                   
+                            <div id="login-err-msg" class="color-red heading-h5"
+                            role="alert" style="display: none;"></div>
+                        </div>						
 						<div class="login-button-group">
 							<button type="button" onclick="submitLoginForm('loginform-pop');"
 								class="cta-confirm cta-font cta-orange cta-padding-40">
 								<fmt:message key="header.login.action" bundle="${msg}" />
 							</button>
 							
-							<div class="login-error-wrapper">
-                        <span id="errUserName" class="empHide color-red heading-h5"></span>
-                        <span id="errPass" class="empHide color-red heading-h5"></span> 
-                        
-                    <div id="login-err-msg" class="color-red heading-h5"
-                        role="alert" style="display: none;"></div>
-                        </div>
                         
 						</div>
-						<h6 class="heading-h6 color-gray"><fmt:message key="header.login.disclaimer" bundle="${msg}" /></h6>
+						<h6 class="heading-h6 color-gray login-disclaimer"><fmt:message key="header.login.disclaimer" bundle="${msg}" /></h6>
 					</div>
 					
 					
