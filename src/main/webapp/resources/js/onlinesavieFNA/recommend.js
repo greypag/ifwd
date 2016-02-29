@@ -20,6 +20,12 @@ var FNArecommendation = {
 		var that = this;
 		that.setLoading(true);
 
+
+		$(".fna-btn-discover").click(function(e){
+			e.preventDefault();
+			$("body").scrollTo(".fna-product-gp-wrapper")
+		})
+
 		$(".fna-btn-show-detail").click(function(e){
 			e.stopPropagation();
 			if($(this).hasClass("isOpened")){
@@ -88,7 +94,7 @@ var FNArecommendation = {
 			$(".fna-col-selection").removeClass("fna-hide").addClass("fna-show");
 		});
 
-		$(".fna-btn-mob-cancel").click(function(){
+		$(".fna-btn-mob-cancel, .fna-btn-mob-close").click(function(){
 			$(".fna-col-recommend").removeClass("fna-hide").addClass("fna-show");
 			$(".fna-col-selection").removeClass("fna-show").addClass("fna-hide");
 		});
@@ -128,10 +134,10 @@ var FNArecommendation = {
 				$(this).parents(".fna-sel-grid").addClass("editing");
 			}else{
 				
-
-				$(this).parents(".fna-sel-grid").find("input[type='checkbox']").not(":checked").each(function(){
+				$(this).parents(".fna-sel-grid").find(".checkbox").hide();
+				/*$(this).parents(".fna-sel-grid").find("input[type='checkbox']").not(":checked").each(function(){
 					$(this).parent().hide();
-				});
+				});*/
 				$(this).parents(".fna-sel-grid").find("input[type='checkbox']").attr("disabled",true);
 				$(this).removeClass("glyphicon-minus").addClass("glyphicon-plus");
 
@@ -166,7 +172,7 @@ var FNArecommendation = {
 		});
 
 		$(".fna-btn-sel-product").click(function(e){
-			//e.preventDefault();
+			e.preventDefault();
 			$("#loading-overlay-save").find(".fna-select-product-link").attr("href",$(this).attr("href"));
 
 			$('#loading-overlay-save').modal({
@@ -233,7 +239,7 @@ var FNArecommendation = {
 		});
 
 		//Sorting Button
-		$(".fna-col-recommend > .sort-header > div").click(function(){
+		/*$(".fna-col-recommend > .sort-header > div").click(function(){
 
 			if($(this).find(".sort-arrow-gp").length > 0){
 				
@@ -258,13 +264,9 @@ var FNArecommendation = {
 				}
 
 				that.loadProductRecommendSorting();
-
-				/*setTimeout(function(){
-					that.loadProductRecommend();
-				},750);*/
 			}
 
-		});
+		});*/
 
 		$("#fnaMobSort").change(function(){
 			if(this.value > 3){
@@ -350,7 +352,7 @@ var FNArecommendation = {
 			that.parseUserData(res);
 			//Assign Value to 
 
-			AjaxManager.fire(that.api_product_recommend,that.fnaData,function(res){
+			AjaxManager.fire(that.api_product_recommend,null,function(res){
 				that.fnaResultData = res;
 				that.parseProductRecommend(res);
 				that.setLoading(false);
@@ -368,9 +370,7 @@ var FNArecommendation = {
 	loadProductRecommendSorting:function(){
 		var that = this;
 		var sort_by = that.sortFld + (that.sortAsc ? 0 : 4);
-		var fnaDatas = that.fnaData;
-		fnaDatas.sort_by=sort_by
-		AjaxManager.fire(that.api_product_recommend,fnaDatas,function(res){
+		AjaxManager.fire(that.api_product_recommend,{sort_by:sort_by},function(res){
 			that.fnaResultData = res;
 			that.parseProductRecommend(res);
 			that.setLoading(false);
@@ -381,7 +381,7 @@ var FNArecommendation = {
 		var that = this;
 		if(morePage != undefined) that.fnaPopupData = [];
 		var url = morePage ? morePage : that.api_product_recommend; 
-		AjaxManager.fire(url,that.fnaData,function(res){
+		AjaxManager.fire(url,null,function(res){
 			that.fnaResultData = res;
 			that.parseProductRecommend(res, morePage != undefined);
 			that.setLoading(false);
@@ -409,6 +409,7 @@ var FNArecommendation = {
 	},
 
 	parseUserData:function(data){
+		console.log(data);
 		var that = this;
 		var selection = ["q1","q2","q3","q4_a","q4_e"];
 
@@ -419,13 +420,11 @@ var FNArecommendation = {
 			if(typeof(data[val]) == "number"){
 				$(selectorPattern.replace("{q}",val).replace("{v}",data[val])).prop("checked",true);
 			}else{
-				if(data[val] != null) {
-					var answer = data[val].split(",");
-					$(answer).each(function(k2,v2){
-						$(selectorPattern.replace("{q}",val).replace("{v}",v2)).prop("checked",true);
-					});	
-				}
+				var answer = data[val].split(",");
 
+				$(answer).each(function(k2,v2){
+					$(selectorPattern.replace("{q}",val).replace("{v}",v2)).prop("checked",true);
+				});	
 			}
 
 			$("."+ val).data({"originalVal":data[val],"qName":val,"isDifferent":false});
@@ -441,31 +440,34 @@ var FNArecommendation = {
 
 		$(".fna-sel-grid").each(function(){
 
-			$(this).find("input[type='checkbox']").each(function(){
+			/*$(this).find("input[type='checkbox']").each(function(){
 				if($(this).prop("checked")){
 					$(this).parent().show();
 				}else{
 					$(this).parent().hide();
 				}
-			});	
+			});	*/
 
 			if($(this).find(".fna-btn-sel-expand").hasClass("glyphicon-minus")){
 				$(this).find(".fna-btn-sel-expand").trigger("click");
 			}
 		});
 
-
+		$(".txt_fna_name").text(
+			((data.gender == 0)?"Mr. ":"Ms. ") + data.name
+		);
 	},
 	parseProductRecommend:function(data,more){
 		var that = this;
 		var gpWrapper = $(".fna-product-gp-wrapper");
+		var pNum = 0;
 		if(!more) gpWrapper.empty();
 		for(var i = 0; i < data.product_list.length; i++){
 			var gp_data = data.product_list[i];
 			var gp = $(".fna-recommend .template .fna-product-gp").clone(true,true);
 			if(that.sortFld > -1) gp.addClass("sort" + that.sortFld);
 			gp.find(".fna-product-gp-name").text(gp_data.group);
-			
+			gp.find(".fna-product-gp-name").prepend($(".fna-recommend .template .result-type-ico").clone());
 
 			var prodWrapper = gp.find(".fna-product-wrapper");
 			
@@ -475,7 +477,7 @@ var FNArecommendation = {
 
 				var animateList = [];
 				for(var j = 0; j < gp_data.products.length; j++){
-
+					pNum++;
 					var product_header = $(".fna-recommend .template .fna-product-lv-header").clone();
 
 					var prod_data = gp_data.products[j];
@@ -484,16 +486,16 @@ var FNArecommendation = {
 					prod.data("productCode",prod_data.product_code);
 
 					if(prod_data.type){
-						var product_type = $(".fna-recommend .template .fna-product-type").clone(true,true);
+						// var product_type = $(".fna-recommend .template .fna-product-type").clone(true,true);
 
-						product_type.find(".fna-product-type-name").text(prod_data.type);
-						product_type.find(".fna-product-type-tooltips").attr("data-original-title",prod_data.type_desc);
+						prod.find(".fna-product-type-name").text(prod_data.type);
+						prod.find(".fna-product-type-tooltips").attr("data-original-title",prod_data.type_desc);
 					}
 
 					prod.find(".sort-header").before(product_header);
 
 					prod.find(".product-mobile-display").text(prod_data.name);
-					prod.find(".sort-header.withdata .product").text(prod_data.name);
+					prod.find(".fna-product-name").text(prod_data.name);
 					prod.find(".sort-header.withdata .con_prd").html(prod_data.contribution_period.join(", "));
 					prod.find(".sort-header.withdata .min_age").text(prod_data.min_issue_age);
 					prod.find(".sort-header.withdata .max_age").text(prod_data.max_issue_age);
@@ -528,17 +530,11 @@ var FNArecommendation = {
 
 					if(prod_data.product_url){
 						prod.find(".fna-btn-details").attr("href",prod_data.product_url)
-						//prod.find(".fna-btn-sel-product").css("display","block");
+						prod.find(".fna-btn-sel-product").css("display","inline-block");
 						
 					}else{
 						prod.find(".fna-btn-details").hide();
-						//prod.find(".fna-btn-call-details").css("display","block");
-					}
-					
-					if(prod_data.product_code=='SAVIE'){
-						prod.find(".fna-btn-sel-product").css("display","block");
-					}else{
-						prod.find(".fna-btn-call-details").css("display","block");
+						prod.find(".fna-btn-call-details").css("display","inline-block");
 					}
 
 					if(prod_data.brochure_url){
@@ -575,7 +571,7 @@ var FNArecommendation = {
 					}
 					
 					//prodWrapper.append(product_header);
-					prodWrapper.append(product_type);
+					//prodWrapper.append(product_type);
 					prodWrapper.append(prod);
 
 					if(prod_data.show){
@@ -587,18 +583,14 @@ var FNArecommendation = {
 
 			if(gp_data.other_types){
 				for(var j = 0; j < gp_data.other_types.length; j++){
+					pNum++;
 					var other_data = gp_data.other_types[j];
 
-					
-					var product_type = $(".fna-recommend .template .fna-product-type").clone(true,true);
-
-					product_type.find(".fna-product-type-name").text(other_data.type);
-					product_type.find(".fna-product-type-tooltips").hide();
-
 					var other_product = $(".fna-recommend .template .fna-other-product").clone();
+					other_product.find(".fna-product-type-name").text(other_data.type);
 					other_product.find(".desc").html(other_data.type + " " + other_data.description);
 
-					prodWrapper.append(product_type);
+					//prodWrapper.append(product_type);
 					prodWrapper.append(other_product);
 				}
 			}
@@ -617,6 +609,8 @@ var FNArecommendation = {
 						
 					})
 				}
+
+				$(".txt_pnum").text(pNum);
 			
 
 		}
@@ -659,3 +653,21 @@ var FNArecommendation = {
 $(document).ready(function(){
 	FNArecommendation.init();	
 });
+
+$.fn.scrollTo = function( target, options, callback ){
+  if(typeof options == 'function' && arguments.length == 2){ callback = options; options = target; }
+  var settings = $.extend({
+    scrollTarget  : target,
+    offsetTop     : 50,
+    duration      : 500,
+    easing        : 'swing'
+  }, options);
+  return this.each(function(){
+    var scrollPane = $(this);
+    var scrollTarget = (typeof settings.scrollTarget == "number") ? settings.scrollTarget : $(settings.scrollTarget);
+    var scrollY = (typeof scrollTarget == "number") ? scrollTarget : scrollTarget.offset().top + scrollPane.scrollTop() - parseInt(settings.offsetTop);
+    scrollPane.animate({scrollTop : scrollY }, parseInt(settings.duration), settings.easing, function(){
+      if (typeof callback == 'function') { callback.call(this); }
+    });
+  });
+}

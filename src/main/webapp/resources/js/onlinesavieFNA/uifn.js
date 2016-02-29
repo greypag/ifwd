@@ -8,8 +8,7 @@ AjaxManager = {
     timeout:5000,
 
     fire:function(url, postData, successCallBack, _timeout, _method) {
-    	console.log("ajax call url:"+url);
-        console.log("ajax call data:"+postData);
+
         if (!isCalling) {
             isCalling = true;
             
