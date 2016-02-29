@@ -171,7 +171,7 @@ $(document).ready(function() {
 		$('#beneficiary-header\\[1\\]').removeClass('hidden');
 		$('#beneficiary-info-form\\[1\\]').removeClass('hidden');
 		$('#add-beneficiary-btn-2').removeClass('disabled-beneficiary-add');
-		document.getElementById('add-btn-img').src='<%=request.getContextPath()%>/resources/images/savie-2016/orange-plus.png';
+		$('#add-btn-img').attr('src', '/fwdhk/resources/images/savie-2016/orange-plus.png');
 	});
 	$('#add-beneficiary-btn-2').click(function (e) {
 		e.preventDefault();
@@ -189,7 +189,7 @@ $(document).ready(function() {
 		$('#beneficiary-info-form\\[1\\]').addClass('hidden');
 		$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').resetForm(true);
 		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID','callback');
-		document.getElementById('add-btn-img').src='<%=request.getContextPath()%>/resources/images/savie-2016/gray-plus.png';
+		$('#add-btn-img').attr('src', '/fwdhk/resources/images/savie-2016/gray-plus.png');
 		$('#add-beneficiary-btn-2').addClass('disabled-beneficiary-add');
 		$('#beneficiary2').removeClass('hidden');
 		$('#beneficiary-header\\[2\\]').addClass('hidden');
