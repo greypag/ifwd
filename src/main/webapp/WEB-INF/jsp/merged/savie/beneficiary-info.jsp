@@ -587,53 +587,52 @@
 						$('#save-and-continue-modal').modal('show');
 					}
                 });
-			});
-			
-			$("#beneficiary-next-btn").click(function(){
-				$("#errorMsg").html("");
-				var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
-							   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
-							   $('#beneficiary-info-form\\[2\\]').serialize();
-				$.ajax({
-					  type : "POST",
-					  async:false, 
-					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfo",
-					  data: formdata,
-					  success : function(data) {
-						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  $("#errorMsg").html(data.errorMsg);
+				$("#beneficiary-next-btn").click(function(){
+					$("#errorMsg").html("");
+					var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
+								   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
+								   $('#beneficiary-info-form\\[2\\]').serialize();
+					$.ajax({
+						  type : "POST",
+						  async:false, 
+						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfo",
+						  data: formdata,
+						  success : function(data) {
+							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+								  $("#errorMsg").html(data.errorMsg);
+							  }
+							  else{
+								  if('${backSummary}'=="Y"){
+									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+								  }
+								  else{
+									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+								  }
+							  }
 						  }
-						  else{
-							  if('${backSummary}'=="Y"){
-								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+				     });
+				});
+				
+				$("#save-exit-btn").click(function(){
+					$("#errorMsg").html("");
+					var formdata1 = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
+					   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
+					   $('#beneficiary-info-form\\[2\\]').serialize();
+					$.ajax({
+						  type : "POST",
+						  async:false, 
+						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfoSaveforLater",
+						  data: formdata1,
+						  success : function(data) {
+							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+								  $("#errorMsg").html(data.errorMsg);
 							  }
 							  else{
 								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 							  }
 						  }
-					  }
-			     });
-			});
-			
-			$("#save-exit-btn").click(function(){
-				$("#errorMsg").html("");
-				var formdata1 = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
-				   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
-				   $('#beneficiary-info-form\\[2\\]').serialize();
-				$.ajax({
-					  type : "POST",
-					  async:false, 
-					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfoSaveforLater",
-					  data: formdata1,
-					  success : function(data) {
-						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  $("#errorMsg").html(data.errorMsg);
-						  }
-						  else{
-							  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
-						  }
-					  }
-			     });
+				     });
+				});
 			});
 		</script>
 		
