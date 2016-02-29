@@ -1067,6 +1067,23 @@ body {
 .savie-regular-landing .page-banner .img-banner-text.savie-landing {
   bottom: 14px;
 }
+
+.chin .savie-regular-landing .page-banner .img-banner-text.savie-landing {
+  bottom: 25px;
+}
+
+@media (min-width: 620px) {
+  .chin .savie-regular-landing .page-banner .img-banner-text.savie-landing {
+    bottom: 30px;
+  }
+}
+
+@media (min-width: 750px) {
+  .chin .savie-regular-landing .page-banner .img-banner-text.savie-landing {
+    bottom: 40px;
+  }
+}
+
 @media (min-width: 992px) {
   /* line 29, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .page-banner .img-banner-text.savie-landing {
