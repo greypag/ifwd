@@ -702,7 +702,7 @@ var Review = {
 		var postData = fnaData;
 		AjaxManager.fire(url, postData, function(result){
 			if(result.status == 0){
-				window.location.href = contextPath + "/" + language + "/savings-insurance/savie-product";
+				window.location.href = contextPath + "/" + language + "/FNA/product-recommendation";
 			}else if(result.status == 2){
 				//alert("Please login first");
 				$('.login-btn').click();

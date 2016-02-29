@@ -769,7 +769,7 @@ var languageP = "${language}";
 			    		    },     
 			    		    success:function(data){
 			    		    	if(data != null && data.errMsgs == null && data.name !=null){
-			    		    	    window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/savie-review';
+			    		    	    window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
 			    		    	}
 			    		    	else{
 			    		    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';

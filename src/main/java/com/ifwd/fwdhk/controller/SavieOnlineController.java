@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.CommonUtils;
@@ -33,6 +35,7 @@ import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.SavieOnlinePageFlowControl;
+import com.ifwd.fwdhk.util.SaviePageFlowControl;
 import com.ifwd.fwdhk.util.WebServiceUtils;
 @Controller
 public class SavieOnlineController extends BaseController{
@@ -48,28 +51,13 @@ public class SavieOnlineController extends BaseController{
 	
 	@Autowired
 	protected HeaderUtil headerUtil;
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/game"})
-	public ModelAndView game(Model model, HttpServletRequest request) {
-		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "savieonline/game" );
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/review"})
-	public ModelAndView review(Model model, HttpServletRequest request) {
-		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "savieonline/review" );
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/recommendation"})
-	public ModelAndView recommendation(Model model, HttpServletRequest request) {
-		return new ModelAndView(UserRestURIConstants.getSitePath(request) + "savieonline/recommendation" );
-	}
 
-	@RequestMapping(value = {"/{lang}/savings-insurance/savie-landing"})
+	@RequestMapping(value = {"/{lang}/savings-insurance","/{lang}/savings-insurance/"})
 	public ModelAndView getSavieOnlineLanding(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LANDING);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/savie-plan-details"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/plan-details"})
 	public ModelAndView getSavieOnlinePlandetails(Model model, HttpServletRequest request) {
 		
 		Date date = new Date();
@@ -97,22 +85,22 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PLANDETAILS);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/savie-fna"}) 
+	@RequestMapping(value = {"/{lang}/FNA/financial-needs-analysis"}) 
 	public ModelAndView getSavieOnlineFna(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_FNA);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/savie-product"}) 
-	public ModelAndView getSavieOnlinepProduct(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PRODUCT);
-	}
-	
-	@RequestMapping(value = {"/{lang}/savings-insurance/savie-review"}) 
+	@RequestMapping(value = {"/{lang}/FNA/review"}) 
 	public ModelAndView getSavieOnlinepReview(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PRODUCT);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/savie-sales-illustration"})
+	@RequestMapping(value = {"/{lang}/FNA/product-recommendation"}) 
+	public ModelAndView getSavieOnlinepProduct(Model model, HttpServletRequest request) {
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PRODUCT);
+	}
+	
+	@RequestMapping(value = {"/{lang}/savings-insurance/sales-illustration"})
 	public ModelAndView getSavieOnlineSalesIllustration(Model model, HttpServletRequest request) {
 		try {
 			savieOnlineService.createSalesIllustrationPdf(request);
@@ -123,12 +111,12 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SALES_ILLUSTRATION);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/life-fatca"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/fatca"})
 	public ModelAndView getSavieOnlineLifeFatca(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/life-personal-details"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/personal-details"})
 	public ModelAndView getSavieOnlineLifePersonalDetails(Model model, HttpServletRequest request) {
 		model.addAttribute("maritalStatusesEN", InitApplicationMessage.maritalStatusesEN);
 		model.addAttribute("maritalStatusesCN", InitApplicationMessage.maritalStatusesCN);
@@ -147,7 +135,7 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/life-employment-info"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/employment-info"})
 	public ModelAndView getSavieOnlineLifeEmploymentInfo(Model model, HttpServletRequest request) {
 		model.addAttribute("employmentStatusEN", InitApplicationMessage.employmentStatusEN);
 		model.addAttribute("employmentStatusCN", InitApplicationMessage.employmentStatusCN);
@@ -227,7 +215,7 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/life-beneficary-info"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/beneficiary-info"})
 	public ModelAndView getSavieOnlineLifeBeneficaryInfo(Model model, HttpServletRequest request) {
 		model.addAttribute("savieBeneficiaryRelationshipEN", InitApplicationMessage.savieBeneficiaryRelationshipEN);
 		model.addAttribute("savieBeneficiaryRelationshipCN", InitApplicationMessage.savieBeneficiaryRelationshipCN);
@@ -239,7 +227,7 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/life-payment"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/payment"})
 	public ModelAndView getSavieOnlineLifePayment(Model model, HttpServletRequest request) {
 		model.addAttribute("bankCodeEN", InitApplicationMessage.bankCodeEN);
 		model.addAttribute("bankCodeCN", InitApplicationMessage.bankCodeCN);
@@ -248,17 +236,17 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PAYMENT);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/life-policy-summary"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/application-summary"})
 	public ModelAndView getSavieOnlineLifePolicySummary(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_POLICY_SUMMARY);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/life-declaration"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/declaration"})
 	public ModelAndView getSavieOnlineLifeDeclaration(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DECLARATION);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/life-signature"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/signature"})
 	public ModelAndView getSavieOnlineLifeSignature(Model model, HttpServletRequest request,HttpSession session) {
 		try {
 			model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
@@ -272,7 +260,7 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_SIGNATURE);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/life-document-upload"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/document-upload"})
 	public ModelAndView getSavieOnlineLifeDocumentUpload(Model model, HttpServletRequest request,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		try {
@@ -288,32 +276,32 @@ public class SavieOnlineController extends BaseController{
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/upload-confirmation"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
 	public ModelAndView getSavieOnlineUploadConfirmation(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/upload-later-confirmation"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-upload-later"})
 	public ModelAndView getSavieOnlineUploadLaterConfirmation(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/sign-offline-confirmation"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-offline-signature"})
 	public ModelAndView getSavieOnlineSignOfflineConfirmation(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/pay-later-confirmation"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-paylater"})
 	public ModelAndView getSavieOnlinePayLaterConfirmation(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PAY_LATER_CONFIRMATION);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/appointment-confirmation"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-appointment"})
 	public ModelAndView getSavieOnlineAppointmentConfirmation(Model model, HttpServletRequest request) {
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_APPOINTMENT_CONFIRMATION);
 	}
 	
-	@RequestMapping(value = {"/{lang}/savings-insurance/service-center"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/customer-service-centre"})
 	public ModelAndView getSavieOnlineLifeServiceCenter(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		session.setAttribute("savingAmount", "200000");
 		response.setContentType("text/json;charset=utf-8");

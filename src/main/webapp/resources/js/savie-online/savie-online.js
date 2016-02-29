@@ -291,7 +291,7 @@ function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
 		        success:function(data){
 					if(data.errMsgs == null){
 						window.onbeforeunload=null;
-						window.location.href= contextPath+'/'+language+'/savings-insurance/upload-confirmation';
+						window.location.href= contextPath+'/'+language+'/savings-insurance/confirmation';
 					}
 				}
 		});
