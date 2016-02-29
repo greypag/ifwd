@@ -342,8 +342,8 @@
 							<!-- Third Beneficiary -->
 							<div id="add-beneficiary-2" class="text-center add-on-beneficiary col-md-4 col-lg-4 col-sm-12 col-xs-12 last-row hidden">
 								<div class="add-beneficiary" id="beneficiary2">
-									<button id="add-beneficiary-btn-2" value="2" class="circle" type="button">
-										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/orange-plus.png" />
+									<button id="add-beneficiary-btn-2" value="2" class="circle disabled-beneficiary-add" type="button">
+										<img id="add-btn-img" src="<%=request.getContextPath()%>/resources/images/savie-2016/gray-plus.png" />
 									</button>
 									<div class="add-beneficiary-text">
 										<h5>Add beneficiary</h5>
