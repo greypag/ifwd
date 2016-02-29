@@ -2,7 +2,9 @@
 	.error-msg {
 		margin-bottom: 0;
 	}
-	
+	.gray-textbox {
+		margin-bottom: 0 !important;
+	}
 	.selectDiv {
 		margin-bottom: 0;
 	}
@@ -80,8 +82,9 @@
 		a.span-save-continue {
 			font-size: 14px;
 			display: block;
-			margin-top: 5px;
 			color: #ff8200;
+			margin: 5px auto auto;
+			width: 150px;
 
 			&:hover { text-decoration: underline; }
 		}
@@ -261,6 +264,7 @@
 	
 	.beneficiary-info-row {
 		margin-bottom: 10px;
+		text-align: left;
 	}
 	
 	.beneficiary-h5 {

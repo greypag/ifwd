@@ -144,6 +144,17 @@ a {
 			}
 		}
 	}
+	
+	.error-msg {
+		font-size: 14px;
+	}
+	
+	.has-error {
+		.help-block {
+			margin-bottom: 0;
+			margin-top: 0;
+		}
+	}
 }
 
 .selectDiv {
@@ -490,6 +501,7 @@ a {
 	margin-bottom: 10px;
 	padding: 0px 12px 10px 12px;
 	background: #F5F5F5;
+	height: 40px;
 	label {
 		font-size: 11px;
 		font-weight: bold;
@@ -615,8 +627,8 @@ h6 {
 	font-size: 12px;
 }
 .so-mdl-textfield {
-	width: 100%;
-    padding: 0;
+	width: 100% !important;
+    padding: 0 !important;
     margin-bottom: 10px;
 	input {
 		padding: 12px 15px 0 15px !important;
@@ -707,6 +719,11 @@ h6 {
 			height: 40px;
 			font-size: 14px;
     		color: #9ba5a7;
+		}
+		.plan-promo-code {
+			.mdl-textfield {
+				background: #FFF;
+			}	
 		}
 		.plan-dob, .plan-promo-code, .plan-total-years {
 			@media (min-width: $screen-md) {

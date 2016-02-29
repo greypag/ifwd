@@ -211,15 +211,16 @@ $(document).ready(function() {
        else
           return false;
    }
+   
    $('.gray-dropdown').on('click', function() {
          open = !open;
         if(isOpen()) {
-          $(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', 'assets/images/orange-caret-inv.png');
+          $(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret-inv.png');
         }  else {
-        	$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', 'assets/images/orange-caret.png');
+        	$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret.png');
         }
    }).on('blur', function () {
-   		$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', 'assets/images/orange-caret.png');
+   		$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret.png');
    });
 
    $('.so-mdl-textfield-input').focus(function () {
@@ -430,6 +431,34 @@ $(document).ready(function() {
 	      val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
 	    }
 	    return val;
+	}
+	//dummy condition to display error box
+	var errorbox = true;
+
+	if(errorbox) {
+		//displays error box
+		show_stack_bar_top('notice');
+	}
+
+	PNotify.prototype.options.styling = "bootstrap3";
+	function show_stack_bar_top(type) {
+		var stack_bar_top = {"dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0};
+		    var opts = {
+		        title: "Over Here",
+		        text: "Check me out. I'm in a different stack.",
+		        addclass: "stack-bar-top error-box",
+		        cornerclass: "",
+		        width: "100%",
+		        stack: stack_bar_top
+		};
+	    switch (type) {
+	    case 'notice':
+	        opts.title = "Sorry, failed to connect to server.";
+	        opts.text = "Sorry, our service is currently unavailable and we are fixing the issue. Please try again later. We apologize for the inconvenience caused.";
+	        opts.type = "notice";
+	        break;
+	    }
+	    new PNotify(opts);
 	}
 });
 
