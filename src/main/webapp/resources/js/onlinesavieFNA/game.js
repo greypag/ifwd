@@ -2,7 +2,7 @@ var contextPath = context; //"/fwdhk"
 
 var fnaSavieGame = {
 	api_update : contextPath + "/ajax/savings-insurance/update",
-	page_recommendation: contextPath + "/" + language + "/savings-insurance/savie-product",
+	page_recommendation: contextPath + "/" + language + "/FNA/product-recommendation",
 	debug : false,
 	postData : {
 		"gender" : null,
