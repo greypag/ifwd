@@ -622,6 +622,10 @@ h6 {
 		padding: 12px 15px 0 15px !important;
 		height: 40px !important;
 		margin-bottom: 0;
+		
+		&:hover {
+			border-bottom: 2px solid #Ff8200 !important;
+		}
 	}
 	label {
 		font-size: 14px;

@@ -90,7 +90,7 @@ var languageP = "${language}";
 						<div class="form-group checkbox-wrapper">
 							<input type="checkbox" id="hasReadAndAcceptFATC" name="hasReadAndAcceptFATC">
 							<label for="hasReadAndAcceptFATC"></label>
-							<p>I declare, agree and acknowledge that:</p>
+							<p class="chkboxText">I declare, agree and acknowledge that:</p>
 						</div>
 						<p id="chkFATCErMsg" class="err-msg hidden">Please read and accept the Foreign Account Tax Compliance Act statement before submitting the application.</p>
 						<nav>
@@ -107,7 +107,7 @@ var languageP = "${language}";
 						<div class="form-group checkbox-wrapper">
 							<input type="checkbox" id="hasReadAndAcceptFATC2" name="hasReadAndAcceptFATC2">
 							<label for="hasReadAndAcceptFATC2"></label>
-							<p>I declare, agree and acknowledge that:</p>
+							<p class="chkboxText">I declare, agree and acknowledge that:</p>
 						</div>
 						<p id="chkFATC2ErMsg" class="err-msg hidden">Please read and accept the Foreign Account Tax Compliance Act statement before submitting the application.</p>
 						<nav>
@@ -125,7 +125,7 @@ var languageP = "${language}";
 						<div class="form-group checkbox-wrapper clearfix">
 							<input type="checkbox" id="hasReadAndAcceptPICS" name="hasReadAndAcceptPICS">
 							<label for="hasReadAndAcceptPICS"></label>
-							<p class="desktop-left">I have read and I understand and accept this</p>
+							<p class="desktop-left chkboxText">I have read and I understand and accept this</p>
 							<p class="personal-info-link-parent desktop-left"><a data-toggle="modal" data-target=".modal-fatca-declaration">Personal Information Collection Statement.</a></p>
 						</div>
 						<p id="chkPICSErMsg" class="err-msg hidden">Please read and accept the Personal Information Collection statement before submitting the application.</p>
@@ -193,7 +193,7 @@ var languageP = "${language}";
 						<div class="form-group checkbox-wrapper">
 							<input type="checkbox" id="hasReadAndAcceptCancellation" name="hasReadAndAcceptCancellation">
 							<label for="hasReadAndAcceptCancellation"></label>
-							<p>I understand that I have the right to cancel and obtain a refund of any premium(s) paid less any market value adjustments by giving written notice. Such notice must be signed by me and received directly by FWD Life insurance Company (Bermuda) Limited at 1/F., FWD Financial Centre, 308 Des Voeux Road Central, Hong Kong within 21 days after the delivery of the policy or issue of a Notice to the policyholder or the policyholders representative, whichever is the earlier.</p>
+							<p class="chkboxText">I understand that I have the right to cancel and obtain a refund of any premium(s) paid less any market value adjustments by giving written notice. Such notice must be signed by me and received directly by FWD Life insurance Company (Bermuda) Limited at 1/F., FWD Financial Centre, 308 Des Voeux Road Central, Hong Kong within 21 days after the delivery of the policy or issue of a Notice to the policyholder or the policyholders representative, whichever is the earlier.</p>
 						</div>
 						<p id="chkCancellationErMsg" class="err-msg hidden" style="margin-bottom: 15px;">Please read and accept the Cancellation Right and Refund of Premium statement before submitting the application.</p>
 						<p><b>Residency Declaration</b></p>
@@ -224,7 +224,7 @@ var languageP = "${language}";
 						<div class="form-group checkbox-wrapper">
 							<input type="checkbox" id="hasReadAndAgreeApplication" name="hasReadAndAgreeApplication">
 							<label for="hasReadAndAgreeApplication"></label>
-							<p>I hereby DECLARE and AGREE that:</p>
+							<p class="chkboxText">I hereby DECLARE and AGREE that:</p>
 						</div>
 						<p id="chkApplicationErMsg" class="err-msg hidden">Please read and accept the Declaration, Terms & Conditions before submitting the application.</p>
 						<nav>
@@ -241,12 +241,12 @@ var languageP = "${language}";
 						<div class="form-group checkbox-wrapper checkbox-gray">
 							<input type="checkbox" id="chkboxDoNotSendMarketingInfo" name="chkboxDoNotSendMarketingInfo">
 							<label for="chkboxDoNotSendMarketingInfo"></label>
-							<p>Please do not send direct marketing information to me.</p>
+							<p class="chkboxText">Please do not send direct marketing information to me.</p>
 						</div>
 						<div class="form-group checkbox-wrapper checkbox-gray">
 							<input type="checkbox" id="chkboxDoNotProvidePersonalData" name="chkboxDoNotProvidePersonalData">
 							<label for="chkboxDoNotProvidePersonalData"></label>
-							<p>Please do not provide my personal data to other persons or companies for their use in direct marketing.</p>
+							<p class="chkboxText">Please do not provide my personal data to other persons or companies for their use in direct marketing.</p>
 						</div>
 					</div>
 					
@@ -402,5 +402,9 @@ var languageP = "${language}";
 				return true;
 			}
 		}
+		
+		$('.chkboxText').on('click', function() {
+			$(this).siblings('input[type=checkbox]').click();
+		});
 	});
 </script>

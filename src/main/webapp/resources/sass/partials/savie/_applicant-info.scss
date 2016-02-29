@@ -171,6 +171,8 @@
 		font-size: 14px;
 		display: inline-block;
 		margin-top: 8px;
+		
+		&:hover { cursor: pointer; }
 	}
 	
 	#residentialAdress1 {
