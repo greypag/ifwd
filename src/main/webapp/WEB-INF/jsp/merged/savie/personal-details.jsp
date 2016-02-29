@@ -282,7 +282,7 @@
                                                 <label for="diffToPermanent"></label>
                                              </div>
                                              <div class="pull-left right-checkbox">
-                                                <span class="checkbox-text">My residential address is different to my permanent address</span>
+                                                <span id="chkboxdiffToPermanentText" class="checkbox-text">My residential address is different to my permanent address</span>
                                              </div>
                                           </div>
                                        </div>
@@ -332,7 +332,7 @@
                                                 <label for="diffToResidential"></label>
                                              </div>
                                              <div class="pull-left right-checkbox">
-                                                <span class="checkbox-text">My correspondence address is different to my residential address</span>
+                                                <span id="chkboxDiffToResidentialText" class="checkbox-text">My correspondence address is different to my residential address</span>
                                              </div>
                                           </div>
                                        </div>
@@ -511,6 +511,14 @@
 						$('#save-and-continue-modal').modal('show');
 					}
                 });
+				
+				$('#chkboxdiffToPermanentText').on('click', function() {
+					$('#diffToPermanent').click();
+				});
+				
+				$('#chkboxDiffToResidentialText').on('click', function() {
+					$('#diffToResidential').click();
+				});
 		    });
 			
 			$("#et-personal-info-next").click(function(){
