@@ -521,7 +521,7 @@ var context = "${pageContext.request.contextPath}";
 						$("#payment-button-tooltip").next().attr('style',css);
 					}, 1);
 				});	
-	        	/* $(document).on('change','#payment-mode',function(){
+	        	$(document).on('change','#payment-mode',function(){
 					console.log($(this).val());
 					if($(this).val()=="regular") {
 						$('.regular-payment').removeClass('hidden');
@@ -539,7 +539,7 @@ var context = "${pageContext.request.contextPath}";
 						
 		        		$('#policy-year-3-1').html('5');
 					}
-				}); */
+				});
 	        	
 	        	if($('#payment-mode').val()=="regular") {
 	        		$('#total-payment-years').css('display','block');
@@ -571,20 +571,6 @@ var context = "${pageContext.request.contextPath}";
 					endDate: '${defaultDOB }',
 					startView: "decade",
 					autoclose: true
-				}).on('changeDate', function (ev) {
-					var from = $("#sales-illu-dob").val().split("-");
-					var birthdate = new Date(from[2], from[1] - 1, from[0]);
-					var cur = new Date();
-					var diff = cur-birthdate;
-					var age = Math.floor(diff/31536000000); //the age val
-					var max = 99;
-					var looplimit = max - Number(age);
-					
-					//console.log(looplimit);
-					$('#payment-years').html('');
-					for(var i = 1; i <= looplimit; i++ ) {
-						$('#payment-years').append('<option value='+i+'>'+i+'</option>');
-					}
 				});
 				
 				$('#see-more-3-years').click(function(){
