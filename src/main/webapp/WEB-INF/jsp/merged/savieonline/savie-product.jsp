@@ -226,7 +226,6 @@ var affiliate = "${affiliate}";
 									<p>Based on your answers to the Financial Needs Analysis, below are the insurance options to meet your objective(s) and need(s) for your conditions:</p>
 									<div class="hidden-xs">
 										<a href="javascript:void(0);" class="fna-btn-discover">Discover now</a>
-										<a href="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}?type=2">Next Page</a>
 									</div>
 									<a href="<%=request.getContextPath()%>/${language}/savings-insurance/savie-review" class="fna-btn-review">Back to My FNA Review&nbsp;<i class="fa fa-caret-right"></i></a>
 								</div>

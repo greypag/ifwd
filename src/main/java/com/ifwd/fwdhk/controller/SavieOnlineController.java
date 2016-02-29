@@ -66,7 +66,7 @@ public class SavieOnlineController extends BaseController{
 
 	@RequestMapping(value = {"/{lang}/savings-insurance/savie-landing"})
 	public ModelAndView getSavieOnlineLanding(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LANDING);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LANDING);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/savie-plan-details"})
@@ -94,22 +94,22 @@ public class SavieOnlineController extends BaseController{
 		}
 		
 		model.addAttribute("defaultDOB", DateApi.formatString1(defaultDOB.getTime()));
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PLANDETAILS);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PLANDETAILS);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/savie-fna"}) 
 	public ModelAndView getSavieOnlineFna(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_FNA);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_FNA);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/savie-product"}) 
 	public ModelAndView getSavieOnlinepProduct(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PRODUCT);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/savie-review"}) 
 	public ModelAndView getSavieOnlinepReview(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PRODUCT);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PRODUCT);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/savie-sales-illustration"})
@@ -120,12 +120,12 @@ public class SavieOnlineController extends BaseController{
 		catch (Exception e) {
 			request.getSession().setAttribute("errorMsg", e.getMessage());
 		}
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_SALES_ILLUSTRATION);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SALES_ILLUSTRATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/life-fatca"})
 	public ModelAndView getSavieOnlineLifeFatca(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_FATCA);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/life-personal-details"})
@@ -144,7 +144,7 @@ public class SavieOnlineController extends BaseController{
 			model.addAttribute("backSummary", backSummary);
 		}
 		SavieFnaBean savieFna = (SavieFnaBean) request.getSession().getAttribute("savieFna");
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/life-employment-info"})
@@ -224,7 +224,7 @@ public class SavieOnlineController extends BaseController{
 		if(backSummary!=null && "Y".equals(backSummary)){
 			model.addAttribute("backSummary", backSummary);
 		}
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/life-beneficary-info"})
@@ -236,7 +236,7 @@ public class SavieOnlineController extends BaseController{
 		if(backSummary!=null && "Y".equals(backSummary)){
 			model.addAttribute("backSummary", backSummary);
 		}
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_BENEFICARY_INFO);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/life-payment"})
@@ -245,17 +245,17 @@ public class SavieOnlineController extends BaseController{
 		model.addAttribute("bankCodeCN", InitApplicationMessage.bankCodeCN);
 		model.addAttribute("branchCodeEN", InitApplicationMessage.branchCodeEN);
 		model.addAttribute("branchCodeCN", InitApplicationMessage.branchCodeCN);
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PAYMENT);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PAYMENT);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/life-policy-summary"})
 	public ModelAndView getSavieOnlineLifePolicySummary(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_POLICY_SUMMARY);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/life-declaration"})
 	public ModelAndView getSavieOnlineLifeDeclaration(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DECLARATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/life-signature"})
@@ -269,7 +269,7 @@ public class SavieOnlineController extends BaseController{
 			logger.info(e.getMessage());
 			request.getSession().setAttribute("errorMsg", e.getMessage());
 		}
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_SIGNATURE);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/life-document-upload"})
@@ -285,32 +285,32 @@ public class SavieOnlineController extends BaseController{
 		catch (Exception e) {
 			jsonObject.put("errorMsg", e.getMessage());
 		}
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/upload-confirmation"})
 	public ModelAndView getSavieOnlineUploadConfirmation(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/upload-later-confirmation"})
 	public ModelAndView getSavieOnlineUploadLaterConfirmation(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/sign-offline-confirmation"})
 	public ModelAndView getSavieOnlineSignOfflineConfirmation(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/pay-later-confirmation"})
 	public ModelAndView getSavieOnlinePayLaterConfirmation(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PAY_LATER_CONFIRMATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/appointment-confirmation"})
 	public ModelAndView getSavieOnlineAppointmentConfirmation(Model model, HttpServletRequest request) {
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_APPOINTMENT_CONFIRMATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/service-center"})
@@ -394,7 +394,7 @@ public class SavieOnlineController extends BaseController{
 				session.setAttribute("perferredDate", formatter.format(date));
 			}
 			logger.info(session.getAttribute("perferredDate").toString());
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER);
+		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SERVICE_CENTER);
 	}
 	
 }
