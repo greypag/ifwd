@@ -352,7 +352,7 @@ var FNArecommendation = {
 			that.parseUserData(res);
 			//Assign Value to 
 
-			AjaxManager.fire(that.api_product_recommend,null,function(res){
+			AjaxManager.fire(that.api_product_recommend,that.fnaData,function(res){
 				that.fnaResultData = res;
 				that.parseProductRecommend(res);
 				that.setLoading(false);
@@ -381,7 +381,7 @@ var FNArecommendation = {
 		var that = this;
 		if(morePage != undefined) that.fnaPopupData = [];
 		var url = morePage ? morePage : that.api_product_recommend; 
-		AjaxManager.fire(url,null,function(res){
+		AjaxManager.fire(url,that.fnaData,function(res){
 			that.fnaResultData = res;
 			that.parseProductRecommend(res, morePage != undefined);
 			that.setLoading(false);
@@ -409,22 +409,26 @@ var FNArecommendation = {
 	},
 
 	parseUserData:function(data){
-		console.log(data);
 		var that = this;
 		var selection = ["q1","q2","q3","q4_a","q4_e"];
 
 		var selectorPattern = ".{q} input[type='checkbox'][value='{v}']";
 		$(selection).each(function(key,val){
-			
 			$("." + val).find("input[type='checkbox']").prop("checked",false);
 			if(typeof(data[val]) == "number"){
 				$(selectorPattern.replace("{q}",val).replace("{v}",data[val])).prop("checked",true);
 			}else{
-				var answer = data[val].split(",");
+				/*var answer = data[val].split(",");
 
 				$(answer).each(function(k2,v2){
 					$(selectorPattern.replace("{q}",val).replace("{v}",v2)).prop("checked",true);
-				});	
+				});	*/
+				if(data[val] != null) {
+					var answer = data[val].split(",");
+					$(answer).each(function(k2,v2){
+						$(selectorPattern.replace("{q}",val).replace("{v}",v2)).prop("checked",true);
+					});	
+				}
 			}
 
 			$("."+ val).data({"originalVal":data[val],"qName":val,"isDifferent":false});
