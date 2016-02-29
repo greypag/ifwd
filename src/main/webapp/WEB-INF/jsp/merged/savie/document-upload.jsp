@@ -378,7 +378,7 @@ var languageP = "${language}";
 						}
 					}
 					else{
-						window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+						window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 					}
 				});
 				

@@ -23,13 +23,13 @@ declaration5:<input type="checkbox" name="declaration5" value="true"/><br/>
 <script type="text/javascript">
 $("#nextPage").click(function(){
 	$.ajax({     
-	    url:'${pageContext.request.contextPath}/ajax/savie-online/createLifePolicy',     
+	    url:'${pageContext.request.contextPath}/ajax/savings-insurance/createLifePolicy',     
 	    type:'get',     
 	    error:function(){       
 	    },     
 	    success:function(data){
 	    	if(data != null && data.successMsg !=null){
-	    		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+	    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 	    	}
 	    }  
 	});
@@ -40,14 +40,14 @@ $("#saveLater").click(function(){
 	$.ajax({
 		  type : "POST",
 		  async:false, 
-		  url : "<%=request.getContextPath()%>/ajax/savie-online/lifeDeclarationSaveforLater",
+		  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeDeclarationSaveforLater",
 		  data: $("#lifeDeclarationForm").serialize(),
 		  success : function(data) {
 			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 				  $("#errorMsg").html(data.errorMsg);
 			  }
 			  else{
-				  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+				  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 			  }
 		  }
      });

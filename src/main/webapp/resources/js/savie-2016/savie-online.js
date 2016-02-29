@@ -1705,7 +1705,7 @@ function getSavieOnlinePlandetails() {
 	$.ajax({
 		type : "POST",
 		async: true,
-		url : context + "/ajax/savie-online/getSavieOnlinePlandetails",
+		url : context + "/ajax/savings-insurance/getSavieOnlinePlandetails",
 		data: {insuredAmount : $("#R").val(), paymentType : $("#type-of-payment").val(), dob : $("#plan-dob-datepicker").val(), promoCode : "" },
 		success : function(data) {
 			/* if(data != null && data.errorMsg != null && data.errorMsg != ""){

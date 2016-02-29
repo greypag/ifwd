@@ -48,7 +48,7 @@ $("#calculate").click(function(){
 	$.ajax({
 		  type : "POST",
 		  async:false, 
-		  url : "<%=request.getContextPath()%>/ajax/savie-online/getSavieOnlinePlandetails",
+		  url : "<%=request.getContextPath()%>/ajax/savings-insurance/getSavieOnlinePlandetails",
 		  data: $("#saviePlanDetailsForm").serialize(),
 		  success : function(data) {
 			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
@@ -72,26 +72,26 @@ $("#made-decision-next-btn").on('click', function(){
 });	
 function goServiceCenter(){
 	$.ajax({     
-	    url:'${pageContext.request.contextPath}/ajax/savie-online/getPurchaseHistoryByPlanCode',     
+	    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
 	    type:'get',     
 	    error:function(){       
 	    },     
 	    success:function(data){
 	    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
-	    	     window.location = '<%=request.getContextPath()%>/${language}/savie-online/service-center';
+	    	     window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/service-center';
 	    	}
 	    	else{
 	    		$.ajax({     
-	    		    url:'${pageContext.request.contextPath}/ajax/savie-online/show',     
+	    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
 	    		    type:'get',     
 	    		    error:function(){       
 	    		    },     
 	    		    success:function(data){
 	    		    	if(data != null && data.errMsgs == null && data.name !=null){
-	    		    	    window.location = '<%=request.getContextPath()%>/${language}/savie-online/savie-review';
+	    		    	    window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/savie-review';
 	    		    	}
 	    		    	else{
-	    		    	    window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+	    		    	    window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 	    		    	}
 	    		    }  
 	    		});

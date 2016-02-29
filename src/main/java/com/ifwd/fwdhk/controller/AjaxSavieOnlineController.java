@@ -50,7 +50,7 @@ public class AjaxSavieOnlineController extends BaseController{
 	
 	private static final String WATERMARK = "/resources/images/elite-terms/Watermark.png";
 	
-	@RequestMapping(value = {"/ajax/savie-online/getSavieOnlinePlandetails"})
+	@RequestMapping(value = {"/ajax/savings-insurance/getSavieOnlinePlandetails"})
 	public void getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String language = (String) session.getAttribute("language");
 		net.sf.json.JSONObject jsonObject = new net.sf.json.JSONObject();
@@ -76,7 +76,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/lifePersonalDetails"})
+	@RequestMapping(value = {"/ajax/savings-insurance/lifePersonalDetails"})
 	public void lifePersonalDetails(LifePersonalDetailsBean lifePersonalDetails ,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String language = (String) session.getAttribute("language");
 		JSONObject jsonObject = new JSONObject();
@@ -94,7 +94,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/lifeEmploymentInfo"})
+	@RequestMapping(value = {"/ajax/savings-insurance/lifeEmploymentInfo"})
 	public void lifeEmploymentInfo(LifeEmploymentInfoBean lifeEmploymentInfo,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String language = (String) session.getAttribute("language");
 		JSONObject jsonObject = new JSONObject();
@@ -112,7 +112,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/lifeBeneficaryInfo"})
+	@RequestMapping(value = {"/ajax/savings-insurance/lifeBeneficaryInfo"})
 	public void lifeBeneficaryInfo(LifeBeneficaryInfoBean lifeBeneficaryInfo,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String language = (String) session.getAttribute("language");
 		JSONObject jsonObject = new JSONObject();
@@ -130,7 +130,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/lifePayment"})
+	@RequestMapping(value = {"/ajax/savings-insurance/lifePayment"})
 	public void lifePayment(LifePaymentBean lifePayment,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		String language = (String) session.getAttribute("language");
 		JSONObject jsonObject = new JSONObject();
@@ -148,7 +148,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/createLifePolicy"})
+	@RequestMapping(value = {"/ajax/savings-insurance/createLifePolicy"})
 	public void createLifePolicy(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
@@ -165,7 +165,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 
-	@RequestMapping(value = {"/ajax/savie-online/finalizeLifePolicy"})
+	@RequestMapping(value = {"/ajax/savings-insurance/finalizeLifePolicy"})
 	public void finalizeLifePolicy(HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
@@ -181,7 +181,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/update"})
+	@RequestMapping(value = {"/ajax/savings-insurance/update"})
 	public void update(SavieFnaBean savieFna,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
@@ -201,7 +201,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/show"})
+	@RequestMapping(value = {"/ajax/savings-insurance/show"})
 	public void show(HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
@@ -217,7 +217,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/product-recommend"})
+	@RequestMapping(value = {"/ajax/savings-insurance/product-recommend"})
 	public void productRecommend(SavieFnaBean savieFna,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		//String language = (String) session.getAttribute("language");
 		JSONObject jsonObject = new JSONObject();
@@ -234,7 +234,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/getPurchaseHistoryByPlanCode"})
+	@RequestMapping(value = {"/ajax/savings-insurance/getPurchaseHistoryByPlanCode"})
 	public void getPurchaseHistoryByPlanCode(HttpServletRequest request,HttpServletResponse response) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
@@ -251,7 +251,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/enquiry"})
+	@RequestMapping(value = {"/ajax/savings-insurance/enquiry"})
 	public void enquiry(HttpServletRequest request,HttpServletResponse response) {
 		/*JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
@@ -268,7 +268,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/getBranchCode"})
+	@RequestMapping(value = {"/ajax/savings-insurance/getBranchCode"})
 	public void getOccupationByAjax(Model model, HttpServletRequest request,HttpServletResponse response) throws Exception {
 		List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
 		if(Methods.isXssAjax(request)){
@@ -283,7 +283,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, OptionItemDescList);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/lifePersonalDetailsSaveforLater"})
+	@RequestMapping(value = {"/ajax/savings-insurance/lifePersonalDetailsSaveforLater"})
 	public void lifePersonalDetailsSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
@@ -299,7 +299,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/lifeEmploymentInfoSaveforLater"})
+	@RequestMapping(value = {"/ajax/savings-insurance/lifeEmploymentInfoSaveforLater"})
 	public void lifeEmploymentInfoSaveforLater(LifeEmploymentInfoBean lifeEmploymentInfo,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
@@ -315,7 +315,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/lifeBeneficaryInfoSaveforLater"})
+	@RequestMapping(value = {"/ajax/savings-insurance/lifeBeneficaryInfoSaveforLater"})
 	public void lifeBeneficaryInfoSaveforLater(LifeBeneficaryInfoBean lifeBeneficaryInfo,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
@@ -331,7 +331,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/lifePaymentSaveforLater"})
+	@RequestMapping(value = {"/ajax/savings-insurance/lifePaymentSaveforLater"})
 	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
@@ -347,7 +347,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/lifeDeclarationSaveforLater"})
+	@RequestMapping(value = {"/ajax/savings-insurance/lifeDeclarationSaveforLater"})
 	public void lifeDeclarationSaveforLater(lifeDeclarationBean lifeDeclaration,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
@@ -363,7 +363,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		ajaxReturn(response, jsonObject);
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/getEliteTermImage"},method = RequestMethod.POST)
+	@RequestMapping(value = {"/ajax/savings-insurance/getEliteTermImage"},method = RequestMethod.POST)
 	  public void doAddImageByGroupId(HttpServletRequest request, HttpServletResponse response,
 	            @RequestParam(value = "name", required = true) String name,
 	            @RequestParam(value = "img", required = true) MultipartFile imageFile
@@ -418,7 +418,7 @@ public class AjaxSavieOnlineController extends BaseController{
 			}
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/getEliteTermSendImageFlage"},method = RequestMethod.POST)
+	@RequestMapping(value = {"/ajax/savings-insurance/getEliteTermSendImageFlage"},method = RequestMethod.POST)
 	  public void getEliteTermSendImageFlage(HttpServletRequest request, HttpServletResponse response,
 	            @RequestParam String passportFlage,
 	            @RequestParam String uploadLaterFlage
@@ -436,7 +436,7 @@ public class AjaxSavieOnlineController extends BaseController{
 			}
 	}
 	
-	@RequestMapping(value = {"/ajax/savie-online/uploadSignature"})
+	@RequestMapping(value = {"/ajax/savings-insurance/uploadSignature"})
 	public void uploadSignature(HttpServletRequest request,HttpServletResponse response,@RequestParam String image){
 		if (Methods.isXssAjax(request)) {
 			return;

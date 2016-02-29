@@ -550,7 +550,7 @@
 			 }
 			 
 			 function getBranchCode(value,language) {
-					$.get('<%=request.getContextPath()%>/ajax/savie-online/getBranchCode',
+					$.get('<%=request.getContextPath()%>/ajax/savings-insurance/getBranchCode',
 					{ 
 						value : value,
 						language : language
@@ -569,21 +569,21 @@
 			 
 			 function goNext(){
 					if($('input[name="payment"]:checked ').val() == "false"){
-						window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+						window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 					}
 					else{
 						$("#errorMsg").html("");
 						$.ajax({
 							  type : "POST",
 							  async:false, 
-							  url : "<%=request.getContextPath()%>/ajax/savie-online/lifePayment",
+							  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePayment",
 							  data: $("#paymentForm").serialize(),
 							  success : function(data) {
 								  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 									  $("#errorMsg").html(data.errorMsg);
 								  }
 								  else{
-									  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 								  }
 							  }
 					     });
@@ -596,14 +596,14 @@
 					$.ajax({
 						  type : "POST",
 						  async:false, 
-						  url : "<%=request.getContextPath()%>/ajax/savie-online/lifePaymentSaveforLater",
+						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePaymentSaveforLater",
 						  data: $("#paymentForm").serialize(),
 						  success : function(data) {
 							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 								  $("#errorMsg").html(data.errorMsg);
 							  }
 							  else{
-								  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 							  }
 						  }
 				     });

@@ -1,8 +1,8 @@
 var contextPath = context; //"/fwdhk"
 var UILANGUAGE = language;
 
-var url_show = contextPath+"/ajax/savie-online/show";
-var url_update = contextPath+"/ajax/savie-online/update";
+var url_show = contextPath+"/ajax/savings-insurance/show";
+var url_update = contextPath+"/ajax/savings-insurance/update";
 
 $(document).ready(function(){
 	Review.init();

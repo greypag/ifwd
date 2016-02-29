@@ -230,7 +230,7 @@ function uploadFile(inputID,forDragAndDrop) {
 	xhr.addEventListener("error", uploadFailed, false);
 	xhr.addEventListener("abort", uploadCanceled, false);
 	xhr.onreadystatechange = xhrReturn;
-	xhr.open("POST", context+"/ajax/savie-online/getEliteTermImage");
+	xhr.open("POST", context+"/ajax/savings-insurance/getEliteTermImage");
 	xhr.send(fd);
 }
 

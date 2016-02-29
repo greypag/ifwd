@@ -227,7 +227,7 @@ var affiliate = "${affiliate}";
 									<div class="hidden-xs">
 										<a href="javascript:void(0);" class="fna-btn-discover">Discover now</a>
 									</div>
-									<a href="<%=request.getContextPath()%>/${language}/savie-online/savie-review" class="fna-btn-review">Back to My FNA Review&nbsp;<i class="fa fa-caret-right"></i></a>
+									<a href="<%=request.getContextPath()%>/${language}/savings-insurance/savie-review" class="fna-btn-review">Back to My FNA Review&nbsp;<i class="fa fa-caret-right"></i></a>
 								</div>
 								<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-xs hidden-sm">
 									<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/recommend_box_pic_01.png" class="img-responsive">
@@ -297,7 +297,7 @@ var affiliate = "${affiliate}";
 						<span class="fna-tooltips fna-product-type-tooltips show-inline-md" data-placement="bottom" data-original-title="">i</span>
 					</div>
 					<div class="fna-product-cfa hidden-print">
-						<a href="<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}?type=2" class="fna-btn-sel-product"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png">Appy Now</a>
+						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}?type=2" class="fna-btn-sel-product"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon01.png">Appy Now</a>
 
 						<a href="javascript:void(0);" class="fna-btn-call-details"> <img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/iFWD_icon02.png">Call For Details</a>
 					</div>

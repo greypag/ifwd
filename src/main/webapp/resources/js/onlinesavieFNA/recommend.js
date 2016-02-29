@@ -1,10 +1,10 @@
 var contextPath = context; //"/fwdhk"
 
 var FNArecommendation = {
-	api_show : contextPath+'/ajax/savie-online/show',
-	api_update : contextPath+'/ajax/savie-online/update',
-	api_product_recommend : contextPath+'/ajax/savie-online/product-recommend',
-	api_enquiry : contextPath+'/ajax/savie-online/enquiry',
+	api_show : contextPath+'/ajax/savings-insurance/show',
+	api_update : contextPath+'/ajax/savings-insurance/update',
+	api_product_recommend : contextPath+'/ajax/savings-insurance/product-recommend',
+	api_enquiry : contextPath+'/ajax/savings-insurance/enquiry',
 	fnaOriginalData : null,
 	fnaData : null,
 	fnaResultData : null,

@@ -15,7 +15,7 @@
 <script type="text/javascript">
 $("#nextPage").click(function(){
 	setTimeout(function(){
-		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 	}, 1000);
 });
 </script>
