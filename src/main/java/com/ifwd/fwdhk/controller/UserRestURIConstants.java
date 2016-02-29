@@ -284,7 +284,6 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIEONLINE_LIFE_DECLARATION = "declaration";
 	public static final String PAGE_SAVIEONLINE_LIFE_SIGNATURE = "signature";
 	public static final String PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD = "document-upload";
-	public static final String PAGE_SAVIE_LIFE_DOCUMENT_UPLOAD = "document-upload";
 	public static final String PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION = "confirmation";
 	public static final String PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION = "confirmation-upload-later";
 	public static final String PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION = "confirmation-offline-signature";
@@ -293,26 +292,26 @@ public class UserRestURIConstants {
 	public static final String PAGE_SAVIEONLINE_SERVICE_CENTER = "customer-service-centre";
 	
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_LANDING = "savie.landing";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_PLANDETAILS = "plan.details";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_PLANDETAILS = "savie.plan.details";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_FNA = "fna.fna";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_PRODUCT = "fna.product.recommendation";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_REVIEW = "fna.review";
 	public static final String PAGE_PROPERTIES_SAVIEONLINE_SALES_ILLUSTRATION = "savie.sales.illustration";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA = "life.fatca";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS = "life.personal.details";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO = "life.employment.info";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO = "life.beneficary.info";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_PAYMENT = "life.payment";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_POLICY_SUMMARY = "life.policy.summary";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_DECLARATION = "life.declaration";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_SIGNATURE = "signature";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD = "life.document.upload";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION = "upload.confirmation";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION = "upload.later.confirmation";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION = "sign.offline.confirmation";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_PAY_LATER_CONFIRMATION = "pay.later.confirmation";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_APPOINTMENT_CONFIRMATION = "appointment.confirmation";
-	public static final String PAGE_PROPERTIES_SAVIEONLINE_SERVICE_CENTER = "service.center";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_FATCA = "savie.fatca";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_PERSONAL_DETAILS = "savie.personal.details";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_EMPLOYMENT_INFO = "savie.employment.info";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_BENEFICARY_INFO = "savie.beneficary.info";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_PAYMENT = "savie.payment";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_POLICY_SUMMARY = "savie.application.summary";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_DECLARATION = "savie.declaration";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_SIGNATURE = "savie.signature";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD = "savie.document.upload";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION = "savie.confirmation";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION = "savie.confirmation.upload.later";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION = "savie.confirmation.offline.signature";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_PAY_LATER_CONFIRMATION = "savie.confirmation.paylater";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_APPOINTMENT_CONFIRMATION = "savie.confirmation.appointment";
+	public static final String PAGE_PROPERTIES_SAVIEONLINE_SERVICE_CENTER = "savie.customer.service.centre";
 
 	/* for image configuration */
 	public static final String IMAGE_CONFIG = SERVICE_URL + "/ecommerce/configuration";

@@ -38,7 +38,7 @@ var affiliate = "${affiliate}";
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 lead-in">
 				<p>Review and update your Financial Needs Analysis selection to match your current needs</p>
-				<p><span>Last updated on <span id="lastupdate">25/10/2015</span></span></p>
+				<p><span>Last updated on <span id="lastupdate">${savieFna.last_update }</span></span></p>
 			</div>
 		</div>
 	</div>
