@@ -61,7 +61,7 @@ public class SavieController extends BaseController{
 	@Autowired
 	private CommonUtils commonUtils;
 		
-	@RequestMapping(value = {"/savie", "/Savie"}, method = RequestMethod.GET)
+	/*@RequestMapping(value = {"/savie", "/Savie"}, method = RequestMethod.GET)
 	public RedirectView getSavieShortcut(Model model, HttpServletRequest request)
 	{
 		RedirectView rv = new RedirectView(request.getContextPath() + "/tc/savings-insurance?utm_source=Offline&utm_medium=referral&utm_campaign=Offline|SA|P1|");
@@ -206,10 +206,10 @@ public class SavieController extends BaseController{
 	}
 	
 	
-	/*@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
 	public ModelAndView getSavieThankyou(Model model, HttpServletRequest request) {
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_CONFIRMATION);
-	}*/
+	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/declarations"})
 	public ModelAndView getSavieDeclarationAuthorization(Model model, HttpServletRequest request) {
@@ -257,7 +257,7 @@ public class SavieController extends BaseController{
 	}
 	
 	
-	/*@RequestMapping(value = {"/{lang}/savings-insurance/email-submitted","/{lang}/savings-insurance/o2o-landing/email-submitted"})
+	@RequestMapping(value = {"/{lang}/savings-insurance/email-submitted","/{lang}/savings-insurance/o2o-landing/email-submitted"})
 	public ModelAndView getSavieEmailSubmitted(Model model, HttpServletRequest request) {
 		String referer = request.getHeader("referer");
 		if(referer != null && (referer.endsWith("/savings-insurance/email-submitted") || referer.endsWith("/savings-insurance/o2o-landing/email-submitted")
@@ -268,7 +268,7 @@ public class SavieController extends BaseController{
 		}else {
 			return getSavieEmailConfirmed(model, request);
 		//}
-	}*/
+	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/pdf-show"})
  	public ModelAndView showPdf(Model model, HttpServletRequest request,@RequestParam String pdfName,@RequestParam String requestNo) {
@@ -279,12 +279,12 @@ public class SavieController extends BaseController{
 	
 	
 	
-	/**
+	*//**
 	 * 
 	 * @param model
 	 * @param request
 	 * @return download page
-	 */
+	 *//*
 	@RequestMapping(value = {"/{lang}/downloadPage"})
 	public ModelAndView goDownloadPage(Model model, HttpServletRequest request){
 		logger.info("go to download page");
@@ -295,11 +295,11 @@ public class SavieController extends BaseController{
 				+ "downloadTest");
 	}
 	
-	/**
+	*//**
 	 * 
 	 * @param request download target file
 	 * @param response
-	 */
+	 *//*
 	@RequestMapping(value = {"/{lang}/fileDownload"})
 	public void fileDownload(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		String lang = UserRestURIConstants.getLanaguage(request);
@@ -330,10 +330,10 @@ public class SavieController extends BaseController{
 
 	}
 	
-	/**
+	*//**
 	 * @param request reload init message
 	 * @param response
-	 */
+	 *//*
 	@RequestMapping(value = {"/{lang}/reloadInitAppMsg"},method=RequestMethod.GET)
 	public ModelAndView reloadInitMsg(HttpServletRequest request,HttpServletResponse response){
 		InitApplicationMessage.init(commonUtils, "reload");
@@ -422,12 +422,12 @@ public class SavieController extends BaseController{
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_SAVIE_APPOINTMENT_SUCCESS);
 	}
 	
-	/**
+	*//**
 	 * 预约成功跳转页面
 	 * @param model
 	 * @param request
 	 * @return
-	 */
+	 *//*
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
 	public ModelAndView confirmationOffline(Model model, HttpServletRequest request) {
 		
@@ -463,5 +463,5 @@ public class SavieController extends BaseController{
 		
 		
 		return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_LANDING);
-	}
+	}*/
 }

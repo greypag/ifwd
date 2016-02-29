@@ -178,7 +178,7 @@
 			};
 			
 			$("#accept-btn").click(function(){
-				window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 			});
 
 

@@ -195,6 +195,7 @@
       position: relative; }
       .game-fna .step2 .cont .styled-select select {
         font-size: 14px;
+        line-height: 36px;
         font-weight: bold;
         color: #fff;
         outline: 0;
@@ -483,6 +484,10 @@
         line-height: 44px;
         padding-left: 10px;
         color: #58595b; }
+    .game-fna .step5 .cont .sep {
+      height: 1px;
+      border-bottom: 1px solid #a7a9ac;
+      margin: 0 0 10px; }
     .game-fna .step5 .cont .q4a {
       width: 320px;
       position: absolute;
@@ -490,7 +495,7 @@
       left: 112px; }
       .game-fna .step5 .cont .q4a p {
         line-height: 14px;
-        margin-bottom: 20px; }
+        margin-bottom: 15px; }
         .game-fna .step5 .cont .q4a p input {
           border: 1px solid #58595b;
           font-size: 12.84px; }
@@ -520,7 +525,8 @@
       .game-fna .step5 .cont .q4b h4:before {
         content: '4b'; }
       .game-fna .step5 .cont .q4b .fna-checkbox-gp {
-        padding: 0; }
+        padding: 0;
+        margin-bottom: -10px; }
         .game-fna .step5 .cont .q4b .fna-checkbox-gp .fna-checkbox-btn {
           float: left;
           width: 50%; }
@@ -774,6 +780,32 @@
         position: absolute;
         top: 142px;
         left: 20px; }
+  .game-fna .last-loading {
+    background: url(../../images/onlinesavieFNA/main_bg.jpg) center top no-repeat;
+    height: 595px;
+    position: relative;
+    display: none; }
+    .game-fna .last-loading .last-loading-cont {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      top: 160px;
+      max-width: 535px;
+      padding: 0 10px; }
+      .game-fna .last-loading .last-loading-cont .family {
+        position: absolute;
+        top: -110px;
+        left: 0;
+        right: 0;
+        margin: auto; }
+      .game-fna .last-loading .last-loading-cont p {
+        margin-top: 80px;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center; }
+      .game-fna .last-loading .last-loading-cont .bubble-gp {
+        text-align: center; }
   .game-fna .round-box {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -892,6 +924,28 @@
       content: '';
       border-bottom: 5px solid #cd962b; }
 
+/* CSS Browser Fix */
+@media screen\0 {
+  .game-fna .step2 .cont .styled-select select {
+    height: 36px; }
+  .game-fna .step3 .cont .q1 .fna-checkbox-gp {
+    margin: 0 0 0 30px; }
+  .game-fna .step3 .cont .q2 {
+    top: 25px; }
+  .game-fna .step8 .cont .q4g h4 .q-num {
+    left: -54px; } }
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .game-fna .step2 .cont .styled-select select {
+    height: 36px; }
+  .game-fna .step3 .cont .q1 .fna-checkbox-gp {
+    margin: 0 0 0 30px; }
+  .game-fna .step3 .cont .q2 {
+    top: 25px; }
+  .game-fna .step8 .cont .q4g h4 .q-num {
+    left: -54px; } }
+@-moz-document url-prefix() {
+  .game-fna .step2 .cont .styled-select select {
+    height: 36px; } }
 .fna-btn-basic {
   background-color: #f7941e;
   color: #fff;
@@ -1380,6 +1434,9 @@
     width: 80%; }
     .game-fna-wrapper .game-fna .step1 .gender-img-wrapper {
       padding-top: 14%; } }
+@media (max-width: 480px) {
+  .game-fna-wrapper .game-fna .step5 .cont .q4a .fna-radio-gp-indv .fna-radio-btn {
+    font-size: 12px; } }
 .clearfix:before,
 .clearfix:after {
   content: " ";
@@ -1400,5 +1457,38 @@
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 20px; }
+
+.spinner {
+  margin: 50px auto 0;
+  text-align: center; }
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #eee;
+  margin: 0 5px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both; }
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s; }
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s; }
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    background-color: #000; }
+  40% {
+    background-color: #eee; } }
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    background-color: #000; }
+  40% {
+    background-color: #eee; } }
 
 /*# sourceMappingURL=onlinesavieFNAGame.css.map */

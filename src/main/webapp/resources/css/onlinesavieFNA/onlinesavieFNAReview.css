@@ -48,15 +48,12 @@ h6 {
 #FNAReview #personal_info .question.row {
   margin-top: 0;
   margin-bottom: 0; }
-#FNAReview #personal_info .content {
+#FNAReview #personal_info span {
   display: inline-block;
   width: 70%;
   margin-left: 5px;
   vertical-align: top; }
 #FNAReview #personal_info .headline {
-  display: inline-block;
-  margin-left: 5px;
-  vertical-align: top;
   width: 25%;
   color: #505759; }
 #FNAReview #personal_info .displayMode {
@@ -69,27 +66,12 @@ h6 {
   display: none; }
 #FNAReview #personal_info select {
   background-color: #FFF !important;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  display: block;
-  color: #505759; }
+  margin-bottom: 5px;
+  display: block; }
   #FNAReview #personal_info select option {
     background-color: #FFF !important; }
   #FNAReview #personal_info select.disabled {
     display: none; }
-#FNAReview #personal_info .select2-container {
-  margin-bottom: 10px;
-  width: 100% !important; }
-  #FNAReview #personal_info .select2-container .select2-selection--single {
-    padding: 8px 22px;
-    height: auto;
-    border: none; }
-#FNAReview #personal_info .select2-container--default .select2-selection--single .select2-selection__arrow b {
-  border-color: #000 transparent transparent transparent;
-  border-width: 6px 3px 0 3px;
-  margin-left: -1px;
-  margin-top: 5px; }
 #FNAReview #personal_info .occupation_others {
   margin: 10px 0;
   padding: 0 25px; }
@@ -148,7 +130,7 @@ h6 {
   #FNAReview .review-box .option label span {
     color: #505759; }
   #FNAReview .review-box .option .checkbox input[type="checkbox"] {
-    visibility: hidden; }
+    display: none; }
   #FNAReview .review-box .option .checkbox label {
     margin-left: -30px; }
   #FNAReview .review-box .option .checkbox label::before {
@@ -195,9 +177,7 @@ h6 {
     font-weight: bold;
     font-size: 22px;
     float: right;
-    margin: 20px;
-    padding: 8px 20px;
-    width: 150px; }
+    margin: 20px; }
     #FNAReview .review-box .btn_edit.selected {
       display: none; }
 #FNAReview #btn_save {
@@ -227,9 +207,6 @@ h6 {
     top: 10px;
     right: 20px; }
 
-@media (min-width: 767px) {
-  #fnaPopupEnquiry .modal-dialog {
-    width: 750px; } }
 @media screen and (max-width: 768px) {
   p {
     font-size: 18px; }
@@ -275,20 +252,19 @@ h6 {
       margin: 10px 0; }
 
   #btn_save {
-    font-size: 22px; } }
+    font-size: 22px; }
+
+  #fnaPopupEnquiry .modal-dialog {
+    width: 750px; } }
 @media screen and (max-width: 480px) {
   p {
     font-size: 14px; }
 
-  #FNAReview #personal_info .headline, #FNAReview #personal_info .content {
-    width: 90%; }
+  #FNAReview #personal_info .headline {
+    width: 100%; }
   #FNAReview #personal_info span {
     display: block; }
   #FNAReview #personal_info select {
-    padding: 0;
-    height: 26px;
-    font-size: 14px; }
-  #FNAReview #personal_info .select2-container .select2-selection--single {
     padding: 0;
     height: 26px;
     font-size: 14px; }
@@ -317,15 +293,11 @@ h6 {
     #FNAReview .review-box .btn-action .btn {
       width: 130px;
       margin: 0 2px;
-      height: 40px;
-      line-height: 40px;
+      height: 60px;
+      line-height: 60px;
       padding: 0; }
     #FNAReview .review-box .btn_edit {
-      font-size: 18px;
-      width: 80px;
-      height: 40px;
-      line-height: 40px;
-      padding: 0; }
+      font-size: 18px; }
 
   #btn_save {
     font-size: 14px; } }

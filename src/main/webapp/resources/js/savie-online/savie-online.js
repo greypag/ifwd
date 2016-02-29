@@ -139,7 +139,7 @@ $('#et-signature-proceed-btn').on('click', function(e) {
 		}
 		else{
 			$.ajax({
-		    	url:contextPath+'/ajax/savie-online/uploadSignature',     
+		    	url:contextPath+'/ajax/savings-insurance/uploadSignature',     
 		    	type:'post',     
 		    	data:{ "image" : datapair[1] },     
 		    	success:function(data){
@@ -283,7 +283,7 @@ function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
 	$('#updoc-complete-btn').attr('disabled', 'disabled');
 	$.ajax({
 		        type: "POST",
-		        url:contextPath+'/ajax/savie-online/getEliteTermSendImageFlage',
+		        url:contextPath+'/ajax/savings-insurance/getEliteTermSendImageFlage',
 		        data: {
 					"passportFlage":passportFlage,
 					"uploadLaterFlage":uploadLaterFlage
@@ -291,7 +291,7 @@ function sendEliteTermSendImageFlage(passportFlage,uploadLaterFlage) {
 		        success:function(data){
 					if(data.errMsgs == null){
 						window.onbeforeunload=null;
-						window.location.href= contextPath+'/'+language+'/savie-online/upload-confirmation';
+						window.location.href= contextPath+'/'+language+'/savings-insurance/confirmation';
 					}
 				}
 		});

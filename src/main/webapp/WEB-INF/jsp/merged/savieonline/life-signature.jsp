@@ -73,10 +73,10 @@ $("#applicationFormPdfBtn").click(function(){
 });
 
 $("#nextPage").click(function(){
-	window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+	window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 });
 $("#nextPage2").click(function(){
-	window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+	window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 });
 $("#showSign").click(function(){
 	$('#showSignModal').modal({backdrop: 'static', keyboard: false});

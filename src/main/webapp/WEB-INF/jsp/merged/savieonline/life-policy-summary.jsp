@@ -12,7 +12,7 @@
 <table>
 <tr>
 <td>Personal info</td>
-<td><a class="buy-now et-quote btn-color-ylw" href="<%=request.getContextPath()%>/${language}/savie-online/life-personal-details?backSummary=Y" >Edit</a></td>
+<td><a class="buy-now et-quote btn-color-ylw" href="<%=request.getContextPath()%>/${language}/savings-insurance/life-personal-details?backSummary=Y" >Edit</a></td>
 </tr>
 <tr>
 <td>firstname:${lifePersonalDetails.firstname }</td>
@@ -64,7 +64,7 @@
 </tr>
 <tr>
 <td>Employment info</td>
-<td><a class="buy-now et-quote btn-color-ylw" href="<%=request.getContextPath()%>/${language}/savie-online/life-employment-info?backSummary=Y" >Edit</a></td>
+<td><a class="buy-now et-quote btn-color-ylw" href="<%=request.getContextPath()%>/${language}/savings-insurance/life-employment-info?backSummary=Y" >Edit</a></td>
 </tr>
 <tr>
 <td>employmentStatus:${lifeEmploymentInfo.employmentStatus }</td>
@@ -84,7 +84,7 @@
 </tr>
 <tr>
 <td>Beneficary info</td>
-<td><a class="buy-now et-quote btn-color-ylw" href="<%=request.getContextPath()%>/${language}/savie-online/life-beneficary-info?backSummary=Y" >Edit</a></td>
+<td><a class="buy-now et-quote btn-color-ylw" href="<%=request.getContextPath()%>/${language}/savings-insurance/life-beneficary-info?backSummary=Y" >Edit</a></td>
 </tr>
 <tr>
 <td>beneficaryFirstName1:${lifeBeneficaryInfo.beneficaryFirstName1 }</td>
@@ -132,7 +132,7 @@
 </tr>
 <tr>
 <td>Payment info</td>
-<td><a class="buy-now et-quote btn-color-ylw" href="<%=request.getContextPath()%>/${language}/savie-online/life-payment" >Edit</a></td>
+<td><a class="buy-now et-quote btn-color-ylw" href="<%=request.getContextPath()%>/${language}/savings-insurance/life-payment" >Edit</a></td>
 </tr>
 <tr>
 <td>bankCode:${lifePayment.bankCode }</td>
@@ -151,6 +151,6 @@
 </div>
 <script type="text/javascript">
 $("#nextPage").click(function(){
-		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 });
 </script>

@@ -520,7 +520,7 @@ var languageP = "${language}";
 			// Back to home button
 			$('#et-upload-doc-home-btn').on('click', function(e) {
 				 if(checkLogin()){
-					window.location.href= '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+					window.location.href= '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 				}
 			})
 			

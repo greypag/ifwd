@@ -84,7 +84,7 @@ var affiliate = "${affiliate}";
 								<div class="round-box date frm-fna-dob" data-mirror-fld="frm-fna-dob-mob" data-frm-fld="dob">
 									<span class="txt_dob">${saviePlanDetails.dob1 }</span>
 										 <span class="input-group-addon"></span>
-										<input type="hidden" class="datepicker form-control "value="${saviePlanDetails.dob2 }" readonly>
+										<input type="hidden" class="datepicker form-control " value="${saviePlanDetails.dob2 }" readonly>
 
 								</div>
 							</div>
@@ -343,7 +343,7 @@ var affiliate = "${affiliate}";
 										<div class="fna-error-box">
 											<span class="fna-error-msg text-red"></span>
 										</div>
-										<p>Speciﬁc amount:<br>Not less than HK$ <input type="text" class="frm-fna-q4a-others" onkeypress=" return isNumeric(event);" maxlength="6" data-mirror-fld="frm-fna-others-mob" data-frm-fld="q4_a_others" data-type="int"> per month<br>or In the following range:</p>
+										<p>Speciﬁc amount:<br>Not less than HK$ <input type="text" class="frm-fna-q4a-others" onkeypress=" return isNumeric(event);" maxlength="10" data-mirror-fld="frm-fna-others-mob" data-frm-fld="q4_a_others" data-type="int"> per month <div class="sep"></div> or In the following range:</p>
 
 										<ul class="fna-radio-gp-indv clearfix frm-fna-q4a" data-mirror-fld="frm-fna-q4a-mob" data-frm-fld="q4_a">
 											<li class="fna-radio-btn" data-val="0">less than HK$10,000</li>
@@ -391,7 +391,8 @@ var affiliate = "${affiliate}";
 									<div class="fna-error-box">
 										<span class="err_q4b2 fna-error-msg text-red"></span>
 									</div>
-									Amount: HK$ <input type="text" class="frm-fna-q4b-amount" onkeypress=" return isNumeric(event);" maxlength="9" data-mirror-fld="frm-fna-q4b-amount-mob" data-frm-fld="q4_b_amount" data-type="int">
+									<div class="sep"></div>
+									Amount: HK$ <input type="text" class="frm-fna-q4b-amount" onkeypress=" return isNumeric(event);" maxlength="10" data-mirror-fld="frm-fna-q4b-amount-mob" data-frm-fld="q4_b_amount" data-type="int">
 									<p class="note">Note: Liquid assets are assets which may be easily turned into cash.<br>Real estate, coin collection and artwork are not considered to be liquid assets.</p>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
@@ -422,7 +423,7 @@ var affiliate = "${affiliate}";
 										<span class="fna-error-msg text-red"></span>
 									</div>
 									Total Expenses not less than <br class="mob-ignore">
-									HK$<input type="text" class="frm-fna-q4c" data-mirror-fld="frm-fna-q4c-mob" data-frm-fld="q4_c" data-type="int" onkeypress=" return isNumeric(event);" maxlength="9" > per month
+									HK$<input type="text" class="frm-fna-q4c" data-mirror-fld="frm-fna-q4c-mob" data-frm-fld="q4_c" data-type="int" onkeypress=" return isNumeric(event);" maxlength="10" > per month
 
 									<div class="hidden-lg hidden-md">
 										<div class="img-mob-wrapper clearfix">
@@ -442,13 +443,13 @@ var affiliate = "${affiliate}";
 									<div class="fna-error-box">
 										<span class="err_q4d1 fna-error-msg text-red"></span>
 									</div>
-									<p>Total not less than HK$<input type="text" class="frm-fna-q4d-1" data-mirror-fld="frm-fna-q4d-1-mob" data-frm-fld="q4_d_1" data-type="int" onkeypress=" return isNumeric(event);" maxlength="9"></p>
+									<p>Total not less than HK$<input type="text" class="frm-fna-q4d-1" data-mirror-fld="frm-fna-q4d-1-mob" data-frm-fld="q4_d_1" data-type="int" onkeypress=" return isNumeric(event);" maxlength="10"></p>
 
 									<h4><span class="q-sub-num">ii:</span>What is your total financial targets including<br>but not limited to the education fund for<br>yourself or dependents and estimated marr<br>-iage expenses?</h4>
 									<div class="fna-error-box">
 										<span class="err_q4d2 fna-error-msg text-red"></span>
 									</div>
-									<p>Total not less than HK$<input type="text" class="frm-fna-q4d-2" data-mirror-fld="frm-fna-q4d-2-mob" data-frm-fld="q4_d_2" data-type="int" onkeypress=" return isNumeric(event);" maxlength="9"></p>
+									<p>Total not less than HK$<input type="text" class="frm-fna-q4d-2" data-mirror-fld="frm-fna-q4d-2-mob" data-frm-fld="q4_d_2" data-type="int" onkeypress=" return isNumeric(event);" maxlength="10"></p>
 
 									<div class="hidden-lg hidden-md clearfix mob-btn-gp">
 										<a href="javascript:void(0);" class="fna-btn-basic fna-btn-barrow fna-btn-step-back-inside">Back</a>
@@ -570,6 +571,22 @@ var affiliate = "${affiliate}";
 					</div>
 				</div>
 			</div>
+			<div class="last-loading">
+				<div class="last-loading-cont">
+					<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/loading_pic_02.png" class="img-responsive">
+					<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/loading_pic_01.png" class="img-responsive family">
+					<p>Based on the result of your Financial Need Analysis, FWD is researching for respective products which meet your objective(s) and need(s)</p>
+
+					<div class="bubble-gp">
+						<div class="spinner">
+							<div class="bounce1"></div>
+							<div class="bounce2"></div>
+							<div class="bounce3"></div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
 			</form>
 		</div>
 	</div>
@@ -591,5 +608,4 @@ var affiliate = "${affiliate}";
 		</div>
 	</div>
 </section>
-
 <!--   Main Content End -->

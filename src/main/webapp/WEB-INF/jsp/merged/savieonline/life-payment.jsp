@@ -51,21 +51,21 @@ paymentAmount:<input type="text" id="paymentAmount" name="paymentAmount" value="
 <script type="text/javascript">
 $("#nextPage").click(function(){
 	if($('input[name="payOnline"]:checked ').val() == "1"){
-		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 	}
 	else{
 		$("#errorMsg").html("");
 		$.ajax({
 			  type : "POST",
 			  async:false, 
-			  url : "<%=request.getContextPath()%>/ajax/savie-online/lifePayment",
+			  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePayment",
 			  data: $("#lifePaymentForm").serialize(),
 			  success : function(data) {
 				  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 					  $("#errorMsg").html(data.errorMsg);
 				  }
 				  else{
-					  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+					  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 				  }
 			  }
 	     });
@@ -73,7 +73,7 @@ $("#nextPage").click(function(){
 });
 
 function getBranchCode(value,language) {
-	$.get('<%=request.getContextPath()%>/ajax/savie-online/getBranchCode',
+	$.get('<%=request.getContextPath()%>/ajax/savings-insurance/getBranchCode',
 	{ 
 		value : value,
 		language : language
@@ -95,14 +95,14 @@ $("#saveLater").click(function(){
 	$.ajax({
 		  type : "POST",
 		  async:false, 
-		  url : "<%=request.getContextPath()%>/ajax/savie-online/lifePaymentSaveforLater",
+		  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePaymentSaveforLater",
 		  data: $("#lifePaymentForm").serialize(),
 		  success : function(data) {
 			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 				  $("#errorMsg").html(data.errorMsg);
 			  }
 			  else{
-				  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+				  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 			  }
 		  }
      });

@@ -362,13 +362,13 @@ var languageP = "${language}";
 				return false;
 			}else {
 				$.ajax({     
-				    url:'<%=request.getContextPath()%>/ajax/savie-online/createLifePolicy',     
+				    url:'<%=request.getContextPath()%>/ajax/savings-insurance/createLifePolicy',     
 				    type:'get',     
 				    error:function(){       
 				    },     
 				    success:function(data){
 				    	if(data != null && data.successMsg !=null){
-				    		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+				    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 				    	}
 				    }  
 				});
@@ -380,14 +380,14 @@ var languageP = "${language}";
 			$.ajax({
 				  type : "POST",
 				  async:false, 
-				  url : "<%=request.getContextPath()%>/ajax/savie-online/lifeDeclarationSaveforLater",
+				  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeDeclarationSaveforLater",
 				  data: $("#lifeDeclarationForm").serialize(),
 				  success : function(data) {
 					  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 						  $("#errorMsg").html(data.errorMsg);
 					  }
 					  else{
-						  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+						  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 					  }
 				  }
 		     });

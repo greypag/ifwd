@@ -1,3 +1,5 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -603,7 +605,7 @@ var languageP = "${language}";
 					}
 					else{
 						$.ajax({
-					    	url:'<%=request.getContextPath()%>/ajax/savie-online/uploadSignature',     
+					    	url:'<%=request.getContextPath()%>/ajax/savings-insurance/uploadSignature',     
 					    	type:'post',     
 					    	data:{ "image" : datapair[1] },     
 					    	success:function(data){
@@ -627,7 +629,7 @@ var languageP = "${language}";
 					    	    else {
 					    	    	// success
 					    	    	window.onbeforeunload=null;
-					    	    	window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+					    	    	window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 					    	    }
 					        },
 							error:function(){
@@ -671,6 +673,6 @@ var languageP = "${language}";
 	 });
 	 
 	 $("#btn-cstmr-srvc-cnter").click(function(){
-		 window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+		 window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 	 });
 </script>

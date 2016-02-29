@@ -494,7 +494,7 @@ $("#et-personal-info-next").click(function(){
 	$.ajax({
 		  type : "POST",
 		  async:false, 
-		  url : "<%=request.getContextPath()%>/ajax/savie-online/lifePersonalDetails",
+		  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePersonalDetails",
 		  data: $("#lifePersonalDetailsForm").serialize(),
 		  success : function(data) {
 			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
@@ -502,10 +502,10 @@ $("#et-personal-info-next").click(function(){
 			  }
 			  else{
 				  if('${backSummary}'=="Y"){
-					  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+					  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 				  }
 				  else{
-					  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+					  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 				  }
 			  }
 		  }
@@ -517,14 +517,14 @@ $("#saveLater").click(function(){
 	$.ajax({
 		  type : "POST",
 		  async:false, 
-		  url : "<%=request.getContextPath()%>/ajax/savie-online/lifePersonalDetailsSaveforLater",
+		  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePersonalDetailsSaveforLater",
 		  data: $("#lifePersonalDetailsForm").serialize(),
 		  success : function(data) {
 			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 				  $("#errorMsg").html(data.errorMsg);
 			  }
 			  else{
-				  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+				  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 			  }
 		  }
      });

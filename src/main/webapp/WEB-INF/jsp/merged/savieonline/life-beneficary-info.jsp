@@ -45,7 +45,7 @@ $("#nextPage").click(function(){
 	$.ajax({
 		  type : "POST",
 		  async:false, 
-		  url : "<%=request.getContextPath()%>/ajax/savie-online/lifeBeneficaryInfo",
+		  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfo",
 		  data: $("#lifeBeneficaryInfoForm").serialize(),
 		  success : function(data) {
 			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
@@ -53,10 +53,10 @@ $("#nextPage").click(function(){
 			  }
 			  else{
 				  if('${backSummary}'=="Y"){
-					  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+					  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 				  }
 				  else{
-					  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+					  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 				  }
 			  }
 		  }
@@ -75,14 +75,14 @@ $("#saveLater").click(function(){
 	$.ajax({
 		  type : "POST",
 		  async:false, 
-		  url : "<%=request.getContextPath()%>/ajax/savie-online/lifeBeneficaryInfoSaveforLater",
+		  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfoSaveforLater",
 		  data: $("#lifeBeneficaryInfoForm").serialize(),
 		  success : function(data) {
 			  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 				  $("#errorMsg").html(data.errorMsg);
 			  }
 			  else{
-				  window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+				  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 			  }
 		  }
      });

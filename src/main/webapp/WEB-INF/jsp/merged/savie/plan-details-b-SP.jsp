@@ -749,30 +749,30 @@ var languageP = "${language}";
 	
 	function goServiceCenter(){
 		if('2'=='${type }'){
-			window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow2}';
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 		}
 		else{
 			$.ajax({     
-			    url:'${pageContext.request.contextPath}/ajax/savie-online/getPurchaseHistoryByPlanCode',     
+			    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
 			    type:'get',     
 			    error:function(){       
 			    },     
 			    success:function(data){
 			    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
-			    	     window.location = '<%=request.getContextPath()%>/${language}/savie-online/service-center';
+			    	     window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/service-center';
 			    	}
 			    	else{
 			    		$.ajax({     
-			    		    url:'${pageContext.request.contextPath}/ajax/savie-online/show',     
+			    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
 			    		    type:'get',     
 			    		    error:function(){       
 			    		    },     
 			    		    success:function(data){
 			    		    	if(data != null && data.errMsgs == null && data.name !=null){
-			    		    	    window.location = '<%=request.getContextPath()%>/${language}/savie-online/savie-review';
+			    		    	    window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
 			    		    	}
 			    		    	else{
-			    		    		window.location = '<%=request.getContextPath()%>/${language}/savie-online/${nextPageFlow}';
+			    		    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 			    		    	}
 			    		    }  
 			    		});
