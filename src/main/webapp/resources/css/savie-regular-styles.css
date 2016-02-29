@@ -1480,6 +1480,7 @@ body.chin .savie-regular-landing .payment-mode .payment-options button {
 .savie-regular-landing .payment-mode .payment-options button:hover, .savie-regular-landing .payment-mode .payment-options button.active {
   color: #fff;
   background: #ff8200;
+  text-decoration: underline;
 }
 /* line 284, ../sass/partials/savie/_landing-page.scss */
 .savie-regular-landing .payment-mode .payment-options .left, .savie-regular-landing .payment-mode .payment-options .right {
