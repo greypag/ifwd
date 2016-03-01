@@ -50,7 +50,9 @@ public class CompareUtil {
 				List<String> periods2 = o2.getContribution_period();
 				periods2.sort(sortProductList);
 
-				if (TO_100.equalsIgnoreCase(periods1.get(0))) {
+				if(periods1.size() < 1 || periods2.size() < 1) {
+					return 1;
+				}else if (TO_100.equalsIgnoreCase(periods1.get(0))) {
 					return 1;
 				} else if (ONE_OFF.equalsIgnoreCase(periods1.get(0))){
 					return -1;
@@ -83,7 +85,10 @@ public class CompareUtil {
 				periods1.sort(sortProductList);
 				List<String> periods2 = o2.getContribution_period();
 				periods2.sort(sortProductList);
-				if (TO_100.equalsIgnoreCase(periods1.get(0))) {
+				
+				if(periods1.size() < 1 || periods2.size() < 1) {
+					return 1;
+				}else if (TO_100.equalsIgnoreCase(periods1.get(0))) {
 					return -1;
 				} else if (ONE_OFF.equalsIgnoreCase(periods1.get(0))){
 					return 1;

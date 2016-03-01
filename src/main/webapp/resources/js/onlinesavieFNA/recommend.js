@@ -370,7 +370,9 @@ var FNArecommendation = {
 	loadProductRecommendSorting:function(){
 		var that = this;
 		var sort_by = that.sortFld + (that.sortAsc ? 0 : 4);
-		AjaxManager.fire(that.api_product_recommend,{sort_by:sort_by},function(res){
+		var fnaDatas = that.fnaData;
+		fnaDatas.sort_by=sort_by;
+		AjaxManager.fire(that.api_product_recommend,fnaDatas,function(res){
 			that.fnaResultData = res;
 			that.parseProductRecommend(res);
 			that.setLoading(false);

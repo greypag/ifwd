@@ -403,6 +403,10 @@
 						.updateStatus('preferred-time', 'NOT_VALIDATED', null)
 						.validateField('preferred-time');
 			   });
+			   
+			   $('.policy-text').on('click', function() {
+				   $('#payment_confirm_authorize').click();
+			   });
 			});
 			
 			// Payment form validation

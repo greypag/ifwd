@@ -87,207 +87,163 @@
 	  					<div class="row">
 	  						<form id="employmentInfoForm" action="" method="post" onsubmit="return false">
 	  							<h3>Employment information &amp; education level </h3>
-								
-								<!-- Employed panel -->
-								<div id="employed-panel">
-									<div class="col-xs-12 col-md-6" id="left-side">
-										<div class="form-group">
-											<div class="selectDiv centreDiv gray-text-bg">
-												<label class="mdl-textfield__label cstm-dropdown-label">Employment Status</label>
-												<select name="employmentStatus" id="employmentStatus" class="form-control gray-dropdown">
-												   <option value="" disabled="disabled" selected="selected">Employment Status</option>
-												   <c:if test="${language == 'en'}">
-														<c:forEach var="list" items="${employmentStatusEN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.employmentStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>
-													<c:if test="${language == 'tc'}">
-														<c:forEach var="list" items="${employmentStatusCN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.employmentStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>
-												</select>
-												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-											</div>
-											<span class="error-msg" id="employmentStatusErMsg"></span>
+								<div class="col-xs-12 col-md-6" id="left-side">
+									<div class="form-group">
+										<div class="selectDiv centreDiv gray-text-bg">
+											<label class="mdl-textfield__label cstm-dropdown-label">Employment Status</label>
+											<select name="employmentStatus" id="employmentStatus" class="form-control gray-dropdown">
+											   <option value="" disabled="disabled" selected="selected">Employment Status</option>
+											   <c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${employmentStatusEN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.employmentStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${employmentStatusCN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.employmentStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+											</select>
+											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
-										<div class="form-group">
-											<div class="selectDiv centreDiv gray-text-bg">
-												<label class="mdl-textfield__label cstm-dropdown-label">Nature of business</label>
-												<select name="natureOfBusiness" id="businessNature" class="form-control gray-dropdown">
-												   <option value="" disabled="disabled" selected="selected">Nature of business</option>
-												   <c:if test="${language == 'en'}">
-														<c:forEach var="list" items="${natureOfBusinessEN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.natureOfBusiness == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>
-													<c:if test="${language == 'tc'}">
-														<c:forEach var="list" items="${natureOfBusinessCN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.natureOfBusiness == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>				                     
-												</select>
-												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-											</div>
-											<span class="error-msg" id="businessNatureErMsg"></span>
-										</div>
-										<div class="form-group">
-											<div class="selectDiv centreDiv gray-text-bg">
-												<label class="mdl-textfield__label cstm-dropdown-label">Occupation</label>
-												<select name="occupation" id="occupation" class="form-control gray-dropdown occupation">
-												   <option value="" disabled="disabled" selected="selected">Occupation</option>
-												   <c:if test="${language == 'en'}">
-														<c:forEach var="list" items="${occupationEN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>
-													<c:if test="${language == 'tc'}">
-														<c:forEach var="list" items="${occupationCN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>	
-												</select>
-												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-											</div>
-											<span class="error-msg" id="occupationErMsg"></span>
-										</div>
-										<!--<input type="text" name="other-occupation" id="other-occupation" class="gray-textbox hidden" placeholder="Please specify" />-->
-										<div class="form-group hidden">
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="current-employer">
-												<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" id="other-occupation" name="otherOccupation" />
-												<label class="mdl-textfield__label so-mdl-textfield-label" for="other-occupation">Please specify</label> 
-											</div>
-											<span class="error-msg" id="otherOccupationErMsg"></span>
-										</div>
+										<span class="error-msg" id="employmentStatusErMsg"></span>
 									</div>
-									<div class="col-xs-12 col-md-6" id="right-side">
-										<div class="form-group">
-											<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="current-employer">
-												<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" id="currentEmployer" name="employerName" value="${lifeEmploymentInfo.employerName }" />
-												<label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3">Current employer's name</label> 
-											</div>
-											<span class="error-msg" id="currentEmployerErMsg"></span>
+									<div class="form-group employment-field">
+										<div class="selectDiv centreDiv gray-text-bg">
+											<label class="mdl-textfield__label cstm-dropdown-label">Nature of business</label>
+											<select name="natureOfBusiness" id="businessNature" class="form-control gray-dropdown">
+											   <option value="" disabled="disabled" selected="selected">Nature of business</option>
+											   <c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${natureOfBusinessEN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.natureOfBusiness == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${natureOfBusinessCN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.natureOfBusiness == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>				                     
+											</select>
+											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
-										<div class="form-group">
-											<div class="selectDiv centreDiv gray-text-bg">
-												<label class="mdl-textfield__label cstm-dropdown-label">Monthly personal income (HK$)</label>
-												<select name="monthlyPersonalIncome" id="monthlyPersonalIncome" class="form-control gray-dropdown">
-												   <option value="" disabled="disabled" selected="selected">Monthly personal income (HK$)</option>
-												   <c:if test="${language == 'en'}">
-														<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>
-													<c:if test="${language == 'tc'}">
-														<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>	
-												</select>
-												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-											</div>
-											<span class="error-msg" id="monthlyPersonalIncomeErMsg"></span>
+										<span class="error-msg" id="businessNatureErMsg"></span>
+									</div>
+									<div class="form-group employment-field">
+										<div class="selectDiv centreDiv gray-text-bg">
+											<label class="mdl-textfield__label cstm-dropdown-label">Occupation</label>
+											<select name="occupation" id="occupation" class="form-control gray-dropdown occupation">
+											   <option value="" disabled="disabled" selected="selected">Occupation</option>
+											   <c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${occupationEN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${occupationCN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.occupation == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>	
+											</select>
+											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
-										<div class="form-group">
-											<div class="selectDiv centreDiv gray-text-bg">
-												<label class="mdl-textfield__label cstm-dropdown-label">Education level</label>
-												<select name="education" id="educationLevel" class="form-control gray-dropdown">
-												   <option value="" disabled="disabled" selected="selected">Education level</option>
-												   <c:if test="${language == 'en'}">
-														<c:forEach var="list" items="${etEducationLevelEN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.education == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>
-													<c:if test="${language == 'tc'}">
-														<c:forEach var="list" items="${etEducationLevelCN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.education == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>	
-												</select>
-												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-											</div>
-											<span class="error-msg" id="educationLevelErMsg"></span>
+										<span class="error-msg" id="occupationErMsg"></span>
+									</div>
+									<!--<input type="text" name="other-occupation" id="other-occupation" class="gray-textbox hidden" placeholder="Please specify" />-->
+									<div class="form-group employment-field hidden">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="current-employer">
+											<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" id="other-occupation" name="otherOccupation" />
+											<label class="mdl-textfield__label so-mdl-textfield-label" for="other-occupation">Please specify</label> 
 										</div>
+										<span class="error-msg" id="otherOccupationErMsg"></span>
+									</div>
+									<div class="form-group unemployment-field hidden">
+										<div class="selectDiv centreDiv gray-text-bg">
+											<label class="mdl-textfield__label cstm-dropdown-label">Amount of other source of income</label>
+											<select name="amountOfOtherSourceOfIncome" id="otherIncomeAmount" class="form-control gray-dropdown">
+											   <option value="" disabled="disabled" selected="selected">Amount of other source of income</option>
+											   <c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${etAmountOtherSourceEN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${etAmountOtherSourceCN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>	
+											</select>
+											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+										</div>
+										<span class="error-msg" id="otherIncomeAmountErMsg"></span>
 									</div>
 								</div>
-								
-								<!-- Unemployed panel -->
-								<div id="unemployed-panel" class="hidden">
-									<div class="col-xs-12 col-md-6" id="left-side">
-										<div class="form-group">
-											<div class="selectDiv centreDiv gray-text-bg">
-												<label class="mdl-textfield__label cstm-dropdown-label">Employment Status</label>
-												<select name="employmentStatus" id="employmentStatus2" class="form-control gray-dropdown">
-												   <option value="" disabled="disabled" selected="selected">Employment Status</option>
-												   <c:if test="${language == 'en'}">
-														<c:forEach var="list" items="${employmentStatusEN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.employmentStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>
-													<c:if test="${language == 'tc'}">
-														<c:forEach var="list" items="${employmentStatusCN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.employmentStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>
-												</select>
-												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-											</div>
-											<span class="error-msg" id="employmentStatusErMsg"></span>
+								<div class="col-xs-12 col-md-6" id="right-side">
+									<div class="form-group employment-field">
+										<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" id="current-employer">
+											<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" id="currentEmployer" name="employerName" value="${lifeEmploymentInfo.employerName }" />
+											<label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3">Current employer's name</label> 
 										</div>
-										<div class="form-group">
-											<div class="selectDiv centreDiv gray-text-bg">
-												<label class="mdl-textfield__label cstm-dropdown-label">Amount of other source of income</label>
-												<select name="amountOfOtherSourceOfIncome" id="otherIncomeAmount" class="form-control gray-dropdown">
-												   <option value="" disabled="disabled" selected="selected">Amount of other source of income</option>
-												   <c:if test="${language == 'en'}">
-														<c:forEach var="list" items="${etAmountOtherSourceEN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>
-													<c:if test="${language == 'tc'}">
-														<c:forEach var="list" items="${etAmountOtherSourceCN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfOtherSourceOfIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>	
-												</select>
-												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-											</div>
-											<span class="error-msg" id="otherIncomeAmountErMsg"></span>
-										</div>
+										<span class="error-msg" id="currentEmployerErMsg"></span>
 									</div>
-									<div class="col-xs-12 col-md-6" id="right-side">
-										<div class="form-group">
-											<div class="selectDiv centreDiv gray-text-bg">
-												<label class="mdl-textfield__label cstm-dropdown-label">Education level</label>
-												<select name="educationLevel2" id="educationLevel2" class="form-control gray-dropdown">
-												   <option value="" disabled="disabled" selected="selected">Education level</option>
-												   <option value="1">Bachelor</option>
-												   <option value="2">Doctorate</option>
-												</select>
-												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-											</div>
-											<span class="error-msg" id="educationLevel2ErMsg"></span>
+									<div class="form-group employment-field">
+										<div class="selectDiv centreDiv gray-text-bg">
+											<label class="mdl-textfield__label cstm-dropdown-label">Monthly personal income (HK$)</label>
+											<select name="monthlyPersonalIncome" id="monthlyPersonalIncome" class="form-control gray-dropdown">
+											   <option value="" disabled="disabled" selected="selected">Monthly personal income (HK$)</option>
+											   <c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>	
+											</select>
+											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
-										<div class="form-group">
-											<div class="selectDiv centreDiv gray-text-bg">
-												<label class="mdl-textfield__label cstm-dropdown-label">Amount of liquid assets (HK$)</label>
-												<select name="amountOfLiquidAssets" id="liquidAssetsAmount" class="form-control gray-dropdown">
-												   <option value="" disabled selected>Amount of liquid assets (HK$)</option>
-												   <c:if test="${language == 'en'}">
-														<c:forEach var="list" items="${etLiquidAssetEN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>
-													<c:if test="${language == 'tc'}">
-														<c:forEach var="list" items="${etLiquidAssetCN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
-														</c:forEach>
-													</c:if>	
-												</select>
-												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-											</div>
-											<span class="error-msg" id="liquidAssetsAmountErMsg"></span>
+										<span class="error-msg" id="monthlyPersonalIncomeErMsg"></span>
+									</div>
+									<div class="form-group">
+										<div class="selectDiv centreDiv gray-text-bg">
+											<label class="mdl-textfield__label cstm-dropdown-label">Education level</label>
+											<select name="education" id="educationLevel" class="form-control gray-dropdown">
+											   <option value="" disabled="disabled" selected="selected">Education level</option>
+											   <c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${etEducationLevelEN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.education == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${etEducationLevelCN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.education == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>	
+											</select>
+											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
+										<span class="error-msg" id="educationLevelErMsg"></span>
+									</div>
+									<div class="form-group unemployment-field hidden">
+										<div class="selectDiv centreDiv gray-text-bg">
+											<label class="mdl-textfield__label cstm-dropdown-label">Amount of liquid assets (HK$)</label>
+											<select name="amountOfLiquidAssets" id="liquidAssetsAmount" class="form-control gray-dropdown">
+											   <option value="" disabled selected>Amount of liquid assets (HK$)</option>
+											   <c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${etLiquidAssetEN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${etLiquidAssetCN}">
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.amountOfLiquidAssets == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													</c:forEach>
+												</c:if>	
+											</select>
+											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+										</div>
+										<span class="error-msg" id="liquidAssetsAmountErMsg"></span>
 									</div>
 								</div>
 	  							<div class="col-xs-12 text-center">
@@ -442,14 +398,6 @@
 							  }
 						   }
 						},
-						educationLevel2: {
-						   container: '#educationLevel2ErMsg',
-						   validators: {
-							  notEmpty: {
-								 message: "Please select your education level."
-							  }
-						   }
-						},
 						liquidAssetsAmount: {
 						   container: '#liquidAssetsAmountErMsg',
 						   validators: {
@@ -473,40 +421,31 @@
                 });
 				
 				$('.occupation').on('change', function () {
-					if($(this).val() == 'other') {
-						$('#other-occupation').parent().parent().removeClass('hidden');
-					} else {
-						$('#other-occupation').parent().parent().addClass('hidden');
-					}
+					showHideOtherOccupationField($(this).val());
 				});
 				
-				var tmpEmploymentStatus;
 				$('#employmentStatus').on('change', function() {
-					if($(this).val() == 'Self Employed') {
-						$('#employed-panel').removeClass('hidden');
-						$('#unemployed-panel').addClass('hidden');
-					} else {						
-						tmpEmploymentStatus = $(this).val();
-						$('#employed-panel').addClass('hidden');
-						$('#unemployed-panel').removeClass('hidden');
-						$('#employmentStatus2').val(tmpEmploymentStatus);
-						$('#employmentStatus2').parent('.selectDiv').addClass('is-not-active');
-					}
-				});
-				
-				$('#employmentStatus2').on('change', function() {
-					if($(this).val() == 'ES3-Self Employed') {
-						tmpEmploymentStatus = $(this).val();
-						$('#employed-panel').removeClass('hidden');
-						$('#unemployed-panel').addClass('hidden');
-						$('#employmentStatus').val(tmpEmploymentStatus);
-						$('#employmentStatus').parent('.selectDiv').addClass('is-not-active');
+					if($(this).val() == 'ES3-Self Employed') {						
+						// Show employment fields. Hide unemployment fields
+						$('.employment-field').removeClass('hidden');
+						$('.unemployment-field').addClass('hidden');
+						
+						showHideOtherOccupationField($('.occupation').val());
 					} else {
-						$('#employed-panel').addClass('hidden');
-						$('#unemployed-panel').removeClass('hidden');
+						// Hide employment fields. Show unemployment fields
+						$('.employment-field').addClass('hidden');
+						$('.unemployment-field').removeClass('hidden');
 					}
 				});
 			});
+			
+			function showHideOtherOccupationField(val) {
+				if(val == 'other') {
+					$('#other-occupation').parent().parent().removeClass('hidden');
+				} else {
+					$('#other-occupation').parent().parent().addClass('hidden');
+				}
+			}
 			
 			$("#next-btn").click(function(){
 				$("#errorMsg").html("");
