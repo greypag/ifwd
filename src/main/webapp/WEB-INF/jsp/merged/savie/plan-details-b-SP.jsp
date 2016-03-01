@@ -759,7 +759,9 @@ var languageP = "${language}";
 			saviePlanDetailsGoNext();
 		}
 		else{
-			$('#loginpopup').modal('show');
+            $('.login-info').removeClass('hidden');
+            $('#loginpopup .modal-dialog').addClass('loginpopupext');			
+			$('#loginpopup').modal('show');			
 		}
 	});
 	
