@@ -95,7 +95,7 @@ var affiliate = "${affiliate}";
                   <div class="col-xs-12 col-md-4">
                     <div class="offline-procedure procedure-3 text-center">
                       <span class="step">3</span>
-                      <p><fmt:message key="saviee.appointment.doucmenttobring3" bundle="${msg}" /></p>
+                      <p><fmt:message key="saviee.appointment.doucmenttobring3.sp" bundle="${msg}" /></p>
                                             <p class="step3-2"><fmt:message key="oceanpark.confirmation.or.settle" bundle="${msg}" /></p>
                                             <div class="icon"><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-3-mob.png" class="img-responsive hidden-md hidden-lg" /><img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/offline-procedure-3.png" class="img-responsive hidden-xs hidden-sm" /></div>
                     </div>
@@ -113,7 +113,7 @@ var affiliate = "${affiliate}";
                                     <p><fmt:message key="saviee.appointment.nextstep.1" bundle="${msg}" /></p>
                                     <p><fmt:message key="saviee.appointment.nextstep.2" bundle="${msg}" /></p>
                                     <p><fmt:message key="saviee.appointment.nextstep.3" bundle="${msg}" /></p>
-                                    <p><fmt:message key="saviee.appointment.nextstep.4.rp" bundle="${msg}" /></p>
+                                    <p><fmt:message key="saviee.appointment.nextstep.4.sp" bundle="${msg}" /></p>
                                 </div>
                             </div>
                             <div class="col-xs-12">
