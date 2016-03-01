@@ -16,15 +16,30 @@ public class LifeEmploymentInfoBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String employmentStatus;
+	private String employmentStatusName;
 	private String natureOfBusiness;
+	private String natureOfBusinessName;
 	private String occupation;
+	private String occupationName;
 	private String employerName;
 	private String monthlyPersonalIncome;
+	private String monthlyPersonalIncomeName;
 	private String education;
+	private String educationName;
 	private String amountOfOtherSourceOfIncome;
+	private String amountOfOtherSourceOfIncomeName;
 	private String amountOfLiquidAssets;
+	private String amountOfLiquidAssetsName;
 	
 	public void validate(String language) throws ValidateExceptions {
+		this.employmentStatusName = this.employmentStatus!=null?this.employmentStatus.split("-")[1]:"";
+		this.natureOfBusinessName = this.natureOfBusiness!=null?this.natureOfBusiness.split("-")[1]:"";
+		this.occupationName = this.occupation!=null?this.occupation.split("-")[1]:"";
+		this.monthlyPersonalIncomeName = this.monthlyPersonalIncome!=null?this.monthlyPersonalIncome.split("-")[1]:"";
+		this.educationName = this.education!=null?this.education.split("-")[1]:"";
+		this.amountOfOtherSourceOfIncomeName = this.amountOfOtherSourceOfIncome!=null?this.amountOfOtherSourceOfIncome.split("-")[1]:"";
+		this.amountOfLiquidAssetsName = this.amountOfLiquidAssets!=null?this.amountOfLiquidAssets.split("-")[1]:"";
+		
 		List<String> list = new ArrayList<String>();
         if(ValidationUtils.isNullOrEmpty(this.employmentStatus)){
         	list.add(ErrorMessageUtils.getMessage("employmentStatus", "validation.failure", language));
@@ -118,4 +133,62 @@ public class LifeEmploymentInfoBean implements Serializable {
 	public void setAmountOfLiquidAssets(String amountOfLiquidAssets) {
 		this.amountOfLiquidAssets = amountOfLiquidAssets;
 	}
+
+	public String getEmploymentStatusName() {
+		return employmentStatusName;
+	}
+
+	public void setEmploymentStatusName(String employmentStatusName) {
+		this.employmentStatusName = employmentStatusName;
+	}
+
+	public String getNatureOfBusinessName() {
+		return natureOfBusinessName;
+	}
+
+	public void setNatureOfBusinessName(String natureOfBusinessName) {
+		this.natureOfBusinessName = natureOfBusinessName;
+	}
+
+	public String getOccupationName() {
+		return occupationName;
+	}
+
+	public void setOccupationName(String occupationName) {
+		this.occupationName = occupationName;
+	}
+
+	public String getMonthlyPersonalIncomeName() {
+		return monthlyPersonalIncomeName;
+	}
+
+	public void setMonthlyPersonalIncomeName(String monthlyPersonalIncomeName) {
+		this.monthlyPersonalIncomeName = monthlyPersonalIncomeName;
+	}
+
+	public String getEducationName() {
+		return educationName;
+	}
+
+	public void setEducationName(String educationName) {
+		this.educationName = educationName;
+	}
+
+	public String getAmountOfOtherSourceOfIncomeName() {
+		return amountOfOtherSourceOfIncomeName;
+	}
+
+	public void setAmountOfOtherSourceOfIncomeName(
+			String amountOfOtherSourceOfIncomeName) {
+		this.amountOfOtherSourceOfIncomeName = amountOfOtherSourceOfIncomeName;
+	}
+
+	public String getAmountOfLiquidAssetsName() {
+		return amountOfLiquidAssetsName;
+	}
+
+	public void setAmountOfLiquidAssetsName(String amountOfLiquidAssetsName) {
+		this.amountOfLiquidAssetsName = amountOfLiquidAssetsName;
+	}
+	
 }
