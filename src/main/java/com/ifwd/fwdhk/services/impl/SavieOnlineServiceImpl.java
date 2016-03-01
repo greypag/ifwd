@@ -49,7 +49,7 @@ import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.ProductRecommendation;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
-import com.ifwd.fwdhk.model.savieOnline.lifeDeclarationBean;
+import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
@@ -1016,6 +1016,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) session.getAttribute("lifeEmploymentInfo");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
 		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
+		LifeDeclarationBean lifeDeclaration = (LifeDeclarationBean) session.getAttribute("lifeDeclaration");
 		
 		JSONObject parameters = new JSONObject();
 		parameters.put("planCode", "SAVIE");
@@ -1040,7 +1041,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				permanentAddress.put("line1", lifePersonalDetails.getPermanetAddress1());
 				permanentAddress.put("line2", lifePersonalDetails.getPermanetAddress2());
 				permanentAddress.put("line3", lifePersonalDetails.getPermanetAddress3());
-				permanentAddress.put("line4", "SD3");
+				permanentAddress.put("line4", lifePersonalDetails.getPermanetAddress4());
 				permanentAddress.put("district", lifePersonalDetails.getPermanetAddressDistrict()!=null?lifePersonalDetails.getPermanetAddressDistrict().split("-")[0]:"");
 			applicant.put("permanentAddress", permanentAddress);
 				
@@ -1048,7 +1049,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				residentialAddress.put("line1", lifePersonalDetails.getResidentialAddress1());
 				residentialAddress.put("line2", lifePersonalDetails.getResidentialAddress2());
 				residentialAddress.put("line3", lifePersonalDetails.getResidentialAddress3());
-				residentialAddress.put("line4", "SD1");
+				residentialAddress.put("line4", lifePersonalDetails.getResidentialAddress4());
 				residentialAddress.put("district", lifePersonalDetails.getResidentialAddressDistrict()!=null?lifePersonalDetails.getResidentialAddressDistrict().split("-")[0]:"");
 			applicant.put("residentialAddress", residentialAddress);
 				
@@ -1056,23 +1057,23 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				correspondenceAddress.put("line1", lifePersonalDetails.getCorrespondenceAddress1());
 				correspondenceAddress.put("line2", lifePersonalDetails.getCorrespondenceAddress2());
 				correspondenceAddress.put("line3", lifePersonalDetails.getCorrespondenceAddress3());
-				correspondenceAddress.put("line4", "SD2");
+				correspondenceAddress.put("line4", lifePersonalDetails.getCorrespondenceAddress4());
 				correspondenceAddress.put("district", lifePersonalDetails.getCorrespondenceAddressDistrict()!=null?lifePersonalDetails.getCorrespondenceAddressDistrict().split("-")[0]:"");
 			applicant.put("correspondenceAddress", correspondenceAddress);
 				
 				JSONObject employmentStatus = new JSONObject();
-				employmentStatus.put("employmentStatus", lifeEmploymentInfo.getEmploymentStatus());
-				employmentStatus.put("occupation", lifeEmploymentInfo.getOccupation());
-				employmentStatus.put("educationLevel", lifeEmploymentInfo.getEducation());
-				employmentStatus.put("natureOfBusiness", lifeEmploymentInfo.getNatureOfBusiness());
-				employmentStatus.put("monthlyPersonalIncome", lifeEmploymentInfo.getMonthlyPersonalIncome());
-				employmentStatus.put("liquidAsset", lifeEmploymentInfo.getAmountOfLiquidAssets());
-				employmentStatus.put("amountOtherSource", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome());
+				employmentStatus.put("employmentStatus", lifeEmploymentInfo.getEmploymentStatus()!=null?lifeEmploymentInfo.getEmploymentStatus().split("-")[0]:"");
+				employmentStatus.put("occupation", lifeEmploymentInfo.getOccupation()!=null?lifeEmploymentInfo.getOccupation().split("-")[0]:"");
+				employmentStatus.put("educationLevel", lifeEmploymentInfo.getEducation()!=null?lifeEmploymentInfo.getEducation().split("-")[0]:"");
+				employmentStatus.put("natureOfBusiness", lifeEmploymentInfo.getNatureOfBusiness()!=null?lifeEmploymentInfo.getNatureOfBusiness().split("-")[0]:"");
+				employmentStatus.put("monthlyPersonalIncome", lifeEmploymentInfo.getMonthlyPersonalIncome()!=null?lifeEmploymentInfo.getMonthlyPersonalIncome().split("-")[0]:"");
+				employmentStatus.put("liquidAsset", lifeEmploymentInfo.getAmountOfLiquidAssets()!=null?lifeEmploymentInfo.getAmountOfLiquidAssets().split("-")[0]:"");
+				employmentStatus.put("amountOtherSource", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome()!=null?lifeEmploymentInfo.getAmountOfOtherSourceOfIncome().split("-")[0]:"");
 				employmentStatus.put("employerName", lifeEmploymentInfo.getEmployerName());
 			applicant.put("employmentStatus", employmentStatus);
 			applicant.put("smoke", false);
-			applicant.put("optOut1", true);
-			applicant.put("optOut2", true);
+			applicant.put("optOut1", lifeDeclaration.getChkboxDoNotSendMarketingInfo()!=null?lifeDeclaration.getChkboxDoNotSendMarketingInfo():"false");
+			applicant.put("optOut2", lifeDeclaration.getChkboxDoNotProvidePersonalData()!=null?lifeDeclaration.getChkboxDoNotProvidePersonalData():"false");
 		parameters.put("applicant", applicant);
 			JSONObject insured = new JSONObject();
 			insured.put("name", applicant.get("firstName")+" "+applicant.get("lastName"));
@@ -1090,7 +1091,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						beneficiarie1.put("hkId", lifeBeneficaryInfo.getBeneficaryID1());
 						beneficiarie1.put("passport", lifeBeneficaryInfo.getBeneficaryID1());
 						beneficiarie1.put("gender", lifeBeneficaryInfo.getBeneficaryGender1());
-						beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1());
+						beneficiarie1.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation1()!=null?lifeBeneficaryInfo.getBeneficaryRelation1().split("-")[0]:"");
 						beneficiarie1.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight1());
 					beneficiaries.add(beneficiarie1);
 					}
@@ -1101,7 +1102,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						beneficiarie2.put("hkId", lifeBeneficaryInfo.getBeneficaryID2());
 						beneficiarie2.put("passport", lifeBeneficaryInfo.getBeneficaryID2());
 						beneficiarie2.put("gender", lifeBeneficaryInfo.getBeneficaryGender2());
-						beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2());
+						beneficiarie2.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation2()!=null?lifeBeneficaryInfo.getBeneficaryRelation2().split("-")[0]:"");
 						beneficiarie2.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight2());
 					beneficiaries.add(beneficiarie2);
 					}
@@ -1112,7 +1113,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 						beneficiarie3.put("hkId", lifeBeneficaryInfo.getBeneficaryID3());
 						beneficiarie3.put("passport", lifeBeneficaryInfo.getBeneficaryID3());
 						beneficiarie3.put("gender", lifeBeneficaryInfo.getBeneficaryGender3());
-						beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3());
+						beneficiarie3.put("relationship", lifeBeneficaryInfo.getBeneficaryRelation3()!=null?lifeBeneficaryInfo.getBeneficaryRelation3().split("-")[0]:"");
 						beneficiarie3.put("entitlement", lifeBeneficaryInfo.getBeneficaryWeight3());
 					beneficiaries.add(beneficiarie3);
 					}
@@ -1121,10 +1122,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.put("insured", insured);
 			JSONObject payment = new JSONObject();
 			payment.put("amount", saviePlanDetails.getInsuredAmount());
-			payment.put("paymentMethod", "CreditCard");
-			payment.put("bankName", "");
-			payment.put("branchName", "");
-			payment.put("accountNo", "");
+			payment.put("paymentMethod", lifePayment.getPaymentMethod());
+			payment.put("bankName", lifePayment.getBankCode()!=null?lifePayment.getBankCode().split("-")[0]:"");
+			payment.put("branchName", lifePayment.getBranchCode()!=null?lifePayment.getBranchCode().split("-")[0]:"");
+			payment.put("accountNo", lifePayment.getAccountNumber());
 			payment.put("expiryDate", "");
 		parameters.put("payment", payment);
 		parameters.put("insuredAmount", saviePlanDetails.getInsuredAmount());
@@ -1337,15 +1338,15 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	}
 	
-	public void lifeDeclarationSaveforLater(lifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException{
+	public void lifeDeclarationSaveforLater(LifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException{
 		final Map<String,String> header = headerUtil.getHeader(request);
 		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
 		parameters.accumulate("planCode", "SAVIE-SP");
-		parameters.accumulate("declaration1", lifeDeclaration.getDeclaration1()!=null?lifeDeclaration.getDeclaration1():"false");
-		parameters.accumulate("declaration2", lifeDeclaration.getDeclaration2()!=null?lifeDeclaration.getDeclaration2():"false");
-		parameters.accumulate("declaration3", lifeDeclaration.getDeclaration3()!=null?lifeDeclaration.getDeclaration3():"false");
-		parameters.accumulate("declaration4", lifeDeclaration.getDeclaration4()!=null?lifeDeclaration.getDeclaration4():"false");
-		parameters.accumulate("declaration5", lifeDeclaration.getDeclaration5()!=null?lifeDeclaration.getDeclaration5():"false");
+		parameters.accumulate("declaration1", lifeDeclaration.getHasReadAndAcceptFATC()!=null?lifeDeclaration.getHasReadAndAcceptFATC():"false");
+		parameters.accumulate("declaration2", lifeDeclaration.getHasReadAndAcceptFATC2()!=null?lifeDeclaration.getHasReadAndAcceptFATC2():"false");
+		parameters.accumulate("declaration3", lifeDeclaration.getHasReadAndAcceptPICS()!=null?lifeDeclaration.getHasReadAndAcceptPICS():"false");
+		parameters.accumulate("declaration4", lifeDeclaration.getHasReadAndAcceptCancellation()!=null?lifeDeclaration.getHasReadAndAcceptCancellation():"false");
+		parameters.accumulate("declaration5", lifeDeclaration.getHasReadAndAgreeApplication()!=null?lifeDeclaration.getHasReadAndAgreeApplication():"false");
 		parameters.accumulate("lastViewPage", "life-declaration");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
