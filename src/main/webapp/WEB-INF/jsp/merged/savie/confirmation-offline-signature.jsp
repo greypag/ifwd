@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<%@include file="includes/head.jsp" %>
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
 	<body>
@@ -12,7 +11,6 @@
 		%>
 		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps">
 			<!-- HEADER -->
-			<%@include file="includes/header-block.jsp" %>
 			<div class="fwd-container container-fluid breadcrumbs">
 				<div class="breadcrumb-container">
 		            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
@@ -33,13 +31,13 @@
                       <div class="row reset-margin hidden-xs hidden-sm">
                          <ul class="common-steps-list five-steps nav nav-pills">
                              <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
-                            <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+                            <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
                             <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Application &amp; Payment</button></li>
-                            <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+                            <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
                             <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Summary &amp; Declaration</button></li>
-                            <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+                            <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
                             <li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Signature</button></li>
-                            <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+                            <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
                             <li class="step-number" id="last-steps"><button type="button" class="et-header-info-btn active"><span class="status">5</span>Confirmation</button></li>
                          </ul>
                      </div>
@@ -130,14 +128,14 @@
 
 							<div class="row requirements-list">
 								<div class="col-xs-12 col-md-6">
-									<div class="requirment-img-wrapper"><img src="assets/images/savie-2016/customer-service-center.png" /></div>
+									<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/customer-service-center.png" /></div>
 									<div class="requirement-text-wrapper">
 										<p>Visit the selected Customer Service Center at the appointed time above.<br>
 									</div>
 								</div>
 								<hr class="visible-xs visible-sm">
 								<div class="col-xs-12 col-md-6">
-									<div class="requirment-img-wrapper"><img src="assets/images/savie-2016/hkid-proof-of-address.png" /></div>
+									<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/hkid-proof-of-address.png" /></div>
 									<div class="requirement-text-wrapper"><p>Please bring along a copy of your HKID, pass-port, proof of address and policy number</p></div>
 								</div>
 							</div>
@@ -146,7 +144,7 @@
 						</div>
 						<hr>
 						<!--<a href="#" class="visible-md visible-lg print-doc-link">
-							<img src="assets/images/savie-2016/print-icon.png" />&nbsp;&nbsp;&nbsp;
+							<img src="<%=request.getContextPath()%>/resources/images/savie-2016/print-icon.png" />&nbsp;&nbsp;&nbsp;
 							<span>Print this document</span>
 						</a>-->
 						<center><button type="button" class="btn btn-home savie-common-btn">Back to home</button></center>
@@ -154,11 +152,9 @@
 				</div>
 			</div>
 			<!-- FOOTER -->
-			<%@include file="includes/footer-block.jsp" %>
 		</div>			
 		
 		<!-- JS INCLUDES -->
-		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 			var language = "en";
 		</script>
