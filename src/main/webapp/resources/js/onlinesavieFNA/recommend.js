@@ -172,7 +172,7 @@ var FNArecommendation = {
 		});
 
 		$(".fna-btn-sel-product").click(function(e){
-			e.preventDefault();
+			//e.preventDefault();
 			$("#loading-overlay-save").find(".fna-select-product-link").attr("href",$(this).attr("href"));
 
 			$('#loading-overlay-save').modal({
@@ -531,14 +531,20 @@ var FNArecommendation = {
 						
 					})
 					prod.find(".fna-product-obj-cont").append(objective_ul);
-
+					
 					if(prod_data.product_url){
 						prod.find(".fna-btn-details").attr("href",prod_data.product_url)
-						prod.find(".fna-btn-sel-product").css("display","inline-block");
+						//prod.find(".fna-btn-sel-product").css("display","block");
 						
 					}else{
 						prod.find(".fna-btn-details").hide();
-						prod.find(".fna-btn-call-details").css("display","inline-block");
+						//prod.find(".fna-btn-call-details").css("display","block");
+					}
+					
+					if(prod_data.product_code=='SAVIE'){
+						prod.find(".fna-btn-sel-product").css("display","block");
+					}else{
+						prod.find(".fna-btn-call-details").css("display","block");
 					}
 
 					if(prod_data.brochure_url){
