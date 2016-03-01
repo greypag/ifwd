@@ -10891,7 +10891,7 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 .bottom-footer-wrapper{
 	padding: 20px 90px;
 }
-.bottom-footer-wrapper a,.bottom-footer-wrapper div{
+.bottom-footer-wrapper a,.bottom-fter-wrapper div{
 	color: #ffffff;
 	font-size: 14px;
 	line-height: 18px;
@@ -10908,3 +10908,109 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
     font-size: 25px;
     color: #f6871e;
 }     
+/*navbar revamp 1603*/
+.mob-topbar{
+	display:none;
+}
+.top-bar{
+	background-color:#222;
+	line-height:35px;
+}
+.top-weixin{margin:0 20px;}
+.top-number{
+	line-height:35px;
+	padding:0!important;
+}
+.top-menu .nav>li>a{
+    line-height:35px;
+    padding:0 8px !important;
+}
+.margin-left1{
+	margin-left:10px !important;
+	
+}
+.navbar-inverse{
+	padding-top:35px;
+}
+.chatnow-btn{
+	background-color:#373a36;
+}
+@media screen and (max-width: 991px){
+    .logobox{
+       background-color:#222;
+       border:0;
+       height:50px;
+    }
+    .navbar-default{
+        border:0;
+    }
+    .headingbox{
+       background-color:#fff;
+       border:0;
+       height:60px;
+    }
+    .headingbox-h3{
+        color:#ff8200;
+        font-size:24px;
+        font-weight:bold;
+        margin:0 30px;
+    }
+    .headingbox-h5{
+        color:#86989c;
+        font-size:14px;
+        margin:0 30px;
+    }
+    .stickybarbox{
+       background-color:#061d29;
+       border:0;
+       color:#fff;
+       height:50px;
+    }
+    .stickybarbox-l{
+        display:inline;
+        float:left;
+        font-size:18px;
+        font-weight:bold;
+        line-height:50px;
+        height:50px;
+        margin:0 0 0 30px;
+    }
+    .stickybarbox-r{
+        display:inline;
+        float:right;
+        font-size:26px;
+        font-weight:bold;
+        line-height:50px;
+        height:50px;
+        margin:0 30px 0 0;
+        text-align:right;
+    }
+    .stickybarbox-r span{
+        font-size:18px;
+    }
+	.navbar-toggle{
+	   padding:13.5px 30px;
+	}
+	.navbar-default .navbar-brand{
+	   height:50px;
+	}
+	a.navbar-brand>img {
+	    padding: 0;
+	    margin: 0 auto;
+	}
+	.navbar-default .mob-menu-btn.navbar-toggle:hover, .navbar-default .mob-menu-btn.navbar-toggle:focus, .navbar-default .navbar-toggle.mob-menu-btn{
+        float: left;
+        margin: 0;
+        position: absolute;
+        z-index: 1;
+	}
+	.navbar-default .navbar-toggle.mob-menu-btn .icon-bar{
+	   background-color:#fff;
+	   width:30px;
+	   height:2px;
+	}
+	.navbar-toggle .icon-bar+.icon-bar{
+	   margin-top:8px;
+	}
+}
+/*/navbar revamp 1603*/
