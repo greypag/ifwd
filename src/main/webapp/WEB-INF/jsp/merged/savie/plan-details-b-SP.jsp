@@ -738,16 +738,14 @@ var languageP = "${language}";
 	
 	$("#proceed-btn").on('click', function(){
 		if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
-			/* $('#thankYouModal').modal({backdrop: 'static', keyboard: false});
-			$('#thankYouModal').modal('show'); */
-			goServiceCenter();
+			saviePlanDetailsGoNext();
 		}
 		else{
 			$('#loginpopup').modal('show');
 		}
 	});
 	
-	function goServiceCenter(){
+	function saviePlanDetailsGoNext(){
 		if('2'=='${type }'){
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 		}
@@ -772,7 +770,7 @@ var languageP = "${language}";
 			    		    	    window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
 			    		    	}
 			    		    	else{
-			    		    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+			    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
 			    		    	}
 			    		    }  
 			    		});

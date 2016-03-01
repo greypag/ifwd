@@ -62,6 +62,7 @@
      
  
 <meta name="apple-mobile-web-app-capable" content="yes" />
+<% String requestUri = request.getRequestURI(); %>
 
 <!-- Bootstrap -->
 <%-- <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie/bootstrap.css">
@@ -95,8 +96,15 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/icomoon.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/bootstrap-slider.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/jquery.jscrollpane.css">
+<% 
+if(!(requestUri.endsWith("FNA/financial-needs-analysis") || requestUri.endsWith("FNA/review")
+		 || requestUri.endsWith("FNA/product-recommendation"))) {
+%>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/styles.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/savie-styles.css">
+<%
+}
+%>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/savie/datepicker3.min.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/jquery.timepicker.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/pnotify.custom.min.css">
