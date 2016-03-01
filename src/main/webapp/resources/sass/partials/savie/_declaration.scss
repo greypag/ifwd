@@ -99,6 +99,10 @@
 				
 				.personal-info-link-parent { cursor: pointer; }
 				
+				.chkboxText {
+					&:hover { cursor: pointer; }
+				}
+				
 				@media only screen and (min-width: $screen-md) {
 					.desktop-left {
 						float: left;
