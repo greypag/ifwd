@@ -227,7 +227,7 @@ var affiliate = "${affiliate}";
 									<div class="hidden-xs">
 										<a href="javascript:void(0);" class="fna-btn-discover">Discover now</a>
 									</div>
-									<a href="<%=request.getContextPath()%>/${language}/savings-insurance/savie-review" class="fna-btn-review">Back to My FNA Review&nbsp;<i class="fa fa-caret-right"></i></a>
+									<a href="<%=request.getContextPath()%>/${language}/FNA/review" class="fna-btn-review">Back to My FNA Review&nbsp;<i class="fa fa-caret-right"></i></a>
 								</div>
 								<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-xs hidden-sm">
 									<img src="<%=request.getContextPath()%>/resources/images/onlinesavieFNA/recommend_box_pic_01.png" class="img-responsive">
