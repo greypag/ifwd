@@ -269,21 +269,24 @@ var FNArecommendation = {
 		});*/
 
 		$("#fnaMobSort").change(function(){
-			if(this.value > 3){
-				that.sortAsc = false;
-				that.sortFld = parseInt(this.value,10) - 4;
-			}else{
-				that.sortAsc = true;
-				that.sortFld = parseInt(this.value,10);
-			}
-			
-			that.setLoading(true);
-
-			that.loadProductRecommendSorting();
-/*
+			if(this.value != "") {
+				if(this.value > 3){
+					that.sortAsc = false;
+					that.sortFld = parseInt(this.value,10) - 4;
+				}else{
+					that.sortAsc = true;
+					that.sortFld = parseInt(this.value,10);
+				}
+				
+				that.setLoading(true);
+				
+				that.loadProductRecommendSorting();
+				/*
 			setTimeout(function(){
 				that.loadProductRecommend();
 			},750);*/
+				
+			}
 		});
 
 		$(".fna-btn-cancel").click(function(){
@@ -370,7 +373,9 @@ var FNArecommendation = {
 	loadProductRecommendSorting:function(){
 		var that = this;
 		var sort_by = that.sortFld + (that.sortAsc ? 0 : 4);
-		AjaxManager.fire(that.api_product_recommend,{sort_by:sort_by},function(res){
+		var fnaDatas = that.fnaData;
+		fnaDatas.sort_by=sort_by;
+		AjaxManager.fire(that.api_product_recommend,fnaDatas,function(res){
 			that.fnaResultData = res;
 			that.parseProductRecommend(res);
 			that.setLoading(false);

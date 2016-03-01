@@ -618,8 +618,10 @@ var languageP = "${language}";
 			</div>
 		</div>
 		<div class="next-btn text-center">
-			<button id="proceed-btn" type="button" class="btn plan-details-btn savie-common-btn">Proceed to your sales illustration</button>
-					<a href="#" class="pd-link">Apply at Customer Service Centre</a>
+			<button type="button" id="btn-login" class="btn plan-details-btn savie-common-btn hidden">Login to proceed</button>
+			<button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn hidden">Proceed</button>
+			<button type="button" id="btn-back" class="btn plan-details-btn savie-common-btn hidden">Back to summary</button>
+			<a href="#" class="pd-link">Apply at Customer Service Centre</a>
 		</div>
 	</div>
       </div>
@@ -649,6 +651,22 @@ var languageP = "${language}";
 		$('#first-3-years-btn').on('click', function () {
 			$('#after-3-years-container').toggle();
 		});
+		
+		var dummy = true;
+		// dummy condition for displaying the back / proceed / login button
+		if(dummy) {
+			var hasLoggedIn = true
+			if(hasLoggedIn) {
+				// display proceed button when user logged in
+				$('#btn-proceed').removeClass('hidden');
+			} else {
+				// display login button when user not yet logged in
+				$('#btn-login').removeClass('hidden');
+			}
+		} else {
+			// display the back button
+			$('#btn-back').removeClass('hidden');
+		}
 		
 		var value = $('#policy-year-0-1').html();
 		$(document).on('change','#total-payment-years',function() {
@@ -736,7 +754,7 @@ var languageP = "${language}";
 		return false;
 	}
 	
-	$("#proceed-btn").on('click', function(){
+	$("#btn-proceed").on('click', function(){
 		if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
 			saviePlanDetailsGoNext();
 		}

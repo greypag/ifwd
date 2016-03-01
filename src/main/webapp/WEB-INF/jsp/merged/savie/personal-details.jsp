@@ -217,12 +217,30 @@
                                              <option value="" selected="selected" disabled="disabled">Marital status</option>
                                              <c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${maritalStatusesEN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.martialStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" 
+													    <c:choose>  
+														   <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}">selected="selected"</c:when>
+														   <c:when test="${savieFna.marital_status == '1' && list.itemCode == 'MS2'}">selected="selected"</c:when>  
+														   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}">selected="selected"</c:when>
+														   <c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}">selected="selected"</c:when> 
+														   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}">selected="selected"</c:when> 
+														   <c:otherwise></c:otherwise>  
+														</c:choose>
+													>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${maritalStatusesCN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.martialStatus == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													<option value="${list.itemCode }-${list.itemDesc }" 
+													    <c:choose>  
+														   <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}">selected="selected"</c:when>
+														   <c:when test="${savieFna.marital_status == '1' && list.itemCode == 'MS2'}">selected="selected"</c:when>  
+														   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}">selected="selected"</c:when>
+														   <c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}">selected="selected"</c:when> 
+														   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}">selected="selected"</c:when> 
+														   <c:otherwise></c:otherwise>  
+														</c:choose>
+													>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
                                           </select>
@@ -282,7 +300,7 @@
                                                 <label for="diffToPermanent"></label>
                                              </div>
                                              <div class="pull-left right-checkbox">
-                                                <span class="checkbox-text">My residential address is different to my permanent address</span>
+                                                <span id="chkboxdiffToPermanentText" class="checkbox-text">My residential address is different to my permanent address</span>
                                              </div>
                                           </div>
                                        </div>
@@ -332,7 +350,7 @@
                                                 <label for="diffToResidential"></label>
                                              </div>
                                              <div class="pull-left right-checkbox">
-                                                <span class="checkbox-text">My correspondence address is different to my residential address</span>
+                                                <span id="chkboxDiffToResidentialText" class="checkbox-text">My correspondence address is different to my residential address</span>
                                              </div>
                                           </div>
                                        </div>
@@ -511,6 +529,14 @@
 						$('#save-and-continue-modal').modal('show');
 					}
                 });
+				
+				$('#chkboxdiffToPermanentText').on('click', function() {
+					$('#diffToPermanent').click();
+				});
+				
+				$('#chkboxDiffToResidentialText').on('click', function() {
+					$('#diffToResidential').click();
+				});
 		    });
 			
 			$("#et-personal-info-next").click(function(){

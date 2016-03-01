@@ -777,8 +777,12 @@ a:hover {
     margin-top: 16px !important;
   }
 }
+/* line 409, ../sass/partials/savie/_common.scss */
+.with-breadcrumbs-steps .browse-holder h3 {
+  line-height: 24px;
+}
 
-/* line 412, ../sass/partials/savie/_common.scss */
+/* line 415, ../sass/partials/savie/_common.scss */
 #step-of {
   position: absolute;
   right: 30px;
@@ -787,37 +791,37 @@ a:hover {
   font-size: 14px;
 }
 
-/* line 420, ../sass/partials/savie/_common.scss */
+/* line 423, ../sass/partials/savie/_common.scss */
 .ui-loader {
   display: none;
 }
 
-/* line 425, ../sass/partials/savie/_common.scss */
+/* line 428, ../sass/partials/savie/_common.scss */
 .radio-group h4 {
   color: #ff8200;
 }
-/* line 428, ../sass/partials/savie/_common.scss */
+/* line 431, ../sass/partials/savie/_common.scss */
 .radio-group .below {
   margin-top: 8px;
 }
 @media (min-width: 992px) {
-  /* line 428, ../sass/partials/savie/_common.scss */
+  /* line 431, ../sass/partials/savie/_common.scss */
   .radio-group .below {
     margin-top: 0;
   }
 }
-/* line 435, ../sass/partials/savie/_common.scss */
+/* line 438, ../sass/partials/savie/_common.scss */
 .radio-group .radio-button-group {
   margin-top: 8px;
 }
-/* line 438, ../sass/partials/savie/_common.scss */
+/* line 441, ../sass/partials/savie/_common.scss */
 .radio-group .radio-button-group .desc {
   font-size: 14px;
   color: #373a36;
   font-family: 'Calibri-bold';
   padding-top: 4px;
 }
-/* line 444, ../sass/partials/savie/_common.scss */
+/* line 447, ../sass/partials/savie/_common.scss */
 .radio-group .radio-button-group .desc span {
   color: #9ba5a7;
   font-family: 'Calibri';
@@ -825,13 +829,13 @@ a:hover {
   line-height: 15px;
 }
 @media (min-width: 992px) {
-  /* line 444, ../sass/partials/savie/_common.scss */
+  /* line 447, ../sass/partials/savie/_common.scss */
   .radio-group .radio-button-group .desc span {
     display: inline-block;
     padding-left: 4px;
   }
 }
-/* line 456, ../sass/partials/savie/_common.scss */
+/* line 459, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder {
   width: 27px;
   position: relative;
@@ -839,7 +843,7 @@ a:hover {
   height: 15px;
   top: 72px;
 }
-/* line 462, ../sass/partials/savie/_common.scss */
+/* line 465, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder label {
   width: 15px;
   height: 15px;
@@ -850,7 +854,7 @@ a:hover {
   border: solid 1px #ff8200;
   border-radius: 50%;
 }
-/* line 471, ../sass/partials/savie/_common.scss */
+/* line 474, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder label:after {
   content: '';
   width: 11px;
@@ -863,42 +867,43 @@ a:hover {
   border: solid 1px #fff;
   opacity: 0;
 }
-/* line 483, ../sass/partials/savie/_common.scss */
+/* line 486, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder label:hover::after {
   opacity: 0.5;
 }
-/* line 488, ../sass/partials/savie/_common.scss */
+/* line 491, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder input[type=radio] {
   visibility: hidden;
 }
-/* line 490, ../sass/partials/savie/_common.scss */
+/* line 493, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder input[type=radio]:checked + label:after {
   opacity: 1;
 }
 
-/* line 497, ../sass/partials/savie/_common.scss */
+/* line 500, ../sass/partials/savie/_common.scss */
 .centreDiv {
   overflow: hidden;
 }
 
-/* line 500, ../sass/partials/savie/_common.scss */
+/* line 503, ../sass/partials/savie/_common.scss */
 .gray-bg-data-info {
   margin-bottom: 10px;
   padding: 0px 12px 10px 12px;
   background: #F5F5F5;
+  height: 40px;
 }
-/* line 504, ../sass/partials/savie/_common.scss */
+/* line 508, ../sass/partials/savie/_common.scss */
 .gray-bg-data-info label {
   font-size: 11px;
   font-weight: bold;
 }
-/* line 508, ../sass/partials/savie/_common.scss */
+/* line 512, ../sass/partials/savie/_common.scss */
 .gray-bg-data-info .data-info {
   font-size: 14px;
   line-height: 5px;
 }
 
-/* line 513, ../sass/partials/savie/_common.scss */
+/* line 517, ../sass/partials/savie/_common.scss */
 .common-yellow-btn {
   border-radius: 5px !important;
   background: #fdb714;
@@ -908,27 +913,27 @@ a:hover {
   padding: 4px 30px;
   border-bottom: 3px solid #cf9611;
 }
-/* line 521, ../sass/partials/savie/_common.scss */
+/* line 525, ../sass/partials/savie/_common.scss */
 .common-yellow-btn:hover {
   color: #FFF;
   opacity: 0.9;
 }
 
-/* line 526, ../sass/partials/savie/_common.scss */
+/* line 530, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator {
   background: #FFF;
   width: 100%;
 }
-/* line 529, ../sass/partials/savie/_common.scss */
+/* line 533, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container {
   padding: 20px 30px 0 30px;
   position: relative;
 }
-/* line 535, ../sass/partials/savie/_common.scss */
+/* line 539, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li#last-step {
   width: 23px;
 }
-/* line 538, ../sass/partials/savie/_common.scss */
+/* line 542, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li a {
   width: 24px;
   height: 24px;
@@ -939,79 +944,79 @@ a:hover {
   background: #fff;
   color: #ff8200;
 }
-/* line 547, ../sass/partials/savie/_common.scss */
+/* line 551, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li a.active {
   background: #ff8200 !important;
   color: #FFF !important;
 }
-/* line 551, ../sass/partials/savie/_common.scss */
+/* line 555, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li a.completed {
   background: #cdd2d3;
   color: #FFF;
   border: 1px solid #cdd2d3;
   font-size: 13px;
 }
-/* line 557, ../sass/partials/savie/_common.scss */
+/* line 561, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li a .step-no {
   display: block;
   font-size: 16px;
   padding: 0 !important;
 }
-/* line 565, ../sass/partials/savie/_common.scss */
+/* line 569, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul.six-steps li {
   width: 17.11%;
 }
 @media (min-width: 420px) {
-  /* line 565, ../sass/partials/savie/_common.scss */
+  /* line 569, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.six-steps li {
     width: 17.9%;
   }
 }
 @media (min-width: 559px) {
-  /* line 565, ../sass/partials/savie/_common.scss */
+  /* line 569, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.six-steps li {
     width: 18.5%;
   }
 }
-/* line 576, ../sass/partials/savie/_common.scss */
+/* line 580, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul.five-steps li {
   width: 21.9%;
 }
 @media (min-width: 420px) {
-  /* line 576, ../sass/partials/savie/_common.scss */
+  /* line 580, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.five-steps li {
     width: 22.5%;
   }
 }
 @media (min-width: 559px) {
-  /* line 576, ../sass/partials/savie/_common.scss */
+  /* line 580, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.five-steps li {
     width: 23%;
   }
 }
 @media (min-width: 593px) {
-  /* line 576, ../sass/partials/savie/_common.scss */
+  /* line 580, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.five-steps li {
     width: 23.5%;
   }
 }
-/* line 590, ../sass/partials/savie/_common.scss */
+/* line 594, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul.three-steps li {
   width: 44.5%;
 }
 @media (min-width: 420px) {
-  /* line 590, ../sass/partials/savie/_common.scss */
+  /* line 594, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.three-steps li {
     width: 45.9%;
   }
 }
 @media (min-width: 559px) {
-  /* line 590, ../sass/partials/savie/_common.scss */
+  /* line 594, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.three-steps li {
     width: 46.9%;
   }
 }
-/* line 601, ../sass/partials/savie/_common.scss */
+/* line 605, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container .step-line {
   height: 1px;
   background: #DDD;
@@ -1019,49 +1024,53 @@ a:hover {
   width: 96%;
 }
 
-/* line 610, ../sass/partials/savie/_common.scss */
+/* line 614, ../sass/partials/savie/_common.scss */
 h1 {
   font-size: 36px;
 }
 
-/* line 613, ../sass/partials/savie/_common.scss */
+/* line 617, ../sass/partials/savie/_common.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 616, ../sass/partials/savie/_common.scss */
+/* line 620, ../sass/partials/savie/_common.scss */
 h3 {
   font-size: 24px;
 }
 
-/* line 619, ../sass/partials/savie/_common.scss */
+/* line 623, ../sass/partials/savie/_common.scss */
 h4 {
   font-size: 18px;
 }
 
-/* line 622, ../sass/partials/savie/_common.scss */
+/* line 626, ../sass/partials/savie/_common.scss */
 h5 {
   font-size: 14px;
 }
 
-/* line 625, ../sass/partials/savie/_common.scss */
+/* line 629, ../sass/partials/savie/_common.scss */
 h6 {
   font-size: 12px;
 }
 
-/* line 628, ../sass/partials/savie/_common.scss */
+/* line 632, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield {
-  width: 100%;
-  padding: 0;
+  width: 100% !important;
+  padding: 0 !important;
   margin-bottom: 10px;
 }
-/* line 632, ../sass/partials/savie/_common.scss */
+/* line 636, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield input {
   padding: 12px 15px 0 15px !important;
   height: 40px !important;
   margin-bottom: 0;
 }
-/* line 637, ../sass/partials/savie/_common.scss */
+/* line 641, ../sass/partials/savie/_common.scss */
+.so-mdl-textfield input:hover {
+  border-bottom: 2px solid #Ff8200 !important;
+}
+/* line 646, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield label {
   font-size: 14px;
   left: 0;
@@ -1069,56 +1078,56 @@ h6 {
   padding-left: 15px;
   font-family: 'Calibri-Bold';
 }
-/* line 643, ../sass/partials/savie/_common.scss */
+/* line 652, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield label:after {
   width: 97%;
   background-color: #ff8200;
   bottom: 0;
 }
-/* line 650, ../sass/partials/savie/_common.scss */
+/* line 659, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield.is-focused label, .so-mdl-textfield.is-dirty label {
   color: #ff8200 !important;
   top: 1px !important;
 }
-/* line 655, ../sass/partials/savie/_common.scss */
+/* line 664, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield.is-active {
   color: #ff8200 !important;
 }
-/* line 659, ../sass/partials/savie/_common.scss */
+/* line 668, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield.is-not-active label {
   color: #373a36  !important;
   top: 1px !important;
 }
 
-/* line 666, ../sass/partials/savie/_common.scss */
+/* line 675, ../sass/partials/savie/_common.scss */
 .active-checkbox:after {
   border: 0px solid #FFF !important;
 }
 
-/* line 670, ../sass/partials/savie/_common.scss */
+/* line 679, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder {
   background: #061d29;
   padding: 24px 0 20px 0;
 }
 @media (max-width: 992px) {
-  /* line 670, ../sass/partials/savie/_common.scss */
+  /* line 679, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder {
     margin-top: 20px;
     padding: 24px 0 30px 0;
   }
 }
-/* line 677, ../sass/partials/savie/_common.scss */
+/* line 686, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder {
   margin-bottom: 0 !important;
   padding: 0 30px !important;
 }
 @media (min-width: 992px) {
-  /* line 677, ../sass/partials/savie/_common.scss */
+  /* line 686, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder {
     padding: 0 15px !important;
   }
 }
-/* line 683, ../sass/partials/savie/_common.scss */
+/* line 692, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .heading-title {
   color: #FFF;
   margin-left: 15px;
@@ -1126,100 +1135,104 @@ h6 {
   margin-bottom: 15px;
 }
 @media (min-width: 992px) {
-  /* line 683, ../sass/partials/savie/_common.scss */
+  /* line 692, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .heading-title {
     margin-bottom: 5px;
   }
 }
-/* line 691, ../sass/partials/savie/_common.scss */
+/* line 700, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .heading-title .fa-info-circle {
   font-size: 14px;
   margin-left: 5px;
 }
-/* line 695, ../sass/partials/savie/_common.scss */
+/* line 704, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .heading-title .fa-info-circle.info-tooltip {
   cursor: pointer;
 }
 @media (max-width: 992px) {
-  /* line 695, ../sass/partials/savie/_common.scss */
+  /* line 704, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .heading-title .fa-info-circle.info-tooltip {
     display: none;
   }
 }
 @media (min-width: 992px) {
-  /* line 703, ../sass/partials/savie/_common.scss */
+  /* line 712, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-payment-type, .plan-calculator-holder .plan-form-holder .plan-amount {
     padding-right: 8px;
   }
 }
 @media (min-width: 992px) {
-  /* line 708, ../sass/partials/savie/_common.scss */
+  /* line 717, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #payment-type, .plan-calculator-holder .plan-form-holder #plan-dob {
     margin-bottom: 20px;
   }
 }
-/* line 713, ../sass/partials/savie/_common.scss */
+/* line 722, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #plan-dob-datepicker {
   height: 40px;
   font-size: 14px;
   color: #9ba5a7;
 }
+/* line 728, ../sass/partials/savie/_common.scss */
+.plan-calculator-holder .plan-form-holder .plan-promo-code .mdl-textfield {
+  background: #FFF;
+}
 @media (min-width: 992px) {
-  /* line 718, ../sass/partials/savie/_common.scss */
+  /* line 732, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-dob, .plan-calculator-holder .plan-form-holder .plan-promo-code, .plan-calculator-holder .plan-form-holder .plan-total-years {
     padding-right: 8px;
     padding-left: 8px;
   }
 }
 @media (min-width: 992px) {
-  /* line 725, ../sass/partials/savie/_common.scss */
+  /* line 739, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-total-years .selectDiv, .plan-calculator-holder .plan-form-holder .plan-amount .selectDiv {
     margin-bottom: 0;
   }
 }
 @media (max-width: 992px) {
-  /* line 731, ../sass/partials/savie/_common.scss */
+  /* line 745, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-calculate {
     margin-top: 10px;
   }
 }
 @media (min-width: 992px) {
-  /* line 731, ../sass/partials/savie/_common.scss */
+  /* line 745, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-calculate {
     padding-left: 8px;
     padding-right: 0;
   }
 }
-/* line 743, ../sass/partials/savie/_common.scss */
+/* line 757, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .orange-caret-bg {
   top: 44% !important;
   width: 14px !important;
 }
-/* line 747, ../sass/partials/savie/_common.scss */
+/* line 761, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder {
   padding-bottom: 30px;
 }
 @media (min-width: 992px) {
-  /* line 747, ../sass/partials/savie/_common.scss */
+  /* line 761, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #amount-slide-holder {
     padding-bottom: 10px;
   }
 }
-/* line 752, ../sass/partials/savie/_common.scss */
+/* line 766, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder .slider-handle {
   background-image: url("../images/savie-2016/handle.png") !important;
   background-repeat: no-repeat;
   background-position: 0px !important;
 }
 @media (min-width: 992px) {
-  /* line 757, ../sass/partials/savie/_common.scss */
+  /* line 771, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #amount-slide-holder .slider-horizontal {
     width: 93%;
     height: 7px;
     margin-left: 10px;
   }
 }
-/* line 764, ../sass/partials/savie/_common.scss */
+/* line 778, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder .amount-selected {
   font-size: 18px;
   color: #FFFFFF;
@@ -1228,23 +1241,23 @@ h6 {
   margin-top: 20px;
 }
 @media (min-width: 992px) {
-  /* line 764, ../sass/partials/savie/_common.scss */
+  /* line 778, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #amount-slide-holder .amount-selected {
     margin-top: 0;
   }
 }
-/* line 774, ../sass/partials/savie/_common.scss */
+/* line 788, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder .min-max-holder {
   margin-top: 10px;
   color: #FFF;
 }
-/* line 777, ../sass/partials/savie/_common.scss */
+/* line 791, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder .min-max-holder p {
   line-height: 14px;
   font-size: 14px;
 }
 @media (min-width: 992px) {
-  /* line 777, ../sass/partials/savie/_common.scss */
+  /* line 791, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #amount-slide-holder .min-max-holder p {
     font-size: 12px;
   }
@@ -4694,7 +4707,6 @@ a.eserv-link:hover {
 /* line 40, ../sass/partials/savie/_applicant-info.scss */
 #savie-online .form-control.gray-textbox {
   font-size: 14px;
-  margin-bottom: 0;
   color: #000;
   padding: 12px 15px 0 15px;
 }
@@ -4832,21 +4844,25 @@ a.eserv-link:hover {
   display: inline-block;
   margin-top: 8px;
 }
-/* line 176, ../sass/partials/savie/_applicant-info.scss */
+/* line 175, ../sass/partials/savie/_applicant-info.scss */
+#applicant-info-page span.checkbox-text:hover {
+  cursor: pointer;
+}
+/* line 178, ../sass/partials/savie/_applicant-info.scss */
 #applicant-info-page #residentialAdress1 {
   padding-bottom: 0;
 }
-/* line 180, ../sass/partials/savie/_applicant-info.scss */
+/* line 182, ../sass/partials/savie/_applicant-info.scss */
 #applicant-info-page .gender-margin {
   margin-bottom: 10px;
 }
 
-/* line 185, ../sass/partials/savie/_applicant-info.scss */
+/* line 187, ../sass/partials/savie/_applicant-info.scss */
 #so-application-info-section {
   max-width: 890px;
   margin: auto;
 }
-/* line 189, ../sass/partials/savie/_applicant-info.scss */
+/* line 191, ../sass/partials/savie/_applicant-info.scss */
 #so-application-info-section .error-msg {
   margin-bottom: 0;
 }
@@ -4966,6 +4982,7 @@ a.eserv-link:hover {
   background: #f5f5f5;
   padding: 5px 15px;
   margin-bottom: 10px;
+  height: 40px;
 }
 /* line 57, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .gray-holder .info-label {
@@ -5306,18 +5323,22 @@ a.eserv-link:hover {
   padding-left: 10px;
   padding-top: 1px;
 }
+/* line 189, ../sass/partials/savie/_payment.scss */
+#payment-page .payment-content-wrapper .payment-policy-wrapper .policy-text:hover {
+  cursor: pointer;
+}
 @media only screen and (min-width: 992px) {
   /* line 137, ../sass/partials/savie/_payment.scss */
   #payment-page .payment-content-wrapper .payment-policy-wrapper {
     margin-bottom: 35px;
     margin-top: 4px;
   }
-  /* line 194, ../sass/partials/savie/_payment.scss */
+  /* line 198, ../sass/partials/savie/_payment.scss */
   #payment-page .payment-content-wrapper .payment-policy-wrapper .policy-text {
     padding-top: 1px;
   }
 }
-/* line 198, ../sass/partials/savie/_payment.scss */
+/* line 202, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .btn-payment {
   background-color: #ff8200;
   border-bottom: 3px solid #c56501;
@@ -5328,24 +5349,24 @@ a.eserv-link:hover {
   padding: 5px 60px;
   margin-bottom: 5px;
 }
-/* line 209, ../sass/partials/savie/_payment.scss */
+/* line 213, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .btn-payment:hover, #payment-page .payment-content-wrapper .btn-payment:focus {
   opacity: 0.9;
   color: #ffffff;
 }
 @media only screen and (min-width: 992px) {
-  /* line 198, ../sass/partials/savie/_payment.scss */
+  /* line 202, ../sass/partials/savie/_payment.scss */
   #payment-page .payment-content-wrapper .btn-payment {
     padding: 9px 105px;
   }
 }
-/* line 219, ../sass/partials/savie/_payment.scss */
+/* line 223, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .save-link {
   font-size: 14px;
   color: #ff8c26;
   width: 140px;
 }
-/* line 224, ../sass/partials/savie/_payment.scss */
+/* line 228, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-content-wrapper .save-link:hover {
   text-decoration: underline;
 }
@@ -5358,17 +5379,17 @@ a.eserv-link:hover {
     padding-top: 35px;
     margin: 0 auto;
   }
-  /* line 235, ../sass/partials/savie/_payment.scss */
+  /* line 239, ../sass/partials/savie/_payment.scss */
   #payment-page .payment-content-wrapper #direct-debit-panel .col-md-6 {
     padding-right: 0;
   }
 }
-/* line 241, ../sass/partials/savie/_payment.scss */
+/* line 245, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-select-wrapper {
   position: relative;
   /** date and time fields with floating label **/
 }
-/* line 244, ../sass/partials/savie/_payment.scss */
+/* line 248, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-select-wrapper .form-control.gray-dropdown {
   font-family: 'Calibri';
   font-size: 14px;
@@ -5380,11 +5401,11 @@ a.eserv-link:hover {
   height: 45px;
   width: 100%;
 }
-/* line 256, ../sass/partials/savie/_payment.scss */
+/* line 260, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-select-wrapper .form-control.gray-dropdown.preferred-date, #payment-page .payment-select-wrapper .form-control.gray-dropdown.ui-timepicker-input {
   padding-left: 15px !important;
 }
-/* line 261, ../sass/partials/savie/_payment.scss */
+/* line 265, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-select-wrapper .bank-info-select-label {
   font-size: 11px;
   font-weight: bold;
@@ -5394,48 +5415,48 @@ a.eserv-link:hover {
   margin-top: 1px;
   margin-left: -3px;
 }
-/* line 271, ../sass/partials/savie/_payment.scss */
+/* line 275, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-select-wrapper .icon-chevron-thin-down.orange-caret {
   font-size: 11px;
   font-weight: bold;
   padding-top: 15px;
 }
-/* line 279, ../sass/partials/savie/_payment.scss */
+/* line 283, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-select-wrapper.so-mdl-textfield .mdl-textfield__label {
   z-index: 10;
   font-size: 14px;
   top: 4px;
   padding-top: 7px;
 }
-/* line 289, ../sass/partials/savie/_payment.scss */
+/* line 293, ../sass/partials/savie/_payment.scss */
 #payment-page .payment-select-wrapper.is-focused .mdl-textfield__label, #payment-page .payment-select-wrapper.is-not-active .mdl-textfield__label {
   font-size: 11px;
   padding-top: 2px;
 }
-/* line 297, ../sass/partials/savie/_payment.scss */
+/* line 301, ../sass/partials/savie/_payment.scss */
 #payment-page .make-an-appointment {
   padding: 0 !important;
   margin-top: 9px;
   margin-bottom: 20px;
 }
-/* line 302, ../sass/partials/savie/_payment.scss */
+/* line 306, ../sass/partials/savie/_payment.scss */
 #payment-page .make-an-appointment #left-side-form {
   padding-right: 7.5px;
   padding-left: 0;
 }
-/* line 307, ../sass/partials/savie/_payment.scss */
+/* line 311, ../sass/partials/savie/_payment.scss */
 #payment-page .make-an-appointment #right-side-form {
   padding-left: 7.5px;
   padding-right: 0;
 }
 @media only screen and (min-width: 992px) {
-  /* line 297, ../sass/partials/savie/_payment.scss */
+  /* line 301, ../sass/partials/savie/_payment.scss */
   #payment-page .make-an-appointment {
     margin-top: 0;
     margin-bottom: 42px;
   }
 }
-/* line 319, ../sass/partials/savie/_payment.scss */
+/* line 323, ../sass/partials/savie/_payment.scss */
 #payment-page .so-mdl-textfield input {
   background-color: #f5f5f5;
   border-bottom: none;
@@ -5445,53 +5466,53 @@ a.eserv-link:hover {
   padding-left: 15px !important;
   padding-top: 13px !important;
 }
-/* line 331, ../sass/partials/savie/_payment.scss */
+/* line 335, ../sass/partials/savie/_payment.scss */
 #payment-page .so-mdl-textfield.is-focused .mdl-textfield__label, #payment-page .so-mdl-textfield.is-dirty .mdl-textfield__label {
   font-size: 11px;
   padding-top: 2px;
 }
-/* line 337, ../sass/partials/savie/_payment.scss */
+/* line 341, ../sass/partials/savie/_payment.scss */
 #payment-page .so-mdl-textfield .mdl-textfield__label {
   padding-left: 15px;
   padding-top: 2px;
 }
-/* line 343, ../sass/partials/savie/_payment.scss */
+/* line 347, ../sass/partials/savie/_payment.scss */
 #payment-page #direct-debit-panel {
   margin-bottom: 15px;
 }
-/* line 348, ../sass/partials/savie/_payment.scss */
+/* line 352, ../sass/partials/savie/_payment.scss */
 #payment-page #direct-debit-panel .selectDiv.is-not-active .cstm-dropdown-label {
   font-size: 11px;
   font-weight: bold;
   padding-top: 1px;
 }
-/* line 354, ../sass/partials/savie/_payment.scss */
+/* line 358, ../sass/partials/savie/_payment.scss */
 #payment-page #direct-debit-panel .selectDiv.is-not-active .gray-dropdown {
   padding-top: 12px !important;
 }
-/* line 359, ../sass/partials/savie/_payment.scss */
+/* line 363, ../sass/partials/savie/_payment.scss */
 #payment-page #direct-debit-panel .selectDiv .gray-dropdown {
   height: 45px;
 }
-/* line 364, ../sass/partials/savie/_payment.scss */
+/* line 368, ../sass/partials/savie/_payment.scss */
 #payment-page #direct-debit-panel .so-mdl-textfield {
   margin-bottom: 0;
 }
 @media only screen and (min-width: 992px) {
-  /* line 343, ../sass/partials/savie/_payment.scss */
+  /* line 347, ../sass/partials/savie/_payment.scss */
   #payment-page #direct-debit-panel {
     margin-bottom: 35px;
   }
 }
-/* line 372, ../sass/partials/savie/_payment.scss */
+/* line 376, ../sass/partials/savie/_payment.scss */
 #payment-page .form-group.has-error {
   margin-bottom: 10px;
 }
-/* line 375, ../sass/partials/savie/_payment.scss */
+/* line 379, ../sass/partials/savie/_payment.scss */
 #payment-page .form-group.has-error .so-mdl-textfield + .error-msg {
   margin-top: -5px;
 }
-/* line 378, ../sass/partials/savie/_payment.scss */
+/* line 382, ../sass/partials/savie/_payment.scss */
 #payment-page .form-group .error-msg {
   margin-top: -10px;
 }
@@ -5500,43 +5521,47 @@ a.eserv-link:hover {
 #beneficiary-name-others-page .error-msg {
   margin-bottom: 0;
 }
-/* line 6, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 5, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+#beneficiary-name-others-page .gray-textbox {
+  margin-bottom: 0 !important;
+}
+/* line 8, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page .selectDiv {
   margin-bottom: 0;
 }
-/* line 9, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 11, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page #savie-online {
   margin-top: 0 !important;
 }
-/* line 12, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 14, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page #container-beneficiary {
   padding: 25px 30px 5px 30px;
 }
 @media (min-width: 992px) {
-  /* line 12, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 14, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #beneficiary-name-others-page #container-beneficiary {
     padding-bottom: 21px;
   }
 }
 @media (min-width: 992px) {
-  /* line 20, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 22, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #beneficiary-name-others-page #fwd-container-beneficiary {
     padding-top: 10px;
     margin-bottom: 10px;
     padding-bottom: 0;
   }
 }
-/* line 28, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 30, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page #form-beneficiary-info {
   padding-top: 7px;
 }
 @media (min-width: 992px) {
-  /* line 28, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 30, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #beneficiary-name-others-page #form-beneficiary-info {
     padding-top: 17px;
   }
 }
-/* line 36, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 38, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page .description {
   font-size: 14px;
   font-weight: bold;
@@ -5544,52 +5569,52 @@ a.eserv-link:hover {
   top: -24px;
   left: 30px;
 }
-/* line 44, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 46, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page #beneficiary-note {
   margin-top: -10px;
   padding-bottom: 20px;
 }
 @media (min-width: 992px) {
-  /* line 44, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 46, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #beneficiary-name-others-page #beneficiary-note {
     padding-top: 8px;
   }
 }
-/* line 52, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 54, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page #beneficiary-note > p {
   font-size: 14px;
   line-height: 18px;
   font-family: 'Calibri';
 }
 @media screen and (min-width: 992px) {
-  /* line 52, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 54, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #beneficiary-name-others-page #beneficiary-note > p {
     padding: 0 17px 0 15px;
   }
 }
-/* line 63, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 65, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page #beneficiary-btn {
   padding-top: 24px;
   text-align: center;
 }
 @media (min-width: 992px) {
-  /* line 63, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 65, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #beneficiary-name-others-page #beneficiary-btn {
     padding-top: 32px;
     margin-right: 0;
   }
 }
-/* line 72, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 74, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page #beneficiary-btn .beneficiary-btn-next {
   padding: 5px 60px;
 }
 @media (min-width: 992px) {
-  /* line 72, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 74, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #beneficiary-name-others-page #beneficiary-btn .beneficiary-btn-next {
     padding: 9px 96px;
   }
 }
-/* line 80, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 82, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page #beneficiary-btn a.span-save-continue {
   font-size: 14px;
   display: block;
@@ -5597,53 +5622,53 @@ a.eserv-link:hover {
   margin: 5px auto auto;
   width: 150px;
 }
-/* line 87, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 89, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page #beneficiary-btn a.span-save-continue:hover {
   text-decoration: underline;
 }
-/* line 90, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 92, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page #beneficiary-btn .beneficiary-btn-back {
   padding: 5px 35px;
 }
 @media (min-width: 992px) {
-  /* line 90, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 92, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #beneficiary-name-others-page #beneficiary-btn .beneficiary-btn-back {
     padding: 9px 40px;
   }
 }
-/* line 99, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 101, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page .radio-group {
   margin-bottom: 20px;
 }
 @media screen and (min-width: 992px) {
-  /* line 102, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 104, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #beneficiary-name-others-page .radio-group .left {
     float: left;
     margin-right: 50px;
   }
 }
-/* line 109, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 111, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page .radio-group .below {
   margin-top: 8px;
 }
 @media (min-width: 992px) {
-  /* line 109, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 111, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #beneficiary-name-others-page .radio-group .below {
     margin-top: 0;
   }
 }
-/* line 117, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 119, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page .radio-group .radio-button-group {
   margin-top: 8px;
 }
-/* line 120, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 122, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page .radio-group .radio-button-group .desc {
   font-size: 14px;
   color: #373a36;
   font-family: 'Calibri-bold';
   padding-top: 4px;
 }
-/* line 126, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 128, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page .radio-group .radio-button-group .desc span {
   color: #9ba5a7;
   font-family: 'Calibri';
@@ -5651,13 +5676,13 @@ a.eserv-link:hover {
   line-height: 15px;
 }
 @media (min-width: 992px) {
-  /* line 126, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 128, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #beneficiary-name-others-page .radio-group .radio-button-group .desc span {
     display: inline-block;
     padding-left: 4px;
   }
 }
-/* line 139, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 141, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page .radio-group .radio-holder {
   width: 27px;
   position: relative;
@@ -5665,7 +5690,7 @@ a.eserv-link:hover {
   height: 15px;
   top: 72px;
 }
-/* line 146, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 148, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page .radio-group .radio-holder label {
   width: 15px;
   height: 15px;
@@ -5676,7 +5701,7 @@ a.eserv-link:hover {
   border: solid 1px #ff8200;
   border-radius: 50%;
 }
-/* line 156, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 158, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page .radio-group .radio-holder label:after {
   content: '';
   width: 11px;
@@ -5689,30 +5714,30 @@ a.eserv-link:hover {
   border: solid 1px #fff;
   opacity: 0;
 }
-/* line 169, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 171, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page .radio-group .radio-holder label:hover::after {
   opacity: 0.5;
 }
-/* line 174, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 176, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page .radio-group .radio-holder input[type=radio] {
   visibility: hidden;
 }
-/* line 177, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 179, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #beneficiary-name-others-page .radio-group .radio-holder input[type=radio]:checked + label:after {
   opacity: 1;
 }
 
-/* line 185, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 187, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section {
   max-width: 900px;
   margin: auto;
 }
-/* line 189, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 191, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section h4.so-h4 {
   padding-bottom: 0;
   margin-bottom: 0;
 }
-/* line 194, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 196, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .add-beneficiary {
   margin-top: 0;
   margin-bottom: 15px;
@@ -5722,13 +5747,13 @@ a.eserv-link:hover {
   overflow: auto;
 }
 @media screen and (min-width: 992px) {
-  /* line 194, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 196, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #so-beneficiary-info-section .add-beneficiary {
     margin-bottom: 0;
     padding: 170px 0;
   }
 }
-/* line 207, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 209, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .add-beneficiary .circle {
   background: transparent;
   border: none;
@@ -5737,74 +5762,74 @@ a.eserv-link:hover {
   width: 100%;
 }
 @media screen and (min-width: 992px) {
-  /* line 207, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 209, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #so-beneficiary-info-section .add-beneficiary .circle {
     text-align: center;
     margin-bottom: 5px;
   }
 }
-/* line 219, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 221, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .add-beneficiary .circle img {
   height: inherit !important;
 }
-/* line 225, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 227, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section h5 {
   font-family: 'Calibri';
   color: #9ba5a7;
   margin-bottom: 0;
   font-size: 14px;
 }
-/* line 232, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 234, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section #beneficiary-contents {
   padding: 0;
 }
-/* line 236, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 238, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .span-save-continue {
   font-family: 'Calibri';
 }
-/* line 240, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 242, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .add-on-beneficiary {
   padding: 0;
   position: relative;
 }
 @media screen and (min-width: 992px) {
-  /* line 240, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 242, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #so-beneficiary-info-section .add-on-beneficiary {
     padding: 0 0 0 15px;
   }
 }
-/* line 249, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 251, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .add-on-header {
   position: inherit;
   top: 0;
 }
 @media screen and (min-width: 992px) {
-  /* line 249, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+  /* line 251, ../sass/partials/savie/_beneficiary-info-name-others.scss */
   #so-beneficiary-info-section .add-on-header {
     position: absolute;
     top: -25px;
   }
 }
-/* line 258, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 260, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .add-on-header.default-head-h5 {
   margin-bottom: 10px;
 }
-/* line 263, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 265, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .beneficiary-info-row {
   margin-bottom: 10px;
   text-align: left;
 }
-/* line 268, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 270, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .beneficiary-h5 {
   color: #ff8200;
   font-family: 'Calibri-Bold';
   font-size: 16px;
 }
-/* line 273, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 275, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .beneficiary-h5 .beneficiary-span {
   color: #9ba5a7;
 }
-/* line 278, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 280, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .remove-bnfry-btn {
   color: #9ba5a7;
   font-size: 12px;
@@ -5812,22 +5837,22 @@ a.eserv-link:hover {
   background-color: transparent;
   font-family: 'Calibri';
 }
-/* line 285, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 287, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .remove-bnfry-btn:focus {
   outline: none;
 }
-/* line 289, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 291, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .remove-bnfry-btn .fa.fa-minus-circle {
   font-size: 14px;
   color: #ff8200;
   padding-right: 5px;
   height: 24px;
 }
-/* line 297, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 299, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .so-mdl-textfield {
   margin-bottom: 0;
 }
-/* line 301, ../sass/partials/savie/_beneficiary-info-name-others.scss */
+/* line 303, ../sass/partials/savie/_beneficiary-info-name-others.scss */
 #so-beneficiary-info-section .so-mdl-textfield label:after {
   width: 100%;
 }
@@ -6373,12 +6398,16 @@ h6.so-h6 {
   padding-top: 8px;
   display: inline-block;
 }
-/* line 146, ../sass/partials/savie/_upload-document.scss */
+/* line 145, ../sass/partials/savie/_upload-document.scss */
+#upload-document-page span.checkbox-text:hover {
+  cursor: pointer;
+}
+/* line 148, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .checkbox-section {
   margin-bottom: 0;
   padding-left: 0;
 }
-/* line 151, ../sass/partials/savie/_upload-document.scss */
+/* line 153, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page span.input-file-text {
   background: #ff8200;
   color: #FFF;
@@ -6388,158 +6417,158 @@ h6.so-h6 {
   border-radius: 4px !important;
   border-bottom: 3px solid #c56501;
 }
-/* line 160, ../sass/partials/savie/_upload-document.scss */
+/* line 162, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page span.input-file-text:hover {
   opacity: 0.9;
 }
-/* line 165, ../sass/partials/savie/_upload-document.scss */
+/* line 167, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page label.orange-select-file {
   border: 0;
   height: inherit;
 }
-/* line 169, ../sass/partials/savie/_upload-document.scss */
+/* line 171, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page label.orange-select-file:hover {
   background-color: transparent;
 }
-/* line 174, ../sass/partials/savie/_upload-document.scss */
+/* line 176, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .upload-link {
   font-family: 'Calibri-Bold';
   color: #ff8200;
 }
-/* line 178, ../sass/partials/savie/_upload-document.scss */
+/* line 180, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .upload-link:hover {
   text-decoration: underline;
 }
-/* line 181, ../sass/partials/savie/_upload-document.scss */
+/* line 183, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .drag-down {
   display: block;
 }
-/* line 185, ../sass/partials/savie/_upload-document.scss */
+/* line 187, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .drag-cam {
   font-size: 25px;
   color: #9ba5a7;
 }
-/* line 190, ../sass/partials/savie/_upload-document.scss */
+/* line 192, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .mob-desk.or {
   padding-bottom: 5px;
 }
-/* line 194, ../sass/partials/savie/_upload-document.scss */
+/* line 196, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .upload-form {
   height: 140px;
 }
 @media screen and (min-width: 992px) {
-  /* line 194, ../sass/partials/savie/_upload-document.scss */
+  /* line 196, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .upload-form {
     height: 165px;
   }
 }
-/* line 201, ../sass/partials/savie/_upload-document.scss */
+/* line 203, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .upload-form .finish-upload {
   height: 142px;
 }
 @media screen and (min-width: 992px) {
-  /* line 201, ../sass/partials/savie/_upload-document.scss */
+  /* line 203, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .upload-form .finish-upload {
     height: 167px;
   }
 }
-/* line 208, ../sass/partials/savie/_upload-document.scss */
+/* line 210, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .upload-form .finish-upload span.finish-upload-check {
   top: 35%;
 }
-/* line 215, ../sass/partials/savie/_upload-document.scss */
+/* line 217, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .upload-form .select-file-hkid.select-zone,
 #upload-document-page .upload-form .select-file-passport.select-zone,
 #upload-document-page .upload-form .select-file.select-zone {
   height: inherit;
 }
-/* line 219, ../sass/partials/savie/_upload-document.scss */
+/* line 221, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .upload-form .select-file-section {
   height: inherit;
 }
 @media screen and (min-width: 992px) {
-  /* line 224, ../sass/partials/savie/_upload-document.scss */
+  /* line 226, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page #so-upload-document-section {
     padding-left: 50px;
   }
 }
-/* line 232, ../sass/partials/savie/_upload-document.scss */
+/* line 234, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page #so-upload-document-section .up-doc-page {
   padding: 0 20px;
 }
 @media screen and (min-width: 414px) {
-  /* line 232, ../sass/partials/savie/_upload-document.scss */
+  /* line 234, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page #so-upload-document-section .up-doc-page {
     padding: 0 30px;
   }
 }
-/* line 241, ../sass/partials/savie/_upload-document.scss */
+/* line 243, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .fwd-container-limit.clearfix.sidebar {
   margin-bottom: 30px;
 }
 @media screen and (min-width: 992px) {
-  /* line 241, ../sass/partials/savie/_upload-document.scss */
+  /* line 243, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .fwd-container-limit.clearfix.sidebar {
     margin-bottom: 31px;
   }
 }
-/* line 249, ../sass/partials/savie/_upload-document.scss */
+/* line 251, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .so-upload {
   padding: 20px 7px 0 0;
 }
 @media screen and (min-width: 992px) {
-  /* line 249, ../sass/partials/savie/_upload-document.scss */
+  /* line 251, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .so-upload {
     padding: 25px 7px 0;
   }
 }
-/* line 256, ../sass/partials/savie/_upload-document.scss */
+/* line 258, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .so-upload.upload-hkid {
   padding-left: 0;
 }
-/* line 261, ../sass/partials/savie/_upload-document.scss */
+/* line 263, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .upload-p {
   font-family: 'Calibri';
   font-size: 14px;
 }
 @media screen and (min-width: 992px) {
-  /* line 266, ../sass/partials/savie/_upload-document.scss */
+  /* line 268, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .clearfix.desktop-align.left {
     float: left;
     margin-right: 40px;
   }
 }
-/* line 273, ../sass/partials/savie/_upload-document.scss */
+/* line 275, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .desc {
   max-width: 230px;
 }
 @media screen and (min-width: 355px) {
-  /* line 273, ../sass/partials/savie/_upload-document.scss */
+  /* line 275, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .desc {
     max-width: none;
   }
 }
-/* line 280, ../sass/partials/savie/_upload-document.scss */
+/* line 282, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .desc span {
   display: block;
   padding-left: 0;
 }
-/* line 287, ../sass/partials/savie/_upload-document.scss */
+/* line 289, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .btn.savie-common-btn.upload-btn {
   padding-left: 40px;
   padding-right: 40px;
 }
 @media screen and (min-width: 992px) {
-  /* line 287, ../sass/partials/savie/_upload-document.scss */
+  /* line 289, ../sass/partials/savie/_upload-document.scss */
   #upload-document-page .btn.savie-common-btn.upload-btn {
     margin-top: 11px;
   }
 }
-/* line 297, ../sass/partials/savie/_upload-document.scss */
+/* line 299, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .upload-now-row {
   margin: auto;
 }
-/* line 302, ../sass/partials/savie/_upload-document.scss */
+/* line 304, ../sass/partials/savie/_upload-document.scss */
 #upload-document-page .document-upload-progress .progress {
   box-shadow: none;
 }
@@ -7125,91 +7154,95 @@ h6.so-h6 {
 #declaration-page .declaration-content-wrapper .cstm-panel .checkbox-wrapper .personal-info-link-parent {
   cursor: pointer;
 }
+/* line 103, ../sass/partials/savie/_declaration.scss */
+#declaration-page .declaration-content-wrapper .cstm-panel .checkbox-wrapper .chkboxText:hover {
+  cursor: pointer;
+}
 @media only screen and (min-width: 992px) {
-  /* line 103, ../sass/partials/savie/_declaration.scss */
+  /* line 107, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .cstm-panel .checkbox-wrapper .desktop-left {
     float: left;
     margin-left: 10px;
   }
-  /* line 108, ../sass/partials/savie/_declaration.scss */
+  /* line 112, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .cstm-panel .checkbox-wrapper .personal-info-link-parent {
     margin-left: 3px;
   }
 }
-/* line 115, ../sass/partials/savie/_declaration.scss */
+/* line 119, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel .checkbox-gray label {
   border-color: #cfd7de;
 }
-/* line 116, ../sass/partials/savie/_declaration.scss */
+/* line 120, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel .checkbox-gray p {
   color: #b2b9bb;
 }
-/* line 119, ../sass/partials/savie/_declaration.scss */
+/* line 123, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel nav {
   max-height: 315px;
   overflow-y: scroll;
   padding: 20px;
   background-color: #f1f3f5;
 }
-/* line 125, ../sass/partials/savie/_declaration.scss */
+/* line 129, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel nav ol {
   padding-left: 20px;
   margin-bottom: -15px;
 }
-/* line 129, ../sass/partials/savie/_declaration.scss */
+/* line 133, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel nav ol li {
   margin-bottom: 15px;
   font-weight: bold;
 }
-/* line 133, ../sass/partials/savie/_declaration.scss */
+/* line 137, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel nav ol li p {
   font-weight: normal;
 }
-/* line 138, ../sass/partials/savie/_declaration.scss */
+/* line 142, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel .radio-group {
   margin-bottom: 15px;
 }
-/* line 141, ../sass/partials/savie/_declaration.scss */
+/* line 145, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel .radio-group .gray-text {
   color: #9ba5a7;
   font-family: Calibri;
 }
 @media only screen and (max-width: 991px) {
-  /* line 141, ../sass/partials/savie/_declaration.scss */
+  /* line 145, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .cstm-panel .radio-group .gray-text {
     margin-left: 27px;
     float: none !important;
   }
 }
-/* line 151, ../sass/partials/savie/_declaration.scss */
+/* line 155, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel .radio-group .hotline {
   color: #ff8200;
   display: inline;
   font-weight: bold;
 }
 @media only screen and (min-width: 992px) {
-  /* line 158, ../sass/partials/savie/_declaration.scss */
+  /* line 162, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .cstm-panel .radio-group .radio-button-group {
     margin-top: 0;
   }
-  /* line 161, ../sass/partials/savie/_declaration.scss */
+  /* line 165, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .cstm-panel .radio-group .radio-button-group .desktop-align {
     float: left;
     margin-right: 20px;
   }
 }
-/* line 170, ../sass/partials/savie/_declaration.scss */
+/* line 174, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel .replacement-declarations p {
   color: #000;
   margin-bottom: 10px;
 }
 @media only screen and (min-width: 992px) {
-  /* line 169, ../sass/partials/savie/_declaration.scss */
+  /* line 173, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .cstm-panel .replacement-declarations {
     margin-top: 10px;
   }
 }
-/* line 180, ../sass/partials/savie/_declaration.scss */
+/* line 184, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .cstm-panel .with-margin-bottom {
   margin-bottom: 10px;
 }
@@ -7218,12 +7251,12 @@ h6.so-h6 {
   #declaration-page .declaration-content-wrapper .cstm-panel {
     margin-bottom: 52px;
   }
-  /* line 185, ../sass/partials/savie/_declaration.scss */
+  /* line 189, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .cstm-panel .desktop-inline {
     display: inline;
   }
 }
-/* line 189, ../sass/partials/savie/_declaration.scss */
+/* line 193, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .recommendation-note {
   color: #ff8200;
   font-size: 14px;
@@ -7234,11 +7267,11 @@ h6.so-h6 {
   margin-bottom: 12px;
   margin-top: -18px;
 }
-/* line 199, ../sass/partials/savie/_declaration.scss */
+/* line 203, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .recommendation-note .glyphicon {
   font-size: 11px;
 }
-/* line 204, ../sass/partials/savie/_declaration.scss */
+/* line 208, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .save-link {
   color: #ff8c26;
   display: block;
@@ -7246,7 +7279,7 @@ h6.so-h6 {
   margin-top: 12px;
   width: 140px;
 }
-/* line 211, ../sass/partials/savie/_declaration.scss */
+/* line 215, ../sass/partials/savie/_declaration.scss */
 #declaration-page .declaration-content-wrapper .save-link:hover {
   text-decoration: underline;
 }
@@ -7256,39 +7289,39 @@ h6.so-h6 {
     padding-top: 32px;
     padding-bottom: 0;
   }
-  /* line 218, ../sass/partials/savie/_declaration.scss */
+  /* line 222, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .title {
     margin-bottom: 29px;
   }
-  /* line 220, ../sass/partials/savie/_declaration.scss */
+  /* line 224, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .btn-proceed {
     padding: 6px 30px;
     font-size: 24px;
     margin-top: 21px;
   }
-  /* line 226, ../sass/partials/savie/_declaration.scss */
+  /* line 230, ../sass/partials/savie/_declaration.scss */
   #declaration-page .declaration-content-wrapper .save-link {
     margin-top: 3px;
   }
 }
-/* line 232, ../sass/partials/savie/_declaration.scss */
+/* line 236, ../sass/partials/savie/_declaration.scss */
 #declaration-page #yes-radio-popup .modal-dialog {
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 238, ../sass/partials/savie/_declaration.scss */
+/* line 242, ../sass/partials/savie/_declaration.scss */
 #declaration-page #yes-radio-popup .modal-dialog .modal-content p {
   font-size: 14px;
   line-height: 18px;
   margin-top: 20px;
 }
-/* line 243, ../sass/partials/savie/_declaration.scss */
+/* line 247, ../sass/partials/savie/_declaration.scss */
 #declaration-page #yes-radio-popup .modal-dialog .modal-content p .hotline {
   color: #ff8200;
   font-weight: bold;
 }
-/* line 249, ../sass/partials/savie/_declaration.scss */
+/* line 253, ../sass/partials/savie/_declaration.scss */
 #declaration-page #yes-radio-popup .modal-dialog .modal-content .close {
   position: absolute;
   right: 22px;

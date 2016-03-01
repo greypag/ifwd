@@ -170,23 +170,39 @@ $(document).ready(function() {
 		$('#beneficiary1').addClass('hidden');
 		$('#beneficiary-header\\[1\\]').removeClass('hidden');
 		$('#beneficiary-info-form\\[1\\]').removeClass('hidden');
+		$('#add-beneficiary-btn-2').removeClass('disabled-beneficiary-add');
+		$('#add-btn-img').attr('src', '/fwdhk/resources/images/savie-2016/orange-plus.png');
 	});
-	$('#add-beneficiary-btn-2').click(function () {
-		$('#beneficiary2').addClass('hidden');
-		$('#beneficiary-header\\[2\\]').removeClass('hidden');
-		$('#beneficiary-info-form\\[2\\]').removeClass('hidden');
+	$('#add-beneficiary-btn-2').click(function (e) {
+		e.preventDefault();
+		if($(this).hasClass('disabled-beneficiary-add') == false) {
+			$('#beneficiary2').addClass('hidden');
+			$('#beneficiary-header\\[2\\]').removeClass('hidden');
+			$('#beneficiary-info-form\\[2\\]').removeClass('hidden');
+		}
 	});
 	
 	// Deleting new form for additional beneficiary
 	$('#remove-beneficiary\\[1\\]').click(function () {
+		$('#add-beneficiary-btn-2').find('#add-btn-img').attr('src', '/fwdhk/resources/images/savie-2016/gray-plus.png');
+		$('#add-beneficiary-btn-2').addClass('disabled-beneficiary-add');
+		$('#beneficiary2').removeClass('hidden');
+		$('#beneficiary-header\\[2\\]').addClass('hidden');
+		$('#beneficiary-info-form\\[2\\]').addClass('hidden');
 		$('#beneficiary1').removeClass('hidden');
 		$('#beneficiary-header\\[1\\]').addClass('hidden');
 		$('#beneficiary-info-form\\[1\\]').addClass('hidden');
+		$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').resetForm(true);
+		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID','callback');
+		$('#add-btn-img').attr('src', '/fwdhk/resources/images/savie-2016/gray-plus.png');
+		$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').resetForm(true);
 	});
 	$('#remove-beneficiary\\[2\\]').click(function () {
 		$('#beneficiary2').removeClass('hidden');
 		$('#beneficiary-header\\[2\\]').addClass('hidden');
 		$('#beneficiary-info-form\\[2\\]').addClass('hidden');
+		$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').resetForm(true);
+		$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'INVALID','callback');
 	});
 
    var open = false;
@@ -196,15 +212,16 @@ $(document).ready(function() {
        else
           return false;
    }
+   
    $('.gray-dropdown').on('click', function() {
          open = !open;
         if(isOpen()) {
-          $(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', 'assets/images/orange-caret-inv.png');
+          $(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret-inv.png');
         }  else {
-        	$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', 'assets/images/orange-caret.png');
+        	$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret.png');
         }
    }).on('blur', function () {
-   		$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', 'assets/images/orange-caret.png');
+   		$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret.png');
    });
 
    $('.so-mdl-textfield-input').focus(function () {
@@ -247,10 +264,10 @@ $(document).ready(function() {
         if (isBeneficaryFormValid()) {
             $('#name-others-id').on('click', function(e) {
             	$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').resetForm(true);
-        		if ($('#beneficiary-info-form\\[1\\]').length) {
+        		if ( !($('#beneficiary-info-form\\[1\\]').hasClass('hidden')) ) {
         			$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').resetForm(true);
         		}
-        		if ($('#beneficiary-info-form\\[2\\]').length) {
+        		if ( !($('#beneficiary-info-form\\[2\\]').hasClass('hidden')) ) {
         			$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').resetForm(true);
         		}
             });
@@ -415,6 +432,34 @@ $(document).ready(function() {
 	      val = val.toString().replace(/(\d+)(\d{3})/, '$1'+','+'$2');
 	    }
 	    return val;
+	}
+	//dummy condition to display error box
+	var errorbox = false;
+
+	if(errorbox) {
+		//displays error box
+		show_stack_bar_top('notice');
+	}
+
+	PNotify.prototype.options.styling = "bootstrap3";
+	function show_stack_bar_top(type) {
+		var stack_bar_top = {"dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0};
+		    var opts = {
+		        title: "Over Here",
+		        text: "Check me out. I'm in a different stack.",
+		        addclass: "stack-bar-top error-box",
+		        cornerclass: "",
+		        width: "100%",
+		        stack: stack_bar_top
+		};
+	    switch (type) {
+	    case 'notice':
+	        opts.title = "Sorry, failed to connect to server.";
+	        opts.text = "Sorry, our service is currently unavailable and we are fixing the issue. Please try again later. We apologize for the inconvenience caused.";
+	        opts.type = "notice";
+	        break;
+	    }
+	    new PNotify(opts);
 	}
 });
 
@@ -895,9 +940,7 @@ function soFirstBFormValidation() {
 						callback: function (value, validator, $field) {
 							if(value==''){
                         		// display the range error message if it is empty
-                        		$('#beneficiary-info-form\\[0\\]')
-                        			.data('bootstrapValidator')
-                        			.updateStatus('beneficiaryEntitlement[0]', 'INVALID', 'between');
+                        		$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID', 'between');
                         		return true;
                         	} else {
                         		if (totalBeneficiaryEntitlement() == "Exceed"){
@@ -918,18 +961,18 @@ function soFirstBFormValidation() {
 	
 	$( "#beneficiaryEntitlement\\[0\\]" ).on('change', function() {
 		if(totalBeneficiaryEntitlement()!="Exceed") {
-			if($('#beneficiaryEntitlement\\[1\\]').length > 0){
+			if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
 			 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'VALID');
 			}
-			 if($('#beneficiaryEntitlement\\[2\\]').length > 0) {
-				 $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'VALID');
-			 }
+			if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
+				$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'VALID');
+			}
 		} else {
-			if($('#beneficiaryEntitlement\\[1\\]').length > 0) {
+			if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
 			$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'INVALID','callback');
 			}
-			if($('#beneficiaryEntitlement\\[2\\]').length > 0) {
-				 $('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'INVALID','callback');
+			if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
+				$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'INVALID','callback');
 			}
 		}
 	});
@@ -1088,13 +1131,13 @@ function soFirstBFormValidation() {
 		if(totalBeneficiaryEntitlement()!="Exceed") {
 			$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'VALID', 'callback');
 			 
-			if($('#beneficiaryEntitlement\\[2\\]').length > 0) {
+			if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
 				$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'VALID', 'callback');
 			}
 		} else {
 			$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID','callback');
 			
-			if($('#beneficiaryEntitlement\\[2\\]').length > 0) {
+			if( !($('#beneficiaryEntitlement\\[2\\]').hasClass('hidden')) ) {
 				$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[2]', 'INVALID','callback');
 			}
 		}
@@ -1252,26 +1295,18 @@ function soFirstBFormValidation() {
 		}).on('error.form.bv', function(e) {
 		});
 		 
-		 $( "#beneficiaryEntitlement\\[2\\]" ).on('change', function() {
+		$( "#beneficiaryEntitlement\\[2\\]" ).on('change', function() {
 			if(totalBeneficiaryEntitlement()!="Exceed") {
-				 $('#beneficiary-info-form\\[0\\]')
-				 .data('bootstrapValidator')
-				 .updateStatus('beneficiaryEntitlement[0]', 'VALID', 'callback');
+				 $('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'VALID', 'callback');
 				 
-				 if($('#beneficiaryEntitlement\\[1\\]').length > 0){
-					 $('#beneficiary-info-form\\[1\\]')
-					 .data('bootstrapValidator')
-					 .updateStatus('beneficiaryEntitlement[1]', 'VALID', 'callback');
+				 if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
+					 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'VALID', 'callback');
 				 }
 			} else {
-				$('#beneficiary-info-form\\[0\\]')
-				 .data('bootstrapValidator')
-				 .updateStatus('beneficiaryEntitlement[0]', 'INVALID', 'callback');
+				$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[0]', 'INVALID', 'callback');
 				
-				 if($('#beneficiaryEntitlement\\[1\\]').length > 0){
-					 $('#beneficiary-info-form\\[1\\]')
-					 .data('bootstrapValidator')
-					 .updateStatus('beneficiaryEntitlement[1]', 'INVALID', 'callback');
+				 if( !($('#beneficiaryEntitlement\\[1\\]').hasClass('hidden')) ) {
+					 $('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').updateStatus('beneficiaryEntitlement[1]', 'INVALID', 'callback');
 				 }
 			}
 		});
@@ -1354,10 +1389,10 @@ function isBeneficiaryFormEmpty(pos) {
 // Checking if Beneficiaries are hidden
 function isBeneficiary2Hidden() {
 	var isHide = "";
-	if($('#beneficiaryInfoForm\\[1\\]').length == 0) {
+	if($('#beneficiary-info-form\\[1\\]').hasClass('hidden')) {
 		isHide = "hidden";
 	} else {
-		if($('#beneficiaryInfoForm\\[1\\]').hasClass('hidden')) {
+		if($('#beneficiary-info-form\\[1\\]').hasClass('hidden')) {
 			isHide = "hidden";
 		} else {
 			isHide = "not hidden";
@@ -1368,10 +1403,10 @@ function isBeneficiary2Hidden() {
 
 function isBeneficiary3Hidden() {
 	var isHide = "";
-	if($('#beneficiaryInfoForm\\[2\\]').length == 0) {
+	if($('#beneficiary-info-form\\[2\\]').hasClass('hidden')) {
 		isHide = "hidden";
 	} else {
-		if($('#beneficiaryInfoForm\\[2\\]').hasClass('hidden')) {
+		if($('#beneficiary-info-form\\[2\\]').hasClass('hidden')) {
 			isHide = "hidden";
 		} else {
 			isHide = "not hidden";

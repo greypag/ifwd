@@ -101,6 +101,7 @@
 <script>
 $(function() {
     $('input, textarea').placeholder();
+    /*
     function navbarLogoSticky(){
         if(window.pageYOffset<35){
             $('.navbar-fixed-top').css("top", -window.pageYOffset);
@@ -110,6 +111,7 @@ $(function() {
         }
     }
     $(window).scroll(navbarLogoSticky);
+    */
 });
 
 $('#timeout-btn').on('click', function(e) {
