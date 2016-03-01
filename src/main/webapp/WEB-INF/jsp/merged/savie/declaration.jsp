@@ -81,14 +81,14 @@ var languageP = "${language}";
 	<div class="container-fluid fwd-full-container headerStick">
 		<div class="fwd-container-limit clearfix sidebar">
 			<div class="declaration-content-wrapper">
-				<form>
+				<form id="declarationForm">
 					<p class="title">Declaration &amp; autorization</p>
 					
 					<div class="cstm-panel">
 						<p><b>Declaration - Foreign Account Tax Compliance Act</b></p>
 						<hr>
 						<div class="form-group checkbox-wrapper">
-							<input type="checkbox" id="hasReadAndAcceptFATC" name="hasReadAndAcceptFATC">
+							<input type="checkbox" id="hasReadAndAcceptFATC" name="hasReadAndAcceptFATC" value="true">
 							<label for="hasReadAndAcceptFATC"></label>
 							<p class="chkboxText">I declare, agree and acknowledge that:</p>
 						</div>
@@ -105,7 +105,7 @@ var languageP = "${language}";
 						<p><b>Declaration - Foreign Account Tax Compliance Act</b></p>
 						<hr>
 						<div class="form-group checkbox-wrapper">
-							<input type="checkbox" id="hasReadAndAcceptFATC2" name="hasReadAndAcceptFATC2">
+							<input type="checkbox" id="hasReadAndAcceptFATC2" name="hasReadAndAcceptFATC2" value="true">
 							<label for="hasReadAndAcceptFATC2"></label>
 							<p class="chkboxText">I declare, agree and acknowledge that:</p>
 						</div>
@@ -123,7 +123,7 @@ var languageP = "${language}";
 						<p class="desktop-inline"><b>Personal Information Collection Statement</b></p>
 						<hr>
 						<div class="form-group checkbox-wrapper clearfix">
-							<input type="checkbox" id="hasReadAndAcceptPICS" name="hasReadAndAcceptPICS">
+							<input type="checkbox" id="hasReadAndAcceptPICS" name="hasReadAndAcceptPICS" value="true">
 							<label for="hasReadAndAcceptPICS"></label>
 							<p class="desktop-left chkboxText">I have read and I understand and accept this</p>
 							<p class="personal-info-link-parent desktop-left"><a data-toggle="modal" data-target=".modal-fatca-declaration">Personal Information Collection Statement.</a></p>
@@ -191,7 +191,7 @@ var languageP = "${language}";
 						<p class="desktop-inline"><b>Cancellation Right and Refund of Premium(s)</b></p>
 						<hr>
 						<div class="form-group checkbox-wrapper">
-							<input type="checkbox" id="hasReadAndAcceptCancellation" name="hasReadAndAcceptCancellation">
+							<input type="checkbox" id="hasReadAndAcceptCancellation" name="hasReadAndAcceptCancellation" value="true">
 							<label for="hasReadAndAcceptCancellation"></label>
 							<p class="chkboxText">I understand that I have the right to cancel and obtain a refund of any premium(s) paid less any market value adjustments by giving written notice. Such notice must be signed by me and received directly by FWD Life insurance Company (Bermuda) Limited at 1/F., FWD Financial Centre, 308 Des Voeux Road Central, Hong Kong within 21 days after the delivery of the policy or issue of a Notice to the policyholder or the policyholders representative, whichever is the earlier.</p>
 						</div>
@@ -222,7 +222,7 @@ var languageP = "${language}";
 						<p><b>Application</b></p>
 						<hr>
 						<div class="form-group checkbox-wrapper">
-							<input type="checkbox" id="hasReadAndAgreeApplication" name="hasReadAndAgreeApplication">
+							<input type="checkbox" id="hasReadAndAgreeApplication" name="hasReadAndAgreeApplication" value="true">
 							<label for="hasReadAndAgreeApplication"></label>
 							<p class="chkboxText">I hereby DECLARE and AGREE that:</p>
 						</div>
@@ -239,12 +239,12 @@ var languageP = "${language}";
 					<div class="cstm-panel">
 						<p class="with-margin-bottom">If you do NOT wish FWD General Insurance Company Litmited to use Your Personal Data in direct marketing or provide Your Personal Data to other persons or companies for their use in direct marketing, please tick the appropriate box(es) below to exercise</p>
 						<div class="form-group checkbox-wrapper checkbox-gray">
-							<input type="checkbox" id="chkboxDoNotSendMarketingInfo" name="chkboxDoNotSendMarketingInfo">
+							<input type="checkbox" id="chkboxDoNotSendMarketingInfo" name="chkboxDoNotSendMarketingInfo" value="true">
 							<label for="chkboxDoNotSendMarketingInfo"></label>
 							<p class="chkboxText">Please do not send direct marketing information to me.</p>
 						</div>
 						<div class="form-group checkbox-wrapper checkbox-gray">
-							<input type="checkbox" id="chkboxDoNotProvidePersonalData" name="chkboxDoNotProvidePersonalData">
+							<input type="checkbox" id="chkboxDoNotProvidePersonalData" name="chkboxDoNotProvidePersonalData" value="true">
 							<label for="chkboxDoNotProvidePersonalData"></label>
 							<p class="chkboxText">Please do not provide my personal data to other persons or companies for their use in direct marketing.</p>
 						</div>
@@ -361,17 +361,30 @@ var languageP = "${language}";
 			if(! isPassed) {
 				return false;
 			}else {
-				$.ajax({     
-				    url:'<%=request.getContextPath()%>/ajax/savings-insurance/createLifePolicy',     
-				    type:'get',     
-				    error:function(){       
-				    },     
-				    success:function(data){
-				    	if(data != null && data.successMsg !=null){
-				    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
-				    	}
-				    }  
-				});
+				$.ajax({
+					  type : "POST",
+					  async:false, 
+					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeDeclaration",
+					  data: $("#declarationForm").serialize(),
+					  success : function(data) {
+						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+							  $("#errorMsg").html(data.errorMsg);
+						  }
+						  else{
+							  $.ajax({     
+								    url:'<%=request.getContextPath()%>/ajax/savings-insurance/createLifePolicy',     
+								    type:'get',     
+								    error:function(){       
+								    },     
+								    success:function(data){
+								    	if(data != null && data.successMsg !=null){
+								    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+								    	}
+								    }  
+							  });
+						  }
+					  }
+			     });
 			}
 		});
 		
