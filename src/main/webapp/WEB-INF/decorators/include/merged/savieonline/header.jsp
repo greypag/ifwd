@@ -99,9 +99,7 @@ function submitLoginForm(formID) {
 						//var Backlen = history.length;
 						//history.go(-Backlen);
 						if(window.location.href.indexOf("savings-insurance/plan-details")>0){
-							$('#loginpopup').modal('hide');
-							$('#thankYouModal').modal({backdrop: 'static', keyboard: false});
-							$('#thankYouModal').modal('show');
+							saviePlanDetailsGoNext();
 						}
 						else if(window.location.href.indexOf("term-life-insurance/select-plan")>0){
 							perventRedirect=false;
