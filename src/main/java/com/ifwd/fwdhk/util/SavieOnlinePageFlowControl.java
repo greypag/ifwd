@@ -175,11 +175,13 @@ public class SavieOnlinePageFlowControl {
 		case UserRestURIConstants.PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION: 
@@ -252,6 +254,9 @@ public class SavieOnlinePageFlowControl {
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DECLARATION;
 		}
+		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION)) {
+			return UserRestURIConstants.PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION;
+		}
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE;
 		}
@@ -264,9 +269,7 @@ public class SavieOnlinePageFlowControl {
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION;
 		}
-		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION)) {
-			return UserRestURIConstants.PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION;
-		}
+
 		if(url.endsWith(UserRestURIConstants.PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION)) {
 			return UserRestURIConstants.PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION;
 		}
