@@ -57,6 +57,7 @@
 								onkeypress="return validationUsername(event);">
 							<!-- 忘記使用者名 -->
 							<h6 class="heading-h6">
+							    <span id="errUserName" class="empHide color-red heading-h5"></span>
 								<a id="forgotUserName" class="heading-h6"><fmt:message
 										key="header.login.username.forget" bundle="${msg}" /></a>
 							</h6>
@@ -68,24 +69,22 @@
 								placeholder="<fmt:message key="header.login.password" bundle="${msg}" />"
 								autocomplete="off" id="headerPassword">
 							<!--忘記密碼 -->
-							<h6 class="heading-h6"></h6>  
+							<h6 class="heading-h6"></h6>
+							    <span id="errPass" class="empHide color-red heading-h5"></span>  
 								<a id="link-forgotPassword" class="heading-h6"><fmt:message
 										key="header.login.password.forget" bundle="${msg}" /></a>
-						</div>
-                        <div class="login-error-wrapper">
-                            <span id="errUserName" class="empHide color-red heading-h5"></span>
-                            <span id="errPass" class="empHide color-red heading-h5"></span>                   
-                            <div id="login-err-msg" class="color-red heading-h5"
-                            role="alert" style="display: none;"></div>
-                        </div>						
+						</div>						
 						<div class="login-button-group">
 							<button type="button" onclick="submitLoginForm('loginform-pop');"
 								class="cta-confirm cta-font cta-orange cta-padding-40">
 								<fmt:message key="header.login.action" bundle="${msg}" />
 							</button>
-							
-                        
+                            <div class="login-error-wrapper">                   
+                                <div id="login-err-msg" class="color-red heading-h5"
+                                role="alert"></div>
+                            </div>													                        
 						</div>
+						
 						<h6 class="heading-h6 color-gray login-disclaimer"><fmt:message key="header.login.disclaimer" bundle="${msg}" /></h6>
 					</div>
 					
@@ -127,12 +126,6 @@
 							style="width: 100px; height: 100px; position: absolute; top: 40%; left: 40%"
 							src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 					</div>
-					<div id="forgotusername-err-msg" class="alert alert-danger"
-						role="alert" style="display: none;">
-						<P id="error-mobile-no"></P>
-						<P id="error-email-id"></P>
-					</div>
-
 					<div id="success-message" class="alert alert-success empHide"
 						role="alert" style="display: none;">
 						<P id="error1"></P>
@@ -162,6 +155,19 @@
 								id="mobileNo"
 								placeholder="<fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" />"
 								onkeypress="return isNumeric(event)" onblur="forgotUserName();">
+		                        <!--  phone erro message -->
+		                        <span id="errorEmptyMob" class="hide1 empHide"> <label
+		                            class="color-red heading-h5"><fmt:message
+		                                    key="member.registration.details.label.mobileNo.errorEmptyMob"
+		                                    bundle="${msg}" /></label>
+		
+		
+		                        </span>	
+		                        <span id="errorInvalidMob" class="hide1 empHide"> <label
+		                            class="color-red heading-h5"><fmt:message
+		                                    key="member.registration.details.label.mobileNo.errorInvalidMob"
+		                                    bundle="${msg}" /></label>
+		                        </span>		                        							
 						</div>
 
 
@@ -184,11 +190,21 @@
 								onblur="forgotUserName();"
 								placeholder="<fmt:message key="member.registration.details.label.emailAddress"
                                 bundle="${msg}" />">
+		                         <!-- 電郵 Errror message -->
+		
+		                        <span id="errorEmptyEmailId" class="hide1 empHide"><label
+		                            class="color-red heading-h5"><fmt:message
+		                                    key="member.registration.details.label.emailAddress.errorEmptyEmailId"
+		                                    bundle="${msg}" /></label></span> <span id="errorInvalidEmailId"
+		                            class="hide1 empHide"> <label class="color-red heading-h5"><fmt:message
+		                                    key="member.registration.details.label.emailAddress.errorInvalidEmailId"
+		                                    bundle="${msg}" /></label>
+		                        </span>                                
 
 						</div>
 
 
-						<div class="login-button-group">
+						<div class="login-button-group forgot-group">
 							<button type="button" onclick="backToLogin()"
 								class="cta-confirm cta-font cta-gray cta-padding-40">
 								<fmt:message key="header.login.back" bundle="${msg}" />
@@ -198,35 +214,14 @@
 								class="cta-confirm cta-font cta-orange cta-padding-40">
 								<fmt:message key="header.login.action2" bundle="${msg}" />
 							</button>
-
 						</div>
-
-                        <!--  phone erro message -->
-                        <span id="errorEmptyMob" class="hide1 empHide"> <label
-                            class="color-red heading-h5"><fmt:message
-                                    key="member.registration.details.label.mobileNo.errorEmptyMob"
-                                    bundle="${msg}" /></label>
-
-
-                        </span>
-                        
-                        <span id="errorInvalidMob" class="hide1 empHide"> <label
-                            class="color-red heading-h5"><fmt:message
-                                    key="member.registration.details.label.mobileNo.errorInvalidMob"
-                                    bundle="${msg}" /></label>
-                        </span>
+	                    <div id="forgotusername-err-msg" class="alert alert-danger"
+	                        role="alert" style="display: none;">
+	                        <P id="error-mobile-no"></P>
+	                        <P id="error-email-id"></P>
+	                    </div>
 
 
-                        <!-- 電郵 Errror message -->
-
-                        <span id="errorEmptyEmailId" class="hide1 empHide"><label
-                            class="color-red heading-h5"><fmt:message
-                                    key="member.registration.details.label.emailAddress.errorEmptyEmailId"
-                                    bundle="${msg}" /></label></span> <span id="errorInvalidEmailId"
-                            class="hide1 empHide"> <label class="color-red heading-h5"><fmt:message
-                                    key="member.registration.details.label.emailAddress.errorInvalidEmailId"
-                                    bundle="${msg}" /></label>
-                        </span> 
 
 					</div>
 					
@@ -309,21 +304,6 @@
 							src="<%=request.getContextPath()%>/resources/images/ajax-loader.gif">
 					</div>
 
-					<div id="hide-field"></div>
-					<div id="forgotpassword-err-msg" class="color-red heading-h5"
-						role="alert" style="display: none;">
-						<P id="error1"></P>
-					</div>
-					<div id="success-message-password" class="alert alert-success"
-						role="alert" style="display: none;">
-						<P id="error1"></P>
-					</div>
-
-
-					<div id="login-err-msg" class="alert alert-danger" role="alert"
-						style="display: none;"></div>
-
-
 
 					<div class="form-container">
 						<h4 class="heading-h4 color-orange">
@@ -345,7 +325,17 @@
 								placeholder="<fmt:message key="member.registration.details.label.mobileNo" bundle="${msg}" />"
 								onkeypress="return isNumeric(event)"
 								onblur="validForgetUserPassword();">
-
+		                        <!--  phone erro message -->
+		                        <span id="errorEmptyMob-forgotPassword" class="hide1 empHide color-red heading-h5">
+		                            <label class="color-red heading-h5"><fmt:message
+		                                    key="member.registration.details.label.mobileNo.errorEmptyMob"
+		                                    bundle="${msg}" /></label>
+		                        </span> 
+		                        <span id="errorInvalidMob-forgotPassword" class="hide1 empHide color-red heading-h5">
+		                            <label class="color-red heading-h5"><fmt:message
+		                                    key="member.registration.details.label.mobileNo.errorInvalidMob"
+		                                    bundle="${msg}" /></label>
+		                        </span>
 
 						</div>
 
@@ -365,6 +355,20 @@
 								onkeypress="return validationEmail(event);"
 								onblur="validForgetUserPassword();"
 								placeholder="<fmt:message key="member.registration.details.label.emailAddress" bundle="${msg}" />">
+		                        <!-- 電郵 Errror message -->
+		                        <span id="errorEmptyEmailId" class="hide1 empHide color-red heading-h5"> <label
+		                            class="color-red heading-h5"><fmt:message
+		                                    key="member.registration.details.label.emailAddress.errorEmptyEmailId"
+		                                    bundle="${msg}" /></label></span> <span id="errorEmptyEmailId-forgotpassword"
+		                            class="hide1 empHide color-red heading-h5"> <label class="color-red heading-h5"><fmt:message
+		                                    key="member.registration.details.label.emailAddress.errorEmptyEmailId"
+		                                    bundle="${msg}" /></label>
+		                        </span> 
+		                        <span id="errorInvalidEmailId-forgotpassword"
+		                            class="hide1 empHide color-red heading-h5"> <label class="color-red heading-h5"><fmt:message
+		                                    key="member.registration.details.label.emailAddress.errorInvalidEmailId"
+		                                    bundle="${msg}" /></label>
+		                        </span>								
 						</div>
 
 
@@ -382,13 +386,25 @@
 								placeholder="<fmt:message key="member.registration.details.label.userName" bundle="${msg}" />"
 								onkeypress="return validationUsername(event);"
 								onblur="validForgetUserPassword();">
+		                        <!-- 使用者ERROR -->
+		
+		                        <span id="errorEmptyUName" class="hide1 empHide color-red heading-h5"> <label
+		                            class="color-red heading-h5"><fmt:message
+		                                    key="member.registration.details.label.userName.errorEmptyUName"
+		                                    bundle="${msg}" /></label>
+		                        </span> 
+		                        <span id="errorInvalidUName" class="hide1 empHide color-red heading-h5"> <label
+		                            class="color-red heading-h5"><fmt:message
+		                                    key="member.registration.details.label.userName.errorInvalidUName"
+		                                    bundle="${msg}" /></label>
+		                        </span> 								
 						</div>
 
 
 
 
 
-						<div class="login-button-group">
+						<div class="login-button-group forgot-group">
 
 							<button type="button" onclick="backToLogin()"
 								class="cta-confirm cta-font cta-gray cta-padding-40">
@@ -403,58 +419,20 @@
 							</button>
 
 						</div>
-
-
-
-
-
-
-
-
-                        <!--  phone erro message -->
-                        <span id="errorEmptyMob-forgotPassword" class="hide1 empHide color-red heading-h5">
-                            <label class="color-red heading-h5"><fmt:message
-                                    key="member.registration.details.label.mobileNo.errorEmptyMob"
-                                    bundle="${msg}" /></label>
-
-
-                        </span> <span id="errorInvalidMob-forgotPassword" class="hide1 empHide color-red heading-h5">
-                            <label class="color-red heading-h5"><fmt:message
-                                    key="member.registration.details.label.mobileNo.errorInvalidMob"
-                                    bundle="${msg}" /></label>
-                        </span>
-                        <!-- 電郵 Errror message -->
-                        <span id="errorEmptyEmailId" class="hide1 empHide color-red heading-h5"> <label
-                            class="color-red heading-h5"><fmt:message
-                                    key="member.registration.details.label.emailAddress.errorEmptyEmailId"
-                                    bundle="${msg}" /></label></span> <span id="errorEmptyEmailId-forgotpassword"
-                            class="hide1 empHide color-red heading-h5"> <label class="color-red heading-h5"><fmt:message
-                                    key="member.registration.details.label.emailAddress.errorEmptyEmailId"
-                                    bundle="${msg}" /></label>
-                        </span> <span id="errorInvalidEmailId-forgotpassword"
-                            class="hide1 empHide color-red heading-h5"> <label class="color-red heading-h5"><fmt:message
-                                    key="member.registration.details.label.emailAddress.errorInvalidEmailId"
-                                    bundle="${msg}" /></label>
-                        </span>
-
-
-                        <!-- 使用者ERROR -->
-
-                        <span id="errorEmptyUName" class="hide1 empHide color-red heading-h5"> <label
-                            class="color-red heading-h5"><fmt:message
-                                    key="member.registration.details.label.userName.errorEmptyUName"
-                                    bundle="${msg}" /></label>
-                        </span> <span id="errorInvalidUName" class="hide1 empHide color-red heading-h5"> <label
-                            class="color-red heading-h5"><fmt:message
-                                    key="member.registration.details.label.userName.errorInvalidUName"
-                                    bundle="${msg}" /></label>
-                        </span> 
-                        
-                        
-                        
-                        
-                        
-					</div>
+	                    <div id="hide-field"></div>
+	                    <div id="forgotpassword-err-msg" class="color-red heading-h5"
+	                        role="alert" style="display: none;">
+	                        <P id="error1"></P>
+	                    </div>
+	                    <div id="success-message-password" class="alert alert-success"
+	                        role="alert" style="display: none;">
+	                        <P id="error1"></P>
+	                    </div>
+	
+	
+	                    <div id="login-err-msg" class="alert alert-danger" role="alert"
+	                        style="display: none;"></div>						                                                                       
+						</div>
 
 
 

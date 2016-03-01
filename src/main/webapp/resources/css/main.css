@@ -32,10 +32,38 @@
 }
 
 @font-face {
-	font-family: 'Calibri';
-	src: url('../font/Calibri.ttf');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'Calibri';
+    src: url("../fonts/Calibri_gdi.eot");
+    /* IE9 Compat Modes */
+    src: url("../fonts/Calibri_gdi.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/Calibri_gdi.woff") format("woff"),
+        url("../fonts/Calibri_gdi.ttf") format("truetype"),
+        url("../fonts/Calibri_gdi.svg#svgFontName") format("svg");
+    /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Calibri-Bold';
+    src: url("../fonts/Calibri-Bold_gdi.eot");
+    /* IE9 Com@media screen and (min-width: 768px) and (max-width: 991px) {pat Modes */
+    src: url("../fonts/Calibri-Bold_gdi.eot?#iefix")
+        format("embedded-opentype"), url("../fonts/Calibri-Bold_gdi.woff")
+        format("woff"), url("../fonts/Calibri-Bold_gdi.ttf")
+        format("truetype"), url("../fonts/Calibri-Bold_gdi.svg#svgFontName")
+        format("svg");
+    /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Calibri-Light';
+    src: url("../fonts/Calibri-Light_gdi.eot");
+    /* IE9 Compat Modes */
+    src: url("../fonts/Calibri-Light_gdi.eot?#iefix")
+        format("embedded-opentype"), url("../fonts/Calibri-Light_gdi.woff")
+        format("woff"), url("../fonts/Calibri-Light_gdi.ttf")
+        format("truetype"), url("../fonts/Calibri-Light_gdi.svg#svgFontName")
+        format("svg");
+    /* Legacy iOS */
 }
 
 .hide1 {
@@ -89,18 +117,22 @@ a.active {
 /**End**/
 ::-webkit-input-placeholder {
 	font-family: Calibri, sans-serif !important;
+	font-size: 18px !important;
 }
 
 :-moz-placeholder { /* Firefox 18- */
 	font-family: Calibri, sans-serif !important;
+	font-size: 18px !important;
 }
 
 ::-moz-placeholder { /* Firefox 19+ */
 	font-family: Calibri, sans-serif !important;
+	font-size: 18px !important;
 }
 
 :-ms-input-placeholder {
 	font-family: Calibri, sans-serif !important;
+	font-size: 18px !important;
 }
 
 .topten {
@@ -10586,7 +10618,7 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 #loginpopup .modal-content.plan-modal,
 #loginpopup .login-form,
 #loginpopup .login-info{
-    height:344px;
+    height:auto;
 }
 #loginpopup .login-form {
     width: 100% !important;
@@ -10647,7 +10679,7 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
     text-decoration: underline;
 }
 #loginpopup .login-form-footer {
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0;
     right: 0;
     display: block;
@@ -10695,6 +10727,9 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
 }
 #loginpopup .login-title-wrapper{display:none;}
 #loginform-pop .login-error-wrapper{display:inline;padding-left:20px;}
+#loginform-pop,#forgotUserNameForm,#forgotPasswordForm{
+	overflow: hidden;
+}
 @media (max-width:991px) {
     #loginpopup .login-title-wrapper{
     color: #000;
