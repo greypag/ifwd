@@ -903,40 +903,42 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			JSONArray sortProductArr = new JSONArray();
 			String sort;
 			JSONObject products;
-			for(int i = 0; i < productArr.size(); i++) {
-				products = (JSONObject) productArr.get(i);
-				sort = products.get("products").toString();
-				switch (sort_by) {
-				case "0":
-					sort = CompareUtil.comparePeriodAsc(sort);
-					break;
-				case "1":
-					sort = CompareUtil.compareIntAsc(sort, "getMin_issue_age");
-					break;
-				case "2":
-					sort = CompareUtil.compareIntAsc(sort, "getMax_issue_age");
-					break;
-				case "3":
-					sort = CompareUtil.compareIntAsc(sort, "getProtection_period");
-					break;
-				case "4":
-					sort = CompareUtil.comparePeriodDesc(sort);
-					break;
-				case "5":
-					sort = CompareUtil.compareIntDesc(sort, "getMin_issue_age");
-					break;
-				case "6":
-					sort = CompareUtil.compareIntDesc(sort, "getMax_issue_age");
-					break;
-				case "7":
-					sort = CompareUtil.compareIntDesc(sort, "getProtection_period");
-					break;
-				default :
-					sort = CompareUtil.compareCodeDesc(sort);
-					break;
+			if(productArr != null) {
+				for(int i = 0; i < productArr.size(); i++) {
+					products = (JSONObject) productArr.get(i);
+					sort = products.get("products").toString();
+					switch (sort_by) {
+					case "0":
+						sort = CompareUtil.comparePeriodAsc(sort);
+						break;
+					case "1":
+						sort = CompareUtil.compareIntAsc(sort, "getMin_issue_age");
+						break;
+					case "2":
+						sort = CompareUtil.compareIntAsc(sort, "getMax_issue_age");
+						break;
+					case "3":
+						sort = CompareUtil.compareIntAsc(sort, "getProtection_period");
+						break;
+					case "4":
+						sort = CompareUtil.comparePeriodDesc(sort);
+						break;
+					case "5":
+						sort = CompareUtil.compareIntDesc(sort, "getMin_issue_age");
+						break;
+					case "6":
+						sort = CompareUtil.compareIntDesc(sort, "getMax_issue_age");
+						break;
+					case "7":
+						sort = CompareUtil.compareIntDesc(sort, "getProtection_period");
+						break;
+					default :
+						sort = CompareUtil.compareCodeDesc(sort);
+						break;
+					}
+					products.put("products", JSONValue.parse(sort));
+					sortProductArr.add(products);
 				}
-				products.put("products", JSONValue.parse(sort));
-				sortProductArr.add(products);
 			}
 			responseJsonObj.put("product_list", sortProductArr);
 		}
