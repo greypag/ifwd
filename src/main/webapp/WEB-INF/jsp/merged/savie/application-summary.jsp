@@ -93,13 +93,13 @@
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Saving amount</h6>
-                     <span class="info">HK$ ${saviePlanDetails.insuredAmount }</span>
+                     <span class="info">HK$ ${saviePlanDetails.insuredAmount1 }</span>
                   </div>
                </div>
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Premium mode</h6>
-                     <span class="info">ONE TIME OFF</span>
+                     <span class="info">${saviePlanDetails.paymentType }</span>
                   </div>
                </div>
             </div>

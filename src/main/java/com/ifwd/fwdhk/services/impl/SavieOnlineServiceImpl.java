@@ -296,7 +296,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			
 			String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"resources/pdf/"+"SavieProposalTemplateEngA.pdf";
 			String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"resources\\\\pdf\\\\";
+			logger.info("file path:"+pdfTemplatePath);
+			logger.info("data:"+attributeList);
 			String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
+			logger.info("file name:"+name);
 			
 			request.getSession().setAttribute("pdfName", name);
 			logger.info("pdf create successfully");
