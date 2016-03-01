@@ -1516,7 +1516,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			parameters.put("policyNo", policyNo);
 			parameters.put("planCode", "ET");
 			String fileToUpload = (String) request.getSession().getAttribute("fileToUploadProofAdd");
+			if(fileToUpload==null){
+				fileToUpload = (String) request.getSession().getAttribute("fileToUpload-addr-dragAndDrop");
+			}
 			String hkidFileToUpload = (String) request.getSession().getAttribute("hkidFileToUpload");
+			if(hkidFileToUpload==null){
+				hkidFileToUpload = (String) request.getSession().getAttribute("fileToUpload-hkid-dragAndDrop");
+			}
 			File hkidFileToUploadImage = new File(uploadDir+hkidFileToUpload);
 			File fileToUploadImage = new File(uploadDir+fileToUpload);
 			is = new FileInputStream(fileToUploadImage);
@@ -1536,6 +1542,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			}
 			if("true".equals(passportFlage)){
 				String passportFileToUpload = (String) request.getSession().getAttribute("passportFileToUpload");
+				if(passportFileToUpload==null){
+					passportFileToUpload = (String) request.getSession().getAttribute("fileToUpload-passport-dragAndDrop");
+				}
 				File passportFileToUploadImage = new File(uploadDir+passportFileToUpload);
 				is = new FileInputStream(passportFileToUploadImage);
 				i = is.available(); // 得到文件大小  
