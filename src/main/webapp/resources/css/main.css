@@ -11024,13 +11024,13 @@ div.breadcrumb-wrapper>ol.breadcrumb .fa{
         font-size:18px;
     }
 	.navbar-toggle{
-	   padding:13.5px 30px;
+	   padding:13px 30px;
 	}
 	.navbar-default .navbar-brand{
 	   height:50px;
 	}
 	a.navbar-brand>img {
-	    padding: 0;
+	    padding-top: 15px;
 	    margin: 0 auto;
 	}
 	.navbar-default .mob-menu-btn.navbar-toggle:hover, .navbar-default .mob-menu-btn.navbar-toggle:focus, .navbar-default .navbar-toggle.mob-menu-btn{

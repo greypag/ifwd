@@ -761,7 +761,7 @@ function submitLoginForm(formID) {
 			</button>
 			<a class="navbar-brand pull-left col-xs-12 col-sm-12"
 				href="<%=request.getContextPath()%>/${language}"><img
-				src="<%=request.getContextPath()%>/resources/images/iFWD_logo_150px.jpg"
+				src="<%=request.getContextPath()%>/resources/images/iFWD_logo_mobile.png"
 				alt="<fmt:message key="logo.alt" bundle="${msg}" />"
 				class="img-responsive"></a>
 			<div class="clearfix"></div>
