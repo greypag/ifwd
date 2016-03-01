@@ -90,7 +90,7 @@ var languageP = "${language}";
 						<div class="row">
 							<div class="col-xs-12">							
 								<div class="selectDiv centreDiv gray-text-bg" id="payment-type">
-									<select name="payment-type" id="type-of-payment" class="form-control gray-dropdown" data-bv-field="payment-type">
+									<select name="payment-type" id="type-of-payment" class="form-control gray-dropdown pd-dropdown" data-bv-field="payment-type">
 									   <option value="regular-payment">Regular Payment</option>
 									   <option value="one-off-premium" selected="">One-off premium</option>
 									</select>
@@ -99,7 +99,7 @@ var languageP = "${language}";
 							</div>
 							<div class="col-xs-12 hidden" id="plan-amount-holder">
 								<div class="selectDiv centreDiv gray-text-bg">
-									<select name="plan-amount" id="plan-amount" class="form-control gray-dropdown" data-bv-field="plan-amount">
+									<select name="plan-amount" id="plan-amount" class="form-control gray-dropdown pd-dropdown" data-bv-field="plan-amount">
 									   <option value="" disabled="" selected="">Amount (HK$)</option>
 									   <option value="1">100,000</option>
 									   <option value="2">200,000</option>
@@ -142,7 +142,7 @@ var languageP = "${language}";
 							</div>
 							<div class="col-xs-12 hidden" id="total-years-holder">
 								<div class="selectDiv centreDiv gray-text-bg">
-									<select name="total-payment-years" id="total-payment-years" class="form-control gray-dropdown" data-bv-field="total-payment-years">
+									<select name="total-payment-years" id="total-payment-years" class="form-control gray-dropdown pd-dropdown" data-bv-field="total-payment-years">
 									   <option value="3" selected="">3</option>
 									</select>
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
