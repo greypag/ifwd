@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<%@include file="includes/head.jsp" %>
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
 	<body>
@@ -12,7 +11,6 @@
 		%>
 		<div class="fwd-savie-wrapper savie-online-container" id="appointment-confirmation-page-top">			
 			<!-- HEADER -->
-			<%@include file="includes/header-block.jsp" %>
 			<div class="fwd-container container-fluid breadcrumbs">
 				<div class="breadcrumb-container">
 		            <ol class="breadcrumb breadcrumbs-product-details et-breadcrumbs">
@@ -34,9 +32,9 @@
 					  <div class="row reset-margin hidden-xs hidden-sm">
 						 <ul class="common-steps-list three-steps nav nav-pills">
 							<li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
-							<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 							<li class="step-number"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Application &amp; Payment</button></li>
-							<li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+							<li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
 							<li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">3</span>Confirmation</button></li>
 						 </ul>
 					 </div>
@@ -120,7 +118,7 @@
 
 							<div class="row requirements-list">
 								<div class="col-xs-12 cstm-md-col-1">
-									<div class="requirment-img-wrapper"><img src="assets/images/savie-2016/hkid.png" /></div>
+									<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/hkid.png" /></div>
 									<div class="requirement-text-wrapper">
 										<p>Your HKID card and passport<br>
 										<span class="small">(for non-permanent resident only)</span></p>
@@ -128,14 +126,14 @@
 								</div>
 								<hr class="visible-xs visible-sm">
 								<div class="col-xs-12 cstm-md-col-2">
-									<div class="requirment-img-wrapper"><img src="assets/images/savie-2016/proof-of-address.png" /></div>
+									<div class="requirment-img-wrapper"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/proof-of-address.png" /></div>
 									<div class="requirement-text-wrapper"><p>Proof of address</p></div>
 								</div>
 								<hr class="visible-xs visible-sm">
 								<div class="col-xs-12 cstm-md-col-3">
 									<div class="requirment-img-wrapper">
-										<img src="assets/images/savie-2016/check-or-bank-info.png" class="visible-xs visible-sm"/>
-										<img src="assets/images/savie-2016/check-or-bank-info-desktop.png" class="hidden-xs hidden-sm"/>
+										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info.png" class="visible-xs visible-sm"/>
+										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/check-or-bank-info-desktop.png" class="hidden-xs hidden-sm"/>
 									</div>
 									<div class="requirement-text-wrapper"><p>A cheque in the name of applicant or applicant's bank information for setting up direct debit authorization <span class="orange-note">or settle the premium with Bank of Communication FWD Credit Card</span></p></div>
 								</div>
@@ -148,11 +146,9 @@
 				</div>
 			</div>
 			<!-- FOOTER -->
-			<%@include file="includes/footer-block.jsp" %>
 		</div>			
 		
 		<!-- JS INCLUDES -->
-		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 			var language = "en";
 		</script>

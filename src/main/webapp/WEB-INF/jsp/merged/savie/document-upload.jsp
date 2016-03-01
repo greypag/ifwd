@@ -361,6 +361,10 @@ var languageP = "${language}";
 					$('#passport-section').toggle();
 				});
 				
+				$('.checkbox-text').on('click', function() {
+					$('#hkPermanentRes').click();
+				});
+				
 				// Uploading file validation
 				$('#updoc-complete-btn').on('click', function(e) {
 					if($("input[name='upload']:checked").val()=="true"){

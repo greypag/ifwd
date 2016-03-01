@@ -268,7 +268,7 @@ function submitLoginForm(formID) {
 			<div class="row">
 				<div class="col-lg-5 col-md-5 pad-none">
 					<div class="top-number">
-						<span class="callus"> <fmt:message key="header.hotline"
+						<span class="top-weixin"><a href="#" target="_blank"><i class="fa fa-weixin"></i></a></span> <span class="callus"> <fmt:message key="header.hotline"
 								bundle="${msg}" /></span>
 					</div>
 				</div>
@@ -759,7 +759,7 @@ function submitLoginForm(formID) {
 				<span class="icon-bar"></span> <span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand pull-left col-xs-8 col-sm-8"
+			<a class="navbar-brand pull-left col-xs-12 col-sm-12"
 				href="<%=request.getContextPath()%>/${language}"><img
 				src="<%=request.getContextPath()%>/resources/images/iFWD_logo_150px.jpg"
 				alt="<fmt:message key="logo.alt" bundle="${msg}" />"
@@ -925,6 +925,8 @@ function submitLoginForm(formID) {
         </div><!--/.nav-collapse -->
 </div>
     
+    <div class="headingbox"><div class="headingbox-h5">Home > Save > Savie Insurance Plan ></div><div class="headingbox-h3">Application</div></div>
+    <div class="stickybarbox"><div class="stickybarbox-l">Payment</div><div class="stickybarbox-r"><span>HK$</span> 4,470.00</div></div>
 <!--Mobile side-menu-->
 <!--<div class="navmenu navmenu-default navmenu-fixed-right offcanvas"
 	style="">

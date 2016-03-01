@@ -342,8 +342,8 @@
 							<!-- Third Beneficiary -->
 							<div id="add-beneficiary-2" class="text-center add-on-beneficiary col-md-4 col-lg-4 col-sm-12 col-xs-12 last-row hidden">
 								<div class="add-beneficiary" id="beneficiary2">
-									<button id="add-beneficiary-btn-2" value="2" class="circle" type="button">
-										<img src="<%=request.getContextPath()%>/resources/images/savie-2016/orange-plus.png" />
+									<button id="add-beneficiary-btn-2" value="2" class="circle disabled-beneficiary-add" type="button">
+										<img id="add-btn-img" src="<%=request.getContextPath()%>/resources/images/savie-2016/gray-plus.png" />
 									</button>
 									<div class="add-beneficiary-text">
 										<h5>Add beneficiary</h5>
@@ -587,53 +587,52 @@
 						$('#save-and-continue-modal').modal('show');
 					}
                 });
-			});
-			
-			$("#beneficiary-next-btn").click(function(){
-				$("#errorMsg").html("");
-				var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
-							   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
-							   $('#beneficiary-info-form\\[2\\]').serialize();
-				$.ajax({
-					  type : "POST",
-					  async:false, 
-					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfo",
-					  data: formdata,
-					  success : function(data) {
-						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  $("#errorMsg").html(data.errorMsg);
+				$("#beneficiary-next-btn").click(function(){
+					$("#errorMsg").html("");
+					var formdata = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
+								   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
+								   $('#beneficiary-info-form\\[2\\]').serialize();
+					$.ajax({
+						  type : "POST",
+						  async:false, 
+						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfo",
+						  data: formdata,
+						  success : function(data) {
+							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+								  $("#errorMsg").html(data.errorMsg);
+							  }
+							  else{
+								  if('${backSummary}'=="Y"){
+									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+								  }
+								  else{
+									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+								  }
+							  }
 						  }
-						  else{
-							  if('${backSummary}'=="Y"){
-								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+				     });
+				});
+				
+				$("#save-exit-btn").click(function(){
+					$("#errorMsg").html("");
+					var formdata1 = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
+					   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
+					   $('#beneficiary-info-form\\[2\\]').serialize();
+					$.ajax({
+						  type : "POST",
+						  async:false, 
+						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfoSaveforLater",
+						  data: formdata1,
+						  success : function(data) {
+							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+								  $("#errorMsg").html(data.errorMsg);
 							  }
 							  else{
 								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 							  }
 						  }
-					  }
-			     });
-			});
-			
-			$("#save-exit-btn").click(function(){
-				$("#errorMsg").html("");
-				var formdata1 = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
-				   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
-				   $('#beneficiary-info-form\\[2\\]').serialize();
-				$.ajax({
-					  type : "POST",
-					  async:false, 
-					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfoSaveforLater",
-					  data: formdata1,
-					  success : function(data) {
-						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  $("#errorMsg").html(data.errorMsg);
-						  }
-						  else{
-							  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
-						  }
-					  }
-			     });
+				     });
+				});
 			});
 		</script>
 		
