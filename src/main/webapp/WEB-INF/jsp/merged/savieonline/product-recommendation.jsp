@@ -248,14 +248,15 @@ var affiliate = "${affiliate}";
 										<div class="styled-select text-right">
 											<span class="sort-txt">Product Sorting:</span>
 											<select name="fnaMobSort" class="form-control soflow select-label" id="fnaMobSort">
-												<option value="0" selected>Contribution Period - High To Low</option>
-												<option value="4">Contribution Period - Low To High</option>
-												<option value="1">Min issue age - High To Low</option>
-												<option value="5">Min issue age - Low To High</option>
-												<option value="2">Max issue age - High To Low</option>
-												<option value="6">Max issue age - Low To High</option>
-												<option value="3">Protection Period - High To Low</option>
-												<option value="7">Protection Period - Low To High</option>
+												<option value="" selected>Please select</option>
+												<option value="4">Contribution Period - High To Low</option>
+												<option value="0">Contribution Period - Low To High</option>
+												<option value="5">Min issue age - High To Low</option>
+												<option value="1">Min issue age - Low To High</option>
+												<option value="6">Max issue age - High To Low</option>
+												<option value="2">Max issue age - Low To High</option>
+												<option value="7">Protection Period - High To Low</option>
+												<option value="3">Protection Period - Low To High</option>
 											</select>
 											<i class="fa fa-caret-down"></i>
 										</div>

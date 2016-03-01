@@ -425,7 +425,7 @@
 				});
 				
 				$('#employmentStatus').on('change', function() {
-					if($(this).val() == 'ES3-Self Employed') {						
+					if($(this).val().split("-")[0] != 'ES3') {						
 						// Show employment fields. Hide unemployment fields
 						$('.employment-field').removeClass('hidden');
 						$('.unemployment-field').addClass('hidden');

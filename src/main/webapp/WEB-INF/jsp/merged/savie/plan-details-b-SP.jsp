@@ -754,7 +754,7 @@ var languageP = "${language}";
 		return false;
 	}
 	
-	$("#proceed-btn").on('click', function(){
+	$("#btn-proceed").on('click', function(){
 		if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
 			saviePlanDetailsGoNext();
 		}
