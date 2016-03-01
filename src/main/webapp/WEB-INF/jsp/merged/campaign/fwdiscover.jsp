@@ -1205,14 +1205,6 @@
 	        });
 	    }
 
-	    function setTnCLink(campaignId) {
-	    	
-			var tncKey = "link.tnc.fanfare.offer"+ campaignId;
-			var fmtTnc = '<%=request.getContextPath()%>/' + getBundle(getBundleLanguage, tncKey);
-        	
-			$('#offer-details-promotion-code .terms-and-condition').find(".offer-details-tnc").attr('href', fmtTnc);
-	    }
-
 	    $("#countdown")
 		   .countdown("<%=countDownDate%>", function(event) {
 		   //.countdown("2016/02/16", function(event) {
@@ -1252,7 +1244,6 @@
 					$('.promo-code-holder .code').html('<%=request.getAttribute("chooseCode")%>');
 					$('#offer-details-promotion-code').modal('show');
 					setPlanLink("${chooseId}", '<%=request.getAttribute("chooseCode")%>');
-					setTnCLink("${chooseId}");
 	        	}
 			}
 		});
