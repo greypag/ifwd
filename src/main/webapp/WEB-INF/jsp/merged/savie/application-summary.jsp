@@ -129,11 +129,11 @@
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Place of birth</h6>
-                     <span class="info">${lifePersonalDetails.placeOfBirth }</span>
+                     <span class="info">${lifePersonalDetails.placeOfBirthName }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Nationality</h6>
-                     <span class="info">${lifePersonalDetails.nationalty }</span>
+                     <span class="info">${lifePersonalDetails.nationaltyName }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Date of birth</h6>
@@ -143,15 +143,15 @@
                <div class="desktop-right">
 				  <div class="gray-holder">
                      <h6 class="info-label">Residential telephone no.</h6>
-                     <span class="info">+${lifePersonalDetails.residentialTelNo }</span>
+                     <span class="info">${lifePersonalDetails.residentialTelNo }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Telephone no.</h6>
-                     <span class="info">+${lifePersonalDetails.mobileNumber }</span>
+                     <span class="info">${lifePersonalDetails.mobileNumber }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Marital status</h6>
-                     <span class="info">${lifePersonalDetails.martialStatus }</span>
+                     <span class="info">${lifePersonalDetails.martialStatusName }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Email address</h6>
@@ -172,7 +172,7 @@
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">District</h6>
-                     <span class="info">${lifePersonalDetails.permanetAddressDistrict }</span>
+                     <span class="info">${lifePersonalDetails.permanetAddressDistrictName }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Residential address line 1</h6>
@@ -188,7 +188,7 @@
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">District</h6>
-                     <span class="info">${lifePersonalDetails.residentialAddressDistrict }</span>
+                     <span class="info">${lifePersonalDetails.residentialAddressDistrictName }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Correspondence address line 1</h6>
@@ -204,7 +204,7 @@
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">District</h6>
-                     <span class="info">${lifePersonalDetails.correspondenceAddressDistrict }</span>
+                     <span class="info">${lifePersonalDetails.correspondenceAddressDistrictName }</span>
                   </div>
                </div>
             </div>
@@ -213,19 +213,19 @@
                <div class="desktop-left">
                   <div class="gray-holder">
                      <h6 class="info-label">Employment status</h6>
-                     <span class="info">${lifeEmploymentInfo.employmentStatus }</span>
+                     <span class="info">${lifeEmploymentInfo.employmentStatusName }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Nature of business</h6>
-                     <span class="info">${lifeEmploymentInfo.natureOfBusiness }</span>
+                     <span class="info">${lifeEmploymentInfo.natureOfBusinessName }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Occupation</h6>
-                     <span class="info">${lifeEmploymentInfo.occupation }</span>
+                     <span class="info">${lifeEmploymentInfo.occupationName }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Please specify</h6>
-                     <span class="info">${lifeEmploymentInfo.amountOfOtherSourceOfIncome }${lifeEmploymentInfo.amountOfLiquidAssets }</span>
+                     <span class="info">${lifeEmploymentInfo.amountOfOtherSourceOfIncomeName }${lifeEmploymentInfo.amountOfLiquidAssetsName }</span>
                   </div>
                </div>
                <div class="desktop-right">
@@ -235,11 +235,11 @@
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Monthly personal income (HK$)</h6>
-                     <span class="info">${lifeEmploymentInfo.monthlyPersonalIncome }</span>
+                     <span class="info">${lifeEmploymentInfo.monthlyPersonalIncomeName }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Education level</h6>
-                     <span class="info">${lifeEmploymentInfo.education }</span>
+                     <span class="info">${lifeEmploymentInfo.educationName }</span>
                   </div>
                </div>
             </div>
@@ -267,7 +267,7 @@
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Relationship</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryRelation1 }</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName1 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Gender</h6>
@@ -302,7 +302,7 @@
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Relationship</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryRelation2 }</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName2 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Gender</h6>
@@ -337,7 +337,7 @@
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Relationship</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryRelation3 }</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName3 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Gender</h6>
@@ -368,7 +368,7 @@
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Bank name (code)</h6>
-                     <span class="info">${lifePayment.bankCode }</span>
+                     <span class="info">${lifePayment.bankName }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Account no.</h6>
@@ -376,7 +376,7 @@
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Branch name</h6>
-                     <span class="info">${lifePayment.branchCode }</span>
+                     <span class="info">${lifePayment.branchName }</span>
                   </div>
                </div>
             </div>

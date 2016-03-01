@@ -14,11 +14,11 @@
 	}
 %>
 <div class="modal fade bs-example-modal-lg " id="loginpopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-	<div class="modal-dialog modal-lg <%if(actionName== "Savie"){%>savie-modal-wrapper<%}%>">
+	<div class="modal-dialog modal-lg <%if(actionName== "SavieOnline"){%>savie-modal-wrapper<%}%>">
 		<div class="modal-content plan-modal">
 		<div class="login-close-wrapper"><a class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">×</span></a></div>
 			<!-- 登入 -->
-                <%if(actionName== "Savie"){%>
+                <%if(actionName== "SavieOnline"){%>
                 <div class="login-info hidden login-info-savie">
                     <div class="upper-overlay">
 	                    <h4 class="heading-h4">

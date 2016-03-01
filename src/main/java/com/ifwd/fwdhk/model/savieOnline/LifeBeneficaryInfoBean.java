@@ -24,6 +24,7 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	private String beneficiaryPassport1;
 	private String beneficaryGender1;
 	private String beneficaryRelation1;
+	private String beneficaryRelationName1;
 	private String beneficaryWeight1;
 	private String beneficaryFirstName2;
 	private String beneficaryLastName2;
@@ -32,6 +33,7 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	private String beneficiaryPassport2;
 	private String beneficaryGender2;
 	private String beneficaryRelation2;
+	private String beneficaryRelationName2;
 	private String beneficaryWeight2;
 	private String beneficaryFirstName3;
 	private String beneficaryLastName3;
@@ -40,9 +42,14 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	private String beneficiaryPassport3;
 	private String beneficaryGender3;
 	private String beneficaryRelation3;
+	private String beneficaryRelationName3;
 	private String beneficaryWeight3;
 	
 	public void validate(String language) throws ValidateExceptions {
+		this.beneficaryRelationName1 = this.beneficaryRelation1!=null?this.beneficaryRelation1.split("-")[1]:"";
+		this.beneficaryRelationName2 = this.beneficaryRelation2!=null?this.beneficaryRelation2.split("-")[1]:"";
+		this.beneficaryRelationName3 = this.beneficaryRelation3!=null?this.beneficaryRelation3.split("-")[1]:"";
+		
 		List<String> list = new ArrayList<String>();
 		logger.info("isOwnEstate:"+isOwnEstate);
 		if(!this.isOwnEstate){
@@ -271,6 +278,30 @@ public class LifeBeneficaryInfoBean implements Serializable {
 
 	public void setBeneficiaryPassport3(String beneficiaryPassport3) {
 		this.beneficiaryPassport3 = beneficiaryPassport3;
+	}
+
+	public String getBeneficaryRelationName1() {
+		return beneficaryRelationName1;
+	}
+
+	public void setBeneficaryRelationName1(String beneficaryRelationName1) {
+		this.beneficaryRelationName1 = beneficaryRelationName1;
+	}
+
+	public String getBeneficaryRelationName2() {
+		return beneficaryRelationName2;
+	}
+
+	public void setBeneficaryRelationName2(String beneficaryRelationName2) {
+		this.beneficaryRelationName2 = beneficaryRelationName2;
+	}
+
+	public String getBeneficaryRelationName3() {
+		return beneficaryRelationName3;
+	}
+
+	public void setBeneficaryRelationName3(String beneficaryRelationName3) {
+		this.beneficaryRelationName3 = beneficaryRelationName3;
 	}
 
 	

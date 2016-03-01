@@ -16,12 +16,17 @@ public class LifePaymentBean implements Serializable {
 	private Boolean payment;
 	private String paymentMethod;
 	private String bankCode;
+	private String bankName;
 	private String branchCode;
+	private String branchName;
 	private String accountNumber;
 	private String accountHolderName;
 	private String paymentAmount;
 	
 	public void validate(String language) throws ValidateExceptions {
+		this.bankName = this.bankCode!=null?this.bankCode.split("-")[1]:"";
+		this.branchName = this.branchCode!=null?this.branchCode.split("-")[1]:"";
+		
 		List<String> list = new ArrayList<String>();
         if(ValidationUtils.isNullOrEmpty(this.bankCode)){
         	list.add(ErrorMessageUtils.getMessage("bankCode", "validation.failure", language));
@@ -103,6 +108,30 @@ public class LifePaymentBean implements Serializable {
 
 	public void setPaymentMethod(String paymentMethod) {
 		this.paymentMethod = paymentMethod;
+	}
+
+
+
+	public String getBankName() {
+		return bankName;
+	}
+
+
+
+	public void setBankName(String bankName) {
+		this.bankName = bankName;
+	}
+
+
+
+	public String getBranchName() {
+		return branchName;
+	}
+
+
+
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
 	}
 	
 }

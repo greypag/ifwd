@@ -17,7 +17,7 @@ import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
-import com.ifwd.fwdhk.model.savieOnline.lifeDeclarationBean;
+import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 
 public interface SavieOnlineService {
 	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request) throws ECOMMAPIException;
@@ -36,7 +36,7 @@ public interface SavieOnlineService {
 	public void getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;
 	public void lifeBeneficaryInfoSaveforLater(LifeBeneficaryInfoBean lifeBeneficaryInfo,HttpServletRequest request) throws ECOMMAPIException;
 	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException;
-	public void lifeDeclarationSaveforLater(lifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException;
+	public void lifeDeclarationSaveforLater(LifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException;
 	public JSONObject uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception;
 	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException;
 	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException;
