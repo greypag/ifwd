@@ -269,21 +269,24 @@ var FNArecommendation = {
 		});*/
 
 		$("#fnaMobSort").change(function(){
-			if(this.value > 3){
-				that.sortAsc = false;
-				that.sortFld = parseInt(this.value,10) - 4;
-			}else{
-				that.sortAsc = true;
-				that.sortFld = parseInt(this.value,10);
-			}
-			
-			that.setLoading(true);
-
-			that.loadProductRecommendSorting();
-/*
+			if(this.value != "") {
+				if(this.value > 3){
+					that.sortAsc = false;
+					that.sortFld = parseInt(this.value,10) - 4;
+				}else{
+					that.sortAsc = true;
+					that.sortFld = parseInt(this.value,10);
+				}
+				
+				that.setLoading(true);
+				
+				that.loadProductRecommendSorting();
+				/*
 			setTimeout(function(){
 				that.loadProductRecommend();
 			},750);*/
+				
+			}
 		});
 
 		$(".fna-btn-cancel").click(function(){
