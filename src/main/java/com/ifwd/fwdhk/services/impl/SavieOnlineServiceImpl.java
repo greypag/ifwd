@@ -829,18 +829,17 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		jsonObject.put("q3", savieFna.getQ3());
 		jsonObject.put("q4", savieFna.getQ4());
 		jsonObject.put("q4_a", savieFna.getQ4_a());
-		jsonObject.put("q4_a_others", savieFna.getQ4_a_others());
+		jsonObject.put("q4_a_others", savieFna.getQ4_a_others()!=null?savieFna.getQ4_a_others().replace(",", ""):"");
 		jsonObject.put("q4_b", savieFna.getQ4_b());
-		jsonObject.put("q4_b_amount", savieFna.getQ4_b_amount());
+		jsonObject.put("q4_b_amount", savieFna.getQ4_b_amount()!=null?savieFna.getQ4_b_amount().replace(",", ""):"");
 		jsonObject.put("q4_b_others", savieFna.getQ4_b_others());
-		jsonObject.put("q4_c", savieFna.getQ4_c());
-		jsonObject.put("q4_d_1", savieFna.getQ4_d_1());
-		jsonObject.put("q4_d_2", savieFna.getQ4_d_2());
+		jsonObject.put("q4_c", savieFna.getQ4_c()!=null?savieFna.getQ4_c().replace(",", ""):"");
+		jsonObject.put("q4_d_1", savieFna.getQ4_d_1()!=null?savieFna.getQ4_d_1().replace(",", ""):"");
+		jsonObject.put("q4_d_2", savieFna.getQ4_d_2()!=null?savieFna.getQ4_d_2().replace(",", ""):"");
 		jsonObject.put("q4_e", savieFna.getQ4_e());
 		jsonObject.put("q4_f", savieFna.getQ4_f());
 		jsonObject.put("q4_g", savieFna.getQ4_g());
 		jsonObject.put("q4_g_others", savieFna.getQ4_g_others());
-		//jsonObject.put("hash_key", "");
 		jsonObject.put("hash_key", request.getSession().getAttribute("hashKey")!=null?request.getSession().getAttribute("hashKey"):"");
 		logger.info(jsonObject.toString());
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.POST,Url, header, jsonObject);
@@ -881,13 +880,13 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		jsonObject.put("q3", savieFna.getQ3());
 		jsonObject.put("q4", savieFna.getQ4());
 		jsonObject.put("q4_a", savieFna.getQ4_a());
-		jsonObject.put("q4_a_others", savieFna.getQ4_a_others());
+		jsonObject.put("q4_a_others", savieFna.getQ4_a_others()!=null?savieFna.getQ4_a_others().replace(",", ""):"");
 		jsonObject.put("q4_b", savieFna.getQ4_b());
-		jsonObject.put("q4_b_amount", savieFna.getQ4_b_amount());
+		jsonObject.put("q4_b_amount", savieFna.getQ4_b_amount()!=null?savieFna.getQ4_b_amount().replace(",", ""):"");
 		jsonObject.put("q4_b_others", savieFna.getQ4_b_others());
-		jsonObject.put("q4_c", savieFna.getQ4_c());
-		jsonObject.put("q4_d_1", savieFna.getQ4_d_1());
-		jsonObject.put("q4_d_2", savieFna.getQ4_d_2());
+		jsonObject.put("q4_c", savieFna.getQ4_c()!=null?savieFna.getQ4_c().replace(",", ""):"");
+		jsonObject.put("q4_d_1", savieFna.getQ4_d_1()!=null?savieFna.getQ4_d_1().replace(",", ""):"");
+		jsonObject.put("q4_d_2", savieFna.getQ4_d_2()!=null?savieFna.getQ4_d_2().replace(",", ""):"");
 		jsonObject.put("q4_e", savieFna.getQ4_e());
 		jsonObject.put("q4_f", savieFna.getQ4_f());
 		jsonObject.put("q4_g", savieFna.getQ4_g());
@@ -949,9 +948,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		String Url = UserRestURIConstants.GET_FNA;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		JSONObject jobject = new JSONObject();
 		HttpSession hashSession = request.getSession();
 		if (responseJsonObj.get("result") != null){
-			JSONObject jobject = (JSONObject)responseJsonObj.get("result");
+			jobject = (JSONObject)responseJsonObj.get("result");
 			hashSession.setAttribute("hashKey", jobject.get("hash_key"));
 			
 			if(jobject.get("name")!=null&&jobject.get("gender")!=null){
@@ -987,9 +987,15 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				savieFna.setQ4_g(jobject.get("q4_g")!=null?jobject.get("q4_g").toString():"");
 				savieFna.setQ4_g_others(jobject.get("q4_g_others")!=null?jobject.get("q4_g_others").toString():"");
 				request.getSession().setAttribute("savieFna", savieFna);
+				
+				jobject.put("q4_a_others", jobject.get("q4_a_others")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_a_others").toString()):"");
+				jobject.put("q4_b_amount", jobject.get("q4_b_amount")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_b_amount").toString()):"");
+				jobject.put("q4_c", jobject.get("q4_c")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_c").toString()):"");
+				jobject.put("q4_d_1", jobject.get("q4_d_1")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_d_1").toString()):"");
+				jobject.put("q4_d_2", jobject.get("q4_d_2")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_d_2").toString()):"");
 			}
 		}
-		return responseJsonObj.get("result") != null ? (JSONObject) responseJsonObj.get("result"):new JSONObject();
+		return jobject;
 	}
 	
 	public JSONObject getPurchaseHistoryByPlanCode(HttpServletRequest request) throws ECOMMAPIException{
