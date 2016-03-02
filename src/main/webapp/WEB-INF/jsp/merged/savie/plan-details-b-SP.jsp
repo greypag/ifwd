@@ -526,7 +526,7 @@ var languageP = "${language}";
 			    						 <img class="media-object" src="assets/images/savie-2016/book-icon.png" />
 			    					</div>
 			    					<div class="media-body">
-			    						<p class="procedure">According to the Hong Kong Federation of Insurers°Ø guidelines, insurance companies should carry out Financial Need Analysis(FNA) before selling insurance products. Our professional Customer Service Representatives will provide suitable product options for your comparison after FNA.</p>
+			    						<p class="procedure">According to the Hong Kong Federation of Insurers‚Äô guidelines, insurance companies should carry out Financial Need Analysis(FNA) before selling insurance products. Our professional Customer Service Representatives will provide suitable product options for your comparison after FNA.</p>
 			    					</div>
 			    				</div>
 			    			</div>
@@ -548,7 +548,7 @@ var languageP = "${language}";
 					    						 <img class="media-object" src="assets/images/savie-2016/pc-icon.png" />
 					    					</div>
 					    					<div class="media-body">
-					    						<p class="procedure"><span class="bold-head">Online procedure</span> <span class="hidden-dash">-</span><br class="visible-md visible-lg" />  You may proceed both FNA and application on this platform, you may take your time to fill in the information, we provide a °∞Save for later°± function available at the application section, you may save your application progress and come back to complete later. </p>
+					    						<p class="procedure"><span class="bold-head">Online procedure</span> <span class="hidden-dash">-</span><br class="visible-md visible-lg" />  You may proceed both FNA and application on this platform, you may take your time to fill in the information, we provide a ‚ÄúSave for later‚Äù function available at the application section, you may save your application progress and come back to complete later. </p>
 					    						<button class="btn savie-common-btn" id="online-application-btn">Online application</button>
 					    					</div>
 					    				</div>
@@ -580,7 +580,7 @@ var languageP = "${language}";
 		<div class="modal fade common-welcome-modal" id="prev-savie-app-modal" tabindex="-1" role="dialog">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
-		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">°¡</span></button>
+		    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">√ó</span></button>
 		     	<h4 class="text-center welcome-msg">Welcome back to Savie!</h4>
 		     	<p class="text-center description-msg">Unfortunately, each member can buy one online application only, please make an appointment to our Customer Services center.</p>
 		     	<center><button class="btn savie-common-btn" id="make-appointment-btn">Make an appointment</button></center>
@@ -590,7 +590,7 @@ var languageP = "${language}";
 		<div class="modal fade common-welcome-modal" id="review-fna-modal" tabindex="-1" role="dialog">
 			<div class="modal-dialog">
 			    <div class="modal-content">
-			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">°¡</span></button>
+			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">√ó</span></button>
 			     	<h4 class="text-center welcome-msg">Welcome back! Chan Tai Man</h4>
 			     	<p class="text-center description-msg">You have already completed a Financial Needs Analysis previously, you may review and edit your FNA for an updated Product Recommendation.</p>
 			     	<center><button class="btn savie-common-btn" id="review-fna-btn">Review FNA</button></center>
@@ -794,7 +794,9 @@ var languageP = "${language}";
 			    		    },     
 			    		    success:function(data){
 			    		    	if(data != null && data.errMsgs == null && data.name !=null){
-			    		    	    window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+			    		    		$('#loginpopup').modal('hide');
+			    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+			    		    		$('#review-fna-modal').modal('show');
 			    		    	}
 			    		    	else{
 			    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
@@ -806,6 +808,10 @@ var languageP = "${language}";
 			});
 		}
 	}
+	
+	$("#review-fna-btn").on('click', function(){
+		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+	});
 	
 	$(document).on('change','#plan-dob-datepicker',function(){
 		if($(this).val()!="") {
