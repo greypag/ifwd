@@ -113,12 +113,12 @@
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
 										  <label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" name="gender" id="gender">
                                              <option value="" selected="selected" disabled="disabled">Gender</option>
                                              <option value="male" <c:if test="${savieFna.gender == '0'}">selected="selected"</c:if>>MALE</option>
                                              <option value="female" <c:if test="${savieFna.gender == '1'}">selected="selected"</c:if>>FEMALE</option>
                                           </select>
+                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="genderErMsg"></span>
                                     </div>
@@ -134,7 +134,6 @@
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
 										  <label class="mdl-textfield__label cstm-dropdown-label">Place of birth</label>
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" name="placeOfBirth" id="placeOfBirth">
                                              <option value="" selected="selected" disabled="disabled">Place of birth</option>
                                              <c:if test="${language == 'en'}">
@@ -148,6 +147,7 @@
 												</c:forEach>
 											</c:if>
                                           </select>
+                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="placeOfBirthErMsg"></span>
                                     </div>
@@ -156,7 +156,6 @@
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
 										  <label class="mdl-textfield__label cstm-dropdown-label">Nationality</label>
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" name="nationalty" id="nationalty">
                                              <option value="" selected="selected" disabled="disabled">Nationality</option>
                                              <c:if test="${language == 'en'}">
@@ -170,6 +169,7 @@
 													</c:forEach>
 												</c:if>
                                           </select>
+                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="nationalityErMsg"></span>
                                     </div>
@@ -178,8 +178,8 @@
                                     <div class="left-desktop text-box et-date-info so-mdl-textfield">
 										<div class="selectDiv" id="date">
 											<label class="mdl-textfield__label cstm-textfield-label">Date of birth</label>
-											<span class="icon-chevron-thin-down orange-caret"></span>
 											<input type="text" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${savieFna.dob }" readonly="readonly" />
+											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="so-calendar-dob-msg"></span>
                                     </div>
@@ -211,8 +211,7 @@
                                  <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
-									      <label class="mdl-textfield__label cstm-dropdown-label">Marital status</label>
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
+									      <label class="mdl-textfield__label cstm-dropdown-label">Marital status</label>                                          
                                           <select class="form-control gray-dropdown" name="martialStatus"  id="martialStatus">
                                              <option value="" selected="selected" disabled="disabled">Marital status</option>
                                              <c:if test="${language == 'en'}">
@@ -244,6 +243,7 @@
 												</c:forEach>
 											</c:if>
                                           </select>
+                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="maritalStatErMsg"></span>
                                     </div>
@@ -273,7 +273,6 @@
 									<div class="left-desktop text-box res-additional hidden">
                                        <div class="selectDiv">
 										  <label class="mdl-textfield__label cstm-dropdown-label">District</label>
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" name="permanetAddressDistrict" id="permanentDistrict">
                                              <option value="" selected="selected" disabled="disabled">District</option>
                                              <c:if test="${language == 'en'}">
@@ -287,6 +286,7 @@
 												</c:forEach>
 											</c:if>
                                           </select>
+                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="permanentDistrictErMsg"></span>
                                     </div>
@@ -323,7 +323,6 @@
 									<div class="left-desktop text-box">
                                        <div class="selectDiv">
 										 <label class="mdl-textfield__label cstm-dropdown-label">District</label>
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
                                           <select class="form-control gray-dropdown" name="residentialAddressDistrict" id="residentialDistrict">
                                              <option value="" selected="selected" disabled="disabled">District</option>
                                              <c:if test="${language == 'en'}">
@@ -337,6 +336,7 @@
 													</c:forEach>
 												</c:if>
                                           </select>
+                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="residentialDistrictErMsg"></span>
                                     </div>
@@ -372,8 +372,7 @@
                                     </div>
 									<div class="left-desktop text-box">
                                        <div class="selectDiv">
-										  <label class="mdl-textfield__label cstm-dropdown-label">District</label>
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
+										  <label class="mdl-textfield__label cstm-dropdown-label">District</label>                                          
                                           <select class="form-control gray-dropdown" name="correspondenceAddressDistrict" id="correspondenceDistrict">
                                              <option value="" selected="selected" disabled="disabled">District</option>
                                              <c:if test="${language == 'en'}">
@@ -387,6 +386,7 @@
 													</c:forEach>
 												</c:if>
                                           </select>
+                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="correspondenceDistrictErMsg"></span>
                                     </div>
