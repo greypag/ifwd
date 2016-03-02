@@ -226,6 +226,7 @@ public class SavieOnlineController extends BaseController{
 		model.addAttribute("bankCodeCN", InitApplicationMessage.bankCodeCN);
 		model.addAttribute("branchCodeEN", InitApplicationMessage.branchCodeEN);
 		model.addAttribute("branchCodeCN", InitApplicationMessage.branchCodeCN);
+		
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PAYMENT);
 	}
 	

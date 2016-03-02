@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<%@include file="includes/head.jsp" %>
       
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
@@ -12,7 +11,6 @@
 			boolean isEservicesActiveClass = false;
 		%>
 		<div class="fwd-savie-wrapper savie-online-container with-breadcrumbs-steps" id="make-an-appointment-page">			
-			<%@include file="includes/header-block.jsp" %>
 
          <div class="fwd-container container-fluid breadcrumbs">
             <div class="breadcrumb-container">
@@ -34,9 +32,9 @@
                   <div class="row reset-margin hidden-xs hidden-sm">
                      <ul class="common-steps-list nav nav-pills">
                         <li class="step-number" id="first-step"><button type="button" class="et-header-info-btn completed-step"><i class="fa fa-check"></i>Select plan</button></li>
-                        <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
                         <li class="step-number"><button type="button" class="et-header-info-btn active"><span class="status">2</span>Make an appointment</button></li>
-                        <li class="arrow-next-step"> <img src="assets/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
+                        <li class="arrow-next-step"> <img src="<%=request.getContextPath()%>/resources/images/savie-2016/header-browse-arrow.png" class="browse-arrow" /></li>
                         <li class="step-number"><button type="button" class="et-header-info-btn incomplete-step"><span class="status">3</span>Confirmation</button></li>
                      </ul>
                  </div>
@@ -80,26 +78,26 @@
                            <option value="4">Kwun Tong</option>
                            <option value="5">Shatin</option>
                         </select>
-                        <img src="assets/images/orange-caret.png" class="orange-caret-bg">
+                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                      </div>
                      <div class="centre-info visible-xs visible-sm" id="centre-info">
-                        <img src="assets/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" />
+                        <img src="<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" />
 						<h4>Address</h4>
 						<p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
 						<a class="address-link" href="#">View map</a>
                      </div>
                      <div id="date" class="selectDiv preferred-date gray-text-bg">
                         <input type="text" class="date preferred-date" name="preferred-date" id="preferred-date" value="Date" readonly="">
-                        <img src="assets/images/orange-caret.png" class="orange-caret-bg">
+                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                      </div>
                       <div class="selectDiv timeslot gray-text-bg">
                         <input type="text" name="preferred-time" id="preferred-time" value="Time">
-                        <img src="assets/images/orange-caret.png" class="orange-caret-bg">
+                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                      </div>
                   </div>
                   <div class="col-xs-12 col-md-6" id="right-side-form">
                      <div class="centre-info visible-md visible-lg" id="centre-info">
-                        <img src="assets/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" />
+                        <img src="<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" />
 						<h4>Address</h4>
 						<p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
 						<a class="address-link" href="#">View map</a>
@@ -114,11 +112,9 @@
            </div>
          </div>
 			<!-- FOOTER -->
-			<%@include file="includes/footer-block.jsp" %>
 		</div>
 		
 		<!-- JS INCLUDES -->
-		<%@include file="includes/js-include.jsp" %>
 		<script type="text/javascript">
 			var language = "en";
 
@@ -138,11 +134,11 @@
             autoclose: true
          });
 
-         var img1 = "assets/images/savie-2016/timshatsui.jpg";
-         var img2 = "assets/images/savie-2016/quarry_bay.jpg";
-         var img3 = "assets/images/savie-2016/sheung_wan.jpg";
-         var img4 = "assets/images/savie-2016/kwuntong.jpg";
-         var img5 = "assets/images/savie-2016/shatin.jpg";
+         var img1 = "<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg";
+         var img2 = "<%=request.getContextPath()%>/resources/images/savie-2016/quarry_bay.jpg";
+         var img3 = "<%=request.getContextPath()%>/resources/images/savie-2016/sheung_wan.jpg";
+         var img4 = "<%=request.getContextPath()%>/resources/images/savie-2016/kwuntong.jpg";
+         var img5 = "<%=request.getContextPath()%>/resources/images/savie-2016/shatin.jpg";
          var addr1 = "G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui";
          var addr2 = "13/F, Devon House, Taikoo Place, 979 King’s Road, Quarry Bay";
          var addr3 = "1/F, FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan";
@@ -189,6 +185,11 @@
                $('#right-centre').html('');
             }
          }
+         
+         
+         $("#btn-cstmr-srvc-cnter").on('click', function(){
+        	 window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+     	});
 		</script>
 		
 		

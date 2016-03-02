@@ -434,10 +434,14 @@ var Review = {
 		$("#"+qid+" .option .row").each(function(){
 			var rid = $(this).attr("id");
 			if($("#"+rid).find("input[type='checkbox']").prop("checked")){
-				answer += $("#"+rid).find("input[type='checkbox']").val();
+				answer += $("#"+rid).find("input[type='checkbox']").val()+",";
 			}
 		});
-
+		if(qid == "q1" || qid == "q2" || qid == "q4" || qid == "q4_a"){
+			if(answer.length>0){
+				answer=answer.substring(0,answer.length-1);
+			}
+		}
 		var isError = false;
 		
 		if(qid == "personal_info"){
@@ -490,7 +494,10 @@ var Review = {
 				$("#q4_a_others").focus();
 				isError = true;
 			}
-			other = parseInt(other);
+			
+			if(other!=null && other!=""){
+				other = parseInt(other);
+			}
 		}
 
 		if(qid == "q4_b"){
@@ -632,6 +639,24 @@ var Review = {
 		var id = $(this).attr("rel");
 		$("#"+id+ " .error").text("");
 		that.constructAnswer(id);
+		
+		var target = $("#"+id);
+		target.addClass("display")
+		target.find(".btn_edit").removeClass("selected")
+		target.find("input[type='checkbox']").attr("disabled", "disabled");	
+		target.find("input[type='text']").attr("readonly", "readonly");
+		target.find(".btn-action").hide();
+		
+		//enable "BTN_SAVE" when all review box ok
+		var allOk = true;
+		$(".review-box").each(function(){
+			if(!$(this).hasClass("display")){
+				allOk = false;
+			}
+		});
+		if(allOk){
+			$("#btn_save").prop("disabled", false);
+		}
 	},
 
 	checkboxChanged:function(evt){

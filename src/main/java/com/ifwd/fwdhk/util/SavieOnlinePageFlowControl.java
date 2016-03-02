@@ -130,7 +130,8 @@ public class SavieOnlinePageFlowControl {
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_PAYMENT: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_POLICY_SUMMARY;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
+			//to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_PAY_LATER_CONFIRMATION;
 			filePath = "savie/";
 			break;
 			
@@ -148,7 +149,8 @@ public class SavieOnlinePageFlowControl {
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_SIGNATURE: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LIFE_DOCUMENT_UPLOAD;
-			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
+			//to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
+			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION;
 			filePath = "savie/";
 			current = "signature";
 			break;
@@ -190,8 +192,9 @@ public class SavieOnlinePageFlowControl {
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
+			filePath = "savie/";
 			break;
 
 		default:

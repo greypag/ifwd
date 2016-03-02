@@ -23,32 +23,65 @@ public class LifePersonalDetailsBean implements Serializable {
 	private String hkid;
 	private String passport;
 	private String martialStatus;
+	private String martialStatusName;
 	private String residentialTelNoCountryCode;
 	private String residentialTelNo;
 	private String mobileNoCountryCode;
 	private String mobileNumber;
 	private String emailAddress;
 	private String placeOfBirth;
+	private String placeOfBirthName;
 	private String nationalty;
+	private String nationaltyName;
 	private String permanetAddress1;
 	private String permanetAddress2;
 	private String permanetAddress3;
 	private String permanetAddress4;
 	private String permanetAddressDistrict;
+	private String permanetAddressDistrictName;
 	private String diffToPermanent;
 	private String residentialAddress1;
 	private String residentialAddress2;
 	private String residentialAddress3;
 	private String residentialAddress4;
 	private String residentialAddressDistrict;
+	private String residentialAddressDistrictName;
 	private String diffToResidential;
 	private String correspondenceAddress1;
 	private String correspondenceAddress2;
 	private String correspondenceAddress3;
 	private String correspondenceAddress4;
 	private String correspondenceAddressDistrict;
+	private String correspondenceAddressDistrictName;
 	
 	public void validate(String language) throws ValidateExceptions {
+		this.martialStatusName = this.martialStatus!=null?this.martialStatus.split("-")[1]:"";
+		this.placeOfBirthName = this.placeOfBirth!=null?this.placeOfBirth.split("-")[1]:"";
+		this.nationaltyName = this.nationalty!=null?this.nationalty.split("-")[1]:"";
+		this.permanetAddressDistrictName = this.permanetAddressDistrict!=null?this.permanetAddressDistrict.split("-")[1]:"";
+		if(!"None".equals(this.diffToPermanent)){
+			this.residentialAddress1 = this.permanetAddress1;
+			this.residentialAddress2 = this.permanetAddress2;
+			this.residentialAddress3 = this.permanetAddress3;
+			this.residentialAddress4 = this.permanetAddress4;
+			this.residentialAddressDistrict = this.permanetAddressDistrict;
+			this.residentialAddressDistrictName = this.permanetAddressDistrictName;
+		}
+		else{
+			this.residentialAddressDistrictName = this.residentialAddressDistrictName!=null?this.residentialAddressDistrictName.split("-")[1]:"";
+		}
+		if(!"None".equals(this.diffToResidential)){
+			this.correspondenceAddress1 = this.residentialAddress1;
+			this.correspondenceAddress2 = this.residentialAddress2;
+			this.correspondenceAddress3 = this.residentialAddress3;
+			this.correspondenceAddress4 = this.residentialAddress4;
+			this.correspondenceAddressDistrict = this.residentialAddressDistrict;
+			this.correspondenceAddressDistrictName = this.residentialAddressDistrictName;
+		}
+		else{
+			this.correspondenceAddressDistrictName = this.correspondenceAddressDistrictName!=null?this.correspondenceAddressDistrictName.split("-")[1]:"";
+		}
+		
 		List<String> list = new ArrayList<String>();
         if(ValidationUtils.isNullOrEmpty(this.firstname)){
         	list.add(ErrorMessageUtils.getMessage("firstname", "validation.failure", language));
@@ -433,6 +466,56 @@ public class LifePersonalDetailsBean implements Serializable {
 
 	public void setDiffToResidential(String diffToResidential) {
 		this.diffToResidential = diffToResidential;
+	}
+
+	public String getMartialStatusName() {
+		return martialStatusName;
+	}
+
+	public void setMartialStatusName(String martialStatusName) {
+		this.martialStatusName = martialStatusName;
+	}
+
+	public String getPlaceOfBirthName() {
+		return placeOfBirthName;
+	}
+
+	public void setPlaceOfBirthName(String placeOfBirthName) {
+		this.placeOfBirthName = placeOfBirthName;
+	}
+
+	public String getNationaltyName() {
+		return nationaltyName;
+	}
+
+	public void setNationaltyName(String nationaltyName) {
+		this.nationaltyName = nationaltyName;
+	}
+
+	public String getPermanetAddressDistrictName() {
+		return permanetAddressDistrictName;
+	}
+
+	public void setPermanetAddressDistrictName(String permanetAddressDistrictName) {
+		this.permanetAddressDistrictName = permanetAddressDistrictName;
+	}
+
+	public String getResidentialAddressDistrictName() {
+		return residentialAddressDistrictName;
+	}
+
+	public void setResidentialAddressDistrictName(
+			String residentialAddressDistrictName) {
+		this.residentialAddressDistrictName = residentialAddressDistrictName;
+	}
+
+	public String getCorrespondenceAddressDistrictName() {
+		return correspondenceAddressDistrictName;
+	}
+
+	public void setCorrespondenceAddressDistrictName(
+			String correspondenceAddressDistrictName) {
+		this.correspondenceAddressDistrictName = correspondenceAddressDistrictName;
 	}
 	
 }

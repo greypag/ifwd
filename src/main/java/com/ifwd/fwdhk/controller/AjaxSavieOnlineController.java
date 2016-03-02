@@ -33,7 +33,7 @@ import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
-import com.ifwd.fwdhk.model.savieOnline.lifeDeclarationBean;
+import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.ErrorMessageUtils;
 import com.ifwd.fwdhk.util.ImgUtil;
@@ -60,7 +60,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		try {
 			saviePlanDetails.validate(language);
 			saviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount()));
-			jsonObject = savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request);
+			jsonObject = savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request, session);
 			String[] dob = saviePlanDetails.getDob().split("-");
 			saviePlanDetails.setDob1(dob[2]+"·"+dob[1]+"·"+dob[0]);
 			saviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
@@ -140,6 +140,24 @@ public class AjaxSavieOnlineController extends BaseController{
 		try {
 			lifePayment.validate(language);
 			request.getSession().setAttribute("lifePayment", lifePayment);
+		}
+		catch (ValidateExceptions e) {
+			jsonObject.put("errorMsg", e.getList().toString());
+		}
+		logger.info(jsonObject.toString());
+		ajaxReturn(response, jsonObject);
+	}
+	
+	@RequestMapping(value = {"/ajax/savings-insurance/lifeDeclaration"})
+	public void lifeDeclaration(LifeDeclarationBean lifeDeclaration,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		String language = (String) session.getAttribute("language");
+		JSONObject jsonObject = new JSONObject();
+		if(Methods.isXssAjax(request)){
+			return;
+		}
+		try {
+			lifeDeclaration.validate(language);
+			request.getSession().setAttribute("lifeDeclaration", lifeDeclaration);
 		}
 		catch (ValidateExceptions e) {
 			jsonObject.put("errorMsg", e.getList().toString());
@@ -348,7 +366,7 @@ public class AjaxSavieOnlineController extends BaseController{
 	}
 	
 	@RequestMapping(value = {"/ajax/savings-insurance/lifeDeclarationSaveforLater"})
-	public void lifeDeclarationSaveforLater(lifeDeclarationBean lifeDeclaration,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+	public void lifeDeclarationSaveforLater(LifeDeclarationBean lifeDeclaration,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
@@ -379,8 +397,8 @@ public class AjaxSavieOnlineController extends BaseController{
 					throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.greater.than",request)+" "+imgMaxSize+"MB");
 				}
 				
-				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
-				String policyNo = eliteTermPolicy.getPolicyNo();
+				CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+				String policyNo = lifePolicy.getPolicyNo();
 				String documentPath = UserRestURIConstants.getConfigs("documentPath");
 				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes()); 
 		        File dirPath = new File(uploadDir);  

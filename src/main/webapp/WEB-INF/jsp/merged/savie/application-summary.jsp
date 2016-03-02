@@ -85,7 +85,7 @@
             <h5 class="title">Application summary</h5>
 
             <div class="summary-section clearfix">
-               <h5>Your selected plan <a href="<%=request.getContextPath()%>/${language}/savings-insurance/savie-plan-details?backSummary=Y">Edit</a></h5>
+               <h5>Your selected plan <a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details?backSummary=Y">Edit</a></h5>
                <div class="desktop-left">
                   <div class="gray-holder">
                      <h6 class="info-label">Plan name</h6>
@@ -93,19 +93,19 @@
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Saving amount</h6>
-                     <span class="info">HK$ ${saviePlanDetails.insuredAmount }</span>
+                     <span class="info">HK$ ${saviePlanDetails.insuredAmount1 }</span>
                   </div>
                </div>
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Premium mode</h6>
-                     <span class="info">ONE TIME OFF</span>
+                     <span class="info">${saviePlanDetails.paymentType }</span>
                   </div>
                </div>
             </div>
 
             <div class="summary-section below clearfix">
-               <h5>Personal info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/life-personal-details?backSummary=Y">Edit</a></h5>
+               <h5>Personal info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/personal-details?backSummary=Y">Edit</a></h5>
                <div class="desktop-left">
                   <div class="gray-holder">
                      <h6 class="info-label">Last name (same as HKID)</h6>
@@ -129,11 +129,11 @@
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Place of birth</h6>
-                     <span class="info">${lifePersonalDetails.placeOfBirth }</span>
+                     <span class="info">${lifePersonalDetails.placeOfBirthName }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Nationality</h6>
-                     <span class="info">${lifePersonalDetails.nationalty }</span>
+                     <span class="info">${lifePersonalDetails.nationaltyName }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Date of birth</h6>
@@ -143,15 +143,15 @@
                <div class="desktop-right">
 				  <div class="gray-holder">
                      <h6 class="info-label">Residential telephone no.</h6>
-                     <span class="info">+${lifePersonalDetails.residentialTelNo }</span>
+                     <span class="info">${lifePersonalDetails.residentialTelNo }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Telephone no.</h6>
-                     <span class="info">+${lifePersonalDetails.mobileNumber }</span>
+                     <span class="info">${lifePersonalDetails.mobileNumber }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Marital status</h6>
-                     <span class="info">${lifePersonalDetails.martialStatus }</span>
+                     <span class="info">${lifePersonalDetails.martialStatusName }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Email address</h6>
@@ -172,7 +172,7 @@
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">District</h6>
-                     <span class="info">${lifePersonalDetails.permanetAddressDistrict }</span>
+                     <span class="info">${lifePersonalDetails.permanetAddressDistrictName }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Residential address line 1</h6>
@@ -188,7 +188,7 @@
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">District</h6>
-                     <span class="info">${lifePersonalDetails.residentialAddressDistrict }</span>
+                     <span class="info">${lifePersonalDetails.residentialAddressDistrictName }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Correspondence address line 1</h6>
@@ -204,28 +204,28 @@
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">District</h6>
-                     <span class="info">${lifePersonalDetails.correspondenceAddressDistrict }</span>
+                     <span class="info">${lifePersonalDetails.correspondenceAddressDistrictName }</span>
                   </div>
                </div>
             </div>
             <div class="summary-section below-employment clearfix">
-               <h5>Employment info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/life-employment-info?backSummary=Y">Edit</a></h5>
+               <h5>Employment info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/employment-info?backSummary=Y">Edit</a></h5>
                <div class="desktop-left">
                   <div class="gray-holder">
                      <h6 class="info-label">Employment status</h6>
-                     <span class="info">${lifeEmploymentInfo.employmentStatus }</span>
+                     <span class="info">${lifeEmploymentInfo.employmentStatusName }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Nature of business</h6>
-                     <span class="info">${lifeEmploymentInfo.natureOfBusiness }</span>
+                     <span class="info">${lifeEmploymentInfo.natureOfBusinessName }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Occupation</h6>
-                     <span class="info">${lifeEmploymentInfo.occupation }</span>
+                     <span class="info">${lifeEmploymentInfo.occupationName }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Please specify</h6>
-                     <span class="info">${lifeEmploymentInfo.amountOfOtherSourceOfIncome }${lifeEmploymentInfo.amountOfLiquidAssets }</span>
+                     <span class="info">${lifeEmploymentInfo.amountOfOtherSourceOfIncomeName }${lifeEmploymentInfo.amountOfLiquidAssetsName }</span>
                   </div>
                </div>
                <div class="desktop-right">
@@ -235,16 +235,16 @@
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Monthly personal income (HK$)</h6>
-                     <span class="info">${lifeEmploymentInfo.monthlyPersonalIncome }</span>
+                     <span class="info">${lifeEmploymentInfo.monthlyPersonalIncomeName }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Education level</h6>
-                     <span class="info">${lifeEmploymentInfo.education }</span>
+                     <span class="info">${lifeEmploymentInfo.educationName }</span>
                   </div>
                </div>
             </div>
             <div class="summary-section below-beneficiary clearfix">
-               <h5>Beneficiary info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/life-beneficary-info?backSummary=Y">Edit</a></h5>
+               <h5>Beneficiary info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/beneficiary-info?backSummary=Y">Edit</a></h5>
                <span class="person-count first-person">Person 1</span>
                <div class="desktop-left">
                   <div class="gray-holder">
@@ -267,7 +267,7 @@
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Relationship</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryRelation1 }</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName1 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Gender</h6>
@@ -302,7 +302,7 @@
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Relationship</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryRelation2 }</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName2 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Gender</h6>
@@ -337,7 +337,7 @@
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Relationship</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryRelation3 }</span>
+                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName3 }</span>
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Gender</h6>
@@ -350,7 +350,7 @@
                </div>
             </div>
             <div class="summary-section below-payment clearfix">
-               <h5>Payment info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/life-payment">Edit</a></h5>
+               <h5>Payment info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/payment">Edit</a></h5>
                <div class="desktop-left">
 				  <div class="gray-holder">
                      <h6 class="info-label">Amount</h6>
@@ -368,7 +368,7 @@
                <div class="desktop-right">
                   <div class="gray-holder">
                      <h6 class="info-label">Bank name (code)</h6>
-                     <span class="info">${lifePayment.bankCode }</span>
+                     <span class="info">${lifePayment.bankName }</span>
                   </div>
 				  <div class="gray-holder">
                      <h6 class="info-label">Account no.</h6>
@@ -376,7 +376,7 @@
                   </div>
                   <div class="gray-holder">
                      <h6 class="info-label">Branch name</h6>
-                     <span class="info">${lifePayment.branchCode }</span>
+                     <span class="info">${lifePayment.branchName }</span>
                   </div>
                </div>
             </div>
