@@ -621,7 +621,7 @@ var languageP = "${language}";
 			<button type="button" id="btn-login" class="btn plan-details-btn savie-common-btn hidden">Login to proceed</button>
 			<button type="button" id="btn-proceed" class="btn plan-details-btn savie-common-btn hidden">Proceed</button>
 			<button type="button" id="btn-back" class="btn plan-details-btn savie-common-btn hidden">Back to summary</button>
-			<a href="#" class="pd-link">Apply at Customer Service Centre</a>
+			<a href="<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre" class="pd-link">Apply at Customer Service Centre</a>
 		</div>
 	</div>
       </div>
