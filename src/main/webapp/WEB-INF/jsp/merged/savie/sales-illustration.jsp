@@ -86,7 +86,9 @@
 	        <div class="container-fluid fwd-full-container headerStick">
 	        	<div class="fwd-container-limit clearfix sidebar" id="sales-illustration-content">	
   					<div class="row">
-  						<h3 class="heading-title">Your selected plan<span><a herf="#">edit</a></span></h3>
+  						<h3 class="heading-title">Your selected plan<span>
+  						<a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details?type=2">edit</a>
+  						</span></h3>
   						
   						<div class="col-xs-12 col-md-6 left-side-form">
   							<div class="gray-bg-data-info">
