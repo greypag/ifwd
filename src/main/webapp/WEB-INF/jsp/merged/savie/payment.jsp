@@ -167,14 +167,12 @@
 													<option selected disabled value="">Branch name (code)</option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${branchCodeEN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${branchCodeCN}">
-														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
+															<option value="${list.itemCode }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
@@ -567,7 +565,7 @@
 						$("#bank_name").empty();
 						if(data != null){
 							for(var i = 0; i < data.length; i++) {
-								$("#bank_name").append("<option value='"+data[i].itemCode+"-"+data[i].itemDesc+"'>"+data[i].itemDesc+"</option>");
+								$("#bank_name").append("<option value='"+data[i].itemCode'>"+data[i].itemDesc+"</option>");
 							}
 						}
 					})

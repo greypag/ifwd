@@ -139,6 +139,21 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			lifePayment.validate(language);
+			if(lifePayment!=null && lifePayment.getBranchCode()!=null && !"".equals(lifePayment.getBranchCode())){
+				try {
+					List<OptionItemDesc> OptionItemDescList = savieOnlineService.getBranchCode(lifePayment.getBankCode(), request);
+					if(OptionItemDescList!=null && OptionItemDescList.size()>0){
+						for(int i=0;i<OptionItemDescList.size();i++){
+							if(OptionItemDescList.get(i).getItemCode().equals(lifePayment.getBranchCode())){
+								lifePayment.setBranchName(OptionItemDescList.get(i).getItemDesc());
+							}
+						}
+					}
+				} 
+				catch (ECOMMAPIException e) {
+					logger.info(e.getMessage());
+				}
+			}
 			request.getSession().setAttribute("lifePayment", lifePayment);
 		}
 		catch (ValidateExceptions e) {
