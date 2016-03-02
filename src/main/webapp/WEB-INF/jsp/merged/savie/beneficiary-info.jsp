@@ -144,12 +144,12 @@
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
 												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
-												  <span class="icon-chevron-thin-down orange-caret"></span>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[0]" id="beneficiaryHkidPassport[0]">
 													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
 												  </select>
+												  <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											   </div>
 											   <span class="error-msg" id="beneficiaryHkidPassportErMsg[0]"></span>
 											</div>
@@ -173,12 +173,12 @@
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
-													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown" name="beneficaryGender1" id="beneficiaryGender[0]">
 														<option value="" selected="selected" disabled="disabled">Gender</option>
 														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'male'}">selected="selected"</c:if>>MALE</option>
 														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'female'}">selected="selected"</c:if>>FEMALE</option>
 													</select>
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryGenderErMsg[0]"></span>
 											</div>
@@ -189,7 +189,6 @@
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
-													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[0]" name="beneficaryRelation1">
 														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<c:if test="${language == 'en'}">
@@ -203,6 +202,7 @@
 															</c:forEach>
 														</c:if>
 													</select>
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryRelationErMsg[0]"></span>
 											</div>
@@ -266,12 +266,12 @@
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
 												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
-												  <span class="icon-chevron-thin-down orange-caret"></span>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[1]" id="beneficiaryHkidPassport[1]">
 													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
 												  </select>
+												  <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											   </div>
 											   <span class="error-msg" id="beneficiaryHkidPassportErMsg[1]"></span>
 											</div>
@@ -295,12 +295,12 @@
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
-													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown" name="beneficaryGender2" id="beneficiaryGender[1]">
 														<option value="" selected="selected" disabled="disabled">Gender</option>
 														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender2 == 'male'}">selected="selected"</c:if>>MALE</option>
 														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender2 == 'female'}">selected="selected"</c:if>>FEMALE</option>
 													</select>
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryGenderErMsg[1]"></span>
 											</div>
@@ -311,7 +311,6 @@
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
-													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[1]" name="beneficaryRelation2">
 														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<c:if test="${language == 'en'}">
@@ -325,6 +324,7 @@
 															</c:forEach>
 														</c:if>
 													</select>
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryRelationErMsg[1]"></span>
 											</div>
@@ -388,12 +388,12 @@
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
 												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
-												  <span class="icon-chevron-thin-down orange-caret"></span>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[2]" id="beneficiaryHkidPassport[2]">
 													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
 												  </select>
+												  <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											   </div>
 											   <span class="error-msg" id="beneficiaryHkidPassportErMsg[2]"></span>
 											</div>
@@ -417,12 +417,12 @@
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
-													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown" name="beneficaryGender3" id="beneficiaryGender[2]">
 														<option value="" selected="selected" disabled="disabled">Gender</option>
 														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender3 == 'male'}">selected="selected"</c:if>>MALE</option>
 														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender3 == 'female'}">selected="selected"</c:if>>FEMALE</option>
 													</select>
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryGenderErMsg[2]"></span>
 											</div>
@@ -433,7 +433,6 @@
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
-													<span class="icon-chevron-thin-down orange-caret"></span>
 													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[2]" name="beneficaryRelation3">
 														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<c:if test="${language == 'en'}">
@@ -447,6 +446,7 @@
 															</c:forEach>
 														</c:if>
 													</select>
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryRelationErMsg[2]"></span>
 											</div>

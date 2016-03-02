@@ -466,6 +466,10 @@ $(document).ready(function() {
 	    }
 	    new PNotify(opts);
 	}
+	
+	// [Fixed this case] In some pages, class 'is-not-active' is dynamically added after page load.
+	// As a default, div.selectDiv should not have class 'is-not-active' to apply the default style (select field with empty value).
+	$('.selectDiv').removeClass('is-not-active');
 });
 
 // Checkbox
