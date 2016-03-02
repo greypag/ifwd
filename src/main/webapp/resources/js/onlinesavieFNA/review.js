@@ -636,6 +636,24 @@ var Review = {
 		var id = $(this).attr("rel");
 		$("#"+id+ " .error").text("");
 		that.constructAnswer(id);
+		
+		var target = $("#"+id);
+		target.addClass("display")
+		target.find(".btn_edit").removeClass("selected")
+		target.find("input[type='checkbox']").attr("disabled", "disabled");	
+		target.find("input[type='text']").attr("readonly", "readonly");
+		target.find(".btn-action").hide();
+		
+		//enable "BTN_SAVE" when all review box ok
+		var allOk = true;
+		$(".review-box").each(function(){
+			if(!$(this).hasClass("display")){
+				allOk = false;
+			}
+		});
+		if(allOk){
+			$("#btn_save").prop("disabled", false);
+		}
 	},
 
 	checkboxChanged:function(evt){
