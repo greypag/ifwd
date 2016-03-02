@@ -989,7 +989,8 @@
 									</div>
 								</div>
 								<h3 class="heading-title">Financial needs analysis</h4>	
-								<p id="complete-statement">You have completed FNA on 08-11-2015. <a href="#" data-toggle="modal" data-target="#review-fna-modal">Review FNA</a></p>	
+								<p id="complete-statement">You have completed FNA on 08-11-2015. <a href="#" data-toggle="modal" data-target="#review-fna-modal">Review FNA</a></p>
+								<p id="complete-statement">You may download the <a href="http://www.fwd.com.hk/en/support-claims/eservices-app/">FWD eService App</a>  to edit your member details . You may also check your policy or file claims whenever you need.</p>	
 							</div>	
 						</div>
 					</div>

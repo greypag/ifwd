@@ -444,14 +444,19 @@ $(document).ready(function() {
 	PNotify.prototype.options.styling = "bootstrap3";
 	function show_stack_bar_top(type) {
 		var stack_bar_top = {"dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0};
-		    var opts = {
-		        title: "Over Here",
-		        text: "Check me out. I'm in a different stack.",
-		        addclass: "stack-bar-top error-box",
-		        cornerclass: "",
-		        width: "100%",
-		        stack: stack_bar_top
-		};
+	    var opts = {
+			        title: "Over Here",
+			        text: "Check me out. I'm in a different stack.",
+			        addclass: "stack-bar-top error-box",
+			        cornerclass: "",
+			        width: "100%",
+			        hide: false,
+			        buttons: {
+			       		closer: true,
+			       		sticker: true	
+			       	},	
+			        stack: stack_bar_top
+			};
 	    switch (type) {
 	    case 'notice':
 	        opts.title = "Sorry, failed to connect to server.";

@@ -143,7 +143,7 @@
 						<div class="modal-content">
 							<button type="button" class="close visible-xs visible-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 							<div id="pdf">
-								<iframe src="http://docs.google.com/gview?url=http://52.74.209.219:8080/savie-fwd-2016/assets/pdf/SavieProposalTemplateEng20150810.pdf&embedded=true"  frameborder="0"></iframe>
+								<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplateEng20150810.pdf"  frameborder="0"></iframe>
 							</div>
 							<div class="text-center">
 								<button class="btn savie-common-btn" data-dismiss="modal" id="close-btn">Close</button>
@@ -155,9 +155,8 @@
 	       	</div>	 
 	        <div class="container-fluid fwd-full-container">
 	        	<div class="fwd-container-limit clearfix sidebar" id="pdf-holder">
-
 	        		<div id="pdf">
-	        			<iframe src="<%=request.getContextPath()%>/resources/pdf/${pdfName }"  frameborder="0"></iframe>
+	        			<iframe src="<%=request.getContextPath()%>/resources/pdf/SavieProposalTemplateEng20150810.pdf"  frameborder="0"></iframe>
 	        			<!--<object id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
 	        				<p>It appears you don't have Adobe Reader or PDF support in this web browser. <a href="assets/pdf/SavieProposalTemplateEng20150810.pdf">Click here to download the PDF</a></p>
 	        				<embed id="pdf-object" data="assets/pdf/SavieProposalTemplateEng20150810.pdf" type="application/pdf" width="100%" height="100%" internalinstanceid="10" title="">
