@@ -1163,11 +1163,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return apiReturn;
 	}
 	
-	public List<OptionItemDesc> getBranchCode(HttpServletRequest request) throws ECOMMAPIException {
+	public List<OptionItemDesc> getBranchCode(String value,HttpServletRequest request) throws ECOMMAPIException {
         List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
         JSONArray jsonOptionItemDescs = null;
-        String value = request.getParameter("value");
-        String language = request.getParameter("language");
+        
         String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+value.split("-")[0];
 		final Map<String,String> header = headerUtil.getHeader(request);
 		

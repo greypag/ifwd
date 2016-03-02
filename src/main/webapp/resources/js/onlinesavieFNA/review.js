@@ -437,7 +437,7 @@ var Review = {
 				answer += $("#"+rid).find("input[type='checkbox']").val()+",";
 			}
 		});
-		if(qid == "q1" || qid == "q2" || qid == "q4" || qid == "q4_a"){
+		if(qid == "q1" || qid == "q2" || qid == "q3" || qid == "q4" || qid == "q4_a"){
 			if(answer.length>0){
 				answer=answer.substring(0,answer.length-1);
 			}

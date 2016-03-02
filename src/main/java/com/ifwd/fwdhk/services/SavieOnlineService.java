@@ -30,7 +30,7 @@ public interface SavieOnlineService {
 	public JSONObject getPurchaseHistoryByPlanCode(HttpServletRequest request) throws ECOMMAPIException;
 	public CreateEliteTermPolicyResponse createLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
 	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException;
-	public List<OptionItemDesc> getBranchCode(HttpServletRequest request) throws ECOMMAPIException;
+	public List<OptionItemDesc> getBranchCode(String value,HttpServletRequest request) throws ECOMMAPIException;
 	public void lifePersonalDetailsSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request) throws ECOMMAPIException;
 	public void lifeEmploymentInfoSaveforLater(LifeEmploymentInfoBean lifeEmploymentInfo,HttpServletRequest request) throws ECOMMAPIException;
 	public void getPolicyApplicationSaveforLater(HttpServletRequest request) throws ECOMMAPIException;

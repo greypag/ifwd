@@ -1,15 +1,20 @@
 package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -20,8 +25,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.OptionItemDesc;
+import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.CommonUtils;
@@ -224,8 +232,23 @@ public class SavieOnlineController extends BaseController{
 	public ModelAndView getSavieOnlineLifePayment(Model model, HttpServletRequest request) {
 		model.addAttribute("bankCodeEN", InitApplicationMessage.bankCodeEN);
 		model.addAttribute("bankCodeCN", InitApplicationMessage.bankCodeCN);
-		model.addAttribute("branchCodeEN", InitApplicationMessage.branchCodeEN);
-		model.addAttribute("branchCodeCN", InitApplicationMessage.branchCodeCN);
+		
+		LifePaymentBean lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
+		if(lifePayment!=null && lifePayment.getBankCode()!=null && !"".equals(lifePayment.getBankCode())){
+			try {
+				model.addAttribute("branchCodeEN", savieOnlineService.getBranchCode(lifePayment.getBankCode(), request));
+				model.addAttribute("branchCodeCN", savieOnlineService.getBranchCode(lifePayment.getBankCode(), request));
+			} 
+			catch (ECOMMAPIException e) {
+				logger.info(e.getMessage());
+				model.addAttribute("branchCodeEN", InitApplicationMessage.branchCodeEN);
+				model.addAttribute("branchCodeCN", InitApplicationMessage.branchCodeCN);
+			}
+		}
+		else{
+			model.addAttribute("branchCodeEN", InitApplicationMessage.branchCodeEN);
+			model.addAttribute("branchCodeCN", InitApplicationMessage.branchCodeCN);
+		}
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PAYMENT);
 	}
 	

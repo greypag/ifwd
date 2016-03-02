@@ -293,7 +293,8 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			OptionItemDescList = savieOnlineService.getBranchCode(request);
+			String value = request.getParameter("value");
+			OptionItemDescList = savieOnlineService.getBranchCode(value, request);
 		}
 		catch (ECOMMAPIException e) {
 		}
