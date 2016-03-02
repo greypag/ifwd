@@ -216,7 +216,7 @@ $(document).ready(function() {
    $('.gray-dropdown').on('click', function() {
          open = !open;
         if(isOpen()) {
-          $(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret-inv.png');
+          $(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret.png');
         }  else {
         	$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret.png');
         }
