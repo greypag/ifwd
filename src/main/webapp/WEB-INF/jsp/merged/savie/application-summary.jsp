@@ -85,7 +85,7 @@
             <h5 class="title">Application summary</h5>
 
             <div class="summary-section clearfix">
-               <h5>Your selected plan <a href="<%=request.getContextPath()%>/${language}/savings-insurance/savie-plan-details?backSummary=Y">Edit</a></h5>
+               <h5>Your selected plan <a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details?backSummary=Y">Edit</a></h5>
                <div class="desktop-left">
                   <div class="gray-holder">
                      <h6 class="info-label">Plan name</h6>
@@ -105,7 +105,7 @@
             </div>
 
             <div class="summary-section below clearfix">
-               <h5>Personal info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/life-personal-details?backSummary=Y">Edit</a></h5>
+               <h5>Personal info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/personal-details?backSummary=Y">Edit</a></h5>
                <div class="desktop-left">
                   <div class="gray-holder">
                      <h6 class="info-label">Last name (same as HKID)</h6>
@@ -209,7 +209,7 @@
                </div>
             </div>
             <div class="summary-section below-employment clearfix">
-               <h5>Employment info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/life-employment-info?backSummary=Y">Edit</a></h5>
+               <h5>Employment info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/employment-info?backSummary=Y">Edit</a></h5>
                <div class="desktop-left">
                   <div class="gray-holder">
                      <h6 class="info-label">Employment status</h6>
@@ -244,7 +244,7 @@
                </div>
             </div>
             <div class="summary-section below-beneficiary clearfix">
-               <h5>Beneficiary info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/life-beneficary-info?backSummary=Y">Edit</a></h5>
+               <h5>Beneficiary info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/beneficiary-info?backSummary=Y">Edit</a></h5>
                <span class="person-count first-person">Person 1</span>
                <div class="desktop-left">
                   <div class="gray-holder">
@@ -350,7 +350,7 @@
                </div>
             </div>
             <div class="summary-section below-payment clearfix">
-               <h5>Payment info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/life-payment">Edit</a></h5>
+               <h5>Payment info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/payment">Edit</a></h5>
                <div class="desktop-left">
 				  <div class="gray-holder">
                      <h6 class="info-label">Amount</h6>
