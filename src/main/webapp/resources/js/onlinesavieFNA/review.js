@@ -437,7 +437,7 @@ var Review = {
 				answer += $("#"+rid).find("input[type='checkbox']").val()+",";
 			}
 		});
-		if(qid == "q1" || qid == "q2"){
+		if(qid == "q1" || qid == "q2" || qid == "q4" || qid == "q4_a"){
 			if(answer.length>0){
 				answer=answer.substring(0,answer.length-1);
 			}
@@ -494,7 +494,10 @@ var Review = {
 				$("#q4_a_others").focus();
 				isError = true;
 			}
-			other = parseInt(other);
+			
+			if(other!=null && other!=""){
+				other = parseInt(other);
+			}
 		}
 
 		if(qid == "q4_b"){
