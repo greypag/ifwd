@@ -86,7 +86,7 @@
 	        			<div class="row">
 	        				<div class="col-md-8" id="thankyou-message">
 	        					<h3 class="heading-title">Thank you for your purchase!</h3>
-	        					<h3 class="visible-xs visible-sm" id="policy-no-mb">Policy no. <span class="policy-no">093KG35JH</span></h3>
+	        					<h3 class="visible-xs visible-sm" id="policy-no-mb">Policy no. <span class="policy-no">${eliteTermPolicy.policyNo }</span></h3>
 	        					<p id="success-purchase">Your purchase has been successful!</p>
 	        					<p>Please review the confirmation of your purchase as detailed here. We will send you an email with your application details. Please check your inbox or spam folder.</p>
 	        					
@@ -94,7 +94,7 @@
 	        				</div>
 	        				<div class="col-md-4 visible-md visible-lg" id="policy-no-holder">
 	        					<h2>Policy no.</h2>
-	        					<h2 id="policy-no">093KG35JH</h2>
+	        					<h2 id="policy-no">${eliteTermPolicy.policyNo }</h2>
 	        				</div>
 	        				<div class="col-md-12 border-gray visible-md visible-lg" id="border-desktop"></div>
 	        			</div>
