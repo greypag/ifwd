@@ -60,7 +60,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		try {
 			saviePlanDetails.validate(language);
 			saviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount()));
-			jsonObject = savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request);
+			jsonObject = savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request, session);
 			String[] dob = saviePlanDetails.getDob().split("-");
 			saviePlanDetails.setDob1(dob[2]+"·"+dob[1]+"·"+dob[0]);
 			saviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
