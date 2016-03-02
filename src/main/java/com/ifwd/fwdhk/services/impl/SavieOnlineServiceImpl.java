@@ -394,12 +394,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	public void createFnaFormPdf(String type,HttpServletRequest request,HttpSession session) throws Exception {
 		SavieFnaBean savieFna = (SavieFnaBean) session.getAttribute("savieFna");
-		CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) session.getAttribute("eliteTermPolicy");
+		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
 		
 		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
-		attributeList.add(new PdfAttribute("PolicyNo", eliteTermPolicy.getPolicyNo()));
+		attributeList.add(new PdfAttribute("PolicyNo", lifePolicy.getPolicyNo()));
 		String LifeInsuredName = "";
 		if(lifeBeneficaryInfo.getIsOwnEstate()){
 			LifeInsuredName = lifePersonalDetails.getFirstname()+" "+
@@ -1133,24 +1133,24 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		logger.info(parameters.toString());
 		
 		final Map<String,String> header = headerUtil.getHeader(request);
-		CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
-		eliteTermPolicy = connector.createLifePolicy(parameters, header);
-		if(!eliteTermPolicy.hasError()){
-			request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
+		CreateEliteTermPolicyResponse lifePolicy = new CreateEliteTermPolicyResponse();
+		lifePolicy = connector.createLifePolicy(parameters, header);
+		if(!lifePolicy.hasError()){
+			request.getSession().setAttribute("lifePolicy", lifePolicy);
 		}
 		else{
-			throw new ECOMMAPIException(eliteTermPolicy.getErrMsgs()[0]);
+			throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
 		}
-		return eliteTermPolicy;
+		return lifePolicy;
 	}
 	
 	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
-		CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 		JSONObject parameters = new JSONObject();
 		parameters.put("creditCaredNo", "");
 		parameters.put("expiryDate", "");
 		parameters.put("cardHolderName", "");
-		parameters.put("policyNo", eliteTermPolicy.getPolicyNo());
+		parameters.put("policyNo", lifePolicy.getPolicyNo());
 		parameters.put("planCode", "SAVIE");
 		logger.info(parameters.toString());
 		
@@ -1368,7 +1368,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		this.createApplicationFormPdf("2", request, request.getSession());
 		
 		//upload signature
-		CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
         File uploadedFile = new File(request.getRealPath("/")+"resources\\pdf\\signature.png");
         
         byte[] toFileBytes= FileCopyUtils.copyToByteArray(uploadedFile);
@@ -1383,7 +1383,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("documentType", "signature");
 		parameters.accumulate("originalFilePath", "");
 		parameters.accumulate("base64", image);
-		parameters.accumulate("policyNo", eliteTermPolicy.getPolicyNo());
+		parameters.accumulate("policyNo", lifePolicy.getPolicyNo());
 		connector.uploadSignature(parameters, header);
 		return null;
 	}
@@ -1502,8 +1502,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		FileInputStream is = null;
 		BaseResponse br = null;
 		try {
-			CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
-			String policyNo = eliteTermPolicy.getPolicyNo();
+			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+			String policyNo = lifePolicy.getPolicyNo();
 			String documentPath = UserRestURIConstants.getConfigs("documentPath");
 			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes())+"/"; 
 			File file = new File(uploadDir);
@@ -1604,9 +1604,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException{		
 		BaseResponse br = null;
 		try {
-			CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 			String documentPath = UserRestURIConstants.getConfigs("documentPath");
-			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(eliteTermPolicy.getPolicyNo().getBytes()); 
+			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes()); 
 	        File dirPath = new File(uploadDir);  
 	        if (!dirPath.exists()) {   
 	            dirPath.mkdirs();  
@@ -1634,7 +1634,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			parameters.put("documentType", "signature");
 			parameters.put("originalFilePath", "");
 			parameters.put("base64", image);
-			parameters.put("policyNo", eliteTermPolicy.getPolicyNo());
+			parameters.put("policyNo", lifePolicy.getPolicyNo());
 			br = connector.uploadSignature(parameters, header);
 		} catch (ECOMMAPIException e) {
 			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");

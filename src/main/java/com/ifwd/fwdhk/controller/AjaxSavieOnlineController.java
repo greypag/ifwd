@@ -397,8 +397,8 @@ public class AjaxSavieOnlineController extends BaseController{
 					throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.greater.than",request)+" "+imgMaxSize+"MB");
 				}
 				
-				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
-				String policyNo = eliteTermPolicy.getPolicyNo();
+				CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+				String policyNo = lifePolicy.getPolicyNo();
 				String documentPath = UserRestURIConstants.getConfigs("documentPath");
 				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes()); 
 		        File dirPath = new File(uploadDir);  
