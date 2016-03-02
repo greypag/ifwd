@@ -82,11 +82,22 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	protected ClientBrowserUtil clientBrowserUtil;
 
 	@Override
-	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request) throws ECOMMAPIException{
-		int issueAge = DateApi.getAge(DateApi.formatDate1(saviePlanDetails.getDob()));
-		int paymentTerm = 100-issueAge;
+	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails, 
+			HttpServletRequest request, HttpSession session) throws ECOMMAPIException{
 		
-		SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails("savie", issueAge, paymentTerm, saviePlanDetails.getInsuredAmount(), saviePlanDetails.getPromoCode(), null);
+		int issueAge = DateApi.getAge(DateApi.formatDate1(saviePlanDetails.getDob())) + 1;
+		int paymentTerm = 0;
+		if("SP".equals(saviePlanDetails.getPaymentType())) {
+			session.setAttribute("savieType", "SP");
+			paymentTerm = 100-issueAge;
+		}else if("RP".equals(saviePlanDetails.getPaymentType())) {
+			session.setAttribute("savieType", "RP");
+			String paymentYear = request.getParameter("paymentYear");
+			paymentTerm = paymentYear == null ? 3 : Integer.valueOf(paymentYear);
+		}
+		
+		SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails("savie", issueAge, paymentTerm,
+				saviePlanDetails.getInsuredAmount(), saviePlanDetails.getPromoCode(), saviePlanDetails.getPaymentType(), null);
 		
 		request.getSession().setAttribute("planDetailData", apiResponse);
 		
