@@ -342,12 +342,6 @@ ul.maintabs li:hover span, ul.maintabs li:hover a {
 	-o-transition: color 300ms, background-color 300ms;
 	transition: color 300ms, background-color 300ms;
 }
-
-ul.maintabs li.active, ul.maintabs li.active > a {
-	color: #fff !important;
-	background-color: #f68a1d;
-}
-
 /*ul.maintabs li.active a {
 	color: #fff !important;
 	background-color: #f68a1d;
