@@ -74,7 +74,7 @@
 							<div class="col-xs-12 cstm-md-col-1"><p class="panel-title">Thank you for signing up with us</p></div>
 							<div class="col-xs-12 visible-xs visible-sm policy-number-wrapper">
 								<span class="policy-number-label">Policy no. </span>
-								<span class="policy-number">RQAA862541</span>
+								<span class="policy-number">${eliteTermPolicy.policyNo }</span>
 							</div>
 							<div class="col-xs-12 cstm-md-col-2">
 								<p>Your application is being processed.</p>
@@ -82,7 +82,7 @@
 							</div>
 							<div class="col-md-3 cstm-md-col-3 hidden-xs hidden-sm">
 								<p class="policy-number-label">Policy no.</p>
-								<p class="policy-number">RQAA862541</p>
+								<p class="policy-number">${eliteTermPolicy.policyNo }</p>
 							</div>
 						</div>
 						<hr>

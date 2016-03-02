@@ -499,9 +499,11 @@
 
 				// on focus
 				$('#so-calendar-dob').focus(function() {
-					$(this).parent('.is-not-active').find('label').attr('style', 'color: #ff8200;');
+					$(this).parent().parent().addClass('is-focused');
+					$(this).closest('.is-not-active').find('label').attr('style', 'color: #ff8200 !important;');
 				}).on('blur', function () {
-					$(this).parent('.is-not-active').find('label').removeAttr('style');
+					$(this).parent().parent().removeClass('is-focused');
+					$(this).closest('.is-not-active').find('label').removeAttr('style');
 				});
 			   
 			   $('.cstm-number-field').focus(function() {

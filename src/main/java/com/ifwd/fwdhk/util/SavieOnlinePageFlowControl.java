@@ -192,8 +192,9 @@ public class SavieOnlinePageFlowControl {
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
+			filePath = "savie/";
 			break;
 
 		default:

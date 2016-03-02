@@ -434,10 +434,14 @@ var Review = {
 		$("#"+qid+" .option .row").each(function(){
 			var rid = $(this).attr("id");
 			if($("#"+rid).find("input[type='checkbox']").prop("checked")){
-				answer += $("#"+rid).find("input[type='checkbox']").val();
+				answer += $("#"+rid).find("input[type='checkbox']").val()+",";
 			}
 		});
-
+		if(qid == "q1" || qid == "q2"){
+			if(answer.length>0){
+				answer=answer.substring(0,answer.length-1);
+			}
+		}
 		var isError = false;
 		
 		if(qid == "personal_info"){
