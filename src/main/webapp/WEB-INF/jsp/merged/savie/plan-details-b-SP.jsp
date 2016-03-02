@@ -632,6 +632,31 @@ var languageP = "${language}";
 <!-- FOOTER -->
 
 <script type="text/javascript">
+	
+	var current_date = new Date();
+	var month_now = (parseInt((current_date.getMonth()+1), 10) + 100).toString().substr(1);
+	var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);
+	/* $('#sales-illu-dob').attr('placeholder',day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18)); */
+	$('#plan-dob-datepicker').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
+	
+	var from = $('#plan-dob-datepicker').val().split("-");
+	var birthdate = new Date(from[2], from[1] - 1, from[0]);
+	var cur = new Date();
+	var diff = cur-birthdate;
+	var age = Math.floor(diff/31536000000); //the age val
+	var max = 99;
+	var looplimit = max - Number(age);
+	
+	//console.log(looplimit);
+	$('#total-payment-years').html('');
+	for(var i = 1; i <= looplimit; i++ ) {
+		if(i == 3) {
+			$('#total-payment-years').append('<option value='+i+' selected>'+i+'</option>');
+		} else {
+			$('#total-payment-years').append('<option value='+i+'>'+i+'</option>');
+		}
+	}
+
 	var language = "en";
 	$(document).ready(function () {
 	    $('#loadingDiv').toggle();
