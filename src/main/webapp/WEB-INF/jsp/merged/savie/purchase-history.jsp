@@ -53,901 +53,919 @@
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane active" id="pending">
-										<div class="category-holder">
-											<h4 class="category-title">Life &amp; Health</h4>
-											<div class="row category-head">
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+										<div class="life-and-health-container">
+											<div class="category-holder">
+												<h4 class="category-title">Life &amp; Health</h4>
+												<div class="row category-head">
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+													</div>
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+													</div>
+													<div class="col-xs-6 col-md-3">
+														<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg">
+														<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+													</div>	
+													<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+														<h4 class="hidden-xs hidden-sm info-head">Insured amount(HK$)</h4>
+													</div>
+												</div>				
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Elite Term</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">13110103</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</i></h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
+														<p class="info-data">800,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">											
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>													
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<div class="row category-info-row">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Elite Term</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">13110116</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">13-11-2015</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
+														<p class="info-data">800,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>													
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-3">
-													<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Elite Term</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">13110127</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
+														<p class="info-data">1,390,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>													
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg">
-													<h4 class="hidden-xs hidden-sm info-head">Status</h4>
-												</div>	
-												<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-													<h4 class="hidden-xs hidden-sm info-head">Insured amount(HK$)</h4>
-												</div>
-											</div>				
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Elite Term</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">13110103</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</i></h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
-													<p class="info-data">800,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">											
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>													
-												</div>
-											</div>
-											<div class="row category-info-row">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Elite Term</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">13110116</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">13-11-2015</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
-													<p class="info-data">800,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>													
-												</div>
-											</div>
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Elite Term</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">13110127</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
-													<p class="info-data">1,390,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>													
-												</div>
-											</div>
+											</div>	
 										</div>											
 										<!--TRAVEL -->	
-										<div class="category-holder">
-											<h4 class="category-title">Travel</h4>
-											<div class="row category-head">
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+										<div class="travel-container">
+											<div class="category-holder">
+												<h4 class="category-title">Travel</h4>
+												<div class="row category-head">
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+													</div>
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+													</div>
+													<div class="col-xs-6 col-md-3">
+														<h4 class="hidden-xs hidden-sm info-head">Cover period <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg">
+														<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+													</div>	
+													<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+														<h4 class="hidden-xs hidden-sm info-head">Resources <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
+													</div>
+												</div>				
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Annual TravelCare</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT0000038</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Cover period</h4>
+														<p class="info-data">16-12-2015~15-12-2016</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Resources</i></h4>
+														<p class="info-data"><a href="#">Claim form</a></p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>													
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<div class="row category-info-row">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">FlightCare</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT0000211</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Cover period</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Resources</h4>
+														<p class="info-data"><a href="#">Claim form</a></p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>													
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-3">
-													<h4 class="hidden-xs hidden-sm info-head">Cover period <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg">
-													<h4 class="hidden-xs hidden-sm info-head">Status</h4>
-												</div>	
-												<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-													<h4 class="hidden-xs hidden-sm info-head">Resources <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
-												</div>
-											</div>				
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Annual TravelCare</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT0000038</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Cover period</h4>
-													<p class="info-data">16-12-2015~15-12-2016</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Resources</i></h4>
-													<p class="info-data"><a href="#">Claim form</a></p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>													
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Working HolidayCare</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT0000130</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Cover period</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Resources</h4>
+														<p class="info-data"><a href="#">Claim form</a></p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>												
+													</div>
 												</div>
 											</div>
-											<div class="row category-info-row">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">FlightCare</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT0000211</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Cover period</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Resources</h4>
-													<p class="info-data"><a href="#">Claim form</a></p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>													
-												</div>
-											</div>
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Working HolidayCare</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT0000130</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Cover period</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Resources</h4>
-													<p class="info-data"><a href="#">Claim form</a></p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>												
-												</div>
-											</div>
-										</div>								
+										</div>									
 										<!--SAVING INSURANCE -->
-										<div class="category-holder">
-											<h4 class="category-title">Saving Insurance</h4>
-											<div class="row category-head">
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+										<div class="saving-insurance-container">
+											<div class="category-holder">
+												<h4 class="category-title">Saving Insurance</h4>
+												<div class="row category-head">
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+													</div>
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+													</div>
+													<div class="col-xs-6 col-md-3">
+														<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg">
+														<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+													</div>	
+													<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+														<h4 class="hidden-xs hidden-sm info-head acc-val">Account value (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+													</div>
+												</div>				
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Savie Insurance</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT000038</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#" data-toggle="modal" data-target="#retrieve-application-modal">Resume Application</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Account value (HK$)</h4>
+														<p class="info-data">300,000.00</p>
+													</div>												
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#" data-toggle="modal" data-target="#retrieve-application-modal">Resume Application</a></p>
+													</div>																			
 												</div>
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<div class="row category-info-row">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Savie Insurance</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT000211</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">13-11-2015</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Account value (HK$)</h4>
+														<p class="info-data">400,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>												
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-3">
-													<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Savie Insurance</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT000130</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data pls-visit">Please visit<br>FWD customer Center</p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Account value</h4>
+														<p class="info-data">10,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data pls-visit">Please visit<br>FWD customer Center</p>											
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg">
-													<h4 class="hidden-xs hidden-sm info-head">Status</h4>
-												</div>	
-												<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-													<h4 class="hidden-xs hidden-sm info-head acc-val">Account value (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
-												</div>
-											</div>				
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Savie Insurance</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT000038</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#" data-toggle="modal" data-target="#retrieve-application-modal">Resume Application</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Account value (HK$)</h4>
-													<p class="info-data">300,000.00</p>
-												</div>												
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#" data-toggle="modal" data-target="#retrieve-application-modal">Resume Application</a></p>
-												</div>																			
 											</div>
-											<div class="row category-info-row">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Savie Insurance</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT000211</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">13-11-2015</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Account value (HK$)</h4>
-													<p class="info-data">400,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>												
-												</div>
-											</div>
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Savie Insurance</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT000130</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data pls-visit">Please visit<br>FWD customer Center</p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Account value</h4>
-													<p class="info-data">10,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data pls-visit">Please visit<br>FWD customer Center</p>											
-												</div>
-											</div>
-										</div>								
+										</div>									
 									</div>
 									<div class="tab-pane" id="active">
-										<div class="category-holder">
-											<h4 class="category-title">Life &amp; Health</h4>
-											<div class="row category-head">
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+										<div class="life-and-health-container">
+											<div class="category-holder">
+												<h4 class="category-title">Life &amp; Health</h4>
+												<div class="row category-head">
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+													</div>
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+													</div>
+													<div class="col-xs-6 col-md-3">
+														<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg">
+														<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+													</div>	
+													<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+														<h4 class="hidden-xs hidden-sm info-head">Insured amount(HK$)</h4>
+													</div>
+												</div>				
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Elite Term</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">13110103</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</i></h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
+														<p class="info-data">800,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>	
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<div class="row category-info-row">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Elite Term</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">13110116</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">13-11-2015</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
+														<p class="info-data">800,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>											
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-3">
-													<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg">
-													<h4 class="hidden-xs hidden-sm info-head">Status</h4>
-												</div>	
-												<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-													<h4 class="hidden-xs hidden-sm info-head">Insured amount(HK$)</h4>
-												</div>
-											</div>				
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Elite Term</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">13110103</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</i></h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
-													<p class="info-data">800,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>	
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Elite Term</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">13110127</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
+														<p class="info-data">1,390,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>									
+													</div>
 												</div>
 											</div>
-											<div class="row category-info-row">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Elite Term</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">13110116</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">13-11-2015</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
-													<p class="info-data">800,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>											
-												</div>
-											</div>
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Elite Term</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">13110127</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
-													<p class="info-data">1,390,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>									
-												</div>
-											</div>
-										</div>											
+										</div>												
 										<!--TRAVEL -->	
-										<div class="category-holder">
-											<h4 class="category-title">Travel</h4>
-											<div class="row category-head">
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+										<div class="travel-container">
+											<div class="category-holder">
+												<h4 class="category-title">Travel</h4>
+												<div class="row category-head">
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+													</div>
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+													</div>
+													<div class="col-xs-6 col-md-3">
+														<h4 class="hidden-xs hidden-sm info-head">Cover period <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg">
+														<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+													</div>	
+													<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+														<h4 class="hidden-xs hidden-sm info-head">Resources <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
+													</div>
+												</div>				
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Annual TravelCare</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT0000038</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Cover period</h4>
+														<p class="info-data">16-12-2015~15-12-2016</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Resources</i></h4>
+														<p class="info-data"><a href="#">Claim form</a></p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>													
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<div class="row category-info-row">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">FlightCare</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT0000211</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Cover period</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Resources</h4>
+														<p class="info-data"><a href="#">Claim form</a></p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>											
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-3">
-													<h4 class="hidden-xs hidden-sm info-head">Cover period <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg">
-													<h4 class="hidden-xs hidden-sm info-head">Status</h4>
-												</div>	
-												<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-													<h4 class="hidden-xs hidden-sm info-head">Resources <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
-												</div>
-											</div>				
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Annual TravelCare</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT0000038</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Cover period</h4>
-													<p class="info-data">16-12-2015~15-12-2016</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Resources</i></h4>
-													<p class="info-data"><a href="#">Claim form</a></p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>													
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Working HolidayCare</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT0000130</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Cover period</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Resources</h4>
+														<p class="info-data"><a href="#">Claim form</a></p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>												
+													</div>
 												</div>
 											</div>
-											<div class="row category-info-row">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">FlightCare</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT0000211</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Cover period</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Resources</h4>
-													<p class="info-data"><a href="#">Claim form</a></p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>											
-												</div>
-											</div>
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Working HolidayCare</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT0000130</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Cover period</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Resources</h4>
-													<p class="info-data"><a href="#">Claim form</a></p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>												
-												</div>
-											</div>
-										</div>								
+										</div>									
 										<!--SAVING INSURANCE -->
-										<div class="category-holder">
-											<h4 class="category-title">Saving Insurance</h4>
-											<div class="row category-head">
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+										<div class="saving-insurance-container">
+											<div class="category-holder">
+												<h4 class="category-title">Saving Insurance</h4>
+												<div class="row category-head">
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+													</div>
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+													</div>
+													<div class="col-xs-6 col-md-3">
+														<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg">
+														<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+													</div>	
+													<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+														<h4 class="hidden-xs hidden-sm info-head acc-val">Account value (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+													</div>
+												</div>				
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Savie Insurance</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT000038</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#" data-toggle="modal" data-target="#retrieve-application-modal">Resume Application</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Account value (HK$)</h4>
+														<p class="info-data">300,000.00</p>
+													</div>												
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#" data-toggle="modal" data-target="#retrieve-application-modal">Resume Application</a></p>
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<div class="row category-info-row">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Savie Insurance</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT000211</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">13-11-2015</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Account value (HK$)</h4>
+														<p class="info-data">400,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>												
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-3">
-													<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg">
-													<h4 class="hidden-xs hidden-sm info-head">Status</h4>
-												</div>	
-												<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-													<h4 class="hidden-xs hidden-sm info-head acc-val">Account value (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
-												</div>
-											</div>				
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Savie Insurance</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT000038</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#" data-toggle="modal" data-target="#retrieve-application-modal">Resume Application</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Account value (HK$)</h4>
-													<p class="info-data">300,000.00</p>
-												</div>												
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#" data-toggle="modal" data-target="#retrieve-application-modal">Resume Application</a></p>
-												</div>
-											</div>
-											<div class="row category-info-row">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Savie Insurance</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT000211</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">13-11-2015</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Account value (HK$)</h4>
-													<p class="info-data">400,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>												
-												</div>
-											</div>
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Savie Insurance</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT000130</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data pls-visit">Please visit<br>FWD customer Center</p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Account value</h4>
-													<p class="info-data">10,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data please-visit">Please visit<br>FWD customer Center</p>												
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Savie Insurance</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT000130</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data pls-visit">Please visit<br>FWD customer Center</p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Account value</h4>
+														<p class="info-data">10,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data please-visit">Please visit<br>FWD customer Center</p>												
+													</div>
 												</div>
 											</div>
 										</div>								
 									</div>
 									<div class="tab-pane" id="past">
-										<div class="category-holder">
-											<h4 class="category-title">Life &amp; Health</h4>
-											<div class="row category-head">
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
-												</div>
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
-												</div>
-												<div class="col-xs-6 col-md-3">
-													<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg">
-													<h4 class="hidden-xs hidden-sm info-head">Status</h4>
-												</div>	
-												<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-													<h4 class="hidden-xs hidden-sm info-head">Insured amount(HK$)</h4>
-												</div>
-											</div>				
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Elite Term</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">13110103</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</i></h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
-													<p class="info-data">800,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
+										<div class="life-and-health-container">
+											<div class="category-holder">
+												<h4 class="category-title">Life &amp; Health</h4>
+												<div class="row category-head">
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+													</div>
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+													</div>
+													<div class="col-xs-6 col-md-3">
+														<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg">
+														<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+													</div>	
+													<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+														<h4 class="hidden-xs hidden-sm info-head">Insured amount(HK$)</h4>
+													</div>
+												</div>				
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Elite Term</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">13110103</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</i></h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
 														<h4 class="visible-xs visible-sm info-head">Status</h4>
 														<p class="info-data"><a href="#">Upload document now</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
+														<p class="info-data">800,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
+															<h4 class="visible-xs visible-sm info-head">Status</h4>
+															<p class="info-data"><a href="#">Upload document now</a></p>
+													</div>
+												</div>
+												<div class="row category-info-row">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Elite Term</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">13110116</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">13-11-2015</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
+														<p class="info-data">800,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>													
+													</div>
+												</div>
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Elite Term</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">13110127</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
+														<p class="info-data">1,390,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>
+													</div>
 												</div>
 											</div>
-											<div class="row category-info-row">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Elite Term</p>
+										</div>												
+										<!--TRAVEL -->
+										<div class="travel-container">	
+											<div class="category-holder">
+												<h4 class="category-title">Travel</h4>
+												<div class="row category-head">
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+													</div>
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+													</div>
+													<div class="col-xs-6 col-md-3">
+														<h4 class="hidden-xs hidden-sm info-head">Cover period <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg">
+														<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+													</div>	
+													<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+														<h4 class="hidden-xs hidden-sm info-head">Resources <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
+													</div>
+												</div>				
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Annual TravelCare</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT0000038</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Cover period</h4>
+														<p class="info-data">16-12-2015~15-12-2016</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Resources</i></h4>
+														<p class="info-data"><a href="#">Claim form</a></p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>												
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">13110116</p>
+												<div class="row category-info-row">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">FlightCare</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT0000211</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Cover period</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Resources</h4>
+														<p class="info-data"><a href="#">Claim form</a></p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>													
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">13-11-2015</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
-													<p class="info-data">800,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>													
-												</div>
-											</div>
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Elite Term</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">13110127</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Insured amount(HK$)</h4>
-													<p class="info-data">1,390,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>
-												</div>
-											</div>
-										</div>											
-										<!--TRAVEL -->	
-										<div class="category-holder">
-											<h4 class="category-title">Travel</h4>
-											<div class="row category-head">
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
-												</div>
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
-												</div>
-												<div class="col-xs-6 col-md-3">
-													<h4 class="hidden-xs hidden-sm info-head">Cover period <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Cover period</p>"></i></h4>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg">
-													<h4 class="hidden-xs hidden-sm info-head">Status</h4>
-												</div>	
-												<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-													<h4 class="hidden-xs hidden-sm info-head">Resources <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Resources</p>"></i></h4>
-												</div>
-											</div>				
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Annual TravelCare</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT0000038</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Cover period</h4>
-													<p class="info-data">16-12-2015~15-12-2016</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Resources</i></h4>
-													<p class="info-data"><a href="#">Claim form</a></p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>												
-												</div>
-											</div>
-											<div class="row category-info-row">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">FlightCare</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT0000211</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Cover period</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Resources</h4>
-													<p class="info-data"><a href="#">Claim form</a></p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>													
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Working HolidayCare</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT0000130</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Cover period</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Resources</h4>
+														<p class="info-data"><a href="#">Claim form</a></p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#">Upload document now</a></p>												
+													</div>
 												</div>
 											</div>
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Working HolidayCare</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT0000130</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Cover period</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Resources</h4>
-													<p class="info-data"><a href="#">Claim form</a></p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#">Upload document now</a></p>												
-												</div>
-											</div>
-										</div>								
+										</div>									
 										<!--SAVING INSURANCE -->
-										<div class="category-holder">
-											<h4 class="category-title">Saving Insurance</h4>
-											<div class="row category-head">
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+										<div class="saving-insurance-container">
+											<div class="category-holder">
+												<h4 class="category-title">Saving Insurance</h4>
+												<div class="row category-head">
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Plan name</h4>
+													</div>
+													<div class="col-xs-6 col-md-2">
+														<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+													</div>
+													<div class="col-xs-6 col-md-3">
+														<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg">
+														<h4 class="hidden-xs hidden-sm info-head">Status</h4>
+													</div>	
+													<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
+														<h4 class="hidden-xs hidden-sm info-head acc-val">Account value (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
+													</div>
+												</div>				
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Savie Insurance</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT000038</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#" data-toggle="modal" data-target="#retrieve-application-modal">Resume Application</a></p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Account value (HK$)</h4>
+														<p class="info-data">300,000.00</p>
+													</div>
+														
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data"><a href="#" data-toggle="modal" data-target="#retrieve-application-modal">Resume Application</a></p>
+													</div>
+														
+									
 												</div>
-												<div class="col-xs-6 col-md-2">
-													<h4 class="hidden-xs hidden-sm info-head">Policy no.</h4>
+												<div class="row category-info-row">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Savie Insurance</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT000211</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">13-11-2015</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Account value (HK$)</h4>
+														<p class="info-data">400,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data">Completed</p>												
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-3">
-													<h4 class="hidden-xs hidden-sm info-head">Start date <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Start date</p>"></i></h4>
+												<div class="row category-info-row row-gray">
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Plan name</h4>
+														<p class="info-data plan-name">Savie Insurance</p>
+													</div>
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
+														<p class="info-data">74AT000130</p>
+													</div>
+													<div class="col-xs-6 col-md-3 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Start date</h4>
+														<p class="info-data">Not complete</p>
+													</div>
+													<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data pls-visit">Please visit<br>FWD customer Center</p>
+													</div>											
+													<div class="col-xs-6 col-md-2 mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Account value</h4>
+														<p class="info-data">10,000.00</p>
+													</div>
+													<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
+														<h4 class="visible-xs visible-sm info-head">Status</h4>
+														<p class="info-data pls-visit">Please visit<br>FWD customer Center</p>											
+													</div>
 												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg">
-													<h4 class="hidden-xs hidden-sm info-head">Status</h4>
-												</div>	
-												<div class="col-xs-6 col-md-2 visible-md visible-lg" id="last-col-head">
-													<h4 class="hidden-xs hidden-sm info-head acc-val">Account value (HK$) <i class="fa fa-info-circle" data-toggle="tooltip" data-html="true" data-placement="right" title="<p>Account value(HK$)</p>"></i></h4>
-												</div>
-											</div>				
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Savie Insurance</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT000038</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#" data-toggle="modal" data-target="#retrieve-application-modal">Resume Application</a></p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Account value (HK$)</h4>
-													<p class="info-data">300,000.00</p>
-												</div>
-													
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data"><a href="#" data-toggle="modal" data-target="#retrieve-application-modal">Resume Application</a></p>
-												</div>
-													
-								
-											</div>
-											<div class="row category-info-row">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Savie Insurance</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT000211</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">13-11-2015</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Account value (HK$)</h4>
-													<p class="info-data">400,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">												
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data">Completed</p>												
-												</div>
-											</div>
-											<div class="row category-info-row row-gray">
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Plan name</h4>
-													<p class="info-data plan-name">Savie Insurance</p>
-												</div>
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Policy no.</h4>
-													<p class="info-data">74AT000130</p>
-												</div>
-												<div class="col-xs-6 col-md-3 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Start date</h4>
-													<p class="info-data">Not complete</p>
-												</div>
-												<div class="col-xs-6 col-md-3 visible-md visible-lg mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data pls-visit">Please visit<br>FWD customer Center</p>
-												</div>											
-												<div class="col-xs-6 col-md-2 mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Account value</h4>
-													<p class="info-data">10,000.00</p>
-												</div>
-												<div class="col-xs-12 visible-xs visible-sm mbview-category-info">
-													<h4 class="visible-xs visible-sm info-head">Status</h4>
-													<p class="info-data pls-visit">Please visit<br>FWD customer Center</p>											
-												</div>
-											</div>
-										</div>								
+											</div>		
+										</div>						
 									</div>
 								</div>
 								<p id="note"><span id="orange-ast">*</span> Amount indicative only. Please call our 24-hour hotline at 3123 3123 for up-to-date account value. </p>
