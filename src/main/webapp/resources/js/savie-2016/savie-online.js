@@ -216,12 +216,12 @@ $(document).ready(function() {
    $('.gray-dropdown').on('click', function() {
          open = !open;
         if(isOpen()) {
-          $(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret.png');
+          $(this).parent('.selectDiv').find('.orange-caret-bg').attr('src',getpath + '/resources/images/orange-caret-inv.png');
         }  else {
-        	$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret.png');
+        	$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src',getpath + '/resources/images/orange-caret.png');
         }
    }).on('blur', function () {
-   		$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret.png');
+   		$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src',getpath + '/resources/images/orange-caret.png');
    });
 
    $('.so-mdl-textfield-input').focus(function () {

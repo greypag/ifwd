@@ -506,6 +506,7 @@
 			 var img3 = "<%=request.getContextPath()%>/resources/images/savie-2016/sheung_wan.jpg";
 			 var img4 = "<%=request.getContextPath()%>/resources/images/savie-2016/kwuntong.jpg";
 			 var img5 = "<%=request.getContextPath()%>/resources/images/savie-2016/shatin.jpg";
+			 var getpath = "<%=request.getContextPath()%>";
 			 var addr1 = "G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui";
 			 var addr2 = "13/F, Devon House, Taikoo Place, 979 King’s Road, Quarry Bay";
 			 var addr3 = "1/F, FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan";
