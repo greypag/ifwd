@@ -194,12 +194,14 @@
 														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
-																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 															</c:forEach>
 														</c:if>
 														<c:if test="${language == 'tc'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
-																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 															</c:forEach>
 														</c:if>
 													</select>
@@ -316,12 +318,14 @@
 														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
-																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 															</c:forEach>
 														</c:if>
 														<c:if test="${language == 'tc'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
-																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 															</c:forEach>
 														</c:if>
 													</select>
@@ -438,12 +442,14 @@
 														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
-																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 															</c:forEach>
 														</c:if>
 														<c:if test="${language == 'tc'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
-																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 															</c:forEach>
 														</c:if>
 													</select>
@@ -530,6 +536,37 @@
 		
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
+		$(document).ready(function() {
+			var isOwnEstate = '${lifeBeneficaryInfo.isOwnEstate}';
+			if(isOwnEstate == 'false'){
+				$("#name-others-id").click();
+				$('#beneficiary-contents').removeClass('hidden');
+				$('.add-on-beneficiary').removeClass('hidden');
+				
+				if('${lifeBeneficaryInfo.beneficaryFirstName2}' != ''){
+					$('#beneficiary1').addClass('hidden');
+					$('#beneficiary-header\\[1\\]').removeClass('hidden');
+					$('#beneficiary-info-form\\[1\\]').removeClass('hidden');
+					$('#add-beneficiary-btn-2').removeClass('disabled-beneficiary-add');
+					$('#add-btn-img').attr('src', '/fwdhk/resources/images/savie-2016/orange-plus.png');
+				}
+				
+				if('${lifeBeneficaryInfo.beneficaryFirstName3}' != ''){
+					$('#beneficiary2').addClass('hidden');
+					$('#beneficiary-header\\[2\\]').removeClass('hidden');
+					$('#beneficiary-info-form\\[2\\]').removeClass('hidden');
+				}
+			}
+			else{
+				$("#own-estate-id").click();
+				$('#beneficiary-contents').addClass('hidden');
+				$('.add-on-beneficiary').addClass('hidden');
+				$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
+			}
+		});
+		
+		
+		
 			$(document).ready(function() {
 				var language = "en";
 				

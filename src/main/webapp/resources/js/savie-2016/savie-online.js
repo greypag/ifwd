@@ -184,6 +184,7 @@ $(document).ready(function() {
 	
 	// Deleting new form for additional beneficiary
 	$('#remove-beneficiary\\[1\\]').click(function () {
+		$('#beneficiaryFirstName\\[1\\]').val("");
 		$('#add-beneficiary-btn-2').find('#add-btn-img').attr('src', '/fwdhk/resources/images/savie-2016/gray-plus.png');
 		$('#add-beneficiary-btn-2').addClass('disabled-beneficiary-add');
 		$('#beneficiary2').removeClass('hidden');
@@ -198,6 +199,7 @@ $(document).ready(function() {
 		$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').resetForm(true);
 	});
 	$('#remove-beneficiary\\[2\\]').click(function () {
+		$('#beneficiaryFirstName\\[2\\]').val("");
 		$('#beneficiary2').removeClass('hidden');
 		$('#beneficiary-header\\[2\\]').addClass('hidden');
 		$('#beneficiary-info-form\\[2\\]').addClass('hidden');
