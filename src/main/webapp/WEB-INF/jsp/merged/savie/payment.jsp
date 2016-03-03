@@ -565,7 +565,7 @@
 						$("#bank_name").empty();
 						if(data != null){
 							for(var i = 0; i < data.length; i++) {
-								$("#bank_name").append("<option value='"+data[i].itemCode'>"+data[i].itemDesc+"</option>");
+								$("#bank_name").append("<option value='"+data[i].itemCode+"'>"+data[i].itemDesc+"</option>");
 							}
 						}
 					})
