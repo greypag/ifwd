@@ -76,7 +76,6 @@ var context = "${pageContext.request.contextPath}";
 								<div class="selectDiv centreDiv gray-text-bg payment-select">
 			                        <select class="form-control gray-dropdown" id="payment-mode">
 			                        	
-			                           <option value="one-off" <c:if test="${savieType=='SP' }">selected</c:if>><fmt:message key="label.savie.oneoffpremium" bundle="${msg}" /></option>
 			                           <option value="regular" <c:if test="${savieType=='RP' }">selected</c:if>><fmt:message key="label.savie.regular.pay" bundle="${msg}" /></option>
 			                        </select>
 			                        <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg" />
