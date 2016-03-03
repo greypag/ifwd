@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-      
+      <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
 	<body>
@@ -83,304 +83,511 @@
         </div>
          <div class="container-fluid fwd-container savie-application-summary headerStick">
             <h5 class="title">Application summary</h5>
-
             <div class="summary-section clearfix">
                <h5>Your selected plan <a href="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details?backSummary=Y">Edit</a></h5>
                <div class="desktop-left">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Plan name</h6>
-                     <span class="info">SAVIE</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Saving amount</h6>
-                     <span class="info">HK$ ${saviePlanDetails.insuredAmount1 }</span>
-                  </div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="planName" name="planName" value="SAVIE" readonly />
+								<label class="mdl-textfield__label" for="planName">Plan name</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="savingAmount" name="savingAmount" value="HK$ ${saviePlanDetails.insuredAmount1 }" readonly />
+								<label class="mdl-textfield__label" for="savingAmount">Saving amount</label>
+							</div>
+						</div>
                </div>
                <div class="desktop-right">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Premium mode</h6>
-                     <span class="info">${saviePlanDetails.paymentType }</span>
-                  </div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Premium mode</label>
+								<select name="tmpPremiumMode" id="tmpPremiumMode" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Premium mode</option>
+									<option value="${saviePlanDetails.paymentType }">${saviePlanDetails.paymentType }</option>
+								</select>
+								<input type="hidden" id="premiumMode" name="premiumMode" />
+							</div>
+						</div>
                </div>
             </div>
-
             <div class="summary-section below clearfix">
                <h5>Personal info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/personal-details?backSummary=Y">Edit</a></h5>
                <div class="desktop-left">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Last name (same as HKID)</h6>
-                     <span class="info">${lifePersonalDetails.lastname }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">First name (same as HKID)</h6>
-                     <span class="info">${lifePersonalDetails.firstname }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Name in Chinese (same as HKID)</h6>
-                     <span class="info ch">${lifePersonalDetails.chineseName }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Gender</h6>
-                     <span class="info">${lifePersonalDetails.gender }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">HKID</h6>
-                     <span class="info">${lifePersonalDetails.hkid }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Place of birth</h6>
-                     <span class="info">${lifePersonalDetails.placeOfBirthName }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Nationality</h6>
-                     <span class="info">${lifePersonalDetails.nationaltyName }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Date of birth</h6>
-                     <span class="info">${lifePersonalDetails.dob }</span>
-                  </div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="lastName" name="lastName" value="${lifePersonalDetails.lastname }" readonly />
+								<label class="mdl-textfield__label" for="lastName">Last name (same as HKID)</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="firstName" name="firstName" value="${lifePersonalDetails.firstname }" readonly />
+								<label class="mdl-textfield__label" for="firstName">First name (same as HKID)</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" id="chineseName" name="chineseName" value="${lifePersonalDetails.chineseName }" readonly />
+								<label class="mdl-textfield__label" for="chineseName">Name in Chinese (same as HKID)</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
+								<select name="tmpGender" id="tmpGender" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Gender</option>
+									<option value="${lifePersonalDetails.gender }">${lifePersonalDetails.gender }</option>
+								</select>
+								<input type="hidden" id="gender" name="gender" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="hkId" name="hkId" value="${lifePersonalDetails.hkid }" readonly />
+								<label class="mdl-textfield__label" for="hkId">HKID</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Place of birth</label>
+								<select name="tmpPlaceOfBirth" id="tmpPlaceOfBirth" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Place of birth</option>
+									<option value="${lifePersonalDetails.placeOfBirthName }">${lifePersonalDetails.placeOfBirthName }</option>
+								</select>
+								<input type="hidden" id="placeOfBirth" name="placeOfBirth" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Nationality</label>
+								<select name="tmpNationality" id="tmpNationality" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Nationality</option>
+									<option value="${lifePersonalDetails.nationaltyName }">${lifePersonalDetails.nationaltyName }</option>
+								</select>
+								<input type="hidden" id="nationality" name="nationality" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="so-calendar-dob" name="so-calendar-dob" value="${lifePersonalDetails.dob }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="so-calendar-dob">Date of birth</label>
+							</div>
+						</div>
                </div>
                <div class="desktop-right">
-				  <div class="gray-holder">
-                     <h6 class="info-label">Residential telephone no.</h6>
-                     <span class="info">${lifePersonalDetails.residentialTelNo }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Telephone no.</h6>
-                     <span class="info">${lifePersonalDetails.mobileNumber }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Marital status</h6>
-                     <span class="info">${lifePersonalDetails.martialStatusName }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Email address</h6>
-                     <span class="info">${lifePersonalDetails.emailAddress }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label permanent-top">Permanent address (No P.O box address allowed)</h6>
-					 <h6 class="info-label">Permanent address line 1</h6>
-                     <span class="info">${lifePersonalDetails.permanetAddress1 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Permanent address line 2</h6>
-                     <span class="info">${lifePersonalDetails.permanetAddress2 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Permanent address line 3</h6>
-                     <span class="info">${lifePersonalDetails.permanetAddress3 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">District</h6>
-                     <span class="info">${lifePersonalDetails.permanetAddressDistrictName }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Residential address line 1</h6>
-                     <span class="info">${lifePersonalDetails.residentialAddress1 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Residential address line 2</h6>
-                     <span class="info">${lifePersonalDetails.residentialAddress2 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Residential address line 3</h6>
-                     <span class="info">${lifePersonalDetails.residentialAddress3 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">District</h6>
-                     <span class="info">${lifePersonalDetails.residentialAddressDistrictName }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Correspondence address line 1</h6>
-                     <span class="info">${lifePersonalDetails.correspondenceAddress1 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Correspondence address line 2</h6>
-                     <span class="info">${lifePersonalDetails.correspondenceAddress2 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Correspondence address line 3</h6>
-                     <span class="info">${lifePersonalDetails.correspondenceAddress3 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">District</h6>
-                     <span class="info">${lifePersonalDetails.correspondenceAddressDistrictName }</span>
-                  </div>
+               	<div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialNo" name="residentialNo" value="${lifePersonalDetails.residentialTelNo }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="residentialNo">Residential telephone no.</label>
+							</div>
+						</div>
+						<div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="telephoneNo" name="telephoneNo" value="${lifePersonalDetails.mobileNumber }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="telephoneNo">Telephone no.</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Marital status</label>
+								<select name="tmpMaritalStatus" id="tmpMaritalStatus" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Marital status</option>
+									<option value="${lifePersonalDetails.martialStatusName }">${lifePersonalDetails.martialStatusName }</option>
+								</select>
+								<input type="hidden" id="maritalStatus" name="maritalStatus" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="emailAddress" name="emailAddress" value="${lifePersonalDetails.emailAddress }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="emailAddress">Email address</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<span class="warning-note">Permanent address (No P.O box address allowed)</span>
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="permanentAddress1" name="permanentAddress1" value="${lifePersonalDetails.permanetAddress1 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="permanentAddress1">Permanent address line 1</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="permanentAddress2" name="permanentAddress2" value="${lifePersonalDetails.permanetAddress2 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="permanentAddress2">Permanent address line 2</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="permanentAddress3" name="permanentAddress3" value="${lifePersonalDetails.permanetAddress3 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="permanentAddress3">Permanent address line 3</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">District</label>
+								<select name="tmpPermanentDistrict" id="tmpPermanentDistrict" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">District</option>
+									<option value="${lifePersonalDetails.permanetAddressDistrictName }">${lifePersonalDetails.permanetAddressDistrictName }</option>
+								</select>
+								<input type="hidden" id="permanentDistrict" name="permanentDistrict" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress1" name="residentialAddress1" value="${lifePersonalDetails.residentialAddress1 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="residentialAddress1">Residential address line 1</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress2" name="residentialAddress2" value="${lifePersonalDetails.residentialAddress2 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="residentialAddress2">Residential address line 2</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="residentialAddress3" name="residentialAddress3" value="${lifePersonalDetails.residentialAddress3 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="residentialAddress2">Residential address line 3</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">District</label>
+								<select name="tmpResidentialDistrict" id="tmpResidentialDistrict" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">District</option>
+									<option value="${lifePersonalDetails.residentialAddressDistrictName }">${lifePersonalDetails.residentialAddressDistrictName }</option>
+								</select>
+								<input type="hidden" id="residentialDistrict" name="residentialDistrict" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="correspondenceAddress1" name="correspondenceAddress1" value="${lifePersonalDetails.correspondenceAddress1 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="correspondenceAddress1">Correspondence address line 1</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="correspondenceAddress2" name="correspondenceAddress2" value="${lifePersonalDetails.correspondenceAddress2 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="correspondenceAddress2">Correspondence address line 2</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="correspondenceAddress3" name="correspondenceAddress3" value="${lifePersonalDetails.correspondenceAddress3 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="correspondenceAddress3">Correspondence address line 3</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">District</label>
+								<select name="tmpCorrespondenceDistrict" id="tmpCorrespondenceDistrict" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">District</option>
+									<option value="${lifePersonalDetails.correspondenceAddressDistrictName }">${lifePersonalDetails.correspondenceAddressDistrictName }</option>
+								</select>
+								<input type="hidden" id="correspondenceDistrict" name="correspondenceDistrict" />
+							</div>
+						</div>
                </div>
             </div>
             <div class="summary-section below-employment clearfix">
                <h5>Employment info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/employment-info?backSummary=Y">Edit</a></h5>
                <div class="desktop-left">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Employment status</h6>
-                     <span class="info">${lifeEmploymentInfo.employmentStatusName }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Nature of business</h6>
-                     <span class="info">${lifeEmploymentInfo.natureOfBusinessName }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Occupation</h6>
-                     <span class="info">${lifeEmploymentInfo.occupationName }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Please specify</h6>
-                     <span class="info">${lifeEmploymentInfo.amountOfOtherSourceOfIncomeName }${lifeEmploymentInfo.amountOfLiquidAssetsName }</span>
-                  </div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Employment status</label>
+								<select name="tmpEmploymentStatus" id="tmpEmploymentStatus" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Employment status</option>
+									<option value="${lifeEmploymentInfo.employmentStatusName }">${lifeEmploymentInfo.employmentStatusName }</option>
+								</select>
+								<input type="hidden" id="employmentStatus" name="employmentStatus" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Nature of business</label>
+								<select name="tmpBusinessNature" id="tmpBusinessNature" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Nature of business</option>
+									<option value="${lifeEmploymentInfo.natureOfBusinessName }">${lifeEmploymentInfo.natureOfBusinessName }</option>
+								</select>
+								<input type="hidden" id="businessNature" name="businessNature" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Occupation</label>
+								<select name="tmpOccupation" id="tmpOccupation" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Occupation</option>
+									<option value="${lifeEmploymentInfo.occupationName }">${lifeEmploymentInfo.occupationName }</option>
+								</select>
+								<input type="hidden" id="occupation" name="occupation" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="otherOccupation" name="otherOccupation" value="${lifeEmploymentInfo.amountOfOtherSourceOfIncomeName }${lifeEmploymentInfo.amountOfLiquidAssetsName }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="otherOccupation">Please specify</label>
+							</div>
+						</div>
                </div>
                <div class="desktop-right">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Current employer's name</h6>
-                     <span class="info">${lifeEmploymentInfo.employerName }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Monthly personal income (HK$)</h6>
-                     <span class="info">${lifeEmploymentInfo.monthlyPersonalIncomeName }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Education level</h6>
-                     <span class="info">${lifeEmploymentInfo.educationName }</span>
-                  </div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="currentEmployer" name="currentEmployer" value="${lifeEmploymentInfo.employerName }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="currentEmployer">Current employer's name</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Monthly personal income (HK$)</label>
+								<select name="tmpMonthlyPersonalIncome" id="tmpMonthlyPersonalIncome" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Monthly personal income (HK$)</option>
+									<option value="${lifeEmploymentInfo.monthlyPersonalIncomeName }">${lifeEmploymentInfo.monthlyPersonalIncomeName }</option>
+								</select>
+								<input type="hidden" id="monthlyPersonalIncome" name="monthlyPersonalIncome" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Education level</label>
+								<select name="tmpEducationLevel" id="tmpEducationLevel" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Education level</option>
+									<option value="${lifeEmploymentInfo.educationName }">${lifeEmploymentInfo.educationName }</option>
+								</select>
+								<input type="hidden" id="educationLevel" name="educationLevel" />
+							</div>
+						</div>
                </div>
             </div>
             <div class="summary-section below-beneficiary clearfix">
                <h5>Beneficiary info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/beneficiary-info?backSummary=Y">Edit</a></h5>
                <span class="person-count first-person">Person 1</span>
                <div class="desktop-left">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Last name (same as HKID)</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryLastName1 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">First name (same as HKID)</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryFirstName1 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Name in Chinese (optional)</h6>
-                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName1 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">HKID</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryID1 }</span>
-                  </div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryLastName[0]" name="beneficiaryLastName[0]" value="${lifeBeneficaryInfo.beneficaryLastName1 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryLastName[0]">Last name (same as HKID)</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryFirstName[0]" name="beneficiaryFirstName[0]" value="${lifeBeneficaryInfo.beneficaryFirstName1 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryFirstName[0]">First name (same as HKID)</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" id="beneficiaryChineseName[0]" name="beneficiaryChineseName[0]" value="${lifeBeneficaryInfo.beneficaryChineseName1 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryChineseName[0]">Name in Chinese (optional)</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryHkid[0]" name="beneficiaryHkid[0]" value="${lifeBeneficaryInfo.beneficaryID1 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryHkid[0]">HKID</label>
+							</div>
+						</div>
                </div>
                <div class="desktop-right">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Relationship</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName1 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Gender</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryGender1 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Entitlement (%)</h6>
-                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight1 }%</span>
-                  </div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Relationship</label>
+								<select name="tmpBeneficiaryRelationship[0]" id="tmpBeneficiaryRelationship[0]" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Relationship</option>
+									<option value="${lifeBeneficaryInfo.beneficaryRelationName1 }">${lifeBeneficaryInfo.beneficaryRelationName1 }</option>
+								</select>
+								<input type="hidden" id="beneficiaryRelationship[0]" name="beneficiaryRelationship[0]" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
+								<select name="tmpBeneficiaryGender[0]" id="tmpBeneficiaryGender[0]" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Gender</option>
+									<option value="${lifeBeneficaryInfo.beneficaryGender1 }">${lifeBeneficaryInfo.beneficaryGender1 }</option>
+								</select>
+								<input type="hidden" id="beneficiaryGender[0]" name="beneficiaryGender[0]" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryEntitlement[0]" name="beneficiaryEntitlement[0]" value="Person 1: ${lifeBeneficaryInfo.beneficaryWeight1 }%" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryEntitlement[0]">Entitlement (%)</label>
+							</div>
+						</div>
                </div>
 			</div>
 			<div class="summary-section inner-beneficiary clearfix">
 			   <span class="person-count">Person 2</span>
                <div class="desktop-left">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Last name (same as HKID)</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryLastName2 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">First name (same as HKID)</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryFirstName2 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Name in Chinese (optional)</h6>
-                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName2 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">HKID</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryID2 }</span>
-                  </div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryLastName[1]" name="beneficiaryLastName[1]" value="${lifeBeneficaryInfo.beneficaryLastName2 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryLastName[1]">Last name (same as HKID)</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryFirstName[1]" name="beneficiaryFirstName[1]" value="${lifeBeneficaryInfo.beneficaryFirstName2 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryFirstName[1]">First name (same as HKID)</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" id="beneficiaryChineseName[1]" name="beneficiaryChineseName[1]" value="${lifeBeneficaryInfo.beneficaryChineseName2 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryChineseName[1]">Name in Chinese (optional)</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryHkid[1]" name="beneficiaryHkid[1]" value="${lifeBeneficaryInfo.beneficaryID2 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryHkid[1]">HKID</label>
+							</div>
+						</div>
                </div>
                <div class="desktop-right">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Relationship</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName2 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Gender</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryGender2 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Entitlement (%)</h6>
-                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight2 }%</span>
-                  </div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Relationship</label>
+								<select name="tmpBeneficiaryRelationship[1]" id="tmpBeneficiaryRelationship[1]" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Relationship</option>
+									<option value="${lifeBeneficaryInfo.beneficaryRelationName2 }">${lifeBeneficaryInfo.beneficaryRelationName2 }</option>
+								</select>
+								<input type="hidden" id="beneficiaryRelationship[1]" name="beneficiaryRelationship[1]" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
+								<select name="tmpBeneficiaryGender[1]" id="tmpBeneficiaryGender[1]" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Gender</option>
+									<option value="${lifeBeneficaryInfo.beneficaryGender2 }">${lifeBeneficaryInfo.beneficaryGender2 }</option>
+								</select>
+								<input type="hidden" id="beneficiaryGender[1]" name="beneficiaryGender[1]" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryEntitlement[1]" name="beneficiaryEntitlement[1]" value="Person 1: ${lifeBeneficaryInfo.beneficaryWeight2 }%" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryEntitlement[1]">Entitlement (%)</label>
+							</div>
+						</div>
                </div>
 			</div>
 			<div class="summary-section inner-beneficiary clearfix">
 			   <span class="person-count">Person 3</span>
                <div class="desktop-left">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Last name (same as HKID)</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryLastName3 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">First name (same as HKID)</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryFirstName3 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Name in Chinese (optional)</h6>
-                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName3 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">HKID</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryID3 }</span>
-                  </div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryLastName[2]" name="beneficiaryLastName[2]" value="${lifeBeneficaryInfo.beneficaryLastName3 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryLastName[2]">Last name (same as HKID)</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryFirstName[2]" name="beneficiaryFirstName[2]" value="${lifeBeneficaryInfo.beneficaryFirstName3 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryFirstName[2]">First name (same as HKID)</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input ch" type="text" id="beneficiaryChineseName[2]" name="beneficiaryChineseName[2]" value="${lifeBeneficaryInfo.beneficaryChineseName3 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryChineseName[2]">Name in Chinese (optional)</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryHkid[2]" name="beneficiaryHkid[2]" value="${lifeBeneficaryInfo.beneficaryID3 }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryHkid[2]">HKID</label>
+							</div>
+						</div>
                </div>
                <div class="desktop-right">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Relationship</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName3 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Gender</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryGender3 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Entitlement (%)</h6>
-                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight3 }%</span>
-                  </div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Relationship</label>
+								<select name="tmpBeneficiaryRelationship[2]" id="tmpBeneficiaryRelationship[2]" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Relationship</option>
+									<option value="${lifeBeneficaryInfo.beneficaryRelationName3 }">${lifeBeneficaryInfo.beneficaryRelationName3 }</option>
+								</select>
+								<input type="hidden" id="beneficiaryRelationship[2]" name="beneficiaryRelationship[2]" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
+								<select name="tmpBeneficiaryGender[2]" id="tmpBeneficiaryGender[2]" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Gender</option>
+									<option value="${lifeBeneficaryInfo.beneficaryGender3 }">${lifeBeneficaryInfo.beneficaryGender3 }</option>
+								</select>
+								<input type="hidden" id="beneficiaryGender[2]" name="beneficiaryGender[2]" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="beneficiaryEntitlement[2]" name="beneficiaryEntitlement[2]" value="Person 1: ${lifeBeneficaryInfo.beneficaryWeight3 }%" readonly="readonly" />
+								<label class="mdl-textfield__label" for="beneficiaryEntitlement[2]">Entitlement (%)</label>
+							</div>
+						</div>
                </div>
             </div>
             <div class="summary-section below-payment clearfix">
                <h5>Payment info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/payment">Edit</a></h5>
                <div class="desktop-left">
-				  <div class="gray-holder">
-                     <h6 class="info-label">Amount</h6>
-                     <span class="info">HK$ ${lifePayment.paymentAmount }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Payment method</h6>
-                     <span class="info">${lifePayment.paymentMethod }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Bank account holder name</h6>
-                     <span class="info">${lifePayment.accountHolderName }</span>
-                  </div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="amount" name="amount" value="HK$ ${lifePayment.paymentAmount }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="amount">Amount</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Payment method</label>
+								<select name="tmpPaymentMethod" id="tmpPaymentMethod" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Payment method</option>
+									<option value="${lifePayment.paymentMethod }">${lifePayment.paymentMethod }</option>
+								</select>
+								<input type="hidden" id="paymentMethod" name="paymentMethod" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="accountHolderName" name="accountHolderName" value="${lifePayment.accountHolderName }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="accountHolderName">Bank account holder name</label>
+							</div>
+						</div>
                </div>
                <div class="desktop-right">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Bank name (code)</h6>
-                     <span class="info">${lifePayment.bankName }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Account no.</h6>
-                     <span class="info">${lifePayment.accountNumber }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Branch name</h6>
-                     <span class="info">${lifePayment.branchName }</span>
-                  </div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Bank name (code)</label>
+								<select name="tmpBankName" id="tmpBankName" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Bank name (code)</option>
+									<option value="${lifePayment.bankName }">${lifePayment.bankName }</option>
+								</select>
+								<input type="hidden" id="bankName" name="bankName" />
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label is-dirty is-upgraded is-not-active">
+								<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="accountNo" name="accountNo" value="${lifePayment.accountNumber }" readonly="readonly" />
+								<label class="mdl-textfield__label" for="accountNo">Account no.</label>
+							</div>
+						</div>
+                  <div class="form-group application-summ">
+							<div class="selectDiv centreDiv gray-text-bg">
+								<label class="mdl-textfield__label cstm-dropdown-label">Branch name</label>
+								<select name="tmpBranchName" id="tmpBranchName" class="form-control gray-dropdown">
+									<option value="" disabled="disabled" selected="selected">Branch name</option>
+									<option value="${lifePayment.branchName }">${lifePayment.branchName }</option>
+								</select>
+								<input type="hidden" id="branchName" name="branchName" />
+							</div>
+						</div>
                </div>
             </div>
-
             <div class="text-center clearfix">
                <button class="btn savie-common-btn" type="button" onclick="goNext()">Next</button>
                 <a href="#" id="as-save-and-con" class="as-save-con" data-toggle="modal" data-target="#save-and-continue-batch5-modal">
@@ -441,12 +648,81 @@
 			function goNext(){
 					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 			}
-         $('.save-exit-btn2, #save-exit-btn').click(function() {
-            $(this).closest('.modal').modal('hide');
-            $('#application-saved-modal').modal('show');
-         });
+			
+			$(document).ready(function() {
+	         $('.save-exit-btn2, #save-exit-btn').click(function() {
+	            $(this).closest('.modal').modal('hide');
+	            $('#application-saved-modal').modal('show');
+	         });
+	         
+	      	// set fields whether editable or not
+				// Your selected plan block
+				setInputReadonly('planName', true);
+				setInputReadonly('savingAmount', true);
+				setSelectReadonly('premiumMode', true);
+				// Personal info
+				setInputReadonly('lastName', true);
+				setInputReadonly('firstName', true);
+				setInputReadonly('chineseName', true);
+				setSelectReadonly('gender', true);
+				setInputReadonly('hkId', true);
+				setSelectReadonly('placeOfBirth', true);
+				setSelectReadonly('nationality', true);
+				setInputReadonly('so-calendar-dob', true);
+				setInputReadonly('residentialNo', true);
+				setInputReadonly('telephoneNo', true);
+				setSelectReadonly('maritalStatus', true);
+				setInputReadonly('emailAddress', true);
+				setInputReadonly('permanentAddress1', true);
+				setInputReadonly('permanentAddress2', true);
+				setInputReadonly('permanentAddress3', true);
+				setSelectReadonly('permanentDistrict', true);
+				setInputReadonly('residentialAddress1', true);
+				setInputReadonly('residentialAddress2', true);
+				setInputReadonly('residentialAddress3', true);
+				setSelectReadonly('residentialDistrict', true);
+				setInputReadonly('correspondenceAddress1', true);
+				setInputReadonly('correspondenceAddress2', true);
+				setInputReadonly('correspondenceAddress3', true);
+				setSelectReadonly('correspondenceDistrict', true);
+				//Employment info
+				setSelectReadonly('employmentStatus', true);
+				setSelectReadonly('businessNature', true);
+				setSelectReadonly('occupation', true);
+				setInputReadonly('otherOccupation', true);
+				setInputReadonly('currentEmployer', true);
+				setSelectReadonly('monthlyPersonalIncome', true);
+				setSelectReadonly('educationLevel', true);
+				// Beneficiary info
+				setInputReadonly('beneficiaryLastName[0]', true);
+				setInputReadonly('beneficiaryFirstName[0]', true);
+				setInputReadonly('beneficiaryChineseName[0]', true);
+				setInputReadonly('beneficiaryHkid[0]', true);
+				setSelectReadonly('beneficiaryRelationship[0]', true);
+				setSelectReadonly('beneficiaryGender[0]', true);
+				setInputReadonly('beneficiaryEntitlement[0]', true);
+				setInputReadonly('beneficiaryLastName[1]', true);
+				setInputReadonly('beneficiaryFirstName[1]', true);
+				setInputReadonly('beneficiaryChineseName[1]', true);
+				setInputReadonly('beneficiaryHkid[1]', true);
+				setSelectReadonly('beneficiaryRelationship[1]', true);
+				setSelectReadonly('beneficiaryGender[1]', true);
+				setInputReadonly('beneficiaryEntitlement[1]', true);
+				setInputReadonly('beneficiaryLastName[2]', true);
+				setInputReadonly('beneficiaryFirstName[2]', true);
+				setInputReadonly('beneficiaryChineseName[2]', true);
+				setInputReadonly('beneficiaryHkid[2]', true);
+				setSelectReadonly('beneficiaryRelationship[2]', true);
+				setSelectReadonly('beneficiaryGender[2]', true);
+				setInputReadonly('beneficiaryEntitlement[2]', true);
+				// Payment info
+				setInputReadonly('amount', true);
+				setSelectReadonly('paymentMethod', true);
+				setInputReadonly('accountHolderName', true);
+				setSelectReadonly('bankName', true);
+				setInputReadonly('accountNo', true);
+				setSelectReadonly('branchName', true);
+			});
 		</script>
-		
-		
 	</body>
 </html>

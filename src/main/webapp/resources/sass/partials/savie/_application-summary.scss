@@ -48,6 +48,54 @@
 				&:hover { text-decoration: underline; }
 			}
 		}
+		
+		.application-summ {
+			margin-bottom: 0;
+			
+			.mdl-textfield__label {
+				font-family: 'Calibri-Bold';
+			}
+			
+			.so-mdl-textfield {
+				background: #f5f5f5;
+				
+				&.is-active {
+					color: #373a36 !important;
+				}
+				
+				&.is-dirty {
+					label {
+						color: #373a36 !important;
+					}
+				}
+				
+				.so-mdl-textfield-input {
+					font-size: 14px;
+					border-bottom: 0;
+					
+					&.ch {
+						font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+					}
+					
+					&:hover {
+						border-bottom: 0 !important;
+					}
+				}
+				
+				label {
+					&:after {
+						background-color: transparent;
+					}
+				}
+			}
+			
+			.warning-note {
+				margin-top: -15px;
+				font-size: 11px;
+			    font-family: 'Calibri-bold';
+				display: block;
+			}
+		}
 
 		.gray-holder {
 			background: #f5f5f5;
