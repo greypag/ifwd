@@ -242,7 +242,7 @@ var language = "${language}";
 											Map.Entry<String, List> entry; 
 											Iterator i;
 											Boolean result = results.size() > 0; 
-											if(result) {
+											if(result && false) {
 												i = results.entrySet().iterator();
 												while(i.hasNext()){
 													entry=(Map.Entry<String, List>)i.next();
