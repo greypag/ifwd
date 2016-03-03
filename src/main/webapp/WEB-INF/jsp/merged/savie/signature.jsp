@@ -2,7 +2,9 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@page import="java.util.*"%>
+<%@page import="com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse"%>
+<%@page import="com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult"%>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -155,14 +157,24 @@ var languageP = "${language}";
 						<h5>Please choose service centre</h5>
 						<div class="col-xs-12 col-md-6" id="left-side-form">
 							<div class="selectDiv">
-							  <span class="icon-chevron-thin-down orange-caret"></span>
-							   <select name="csid" id="csid" class="form-control gray-dropdown">
+							   <span class="icon-chevron-thin-down orange-caret"></span>
+							   <select name="centre" id="centre" class="form-control gray-dropdown">
 								   <option value="" disabled selected>Customer Service Centre</option>
-								   <option value="1">Tsim Sha Tsui</option>
+								   <!-- <option value="1">Tsim Sha Tsui</option>
 								   <option value="2">Quarry Bay</option>
 								   <option value="3">Sheung Wan</option>
 								   <option value="4">Kwun Tong</option>
-								   <option value="5">Shatin</option>
+								   <option value="5">Shatin</option> -->
+								   <c:choose>
+								       <c:when test="${serviceCentre.serviceCentres.size() > 0}">
+								           <c:forEach var="list" items="${serviceCentre.serviceCentres}">
+                                               <option value="${list.serviceCentreCode }" <c:if test="${list.serviceCentreCode == csCenter }">selected="selected"</c:if>>${list.serviceCentreName }</option>
+                                           </c:forEach>
+								       </c:when>
+								       <c:otherwise>
+									       <option value="" ></option>
+									   </c:otherwise>
+								   </c:choose>
 								</select>
 								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 						   </div>
@@ -171,11 +183,35 @@ var languageP = "${language}";
 								<a class="viewmap-link" href="#">View map</a>
 						   </div>
 						   <div id="date" class="selectDiv preferred-date gray-text-bg">
-								<input type="text" class="date preferred-date" name="preferred-date" id="preferred-date" value="Date" readonly="">
+								<!-- <input type="text" class="date preferred-date" name="preferred-date" id="preferred-date" value="Date" readonly=""> -->
+								
+								<%
+								Map results = (Map)request.getAttribute("datesMap");
+								Map.Entry<String, List> entry; 
+								Iterator i;
+								Boolean result = results.size() > 0; 
+								if(result) {
+									i = results.entrySet().iterator();
+									while(i.hasNext()){
+										entry=(Map.Entry<String, List>)i.next();
+								%>
+								<input type="text" class="date preferred-date form-control gray-dropdown" id="preferred-date-<%=entry.getKey()%>" value="${perferredDate }" style="display:none;" >
+								<%
+									}
+								}else {
+								%>
+								<input type="text" class="date preferred-date form-control gray-dropdown" id="full-date" value="">
+								<%
+								}
+								%>
+								<input type="hidden" name="preferred-date" id="preferred-date" value="${perferredDate }">
 								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 							</div>
 							<div id="time" class="selectDiv timeslot gray-text-bg">
-								<input type="text" name="preferred-time" id="preferred-time" value="Time" class="time preferred-time" autocomplete="off">
+								<!-- <input type="text" name="preferred-time" id="preferred-time" value="Time" class="time preferred-time" autocomplete="off"> -->
+								<select name="preferred-time" id="preferred-time" class="form-control gray-dropdown">
+                                    <option value=""></option>
+                                </select>
 								<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 							</div>
 							<p id="confirm-call">Appointment can be made up to 20 days in advance.</p>
@@ -358,7 +394,95 @@ var languageP = "${language}";
 
 <script type="text/javascript">
 	var language = "en";
-
+	
+	var startDate= new Date((new Date()).getTime() + 3*24*60*60*1000);
+	var endDate= new Date((new Date()).getTime() + 24*24*60*60*1000);
+	var sFullDate= new Date();
+	var eFullDate= new Date((new Date()).getTime() - 24*60*60*1000);
+	
+	$(document).ready(function() {
+		var csCenter = $("#centre").val();
+		var perferredDate = $("#preferred-date").val();
+		var perferredTime = $("#preferred-time").val();
+		if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+			//$('#fullyBooked').modal('show');
+		}
+		<%
+		if(!result) {
+		%>
+		$('#full-date').datepicker({
+		 	format: "dd-mm-yyyy",
+			container: "#date",
+			startDate: sFullDate,
+			endDate: eFullDate,
+			autoclose: true,
+		}).on('changeDate', function (ev) {
+		});
+		<%
+		}
+		%>
+		<%
+		results = (Map)request.getAttribute("datesMap");
+		if(results != null) {
+			i = results.entrySet().iterator();         
+			while(i.hasNext()){
+				entry=(Map.Entry<String, List>)i.next();
+		%>
+		var data<%=entry.getKey()%>='<%=entry.getValue()%>';
+		$('#preferred-date-<%=entry.getKey()%>').datepicker({
+		 	format: "dd-mm-yyyy",
+			container: "#date",
+			startDate: startDate,
+			endDate: endDate,
+			autoclose: true,
+			beforeShowDay:function(Date){
+			    var curr_date = Date.toJSON().substring(0,10);
+			    if (data<%=entry.getKey()%>.indexOf(curr_date)>-1){
+			    	return false;        
+			    }
+			}
+		}).on('changeDate', function (ev) {
+			if(ev.date != null){
+				$("#preferred-date-mirror").val($("#preferred-date-<%=entry.getKey()%>").val().trim());
+				$("#preferred-date").val($("#preferred-date-<%=entry.getKey()%>").val().trim());
+			}
+			else{
+				$('#preferred-date').datepicker('update', $("#preferred-date-mirror").val().trim());
+			}
+			if($("#centre").val().trim() != "" && $("#preferred-date-<%=entry.getKey()%>").val().trim() != ""){
+				getTimeSlot('${perferredTime }');
+			}
+			else{
+				$("#preferred-time").empty();
+				$("#preferred-time").prepend("<option value=''></option>");
+			}
+		});
+		<%
+			}
+		}
+		%>
+		$("#preferred-date-${csCenter}").show();
+		var serviceCentreCode = '${csCenter }';
+		//$('.centre-info').addClass('hidden');
+		//$('#centre-' + serviceCentreCode).removeClass('hidden');
+		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
+			getTimeSlot('${perferredTime }');
+		}
+		$('#centre').on('change', function() {
+			var centre = $('#centre option:selected').val();
+			/* $('.centre-info').addClass('hidden');
+			$('#centre-' + centre).removeClass('hidden'); */
+			togglePreferred('preferred-date-'+ centre)
+			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
+				getTimeSlot('${perferredTime }');
+			}
+		});
+	});
+	function togglePreferred(id) {
+		$(".form-group .preferred-date .date").hide();
+		$("#"+ id).show();
+	}
+	
 	// application saved modal will show after clicking 'Save and exit' button 
 	$('.save-exit-btn2, #save-exit-btn').click(function() {
 		$(this).closest('.modal').modal('hide');
@@ -385,46 +509,19 @@ var languageP = "${language}";
 		startDate: new Date(),
 		autoclose: true
 	 });
-	 $('#preferred-time').timepicker({
-		appendTo: '.timeslot',
-		timeFormat: 'H:i',
-	 });
-		 
-	 var img1 = "<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg";
-        var img2 = "<%=request.getContextPath()%>/resources/images/savie-2016/quarry_bay.jpg";
-        var img3 = "<%=request.getContextPath()%>/resources/images/savie-2016/sheung_wan.jpg";
-        var img4 = "<%=request.getContextPath()%>/resources/images/savie-2016/kwuntong.jpg";
-        var img5 = "<%=request.getContextPath()%>/resources/images/savie-2016/shatin.jpg";
-        var addr1 = "G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui";
-        var addr2 = "13/F, Devon House, Taikoo Place, 979 King's Road, Quarry Bay";
-        var addr3 = "1/F, FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan";
-        var addr4 = "Office E, 12/F, Legend Tower, No.7 Shing Yip Street, Kwun Tong";
-        var addr5 = "Unit 1720 -21, Level 17, Tower II, Grand Central Plaza, Shatin";
-        var map1 = "#";
-        var map2 = "#";
-        var map3 = "#";
-        var map4 = "#";
-        var map5 = "#"; 
-       
-        var centre = $('#csid option:selected').val();
       
-        $('#csid').on('change', function() {
-           var centre = $('#csid option:selected').val();
-           if(centre == 1) {
-              $('.centre-info').html('<img src="'+img1+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr1+'</p><a class="viewmap-link" href="'+map1+'">View map</a>');
+        $('#centre').on('change', function() {
+           var centre = $('#centre option:selected').val();
+           <%
+           ServiceCentreResponse serviceCentre = (ServiceCentreResponse)request.getAttribute("serviceCentre");
+           for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
+           %>
+           if(centre == '<%=entity.getServiceCentreCode() %>') {
+              $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
            }
-           if(centre == 2) {
-             $('.centre-info').html('<img src="'+img2+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr2+'</p><a class="viewmap-link" href="'+map2+'">View map</a>');
+           <%
            }
-           if(centre == 3) {
-             $('.centre-info').html('<img src="'+img3+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr3+'</p><a class="viewmap-link" href="'+map3+'">View map</a>');
-           }
-           if(centre == 4) {
-              $('.centre-info').html('<img src="'+img4+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr4+'</p><a class="viewmap-link" href="'+map4+'">View map</a>');
-           }
-           if(centre == 5) {
-             $('.centre-info').html('<img src="'+img5+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr5+'</p><a class="viewmap-link" href="'+map5+'">View map</a>');
-           }
+           %>
         });
         $('.selectDiv').find('span').remove();
         //console.log($('.ui-select > #centre-button > span').text());
@@ -673,6 +770,39 @@ var languageP = "${language}";
 	 });
 	 
 	 $("#btn-cstmr-srvc-cnter").click(function(){
-		 window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+		 //window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+		 
+		 var csCenter = $("#centre").val();
+			var perferredDate = $("#preferred-date").val();
+			var perferredTime = $("#preferred-time").val();
+			if(csCenter == "" && perferredDate == "" && perferredTime == "") {
+				//$('#fullyBooked').modal('show');
+			}else if(perferredTime == null || perferredTime.trim() == ""){
+				//$('#perferredTimeIsNull').modal('show');
+			}else{
+				$.ajax({     
+				    url:context+'/ajax/savings-insurance/upsertAppointment',     
+				    type:'post',     
+				    data:{    
+				    	"csCenter": csCenter,
+				        "perferredDate":perferredDate,
+				        "perferredTime":perferredTime
+			   		},     
+				    error:function(){       
+				    },     
+				    success:function(data){
+				    	if(data.errMsgs == null){
+				    		//send email
+				    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+				    	}else if(data.errMsgs == "Access code has already been used"){
+				    		//$('#accessCodeUsed').modal('show');
+				    		console.log(data.errMsgs);
+				    	}else if(data.errMsgs == "Reservation is invalid"){
+				    		//$('#reservationInvalid').modal('show');
+				    		console.log(data.errMsgs);
+				    	}
+				    }  
+				});
+			}
 	 });
 </script>

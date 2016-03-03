@@ -5,6 +5,8 @@
 <%@page import="com.ifwd.fwdhk.model.HomeQuoteBean"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page import="java.util.*"%>
+<%@page import="com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse"%>
+<%@page import="com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult"%>
 <c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
 <fmt:setLocale value="<%=session.getAttribute(\"uiLocale\")%>" />
 <fmt:setBundle basename="messages" var="msg" />
@@ -622,38 +624,20 @@ var language = "${language}";
 		startDate: new Date(),
 		autoclose: true
 	 });
-
-	 var img1 = "<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg";
-	 var img2 = "<%=request.getContextPath()%>/resources/images/savie-2016/quarry_bay.jpg";
-	 var img3 = "<%=request.getContextPath()%>/resources/images/savie-2016/sheung_wan.jpg";
-	 var img4 = "<%=request.getContextPath()%>/resources/images/savie-2016/kwuntong.jpg";
-	 var img5 = "<%=request.getContextPath()%>/resources/images/savie-2016/shatin.jpg";
-	 var addr1 = "G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui";
-	 var addr2 = "13/F, Devon House, Taikoo Place, 979 King’s Road, Quarry Bay";
-	 var addr3 = "1/F, FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan";
-	 var addr4 = "Office E, 12/F, Legend Tower, No.7 Shing Yip Street, Kwun Tong";
-	 var addr5 = "Unit 1720 -21, Level 17, Tower II, Grand Central Plaza, Shatin";
-
-	 var centre = $('#customerServiceCentre option:selected').val();
    
-	 $('#customerServiceCentre').on('change', function() {
-		var centre = $('#customerServiceCentre option:selected').val();
-		if(centre == 1) {
-		   $('.centre-info').html('<img src="'+img1+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr1+'</p><a class="address-link" href="#">View map</a>');
-		}
-		if(centre == 2) {
-		  $('.centre-info').html('<img src="'+img2+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr2+'</p><a class="address-link" href="#">View map</a>');
-		}
-		if(centre == 3) {
-		  $('.centre-info').html('<img src="'+img3+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr3+'</p><a class="address-link" href="#">View map</a>');
-		}
-		if(centre == 4) {
-		   $('.centre-info').html('<img src="'+img4+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr4+'</p><a class="address-link" href="#">View map</a>');
-		}
-		if(centre == 5) {
-		  $('.centre-info').html('<img src="'+img5+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr5+'</p><a class="address-link" href="#">View map</a>');
-		}
-	 });
+	 $('#centre').on('change', function() {
+         var centre = $('#centre option:selected').val();
+         <%
+         ServiceCentreResponse serviceCentre = (ServiceCentreResponse)request.getAttribute("serviceCentre");
+         for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
+         %>
+         if(centre == '<%=entity.getServiceCentreCode() %>') {
+            $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
+         }
+         <%
+         }
+         %>
+      });
 	 $('.selectDiv').find('span').remove();
 	 console.log($('.ui-select > #centre-button > span').text());
 	 $('#centre-button > span').remove();
