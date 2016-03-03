@@ -177,7 +177,7 @@ var languageP = "${language}";
 		<div class="summary-table">
 			<div class="summary-table-head clearfix">
 				<h4 class="summary-note-title">Summary</h4>
-				<p class="summary-note">You will receive <span class="received-money">HK$220,649</span> at the end of 3rd policy year</p>
+				<p class="summary-note">You will receive <span id="3rd_policy_year" class="received-money">HK$0</span> at the end of 3rd policy year</p>
 			</div>
 			<div class="table-content">					
 				<div class="rate-table">

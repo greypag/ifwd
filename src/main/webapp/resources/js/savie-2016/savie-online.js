@@ -2194,7 +2194,7 @@ function getSavieOnlinePlandetails() {
 									if (i == 0 || i == 1 || i == 2) {
 										var rowCtr = i+1;
 										if(i == 2) {
-											$("#3rd_policy_year").html(fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance))
+											$("#3rd_policy_year").html("HK$"+fmoney(json.salesIllustration.yearPlans[i].plans[j].accountBalance))
 										}
 										
 										$('#credit-rate-change-'+rowCtr).html("2%");//fmoney(textToNumber(json.salesIllustration.yearPlans[i].plans[j].rate))
