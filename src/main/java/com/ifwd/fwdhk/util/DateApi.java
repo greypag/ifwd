@@ -1,10 +1,15 @@
 package com.ifwd.fwdhk.util;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+
+import org.springframework.util.StringUtils;
 
 public class DateApi {
 	
@@ -206,5 +211,40 @@ public class DateApi {
 		    }
 		}
 		return age;
+	}
+	
+	/**
+	 * 将time毫秒转换为日期格式为yyyy-MM-dd的字符串
+	 * @param time
+	 * @return String
+	 */
+	public static String formatTime(Long time) {
+		if(!StringUtils.isEmpty(time)) {
+			long t = Long.valueOf(time);
+			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTimeInMillis(t);
+			return formatter.format(calendar.getTime());
+		}else {
+			return "";
+		}
+	}
+	
+	/**
+	 * 获取时间段list
+	 * @param start 距离今天的天数
+	 * @param days 总共多少天
+	 * @return
+	 */
+	public static List<String> timeslot(int start, int days) {
+		List<String> timeList = new ArrayList<String>();
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.DAY_OF_MONTH, start);
+		for(int i = 0; i < days - start; i++) {
+			timeList.add(formatter.format(calendar.getTime()));
+			calendar.add(Calendar.DAY_OF_MONTH, 1);
+		}
+		return timeList;
 	}
 }

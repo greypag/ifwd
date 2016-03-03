@@ -2239,6 +2239,44 @@ function getSavieOnlinePlandetails() {
     });
 }
 
+function getTimeSlot(perTime){
+	var csCenter = $("#centre").val();
+	var perferredDate = $("#preferred-date").val();
+	$.ajax({     
+	    url:context+'/ajax/savings-insurance/getTimeSlot',     
+	    type:'post',     
+	    data:{    
+	    	"csCenter": csCenter,
+	        "perferredDate":perferredDate
+   		},     
+	    error:function(){       
+	    },     
+	    success:function(data){
+	    	
+	    	$("#preferred-time option").remove(); 
+	    	if(data.timeSlots != null && data.timeSlots.length > 0){
+		    	for(var i=0; i<data.timeSlots.length; i++) {
+		    		if(data.timeSlots[i].manPower>0) {
+		    			var op = "<option value='" + data.timeSlots[i].timeSlot + "'";
+		    			if(perTime !=null && perTime !='' && perTime == data.timeSlots[i].timeSlot){
+		    				op = op + " selected='selected'";
+		    			}
+		    			op = op + ">" + data.timeSlots[i].timeSlot + "</option>";
+		    			$("#preferred-time").append(op);
+		    		}
+		    	}
+	    	}
+	    	else if(data.sessionError != null && data.sessionError == "sessionError"){
+	    		window.location.href= context+'/'+language+'/'+'savings-insurance'; 
+	    	}
+	    	else {
+	    		$("#preferred-time").prepend("<option value=''></option>");
+	    		$('#pickAnotherCentre').modal('show');
+	    	}
+	    }  
+	});
+}
+
 function jsGetAge(strBirthday){ 
 	var returnAge;
 	var strBirthdayArr=strBirthday.split("-");

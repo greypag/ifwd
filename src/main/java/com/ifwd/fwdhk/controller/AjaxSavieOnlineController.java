@@ -482,4 +482,33 @@ public class AjaxSavieOnlineController extends BaseController{
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 通过ajax获取时间段
+	 */
+	@RequestMapping(value = {"/ajax/savings-insurance/getTimeSlot"})
+	public void getTimeSlot(Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			savieOnlineService.getTimeSlot(model, request, response);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 预约服务中心提交时调用
+	 */
+	@RequestMapping(value = {"/ajax/savings-insurance/upsertAppointment"})
+	public void upsertAppointment(Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			savieOnlineService.getAccessCode(request);
+			savieOnlineService.upsertAppointment(model, request, response);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }

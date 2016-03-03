@@ -3,9 +3,11 @@ package com.ifwd.fwdhk.services;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
+import org.springframework.ui.Model;
 
 import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
@@ -41,5 +43,7 @@ public interface SavieOnlineService {
 	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException;
 	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException;
 	public void removeSavieOnlineSession(HttpServletRequest request);
-	
+	public void getTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public void upsertAppointment(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	public org.json.simple.JSONObject getAccessCode(HttpServletRequest request) throws Exception;
 }

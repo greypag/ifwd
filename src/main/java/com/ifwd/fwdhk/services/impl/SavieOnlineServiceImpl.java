@@ -14,10 +14,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.sf.ezmorph.bean.MorphDynaBean;
 
+import org.apache.commons.lang.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -26,6 +28,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
@@ -43,13 +46,13 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
+import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.ProductRecommendation;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
-import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
@@ -1671,5 +1674,133 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		session.removeAttribute("lifeDeclaration");
 		session.removeAttribute("lifePolicy");
 		logger.info("remove savie online session");
+	}
+/**
+	 * 通过ajax获取时间段
+	 */
+	@Override
+	public void getTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
+		org.json.simple.JSONObject responseJsonObj = new org.json.simple.JSONObject();
+		//if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount")) && org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("username")) && org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("accessCode"))) {
+		if(StringUtils.isNotBlank((String)session.getAttribute("username"))) {
+			String csCenter = request.getParameter("csCenter");
+			String perferredDate = request.getParameter("perferredDate");
+			request.getSession().setAttribute("csCenter", csCenter);
+			request.getSession().setAttribute("perferredDate", perferredDate);
+			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + perferredDate + "&serviceCentreCode=" + csCenter;
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if (lang.equals("tc")) {
+				lang = "CN";
+			}
+			
+			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+			header.put("userName", "*DIRECTGI");
+			header.put("token", commonUtils.getToken("reload"));
+			header.put("language", WebServiceUtils.transformLanaguage(lang));
+			
+			responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+			if(responseJsonObj.get("timeSlots") == null || responseJsonObj.get("timeSlots") == ""){
+				logger.info(responseJsonObj.toString());
+			}
+		}
+		else{
+			responseJsonObj.put("sessionError", "sessionError");
+		}
+		response.setContentType("text/json;charset=utf-8");
+		try {
+			logger.info(responseJsonObj.toString());
+			response.getWriter().print(responseJsonObj.toString());
+		}catch(Exception e) {  
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 服务中心提交
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void upsertAppointment(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		response.setContentType("text/json;charset=utf-8");
+		HttpSession session = request.getSession();
+		String csCenter = request.getParameter("csCenter");
+		String perferredDate = request.getParameter("perferredDate");
+		String perferredTime = request.getParameter("perferredTime");
+		String planCode = "savie";
+		String policyNumber = "";
+		String applicationNumber = "";
+		String userName = (String)session.getAttribute("username");
+		String status = "Active";
+		String remarks = "";
+		String accessCode = (String)request.getSession().getAttribute("accessCode");
+		String servicingAgent = "";
+		
+		String applicationUrl = UserRestURIConstants.SERVICE_URL + "/savie/application";
+		String makeUrl = UserRestURIConstants.SERVICE_URL + "/appointment/make";
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		
+		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", "*DIRECTGI");
+		header.put("token", commonUtils.getToken("reload"));
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		
+		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+		parameters.put("planCode", planCode);
+		parameters.put("accessCode", accessCode);
+		org.json.simple.JSONObject appJsonObj = restService.consumeApi(HttpMethod.PUT, applicationUrl, header, parameters);
+		applicationNumber = (String)appJsonObj.get("applicationNumber");
+		session.setAttribute("applicationNumber", applicationNumber);
+		
+		if(appJsonObj != null) {
+			parameters = new org.json.simple.JSONObject();
+			parameters.put("serviceCentreCode", csCenter);
+			parameters.put("date", perferredDate);
+			parameters.put("timeSlot", perferredTime);
+			parameters.put("planCode", planCode);
+			parameters.put("policyNumber", policyNumber);
+			parameters.put("applicationNumber", applicationNumber);
+			parameters.put("userName", userName);
+			parameters.put("status", status);
+			parameters.put("remarks", remarks);
+			parameters.put("accessCode", accessCode);
+			parameters.put("servicingAgent", servicingAgent);
+			
+			org.json.simple.JSONObject makeJsonObj = restService.consumeApi(HttpMethod.POST, makeUrl, header, parameters);
+			
+			response.setContentType("text/json;charset=utf-8");
+			try {
+				logger.info(makeJsonObj.toString());
+				response.getWriter().print(makeJsonObj.toString());
+			}catch(Exception e) {  
+				e.printStackTrace();
+				response.getWriter().print("application error!");
+			}
+		}else {
+			response.getWriter().print("application error!");
+		}
+	}
+	
+	/**
+	 * 获取accessCode
+	 * @param request
+	 * @return
+	 */
+	public org.json.simple.JSONObject getAccessCode(HttpServletRequest request) {
+		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/accessCode";
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		final Map<String,String> header = headerUtil.getHeader(request);
+		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		if(responseJsonObj.get("errMsgs")==null){
+			request.getSession().setAttribute("accessCode", responseJsonObj.get("accessCode"));
+		}
+		return responseJsonObj;
 	}
 }
