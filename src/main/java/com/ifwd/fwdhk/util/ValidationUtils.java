@@ -1,14 +1,6 @@
 package com.ifwd.fwdhk.util;
 
-import org.json.simple.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpMethod;
-
-import com.ifwd.fwdhk.api.controller.RestServiceDao;
-import com.ifwd.fwdhk.api.controller.RestServiceImpl;
-import com.ifwd.fwdhk.exception.ValidationExceptions;
-
+import java.math.BigInteger;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -16,15 +8,13 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
-
-
-
-
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.ifwd.fwdhk.exception.ValidationExceptions;
 
 /**
  * The Class ValidationErrorUtils which contains various methods pertaining to
@@ -69,6 +59,24 @@ public class ValidationUtils {
 			}
 		}
 		return true;
+	}
+	
+	public static boolean isInteger(String str) {
+		try{
+			Integer.valueOf(str);
+			return true;
+		}catch(Exception e){
+			return false;
+		}
+	}
+	
+	public static boolean isBigInteger(String str) {
+		try{
+			new BigInteger(str);
+			return true;
+		}catch(Exception e){
+			return false;
+		}
 	}
 	
 	public static boolean isValidDate(String str) {
