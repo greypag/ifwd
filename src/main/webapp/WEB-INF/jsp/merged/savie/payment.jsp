@@ -289,7 +289,7 @@ var language = "${language}";
 					</div>
 					
 					<center>
-						<button type="submit" id="btn-next" class="btn btn-payment" onclick="goNext();">Next</button>
+						<button type="button" id="btn-next" class="btn btn-payment" onclick="goNext();">Next</button>
 						<br /><a href="#" class="save-link" id="payment-save-and-con">Save and continue later</a>
 						<button type="button" id="btn-back" class="btn btn-payment hidden">Back to application summary</button>
 					</center>
@@ -721,6 +721,7 @@ var language = "${language}";
 					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePayment",
 					  data: $("#paymentForm").serialize(),
 					  success : function(data) {
+						  alert()
 						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 							  $("#errorMsg").html(data.errorMsg);
 						  }
