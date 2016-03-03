@@ -6,6 +6,7 @@
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
 	prefix="dec"%>
 
+<!DOCTYPE HTML>
 <html>
 <head>
 <script type="text/javascript">
