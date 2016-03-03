@@ -249,6 +249,13 @@ $(document).ready(function() {
 	   if($(this).val() == '') {
 		   $(this).parent('.selectDiv').removeClass('is-not-active');
 		}
+		
+		// passing select value to its input hidden element
+		// need to use input hidden element for disabled select field
+		var inputHiddenElem = $(this).siblings('input[type=hidden]');
+		if(inputHiddenElem !== 'undefiine') {
+			inputHiddenElem.val($(this).val());
+		}
    })
    
    // to change dropdown label color
@@ -467,9 +474,9 @@ $(document).ready(function() {
 	    new PNotify(opts);
 	}
 	
-	// [Fixed this case] In some pages, class 'is-not-active' is dynamically added after page load.
-	// As a default, div.selectDiv should not have class 'is-not-active' to apply the default style (select field with empty value).
-	$('.selectDiv').removeClass('is-not-active');
+	$('#beneficiaryHkidPassport\\[0\\]').parent('.selectDiv').removeClass('is-not-active')
+	$('#beneficiaryHkidPassport\\[1\\]').parent('.selectDiv').removeClass('is-not-active')
+	$('#beneficiaryHkidPassport\\[2\\]').parent('.selectDiv').removeClass('is-not-active')
 });
 
 // Checkbox
@@ -2307,4 +2314,40 @@ function fmoney(s) {
       t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");   
    }   
    return t.split("").reverse().join("");   
+}
+
+// set input field to readonly or not
+// params: element id (str), isReadonly (boolean)
+function setInputReadonly(elementId, isReadonly) {
+	var elem = $('#' + elementId);
+	if(isReadonly) {
+		elem.attr('readonly', 'readonly');
+		elem.addClass('readonly-field');
+	} else {
+		elem.removeAttr('readonly', 'readonly');
+		elem.removeClass('readonly-field');
+	}
+	
+	if(elem.val() != '' && elem.val() != null) {
+		elem.parent('.so-mdl-textfield').addClass('is-not-active');
+	} else {
+		elem.siblings('label').addClass('readonly-field-label');
+	}
+}
+
+// set select field to readonly or not
+// params: element id (str), isReadonly (boolean)
+function setSelectReadonly(elementId, isReadonly) {
+	var elem = $('#' + elementId);
+	if(isReadonly) {
+		elem.attr('disabled', 'disabled');
+		elem.addClass('readonly-field');
+	} else {
+		elem.removeAttr('disabled', 'disabled');
+		elem.removeClass('readonly-field');
+	}
+	
+	if(elem.val() != '' && elem.val() != null) {
+		elem.parent('.selectDiv').addClass('is-not-active');
+	}
 }
