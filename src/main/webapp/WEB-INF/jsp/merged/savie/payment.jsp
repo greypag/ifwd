@@ -109,26 +109,26 @@
 							<div id="direct-debit-panel">
 								<div class="row">
 									<div class="col-xs-12 col-md-6">
-										<div class="info-wrapper">
-											<p class="info-label">Amount</p>
-											<p class="info-value">
-											   HK$ ${saviePlanDetails.insuredAmount }
-											   <input type="hidden" name="paymentAmount" value="${saviePlanDetails.insuredAmount }">
-											</p>
+										<div class="form-group">
+											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="paymentAmount" name="paymentAmount" value="${saviePlanDetails.insuredAmount }">
+												<label class="mdl-textfield__label" for="paymentAmount">Amount</label>
+											</div>
+											<span class="error-msg" id="paymentAmountErMsg"></span>
 										</div>
-										<div class="info-wrapper">
-											<p class="info-label">Payment method</p>
-											<p class="info-value">
-											   Direct debit
-											   <input type="hidden" name="paymentMethod" value="Direct debit">
-											</p>
+										<div class="form-group">
+											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="paymentMethod" name="paymentMethod" value="Direct debit">
+												<label class="mdl-textfield__label" for="paymentMethod">Payment Method</label>
+											</div>
+											<span class="error-msg" id="paymentMethodErMsg"></span>
 										</div>
-										<div class="info-wrapper">
-											<p class="info-label">Bank account holder name</p>
-											<p class="info-value">
-											   ${userDetails.fullName }
-											   <input type="hidden" name="accountHolderName" value="${userDetails.fullName }">
-											</p>
+										<div class="form-group">
+											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="accountHolderName" name="accountHolderName" value="${userDetails.fullName }">
+												<label class="mdl-textfield__label" for="accountHolderName">Bank account holder name</label>
+											</div>
+											<span class="error-msg" id="accountHolderNameErMsg"></span>
 										</div>
 									</div>
 									<div class="col-xs-12 col-md-6">
@@ -332,6 +332,12 @@
 					$('#application-saved-modal').modal('show');
 				});
 				
+				// set fields whether editable or not
+				setInputReadonly('paymentAmount', true);
+				setInputReadonly('paymentMethod', true);
+				setInputReadonly('accountHolderName', true);
+				// -------				
+				
 				paymentFormValidation();
 				
 				$("input[type='radio']").on('click', function() {
@@ -371,19 +377,6 @@
 					   $(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
 					}
 				});
-								
-				/** temporary code **/
-				 $('.so-mdl-textfield-input').focus(function () {
-					   $(this).parent('.so-mdl-textfield').removeClass('is-not-active');
-					   $(this).parent('.so-mdl-textfield').addClass('is-active');
-			   }).on('blur', function () {
-					   $(this).parent('.so-mdl-textfield').addClass('is-not-active');
-					   $(this).parent('.so-mdl-textfield').removeClass('is-active');
-					   if($(this).val() == '') {
-						   $(this).parent('.so-mdl-textfield').removeClass('is-not-active');
-					   }
-			   });
-			   /*****************/
 			   
 			   $('#preferredDate').on('changeDate show', function(e) {
 					$(this).parent('.selectDiv').parent('.so-mdl-textfield').addClass('is-not-active');
@@ -413,10 +406,42 @@
 			function paymentFormValidation() {
 				$('#paymentForm').bootstrapValidator({
 					//excluded: [':disabled', ':hidden', ':not(:visible)'],
-					excluded: [':disabled'],
+					excluded: [':disabled', '.readonly-field'],
 					fields: {
-						bankCode: {
+						paymentAmount: {
+							container: '#paymentAmountErMsg',
+							selector: '#paymentAmount',
+							validators: {
+							  notEmpty: {
+								 message: "Please enter amount."
+							  },
+							  regexp: {
+								  regexp: /^[1-9]\d*(\.\d+)?$/,
+								  message: "Amount is invalid."
+							  }
+							}
+						},
+						paymentMethod: {
+							container: '#paymentMethodErMsg',
+							selector: '#paymentMethod',
+							validators: {
+							  notEmpty: {
+								 message: "Please enter payment method."
+							  }
+							}
+						},
+						accountHolderName: {
+							container: '#accountHolderNameErMsg',
+							selector: '#accountHolderName',
+							validators: {
+							  notEmpty: {
+								 message: "Please enter bank account holder name."
+							  }
+							}
+						},
+						tmpBankCode: {
 							container: '#bankCodeErMsg',
+							selector: '#tmpBankCode',
 							validators: {
 							  notEmpty: {
 								 message: "Please select bank code."
@@ -425,6 +450,7 @@
 						},
 						bankAccountNo: {
 						   container: '#bankAccountNoErMsg',
+						   selector: '#bankAccountNo',
 						   validators: {
 							  notEmpty: {
 								 message: "Please enter account number."
@@ -435,16 +461,18 @@
 							   }
 						   }
 						},
-						branchName: {
+						tmpBranchName: {
 							container: '#branchNameErMsg',
+							selector: '#tmpBranchName',
 							validators: {
 							  notEmpty: {
 								 message: "Please select branch name."
 							  }
 							}
 						},
-						customerServiceCentre: {
+						tmpCustomerServiceCentre: {
 						   container: '#customerServiceCentreErMsg',
+						   selector: '#tmpCustomerServiceCentre',
 						   validators: {
 							  notEmpty: {
 								 message: "Please select customer service centre."
@@ -453,6 +481,7 @@
 						},
 						"preferredDate": {
 						   container: '#preferredDateErMsg',
+						   selector: '#preferredDate',
 						   validators: {
 							  notEmpty: {
 								 message: "Please specify a date."
@@ -461,6 +490,7 @@
 						},
 						"preferred-time": {
 						   container: '#preferredTimeErMsg',
+						   selector: '#preferred-time',
 						   validators: {
 							  notEmpty: {
 								 message: "Please specify a time."
