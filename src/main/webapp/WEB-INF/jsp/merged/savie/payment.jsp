@@ -134,32 +134,78 @@ var language = "${language}";
 									</p>
 								</div>
 							</div>
-							<div class="col-xs-12 col-md-6">
-								<div class="payment-select-wrapper">
-									<p class="bank-info-select-label">Bank name (code)</p>
-								   <div class="selectDiv centreDiv gray-text-bg">
-										<select name="bankCode" id="bank_code" onchange="getBranchCode(this.value,'${language }');" class="form-control gray-dropdown">
-											<option selected disabled value="">Bank name (code)</option>
-											<c:if test="${language == 'en'}">
-												<c:forEach var="list" items="${bankCodeEN}">
-												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
-												</c:forEach>
-											</c:if>
-											<c:if test="${language == 'tc'}">
-												<c:forEach var="list" items="${bankCodeCN}">
-												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
-												</c:forEach>
-											</c:if>
-										</select>
-										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
-									 </div>
-								</div>
-								<div class="form-group">
-									<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-										<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="bankAccountNo" name="accountNumber" value="${lifePayment.accountNumber }">
-										<label class="mdl-textfield__label" for="bankAccountNo">Account no.</label>
+							<div id="direct-debit-panel">
+								<div class="row">
+									<div class="col-xs-12 col-md-6">
+										<div class="form-group">
+											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="paymentAmount" name="paymentAmount" value="${saviePlanDetails.insuredAmount }">
+												<label class="mdl-textfield__label" for="paymentAmount">Amount</label>
+											</div>
+											<span class="error-msg" id="paymentAmountErMsg"></span>
+										</div>
+										<div class="form-group">
+											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="paymentMethod" name="paymentMethod" value="Direct debit">
+												<label class="mdl-textfield__label" for="paymentMethod">Payment Method</label>
+											</div>
+											<span class="error-msg" id="paymentMethodErMsg"></span>
+										</div>
+										<div class="form-group">
+											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="accountHolderName" name="accountHolderName" value="${userDetails.fullName }">
+												<label class="mdl-textfield__label" for="accountHolderName">Bank account holder name</label>
+											</div>
+											<span class="error-msg" id="accountHolderNameErMsg"></span>
+										</div>
+									</div>
+									<div class="col-xs-12 col-md-6">
+										<div class="payment-select-wrapper">
+											<p class="bank-info-select-label">Bank name (code)</p>
+										   <div class="selectDiv centreDiv gray-text-bg">
+												<select name="bankCode" id="bank_code" onchange="getBranchCode(this.value,'${language }');" class="form-control gray-dropdown">
+													<option selected disabled value="">Bank name (code)</option>
+													<c:if test="${language == 'en'}">
+														<c:forEach var="list" items="${bankCodeEN}">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+														<c:forEach var="list" items="${bankCodeCN}">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</c:forEach>
+													</c:if>
+												</select>
+												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+											 </div>
+										</div>
+										<div class="form-group">
+											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="bankAccountNo" name="accountNumber" value="${lifePayment.accountNumber }">
+												<label class="mdl-textfield__label" for="bankAccountNo">Account no.</label>
+											</div>
+											<span class="error-msg" id="bankAccountNoErMsg"></span>
+										</div>
+										<div class="form-group">
+											<div class="selectDiv centreDiv gray-text-bg">
+												<label class="mdl-textfield__label cstm-dropdown-label">Branch name (code)</label>
+												<select name="branchCode" id="bank_name" class="form-control gray-dropdown">
+													<option selected disabled value="">Branch name (code)</option>
+													<c:if test="${language == 'en'}">
+														<c:forEach var="list" items="${branchCodeEN}">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</c:forEach>
+													</c:if>
+													<c:if test="${language == 'tc'}">
+														<c:forEach var="list" items="${branchCodeCN}">
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.branchCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														</c:forEach>
+													</c:if>
+												</select>
+												<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
+											</div>
+											<span class="error-msg" id="branchNameErMsg"></span>
+										</div>
 									</div>
 									<span class="error-msg" id="bankAccountNoErMsg"></span>
 								</div>
@@ -515,81 +561,205 @@ var language = "${language}";
 			   $(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
 			}
 			
-			$('#paymentForm')
-				.data('bootstrapValidator')
-				.updateStatus('preferredDate', 'NOT_VALIDATED', null)
-				.validateField('preferredDate');
-	   });
-	   
-	   $('#preferred-time').on('change', function() {
-		   $('#paymentForm')
-				.data('bootstrapValidator')
-				.updateStatus('preferred-time', 'NOT_VALIDATED', null)
-				.validateField('preferred-time');
-	   });
-	   
-	   $('.policy-text').on('click', function() {
-		   $('#payment_confirm_authorize').click();
-	   });
-	});
-	
-	// Payment form validation
-	function paymentFormValidation() {
-		$('#paymentForm').bootstrapValidator({
-			//excluded: [':disabled', ':hidden', ':not(:visible)'],
-			excluded: [':disabled'],
-			fields: {
-				bankCode: {
-					container: '#bankCodeErMsg',
-					validators: {
-					  notEmpty: {
-						 message: "Please select bank code."
-					  }
+			$(document).ready(function() {
+				
+				var dummy = true;
+				// dummy condition for displaying the back / next button
+				if(dummy) {
+					// hide the back button and display the Next button
+					$('#btn-next, .save-link').removeClass('hidden');
+					$('#btn-back').addClass('hidden');
+				} else {
+					// display the back button and hide the Next button
+					$('#btn-next, .save-link').addClass('hidden');
+					$('#btn-back').removeClass('hidden');
+				}
+				
+				// application saved modal will show after clicking 'Save and exit' button 
+				$('.save-exit-btn2, #save-exit-btn').click(function() {
+					$(this).closest('.modal').modal('hide');
+					$('#application-saved-modal').modal('show');
+				});
+				
+				// set fields whether editable or not
+				setInputReadonly('paymentAmount', true);
+				setInputReadonly('paymentMethod', true);
+				setInputReadonly('accountHolderName', true);
+				// -------				
+				
+				paymentFormValidation();
+				
+				$("input[type='radio']").on('click', function() {
+					if($('#payment-debit:checked').length > 0 ) {
+						$('#pay-later-page').addClass('hidden');
+						$('#direct-debit-panel').removeClass('hidden');
+						$('.save-link').removeClass('hidden');
+					} else {
+						$('#direct-debit-panel').addClass('hidden');
+						$('.save-link').addClass('hidden');
+						$('#pay-later-page').removeClass('hidden');
 					}
-				},
-				bankAccountNo: {
-				   container: '#bankAccountNoErMsg',
-				   validators: {
-					  notEmpty: {
-						 message: "Please enter account number."
-					  },
-					   regexp: {
-						  regexp: /^[0-9]*$/,
-						  message: "Bank account number is invalid."
-					   }
-				   }
-				},
-				branchName: {
-					container: '#branchNameErMsg',
-					validators: {
-					  notEmpty: {
-						 message: "Please select branch name."
-					  }
+				});
+				
+				$('span.icon-chevron-thin-down.orange-caret').on('click', function() {
+					var selectId = $(this).attr('data-selectId');
+					open($('#' + selectId));
+				});
+				
+				$('#payment-save-and-con').on('click', function (e) {
+                    if($('#paymentForm').data('bootstrapValidator').isValid()) {
+						$('#save-and-continue-batch5-modal').modal('show');
+                    } else {
+						$('#save-and-continue-modal').modal('show');
+                    }
+                });
+				
+				$('.form-control.gray-dropdown').focus(function() {
+					$(this).parent('.selectDiv').siblings('.bank-info-select-label').attr('style', 'color: #ff8200;');
+					$(this).parent('.selectDiv').parent('.so-mdl-textfield').addClass('is-focused');
+					$(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
+				}).on('blur', function () {
+					$(this).parent('.selectDiv').siblings('.bank-info-select-label').removeAttr('style');
+					$(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-focused');
+					$(this).parent('.selectDiv').parent('.so-mdl-textfield').addClass('is-not-active');
+					 if($(this).val() == '') {
+					   $(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
 					}
-				},
-				customerServiceCentre: {
-				   container: '#customerServiceCentreErMsg',
-				   validators: {
-					  notEmpty: {
-						 message: "Please select customer service centre."
-					  }
-				   }
-				},
-				"preferredDate": {
-				   container: '#preferredDateErMsg',
-				   validators: {
-					  notEmpty: {
-						 message: "Please specify a date."
-					  }
-				   }
-				},
-				"preferred-time": {
-				   container: '#preferredTimeErMsg',
-				   validators: {
-					  notEmpty: {
-						 message: "Please specify a time."
-					  }
-				   }
+				});
+			   
+			   $('#preferredDate').on('changeDate show', function(e) {
+					$(this).parent('.selectDiv').parent('.so-mdl-textfield').addClass('is-not-active');
+					 if($(this).val() == '') {
+					   $(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
+					}
+					
+					$('#paymentForm')
+						.data('bootstrapValidator')
+						.updateStatus('preferredDate', 'NOT_VALIDATED', null)
+						.validateField('preferredDate');
+			   });
+			   
+			   $('#preferred-time').on('change', function() {
+				   $('#paymentForm')
+						.data('bootstrapValidator')
+						.updateStatus('preferred-time', 'NOT_VALIDATED', null)
+						.validateField('preferred-time');
+			   });
+			   
+			   $('.policy-text').on('click', function() {
+				   $('#payment_confirm_authorize').click();
+			   });
+			});
+			
+			// Payment form validation
+			function paymentFormValidation() {
+				$('#paymentForm').bootstrapValidator({
+					//excluded: [':disabled', ':hidden', ':not(:visible)'],
+					excluded: [':disabled', '.readonly-field'],
+					fields: {
+						paymentAmount: {
+							container: '#paymentAmountErMsg',
+							selector: '#paymentAmount',
+							validators: {
+							  notEmpty: {
+								 message: "Please enter amount."
+							  },
+							  regexp: {
+								  regexp: /^[1-9]\d*(\.\d+)?$/,
+								  message: "Amount is invalid."
+							  }
+							}
+						},
+						paymentMethod: {
+							container: '#paymentMethodErMsg',
+							selector: '#paymentMethod',
+							validators: {
+							  notEmpty: {
+								 message: "Please enter payment method."
+							  }
+							}
+						},
+						accountHolderName: {
+							container: '#accountHolderNameErMsg',
+							selector: '#accountHolderName',
+							validators: {
+							  notEmpty: {
+								 message: "Please enter bank account holder name."
+							  }
+							}
+						},
+						tmpBankCode: {
+							container: '#bankCodeErMsg',
+							selector: '#tmpBankCode',
+							validators: {
+							  notEmpty: {
+								 message: "Please select bank code."
+							  }
+							}
+						},
+						bankAccountNo: {
+						   container: '#bankAccountNoErMsg',
+						   selector: '#bankAccountNo',
+						   validators: {
+							  notEmpty: {
+								 message: "Please enter account number."
+							  },
+							   regexp: {
+								  regexp: /^[0-9]*$/,
+								  message: "Bank account number is invalid."
+							   }
+						   }
+						},
+						tmpBranchName: {
+							container: '#branchNameErMsg',
+							selector: '#tmpBranchName',
+							validators: {
+							  notEmpty: {
+								 message: "Please select branch name."
+							  }
+							}
+						},
+						tmpCustomerServiceCentre: {
+						   container: '#customerServiceCentreErMsg',
+						   selector: '#tmpCustomerServiceCentre',
+						   validators: {
+							  notEmpty: {
+								 message: "Please select customer service centre."
+							  }
+						   }
+						},
+						"preferredDate": {
+						   container: '#preferredDateErMsg',
+						   selector: '#preferredDate',
+						   validators: {
+							  notEmpty: {
+								 message: "Please specify a date."
+							  }
+						   }
+						},
+						"preferred-time": {
+						   container: '#preferredTimeErMsg',
+						   selector: '#preferred-time',
+						   validators: {
+							  notEmpty: {
+								 message: "Please specify a time."
+							  }
+						   }
+						}
+					}
+				}).on('success.form.bv', function(e) {
+						e.preventDefault();
+				}).on('error.form.bv', function(e) {
+				});
+			}
+			
+			function open(elem) {
+				if (document.createEvent) {
+					var e = document.createEvent("MouseEvents");
+					e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+					elem[0].dispatchEvent(e);
+				} else if (element.fireEvent) {
+					elem[0].fireEvent("onmousedown");
 				}
 			}
 		}).on('success.form.bv', function(e) {
@@ -646,9 +816,17 @@ var language = "${language}";
 		if(getWidth()>=992) {
 		   var inner_centre_html = $('#inline-centre').html();
 
-		   $('#inline-centre').addClass('hidden');
-		   $('#right-centre').append(inner_centre_html).removeClass('hidden');
-		   $('#inline-centre').html('');
+			 var img1 = "<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg";
+			 var img2 = "<%=request.getContextPath()%>/resources/images/savie-2016/quarry_bay.jpg";
+			 var img3 = "<%=request.getContextPath()%>/resources/images/savie-2016/sheung_wan.jpg";
+			 var img4 = "<%=request.getContextPath()%>/resources/images/savie-2016/kwuntong.jpg";
+			 var img5 = "<%=request.getContextPath()%>/resources/images/savie-2016/shatin.jpg";
+			 var getpath = "<%=request.getContextPath()%>";
+			 var addr1 = "G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui";
+			 var addr2 = "13/F, Devon House, Taikoo Place, 979 King’s Road, Quarry Bay";
+			 var addr3 = "1/F, FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan";
+			 var addr4 = "Office E, 12/F, Legend Tower, No.7 Shing Yip Street, Kwun Tong";
+			 var addr5 = "Unit 1720 -21, Level 17, Tower II, Grand Central Plaza, Shatin";
 
 		}
 		else {

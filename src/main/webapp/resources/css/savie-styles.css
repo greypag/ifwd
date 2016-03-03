@@ -560,10 +560,14 @@ a:hover {
   border-bottom: 2px solid #Ff8200 !important;
 }
 /* line 221, ../sass/partials/savie/_common.scss */
+.selectDiv .gray-dropdown.readonly-field:hover {
+  border-bottom: none !important;
+}
+/* line 225, ../sass/partials/savie/_common.scss */
 .selectDiv .form-control:focus {
   border: none;
 }
-/* line 225, ../sass/partials/savie/_common.scss */
+/* line 229, ../sass/partials/savie/_common.scss */
 .selectDiv .orange-caret-bg {
   position: absolute;
   top: 50%;
@@ -571,27 +575,27 @@ a:hover {
   width: 10px;
 }
 @media (min-width: 992px) {
-  /* line 225, ../sass/partials/savie/_common.scss */
+  /* line 229, ../sass/partials/savie/_common.scss */
   .selectDiv .orange-caret-bg {
     right: 20px;
   }
 }
-/* line 235, ../sass/partials/savie/_common.scss */
+/* line 239, ../sass/partials/savie/_common.scss */
 .selectDiv .gray-textbox {
   padding-left: 15px;
   padding-right: 15px;
 }
-/* line 240, ../sass/partials/savie/_common.scss */
+/* line 244, ../sass/partials/savie/_common.scss */
 .selectDiv .cstm-textfield-label {
   padding-left: 15px;
   top: 10px;
   font-size: 14px;
 }
-/* line 246, ../sass/partials/savie/_common.scss */
+/* line 250, ../sass/partials/savie/_common.scss */
 .selectDiv .cstm-dropdown-label {
   display: none;
 }
-/* line 250, ../sass/partials/savie/_common.scss */
+/* line 254, ../sass/partials/savie/_common.scss */
 .selectDiv.is-not-active .cstm-textfield-label,
 .selectDiv.is-not-active .cstm-dropdown-label {
   font-size: 12px;
@@ -599,33 +603,33 @@ a:hover {
   color: #373a36;
   padding-left: 15px;
 }
-/* line 257, ../sass/partials/savie/_common.scss */
+/* line 261, ../sass/partials/savie/_common.scss */
 .selectDiv.is-not-active .cstm-dropdown-label {
   display: block;
 }
-/* line 259, ../sass/partials/savie/_common.scss */
+/* line 263, ../sass/partials/savie/_common.scss */
 .selectDiv.is-not-active .gray-dropdown {
   color: #000 !important;
   padding-top: 10px !important;
 }
-/* line 263, ../sass/partials/savie/_common.scss */
+/* line 267, ../sass/partials/savie/_common.scss */
 .selectDiv.is-not-active .gray-dropdown.pd-dropdown {
   padding-top: 3px !important;
 }
 
-/* line 271, ../sass/partials/savie/_common.scss */
+/* line 275, ../sass/partials/savie/_common.scss */
 .centreDiv {
   overflow: hidden;
 }
 
-/* line 275, ../sass/partials/savie/_common.scss */
+/* line 279, ../sass/partials/savie/_common.scss */
 .breadcrumb-container {
   max-width: 1115px;
   margin: 0 auto 0 25px;
   padding: 0;
 }
 @media (min-width: 992px) {
-  /* line 275, ../sass/partials/savie/_common.scss */
+  /* line 279, ../sass/partials/savie/_common.scss */
   .breadcrumb-container {
     padding-left: 15px;
     padding-right: 15px;
@@ -633,19 +637,19 @@ a:hover {
   }
 }
 
-/* line 286, ../sass/partials/savie/_common.scss */
+/* line 290, ../sass/partials/savie/_common.scss */
 .fwd-container, .fwd-container-limit {
   max-width: 1115px !important;
 }
 
-/* line 289, ../sass/partials/savie/_common.scss */
+/* line 293, ../sass/partials/savie/_common.scss */
 .browse-container {
   max-width: 1115px;
   margin: 0 auto;
   padding-left: 12px;
 }
 
-/* line 294, ../sass/partials/savie/_common.scss */
+/* line 298, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs {
   display: block;
   max-width: none !important;
@@ -653,13 +657,13 @@ a:hover {
   padding-right: 0 !important;
 }
 @media (min-width: 992px) {
-  /* line 294, ../sass/partials/savie/_common.scss */
+  /* line 298, ../sass/partials/savie/_common.scss */
   .fwd-savie-wrapper .breadcrumbs {
     background: #f3f4f5;
     margin: 0;
   }
 }
-/* line 304, ../sass/partials/savie/_common.scss */
+/* line 308, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb {
   display: block;
   		/*li.active-bc {
@@ -674,124 +678,124 @@ a:hover {
   			}
   		}*/
 }
-/* line 308, ../sass/partials/savie/_common.scss */
+/* line 312, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb li a {
   color: #333;
   font-size: 14px;
   font-weight: 600;
 }
-/* line 314, ../sass/partials/savie/_common.scss */
+/* line 318, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb li.active-bc {
   font-size: 14px;
   color: #ff8200;
 }
-/* line 319, ../sass/partials/savie/_common.scss */
+/* line 323, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb li.divider {
   border-right: none;
   margin: 0;
   padding: 0 10px;
 }
-/* line 324, ../sass/partials/savie/_common.scss */
+/* line 328, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb li.divider .fa-play {
   top: -8px;
 }
-/* line 326, ../sass/partials/savie/_common.scss */
+/* line 330, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb li.divider.last {
   padding-right: 10px;
 }
-/* line 329, ../sass/partials/savie/_common.scss */
+/* line 333, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb li.divider.last .fa-play {
   left: 6px;
 }
-/* line 347, ../sass/partials/savie/_common.scss */
+/* line 351, ../sass/partials/savie/_common.scss */
 .fwd-savie-wrapper .breadcrumbs .breadcrumb.breadcrumbs-product-details {
   padding: 8px 0 0 0;
   margin-top: 0;
 }
 @media (min-width: 992px) {
-  /* line 347, ../sass/partials/savie/_common.scss */
+  /* line 351, ../sass/partials/savie/_common.scss */
   .fwd-savie-wrapper .breadcrumbs .breadcrumb.breadcrumbs-product-details {
     margin: 0;
     padding: 3px 0;
   }
 }
 
-/* line 357, ../sass/partials/savie/_common.scss */
+/* line 361, ../sass/partials/savie/_common.scss */
 .heading-title {
   font-size: 18px;
   color: #ff8200;
 }
 
-/* line 362, ../sass/partials/savie/_common.scss */
+/* line 366, ../sass/partials/savie/_common.scss */
 .common-steps-list li {
   padding-left: 25px;
 }
-/* line 364, ../sass/partials/savie/_common.scss */
+/* line 368, ../sass/partials/savie/_common.scss */
 .common-steps-list li#first-step {
   padding-left: 0;
 }
-/* line 368, ../sass/partials/savie/_common.scss */
+/* line 372, ../sass/partials/savie/_common.scss */
 .common-steps-list li .incomplete-step .status {
   color: #ff8200 !important;
   background: none !important;
   border: 1px solid #ff8200;
 }
-/* line 374, ../sass/partials/savie/_common.scss */
+/* line 378, ../sass/partials/savie/_common.scss */
 .common-steps-list li .status {
   width: 24px;
   height: 24px !important;
   padding: 0 !important;
 }
-/* line 380, ../sass/partials/savie/_common.scss */
+/* line 384, ../sass/partials/savie/_common.scss */
 .common-steps-list li .active .status {
   padding: 1px !important;
 }
-/* line 386, ../sass/partials/savie/_common.scss */
+/* line 390, ../sass/partials/savie/_common.scss */
 .common-steps-list.six-steps li {
   padding-left: 0;
   margin-left: 0;
 }
 @media (min-width: 1200px) {
-  /* line 386, ../sass/partials/savie/_common.scss */
+  /* line 390, ../sass/partials/savie/_common.scss */
   .common-steps-list.six-steps li {
     padding-left: 6px;
   }
 }
 @media (min-width: 992px) and (max-width: 1069px) {
-  /* line 392, ../sass/partials/savie/_common.scss */
+  /* line 396, ../sass/partials/savie/_common.scss */
   .common-steps-list.six-steps li button {
     font-size: 16px !important;
   }
 }
 @media (min-width: 1070px) {
-  /* line 392, ../sass/partials/savie/_common.scss */
+  /* line 396, ../sass/partials/savie/_common.scss */
   .common-steps-list.six-steps li button {
     font-size: 18px;
   }
 }
-/* line 403, ../sass/partials/savie/_common.scss */
+/* line 407, ../sass/partials/savie/_common.scss */
 .common-steps-list.five-steps li {
   padding-left: 21px;
 }
 
 @media (max-width: 992px) {
-  /* line 409, ../sass/partials/savie/_common.scss */
+  /* line 413, ../sass/partials/savie/_common.scss */
   .with-breadcrumbs-steps .breadcrumbs {
     padding-top: 50px;
   }
 }
 @media (max-width: 992px) {
-  /* line 414, ../sass/partials/savie/_common.scss */
+  /* line 418, ../sass/partials/savie/_common.scss */
   .with-breadcrumbs-steps .browse-holder {
     margin-top: 16px !important;
   }
 }
-/* line 418, ../sass/partials/savie/_common.scss */
+/* line 422, ../sass/partials/savie/_common.scss */
 .with-breadcrumbs-steps .browse-holder h3 {
   line-height: 24px;
 }
 
-/* line 424, ../sass/partials/savie/_common.scss */
+/* line 428, ../sass/partials/savie/_common.scss */
 #step-of {
   position: absolute;
   right: 30px;
@@ -800,37 +804,37 @@ a:hover {
   font-size: 14px;
 }
 
-/* line 432, ../sass/partials/savie/_common.scss */
+/* line 436, ../sass/partials/savie/_common.scss */
 .ui-loader {
   display: none;
 }
 
-/* line 437, ../sass/partials/savie/_common.scss */
+/* line 441, ../sass/partials/savie/_common.scss */
 .radio-group h4 {
   color: #ff8200;
 }
-/* line 440, ../sass/partials/savie/_common.scss */
+/* line 444, ../sass/partials/savie/_common.scss */
 .radio-group .below {
   margin-top: 8px;
 }
 @media (min-width: 992px) {
-  /* line 440, ../sass/partials/savie/_common.scss */
+  /* line 444, ../sass/partials/savie/_common.scss */
   .radio-group .below {
     margin-top: 0;
   }
 }
-/* line 447, ../sass/partials/savie/_common.scss */
+/* line 451, ../sass/partials/savie/_common.scss */
 .radio-group .radio-button-group {
   margin-top: 8px;
 }
-/* line 450, ../sass/partials/savie/_common.scss */
+/* line 454, ../sass/partials/savie/_common.scss */
 .radio-group .radio-button-group .desc {
   font-size: 14px;
   color: #373a36;
   font-family: 'Calibri-bold';
   padding-top: 4px;
 }
-/* line 456, ../sass/partials/savie/_common.scss */
+/* line 460, ../sass/partials/savie/_common.scss */
 .radio-group .radio-button-group .desc span {
   color: #9ba5a7;
   font-family: 'Calibri';
@@ -838,13 +842,13 @@ a:hover {
   line-height: 15px;
 }
 @media (min-width: 992px) {
-  /* line 456, ../sass/partials/savie/_common.scss */
+  /* line 460, ../sass/partials/savie/_common.scss */
   .radio-group .radio-button-group .desc span {
     display: inline-block;
     padding-left: 4px;
   }
 }
-/* line 468, ../sass/partials/savie/_common.scss */
+/* line 472, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder {
   width: 27px;
   position: relative;
@@ -852,7 +856,7 @@ a:hover {
   height: 15px;
   top: 72px;
 }
-/* line 474, ../sass/partials/savie/_common.scss */
+/* line 478, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder label {
   width: 15px;
   height: 15px;
@@ -863,7 +867,7 @@ a:hover {
   border: solid 1px #ff8200;
   border-radius: 50%;
 }
-/* line 483, ../sass/partials/savie/_common.scss */
+/* line 487, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder label:after {
   content: '';
   width: 11px;
@@ -876,43 +880,43 @@ a:hover {
   border: solid 1px #fff;
   opacity: 0;
 }
-/* line 495, ../sass/partials/savie/_common.scss */
+/* line 499, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder label:hover::after {
   opacity: 0.5;
 }
-/* line 500, ../sass/partials/savie/_common.scss */
+/* line 504, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder input[type=radio] {
   visibility: hidden;
 }
-/* line 502, ../sass/partials/savie/_common.scss */
+/* line 506, ../sass/partials/savie/_common.scss */
 .radio-group .radio-holder input[type=radio]:checked + label:after {
   opacity: 1;
 }
 
-/* line 509, ../sass/partials/savie/_common.scss */
+/* line 513, ../sass/partials/savie/_common.scss */
 .centreDiv {
   overflow: hidden;
 }
 
-/* line 512, ../sass/partials/savie/_common.scss */
+/* line 516, ../sass/partials/savie/_common.scss */
 .gray-bg-data-info {
   margin-bottom: 10px;
   padding: 0px 12px 10px 12px;
   background: #F5F5F5;
   height: 40px;
 }
-/* line 517, ../sass/partials/savie/_common.scss */
+/* line 521, ../sass/partials/savie/_common.scss */
 .gray-bg-data-info label {
   font-size: 11px;
   font-weight: bold;
 }
-/* line 521, ../sass/partials/savie/_common.scss */
+/* line 525, ../sass/partials/savie/_common.scss */
 .gray-bg-data-info .data-info {
   font-size: 14px;
   line-height: 5px;
 }
 
-/* line 526, ../sass/partials/savie/_common.scss */
+/* line 530, ../sass/partials/savie/_common.scss */
 .common-yellow-btn {
   border-radius: 5px !important;
   background: #fdb714;
@@ -922,27 +926,27 @@ a:hover {
   padding: 4px 30px;
   border-bottom: 3px solid #cf9611;
 }
-/* line 534, ../sass/partials/savie/_common.scss */
+/* line 538, ../sass/partials/savie/_common.scss */
 .common-yellow-btn:hover {
   color: #FFF;
   opacity: 0.9;
 }
 
-/* line 539, ../sass/partials/savie/_common.scss */
+/* line 543, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator {
   background: #FFF;
   width: 100%;
 }
-/* line 542, ../sass/partials/savie/_common.scss */
+/* line 546, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container {
   padding: 20px 30px 0 30px;
   position: relative;
 }
-/* line 548, ../sass/partials/savie/_common.scss */
+/* line 552, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li#last-step {
   width: 23px;
 }
-/* line 551, ../sass/partials/savie/_common.scss */
+/* line 555, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li a {
   width: 24px;
   height: 24px;
@@ -953,79 +957,79 @@ a:hover {
   background: #fff;
   color: #ff8200;
 }
-/* line 560, ../sass/partials/savie/_common.scss */
+/* line 564, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li a.active {
   background: #ff8200 !important;
   color: #FFF !important;
 }
-/* line 564, ../sass/partials/savie/_common.scss */
+/* line 568, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li a.completed {
   background: #cdd2d3;
   color: #FFF;
   border: 1px solid #cdd2d3;
   font-size: 13px;
 }
-/* line 570, ../sass/partials/savie/_common.scss */
+/* line 574, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul li a .step-no {
   display: block;
   font-size: 16px;
   padding: 0 !important;
 }
-/* line 578, ../sass/partials/savie/_common.scss */
+/* line 582, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul.six-steps li {
   width: 17.11%;
 }
 @media (min-width: 420px) {
-  /* line 578, ../sass/partials/savie/_common.scss */
+  /* line 582, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.six-steps li {
     width: 17.9%;
   }
 }
 @media (min-width: 559px) {
-  /* line 578, ../sass/partials/savie/_common.scss */
+  /* line 582, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.six-steps li {
     width: 18.5%;
   }
 }
-/* line 589, ../sass/partials/savie/_common.scss */
+/* line 593, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul.five-steps li {
   width: 21.9%;
 }
 @media (min-width: 420px) {
-  /* line 589, ../sass/partials/savie/_common.scss */
+  /* line 593, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.five-steps li {
     width: 22.5%;
   }
 }
 @media (min-width: 559px) {
-  /* line 589, ../sass/partials/savie/_common.scss */
+  /* line 593, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.five-steps li {
     width: 23%;
   }
 }
 @media (min-width: 593px) {
-  /* line 589, ../sass/partials/savie/_common.scss */
+  /* line 593, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.five-steps li {
     width: 23.5%;
   }
 }
-/* line 603, ../sass/partials/savie/_common.scss */
+/* line 607, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container ul.three-steps li {
   width: 44.5%;
 }
 @media (min-width: 420px) {
-  /* line 603, ../sass/partials/savie/_common.scss */
+  /* line 607, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.three-steps li {
     width: 45.9%;
   }
 }
 @media (min-width: 559px) {
-  /* line 603, ../sass/partials/savie/_common.scss */
+  /* line 607, ../sass/partials/savie/_common.scss */
   .mobile-step-indicator .step-indicator-container ul.three-steps li {
     width: 46.9%;
   }
 }
-/* line 614, ../sass/partials/savie/_common.scss */
+/* line 618, ../sass/partials/savie/_common.scss */
 .mobile-step-indicator .step-indicator-container .step-line {
   height: 1px;
   background: #DDD;
@@ -1033,53 +1037,57 @@ a:hover {
   width: 96%;
 }
 
-/* line 623, ../sass/partials/savie/_common.scss */
+/* line 627, ../sass/partials/savie/_common.scss */
 h1 {
   font-size: 36px;
 }
 
-/* line 626, ../sass/partials/savie/_common.scss */
+/* line 630, ../sass/partials/savie/_common.scss */
 h2 {
   font-size: 30px;
 }
 
-/* line 629, ../sass/partials/savie/_common.scss */
+/* line 633, ../sass/partials/savie/_common.scss */
 h3 {
   font-size: 24px;
 }
 
-/* line 632, ../sass/partials/savie/_common.scss */
+/* line 636, ../sass/partials/savie/_common.scss */
 h4 {
   font-size: 18px;
 }
 
-/* line 635, ../sass/partials/savie/_common.scss */
+/* line 639, ../sass/partials/savie/_common.scss */
 h5 {
   font-size: 14px;
 }
 
-/* line 638, ../sass/partials/savie/_common.scss */
+/* line 642, ../sass/partials/savie/_common.scss */
 h6 {
   font-size: 12px;
 }
 
-/* line 641, ../sass/partials/savie/_common.scss */
+/* line 645, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield {
   width: 100% !important;
   padding: 0 !important;
   margin-bottom: 10px !important;
 }
-/* line 645, ../sass/partials/savie/_common.scss */
+/* line 649, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield input {
   padding: 12px 15px 0 15px !important;
   height: 40px !important;
   margin-bottom: 0 !important;
 }
-/* line 650, ../sass/partials/savie/_common.scss */
-.so-mdl-textfield input:hover {
+/* line 654, ../sass/partials/savie/_common.scss */
+.so-mdl-textfield input:hover, .so-mdl-textfield input:focus {
   border-bottom: 2px solid #Ff8200 !important;
 }
-/* line 655, ../sass/partials/savie/_common.scss */
+/* line 659, ../sass/partials/savie/_common.scss */
+.so-mdl-textfield input.readonly-field:hover, .so-mdl-textfield input.readonly-field:focus {
+  border-bottom: none !important;
+}
+/* line 663, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield label {
   font-size: 14px;
   left: 0;
@@ -1087,58 +1095,69 @@ h6 {
   padding-left: 15px;
   font-family: 'Calibri-Bold';
 }
-/* line 661, ../sass/partials/savie/_common.scss */
+/* line 669, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield label:after {
-  width: 97%;
-  background-color: #ff8200;
-  bottom: 0;
+  background-color: transparent;
+  			/*background-color: #ff8200;
+     			bottom: 0;
+  			width: 97%;*/
 }
-/* line 668, ../sass/partials/savie/_common.scss */
+/* line 677, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield.is-focused label, .so-mdl-textfield.is-dirty label {
   color: #ff8200 !important;
   top: 1px !important;
   font-size: 12px;
 }
-/* line 674, ../sass/partials/savie/_common.scss */
+/* line 683, ../sass/partials/savie/_common.scss */
+.so-mdl-textfield.is-focused .readonly-field + label, .so-mdl-textfield.is-dirty .readonly-field + label {
+  color: #373a36  !important;
+}
+/* line 686, ../sass/partials/savie/_common.scss */
+.so-mdl-textfield.is-focused .readonly-field + label.readonly-field-label, .so-mdl-textfield.is-dirty .readonly-field + label.readonly-field-label {
+  top: 10px !important;
+  color: rgba(0, 0, 0, 0.26) !important;
+  font-size: 14px !important;
+}
+/* line 693, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield.is-active {
   color: #ff8200 !important;
 }
-/* line 678, ../sass/partials/savie/_common.scss */
+/* line 697, ../sass/partials/savie/_common.scss */
 .so-mdl-textfield.is-not-active label {
   color: #373a36  !important;
   top: 1px !important;
   font-size: 12px;
 }
 
-/* line 686, ../sass/partials/savie/_common.scss */
+/* line 705, ../sass/partials/savie/_common.scss */
 .active-checkbox:after {
   border: 0px solid #FFF !important;
 }
 
-/* line 690, ../sass/partials/savie/_common.scss */
+/* line 709, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder {
   background: #061d29;
   padding: 24px 0 20px 0;
 }
 @media (max-width: 992px) {
-  /* line 690, ../sass/partials/savie/_common.scss */
+  /* line 709, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder {
     margin-top: 20px;
     padding: 24px 0 30px 0;
   }
 }
-/* line 697, ../sass/partials/savie/_common.scss */
+/* line 716, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder {
   margin-bottom: 0 !important;
   padding: 0 30px !important;
 }
 @media (min-width: 992px) {
-  /* line 697, ../sass/partials/savie/_common.scss */
+  /* line 716, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder {
     padding: 0 15px !important;
   }
 }
-/* line 703, ../sass/partials/savie/_common.scss */
+/* line 722, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .heading-title {
   color: #FFF;
   margin-left: 15px;
@@ -1146,104 +1165,104 @@ h6 {
   margin-bottom: 15px;
 }
 @media (min-width: 992px) {
-  /* line 703, ../sass/partials/savie/_common.scss */
+  /* line 722, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .heading-title {
     margin-bottom: 5px;
   }
 }
-/* line 711, ../sass/partials/savie/_common.scss */
+/* line 730, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .heading-title .fa-info-circle {
   font-size: 14px;
   margin-left: 5px;
 }
-/* line 715, ../sass/partials/savie/_common.scss */
+/* line 734, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .heading-title .fa-info-circle.info-tooltip {
   cursor: pointer;
 }
 @media (max-width: 992px) {
-  /* line 715, ../sass/partials/savie/_common.scss */
+  /* line 734, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .heading-title .fa-info-circle.info-tooltip {
     display: none;
   }
 }
 @media (min-width: 992px) {
-  /* line 723, ../sass/partials/savie/_common.scss */
+  /* line 742, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-payment-type, .plan-calculator-holder .plan-form-holder .plan-amount {
     padding-right: 8px;
   }
 }
 @media (min-width: 992px) {
-  /* line 728, ../sass/partials/savie/_common.scss */
+  /* line 747, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #payment-type, .plan-calculator-holder .plan-form-holder #plan-dob {
     margin-bottom: 20px;
   }
 }
-/* line 733, ../sass/partials/savie/_common.scss */
+/* line 752, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #plan-dob-datepicker {
   height: 40px;
   font-size: 14px;
   color: #9ba5a7;
 }
-/* line 739, ../sass/partials/savie/_common.scss */
+/* line 758, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .plan-promo-code .mdl-textfield {
   background: #FFF;
 }
 @media (min-width: 992px) {
-  /* line 743, ../sass/partials/savie/_common.scss */
+  /* line 762, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-dob, .plan-calculator-holder .plan-form-holder .plan-promo-code, .plan-calculator-holder .plan-form-holder .plan-total-years {
     padding-right: 8px;
     padding-left: 8px;
   }
 }
 @media (min-width: 992px) {
-  /* line 750, ../sass/partials/savie/_common.scss */
+  /* line 769, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-total-years .selectDiv, .plan-calculator-holder .plan-form-holder .plan-amount .selectDiv {
     margin-bottom: 0;
   }
 }
 @media (max-width: 992px) {
-  /* line 756, ../sass/partials/savie/_common.scss */
+  /* line 775, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-calculate {
     margin-top: 10px;
   }
 }
 @media (min-width: 992px) {
-  /* line 756, ../sass/partials/savie/_common.scss */
+  /* line 775, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder .plan-calculate {
     padding-left: 8px;
     padding-right: 0;
   }
 }
-/* line 768, ../sass/partials/savie/_common.scss */
+/* line 787, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder .orange-caret-bg {
   top: 44% !important;
   width: 14px !important;
 }
-/* line 772, ../sass/partials/savie/_common.scss */
+/* line 791, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder {
   padding-bottom: 30px;
 }
 @media (min-width: 992px) {
-  /* line 772, ../sass/partials/savie/_common.scss */
+  /* line 791, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #amount-slide-holder {
     padding-bottom: 10px;
   }
 }
-/* line 777, ../sass/partials/savie/_common.scss */
+/* line 796, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder .slider-handle {
   background-image: url("../images/savie-2016/handle.png") !important;
   background-repeat: no-repeat;
   background-position: 0px !important;
 }
 @media (min-width: 992px) {
-  /* line 782, ../sass/partials/savie/_common.scss */
+  /* line 801, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #amount-slide-holder .slider-horizontal {
     width: 93%;
     height: 7px;
     margin-left: 10px;
   }
 }
-/* line 789, ../sass/partials/savie/_common.scss */
+/* line 808, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder .amount-selected {
   font-size: 18px;
   color: #FFFFFF;
@@ -1252,23 +1271,23 @@ h6 {
   margin-top: 20px;
 }
 @media (min-width: 992px) {
-  /* line 789, ../sass/partials/savie/_common.scss */
+  /* line 808, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #amount-slide-holder .amount-selected {
     margin-top: 0;
   }
 }
-/* line 799, ../sass/partials/savie/_common.scss */
+/* line 818, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder .min-max-holder {
   margin-top: 10px;
   color: #FFF;
 }
-/* line 802, ../sass/partials/savie/_common.scss */
+/* line 821, ../sass/partials/savie/_common.scss */
 .plan-calculator-holder .plan-form-holder #amount-slide-holder .min-max-holder p {
   line-height: 14px;
   font-size: 14px;
 }
 @media (min-width: 992px) {
-  /* line 802, ../sass/partials/savie/_common.scss */
+  /* line 821, ../sass/partials/savie/_common.scss */
   .plan-calculator-holder .plan-form-holder #amount-slide-holder .min-max-holder p {
     font-size: 12px;
   }
@@ -3386,49 +3405,69 @@ a.eserv-link:hover {
 }
 /* line 40, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .side-menu {
-  border: 1px solid #d4d5d4;
+  border-bottom: 1px solid #d4d5d4;
+  border-left: 1px solid #d4d5d4;
+  border-top: 1px solid #d4d5d4;
   padding: 0;
   background: #fafafb;
 }
-/* line 44, ../sass/partials/savie/_purchase-history.scss */
+/* line 46, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .side-menu .nav {
   font-weight: bold;
 }
-/* line 47, ../sass/partials/savie/_purchase-history.scss */
+/* line 49, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .side-menu .nav li a {
   padding: 15px 0 15px 0;
   border-radius: 0;
   padding-left: 23px;
   color: #373a36;
 }
-/* line 52, ../sass/partials/savie/_purchase-history.scss */
+/* line 54, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .side-menu .nav li a .side-menu-icon {
-  width: 25px;
+  width: 27px;
   height: 25px;
   background: url("../images/savie-2016/side-menu-icons.png") no-repeat;
   display: inline-block;
   margin-right: 15px;
   float: left;
 }
-/* line 59, ../sass/partials/savie/_purchase-history.scss */
+/* line 61, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .side-menu .nav li a .side-menu-icon#insurance-plan {
-  background-position: -39px 0;
+  background-position: -35px 0;
 }
-/* line 62, ../sass/partials/savie/_purchase-history.scss */
+/* line 64, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .side-menu .nav li a .side-menu-icon#promo-offers {
-  background-position: -75px 0;
+  background-position: -71px 0;
 }
-/* line 68, ../sass/partials/savie/_purchase-history.scss */
+/* line 70, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .side-menu .nav li.active a {
   background-color: #fc6d08;
   color: #FFF;
 }
-/* line 76, ../sass/partials/savie/_purchase-history.scss */
+/* line 75, ../sass/partials/savie/_purchase-history.scss */
+#savie-online-purchase-history #purchase-history-page .side-menu .nav li:nth-child(1), #savie-online-purchase-history #purchase-history-page .side-menu .nav li:nth-child(2) {
+  border-bottom: 1px solid #d4d5d4;
+}
+/* line 81, ../sass/partials/savie/_purchase-history.scss */
+#savie-online-purchase-history #purchase-history-page .side-menu .nav .profile.active .side-menu-icon {
+  background: url("../images/savie-2016/side-menu-icons-2.png") no-repeat !important;
+}
+/* line 88, ../sass/partials/savie/_purchase-history.scss */
+#savie-online-purchase-history #purchase-history-page .side-menu .nav .insurance-plan.active .side-menu-icon {
+  background: url("../images/savie-2016/side-menu-icons-2.png") no-repeat !important;
+  background-position: -36px 0 !important;
+}
+/* line 96, ../sass/partials/savie/_purchase-history.scss */
+#savie-online-purchase-history #purchase-history-page .side-menu .nav .promo-offers.active .side-menu-icon {
+  background: url("../images/savie-2016/side-menu-icons-2.png") no-repeat !important;
+  background-position: -73px 0 !important;
+}
+/* line 104, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 79, ../sass/partials/savie/_purchase-history.scss */
+/* line 107, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs {
   border-top: 1px solid #d4d5d4;
   border-right: 1px solid #d4d5d4;
@@ -3437,28 +3476,32 @@ a.eserv-link:hover {
   font-weight: bold;
 }
 @media screen and (min-width: 992px) {
-  /* line 79, ../sass/partials/savie/_purchase-history.scss */
+  /* line 107, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs {
     border-left: 0;
   }
 }
-/* line 88, ../sass/partials/savie/_purchase-history.scss */
+/* line 116, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li {
   border-right: 1px solid #d4d5d4;
   border-bottom: 0;
 }
 @media screen and (max-width: 992px) {
-  /* line 88, ../sass/partials/savie/_purchase-history.scss */
+  /* line 116, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li {
     float: left;
     width: 33%;
   }
 }
-/* line 95, ../sass/partials/savie/_purchase-history.scss */
+/* line 123, ../sass/partials/savie/_purchase-history.scss */
+#savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li:nth-child(1) {
+  border-left: 1px solid #d4d5d4;
+}
+/* line 126, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li#past-tab {
   border-right: 0;
 }
-/* line 98, ../sass/partials/savie/_purchase-history.scss */
+/* line 129, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li a {
   border-radius: 0;
   color: #373a36;
@@ -3467,38 +3510,38 @@ a.eserv-link:hover {
   border: none;
 }
 @media screen and (max-width: 992px) {
-  /* line 98, ../sass/partials/savie/_purchase-history.scss */
+  /* line 129, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li a {
     margin-bottom: 0;
     padding: 12px;
   }
 }
-/* line 108, ../sass/partials/savie/_purchase-history.scss */
+/* line 139, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li a:hover {
   background: #FFF;
 }
-/* line 113, ../sass/partials/savie/_purchase-history.scss */
+/* line 144, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li.active a {
   background: none;
   color: #373a36;
   border-bottom: 3px solid #ff8200;
 }
 @media screen and (min-width: 992px) {
-  /* line 113, ../sass/partials/savie/_purchase-history.scss */
+  /* line 144, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li.active a {
     border-bottom: 2px solid #ff8200;
   }
 }
-/* line 120, ../sass/partials/savie/_purchase-history.scss */
+/* line 151, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .nav-tabs li.active a:after {
   border-width: 0;
 }
-/* line 127, ../sass/partials/savie/_purchase-history.scss */
+/* line 158, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content {
   padding: 0px 40px 0 40px;
 }
 @media screen and (min-width: 992px) {
-  /* line 127, ../sass/partials/savie/_purchase-history.scss */
+  /* line 158, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content {
     border-right: 1px solid #d4d5d4;
     border-bottom: 1px solid #d4d5d4;
@@ -3506,49 +3549,49 @@ a.eserv-link:hover {
     padding: 0px 40px 30px 40px;
   }
 }
-/* line 136, ../sass/partials/savie/_purchase-history.scss */
+/* line 167, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-title {
   color: #ff9500;
   font-size: 16px;
 }
 @media (min-width: 992px) {
-  /* line 136, ../sass/partials/savie/_purchase-history.scss */
+  /* line 167, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-title {
     font-size: 18px;
   }
 }
-/* line 143, ../sass/partials/savie/_purchase-history.scss */
+/* line 174, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder {
   padding-top: 30px;
 }
-/* line 145, ../sass/partials/savie/_purchase-history.scss */
+/* line 176, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-head {
   padding: 0;
 }
 @media (min-width: 992px) {
-  /* line 145, ../sass/partials/savie/_purchase-history.scss */
+  /* line 176, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-head {
     padding: 17px 0;
     border-top: 2px solid #DDD;
     border-bottom: 2px solid #DDD;
   }
 }
-/* line 152, ../sass/partials/savie/_purchase-history.scss */
+/* line 183, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-head #last-col-head {
   padding-left: 0;
   padding-right: 0;
 }
-/* line 156, ../sass/partials/savie/_purchase-history.scss */
+/* line 187, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-head .fa-info-circle {
   cursor: pointer;
 }
-/* line 159, ../sass/partials/savie/_purchase-history.scss */
+/* line 190, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-head .tooltip {
   background-color: transparent;
   color: #000;
   opacity: 1 !important;
 }
-/* line 163, ../sass/partials/savie/_purchase-history.scss */
+/* line 194, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-head .tooltip .tooltip-arrow {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
@@ -3563,7 +3606,7 @@ a.eserv-link:hover {
   border-bottom: 0;
   border-width: 1px !important;
 }
-/* line 177, ../sass/partials/savie/_purchase-history.scss */
+/* line 208, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-head .tooltip .tooltip-inner {
   background-color: #fbfbfb !important;
   margin-left: 5px;
@@ -3575,59 +3618,59 @@ a.eserv-link:hover {
   -moz-box-shadow: 0px 0px 1px 0px #838b8f;
   box-shadow: 0px 0px 1px 0px #838b8f;
 }
-/* line 190, ../sass/partials/savie/_purchase-history.scss */
+/* line 221, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .info-head, #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .info-data {
   margin-bottom: 0;
   font-size: 14px;
 }
-/* line 193, ../sass/partials/savie/_purchase-history.scss */
+/* line 224, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .info-head.pls-visit, #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .info-data.pls-visit {
   line-height: 18px;
 }
 @media (min-width: 992px) {
-  /* line 196, ../sass/partials/savie/_purchase-history.scss */
+  /* line 227, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .info-head.acc-val, #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .info-data.acc-val {
     font-size: 13px;
   }
 }
-/* line 202, ../sass/partials/savie/_purchase-history.scss */
+/* line 233, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-info-row {
   padding: 20px 20px 0 20px;
 }
 @media (min-width: 992px) and (min-width: 992px) {
-  /* line 202, ../sass/partials/savie/_purchase-history.scss */
+  /* line 233, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-info-row {
     padding: 10px 0 10px 15px;
   }
 }
-/* line 209, ../sass/partials/savie/_purchase-history.scss */
+/* line 240, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-info-row a {
   color: #ff9500;
 }
-/* line 211, ../sass/partials/savie/_purchase-history.scss */
+/* line 242, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-info-row a:hover {
   color: #ff9500;
   text-decoration: underline;
 }
 @media (min-width: 992px) {
-  /* line 216, ../sass/partials/savie/_purchase-history.scss */
+  /* line 247, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-info-row .plan-name {
     font-weight: bold;
   }
 }
-/* line 221, ../sass/partials/savie/_purchase-history.scss */
+/* line 252, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-info-row .mbview-category-info {
   padding-bottom: 10px;
   padding-left: 0;
   padding-right: 0;
 }
 @media (min-width: 992px) {
-  /* line 221, ../sass/partials/savie/_purchase-history.scss */
+  /* line 252, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content .tab-content .category-holder .category-info-row .mbview-category-info {
     padding-bottom: 0;
   }
 }
-/* line 232, ../sass/partials/savie/_purchase-history.scss */
+/* line 263, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content #note {
   font-size: 12px;
   line-height: 14px;
@@ -3636,20 +3679,20 @@ a.eserv-link:hover {
   padding-right: 23px;
 }
 @media (max-width: 992px) {
-  /* line 232, ../sass/partials/savie/_purchase-history.scss */
+  /* line 263, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content #note {
     padding-bottom: 100px;
   }
 }
 @media (min-width: 992px) {
-  /* line 232, ../sass/partials/savie/_purchase-history.scss */
+  /* line 263, ../sass/partials/savie/_purchase-history.scss */
   #savie-online-purchase-history #purchase-history-page .right-side-content #note {
     margin-left: 0;
     margin-top: 18px;
     padding-right: 0;
   }
 }
-/* line 246, ../sass/partials/savie/_purchase-history.scss */
+/* line 277, ../sass/partials/savie/_purchase-history.scss */
 #savie-online-purchase-history #purchase-history-page .right-side-content #note #orange-ast {
   color: #ff8200;
   height: 25px;
@@ -4993,38 +5036,85 @@ a.eserv-link:hover {
   text-decoration: underline;
 }
 /* line 52, ../sass/partials/savie/_application-summary.scss */
+.savie-application-summary .summary-section .application-summ {
+  margin-bottom: 0;
+}
+/* line 55, ../sass/partials/savie/_application-summary.scss */
+.savie-application-summary .summary-section .application-summ .mdl-textfield__label {
+  font-family: 'Calibri-Bold';
+}
+/* line 59, ../sass/partials/savie/_application-summary.scss */
+.savie-application-summary .summary-section .application-summ .so-mdl-textfield {
+  background: #f5f5f5;
+}
+/* line 62, ../sass/partials/savie/_application-summary.scss */
+.savie-application-summary .summary-section .application-summ .so-mdl-textfield.is-active {
+  color: #373a36 !important;
+}
+/* line 67, ../sass/partials/savie/_application-summary.scss */
+.savie-application-summary .summary-section .application-summ .so-mdl-textfield.is-dirty label {
+  color: #373a36 !important;
+}
+/* line 72, ../sass/partials/savie/_application-summary.scss */
+.savie-application-summary .summary-section .application-summ .so-mdl-textfield .so-mdl-textfield-input {
+  font-size: 14px;
+  border-bottom: 0;
+}
+/* line 76, ../sass/partials/savie/_application-summary.scss */
+.savie-application-summary .summary-section .application-summ .so-mdl-textfield .so-mdl-textfield-input.ch {
+  font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
+}
+/* line 80, ../sass/partials/savie/_application-summary.scss */
+.savie-application-summary .summary-section .application-summ .so-mdl-textfield .so-mdl-textfield-input:hover {
+  border-bottom: 0 !important;
+}
+/* line 86, ../sass/partials/savie/_application-summary.scss */
+.savie-application-summary .summary-section .application-summ .so-mdl-textfield label:after {
+  background-color: transparent;
+}
+/* line 92, ../sass/partials/savie/_application-summary.scss */
+.savie-application-summary .summary-section .application-summ .warning-note {
+  margin-top: -15px;
+  font-size: 11px;
+  font-family: 'Calibri-bold';
+  display: block;
+}
+/* line 100, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .gray-holder {
   background: #f5f5f5;
   padding: 5px 15px;
   margin-bottom: 10px;
   height: 40px;
 }
-/* line 57, ../sass/partials/savie/_application-summary.scss */
+/* line 105, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .gray-holder .info-label {
   font-size: 11px;
   font-family: 'Calibri-bold';
   margin: 0;
 }
-/* line 62, ../sass/partials/savie/_application-summary.scss */
+/* line 110, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .gray-holder .info-label.permanent-top {
   margin-left: -15px;
   margin-top: -15px;
 }
-/* line 67, ../sass/partials/savie/_application-summary.scss */
+/* line 115, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .gray-holder .info {
   display: block;
   font-size: 14px;
   line-height: 18px;
+  border: 0;
+  background: transparent;
+  width: 100%;
 }
-/* line 72, ../sass/partials/savie/_application-summary.scss */
+/* line 123, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .gray-holder .info.ch {
   font-family: "Microsoft JhengHei", Calibri, sans-serif !important;
 }
-/* line 76, ../sass/partials/savie/_application-summary.scss */
+/* line 127, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .gray-holder .info.chinese-temp {
   height: 15px;
 }
-/* line 81, ../sass/partials/savie/_application-summary.scss */
+/* line 132, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .person-count {
   font-size: 14px;
   text-decoration: underline;
@@ -5033,95 +5123,95 @@ a.eserv-link:hover {
   display: block;
   margin-bottom: 9px;
 }
-/* line 89, ../sass/partials/savie/_application-summary.scss */
+/* line 140, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section .person-count.first-person {
   margin-top: 15px;
 }
-/* line 93, ../sass/partials/savie/_application-summary.scss */
+/* line 144, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section.below {
   margin-top: 25px;
 }
 @media (min-width: 992px) {
-  /* line 93, ../sass/partials/savie/_application-summary.scss */
+  /* line 144, ../sass/partials/savie/_application-summary.scss */
   .savie-application-summary .summary-section.below {
     margin-top: 48px;
   }
 }
-/* line 99, ../sass/partials/savie/_application-summary.scss */
+/* line 150, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section.below-employment {
   margin-top: 40px;
 }
 @media (min-width: 992px) {
-  /* line 99, ../sass/partials/savie/_application-summary.scss */
+  /* line 150, ../sass/partials/savie/_application-summary.scss */
   .savie-application-summary .summary-section.below-employment {
     margin-top: 46px;
   }
 }
-/* line 105, ../sass/partials/savie/_application-summary.scss */
+/* line 156, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section.below-employment h5 {
   margin-bottom: 18px;
 }
-/* line 109, ../sass/partials/savie/_application-summary.scss */
+/* line 160, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section.below-beneficiary {
   margin-top: 45px;
 }
 @media (min-width: 992px) {
-  /* line 109, ../sass/partials/savie/_application-summary.scss */
+  /* line 160, ../sass/partials/savie/_application-summary.scss */
   .savie-application-summary .summary-section.below-beneficiary {
     margin-top: 37px;
   }
 }
-/* line 115, ../sass/partials/savie/_application-summary.scss */
+/* line 166, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section.below-beneficiary h5 {
   margin-bottom: 8px;
 }
 @media (min-width: 992px) {
-  /* line 115, ../sass/partials/savie/_application-summary.scss */
+  /* line 166, ../sass/partials/savie/_application-summary.scss */
   .savie-application-summary .summary-section.below-beneficiary h5 {
     margin-bottom: 18px;
   }
 }
-/* line 122, ../sass/partials/savie/_application-summary.scss */
+/* line 173, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section.inner-beneficiary {
   margin-top: 5px;
 }
 @media (min-width: 992px) {
-  /* line 122, ../sass/partials/savie/_application-summary.scss */
+  /* line 173, ../sass/partials/savie/_application-summary.scss */
   .savie-application-summary .summary-section.inner-beneficiary {
     margin-top: 15px;
   }
 }
-/* line 128, ../sass/partials/savie/_application-summary.scss */
+/* line 179, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .summary-section.below-payment {
   margin-top: 45px;
 }
 @media (min-width: 992px) {
-  /* line 128, ../sass/partials/savie/_application-summary.scss */
+  /* line 179, ../sass/partials/savie/_application-summary.scss */
   .savie-application-summary .summary-section.below-payment {
     margin-top: 47px;
     margin-bottom: 50px;
   }
-  /* line 134, ../sass/partials/savie/_application-summary.scss */
+  /* line 185, ../sass/partials/savie/_application-summary.scss */
   .savie-application-summary .summary-section.below-payment h5 {
     margin-bottom: 14px;
   }
 }
 @media (min-width: 992px) {
-  /* line 141, ../sass/partials/savie/_application-summary.scss */
+  /* line 192, ../sass/partials/savie/_application-summary.scss */
   .savie-application-summary .summary-section .desktop-left, .savie-application-summary .summary-section .desktop-right {
     float: left;
     width: 50%;
   }
-  /* line 145, ../sass/partials/savie/_application-summary.scss */
+  /* line 196, ../sass/partials/savie/_application-summary.scss */
   .savie-application-summary .summary-section .desktop-left {
     padding-right: 7.5px;
   }
-  /* line 148, ../sass/partials/savie/_application-summary.scss */
+  /* line 199, ../sass/partials/savie/_application-summary.scss */
   .savie-application-summary .summary-section .desktop-right {
     padding-left: 7.5px;
   }
 }
-/* line 154, ../sass/partials/savie/_application-summary.scss */
+/* line 205, ../sass/partials/savie/_application-summary.scss */
 .savie-application-summary .savie-common-btn {
   margin-top: 16px;
   padding-bottom: 6px;
@@ -5129,7 +5219,7 @@ a.eserv-link:hover {
   max-width: 156px;
 }
 @media (min-width: 992px) {
-  /* line 154, ../sass/partials/savie/_application-summary.scss */
+  /* line 205, ../sass/partials/savie/_application-summary.scss */
   .savie-application-summary .savie-common-btn {
     margin-top: 27px;
     font-size: 24px;
@@ -6077,6 +6167,10 @@ a.eserv-link:hover {
 /* line 26, ../sass/partials/savie/_employment-info.scss */
 .employment-info-page .has-error .gray-textbox {
   margin-bottom: 5px;
+}
+/* line 28, ../sass/partials/savie/_employment-info.scss */
+.employment-info-page .has-error .so-mdl-textfield {
+  margin-bottom: 10px !important;
 }
 
 /* line 2, ../sass/partials/savie/_sales-illustration.scss */
@@ -8762,74 +8856,293 @@ form#table-info #id-policy, form#table-info #id-application {
 
 @media (min-width: 992px) {
   /* line 2, ../sass/partials/savie/_eservices.scss */
-  #eservices-page .side-menu {
+  .profile-active-page .side-menu {
     border-top: 1px solid #d4d5d4 !important;
     border-left: 1px solid #d4d5d4 !important;
     border-bottom: 1px solid #d4d5d4 !important;
     border-right: 0 !important;
   }
 }
-/* line 12, ../sass/partials/savie/_eservices.scss */
-#eservices-page .side-menu .nav li a .side-menu-icon {
-  width: 26px !important;
-  background: url("../images/savie-2016/side-menu-icons-2.png") no-repeat !important;
-}
-/* line 15, ../sass/partials/savie/_eservices.scss */
-#eservices-page .side-menu .nav li a .side-menu-icon#insurance-plan {
-  background-position: -39px 0 !important;
-}
-/* line 18, ../sass/partials/savie/_eservices.scss */
-#eservices-page .side-menu .nav li a .side-menu-icon#promo-offers {
-  background-position: -75px 0 !important;
-}
-/* line 24, ../sass/partials/savie/_eservices.scss */
-#eservices-page .side-menu .nav li.active a {
-  background: #ff8200 !important;
-}
-/* line 28, ../sass/partials/savie/_eservices.scss */
-#eservices-page .side-menu .nav li:nth-child(2) {
-  border-bottom: 1px solid #d4d5d4;
-  border-top: 1px solid #d4d5d4;
-}
-/* line 35, ../sass/partials/savie/_eservices.scss */
-#eservices-page .right-side-content {
+/* line 10, ../sass/partials/savie/_eservices.scss */
+.profile-active-page .right-side-content {
   padding: 20px 30px !important;
 }
 @media (min-width: 992px) {
-  /* line 35, ../sass/partials/savie/_eservices.scss */
-  #eservices-page .right-side-content {
+  /* line 10, ../sass/partials/savie/_eservices.scss */
+  .profile-active-page .right-side-content {
     border: 1px solid #d4d5d4;
     margin-bottom: 25px;
   }
 }
-/* line 41, ../sass/partials/savie/_eservices.scss */
-#eservices-page .right-side-content #member-details {
+/* line 16, ../sass/partials/savie/_eservices.scss */
+.profile-active-page .right-side-content #member-details {
   font-size: 14px;
-  margin-bottom: 16px;
+  marginin-bottom: 16px;
 }
-/* line 44, ../sass/partials/savie/_eservices.scss */
-#eservices-page .right-side-content #member-details .member-data-holder {
+/* line 19, ../sass/partials/savie/_eservices.scss */
+.profile-active-page .right-side-content #member-details .member-data-holder {
   padding-bottom: 8px;
 }
-/* line 46, ../sass/partials/savie/_eservices.scss */
-#eservices-page .right-side-content #member-details .member-data-holder .member-data-label {
+/* line 21, ../sass/partials/savie/_eservices.scss */
+.profile-active-page .right-side-content #member-details .member-data-holder .member-data-label {
   font-family: 'Calibri-Bold';
 }
-/* line 51, ../sass/partials/savie/_eservices.scss */
-#eservices-page .right-side-content #complete-statement {
+/* line 26, ../sass/partials/savie/_eservices.scss */
+.profile-active-page .right-side-content #complete-statement {
   font-size: 14px;
 }
-/* line 53, ../sass/partials/savie/_eservices.scss */
-#eservices-page .right-side-content #complete-statement a {
+/* line 28, ../sass/partials/savie/_eservices.scss */
+.profile-active-page .right-side-content #complete-statement a {
   font-family: 'Calibri-Bold';
 }
-/* line 55, ../sass/partials/savie/_eservices.scss */
-#eservices-page .right-side-content #complete-statement a:hover {
+/* line 30, ../sass/partials/savie/_eservices.scss */
+.profile-active-page .right-side-content #complete-statement a:hover {
   text-decoration: underline;
 }
-/* line 60, ../sass/partials/savie/_eservices.scss */
-#eservices-page .right-side-content .heading-title {
+/* line 35, ../sass/partials/savie/_eservices.scss */
+.profile-active-page .right-side-content .heading-title {
   margin-top: 0;
+}
+
+/* line 41, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content {
+  padding: 0 !important;
+}
+@media (min-width: 992px) {
+  /* line 41, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content {
+    padding: 30px !important;
+    border: 1px solid #d4d5d4;
+    margin-bottom: 25px;
+  }
+}
+/* line 48, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content .heading-title {
+  margin: 0;
+}
+/* line 54, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .mobile-promo-navtab li a {
+  font-size: 14px;
+  line-height: 18px;
+  padding: 6px;
+}
+/* line 61, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents p {
+  font-size: 14px;
+}
+/* line 64, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .table {
+  width: 100%;
+  font-size: 14px;
+}
+/* line 67, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .table td, .promo-active-page .right-side-content #promo-offers-tab-contents .table th {
+  padding: 10px;
+}
+/* line 69, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .table td.first-col, .promo-active-page .right-side-content #promo-offers-tab-contents .table th.first-col {
+  padding-left: 30px;
+  width: 43%;
+}
+/* line 74, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .table th {
+  border-top: 2px solid #ddd;
+}
+/* line 77, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .table#promotion-code-table {
+  margin-top: 25px;
+}
+@media (min-width: 992px) {
+  /* line 77, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .table#promotion-code-table {
+    margin-top: 12px;
+  }
+}
+/* line 83, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .table#referral-program-table {
+  margin-top: 20px;
+}
+@media (min-width: 992px) {
+  /* line 83, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .table#referral-program-table {
+    margin-top: 12px;
+    margin-bottom: 10px;
+  }
+}
+/* line 89, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .table#referral-program-table sup {
+  font-size: 8px;
+}
+/* line 93, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .table#fwd-partner-table {
+  margin-top: 15px;
+}
+@media (min-width: 992px) {
+  /* line 93, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .table#fwd-partner-table {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+/* line 103, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content {
+  border: 0 !important;
+  padding: 22px 0 !important;
+}
+@media (min-width: 992px) {
+  /* line 103, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content {
+    padding: 0 !important;
+  }
+}
+@media (min-width: 992px) {
+  /* line 109, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .tab-pane {
+    display: block !important;
+  }
+}
+@media (max-width: 992px) {
+  /* line 114, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content p {
+    text-align: center;
+  }
+}
+@media (max-width: 992px) {
+  /* line 118, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content p .your-code {
+    font-size: 24px;
+    font-family: 'Calibri-Bold';
+    padding: 5px 30px;
+    background: #fbfbfc;
+    border: 1px solid #d4d4d4;
+    line-height: 49px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 118, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content p .your-code {
+    font-family: 'Calibri-Bold';
+    font-size: 18px;
+  }
+}
+@media (max-width: 992px) {
+  /* line 133, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content #input-social-holder {
+    margin: 0;
+    padding: 15px 15px 0 15px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 139, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .fwd-partner-container {
+    padding-top: 30px;
+  }
+}
+/* line 144, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .fwd-partner-container #partners-logo #the-club {
+  width: 150px;
+}
+/* line 147, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .fwd-partner-container #partners-logo #agoda {
+  width: 120px;
+}
+@media (min-width: 992px) {
+  /* line 152, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container {
+    padding-top: 15px;
+  }
+}
+@media (min-width: 992px) {
+  /* line 156, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder {
+    padding-right: 0;
+  }
+}
+/* line 160, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #promo-input-holder .promo-code-input {
+  height: 40px;
+  font-size: 14px;
+}
+/* line 165, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder {
+  margin-top: 10px;
+}
+@media (min-width: 992px) {
+  /* line 165, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder {
+    padding-left: 0;
+    margin-top: 0;
+  }
+}
+/* line 172, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li {
+  margin-left: 0;
+}
+/* line 174, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li a {
+  padding: 9px;
+  color: #FFF;
+  border-radius: 0;
+}
+/* line 178, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li a#copy-link-btn {
+  background: #ff8200;
+  text-align: center;
+  padding: 9px;
+}
+@media (min-width: 992px) {
+  /* line 178, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li a#copy-link-btn {
+    width: 115px;
+  }
+}
+/* line 188, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a {
+  width: 40px;
+  padding: 9px 14px;
+}
+/* line 192, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#fb-icon {
+  background: #153a83;
+}
+/* line 194, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#fb-icon .fa-facebook {
+  font-size: 20px;
+}
+/* line 198, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#twitter-icon {
+  background: #2d99d3;
+  padding: 9px 10px;
+}
+/* line 201, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#twitter-icon .fa-twitter {
+  font-size: 20px;
+}
+/* line 205, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container #social-btns-holder ul li.social-icon a#gplus-icon {
+  background: #be1c3b;
+  padding: 9px 12px;
+}
+/* line 214, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container .referral-notes {
+  font-size: 12px;
+  line-height: 13px;
+  text-align: left;
+}
+@media (max-width: 992px) {
+  /* line 214, ../sass/partials/savie/_eservices.scss */
+  .promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container .referral-notes {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+/* line 222, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container .referral-notes sup {
+  font-size: 8px;
+}
+/* line 225, ../sass/partials/savie/_eservices.scss */
+.promo-active-page .right-side-content #promo-offers-tab-contents .tab-content .referral-program-container .referral-notes:nth-child(2) {
+  margin-top: 5px;
 }
 
 /* line 1, ../sass/partials/savie/_us-person.scss */

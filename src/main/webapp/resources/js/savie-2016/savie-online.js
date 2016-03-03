@@ -218,12 +218,12 @@ $(document).ready(function() {
    $('.gray-dropdown').on('click', function() {
          open = !open;
         if(isOpen()) {
-          $(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret-inv.png');
+          $(this).parent('.selectDiv').find('.orange-caret-bg').attr('src',getpath + '/resources/images/orange-caret-inv.png');
         }  else {
-        	$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret.png');
+        	$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src',getpath + '/resources/images/orange-caret.png');
         }
    }).on('blur', function () {
-   		$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src', '/fwdhk/resources/images/orange-caret.png');
+   		$(this).parent('.selectDiv').find('.orange-caret-bg').attr('src',getpath + '/resources/images/orange-caret.png');
    });
 
    $('.so-mdl-textfield-input').focus(function () {
@@ -250,6 +250,13 @@ $(document).ready(function() {
 	   $(this).parent('.selectDiv').addClass('is-not-active');
 	   if($(this).val() == '') {
 		   $(this).parent('.selectDiv').removeClass('is-not-active');
+		}
+		
+		// passing select value to its input hidden element
+		// need to use input hidden element for disabled select field
+		var inputHiddenElem = $(this).siblings('input[type=hidden]');
+		if(inputHiddenElem !== 'undefiine') {
+			inputHiddenElem.val($(this).val());
 		}
    })
    
@@ -468,6 +475,10 @@ $(document).ready(function() {
 	    }
 	    new PNotify(opts);
 	}
+	
+	$('#beneficiaryHkidPassport\\[0\\]').parent('.selectDiv').removeClass('is-not-active')
+	$('#beneficiaryHkidPassport\\[1\\]').parent('.selectDiv').removeClass('is-not-active')
+	$('#beneficiaryHkidPassport\\[2\\]').parent('.selectDiv').removeClass('is-not-active')
 });
 
 // Checkbox
@@ -2343,4 +2354,40 @@ function fmoney(s) {
       t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");   
    }   
    return t.split("").reverse().join("");   
+}
+
+// set input field to readonly or not
+// params: element id (str), isReadonly (boolean)
+function setInputReadonly(elementId, isReadonly) {
+	var elem = $('#' + elementId);
+	if(isReadonly) {
+		elem.attr('readonly', 'readonly');
+		elem.addClass('readonly-field');
+	} else {
+		elem.removeAttr('readonly', 'readonly');
+		elem.removeClass('readonly-field');
+	}
+	
+	if(elem.val() != '' && elem.val() != null) {
+		elem.parent('.so-mdl-textfield').addClass('is-not-active');
+	} else {
+		elem.siblings('label').addClass('readonly-field-label');
+	}
+}
+
+// set select field to readonly or not
+// params: element id (str), isReadonly (boolean)
+function setSelectReadonly(elementId, isReadonly) {
+	var elem = $('#' + elementId);
+	if(isReadonly) {
+		elem.attr('disabled', 'disabled');
+		elem.addClass('readonly-field');
+	} else {
+		elem.removeAttr('disabled', 'disabled');
+		elem.removeClass('readonly-field');
+	}
+	
+	if(elem.val() != '' && elem.val() != null) {
+		elem.parent('.selectDiv').addClass('is-not-active');
+	}
 }
