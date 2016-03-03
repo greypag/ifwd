@@ -777,35 +777,39 @@ var languageP = "${language}";
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 		}
 		else{
-			$.ajax({     
-			    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
-			    type:'get',     
-			    error:function(){       
-			    },     
-			    success:function(data){
-			    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
-			    	     window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/service-center';
-			    	}
-			    	else{
-			    		$.ajax({     
-			    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
-			    		    type:'get',     
-			    		    error:function(){       
-			    		    },     
-			    		    success:function(data){
-			    		    	if(data != null && data.errMsgs == null && data.name !=null){
-			    		    		$('#loginpopup').modal('hide');
-			    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
-			    		    		$('#review-fna-modal').modal('show');
-			    		    	}
-			    		    	else{
-			    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
-			    		    	}
-			    		    }  
-			    		});
-			    	}
-			    }  
-			});
+			if($("#type-of-payment").val() == 'regular-payment') {
+				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+			}else {
+				$.ajax({     
+				    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
+				    type:'get',     
+				    error:function(){       
+				    },     
+				    success:function(data){
+				    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
+				    	     window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/service-center';
+				    	}
+				    	else{
+				    		$.ajax({     
+				    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+				    		    type:'get',     
+				    		    error:function(){       
+				    		    },     
+				    		    success:function(data){
+				    		    	if(data != null && data.errMsgs == null && data.name !=null){
+				    		    		$('#loginpopup').modal('hide');
+				    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+				    		    		$('#review-fna-modal').modal('show');
+				    		    	}
+				    		    	else{
+				    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
+				    		    	}
+				    		    }  
+				    		});
+				    	}
+				    }  
+				});
+			}
 		}
 	}
 	
