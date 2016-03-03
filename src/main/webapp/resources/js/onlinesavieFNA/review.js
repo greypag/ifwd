@@ -46,6 +46,32 @@ var fnaOccOther = {
 	"occupation":"NoBD16"
 }
 
+//数字转千分位
+function formatNum (num) {
+    return (num + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+}
+
+$(document).ready(function(){  
+    $("#q4_a_others").bind("blur",function(){
+    	$("#q4_a_others").val(formatNum($("#q4_a_others").val()));
+    });
+    
+    $("#q4_b_amount").bind("blur",function(){
+    	$("#q4_b_amount").val(formatNum($("#q4_b_amount").val()));
+    });
+    
+    $("#q4_c_others").bind("blur",function(){
+    	$("#q4_c_others").val(formatNum($("#q4_c_others").val()));
+    });
+    
+    $("#q4_d_1_others").bind("blur",function(){
+    	$("#q4_d_1_others").val(formatNum($("#q4_d_1_others").val()));
+    });
+    
+    $("#q4_d_2_others").bind("blur",function(){
+    	$("#q4_d_2_others").val(formatNum($("#q4_d_2_others").val()));
+    });
+})
 
 var Review = {
 	
