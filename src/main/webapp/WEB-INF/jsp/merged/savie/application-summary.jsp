@@ -244,111 +244,128 @@
                </div>
             </div>
             <div class="summary-section below-beneficiary clearfix">
-               <h5>Beneficiary info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/beneficiary-info?backSummary=Y">Edit</a></h5>
-               <span class="person-count first-person">Person 1</span>
-               <div class="desktop-left">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Last name (same as HKID)</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryLastName1 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">First name (same as HKID)</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryFirstName1 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Name in Chinese (optional)</h6>
-                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName1 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">HKID</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryID1 }</span>
-                  </div>
-               </div>
-               <div class="desktop-right">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Relationship</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName1 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Gender</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryGender1 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Entitlement (%)</h6>
-                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight1 }%</span>
-                  </div>
-               </div>
-			</div>
-			<div class="summary-section inner-beneficiary clearfix">
-			   <span class="person-count">Person 2</span>
-               <div class="desktop-left">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Last name (same as HKID)</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryLastName2 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">First name (same as HKID)</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryFirstName2 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Name in Chinese (optional)</h6>
-                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName2 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">HKID</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryID2 }</span>
-                  </div>
-               </div>
-               <div class="desktop-right">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Relationship</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName2 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Gender</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryGender2 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Entitlement (%)</h6>
-                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight2 }%</span>
-                  </div>
-               </div>
-			</div>
-			<div class="summary-section inner-beneficiary clearfix">
-			   <span class="person-count">Person 3</span>
-               <div class="desktop-left">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Last name (same as HKID)</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryLastName3 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">First name (same as HKID)</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryFirstName3 }</span>
-                  </div>
-				  <div class="gray-holder">
-                     <h6 class="info-label">Name in Chinese (optional)</h6>
-                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName3 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">HKID</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryID3 }</span>
-                  </div>
-               </div>
-               <div class="desktop-right">
-                  <div class="gray-holder">
-                     <h6 class="info-label">Relationship</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName3 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Gender</h6>
-                     <span class="info">${lifeBeneficaryInfo.beneficaryGender3 }</span>
-                  </div>
-                  <div class="gray-holder">
-                     <h6 class="info-label">Entitlement (%)</h6>
-                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight3 }%</span>
-                  </div>
-               </div>
+               <h5>Beneficiary info${lifeBeneficaryInfo.isOwnEstate } <a href="<%=request.getContextPath()%>/${language}/savings-insurance/beneficiary-info?backSummary=Y">Edit</a></h5>
             </div>
+            <c:choose>
+			       <c:when test="${lifeBeneficaryInfo.isOwnEstate == 'true' }">
+			          <div class="summary-section below-beneficiary clearfix">
+			             <h5>Own estate</h5>
+			          </div>
+			       </c:when>
+			       <c:otherwise>
+			          <c:if test="${lifeBeneficaryInfo.beneficaryFirstName1 != '' }">
+				          <div class="summary-section inner-beneficiary clearfix">   
+				               <span class="person-count first-person">Person 1</span>
+				               <div class="desktop-left">
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">Last name (same as HKID)</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryLastName1 }</span>
+				                  </div>
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">First name (same as HKID)</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryFirstName1 }</span>
+				                  </div>
+								  <div class="gray-holder">
+				                     <h6 class="info-label">Name in Chinese (optional)</h6>
+				                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName1 }</span>
+				                  </div>
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">HKID</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryID1 }</span>
+				                  </div>
+				               </div>
+				               <div class="desktop-right">
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">Relationship</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName1 }</span>
+				                  </div>
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">Gender</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryGender1 }</span>
+				                  </div>
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">Entitlement (%)</h6>
+				                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight1 }</span>
+				                  </div>
+				               </div>
+							</div>
+						</c:if>
+						<c:if test="${lifeBeneficaryInfo.beneficaryFirstName2 != '' }">
+							<div class="summary-section inner-beneficiary clearfix">
+							   <span class="person-count">Person 2</span>
+				               <div class="desktop-left">
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">Last name (same as HKID)</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryLastName2 }</span>
+				                  </div>
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">First name (same as HKID)</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryFirstName2 }</span>
+				                  </div>
+								  <div class="gray-holder">
+				                     <h6 class="info-label">Name in Chinese (optional)</h6>
+				                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName2 }</span>
+				                  </div>
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">HKID</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryID2 }</span>
+				                  </div>
+				               </div>
+				               <div class="desktop-right">
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">Relationship</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName2 }</span>
+				                  </div>
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">Gender</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryGender2 }</span>
+				                  </div>
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">Entitlement (%)</h6>
+				                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight2 }</span>
+				                  </div>
+				               </div>
+							</div>
+						</c:if>
+						<c:if test="${lifeBeneficaryInfo.beneficaryFirstName3 != '' }">
+							<div class="summary-section inner-beneficiary clearfix">
+							   <span class="person-count">Person 3</span>
+				               <div class="desktop-left">
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">Last name (same as HKID)</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryLastName3 }</span>
+				                  </div>
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">First name (same as HKID)</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryFirstName3 }</span>
+				                  </div>
+								  <div class="gray-holder">
+				                     <h6 class="info-label">Name in Chinese (optional)</h6>
+				                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName3 }</span>
+				                  </div>
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">HKID</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryID3 }</span>
+				                  </div>
+				               </div>
+				               <div class="desktop-right">
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">Relationship</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryRelationName3 }</span>
+				                  </div>
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">Gender</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryGender3 }</span>
+				                  </div>
+				                  <div class="gray-holder">
+				                     <h6 class="info-label">Entitlement (%)</h6>
+				                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight3 }</span>
+				                  </div>
+				               </div>
+				            </div>
+			            </c:if>
+			       </c:otherwise>
+			</c:choose>
             <div class="summary-section below-payment clearfix">
                <h5>Payment info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/payment">Edit</a></h5>
                <div class="desktop-left">
