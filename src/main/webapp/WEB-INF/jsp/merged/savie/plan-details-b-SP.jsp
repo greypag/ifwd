@@ -120,9 +120,9 @@ var languageP = "${language}";
 							<div class="col-xs-12" id="amount-slide-holder">
 								<div class="one-off-premium">
 				                   <div class="pull-right">
-				                   		<h3 class="amount-selected">HKD <span id="range">100,000</span></h3>
+				                   		<h3 class="amount-selected">HKD <span id="range">${saviePlanDetails.insuredAmount1 !=null ? saviePlanDetails.insuredAmount1:"100,000" }</span></h3>
 				                   </div>
-									<input type="text" class="span2 amount-slider" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="100000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+									<input type="text" class="span2 amount-slider" name="amount" value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 									<div class="min-max-holder clearfix">
 										<div class="pull-left text-center">
 											<p>Min</p>
