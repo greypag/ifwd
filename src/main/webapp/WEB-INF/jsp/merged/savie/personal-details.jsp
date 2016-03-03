@@ -139,12 +139,14 @@
                                              <option value="" selected="selected" disabled="disabled">Place of birth</option>
                                              <c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${placeOfBirthEN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.placeOfBirth == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.placeOfBirth == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${placeOfBirthCN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.placeOfBirth == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.placeOfBirth == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
                                           </select>
@@ -161,12 +163,14 @@
                                              <option value="" selected="selected" disabled="disabled">Nationality</option>
                                              <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${nationalityEN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.nationalty == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.nationalty == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${nationalityCN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.nationalty == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.nationalty == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
                                           </select>
@@ -278,12 +282,14 @@
                                              <option value="" selected="selected" disabled="disabled">District</option>
                                              <c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${savieDistrictEN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${savieDistrictCN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
                                           </select>
@@ -328,12 +334,14 @@
                                              <option value="" selected="selected" disabled="disabled">District</option>
                                              <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${savieDistrictEN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${savieDistrictCN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
                                           </select>
@@ -378,12 +386,14 @@
                                              <option value="" selected="selected" disabled="disabled">District</option>
                                              <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${savieDistrictEN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${savieDistrictCN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
                                           </select>
@@ -461,6 +471,34 @@
 			var language = "en";
 			
 			$(document).ready(function() {
+				if('${lifePersonalDetails.permanetAddress1}' != ''){
+					if ($('.res-additional').hasClass('hidden')) {
+						$('.res-additional').removeClass('hidden');
+						$('.res-textfield-hidden').css("margin-bottom", "10px");
+					}
+				}
+				else{
+					
+				}
+				
+				if('${lifePersonalDetails.diffToPermanent}' == 'None'){
+					if ($('#diffToPermanentShow').hasClass('hidden')) {
+						$('#diffToPermanentShow').removeClass('hidden');
+					}
+				}
+				else{
+					$('#diffToPermanentShow').addClass('hidden');
+				}
+				
+				if('${lifePersonalDetails.diffToResidential}' == 'None'){
+					if ($('#diffToResidentialShow').hasClass('hidden')) {
+						$('#diffToResidentialShow').removeClass('hidden');
+					}
+				}
+				else{
+					$('#diffToResidentialShow').addClass('hidden');
+				}
+				
 				soFormValidation();
 				
 				var dummy = true;

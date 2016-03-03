@@ -68,7 +68,7 @@ public class LifePersonalDetailsBean implements Serializable {
 			this.residentialAddressDistrictName = this.permanetAddressDistrictName;
 		}
 		else{
-			this.residentialAddressDistrictName = this.residentialAddressDistrictName!=null?this.residentialAddressDistrictName.split("-")[1]:"";
+			this.residentialAddressDistrictName = this.residentialAddressDistrict!=null?this.residentialAddressDistrict.split("-")[1]:"";
 		}
 		if(!"None".equals(this.diffToResidential)){
 			this.correspondenceAddress1 = this.residentialAddress1;
@@ -79,7 +79,7 @@ public class LifePersonalDetailsBean implements Serializable {
 			this.correspondenceAddressDistrictName = this.residentialAddressDistrictName;
 		}
 		else{
-			this.correspondenceAddressDistrictName = this.correspondenceAddressDistrictName!=null?this.correspondenceAddressDistrictName.split("-")[1]:"";
+			this.correspondenceAddressDistrictName = this.correspondenceAddressDistrict!=null?this.correspondenceAddressDistrict.split("-")[1]:"";
 		}
 		
 		List<String> list = new ArrayList<String>();
