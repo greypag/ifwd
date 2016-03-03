@@ -417,7 +417,7 @@ var home_url = "<%=request.getContextPath()%>";
 							<a href="#navtabs-3" role="tab" data-toggle="tab" class="navtabs-title ui-link"><fmt:message key="pillar.claim.easy.title" bundle="${msg}" /></a>
 						</li>
 						<li role="presentation" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 navtabs-li last" id="nav-title-4">
-							<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link"><fmt:message key="pillar.eservice.app..title" bundle="${msg}" /></a>
+							<a href="#navtabs-4" role="tab" data-toggle="tab" class="navtabs-title last-fna ui-link"><fmt:message key="pillar.eservice.app.title" bundle="${msg}" /></a>
 						</li>
 					</ul>
 					<div class="fna-carousel carousel slide" id="so-carousel" data-ride="carousel" data-interval="false">
@@ -446,7 +446,7 @@ var home_url = "<%=request.getContextPath()%>";
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-3.png">
 									</div>
 									<h3 class="visible-md visible-lg tab-head"><fmt:message key="pillar.claim.easy.title" bundle="${msg}" /></h3>
-									<p><fmt:message key="pillar.claim.easy.copy1" bundle="${msg}" /></p>
+									<p><fmt:message key="pillar.claim.easy.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.claims" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.claim.easy.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.claim.easy.copy1.part3" bundle="${msg}" /></p>
 								</div>
 							</div>
 							<div role="tabpanel" class="fna-tab-content tab-pane item" id="navtabs-4" next-target="nav-title-1">
@@ -454,8 +454,8 @@ var home_url = "<%=request.getContextPath()%>";
 									<div class="fna-icon-circle">
 										<img src="<%=request.getContextPath()%>/resources/images/savie-regular/fna-4.png">
 									</div>
-									<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eservice.app..title" bundle="${msg}" /></h3>
-									<p><fmt:message key="pillar.eservice.app..copy1" bundle="${msg}" /> <a href="http://www.fwd.com.hk/en-US/fwd-n-you/e_services_app.html" class="eserv-link ui-link"><fmt:message key="savierp.landing.presentation.eservice.content2" bundle="${msg}" /></a> <fmt:message key="savierp.landing.presentation.eservice.content3" bundle="${msg}" /></p>
+									<h3 class="visible-md visible-lg  tab-head"><fmt:message key="pillar.eservice.app.title" bundle="${msg}" /></h3>
+									<p><fmt:message key="pillar.eservice.app.copy1.part1" bundle="${msg}" /> <a href="<fmt:message key="link.eservices" bundle="${msg}" />" class="eserv-link ui-link" target="_blank"><fmt:message key="pillar.eservice.app.copy1.part2" bundle="${msg}" /></a> <fmt:message key="pillar.eservice.app.copy1.part3" bundle="${msg}" /></p>
 								</div>
 							</div>
 						</div>

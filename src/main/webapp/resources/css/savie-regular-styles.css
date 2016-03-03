@@ -2023,8 +2023,13 @@ body.chin .savie-regular-landing .regular-benefit .benefits-holder #benefits-nav
   border: 1px solid #ffffff;
   padding: 0;
   border-left: none;
+  height: 90px;
+}
+
+.chin .savie-regular-landing .fna-icons-body .so-fna-row .navtabs-li {
   height: 68px;
 }
+
 @media screen and (min-width: 635px) {
   /* line 645, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .fna-icons-body .so-fna-row .navtabs-li {
