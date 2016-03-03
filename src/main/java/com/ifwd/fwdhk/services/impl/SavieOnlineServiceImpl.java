@@ -1660,14 +1660,16 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	public void removeSavieOnlineSession(HttpServletRequest request){
 		HttpSession session = request.getSession();
-		session.removeAttribute("productRecommendation");
-		session.removeAttribute("savieFna");
-		session.removeAttribute("lifeBeneficaryInfo");
-		session.removeAttribute("lifeDeclaration");
-		session.removeAttribute("planDetailData");
 		session.removeAttribute("saviePlanDetails");
-		session.removeAttribute("lifeEmploymentInfo");
-		session.removeAttribute("lifePayment");
+		session.removeAttribute("planDetailData");
+		session.removeAttribute("savieFna");
+		session.removeAttribute("productRecommendation");
 		session.removeAttribute("lifePersonalDetails");
+		session.removeAttribute("lifeEmploymentInfo");
+		session.removeAttribute("lifeBeneficaryInfo");
+		session.removeAttribute("lifePayment");
+		session.removeAttribute("lifeDeclaration");
+		session.removeAttribute("lifePolicy");
+		logger.info("remove savie online session");
 	}
 }
