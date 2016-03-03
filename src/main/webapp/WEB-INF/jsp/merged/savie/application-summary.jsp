@@ -270,8 +270,8 @@
 				                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName1 }</span>
 				                  </div>
 				                  <div class="gray-holder">
-				                     <h6 class="info-label">HKID</h6>
-				                     <span class="info">${lifeBeneficaryInfo.beneficaryID1 }</span>
+				                     <h6 class="info-label">${lifeBeneficaryInfo.beneficiaryHkidPassport1 == "passport" ? "Passport":"HKID" }</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficiaryHkidPassport1 == "passport" ? lifeBeneficaryInfo.beneficiaryPassport1:lifeBeneficaryInfo.beneficaryID1 }</span>
 				                  </div>
 				               </div>
 				               <div class="desktop-right">
@@ -307,8 +307,8 @@
 				                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName2 }</span>
 				                  </div>
 				                  <div class="gray-holder">
-				                     <h6 class="info-label">HKID</h6>
-				                     <span class="info">${lifeBeneficaryInfo.beneficaryID2 }</span>
+				                     <h6 class="info-label">${lifeBeneficaryInfo.beneficiaryHkidPassport2 == "passport" ? "Passport":"HKID" }</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficiaryHkidPassport2 == "passport" ? lifeBeneficaryInfo.beneficiaryPassport2:lifeBeneficaryInfo.beneficaryID2 }</span>
 				                  </div>
 				               </div>
 				               <div class="desktop-right">
@@ -344,8 +344,8 @@
 				                     <span class="info chinese-temp">${lifeBeneficaryInfo.beneficaryChineseName3 }</span>
 				                  </div>
 				                  <div class="gray-holder">
-				                     <h6 class="info-label">HKID</h6>
-				                     <span class="info">${lifeBeneficaryInfo.beneficaryID3 }</span>
+				                     <h6 class="info-label">${lifeBeneficaryInfo.beneficiaryHkidPassport3 == "passport" ? "Passport":"HKID" }</h6>
+				                     <span class="info">${lifeBeneficaryInfo.beneficiaryHkidPassport3 == "passport" ? lifeBeneficaryInfo.beneficiaryPassport3:lifeBeneficaryInfo.beneficaryID3 }</span>
 				                  </div>
 				               </div>
 				               <div class="desktop-right">

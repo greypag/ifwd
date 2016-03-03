@@ -145,7 +145,7 @@
 											   <div class="selectDiv">
 												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
 												  <span class="icon-chevron-thin-down orange-caret"></span>
-												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[0]" id="beneficiaryHkidPassport[0]">
+												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport1" id="beneficiaryHkidPassport[0]">
 													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
@@ -267,7 +267,7 @@
 											   <div class="selectDiv">
 												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
 												  <span class="icon-chevron-thin-down orange-caret"></span>
-												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[1]" id="beneficiaryHkidPassport[1]">
+												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport2" id="beneficiaryHkidPassport[1]">
 													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
@@ -389,7 +389,7 @@
 											   <div class="selectDiv">
 												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
 												  <span class="icon-chevron-thin-down orange-caret"></span>
-												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[2]" id="beneficiaryHkidPassport[2]">
+												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport3" id="beneficiaryHkidPassport[2]">
 													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
