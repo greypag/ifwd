@@ -181,16 +181,16 @@ function documentUpload(){
 	var passportFlage = true;
 	var uploadLaterFlage = false;
 	if(uploadNow == 'true'){
-		var display = $('.passport-holder').css("display");
+		var display = $('#hkPermanentRes').is(':checked');
 		var hkidflage = $('#hkid-copy-progress').css("display");
 		var passportflage = $('#passport-copy-progress').css("display");
 		var proofflage = $('#proof-of-address-progress').css("display");
 		if(hkidflage == 'none' || proofflage == 'none'){
 			return false;
 		}
-		if(display != 'none' && passportflage == 'none'){
+		if(display == 'false' && passportflage == 'none'){
 			return false;
-		}else if(display != 'none'){
+		}else if(display == 'false'){
 			passportFlage = true;
 		}else{
 			passportFlage = false;
