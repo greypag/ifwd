@@ -591,7 +591,7 @@ var languageP = "${language}";
 			<div class="modal-dialog">
 			    <div class="modal-content">
 			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-			     	<h4 class="text-center welcome-msg">Welcome back! Chan Tai Man</h4>
+			     	<h4 class="text-center welcome-msg">Welcome back! ${userDetails.fullName }</h4>
 			     	<p class="text-center description-msg">You have already completed a Financial Needs Analysis previously, you may review and edit your FNA for an updated Product Recommendation.</p>
 			     	<center><button class="btn savie-common-btn" id="review-fna-btn">Review FNA</button></center>
 			    </div>
