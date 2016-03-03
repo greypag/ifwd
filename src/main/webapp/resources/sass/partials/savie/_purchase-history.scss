@@ -38,7 +38,9 @@
     		}
 		}
 		.side-menu {
-			border: 1px solid #d4d5d4;
+			border-bottom: 1px solid #d4d5d4;
+		    border-left: 1px solid #d4d5d4;
+		    border-top: 1px solid #d4d5d4;
     		padding: 0;
     		background: #fafafb;
     		.nav {
@@ -50,17 +52,17 @@
     					padding-left: 23px;
     					color: #373a36;
     					.side-menu-icon {
-    						width: 25px;
+    						width: 27px;
     						height: 25px;
     						background: url('../images/savie-2016/side-menu-icons.png') no-repeat;
     						display: inline-block;
     						margin-right: 15px;
     						float: left;
     						&#insurance-plan {
-    							background-position: -39px 0;
+    							background-position: -35px 0;
     						}
     						&#promo-offers {
-    							background-position: -75px 0;
+    							background-position: -71px 0;
     						}
     					}
     				}
@@ -70,7 +72,33 @@
     						color: #FFF;
     					}
     				}
+    				&:nth-child(1), &:nth-child(2), {
+	    				border-bottom: 1px solid #d4d5d4;
+	    			}
     			}
+    			.profile {
+    				&.active {
+    					.side-menu-icon {
+    						background: url("../images/savie-2016/side-menu-icons-2.png") no-repeat !important;
+    					}
+    				}
+    			}
+    			.insurance-plan {
+    				&.active {
+    					.side-menu-icon {
+    						background: url("../images/savie-2016/side-menu-icons-2.png") no-repeat !important;
+    						background-position: -36px 0 !important;
+    					}
+    				}
+    			}
+    			.promo-offers {
+    				&.active {
+    					.side-menu-icon {
+    						background: url("../images/savie-2016/side-menu-icons-2.png") no-repeat !important;
+    						background-position: -73px 0 !important;
+    					}	
+    				}
+    			}	
     		}
 		}
 		.right-side-content {
@@ -91,6 +119,9 @@
     				@media screen and (max-width: $screen-md ) {
     					float: left;
     					width: 33%;
+    				}
+    				&:nth-child(1) {
+    					border-left: 1px solid #d4d5d4;
     				}
 					&#past-tab {
 						border-right: 0;
