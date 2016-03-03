@@ -825,10 +825,10 @@ function userLoginFnc() {
         data : $("#popUploginform input").serialize(),
         async : false,
         success : function(data) {
-            if (data == 'success') {
+            if (data.loginResult == 'success') {
             	window.location.href=window.location.href;
                 //window.location.reload();
-            } else if (data == 'fail') {
+            } else if (data.loginResult == 'fail') {
                 $('.login-ajax-loading').hide();
                 $('#login-err-msg').show();
                 $('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));

@@ -40,5 +40,6 @@ public interface SavieOnlineService {
 	public JSONObject uploadSavieOnlineDocument(HttpServletRequest request)throws ECOMMAPIException, Exception;
 	public BaseResponse sendImage(HttpServletRequest request,String passportFlage) throws ECOMMAPIException;
 	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException;
+	public void removeSavieOnlineSession(HttpServletRequest request);
 	
 }

@@ -294,26 +294,31 @@ public class SavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation"})
 	public ModelAndView getSavieOnlineUploadConfirmation(Model model, HttpServletRequest request) {
+		savieOnlineService.removeSavieOnlineSession(request);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_CONFIRMATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-upload-later"})
 	public ModelAndView getSavieOnlineUploadLaterConfirmation(Model model, HttpServletRequest request) {
+		savieOnlineService.removeSavieOnlineSession(request);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_UPLOAD_LATER_CONFIRMATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-offline-signature"})
 	public ModelAndView getSavieOnlineSignOfflineConfirmation(Model model, HttpServletRequest request) {
+		savieOnlineService.removeSavieOnlineSession(request);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_SIGN_OFFLINE_CONFIRMATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-paylater"})
 	public ModelAndView getSavieOnlinePayLaterConfirmation(Model model, HttpServletRequest request) {
+		savieOnlineService.removeSavieOnlineSession(request);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_PAY_LATER_CONFIRMATION);
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/confirmation-appointment"})
 	public ModelAndView getSavieOnlineAppointmentConfirmation(Model model, HttpServletRequest request) {
+		savieOnlineService.removeSavieOnlineSession(request);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_APPOINTMENT_CONFIRMATION);
 	}
 	
