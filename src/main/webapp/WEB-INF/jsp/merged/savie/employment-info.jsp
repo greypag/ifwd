@@ -241,7 +241,20 @@
 													</c:forEach>
 												</c:if>	
 											</select>
-											<input type="hidden" id="monthlyPersonalIncome" name="monthlyPersonalIncome">
+											
+											<c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == code}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == code}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<input type="hidden" id="monthlyPersonalIncome" name="monthlyPersonalIncome" value="${monthlyPersonalIncomeCode }">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="monthlyPersonalIncomeErMsg"></span>

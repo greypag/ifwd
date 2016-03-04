@@ -151,7 +151,20 @@
 												</c:forEach>
 											</c:if>
                                           </select>
-                                          <input type="hidden" id="placeOfBirth" name="placeOfBirth" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${placeOfBirthEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.placeOfBirth == code}"><c:set var="placeOfBirthCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${placeOfBirthCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.placeOfBirth == code}"><c:set var="placeOfBirthCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="placeOfBirth" name="placeOfBirth" value="${placeOfBirthCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="placeOfBirthErMsg"></span>
@@ -176,7 +189,20 @@
 													</c:forEach>
 												</c:if>
                                           </select>
-                                          <input type="hidden" id="nationalty" name="nationalty" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${nationalityEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.nationalty == code}"><c:set var="nationaltyCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${nationalityCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.nationalty == code}"><c:set var="nationaltyCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="nationalty" name="nationalty" value="${nationaltyCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="nationalityErMsg"></span>
@@ -322,7 +348,20 @@
 												</c:forEach>
 											</c:if>
                                           </select>
-                                          <input type="hidden" id="permanetAddressDistrict" name="permanetAddressDistrict" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${savieDistrictEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.permanetAddressDistrict == code}"><c:set var="permanetAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${savieDistrictCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.permanetAddressDistrict == code}"><c:set var="permanetAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="permanetAddressDistrict" name="permanetAddressDistrict" value="${permanetAddressDistrictCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   			<span class="error-msg" id="permanentDistrictErMsg"></span>
@@ -375,7 +414,20 @@
 													</c:forEach>
 												</c:if>
                                           </select>
-                                          <input type="hidden" id="residentialAddressDistrict" name="residentialAddressDistrict" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${savieDistrictEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.residentialAddressDistrict == code}"><c:set var="residentialAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${savieDistrictCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.residentialAddressDistrict == code}"><c:set var="residentialAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="residentialAddressDistrict" name="residentialAddressDistrict" value="${residentialAddressDistrictCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="residentialDistrictErMsg"></span>
@@ -428,7 +480,20 @@
 													</c:forEach>
 												</c:if>
                                           </select>
-                                          <input type="hidden" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${savieDistrictEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.correspondenceAddressDistrict == code}"><c:set var="correspondenceAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${savieDistrictCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.correspondenceAddressDistrict == code}"><c:set var="correspondenceAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" value="${correspondenceAddressDistrictCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="correspondenceDistrictErMsg"></span>

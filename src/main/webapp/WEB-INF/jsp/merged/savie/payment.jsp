@@ -168,12 +168,14 @@ var language = "${language}";
 													<option selected disabled value="">Bank name (code)</option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${bankCodeEN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${bankCodeCN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
