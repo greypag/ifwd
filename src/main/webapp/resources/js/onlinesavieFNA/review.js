@@ -48,6 +48,7 @@ var fnaOccOther = {
 
 //数字转千分位
 function formatNum (num) {
+	num = (num + '').replace(",","");
     return (num + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
 }
 
