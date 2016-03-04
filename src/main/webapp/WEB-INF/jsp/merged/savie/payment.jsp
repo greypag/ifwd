@@ -109,13 +109,14 @@ var language = "${language}";
 						  </div>
 					   </div>
 					</div>
+					<div id="errorMsg" style="color: red;"></div>
 					<div id="direct-debit-panel">
 						<div class="row">
 							<div class="col-xs-12 col-md-6">
 								<div class="info-wrapper">
 									<p class="info-label">Amount</p>
 									<p class="info-value">
-									   HK$ ${saviePlanDetails.insuredAmount }
+									   HK$ ${saviePlanDetails.insuredAmount1 }
 									   <input type="hidden" name="paymentAmount" value="${saviePlanDetails.insuredAmount }">
 									</p>
 								</div>

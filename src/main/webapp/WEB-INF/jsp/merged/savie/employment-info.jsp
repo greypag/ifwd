@@ -87,6 +87,7 @@
 	  					<div class="row">
 	  						<form id="employmentInfoForm" action="" method="post" onsubmit="return false">
 	  							<h3>Employment information &amp; education level </h3>
+	  							<div id="errorMsg" style="color: red;"></div>
 								<div class="col-xs-12 col-md-6" id="left-side">
 									<div class="form-group">
 										<div class="selectDiv centreDiv gray-text-bg">
@@ -394,6 +395,10 @@
 			var getpath =  "<%=request.getContextPath()%>";
 		
 			$(document).ready(function () {
+				setSelectReadonly('tmpEmploymentStatus', true);
+				setSelectReadonly('tmpBusinessNature', true);
+				setSelectReadonly('tmpOccupation', true);
+				setSelectReadonly('tmpEducationLevel', true);
 				
 				var dummy = true;
 				// dummy condition for displaying the back / next button

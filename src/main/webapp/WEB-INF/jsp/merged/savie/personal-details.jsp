@@ -87,6 +87,7 @@
                   <div class="container-fluid fwd-container">
                      <div id="personal-info" class="personal-info-widget page-application et-application-page">
                         <h4 class="so-h4">Applicant info / insured person Info</h4>
+                        <div id="errorMsg" style="color: red;"></div>
                         <form id="soInsuredInfoForm" method="post" class="form-horizontal" action="" onsubmit="return false">
                            <div class="row margin">
                               <div class="col-sm-12 col-md-6 left">
@@ -503,6 +504,12 @@
 			var language = "en";
 			
 			$(document).ready(function() {
+				setSelectReadonly('tmpGender', true);
+				setInputReadonly('so-calendar-dob', true);
+				setInputReadonly('residentialNo', true);
+				setInputReadonly('mobileNo', true);
+				setSelectReadonly('tmpMaritalStatus', true);
+				
 				if('${lifePersonalDetails.permanetAddress1}' != ''){
 					if ($('.res-additional').hasClass('hidden')) {
 						$('.res-additional').removeClass('hidden');
