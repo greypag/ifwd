@@ -1005,6 +1005,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				savieFna.setQ4_f(jobject.get("q4_f")!=null?jobject.get("q4_f").toString():"");
 				savieFna.setQ4_g(jobject.get("q4_g")!=null?jobject.get("q4_g").toString():"");
 				savieFna.setQ4_g_others(jobject.get("q4_g_others")!=null?jobject.get("q4_g_others").toString():"");
+				savieFna.setLast_update(jobject.get("last_update")!=null?DateApi.formatTime(Long.valueOf(jobject.get("last_update").toString())):"");
 				request.getSession().setAttribute("savieFna", savieFna);
 				
 				jobject.put("q4_a_others", jobject.get("q4_a_others")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_a_others").toString()):"");
@@ -1012,6 +1013,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				jobject.put("q4_c", jobject.get("q4_c")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_c").toString()):"");
 				jobject.put("q4_d_1", jobject.get("q4_d_1")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_d_1").toString()):"");
 				jobject.put("q4_d_2", jobject.get("q4_d_2")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_d_2").toString()):"");
+				jobject.put("last_update", jobject.get("last_update")!=null?DateApi.formatTime(Long.valueOf(jobject.get("last_update").toString())):"");
 			}
 		}
 		return jobject;

@@ -172,7 +172,7 @@ var FNArecommendation = {
 		});
 
 		$(".fna-btn-sel-product").click(function(e){
-			e.preventDefault();
+			//e.preventDefault();
 			$("#loading-overlay-save").find(".fna-select-product-link").attr("href",$(this).attr("href"));
 
 			$('#loading-overlay-save').modal({

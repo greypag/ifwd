@@ -87,6 +87,7 @@
                   <div class="container-fluid fwd-container">
                      <div id="personal-info" class="personal-info-widget page-application et-application-page">
                         <h4 class="so-h4">Applicant info / insured person Info</h4>
+                        <div id="errorMsg" style="color: red;"></div>
                         <form id="soInsuredInfoForm" method="post" class="form-horizontal" action="" onsubmit="return false">
                            <div class="row margin">
                               <div class="col-sm-12 col-md-6 left">
@@ -104,7 +105,7 @@
 								</div>
                                  <div class="clearfix form-group has-error">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="chineseName" name="chineseName" type="text" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
+										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input chinese-input" id="chineseName" name="chineseName" type="text" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
 										<label class="mdl-textfield__label so-mdl-textfield-label" for="chineseName">Name in Chinese</label>
 									</div>
 									<span class="error-msg" id="chineseNameErMsg"></span>
@@ -121,7 +122,7 @@
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   			<span class="error-msg" id="genderErMsg"></span>
-									   			<input type="hidden" id="gender" name="gender" />
+									   			<input type="hidden" id="gender" name="gender" value="${savieFna.gender == '0' ? 'MALE':'FEMALE'}" />
                                     </div>
                                  </div>
 								 <div class="clearfix form-group has-error">
@@ -150,7 +151,20 @@
 												</c:forEach>
 											</c:if>
                                           </select>
-                                          <input type="hidden" id="placeOfBirth" name="placeOfBirth" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${placeOfBirthEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.placeOfBirth == code}"><c:set var="placeOfBirthCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${placeOfBirthCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.placeOfBirth == code}"><c:set var="placeOfBirthCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="placeOfBirth" name="placeOfBirth" value="${placeOfBirthCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="placeOfBirthErMsg"></span>
@@ -175,7 +189,20 @@
 													</c:forEach>
 												</c:if>
                                           </select>
-                                          <input type="hidden" id="nationalty" name="nationalty" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${nationalityEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.nationalty == code}"><c:set var="nationaltyCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${nationalityCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.nationalty == code}"><c:set var="nationaltyCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="nationalty" name="nationalty" value="${nationaltyCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="nationalityErMsg"></span>
@@ -250,7 +277,32 @@
 																</c:forEach>
 															</c:if>
                                           </select>
-                                          <input type="hidden" id="martialStatus" name="martialStatus" />
+                                          
+                                          <c:if test='${language == "en"}'>
+												<c:forEach var="list" items="${maritalStatusesEN}">
+													    <c:choose>
+														   <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+														   <c:when test="${savieFna.marital_status == '1' && list.itemCode == 'MS2'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>  
+														   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+														   <c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when> 
+														   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when> 
+														   <c:otherwise></c:otherwise>  
+														</c:choose>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${maritalStatusesCN}">
+													    <c:choose>  
+														   <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+														   <c:when test="${savieFna.marital_status == '1' && list.itemCode == 'MS2'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>  
+														   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+														   <c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when> 
+														   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when> 
+														   <c:otherwise></c:otherwise>  
+														</c:choose>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="martialStatus" name="martialStatus" value="${martialStatusCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   			<span class="error-msg" id="maritalStatErMsg"></span>
@@ -296,7 +348,20 @@
 												</c:forEach>
 											</c:if>
                                           </select>
-                                          <input type="hidden" id="permanetAddressDistrict" name="permanetAddressDistrict" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${savieDistrictEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.permanetAddressDistrict == code}"><c:set var="permanetAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${savieDistrictCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.permanetAddressDistrict == code}"><c:set var="permanetAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="permanetAddressDistrict" name="permanetAddressDistrict" value="${permanetAddressDistrictCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   			<span class="error-msg" id="permanentDistrictErMsg"></span>
@@ -349,7 +414,20 @@
 													</c:forEach>
 												</c:if>
                                           </select>
-                                          <input type="hidden" id="residentialAddressDistrict" name="residentialAddressDistrict" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${savieDistrictEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.residentialAddressDistrict == code}"><c:set var="residentialAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${savieDistrictCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.residentialAddressDistrict == code}"><c:set var="residentialAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="residentialAddressDistrict" name="residentialAddressDistrict" value="${residentialAddressDistrictCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="residentialDistrictErMsg"></span>
@@ -402,7 +480,20 @@
 													</c:forEach>
 												</c:if>
                                           </select>
-                                          <input type="hidden" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${savieDistrictEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.correspondenceAddressDistrict == code}"><c:set var="correspondenceAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${savieDistrictCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.correspondenceAddressDistrict == code}"><c:set var="correspondenceAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" value="${correspondenceAddressDistrictCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="correspondenceDistrictErMsg"></span>
@@ -478,6 +569,12 @@
 			var language = "en";
 			
 			$(document).ready(function() {
+				setSelectReadonly('tmpGender', true);
+				setInputReadonly('so-calendar-dob', true);
+				setInputReadonly('residentialNo', true);
+				setInputReadonly('mobileNo', true);
+				setSelectReadonly('tmpMaritalStatus', true);
+				
 				if('${lifePersonalDetails.permanetAddress1}' != ''){
 					if ($('.res-additional').hasClass('hidden')) {
 						$('.res-additional').removeClass('hidden');

@@ -1186,19 +1186,19 @@ var home_url = "<%=request.getContextPath()%>";
 													bundle="${msg}" /></label>
 										</div>
 										<div class="left-desktop text-box">
-											<input class="form-control gray-textbox permanent-address"
+											<input class="form-control gray-textbox permanent-address" maxlength="29"
 												autocomplete="off" id="savieApplicantBean.permanentAddress1"
 												name="savieApplicantBean.permanentAddress1" type="text"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
 											<span class="error-msg" id="permanentAddressMessage1"></span>
 											<input
-												class="form-control gray-textbox permanent-address optional-field"
+												class="form-control gray-textbox permanent-address optional-field"  maxlength="29"
 												autocomplete="off" id="savieApplicantBean.permanentAddress2"
 												name="savieApplicantBean.permanentAddress2" type="text"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
 											<span class="error-msg" id="permanentAddressMessage2"></span>
 											<input
-												class="form-control gray-textbox permanent-address optional-field"
+												class="form-control gray-textbox permanent-address optional-field"  maxlength="19"
 												autocomplete="off" id="savieApplicantBean.permanentAddress3"
 												name="savieApplicantBean.permanentAddress3" type="text"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
@@ -2168,13 +2168,13 @@ var home_url = "<%=request.getContextPath()%>";
 															key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list"
-															items="${savieBeneficiaryRelationshipEN}">
+															items="${lifeBeneficiaryRelationshipEN}">
 															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list"
-															items="${savieBeneficiaryRelationshipCN}">
+															items="${lifeBeneficiaryRelationshipCN}">
 															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>

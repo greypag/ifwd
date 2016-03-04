@@ -26,6 +26,12 @@
 			margin-bottom: 0;
 		}
 	}
+	
+	.selectDiv {
+		&.is-not-active {
+			border-bottom: 0 !important;
+		}
+	}
 
 	.summary-section {
 		margin-top: 17px;
