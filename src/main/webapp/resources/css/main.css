@@ -3524,8 +3524,13 @@ table.acc-form tr td {
 }
 
 table.acc-form td .control-label {
-	line-height: 60px;
-	font-size: 24px;
+    line-height: 60px;
+    font-size: 24px;
+}
+
+table.acc-form td .member-account-details-footer {
+    line-height: 22px;
+    font-size: 15px;
 }
 
 table.acc-form2 {
