@@ -136,7 +136,7 @@ var language = "${language}";
 							</div>
 							<div id="direct-debit-panel">
 								<div class="row">
-									<div class="col-xs-12 col-md-6">
+									<%-- <div class="col-xs-12 col-md-6">
 										<div class="form-group">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="paymentAmount" name="paymentAmount" value="${saviePlanDetails.insuredAmount }">
@@ -144,13 +144,13 @@ var language = "${language}";
 											</div>
 											<span class="error-msg" id="paymentAmountErMsg"></span>
 										</div>
-										<div class="form-group">
+										<!-- <div class="form-group">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="paymentMethod" name="paymentMethod" value="Direct debit">
 												<label class="mdl-textfield__label" for="paymentMethod">Payment Method</label>
 											</div>
 											<span class="error-msg" id="paymentMethodErMsg"></span>
-										</div>
+										</div> -->
 										<div class="form-group">
 											<div class="so-mdl-textfield mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 												<input class="mdl-textfield__input so-mdl-textfield-input" type="text" id="accountHolderName" name="accountHolderName" value="${userDetails.fullName }">
@@ -158,7 +158,7 @@ var language = "${language}";
 											</div>
 											<span class="error-msg" id="accountHolderNameErMsg"></span>
 										</div>
-									</div>
+									</div> --%>
 									<div class="col-xs-12 col-md-6">
 										<div class="payment-select-wrapper">
 											<p class="bank-info-select-label">Bank name (code)</p>
@@ -209,7 +209,7 @@ var language = "${language}";
 									</div>
 									<span class="error-msg" id="bankAccountNoErMsg"></span>
 								</div>
-								<div class="form-group">
+								<%-- <div class="form-group">
 									<div class="selectDiv centreDiv gray-text-bg">
 										<label class="mdl-textfield__label cstm-dropdown-label">Branch name (code)</label>
 										<select name="branchCode" id="bank_name" class="form-control gray-dropdown">
@@ -228,7 +228,7 @@ var language = "${language}";
 										<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 									</div>
 									<span class="error-msg" id="branchNameErMsg"></span>
-								</div>
+								</div> --%>
 							</div>
 						</div>
 						<div class="form-group payment-policy-wrapper">
@@ -907,7 +907,6 @@ var language = "${language}";
 					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePayment",
 					  data: $("#paymentForm").serialize(),
 					  success : function(data) {
-						  alert()
 						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
 							  $("#errorMsg").html(data.errorMsg);
 						  }

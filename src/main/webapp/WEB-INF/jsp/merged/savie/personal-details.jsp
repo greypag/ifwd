@@ -121,7 +121,7 @@
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   			<span class="error-msg" id="genderErMsg"></span>
-									   			<input type="hidden" id="gender" name="gender" />
+									   			<input type="hidden" id="gender" name="gender" value="${savieFna.gender == '0' ? 'MALE':'FEMALE'}" />
                                     </div>
                                  </div>
 								 <div class="clearfix form-group has-error">
@@ -250,7 +250,32 @@
 																</c:forEach>
 															</c:if>
                                           </select>
-                                          <input type="hidden" id="martialStatus" name="martialStatus" />
+                                          
+                                          <c:if test='${language == "en"}'>
+												<c:forEach var="list" items="${maritalStatusesEN}">
+													    <c:choose>
+														   <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+														   <c:when test="${savieFna.marital_status == '1' && list.itemCode == 'MS2'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>  
+														   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+														   <c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when> 
+														   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when> 
+														   <c:otherwise></c:otherwise>  
+														</c:choose>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${maritalStatusesCN}">
+													    <c:choose>  
+														   <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+														   <c:when test="${savieFna.marital_status == '1' && list.itemCode == 'MS2'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>  
+														   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+														   <c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when> 
+														   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}"><c:set var="martialStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:when> 
+														   <c:otherwise></c:otherwise>  
+														</c:choose>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="martialStatus" name="martialStatus" value="${martialStatusCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   			<span class="error-msg" id="maritalStatErMsg"></span>
