@@ -236,6 +236,11 @@ public class SavieOnlineController extends BaseController{
 		model.addAttribute("bankCodeEN", InitApplicationMessage.bankCodeEN);
 		model.addAttribute("bankCodeCN", InitApplicationMessage.bankCodeCN);
 		
+		String backSummary = request.getParameter("backSummary");
+		if(backSummary!=null && "Y".equals(backSummary)){
+			model.addAttribute("backSummary", backSummary);
+		}
+		
 		LifePaymentBean lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
 		if(lifePayment!=null && lifePayment.getBankCode()!=null && !"".equals(lifePayment.getBankCode())){
 			try {

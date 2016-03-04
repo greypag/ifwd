@@ -473,6 +473,14 @@
 						$('.unemployment-field').removeClass('hidden');
 					}
 				});
+
+
+				//init next button text
+				if('${backSummary}'=="Y"){
+					var htmlObj = document.getElementById('next-btn');
+					htmlObj.innerHTML = 'Back to application summary';
+				}
+				
 			});
 			
 			function showHideOtherOccupationField(val) {
