@@ -2168,13 +2168,13 @@ var home_url = "<%=request.getContextPath()%>";
 															key="eliteTerms.selectPlan.Please.select" bundle="${msg}" /></option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list"
-															items="${savieBeneficiaryRelationshipEN}">
+															items="${lifeBeneficiaryRelationshipEN}">
 															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list"
-															items="${savieBeneficiaryRelationshipCN}">
+															items="${lifeBeneficiaryRelationshipCN}">
 															<option value="${list.itemCode }-${list.itemDesc }">${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>

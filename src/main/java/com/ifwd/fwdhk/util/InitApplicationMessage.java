@@ -43,6 +43,9 @@ public class InitApplicationMessage implements ApplicationListener{
 	public static List<OptionItemDesc> savieBeneficiaryRelationshipEN;
 	public static List<OptionItemDesc> savieBeneficiaryRelationshipCN;
 	
+	public static List<OptionItemDesc> lifeBeneficiaryRelationshipEN;
+	public static List<OptionItemDesc> lifeBeneficiaryRelationshipCN;
+	
 	public static List<OptionItemDesc> placeOfBirthEN;
 	public static List<OptionItemDesc> placeOfBirthCN;
 	
@@ -307,6 +310,26 @@ public class InitApplicationMessage implements ApplicationListener{
 			}
 		}
 		logger.info("savieBeneficiaryRelationshipCN : " + savieBeneficiaryRelationshipCN);
+
+		try {
+			lifeBeneficiaryRelationshipEN = commonUtils.getOptionItemDescList("lifeBeneficiary","EN",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("lifeBeneficiaryRelationshipEN : " + lifeBeneficiaryRelationshipEN);
+		
+		try {
+			lifeBeneficiaryRelationshipCN = commonUtils.getOptionItemDescList("lifeBeneficiary","CH",type);
+		} catch (Exception e) {
+			logger.error("error : "+e.getMessage());
+			if("start".equals(type)){
+				System.exit(0);
+			}
+		}
+		logger.info("lifeBeneficiaryRelationshipCN : " + lifeBeneficiaryRelationshipCN);
 		
 		try {
 			placeOfBirthEN = commonUtils.getOptionItemDescList("placeOfBirth","EN",type);
