@@ -31,6 +31,9 @@
 		&.is-not-active {
 			border-bottom: 0 !important;
 		}
+		.gray-dropdown {
+			padding-left: 10px !important;
+		}
 	}
 
 	.summary-section {
@@ -122,6 +125,9 @@
     			display: block;
 			    font-size: 14px;
 			    line-height: 18px;
+				border: 0;
+				background: transparent;
+				width: 100%;
 
 			    &.ch {
 			    	font-family: "Microsoft JhengHei", Calibri, sans-serif !important;

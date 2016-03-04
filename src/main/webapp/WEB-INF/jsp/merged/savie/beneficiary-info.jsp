@@ -622,7 +622,7 @@
 		
 			$(document).ready(function() {
 				var language = "en";
-				
+				var getpath = "<%=request.getContextPath()%>";
 				var dummy = true;
 				// dummy condition for displaying the back / next button
 				if(dummy) {

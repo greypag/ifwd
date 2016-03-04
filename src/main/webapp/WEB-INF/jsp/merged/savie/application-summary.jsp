@@ -113,7 +113,6 @@
 						</div>
                </div>
             </div>
-
             <div class="summary-section below clearfix">
                <h5>Personal info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/personal-details?backSummary=Y">Edit</a></h5>
                <div class="desktop-left">
@@ -678,69 +677,69 @@
 			// Your selected plan block
 			setInputReadonly('planName', true);
 			setInputReadonly('savingAmount', true);
-			setSelectReadonly('premiumMode', true);
+			setSelectReadonly('tmpPremiumMode', true);
 			// Personal info
 			setInputReadonly('lastName', true);
 			setInputReadonly('firstName', true);
 			setInputReadonly('chineseName', true);
-			setSelectReadonly('gender', true);
+			setSelectReadonly('tmpGender', true);
 			setInputReadonly('hkId', true);
-			setSelectReadonly('placeOfBirth', true);
-			setSelectReadonly('nationalty', true);
+			setSelectReadonly('tmpPlaceOfBirth', true);
+			setSelectReadonly('tmpNationality', true);
 			setInputReadonly('so-calendar-dob', true);
 			setInputReadonly('residentialNo', true);
 			setInputReadonly('telephoneNo', true);
-			setSelectReadonly('martialStatus', true);
+			setSelectReadonly('tmpMaritalStatus', true);
 			setInputReadonly('emailAddress', true);
 			setInputReadonly('permanentAddress1', true);
 			setInputReadonly('permanentAddress2', true);
 			setInputReadonly('permanentAddress3', true);
-			setSelectReadonly('permanetAddressDistrict', true);
+			setSelectReadonly('tmpPermanetAddressDistrict', true);
 			setInputReadonly('residentialAddress1', true);
 			setInputReadonly('residentialAddress2', true);
 			setInputReadonly('residentialAddress3', true);
-			setSelectReadonly('residentialAddressDistrict', true);
+			setSelectReadonly('tmpResidentialAddressDistrict', true);
 			setInputReadonly('correspondenceAddress1', true);
 			setInputReadonly('correspondenceAddress2', true);
 			setInputReadonly('correspondenceAddress3', true);
-			setSelectReadonly('correspondenceAddressDistrict', true);
+			setSelectReadonly('tmpCorrespondenceAddressDistrict', true);
 			//Employment info
-			setSelectReadonly('employmentStatus', true);
-			setSelectReadonly('natureOfBusiness', true);
-			setSelectReadonly('occupation', true);
+			setSelectReadonly('tmpEmploymentStatus', true);
+			setSelectReadonly('tmpBusinessNature', true);
+			setSelectReadonly('tmpOccupation', true);
 			setInputReadonly('otherOccupation', true);
 			setInputReadonly('currentEmployer', true);
-			setSelectReadonly('monthlyPersonalIncome', true);
-			setSelectReadonly('education', true);
+			setSelectReadonly('tmpMonthlyPersonalIncome', true);
+			setSelectReadonly('tmpEducationLevel', true);
 			// Beneficiary info
 			setInputReadonly('beneficiaryLastName[0]', true);
 			setInputReadonly('beneficiaryFirstName[0]', true);
 			setInputReadonly('beneficiaryChineseName[0]', true);
 			setInputReadonly('beneficiaryHkid[0]', true);
-			setSelectReadonly('beneficaryRelation1', true);
-			setSelectReadonly('beneficaryGender1', true);
+			setSelectReadonly('tmpBeneficaryRelation[0]', true);
+			setSelectReadonly('tmpBeneficaryGender[0]', true);
 			setInputReadonly('beneficiaryEntitlement[0]', true);
 			setInputReadonly('beneficiaryLastName[1]', true);
 			setInputReadonly('beneficiaryFirstName[1]', true);
 			setInputReadonly('beneficiaryChineseName[1]', true);
 			setInputReadonly('beneficiaryHkid[1]', true);
-			setSelectReadonly('beneficaryRelation2', true);
-			setSelectReadonly('beneficaryGender2', true);
+			setSelectReadonly('tmpBeneficaryRelation[1]', true);
+			setSelectReadonly('tmpBeneficaryGender[1]', true);
 			setInputReadonly('beneficiaryEntitlement[1]', true);
 			setInputReadonly('beneficiaryLastName[2]', true);
 			setInputReadonly('beneficiaryFirstName[2]', true);
 			setInputReadonly('beneficiaryChineseName[2]', true);
 			setInputReadonly('beneficiaryHkid[2]', true);
-			setSelectReadonly('beneficaryRelation3', true);
-			setSelectReadonly('beneficaryGender3', true);
+			setSelectReadonly('tmpBeneficaryRelation[2]', true);
+			setSelectReadonly('tmpBeneficaryGender[2]', true);
 			setInputReadonly('beneficiaryEntitlement[2]', true);
 			// Payment info
 			setInputReadonly('amount', true);
-			setSelectReadonly('paymentMethod', true);
+			setSelectReadonly('tmpPaymentMethod', true);
 			setInputReadonly('accountHolderName', true);
-			setSelectReadonly('bankName', true);
+			setSelectReadonly('tmpBankName', true);
 			setInputReadonly('accountNo', true);
-			setSelectReadonly('branchName', true);
+			setSelectReadonly('tmpBranchName', true);
 		});
 		</script>
 	</body>

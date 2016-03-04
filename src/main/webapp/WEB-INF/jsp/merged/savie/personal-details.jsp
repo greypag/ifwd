@@ -567,6 +567,7 @@
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
 			var language = "en";
+			var getpath = "<%=request.getContextPath()%>";
 			
 			$(document).ready(function() {
 				setSelectReadonly('tmpGender', true);
