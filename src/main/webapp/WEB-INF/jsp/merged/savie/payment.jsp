@@ -766,7 +766,7 @@ var language = "${language}";
 				e.preventDefault();
 		}).on('error.form.bv', function(e) {
 		});
-	}
+	});
 	
 	function open(elem) {
 		if (document.createEvent) {
