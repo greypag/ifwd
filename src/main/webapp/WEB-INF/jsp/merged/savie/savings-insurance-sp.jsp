@@ -77,7 +77,7 @@ var home_url = "<%=request.getContextPath()%>";
               		<img src="<%=request.getContextPath()%>/resources/images/savie/o2o-landing/sav-landing-bg-desktop.jpg" class="img-responsive hidden-xs hidden-sm">
               		<div class="fwd-container-limit">
               		
-              		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp?isClikStart=Y" method="post">
+              		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" method="post" >
       	        		<div class="img-banner-text savie-landing">
       	        			<h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2>
       	        			<div id="clearfix-height-rp">
