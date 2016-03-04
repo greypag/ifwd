@@ -807,12 +807,14 @@ var language = "${language}";
          var centre = $('#centre option:selected').val();
          <%
          ServiceCentreResponse serviceCentre = (ServiceCentreResponse)request.getAttribute("serviceCentre");
-         for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
+         if(serviceCentre.getServiceCentres().size() > 0) {
+             for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
          %>
          if(centre == '<%=entity.getServiceCentreCode() %>') {
             $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
          }
          <%
+             }
          }
          %>
       });
@@ -887,7 +889,10 @@ var language = "${language}";
 					    success:function(data){
 					    	if(data.errMsgs == null){
 					    		//send email
-					    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+					    		//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+					    		
+					    		$("#paymentForm").attr("action", '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}');
+						    	$("#paymentForm").submit();
 					    	}else if(data.errMsgs == "Access code has already been used"){
 					    		//$('#accessCodeUsed').modal('show');
 					    		console.log(data.errMsgs);

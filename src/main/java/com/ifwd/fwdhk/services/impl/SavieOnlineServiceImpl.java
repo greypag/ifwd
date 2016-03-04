@@ -1219,10 +1219,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	return OptionItemDescList;
 	}
 	
-	public void lifePersonalDetailsSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request) throws ECOMMAPIException{
-		final Map<String,String> header = headerUtil.getHeader(request);
-		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
-		parameters.accumulate("planCode", "SAVIE-SP");
+	public net.sf.json.JSONObject lifePersonalDetailsPutData(LifePersonalDetailsBean lifePersonalDetails,net.sf.json.JSONObject parameters){
 		parameters.accumulate("applicantFirstName", lifePersonalDetails.getFirstname()!=null?lifePersonalDetails.getFirstname():"");
 		parameters.accumulate("applicantLastName", lifePersonalDetails.getLastname()!=null?lifePersonalDetails.getLastname():"");
 		parameters.accumulate("applicantChineseName", lifePersonalDetails.getChineseName()!=null?lifePersonalDetails.getChineseName():"");
@@ -1253,7 +1250,16 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("permanentAddress3", lifePersonalDetails.getPermanetAddress3()!=null?lifePersonalDetails.getPermanetAddress3():"");
 		parameters.accumulate("permanentAddress4", lifePersonalDetails.getPermanetAddress4()!=null?lifePersonalDetails.getPermanetAddress4():"");
 		parameters.accumulate("permanentDistrict", lifePersonalDetails.getPermanetAddressDistrict()!=null?lifePersonalDetails.getPermanetAddressDistrict():"");
-		parameters.accumulate("lastViewPage", "life-personal-details");
+		return parameters;
+	}
+	
+	public void lifePersonalDetailsSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request) throws ECOMMAPIException{
+		String language = (String) request.getSession().getAttribute("language");
+		final Map<String,String> header = headerUtil.getHeader(request);
+		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+		parameters.accumulate("planCode", "SAVIE-SP");
+		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
+		parameters.accumulate("resumeViewPage", language+"/savings-insurance/employment-info");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
@@ -1266,10 +1272,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	}
 	
-	public void lifeEmploymentInfoSaveforLater(LifeEmploymentInfoBean lifeEmploymentInfo,HttpServletRequest request) throws ECOMMAPIException{
-		final Map<String,String> header = headerUtil.getHeader(request);
-		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
-		parameters.accumulate("planCode", "SAVIE-SP");
+	public net.sf.json.JSONObject lifeEmploymentInfoPutData(LifeEmploymentInfoBean lifeEmploymentInfo,net.sf.json.JSONObject parameters){
 		parameters.accumulate("employmentStatus", lifeEmploymentInfo.getEmploymentStatus()!=null?lifeEmploymentInfo.getEmploymentStatus():"");
 		parameters.accumulate("occupation", lifeEmploymentInfo.getOccupation()!=null?lifeEmploymentInfo.getOccupation():"");
 		parameters.accumulate("educationLevel", lifeEmploymentInfo.getEducation()!=null?lifeEmploymentInfo.getEducation():"");
@@ -1278,7 +1281,19 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("liquidAssest", lifeEmploymentInfo.getAmountOfLiquidAssets()!=null?lifeEmploymentInfo.getAmountOfLiquidAssets():"");
 		parameters.accumulate("amountOtherSource", lifeEmploymentInfo.getAmountOfOtherSourceOfIncome()!=null?lifeEmploymentInfo.getAmountOfOtherSourceOfIncome():"");
 		parameters.accumulate("employerName", lifeEmploymentInfo.getEmployerName()!=null?lifeEmploymentInfo.getEmployerName():"");
-		parameters.accumulate("lastViewPage", "life-employment-info");
+		return parameters;
+	}
+	
+	public void lifeEmploymentInfoSaveforLater(LifeEmploymentInfoBean lifeEmploymentInfo,HttpServletRequest request) throws ECOMMAPIException{
+		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
+		
+		String language = (String) request.getSession().getAttribute("language");
+		final Map<String,String> header = headerUtil.getHeader(request);
+		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+		parameters.accumulate("planCode", "SAVIE-SP");
+		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
+		parameters = this.lifeEmploymentInfoPutData(lifeEmploymentInfo, parameters);
+		parameters.accumulate("resumeViewPage", language+"/savings-insurance/beneficiary-info");
 		
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
