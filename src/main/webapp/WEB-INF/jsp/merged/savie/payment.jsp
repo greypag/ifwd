@@ -291,7 +291,7 @@ var language = "${language}";
 											Map.Entry<String, List> entry; 
 											Iterator i;
 											Boolean result = results.size() > 0; 
-											if(result && false) {
+											if(result) {
 												i = results.entrySet().iterator();
 												while(i.hasNext()){
 													entry=(Map.Entry<String, List>)i.next();
@@ -478,15 +478,11 @@ var language = "${language}";
 		%>
 		$("#preferred-date-${csCenter}").show();
 		var serviceCentreCode = '${csCenter }';
-		//$('.centre-info').addClass('hidden');
-		//$('#centre-' + serviceCentreCode).removeClass('hidden');
 		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
 			getTimeSlot('${perferredTime }');
 		}
 		$('#centre').on('change', function() {
 			var centre = $('#centre option:selected').val();
-			/* $('.centre-info').addClass('hidden');
-			$('#centre-' + centre).removeClass('hidden'); */
 			togglePreferred('preferred-date-'+ centre)
 			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
 				getTimeSlot('${perferredTime }');
@@ -513,7 +509,7 @@ var language = "${language}";
 			$('#application-saved-modal').modal('show');
 		});
 		
-		paymentFormValidation();
+		//paymentFormValidation();
 		
 		$("input[type='radio']").on('click', function() {
 			if($('#payment-debit:checked').length > 0 ) {

@@ -463,15 +463,11 @@ var languageP = "${language}";
 		%>
 		$("#preferred-date-${csCenter}").show();
 		var serviceCentreCode = '${csCenter }';
-		//$('.centre-info').addClass('hidden');
-		//$('#centre-' + serviceCentreCode).removeClass('hidden');
 		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
 			getTimeSlot('${perferredTime }');
 		}
 		$('#centre').on('change', function() {
 			var centre = $('#centre option:selected').val();
-			/* $('.centre-info').addClass('hidden');
-			$('#centre-' + centre).removeClass('hidden'); */
 			togglePreferred('preferred-date-'+ centre)
 			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
 				getTimeSlot('${perferredTime }');
@@ -479,7 +475,7 @@ var languageP = "${language}";
 		});
 	});
 	function togglePreferred(id) {
-		$(".form-group .preferred-date .date").hide();
+		$(".col-xs-12 .preferred-date .date").hide();
 		$("#"+ id).show();
 	}
 	
