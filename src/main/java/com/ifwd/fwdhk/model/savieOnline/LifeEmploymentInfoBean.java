@@ -32,13 +32,13 @@ public class LifeEmploymentInfoBean implements Serializable {
 	private String amountOfLiquidAssetsName;
 	
 	public void validate(String language) throws ValidateExceptions {
-		this.employmentStatusName = this.employmentStatus!=null?this.employmentStatus.split("-")[1]:"";
-		this.natureOfBusinessName = this.natureOfBusiness!=null?this.natureOfBusiness.split("-")[1]:"";
-		this.occupationName = this.occupation!=null?this.occupation.split("-")[1]:"";
-		this.monthlyPersonalIncomeName = this.monthlyPersonalIncome!=null?this.monthlyPersonalIncome.split("-")[1]:"";
-		this.educationName = this.education!=null?this.education.split("-")[1]:"";
-		this.amountOfOtherSourceOfIncomeName = this.amountOfOtherSourceOfIncome!=null?this.amountOfOtherSourceOfIncome.split("-")[1]:"";
-		this.amountOfLiquidAssetsName = this.amountOfLiquidAssets!=null?this.amountOfLiquidAssets.split("-")[1]:"";
+		this.employmentStatusName = !"".equals(this.employmentStatus)?this.employmentStatus.split("-")[1]:"";
+		this.natureOfBusinessName = !"".equals(this.natureOfBusiness)?this.natureOfBusiness.split("-")[1]:"";
+		this.occupationName = !"".equals(this.occupation)?this.occupation.split("-")[1]:"";
+		this.monthlyPersonalIncomeName = !"".equals(this.monthlyPersonalIncome)?this.monthlyPersonalIncome.split("-")[1]:"";
+		this.educationName = !"".equals(this.education)?this.education.split("-")[1]:"";
+		this.amountOfOtherSourceOfIncomeName = !"".equals(this.amountOfOtherSourceOfIncome)?this.amountOfOtherSourceOfIncome.split("-")[1]:"";
+		this.amountOfLiquidAssetsName = !"".equals(this.amountOfLiquidAssets)?this.amountOfLiquidAssets.split("-")[1]:"";
 		
 		List<String> list = new ArrayList<String>();
         if(ValidationUtils.isNullOrEmpty(this.employmentStatus)){

@@ -104,7 +104,18 @@
 													</c:forEach>
 												</c:if>
 											</select>
-											<input type="hidden" id="employmentStatus" name="employmentStatus">
+											
+											<c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${employmentStatusEN}">
+														<c:if test="${savieFna.employment_status == list.itemCode}"><c:set var="employmentStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${employmentStatusCN}">
+														<c:if test="${savieFna.employment_status == list.itemCode}"><c:set var="employmentStatusCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+													</c:forEach>
+												</c:if>
+											<input type="hidden" id="employmentStatus" name="employmentStatus" value="${employmentStatusCode }">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="employmentStatusErMsg"></span>
@@ -125,7 +136,18 @@
 													</c:forEach>
 												</c:if>				                     
 											</select>
-											<input type="hidden" id="natureOfBusiness" name="natureOfBusiness">
+											
+											<c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${natureOfBusinessEN}">
+														<c:if test="${savieFna.nature_of_business == list.itemCode}"><c:set var="natureOfBusinessCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${natureOfBusinessCN}">
+														<c:if test="${savieFna.nature_of_business == list.itemCode}"><c:set var="natureOfBusinessCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+													</c:forEach>
+												</c:if>
+											<input type="hidden" id="natureOfBusiness" name="natureOfBusiness" value="${natureOfBusinessCode }">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="businessNatureErMsg"></span>
@@ -146,7 +168,18 @@
 													</c:forEach>
 												</c:if>	
 											</select>
-											<input type="hidden" id="occupation" name="occupation">
+											
+											<c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${occupationEN}">
+														<c:if test="${savieFna.occupation == list.itemCode}"><c:set var="occupationCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${occupationCN}">
+														<c:if test="${savieFna.occupation == list.itemCode}"><c:set var="occupationCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+													</c:forEach>
+												</c:if>
+											<input type="hidden" id="occupation" name="occupation" value="${occupationCode }">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="occupationErMsg"></span>
@@ -244,7 +277,30 @@
 													</c:forEach>
 												</c:if>	
 											</select>
-											<input type="hidden" id="education" name="education">
+											
+											<c:if test="${language == 'en'}">
+													<c:forEach var="list" items="${etEducationLevelEN}">
+														    <c:choose>  
+															   <c:when test="${savieFna.education == '0' && list.itemCode == 'EL1'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+															   <c:when test="${savieFna.education == '2' && list.itemCode == 'EL3'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+															   <c:when test="${savieFna.education == '3' && list.itemCode == 'EL4'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+															   <c:otherwise></c:otherwise>  
+															</c:choose>
+													</c:forEach>
+												</c:if>
+												<c:if test="${language == 'tc'}">
+													<c:forEach var="list" items="${etEducationLevelCN}">
+														    <c:choose>  
+															   <c:when test="${savieFna.education == '0' && list.itemCode == 'EL1'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+															   <c:when test="${savieFna.education == '1' && list.itemCode == 'EL2'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+															   <c:when test="${savieFna.education == '2' && list.itemCode == 'EL3'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+															   <c:when test="${savieFna.education == '3' && list.itemCode == 'EL4'}"><c:set var="educationCode" value="${list.itemCode }-${list.itemDesc }"/></c:when>
+															   <c:otherwise></c:otherwise>  
+															</c:choose>
+													</c:forEach>
+												</c:if>	
+											<input type="hidden" id="education" name="education" value="${educationCode }">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="educationLevelErMsg"></span>

@@ -49,9 +49,17 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	private String beneficaryWeight3;
 	
 	public void validate(String language) throws ValidateExceptions {
-		this.beneficaryRelationName1 = this.beneficaryRelation1!=null?this.beneficaryRelation1.split("-")[1]:"";
-		this.beneficaryRelationName2 = this.beneficaryRelation2!=null?this.beneficaryRelation2.split("-")[1]:"";
-		this.beneficaryRelationName3 = this.beneficaryRelation3!=null?this.beneficaryRelation3.split("-")[1]:"";
+		if(!this.isOwnEstate){
+			if(!"".equals(this.beneficaryFirstName1)){
+				this.beneficaryRelationName1 = this.beneficaryRelation1!=null?this.beneficaryRelation1.split("-")[1]:"";
+			}
+			if(!"".equals(this.beneficaryFirstName2)){
+				this.beneficaryRelationName2 = this.beneficaryRelation2!=null?this.beneficaryRelation2.split("-")[1]:"";
+			}
+			if(!"".equals(this.beneficaryFirstName3)){
+				this.beneficaryRelationName3 = this.beneficaryRelation3!=null?this.beneficaryRelation3.split("-")[1]:"";
+			}
+		}
 		
 		List<String> list = new ArrayList<String>();
 		logger.info("isOwnEstate:"+isOwnEstate);
