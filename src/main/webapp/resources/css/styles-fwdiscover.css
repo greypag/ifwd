@@ -1571,3 +1571,169 @@
 	margin-top: 0;
 	padding-left: 15px;
 }
+.hotel-voucher-carousel-wrapper{
+	margin: 0 auto;
+	background-color: #081d28;
+	padding: 30px;
+}
+#hotel-voucher-carousel{
+    text-align: center;
+    	
+}
+#hotel-voucher-carousel .carousel-item-container.first{
+	margin-left: 0;
+}
+#hotel-voucher-carousel .carousel-item-container{
+	outline: none;
+}
+#hotel-voucher-carousel .carousel-item-container .hotel-item-wrapper{
+    width: 311px;
+    margin: 0 auto;
+}
+#hotel-voucher-carousel .carousel-item-container .fanfare-date,
+#hotel-voucher-carousel .carousel-item-container .hotel-name{
+    display: inline-block;
+    float: left;
+    background-color: #fff;
+    height:	60px
+}
+
+#hotel-voucher-carousel .carousel-item-container .hotel-name{
+	width: 80%;
+	padding: 2% 6%;
+	font-size: 20px;
+	
+}
+#hotel-voucher-carousel .carousel-item-container .fanfare-date{
+	width: 20%;
+	border-right: 1px solid #081d28;
+	padding: 2%;
+	letter-spacing: 1px;
+	font-size: 24px;
+	font-weight: 700;
+}
+#hotel-voucher-carousel .carousel-item-container .fanfare-date .fanfare-day{
+	font-size: 42px;
+	font-weight: 400;
+	letter-spacing: -1px;
+}
+#hotel-voucher-carousel .carousel-item-container.selected .hotel-name,
+#hotel-voucher-carousel .carousel-item-container.selected .fanfare-date{
+	background-color: #ff8200;
+}
+
+.hotel-voucher-carousel-title-wrapper{
+	text-align: center;
+	color: #fff;
+	line-height: 1;
+	margin-bottom: 30px;
+}
+.hotel-voucher-carousel-title-wrapper .Carousel-title{
+	font-size: 48px;
+	font-weight: bold;
+}
+.hotel-voucher-carousel-title-wrapper .Carousel-subtitle{
+    font-size: 24px;
+}
+#hotel-voucher-carousel .slick-next:before,
+#hotel-voucher-carousel .slick-prev:before{
+	content: none;
+}
+#hotel-voucher-carousel .slick-next.arrow-right {
+    width: 0; 
+    height: 0; 
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;    
+    border-left: 30px solid #ff8200;
+}
+
+#hotel-voucher-carousel .slick-prev.arrow-left {
+    width: 0; 
+    height: 0; 
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;     
+    border-right:30px solid #ff8200; 
+}
+.sponsor-logo-wrapper{
+	margin: 40px auto 0 auto;
+	text-align: center;
+}
+.sponsor-logo-wrapper .sponsor-text{
+	font-size: 24px;
+	color: #666666;
+	
+}
+.hotel-partner-wrapper{
+	max-width: 1170px;
+    margin: 30px auto;	
+}
+.hotel-partner-wrapper .hotel-partner-title{
+	text-align: center;
+	font-size: 24px;
+	color: #666666;
+	margin-bottom: 20px;
+}
+.hotel-partner-icon-wrapper{
+	overflow: hidden;
+}
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5 {
+    position: relative;
+    min-height: 1px;
+    float: left;
+}
+.hotel-partner-icon-wrapper .col-1{
+	width: 24%;
+}
+.hotel-partner-icon-wrapper .col-2{
+    width: 28%;
+}
+.hotel-partner-icon-wrapper .col-3{
+    width: 22%;
+}
+.hotel-partner-icon-wrapper .col-4{
+    width: 19%;
+}
+.hotel-partner-icon-wrapper .col-5{
+    width: 7%;
+}
+.sponsor-logo-wrapper .sponsor-text .img-responsive{
+    display: inline-block;
+} 
+@media ( max-width : 991px) {
+    .hotel-partner-icon-wrapper .col-1,
+    .hotel-partner-icon-wrapper .col-2,
+    .hotel-partner-icon-wrapper .col-3,
+    .hotel-partner-icon-wrapper .col-4,
+    .hotel-partner-icon-wrapper .col-5{
+        float: none;
+        width: 100%;
+    }
+    .hotel-partner-icon-wrapper img{
+        margin: 20px auto;
+    }
+	.sponsor-logo-wrapper .sponsor-text .img-responsive{
+	    display: block;
+	    margin: 0 auto;
+	}
+	.page-fwdiscover .plans-holder .fwdiscover-plan.hotel-voucher img {
+	   width: 90%;
+	   margin: 0 auto;
+	}
+	.page-fwdiscover .plans-holder .fwdiscover-plan.hotel-voucher{
+	   background: #373a36;
+	}     	
+}
+@media ( max-width : 1599px) {
+	#hotel-voucher-carousel .slick-next{
+	   right: 0;
+	   z-index: 1000;
+	}
+    #hotel-voucher-carousel .slick-prev{
+       left: 0;
+       z-index: 1000;
+    }	
+}	
