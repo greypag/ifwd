@@ -244,7 +244,7 @@
                </div>
             </div>
             <div class="summary-section below-beneficiary clearfix">
-               <h5>Beneficiary info${lifeBeneficaryInfo.isOwnEstate } <a href="<%=request.getContextPath()%>/${language}/savings-insurance/beneficiary-info?backSummary=Y">Edit</a></h5>
+               <h5>Beneficiary info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/beneficiary-info?backSummary=Y">Edit</a></h5>
             </div>
             <c:choose>
 			       <c:when test="${lifeBeneficaryInfo.isOwnEstate == 'true' }">
@@ -285,7 +285,7 @@
 				                  </div>
 				                  <div class="gray-holder">
 				                     <h6 class="info-label">Entitlement (%)</h6>
-				                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight1 }</span>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryWeight1 }</span>
 				                  </div>
 				               </div>
 							</div>
@@ -322,7 +322,7 @@
 				                  </div>
 				                  <div class="gray-holder">
 				                     <h6 class="info-label">Entitlement (%)</h6>
-				                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight2 }</span>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryWeight2 }</span>
 				                  </div>
 				               </div>
 							</div>
@@ -359,7 +359,7 @@
 				                  </div>
 				                  <div class="gray-holder">
 				                     <h6 class="info-label">Entitlement (%)</h6>
-				                     <span class="info">Person 1: ${lifeBeneficaryInfo.beneficaryWeight3 }</span>
+				                     <span class="info">${lifeBeneficaryInfo.beneficaryWeight3 }</span>
 				                  </div>
 				               </div>
 				            </div>
