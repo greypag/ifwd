@@ -87,6 +87,7 @@
 					<div class="container-fluid fwd-full-container" id="container-beneficiary">
 						<div id="fwd-container-beneficiary" class="fwd-container-limit clearfix sidebar personal-info-widget page-application et-application-page">
 							<h4 class="so-h4">Beneficiary info</h4>
+							<div id="errorMsg" style="color: red;"></div>
 							<form id="beneficiary-info-form[0]" class="beneficiary-form-content" method="post" action="">
 								<div class="radio-group clearfix">
 								   <div class="radio-button-group">
@@ -144,10 +145,10 @@
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
 												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
-												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[0]" id="beneficiaryHkidPassport[0]">
-													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
-													 <option value="hkid">HKID</option>
-													 <option value="passport">Passport</option>
+												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport1" id="beneficiaryHkidPassport[0]">
+													 <option value="" disabled="disabled">HKID / Passport</option>
+													 <option value="hkid" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport1 == 'hkid' }">selected="selected"</c:if>>HKID</option>
+													 <option value="passport" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport1 == 'passport' }">selected="selected"</c:if>>Passport</option>
 												  </select>
 												  <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											   </div>
@@ -178,7 +179,7 @@
 														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'male'}">selected="selected"</c:if>>MALE</option>
 														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'female'}">selected="selected"</c:if>>FEMALE</option>
 													</select>
-													<input type="hidden" id="beneficaryGender1" name="beneficaryGender1" />
+													<input type="hidden" id="beneficaryGender1" name="beneficaryGender1" value="${lifeBeneficaryInfo.beneficaryGender1 }" />
 													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryGenderErMsg[0]"></span>
@@ -205,7 +206,20 @@
 															</c:forEach>
 														</c:if>
 													</select>
-													<input type="hidden" id="beneficaryRelation1" name="beneficaryRelation1" />
+													
+													<c:if test="${language == 'en'}">
+															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == code}"><c:set var="beneficaryRelationCode1" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+															</c:forEach>
+														</c:if>
+														<c:if test="${language == 'tc'}">
+															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == code}"><c:set var="beneficaryRelationCode1" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+															</c:forEach>
+														</c:if>
+													<input type="hidden" id="beneficaryRelation1" name="beneficaryRelation1" value="${beneficaryRelationCode1 }" />
 													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryRelationErMsg[0]"></span>
@@ -270,10 +284,10 @@
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
 												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
-												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[1]" id="beneficiaryHkidPassport[1]">
+												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport2" id="beneficiaryHkidPassport[1]">
 													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
-													 <option value="hkid">HKID</option>
-													 <option value="passport">Passport</option>
+													 <option value="hkid" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport2 == 'hkid' }">selected="selected"</c:if>>HKID</option>
+													 <option value="passport" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport2 == 'passport' }">selected="selected"</c:if>>Passport</option>
 												  </select>
 												  <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											   </div>
@@ -304,7 +318,7 @@
 														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender2 == 'male'}">selected="selected"</c:if>>MALE</option>
 														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender2 == 'female'}">selected="selected"</c:if>>FEMALE</option>
 													</select>
-													<input type="hidden" id="beneficaryGender2" name="beneficaryGender2" />
+													<input type="hidden" id="beneficaryGender2" name="beneficaryGender2" value="${lifeBeneficaryInfo.beneficaryGender2 }" />
 													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryGenderErMsg[1]"></span>
@@ -331,7 +345,20 @@
 															</c:forEach>
 														</c:if>
 													</select>
-													<input type="hidden" id="beneficaryRelation2" name="beneficaryRelation2" />
+													
+													<c:if test="${language == 'en'}">
+															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == code}"><c:set var="beneficaryRelationCode2" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+															</c:forEach>
+														</c:if>
+														<c:if test="${language == 'tc'}">
+															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == code}"><c:set var="beneficaryRelationCode2" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+															</c:forEach>
+														</c:if>
+													<input type="hidden" id="beneficaryRelation2" name="beneficaryRelation2" value="${beneficaryRelationCode2 }" />
 													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryRelationErMsg[1]"></span>
@@ -396,10 +423,10 @@
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
 												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
-												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[2]" id="beneficiaryHkidPassport[2]">
+												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport3" id="beneficiaryHkidPassport[2]">
 													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
-													 <option value="hkid">HKID</option>
-													 <option value="passport">Passport</option>
+													 <option value="hkid" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport3 == 'hkid' }">selected="selected"</c:if>>HKID</option>
+													 <option value="passport" <c:if test="${lifeBeneficaryInfo.beneficiaryHkidPassport3 == 'passport' }">selected="selected"</c:if>>Passport</option>
 												  </select>
 												  <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											   </div>
@@ -430,7 +457,7 @@
 														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender3 == 'male'}">selected="selected"</c:if>>MALE</option>
 														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender3 == 'female'}">selected="selected"</c:if>>FEMALE</option>
 													</select>
-													<input type="hidden" id="beneficaryGender3" name="beneficaryGender3" />
+													<input type="hidden" id="beneficaryGender3" name="beneficaryGender3" value="${lifeBeneficaryInfo.beneficaryGender3 }" />
 													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryGenderErMsg[2]"></span>
@@ -457,7 +484,20 @@
 															</c:forEach>
 														</c:if>
 													</select>
-													<input type="hidden" id="beneficaryRelation3" name="beneficaryRelation3" />
+													
+													<c:if test="${language == 'en'}">
+															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == code}"><c:set var="beneficaryRelationCode3" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+															</c:forEach>
+														</c:if>
+														<c:if test="${language == 'tc'}">
+															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == code}"><c:set var="beneficaryRelationCode3" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+															</c:forEach>
+														</c:if>
+													<input type="hidden" id="beneficaryRelation3" name="beneficaryRelation3" value="${beneficaryRelationCode3 }" />
 													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryRelationErMsg[2]"></span>
