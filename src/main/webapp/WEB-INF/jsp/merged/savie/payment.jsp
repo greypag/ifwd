@@ -405,6 +405,14 @@ var language = "${language}";
 	var eFullDate= new Date((new Date()).getTime() - 24*60*60*1000);
 	
 	$(document).ready(function() {
+			
+		//init next button text
+		if('${backSummary}'=="Y"){
+			var htmlObj = document.getElementById('btn-next');
+			htmlObj.innerHTML = 'Back to application summary';
+		}
+
+		
 		var csCenter = $("#centre").val();
 		var perferredDate = $("#preferred-date").val();
 		var perferredTime = $("#preferred-time").val();
@@ -766,7 +774,7 @@ var language = "${language}";
 				e.preventDefault();
 		}).on('error.form.bv', function(e) {
 		});
-	}
+	});
 	
 	function open(elem) {
 		if (document.createEvent) {

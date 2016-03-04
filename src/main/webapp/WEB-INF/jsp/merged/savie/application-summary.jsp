@@ -367,7 +367,7 @@
 			       </c:otherwise>
 			</c:choose>
             <div class="summary-section below-payment clearfix">
-               <h5>Payment info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/payment">Edit</a></h5>
+               <h5>Payment info <a href="<%=request.getContextPath()%>/${language}/savings-insurance/payment?backSummary=Y">Edit</a></h5>
                <div class="desktop-left">
 				  <div class="gray-holder">
                      <h6 class="info-label">Amount</h6>
