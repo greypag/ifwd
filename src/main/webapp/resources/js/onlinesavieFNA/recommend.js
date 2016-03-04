@@ -172,7 +172,7 @@ var FNArecommendation = {
 		});
 
 		$(".fna-btn-sel-product").click(function(e){
-			//e.preventDefault();
+			e.preventDefault();
 			$("#loading-overlay-save").find(".fna-select-product-link").attr("href",$(this).attr("href"));
 
 			$('#loading-overlay-save').modal({
@@ -271,10 +271,10 @@ var FNArecommendation = {
 		$("#fnaMobSort").change(function(){
 			if(this.value != "") {
 				if(this.value > 3){
-					that.sortAsc = false;
+					that.sortAsc = true;
 					that.sortFld = parseInt(this.value,10) - 4;
 				}else{
-					that.sortAsc = true;
+					that.sortAsc = false;
 					that.sortFld = parseInt(this.value,10);
 				}
 				
@@ -414,6 +414,7 @@ var FNArecommendation = {
 	},
 
 	parseUserData:function(data){
+		console.log(data);
 		var that = this;
 		var selection = ["q1","q2","q3","q4_a","q4_e"];
 
@@ -471,6 +472,15 @@ var FNArecommendation = {
 		var gpWrapper = $(".fna-product-gp-wrapper");
 		var pNum = 0;
 		if(!more) gpWrapper.empty();
+
+		//Product Others
+		var gpOthers = $(".fna-recommend .template .fna-product-gp").clone(true,true);;
+		gpOthers.find(".fna-product-gp-name").text("Unaffordable");
+		gpOthers.find(".fna-product-gp-name").prepend($(".fna-recommend .template .result-type-ico").clone());
+		var gpOthersWrapper = gpOthers.find(".fna-product-wrapper");
+
+
+
 		for(var i = 0; i < data.product_list.length; i++){
 			var gp_data = data.product_list[i];
 			var gp = $(".fna-recommend .template .fna-product-gp").clone(true,true);
@@ -536,7 +546,7 @@ var FNArecommendation = {
 						
 					})
 					prod.find(".fna-product-obj-cont").append(objective_ul);
-					
+
 					if(prod_data.product_url){
 						prod.find(".fna-btn-details").attr("href",prod_data.product_url)
 						//prod.find(".fna-btn-sel-product").css("display","block");
@@ -598,7 +608,6 @@ var FNArecommendation = {
 
 			if(gp_data.other_types){
 				for(var j = 0; j < gp_data.other_types.length; j++){
-					pNum++;
 					var other_data = gp_data.other_types[j];
 
 					var other_product = $(".fna-recommend .template .fna-other-product").clone();
@@ -606,7 +615,7 @@ var FNArecommendation = {
 					other_product.find(".desc").html(other_data.type + " " + other_data.description);
 
 					//prodWrapper.append(product_type);
-					prodWrapper.append(other_product);
+					gpOthersWrapper.append(other_product);
 				}
 			}
 			// console.log(gp.find(".fna-product-type-tooltips").("originalTitle"));
@@ -629,6 +638,9 @@ var FNArecommendation = {
 			
 
 		}
+
+		gpWrapper.append(gpOthers);
+
 		//$('.fna-col-recommend .tool-tip').tooltip('destroy');
 		$(".fna-product-gp-wrapper .fna-tooltips").tooltip();
 	},

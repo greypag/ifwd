@@ -48,6 +48,7 @@ var fnaOccOther = {
 
 //数字转千分位
 function formatNum (num) {
+	num = (num + '').replace(",","");
     return (num + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
 }
 
@@ -463,7 +464,7 @@ var Review = {
 				answer += $("#"+rid).find("input[type='checkbox']").val()+",";
 			}
 		});
-		if(qid == "q1" || qid == "q2" || qid == "q3" || qid == "q4" || qid == "q4_a"){
+		if(qid == "q1" || qid == "q2" || qid == "q3" || qid == "q4" || qid == "q4_a" || qid == "q4_b" || qid == "q4_e" || qid == "q4_f" || qid == "q4_g"){
 			if(answer.length>0){
 				answer=answer.substring(0,answer.length-1);
 			}
@@ -521,8 +522,8 @@ var Review = {
 				isError = true;
 			}
 			
-			if(other!=null && other!=""){
-				other = parseInt(other);
+			if(other!=null && other!=""){ 
+				other = parseInt(other.replace(",",""));
 			}
 		}
 
@@ -546,7 +547,7 @@ var Review = {
 				$("#q4_b_amount").focus();
 				isError = true;
 			}
-			amount = parseInt(amount);
+			amount = parseInt(amount.replace(",",""));
 		}
 
 		if(qid == "q4_c"){
@@ -556,7 +557,7 @@ var Review = {
 				$("#q4_c_others").focus();
 				isError = true;
 			}
-			answer = parseInt(answer);
+			answer = parseInt(answer.replace(",",""));  
 		}
 
 		if(qid == "q4_d_1"){
@@ -566,7 +567,7 @@ var Review = {
 				$("#q4_d_1_others").focus();
 				isError = true;
 			}
-			answer = parseInt(answer);
+			answer = parseInt(answer.replace(",",""));
 		}
 
 		if(qid == "q4_d_2"){
@@ -576,7 +577,7 @@ var Review = {
 				$("#q4_d_2_others").focus();
 				isError = true;
 			}
-			answer = parseInt(answer);
+			answer = parseInt(answer.replace(",",""));
 		}
 
 		/*

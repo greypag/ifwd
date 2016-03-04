@@ -83,8 +83,8 @@ public class EliteTermController extends BaseController{
 		model.addAttribute("natureOfBusinessCN", InitApplicationMessage.natureOfBusinessCN);
 		model.addAttribute("monthlyPersonalIncomeEN", InitApplicationMessage.monthlyPersonalIncomeEN);
 		model.addAttribute("monthlyPersonalIncomeCN", InitApplicationMessage.monthlyPersonalIncomeCN);
-		model.addAttribute("savieBeneficiaryRelationshipEN", InitApplicationMessage.savieBeneficiaryRelationshipEN);
-		model.addAttribute("savieBeneficiaryRelationshipCN", InitApplicationMessage.savieBeneficiaryRelationshipCN);
+		model.addAttribute("lifeBeneficiaryRelationshipEN", InitApplicationMessage.lifeBeneficiaryRelationshipEN);
+		model.addAttribute("lifeBeneficiaryRelationshipCN", InitApplicationMessage.lifeBeneficiaryRelationshipCN);
 		
 		model.addAttribute("etCsContactPreferredDayEN", InitApplicationMessage.etCsContactPreferredDayEN);
 		model.addAttribute("etCsContactPreferredDayCN", InitApplicationMessage.etCsContactPreferredDayCN);

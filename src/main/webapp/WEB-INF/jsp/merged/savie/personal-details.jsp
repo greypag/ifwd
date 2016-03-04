@@ -584,6 +584,12 @@
 				$('#chkboxDiffToResidentialText').on('click', function() {
 					$('#diffToResidential').click();
 				});
+
+				//init next button text
+				if('${backSummary}'=="Y"){
+					var htmlObj = document.getElementById('et-personal-info-next');
+					htmlObj.innerHTML = 'Back to application summary';
+				}
 		    });
 			
 			$("#et-personal-info-next").click(function(){

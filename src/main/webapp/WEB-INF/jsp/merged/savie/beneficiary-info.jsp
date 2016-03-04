@@ -569,6 +569,13 @@
 				$('.add-on-beneficiary').addClass('hidden');
 				$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
 			}
+
+			//init next button text
+			if('${backSummary}'=="Y"){
+				var htmlObj = document.getElementById('beneficiary-next-btn');
+				htmlObj.innerHTML = 'Back to application summary';
+			}
+			
 		});
 		
 		

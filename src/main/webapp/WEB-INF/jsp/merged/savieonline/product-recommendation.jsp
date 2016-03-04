@@ -198,7 +198,6 @@ var affiliate = "${affiliate}";
 							</div>
 
 						</div>
-						<a href="javascript:void(0);" class="btn-clear"><i class="fa fa-caret-left"></i> Clear Record and Leave</a>
 						<div class="floating-marker"></div>
 						<div class="fna-btn-gp hidden-lg hidden-md row">
 							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
@@ -245,19 +244,20 @@ var affiliate = "${affiliate}";
 										<a href="javascript:void(0)" class="fna-btn-filter">Filter</a>
 									</div>
 									<div class="col-lg-12 col-md-12 col-sm-10 col-xs-10"> 
+										<span class="sort-txt">Product Sorting:</span>
 										<div class="styled-select text-right">
-											<span class="sort-txt">Product Sorting:</span>
+											
 											<select name="fnaMobSort" class="form-control soflow select-label" id="fnaMobSort">
-												<option value="" selected>Please select</option>
-												<option value="4">Contribution Period - High To Low</option>
-												<option value="0">Contribution Period - Low To High</option>
-												<option value="5">Min issue age - High To Low</option>
-												<option value="1">Min issue age - Low To High</option>
-												<option value="6">Max issue age - High To Low</option>
-												<option value="2">Max issue age - Low To High</option>
-												<option value="7">Protection Period - High To Low</option>
-												<option value="3">Protection Period - Low To High</option>
+												<option value="0" selected>Contribution Period - High To Low</option>
+												<option value="4">Contribution Period - Low To High</option>
+												<option value="1">Min issue age - High To Low</option>
+												<option value="5">Min issue age - Low To High</option>
+												<option value="2">Max issue age - High To Low</option>
+												<option value="6">Max issue age - Low To High</option>
+												<option value="3">Protection Period - High To Low</option>
+												<option value="7">Protection Period - Low To High</option>
 											</select>
+											
 											<i class="fa fa-caret-down"></i>
 										</div>
 									</div>
@@ -269,8 +269,9 @@ var affiliate = "${affiliate}";
 						<div class="fna-product-gp-wrapper"></div>
 						
 						<a href="javascript:void(0);" class="fna-btn-load-products-more hidden-print"><span>Load more products <i class="fa fa-caret-down"></i></span></a>
-										
-						
+						<div class="text-right">
+							<a href="javascript:void(0);" class="fna-btn-clear">Clear Record and Leave <i class="fa fa-caret-right"></i></a>
+						</div>
 					</div>
 				</div>
 			</div>

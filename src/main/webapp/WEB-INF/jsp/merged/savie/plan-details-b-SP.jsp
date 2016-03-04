@@ -611,7 +611,7 @@ var languageP = "${language}";
 	var month_now = (parseInt((current_date.getMonth()+1), 10) + 100).toString().substr(1);
 	var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);
 	/* $('#sales-illu-dob').attr('placeholder',day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18)); */
-	$('#plan-dob-datepicker').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
+	/*$('#plan-dob-datepicker').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));*/
 	
 	var from = $('#plan-dob-datepicker').val().split("-");
 	var birthdate = new Date(from[2], from[1] - 1, from[0]);
