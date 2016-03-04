@@ -91,7 +91,7 @@
 									<div class="form-group">
 										<div class="selectDiv centreDiv gray-text-bg">
 											<label class="mdl-textfield__label cstm-dropdown-label">Employment Status</label>
-											<select name="employmentStatus" id="employmentStatus" class="form-control gray-dropdown">
+											<select name="tmpEmploymentStatus" id="tmpEmploymentStatus" class="form-control gray-dropdown">
 											   <option value="" disabled="disabled" selected="selected">Employment Status</option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${employmentStatusEN}">
@@ -104,6 +104,7 @@
 													</c:forEach>
 												</c:if>
 											</select>
+											<input type="hidden" id="employmentStatus" name="employmentStatus">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="employmentStatusErMsg"></span>
@@ -111,7 +112,7 @@
 									<div class="form-group employment-field">
 										<div class="selectDiv centreDiv gray-text-bg">
 											<label class="mdl-textfield__label cstm-dropdown-label">Nature of business</label>
-											<select name="natureOfBusiness" id="businessNature" class="form-control gray-dropdown">
+											<select name="tmpBusinessNature" id="tmpBusinessNature" class="form-control gray-dropdown">
 											   <option value="" disabled="disabled" selected="selected">Nature of business</option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${natureOfBusinessEN}">
@@ -124,6 +125,7 @@
 													</c:forEach>
 												</c:if>				                     
 											</select>
+											<input type="hidden" id="natureOfBusiness" name="natureOfBusiness">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="businessNatureErMsg"></span>
@@ -131,7 +133,7 @@
 									<div class="form-group employment-field">
 										<div class="selectDiv centreDiv gray-text-bg">
 											<label class="mdl-textfield__label cstm-dropdown-label">Occupation</label>
-											<select name="occupation" id="occupation" class="form-control gray-dropdown occupation">
+											<select name="tmpOccupation" id="tmpOccupation" class="form-control gray-dropdown occupation">
 											   <option value="" disabled="disabled" selected="selected">Occupation</option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${occupationEN}">
@@ -144,6 +146,7 @@
 													</c:forEach>
 												</c:if>	
 											</select>
+											<input type="hidden" id="occupation" name="occupation">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="occupationErMsg"></span>
@@ -159,7 +162,7 @@
 									<div class="form-group unemployment-field hidden">
 										<div class="selectDiv centreDiv gray-text-bg">
 											<label class="mdl-textfield__label cstm-dropdown-label">Amount of other source of income</label>
-											<select name="amountOfOtherSourceOfIncome" id="otherIncomeAmount" class="form-control gray-dropdown">
+											<select name="tmpOtherIncomeAmount" id="tmpOtherIncomeAmount" class="form-control gray-dropdown">
 											   <option value="" disabled="disabled" selected="selected">Amount of other source of income</option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etAmountOtherSourceEN}">
@@ -172,6 +175,7 @@
 													</c:forEach>
 												</c:if>	
 											</select>
+											<input type="hidden" id="amountOfOtherSourceOfIncome" name="amountOfOtherSourceOfIncome">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="otherIncomeAmountErMsg"></span>
@@ -188,19 +192,22 @@
 									<div class="form-group employment-field">
 										<div class="selectDiv centreDiv gray-text-bg">
 											<label class="mdl-textfield__label cstm-dropdown-label">Monthly personal income (HK$)</label>
-											<select name="monthlyPersonalIncome" id="monthlyPersonalIncome" class="form-control gray-dropdown">
+											<select name="tmpMonthlyPersonalIncome" id="tmpMonthlyPersonalIncome" class="form-control gray-dropdown">
 											   <option value="" disabled="disabled" selected="selected">Monthly personal income (HK$)</option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>	
 											</select>
+											<input type="hidden" id="monthlyPersonalIncome" name="monthlyPersonalIncome">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="monthlyPersonalIncomeErMsg"></span>
@@ -208,7 +215,7 @@
 									<div class="form-group">
 										<div class="selectDiv centreDiv gray-text-bg">
 											<label class="mdl-textfield__label cstm-dropdown-label">Education level</label>
-											<select name="education" id="educationLevel" class="form-control gray-dropdown">
+											<select name="tmpEducationLevel" id="tmpEducationLevel" class="form-control gray-dropdown">
 											   <option value="" disabled="disabled" selected="selected">Education level</option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etEducationLevelEN}">
@@ -237,6 +244,7 @@
 													</c:forEach>
 												</c:if>	
 											</select>
+											<input type="hidden" id="education" name="education">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="educationLevelErMsg"></span>
@@ -244,7 +252,7 @@
 									<div class="form-group unemployment-field hidden">
 										<div class="selectDiv centreDiv gray-text-bg">
 											<label class="mdl-textfield__label cstm-dropdown-label">Amount of liquid assets (HK$)</label>
-											<select name="amountOfLiquidAssets" id="liquidAssetsAmount" class="form-control gray-dropdown">
+											<select name="tmpLiquidAssetsAmount" id="tmpLiquidAssetsAmount" class="form-control gray-dropdown">
 											   <option value="" disabled selected>Amount of liquid assets (HK$)</option>
 											   <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${etLiquidAssetEN}">
@@ -257,6 +265,7 @@
 													</c:forEach>
 												</c:if>	
 											</select>
+											<input type="hidden" id="amountOfLiquidAssets" name="amountOfLiquidAssets">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="liquidAssetsAmountErMsg"></span>
@@ -326,6 +335,8 @@
 		
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
+			var getpath =  "<%=request.getContextPath()%>";
+		
 			$(document).ready(function () {
 				
 				var dummy = true;
@@ -350,24 +361,27 @@
 				$('#employmentInfoForm').bootstrapValidator({
 					excluded: [':disabled', ':hidden', ':not(:visible)'],
 					fields: {
-						employmentStatus: {
+						tmpEmploymentStatus: {
 						   container: '#employmentStatusErMsg',
+						   selector: '#tmpEmploymentStatus',
 						   validators: {
 							  notEmpty: {
 								 message: "Please select your employment status."
 							  }
 						   }
 						},
-						businessNature: {
+						tmpBusinessNature: {
 						   container: '#businessNatureErMsg',
+						   selector: '#tmpBusinessNature',
 						   validators: {
 							  notEmpty: {
 								 message: "Please select the nature of business."
 							  }
 						   }
 						},
-						occupation: {
+						tmpOccupation: {
 						   container: '#occupationErMsg',
+						   selector: '#tmpOccupation',
 						   validators: {
 							  notEmpty: {
 								 message: "Please select your occupation."
@@ -376,6 +390,7 @@
 						},
 						otherOccupation: {
 						   container: '#otherOccupationErMsg',
+						   selector: '#other-occupation',
 						   validators: {
 							  notEmpty: {
 								 message: "Please input your occupation."
@@ -384,38 +399,43 @@
 						},
 						currentEmployer: {
 						   container: '#currentEmployerErMsg',
+						   selector: '#currentEmployer',
 						   validators: {
 							  notEmpty: {
 								 message: "Please input employer's name."
 							  }
 						   }
 						},
-						monthlyPersonalIncome: {
+						tmpMonthlyPersonalIncome: {
 						   container: '#monthlyPersonalIncomeErMsg',
+						   selector: '#tmpMonthlyPersonalIncome',
 						   validators: {
 							  notEmpty: {
 								 message: "Please select monthly personal income."
 							  }
 						   }
 						},
-						educationLevel: {
+						tmpEducationLevel: {
 						   container: '#educationLevelErMsg',
+						   selector: '#tmpEducationLevel',
 						   validators: {
 							  notEmpty: {
 								 message: "Please select your education level."
 							  }
 						   }
 						},
-						otherIncomeAmount: {
+						tmpOtherIncomeAmount: {
 						   container: '#otherIncomeAmountErMsg',
+						   selector: '#tmpOtherIncomeAmount',
 						   validators: {
 							  notEmpty: {
 								 message: "Please select amount of other source of income."
 							  }
 						   }
 						},
-						liquidAssetsAmount: {
+						tmpLiquidAssetsAmount: {
 						   container: '#liquidAssetsAmountErMsg',
+						   selector: '#tmpLiquidAssetsAmount',
 						   validators: {
 							  notEmpty: {
 								 message: "Please select amount of liquid assets."
@@ -440,8 +460,8 @@
 					showHideOtherOccupationField($(this).val());
 				});
 				
-				$('#employmentStatus').on('change', function() {
-					if($(this).val().split("-")[0] != 'ES3') {						
+				$('#tmpEmploymentStatus').on('change', function() {
+					if($(this).val().split("-")[0] != 'ES3') {
 						// Show employment fields. Hide unemployment fields
 						$('.employment-field').removeClass('hidden');
 						$('.unemployment-field').addClass('hidden');

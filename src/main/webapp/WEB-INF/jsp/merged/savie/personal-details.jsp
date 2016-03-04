@@ -109,18 +109,19 @@
 									</div>
 									<span class="error-msg" id="chineseNameErMsg"></span>
                                  </div>
-								 <div class="clearfix form-group has-error">
+								 			<div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
-										  <label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
-                                          <select class="form-control gray-dropdown" name="gender" id="gender">
+														<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
+                                          <select class="form-control gray-dropdown" name="tmpGender" id="tmpGender">
                                              <option value="" selected="selected" disabled="disabled">Gender</option>
                                              <option value="male" <c:if test="${savieFna.gender == '0'}">selected="selected"</c:if>>MALE</option>
                                              <option value="female" <c:if test="${savieFna.gender == '1'}">selected="selected"</c:if>>FEMALE</option>
                                           </select>
+                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
-									   <span class="error-msg" id="genderErMsg"></span>
+									   			<span class="error-msg" id="genderErMsg"></span>
+									   			<input type="hidden" id="gender" name="gender" />
                                     </div>
                                  </div>
 								 <div class="clearfix form-group has-error">
@@ -134,20 +135,23 @@
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
 										  <label class="mdl-textfield__label cstm-dropdown-label">Place of birth</label>
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
-                                          <select class="form-control gray-dropdown" name="placeOfBirth" id="placeOfBirth">
+                                          <select class="form-control gray-dropdown" name="tmpPlaceOfBirth" id="tmpPlaceOfBirth">
                                              <option value="" selected="selected" disabled="disabled">Place of birth</option>
                                              <c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${placeOfBirthEN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.placeOfBirth == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.placeOfBirth == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${placeOfBirthCN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.placeOfBirth == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.placeOfBirth == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
                                           </select>
+                                          <input type="hidden" id="placeOfBirth" name="placeOfBirth" />
+                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="placeOfBirthErMsg"></span>
                                     </div>
@@ -155,21 +159,24 @@
 								 <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
-										  <label class="mdl-textfield__label cstm-dropdown-label">Nationality</label>
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
-                                          <select class="form-control gray-dropdown" name="nationalty" id="nationalty">
+										  				<label class="mdl-textfield__label cstm-dropdown-label">Nationality</label>
+                                          <select class="form-control gray-dropdown" name="tmpNationality" id="tmpNationality">
                                              <option value="" selected="selected" disabled="disabled">Nationality</option>
                                              <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${nationalityEN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.nationalty == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.nationalty == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${nationalityCN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.nationalty == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.nationalty == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
                                           </select>
+                                          <input type="hidden" id="nationalty" name="nationalty" />
+                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="nationalityErMsg"></span>
                                     </div>
@@ -178,8 +185,8 @@
                                     <div class="left-desktop text-box et-date-info so-mdl-textfield">
 										<div class="selectDiv" id="date">
 											<label class="mdl-textfield__label cstm-textfield-label">Date of birth</label>
-											<span class="icon-chevron-thin-down orange-caret"></span>
 											<input type="text" class="form-control gray-textbox" name="dob" id="so-calendar-dob" value="${savieFna.dob }" readonly="readonly" />
+											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="so-calendar-dob-msg"></span>
                                     </div>
@@ -211,41 +218,42 @@
                                  <div class="clearfix form-group has-error">
                                     <div class="left-desktop text-box">
                                        <div class="selectDiv">
-									      <label class="mdl-textfield__label cstm-dropdown-label">Marital status</label>
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
-                                          <select class="form-control gray-dropdown" name="martialStatus"  id="martialStatus">
+									      			<label class="mdl-textfield__label cstm-dropdown-label">Marital status</label>                                          
+                                          <select class="form-control gray-dropdown" name="tmpMaritalStatus"  id="tmpMaritalStatus">
                                              <option value="" selected="selected" disabled="disabled">Marital status</option>
                                              <c:if test="${language == 'en'}">
-												<c:forEach var="list" items="${maritalStatusesEN}">
-													<option value="${list.itemCode }-${list.itemDesc }" 
-													    <c:choose>  
-														   <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}">selected="selected"</c:when>
-														   <c:when test="${savieFna.marital_status == '1' && list.itemCode == 'MS2'}">selected="selected"</c:when>  
-														   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}">selected="selected"</c:when>
-														   <c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}">selected="selected"</c:when> 
-														   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}">selected="selected"</c:when> 
-														   <c:otherwise></c:otherwise>  
-														</c:choose>
-													>${list.itemDesc }</option>
-												</c:forEach>
-											</c:if>
-											<c:if test="${language == 'tc'}">
-												<c:forEach var="list" items="${maritalStatusesCN}">
-													<option value="${list.itemCode }-${list.itemDesc }" 
-													    <c:choose>  
-														   <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}">selected="selected"</c:when>
-														   <c:when test="${savieFna.marital_status == '1' && list.itemCode == 'MS2'}">selected="selected"</c:when>  
-														   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}">selected="selected"</c:when>
-														   <c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}">selected="selected"</c:when> 
-														   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}">selected="selected"</c:when> 
-														   <c:otherwise></c:otherwise>  
-														</c:choose>
-													>${list.itemDesc }</option>
-												</c:forEach>
-											</c:if>
+																<c:forEach var="list" items="${maritalStatusesEN}">
+																	<option value="${list.itemCode }-${list.itemDesc }" 
+																	    <c:choose>  
+																		   <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}">selected="selected"</c:when>
+																		   <c:when test="${savieFna.marital_status == '1' && list.itemCode == 'MS2'}">selected="selected"</c:when>  
+																		   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}">selected="selected"</c:when>
+																		   <c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}">selected="selected"</c:when> 
+																		   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}">selected="selected"</c:when> 
+																		   <c:otherwise></c:otherwise>  
+																		</c:choose>
+																	>${list.itemDesc }</option>
+																</c:forEach>
+															</c:if>
+															<c:if test="${language == 'tc'}">
+																<c:forEach var="list" items="${maritalStatusesCN}">
+																	<option value="${list.itemCode }-${list.itemDesc }" 
+																	    <c:choose>  
+																		   <c:when test="${savieFna.marital_status == '0' && list.itemCode == 'MS1'}">selected="selected"</c:when>
+																		   <c:when test="${savieFna.marital_status == '1' && list.itemCode == 'MS2'}">selected="selected"</c:when>  
+																		   <c:when test="${savieFna.marital_status == '2' && list.itemCode == 'MS3'}">selected="selected"</c:when>
+																		   <c:when test="${savieFna.marital_status == '3' && list.itemCode == 'MS4'}">selected="selected"</c:when> 
+																		   <c:when test="${savieFna.marital_status == '4' && list.itemCode == 'MS5'}">selected="selected"</c:when> 
+																		   <c:otherwise></c:otherwise>  
+																		</c:choose>
+																	>${list.itemDesc }</option>
+																</c:forEach>
+															</c:if>
                                           </select>
+                                          <input type="hidden" id="martialStatus" name="martialStatus" />
+                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
-									   <span class="error-msg" id="maritalStatErMsg"></span>
+									   			<span class="error-msg" id="maritalStatErMsg"></span>
                                     </div>
                                  </div>
 								 <div class="clearfix form-group has-error">
@@ -270,25 +278,28 @@
                                        <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input residential res-additional hidden" id="permanentAddress3" name="permanetAddress3" value="${lifePersonalDetails.permanetAddress3 }" type="text" />
 									   <label class="mdl-textfield__label so-mdl-textfield-label" for="permanentAddress3">Permanent address line 3</label>
                                     </div>
-									<div class="left-desktop text-box res-additional hidden">
+												<div class="left-desktop text-box res-additional hidden">
                                        <div class="selectDiv">
-										  <label class="mdl-textfield__label cstm-dropdown-label">District</label>
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
-                                          <select class="form-control gray-dropdown" name="permanetAddressDistrict" id="permanentDistrict">
+										 				<label class="mdl-textfield__label cstm-dropdown-label">District</label>
+                                          <select class="form-control gray-dropdown" name="tmpPermanentDistrict" id="tmpPermanentDistrict">
                                              <option value="" selected="selected" disabled="disabled">District</option>
                                              <c:if test="${language == 'en'}">
 												<c:forEach var="list" items="${savieDistrictEN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
 											<c:if test="${language == 'tc'}">
 												<c:forEach var="list" items="${savieDistrictCN}">
-													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.permanetAddressDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 												</c:forEach>
 											</c:if>
                                           </select>
+                                          <input type="hidden" id="permanetAddressDistrict" name="permanetAddressDistrict" />
+                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
-									   <span class="error-msg" id="permanentDistrictErMsg"></span>
+									   			<span class="error-msg" id="permanentDistrictErMsg"></span>
                                     </div>
                                  </div>
 								 <div class="clearfix">
@@ -323,20 +334,23 @@
 									<div class="left-desktop text-box">
                                        <div class="selectDiv">
 										 <label class="mdl-textfield__label cstm-dropdown-label">District</label>
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
-                                          <select class="form-control gray-dropdown" name="residentialAddressDistrict" id="residentialDistrict">
+                                          <select class="form-control gray-dropdown" name="tmpResidentialDistrict" id="tmpResidentialDistrict">
                                              <option value="" selected="selected" disabled="disabled">District</option>
                                              <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${savieDistrictEN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${savieDistrictCN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.residentialAddressDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
                                           </select>
+                                          <input type="hidden" id="residentialAddressDistrict" name="residentialAddressDistrict" />
+                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="residentialDistrictErMsg"></span>
                                     </div>
@@ -372,21 +386,24 @@
                                     </div>
 									<div class="left-desktop text-box">
                                        <div class="selectDiv">
-										  <label class="mdl-textfield__label cstm-dropdown-label">District</label>
-                                          <span class="icon-chevron-thin-down orange-caret"></span>
-                                          <select class="form-control gray-dropdown" name="correspondenceAddressDistrict" id="correspondenceDistrict">
+										  <label class="mdl-textfield__label cstm-dropdown-label">District</label>                                          
+                                          <select class="form-control gray-dropdown" name="tmpCorrespondenceDistrict" id="tmpCorrespondenceDistrict">
                                              <option value="" selected="selected" disabled="disabled">District</option>
                                              <c:if test="${language == 'en'}">
 													<c:forEach var="list" items="${savieDistrictEN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
 												<c:if test="${language == 'tc'}">
 													<c:forEach var="list" items="${savieDistrictCN}">
-														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+													    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+														<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePersonalDetails.correspondenceAddressDistrict == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 													</c:forEach>
 												</c:if>
                                           </select>
+                                          <input type="hidden" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" />
+                                          <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="correspondenceDistrictErMsg"></span>
                                     </div>
@@ -461,6 +478,34 @@
 			var language = "en";
 			
 			$(document).ready(function() {
+				if('${lifePersonalDetails.permanetAddress1}' != ''){
+					if ($('.res-additional').hasClass('hidden')) {
+						$('.res-additional').removeClass('hidden');
+						$('.res-textfield-hidden').css("margin-bottom", "10px");
+					}
+				}
+				else{
+					
+				}
+				
+				if('${lifePersonalDetails.diffToPermanent}' == 'None'){
+					if ($('#diffToPermanentShow').hasClass('hidden')) {
+						$('#diffToPermanentShow').removeClass('hidden');
+					}
+				}
+				else{
+					$('#diffToPermanentShow').addClass('hidden');
+				}
+				
+				if('${lifePersonalDetails.diffToResidential}' == 'None'){
+					if ($('#diffToResidentialShow').hasClass('hidden')) {
+						$('#diffToResidentialShow').removeClass('hidden');
+					}
+				}
+				else{
+					$('#diffToResidentialShow').addClass('hidden');
+				}
+				
 				soFormValidation();
 				
 				var dummy = true;

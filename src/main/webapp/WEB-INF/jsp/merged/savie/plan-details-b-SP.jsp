@@ -100,9 +100,19 @@ var languageP = "${language}";
 							<div class="col-xs-12 hidden" id="plan-amount-holder">
 								<div class="selectDiv centreDiv gray-text-bg">
 									<select name="plan-amount" id="plan-amount" class="form-control gray-dropdown pd-dropdown" data-bv-field="plan-amount">
-									   <option value="" disabled="" selected="">Amount (HK$)</option>
-									   <option value="1">100,000</option>
-									   <option value="2">200,000</option>
+									   <!-- <option value="" disabled="" selected="">Amount (HK$)</option>
+									   <option value="100000">100,000</option>
+									   <option value="200000">200,000</option> -->
+									   <option value="1000">1,000</option>
+			                           <option value="2000">2,000</option>
+			                           <option value="3000" selected>3,000</option>
+			                           <option value="4000">4,000</option>
+			                           <option value="5000">5,000</option>
+			                           <option value="6000">6,000</option>
+			                           <option value="7000">7,000</option>
+			                           <option value="8000">8,000</option>
+			                           <option value="9000">9,000</option>
+			                           <option value="10000">10,000</option>
 									</select>
 									<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 								</div>
@@ -110,9 +120,9 @@ var languageP = "${language}";
 							<div class="col-xs-12" id="amount-slide-holder">
 								<div class="one-off-premium">
 				                   <div class="pull-right">
-				                   		<h3 class="amount-selected">HKD <span id="range">100,000</span></h3>
+				                   		<h3 class="amount-selected">HKD <span id="range">${saviePlanDetails.insuredAmount1 !=null ? saviePlanDetails.insuredAmount1:"100,000" }</span></h3>
 				                   </div>
-									<input type="text" class="span2 amount-slider" name="amount" value="" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="100000" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
+									<input type="text" class="span2 amount-slider" name="amount" value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-min="30000" data-slider-max="400000" data-slider-step="1000" data-slider-value="${saviePlanDetails.insuredAmount !=null ? saviePlanDetails.insuredAmount:'100000' }" data-slider-id="RC" id="R" data-slider-tooltip="hide" data-slider-handle="square" />
 									<div class="min-max-holder clearfix">
 										<div class="pull-left text-center">
 											<p>Min</p>
@@ -152,7 +162,7 @@ var languageP = "${language}";
 					</div>
 					<div class="col-xs-12 col-md-2 plan-promo-code">
 						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield" class="promo-code">
-				            <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" />
+				            <input id="promoCode" class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input"  type="text" />
 				           	<label class="mdl-textfield__label so-mdl-textfield-label" for="correspondenceAddress3">Promo code</label> 
 			           	</div>
 					</div>
@@ -167,7 +177,7 @@ var languageP = "${language}";
 		<div class="summary-table">
 			<div class="summary-table-head clearfix">
 				<h4 class="summary-note-title">Summary</h4>
-				<p class="summary-note">You will receive <span class="received-money">HK$220,649</span> at the end of 3rd policy year</p>
+				<p class="summary-note">You will receive <span id="3rd_policy_year" class="received-money">HK$0</span> at the end of 3rd policy year</p>
 			</div>
 			<div class="table-content">					
 				<div class="rate-table">
@@ -236,61 +246,30 @@ var languageP = "${language}";
 							</thead>
 							<tbody>
 								<tr id="new-table-added">
-									<td class="policy-credit policy-number bold" id="policy-year-0-0">1</td>
+									<td class="policy-credit policy-number bold" id="policy-year-0-0">0</td>
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-0">0</td> 
 									<td id="premium-change-0-0">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-0-0">0</td>    
 									<td id="surrender-change-0-0">0</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-0"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
+									<td class="hidden-sm hidden-xs" id="death-change-0-0"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
-								<tr class="pinkish-shade">    
-									<td class="policy-credit policy-number bold" id="policy-year-0-1">5</td>
+								<tr class="pinkish-shade">
+									<td class="policy-credit policy-number bold" id="policy-year-0-1">0</td>
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-1">0</td> 
 									<td id="premium-change-0-1">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-0-1">0</td>    
 									<td id="surrender-change-0-1">0</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
+									<td class="hidden-sm hidden-xs" id="death-change-0-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
 								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-0-2">10</td> 
+									<td class="policy-credit policy-number bold" id="policy-year-0-2"><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td> 
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-2">0</td>
 									<td id="premium-change-0-2">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-0-2">0</td>    
 									<td id="surrender-change-0-2">0</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
+									<td class="hidden-sm hidden-xs" id="death-change-0-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
-								<tr class="pinkish-shade">
-									<td class="policy-credit policy-number bold" id="policy-year-0-3">20</td> 
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-3">0</td>
-									<td id="premium-change-0-3">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-0-3">0</td>    
-									<td id="surrender-change-0-3">0</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-3"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
-								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-0-4">55</td> 
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-4">0</td>
-									<td id="premium-change-0-4">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-0-4">0</td>    
-									<td id="surrender-change-0-4">0</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-4"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td class="policy-credit policy-number bold" id="policy-year-0-5">60</td> 
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-5">0</td>
-									<td id="premium-change-0-5">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-0-5">0</td>    
-									<td id="surrender-change-0-5">0</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-5"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
-								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-0-6">100</td>
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-0-6">0</td>
-									<td id="premium-change-0-6">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-0-6">0</td>    
-									<td id="surrender-change-0-6">0</td>
-											<td class="hidden-sm hidden-xs" id="death-change-0-6"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
+								
 							</tbody>
 						</table>
 					</div>
@@ -309,15 +288,15 @@ var languageP = "${language}";
 							</thead>
 							<tbody>
 								<tr id="new-table-added">
-									<td class="policy-credit policy-number bold" id="policy-year-2-0">1</td>
+									<td class="policy-credit policy-number bold" id="policy-year-2-0">0</td>
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-2-0">2</td> 
 									<td id="premium-change-2-0">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-2-0">0</td>    
 									<td id="surrender-change-2-0">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-2-0"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
-								<tr class="pinkish-shade">    
-									<td class="policy-credit policy-number bold" id="policy-year-2-1">5</td>
+								<tr class="pinkish-shade">
+									<td class="policy-credit policy-number bold" id="policy-year-2-1">0</td>
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-2-1">2</td> 
 									<td id="premium-change-2-1">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-2-1">0</td>    
@@ -325,45 +304,14 @@ var languageP = "${language}";
 									<td class="hidden-sm hidden-xs" id="death-change-2-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
 								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-2-2">10</td> 
+									<td class="policy-credit policy-number bold" id="policy-year-2-2"><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td> 
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-2-2">2</td>
 									<td id="premium-change-2-2">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-2-2">0</td>    
 									<td id="surrender-change-2-2">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-2-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
-								<tr class="pinkish-shade">
-									<td class="policy-credit policy-number bold" id="policy-year-2-3">20</td> 
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-2-3">2</td>
-									<td id="premium-change-2-3">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-2-3">0</td>    
-									<td id="surrender-change-2-3">0</td>
-									<td class="hidden-sm hidden-xs" id="death-change-2-3"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
-								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-2-4">55</td> 
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-2-4">2</td>
-									<td id="premium-change-2-4">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-2-4">0</td>    
-									<td id="surrender-change-2-4">0</td>
-									<td class="hidden-sm hidden-xs" id="death-change-2-4"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td class="policy-credit policy-number bold" id="policy-year-2-5">60</td> 
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-2-5">2</td>
-									<td id="premium-change-2-5">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-2-5">0</td>    
-									<td id="surrender-change-2-5">0</td>
-									<td class="hidden-sm hidden-xs" id="death-change-2-5"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
-								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-2-6">100</td>
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-2-6">2</td>
-									<td id="premium-change-2-6">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-2-6">0</td>    
-									<td id="surrender-change-2-6">0</td>
-									<td class="hidden-sm hidden-xs" id="death-change-2-6"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
+								
 							</tbody>
 						</table>
 					</div>
@@ -382,15 +330,15 @@ var languageP = "${language}";
 							</thead>
 							<tbody>
 								<tr id="new-table-added">
-									<td class="policy-credit policy-number bold" id="policy-year-3-0">1</td>
+									<td class="policy-credit policy-number bold" id="policy-year-3-0">0</td>
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-3-0">3</td> 
 									<td id="premium-change-3-0">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-3-0">0</td>    
 									<td id="surrender-change-3-0">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-3-0"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
-								<tr class="pinkish-shade">    
-									<td class="policy-credit policy-number bold" id="policy-year-3-1">5</td>
+								<tr class="pinkish-shade">
+									<td class="policy-credit policy-number bold" id="policy-year-3-1">0</td>
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-3-1">3</td> 
 									<td id="premium-change-3-1">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-3-1">0</td>    
@@ -398,45 +346,14 @@ var languageP = "${language}";
 									<td class="hidden-sm hidden-xs" id="death-change-3-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
 								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-3-2">10</td> 
+									<td class="policy-credit policy-number bold" id="policy-year-3-2"><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td> 
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-3-2">3</td>
 									<td id="premium-change-3-2">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-3-2">0</td>    
 									<td id="surrender-change-3-2">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-3-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
-								<tr class="pinkish-shade">
-									<td class="policy-credit policy-number bold" id="policy-year-3-3">20</td> 
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-3-3">3</td>
-									<td id="premium-change-3-3">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-3-3">0</td>    
-									<td id="surrender-change-3-3">0</td>
-									<td class="hidden-sm hidden-xs" id="death-change-3-3"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
-								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-3-4">55</td> 
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-3-4">3</td>
-									<td id="premium-change-3-4">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-3-4">0</td>    
-									<td id="surrender-change-3-4">0</td>
-									<td class="hidden-sm hidden-xs" id="death-change-3-4"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td class="policy-credit policy-number bold" id="policy-year-3-5">60</td> 
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-3-5">3</td>
-									<td id="premium-change-3-5">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-3-5">0</td>    
-									<td id="surrender-change-3-5">0</td>
-									<td class="hidden-sm hidden-xs" id="death-change-3-5"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
-								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-3-6">100</td>
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-3-6">3</td>
-									<td id="premium-change-3-6">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-3-6">0</td>    
-									<td id="surrender-change-3-6">0</td>
-									<td class="hidden-sm hidden-xs" id="death-change-3-6"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
+								
 							</tbody>
 						</table>
 					</div>
@@ -455,15 +372,15 @@ var languageP = "${language}";
 							</thead>
 							<tbody>
 								<tr id="new-table-added">
-									<td class="policy-credit policy-number bold" id="policy-year-4-0">1</td>
+									<td class="policy-credit policy-number bold" id="policy-year-4-0">0</td>
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-0">3.3</td> 
 									<td id="premium-change-4-0">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-4-0">0</td>    
 									<td id="surrender-change-4-0">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-4-0"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
-								<tr class="pinkish-shade">    
-									<td class="policy-credit policy-number bold" id="policy-year-4-1">5</td>
+								<tr class="pinkish-shade">
+									<td class="policy-credit policy-number bold" id="policy-year-4-1">0</td>
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-1">3.3</td> 
 									<td id="premium-change-4-1">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-4-1">0</td>    
@@ -471,45 +388,14 @@ var languageP = "${language}";
 									<td class="hidden-sm hidden-xs" id="death-change-4-1"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
 								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-4-2">10</td> 
+									<td class="policy-credit policy-number bold" id="policy-year-4-2"><fmt:message key="savie.planDetails.Age.100" bundle="${msg}" /></td> 
 									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-2">3.3</td>
 									<td id="premium-change-4-2">0</td> 
 									<td class="hidden-sm hidden-xs" id="account-value-change-4-2">0</td>    
 									<td id="surrender-change-4-2">0</td>
 									<td class="hidden-sm hidden-xs" id="death-change-4-2"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
 								</tr>
-								<tr class="pinkish-shade">
-									<td class="policy-credit policy-number bold" id="policy-year-4-3">20</td> 
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-3">3.3</td>
-									<td id="premium-change-4-3">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-4-3">0</td>    
-									<td id="surrender-change-4-3">0</td>
-									<td class="hidden-sm hidden-xs" id="death-change-4-3"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
-								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-4-4">55</td> 
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-4">3.3</td>
-									<td id="premium-change-4-4">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-4-4">0</td>    
-									<td id="surrender-change-4-4">0</td>
-									<td class="hidden-sm hidden-xs" id="death-change-4-4"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
-								<tr class="pinkish-shade">
-									<td class="policy-credit policy-number bold" id="policy-year-4-5">60</td> 
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-5">3.3</td>
-									<td id="premium-change-4-5">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-4-5">0</td>    
-									<td id="surrender-change-4-5">0</td>
-									<td class="hidden-sm hidden-xs" id="death-change-4-5"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
-								<tr>
-									<td class="policy-credit policy-number bold" id="policy-year-4-6">100</td>
-									<td class="policy-credit hidden-sm hidden-xs" id="credit-rate-4-6">3.3</td>
-									<td id="premium-change-4-6">0</td> 
-									<td class="hidden-sm hidden-xs" id="account-value-change-4-6">0</td>    
-									<td id="surrender-change-4-6">0</td>
-									<td class="hidden-sm hidden-xs" id="death-change-4-6"><span data-toggle="tooltip" data-html="true" data-placement="right" title="Death Benefit (HK$) / Accidental Death Benefit (HK$)" class=" default-pointer">0 / 0</span></td>
-								</tr>
+								
 							</tbody>
 						</table>
 					</div>
@@ -629,15 +515,15 @@ var languageP = "${language}";
 			    <div class="modal-content">
 			    	<div class="row">
 			    		<div class="col-xs-2 col-md-1 numbering-holder">
-			    			<img src="assets/images/savie-2016/dk-numbering.png" class="visible-md visible-lg" />
-			    			<img src="assets/images/savie-2016/mb-numbering.png" class="visible-xs visible-sm" />
+			    			<img src="<%=request.getContextPath()%>/resources/images/savie-2016/dk-numbering.png" class="visible-md visible-lg" />
+			    			<img src="<%=request.getContextPath()%>/resources/images/savie-2016/mb-numbering.png" class="visible-xs visible-sm" />
 			    		</div>
 			    		<div class="col-xs-10 col-md-10" id="steps-holder">
 			    			<h4 class="text-center">Thank you for your interest on this product</h4>
 			    			<div id="step-1" class="step">
 			    				<div class="media">
 			    					<div class="media-left" id="step1-img-holder">
-			    						 <img class="media-object" src="assets/images/savie-2016/book-icon.png" />
+			    						 <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/book-icon.png" />
 			    					</div>
 			    					<div class="media-body">
 			    						<p class="procedure">According to the Hong Kong Federation of Insurers’ guidelines, insurance companies should carry out Financial Need Analysis(FNA) before selling insurance products. Our professional Customer Service Representatives will provide suitable product options for your comparison after FNA.</p>
@@ -647,7 +533,7 @@ var languageP = "${language}";
 			    			<div id="step-2" class="step">
 			    				<div class="media">
 			    					<div class="media-left" id="step2-img-holder">
-			    						  <img class="media-object" src="assets/images/savie-2016/note-icon.png" />
+			    						  <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/note-icon.png" />
 			    					</div>
 			    					<div class="media-body">
 			    						<p class="procedure">Once FNA and the product comparison confirmed Savie is suitable for you, you may begin the application process immediately at the customer service centre.</p>
@@ -659,7 +545,7 @@ var languageP = "${language}";
 			    					<div class="step">
 					    				<div class="media">
 					    					<div class="media-left" id="stepon-img-holder">
-					    						 <img class="media-object" src="assets/images/savie-2016/pc-icon.png" />
+					    						 <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/pc-icon.png" />
 					    					</div>
 					    					<div class="media-body">
 					    						<p class="procedure"><span class="bold-head">Online procedure</span> <span class="hidden-dash">-</span><br class="visible-md visible-lg" />  You may proceed both FNA and application on this platform, you may take your time to fill in the information, we provide a “Save for later” function available at the application section, you may save your application progress and come back to complete later. </p>
@@ -669,14 +555,14 @@ var languageP = "${language}";
 			    					</div>
 			    				</div>
 			    				<div class="or-word">
-			    					<div id="or-mobile"><img src="assets/images/savie-2016/or-mobile.png" />
+			    					<div id="or-mobile"><img src="<%=request.getContextPath()%>/resources/images/savie-2016/or-mobile.png" />
 			    					</div>
 			    				</div>
 			    				<div class="col-md-6 col-xs-12" id="step-offline">
 			    					<div class="step">
 					    				<div class="media">
 					    					<div class="media-left">
-					    						 <img class="media-object" src="assets/images/savie-2016/clockfold-icon.png" />
+					    						 <img class="media-object" src="<%=request.getContextPath()%>/resources/images/savie-2016/clockfold-icon.png" />
 					    					</div>
 					    					<div class="media-body">
 					    						<p class="procedure"><span class="bold-head">Offline procedure</span> <span class="hidden-dash">-</span><br class="visible-md visible-lg" /> To maintain a high service quality standard, the FNA and application process (if applicable) will take about 30 to 45 minutes. Please choose your preferred timeslot and customer service centre for the appointment. </p>
@@ -705,7 +591,7 @@ var languageP = "${language}";
 			<div class="modal-dialog">
 			    <div class="modal-content">
 			    	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-			     	<h4 class="text-center welcome-msg">Welcome back! Chan Tai Man</h4>
+			     	<h4 class="text-center welcome-msg">Welcome back! <span id="fullName">${userDetails.fullName }</span></h4>
 			     	<p class="text-center description-msg">You have already completed a Financial Needs Analysis previously, you may review and edit your FNA for an updated Product Recommendation.</p>
 			     	<center><button class="btn savie-common-btn" id="review-fna-btn">Review FNA</button></center>
 			    </div>
@@ -720,7 +606,33 @@ var languageP = "${language}";
 <!-- FOOTER -->
 
 <script type="text/javascript">
+	
+	var current_date = new Date();
+	var month_now = (parseInt((current_date.getMonth()+1), 10) + 100).toString().substr(1);
+	var day_now = (parseInt(current_date.getDate(), 10) + 100).toString().substr(1);
+	/* $('#sales-illu-dob').attr('placeholder',day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18)); */
+	$('#plan-dob-datepicker').val(day_now +'-'+ month_now +'-'+ (current_date.getFullYear()-18));
+	
+	var from = $('#plan-dob-datepicker').val().split("-");
+	var birthdate = new Date(from[2], from[1] - 1, from[0]);
+	var cur = new Date();
+	var diff = cur-birthdate;
+	var age = Math.floor(diff/31536000000); //the age val
+	var max = 99;
+	var looplimit = max - Number(age);
+	
+	//console.log(looplimit);
+	$('#total-payment-years').html('');
+	for(var i = 1; i <= looplimit; i++ ) {
+		if(i == 3) {
+			$('#total-payment-years').append('<option value='+i+' selected>'+i+'</option>');
+		} else {
+			$('#total-payment-years').append('<option value='+i+'>'+i+'</option>');
+		}
+	}
+
 	var language = "en";
+	var getpath = "<%=request.getContextPath()%>";
 	$(document).ready(function () {
 	    $('#loadingDiv').toggle();
 		$('body').addClass('modal-open');
@@ -852,6 +764,9 @@ var languageP = "${language}";
 	    });
 	    
 		getSavieOnlinePlandetails();
+		if($("#plan-dob-datepicker").val()!="") {
+			setPaymentYears($("#plan-dob-datepicker").val())
+		}
 	});
 	
 	// changing first/after 3 years button content
@@ -888,33 +803,65 @@ var languageP = "${language}";
 			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
 		}
 		else{
-			$.ajax({     
-			    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
-			    type:'get',     
-			    error:function(){       
-			    },     
-			    success:function(data){
-			    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
-			    	     window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/service-center';
-			    	}
-			    	else{
-			    		$.ajax({     
-			    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
-			    		    type:'get',     
-			    		    error:function(){       
-			    		    },     
-			    		    success:function(data){
-			    		    	if(data != null && data.errMsgs == null && data.name !=null){
-			    		    	    window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
-			    		    	}
-			    		    	else{
-			    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
-			    		    	}
-			    		    }  
-			    		});
-			    	}
-			    }  
-			});
+			if($("#type-of-payment").val() == 'regular-payment') {
+				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+			}else {
+				$.ajax({     
+				    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
+				    type:'get',     
+				    error:function(){       
+				    },     
+				    success:function(data){
+				    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
+				    	     window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/service-center';
+				    	}
+				    	else{
+				    		$.ajax({     
+				    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+				    		    type:'get',     
+				    		    error:function(){       
+				    		    },     
+				    		    success:function(data){
+				    		    	if(data != null && data.errMsgs == null && data.name !=null){
+				    		    		$('#loginpopup').modal('hide');
+				    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+				    		    		$('#review-fna-modal').modal('show');
+				    		    	}
+				    		    	else{
+				    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
+				    		    	}
+				    		    }  
+				    		});
+				    	}
+				    }  
+				});
+			}
+		}
+	}
+	
+	$("#review-fna-btn").on('click', function(){
+		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';
+	});
+	
+	$(document).on('change','#plan-dob-datepicker',function(){
+		if($(this).val()!="") {
+			setPaymentYears($(this).val())
+		}
+	});
+	
+	function setPaymentYears(dob){
+		var from = dob.split("-");
+		var birthdate = new Date(from[0], from[1] - 1, from[2]);
+		var cur = new Date();
+		var diff = cur-birthdate;
+		var age = Math.floor(diff/31536000000); //the age val
+		var max = 99;
+		var looplimit = max - Number(age);
+		
+		//console.log(looplimit);
+		$('#total-payment-years').html('');
+		for(var i = 1; i <= looplimit; i++ ) {
+			$('#total-payment-years').append('<option value='+i+'>'+i+'</option>');
 		}
 	}
 </script>

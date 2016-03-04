@@ -127,7 +127,7 @@
             timeFormat: 'H:i',
          });
          $('#preferred-date').datepicker({
-            format: "mm-dd-yyyy",
+            format: "dd-mm-yyyy",
             //format: 'yy-mm-dd',
             container: "#date",
             startDate: new Date(),

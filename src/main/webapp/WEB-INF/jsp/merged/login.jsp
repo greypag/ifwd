@@ -56,11 +56,9 @@
 								id="headerUserName"
 								onkeypress="return validationUsername(event);">
 							<!-- 忘記使用者名 -->
-							<h6 class="heading-h6">
 							    <span id="errUserName" class="empHide color-red heading-h5"></span>
 								<a id="forgotUserName" class="heading-h6"><fmt:message
 										key="header.login.username.forget" bundle="${msg}" /></a>
-							</h6>
 						</div>
 
 						<div class="form-group">
@@ -69,10 +67,9 @@
 								placeholder="<fmt:message key="header.login.password" bundle="${msg}" />"
 								autocomplete="off" id="headerPassword">
 							<!--忘記密碼 -->
-							<h6 class="heading-h6"></h6>
 							    <span id="errPass" class="empHide color-red heading-h5"></span>  
 								<a id="link-forgotPassword" class="heading-h6"><fmt:message
-										key="header.login.password.forget" bundle="${msg}" /></a>
+										key="header.login.password.forget" bundle="${msg}" /></a>			
 						</div>						
 						<div class="login-button-group">
 							<button type="button" onclick="submitLoginForm('loginform-pop');"
@@ -828,10 +825,10 @@ function userLoginFnc() {
         data : $("#popUploginform input").serialize(),
         async : false,
         success : function(data) {
-            if (data == 'success') {
+            if (data.loginResult == 'success') {
             	window.location.href=window.location.href;
                 //window.location.reload();
-            } else if (data == 'fail') {
+            } else if (data.loginResult == 'fail') {
                 $('.login-ajax-loading').hide();
                 $('#login-err-msg').show();
                 $('#login-err-msg').html(getBundle(getBundleLanguage, "member.login.fail.first"));

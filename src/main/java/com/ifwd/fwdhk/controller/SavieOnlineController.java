@@ -1,15 +1,21 @@
 package com.ifwd.fwdhk.controller;
 
 import static com.ifwd.fwdhk.api.controller.RestServiceImpl.COMMON_HEADERS;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.commons.lang.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -20,8 +26,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
 import com.ifwd.fwdhk.exception.ECOMMAPIException;
+import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.CommonUtils;
@@ -47,6 +57,7 @@ public class SavieOnlineController extends BaseController{
 
 	@RequestMapping(value = {"/{lang}/savings-insurance","/{lang}/savings-insurance/"})
 	public ModelAndView getSavieOnlineLanding(Model model, HttpServletRequest request) {
+		savieOnlineService.removeSavieOnlineSession(request);
 		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LANDING);
 	}
 	
@@ -224,9 +235,142 @@ public class SavieOnlineController extends BaseController{
 	public ModelAndView getSavieOnlineLifePayment(Model model, HttpServletRequest request) {
 		model.addAttribute("bankCodeEN", InitApplicationMessage.bankCodeEN);
 		model.addAttribute("bankCodeCN", InitApplicationMessage.bankCodeCN);
-		model.addAttribute("branchCodeEN", InitApplicationMessage.branchCodeEN);
-		model.addAttribute("branchCodeCN", InitApplicationMessage.branchCodeCN);
-		return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PAYMENT);
+		
+		LifePaymentBean lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
+		if(lifePayment!=null && lifePayment.getBankCode()!=null && !"".equals(lifePayment.getBankCode())){
+			try {
+				model.addAttribute("branchCodeEN", savieOnlineService.getBranchCode(lifePayment.getBankCode(), request));
+				model.addAttribute("branchCodeCN", savieOnlineService.getBranchCode(lifePayment.getBankCode(), request));
+			} 
+			catch (ECOMMAPIException e) {
+				logger.info(e.getMessage());
+				model.addAttribute("branchCodeEN", InitApplicationMessage.branchCodeEN);
+				model.addAttribute("branchCodeCN", InitApplicationMessage.branchCodeCN);
+			}
+		}
+		else{
+			model.addAttribute("branchCodeEN", InitApplicationMessage.branchCodeEN);
+			model.addAttribute("branchCodeCN", InitApplicationMessage.branchCodeCN);
+		}
+		
+		//
+		HttpSession session = request.getSession();
+		if(StringUtils.isNotBlank((String)session.getAttribute("username"))){
+			String lang = UserRestURIConstants.getLanaguage(request);
+			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all";
+			if (lang.equals("tc")) {
+				lang = "CN";
+			}
+			Map<String,String> header = new HashMap<String, String>(COMMON_HEADERS);
+			if(session.getAttribute("authenticate") !=null && session.getAttribute("authenticate").equals("true")){
+				HeaderUtil hu = new HeaderUtil();
+				header = hu.getHeader(request);
+			}
+			else{
+				header.put("userName", "*DIRECTGI");
+				header.put("token", commonUtils.getToken("reload"));
+			}
+			header.put("language", WebServiceUtils.transformLanaguage(lang));
+			JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+			JSONArray serviceCentresArr = (JSONArray) responseJsonObj.get("serviceCentres");
+			JSONObject serviceCentreObj = new JSONObject();
+			ServiceCentreResponse serviceCentreResponse;
+			if (lang.equals("CN")) {
+				serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
+			}else {
+				serviceCentreResponse =InitApplicationMessage.serviceCentreEN;
+			}
+			List<ServiceCentreResult> serviceCentreResultList = serviceCentreResponse.getServiceCentres();
+			
+			Map<String, ServiceCentreResult> entityMap = new HashMap<String, ServiceCentreResult>();
+			Map<String, List<String>> datesMap = new HashMap<String, List<String>>();
+			JSONArray datesArray;
+			JSONObject datesObj;
+			List<String> datesList;
+			List<String> calendarList;
+			long beforeDay = 86400000;
+			
+			if(serviceCentresArr!=null && serviceCentresArr.size()>0){
+				serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
+				calendarList = DateApi.timeslot(2, 24);
+				
+				datesList = new ArrayList<String>();
+				for(ServiceCentreResult entity :serviceCentreResultList) {
+					if(entity.getServiceCentreCode().equals(serviceCentreObj.get("serviceCentreCode"))) {
+						entityMap.put(entity.getServiceCentreCode(), entity);
+						
+						datesArray = (JSONArray) serviceCentreObj.get("dates");
+						for(int j = 0; j< datesArray.size(); j++) {
+							datesObj = (JSONObject)datesArray.get(j);
+							datesList.add(DateApi.formatTime((long)datesObj.get("date") - beforeDay));
+						}
+						calendarList.removeAll(datesList);
+						datesMap.put(entity.getServiceCentreCode(), calendarList);
+						break;
+					}
+				}
+			}
+			
+			if(serviceCentresArr!=null && serviceCentresArr.size()>1){
+				for(int i=1;i<serviceCentresArr.size();i++){
+					JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
+					JSONObject dateObj = (JSONObject) datesArr.get(0);
+					long date = (long) dateObj.get("date");
+					
+					JSONObject serviceCentreObjB = (JSONObject) serviceCentresArr.get(i);
+					JSONArray datesArrB = (JSONArray) serviceCentreObjB.get("dates");
+					JSONObject dateObjB = (JSONObject) datesArrB.get(0);
+					long dateB = (long) dateObjB.get("date");
+					if(date>dateB){
+						serviceCentreObj = serviceCentreObjB;
+					}
+					
+					calendarList = DateApi.timeslot(2, 24);
+					datesList = new ArrayList<String>();
+					for(ServiceCentreResult entity : serviceCentreResultList) {
+						if(entity.getServiceCentreCode().equals(serviceCentreObjB.get("serviceCentreCode"))) {
+							entityMap.put(entity.getServiceCentreCode(), entity);
+							
+							datesArray = (JSONArray) serviceCentreObjB.get("dates");
+							for(int j = 0; j< datesArray.size(); j++) {
+								datesObj = (JSONObject)datesArray.get(j);
+								datesList.add(DateApi.formatTime((Long)datesObj.get("date") - beforeDay));
+							}
+							calendarList.removeAll(datesList);
+							datesMap.put(entity.getServiceCentreCode(), calendarList);
+							break;
+						}
+					}
+				}
+			}
+			List<ServiceCentreResult> results = new ArrayList<ServiceCentreResult>();
+			for(ServiceCentreResult result : entityMap.values()) {
+				results.add(result);
+			}
+			logger.info("entityMap: " + entityMap);
+			logger.info("datesMap: " + datesMap);
+			serviceCentreResponse.setServiceCentres(results);
+			model.addAttribute("serviceCentre", serviceCentreResponse);
+			model.addAttribute("datesMap", datesMap);
+			model.addAttribute("results", results);
+			if(serviceCentreObj != null){
+				session.setAttribute("csCenter", serviceCentreObj.get("serviceCentreCode"));
+				JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
+				if(datesArr != null) {
+					org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
+					Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
+					SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
+					logger.info(formatter.format(date));
+					session.setAttribute("perferredDate", formatter.format(date));
+				}
+			}
+			
+			return SavieOnlinePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIEONLINE_LIFE_PAYMENT);
+		}else {
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+					+ "/savings-insurance");
+		}
+		
 	}
 	
 	@RequestMapping(value = {"/{lang}/savings-insurance/application-summary"})
@@ -243,8 +387,124 @@ public class SavieOnlineController extends BaseController{
 	public ModelAndView getSavieOnlineLifeSignature(Model model, HttpServletRequest request,HttpSession session) {
 		try {
 			model.addAttribute("signatureFileSize", InitApplicationMessage.signatureFileSize);
-			savieOnlineService.createApplicationFormPdf("1", request, session);
-			savieOnlineService.createFnaFormPdf("1", request, session);
+			
+			//
+			if(StringUtils.isNotBlank((String)session.getAttribute("username"))){
+				String lang = UserRestURIConstants.getLanaguage(request);
+				String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all";
+				if (lang.equals("tc")) {
+					lang = "CN";
+				}
+				Map<String,String> header = new HashMap<String, String>(COMMON_HEADERS);
+				if(session.getAttribute("authenticate") !=null && session.getAttribute("authenticate").equals("true")){
+					HeaderUtil hu = new HeaderUtil();
+					header = hu.getHeader(request);
+				}
+				else{
+					header.put("userName", "*DIRECTGI");
+					header.put("token", commonUtils.getToken("reload"));
+				}
+				header.put("language", WebServiceUtils.transformLanaguage(lang));
+				JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+				JSONArray serviceCentresArr = (JSONArray) responseJsonObj.get("serviceCentres");
+				JSONObject serviceCentreObj = new JSONObject();
+				ServiceCentreResponse serviceCentreResponse;
+				if (lang.equals("CN")) {
+					serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
+				}else {
+					serviceCentreResponse =InitApplicationMessage.serviceCentreEN;
+				}
+				List<ServiceCentreResult> serviceCentreResultList = serviceCentreResponse.getServiceCentres();
+				
+				Map<String, ServiceCentreResult> entityMap = new HashMap<String, ServiceCentreResult>();
+				Map<String, List<String>> datesMap = new HashMap<String, List<String>>();
+				JSONArray datesArray;
+				JSONObject datesObj;
+				List<String> datesList;
+				List<String> calendarList;
+				long beforeDay = 86400000;
+				
+				if(serviceCentresArr!=null && serviceCentresArr.size()>0){
+					serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
+					calendarList = DateApi.timeslot(2, 24);
+					
+					datesList = new ArrayList<String>();
+					for(ServiceCentreResult entity :serviceCentreResultList) {
+						if(entity.getServiceCentreCode().equals(serviceCentreObj.get("serviceCentreCode"))) {
+							entityMap.put(entity.getServiceCentreCode(), entity);
+							
+							datesArray = (JSONArray) serviceCentreObj.get("dates");
+							for(int j = 0; j< datesArray.size(); j++) {
+								datesObj = (JSONObject)datesArray.get(j);
+								datesList.add(DateApi.formatTime((long)datesObj.get("date") - beforeDay));
+							}
+							calendarList.removeAll(datesList);
+							datesMap.put(entity.getServiceCentreCode(), calendarList);
+							break;
+						}
+					}
+				}
+				
+				if(serviceCentresArr!=null && serviceCentresArr.size()>1){
+					for(int i=1;i<serviceCentresArr.size();i++){
+						JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
+						JSONObject dateObj = (JSONObject) datesArr.get(0);
+						long date = (long) dateObj.get("date");
+						
+						JSONObject serviceCentreObjB = (JSONObject) serviceCentresArr.get(i);
+						JSONArray datesArrB = (JSONArray) serviceCentreObjB.get("dates");
+						JSONObject dateObjB = (JSONObject) datesArrB.get(0);
+						long dateB = (long) dateObjB.get("date");
+						if(date>dateB){
+							serviceCentreObj = serviceCentreObjB;
+						}
+						
+						calendarList = DateApi.timeslot(2, 24);
+						datesList = new ArrayList<String>();
+						for(ServiceCentreResult entity : serviceCentreResultList) {
+							if(entity.getServiceCentreCode().equals(serviceCentreObjB.get("serviceCentreCode"))) {
+								entityMap.put(entity.getServiceCentreCode(), entity);
+								
+								datesArray = (JSONArray) serviceCentreObjB.get("dates");
+								for(int j = 0; j< datesArray.size(); j++) {
+									datesObj = (JSONObject)datesArray.get(j);
+									datesList.add(DateApi.formatTime((Long)datesObj.get("date") - beforeDay));
+								}
+								calendarList.removeAll(datesList);
+								datesMap.put(entity.getServiceCentreCode(), calendarList);
+								break;
+							}
+						}
+					}
+				}
+				List<ServiceCentreResult> results = new ArrayList<ServiceCentreResult>();
+				for(ServiceCentreResult result : entityMap.values()) {
+					results.add(result);
+				}
+				logger.info("entityMap: " + entityMap);
+				logger.info("datesMap: " + datesMap);
+				serviceCentreResponse.setServiceCentres(results);
+				model.addAttribute("serviceCentre", serviceCentreResponse);
+				model.addAttribute("datesMap", datesMap);
+				model.addAttribute("results", results);
+				if(serviceCentreObj != null){
+					session.setAttribute("csCenter", serviceCentreObj.get("serviceCentreCode"));
+					JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
+					if(datesArr != null) {
+						org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
+						Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
+						SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
+						logger.info(formatter.format(date));
+						session.setAttribute("perferredDate", formatter.format(date));
+					}
+				}
+				
+				savieOnlineService.createApplicationFormPdf("1", request, session);
+				savieOnlineService.createFnaFormPdf("1", request, session);
+			}else {
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+						+ "/savings-insurance");
+			}
 		}
 		catch (Exception e) {
 			logger.info(e.getMessage());
@@ -298,18 +558,12 @@ public class SavieOnlineController extends BaseController{
 	public ModelAndView getSavieOnlineLifeServiceCenter(Model model, HttpServletRequest request,HttpServletResponse response,HttpSession session) {
 		session.setAttribute("savingAmount", "200000");
 		response.setContentType("text/json;charset=utf-8");
-		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/accessCode";
 		String lang = UserRestURIConstants.getLanaguage(request);
 		if (lang.equals("tc")) {
 			lang = "CN";
 		}
-		final Map<String,String> header = headerUtil.getHeader(request);
-		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
-		if(responseJsonObj.get("errMsgs")==null){
-			request.getSession().setAttribute("accessCode", responseJsonObj.get("accessCode"));
-		}
-		response.setContentType("text/json;charset=utf-8");
 		try {
+			org.json.simple.JSONObject responseJsonObj = savieOnlineService.getAccessCode(request);
 			logger.info(responseJsonObj.toString());
 			response.getWriter().print(responseJsonObj.toString());
 		}catch(Exception e) {  

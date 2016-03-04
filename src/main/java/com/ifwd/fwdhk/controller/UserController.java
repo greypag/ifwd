@@ -88,8 +88,9 @@ public class UserController {
 
 	@RequestMapping(value = "/userLogin", method = RequestMethod.POST)
 	@ResponseBody
-	public String login(@ModelAttribute("userLogin") UserLogin userLogin,
+	public JSONObject login(@ModelAttribute("userLogin") UserLogin userLogin,
 			HttpServletRequest servletRequest) {
+		JSONObject jsonObject = new JSONObject();
 		try {
 			if (!userLogin.getPassword().isEmpty()
 					&& !userLogin.getUserName().isEmpty()) {
@@ -147,6 +148,7 @@ public class UserController {
 					else{
 						userDetails.setFirstName(userDetails.getFullName());
 					}
+					jsonObject.put("fullName", userDetails.getFullName());
 					userDetails.setEmailAddress(checkJsonObjNull(customer,
 							"email"));
 					userDetails.setMobileNo(checkJsonObjNull(customer,
@@ -163,23 +165,27 @@ public class UserController {
 					userDetails.setOptIn1(checkJsonObjNull(customer, "optIn1"));
 					userDetails.setOptIn2(checkJsonObjNull(customer, "optIn2"));
 					session.setAttribute("userDetails", userDetails);
-
-					return "success";
+					
+					jsonObject.put("loginResult", "success");
+					return jsonObject;
 				}else if (response.isEmpty()) {
-					return "fail";
+					jsonObject.put("loginResult", "fail");
+					return jsonObject;
 				}else {
 					String errMessage = response.get("errMsgs").toString();
-					return errMessage.replaceAll("\"", "").replace("[", "")
-							.replace("]", "");
+					jsonObject.put("loginResult", errMessage.replaceAll("\"", "").replace("[", "").replace("]", ""));
+					return jsonObject;
 				}
 			} else {
-				return "fail";
+				jsonObject.put("loginResult", "fail");
+				return jsonObject;
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "fail";
+		jsonObject.put("loginResult", "fail");
+		return jsonObject;
 
 	}
 

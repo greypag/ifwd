@@ -46,6 +46,32 @@ var fnaOccOther = {
 	"occupation":"NoBD16"
 }
 
+//数字转千分位
+function formatNum (num) {
+    return (num + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+}
+
+$(document).ready(function(){  
+    $("#q4_a_others").bind("blur",function(){
+    	$("#q4_a_others").val(formatNum($("#q4_a_others").val()));
+    });
+    
+    $("#q4_b_amount").bind("blur",function(){
+    	$("#q4_b_amount").val(formatNum($("#q4_b_amount").val()));
+    });
+    
+    $("#q4_c_others").bind("blur",function(){
+    	$("#q4_c_others").val(formatNum($("#q4_c_others").val()));
+    });
+    
+    $("#q4_d_1_others").bind("blur",function(){
+    	$("#q4_d_1_others").val(formatNum($("#q4_d_1_others").val()));
+    });
+    
+    $("#q4_d_2_others").bind("blur",function(){
+    	$("#q4_d_2_others").val(formatNum($("#q4_d_2_others").val()));
+    });
+})
 
 var Review = {
 	
@@ -437,7 +463,7 @@ var Review = {
 				answer += $("#"+rid).find("input[type='checkbox']").val()+",";
 			}
 		});
-		if(qid == "q1" || qid == "q2"){
+		if(qid == "q1" || qid == "q2" || qid == "q3" || qid == "q4" || qid == "q4_a"){
 			if(answer.length>0){
 				answer=answer.substring(0,answer.length-1);
 			}
@@ -494,7 +520,10 @@ var Review = {
 				$("#q4_a_others").focus();
 				isError = true;
 			}
-			other = parseInt(other);
+			
+			if(other!=null && other!=""){
+				other = parseInt(other);
+			}
 		}
 
 		if(qid == "q4_b"){
@@ -636,6 +665,24 @@ var Review = {
 		var id = $(this).attr("rel");
 		$("#"+id+ " .error").text("");
 		that.constructAnswer(id);
+		
+		var target = $("#"+id);
+		target.addClass("display")
+		target.find(".btn_edit").removeClass("selected")
+		target.find("input[type='checkbox']").attr("disabled", "disabled");	
+		target.find("input[type='text']").attr("readonly", "readonly");
+		target.find(".btn-action").hide();
+		
+		//enable "BTN_SAVE" when all review box ok
+		var allOk = true;
+		$(".review-box").each(function(){
+			if(!$(this).hasClass("display")){
+				allOk = false;
+			}
+		});
+		if(allOk){
+			$("#btn_save").prop("disabled", false);
+		}
 	},
 
 	checkboxChanged:function(evt){

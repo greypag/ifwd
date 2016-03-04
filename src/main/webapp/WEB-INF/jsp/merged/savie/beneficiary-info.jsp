@@ -144,12 +144,12 @@
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
 												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
-												  <span class="icon-chevron-thin-down orange-caret"></span>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[0]" id="beneficiaryHkidPassport[0]">
 													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
 												  </select>
+												  <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											   </div>
 											   <span class="error-msg" id="beneficiaryHkidPassportErMsg[0]"></span>
 											</div>
@@ -173,12 +173,13 @@
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
-													<span class="icon-chevron-thin-down orange-caret"></span>
-													<select class="form-control gray-dropdown" name="beneficaryGender1" id="beneficiaryGender[0]">
+													<select class="form-control gray-dropdown" name="tmpBeneficiaryGender[0]" id="tmpBeneficiaryGender[0]">
 														<option value="" selected="selected" disabled="disabled">Gender</option>
 														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'male'}">selected="selected"</c:if>>MALE</option>
 														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender1 == 'female'}">selected="selected"</c:if>>FEMALE</option>
 													</select>
+													<input type="hidden" id="beneficaryGender1" name="beneficaryGender1" />
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryGenderErMsg[0]"></span>
 											</div>
@@ -189,20 +190,23 @@
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
-													<span class="icon-chevron-thin-down orange-caret"></span>
-													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[0]" name="beneficaryRelation1">
+													<select class="form-control gray-dropdown"  id="tmpBeneficiaryRelationship[0]" name="tmpBeneficiaryRelationship[0]">
 														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
-																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 															</c:forEach>
 														</c:if>
 														<c:if test="${language == 'tc'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
-																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation1 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 															</c:forEach>
 														</c:if>
 													</select>
+													<input type="hidden" id="beneficaryRelation1" name="beneficaryRelation1" />
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryRelationErMsg[0]"></span>
 											</div>
@@ -266,12 +270,12 @@
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
 												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
-												  <span class="icon-chevron-thin-down orange-caret"></span>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[1]" id="beneficiaryHkidPassport[1]">
 													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
 												  </select>
+												  <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											   </div>
 											   <span class="error-msg" id="beneficiaryHkidPassportErMsg[1]"></span>
 											</div>
@@ -295,12 +299,13 @@
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
-													<span class="icon-chevron-thin-down orange-caret"></span>
-													<select class="form-control gray-dropdown" name="beneficaryGender2" id="beneficiaryGender[1]">
+													<select class="form-control gray-dropdown" name="tmpBeneficiaryGender[1]" id="tmpBeneficiaryGender[1]">
 														<option value="" selected="selected" disabled="disabled">Gender</option>
 														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender2 == 'male'}">selected="selected"</c:if>>MALE</option>
 														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender2 == 'female'}">selected="selected"</c:if>>FEMALE</option>
 													</select>
+													<input type="hidden" id="beneficaryGender2" name="beneficaryGender2" />
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryGenderErMsg[1]"></span>
 											</div>
@@ -311,20 +316,23 @@
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
-													<span class="icon-chevron-thin-down orange-caret"></span>
-													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[1]" name="beneficaryRelation2">
+													<select class="form-control gray-dropdown"  id="tmpBeneficiaryRelationship[1]" name="tmpBeneficiaryRelationship[1]">
 														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
-																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 															</c:forEach>
 														</c:if>
 														<c:if test="${language == 'tc'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
-																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation2 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 															</c:forEach>
 														</c:if>
 													</select>
+													<input type="hidden" id="beneficaryRelation2" name="beneficaryRelation2" />
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryRelationErMsg[1]"></span>
 											</div>
@@ -388,12 +396,12 @@
 											<div class="left-desktop text-box">
 											   <div class="selectDiv">
 												  <label class="mdl-textfield__label cstm-dropdown-label">HKID / Passport</label>
-												  <span class="icon-chevron-thin-down orange-caret"></span>
 												  <select class="form-control gray-dropdown" name="beneficiaryHkidPassport[2]" id="beneficiaryHkidPassport[2]">
 													 <option value="" selected="selected" disabled="disabled">HKID / Passport</option>
 													 <option value="hkid">HKID</option>
 													 <option value="passport">Passport</option>
 												  </select>
+												  <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 											   </div>
 											   <span class="error-msg" id="beneficiaryHkidPassportErMsg[2]"></span>
 											</div>
@@ -417,12 +425,13 @@
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Gender</label>
-													<span class="icon-chevron-thin-down orange-caret"></span>
-													<select class="form-control gray-dropdown" name="beneficaryGender3" id="beneficiaryGender[2]">
+													<select class="form-control gray-dropdown" name="tmpBeneficiaryGender[2]" id="tmpBeneficiaryGender[2]">
 														<option value="" selected="selected" disabled="disabled">Gender</option>
 														<option value="male" <c:if test="${lifeBeneficaryInfo.beneficaryGender3 == 'male'}">selected="selected"</c:if>>MALE</option>
 														<option value="female" <c:if test="${lifeBeneficaryInfo.beneficaryGender3 == 'female'}">selected="selected"</c:if>>FEMALE</option>
 													</select>
+													<input type="hidden" id="beneficaryGender3" name="beneficaryGender3" />
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryGenderErMsg[2]"></span>
 											</div>
@@ -433,20 +442,23 @@
 											<div class="left-desktop text-box">
 												<div class="selectDiv">
 													<label class="mdl-textfield__label cstm-dropdown-label">Relationship with you</label>
-													<span class="icon-chevron-thin-down orange-caret"></span>
-													<select class="form-control gray-dropdown"  id="beneficiaryRelationship[2]" name="beneficaryRelation3">
+													<select class="form-control gray-dropdown"  id="tmpBeneficiaryRelationship[2]" name="tmpBeneficiaryRelationship[2]">
 														<option value="" selected="selected" disabled="disabled">Relationship with you</option>
 														<c:if test="${language == 'en'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipEN}">
-																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 															</c:forEach>
 														</c:if>
 														<c:if test="${language == 'tc'}">
 															<c:forEach var="list" items="${savieBeneficiaryRelationshipCN}">
-																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+															    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+																<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifeBeneficaryInfo.beneficaryRelation3 == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 															</c:forEach>
 														</c:if>
 													</select>
+													<input type="hidden" id="beneficaryRelation3" name="beneficaryRelation3" />
+													<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 												</div>
 												<span class="error-msg" id="beneficiaryRelationErMsg[2]"></span>
 											</div>
@@ -530,6 +542,37 @@
 		
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
+		$(document).ready(function() {
+			var isOwnEstate = '${lifeBeneficaryInfo.isOwnEstate}';
+			if(isOwnEstate == 'false'){
+				$("#name-others-id").click();
+				$('#beneficiary-contents').removeClass('hidden');
+				$('.add-on-beneficiary').removeClass('hidden');
+				
+				if('${lifeBeneficaryInfo.beneficaryFirstName2}' != ''){
+					$('#beneficiary1').addClass('hidden');
+					$('#beneficiary-header\\[1\\]').removeClass('hidden');
+					$('#beneficiary-info-form\\[1\\]').removeClass('hidden');
+					$('#add-beneficiary-btn-2').removeClass('disabled-beneficiary-add');
+					$('#add-btn-img').attr('src', '/fwdhk/resources/images/savie-2016/orange-plus.png');
+				}
+				
+				if('${lifeBeneficaryInfo.beneficaryFirstName3}' != ''){
+					$('#beneficiary2').addClass('hidden');
+					$('#beneficiary-header\\[2\\]').removeClass('hidden');
+					$('#beneficiary-info-form\\[2\\]').removeClass('hidden');
+				}
+			}
+			else{
+				$("#own-estate-id").click();
+				$('#beneficiary-contents').addClass('hidden');
+				$('.add-on-beneficiary').addClass('hidden');
+				$('#bf-save-and-con-later').attr('data-target','#save-and-continue-batch5-modal');
+			}
+		});
+		
+		
+		
 			$(document).ready(function() {
 				var language = "en";
 				

@@ -60,7 +60,7 @@ public class AjaxSavieOnlineController extends BaseController{
 		try {
 			saviePlanDetails.validate(language);
 			saviePlanDetails.setInsuredAmount1(NumberFormatUtils.formatNumber(saviePlanDetails.getInsuredAmount()));
-			jsonObject = savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request);
+			jsonObject = savieOnlineService.getSavieOnlinePlandetails(saviePlanDetails, request, session);
 			String[] dob = saviePlanDetails.getDob().split("-");
 			saviePlanDetails.setDob1(dob[2]+"·"+dob[1]+"·"+dob[0]);
 			saviePlanDetails.setDob2(dob[0]+"-"+dob[1]+"-"+dob[2]);
@@ -139,6 +139,21 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			lifePayment.validate(language);
+			if(lifePayment!=null && lifePayment.getBranchCode()!=null && !"".equals(lifePayment.getBranchCode())){
+				try {
+					List<OptionItemDesc> OptionItemDescList = savieOnlineService.getBranchCode(lifePayment.getBankCode(), request);
+					if(OptionItemDescList!=null && OptionItemDescList.size()>0){
+						for(int i=0;i<OptionItemDescList.size();i++){
+							if(OptionItemDescList.get(i).getItemCode().equals(lifePayment.getBranchCode())){
+								lifePayment.setBranchName(OptionItemDescList.get(i).getItemDesc());
+							}
+						}
+					}
+				} 
+				catch (ECOMMAPIException e) {
+					logger.info(e.getMessage());
+				}
+			}
 			request.getSession().setAttribute("lifePayment", lifePayment);
 		}
 		catch (ValidateExceptions e) {
@@ -293,7 +308,8 @@ public class AjaxSavieOnlineController extends BaseController{
 			return;
 		}
 		try {
-			OptionItemDescList = savieOnlineService.getBranchCode(request);
+			String value = request.getParameter("value");
+			OptionItemDescList = savieOnlineService.getBranchCode(value, request);
 		}
 		catch (ECOMMAPIException e) {
 		}
@@ -397,8 +413,8 @@ public class AjaxSavieOnlineController extends BaseController{
 					throw new ECOMMAPIException(ErrorMessageUtils.getMessage("picture.not.greater.than",request)+" "+imgMaxSize+"MB");
 				}
 				
-				CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
-				String policyNo = eliteTermPolicy.getPolicyNo();
+				CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+				String policyNo = lifePolicy.getPolicyNo();
 				String documentPath = UserRestURIConstants.getConfigs("documentPath");
 				String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes()); 
 		        File dirPath = new File(uploadDir);  
@@ -462,6 +478,35 @@ public class AjaxSavieOnlineController extends BaseController{
 		try {
 			ajaxReturn(response,savieOnlineService.uploadSignature(request,image));
 		} catch (ECOMMAPIException e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 通过ajax获取时间段
+	 */
+	@RequestMapping(value = {"/ajax/savings-insurance/getTimeSlot"})
+	public void getTimeSlot(Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			savieOnlineService.getTimeSlot(model, request, response);
+		} catch (Exception e) {
+			logger.info(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 预约服务中心提交时调用
+	 */
+	@RequestMapping(value = {"/ajax/savings-insurance/upsertAppointment"})
+	public void upsertAppointment(Model model, HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			savieOnlineService.getAccessCode(request);
+			savieOnlineService.upsertAppointment(model, request, response);
+		} catch (Exception e) {
 			logger.info(e.getMessage());
 			e.printStackTrace();
 		}

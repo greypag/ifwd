@@ -1,4 +1,4 @@
-#eservices-page {
+.profile-active-page {
 	.side-menu {
 		@media (min-width: $screen-md) {
 			border-top: 1px solid #d4d5d4 !important;
@@ -6,31 +6,6 @@
 		    border-bottom: 1px solid #d4d5d4 !important;
 		    border-right: 0 !important;
 		} 
-		.nav {
-			li {
-				a {
-					.side-menu-icon {
-						width: 26px !important;
-						background: url("../images/savie-2016/side-menu-icons-2.png") no-repeat !important;
-						&#insurance-plan {
-							background-position: -39px 0 !important;
-						}
-						&#promo-offers {
-							background-position: -75px 0 !important;
-						}
-					}
-				}
-				&.active {
-					a {
-						background: #ff8200 !important;
-					}	
-				}
-				&:nth-child(2) {
-					border-bottom: 1px solid #d4d5d4;
-    				border-top: 1px solid #d4d5d4;
-				}
-			}	
-		}  
 	}
 	.right-side-content {
 		padding: 20px 30px !important;
@@ -40,7 +15,7 @@
 		}	
 		#member-details {
 			font-size: 14px;
-			margin-bottom: 16px;
+			marginin-bottom: 16px;
 			.member-data-holder {
 				padding-bottom: 8px;
 				.member-data-label {
@@ -60,5 +35,200 @@
 		.heading-title {
 			margin-top: 0;
 		}
+	}
+}
+.promo-active-page {
+	.right-side-content {
+		padding: 0 !important;
+		@media (min-width: $screen-md) {
+			padding: 30px !important;
+			border: 1px solid #d4d5d4;
+			margin-bottom: 25px;
+		}
+		.heading-title {
+			margin: 0;
+		}	
+		#promo-offers-tab-contents {
+			.mobile-promo-navtab {
+				li {
+					a {
+						font-size: 14px;
+						line-height: 18px;
+						padding: 6px;
+					}
+				}
+			}
+			p {
+				font-size: 14px;
+			}
+			.table {
+				width: 100%;
+				font-size: 14px;
+				td, th {
+					padding: 10px;
+					&.first-col {
+						padding-left: 30px;
+						width: 43%;
+					}
+				}
+				th {
+					border-top: 2px solid #ddd;
+				}
+				&#promotion-code-table {
+					margin-top: 25px;
+					@media (min-width: $screen-md) {
+						margin-top: 12px;
+					}
+				}
+				&#referral-program-table {
+					margin-top: 20px;
+					@media (min-width: $screen-md) {
+						margin-top: 12px;
+						margin-bottom: 10px;
+					}
+					sup {
+						font-size: 8px;
+					}
+				}	
+				&#fwd-partner-table {
+					margin-top: 15px;
+					@media (min-width: $screen-md) {
+						margin-top: 5px;
+						margin-bottom: 5px;
+
+					}
+				}				
+			}
+			
+			.tab-content  {
+				border: 0 !important;
+				padding: 22px 0 !important;
+				@media (min-width: $screen-md) {
+					padding: 0 !important;
+				}
+				.tab-pane {
+					@media (min-width: $screen-md) {
+						display: block !important;
+					}	
+				}
+				p {
+					@media (max-width: $screen-md) {
+						text-align: center;
+					}
+					.your-code {
+						@media (max-width: $screen-md) {
+							font-size: 24px;
+						    font-family: 'Calibri-Bold';
+						    padding: 5px 30px;
+						    background: #fbfbfc;
+						    border: 1px solid #d4d4d4;
+						    line-height: 49px;
+						}
+						@media (min-width: $screen-md) {
+							font-family: 'Calibri-Bold';
+    						font-size: 18px;
+						}    
+					}
+				}
+				#input-social-holder {
+					@media (max-width: $screen-md) {
+						margin: 0;
+						padding: 15px 15px 0 15px;
+					}
+				}	
+				.fwd-partner-container {
+					 @media (min-width: $screen-md) {
+					 	padding-top: 30px;
+					 }
+					 #partners-logo {
+					 	#the-club {
+					 		width: 150px;
+					 	}
+					 	#agoda {
+					 		width: 120px;
+					 	}
+					 }
+				}
+				.referral-program-container {
+					@media (min-width: $screen-md) {
+						padding-top: 15px;
+					}
+					#promo-input-holder {
+						@media (min-width: $screen-md) {
+							padding-right: 0;
+						}
+						.promo-code-input {
+							height: 40px;
+							font-size: 14px;
+						}
+					}
+					#social-btns-holder {
+						margin-top: 10px;
+						@media (min-width: $screen-md) {
+							padding-left: 0;
+							margin-top: 0;
+						}
+						ul {
+							li {
+								margin-left: 0;
+								a {
+									padding: 9px;
+								    color: #FFF;
+								    border-radius: 0;
+								   &#copy-link-btn {
+								    	background: #ff8200;
+								    	text-align: center;
+								    	padding: 9px;
+								    	@media (min-width: $screen-md) {
+								    		width: 115px;
+								    	}	
+								    }
+								}
+								&.social-icon {
+									a {
+										width: 40px;
+										padding: 9px 14px;
+										
+									    &#fb-icon {
+									    	background: #153a83;
+									    	.fa-facebook {
+									    		font-size: 20px;
+									    	}
+									    }
+									    &#twitter-icon {
+									    	background: #2d99d3;
+									    	padding: 9px 10px;
+									    	.fa-twitter {
+									    		font-size: 20px;
+									    	}
+									    }
+									    &#gplus-icon {
+									    	background: #be1c3b;
+									    	padding: 9px 12px;
+									    }
+									}   
+								}
+							}
+						}
+					}
+					.referral-notes {
+						font-size: 12px;
+					    line-height: 13px;
+					    text-align: left;
+					    @media (max-width: $screen-md) {
+						    padding-left: 30px;
+						    padding-right: 30px;
+						}
+					    sup {
+					    	font-size: 8px;
+					    }
+					    &:nth-child(2) {
+					    	margin-top: 5px;
+					    }
+					}
+				}
+			}			
+		}
+
 	}
 }

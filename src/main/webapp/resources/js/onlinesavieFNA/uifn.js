@@ -77,7 +77,7 @@ FormValidate = {
 
     isNumber:function (str) {
         // body...
-        charset = "0123456789";
+        charset = "0123456789,";
         var result = true;
 
         for (var i=0;i<str.length;i++) {

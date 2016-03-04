@@ -14,10 +14,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import net.sf.ezmorph.bean.MorphDynaBean;
 
+import org.apache.commons.lang.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -26,6 +28,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 
 import com.ifwd.fwdhk.api.controller.RestServiceDao;
@@ -43,13 +46,13 @@ import com.ifwd.fwdhk.exception.ECOMMAPIException;
 import com.ifwd.fwdhk.model.OptionItemDesc;
 import com.ifwd.fwdhk.model.UserDetails;
 import com.ifwd.fwdhk.model.savieOnline.LifeBeneficaryInfoBean;
+import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 import com.ifwd.fwdhk.model.savieOnline.LifeEmploymentInfoBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePaymentBean;
 import com.ifwd.fwdhk.model.savieOnline.LifePersonalDetailsBean;
 import com.ifwd.fwdhk.model.savieOnline.ProductRecommendation;
 import com.ifwd.fwdhk.model.savieOnline.SavieFnaBean;
 import com.ifwd.fwdhk.model.savieOnline.SaviePlanDetailsBean;
-import com.ifwd.fwdhk.model.savieOnline.LifeDeclarationBean;
 import com.ifwd.fwdhk.services.SavieOnlineService;
 import com.ifwd.fwdhk.util.ClientBrowserUtil;
 import com.ifwd.fwdhk.util.CommonUtils;
@@ -82,11 +85,22 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	protected ClientBrowserUtil clientBrowserUtil;
 
 	@Override
-	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails,HttpServletRequest request) throws ECOMMAPIException{
-		int issueAge = DateApi.getAge(DateApi.formatDate1(saviePlanDetails.getDob()));
-		int paymentTerm = 100-issueAge;
+	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails, 
+			HttpServletRequest request, HttpSession session) throws ECOMMAPIException{
 		
-		SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails("savie", issueAge, paymentTerm, saviePlanDetails.getInsuredAmount(), saviePlanDetails.getPromoCode(), null);
+		int issueAge = DateApi.getAge(DateApi.formatDate1(saviePlanDetails.getDob())) + 1;
+		int paymentTerm = 0;
+		if("SP".equals(saviePlanDetails.getPaymentType())) {
+			session.setAttribute("savieType", "SP");
+			paymentTerm = 100-issueAge;
+		}else if("RP".equals(saviePlanDetails.getPaymentType())) {
+			session.setAttribute("savieType", "RP");
+			String paymentYear = request.getParameter("paymentYear");
+			paymentTerm = paymentYear == null ? 3 : Integer.valueOf(paymentYear);
+		}
+		
+		SaviePlanDetailsResponse apiResponse = connector.saviePlanDetails("savie", issueAge, paymentTerm,
+				saviePlanDetails.getInsuredAmount(), saviePlanDetails.getPromoCode(), saviePlanDetails.getPaymentType(), null);
 		
 		request.getSession().setAttribute("planDetailData", apiResponse);
 		
@@ -394,12 +408,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	public void createFnaFormPdf(String type,HttpServletRequest request,HttpSession session) throws Exception {
 		SavieFnaBean savieFna = (SavieFnaBean) session.getAttribute("savieFna");
-		CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) session.getAttribute("eliteTermPolicy");
+		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) session.getAttribute("lifePolicy");
 		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) session.getAttribute("lifePersonalDetails");
 		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) session.getAttribute("lifeBeneficaryInfo");
 		
 		List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
-		attributeList.add(new PdfAttribute("PolicyNo", eliteTermPolicy.getPolicyNo()));
+		attributeList.add(new PdfAttribute("PolicyNo", lifePolicy.getPolicyNo()));
 		String LifeInsuredName = "";
 		if(lifeBeneficaryInfo.getIsOwnEstate()){
 			LifeInsuredName = lifePersonalDetails.getFirstname()+" "+
@@ -1133,24 +1147,24 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		logger.info(parameters.toString());
 		
 		final Map<String,String> header = headerUtil.getHeader(request);
-		CreateEliteTermPolicyResponse eliteTermPolicy = new CreateEliteTermPolicyResponse();
-		eliteTermPolicy = connector.createLifePolicy(parameters, header);
-		if(!eliteTermPolicy.hasError()){
-			request.getSession().setAttribute("eliteTermPolicy", eliteTermPolicy);
+		CreateEliteTermPolicyResponse lifePolicy = new CreateEliteTermPolicyResponse();
+		lifePolicy = connector.createLifePolicy(parameters, header);
+		if(!lifePolicy.hasError()){
+			request.getSession().setAttribute("lifePolicy", lifePolicy);
 		}
 		else{
-			throw new ECOMMAPIException(eliteTermPolicy.getErrMsgs()[0]);
+			throw new ECOMMAPIException(lifePolicy.getErrMsgs()[0]);
 		}
-		return eliteTermPolicy;
+		return lifePolicy;
 	}
 	
 	public BaseResponse finalizeLifePolicy(HttpServletRequest request,HttpSession session)throws ECOMMAPIException{
-		CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 		JSONObject parameters = new JSONObject();
 		parameters.put("creditCaredNo", "");
 		parameters.put("expiryDate", "");
 		parameters.put("cardHolderName", "");
-		parameters.put("policyNo", eliteTermPolicy.getPolicyNo());
+		parameters.put("policyNo", lifePolicy.getPolicyNo());
 		parameters.put("planCode", "SAVIE");
 		logger.info(parameters.toString());
 		
@@ -1163,11 +1177,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		return apiReturn;
 	}
 	
-	public List<OptionItemDesc> getBranchCode(HttpServletRequest request) throws ECOMMAPIException {
+	public List<OptionItemDesc> getBranchCode(String value,HttpServletRequest request) throws ECOMMAPIException {
         List<OptionItemDesc> OptionItemDescList = new ArrayList<OptionItemDesc>();
         JSONArray jsonOptionItemDescs = null;
-        String value = request.getParameter("value");
-        String language = request.getParameter("language");
+        
         String Url = UserRestURIConstants.SERVICE_URL + "/option/itemDesc?itemTable="+value.split("-")[0];
 		final Map<String,String> header = headerUtil.getHeader(request);
 		
@@ -1368,7 +1381,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		this.createApplicationFormPdf("2", request, request.getSession());
 		
 		//upload signature
-		CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+		CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
         File uploadedFile = new File(request.getRealPath("/")+"resources\\pdf\\signature.png");
         
         byte[] toFileBytes= FileCopyUtils.copyToByteArray(uploadedFile);
@@ -1383,7 +1396,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		parameters.accumulate("documentType", "signature");
 		parameters.accumulate("originalFilePath", "");
 		parameters.accumulate("base64", image);
-		parameters.accumulate("policyNo", eliteTermPolicy.getPolicyNo());
+		parameters.accumulate("policyNo", lifePolicy.getPolicyNo());
 		connector.uploadSignature(parameters, header);
 		return null;
 	}
@@ -1502,8 +1515,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		FileInputStream is = null;
 		BaseResponse br = null;
 		try {
-			CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
-			String policyNo = eliteTermPolicy.getPolicyNo();
+			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
+			String policyNo = lifePolicy.getPolicyNo();
 			String documentPath = UserRestURIConstants.getConfigs("documentPath");
 			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(policyNo.getBytes())+"/"; 
 			File file = new File(uploadDir);
@@ -1604,9 +1617,9 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public BaseResponse uploadSignature(HttpServletRequest request,String image)throws ECOMMAPIException{		
 		BaseResponse br = null;
 		try {
-			CreateEliteTermPolicyResponse eliteTermPolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("eliteTermPolicy");
+			CreateEliteTermPolicyResponse lifePolicy = (CreateEliteTermPolicyResponse) request.getSession().getAttribute("lifePolicy");
 			String documentPath = UserRestURIConstants.getConfigs("documentPath");
-			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(eliteTermPolicy.getPolicyNo().getBytes()); 
+			String uploadDir = documentPath + "/"+new sun.misc.BASE64Encoder().encode(lifePolicy.getPolicyNo().getBytes()); 
 	        File dirPath = new File(uploadDir);  
 	        if (!dirPath.exists()) {   
 	            dirPath.mkdirs();  
@@ -1634,7 +1647,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			parameters.put("documentType", "signature");
 			parameters.put("originalFilePath", "");
 			parameters.put("base64", image);
-			parameters.put("policyNo", eliteTermPolicy.getPolicyNo());
+			parameters.put("policyNo", lifePolicy.getPolicyNo());
 			br = connector.uploadSignature(parameters, header);
 		} catch (ECOMMAPIException e) {
 			logger.info("EliteTermServiceImpl uploadSignature occurs an exception!");
@@ -1646,5 +1659,148 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			e.printStackTrace();
 		}
 		return br;
+	}
+	
+	public void removeSavieOnlineSession(HttpServletRequest request){
+		HttpSession session = request.getSession();
+		session.removeAttribute("saviePlanDetails");
+		session.removeAttribute("planDetailData");
+		session.removeAttribute("savieFna");
+		session.removeAttribute("productRecommendation");
+		session.removeAttribute("lifePersonalDetails");
+		session.removeAttribute("lifeEmploymentInfo");
+		session.removeAttribute("lifeBeneficaryInfo");
+		session.removeAttribute("lifePayment");
+		session.removeAttribute("lifeDeclaration");
+		session.removeAttribute("lifePolicy");
+		logger.info("remove savie online session");
+	}
+/**
+	 * 通过ajax获取时间段
+	 */
+	@Override
+	public void getTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
+		org.json.simple.JSONObject responseJsonObj = new org.json.simple.JSONObject();
+		//if(org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("savingAmount")) && org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("username")) && org.apache.commons.lang.StringUtils.isNotBlank((String)session.getAttribute("accessCode"))) {
+		if(StringUtils.isNotBlank((String)session.getAttribute("username"))) {
+			String csCenter = request.getParameter("csCenter");
+			String perferredDate = request.getParameter("perferredDate");
+			request.getSession().setAttribute("csCenter", csCenter);
+			request.getSession().setAttribute("perferredDate", perferredDate);
+			String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot?date=" + perferredDate + "&serviceCentreCode=" + csCenter;
+			String lang = UserRestURIConstants.getLanaguage(request);
+			if (lang.equals("tc")) {
+				lang = "CN";
+			}
+			
+			HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+			header.put("userName", "*DIRECTGI");
+			header.put("token", commonUtils.getToken("reload"));
+			header.put("language", WebServiceUtils.transformLanaguage(lang));
+			
+			responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+			if(responseJsonObj.get("timeSlots") == null || responseJsonObj.get("timeSlots") == ""){
+				logger.info(responseJsonObj.toString());
+			}
+		}
+		else{
+			responseJsonObj.put("sessionError", "sessionError");
+		}
+		response.setContentType("text/json;charset=utf-8");
+		try {
+			logger.info(responseJsonObj.toString());
+			response.getWriter().print(responseJsonObj.toString());
+		}catch(Exception e) {  
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * 服务中心提交
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public void upsertAppointment(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		response.setContentType("text/json;charset=utf-8");
+		HttpSession session = request.getSession();
+		String csCenter = request.getParameter("csCenter");
+		String perferredDate = request.getParameter("perferredDate");
+		String perferredTime = request.getParameter("perferredTime");
+		String planCode = "savie";
+		String policyNumber = "";
+		String applicationNumber = "";
+		String userName = (String)session.getAttribute("username");
+		String status = "Active";
+		String remarks = "";
+		String accessCode = (String)request.getSession().getAttribute("accessCode");
+		String servicingAgent = "";
+		
+		String applicationUrl = UserRestURIConstants.SERVICE_URL + "/savie/application";
+		String makeUrl = UserRestURIConstants.SERVICE_URL + "/appointment/make";
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		
+		
+		HashMap<String, String> header = new HashMap<String, String>(COMMON_HEADERS);
+		header.put("userName", "*DIRECTGI");
+		header.put("token", commonUtils.getToken("reload"));
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		
+		org.json.simple.JSONObject parameters = new org.json.simple.JSONObject();
+		parameters.put("planCode", planCode);
+		parameters.put("accessCode", accessCode);
+		org.json.simple.JSONObject appJsonObj = restService.consumeApi(HttpMethod.PUT, applicationUrl, header, parameters);
+		applicationNumber = (String)appJsonObj.get("applicationNumber");
+		session.setAttribute("applicationNumber", applicationNumber);
+		
+		if(appJsonObj != null) {
+			parameters = new org.json.simple.JSONObject();
+			parameters.put("serviceCentreCode", csCenter);
+			parameters.put("date", perferredDate);
+			parameters.put("timeSlot", perferredTime);
+			parameters.put("planCode", planCode);
+			parameters.put("policyNumber", policyNumber);
+			parameters.put("applicationNumber", applicationNumber);
+			parameters.put("userName", userName);
+			parameters.put("status", status);
+			parameters.put("remarks", remarks);
+			parameters.put("accessCode", accessCode);
+			parameters.put("servicingAgent", servicingAgent);
+			
+			org.json.simple.JSONObject makeJsonObj = restService.consumeApi(HttpMethod.POST, makeUrl, header, parameters);
+			
+			response.setContentType("text/json;charset=utf-8");
+			try {
+				logger.info(makeJsonObj.toString());
+				response.getWriter().print(makeJsonObj.toString());
+			}catch(Exception e) {  
+				e.printStackTrace();
+				response.getWriter().print("application error!");
+			}
+		}else {
+			response.getWriter().print("application error!");
+		}
+	}
+	
+	/**
+	 * 获取accessCode
+	 * @param request
+	 * @return
+	 */
+	public org.json.simple.JSONObject getAccessCode(HttpServletRequest request) {
+		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/accessCode";
+		String lang = UserRestURIConstants.getLanaguage(request);
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		final Map<String,String> header = headerUtil.getHeader(request);
+		org.json.simple.JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		if(responseJsonObj.get("errMsgs")==null){
+			request.getSession().setAttribute("accessCode", responseJsonObj.get("accessCode"));
+		}
+		return responseJsonObj;
 	}
 }

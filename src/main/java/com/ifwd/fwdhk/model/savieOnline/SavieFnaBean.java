@@ -3,11 +3,14 @@ package com.ifwd.fwdhk.model.savieOnline;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.ifwd.fwdhk.exception.ValidateExceptions;
+import com.ifwd.fwdhk.util.ValidationUtils;
 import com.ifwd.utils.ErrorMessageUtils;
-import com.ifwd.utils.ValidationUtils;
 
 public class SavieFnaBean implements Serializable {
 	private final static Logger logger = LoggerFactory.getLogger(SavieFnaBean.class);
@@ -53,6 +56,63 @@ public class SavieFnaBean implements Serializable {
         if(!ValidationUtils.isValidDate(this.dob)){
         	list.add(ErrorMessageUtils.getMessage("dob", "validation.failure", language));
         }*/
+        
+		if(StringUtils.isNotEmpty(gender) && !ValidationUtils.isInteger(gender)){
+			list.add(ErrorMessageUtils.getMessage("gender", "validation.failure", language));
+		}
+		
+		if(StringUtils.isNotEmpty(marital_status) && !ValidationUtils.isInteger(marital_status)){
+			list.add(ErrorMessageUtils.getMessage("marital_status", "validation.failure", language));
+		}
+		
+		if(StringUtils.isNotEmpty(dependents) && !ValidationUtils.isInteger(dependents)){
+			list.add(ErrorMessageUtils.getMessage("dependents", "validation.failure", language));
+		}
+		
+		if(StringUtils.isNotEmpty(education) && !ValidationUtils.isInteger(education)){
+			list.add(ErrorMessageUtils.getMessage("education", "validation.failure", language));
+		}
+		
+		if(StringUtils.isNotEmpty(q3) && !ValidationUtils.isInteger(q3)){
+			list.add(ErrorMessageUtils.getMessage("q3", "validation.failure", language));
+		}
+		
+		if(StringUtils.isNotEmpty(q4) && !ValidationUtils.isInteger(q4)){
+			list.add(ErrorMessageUtils.getMessage("q4", "validation.failure", language));
+		}
+		
+		if(StringUtils.isNotEmpty(q4_a) && !ValidationUtils.isInteger(q4_a)){
+			list.add(ErrorMessageUtils.getMessage("q4_a", "validation.failure", language));
+		}
+		
+		if(StringUtils.isNotEmpty(q4_a_others) && !ValidationUtils.isBigInteger(q4_a_others)){
+			list.add(ErrorMessageUtils.getMessage("q4_a_others", "validation.failure", language));
+		}
+		
+		if(StringUtils.isNotEmpty(q4_b_amount) && !ValidationUtils.isBigInteger(q4_b_amount)){
+			list.add(ErrorMessageUtils.getMessage("q4_b_amount", "validation.failure", language));
+		}
+		
+		if(StringUtils.isNotEmpty(q4_c) && !ValidationUtils.isBigInteger(q4_c)){
+			list.add(ErrorMessageUtils.getMessage("q4_c", "validation.failure", language));
+		}
+		
+		if(StringUtils.isNotEmpty(q4_d_1) && !ValidationUtils.isBigInteger(q4_d_1)){
+			list.add(ErrorMessageUtils.getMessage("q4_d_1", "validation.failure", language));
+		}
+		
+		if(StringUtils.isNotEmpty(q4_d_2) && !ValidationUtils.isBigInteger(q4_d_2)){
+			list.add(ErrorMessageUtils.getMessage("q4_d_2", "validation.failure", language));
+		}
+		
+		if(StringUtils.isNotEmpty(q4_e) && !ValidationUtils.isInteger(q4_e)){
+			list.add(ErrorMessageUtils.getMessage("q4_e", "validation.failure", language));
+		}
+		
+		if(StringUtils.isNotEmpty(q4_f) && !ValidationUtils.isInteger(q4_f)){
+			list.add(ErrorMessageUtils.getMessage("q4_f", "validation.failure", language));
+		}
+		
 		if (list.size() > 0) {
 			throw new ValidateExceptions(list);
 		}

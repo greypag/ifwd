@@ -93,11 +93,12 @@ function submitLoginForm(formID) {
 				data : $("#"+formID).serialize(),//$("#headerLoginForm form").serialize(),
 				async : false,
 				success : function(data) {				
-					if (data == 'success') {
+					if (data.loginResult == 'success') {
 						//$('.login-ajax-loading').hide();
 						//var Backlen = history.length;
 						//history.go(-Backlen);
 						if(window.location.href.indexOf("savings-insurance/plan-details")>0){
+							$("#fullName").html(data.fullName);
 							saviePlanDetailsGoNext();
 						}
 						else if(window.location.href.indexOf("term-life-insurance/select-plan")>0){
@@ -113,7 +114,7 @@ function submitLoginForm(formID) {
 												//location.reload();
 												window.location.href = window.location.href;
 											}
-										} else if (data == 'Provided User Account Details Does Not Exist') {
+										} else if (data.loginResult == 'Provided User Account Details Does Not Exist') {
 											try {
 												$('.login-ajax-loading').hide();
 											} catch (error) {
@@ -126,7 +127,7 @@ function submitLoginForm(formID) {
 															getBundle(
 																	getBundleLanguage,
 																	"member.login.fail.first"));
-										} else if (data == 'Please provide a valid User Name and Password.') {
+										} else if (data.loginResult == 'Please provide a valid User Name and Password.') {
 											try {
 												$('.login-ajax-loading').hide();
 											} catch (error) {
@@ -139,7 +140,7 @@ function submitLoginForm(formID) {
 															getBundle(
 																	getBundleLanguage,
 																	"member.login.fail.first"));
-										} else if (data == 'Link Sent Successfully On Your Registered Mail ID') {
+										} else if (data.loginResult == 'Link Sent Successfully On Your Registered Mail ID') {
 											try {
 												$('.login-ajax-loading').hide();
 											} catch (error) {
@@ -152,7 +153,7 @@ function submitLoginForm(formID) {
 															getBundle(
 																	getBundleLanguage,
 																	"member.forgotPassword.success.message"));
-										} else if (data == 'Internet Connection Error') {
+										} else if (data.loginResult == 'Internet Connection Error') {
 											try {
 												$('.login-ajax-loading').hide();
 											} catch (error) {
@@ -165,7 +166,7 @@ function submitLoginForm(formID) {
 															getBundle(
 																	getBundleLanguage,
 																	"Connection.lost.message"));
-										} else if (data == 'Invaild Username or password. Please try again.') {
+										} else if (data.loginResult == 'Invaild Username or password. Please try again.') {
 											try {
 												$('.login-ajax-loading').hide();
 											} catch (error) {
@@ -178,7 +179,7 @@ function submitLoginForm(formID) {
 															getBundle(
 																	getBundleLanguage,
 																	"member.login.fail.first"));
-										} else if (data == 'Invaild Username or password. Next invalid attempt will block your account.') {
+										} else if (data.loginResult == 'Invaild Username or password. Next invalid attempt will block your account.') {
 											try {
 												$('.login-ajax-loading').hide();
 											} catch (error) {
@@ -191,7 +192,7 @@ function submitLoginForm(formID) {
 															getBundle(
 																	getBundleLanguage,
 																	"member.login.fail.second"));
-										} else if (data == 'Your username has been locked out, please reset your password by \'Forget Password\'.') {
+										} else if (data.loginResult == 'Your username has been locked out, please reset your password by \'Forget Password\'.') {
 											try {
 												$('.login-ajax-loading').hide();
 											} catch (error) {
@@ -204,7 +205,7 @@ function submitLoginForm(formID) {
 															getBundle(
 																	getBundleLanguage,
 																	"member.login.fail.third"));
-										} else if (data == 'fail') {
+										} else if (data.loginResult == 'fail') {
 											$('.login-ajax-loading').hide();
 											$("#" + formID + ' #login-err-msg')
 													.show();
@@ -218,7 +219,7 @@ function submitLoginForm(formID) {
 											$("#" + formID + ' #login-err-msg')
 													.show();
 											$("#" + formID + ' #login-err-msg')
-													.html(data);
+													.html(data.loginResult);
 										}
 
 									},
@@ -229,7 +230,7 @@ function submitLoginForm(formID) {
 										$("#" + formID + ' #login-err-msg')
 												.show();
 										$("#" + formID + ' #login-err-msg')
-												.html(data);
+												.html(data.loginResult);
 
 									}
 								});
