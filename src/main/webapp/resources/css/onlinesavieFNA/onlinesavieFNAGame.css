@@ -933,7 +933,9 @@
   .game-fna .step3 .cont .q2 {
     top: 25px; }
   .game-fna .step8 .cont .q4g h4 .q-num {
-    left: -54px; } }
+    left: -54px; }
+  .game-fna .last-loading .last-loading-cont {
+    width: 100%; } }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .game-fna .step2 .cont .styled-select select {
     height: 36px; }
@@ -942,7 +944,9 @@
   .game-fna .step3 .cont .q2 {
     top: 25px; }
   .game-fna .step8 .cont .q4g h4 .q-num {
-    left: -54px; } }
+    left: -54px; }
+  .game-fna .last-loading .last-loading-cont {
+    width: 100%; } }
 @-moz-document url-prefix() {
   .game-fna .step2 .cont .styled-select select {
     height: 36px; } }

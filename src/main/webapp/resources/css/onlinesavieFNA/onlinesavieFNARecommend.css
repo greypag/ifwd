@@ -16,7 +16,7 @@
     font-weight: bold;
     line-height: 1.3em; }
     .fna-recommend .fna-txt-result .head .txt_products {
-      color: #2da995;
+      color: #fdb714;
       white-space: nowrap; }
   .fna-recommend .fna-txt-result .fna-btn-discover {
     background-color: #fdb714;
@@ -32,20 +32,29 @@
     margin-bottom: 20px; }
   .fna-recommend .fna-txt-result .fna-btn-review {
     display: inline-block; }
-.fna-recommend .fna-top-btn-gp .styled-select {
-  background: transparent; }
-  .fna-recommend .fna-top-btn-gp .styled-select span {
+.fna-recommend .fna-top-btn-gp {
+  padding: 10px 0;
+  text-align: right; }
+  .fna-recommend .fna-top-btn-gp span {
     display: inline-block;
     vertical-align: middle;
     margin-right: 10px; }
-  .fna-recommend .fna-top-btn-gp .styled-select select {
-    font-size: 16px;
-    width: auto !important;
-    padding: 0;
-    display: inline-block !important; }
-  .fna-recommend .fna-top-btn-gp .styled-select i {
-    vertical-align: -4px;
-    display: inline-block !important; }
+  .fna-recommend .fna-top-btn-gp .styled-select {
+    background: transparent;
+    display: inline-block;
+    border: 1px solid #333;
+    vertical-align: middle;
+    padding: 0 5px; }
+    .fna-recommend .fna-top-btn-gp .styled-select select {
+      font-size: 16px;
+      width: auto !important;
+      padding: 0;
+      display: inline-block !important;
+      height: 30px;
+      vertical-align: middle; }
+    .fna-recommend .fna-top-btn-gp .styled-select i {
+      vertical-align: -4px;
+      display: inline-block !important; }
 .fna-recommend .fna-col-selection {
   padding-left: 0;
   padding-right: 5px;
@@ -158,9 +167,6 @@
       .fna-recommend .fna-col-selection .fna-sel-cont .fna-sel-grid label {
         color: #fff;
         font-size: 16px; }
-  .fna-recommend .fna-col-selection .btn-clear {
-    margin: 10px 0;
-    display: inline-block; }
   .fna-recommend .fna-col-selection .fna-btn-mob-analyse, .fna-recommend .fna-col-selection .fna-btn-review, .fna-recommend .fna-col-selection .fna-btn-mob-cancel {
     display: block;
     font-size: 27px;
@@ -273,7 +279,12 @@
       position: relative;
       font-size: 25px; }
       .fna-recommend .fna-col-recommend .fna-product-gp h5 img {
+        margin-left: -32px;
         margin-right: 10px; }
+      .fna-recommend .fna-col-recommend .fna-product-gp h5 span {
+        padding-right: 60px;
+        padding-left: 32px;
+        display: inline-block; }
       .fna-recommend .fna-col-recommend .fna-product-gp h5 .fna-btn-expand-gp {
         position: absolute;
         top: 0;
@@ -441,7 +452,7 @@
     text-align: center;
     color: #061b28;
     position: relative;
-    margin-bottom: 40px; }
+    margin-bottom: 20px; }
     .fna-recommend .fna-col-recommend .fna-btn-load-products-more span {
       background-color: #fff;
       padding: 0 10px;
@@ -457,6 +468,9 @@
       margin: auto;
       left: 0;
       height: 1px; }
+  .fna-recommend .fna-col-recommend .fna-btn-clear {
+    margin: 10px 0;
+    display: inline-block; }
 
 .fna-popup-cont {
   padding: 20px; }
@@ -621,9 +635,10 @@
       background: none;
       position: relative; }
       .fna-recommend .fna-top-btn-gp .styled-select select {
-        font-size: 18px; }
-      .fna-recommend .fna-top-btn-gp .styled-select span.sort-txt {
-        display: none; }
+        font-size: 18px;
+        height: 50px; }
+    .fna-recommend .fna-top-btn-gp span.sort-txt {
+      display: none; }
     .fna-recommend .fna-col-selection {
       padding-right: 0; }
       .fna-recommend .fna-col-selection .fna-sel-cont .fna-sel-grid .checkbox {
@@ -722,6 +737,8 @@
     font-size: 13px; }
   .fna-recommend .fna-top-btn-gp .fna-btn-filter {
     font-size: 13px; }
+  .fna-recommend .fna-col-recommend .fna-product-gp h5 span {
+    /* line-height: 1.2em; */ }
   .fna-recommend .fna-col-recommend .fna-product-gp .fna-product .sort-header > div {
     font-size: 13px; } }
 .clearfix:before,

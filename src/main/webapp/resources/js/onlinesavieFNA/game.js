@@ -281,7 +281,13 @@ var fnaSavieGame = {
 
 			//check datatype (string,int)
 			if(dataType == "int"){
-				var val = this.value.replace(/\D/g, '');
+				console.log(this.value);
+				var val = parseInt(this.value.replace(/\D/g, ''),10);
+
+				if(isNaN(val) || val == 0){
+					val = "";
+				}
+				val = val.toString();
 
 				this.value = val.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			}

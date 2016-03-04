@@ -15,7 +15,7 @@ var language = "${language}";
 var affiliate = "${affiliate}";
 </script>
 
-<!-- Kitchen Start -->
+
 <!--   Main Content Start -->	
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/onlinesavieFNA/select2.css">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/css/onlinesavieFNA/onlinesavieFNAGame.css">
@@ -440,7 +440,7 @@ var affiliate = "${affiliate}";
 
 								</div>
 								<div class="q4d mob-view mob-hide">
-									<h4><span class="q-num">4d</span><span class="q-sub-num">i:</span>What is your total liabilities and estimated<br>ï¬nal expenses including but not limited to<br>the outstanding mortgage loan,<br>loans/debts, estate duties, funeral and<br>associated expenses and emergency fund? </h4>
+									<h4><span class="q-num">4d</span><span class="q-sub-num">i:</span>What is your total liabilities and estimated<br>ﬁnal expenses including but not limited to<br>the outstanding mortgage loan,<br>loans/debts, estate duties, funeral and<br>associated expenses and emergency fund? </h4>
 									<div class="fna-error-box">
 										<span class="err_q4d1 fna-error-msg text-red"></span>
 									</div>
@@ -599,7 +599,7 @@ var affiliate = "${affiliate}";
 					
 					<div class="modal-body">
 						<a class="close" aria-label="Close" data-dismiss="modal">
-							<span aria-hidden="true" style="font-size:30px;">Ã</span>
+							<span aria-hidden="true" style="font-size:30px;">×</span>
 						</a>
 						<h4>Sorry, you cannot proceed further on the Financial Needs Analysis</h4>
 						<div class="d-cont"><p>Please call our Customer Service Hotline 3123 3123 to specify your needs with our Customer Service in order to give you more accurate product recommendations.</p></div>
@@ -610,6 +610,5 @@ var affiliate = "${affiliate}";
 	</div>
 </section>
 <!--   Main Content End -->
-<!-- Kitchen Start End -->
 
 
