@@ -1702,7 +1702,35 @@
 }
 .sponsor-logo-wrapper .sponsor-text .img-responsive{
     display: inline-block;
-} 
+}
+#hotel-description-modal .modal-dialog{
+	width: 50%;
+}
+#hotel-description-modal .modal-content{
+	padding: 0 20px;
+	border: 5px solid #f68a1d;
+	color: #000;
+	overflow: hidden;
+}
+#hotel-description-modal .modal-body{
+	overflow: hidden;
+}
+#hotel-description-modal .hotel-description-left-wrapper{
+	width: 40%;
+	float: left;
+	padding-right: 20px;
+}
+#hotel-description-modal .hotel-description-right-wrapper{
+    width: 60%;
+    float: left;
+}
+#hotel-description-modal .hotel-link,#hotel-description-modal .hotel-description{
+	font-size: 22px;
+	text-decoration: none;
+}
+#hotel-description-modal .hotel-icon{
+	margin: 0 auto 20px auto;
+}
 @media ( max-width : 991px) {
     .hotel-partner-icon-wrapper .col-1,
     .hotel-partner-icon-wrapper .col-2,
