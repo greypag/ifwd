@@ -1216,20 +1216,25 @@
 								  <div class="hotel-carosuel-control">
 									  <div class="left-control">
 										  <a class="" href="#hotel-description-carosuel" role="button" data-slide="prev">
-										    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+										    <span class="carosuel-arrow-left" aria-hidden="true"></span>
+										    <span id="previous-hotel-date"></span>
 										    <span id="previous-hotel-name"></span>
+										    <div class="clearfix"></div>
 										  </a>									  
 									  </div>
 				                       <div class="carousel-description-container">
 			                                <div id="hotel-lanuch-date" class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.Mar14.Date" bundle="${msg}" /></div>
 				                       </div>
-				                       <div class="left-control">
+				                       <div class="right-control">
 										  <a class="" href="#hotel-description-carosuel" role="button" data-slide="next">
-										    <span class="glyphicon glyphicon-chevron-right"aria-hidden="true"></span>
+										    <span class="carosuel-arrow-right"aria-hidden="true"></span>
 										    <span id="next-hotel-name"></span>
+										    <span id="next-hotel-date"></span>
+										    <div class="clearfix"></div>
 										  </a>
 								  		</div>
-								  	</div>						            
+								  	</div>
+								  	<div class="clearfix"></div>						            
 					            	<div class="carousel-inner" role="listbox">
 						            	  <!-- slide March 11 -->
 				                          <div class="hotel-description-carosuel-container item active">
@@ -1246,7 +1251,15 @@
 	                                                </a>
 	                                                <div class="clearfix"></div>
 	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar11.Detail" bundle="${msg}" /></div>
-	                                            </div> 			                                    
+	                                            </div>
+	                                            <div class="hotel-refer-wrapper">
+	                                                <div class="hotel-refer">
+	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
+	                                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+	                                                </div>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <div class="clearfix"></div>
+	                                            </div>	                                             			                                    
 				                          </div>
 				                          <!-- slide March 11 End -->
 						            	  <!-- slide March 12 -->
@@ -1264,7 +1277,15 @@
 	                                                </a>
 	                                                <div class="clearfix"></div>
 	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Detail" bundle="${msg}" /></div>
-	                                            </div> 			                                    
+	                                            </div>
+	                                            <div class="hotel-refer-wrapper">
+	                                                <div class="hotel-refer">
+	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
+	                                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+	                                                </div>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <div class="clearfix"></div>
+	                                            </div>	                                             			                                    
 				                          </div>
 				                          <!-- slide March 12 End -->
 						            	  <!-- slide March 13 -->
@@ -1282,7 +1303,15 @@
 	                                                </a>
 	                                                <div class="clearfix"></div>
 	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar13.Detail" bundle="${msg}" /></div>
-	                                            </div> 			                                    
+	                                            </div> 
+	                                            <div class="hotel-refer-wrapper">
+	                                                <div class="hotel-refer">
+	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
+	                                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+	                                                </div>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <div class="clearfix"></div>
+	                                            </div>	                                            			                                    
 				                          </div>
 				                          <!-- slide March 13 End -->
 						            	  <!-- slide March 14 -->
@@ -1300,7 +1329,15 @@
 	                                                </a>
 	                                                <div class="clearfix"></div>
 	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar14.Detail" bundle="${msg}" /></div>
-	                                            </div> 			                                    
+	                                            </div>
+	                                            <div class="hotel-refer-wrapper">
+	                                                <div class="hotel-refer">
+	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
+	                                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+	                                                </div>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <div class="clearfix"></div>
+	                                            </div>	                                             			                                    
 				                          </div>
 				                          <!-- slide March 14 End -->
 						            	  <!-- slide March 15 -->
@@ -1318,19 +1355,19 @@
 	                                                </a>
 	                                                <div class="clearfix"></div>
 	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar15.Detail" bundle="${msg}" /></div>
-	                                            </div> 			                                    
-				                          </div>
+	                                            </div>
+	                                            <div class="hotel-refer-wrapper">
+	                                                <div class="hotel-refer">
+	                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
+	                                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+	                                                </div>
+	                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                                                <div class="clearfix"></div>
+	                                            </div>  	                                             			                                    
+				                          </div>			                          
 				                          <!-- slide March 15 End -->
 									  </div>								  			                          			                          			                          			                          			                          					               
-					            </div>
-	                            <div class="hotel-refer-wrapper">
-	                            	<div class="hotel-refer">
-	                            		<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
-	                            		<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
-	                            	</div>
-	                            	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	                            	<div class="clearfix"></div>
-	                            </div>					            
+					            </div>					            
 					        </div>					        
 					    </div>
 				
@@ -1345,6 +1382,49 @@
         <script src="<%=request.getContextPath()%>/resources/js/custom.js"></script>
         <script src="<%=request.getContextPath()%>/resources/js/fwdiscover/jquery.countdown.min.js"></script>
         <script type="text/javascript">
+        var slide1Nav = {
+        	Date: '<fmt:message key="Fanfare.Hotel.Carousel.Mar11.Date" bundle="${msg}" />',
+        	LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar15.Date" bundle="${msg}" />',
+        	RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar12.Date" bundle="${msg}" />',
+        	LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar15.HotelName" bundle="${msg}" />',
+        	RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar12.HotelName" bundle="${msg}" />'
+        };
+		var slide2Nav = {
+		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.Mar12.Date" bundle="${msg}" />',
+		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar11.Date" bundle="${msg}" />',
+		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar13.Date" bundle="${msg}" />',
+		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar11.HotelName" bundle="${msg}" />',
+		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar13.HotelName" bundle="${msg}" />'
+		};
+		var slide3Nav = {
+		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.Mar13.Date" bundle="${msg}" />',
+		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar12.Date" bundle="${msg}" />',
+		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar14.Date" bundle="${msg}" />',
+		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar12.HotelName" bundle="${msg}" />',
+		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar14.HotelName" bundle="${msg}" />'
+		};
+		var slide4Nav = {
+		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.Mar14.Date" bundle="${msg}" />',
+		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar13.Date" bundle="${msg}" />',
+		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar15.Date" bundle="${msg}" />',
+		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar13.HotelName" bundle="${msg}" />',
+		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar15.HotelName" bundle="${msg}" />'
+		};
+		var slide5Nav = {
+		    Date: '<fmt:message key="Fanfare.Hotel.Carousel.Mar15.Date" bundle="${msg}" />',
+		    LeftNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar14.Date" bundle="${msg}" />',
+		    RightNavDate: '<fmt:message key="Fanfare.Hotel.Carousel.Mar11.Date" bundle="${msg}" />',
+		    LeftNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar14.HotelName" bundle="${msg}" />',
+		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar11.HotelName" bundle="${msg}" />'
+		};        
+        function assignHotelNav(slideNav){
+        	console.log(slideNav);
+            $('#previous-hotel-name').html(slideNav.LeftNavHotel);
+            $('#previous-hotel-date').html(slideNav.LeftNavDate);
+            $('#hotel-lanuch-date').html(slideNav.Date);
+            $('#next-hotel-date').html(slideNav.RightNavDate);
+            $('#next-hotel-name').html(slideNav.RightNavHotel);
+        }
         $( document ).ajaxComplete(function() {
             $('body').css("display","block");
         });
@@ -1355,7 +1435,7 @@
         	$('#hotel-description-carosuel').carousel({
        		  interval: false
        		});
-        	$('#hotel-description-carosuel').on('slid.bs.carousel', function () {
+        	$('#hotel-description-carosuel').on('slide.bs.carousel', function () {
         		  // This variable contains all kinds of data and methods related to the carousel
         		  var carouselData = $(this).data('bs.carousel');
         		  // EDIT: Doesn't work in Boostrap >= 3.2
@@ -1363,24 +1443,47 @@
         	      // For in Boostrap >= 3.2
         		  //var currentIndex = carouselData.getItemIndex(carouselData.$element.find('.item.active'));
         		  var total = carouselData.$items.length; 
-        		  console.log(text);
-        		  if(text == 0){
-        			  $('#previous-hotel-name').html('<fmt:message key="Fanfare.Hotel.Carousel.Mar15.HotelName" bundle="${msg}" />');
-        			  $('#hotel-lanuch-date').html('<fmt:message key="Fanfare.Hotel.Carousel.Mar11.Date" bundle="${msg}" />');
-        			  $('#next-hotel-name').html('<fmt:message key="Fanfare.Hotel.Carousel.Mar12.HotelName" bundle="${msg}" />');
-        		  }
+        		  //console.log(text);
+                  switch (currentIndex) {
+                  case 0:
+                      assignHotelNav(slide1Nav); 
+                      break;
+                  case 1:
+                      assignHotelNav(slide2Nav); 
+                      break;
+                  case 2:
+                      assignHotelNav(slide3Nav); 
+                      break;
+                  case 3:
+                      assignHotelNav(slide4Nav); 
+                      break;
+                  case 4:
+                      assignHotelNav(slide5Nav); 
+                      break;
+                  }    
         	});
         	$('#hotel-description-modal').on('show.bs.modal', function () {
         		var carouselData = $('#hotel-description-carosuel').data('bs.carousel');
         		var currentIndex = carouselData.getActiveIndex();
       		  	var total = carouselData.$items.length;  
-    		  	console.log(text);
-	      		  if(currentIndex == 0){
-	    			  console.log("hehe");
-	    			  $('#previous-hotel-name').html('<fmt:message key="Fanfare.Hotel.Carousel.Mar15.HotelName" bundle="${msg}" />');
-	    			  $('#hotel-lanuch-date').html('<fmt:message key="Fanfare.Hotel.Carousel.Mar11.Date" bundle="${msg}" />');
-	    			  $('#next-hotel-name').html('<fmt:message key="Fanfare.Hotel.Carousel.Mar12.HotelName" bundle="${msg}" />');
-	    		  }    		  	
+    		  	//console.log(text);
+				switch (currentIndex) {
+				    case 0:
+				    	assignHotelNav(slide1Nav); 
+				        break;
+				    case 1:
+				    	assignHotelNav(slide2Nav); 
+				        break;
+				    case 2:
+				    	assignHotelNav(slide3Nav); 
+				        break;
+				    case 3:
+				    	assignHotelNav(slide4Nav); 
+				        break;
+				    case 4:
+				    	assignHotelNav(slide5Nav); 
+				        break;
+				}		  	
         	});        	
        	    $('#hotel-voucher-carousel').slick({
       	    	  infinite: false,
