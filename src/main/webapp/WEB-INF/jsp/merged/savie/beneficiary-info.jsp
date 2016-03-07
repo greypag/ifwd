@@ -637,8 +637,30 @@
 				
 				// application saved modal will show after clicking 'Save and exit' button 
 				$('.save-exit-btn2, #save-exit-btn').click(function() {
-					$(this).closest('.modal').modal('hide');
-					$('#application-saved-modal').modal('show');
+					$("#errorMsg").html("");
+					var formdata1 = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
+					   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
+					   $('#beneficiary-info-form\\[2\\]').serialize();
+					$.ajax({
+						  type : "POST",
+						  async:false, 
+						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfoSaveforLater",
+						  data: formdata1,
+						  success : function(data) {
+							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+								  $('#save-and-continue-modal').modal('hide');
+								  $("#errorMsg").html(data.errorMsg);
+							  }
+							  else{
+								  $('#save-and-continue-modal').modal('hide');
+								  $('#application-saved-modal').modal('show');
+							  }
+						  }
+				     });
+				});
+				
+				$('#btn-app-save').click(function() {
+					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 				});
 				
 				soFirstBFormValidation();
@@ -648,9 +670,9 @@
 				
 				$('#bf-save-and-con-later').on('click', function (e) {
 					if($('#beneficiary-info-form\\[0\\]').val() == undefined ) {
-						$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').enableFieldValidators('beneficiaryChineseName[0]', false);
+						$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').enableFieldValidators('beneficaryChineseName1', false);
 					}
-					$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validateField('beneficiaryChineseName[0]');
+					$('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').validateField('beneficaryChineseName1');
 					if($('#beneficiary-info-form\\[0\\]').data('bootstrapValidator').isValid()) {
 					   $('#save-and-continue-batch5-modal').modal('show');           
 					} else {
@@ -658,9 +680,9 @@
 					}
 					// second form
 					if($('#beneficiary-info-form\\[1\\]').length == 0) {
-						$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').enableFieldValidators('beneficiaryChineseName[1]', false);
+						$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').enableFieldValidators('beneficaryChineseName2', false);
 					}
-					$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').validateField('beneficiaryChineseName[1]');
+					$('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').validateField('beneficaryChineseName2');
 					if($('#beneficiary-info-form\\[1\\]').data('bootstrapValidator').isValid()) {
 					   $('#save-and-continue-batch5-modal').modal('show');           
 					} else {
@@ -668,9 +690,9 @@
 					}
 					// third form
 					if($('#beneficiary-info-form\\[2\\]').length == 0) {
-						$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').enableFieldValidators('beneficiaryChineseName[2]', false);
+						$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').enableFieldValidators('beneficaryChineseName3', false);
 					}
-					$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').validateField('beneficiaryChineseName[2]');
+					$('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').validateField('beneficaryChineseName3');
 					if($('#beneficiary-info-form\\[2\\]').data('bootstrapValidator').isValid()) {
 					   $('#save-and-continue-batch5-modal').modal('show');           
 					} else {
@@ -698,27 +720,6 @@
 								  else{
 									  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 								  }
-							  }
-						  }
-				     });
-				});
-				
-				$("#save-exit-btn").click(function(){
-					$("#errorMsg").html("");
-					var formdata1 = $('#beneficiary-info-form\\[0\\]').serialize()+"&"+
-					   $('#beneficiary-info-form\\[1\\]').serialize()+"&"+
-					   $('#beneficiary-info-form\\[2\\]').serialize();
-					$.ajax({
-						  type : "POST",
-						  async:false, 
-						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeBeneficaryInfoSaveforLater",
-						  data: formdata1,
-						  success : function(data) {
-							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-								  $("#errorMsg").html(data.errorMsg);
-							  }
-							  else{
-								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 							  }
 						  }
 				     });
