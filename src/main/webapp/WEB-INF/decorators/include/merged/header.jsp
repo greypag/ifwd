@@ -649,7 +649,11 @@ function submitLoginForm(formID) {
                                   <li class="menu-link">
 	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 	                                  <a class="menu-link" href="<%=request.getContextPath()%>/${language}/offers"><fmt:message key="header.product.type3.group1.linkname1" bundle="${msg}" /></a>
-                                  </li>                                
+                                  </li>
+                                  <li class="menu-link">
+	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	                                  <a class="menu-link" href="<fmt:message key="link.blog" bundle="${msg}" />"><fmt:message key="header.product.type3.group1.linkname3" bundle="${msg}" /></a>
+                                  </li>                              
                              </ul>                            
                           </li>
                          </ul>                      
