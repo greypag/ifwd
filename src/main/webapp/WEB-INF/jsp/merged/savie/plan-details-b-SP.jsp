@@ -788,56 +788,69 @@ var languageP = "${language}";
 	}
 	
 	$("#btn-proceed").on('click', function(){
+		if('2'=='${type }'){
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+		}else {
+			$('#offline-online-modal').modal('show');
+		}
+	});
+	
+	$("#online-application-btn").on('click', function(){
+		$('#offline-online-modal').modal('hide');
 		if("${authenticate}" == "true" && "${authenticate}" != "*DIRECTGI"){
 			saviePlanDetailsGoNext();
-		}
-		else{
+		}else{
+			$('.modal').modal('hide');
             $('.login-info').removeClass('hidden');
             $('#loginpopup .modal-dialog').addClass('loginpopupext');			
 			$('#loginpopup').modal('show');			
 		}
 	});
 	
+	$("#offline-application-btn").on('click', function(){
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+	});
+	
 	function saviePlanDetailsGoNext(){
-		if('2'=='${type }'){
-			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
-		}
-		else{
-			if($("#type-of-payment").val() == 'regular-payment') {
-				window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
-			}else {
-				$.ajax({     
-				    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
-				    type:'get',     
-				    error:function(){       
-				    },     
-				    success:function(data){
-				    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
-				    	     window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/service-center';
-				    	}
-				    	else{
-				    		$.ajax({     
-				    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
-				    		    type:'get',     
-				    		    error:function(){       
-				    		    },     
-				    		    success:function(data){
-				    		    	if(data != null && data.errMsgs == null && data.name !=null){
-				    		    		$('#loginpopup').modal('hide');
-				    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
-				    		    		$('#review-fna-modal').modal('show');
-				    		    	}
-				    		    	else{
-				    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
-				    		    	}
-				    		    }  
-				    		});
-				    	}
-				    }  
-				});
-			}
+		if($("#type-of-payment").val() == 'regular-payment') {
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+		}else {
+			$.ajax({     
+			    url:'${pageContext.request.contextPath}/ajax/savings-insurance/getPurchaseHistoryByPlanCode',     
+			    type:'get',     
+			    error:function(){       
+			    },     
+			    success:function(data){
+   		    		$('#loginpopup').modal('hide');
+			    	if(data != null && data.errMsgs == null && data.policies !=null && data.policies.length > 0){
+			    		$('#prev-savie-app-modal').modal({backdrop: 'static', keyboard: false});
+			    		$('#prev-savie-app-modal').modal('show');
+			    		
+			    	}else{
+			    		$.ajax({     
+			    		    url:'${pageContext.request.contextPath}/ajax/savings-insurance/show',     
+			    		    type:'get',     
+			    		    error:function(){       
+			    		    },     
+			    		    success:function(data){
+			    		    	if(data != null && data.errMsgs == null && data.name !=null){
+			    		    		$('#review-fna-modal').modal({backdrop: 'static', keyboard: false});
+			    		    		$('#review-fna-modal').modal('show');
+			    		    	}
+			    		    	else{
+			    		    		window.location = '<%=request.getContextPath()%>/${language}/FNA/${nextPageFlow}';
+			    		    	}
+			    		    }  
+			    		});
+			    	}
+			    }  
+			});
 		}
 	}
+	
+	$("#make-appointment-btn").on('click', function(){
+		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/customer-service-centre';
+	});
 	
 	$("#review-fna-btn").on('click', function(){
 		window.location = '<%=request.getContextPath()%>/${language}/FNA/review';

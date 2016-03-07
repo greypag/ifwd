@@ -55,10 +55,10 @@ public class LifePersonalDetailsBean implements Serializable {
 	private String correspondenceAddressDistrictName;
 	
 	public void validate(String language) throws ValidateExceptions {
-		this.martialStatusName = this.martialStatus!=null?this.martialStatus.split("-")[1]:"";
-		this.placeOfBirthName = this.placeOfBirth!=null?this.placeOfBirth.split("-")[1]:"";
-		this.nationaltyName = this.nationalty!=null?this.nationalty.split("-")[1]:"";
-		this.permanetAddressDistrictName = this.permanetAddressDistrict!=null?this.permanetAddressDistrict.split("-")[1]:"";
+		this.martialStatusName = !"".equals(this.martialStatus)?this.martialStatus.split("-")[1]:"";
+		this.placeOfBirthName = !"".equals(this.placeOfBirth)?this.placeOfBirth.split("-")[1]:"";
+		this.nationaltyName = !"".equals(this.nationalty)?this.nationalty.split("-")[1]:"";
+		this.permanetAddressDistrictName = !"".equals(this.permanetAddressDistrict)?this.permanetAddressDistrict.split("-")[1]:"";
 		if(!"None".equals(this.diffToPermanent)){
 			this.residentialAddress1 = this.permanetAddress1;
 			this.residentialAddress2 = this.permanetAddress2;
@@ -68,7 +68,7 @@ public class LifePersonalDetailsBean implements Serializable {
 			this.residentialAddressDistrictName = this.permanetAddressDistrictName;
 		}
 		else{
-			this.residentialAddressDistrictName = this.residentialAddressDistrict!=null?this.residentialAddressDistrict.split("-")[1]:"";
+			this.residentialAddressDistrictName = !"".equals(this.residentialAddressDistrict)?this.residentialAddressDistrict.split("-")[1]:"";
 		}
 		if(!"None".equals(this.diffToResidential)){
 			this.correspondenceAddress1 = this.residentialAddress1;
@@ -79,7 +79,7 @@ public class LifePersonalDetailsBean implements Serializable {
 			this.correspondenceAddressDistrictName = this.residentialAddressDistrictName;
 		}
 		else{
-			this.correspondenceAddressDistrictName = this.correspondenceAddressDistrict!=null?this.correspondenceAddressDistrict.split("-")[1]:"";
+			this.correspondenceAddressDistrictName = !"".equals(this.correspondenceAddressDistrict)?this.correspondenceAddressDistrict.split("-")[1]:"";
 		}
 		
 		List<String> list = new ArrayList<String>();

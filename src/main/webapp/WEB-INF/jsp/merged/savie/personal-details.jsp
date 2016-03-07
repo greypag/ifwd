@@ -87,6 +87,7 @@
                   <div class="container-fluid fwd-container">
                      <div id="personal-info" class="personal-info-widget page-application et-application-page">
                         <h4 class="so-h4">Applicant info / insured person Info</h4>
+                        <div id="errorMsg" style="color: red;"></div>
                         <form id="soInsuredInfoForm" method="post" class="form-horizontal" action="" onsubmit="return false">
                            <div class="row margin">
                               <div class="col-sm-12 col-md-6 left">
@@ -150,7 +151,20 @@
 												</c:forEach>
 											</c:if>
                                           </select>
-                                          <input type="hidden" id="placeOfBirth" name="placeOfBirth" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${placeOfBirthEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.placeOfBirth == code}"><c:set var="placeOfBirthCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${placeOfBirthCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.placeOfBirth == code}"><c:set var="placeOfBirthCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="placeOfBirth" name="placeOfBirth" value="${placeOfBirthCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="placeOfBirthErMsg"></span>
@@ -175,7 +189,20 @@
 													</c:forEach>
 												</c:if>
                                           </select>
-                                          <input type="hidden" id="nationalty" name="nationalty" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${nationalityEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.nationalty == code}"><c:set var="nationaltyCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${nationalityCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.nationalty == code}"><c:set var="nationaltyCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="nationalty" name="nationalty" value="${nationaltyCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="nationalityErMsg"></span>
@@ -321,7 +348,20 @@
 												</c:forEach>
 											</c:if>
                                           </select>
-                                          <input type="hidden" id="permanetAddressDistrict" name="permanetAddressDistrict" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${savieDistrictEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.permanetAddressDistrict == code}"><c:set var="permanetAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${savieDistrictCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.permanetAddressDistrict == code}"><c:set var="permanetAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="permanetAddressDistrict" name="permanetAddressDistrict" value="${permanetAddressDistrictCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   			<span class="error-msg" id="permanentDistrictErMsg"></span>
@@ -374,7 +414,20 @@
 													</c:forEach>
 												</c:if>
                                           </select>
-                                          <input type="hidden" id="residentialAddressDistrict" name="residentialAddressDistrict" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${savieDistrictEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.residentialAddressDistrict == code}"><c:set var="residentialAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${savieDistrictCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.residentialAddressDistrict == code}"><c:set var="residentialAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="residentialAddressDistrict" name="residentialAddressDistrict" value="${residentialAddressDistrictCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="residentialDistrictErMsg"></span>
@@ -427,7 +480,20 @@
 													</c:forEach>
 												</c:if>
                                           </select>
-                                          <input type="hidden" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" />
+                                          
+                                          <c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${savieDistrictEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.correspondenceAddressDistrict == code}"><c:set var="correspondenceAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${savieDistrictCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifePersonalDetails.correspondenceAddressDistrict == code}"><c:set var="correspondenceAddressDistrictCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+                                          <input type="hidden" id="correspondenceAddressDistrict" name="correspondenceAddressDistrict" value="${correspondenceAddressDistrictCode }" />
                                           <img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
                                        </div>
 									   <span class="error-msg" id="correspondenceDistrictErMsg"></span>
@@ -503,6 +569,12 @@
 			var language = "en";
 			
 			$(document).ready(function() {
+				setSelectReadonly('tmpGender', true);
+				setInputReadonly('so-calendar-dob', true);
+				setInputReadonly('residentialNo', true);
+				setInputReadonly('mobileNo', true);
+				setSelectReadonly('tmpMaritalStatus', true);
+				
 				if('${lifePersonalDetails.permanetAddress1}' != ''){
 					if ($('.res-additional').hasClass('hidden')) {
 						$('.res-additional').removeClass('hidden');
@@ -547,8 +619,27 @@
 				
 				// application saved modal will show after clicking 'Save and exit' button 
 				$('.save-exit-btn2, #save-exit-btn').click(function() {
-					$(this).closest('.modal').modal('hide');
-					$('#application-saved-modal').modal('show');
+					$("#errorMsg").html("");
+					$.ajax({
+						  type : "POST",
+						  async:false, 
+						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePersonalDetailsSaveforLater",
+						  data: $("#soInsuredInfoForm").serialize(),
+						  success : function(data) {
+							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+								  $('#save-and-continue-modal').modal('hide');
+								  $("#errorMsg").html(data.errorMsg);
+							  }
+							  else{
+								  $('#save-and-continue-modal').modal('hide');
+								  $('#application-saved-modal').modal('show');
+							  }
+						  }
+				    });
+				});
+				
+				$('#btn-app-save').click(function() {
+					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 				});
 
 				// on change
@@ -592,9 +683,9 @@
 					}
 					$('#soInsuredInfoForm').data('bootstrapValidator').validateField('chineseName');
 					if($('#residentialNo').val() == undefined) {
-						$('#soInsuredInfoForm').data('bootstrapValidator').enableFieldValidators('residentialNo', false);
+						$('#soInsuredInfoForm').data('bootstrapValidator').enableFieldValidators('residentialTelNo', false);
 					}
-					$('#soInsuredInfoForm').data('bootstrapValidator').validateField('residentialNo');
+					$('#soInsuredInfoForm').data('bootstrapValidator').validateField('residentialTelNo');
 					if($('#soInsuredInfoForm').data('bootstrapValidator').isValid()) {
 					   $('#save-and-continue-batch5-modal').modal('show');
 					} else {
@@ -635,24 +726,6 @@
 							  else{
 								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 							  }
-						  }
-					  }
-			     });
-			});
-
-			$("#save-exit-btn").click(function(){
-				$("#errorMsg").html("");
-				$.ajax({
-					  type : "POST",
-					  async:false, 
-					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePersonalDetailsSaveforLater",
-					  data: $("#soInsuredInfoForm").serialize(),
-					  success : function(data) {
-						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  $("#errorMsg").html(data.errorMsg);
-						  }
-						  else{
-							  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 						  }
 					  }
 			     });

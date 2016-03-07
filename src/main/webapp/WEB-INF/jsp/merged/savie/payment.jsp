@@ -109,13 +109,14 @@ var language = "${language}";
 						  </div>
 					   </div>
 					</div>
+					<div id="errorMsg" style="color: red;"></div>
 					<div id="direct-debit-panel">
 						<div class="row">
 							<div class="col-xs-12 col-md-6">
 								<div class="info-wrapper">
 									<p class="info-label">Amount</p>
 									<p class="info-value">
-									   HK$ ${saviePlanDetails.insuredAmount }
+									   HK$ ${saviePlanDetails.insuredAmount1 }
 									   <input type="hidden" name="paymentAmount" value="${saviePlanDetails.insuredAmount }">
 									</p>
 								</div>
@@ -167,12 +168,14 @@ var language = "${language}";
 													<option selected disabled value="">Bank name (code)</option>
 													<c:if test="${language == 'en'}">
 														<c:forEach var="list" items="${bankCodeEN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 													<c:if test="${language == 'tc'}">
 														<c:forEach var="list" items="${bankCodeCN}">
-															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == list.itemCode}">selected="selected"</c:if>>${list.itemDesc }</option>
+														    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+															<option value="${list.itemCode }-${list.itemDesc }" <c:if test="${lifePayment.bankCode == code}">selected="selected"</c:if>>${list.itemDesc }</option>
 														</c:forEach>
 													</c:if>
 												</select>
@@ -288,7 +291,7 @@ var language = "${language}";
 											Map.Entry<String, List> entry; 
 											Iterator i;
 											Boolean result = results.size() > 0; 
-											if(result && false) {
+											if(result) {
 												i = results.entrySet().iterator();
 												while(i.hasNext()){
 													entry=(Map.Entry<String, List>)i.next();
@@ -475,15 +478,11 @@ var language = "${language}";
 		%>
 		$("#preferred-date-${csCenter}").show();
 		var serviceCentreCode = '${csCenter }';
-		//$('.centre-info').addClass('hidden');
-		//$('#centre-' + serviceCentreCode).removeClass('hidden');
 		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
 			getTimeSlot('${perferredTime }');
 		}
 		$('#centre').on('change', function() {
 			var centre = $('#centre option:selected').val();
-			/* $('.centre-info').addClass('hidden');
-			$('#centre-' + centre).removeClass('hidden'); */
 			togglePreferred('preferred-date-'+ centre)
 			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
 				getTimeSlot('${perferredTime }');
@@ -510,7 +509,7 @@ var language = "${language}";
 			$('#application-saved-modal').modal('show');
 		});
 		
-		paymentFormValidation();
+		//paymentFormValidation();
 		
 		$("input[type='radio']").on('click', function() {
 			if($('#payment-debit:checked').length > 0 ) {
@@ -807,12 +806,14 @@ var language = "${language}";
          var centre = $('#centre option:selected').val();
          <%
          ServiceCentreResponse serviceCentre = (ServiceCentreResponse)request.getAttribute("serviceCentre");
-         for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
+         if(serviceCentre.getServiceCentres().size() > 0) {
+             for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
          %>
          if(centre == '<%=entity.getServiceCentreCode() %>') {
             $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
          }
          <%
+             }
          }
          %>
       });
@@ -887,7 +888,10 @@ var language = "${language}";
 					    success:function(data){
 					    	if(data.errMsgs == null){
 					    		//send email
-					    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+					    		//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+					    		
+					    		$("#paymentForm").attr("action", '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}');
+						    	$("#paymentForm").submit();
 					    	}else if(data.errMsgs == "Access code has already been used"){
 					    		//$('#accessCodeUsed').modal('show');
 					    		console.log(data.errMsgs);

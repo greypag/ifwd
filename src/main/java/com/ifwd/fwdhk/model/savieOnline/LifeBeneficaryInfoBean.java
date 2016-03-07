@@ -51,13 +51,13 @@ public class LifeBeneficaryInfoBean implements Serializable {
 	public void validate(String language) throws ValidateExceptions {
 		if(!this.isOwnEstate){
 			if(!"".equals(this.beneficaryFirstName1)){
-				this.beneficaryRelationName1 = this.beneficaryRelation1!=null?this.beneficaryRelation1.split("-")[1]:"";
+				this.beneficaryRelationName1 = !"".equals(this.beneficaryRelation1)?this.beneficaryRelation1.split("-")[1]:"";
 			}
 			if(!"".equals(this.beneficaryFirstName2)){
-				this.beneficaryRelationName2 = this.beneficaryRelation2!=null?this.beneficaryRelation2.split("-")[1]:"";
+				this.beneficaryRelationName2 = !"".equals(this.beneficaryRelation2)?this.beneficaryRelation2.split("-")[1]:"";
 			}
 			if(!"".equals(this.beneficaryFirstName3)){
-				this.beneficaryRelationName3 = this.beneficaryRelation3!=null?this.beneficaryRelation3.split("-")[1]:"";
+				this.beneficaryRelationName3 = !"".equals(this.beneficaryRelation3)?this.beneficaryRelation3.split("-")[1]:"";
 			}
 		}
 		

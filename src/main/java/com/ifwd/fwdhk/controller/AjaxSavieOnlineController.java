@@ -319,12 +319,17 @@ public class AjaxSavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/savings-insurance/lifePersonalDetailsSaveforLater"})
 	public void lifePersonalDetailsSaveforLater(LifePersonalDetailsBean lifePersonalDetails,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		String language = (String) session.getAttribute("language");
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
+			lifePersonalDetails.validate(language);
 			savieOnlineService.lifePersonalDetailsSaveforLater(lifePersonalDetails, request);
+		}
+		catch (ValidateExceptions e) {
+			jsonObject.put("errorMsg", e.getList().toString());
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
@@ -335,12 +340,17 @@ public class AjaxSavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/savings-insurance/lifeEmploymentInfoSaveforLater"})
 	public void lifeEmploymentInfoSaveforLater(LifeEmploymentInfoBean lifeEmploymentInfo,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		String language = (String) session.getAttribute("language");
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
+			lifeEmploymentInfo.validate(language);
 			savieOnlineService.lifeEmploymentInfoSaveforLater(lifeEmploymentInfo, request);
+		}
+		catch (ValidateExceptions e) {
+			jsonObject.put("errorMsg", e.getList().toString());
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());

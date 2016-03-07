@@ -463,15 +463,11 @@ var languageP = "${language}";
 		%>
 		$("#preferred-date-${csCenter}").show();
 		var serviceCentreCode = '${csCenter }';
-		//$('.centre-info').addClass('hidden');
-		//$('#centre-' + serviceCentreCode).removeClass('hidden');
 		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
 			getTimeSlot('${perferredTime }');
 		}
 		$('#centre').on('change', function() {
 			var centre = $('#centre option:selected').val();
-			/* $('.centre-info').addClass('hidden');
-			$('#centre-' + centre).removeClass('hidden'); */
 			togglePreferred('preferred-date-'+ centre)
 			if($("#centre").val().trim() != "" && $("#preferred-date-"+ centre).val().trim() != ""){
 				getTimeSlot('${perferredTime }');
@@ -479,7 +475,7 @@ var languageP = "${language}";
 		});
 	});
 	function togglePreferred(id) {
-		$(".form-group .preferred-date .date").hide();
+		$(".col-xs-12 .preferred-date .date").hide();
 		$("#"+ id).show();
 	}
 	
@@ -514,12 +510,14 @@ var languageP = "${language}";
            var centre = $('#centre option:selected').val();
            <%
            ServiceCentreResponse serviceCentre = (ServiceCentreResponse)request.getAttribute("serviceCentre");
-           for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
+           if(serviceCentre.getServiceCentres().size() > 0) {
+               for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
            %>
            if(centre == '<%=entity.getServiceCentreCode() %>') {
               $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
            }
            <%
+               }
            }
            %>
         });
@@ -793,7 +791,10 @@ var languageP = "${language}";
 				    success:function(data){
 				    	if(data.errMsgs == null){
 				    		//send email
-				    		window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+				    		//window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}';
+				    		
+				    		$("#signoff-table").attr("action", '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow2}');
+					    	$("#signoff-table").submit();
 				    	}else if(data.errMsgs == "Access code has already been used"){
 				    		//$('#accessCodeUsed').modal('show');
 				    		console.log(data.errMsgs);

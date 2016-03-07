@@ -87,6 +87,7 @@
 	  					<div class="row">
 	  						<form id="employmentInfoForm" action="" method="post" onsubmit="return false">
 	  							<h3>Employment information &amp; education level </h3>
+	  							<div id="errorMsg" style="color: red;"></div>
 								<div class="col-xs-12 col-md-6" id="left-side">
 									<div class="form-group">
 										<div class="selectDiv centreDiv gray-text-bg">
@@ -240,7 +241,20 @@
 													</c:forEach>
 												</c:if>	
 											</select>
-											<input type="hidden" id="monthlyPersonalIncome" name="monthlyPersonalIncome">
+											
+											<c:if test="${language == 'en'}">
+												<c:forEach var="list" items="${monthlyPersonalIncomeEN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == code}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<c:if test="${language == 'tc'}">
+												<c:forEach var="list" items="${monthlyPersonalIncomeCN}">
+												    <c:set var="code" value="${list.itemCode }-${list.itemDesc }"/>
+													<c:if test="${lifeEmploymentInfo.monthlyPersonalIncome == code}"><c:set var="monthlyPersonalIncomeCode" value="${list.itemCode }-${list.itemDesc }"/></c:if>
+												</c:forEach>
+											</c:if>
+											<input type="hidden" id="monthlyPersonalIncome" name="monthlyPersonalIncome" value="${monthlyPersonalIncomeCode }">
 											<img src="<%=request.getContextPath()%>/resources/images/orange-caret.png" class="orange-caret-bg">
 										</div>
 										<span class="error-msg" id="monthlyPersonalIncomeErMsg"></span>
@@ -394,6 +408,10 @@
 			var getpath =  "<%=request.getContextPath()%>";
 		
 			$(document).ready(function () {
+				setSelectReadonly('tmpEmploymentStatus', true);
+				setSelectReadonly('tmpBusinessNature', true);
+				setSelectReadonly('tmpOccupation', true);
+				setSelectReadonly('tmpEducationLevel', true);
 				
 				var dummy = true;
 				// dummy condition for displaying the back / next button
@@ -409,8 +427,27 @@
 				
 				// application saved modal will show after clicking 'Save and exit' button 
 				$('.save-exit-btn2, #save-exit-btn').click(function() {
-					$(this).closest('.modal').modal('hide');
-					$('#application-saved-modal').modal('show');
+					$("#errorMsg").html("");
+					$.ajax({
+						  type : "POST",
+						  async:false, 
+						  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeEmploymentInfoSaveforLater",
+						  data: $("#employmentInfoForm").serialize(),
+						  success : function(data) {
+							  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+								  $('#save-and-continue-modal').modal('hide');
+								  $("#errorMsg").html(data.errorMsg);
+							  }
+							  else{
+								  $('#save-and-continue-batch5-modal').modal('hide');
+								  $('#application-saved-modal').modal('show');
+							  }
+						  }
+				     });
+				});
+				
+				$('#btn-app-save').click(function() {
+					window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 				});
 				
 				// Form validation
@@ -565,24 +602,6 @@
 							  else{
 								  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 							  }
-						  }
-					  }
-			     });
-			});
-			
-			$("#save-exit-btn").click(function(){
-				$("#errorMsg").html("");
-				$.ajax({
-					  type : "POST",
-					  async:false, 
-					  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeEmploymentInfoSaveforLater",
-					  data: $("#employmentInfoForm").serialize(),
-					  success : function(data) {
-						  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-							  $("#errorMsg").html(data.errorMsg);
-						  }
-						  else{
-							  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
 						  }
 					  }
 			     });
