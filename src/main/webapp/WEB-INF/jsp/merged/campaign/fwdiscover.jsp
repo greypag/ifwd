@@ -149,7 +149,7 @@
 	                </div>
 	                <div id="hotel-voucher-carousel" class="">
 		                  <div class="carousel-item-container first">
-		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal">
+		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="0">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar11-goldensand-resort.png" class="img-responsive">
 			                        <div class="carousel-description-container">
 			                              <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.Mar11.Date" bundle="${msg}" /></div>
@@ -158,7 +158,7 @@
 		                        </div>   
 		                  </div>
 		                  <div class="carousel-item-container selected">
-		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#offer1-details">
+		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="1">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar12-shangri-la-rasa.png" class="img-responsive">
 			                        <div class="carousel-description-container">
 		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.Mar12.Date" bundle="${msg}" /></div>
@@ -167,7 +167,7 @@
 		                        </div>    
 		                  </div>
 		                  <div class="carousel-item-container">
-		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#offer1-details">
+		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="2">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar13-Vivatel.png" class="img-responsive">
 			                        <div class="carousel-description-container">
 		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.Mar13.Date" bundle="${msg}" /></div>
@@ -176,7 +176,7 @@
 		                        </div>    
 		                  </div>
 		                  <div class="carousel-item-container">
-		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#offer1-details">
+		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="3">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar14-oneworld.png" class="img-responsive">
 			                        <div class="carousel-description-container">
 		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.Mar14.Date" bundle="${msg}" /></div>
@@ -185,7 +185,7 @@
 		                        </div>    
 		                  </div>
 		                  <div class="carousel-item-container">
-		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#offer1-details">
+		                        <div class="hotel-item-wrapper" data-toggle="modal" data-target="#hotel-description-modal,#hotel-description-carosuel" data-slide-to="4">
 			                        <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/mar15-traders-hotel.png" class="img-responsive">
 			                        <div class="carousel-description-container">
 		                                  <div class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.Mar15.Date" bundle="${msg}" /></div>
@@ -1205,32 +1205,133 @@
                 </div>
                 
 				<!-- Modal -->
-				<div id="hotel-description-modal" class="modal fade" role="dialog" aria-hidden="true">
+				<div id="hotel-description-modal" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="false">
 				    <div class="modal-dialog">
 				
 					    <!-- Modal content-->
-					    <div class="modal-content">
+					    <div class="modal-content container">
 					        <div class="modal-body">
-					            <div id="hotel-description-carosuel">
-			                          <div class="hotel-description-carosuel-container">
-			                                <div class="hotel-description-left-wrapper">
-                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/goldensands-penang-icon.png" class="hotel-icon img-responsive">		                                
-			                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
-                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
-                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar11.HotelName" bundle="${msg}" /></div>
-			                                </div>
-                                            <div class="hotel-description-right-wrapper">
-                                                <a class="hotel-link" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar11.Url" bundle="${msg}" />">
-                                                    <fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar11.Addr" bundle="${msg}" />
-                                                </a>
-                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar11.Detail" bundle="${msg}" /></div>
-                                            </div> 			                                    
-			                          </div>					               
+					            <div id="hotel-description-carosuel" class="carousel slide" data-ride="carousel">
+								  <!-- Left and right controls -->
+								  <div class="hotel-carosuel-control">
+									  <div class="left-control">
+										  <a class="" href="#hotel-description-carosuel" role="button" data-slide="prev">
+										    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+										    <span id="previous-hotel-name"></span>
+										  </a>									  
+									  </div>
+				                       <div class="carousel-description-container">
+			                                <div id="hotel-lanuch-date" class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.Mar14.Date" bundle="${msg}" /></div>
+				                       </div>
+				                       <div class="left-control">
+										  <a class="" href="#hotel-description-carosuel" role="button" data-slide="next">
+										    <span class="glyphicon glyphicon-chevron-right"aria-hidden="true"></span>
+										    <span id="next-hotel-name"></span>
+										  </a>
+								  		</div>
+								  	</div>						            
+					            	<div class="carousel-inner" role="listbox">
+						            	  <!-- slide March 11 -->
+				                          <div class="hotel-description-carosuel-container item active">
+				                                <div class="hotel-description-left-wrapper">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/goldensands-penang-icon.png" class="hotel-icon img-responsive">		                                
+				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
+	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar11.HotelName" bundle="${msg}" /></div>
+				                                </div>
+	                                            <div class="hotel-description-right-wrapper">
+	                                                <a class="hotel-link" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Url" bundle="${msg}" />">
+	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
+	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar11.Addr" bundle="${msg}" /></span>
+	                                                </a>
+	                                                <div class="clearfix"></div>
+	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar11.Detail" bundle="${msg}" /></div>
+	                                            </div> 			                                    
+				                          </div>
+				                          <!-- slide March 11 End -->
+						            	  <!-- slide March 12 -->
+				                          <div class="hotel-description-carosuel-container item">
+				                                <div class="hotel-description-left-wrapper">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/shangri-la-rasa-penang-icon.png" class="hotel-icon img-responsive">		                                
+				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
+	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar12.HotelName" bundle="${msg}" /></div>
+				                                </div>
+	                                            <div class="hotel-description-right-wrapper item">
+	                                                <a class="hotel-link" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Url" bundle="${msg}" />">
+	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
+	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Addr" bundle="${msg}" /></span>
+	                                                </a>
+	                                                <div class="clearfix"></div>
+	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Detail" bundle="${msg}" /></div>
+	                                            </div> 			                                    
+				                          </div>
+				                          <!-- slide March 12 End -->
+						            	  <!-- slide March 13 -->
+				                          <div class="hotel-description-carosuel-container item">
+				                                <div class="hotel-description-left-wrapper">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/vivatel-icon.png" class="hotel-icon img-responsive">		                                
+				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
+	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar13.HotelName" bundle="${msg}" /></div>
+				                                </div>
+	                                            <div class="hotel-description-right-wrapper">
+	                                                <a class="hotel-link" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar13.Url" bundle="${msg}" />">
+	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
+	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Addr" bundle="${msg}" /></span>
+	                                                </a>
+	                                                <div class="clearfix"></div>
+	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar13.Detail" bundle="${msg}" /></div>
+	                                            </div> 			                                    
+				                          </div>
+				                          <!-- slide March 13 End -->
+						            	  <!-- slide March 14 -->
+				                          <div class="hotel-description-carosuel-container item">
+				                                <div class="hotel-description-left-wrapper">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/one-world-icon.png" class="hotel-icon img-responsive">		                                
+				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
+	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar14.HotelName" bundle="${msg}" /></div>
+				                                </div>
+	                                            <div class="hotel-description-right-wrapper">
+	                                                <a class="hotel-link" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar13.Url" bundle="${msg}" />">
+	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
+	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar14.Addr" bundle="${msg}" /></span>
+	                                                </a>
+	                                                <div class="clearfix"></div>
+	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar14.Detail" bundle="${msg}" /></div>
+	                                            </div> 			                                    
+				                          </div>
+				                          <!-- slide March 14 End -->
+						            	  <!-- slide March 15 -->
+				                          <div class="hotel-description-carosuel-container item">
+				                                <div class="hotel-description-left-wrapper">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/traders-icon.png" class="hotel-icon img-responsive">		                                
+				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
+	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar15.HotelName" bundle="${msg}" /></div>
+				                                </div>
+	                                            <div class="hotel-description-right-wrapper">
+	                                                <a class="hotel-link" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Url" bundle="${msg}" />">
+	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
+	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar15.Addr" bundle="${msg}" /></span>
+	                                                </a>
+	                                                <div class="clearfix"></div>
+	                                                <div class="hotel-description"><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar15.Detail" bundle="${msg}" /></div>
+	                                            </div> 			                                    
+				                          </div>
+				                          <!-- slide March 15 End -->
+									  </div>								  			                          			                          			                          			                          			                          					               
 					            </div>
-					        </div>
-					        <div class="modal-footer">
-					            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					        </div>
+	                            <div class="hotel-refer-wrapper">
+	                            	<div class="hotel-refer">
+	                            		<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Refer" bundle="${msg}" />
+	                            		<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-agoda.png" class="img-responsive">
+	                            	</div>
+	                            	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	                            	<div class="clearfix"></div>
+	                            </div>					            
+					        </div>					        
 					    </div>
 				
 				    </div>
@@ -1251,6 +1352,36 @@
             $('body').css("display","block");
         });
         $(document).ready(function() {
+        	$('#hotel-description-carosuel').carousel({
+       		  interval: false
+       		});
+        	$('#hotel-description-carosuel').on('slid.bs.carousel', function () {
+        		  // This variable contains all kinds of data and methods related to the carousel
+        		  var carouselData = $(this).data('bs.carousel');
+        		  // EDIT: Doesn't work in Boostrap >= 3.2
+        		  var currentIndex = carouselData.getActiveIndex();
+        	      // For in Boostrap >= 3.2
+        		  //var currentIndex = carouselData.getItemIndex(carouselData.$element.find('.item.active'));
+        		  var total = carouselData.$items.length; 
+        		  console.log(text);
+        		  if(text == 0){
+        			  $('#previous-hotel-name').html('<fmt:message key="Fanfare.Hotel.Carousel.Mar15.HotelName" bundle="${msg}" />');
+        			  $('#hotel-lanuch-date').html('<fmt:message key="Fanfare.Hotel.Carousel.Mar11.Date" bundle="${msg}" />');
+        			  $('#next-hotel-name').html('<fmt:message key="Fanfare.Hotel.Carousel.Mar12.HotelName" bundle="${msg}" />');
+        		  }
+        	});
+        	$('#hotel-description-modal').on('show.bs.modal', function () {
+        		var carouselData = $('#hotel-description-carosuel').data('bs.carousel');
+        		var currentIndex = carouselData.getActiveIndex();
+      		  	var total = carouselData.$items.length;  
+    		  	console.log(text);
+	      		  if(currentIndex == 0){
+	    			  console.log("hehe");
+	    			  $('#previous-hotel-name').html('<fmt:message key="Fanfare.Hotel.Carousel.Mar15.HotelName" bundle="${msg}" />');
+	    			  $('#hotel-lanuch-date').html('<fmt:message key="Fanfare.Hotel.Carousel.Mar11.Date" bundle="${msg}" />');
+	    			  $('#next-hotel-name').html('<fmt:message key="Fanfare.Hotel.Carousel.Mar12.HotelName" bundle="${msg}" />');
+	    		  }    		  	
+        	});        	
        	    $('#hotel-voucher-carousel').slick({
       	    	  infinite: false,
       	    	  arrows: true,

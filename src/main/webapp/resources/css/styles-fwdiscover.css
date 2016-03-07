@@ -1704,12 +1704,12 @@
     display: inline-block;
 }
 #hotel-description-modal .modal-dialog{
-	width: 50%;
+	width: auto;
 }
 #hotel-description-modal .modal-content{
 	padding: 0 20px;
 	border: 5px solid #f68a1d;
-	color: #000;
+	color: #061d2a;
 	overflow: hidden;
 }
 #hotel-description-modal .modal-body{
@@ -1730,6 +1730,59 @@
 }
 #hotel-description-modal .hotel-icon{
 	margin: 0 auto 20px auto;
+}
+#hotel-description-modal .hotel-description-carosuel-container .hotel-name{
+	font-size: 24px;
+	margin: 15px 10% 0 10%;
+	text-align: center;
+}
+#hotel-description-right-wrapper{
+	font-size: 22px;
+	line-height: 1.2;
+}
+#hotel-description-modal .hotel-description-right-wrapper a.hotel-link{
+	color: #061d2a;
+	text-decoratiom: none;
+	border-bottom: none;
+    display: block;
+    max-width: 60%;
+    margin: 20px auto 50px;	
+}
+#hotel-description-modal .hotel-description-right-wrapper a.hotel-link img{
+	margin-right: 10px;
+	float: left;
+}
+#hotel-description-modal img{
+	max-width: 100%;
+	width: auto;
+}
+#hotel-description-modal .hotel-description-right-wrapper a.hotel-link:hover{
+	color: #f68a1d;
+}
+#hotel-description-modal .hotel-refer-wrapper{
+	position: absolute;
+	bottom: 0;
+	width: 60%;
+	right: 0;	
+}
+#hotel-description-modal .hotel-refer-wrapper .hotel-refer{
+	font-size: 18px;
+	float: left;
+}
+#hotel-description-modal .hotel-refer-wrapper .btn{
+    float: right;
+    background-color: transparent;
+    color: #f68a1d;	
+    border: none;
+}
+#hotel-description-modal .hotel-refer img{
+	display: inline-block;
+}
+#hotel-description-modal .carousel .carousel-inner{
+	width: 100%;
+}
+#hotel-description-modal .carousel{
+	margin-top: 54px;
 }
 @media ( max-width : 991px) {
     .hotel-partner-icon-wrapper .col-1,
@@ -1754,7 +1807,7 @@
 	.page-fwdiscover .plans-holder .fwdiscover-plan.hotel-voucher{
 	   background: #373a36;
 	}     	
-}
+}		
 @media ( max-width : 1599px) {
 	#hotel-voucher-carousel .slick-next{
 	   right: 0;
