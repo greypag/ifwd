@@ -652,7 +652,7 @@ function submitLoginForm(formID) {
                                   </li>
                                   <li class="menu-link">
 	                                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-	                                  <a class="menu-link" href="<fmt:message key="link.blog" bundle="${msg}" />"><fmt:message key="header.product.type3.group1.linkname3" bundle="${msg}" /></a>
+	                                  <a class="menu-link" href="<fmt:message key="link.blog" bundle="${msg}" />" target="_blank"><fmt:message key="header.product.type3.group1.linkname3" bundle="${msg}" /></a>
                                   </li>                              
                              </ul>                            
                           </li>
