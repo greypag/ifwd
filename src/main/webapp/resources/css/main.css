@@ -7747,6 +7747,12 @@ tr.product-landing-error-wrap {
 	max-height: 60px !important;
 }
 
+.addthis_32x32_style .at-icon-wrapper,
+.addthis_32x32_style .at-icon{
+	width: 60px !important;
+	height: 60px !important;
+}
+
 .at4-icon.aticon-facebook {
 	background-position: 10px 10px !important;
 }
