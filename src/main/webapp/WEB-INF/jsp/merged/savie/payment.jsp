@@ -408,6 +408,7 @@ var language = "${language}";
 	var eFullDate= new Date((new Date()).getTime() - 24*60*60*1000);
 	
 	$(document).ready(function() {
+		paymentFormValidation();
 			
 		//init next button text
 		if('${backSummary}'=="Y"){
@@ -505,8 +506,27 @@ var language = "${language}";
 		
 		// application saved modal will show after clicking 'Save and exit' button 
 		$('.save-exit-btn2, #save-exit-btn').click(function() {
-			$(this).closest('.modal').modal('hide');
-			$('#application-saved-modal').modal('show');
+			$("#errorMsg").html("");
+			$.ajax({
+				  type : "POST",
+				  async:false, 
+				  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePaymentSaveforLater",
+				  data: $("#paymentForm").serialize(),
+				  success : function(data) {
+					  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+						  $('#save-and-continue-modal').modal('hide');
+						  $("#errorMsg").html(data.errorMsg);
+					  }
+					  else{
+						  $('#save-and-continue-modal').modal('hide');
+						  $('#application-saved-modal').modal('show');
+					  }
+				  }
+		     });
+		});
+		
+		$('#btn-app-save').click(function() {
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 		});
 		
 		//paymentFormValidation();
@@ -529,12 +549,13 @@ var language = "${language}";
 		});
 		
 		$('#payment-save-and-con').on('click', function (e) {
-                  if($('#paymentForm').data('bootstrapValidator').isValid()) {
+            if($('#paymentForm').data('bootstrapValidator').isValid()) {
 				$('#save-and-continue-batch5-modal').modal('show');
-                  } else {
+            }
+            else {
 				$('#save-and-continue-modal').modal('show');
-                  }
-              });
+            }
+        });
 		
 		$('.form-control.gray-dropdown').focus(function() {
 			$(this).parent('.selectDiv').siblings('.bank-info-select-label').attr('style', 'color: #ff8200;');
@@ -593,8 +614,6 @@ var language = "${language}";
 				setInputReadonly('paymentMethod', true);
 				setInputReadonly('accountHolderName', true);
 				// -------				
-				
-				paymentFormValidation();
 				
 				$("input[type='radio']").on('click', function() {
 					if($('#payment-debit:checked').length > 0 ) {
@@ -658,122 +677,108 @@ var language = "${language}";
 			   });
 			});
 			
-			// Payment form validation
-			function paymentFormValidation() {
-				$('#paymentForm').bootstrapValidator({
-					//excluded: [':disabled', ':hidden', ':not(:visible)'],
-					excluded: [':disabled', '.readonly-field'],
-					fields: {
-						paymentAmount: {
-							container: '#paymentAmountErMsg',
-							selector: '#paymentAmount',
-							validators: {
-							  notEmpty: {
-								 message: "Please enter amount."
-							  },
-							  regexp: {
-								  regexp: /^[1-9]\d*(\.\d+)?$/,
-								  message: "Amount is invalid."
-							  }
-							}
-						},
-						paymentMethod: {
-							container: '#paymentMethodErMsg',
-							selector: '#paymentMethod',
-							validators: {
-							  notEmpty: {
-								 message: "Please enter payment method."
-							  }
-							}
-						},
-						accountHolderName: {
-							container: '#accountHolderNameErMsg',
-							selector: '#accountHolderName',
-							validators: {
-							  notEmpty: {
-								 message: "Please enter bank account holder name."
-							  }
-							}
-						},
-						tmpBankCode: {
-							container: '#bankCodeErMsg',
-							selector: '#tmpBankCode',
-							validators: {
-							  notEmpty: {
-								 message: "Please select bank code."
-							  }
-							}
-						},
-						bankAccountNo: {
-						   container: '#bankAccountNoErMsg',
-						   selector: '#bankAccountNo',
-						   validators: {
-							  notEmpty: {
-								 message: "Please enter account number."
-							  },
-							   regexp: {
-								  regexp: /^[0-9]*$/,
-								  message: "Bank account number is invalid."
-							   }
-						   }
-						},
-						tmpBranchName: {
-							container: '#branchNameErMsg',
-							selector: '#tmpBranchName',
-							validators: {
-							  notEmpty: {
-								 message: "Please select branch name."
-							  }
-							}
-						},
-						tmpCustomerServiceCentre: {
-						   container: '#customerServiceCentreErMsg',
-						   selector: '#tmpCustomerServiceCentre',
-						   validators: {
-							  notEmpty: {
-								 message: "Please select customer service centre."
-							  }
-						   }
-						},
-						"preferredDate": {
-						   container: '#preferredDateErMsg',
-						   selector: '#preferredDate',
-						   validators: {
-							  notEmpty: {
-								 message: "Please specify a date."
-							  }
-						   }
-						},
-						"preferred-time": {
-						   container: '#preferredTimeErMsg',
-						   selector: '#preferred-time',
-						   validators: {
-							  notEmpty: {
-								 message: "Please specify a time."
-							  }
-						   }
-						}
-					}
-				}).on('success.form.bv', function(e) {
-						e.preventDefault();
-				}).on('error.form.bv', function(e) {
-				});
-			}
-			
-			function open(elem) {
-				if (document.createEvent) {
-					var e = document.createEvent("MouseEvents");
-					e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-					elem[0].dispatchEvent(e);
-				} else if (element.fireEvent) {
-					elem[0].fireEvent("onmousedown");
-				}
-			}
 		}).on('success.form.bv', function(e) {
 				e.preventDefault();
 		}).on('error.form.bv', function(e) {
 		});
 	});
+	
+	// Payment form validation
+	function paymentFormValidation() {
+		$('#paymentForm').bootstrapValidator({
+			//excluded: [':disabled', ':hidden', ':not(:visible)'],
+			excluded: [':disabled', '.readonly-field'],
+			fields: {
+				'paymentAmount': {
+					container: '#paymentAmountErMsg',
+					validators: {
+					  notEmpty: {
+						 message: "Please enter amount."
+					  },
+					  regexp: {
+						  regexp: /^[1-9]\d*(\.\d+)?$/,
+						  message: "Amount is invalid."
+					  }
+					}
+				},
+				'paymentMethod': {
+					container: '#paymentMethodErMsg',
+					validators: {
+					  notEmpty: {
+						 message: "Please enter payment method."
+					  }
+					}
+				},
+				'accountHolderName': {
+					container: '#accountHolderNameErMsg',
+					validators: {
+					  notEmpty: {
+						 message: "Please enter bank account holder name."
+					  }
+					}
+				},
+				'bankCode': {
+					container: '#bankCodeErMsg',
+					validators: {
+					  notEmpty: {
+						 message: "Please select bank code."
+					  }
+					}
+				},
+				'accountNumber': {
+				   container: '#bankAccountNoErMsg',
+				   validators: {
+					  notEmpty: {
+						 message: "Please enter account number."
+					  },
+					   regexp: {
+						  regexp: /^[0-9]*$/,
+						  message: "Bank account number is invalid."
+					   }
+				   }
+				},
+				'branchCode': {
+					container: '#branchNameErMsg',
+					validators: {
+					  notEmpty: {
+						 message: "Please select branch name."
+					  }
+					}
+				}
+				//,
+				/* tmpCustomerServiceCentre: {
+				   container: '#customerServiceCentreErMsg',
+				   selector: '#tmpCustomerServiceCentre',
+				   validators: {
+					  notEmpty: {
+						 message: "Please select customer service centre."
+					  }
+				   }
+				},
+				"preferredDate": {
+				   container: '#preferredDateErMsg',
+				   selector: '#preferredDate',
+				   validators: {
+					  notEmpty: {
+						 message: "Please specify a date."
+					  }
+				   }
+				},
+				"preferred-time": {
+				   container: '#preferredTimeErMsg',
+				   selector: '#preferred-time',
+				   validators: {
+					  notEmpty: {
+						 message: "Please specify a time."
+					  }
+				   }
+				} */
+			}
+		}).on('success.form.bv', function(e) {
+				e.preventDefault();
+		}).on('error.form.bv', function(e) {
+		});
+	}
 	
 	function open(elem) {
 		if (document.createEvent) {
@@ -921,25 +926,6 @@ var language = "${language}";
 			     });
 			}
 		}
-	 
-	 
-	 $("#save-exit-btn").click(function(){
-			$("#errorMsg").html("");
-			$.ajax({
-				  type : "POST",
-				  async:false, 
-				  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifePaymentSaveforLater",
-				  data: $("#paymentForm").serialize(),
-				  success : function(data) {
-					  if(data != null && data.errorMsg != null && data.errorMsg != ""){
-						  $("#errorMsg").html(data.errorMsg);
-					  }
-					  else{
-						  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
-					  }
-				  }
-		     });
-		});
 	 
 	function togglePreferred(id) {
 		$(".form-group .preferred-date .date").hide();

@@ -1357,16 +1357,28 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	}
 	
-	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException{
-		final Map<String,String> header = headerUtil.getHeader(request);
-		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
-		parameters.accumulate("planCode", "SAVIE-SP");
+	public net.sf.json.JSONObject lifePaymentPutData(LifePaymentBean lifePayment,net.sf.json.JSONObject parameters){
 		parameters.accumulate("paymentMethod", lifePayment.getPaymentMethod()!=null?lifePayment.getPaymentMethod():"");
 		parameters.accumulate("bankName", lifePayment.getBankCode()!=null?lifePayment.getBankCode():"");
 		parameters.accumulate("branchName", lifePayment.getBranchCode()!=null?lifePayment.getBranchCode():"");
 		parameters.accumulate("accountNo", lifePayment.getAccountNumber()!=null?lifePayment.getAccountNumber():"");
-		parameters.accumulate("lastViewPage", "life-payment");
+		return parameters;
+	}
+	
+	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request) throws ECOMMAPIException{
+		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
+		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
+		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
 		
+		String language = (String) request.getSession().getAttribute("language");
+		final Map<String,String> header = headerUtil.getHeader(request);
+		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+		parameters.accumulate("planCode", "SAVIE-SP");
+		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
+		parameters = this.lifeEmploymentInfoPutData(lifeEmploymentInfo, parameters);
+		parameters = this.lifeBeneficaryInfoPutData(lifeBeneficaryInfo, parameters);
+		parameters = this.lifePaymentPutData(lifePayment, parameters);
+		parameters.accumulate("resumeViewPage", language+"/savings-insurance/application-summary");
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
 			logger.info("api error");
