@@ -330,7 +330,7 @@ function mouseout2div(obj) {
         <div class="recent-work-wrap wrap text-center">
           <div class="recent-work-inner"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="">
             <h1><fmt:message key="Overseas.Landing.Platformpillar1.headline" bundle="${msg}" /></h1>
-                  <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /> <a href="<fmt:message key="Overseas.Landing.Platformpillar1.textlink1.url" bundle="${msg}" />"> <fmt:message key="Overseas.Landing.Platformpillar1.copy2" bundle="${msg}" /> </a> <fmt:message key="Overseas.Landing.Platformpillar1.copy3" bundle="${msg}" /></p>
+                  <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /> <a href="<fmt:message key="Overseas.Landing.Platformpillar1.textlink1.url" bundle="${msg}" />" target="_blank"> <fmt:message key="Overseas.Landing.Platformpillar1.copy2" bundle="${msg}" /> </a> <fmt:message key="Overseas.Landing.Platformpillar1.copy3" bundle="${msg}" /></p>
           </div>
         </div>
       </div>
@@ -375,7 +375,7 @@ function mouseout2div(obj) {
               <div class="recent-work-inner pillar-here-height"> <img src="<%=request.getContextPath()%>/resources/images/time.png" alt="">
 				  <h2><fmt:message key="Overseas.Landing.Platformpillar1.headline" bundle="${msg}" /></h2>
 				  <!-- <p><fmt:message key="Overseas.Landing.Platformpillar1.copy" bundle="${msg}" /></p>-->
-				  <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /> <a href="<fmt:message key="Overseas.Landing.Platformpillar1.textlink1.url" bundle="${msg}" />"> <fmt:message key="Overseas.Landing.Platformpillar1.copy2" bundle="${msg}" /> </a> <fmt:message key="Overseas.Landing.Platformpillar1.copy3" bundle="${msg}" /></p>
+				  <p><fmt:message key="Overseas.Landing.Platformpillar1.copy1" bundle="${msg}" /> <a href="<fmt:message key="Overseas.Landing.Platformpillar1.textlink1.url" bundle="${msg}" />" target="_blank"> <fmt:message key="Overseas.Landing.Platformpillar1.copy2" bundle="${msg}" /> </a> <fmt:message key="Overseas.Landing.Platformpillar1.copy3" bundle="${msg}" /></p>
               </div>
             </div>
           </div>
