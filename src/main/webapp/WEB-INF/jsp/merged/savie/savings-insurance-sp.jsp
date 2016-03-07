@@ -80,9 +80,9 @@ var home_url = "<%=request.getContextPath()%>";
               		<form id="o2o-landing-form" action="<%=request.getContextPath()%>/${language}/savings-insurance/plan-details-sp" method="post" >
       	        		<div class="img-banner-text savie-landing">
       	        			<h2 class="savie-sweeter"><fmt:message key="jumbo.savie.regularpay" bundle="${msg}" /></span></h2>
-      	        			<div id="clearfix-height-rp">
+      	        			<!-- div id="clearfix-height-rp">
       	        				<button id="op-buy-now-O2O-mobile" class="savie-regular-btn start-btn"><fmt:message key="button.start" bundle="${msg}" /></button>
-      	        			</div>	        			
+      	        			</div>	 -->        			
               			<div class="savie-product">
       						<a href="<%=request.getContextPath()%>/<fmt:message key="link.brochure.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.brochure" bundle="${msg}" /></a> | <a href="<%=request.getContextPath()%>/<fmt:message key="link.provisions.savie" bundle="${msg}" />" target="_blank"><fmt:message key="label.product.provisions" bundle="${msg}" /></a>
       					</div>
@@ -826,7 +826,12 @@ var home_url = "<%=request.getContextPath()%>";
 					});
 
 				}
-
+				$(window).load(function(){
+			        //Display thankyou popup
+					//$('#thankyouPopup').modal('show');
+					$('#thankyouPopup').modal('show');
+			    });
+				
 				$('#btn-blog-link').click(function(){
 					window.location.href='<fmt:message key="link.blog" bundle="${msg}" />';
 				});
@@ -845,4 +850,17 @@ var home_url = "<%=request.getContextPath()%>";
       </div>
     </div>
   </div>
+</div>
+<!--Thank you popup-->
+<div class="savie-overlay-modal modal fade" role="dialog" aria-labelledby="thankyouPopup" id="thankyouPopup">
+	<div class="savie-overlay-container container-fluid modal-dialog" role="document">
+		<div class="modal-content savie-overlay-content">
+			<img class= "en-banner-img hidden-xs hidden-sm"src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_sold-out-march_desktop_en.jpg"/>
+			<img class= "ch-banner-img hidden-xs hidden-sm"src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_sold-out-march_desktop_cn.jpg"/>
+			<img class= "en-banner-img img-responsive hidden-md hidden-lg" src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_sold-out-march_mobile_en.jpg"/>
+			<img class= "ch-banner-img img-responsive hidden-md hidden-lg" src="<%=request.getContextPath()%>/resources/images/savie/iFWD_savie_sold-out-march_mobile_cn.jpg"/>
+			<a type="submit" class="en-banner-img btn savie-overlay-btn" id="savie-overlay-button" href="https://i.fwd.com.hk/en/savings-insurance/regular-premium?utm_campaign=sp_soldout&utm_source=savie_sp&utm_medium=ifwd"><fmt:message key="label.learn.more.offer" bundle="${msg}" /></a>
+			<a type="submit" class="ch-banner-img btn savie-overlay-btn" id="savie-overlay-button" href="https://i.fwd.com.hk/tc/savings-insurance/regular-premium?utm_campaign=sp_soldout&utm_source=savie_sp&utm_medium=ifwd"><fmt:message key="label.learn.more.offer" bundle="${msg}" /></a>	
+		</div>
+	</div>
 </div>

@@ -1192,7 +1192,7 @@ body {
   /* line 80, ../sass/partials/savie/_landing-page.scss */
   .savie-regular-landing .page-banner .img-banner-text .savie-product {
     font-size: 18px;
-    margin-top: 18px;
+    margin-top: 0;
     margin-right: 47px;
   }
 }
