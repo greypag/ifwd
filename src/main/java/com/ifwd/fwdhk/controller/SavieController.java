@@ -163,7 +163,12 @@ public class SavieController extends BaseController{
 			model.addAttribute("defaultDOB", format.format(defaultDOB.getTime()));
 			model.addAttribute("nextPageFlow2", "customer-service-centre");
 			
-			return new ModelAndView("/merged/savie/plan-details");
+			if("sp".equals(key)) {
+				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+						+ "/savings-insurance/single-premium");
+			}else {
+				return new ModelAndView("/merged/savie/plan-details");
+			}
 			//return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
 		}else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
