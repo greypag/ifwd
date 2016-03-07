@@ -141,14 +141,14 @@ var languageP = "${language}";
 								   <div class="radio-button-group">
 									  <div class="clearfix desktop-align left">
 										 <div class="pull-left radio-holder">
-											<input type="radio" id="haveReplacedNo" name="haveReplaced" value="No" checked="checked" class="radio-no">
+											<input type="radio" id="haveReplacedNo" name="haveReplaced" value="false" checked="checked" class="radio-no">
 											<label for="haveReplacedNo"></label>
 										 </div>
 										 <div class="pull-left desc">No</div>
 									  </div>
 									  <div class="clearfix below desktop-align">
 										 <div class="pull-left radio-holder">
-											<input type="radio" id="haveReplacedYes" name="haveReplaced" value="Yes" class="radio-yes">
+											<input type="radio" id="haveReplacedYes" name="haveReplaced" value="true" class="radio-yes">
 											<label for="haveReplacedYes"></label>
 										 </div>
 										 <div class="pull-left desc">Yes</div>
@@ -162,14 +162,14 @@ var languageP = "${language}";
 								   <div class="radio-button-group clearfix">
 									  <div class="clearfix desktop-align left">
 										 <div class="pull-left radio-holder">
-											<input type="radio" id="intentToReplacedNo" name="intentToReplaced" value="No" checked="checked" class="radio-no">
+											<input type="radio" id="intentToReplacedNo" name="intentToReplaced" value="false" checked="checked" class="radio-no">
 											<label for="intentToReplacedNo"></label>
 										 </div>
 										 <div class="pull-left desc">No</div>
 									  </div>
 									  <div class="clearfix below desktop-align">
 										 <div class="pull-left radio-holder">
-											<input type="radio" id="intentToReplacedYes" name="intentToReplaced" value="Yes" class="radio-yes">
+											<input type="radio" id="intentToReplacedYes" name="intentToReplaced" value="true" class="radio-yes">
 											<label for="intentToReplacedYes"></label>
 										 </div>
 										 <div class="pull-left desc">Yes</div>
@@ -202,14 +202,14 @@ var languageP = "${language}";
 						   <div class="radio-button-group">
 							  <div class="clearfix desktop-align left">
 								 <div class="pull-left radio-holder">
-									<input type="radio" id="intentToLiveOutsideNo" name="intentToLiveOutside" value="No" checked="checked" class="radio-no">
+									<input type="radio" id="intentToLiveOutsideNo" name="intentToLiveOutside" value="false" checked="checked" class="radio-no">
 									<label for="intentToLiveOutsideNo"></label>
 								 </div>
 								 <div class="pull-left desc">No</div>
 							  </div>
 							  <div class="clearfix below desktop-align">
 								 <div class="pull-left radio-holder">
-									<input type="radio" id="intentToLiveOutsideYes" name="intentToLiveOutside" value="Yes" class="radio-yes">
+									<input type="radio" id="intentToLiveOutsideYes" name="intentToLiveOutside" value="true" class="radio-yes">
 									<label for="intentToLiveOutsideYes"></label>
 								 </div>
 								 <div class="pull-left desc">Yes</div>
@@ -254,6 +254,8 @@ var languageP = "${language}";
 						<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 						We recommend using a desktop PC for a better signatory experience.
 					</div>
+					
+					<div id="errorMsg" style="color: red;"></div>
 						
 					<center>
 						<button type="button" class="btn savie-common-btn btn-proceed">Proceed to signature</button>
@@ -308,6 +310,56 @@ var languageP = "${language}";
 		 </div>
 	  </div>
 	</div>
+	
+	<!-- Save and continue modal -->
+<div class="modal fade common-welcome-modal" id="save-and-continue-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+	<div class="modal-content save-con-modal-content">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+		<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
+		<p class="text-center description-msg">You may save your application progress up to (previous page). You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+		<div class="save-con-btns clearfix">
+			<button class="btn savie-common-btn save-exit-btn1 col-sm-6 col-xs-6 col-lg-6 col-md-6">Keep going</button>
+			<button class="btn savie-common-btn save-exit-btn2 col-sm-6 col-xs-6 col-lg-6 col-md-6">Save and exit</button>
+		</div>
+	</div>
+  </div>
+</div>
+
+<!-- Save and continue batch 5 modal -->
+<div class="modal fade common-welcome-modal save-con-modal-b5" id="save-and-continue-batch5-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+	<div class="modal-content save-con-modal-content">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+		<h4 class="text-center welcome-msg">Would you like to save your application and continue later?</h4>
+		<p class="text-center description-msg">You will receive an email with a link of your saved application progress, you may continue the application within 30 days.</p>
+		<div class="save-con-btns text-center clearfix">
+			<button class="btn savie-common-btn" id="keep-going-btn">Keep going</button>
+			<button class="btn savie-common-btn disabled-gray-btn" id="save-exit-btn">Save and exit</button>
+		</div>
+	</div>
+  </div>
+</div>
+
+<!-- Application saved modal -->
+<div class="modal fade common-welcome-modal modal-app-save" id="application-saved-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog" id="modal-save-app">
+	<div class="modal-content modal-content-appsave common-welcome-modal">	
+		 <div class="modal-header" id="modal-header-appsave">
+		 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<p class="text-center">Your application has been saved. </p>
+		 </div>
+		 <div class="modal-body" id="moda-body-appsave">
+			<p class="text-center">A saved application email has been sent to you, you may continue the application through 
+			the application link embedded in the email or you may retrieve your progress from your eService 
+			purchase history. </p>
+			<div class="btn-appsave">
+				<button href="#" class="center-block btn savie-common-btn" id="btn-app-save">Back to home</button>
+			</div>
+		 </div>
+	 </div>
+  </div>
+</div>
 	
 	<!--<div class="fwd-savie-wrapper">-->
 	
@@ -388,22 +440,49 @@ var languageP = "${language}";
 			}
 		});
 		
-		$(".save-link").click(function(){
+		$('.save-link').on('click', function (e) {
+            var isPassed = false;
+			
+			// validation
+			isPassed = validateChkboxField('hasReadAndAcceptFATC', 'chkFATCErMsg');
+			isPassed = validateChkboxField('hasReadAndAcceptFATC2', 'chkFATC2ErMsg');
+			isPassed = validateChkboxField('hasReadAndAcceptPICS', 'chkPICSErMsg');
+			isPassed = validateChkboxField('hasReadAndAcceptCancellation', 'chkCancellationErMsg');
+			isPassed = validateChkboxField('hasReadAndAgreeApplication', 'chkApplicationErMsg');
+			
+            if(isPassed) {
+				$('#save-and-continue-batch5-modal').modal('show');
+            }
+            else {
+				$('#save-and-continue-modal').modal('show');
+            }
+        });
+		
+		// application saved modal will show after clicking 'Save and exit' button 
+		$('.save-exit-btn2, #save-exit-btn').click(function() {
 			$("#errorMsg").html("");
 			$.ajax({
 				  type : "POST",
 				  async:false, 
 				  url : "<%=request.getContextPath()%>/ajax/savings-insurance/lifeDeclarationSaveforLater",
-				  data: $("#lifeDeclarationForm").serialize(),
+				  data: $("#declarationForm").serialize(),
 				  success : function(data) {
 					  if(data != null && data.errorMsg != null && data.errorMsg != ""){
+						  $('#save-and-continue-modal').modal('hide');
+						  $('#save-and-continue-batch5-modal').modal('hide');
 						  $("#errorMsg").html(data.errorMsg);
 					  }
 					  else{
-						  window.location = '<%=request.getContextPath()%>/${language}/savings-insurance/${nextPageFlow}';
+						  $('#save-and-continue-modal').modal('hide');
+						  $('#save-and-continue-batch5-modal').modal('hide');
+						  $('#application-saved-modal').modal('show');
 					  }
 				  }
 		     });
+		});
+		
+		$('#btn-app-save').click(function() {
+			window.location = '<%=request.getContextPath()%>/${language}/savings-insurance';
 		});
 		
 		function validateChkboxField(chkboxId, errMsgId) {

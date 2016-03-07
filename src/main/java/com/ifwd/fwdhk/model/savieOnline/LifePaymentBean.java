@@ -24,7 +24,7 @@ public class LifePaymentBean implements Serializable {
 	private String paymentAmount;
 	
 	public void validate(String language) throws ValidateExceptions {
-		this.bankName = !"".equals(this.bankCode)?this.bankCode.split("-")[1]:"";
+		this.bankName = this.bankCode !=null && !"".equals(this.bankCode)?this.bankCode.split("-")[1]:"";
 		
 		List<String> list = new ArrayList<String>();
         if(ValidationUtils.isNullOrEmpty(this.bankCode)){

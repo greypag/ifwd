@@ -247,4 +247,15 @@ public class DateApi {
 		}
 		return timeList;
 	}
+	
+	/**
+	 * 将date转化为输入格式的字符串
+	 * @param date
+	 * @param format
+	 * @return
+	 */
+	public static String formatString(Date date,String format) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat(format, Locale.ENGLISH);
+		return dateFormat.format(date);
+	}
 }

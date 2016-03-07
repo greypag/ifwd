@@ -361,12 +361,17 @@ public class AjaxSavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/savings-insurance/lifeBeneficaryInfoSaveforLater"})
 	public void lifeBeneficaryInfoSaveforLater(LifeBeneficaryInfoBean lifeBeneficaryInfo,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		String language = (String) session.getAttribute("language");
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
+			lifeBeneficaryInfo.validate(language);
 			savieOnlineService.lifeBeneficaryInfoSaveforLater(lifeBeneficaryInfo, request);
+		}
+		catch (ValidateExceptions e) {
+			jsonObject.put("errorMsg", e.getList().toString());
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
@@ -377,12 +382,17 @@ public class AjaxSavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/savings-insurance/lifePaymentSaveforLater"})
 	public void lifePaymentSaveforLater(LifePaymentBean lifePayment,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		String language = (String) session.getAttribute("language");
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
+			lifePayment.validate(language);
 			savieOnlineService.lifePaymentSaveforLater(lifePayment, request);
+		}
+		catch (ValidateExceptions e) {
+			jsonObject.put("errorMsg", e.getList().toString());
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
@@ -393,12 +403,17 @@ public class AjaxSavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/savings-insurance/lifeDeclarationSaveforLater"})
 	public void lifeDeclarationSaveforLater(LifeDeclarationBean lifeDeclaration,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		String language = (String) session.getAttribute("language");
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
+			lifeDeclaration.validate(language);
 			savieOnlineService.lifeDeclarationSaveforLater(lifeDeclaration, request);
+		}
+		catch (ValidateExceptions e) {
+			jsonObject.put("errorMsg", e.getList().toString());
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());
