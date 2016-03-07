@@ -26,6 +26,7 @@ public class LifeDeclarationBean implements Serializable {
         /*if(ValidationUtils.isNullOrEmpty(this.bankCode)){
         	list.add(ErrorMessageUtils.getMessage("bankCode", "validation.failure", language));
         }*/
+		//throw validation exception
 		if (list.size() > 0) {
 			throw new ValidateExceptions(list);
 		}
