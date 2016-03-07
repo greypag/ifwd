@@ -1279,21 +1279,21 @@ var home_url = "<%=request.getContextPath()%>";
 											<input
 												class="form-control gray-textbox residential residential-address"
 												autocomplete="off"
-												id="savieApplicantBean.residentialAdress1"
+												id="savieApplicantBean.residentialAdress1" maxlength="29"
 												name="savieApplicantBean.residentialAdress1" type="text"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
 											<span class="error-msg" id="residentialAddressMessage1"></span>
 											<input
 												class="form-control gray-textbox residential residential-address optional-field"
 												autocomplete="off"
-												id="savieApplicantBean.residentialAdress2"
+												id="savieApplicantBean.residentialAdress2" maxlength="29"
 												name="savieApplicantBean.residentialAdress2" type="text"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
 											<span class="error-msg" id="residentialAddressMessage2"></span>
 											<input
 												class="form-control gray-textbox residential residential-address optional-field"
 												autocomplete="off"
-												id="savieApplicantBean.residentialAdress3"
+												id="savieApplicantBean.residentialAdress3" maxlength="19"
 												name="savieApplicantBean.residentialAdress3" type="text"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
 											<span class="error-msg" id="residentialAddressMessage3"></span>
@@ -1370,19 +1370,19 @@ var home_url = "<%=request.getContextPath()%>";
 										<div class="left-desktop text-box">
 											<input
 												class="form-control gray-textbox  correspondence-address"
-												autocomplete="off"
-												id="savieApplicantBean.correspondenceAdress1"
+												autocomplete="off" maxlength="29"
+												id="savieApplicantBean.correspondenceAdress1" 
 												name="savieApplicantBean.correspondenceAdress1" type="text"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line1" bundle="${msg}" />">
 											<span class="error-msg" id="corrAddressMessage1"></span> <input
 												class="form-control gray-textbox correspondence-address optional-field"
-												autocomplete="off"
+												autocomplete="off" maxlength="29"
 												id="savieApplicantBean.correspondenceAdress2"
 												name="savieApplicantBean.correspondenceAdress2" type="text"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line2" bundle="${msg}" />">
 											<span class="error-msg" id="corrAddressMessage2"></span> <input
 												class="form-control gray-textbox correspondence-address optional-field"
-												autocomplete="off"
+												autocomplete="off" maxlength="19"
 												id="savieApplicantBean.correspondenceAdress3"
 												name="savieApplicantBean.correspondenceAdress3" type="text"
 												placeholder="<fmt:message key="eliteTerms.selectPlan.address.line3" bundle="${msg}" />">
