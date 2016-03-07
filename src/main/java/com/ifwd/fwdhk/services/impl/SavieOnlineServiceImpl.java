@@ -1390,17 +1390,36 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		}
 	}
 	
-	public void lifeDeclarationSaveforLater(LifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException{
-		final Map<String,String> header = headerUtil.getHeader(request);
-		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
-		parameters.accumulate("planCode", "SAVIE-SP");
+	public net.sf.json.JSONObject lifeDeclarationPutData(LifeDeclarationBean lifeDeclaration,net.sf.json.JSONObject parameters){
 		parameters.accumulate("declaration1", lifeDeclaration.getHasReadAndAcceptFATC()!=null?lifeDeclaration.getHasReadAndAcceptFATC():"false");
 		parameters.accumulate("declaration2", lifeDeclaration.getHasReadAndAcceptFATC2()!=null?lifeDeclaration.getHasReadAndAcceptFATC2():"false");
 		parameters.accumulate("declaration3", lifeDeclaration.getHasReadAndAcceptPICS()!=null?lifeDeclaration.getHasReadAndAcceptPICS():"false");
-		parameters.accumulate("declaration4", lifeDeclaration.getHasReadAndAcceptCancellation()!=null?lifeDeclaration.getHasReadAndAcceptCancellation():"false");
-		parameters.accumulate("declaration5", lifeDeclaration.getHasReadAndAgreeApplication()!=null?lifeDeclaration.getHasReadAndAgreeApplication():"false");
-		parameters.accumulate("lastViewPage", "life-declaration");
+		parameters.accumulate("declaration4", lifeDeclaration.getHaveReplaced());
+		parameters.accumulate("declaration5", lifeDeclaration.getIntentToReplaced());
+		parameters.accumulate("declaration6", lifeDeclaration.getHasReadAndAcceptCancellation()!=null?lifeDeclaration.getHasReadAndAcceptCancellation():"false");
+		parameters.accumulate("declaration7", lifeDeclaration.getIntentToLiveOutside());
+		parameters.accumulate("declaration8", lifeDeclaration.getHasReadAndAgreeApplication()!=null?lifeDeclaration.getHasReadAndAgreeApplication():"false");
+		parameters.accumulate("declaration9", lifeDeclaration.getChkboxDoNotSendMarketingInfo()!=null?lifeDeclaration.getChkboxDoNotSendMarketingInfo():"false");
+		parameters.accumulate("declaration10", lifeDeclaration.getChkboxDoNotProvidePersonalData()!=null?lifeDeclaration.getChkboxDoNotProvidePersonalData():"false");
+		return parameters;
+	}
+	
+	public void lifeDeclarationSaveforLater(LifeDeclarationBean lifeDeclaration,HttpServletRequest request) throws ECOMMAPIException{
+		LifePersonalDetailsBean lifePersonalDetails = (LifePersonalDetailsBean) request.getSession().getAttribute("lifePersonalDetails");
+		LifeEmploymentInfoBean lifeEmploymentInfo = (LifeEmploymentInfoBean) request.getSession().getAttribute("lifeEmploymentInfo");
+		LifeBeneficaryInfoBean lifeBeneficaryInfo = (LifeBeneficaryInfoBean) request.getSession().getAttribute("lifeBeneficaryInfo");
+		LifePaymentBean lifePayment = (LifePaymentBean) request.getSession().getAttribute("lifePayment");
 		
+		String language = (String) request.getSession().getAttribute("language");
+		final Map<String,String> header = headerUtil.getHeader(request);
+		net.sf.json.JSONObject parameters = new net.sf.json.JSONObject();
+		parameters.accumulate("planCode", "SAVIE-SP");
+		parameters = this.lifePersonalDetailsPutData(lifePersonalDetails, parameters);
+		parameters = this.lifeEmploymentInfoPutData(lifeEmploymentInfo, parameters);
+		parameters = this.lifeBeneficaryInfoPutData(lifeBeneficaryInfo, parameters);
+		parameters = this.lifePaymentPutData(lifePayment, parameters);
+		parameters = this.lifeDeclarationPutData(lifeDeclaration, parameters);
+		parameters.accumulate("resumeViewPage", language+"/savings-insurance/signature");
 		BaseResponse apiResponse = connector.createPolicyApplication(parameters, header);
 		if(apiResponse==null){
 			logger.info("api error");

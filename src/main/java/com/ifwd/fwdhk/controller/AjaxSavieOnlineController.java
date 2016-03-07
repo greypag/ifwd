@@ -403,12 +403,17 @@ public class AjaxSavieOnlineController extends BaseController{
 	
 	@RequestMapping(value = {"/ajax/savings-insurance/lifeDeclarationSaveforLater"})
 	public void lifeDeclarationSaveforLater(LifeDeclarationBean lifeDeclaration,HttpServletRequest request,HttpServletResponse response,HttpSession session) {
+		String language = (String) session.getAttribute("language");
 		JSONObject jsonObject = new JSONObject();
 		if(Methods.isXssAjax(request)){
 			return;
 		}
 		try {
+			lifeDeclaration.validate(language);
 			savieOnlineService.lifeDeclarationSaveforLater(lifeDeclaration, request);
+		}
+		catch (ValidateExceptions e) {
+			jsonObject.put("errorMsg", e.getList().toString());
 		}
 		catch (ECOMMAPIException e) {
 			jsonObject.put("errorMsg", e.getMessage());

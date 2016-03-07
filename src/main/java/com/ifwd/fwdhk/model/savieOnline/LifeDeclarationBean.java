@@ -16,7 +16,10 @@ public class LifeDeclarationBean implements Serializable {
 	private Boolean hasReadAndAcceptFATC;
 	private Boolean hasReadAndAcceptFATC2;
 	private Boolean hasReadAndAcceptPICS;
+	private Boolean haveReplaced;
+	private Boolean intentToReplaced;
 	private Boolean hasReadAndAcceptCancellation;
+	private Boolean intentToLiveOutside;
 	private Boolean hasReadAndAgreeApplication;
 	private Boolean chkboxDoNotSendMarketingInfo;
 	private Boolean chkboxDoNotProvidePersonalData;
@@ -88,6 +91,31 @@ public class LifeDeclarationBean implements Serializable {
 			Boolean chkboxDoNotProvidePersonalData) {
 		this.chkboxDoNotProvidePersonalData = chkboxDoNotProvidePersonalData;
 	}
+
+	public Boolean getHaveReplaced() {
+		return haveReplaced;
+	}
+
+	public void setHaveReplaced(Boolean haveReplaced) {
+		this.haveReplaced = haveReplaced;
+	}
+
+	public Boolean getIntentToReplaced() {
+		return intentToReplaced;
+	}
+
+	public void setIntentToReplaced(Boolean intentToReplaced) {
+		this.intentToReplaced = intentToReplaced;
+	}
+
+	public Boolean getIntentToLiveOutside() {
+		return intentToLiveOutside;
+	}
+
+	public void setIntentToLiveOutside(Boolean intentToLiveOutside) {
+		this.intentToLiveOutside = intentToLiveOutside;
+	}
+	
 
 	
 }
