@@ -308,8 +308,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				}
 			}
 			
-			String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"resources/pdf/"+"SavieProposalTemplateEngA.pdf";
-			String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"resources\\\\pdf\\\\";
+			String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+"SavieProposalTemplateEngA.pdf";
+			String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
 			logger.info("file path:"+pdfTemplatePath);
 			logger.info("data:"+attributeList);
 			String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
@@ -395,11 +395,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("authDate", format.format(new Date())));
 	    
 	    if("2".equals(type)){
-	    	attributeList.add(new PdfAttribute("authSign", request.getRealPath("/")+"resources\\pdf\\signature.png","imagepath"));
+	    	attributeList.add(new PdfAttribute("authSign", request.getRealPath("/")+"\\resources\\pdf\\signature.png","imagepath"));
 	    }
 			
-		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"resources/pdf/"+"SavieOnlineApplicationForm.pdf";
-		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"resources\\\\pdf\\\\";
+		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+"SavieOnlineApplicationForm.pdf";
+		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
 		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 		
 		request.getSession().setAttribute("applicationFormPdf", name);
@@ -803,10 +803,10 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		attributeList.add(new PdfAttribute("Date2", DateApi.formatString2(new Date())));
 		
 		if("2".equals(type)){
-			attributeList.add(new PdfAttribute("SignatureofApplicant", request.getRealPath("/")+"resources\\pdf\\signature.png","imagepath"));
+			attributeList.add(new PdfAttribute("SignatureofApplicant", request.getRealPath("/")+"\\resources\\pdf\\signature.png","imagepath"));
 		}
-		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"resources/pdf/"+"FinancialNeedsAndInvestorProfileAnalysisForm.pdf";
-		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"resources\\\\pdf\\\\";
+		String pdfTemplatePath = request.getRealPath("/").replace("\\", "/")+"/resources/pdf/"+"FinancialNeedsAndInvestorProfileAnalysisForm.pdf";
+		String pdfGeneratePath = request.getRealPath("/").replace("\\", "\\\\")+"\\\\resources\\\\pdf\\\\";
 		String name = PDFGeneration.generatePdf2(pdfTemplatePath,pdfGeneratePath,attributeList,false,"All rights reserved, copy");
 		
 		request.getSession().setAttribute("fnaPdfName", name);
