@@ -1743,7 +1743,6 @@
 	line-height: 1.2;
 }
 #hotel-description-modal .hotel-description-right-wrapper a.hotel-link{
-	color: #061d2a;
 	text-decoratiom: none;
 	border-bottom: none;
     display: block;
@@ -1760,8 +1759,11 @@
 }
 #hotel-description-modal #hotel-description-carosuel .hotel-description-carosuel-container{
 	overflow: hidden;
+	padding: 20px 20px 0;
+	
 }
-#hotel-description-modal .hotel-description-right-wrapper a.hotel-link:hover{
+#hotel-description-modal .hotel-description-right-wrapper a.hotel-link:hover span,
+#hotel-description-modal .hotel-description-right-wrapper a.hotel-link span{
 	color: #f68a1d;
 }
 #hotel-description-carosuel .hotel-carosuel-control a{
@@ -1793,7 +1795,6 @@
 }
 #hotel-description-modal .carousel .carousel-inner{
 	width: 100%;
-	/*padding: 20px 20px 0;*/
 }
 #hotel-description-modal .carousel{
 	margin-top: 0;
@@ -1883,6 +1884,18 @@ span#next-hotel-name{
         float: none;
         width: 100%;
     }
+    .hotel-voucher-carousel-title-wrapper .Carousel-title{
+        font-size: 34px;
+    }
+    .hotel-voucher-carousel-title-wrapper .Carousel-subtitle{
+        font-size: 17px;
+    } 
+    .sponsor-logo-wrapper{
+        margin: 20px 20px 0 20px;
+    }
+    .sponsor-logo-wrapper + .fwdiscover-container{
+        margin-top: 20px;
+    }        
     .hotel-partner-icon-wrapper img{
         margin: 20px auto;
     }
@@ -1897,11 +1910,19 @@ span#next-hotel-name{
 	.page-fwdiscover .plans-holder .fwdiscover-plan.hotel-voucher{
 	   background: #373a36;
 	}
-    #hotel-description-modal .hotel-description-left-wrapper{
+    #hotel-description-modal .hotel-description-left-wrapper,
+    #hotel-description-modal .hotel-description-right-wrapper{
         width: 100%;
         float: none;
         padding: 0;
-    }	     	
+    }
+    #hotel-description-modal .hotel-description-carosuel-container .hotel-name,
+    span#next-hotel-name,span#previous-hotel-name,
+    span#previous-hotel-date,span#next-hotel-date{
+        display: none;
+    }
+
+    	     	
 }		
 @media ( max-width : 1599px) {
 	#hotel-voucher-carousel .slick-next{
