@@ -84,7 +84,7 @@
                         <img src="<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" />
 						<h4>Address</h4>
 						<p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
-						<a class="address-link" href="#">View map</a>
+						<a class="address-link" href="http://maps.google.com/?q=Fontaine%20Building%2C%2018%20Mody%20Road%2C%20Tsim%20Sha%20Tsui" target="_blank">View map</a>
                      </div>
                      <div id="date" class="selectDiv preferred-date gray-text-bg">
                         <input type="text" class="date preferred-date" name="preferred-date" id="preferred-date" value="Date" readonly="">
@@ -100,7 +100,7 @@
                         <img src="<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" />
 						<h4>Address</h4>
 						<p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
-						<a class="address-link" href="#">View map</a>
+						<a class="address-link" href="http://maps.google.com/?q=Fontaine%20Building%2C%2018%20Mody%20Road%2C%20Tsim%20Sha%20Tsui" target="_blank">View map</a>
                      </div>
                   </div>
                   <div class="col-xs-12">
@@ -125,6 +125,8 @@
          $('#preferred-time').timepicker({
             appendTo: '.timeslot',
             timeFormat: 'H:i',
+            disableTextInput: true,
+            disableTouchKeyboard: true
          });
          $('#preferred-date').datepicker({
             format: "dd-mm-yyyy",
@@ -144,25 +146,31 @@
          var addr3 = "1/F, FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan";
          var addr4 = "Office E, 12/F, Legend Tower, No.7 Shing Yip Street, Kwun Tong";
          var addr5 = "Unit 1720 -21, Level 17, Tower II, Grand Central Plaza, Shatin";
+         var query1 = "Fontaine Building, 18 Mody Road, Tsim Sha Tsui";
+         var query2 = "Taikoo Place Devon House, 979 King’s Road, Quarry Bay";
+         var query3 = "FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan";
+         var query4 = "Legend Tower, No.7 Shing Yip Street, Kwun Tong";
+         var query5 = "Tower II, Grand Central Plaza, Shatin";
 
          var centre = $('#centre option:selected').val();
+         var gmap_query_url = "http://maps.google.com/?q=";
        
          $('#centre').on('change', function() {
             var centre = $('#centre option:selected').val();
             if(centre == 1) {
-               $('.centre-info').html('<img src="'+img1+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr1+'</p><a class="address-link" href="#">View map</a>');
+               $('.centre-info').html('<img src="'+img1+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr1+'</p><a class="address-link" href="' + gmap_query_url + encodeURIComponent(query1) + '" target="_blank">View map</a>');
             }
             if(centre == 2) {
-              $('.centre-info').html('<img src="'+img2+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr2+'</p><a class="address-link" href="#">View map</a>');
+               $('.centre-info').html('<img src="'+img2+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr2+'</p><a class="address-link" href="' + gmap_query_url + encodeURIComponent(query2) + '" target="_blank">View map</a>');
             }
             if(centre == 3) {
-              $('.centre-info').html('<img src="'+img3+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr3+'</p><a class="address-link" href="#">View map</a>');
+               $('.centre-info').html('<img src="'+img3+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr3+'</p><a class="address-link" href="' + gmap_query_url + encodeURIComponent(query3) + '" target="_blank">View map</a>');
             }
             if(centre == 4) {
-               $('.centre-info').html('<img src="'+img4+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr4+'</p><a class="address-link" href="#">View map</a>');
+               $('.centre-info').html('<img src="'+img4+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr4+'</p><a class="address-link" href="' + gmap_query_url + encodeURIComponent(query4) + '" target="_blank">View map</a>');
             }
             if(centre == 5) {
-              $('.centre-info').html('<img src="'+img5+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr5+'</p><a class="address-link" href="#">View map</a>');
+               $('.centre-info').html('<img src="'+img5+'" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">'+addr5+'</p><a class="address-link" href="' + gmap_query_url + encodeURIComponent(query5) + '" target="_blank">View map</a>');
             }
          });
          $('.selectDiv').find('span').remove();
