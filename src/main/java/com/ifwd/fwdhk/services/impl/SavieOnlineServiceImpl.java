@@ -201,6 +201,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	public void createSalesIllustrationPdf(HttpServletRequest request) throws Exception {
 		SaviePlanDetailsResponse planDetailData = (SaviePlanDetailsResponse) request.getSession().getAttribute("planDetailData");
+		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(planDetailData != null && !planDetailData.hasError()){
 			String totalPremium = NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(0).getTotalPremium());
 			int totalYear = 100-Integer.valueOf(planDetailData.getIssueAge());
@@ -208,8 +209,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 			attributeList.add(new PdfAttribute("dateTime",format.format(new Date())));
 			attributeList.add(new PdfAttribute("applicationNo", "自助息理財壽險計劃"));
-			attributeList.add(new PdfAttribute("paymentMethod", "payonline"));
-			attributeList.add(new PdfAttribute("chineseName", "张三"));
+			attributeList.add(new PdfAttribute("paymentMethod", "HKD"));
+			attributeList.add(new PdfAttribute("chineseName", userDetails.getFullName()));
 			attributeList.add(new PdfAttribute("Premium",totalPremium));
 			attributeList.add(new PdfAttribute("age", planDetailData.getIssueAge()));
 			attributeList.add(new PdfAttribute("singlePremiumAmount", totalPremium));

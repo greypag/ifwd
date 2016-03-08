@@ -222,8 +222,8 @@ public class AjaxSavieOnlineController extends BaseController{
 		}
 		try {
 			UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
-			savieFna.setName(userDetails.getUserName());
-			savieFna.setUser_name(userDetails.getUserName());
+			savieFna.setName(userDetails.getFullName());
+			savieFna.setUser_name(userDetails.getFullName());
 			jsonObject = savieOnlineService.saveProductFna(savieFna, request);
 			session.setAttribute("savieFna", savieFna);
 		} 
