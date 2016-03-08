@@ -1706,6 +1706,21 @@
 #hotel-description-modal .modal-dialog{
 	width: auto;
 }
+@media (min-width: 768px){
+    #hotel-description-modal .modal-dialog{
+        width: 750px;
+    }   
+}
+@media (min-width: 992px){
+    #hotel-description-modal .modal-dialog{
+        width: 970px;
+    }	
+}
+@media (min-width: 1200px){
+    #hotel-description-modal .modal-dialog{
+        width: 1170px;
+    }
+}	
 #hotel-description-modal .modal-content{
 	padding: 0;
 	border: 5px solid #f68a1d;
@@ -1727,14 +1742,17 @@
     position: relative;
 }
 #hotel-description-modal .hotel-link,#hotel-description-modal .hotel-description{
-	font-size: 22px;
+	font-size: 16px;
 	text-decoration: none;
+}
+#hotel-description-modal .hotel-description{
+	line-height: 1.3;
 }
 #hotel-description-modal .hotel-icon{
 	margin: 0 auto 20px auto;
 }
 #hotel-description-modal .hotel-description-carosuel-container .hotel-name{
-	font-size: 24px;
+	font-size: 20px;
 	margin: 15px 10% 0 10%;
 	text-align: center;
 }
@@ -1783,7 +1801,7 @@
 	float:right;	
 }
 #hotel-description-modal .hotel-refer-wrapper .hotel-refer{
-	font-size: 18px;
+	font-size: 16px;
 	float: left;
 }
 #hotel-description-modal .hotel-refer-wrapper .btn{
@@ -1881,7 +1899,7 @@ span#next-hotel-name{
     background-color: transparent;
     border: 0;
     color: #f68a1d;
-    font-size: 18px;
+    font-size: 30px;
     float: right;
     display:none;	
 }
@@ -1926,6 +1944,9 @@ span#next-hotel-name{
         float: none;
         padding: 0;
     }
+    #hotel-description-modal .hotel-description-right-wrapper{
+        padding: 0 20px 20px 20px;
+    }
     #hotel-description-modal .hotel-description-carosuel-container .hotel-name,
     span#next-hotel-name,span#previous-hotel-name,
     span#previous-hotel-date,span#next-hotel-date{
@@ -1933,10 +1954,12 @@ span#next-hotel-name{
     }
     #hotel-description-modal button.top-close{
         display: block;
+        line-height: 1;
+        padding: 0 10px 0 0;
     }
     #hotel-description-carosuel .hotel-refer-wrapper{
         text-align: center;
-        margin: 20px auto 0;
+        margin: 0 auto 20px;
         position: relative;
         width: 100%;
         float: none;
@@ -1946,6 +1969,16 @@ span#next-hotel-name{
     }
     #hotel-description-modal .hotel-refer-wrapper .btn{
         display: none;
+    }
+    #hotel-description-modal #hotel-description-carosuel .hotel-description-carosuel-container{
+        padding: 0;
+    }
+    #hotel-description-modal .hotel-description-right-wrapper a.hotel-link,
+    #hotel-description-modal .hotel-description{
+        font-size: 16px;
+    }
+    #hotel-description-modal .hotel-refer-wrapper .hotel-refer {
+        font-size: 13px;
     }	     	
 }		
 @media ( max-width : 1599px) {

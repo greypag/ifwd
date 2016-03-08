@@ -1205,13 +1205,13 @@
                 </div>
                 
 				<!-- Modal -->
-				<div id="hotel-description-modal" class="modal fade" role="dialog" aria-hidden="true" data-backdrop="false">
+				<div id="hotel-description-modal" class="modal fade" role="dialog" aria-hidden="true">
 				    <div class="modal-dialog">
 				
 					    <!-- Modal content-->
 					    <div class="modal-content container">
 					        <div class="modal-body">
-					            <div id="hotel-description-carosuel" class="carousel slide" data-ride="carousel">
+					            <div id="hotel-description-carosuel" class="carousel slide" data-ride="carousel" data-interval="false">
 								  <!-- Left and right controls -->
 								  <div class="hotel-carosuel-control">							      
 									  <div class="left-control">
@@ -1433,9 +1433,9 @@
             $('body').css("display","block");
         });
         $(document).ready(function() {
-        	$('#hotel-description-carosuel').carousel({
-       		  interval: false
-       		});
+        	$('#hotel-description-modal').on('hide.bs.modal', function () {
+        		$('.modal-backdrop').remove();
+        	}) 
         	$('#hotel-description-carosuel').on('slide.bs.carousel', function () {
         		  // This variable contains all kinds of data and methods related to the carousel
         		  var carouselData = $(this).data('bs.carousel');
