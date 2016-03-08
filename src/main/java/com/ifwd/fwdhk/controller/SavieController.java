@@ -111,6 +111,8 @@ public class SavieController extends BaseController{
 		} else {
 			httpSession.setAttribute("savieType", "SP");
 			key = "sp";
+			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
+					+ "/savings-insurance/single-premium");
 		}
 		
 		String twitterCard = WebServiceUtils.getPageTitle("twitter.savie." + key + ".card",
@@ -163,28 +165,8 @@ public class SavieController extends BaseController{
 			model.addAttribute("defaultDOB", format.format(defaultDOB.getTime()));
 			model.addAttribute("nextPageFlow2", "customer-service-centre");
 			
-			if("sp".equals(key)) {
-				model.addAttribute("pageTitle", null);
-				model.addAttribute("pageMetaDataDescription", null);
-				model.addAttribute("ogTitle", null);
-				model.addAttribute("ogType", null);
-				model.addAttribute("ogUrl", null);
-				model.addAttribute("ogImage", null);
-				model.addAttribute("ogDescription", null);
-				model.addAttribute("twitterCard", null);
-				model.addAttribute("twitterImage", null);
-				model.addAttribute("twitterSite", null);
-				model.addAttribute("twitterUrl", null);
-				model.addAttribute("canonical", null);
-				model.addAttribute("thankyou", null);
-				model.addAttribute("startDOB", null);
-				model.addAttribute("defaultDOB", null);
-				model.addAttribute("nextPageFlow2", null);
-				return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
-						+ "/savings-insurance/single-premium");
-			}else {
-				return new ModelAndView("/merged/savie/plan-details");
-			}
+			return new ModelAndView("/merged/savie/plan-details");
+			
 			//return SaviePageFlowControl.pageFlow(model,request, UserRestURIConstants.PAGE_PROPERTIES_SAVIE_PLAN_DETAILS);
 		}else {
 			return new ModelAndView("redirect:/" + UserRestURIConstants.getLanaguage(request)
