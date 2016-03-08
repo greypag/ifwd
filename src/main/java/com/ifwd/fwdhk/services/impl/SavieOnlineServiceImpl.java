@@ -88,7 +88,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails, 
 			HttpServletRequest request, HttpSession session) throws ECOMMAPIException{
 		
-		int issueAge = DateApi.getAge(DateApi.formatDate1(saviePlanDetails.getDob())) + 1;
+		int issueAge = DateApi.getAge(DateApi.formatDate(saviePlanDetails.getDob())) + 1;
 		int paymentTerm = 0;
 		if("SP".equals(saviePlanDetails.getPaymentType())) {
 			session.setAttribute("savieType", "SP");
@@ -857,7 +857,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 //		jsonObject.put("user_name", savieFna.getUser_name());
 		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
-		jsonObject.put("dob", savieFna.getDob());
+		String[] dob = savieFna.getDob().split("-");
+		jsonObject.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 		jsonObject.put("marital_status", savieFna.getMarital_status());
 		jsonObject.put("dependents", savieFna.getDependents());
 		jsonObject.put("education", savieFna.getEducation());
@@ -908,7 +909,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
-		jsonObject.put("dob", savieFna.getDob());
+		String[] dob = savieFna.getDob().split("-");
+		jsonObject.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 		jsonObject.put("marital_status", savieFna.getMarital_status());
 		jsonObject.put("dependents", savieFna.getDependents());
 		jsonObject.put("education", savieFna.getEducation());
@@ -1004,7 +1006,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				savieFna.setName(userDetails.getFullName());
 				savieFna.setUser_name(userDetails.getFullName());
 				savieFna.setGender(jobject.get("gender").toString());
-				savieFna.setDob(jobject.get("dob").toString());
+				String[] dob = jobject.get("dob").toString().split("-");
+				savieFna.setDob(dob[2]+"-"+dob[1]+"-"+dob[0]);
 				savieFna.setMarital_status(jobject.get("marital_status").toString());
 				savieFna.setDependents(jobject.get("dependents").toString());
 				savieFna.setEducation(jobject.get("education").toString());
@@ -1034,6 +1037,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				request.getSession().setAttribute("savieFna", savieFna);
 				
 				jobject.put("name", userDetails.getFullName());
+				jobject.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 				jobject.put("q4_a_others", jobject.get("q4_a_others")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_a_others").toString()):"");
 				jobject.put("q4_b_amount", jobject.get("q4_b_amount")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_b_amount").toString()):"");
 				jobject.put("q4_c", jobject.get("q4_c")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_c").toString()):"");

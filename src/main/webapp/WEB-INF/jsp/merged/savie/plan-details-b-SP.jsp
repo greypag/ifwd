@@ -639,7 +639,7 @@ var languageP = "${language}";
 		
 		if('2'!='${type }'){
 			$('#plan-dob-datepicker').datepicker({
-				format: "yyyy-mm-dd",
+				format: "dd-mm-yyyy",
 				startView: "decade",
 				startDate: dob_start_date,
 				endDate: dob_end_date,
