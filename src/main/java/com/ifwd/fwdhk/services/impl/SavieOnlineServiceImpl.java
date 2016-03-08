@@ -39,6 +39,8 @@ import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
 import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.connector.response.savieonline.PolicyApplication;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
@@ -61,6 +63,7 @@ import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.ImgUtil;
+import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
 import com.ifwd.fwdhk.util.StringHelper;
@@ -1890,5 +1893,121 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			request.getSession().setAttribute("accessCode", responseJsonObj.get("accessCode"));
 		}
 		return responseJsonObj;
+	}
+	
+	/**
+	 * 获取服务中心页面的数据
+	 * @param model request session
+	 * @return
+	 */
+	public void getCustomerServiceCentre(Model model, HttpServletRequest request, HttpSession session) {
+		String lang = UserRestURIConstants.getLanaguage(request);
+		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all";
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		Map<String,String> header = new HashMap<String, String>(COMMON_HEADERS);
+		if(session.getAttribute("authenticate") !=null && session.getAttribute("authenticate").equals("true")){
+			HeaderUtil hu = new HeaderUtil();
+			header = hu.getHeader(request);
+		}
+		else{
+			header.put("userName", "*DIRECTGI");
+			header.put("token", commonUtils.getToken("reload"));
+		}
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		JSONArray serviceCentresArr = (JSONArray) responseJsonObj.get("serviceCentres");
+		JSONObject serviceCentreObj = new JSONObject();
+		ServiceCentreResponse serviceCentreResponse;
+		if (lang.equals("CN")) {
+			serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
+		}else {
+			serviceCentreResponse =InitApplicationMessage.serviceCentreEN;
+		}
+		List<ServiceCentreResult> serviceCentreResultList = serviceCentreResponse.getServiceCentres();
+		
+		Map<String, ServiceCentreResult> entityMap = new HashMap<String, ServiceCentreResult>();
+		Map<String, List<String>> datesMap = new HashMap<String, List<String>>();
+		JSONArray datesArray;
+		JSONObject datesObj;
+		List<String> datesList;
+		List<String> calendarList;
+		long beforeDay = 86400000;
+		
+		if(serviceCentresArr!=null && serviceCentresArr.size()>0){
+			serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
+			calendarList = DateApi.timeslot(2, 24);
+			
+			datesList = new ArrayList<String>();
+			for(ServiceCentreResult entity :serviceCentreResultList) {
+				if(entity.getServiceCentreCode().equals(serviceCentreObj.get("serviceCentreCode"))) {
+					entityMap.put(entity.getServiceCentreCode(), entity);
+					
+					datesArray = (JSONArray) serviceCentreObj.get("dates");
+					for(int j = 0; j< datesArray.size(); j++) {
+						datesObj = (JSONObject)datesArray.get(j);
+						datesList.add(DateApi.formatTime((long)datesObj.get("date") - beforeDay));
+					}
+					calendarList.removeAll(datesList);
+					datesMap.put(entity.getServiceCentreCode(), calendarList);
+					break;
+				}
+			}
+		}
+		
+		if(serviceCentresArr!=null && serviceCentresArr.size()>1){
+			for(int i=1;i<serviceCentresArr.size();i++){
+				JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
+				JSONObject dateObj = (JSONObject) datesArr.get(0);
+				long date = (long) dateObj.get("date");
+				
+				JSONObject serviceCentreObjB = (JSONObject) serviceCentresArr.get(i);
+				JSONArray datesArrB = (JSONArray) serviceCentreObjB.get("dates");
+				JSONObject dateObjB = (JSONObject) datesArrB.get(0);
+				long dateB = (long) dateObjB.get("date");
+				if(date>dateB){
+					serviceCentreObj = serviceCentreObjB;
+				}
+				
+				calendarList = DateApi.timeslot(2, 24);
+				datesList = new ArrayList<String>();
+				for(ServiceCentreResult entity : serviceCentreResultList) {
+					if(entity.getServiceCentreCode().equals(serviceCentreObjB.get("serviceCentreCode"))) {
+						entityMap.put(entity.getServiceCentreCode(), entity);
+						
+						datesArray = (JSONArray) serviceCentreObjB.get("dates");
+						for(int j = 0; j< datesArray.size(); j++) {
+							datesObj = (JSONObject)datesArray.get(j);
+							datesList.add(DateApi.formatTime((Long)datesObj.get("date") - beforeDay));
+						}
+						calendarList.removeAll(datesList);
+						datesMap.put(entity.getServiceCentreCode(), calendarList);
+						break;
+					}
+				}
+			}
+		}
+		List<ServiceCentreResult> results = new ArrayList<ServiceCentreResult>();
+		for(ServiceCentreResult result : entityMap.values()) {
+			results.add(result);
+		}
+		logger.info("entityMap: " + entityMap);
+		logger.info("datesMap: " + datesMap);
+		serviceCentreResponse.setServiceCentres(results);
+		model.addAttribute("serviceCentre", serviceCentreResponse);
+		model.addAttribute("datesMap", datesMap);
+		model.addAttribute("results", results);
+		if(serviceCentreObj != null){
+			session.setAttribute("csCenter", serviceCentreObj.get("serviceCentreCode"));
+			JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
+			if(datesArr != null) {
+				org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
+				Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
+				SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
+				logger.info(formatter.format(date));
+				session.setAttribute("perferredDate", formatter.format(date));
+			}
+		}
 	}
 }

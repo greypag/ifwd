@@ -189,10 +189,11 @@ public class SavieOnlinePageFlowControl {
 		case UserRestURIConstants.PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION: 
 			to = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_LANDING;
+			filePath = "savie/";
 			break;
 			
 		case UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER: 
-			to = UserRestURIConstants.PAGE_SAVIEONLINE_UPLOAD_CONFIRMATION;
+			to = UserRestURIConstants.PAGE_SAVIEONLINE_APPOINTMENT_CONFIRMATION;
 			to2 = UserRestURIConstants.PAGE_SAVIEONLINE_SERVICE_CENTER;
 			filePath = "savie/";
 			break;
