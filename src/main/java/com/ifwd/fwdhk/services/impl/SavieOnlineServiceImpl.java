@@ -330,6 +330,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
 		
 	    List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
+	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
 	    
 	    attributeList.add(new PdfAttribute("applicationNo", "applicationNo"));
 	    attributeList.add(new PdfAttribute("applicationEnglishName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
@@ -350,6 +352,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("applicationCorrAddress", lifePersonalDetails.getCorrespondenceAddress1()+","+lifePersonalDetails.getCorrespondenceAddress2()+","+lifePersonalDetails.getCorrespondenceAddress3()));
 	    attributeList.add(new PdfAttribute("applicationCorrDistrict", lifePersonalDetails.getCorrespondenceAddressDistrict()));
 	    
+	    attributeList.add(new PdfAttribute("EducationlevelKey", "educationLevel"));
 	    attributeList.add(new PdfAttribute("educationLevel", lifeEmploymentInfo.getEducation()));
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "applicationEmploymentStatusKey"));
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatus()));
@@ -362,11 +365,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("personalIncomeKey", "personalIncomeKey"));
 	    attributeList.add(new PdfAttribute("personalIncome", lifeEmploymentInfo.getMonthlyPersonalIncome()));
 	    
-	    attributeList.add(new PdfAttribute("sumInsured", "sumInsured"));
+	    /*attributeList.add(new PdfAttribute("sumInsured", "sumInsured"));
 	    attributeList.add(new PdfAttribute("firstYearPremium", "firstYearPremium"));
 	    attributeList.add(new PdfAttribute("perMonOnethHKD", "perMonOnethHKD"));
 	    attributeList.add(new PdfAttribute("subsequantPremium", "subsequantPremium"));
-	    attributeList.add(new PdfAttribute("perMonthTwoHKD", "perMonthTwoHKD"));
+	    attributeList.add(new PdfAttribute("perMonthTwoHKD", "perMonthTwoHKD"));*/
+	    attributeList.add(new PdfAttribute("SinglePremium", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
 	    
 	    attributeList.add(new PdfAttribute("beneficiaryEnglishName1", lifeBeneficaryInfo.getBeneficaryFirstName1()+" "+lifeBeneficaryInfo.getBeneficaryLastName1()));
 	    attributeList.add(new PdfAttribute("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()));
@@ -387,11 +391,56 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("relationship3", lifeBeneficaryInfo.getBeneficaryRelation3()));
 	    attributeList.add(new PdfAttribute("entitlement3", lifeBeneficaryInfo.getBeneficaryWeight3()));
 	    
-	    attributeList.add(new PdfAttribute("creditCardValue", lifePayment.getAccountNumber()));
+	    /*attributeList.add(new PdfAttribute("creditCardValue", lifePayment.getAccountNumber()));
 	    attributeList.add(new PdfAttribute("cardExpireDate", "cardExpireDate"));
-	    attributeList.add(new PdfAttribute("creditCardAuthEnglish", lifePayment.getAccountHolderName()));
+	    attributeList.add(new PdfAttribute("creditCardAuthEnglish", lifePayment.getAccountHolderName()));*/
 	    
-	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+	    attributeList.add(new PdfAttribute("Bank/BranchName", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    
+	    attributeList.add(new PdfAttribute("Oneoffpamentamount", "Yes"));
+	    
+	    String bankCode = lifePayment.getBankCode().split("-")[0];
+	    /*for(int i=bankCode.length()-1;i>=3;i--){
+	    	String c = bankCode.charAt(i)+"";
+	    	attributeList.add(new PdfAttribute("BankNo."+(bankCode.length()-i+1), c));
+	    }*/
+	    attributeList.add(new PdfAttribute("BankNo.1", bankCode.charAt(bankCode.length()-1)+""));
+	    attributeList.add(new PdfAttribute("BankNo.2", bankCode.charAt(bankCode.length()-2)+""));
+	    attributeList.add(new PdfAttribute("BankNo.3", bankCode.charAt(bankCode.length()-3)+""));
+	    
+	    String branchCode = lifePayment.getBranchCode();
+	    /*for(int i=branchCode.length()-1;i>=branchCode.length()-3;i++){
+	    	String c = branchCode.charAt(i)+"";
+	    	attributeList.add(new PdfAttribute("BranchNo."+(i+1), c));
+	    }*/
+	    attributeList.add(new PdfAttribute("BranchNo.1", branchCode.charAt(branchCode.length()-1)+""));
+	    attributeList.add(new PdfAttribute("BranchNo.2", branchCode.charAt(branchCode.length()-2)+""));
+	    attributeList.add(new PdfAttribute("BranchNo.3", branchCode.charAt(branchCode.length()-3)+""));
+	    
+	    String accountNumber = lifePayment.getAccountNumber();
+	    for(int i=0;i<accountNumber.length();i++){
+	    	String c = accountNumber.charAt(i)+"";
+	    	attributeList.add(new PdfAttribute("AccountNo."+(i+1), c));
+	    }
+	    /*attributeList.add(new PdfAttribute("AccountNo.1", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.2", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.3", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.4", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.5", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.6", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.7", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.8", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.9", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));*/
+	    
+	    attributeList.add(new PdfAttribute("LimitForEachPayment", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
+	    attributeList.add(new PdfAttribute("ExpiryDate", format.format(new Date())));
+	    attributeList.add(new PdfAttribute("NameofAccountHolder", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
+	    attributeList.add(new PdfAttribute("HKIDNo", lifePersonalDetails.getHkid()));
+	    
+	    attributeList.add(new PdfAttribute("DirectMarketingInfo", "Yes"));
+	    attributeList.add(new PdfAttribute("ThirdParty", "Yes"));
+	    attributeList.add(new PdfAttribute("ForeignAccountTaxComplianceAct", "On"));
+	    attributeList.add(new PdfAttribute("applicationNote", "On"));
 	    attributeList.add(new PdfAttribute("authDate", format.format(new Date())));
 	    
 	    if("2".equals(type)){
