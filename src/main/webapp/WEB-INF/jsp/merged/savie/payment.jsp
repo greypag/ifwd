@@ -510,8 +510,6 @@ var language = "${language}";
 			$('#application-saved-modal').modal('show');
 		});
 		
-		//paymentFormValidation();
-		
 		$("input[type='radio']").on('click', function() {
 			if($('#payment-debit:checked').length > 0 ) {
 				$('#pay-later-page').addClass('hidden');
@@ -550,232 +548,151 @@ var language = "${language}";
 			}
 		});
 						
-		/** temporary code **/
-		 $('.so-mdl-textfield-input').focus(function () {
-			   $(this).parent('.so-mdl-textfield').removeClass('is-not-active');
-			   $(this).parent('.so-mdl-textfield').addClass('is-active');
-	   }).on('blur', function () {
-			   $(this).parent('.so-mdl-textfield').addClass('is-not-active');
-			   $(this).parent('.so-mdl-textfield').removeClass('is-active');
-			   if($(this).val() == '') {
-				   $(this).parent('.so-mdl-textfield').removeClass('is-not-active');
-			   }
-	   });
-	   /*****************/
-	   
+		
+				
+		// set fields whether editable or not
+		setInputReadonly('paymentAmount', true);
+		setInputReadonly('paymentMethod', true);
+		setInputReadonly('accountHolderName', true);
+		// -------				
+		
+		paymentFormValidation();
+				
 	   $('#preferredDate').on('changeDate show', function(e) {
 			$(this).parent('.selectDiv').parent('.so-mdl-textfield').addClass('is-not-active');
 			 if($(this).val() == '') {
 			   $(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
 			}
 			
-			$(document).ready(function() {
-				
-				var dummy = true;
-				// dummy condition for displaying the back / next button
-				if(dummy) {
-					// hide the back button and display the Next button
-					$('#btn-next, .save-link').removeClass('hidden');
-					$('#btn-back').addClass('hidden');
-				} else {
-					// display the back button and hide the Next button
-					$('#btn-next, .save-link').addClass('hidden');
-					$('#btn-back').removeClass('hidden');
-				}
-				
-				// application saved modal will show after clicking 'Save and exit' button 
-				$('.save-exit-btn2, #save-exit-btn').click(function() {
-					$(this).closest('.modal').modal('hide');
-					$('#application-saved-modal').modal('show');
-				});
-				
-				// set fields whether editable or not
-				setInputReadonly('paymentAmount', true);
-				setInputReadonly('paymentMethod', true);
-				setInputReadonly('accountHolderName', true);
-				// -------				
-				
-				paymentFormValidation();
-				
-				$("input[type='radio']").on('click', function() {
-					if($('#payment-debit:checked').length > 0 ) {
-						$('#pay-later-page').addClass('hidden');
-						$('#direct-debit-panel').removeClass('hidden');
-						$('.save-link').removeClass('hidden');
-					} else {
-						$('#direct-debit-panel').addClass('hidden');
-						$('.save-link').addClass('hidden');
-						$('#pay-later-page').removeClass('hidden');
-					}
-				});
-				
-				$('span.icon-chevron-thin-down.orange-caret').on('click', function() {
-					var selectId = $(this).attr('data-selectId');
-					open($('#' + selectId));
-				});
-				
-				$('#payment-save-and-con').on('click', function (e) {
-                    if($('#paymentForm').data('bootstrapValidator').isValid()) {
-						$('#save-and-continue-batch5-modal').modal('show');
-                    } else {
-						$('#save-and-continue-modal').modal('show');
-                    }
-                });
-				
-				$('.form-control.gray-dropdown').focus(function() {
-					$(this).parent('.selectDiv').siblings('.bank-info-select-label').attr('style', 'color: #ff8200;');
-					$(this).parent('.selectDiv').parent('.so-mdl-textfield').addClass('is-focused');
-					$(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
-				}).on('blur', function () {
-					$(this).parent('.selectDiv').siblings('.bank-info-select-label').removeAttr('style');
-					$(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-focused');
-					$(this).parent('.selectDiv').parent('.so-mdl-textfield').addClass('is-not-active');
-					 if($(this).val() == '') {
-					   $(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
-					}
-				});
-			   
-			   $('#preferredDate').on('changeDate show', function(e) {
-					$(this).parent('.selectDiv').parent('.so-mdl-textfield').addClass('is-not-active');
-					 if($(this).val() == '') {
-					   $(this).parent('.selectDiv').parent('.so-mdl-textfield').removeClass('is-not-active');
-					}
-					
-					$('#paymentForm')
-						.data('bootstrapValidator')
-						.updateStatus('preferredDate', 'NOT_VALIDATED', null)
-						.validateField('preferredDate');
-			   });
-			   
-			   $('#preferred-time').on('change', function() {
-				   $('#paymentForm')
-						.data('bootstrapValidator')
-						.updateStatus('preferred-time', 'NOT_VALIDATED', null)
-						.validateField('preferred-time');
-			   });
-			   
-			   $('.policy-text').on('click', function() {
-				   $('#payment_confirm_authorize').click();
-			   });
-			});
+			$('#paymentForm')
+				.data('bootstrapValidator')
+				.updateStatus('preferredDate', 'NOT_VALIDATED', null)
+				.validateField('preferredDate');
+	   });
+	   
+	   $('#preferred-time').on('change', function() {
+		   $('#paymentForm')
+				.data('bootstrapValidator')
+				.updateStatus('preferred-time', 'NOT_VALIDATED', null)
+				.validateField('preferred-time');
+	   });
+	   
+	   $('.policy-text').on('click', function() {
+		   $('#payment_confirm_authorize').click();
+	   });
+	   
+		// only numbers can be inputted
+	   $('#bankAccountNo').keyup(function() {
+		   var val = $(this).val();
+		   var newVal = val.replace(/[^0123456789]/g, '');
+		   if(val != newVal) {
+			   $(this).val(newVal);
+		   }
+	   });
+	});
 			
-			// Payment form validation
-			function paymentFormValidation() {
-				$('#paymentForm').bootstrapValidator({
-					//excluded: [':disabled', ':hidden', ':not(:visible)'],
-					excluded: [':disabled', '.readonly-field'],
-					fields: {
-						paymentAmount: {
-							container: '#paymentAmountErMsg',
-							selector: '#paymentAmount',
-							validators: {
-							  notEmpty: {
-								 message: "Please enter amount."
-							  },
-							  regexp: {
-								  regexp: /^[1-9]\d*(\.\d+)?$/,
-								  message: "Amount is invalid."
-							  }
-							}
-						},
-						paymentMethod: {
-							container: '#paymentMethodErMsg',
-							selector: '#paymentMethod',
-							validators: {
-							  notEmpty: {
-								 message: "Please enter payment method."
-							  }
-							}
-						},
-						accountHolderName: {
-							container: '#accountHolderNameErMsg',
-							selector: '#accountHolderName',
-							validators: {
-							  notEmpty: {
-								 message: "Please enter bank account holder name."
-							  }
-							}
-						},
-						tmpBankCode: {
-							container: '#bankCodeErMsg',
-							selector: '#tmpBankCode',
-							validators: {
-							  notEmpty: {
-								 message: "Please select bank code."
-							  }
-							}
-						},
-						bankAccountNo: {
-						   container: '#bankAccountNoErMsg',
-						   selector: '#bankAccountNo',
-						   validators: {
-							  notEmpty: {
-								 message: "Please enter account number."
-							  },
-							   regexp: {
-								  regexp: /^[0-9]*$/,
-								  message: "Bank account number is invalid."
-							   }
-						   }
-						},
-						tmpBranchName: {
-							container: '#branchNameErMsg',
-							selector: '#tmpBranchName',
-							validators: {
-							  notEmpty: {
-								 message: "Please select branch name."
-							  }
-							}
-						},
-						tmpCustomerServiceCentre: {
-						   container: '#customerServiceCentreErMsg',
-						   selector: '#tmpCustomerServiceCentre',
-						   validators: {
-							  notEmpty: {
-								 message: "Please select customer service centre."
-							  }
-						   }
-						},
-						"preferredDate": {
-						   container: '#preferredDateErMsg',
-						   selector: '#preferredDate',
-						   validators: {
-							  notEmpty: {
-								 message: "Please specify a date."
-							  }
-						   }
-						},
-						"preferred-time": {
-						   container: '#preferredTimeErMsg',
-						   selector: '#preferred-time',
-						   validators: {
-							  notEmpty: {
-								 message: "Please specify a time."
-							  }
-						   }
-						}
+	// Payment form validation
+	function paymentFormValidation() {
+		$('#paymentForm').bootstrapValidator({
+			//excluded: [':disabled', ':hidden', ':not(:visible)'],
+			excluded: [':disabled', '.readonly-field'],
+			fields: {
+				paymentAmount: {
+					container: '#paymentAmountErMsg',
+					selector: '#paymentAmount',
+					validators: {
+					  notEmpty: {
+						 message: "Please enter amount."
+					  },
+					  regexp: {
+						  regexp: /^[1-9]\d*(\.\d+)?$/,
+						  message: "Amount is invalid."
+					  }
 					}
-				}).on('success.form.bv', function(e) {
-						e.preventDefault();
-				}).on('error.form.bv', function(e) {
-				});
-			}
-			
-			function open(elem) {
-				if (document.createEvent) {
-					var e = document.createEvent("MouseEvents");
-					e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-					elem[0].dispatchEvent(e);
-				} else if (element.fireEvent) {
-					elem[0].fireEvent("onmousedown");
+				},
+				paymentMethod: {
+					container: '#paymentMethodErMsg',
+					selector: '#paymentMethod',
+					validators: {
+					  notEmpty: {
+						 message: "Please enter payment method."
+					  }
+					}
+				},
+				accountHolderName: {
+					container: '#accountHolderNameErMsg',
+					selector: '#accountHolderName',
+					validators: {
+					  notEmpty: {
+						 message: "Please enter bank account holder name."
+					  }
+					}
+				},
+				tmpBankCode: {
+					container: '#bankCodeErMsg',
+					selector: '#tmpBankCode',
+					validators: {
+					  notEmpty: {
+						 message: "Please select bank code."
+					  }
+					}
+				},
+				bankAccountNo: {
+				   container: '#bankAccountNoErMsg',
+				   selector: '#bankAccountNo',
+				   validators: {
+					  notEmpty: {
+						 message: "Please enter account number."
+					  },
+					   regexp: {
+						  regexp: /^[0-9]*$/,
+						  message: "Bank account number is invalid."
+					   }
+				   }
+				},
+				tmpBranchName: {
+					container: '#branchNameErMsg',
+					selector: '#tmpBranchName',
+					validators: {
+					  notEmpty: {
+						 message: "Please select branch name."
+					  }
+					}
+				},
+				tmpCustomerServiceCentre: {
+				   container: '#customerServiceCentreErMsg',
+				   selector: '#tmpCustomerServiceCentre',
+				   validators: {
+					  notEmpty: {
+						 message: "Please select customer service centre."
+					  }
+				   }
+				},
+				"preferredDate": {
+				   container: '#preferredDateErMsg',
+				   selector: '#preferredDate',
+				   validators: {
+					  notEmpty: {
+						 message: "Please specify a date."
+					  }
+				   }
+				},
+				"preferred-time": {
+				   container: '#preferredTimeErMsg',
+				   selector: '#preferred-time',
+				   validators: {
+					  notEmpty: {
+						 message: "Please specify a time."
+					  }
+				   }
 				}
 			}
 		}).on('success.form.bv', function(e) {
 				e.preventDefault();
 		}).on('error.form.bv', function(e) {
 		});
-	});
-	
+	}
+			
 	function open(elem) {
 		if (document.createEvent) {
 			var e = document.createEvent("MouseEvents");
