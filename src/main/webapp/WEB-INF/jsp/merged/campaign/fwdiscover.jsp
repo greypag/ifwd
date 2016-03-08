@@ -1204,7 +1204,7 @@
                     </div>
                 </div>
                 
-				<!-- Modal -->
+				<!-- Hotel Description Modal -->
 				<div id="hotel-description-modal" class="modal fade" role="dialog" aria-hidden="true">
 				    <div class="modal-dialog">
 				
@@ -1241,8 +1241,8 @@
 				                          <div class="hotel-description-carosuel-container item active">
 				                                <div class="hotel-description-left-wrapper">				                                
 	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/goldensands-penang-icon.png" class="hotel-icon img-responsive"></div>		                                
-				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
+				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-oneworld-mobile.png" class="img-responsive hidden-lg hidden-md">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-golden-desktop.png" class="img-responsive hidden-xs hidden-sm">
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar11.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
@@ -1267,8 +1267,8 @@
 				                          <div class="hotel-description-carosuel-container item">
 				                                <div class="hotel-description-left-wrapper">
 	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/shangri-la-rasa-penang-icon.png" class="hotel-icon img-responsive"></div>		                                
-				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
+				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-rasa-mobile.png" class="img-responsive hidden-lg hidden-md">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar12.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper item">
@@ -1293,8 +1293,8 @@
 				                          <div class="hotel-description-carosuel-container item">
 				                                <div class="hotel-description-left-wrapper">
 	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/vivatel-icon.png" class="hotel-icon vivatel-icon img-responsive"></div>		                                
-				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
+				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-vivatel-mobile.png" class="img-responsive hidden-lg hidden-md">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-vivatel-desktop.png" class="img-responsive hidden-xs hidden-sm">
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar13.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
@@ -1319,8 +1319,8 @@
 				                          <div class="hotel-description-carosuel-container item">
 				                                <div class="hotel-description-left-wrapper">
 	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/one-world-icon.png" class="hotel-icon img-responsive"></div>		                                
-				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
+				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-oneworld-mobile.png" class="img-responsive hidden-lg hidden-md">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-oneworld-desktop.png" class="img-responsive hidden-xs hidden-sm">
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar14.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
@@ -1345,8 +1345,8 @@
 				                          <div class="hotel-description-carosuel-container item">
 				                                <div class="hotel-description-left-wrapper">
 	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/traders-icon.png" class="hotel-icon img-responsive"></div>		                                
-				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
+				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-traders-mobile.png" class="img-responsive hidden-lg hidden-md">
+	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-traders-desktop.png" class="img-responsive hidden-xs hidden-sm">
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar15.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
@@ -1374,7 +1374,7 @@
 				
 				    </div>
 				</div>                
-
+                <!-- Hotel Description Modal End -->
                 <a href="#" id="gotop" class="go-top go-top-default"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/to-top.jpg"></a> 
             </div>
             <!-- FOOTER -->
