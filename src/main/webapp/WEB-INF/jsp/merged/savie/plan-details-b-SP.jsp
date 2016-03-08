@@ -225,14 +225,14 @@ var languageP = "${language}";
 				<div class="crediting-rate">
 					<h4 class="crediting-rate-title">Crediting rate : </h4>
 					<div class="rate-buttons">
-						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">Conservative Basis</p><p class="info-content">Most adverse investment return scenario</p>' class="rate-btn active" id="rate-0" type="button">0%</button>
-						<button class="rate-btn" id="rate-2" type="button">2%</button>
+						<button class="rate-btn" id="rate-0" type="button">0%</button>
+						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">Conservative Basis</p><p class="info-content">Most adverse investment return scenario</p>' class="rate-btn active" id="rate-2" type="button">2%</button>
 						<button class="rate-btn" id="rate-3" type="button">3%</button>
 						<button class="rate-btn" id="rate-4" type="button">3.3%</button>
 					</div>
 				</div>
 				<div class="table-content" id="after-3-years">
-					<div id="rate-table-0" class="rate-table">
+					<div id="rate-table-0" class="rate-table hidden">
 						<table class="table table-hover">
 							<thead>
 								<tr>
@@ -274,7 +274,7 @@ var languageP = "${language}";
 						</table>
 					</div>
 					<!-- rate2 -->
-					<div id="rate-table-2" class="rate-table hidden">
+					<div id="rate-table-2" class="rate-table">
 						<table class="table table-hover">
 							<thead>
 								<tr>

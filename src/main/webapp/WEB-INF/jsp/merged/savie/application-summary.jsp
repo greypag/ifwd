@@ -223,10 +223,10 @@
                      <h6 class="info-label">Occupation</h6>
                      <span class="info">${lifeEmploymentInfo.occupationName }</span>
                   </div>
-				  <div class="gray-holder">
+				  <%-- <div class="gray-holder">
                      <h6 class="info-label">Please specify</h6>
                      <span class="info">${lifeEmploymentInfo.amountOfOtherSourceOfIncomeName }${lifeEmploymentInfo.amountOfLiquidAssetsName }</span>
-                  </div>
+                  </div> --%>
                </div>
                <div class="desktop-right">
                   <div class="gray-holder">

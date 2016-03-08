@@ -307,6 +307,9 @@ var Review = {
 				
 				that.constructSelection(fnaData.employment_status, fnaData.nature_of_business, fnaData.occupation);
 				
+				$(".status").text($("#status option[value='"+fnaData.employment_status+"']").text());
+				$(".nature").text($("#nature option[value='"+fnaData.nature_of_business+"']").text());
+				
 				var occupation = $("#occupation option[value='"+fnaData.occupation+"']").text();
 				if(fnaData.nature_of_business == fnaOccOther.nature && fnaData.occupation == fnaOccOther.occupation){
 					occupation = fnaData.occupation_others;
@@ -504,6 +507,8 @@ var Review = {
 				$(".marital_status").text($("#marital_status option[value='"+fnaData.marital_status+"']").text());
 				$(".dependents").text($("#dependents option[value='"+fnaData.dependents+"']").text());
 				$(".education").text($("#education option[value='"+fnaData.education+"']").text());
+				$(".status").text($("#status option[value='"+fnaData.employment_status+"']").text());
+				$(".nature").text($("#nature option[value='"+fnaData.nature_of_business+"']").text());
 				$(".occupation").text(occText);
 			}
 		}
