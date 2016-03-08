@@ -276,8 +276,7 @@ var language = "${language}";
 								</div>
 								
 								<div class="centre-info visible-xs visible-sm" id="centre-info">
-									<img src="<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
-									<a class="address-link" href="#">View map</a>
+								
 								</div>
 								
 								<div class="form-group">
@@ -330,8 +329,7 @@ var language = "${language}";
 							</div>
 							<div class="col-xs-12 col-md-6" id="right-side-form">
 								<div class="centre-info visible-md visible-lg" id="centre-info">
-									<img src="<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address">G/F, Fontaine Building, 18 Mody Road, Tsim Sha Tsui</p>
-									<a class="address-link" href="#">View map</a>
+									
 								</div>
 							</div>
 						</div>
@@ -480,6 +478,8 @@ var language = "${language}";
 		%>
 		$("#preferred-date-${csCenter}").show();
 		var serviceCentreCode = '${csCenter }';
+		setCentre(serviceCentreCode);
+		
 		if($("#centre").val().trim() != "" && $("#preferred-date-" + serviceCentreCode).val().trim() != ""){
 			getTimeSlot('${perferredTime }');
 		}
@@ -810,19 +810,9 @@ var language = "${language}";
    
 	 $('#centre').on('change', function() {
          var centre = $('#centre option:selected').val();
-         <%
-         ServiceCentreResponse serviceCentre = (ServiceCentreResponse)request.getAttribute("serviceCentre");
-         if(serviceCentre.getServiceCentres().size() > 0) {
-             for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
-         %>
-         if(centre == '<%=entity.getServiceCentreCode() %>') {
-            $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
-         }
-         <%
-             }
-         }
-         %>
-      });
+         setCentre(centre);
+     });
+	 
 	 $('.selectDiv').find('span').remove();
 	 console.log($('.ui-select > #centre-button > span').text());
 	 $('#centre-button > span').remove();
@@ -831,7 +821,7 @@ var language = "${language}";
 		if(getWidth()>=992) {
 		   var inner_centre_html = $('#inline-centre').html();
 
-			 var img1 = "<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg";
+			<%--  var img1 = "<%=request.getContextPath()%>/resources/images/savie-2016/timshatsui.jpg";
 			 var img2 = "<%=request.getContextPath()%>/resources/images/savie-2016/quarry_bay.jpg";
 			 var img3 = "<%=request.getContextPath()%>/resources/images/savie-2016/sheung_wan.jpg";
 			 var img4 = "<%=request.getContextPath()%>/resources/images/savie-2016/kwuntong.jpg";
@@ -841,7 +831,7 @@ var language = "${language}";
 			 var addr2 = "13/F, Devon House, Taikoo Place, 979 King’s Road, Quarry Bay";
 			 var addr3 = "1/F, FWD Financial Centre, 308 Des Voeux Road Central, Sheung Wan";
 			 var addr4 = "Office E, 12/F, Legend Tower, No.7 Shing Yip Street, Kwun Tong";
-			 var addr5 = "Unit 1720 -21, Level 17, Tower II, Grand Central Plaza, Shatin";
+			 var addr5 = "Unit 1720 -21, Level 17, Tower II, Grand Central Plaza, Shatin"; --%>
 
 		}
 		else {
@@ -931,5 +921,20 @@ var language = "${language}";
 	function togglePreferred(id) {
 		$(".form-group .preferred-date .date").hide();
 		$("#"+ id).show();
+	}
+	
+	function setCentre(centre){
+		<%
+        ServiceCentreResponse serviceCentre = (ServiceCentreResponse)request.getAttribute("serviceCentre");
+        if(serviceCentre.getServiceCentres().size() > 0) {
+            for(ServiceCentreResult entity : serviceCentre.getServiceCentres()) {
+        %>
+        if(centre == '<%=entity.getServiceCentreCode() %>') {
+           $('.centre-info').html('<img src="<%=request.getContextPath()%>/resources/images/savie/<%=entity.getPhoto() %>" class="img-centre img-responsive" /><h4>Address</h4><p class="centre-address"><%=entity.getAddress() %></p><a class="viewmap-link" href="<%=entity.getMap() %>">View map</a>');
+        }
+        <%
+            }
+        }
+        %>
 	}
 </script>

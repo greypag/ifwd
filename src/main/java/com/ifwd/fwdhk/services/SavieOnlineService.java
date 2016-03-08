@@ -46,4 +46,5 @@ public interface SavieOnlineService {
 	public void getTimeSlot(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public void upsertAppointment(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	public org.json.simple.JSONObject getAccessCode(HttpServletRequest request) throws Exception;
+	public void getCustomerServiceCentre(Model model, HttpServletRequest request, HttpSession session) throws Exception;
 }
