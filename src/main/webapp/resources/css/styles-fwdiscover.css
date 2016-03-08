@@ -1932,7 +1932,19 @@ span#next-hotel-name{
     #hotel-description-modal button.top-close{
         display: block;
     }
-    	     	
+    #hotel-description-carosuel .hotel-refer-wrapper{
+        text-align: center;
+        margin: 20px auto 0;
+        position: relative;
+        width: 100%;
+        float: none;
+    }
+    #hotel-description-carosuel .hotel-refer-wrapper .hotel-refer{
+        float: none;
+    }
+    #hotel-description-modal .hotel-refer-wrapper .btn{
+        display: none;
+    }	     	
 }		
 @media ( max-width : 1599px) {
 	#hotel-voucher-carousel .slick-next{
