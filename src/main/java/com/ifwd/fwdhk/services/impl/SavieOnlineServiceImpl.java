@@ -1004,8 +1004,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				savieFna.setName(userDetails.getFullName());
 				savieFna.setUser_name(userDetails.getFullName());
 				savieFna.setGender(jobject.get("gender").toString());
-				String[] dob = jobject.get("dob").toString().split("-");
-				savieFna.setDob(dob[2]+"-"+dob[1]+"-"+dob[0]);
+				savieFna.setDob(jobject.get("dob").toString());
 				savieFna.setMarital_status(jobject.get("marital_status").toString());
 				savieFna.setDependents(jobject.get("dependents").toString());
 				savieFna.setEducation(jobject.get("education").toString());
@@ -1035,7 +1034,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				request.getSession().setAttribute("savieFna", savieFna);
 				
 				jobject.put("name", userDetails.getFullName());
-				jobject.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 				jobject.put("q4_a_others", jobject.get("q4_a_others")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_a_others").toString()):"");
 				jobject.put("q4_b_amount", jobject.get("q4_b_amount")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_b_amount").toString()):"");
 				jobject.put("q4_c", jobject.get("q4_c")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_c").toString()):"");

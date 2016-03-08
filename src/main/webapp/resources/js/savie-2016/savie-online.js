@@ -1792,7 +1792,7 @@ function getSavieOnlinePlandetails() {
 	var issueAge = jsGetAge(birthDates[2]+"-"+birthDates[1]+"-"+birthDates[0]);
 	
 	if('one-off-premium' == paymentMode) {
-		paymentMode='Single Premium';
+		paymentMode='SP';
 		premium = amount;
 	}else {
 		paymentMode='RP';

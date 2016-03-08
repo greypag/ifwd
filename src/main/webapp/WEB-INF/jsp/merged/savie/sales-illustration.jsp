@@ -103,7 +103,7 @@
   						<div class="col-xs-12 col-md-6 right-side-form">
   							<div class="gray-bg-data-info">
   								<label class="data-label">Premium mode</label>
-  								<p class="data-info">${saviePlanDetails.paymentType }</p>
+  								<p class="data-info">${saviePlanDetails.paymentType == 'SP' ? 'Single Premium':saviePlanDetails.paymentType }</p>
   							</div>
   						</div>
   					</div>
