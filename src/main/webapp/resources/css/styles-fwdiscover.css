@@ -1875,6 +1875,14 @@ span#next-hotel-name{
     border-right: none;
     border-left: 1px solid #081d28;
 }
+#hotel-description-modal button.top-close{
+    background-color: transparent;
+    border: 0;
+    color: #f68a1d;
+    font-size: 18px;
+    float: right;
+    display:none;	
+}
 @media ( max-width : 991px) {
     .hotel-partner-icon-wrapper .col-1,
     .hotel-partner-icon-wrapper .col-2,
@@ -1921,7 +1929,9 @@ span#next-hotel-name{
     span#previous-hotel-date,span#next-hotel-date{
         display: none;
     }
-
+    #hotel-description-modal button.top-close{
+        display: block;
+    }
     	     	
 }		
 @media ( max-width : 1599px) {

@@ -1213,7 +1213,7 @@
 					        <div class="modal-body">
 					            <div id="hotel-description-carosuel" class="carousel slide" data-ride="carousel">
 								  <!-- Left and right controls -->
-								  <div class="hotel-carosuel-control">
+								  <div class="hotel-carosuel-control">							      
 									  <div class="left-control">
 										  <a class="" href="#hotel-description-carosuel" role="button" data-slide="prev">
 										    <span class="carosuel-arrow-left" aria-hidden="true"></span>
@@ -1234,6 +1234,7 @@
 										  </a>
 								  		</div>
 								  	</div>
+								  	<button type="button" class="top-close btn btn-default" data-dismiss="modal">&times;</button>
 								  	<div class="clearfix"></div>						            
 					            	<div class="carousel-inner" role="listbox">
 						            	  <!-- slide March 11 -->
@@ -1418,7 +1419,7 @@
 		    RightNavHotel: '<fmt:message key="Fanfare.Hotel.Carousel.Mar11.HotelName" bundle="${msg}" />'
 		};        
         function assignHotelNav(slideNav){
-        	console.log(slideNav);
+        	//console.log(slideNav);
             $('#previous-hotel-name').html(slideNav.LeftNavHotel);
             $('#previous-hotel-date').html(slideNav.LeftNavDate);
             $('#hotel-lanuch-date').html(slideNav.Date);
@@ -1444,6 +1445,7 @@
         		  //var currentIndex = carouselData.getItemIndex(carouselData.$element.find('.item.active'));
         		  var total = carouselData.$items.length; 
         		  //console.log(text);
+        		  console.log(currentIndex);
                   switch (currentIndex) {
                   case 0:
                       assignHotelNav(slide1Nav); 
@@ -1467,6 +1469,7 @@
         		var currentIndex = carouselData.getActiveIndex();
       		  	var total = carouselData.$items.length;  
     		  	//console.log(text);
+    		  	console.log(currentIndex);
 				switch (currentIndex) {
 				    case 0:
 				    	assignHotelNav(slide1Nav); 
