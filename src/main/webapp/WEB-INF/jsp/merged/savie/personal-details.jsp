@@ -105,7 +105,7 @@
 								</div>
                                  <div class="clearfix form-group has-error">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="chineseName" name="chineseName" type="text" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
+										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input chinese-input" id="chineseName" name="chineseName" type="text" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
 										<label class="mdl-textfield__label so-mdl-textfield-label" for="chineseName">Name in Chinese</label>
 									</div>
 									<span class="error-msg" id="chineseNameErMsg"></span>
@@ -567,6 +567,7 @@
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
 			var language = "en";
+			var getpath = "<%=request.getContextPath()%>";
 			
 			$(document).ready(function() {
 				setSelectReadonly('tmpGender', true);
