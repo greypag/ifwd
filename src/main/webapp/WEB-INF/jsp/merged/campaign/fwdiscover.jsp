@@ -789,7 +789,7 @@
                     <div class="hotel-partner-icon-wrapper">
 	                    <div class="col-1"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/goldensands-penang-icon.png" class="img-responsive"></div>
 	                    <div class="col-2"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/shangri-la-rasa-penang-icon.png" class="img-responsive"></div>
-	                    <div class="col-3"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/vivatel-icon.png" class="img-responsive"></div>
+	                    <div class="col-3"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/vivatel-icon.png" class="vivatel-icon img-responsive"></div>
 	                    <div class="col-4"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/one-world-icon.png" class="img-responsive"></div>
 	                    <div class="col-5"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/traders-icon.png" class="img-responsive"></div>
                     </div>
@@ -1223,7 +1223,7 @@
 										  </a>									  
 									  </div>
 				                       <div class="carousel-description-container">
-			                                <div id="hotel-lanuch-date" class="fanfare-date"><fmt:message key="Fanfare.Hotel.Carousel.Mar14.Date" bundle="${msg}" /></div>
+			                                <div id="hotel-lanuch-date" class="fanfare-date"></div>
 				                       </div>
 				                       <div class="right-control">
 										  <a class="" href="#hotel-description-carosuel" role="button" data-slide="next">
@@ -1239,8 +1239,8 @@
 					            	<div class="carousel-inner" role="listbox">
 						            	  <!-- slide March 11 -->
 				                          <div class="hotel-description-carosuel-container item active">
-				                                <div class="hotel-description-left-wrapper">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/goldensands-penang-icon.png" class="hotel-icon img-responsive">		                                
+				                                <div class="hotel-description-left-wrapper">				                                
+	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/goldensands-penang-icon.png" class="hotel-icon img-responsive"></div>		                                
 				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
 	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar11.HotelName" bundle="${msg}" /></div>
@@ -1266,7 +1266,7 @@
 						            	  <!-- slide March 12 -->
 				                          <div class="hotel-description-carosuel-container item">
 				                                <div class="hotel-description-left-wrapper">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/shangri-la-rasa-penang-icon.png" class="hotel-icon img-responsive">		                                
+	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/shangri-la-rasa-penang-icon.png" class="hotel-icon img-responsive"></div>		                                
 				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
 	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar12.HotelName" bundle="${msg}" /></div>
@@ -1292,7 +1292,7 @@
 						            	  <!-- slide March 13 -->
 				                          <div class="hotel-description-carosuel-container item">
 				                                <div class="hotel-description-left-wrapper">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/vivatel-icon.png" class="hotel-icon img-responsive">		                                
+	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/vivatel-icon.png" class="hotel-icon vivatel-icon img-responsive"></div>		                                
 				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
 	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar13.HotelName" bundle="${msg}" /></div>
@@ -1318,7 +1318,7 @@
 						            	  <!-- slide March 14 -->
 				                          <div class="hotel-description-carosuel-container item">
 				                                <div class="hotel-description-left-wrapper">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/one-world-icon.png" class="hotel-icon img-responsive">		                                
+	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/one-world-icon.png" class="hotel-icon img-responsive"></div>		                                
 				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
 	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar14.HotelName" bundle="${msg}" /></div>
@@ -1344,7 +1344,7 @@
 						            	  <!-- slide March 15 -->
 				                          <div class="hotel-description-carosuel-container item">
 				                                <div class="hotel-description-left-wrapper">
-	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/traders-icon.png" class="hotel-icon img-responsive">		                                
+	                                                <div class="hotel-icon-wrapper"><img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/traders-icon.png" class="hotel-icon img-responsive"></div>		                                
 				                                    <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-mobile.png" class="img-responsive hidden-lg hidden-md">
 	                                                <img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-shangri-la-rasa-desktop.png" class="img-responsive hidden-xs hidden-sm">
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar15.HotelName" bundle="${msg}" /></div>
@@ -1469,21 +1469,21 @@
         		var currentIndex = carouselData.getActiveIndex();
       		  	var total = carouselData.$items.length;  
     		  	//console.log(text);
-    		  	console.log(currentIndex);
-				switch (currentIndex) {
-				    case 0:
+    		  	//console.log(currentIndex);
+				switch (currentIndex + 1) {
+				    case 1:
 				    	assignHotelNav(slide1Nav); 
 				        break;
-				    case 1:
+				    case 2:
 				    	assignHotelNav(slide2Nav); 
 				        break;
-				    case 2:
+				    case 3:
 				    	assignHotelNav(slide3Nav); 
 				        break;
-				    case 3:
+				    case 4:
 				    	assignHotelNav(slide4Nav); 
 				        break;
-				    case 4:
+				    case 5:
 				    	assignHotelNav(slide5Nav); 
 				        break;
 				}		  	
