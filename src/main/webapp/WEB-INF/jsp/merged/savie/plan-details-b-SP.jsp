@@ -228,7 +228,7 @@ var languageP = "${language}";
 						<button data-toggle="tooltip" data-html="true" data-placement="right" title='<p class="bold">Conservative Basis</p><p class="info-content">Most adverse investment return scenario</p>' class="rate-btn active" id="rate-0" type="button">0%</button>
 						<button class="rate-btn" id="rate-2" type="button">2%</button>
 						<button class="rate-btn" id="rate-3" type="button">3%</button>
-						<button class="rate-btn" id="rate-4" type="button">3.3%</button>
+						<button class="rate-btn" id="rate-4" type="button">4%</button>
 					</div>
 				</div>
 				<div class="table-content" id="after-3-years">
@@ -877,6 +877,34 @@ var languageP = "${language}";
 			$('#total-payment-years').append('<option value='+i+'>'+i+'</option>');
 		}
 	}
+	
+	/* // Detect iOS
+	function iOS() {
+	  var iDevices = [
+	    'iPad Simulator',
+	    'iPhone Simulator',
+	    'iPod Simulator',
+	    'iPad',
+	    'iPhone',
+	    'iPod'
+	  ];
+
+	  if (!!navigator.platform) {
+	    while (iDevices.length) {
+	      if (navigator.platform === iDevices.pop()) {
+			return true;
+		  }
+	    }
+	  }
+	  return false;
+	}
+	if(iOS()) {
+		$('.rate-btn').attr('style', 'width:73px;');
+		//console.log('browser: true');
+	} else {
+		console.log('browser: false');
+		//$('.rate-btn').attr('style', 'width:60px;');
+	} */
 </script>
 <%-- <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-2016/bootstrap-slider.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/savie-online/savie-online.js"></script> --%>
