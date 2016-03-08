@@ -1436,7 +1436,7 @@
         	$('#hotel-description-modal').on('hide.bs.modal', function () {
         		$('.modal-backdrop').remove();
         	}) 
-        	$('#hotel-description-carosuel').on('slide.bs.carousel', function () {
+        	$('#hotel-description-carosuel').on('slid.bs.carousel', function () {
         		  // This variable contains all kinds of data and methods related to the carousel
         		  var carouselData = $(this).data('bs.carousel');
         		  // EDIT: Doesn't work in Boostrap >= 3.2
