@@ -47,6 +47,13 @@
 	.selectDiv select {
 		//width: 110%;
 	}
+	.selectDiv {
+		&.is-not-active {
+			.gray-dropdown {
+				padding-left: 10px !important;
+			}
+		}	
+	}
 	
 	.icon-chevron-thin-down.orange-caret {
 		font-size: 10px;
@@ -62,6 +69,8 @@
 		//box-shadow: 0 1px 0 0 #ff8200;
 		background-color: #ffffff;
 	}
+	
+	#so-calendar-dob:focus:not([readonly]) { background-color: transparent; }
 	
 	.dob-content {
 		//overflow: hidden;
