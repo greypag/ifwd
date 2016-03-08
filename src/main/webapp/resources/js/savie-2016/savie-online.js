@@ -627,7 +627,7 @@ function soFormValidation() {
   $('#soInsuredInfoForm').bootstrapValidator({
 	 excluded: [':disabled', ':hidden', ':not(:visible)'],
 	 fields: {
-		"firstName": {
+		"firstname": {
 		   container: '#firstNameErMsg',
 		   validators: {
 			  notEmpty: {
@@ -643,7 +643,7 @@ function soFormValidation() {
 			  }
 		   }
 		},
-		"lastName": {
+		"lastname": {
 		   container: '#lastNameErMsg',
 		   validators: {
 			  notEmpty: {
@@ -677,7 +677,7 @@ function soFormValidation() {
 			  }
 		   }
 		},
-		"so-calendar-dob": {
+		"dob": {
 		   container: '#so-calendar-dob-msg',
 		   validators: {
 			  notEmpty: {
@@ -717,7 +717,7 @@ function soFormValidation() {
 			  }
 		   }
 		},
-		"maritalStatus": {
+		"martialStatus": {
 		   container: '#maritalStatErMsg',
 		   validators: {
 			  notEmpty: {
@@ -733,7 +733,7 @@ function soFormValidation() {
 			  }
 		   }
 		},
-		"nationality": {
+		"nationalty": {
 		   container: '#nationalityErMsg',
 		   validators: {
 			  notEmpty: {
@@ -741,7 +741,7 @@ function soFormValidation() {
 			  }
 		   }
 		},
-		"residentialNo": {
+		"residentialTelNo": {
 		   container: '#resTelNoErMsg',
 		   validators: {
 			  stringLength: {
@@ -755,7 +755,7 @@ function soFormValidation() {
 			   }
 		   }
 		},
-		"mobileNo": {
+		"mobileNumber": {
 		   container: '#mobileNoErMsg',
 		   validators: {
 			  notEmpty: {
@@ -784,7 +784,7 @@ function soFormValidation() {
 			  }
 		   }
 		},
-		"permanentAddress1": {
+		"permanetAddress1": {
 			container: '#permanentAddErMsg',
 			validators: {
 				notEmpty: {
@@ -796,7 +796,7 @@ function soFormValidation() {
 				}
 			}
 		 },
-		 "permanentDistrict": {
+		 "permanetAddressDistrict": {
 		   container: '#permanentDistrictErMsg',
 		   validators: {
 			  notEmpty: {
@@ -816,7 +816,7 @@ function soFormValidation() {
 				}
 			}
 		 },
-		 "residentialDistrict": {
+		 "residentialAddressDistrict": {
 		   container: '#residentialDistrictErMsg',
 		   validators: {
 			  notEmpty: {
@@ -836,7 +836,7 @@ function soFormValidation() {
 				}
 			}
 		 },
-		 "correspondenceDistrict": {
+		 "correspondenceAddressDistrict": {
 		   container: '#correspondenceDistrictErMsg',
 		   validators: {
 			  notEmpty: {

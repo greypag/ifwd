@@ -1073,8 +1073,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			applicant.put("firstName", lifePersonalDetails.getFirstname());
 			applicant.put("lastName", lifePersonalDetails.getLastname());
 			applicant.put("chineseName", lifePersonalDetails.getChineseName());
-			//String[] dob = lifePersonalDetails.getDob().split("/");
-			applicant.put("dob", lifePersonalDetails.getDob());
+			String[] dob = lifePersonalDetails.getDob().split("-");
+			applicant.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 			applicant.put("gender", lifePersonalDetails.getGender());
 			applicant.put("hkId", lifePersonalDetails.getHkid());
 			applicant.put("passport", "");

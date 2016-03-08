@@ -7,6 +7,10 @@
 
 
 <!DOCTYPE html>
+<script type="text/javascript">
+var context = "${pageContext.request.contextPath}";
+var languageP = "${language}";
+</script>
 <html lang="en">
 	<head>
 		<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/material.min.css" />
