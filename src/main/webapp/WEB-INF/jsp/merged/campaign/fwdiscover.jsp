@@ -1246,7 +1246,7 @@
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar11.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
-	                                                <a class="hotel-link" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Url" bundle="${msg}" />">
+	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Url" bundle="${msg}" />">
 	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
 	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar11.Addr" bundle="${msg}" /></span>
 	                                                </a>
@@ -1272,7 +1272,7 @@
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar12.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper item">
-	                                                <a class="hotel-link" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Url" bundle="${msg}" />">
+	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Url" bundle="${msg}" />">
 	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
 	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Addr" bundle="${msg}" /></span>
 	                                                </a>
@@ -1298,7 +1298,7 @@
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar13.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
-	                                                <a class="hotel-link" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar13.Url" bundle="${msg}" />">
+	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar13.Url" bundle="${msg}" />">
 	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
 	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Addr" bundle="${msg}" /></span>
 	                                                </a>
@@ -1324,7 +1324,7 @@
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar14.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
-	                                                <a class="hotel-link" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar13.Url" bundle="${msg}" />">
+	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar13.Url" bundle="${msg}" />">
 	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
 	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar14.Addr" bundle="${msg}" /></span>
 	                                                </a>
@@ -1350,7 +1350,7 @@
 	                                                <div class="hotel-name"><fmt:message key="Fanfare.Hotel.Carousel.Mar15.HotelName" bundle="${msg}" /></div>
 				                                </div>
 	                                            <div class="hotel-description-right-wrapper">
-	                                                <a class="hotel-link" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Url" bundle="${msg}" />">
+	                                                <a class="hotel-link" target="_blank" href="<fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar12.Url" bundle="${msg}" />">
 	                                                	<img src="<%=request.getContextPath()%>/resources/images/fwdiscover/hotel/lightbox-destop-pin.png" class="img-responsive">
 	                                                    <span><fmt:message key="Fanfare.Hotel.Lightbox.Hotel.Mar15.Addr" bundle="${msg}" /></span>
 	                                                </a>
@@ -1533,6 +1533,22 @@
                 console.log("ticking");             
             });*/          
             if(isMobile){
+                $(".carousel-item-container").click(function(){
+                    itemTop = $('.hotel-voucher-carousel-wrapper').offset();
+                    $("#hotel-description-modal").on('show.bs.modal', function () {
+                        $('body').css("position", "inital");
+                        $('body').animate({scrollTop: itemTop.top - 60}, 0);      
+                    });
+                    $("#hotel-description-modal").on('hide.bs.modal', function () {
+                        //alert(itemTop.top);
+                        $('body').css("position", "initial");
+                        $('body').animate({scrollTop: itemTop.top - 60}, 0);
+                        //$('body').css("position", "relative");
+                    });
+                    $("#hotel-description-modal").on('hidden.bs.modal', function () {
+                        $('body').attr("style", "");
+                    });         
+                });            	
                 $(".fwdiscover-plan .details-btn").click(function(){
                     itemTop = $(this).parents(".fwdiscover-plan").offset();
                     $(".fwdiscover-modal").on('show.bs.modal', function () {
