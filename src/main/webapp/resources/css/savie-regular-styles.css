@@ -5442,3 +5442,9 @@ body.chin .ch-banner-img {
   .fwd-savie-wrapper .thank-you-container .offline-procedure{ height: 310px; }
   .chin .fwd-savie-wrapper .thank-you-container .offline-procedure{ height: 277px; }
 }
+
+#thankyouPopup .savie-overlay-btn:hover,.savie-overlay-btn:focus{
+  background-color: #fff;
+  color: #fdb714;
+  border: 1px #fdb714  solid;
+}
