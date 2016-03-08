@@ -1762,16 +1762,18 @@
 	padding: 20px 20px 0;
 	
 }
-#hotel-description-modal .hotel-description-right-wrapper a.hotel-link:hover span,
 #hotel-description-modal .hotel-description-right-wrapper a.hotel-link span{
-	color: #f68a1d;
+	color: #061d2a;
+}
+#hotel-description-modal .hotel-description-right-wrapper a.hotel-link:hover span{
+	color: #ff8200;
 }
 #hotel-description-carosuel .hotel-carosuel-control a{
 	border-bottom: none;
 	color: #061d2a;
 }
 #hotel-description-carosuel .hotel-carosuel-control a:hover{
-    color: #f68a1d;
+    color: #ff8200;
 }
 #hotel-description-modal .hotel-refer-wrapper{
 	position: absolute;
@@ -1787,7 +1789,7 @@
 #hotel-description-modal .hotel-refer-wrapper .btn{
     float: right;
     background-color: transparent;
-    color: #f68a1d;	
+    color: #ff8200;	
     border: none;
 }
 #hotel-description-modal .hotel-refer img{
