@@ -939,7 +939,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public JSONObject getFna(HttpServletRequest request) throws ECOMMAPIException{
-//		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "fna";
 		String Url = UserRestURIConstants.GET_FNA;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
@@ -952,10 +951,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			if(jobject.get("name")!=null&&jobject.get("gender")!=null){
 				SavieFnaBean savieFna = new SavieFnaBean();
 				UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
-				savieFna.setName(userDetails.getUserName());
-				savieFna.setUser_name(userDetails.getUserName());
+				savieFna.setName(userDetails.getFullName());
+				savieFna.setUser_name(userDetails.getFullName());
 				savieFna.setGender(jobject.get("gender").toString());
-				savieFna.setDob(jobject.get("dob").toString());
+				String[] dob = jobject.get("dob").toString().split("-");
+				savieFna.setDob(dob[2]+"-"+dob[1]+"-"+dob[0]);
 				savieFna.setMarital_status(jobject.get("marital_status").toString());
 				savieFna.setDependents(jobject.get("dependents").toString());
 				savieFna.setEducation(jobject.get("education").toString());
@@ -981,15 +981,17 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				savieFna.setQ4_f(jobject.get("q4_f")!=null?jobject.get("q4_f").toString():"");
 				savieFna.setQ4_g(jobject.get("q4_g")!=null?jobject.get("q4_g").toString():"");
 				savieFna.setQ4_g_others(jobject.get("q4_g_others")!=null?jobject.get("q4_g_others").toString():"");
-				savieFna.setLast_update(jobject.get("last_update")!=null?DateApi.formatTime(Long.valueOf(jobject.get("last_update").toString())):"");
+				savieFna.setLast_update(jobject.get("last_update")!=null?DateApi.formatTime1(Long.valueOf(jobject.get("last_update").toString())):"");
 				request.getSession().setAttribute("savieFna", savieFna);
 				
+				jobject.put("name", userDetails.getFullName());
+				jobject.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 				jobject.put("q4_a_others", jobject.get("q4_a_others")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_a_others").toString()):"");
 				jobject.put("q4_b_amount", jobject.get("q4_b_amount")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_b_amount").toString()):"");
 				jobject.put("q4_c", jobject.get("q4_c")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_c").toString()):"");
 				jobject.put("q4_d_1", jobject.get("q4_d_1")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_d_1").toString()):"");
 				jobject.put("q4_d_2", jobject.get("q4_d_2")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_d_2").toString()):"");
-				jobject.put("last_update", jobject.get("last_update")!=null?DateApi.formatTime(Long.valueOf(jobject.get("last_update").toString())):"");
+				jobject.put("last_update", jobject.get("last_update")!=null?DateApi.formatTime1(Long.valueOf(jobject.get("last_update").toString())):"");
 			}
 		}
 		return jobject;

@@ -195,6 +195,22 @@ public class DateApi {
 		return null;
 	}
 	
+	/**
+	 * 将date转化为日期格式为dd-MM-yyyy的字符串
+	 * @param date
+	 * @return String
+	 */
+	public static String formatString1(String date){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+		SimpleDateFormat newDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+		try {
+			return newDateFormat.format(dateFormat.parse(date));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public static int getAge(Date dateOfBirth) {
 		int age = 0;
 		Calendar born = Calendar.getInstance();
@@ -222,6 +238,23 @@ public class DateApi {
 		if(!StringUtils.isEmpty(time)) {
 			long t = Long.valueOf(time);
 			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTimeInMillis(t);
+			return formatter.format(calendar.getTime());
+		}else {
+			return "";
+		}
+	}
+	
+	/**
+	 * 将time毫秒转换为日期格式为dd-MM-yyyy HH:mm:ss的字符串
+	 * @param time
+	 * @return String
+	 */
+	public static String formatTime1(Long time) {
+		if(!StringUtils.isEmpty(time)) {
+			long t = Long.valueOf(time);
+			DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.ENGLISH);
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTimeInMillis(t);
 			return formatter.format(calendar.getTime());
