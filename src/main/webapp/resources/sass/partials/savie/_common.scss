@@ -143,6 +143,11 @@ a {
 				}
 			}
 		}
+		
+		.form-control {
+			-webkit-transition: none;
+			transition: none;
+		}
 	}
 	
 	.error-msg {
@@ -186,6 +191,11 @@ a {
 		z-index: 0;
 	}
 
+	&.is-not-active {
+		.gray-dropdown {
+			padding-left: 10px !important;
+		}
+	}	
 	.gray-dropdown {
 		//background: url("../images/orange-caret.png") no-repeat;
 		//background-size: 10px;
@@ -202,7 +212,7 @@ a {
 		font-size: 14px;
 		color: #9ba5a7;
 		height: 40px;
-		padding: 3px 10px !important;
+		padding: 3px 14px !important;
 		cursor: pointer;
 		&::-ms-expand {
 			display: none;
@@ -210,6 +220,10 @@ a {
 		&:active, &:focus, &:hover {
 			background: none; 
 			border-bottom: 2px solid #Ff8200 !important;
+		}
+		
+		&.readonly-field {
+			&:hover { border-bottom: none !important; }
 		}
 	}
 
@@ -254,7 +268,7 @@ a {
 		.gray-dropdown {
 			color: #000 !important;
 			padding-top: 10px !important;
-			
+
 			&.pd-dropdown {
 				padding-top: 3px !important;
 			}
@@ -409,6 +423,9 @@ a {
     .browse-holder {
         @media (max-width: $screen-md) {
             margin-top: 16px !important;
+        }
+        h3 {
+        	line-height: 24px;
         }
     }
 }
@@ -633,16 +650,21 @@ h6 {
 .so-mdl-textfield {
 	width: 100% !important;
     padding: 0 !important;
-    margin-bottom: 10px;
+    margin-bottom: 10px !important;
 	input {
 		padding: 12px 15px 0 15px !important;
 		height: 40px !important;
-		margin-bottom: 0;
+		margin-bottom: 0 !important;
 		
-		&:hover {
+		&:hover, &:focus {
 			border-bottom: 2px solid #Ff8200 !important;
+		}		
+		
+		&.readonly-field {
+			&:hover, &:focus { border-bottom: none !important; }
 		}
 	}
+	
 	label {
 		font-size: 14px;
 		left: 0;
@@ -650,15 +672,27 @@ h6 {
 		padding-left: 15px;
 		font-family: 'Calibri-Bold';
 		&:after {
-			width: 97%;
-			background-color: #ff8200;
+			background-color: transparent;
+			/*background-color: #ff8200;
    			bottom: 0;
+			width: 97%;*/
 		}
 	}
 	&.is-focused, &.is-dirty {
 		label {
 			color: #ff8200 !important;
 			top: 1px !important;
+			font-size: 12px;
+		}
+		
+		.readonly-field + label { 
+			color: #373a36  !important;
+			
+			&.readonly-field-label {
+				top: 10px !important;
+				color: rgba(0,0,0,.26) !important;
+				font-size: 14px !important;
+			}
 		}
 	}
 	&.is-active {
@@ -668,6 +702,7 @@ h6 {
 		label {
 			color: #373a36  !important;
 			top: 1px !important;
+			font-size: 12px;
 		}
 	}	
 }

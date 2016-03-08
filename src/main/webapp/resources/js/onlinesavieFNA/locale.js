@@ -28,7 +28,7 @@ var ReviewPageLocale = {
 		"gender":["男", "女"],
 		"marital_status" : ["單身","結婚","離婚","喪偶"],
 		"dependents":["無", "1-3", "4-6", "7或以上"],
-		"education": ["Primary or below","Secondary / Matriculation","Vocational Training / Technical Institute / Business Institute","Post-secondary / University or above"],
+		"education": ["小學或以下","中學 / 預科","職業訓 / 工業學院 / 商業學院","大專 / 大學或以上"],
 		"occupation_others_empty":"Please specify your occupation",
 		"select":"- - - 請選擇 - - -",
 		"select_empty":"Please select your occupation",

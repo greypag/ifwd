@@ -1,3 +1,5 @@
+getpath=context;
+
 // Savie Online
 $(document).ready(function() {
 	window.onresize = function() {
@@ -427,7 +429,26 @@ $(document).ready(function() {
 			$('#total-years-holder').addClass('hidden');
 		}
 	});
-	$('.amount-slider').slider();
+	//method to change the minimum and maximum value of one-off premium
+	var oneOffPremiumMax = 400000;
+	var oneOffPremiumMin = 30000;
+	$('.amount-slider').slider({
+		min: oneOffPremiumMin,
+		max: oneOffPremiumMax,
+	});
+	$('#max-value').text(commaSeparateNumber(oneOffPremiumMax));
+	$('#min-value').text(commaSeparateNumber(oneOffPremiumMin));
+
+	$('.amount-slider').on('slide', function (slideEvt) {
+		var amountSelected = commaSeparateNumber($(this).val());
+		$('#amount-value').text(amountSelected);
+	});
+	$('.amount-slider').on('change', function () {
+		var amountSelected = commaSeparateNumber($(this).val());
+		$('#amount-value').text(amountSelected);
+	});
+
+	
 	$('.amount-slider').on('slide', function (slideEvt) {
 		var test = commaSeparateNumber($(this).val());
 		$('#amount-value').text(test);

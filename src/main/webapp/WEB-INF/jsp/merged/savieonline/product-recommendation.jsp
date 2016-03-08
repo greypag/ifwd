@@ -221,7 +221,7 @@ var affiliate = "${affiliate}";
 						<div class="fna-txt-result hidden-print">
 							<div class="row">
 								<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-									<p class="head"><span class="txt_fna_name">${userDetails.fullName }</span>, <br>FWD recommends<span class="txt_products"> <span class="txt_pnum">4</span> products</span> for you</p>
+									<p class="head"><span class="txt_fna_name">${userDetails.fullName }</span>, <br>FWD recommends<span class="txt_products"> <span class="txt_pnum">0</span> products</span> for you</p>
 									<p>Based on your answers to the Financial Needs Analysis, below are the insurance options to meet your objective(s) and need(s) for your conditions:</p>
 									<div class="hidden-xs">
 										<a href="javascript:void(0);" class="fna-btn-discover">Discover now</a>

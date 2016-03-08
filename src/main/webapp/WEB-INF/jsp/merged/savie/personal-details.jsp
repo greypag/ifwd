@@ -105,7 +105,7 @@
 								</div>
                                  <div class="clearfix form-group has-error">
 									<div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
-										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input" id="chineseName" name="chineseName" type="text" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
+										<input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input chinese-input" id="chineseName" name="chineseName" type="text" value="${lifePersonalDetails.chineseName }" autocomplete="off" />
 										<label class="mdl-textfield__label so-mdl-textfield-label" for="chineseName">Name in Chinese</label>
 									</div>
 									<span class="error-msg" id="chineseNameErMsg"></span>
@@ -224,7 +224,7 @@
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <div class="clearfix form-group">
                                           <div class="residential-num">
-                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="residentialNo" name="residentialTelNo" value="${userDetails.mobileNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
+                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="residentialNo" name="residentialTelNo" value="${lifePersonalDetails.residentialTelNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
 											 <label class="mdl-textfield__label so-mdl-textfield-label" for="residentialNo">Residential tel no. (eg. 1234-5678)</label>
                                           </div>
                                        </div>
@@ -235,7 +235,7 @@
                                     <div class="left-desktop text-box mdl-textfield mdl-js-textfield mdl-textfield--floating-label so-mdl-textfield">
                                        <div class="clearfix form-group">
                                           <div class="mobile-num">
-                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="mobileNo" name="mobileNumber" value="${userDetails.mobileNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
+                                             <input class="form-control gray-textbox mdl-textfield__input so-mdl-textfield-input cstm-number-field" id="mobileNo" name="mobileNumber" readonly="readonly" value="${userDetails.mobileNo }" type="text" maxlength="8" oninput="maxLengthCheck(this)" />
 											 <label class="mdl-textfield__label so-mdl-textfield-label" for="mobileNo">Mobile no. (eg. 1234-5678)</label>
                                           </div>
                                        </div>
@@ -567,11 +567,12 @@
 		<!-- JS INCLUDES -->
 		<script type="text/javascript">
 			var language = "en";
+			var getpath = "<%=request.getContextPath()%>";
 			
 			$(document).ready(function() {
 				setSelectReadonly('tmpGender', true);
 				setInputReadonly('so-calendar-dob', true);
-				setInputReadonly('residentialNo', true);
+				//setInputReadonly('residentialNo', true);
 				setInputReadonly('mobileNo', true);
 				setSelectReadonly('tmpMaritalStatus', true);
 				

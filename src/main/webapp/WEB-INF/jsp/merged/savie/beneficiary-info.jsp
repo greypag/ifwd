@@ -594,7 +594,7 @@
 					$('#beneficiary-header\\[1\\]').removeClass('hidden');
 					$('#beneficiary-info-form\\[1\\]').removeClass('hidden');
 					$('#add-beneficiary-btn-2').removeClass('disabled-beneficiary-add');
-					$('#add-btn-img').attr('src', '/fwdhk/resources/images/savie-2016/orange-plus.png');
+					$('#add-btn-img').attr('src', '<%=request.getContextPath()%>/resources/images/savie-2016/orange-plus.png');
 				}
 				
 				if('${lifeBeneficaryInfo.beneficaryFirstName3}' != ''){
@@ -622,7 +622,7 @@
 		
 			$(document).ready(function() {
 				var language = "en";
-				
+				var getpath = "<%=request.getContextPath()%>";
 				var dummy = true;
 				// dummy condition for displaying the back / next button
 				if(dummy) {

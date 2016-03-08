@@ -39,6 +39,8 @@ import com.ifwd.fwdhk.connector.response.BaseResponse;
 import com.ifwd.fwdhk.connector.response.eliteterm.CreateEliteTermPolicyResponse;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsRate;
 import com.ifwd.fwdhk.connector.response.savie.SaviePlanDetailsResponse;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResponse;
+import com.ifwd.fwdhk.connector.response.savie.ServiceCentreResult;
 import com.ifwd.fwdhk.connector.response.savieonline.GetPolicyApplicationResponse;
 import com.ifwd.fwdhk.connector.response.savieonline.PolicyApplication;
 import com.ifwd.fwdhk.controller.UserRestURIConstants;
@@ -61,6 +63,7 @@ import com.ifwd.fwdhk.util.DateApi;
 import com.ifwd.fwdhk.util.FileUtil;
 import com.ifwd.fwdhk.util.HeaderUtil;
 import com.ifwd.fwdhk.util.ImgUtil;
+import com.ifwd.fwdhk.util.InitApplicationMessage;
 import com.ifwd.fwdhk.util.NumberFormatUtils;
 import com.ifwd.fwdhk.util.PolicyNoUtil;
 import com.ifwd.fwdhk.util.StringHelper;
@@ -88,7 +91,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	public net.sf.json.JSONObject getSavieOnlinePlandetails(SaviePlanDetailsBean saviePlanDetails, 
 			HttpServletRequest request, HttpSession session) throws ECOMMAPIException{
 		
-		int issueAge = DateApi.getAge(DateApi.formatDate1(saviePlanDetails.getDob())) + 1;
+		int issueAge = DateApi.getAge(DateApi.formatDate(saviePlanDetails.getDob())) + 1;
 		int paymentTerm = 0;
 		if("SP".equals(saviePlanDetails.getPaymentType())) {
 			session.setAttribute("savieType", "SP");
@@ -201,6 +204,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	
 	public void createSalesIllustrationPdf(HttpServletRequest request) throws Exception {
 		SaviePlanDetailsResponse planDetailData = (SaviePlanDetailsResponse) request.getSession().getAttribute("planDetailData");
+		UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
 		if(planDetailData != null && !planDetailData.hasError()){
 			String totalPremium = NumberFormatUtils.formatNumber(planDetailData.getPlanDetails0Rate().get(0).getTotalPremium());
 			int totalYear = 100-Integer.valueOf(planDetailData.getIssueAge());
@@ -208,8 +212,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 			attributeList.add(new PdfAttribute("dateTime",format.format(new Date())));
 			attributeList.add(new PdfAttribute("applicationNo", "自助息理財壽險計劃"));
-			attributeList.add(new PdfAttribute("paymentMethod", "payonline"));
-			attributeList.add(new PdfAttribute("chineseName", "张三"));
+			attributeList.add(new PdfAttribute("paymentMethod", "HKD"));
+			attributeList.add(new PdfAttribute("chineseName", userDetails.getFullName()));
 			attributeList.add(new PdfAttribute("Premium",totalPremium));
 			attributeList.add(new PdfAttribute("age", planDetailData.getIssueAge()));
 			attributeList.add(new PdfAttribute("singlePremiumAmount", totalPremium));
@@ -330,6 +334,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		LifePaymentBean lifePayment = (LifePaymentBean) session.getAttribute("lifePayment");
 		
 	    List<PdfAttribute> attributeList = new ArrayList<PdfAttribute>();
+	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
 	    
 	    attributeList.add(new PdfAttribute("applicationNo", "applicationNo"));
 	    attributeList.add(new PdfAttribute("applicationEnglishName", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
@@ -350,6 +356,7 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("applicationCorrAddress", lifePersonalDetails.getCorrespondenceAddress1()+","+lifePersonalDetails.getCorrespondenceAddress2()+","+lifePersonalDetails.getCorrespondenceAddress3()));
 	    attributeList.add(new PdfAttribute("applicationCorrDistrict", lifePersonalDetails.getCorrespondenceAddressDistrict()));
 	    
+	    attributeList.add(new PdfAttribute("EducationlevelKey", "educationLevel"));
 	    attributeList.add(new PdfAttribute("educationLevel", lifeEmploymentInfo.getEducation()));
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatusKey", "applicationEmploymentStatusKey"));
 	    attributeList.add(new PdfAttribute("applicationEmploymentStatus", lifeEmploymentInfo.getEmploymentStatus()));
@@ -362,11 +369,12 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("personalIncomeKey", "personalIncomeKey"));
 	    attributeList.add(new PdfAttribute("personalIncome", lifeEmploymentInfo.getMonthlyPersonalIncome()));
 	    
-	    attributeList.add(new PdfAttribute("sumInsured", "sumInsured"));
+	    /*attributeList.add(new PdfAttribute("sumInsured", "sumInsured"));
 	    attributeList.add(new PdfAttribute("firstYearPremium", "firstYearPremium"));
 	    attributeList.add(new PdfAttribute("perMonOnethHKD", "perMonOnethHKD"));
 	    attributeList.add(new PdfAttribute("subsequantPremium", "subsequantPremium"));
-	    attributeList.add(new PdfAttribute("perMonthTwoHKD", "perMonthTwoHKD"));
+	    attributeList.add(new PdfAttribute("perMonthTwoHKD", "perMonthTwoHKD"));*/
+	    attributeList.add(new PdfAttribute("SinglePremium", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
 	    
 	    attributeList.add(new PdfAttribute("beneficiaryEnglishName1", lifeBeneficaryInfo.getBeneficaryFirstName1()+" "+lifeBeneficaryInfo.getBeneficaryLastName1()));
 	    attributeList.add(new PdfAttribute("beneficiaryChineseName1", lifeBeneficaryInfo.getBeneficaryChineseName1()));
@@ -387,11 +395,56 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	    attributeList.add(new PdfAttribute("relationship3", lifeBeneficaryInfo.getBeneficaryRelation3()));
 	    attributeList.add(new PdfAttribute("entitlement3", lifeBeneficaryInfo.getBeneficaryWeight3()));
 	    
-	    attributeList.add(new PdfAttribute("creditCardValue", lifePayment.getAccountNumber()));
+	    /*attributeList.add(new PdfAttribute("creditCardValue", lifePayment.getAccountNumber()));
 	    attributeList.add(new PdfAttribute("cardExpireDate", "cardExpireDate"));
-	    attributeList.add(new PdfAttribute("creditCardAuthEnglish", lifePayment.getAccountHolderName()));
+	    attributeList.add(new PdfAttribute("creditCardAuthEnglish", lifePayment.getAccountHolderName()));*/
 	    
-	    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+	    attributeList.add(new PdfAttribute("Bank/BranchName", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    
+	    attributeList.add(new PdfAttribute("Oneoffpamentamount", "Yes"));
+	    
+	    String bankCode = lifePayment.getBankCode().split("-")[0];
+	    /*for(int i=bankCode.length()-1;i>=3;i--){
+	    	String c = bankCode.charAt(i)+"";
+	    	attributeList.add(new PdfAttribute("BankNo."+(bankCode.length()-i+1), c));
+	    }*/
+	    attributeList.add(new PdfAttribute("BankNo.1", bankCode.charAt(bankCode.length()-1)+""));
+	    attributeList.add(new PdfAttribute("BankNo.2", bankCode.charAt(bankCode.length()-2)+""));
+	    attributeList.add(new PdfAttribute("BankNo.3", bankCode.charAt(bankCode.length()-3)+""));
+	    
+	    String branchCode = lifePayment.getBranchCode();
+	    /*for(int i=branchCode.length()-1;i>=branchCode.length()-3;i++){
+	    	String c = branchCode.charAt(i)+"";
+	    	attributeList.add(new PdfAttribute("BranchNo."+(i+1), c));
+	    }*/
+	    attributeList.add(new PdfAttribute("BranchNo.1", branchCode.charAt(branchCode.length()-1)+""));
+	    attributeList.add(new PdfAttribute("BranchNo.2", branchCode.charAt(branchCode.length()-2)+""));
+	    attributeList.add(new PdfAttribute("BranchNo.3", branchCode.charAt(branchCode.length()-3)+""));
+	    
+	    String accountNumber = lifePayment.getAccountNumber();
+	    for(int i=0;i<accountNumber.length();i++){
+	    	String c = accountNumber.charAt(i)+"";
+	    	attributeList.add(new PdfAttribute("AccountNo."+(i+1), c));
+	    }
+	    /*attributeList.add(new PdfAttribute("AccountNo.1", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.2", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.3", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.4", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.5", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.6", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.7", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.8", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));
+	    attributeList.add(new PdfAttribute("AccountNo.9", lifePayment.getBankName()+"-"+lifePayment.getBranchName()));*/
+	    
+	    attributeList.add(new PdfAttribute("LimitForEachPayment", NumberFormatUtils.formatNumber(lifePayment.getPaymentAmount())));
+	    attributeList.add(new PdfAttribute("ExpiryDate", format.format(new Date())));
+	    attributeList.add(new PdfAttribute("NameofAccountHolder", lifePersonalDetails.getFirstname()+" "+lifePersonalDetails.getLastname()));
+	    attributeList.add(new PdfAttribute("HKIDNo", lifePersonalDetails.getHkid()));
+	    
+	    attributeList.add(new PdfAttribute("DirectMarketingInfo", "Yes"));
+	    attributeList.add(new PdfAttribute("ThirdParty", "Yes"));
+	    attributeList.add(new PdfAttribute("ForeignAccountTaxComplianceAct", "On"));
+	    attributeList.add(new PdfAttribute("applicationNote", "On"));
 	    attributeList.add(new PdfAttribute("authDate", format.format(new Date())));
 	    
 	    if("2".equals(type)){
@@ -807,7 +860,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 //		jsonObject.put("user_name", savieFna.getUser_name());
 		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
-		jsonObject.put("dob", savieFna.getDob());
+		String[] dob = savieFna.getDob().split("-");
+		jsonObject.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 		jsonObject.put("marital_status", savieFna.getMarital_status());
 		jsonObject.put("dependents", savieFna.getDependents());
 		jsonObject.put("education", savieFna.getEducation());
@@ -858,7 +912,8 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("name", savieFna.getName());
 		jsonObject.put("gender", savieFna.getGender());
-		jsonObject.put("dob", savieFna.getDob());
+		String[] dob = savieFna.getDob().split("-");
+		jsonObject.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 		jsonObject.put("marital_status", savieFna.getMarital_status());
 		jsonObject.put("dependents", savieFna.getDependents());
 		jsonObject.put("education", savieFna.getEducation());
@@ -939,7 +994,6 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 	}
 	
 	public JSONObject getFna(HttpServletRequest request) throws ECOMMAPIException{
-//		String Url = UserRestURIConstants.getConfigs("Url_SZWS") + "fna";
 		String Url = UserRestURIConstants.GET_FNA;
 		final Map<String,String> header = headerUtil.getHeader(request);
 		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
@@ -952,10 +1006,11 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			if(jobject.get("name")!=null&&jobject.get("gender")!=null){
 				SavieFnaBean savieFna = new SavieFnaBean();
 				UserDetails userDetails = (UserDetails) request.getSession().getAttribute("userDetails");
-				savieFna.setName(userDetails.getUserName());
-				savieFna.setUser_name(userDetails.getUserName());
+				savieFna.setName(userDetails.getFullName());
+				savieFna.setUser_name(userDetails.getFullName());
 				savieFna.setGender(jobject.get("gender").toString());
-				savieFna.setDob(jobject.get("dob").toString());
+				String[] dob = jobject.get("dob").toString().split("-");
+				savieFna.setDob(dob[2]+"-"+dob[1]+"-"+dob[0]);
 				savieFna.setMarital_status(jobject.get("marital_status").toString());
 				savieFna.setDependents(jobject.get("dependents").toString());
 				savieFna.setEducation(jobject.get("education").toString());
@@ -981,15 +1036,17 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 				savieFna.setQ4_f(jobject.get("q4_f")!=null?jobject.get("q4_f").toString():"");
 				savieFna.setQ4_g(jobject.get("q4_g")!=null?jobject.get("q4_g").toString():"");
 				savieFna.setQ4_g_others(jobject.get("q4_g_others")!=null?jobject.get("q4_g_others").toString():"");
-				savieFna.setLast_update(jobject.get("last_update")!=null?DateApi.formatTime(Long.valueOf(jobject.get("last_update").toString())):"");
+				savieFna.setLast_update(jobject.get("last_update")!=null?DateApi.formatTime1(Long.valueOf(jobject.get("last_update").toString())):"");
 				request.getSession().setAttribute("savieFna", savieFna);
 				
+				jobject.put("name", userDetails.getFullName());
+				jobject.put("dob", dob[2]+"-"+dob[1]+"-"+dob[0]);
 				jobject.put("q4_a_others", jobject.get("q4_a_others")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_a_others").toString()):"");
 				jobject.put("q4_b_amount", jobject.get("q4_b_amount")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_b_amount").toString()):"");
 				jobject.put("q4_c", jobject.get("q4_c")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_c").toString()):"");
 				jobject.put("q4_d_1", jobject.get("q4_d_1")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_d_1").toString()):"");
 				jobject.put("q4_d_2", jobject.get("q4_d_2")!=null?NumberFormatUtils.formatNumber(jobject.get("q4_d_2").toString()):"");
-				jobject.put("last_update", jobject.get("last_update")!=null?DateApi.formatTime(Long.valueOf(jobject.get("last_update").toString())):"");
+				jobject.put("last_update", jobject.get("last_update")!=null?DateApi.formatTime1(Long.valueOf(jobject.get("last_update").toString())):"");
 			}
 		}
 		return jobject;
@@ -1836,5 +1893,121 @@ public class SavieOnlineServiceImpl implements SavieOnlineService {
 			request.getSession().setAttribute("accessCode", responseJsonObj.get("accessCode"));
 		}
 		return responseJsonObj;
+	}
+	
+	/**
+	 * 获取服务中心页面的数据
+	 * @param model request session
+	 * @return
+	 */
+	public void getCustomerServiceCentre(Model model, HttpServletRequest request, HttpSession session) {
+		String lang = UserRestURIConstants.getLanaguage(request);
+		String Url = UserRestURIConstants.SERVICE_URL + "/appointment/timeSlot/all";
+		if (lang.equals("tc")) {
+			lang = "CN";
+		}
+		Map<String,String> header = new HashMap<String, String>(COMMON_HEADERS);
+		if(session.getAttribute("authenticate") !=null && session.getAttribute("authenticate").equals("true")){
+			HeaderUtil hu = new HeaderUtil();
+			header = hu.getHeader(request);
+		}
+		else{
+			header.put("userName", "*DIRECTGI");
+			header.put("token", commonUtils.getToken("reload"));
+		}
+		header.put("language", WebServiceUtils.transformLanaguage(lang));
+		JSONObject responseJsonObj = restService.consumeApi(HttpMethod.GET,Url, header, null);
+		JSONArray serviceCentresArr = (JSONArray) responseJsonObj.get("serviceCentres");
+		JSONObject serviceCentreObj = new JSONObject();
+		ServiceCentreResponse serviceCentreResponse;
+		if (lang.equals("CN")) {
+			serviceCentreResponse = InitApplicationMessage.serviceCentreCN;
+		}else {
+			serviceCentreResponse =InitApplicationMessage.serviceCentreEN;
+		}
+		List<ServiceCentreResult> serviceCentreResultList = serviceCentreResponse.getServiceCentres();
+		
+		Map<String, ServiceCentreResult> entityMap = new HashMap<String, ServiceCentreResult>();
+		Map<String, List<String>> datesMap = new HashMap<String, List<String>>();
+		JSONArray datesArray;
+		JSONObject datesObj;
+		List<String> datesList;
+		List<String> calendarList;
+		long beforeDay = 86400000;
+		
+		if(serviceCentresArr!=null && serviceCentresArr.size()>0){
+			serviceCentreObj = (JSONObject) serviceCentresArr.get(0);
+			calendarList = DateApi.timeslot(2, 24);
+			
+			datesList = new ArrayList<String>();
+			for(ServiceCentreResult entity :serviceCentreResultList) {
+				if(entity.getServiceCentreCode().equals(serviceCentreObj.get("serviceCentreCode"))) {
+					entityMap.put(entity.getServiceCentreCode(), entity);
+					
+					datesArray = (JSONArray) serviceCentreObj.get("dates");
+					for(int j = 0; j< datesArray.size(); j++) {
+						datesObj = (JSONObject)datesArray.get(j);
+						datesList.add(DateApi.formatTime((long)datesObj.get("date") - beforeDay));
+					}
+					calendarList.removeAll(datesList);
+					datesMap.put(entity.getServiceCentreCode(), calendarList);
+					break;
+				}
+			}
+		}
+		
+		if(serviceCentresArr!=null && serviceCentresArr.size()>1){
+			for(int i=1;i<serviceCentresArr.size();i++){
+				JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
+				JSONObject dateObj = (JSONObject) datesArr.get(0);
+				long date = (long) dateObj.get("date");
+				
+				JSONObject serviceCentreObjB = (JSONObject) serviceCentresArr.get(i);
+				JSONArray datesArrB = (JSONArray) serviceCentreObjB.get("dates");
+				JSONObject dateObjB = (JSONObject) datesArrB.get(0);
+				long dateB = (long) dateObjB.get("date");
+				if(date>dateB){
+					serviceCentreObj = serviceCentreObjB;
+				}
+				
+				calendarList = DateApi.timeslot(2, 24);
+				datesList = new ArrayList<String>();
+				for(ServiceCentreResult entity : serviceCentreResultList) {
+					if(entity.getServiceCentreCode().equals(serviceCentreObjB.get("serviceCentreCode"))) {
+						entityMap.put(entity.getServiceCentreCode(), entity);
+						
+						datesArray = (JSONArray) serviceCentreObjB.get("dates");
+						for(int j = 0; j< datesArray.size(); j++) {
+							datesObj = (JSONObject)datesArray.get(j);
+							datesList.add(DateApi.formatTime((Long)datesObj.get("date") - beforeDay));
+						}
+						calendarList.removeAll(datesList);
+						datesMap.put(entity.getServiceCentreCode(), calendarList);
+						break;
+					}
+				}
+			}
+		}
+		List<ServiceCentreResult> results = new ArrayList<ServiceCentreResult>();
+		for(ServiceCentreResult result : entityMap.values()) {
+			results.add(result);
+		}
+		logger.info("entityMap: " + entityMap);
+		logger.info("datesMap: " + datesMap);
+		serviceCentreResponse.setServiceCentres(results);
+		model.addAttribute("serviceCentre", serviceCentreResponse);
+		model.addAttribute("datesMap", datesMap);
+		model.addAttribute("results", results);
+		if(serviceCentreObj != null){
+			session.setAttribute("csCenter", serviceCentreObj.get("serviceCentreCode"));
+			JSONArray datesArr = (JSONArray) serviceCentreObj.get("dates");
+			if(datesArr != null) {
+				org.json.simple.JSONObject dateObj = (JSONObject) datesArr.get(0);
+				Date date= new Date(Long.parseLong(dateObj.get("date").toString()));  
+				SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy"); 
+				logger.info(formatter.format(date));
+				session.setAttribute("perferredDate", formatter.format(date));
+			}
+		}
 	}
 }
