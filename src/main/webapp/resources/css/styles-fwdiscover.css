@@ -1608,14 +1608,12 @@
 	width: 20%;
 	border-right: 1px solid #081d28;
 	padding: 2%;
-	letter-spacing: 1px;
-	font-size: 24px;
+	font-size: 22px;
 	font-weight: 700;
 }
 #hotel-voucher-carousel .carousel-item-container .fanfare-date .fanfare-day{
-	font-size: 42px;
-	font-weight: 400;
-	letter-spacing: -1px;
+	font-size: 36px;
+	font-weight: 700;
 }
 #hotel-voucher-carousel .carousel-item-container.selected .hotel-name,
 #hotel-voucher-carousel .carousel-item-container.selected .fanfare-date{
