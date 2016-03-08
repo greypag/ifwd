@@ -829,7 +829,10 @@ var home_url = "<%=request.getContextPath()%>";
 				$(window).load(function(){
 			        //Display thankyou popup
 					//$('#thankyouPopup').modal('show');
-					$('#thankyouPopup').modal('show');
+					$('#thankyouPopup').modal({
+						backdrop: 'static',
+						keyboard: false
+					});
 			    });
 				
 				$('#btn-blog-link').click(function(){
